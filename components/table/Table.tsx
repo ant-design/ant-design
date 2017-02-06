@@ -194,6 +194,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.columns = nextProps.columns || normalizeColumns(nextProps.children);
     if ('pagination' in nextProps || 'pagination' in this.props) {
       this.setState(previousState => {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
@@ -222,17 +223,17 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       this.CheckboxPropsCache = {};
     }
 
-    if (this.getSortOrderColumns(nextProps.columns).length > 0) {
-      const sortState = this.getSortStateFromColumns(nextProps.columns);
+    if (this.getSortOrderColumns(this.columns).length > 0) {
+      const sortState = this.getSortStateFromColumns(this.columns);
       if (sortState.sortColumn !== this.state.sortColumn ||
           sortState.sortOrder !== this.state.sortOrder) {
         this.setState(sortState);
       }
     }
 
-    const filteredValueColumns = this.getFilteredValueColumns(nextProps.columns);
+    const filteredValueColumns = this.getFilteredValueColumns(this.columns);
     if (filteredValueColumns.length > 0) {
-      const filtersFromColumns = this.getFiltersFromColumns(nextProps.columns);
+      const filtersFromColumns = this.getFiltersFromColumns(this.columns);
       const newFilters = assign({}, this.state.filters);
       Object.keys(filtersFromColumns).forEach(key => {
         newFilters[key] = filtersFromColumns[key];
@@ -241,8 +242,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         this.setState({ filters: newFilters });
       }
     }
-
-    this.columns = nextProps.columns || normalizeColumns(nextProps.children);
   }
 
   setSelectedRowKeys(selectedRowKeys, { selectWay, record, checked, changeRowKeys }: any) {

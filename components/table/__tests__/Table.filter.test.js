@@ -194,4 +194,46 @@ describe('Table.filter', () => {
     dropdownWrapper.find('.confirm').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
+
+  it('works with JSX in controlled mode', () => {
+    const { Column } = Table;
+
+    class App extends React.Component {
+      state = {
+        filters: {},
+      }
+
+      handleChange = (pagination, filters) => {
+        this.setState({ filters });
+      }
+
+      render() {
+        return (
+          <Table dataSource={data} onChange={this.handleChange}>
+            <Column
+              title="name"
+              dataIndex="name"
+              key="name"
+              filters={[
+                { text: 'Jack', value: 'Jack' },
+                { text: 'Lucy', value: 'Lucy' },
+              ]}
+              filteredValue={this.state.filters.name}
+              onFilter={filterFn}
+            />
+          </Table>
+        );
+      }
+    }
+
+    const wrapper = mount(<App />);
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+
+    dropdownWrapper.find('MenuItem').first().simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+
+    dropdownWrapper.find('.clear').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
 });
