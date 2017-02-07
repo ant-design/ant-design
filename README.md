@@ -120,12 +120,3 @@ tsconfig.json
 ## Contributing
 
 We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
-
-## Release Schedule
-
-Follow [Semantic Versioning 2.0.0](http://semver.org/).
-
-* Weekly release: patch version at the end of every week for routine bugfix.
-* Monthly release: minor version at the end of every month for new features.
-* Emergence release: emergence patch anytime if necessary for urgent bugfix.
-* Major version release is not included in this schedule for breadking change and new features.
