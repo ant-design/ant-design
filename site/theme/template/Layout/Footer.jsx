@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Select, Modal } from 'antd';
+import { Select, Modal, Icon } from 'antd';
 import { version as antdVersion } from '../../../../package.json';
 import * as utils from '../utils';
 
@@ -76,7 +76,7 @@ class Footer extends React.Component {
       <footer id="footer">
         <ul>
           <li>
-            <h2>GitHub</h2>
+            <h2><Icon type="github" /> GitHub</h2>
             <div>
               <a target="_blank " href="https://github.com/ant-design/ant-design">
                 <FormattedMessage id="app.footer.repo" />
@@ -94,7 +94,7 @@ class Footer extends React.Component {
             </div>
           </li>
           <li>
-            <h2><FormattedMessage id="app.footer.links" /></h2>
+            <h2><Icon type="link" /> <FormattedMessage id="app.footer.links" /></h2>
             <div>
               <a href="http://mobile.ant.design">Ant Design Mobile</a>
               <span> - </span>
@@ -122,7 +122,7 @@ class Footer extends React.Component {
             </div>
           </li>
           <li>
-            <h2><FormattedMessage id="app.footer.community" /></h2>
+            <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.community" /></h2>
             <div>
               <a rel="noopener noreferrer" href="/changelog">
                 <FormattedMessage id="app.footer.change-log" />
@@ -146,7 +146,7 @@ class Footer extends React.Component {
           </li>
           <li>
             <div>©2016 <FormattedMessage id="app.footer.author" /></div>
-            <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
+            <div>Built with <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
             <div style={{ marginTop: 10 }}>
               <FormattedMessage id="app.footer.version" />
               <Select
