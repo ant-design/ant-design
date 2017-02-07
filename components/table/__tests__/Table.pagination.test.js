@@ -78,7 +78,7 @@ describe('Table.pagination', () => {
 
   // https://github.com/ant-design/ant-design/issues/4532
   // http://codepen.io/anon/pen/NdGgga?editors=001
-  it.only('should have pager when change pagination from false to undefined', () => {
+  it('should have pager when change pagination from false to undefined', () => {
     const wrapper = mount(createTable({ pagination: false }));
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination: undefined });
