@@ -9,7 +9,7 @@ export interface InputNumberProps {
   value?: number;
   step?: number | string;
   defaultValue?: number;
-  onChange?: (value: number) => void;
+  onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   placeholder?: string;
