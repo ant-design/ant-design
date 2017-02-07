@@ -99,7 +99,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
-        const closeIcon = child.props.closeable !== false ? (
+        let closeable = child.props.closeable;
+        closeable = typeof closeable === 'undefined' ? true : closeable;
+        const closeIcon = closeable ? (
           <Icon
             type="close"
             onClick={e => this.removeTab(child.key, e)}

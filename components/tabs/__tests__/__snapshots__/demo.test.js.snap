@@ -360,12 +360,10 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             <div
               aria-disabled="false"
               aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
+              class="ant-tabs-tab-active ant-tabs-tab ant-tabs-tab-uncloseable"
               role="tab">
               <div>
                 Tab 1
-                <i
-                  class="anticon anticon-close" />
               </div>
             </div>
             <div
