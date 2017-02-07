@@ -76,7 +76,19 @@ describe('Table.pagination', () => {
     );
   });
 
-  it('should display pagination as prop pagination changed', () => {
+  // https://github.com/ant-design/ant-design/issues/4532
+  // http://codepen.io/anon/pen/NdGgga?editors=001
+  it.only('should have pager when change pagination from false to undefined', () => {
+    const wrapper = mount(createTable({ pagination: false }));
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: undefined });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination-item-active')).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/4532
+  // http://codepen.io/anon/pen/ZLbyjV?editors=001
+  it('should display pagination as prop pagination change between true and false', () => {
     const wrapper = mount(createTable());
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);

@@ -26,6 +26,10 @@ describe('Table.rowSelection', () => {
     );
   }
 
+  function renderedNames(wrapper) {
+    return wrapper.find('TableRow').map(row => row.props().record.name);
+  }
+
   it('select by checkbox', () => {
     const wrapper = mount(createTable());
     const checkboxes = wrapper.find('input');
@@ -178,5 +182,24 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').forEach((checkbox) => {
       expect(checkbox.props().disabled).toBe(true);
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/4779
+  it('should not switch pagination when select record', () => {
+    const newData = [];
+    for (let i = 0; i < 20; i += 1) {
+      newData.push({
+        key: i.toString(),
+        name: i.toString(),
+      });
+    }
+    const wrapper = mount(createTable({
+      rowSelection: {},
+      dataSource: newData,
+    }));
+    wrapper.find('Pager').last().simulate('click'); // switch to second page
+    wrapper.find('input').first().simulate('change', { target: { checked: true } });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toEqual(['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']);
   });
 });
