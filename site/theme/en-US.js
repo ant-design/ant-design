@@ -33,7 +33,6 @@ module.exports = {
     'app.footer.links': 'Links',
     'app.footer.mobile': 'Mobile',
     'app.footer.data-vis': 'Data Visualization',
-    'app.footer.data-vis-spec': 'Data Visualization Specification',
     'app.footer.motion': 'Motion',
     'app.footer.antd-library': 'Axure library of Ant Design',
     'app.footer.material': 'Sitemap Template',

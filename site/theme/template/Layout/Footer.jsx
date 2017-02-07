@@ -101,14 +101,9 @@ class Footer extends React.Component {
               <FormattedMessage id="app.footer.mobile" />
             </div>
             <div>
-              <a href="https://g2.alipay.com/">G2</a>
-              <span> - </span>
-              <FormattedMessage id="app.footer.data-vis" />
-            </div>
-            <div>
               <a href="https://antv.alipay.com/">AntV</a>
               <span> - </span>
-              <FormattedMessage id="app.footer.data-vis-spec" />
+              <FormattedMessage id="app.footer.data-vis" />
             </div>
             <div>
               <a href="http://motion.ant.design">Ant Motion</a>
