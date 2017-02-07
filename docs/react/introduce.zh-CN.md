@@ -150,6 +150,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（推荐）
-2. [Segment Fault](https://segmentfault.com/t/antd)
+1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
+2. [Segment Fault](https://segmentfault.com/t/antd)（中文）
 3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
