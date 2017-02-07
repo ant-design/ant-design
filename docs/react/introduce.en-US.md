@@ -109,7 +109,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
    ```js
-   // .babelrc
+   // .babelrc or babel-loader option
    {
      "plugins": [["import", { libraryName: "antd", style: "css" }]]
    }
