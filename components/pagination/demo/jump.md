@@ -16,8 +16,9 @@ Jump to a page directly.
 ````__react
 import { Pagination } from 'antd';
 
-function onChange(pageNumber) {
+function onChange(pageNumber,pageSize) {
   console.log('Page: ', pageNumber);
+  console.log('pageSize: ', pageSize);
 }
 
 ReactDOM.render(
