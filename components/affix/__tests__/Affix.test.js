@@ -10,7 +10,7 @@ const events = {};
 class AffixMounter extends React.Component {
   componentDidMount() {
     this.container.scrollTop = 100;
-    this.container.addEventListener = jest.genMockFn().mockImplementation((event, cb) => {
+    this.container.addEventListener = jest.fn().mockImplementation((event, cb) => {
       events[event] = cb;
     });
   }
