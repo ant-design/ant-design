@@ -32,6 +32,7 @@ export interface TabPaneProps {
   /** 选项卡头显示文字 */
   tab?: React.ReactNode | string;
   style?: React.CSSProperties;
+  closeable?: boolean
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -102,7 +103,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
           tab: (
             <div>
               {child.props.tab}
-              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
+              {child.props.closeable!==false?<Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />:null}              
             </div>
           ),
           key: child.key || index,

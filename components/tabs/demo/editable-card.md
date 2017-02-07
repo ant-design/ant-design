@@ -7,11 +7,13 @@ title:
 
 ## zh-CN
 
-只有卡片样式的页签支持新增和关闭选项。
+只有卡片样式的页签支持新增和关闭选项。  
+使用 `closeable={false}` 禁止关闭。
 
 ## en-US
 
-Only card type Tabs support adding & closeable.
+Only card type Tabs support adding & closeable.  
+Use `closeable={false}` to disable close.
 
 ````__react
 import { Tabs } from 'antd';
@@ -21,7 +23,7 @@ const Demo = React.createClass({
   getInitialState() {
     this.newTabIndex = 0;
     const panes = [
-      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
+      { title: 'Tab 1', content: 'Content of Tab 1', key: '1', closeable: false },
       { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
     ];
     return {
@@ -63,7 +65,7 @@ const Demo = React.createClass({
         type="editable-card"
         onEdit={this.onEdit}
       >
-        {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
+        {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key} closeable={pane.closeable}>{pane.content}</TabPane>)}
       </Tabs>
     );
   },
