@@ -77,7 +77,7 @@ timeline: true
 
 `2017-01-14`
 
-* 新增社区精选组件页面。[链接](/docs/react/recommendation)
+* 新增社区精选组件页面。[链接](/docs/react/recommendation-cn)
 * 修复一个内容过长导致 Layout 侧边布局错位的问题。[#4459](https://github.com/ant-design/ant-design/issues/4459)
 * 修复 Input.Search 输入框和图标错位的问题。[#4540](https://github.com/ant-design/ant-design/issues/4540)
 * 补充了一个自定义灰底样式的 Collapse 折叠面板的例子。[链接](/components/collapse-cn/#components-collapse-demo-custom)
