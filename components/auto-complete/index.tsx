@@ -94,7 +94,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     let options;
     const childArray = React.Children.toArray(children);
     if (childArray.length && (childArray[0] as React.ReactElement<any>).type === Option) {
-      options = childArray;
+      options = children;
     } else {
       options = dataSource ? dataSource.map((item) => {
         if (React.isValidElement(item)) {
