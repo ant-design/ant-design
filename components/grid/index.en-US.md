@@ -88,7 +88,7 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 
 ### Row
 
-| Member        | Explanation             | Type               | Default       |
+| Property       | Description           | Type     | Default       |
 |------------|-----------------|--------------------|-------------|
 | gutter     | grid spacing   | number | 0        |
 | type     | layout mode, the optional `flex`, [effective modern browser](http://caniuse.com/#search=flex) | string |         |
@@ -97,10 +97,14 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 
 ### Col
 
-| Member        | Explanation             | Type               | Default       |
+| Property       | Description           | Type     | Default       |
 |------------|-----------------|--------------------|-------------|
 | span     | raster occupying the number of cells,0 corresponds to `display: none`  | number | none        |
 | order     | raster order, under `flex` effective layout mode   | number | 0        |
 | offset     | the number of cells to the left of the grid spacing, no cell in grid spacing  | number | 0        |
 | push     | the number of cells that raster move to the right | number | 0        |
 | pull     | the number of cells that raster move to the left   | number | 0        |
+| xs       | `<768px`, could be a `span` value or a object contain above props | number\|object | - |
+| sm       | `≥768px`, could be a `span` value or a object contain above props | number\|object | - |
+| md       | `≥992px`, could be a `span` value or a object contain above props | number\|object | - |
+| lg       | `≥1200px`, could be a `span` value or a object contain above props | number\|object | - |
