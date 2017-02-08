@@ -36,7 +36,7 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 
 Modern browsers and IE9+.
 
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
+> [Read more about compatibility](/docs/react/getting-started#Compatibility)
 
 ## Version
 

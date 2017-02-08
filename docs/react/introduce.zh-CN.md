@@ -36,7 +36,7 @@ title: Ant Design of React
 
 现代浏览器和 IE9 及以上。
 
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
+> [更多兼容性信息](/docs/react/getting-started-cn#兼容性)
 
 ## 版本
 
