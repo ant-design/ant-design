@@ -1,22 +1,27 @@
-import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
+import getRequestAnimationFrame, { cancelRequestAnimationFrame } from '../_util/getRequestAnimationFrame';
 
 const reqAnimFrame = getRequestAnimationFrame();
 
-export default function throttleByAnimationFrame(fn, threshhold = 250) {
-  let last;
-  return function() {
-    const self = this;
-    const args = arguments;
-    reqAnimFrame(timestamp => {
-      if (!last || timestamp - last > threshhold) {
-        last = timestamp;
-        fn.apply(self, args);
-      }
-    });
+export default function throttleByAnimationFrame(fn) {
+  let requestId;
+
+  const later = args => () => {
+    requestId = null;
+    fn(...args);
   };
+
+  const throttled = (...args) => {
+    if (requestId == null) {
+      requestId = reqAnimFrame(later(args));
+    }
+  };
+
+  (throttled as any).cancel = () => cancelRequestAnimationFrame(requestId);
+
+  return throttled;
 }
 
-export function throttleByAnimationFrameDecorator(threshhold = 250) {
+export function throttleByAnimationFrameDecorator() {
   return function(target, key, descriptor) {
     let fn = descriptor.value;
     let definingProperty = false;
@@ -27,7 +32,7 @@ export function throttleByAnimationFrameDecorator(threshhold = 250) {
           return fn;
         }
 
-        let boundFn = throttleByAnimationFrame(fn.bind(this), threshhold);
+        let boundFn = throttleByAnimationFrame(fn.bind(this));
         definingProperty = true;
         Object.defineProperty(this, key, {
           value: boundFn,
