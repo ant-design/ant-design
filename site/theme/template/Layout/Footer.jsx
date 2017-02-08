@@ -1,10 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Select, Modal, Icon } from 'antd';
-import { version as antdVersion } from '../../../../package.json';
-import * as utils from '../utils';
-
-const Option = Select.Option;
+import { Modal, Icon } from 'antd';
 
 function isLocalStorageNameSupported() {
   const testKey = 'test';
@@ -60,18 +56,7 @@ class Footer extends React.Component {
     });
   }
 
-  handleVersionChange = (url) => {
-    const currentUrl = window.location.href;
-    const currentPathname = window.location.pathname;
-    window.location.href = currentUrl.replace(window.location.origin, url)
-      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
-  }
-
   render() {
-    const { themeConfig } = this.props;
-    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
-    const options = Object.keys(docVersions)
-            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     return (
       <footer id="footer">
         <ul>
@@ -147,17 +132,6 @@ class Footer extends React.Component {
           <li>
             <div>©2016 <FormattedMessage id="app.footer.author" /></div>
             <div>Built with <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
-            <div style={{ marginTop: 10 }}>
-              <FormattedMessage id="app.footer.version" />
-              <Select
-                size="small"
-                dropdownMatchSelectWidth={false}
-                defaultValue={antdVersion}
-                onChange={this.handleVersionChange}
-              >
-                {options}
-              </Select>
-            </div>
           </li>
         </ul>
       </footer>

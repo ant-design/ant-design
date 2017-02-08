@@ -9,7 +9,7 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1200px) {
+@media only screen and (min-width: 320px) and (max-width: 1280px) {
   #search-box {
     display: none;
   }
@@ -33,10 +33,6 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
-  #search-box {
-    display: none;
-  }
-
   a#logo {
     width: 150px;
     margin-left: auto;
@@ -104,10 +100,25 @@
     border-color: @text-color;
   }
 
+  div.version {
+    display: block;
+    margin: 29px auto 16px;
+    & > .ant-select-selection {
+      color: @text-color;
+      &:not(:hover) {
+        border-color: @text-color;
+      }
+    }
+  }
+
   .popover-menu {
     width: 300px;
     button.lang {
       margin: 16px auto;
+      float: none;
+    }
+    div.version {
+      margin: 32px auto 16px;
       float: none;
     }
     .ant-popover-inner {
