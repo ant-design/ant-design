@@ -34,13 +34,13 @@ When need to mention someone or something.
 |----------|---------------|----------|--------------|
 | suggestions    | suggestion content | Array<string\|Mention.Nav> | [] |
 | suggestionStyle | style of suggestion container | object | {} |
-| onSearchChange | Callback function called when search content changes | function(value:string) | [] |
+| onSearchChange | Callback function called when search content changes | function(value:string, trigger: string) | [] |
 | onChange | Callback function called when content of input changes | function(editorState: EditorState) | null |
 | onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
 | notFoundContent| suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
-| prefix | character which will trigger Mention to show mention list | string | '@' |
+| prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
 | defaultValue | default value | EditorState, you can use `Mention.toEditorState` to convert text to `EditorState` | null |
 | value | core state of mention | EditorState | null |
 | placeholder | placeholder of input | string | null |
