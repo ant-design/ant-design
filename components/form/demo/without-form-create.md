@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-`Form.create` will collect and validate form data automatically. But if you don't need this feature or the default behaviour cannot satisfy you business, you can drop `Form.create` and handle form data manually.
+`Form.create` will collect and validate form data automatically. But if you don't need this feature or the default behaviour cannot satisfy your business, you can drop `Form.create` and handle form data manually.
 
 ````__react
 import { Form, InputNumber } from 'antd';

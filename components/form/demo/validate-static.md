@@ -13,8 +13,6 @@ validateStatus: 'success', 'warning', 'error', 'validating'。
 
 另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。
 
-**注意**: 反馈图标只对 `<Input />` 有效。
-
 ## en-US
 
 We provide three kinds of validation status for form. You can use it just define `validateStatus` property on `<FormItem>`.
@@ -22,8 +20,6 @@ We provide three kinds of validation status for form. You can use it just define
 validateStatus: 'success', 'warning', 'error', 'validating'。
 
 To set `hasFeedback` property to `true` enable to display feed icon of input control.
-
-**PS**: Feed icon is just available for `<Input />`.
 
 ````__react
 import { Form, Input, DatePicker, Col } from 'antd';

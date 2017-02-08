@@ -7,6 +7,12 @@ timeline: true
 
 `antd` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
 
+#### 发布周期
+
+* patch 版本：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
+* minor 版本：每月发布一个带有新特性的版本。
+* 大版本号：含有破坏性更新和新特性，不在发布周期内。
+
 如果需要查看 `2.0.0` 之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md)。
 
 ---
@@ -71,7 +77,7 @@ timeline: true
 
 `2017-01-14`
 
-* 新增社区精选组件页面。[链接](/docs/react/recommendation/)
+* 新增社区精选组件页面。[链接](/docs/react/recommendation-cn)
 * 修复一个内容过长导致 Layout 侧边布局错位的问题。[#4459](https://github.com/ant-design/ant-design/issues/4459)
 * 修复 Input.Search 输入框和图标错位的问题。[#4540](https://github.com/ant-design/ant-design/issues/4540)
 * 补充了一个自定义灰底样式的 Collapse 折叠面板的例子。[链接](/components/collapse-cn/#components-collapse-demo-custom)

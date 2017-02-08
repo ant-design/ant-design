@@ -194,16 +194,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('pagination' in nextProps) {
+    if ('pagination' in nextProps || 'pagination' in this.props) {
       this.setState(previousState => {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
         newPagination.current = newPagination.current || 1;
         newPagination.pageSize = newPagination.pageSize || 10;
         return { pagination: nextProps.pagination !== false ? newPagination : {} };
-      });
-    } else {
-      this.setState({
-        pagination: this.getDefaultPagination(nextProps),
       });
     }
     if (nextProps.rowSelection &&
@@ -568,7 +564,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const recordKey = (typeof rowKey === 'function') ?
       rowKey(record, index) :  record[rowKey as string];
     warning(recordKey !== undefined,
-      'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
+      'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key,' +
+      'see http://u.ant.design/table-row-key'
     );
     return recordKey === undefined ? index : recordKey;
   }

@@ -33,7 +33,6 @@ module.exports = {
     'app.footer.links': '相关站点',
     'app.footer.mobile': '移动版',
     'app.footer.data-vis': '数据可视化',
-    'app.footer.data-vis-spec': '数据可视化规范',
     'app.footer.motion': '设计动效',
     'app.footer.antd-library': 'Axure 部件库',
     'app.footer.material': '页面逻辑素材',
