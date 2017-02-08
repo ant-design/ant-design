@@ -91,7 +91,7 @@ class EditableTable extends React.Component {
         return (
           this.state.dataSource.length > 1 ?
           (
-            <Popconfirm title="Sure to delete?" onConfirm={this.onDelete(index)}>
+            <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(index)}>
               <a href="#">Delete</a>
             </Popconfirm>
           ) : null
@@ -122,11 +122,9 @@ class EditableTable extends React.Component {
     };
   }
   onDelete = (index) => {
-    return () => {
-      const dataSource = [...this.state.dataSource];
-      dataSource.splice(index, 1);
-      this.setState({ dataSource });
-    };
+    const dataSource = [...this.state.dataSource];
+    dataSource.splice(index, 1);
+    this.setState({ dataSource });
   }
   handleAdd = () => {
     const { count, dataSource } = this.state;
