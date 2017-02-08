@@ -122,22 +122,28 @@
 // Extra small screen / phone
 @screen-xs              : 480px;
 @screen-xs-min          : @screen-xs;
-@screen-xs-max          : (@screen-xs-min - 1);
 
 // Small screen / tablet
 @screen-sm              : 768px;
 @screen-sm-min          : @screen-sm;
-@screen-sm-max          : (@screen-sm-min - 1);
 
 // Medium screen / desktop
 @screen-md              : 992px;
 @screen-md-min          : @screen-md;
-@screen-md-max          : (@screen-md-min - 1);
 
 // Large screen / wide desktop
 @screen-lg              : 1200px;
 @screen-lg-min          : @screen-lg;
-@screen-lg-max          : (@screen-lg-min - 1);
+
+// Extra Large screen / full hd
+@screen-xl              : 1600px;
+@screen-xl-min          : @screen-xl;
+
+// provide a maximum
+@screen-xs-max          : (@screen-sm-min - 1);
+@screen-sm-max          : (@screen-md-min - 1);
+@screen-md-max          : (@screen-lg-min - 1);
+@screen-lg-max          : (@screen-xl-min - 1);
 
 // Grid system
 @grid-columns           : 24;
