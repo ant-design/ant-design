@@ -11,16 +11,25 @@ export interface DropDownProps {
   align?: Object;
   getPopupContainer?: () => HTMLElement;
   prefixCls?: string;
+  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: React.ReactNode;
   static defaultProps = {
-    transitionName: 'slide-up',
     prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
+    placement: 'bottomLeft',
   };
+
+  getTransitionName() {
+    const { placement = '' } = this.props;
+    if (placement.indexOf('top') >= 0) {
+      return 'slide-down';
+    }
+    return 'slide-up';
+  }
 
   render() {
     const { children, prefixCls } = this.props;
@@ -28,7 +37,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       className: classNames((children as any).props.className, `${prefixCls}-trigger`),
     });
     return (
-      <RcDropdown {...this.props}>
+      <RcDropdown transitionName={this.getTransitionName()} {...this.props}>
         {dropdownTrigger}
       </RcDropdown>
     );
