@@ -21,9 +21,9 @@ We recommend [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-mo
 
 You can use this [example](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme) as a playground.
 
-### 1) Using 'theme' property in package.theme (recommended way)
+### 1) Using `theme` property (recommended way)
 
-Specify the `theme` property in `package.json` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
+Specify the `theme` property in `package.json` or `.roadhogrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
 - example of directly specifying the custom values as an object:
 ```js
 "theme": {
@@ -40,6 +40,7 @@ This approach is working only when using [atool-build](https://github.com/ant-to
 Note:
 
 - Importing style from less files is necessary. Please specify `style` option of `babel-plugin-import` to be `true`.
+- You should write `theme` field in [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) rather then `package.json` when using `dva-cli@0.7.0+`.
 - If you want to override `@icon-url`, the quotes must be contained in value like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
 ### 2) Overriding Less variables (alternative way)
