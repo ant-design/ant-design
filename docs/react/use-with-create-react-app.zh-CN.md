@@ -107,7 +107,7 @@ $ yarn run eject
 
 ### 按需加载
 
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
 $ yarn add babel-plugin-import --save-dev

@@ -57,7 +57,7 @@ moment.locale('zh-cn');
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)   | 无           |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | onChange     | 时间发生变化的回调 | function(date: moment, dateString: string) | 无           |
-| showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#api) |
+| showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showToday    | 是否展示“今天”按钮 | boolean | true |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
 
@@ -79,7 +79,7 @@ moment.locale('zh-cn');
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)[]   | 无           |
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
-| showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#api) |
+| showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
 | ranges       | 预设事件范围快捷选择 | { [range: string]: [moment](http://momentjs.com/)[] } | 无 |
 
