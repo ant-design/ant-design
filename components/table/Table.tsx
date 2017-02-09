@@ -52,7 +52,7 @@ export interface TableProps<T> {
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
   pagination?: PaginationProps | boolean;
-  size?: 'default' | 'small';
+  size?: 'default' | 'middle' | 'small';
   dataSource?: T[];
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
