@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   zh-CN: 菜单隐藏方式
   en-US: The way of hiding menu.
