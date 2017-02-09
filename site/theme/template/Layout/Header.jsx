@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
 import * as utils from '../utils';
+import { version as antdVersion } from '../../../../package.json';
 
 const Option = Select.Option;
 
@@ -76,9 +77,19 @@ export default class Header extends React.Component {
     }
   }
 
+  handleVersionChange = (url) => {
+    const currentUrl = window.location.href;
+    const currentPathname = window.location.pathname;
+    window.location.href = currentUrl.replace(window.location.origin, url)
+      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+  }
+
   render() {
     const { inputValue, menuMode, menuVisible } = this.state;
-    const { location, picked, isFirstScreen } = this.props;
+    const { location, picked, isFirstScreen, themeConfig } = this.props;
+    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+    const versionOptions = Object.keys(docVersions)
+            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
@@ -112,6 +123,16 @@ export default class Header extends React.Component {
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
+      <Select
+        key="version"
+        className="version"
+        size="small"
+        dropdownMatchSelectWidth={false}
+        defaultValue={antdVersion}
+        onChange={this.handleVersionChange}
+      >
+        {versionOptions}
+      </Select>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
@@ -164,13 +185,13 @@ export default class Header extends React.Component {
           />
         </Popover> : null}
         <Row>
-          <Col lg={4} md={6} sm={24} xs={24}>
+          <Col lg={4} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>
             </Link>
           </Col>
-          <Col lg={20} md={18} sm={0} xs={0}>
+          <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Select
                 combobox
