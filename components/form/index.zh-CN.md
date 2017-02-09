@@ -64,6 +64,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
+> 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
+
 | 参数      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |

@@ -62,6 +62,8 @@ The following `options` are available:
 
 If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
 
+> Note: Before using `getFieldsValue` `getFieldValue` `setFieldsValue` and so on, please make sure that corresponding field had been registered with `getFieldDecorator`.
+
 | Property      | Description                          | Type       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function([fieldNames: string[]]) |
