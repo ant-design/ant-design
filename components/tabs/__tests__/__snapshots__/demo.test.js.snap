@@ -364,8 +364,6 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               role="tab">
               <div>
                 Tab 1
-                <i
-                  class="anticon anticon-close" />
               </div>
             </div>
             <div
