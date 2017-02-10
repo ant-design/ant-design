@@ -96,7 +96,12 @@ const Test = React.createClass({
         rowKey={record => record.registered}
         dataSource={this.state.data}
         pagination={this.state.pagination}
-        loading={this.state.loading}
+        loading = {
+          {
+            spinning: this.state.loading,
+            delay: 500
+          }
+        }
         onChange={this.handleTableChange}
       />
     );
