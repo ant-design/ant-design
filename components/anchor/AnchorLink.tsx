@@ -9,6 +9,7 @@ export interface AnchorLinkProps {
   prefixCls?: string;
   children?: any;
   title?: React.ReactNode;
+  offsetTop: number;
   bounds: number;
   target?: () => HTMLElement | Window;
   affix?: boolean;
@@ -31,9 +32,9 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   private _component: Element;
 
   setActiveAnchor() {
-    const { bounds, href, affix } = this.props;
+    const { bounds, offsetTop, href, affix } = this.props;
     const { anchorHelper } = this.context;
-    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
+    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(offsetTop, bounds) === href;
     if (active && anchorHelper) {
       anchorHelper.setActiveAnchor(this._component);
     }
@@ -55,6 +56,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
         onClick: this.props.onClick,
         prefixCls: this.props.prefixCls,
         affix: this.props.affix,
+        offsetTop: this.props.offsetTop,
       });
     }
     return child;
@@ -73,14 +75,14 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     } else {
       e.stopPreventDefault();
       const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
-      scrollToFn(href);
+      scrollToFn(href, this.props.offsetTop);
     }
   }
 
   render() {
-    const { prefixCls, href, children, title, bounds, affix } = this.props;
+    const { prefixCls, href, children, title, bounds, offsetTop, affix } = this.props;
     const { anchorHelper } = this.context;
-    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
+    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(offsetTop, bounds) === href;
     const cls = classNames({
       [`${prefixCls}-link`]: true,
       [`${prefixCls}-link-active`]: active,

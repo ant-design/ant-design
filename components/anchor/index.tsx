@@ -47,7 +47,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
   handleScroll = () => {
     this.setState({
-      activeAnchor: this.anchorHelper.getCurrentAnchor(this.props.bounds),
+      activeAnchor: this.anchorHelper.getCurrentAnchor(this.props.offsetTop, this.props.bounds),
     });
   }
 
@@ -85,7 +85,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   clickAnchorLink = (href, component) => {
     this._avoidInk = true;
     this.refs.ink.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
-    this.anchorHelper.scrollTo(href, getDefaultTarget, () => {
+    this.anchorHelper.scrollTo(href, this.props.offsetTop, getDefaultTarget, () => {
       this._avoidInk = false;
     });
   }
@@ -99,6 +99,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
         prefixCls: this.props.prefixCls,
         bounds: this.props.bounds,
         affix: this.props.affix,
+        offsetTop: this.props.offsetTop,
       });
     }
     return child;

@@ -43,14 +43,14 @@ export type Section = {
   section: any;
 };
 
-export function scrollTo(href, target = getDefaultTarget, callback = () => {}) {
+export function scrollTo(href, offsetTop = 0, target = getDefaultTarget, callback = () => {}) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
     return;
   }
-  const offsetTop = getOffsetTop(targetElement);
-  const targetScrollTop = scrollTop + offsetTop;
+  const eleOffsetTop = getOffsetTop(targetElement);
+  const targetScrollTop = scrollTop + eleOffsetTop - offsetTop;
   const startTime = Date.now();
   const frameFunc = () => {
     const timestamp = Date.now();
@@ -91,7 +91,7 @@ class AnchorHelper {
     this.currentAnchor = component;
   }
 
-  getCurrentAnchor(bounds = 5) {
+  getCurrentAnchor(offsetTop: number = 0, bounds = 5) {
     let activeAnchor = '';
     if (typeof document === 'undefined') {
       return activeAnchor;
@@ -100,9 +100,9 @@ class AnchorHelper {
     const linksPositions = (this.links
     .map(section => {
       const target = document.getElementById(section.substring(1));
-      if (target && getOffsetTop(target) < bounds) {
+      if (target && getOffsetTop(target) < offsetTop + bounds) {
         const top = getOffsetTop(target);
-        if (top <= bounds) {
+        if (top <= offsetTop + bounds) {
           return {
             section,
             top,
@@ -121,8 +121,8 @@ class AnchorHelper {
     return '';
   }
 
-  scrollTo(href, target = getDefaultTarget, callback = () => {}) {
-    scrollTo(href, target, callback);
+  scrollTo(href, offsetTop, target = getDefaultTarget, callback = () => {}) {
+    scrollTo(href, offsetTop, target, callback);
   }
 }
 
