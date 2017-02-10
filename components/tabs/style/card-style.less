@@ -14,7 +14,7 @@
     margin: 0;
     border: @border-width-base @border-style-base @border-color-base;
     border-bottom: 0;
-    border-radius: 6px 6px 0 0;
+    border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
     background: #f9f9f9;
     margin-right: 2px;
@@ -73,7 +73,7 @@
       line-height: 20px;
       text-align: center;
       cursor: pointer;
-      border-radius: 3px;
+      border-radius: @border-radius-base;
       border: @border-width-base @border-style-base @border-color-base;
       font-size: @font-size-base;
       .iconfont-size-under-12px(10px);
