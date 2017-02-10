@@ -109,7 +109,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         ) : null;
         childrenWithClose.push(cloneElement(child, {
           tab: (
-            <div className={ closable ? undefined : `${prefixCls}-tab-unclosable` }>
+            <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
               {child.props.tab}
               {closeIcon}
             </div>
