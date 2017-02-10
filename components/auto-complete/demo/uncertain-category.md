@@ -37,7 +37,11 @@ function searchResult(query) {
 }
 
 function renderOption(item) {
-  return <Option key={item.category} text={item.category}>{item.query} 在 <a href={`https://s.taobao.com/search?q=${item.query}`} target="_blank">{item.category}</a> 区块中 <span style={{float: 'right'}}>约 {item.count} 个结果</span></Option>;
+  return <Option key={item.category} text={item.category}>
+    {item.query} 在
+    <a href={`https://s.taobao.com/search?q=${item.query}`} target="_blank">{item.category}</a> 区块中
+    <span style={{float: 'right'}}>约 {item.count} 个结果</span>
+  </Option>;
 }
 
 const Complete = React.createClass({
@@ -103,18 +107,19 @@ ReactDOM.render(<Complete />, mountNode);
   font-size: 18px;
 }
 
-.ant-select-auto-complete .ant-select-selection--single {
+.global-search.ant-select-auto-complete .ant-select-selection--single {
   margin-right: -50px;
 }
-.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input:not(:last-child) {
+
+.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input:not(:last-child) {
   padding-right: 62px;
 }
 
-.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
+.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
   right: 0;
 }
 
-.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
+.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
