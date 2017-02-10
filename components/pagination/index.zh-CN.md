@@ -25,7 +25,7 @@ title: Pagination
 | total            | 数据总数                           | number        | 0                        |
 | defaultPageSize  | 默认的每页条数                      | number        | 10                       |
 | pageSize         | 每页条数                           | number        | -                         |
-| onChange         | 页码改变的回调，参数是改变后的页码 | Function(page)      | noop                     |
+| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      | noop                     |
 | showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |
 | pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |
 | onShowSizeChange | pageSize 变化的回调                | Function(current, size)      | noop                     |

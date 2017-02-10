@@ -30,23 +30,22 @@ timeline: true
   - 修复了 size 问题。[#4766](https://github.com/ant-design/ant-design/issues/4766)
   - 修复了自动加入其他字符的问题。[#4778](https://github.com/ant-design/ant-design/issues/4778)
 - **Dropdown** 补充了之前缺失的弹出框位置设定相关的文档及示例。[#4811](https://github.com/ant-design/ant-design/issues/4811)
-- **Grid** 去掉了非 flex 模式下栅格的无用 class。[#4784](https://github.com/ant-design/ant-design/pull/4784) [@chikara-chan](https://github.com/chikara-chan)
-- **Icon** 统一了命名风格（添加了别名，原有命名依然有效）。[#4758](https://github.com/ant-design/ant-design/issues/4758)
+- **Icon** 统一了几个图标的命名风格（添加了别名，原有命名依然有效）。[#4758](https://github.com/ant-design/ant-design/issues/4758)
 - **Layout** 修复了侧边布局动效不平滑的问题。[#4752](https://github.com/ant-design/ant-design/issues/4752)
 - **LocaleProvider** 修复了瑞典语相关问题。[pull-4762](https://github.com/ant-design/ant-design/pull/4762) [@JesperWe](https://github.com/JesperWe)
 - **RangePicker** 修复了图标与表单校验反馈图标重叠的问题。[#4783](https://github.com/ant-design/ant-design/issues/4783) [@zhenzong](https://github.com/zhenzong)
 - **Table**
-  - 支持 `size='middle'` 。[#4819](https://github.com/ant-design/ant-design/pull/4819) [@warrenseymour](https://github.com/warrenseymour)
+  - 修复了 size 定义里没有 'middle' 的问题。[#4819](https://github.com/ant-design/ant-design/pull/4819) [@warrenseymour](https://github.com/warrenseymour)
   - 修复过滤功能在 JSX 模式下不生效的问题。[#4759](https://github.com/ant-design/ant-design/issues/4759)
   - 修复分页跳转问题。[#4779](https://github.com/ant-design/ant-design/issues/4779)
   - 修复IE11下的性能问题。[#4522](https://github.com/ant-design/ant-design/issues/4522)
 - **Tabs** 修复了在 IE9 中从第二个标签页起都显示空白的问题。[#4795](https://github.com/ant-design/ant-design/issues/4795)
-- **rc-pagination** 升级至 ~1.7.0，支持 showLessItems，onChange 增加 pageSize 参数。
+- **rc-pagination** 升级至 ~1.7.0，onChange 增加 pageSize 参数。
 - **全局性优化**
   - 修复或优化了一些了文档，链接，样式细节。
   - 接入 stylelint 以替代 lesslint，修复一些 lint 问题。[#2179](https://github.com/ant-design/ant-design/issues/2179)
   - border-radius 统一为 4px。[#4772](https://github.com/ant-design/ant-design/issues/4772)
-  - 支持 `import { version } from 'antd'` 。[#4751](https://github.com/ant-design/ant-design/pull/4751)
+  - 支持 `import { version } from 'antd'`。[#4751](https://github.com/ant-design/ant-design/pull/4751)
 - **网站**
   - 首页自动选择语言。[#4552](https://github.com/ant-design/ant-design/issues/4552)
   - 接入 Google 作为文档的全文本搜索。[#4814](https://github.com/ant-design/ant-design/issues/4814)

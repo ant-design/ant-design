@@ -24,7 +24,7 @@ defaultCurrent | default current page number | number | 1
 total | total number of data | number | 0
 defaultPageSize | default number of data per page | number | 10
 pageSize | number of data per page | number | -
-onChange | a callback function, can be executed when the page number is changing, and it takes the resulting page number as an argument | Function(page) | noop
+onChange | a callback function, can be executed when the page number is changing, and it takes the resulting page number and pageSize as its arguments | Function(page, pageSize) | noop
 showSizeChanger | determine whether `pageSize` can be changed | boolean | false
 pageSizeOptions | specify the sizeChanger selections | string[] | ['10', '20', '30', '40']
 onShowSizeChange | a callback function, can be executed when `pageSize` is changing | Function(current, size) | noop
