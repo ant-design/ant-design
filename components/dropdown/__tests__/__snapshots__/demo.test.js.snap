@@ -88,6 +88,54 @@ exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`
 </a>
 `;
 
+exports[`test renders ./components/dropdown/demo/placement.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      bottomLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      bottomCenter
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      bottomRight
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      topLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      topCenter
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button">
+    <span>
+      topRight
+    </span>
+  </button>
+</div>
+`;
+
 exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
