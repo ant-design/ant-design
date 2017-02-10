@@ -7,6 +7,8 @@ import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
 const Option = Select.Option;
+const searchEngine = 'Google';
+const searchLink = 'https://www.google.com/#q=site:ant.design+';
 
 export default class Header extends React.Component {
   static contextTypes = {
@@ -37,8 +39,12 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    const { intl, router } = this.context;
+    if (value === searchEngine) {
+      window.location.href = `${searchLink}${this.state.inputValue}`;
+      return;
+    }
 
+    const { intl, router } = this.context;
     this.setState({
       inputValue: '',
     }, () => {
@@ -65,7 +71,9 @@ export default class Header extends React.Component {
   }
 
   handleSelectFilter = (value, option) => {
-    return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
+    const optionValue = option.props['data-label'];
+    return optionValue === searchEngine ||
+      optionValue.indexOf(value.toLowerCase()) > -1;
   }
 
   handleLangChange = () => {
@@ -199,13 +207,13 @@ export default class Header extends React.Component {
                 dropdownStyle={{ display: inputValue ? 'block' : 'none' }}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
-                optionFilterProp="data-label"
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
+                <Option value={searchEngine} data-label={searchEngine}>全文本搜索...</Option>
                 {options}
               </Select>
             </div>
