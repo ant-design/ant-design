@@ -13,7 +13,7 @@ title:
 
 Select your favourite topics.
 
-````__react
+````jsx
 import { Tag } from 'antd';
 const CheckableTag = Tag.CheckableTag;
 

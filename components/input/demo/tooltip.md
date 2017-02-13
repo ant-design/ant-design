@@ -13,7 +13,7 @@ title:
 
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
-````__react
+````jsx
 import { Input, Tooltip } from 'antd';
 
 function formatNumber(value) {

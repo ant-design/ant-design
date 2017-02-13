@@ -16,7 +16,7 @@ Generally, ceiling is used for cross system/applications, where you can put unif
 
 Background color of a ceiling is a dark color, height is `30px`, and a light color foreground for the mainnav should be used.
 
-````__react
+````jsx
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

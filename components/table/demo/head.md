@@ -17,7 +17,7 @@ Use `filters` to generate filter menu in columns, `onFilter` to determine filter
 
 Use `sorter` to make a column sortable. `sorter` can be a function `function(a, b) { ... }` for sorting data locally.
 
-````__react
+````jsx
 import { Table } from 'antd';
 
 const columns = [{

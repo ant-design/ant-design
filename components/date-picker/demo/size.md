@@ -14,7 +14,7 @@ title:
 The input box comes in three sizes. `default` will be used if `size` is omitted.
 
 
-````__react
+````jsx
 import { DatePicker, Radio } from 'antd';
 const { MonthPicker, RangePicker } = DatePicker;
 

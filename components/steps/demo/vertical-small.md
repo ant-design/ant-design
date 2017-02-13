@@ -13,7 +13,7 @@ title:
 
 A simple mini version step bar in the vertical direction.
 
-````__react
+````jsx
 import { Steps } from 'antd';
 const Step = Steps.Step;
 

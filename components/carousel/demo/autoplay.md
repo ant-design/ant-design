@@ -13,7 +13,7 @@ title:
 
 Timing of scrolling to the next card/picture.
 
-````__react
+````jsx
 import { Carousel } from 'antd';
 
 ReactDOM.render(

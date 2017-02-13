@@ -13,7 +13,7 @@ title:
 
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
-````__react
+````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 

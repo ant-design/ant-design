@@ -13,7 +13,7 @@ title:
 
 Using `OptGroup` to group the options.
 
-````__react
+````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
 const OptGroup = Select.OptGroup;

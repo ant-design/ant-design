@@ -13,7 +13,7 @@ title:
 
 To customize the style or font of the close button.
 
-````__react
+````jsx
 import { Button, notification } from 'antd';
 
 const close = () => {

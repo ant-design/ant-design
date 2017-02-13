@@ -13,7 +13,7 @@ title:
 
 Support 6 placements.
 
-````__react
+````jsx
 import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (

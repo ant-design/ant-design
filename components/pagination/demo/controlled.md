@@ -13,7 +13,7 @@ title:
 
 Controlled page number.
 
-````__react
+````jsx
 import { Pagination } from 'antd';
 
 const Container = React.createClass({

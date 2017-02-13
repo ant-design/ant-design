@@ -13,7 +13,7 @@ title:
 
 Autocomplete with remote ajax data.
 
-````__react
+````jsx
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';

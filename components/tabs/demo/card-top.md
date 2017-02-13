@@ -13,7 +13,7 @@ title:
 
 Should be used at the top of container, needs to override styles.
 
-````__react
+````jsx
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

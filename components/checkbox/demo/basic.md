@@ -13,7 +13,7 @@ title:
 
 Basic usage of checkbox.
 
-````__react
+````jsx
 import { Checkbox } from 'antd';
 
 function onChange(e) {

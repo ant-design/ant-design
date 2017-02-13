@@ -13,7 +13,7 @@ title:
 
 A disabled state of the `DatePicker`.
 
-````__react
+````jsx
 import { DatePicker } from 'antd';
 import moment from 'moment';
 const { MonthPicker, RangePicker } = DatePicker;

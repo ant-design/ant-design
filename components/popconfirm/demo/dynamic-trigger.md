@@ -13,7 +13,7 @@ title:
 
 Make it pop up under some conditions.
 
-````__react
+````jsx
 import { Popconfirm, Switch, message } from 'antd';
 
 const App = React.createClass({

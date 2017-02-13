@@ -13,7 +13,7 @@ title:
 
 The simplest usage.
 
-````__react
+````jsx
 import { Affix, Button } from 'antd';
 
 ReactDOM.render(

@@ -13,7 +13,7 @@ title:
 
 Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
 
-````__react
+````jsx
 import { Table, Input, Button } from 'antd';
 
 const data = [{

@@ -13,7 +13,7 @@ title:
 
 A dynamic progress bar is better.
 
-````__react
+````jsx
 import { Progress, Button } from 'antd';
 const ButtonGroup = Button.Group;
 

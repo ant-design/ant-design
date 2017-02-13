@@ -21,7 +21,7 @@ validateStatus: 'success', 'warning', 'error', 'validating'。
 
 To set `hasFeedback` property to `true` enable to display feed icon of input control.
 
-````__react
+````jsx
 import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 

@@ -14,7 +14,7 @@ title:
 You can add extra actions to the right of Tabs.
 
 
-````__react
+````jsx
 import { Tabs, Button } from 'antd';
 const TabPane = Tabs.TabPane;
 

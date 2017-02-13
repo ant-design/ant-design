@@ -13,7 +13,7 @@ title:
 
 Basic usage.
 
-````__react
+````jsx
 import { Carousel } from 'antd';
 
 function onChange(a, b, c) {

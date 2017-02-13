@@ -14,17 +14,16 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````__react
+````jsx
 import { Icon, Button, Input, AutoComplete } from 'antd';
 const Option = AutoComplete.Option;
-const InputGroup = Input.Group;
 
 function onSelect(value) {
   console.log('onSelect', value);
 }
 
 function getRandomInt(max, min = 0) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
 
 function searchResult(query) {
@@ -37,11 +36,20 @@ function searchResult(query) {
 }
 
 function renderOption(item) {
-  return <Option key={item.category} text={item.category}>
-    {item.query} 在
-    <a href={`https://s.taobao.com/search?q=${item.query}`} target="_blank">{item.category}</a> 区块中
-    <span style={{float: 'right'}}>约 {item.count} 个结果</span>
-  </Option>;
+  return (
+    <Option key={item.category} text={item.category}>
+      {item.query} 在
+      <a
+        href={`https://s.taobao.com/search?q=${item.query}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {item.category}
+      </a>
+      区块中
+      <span style={{ float: 'right' }}>约 {item.count} 个结果</span>
+    </Option>
+  );
 }
 
 const Complete = React.createClass({
@@ -64,16 +72,20 @@ const Complete = React.createClass({
         <AutoComplete
           className="global-search"
           size="large"
-          style={{ width: '100%'}}
+          style={{ width: '100%' }}
           dataSource={dataSource.map(renderOption)}
           onSelect={onSelect}
           onChange={this.handleChange}
           placeholder="input here"
           optionLabelProp="text"
         >
-          <Input suffix={<Button className="search-btn" size="large" type="primary">
-            <Icon type="search" />
-          </Button>} />
+          <Input
+            suffix={(
+              <Button className="search-btn" size="large" type="primary">
+                <Icon type="search" />
+              </Button>
+            )}
+          />
         </AutoComplete>
       </div>
     );

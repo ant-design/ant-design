@@ -13,7 +13,7 @@ title:
 
 A smaller circular progress bar.
 
-````__react
+````jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(

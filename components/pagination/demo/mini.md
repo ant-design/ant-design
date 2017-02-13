@@ -13,7 +13,7 @@ title:
 
 Mini size pagination.
 
-````__react
+````jsx
 import { Pagination } from 'antd';
 
 function showTotal(total) {

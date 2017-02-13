@@ -13,11 +13,11 @@ title:
 
 A notification box can pop up from `topRight` or `bottomRight` or `bottomLeft` or `topLeft`.
 
-````__react
+````jsx
 import { Button, Select, notification } from 'antd';
 
 const { Option } = Select;
-const options = ['topLeft', 'topRight','bottomLeft', 'bottomRight'];
+const options = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
 const openNotification = () => {
   notification.open({
     message: 'Notification Title',
@@ -30,7 +30,7 @@ ReactDOM.render(
     <Select
       defaultValue="topRight"
       style={{ width: 120, marginRight: 10 }}
-      onChange={val => {
+      onChange={(val) => {
         notification.config({
           placement: val,
         });

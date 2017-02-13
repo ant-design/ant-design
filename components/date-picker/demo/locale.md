@@ -18,7 +18,7 @@ Use locale to set the language. `en_US`, `zh_CN` are supported by default.
 moment will use your time zone automatically. If you want to set other time zone, please set it by yourself.
 
 
-````__react
+````jsx
 import { DatePicker } from 'antd';
 import enUS from 'antd/lib/date-picker/locale/en_US';
 import moment from 'moment-timezone/moment-timezone';

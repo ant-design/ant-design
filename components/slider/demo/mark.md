@@ -16,7 +16,7 @@ When `included` is false, means that different thumbs are coordinative.
 when `step` is null, users can only slide the thumbs onto marks.
 
 
-````__react
+````jsx
 import { Slider } from 'antd';
 
 const marks = {

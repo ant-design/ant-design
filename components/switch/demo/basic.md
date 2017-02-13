@@ -13,7 +13,7 @@ title:
 
 The most basic usage.
 
-````__react
+````jsx
 import { Switch } from 'antd';
 
 function onChange(checked) {

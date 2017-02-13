@@ -13,7 +13,7 @@ title:
 
 Additional description for alert message.
 
-````__react
+````jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(<div>

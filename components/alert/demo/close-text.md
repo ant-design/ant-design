@@ -13,7 +13,7 @@ title:
 
 Replace the default icon with customized text.
 
-````__react
+````jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(

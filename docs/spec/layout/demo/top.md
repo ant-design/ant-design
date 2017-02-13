@@ -23,7 +23,7 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
 
 > `<BrowserDemo />` This is for demo, don't need to copy.
 
-````__react
+````jsx
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

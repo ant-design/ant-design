@@ -13,7 +13,7 @@ title:
 
 Basic usage.
 
-````__react
+````jsx
 import { Mention } from 'antd';
 const { toString, toEditorState } = Mention;
 

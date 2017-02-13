@@ -13,7 +13,7 @@ title:
 
 Customize Input Component
 
-````__react
+````jsx
 import { AutoComplete } from 'antd';
 
 function onSelect(value) {
@@ -48,7 +48,7 @@ const Complete = React.createClass({
         onChange={this.handleChange}
         placeholder="input here"
       >
-        <textarea onKeyPress={this.handleKeyPress} style={{ height: 50 }}/>
+        <textarea onKeyPress={this.handleKeyPress} style={{ height: 50 }} />
       </AutoComplete>
     );
   },

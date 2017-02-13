@@ -15,7 +15,7 @@ A more complex example, as illustrated in this example, we define a customized f
 the dialog will change to loading state after clicking submit button , when the loading is over,
 the modal dialog will be closed.
 
-````__react
+````jsx
 import { Modal, Button } from 'antd';
 
 const Test = React.createClass({

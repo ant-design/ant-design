@@ -13,7 +13,7 @@ title:
 
 Use `tipFormatter` to format content of `Toolip`. If `tipFormatter` is null, hide it.
 
-````__react
+````jsx
 import { Slider } from 'antd';
 
 function formatter(value) {

@@ -13,7 +13,7 @@ title:
 
 Multiple and checkable.
 
-````__react
+````jsx
 import { TreeSelect } from 'antd';
 const SHOW_PARENT = TreeSelect.SHOW_PARENT;
 

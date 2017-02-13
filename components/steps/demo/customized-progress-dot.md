@@ -13,7 +13,7 @@ title:
 
 You can customize the display for Steps with progress dot style.
 
-````__react
+````jsx
 import { Steps, Popover } from 'antd';
 const Step = Steps.Step;
 

@@ -13,7 +13,7 @@ title:
 
 To load data asynchronously when click to expand a treeNode.
 
-````__react
+````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 

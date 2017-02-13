@@ -13,7 +13,7 @@ Switch 失效状态。
 
 Disabled state of `Switch`.
 
-````__react
+````jsx
 import { Switch, Button } from 'antd';
 
 const Test = React.createClass({

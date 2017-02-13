@@ -13,7 +13,7 @@ title:
 
 Specifies default value by an array.
 
-````__react
+````jsx
 import { Cascader } from 'antd';
 
 const options = [{

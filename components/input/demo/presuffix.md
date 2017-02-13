@@ -13,7 +13,7 @@ title:
 
 Add prefix or suffix icons inside input.
 
-````__react
+````jsx
 import { Input, Icon } from 'antd';
 
 class App extends React.Component {

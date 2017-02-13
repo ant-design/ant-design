@@ -13,7 +13,7 @@ RangePicker 可以设置常用的 预设范围 提高用户体验。
 
 We can set presetted ranges to RangePicker to improve user experience.
 
-````__react
+````jsx
 import { DatePicker } from 'antd';
 import moment from 'moment';
 const RangePicker = DatePicker.RangePicker;

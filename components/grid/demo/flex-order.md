@@ -13,7 +13,7 @@ title:
 
 To change the element sort by Flex layout order.
 
-````__react
+````jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

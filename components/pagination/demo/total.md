@@ -13,7 +13,7 @@ title:
 
 You can show the total number of data by setting `showTotal`.
 
-````__react
+````jsx
 import { Pagination } from 'antd';
 
 ReactDOM.render(

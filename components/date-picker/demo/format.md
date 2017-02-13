@@ -13,7 +13,7 @@ title:
 
 We can set the date format by `format`.
 
-````__react
+````jsx
 import { DatePicker } from 'antd';
 import moment from 'moment';
 const { MonthPicker, RangePicker } = DatePicker;

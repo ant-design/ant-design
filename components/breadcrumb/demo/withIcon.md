@@ -13,7 +13,7 @@ title:
 
 The icon should be placed in front of the text.
 
-````__react
+````jsx
 import { Breadcrumb, Icon } from 'antd';
 
 ReactDOM.render(

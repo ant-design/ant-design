@@ -13,7 +13,7 @@ title:
 
 A borderless style of Collapse.
 
-````__react
+````jsx
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 

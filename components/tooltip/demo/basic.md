@@ -13,7 +13,7 @@ title:
 
 The simplest usage.
 
-````__react
+````jsx
 import { Tooltip } from 'antd';
 
 ReactDOM.render(

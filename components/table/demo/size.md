@@ -13,7 +13,7 @@ title:
 
 Two compacted table size: `middle` and `small`, `small` size is used in Modal only.
 
-````__react
+````jsx
 import { Table } from 'antd';
 
 const columns = [{

@@ -13,7 +13,7 @@ title:
 
 Mouse to click, focus and move in.
 
-````__react
+````jsx
 import { Popover, Button } from 'antd';
 
 const content = (

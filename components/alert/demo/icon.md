@@ -13,7 +13,7 @@ title:
 
 Decent icon make information more clear and more friendly.
 
-````__react
+````jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(<div>

@@ -13,7 +13,7 @@ title:
 
 Referring to the Bootstrap [responsive design] (http://getbootstrap.com/css/#grid-media-queries), here preset four dimensions: `xs` `sm` `md` `lg`.
 
-````__react
+````jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

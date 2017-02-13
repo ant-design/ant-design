@@ -13,7 +13,7 @@ title:
 
 Select different settings to see the result.
 
-````__react
+````jsx
 import { Table, Icon, Switch, Radio, Form } from 'antd';
 const FormItem = Form.Item;
 

@@ -13,7 +13,7 @@ title:
 
 A numeric-only input box whose values can be increased or decreased using a decimal step. The number of decimals (also known as precision) is determined by the step prop.
 
-````__react
+````jsx
 import { InputNumber } from 'antd';
 
 function onChange(value) {

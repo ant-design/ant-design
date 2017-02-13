@@ -13,7 +13,7 @@ Radio 不可用。
 
 Radio unavailable.
 
-```__react
+```jsx
 import { Radio, Button } from 'antd';
 
 const App = React.createClass({

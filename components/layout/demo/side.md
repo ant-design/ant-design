@@ -13,7 +13,7 @@ title:
 
 Be used in the two-columns layout.
 
-````__react
+````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 

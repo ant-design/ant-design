@@ -128,3 +128,63 @@ exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] =
   </div>
 </div>
 `;
+
+exports[`test renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
+<div
+  class="global-search-wrapper"
+  style="width:300px;">
+  <div
+    class="ant-select-lg ant-select-lg global-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+    style="width:100%;">
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox">
+      <div
+        class="ant-select-selection__rendered">
+        <div
+          class="ant-select-selection__placeholder"
+          style="display:block;user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable">
+          input here
+        </div>
+        <ul>
+          <li
+            class="ant-select-search ant-select-search--inline">
+            <div
+              class="ant-select-search__field__wrap">
+              <span
+                class="ant-input-preSuffix-wrapper">
+                <input
+                  class="ant-input ant-input ant-select-search__field"
+                  type="text"
+                  value="" />
+                <span
+                  class="ant-input-suffix">
+                  <button
+                    class="ant-btn ant-btn-primary ant-btn-lg search-btn"
+                    type="button">
+                    <i
+                      class="anticon anticon-search" />
+                  </button>
+                </span>
+              </span>
+              <span
+                class="ant-select-search__field__mirror" />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable">
+        <b />
+      </span>
+    </div>
+  </div>
+</div>
+`;

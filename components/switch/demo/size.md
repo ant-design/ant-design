@@ -13,7 +13,7 @@ title:
 
 `size="small"` represents a small sized switch.
 
-````__react
+````jsx
 import { Switch } from 'antd';
 
 ReactDOM.render(

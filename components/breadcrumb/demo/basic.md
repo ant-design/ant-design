@@ -13,7 +13,7 @@ title:
 
 The simplest use
 
-````__react
+````jsx
 import { Breadcrumb } from 'antd';
 
 ReactDOM.render(

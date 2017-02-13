@@ -13,7 +13,7 @@ title:
 
 Be used in the page which has both the top navigation and the sidebar.
 
-````__react
+````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
