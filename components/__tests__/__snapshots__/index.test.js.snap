@@ -50,5 +50,6 @@ Array [
   "Tooltip",
   "Mention",
   "Upload",
+  "version",
 ]
 `;
