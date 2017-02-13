@@ -13,6 +13,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
+import { SpinProps } from '../spin';
 
 function noop() {
 }
@@ -63,7 +64,7 @@ export interface TableProps<T> {
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
-  loading?: boolean;
+  loading?: boolean | SpinProps ;
   locale?: Object;
   indentSize?: number;
   onRowClick?: (record: T, index: number) => any;
@@ -97,7 +98,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     rowSelection: React.PropTypes.object,
     className: React.PropTypes.string,
     size: React.PropTypes.string,
-    loading: React.PropTypes.bool,
+    loading: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.object,
+    ]),
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
@@ -872,10 +876,16 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
             ? `${prefixCls}-with-pagination`
             : `${prefixCls}-without-pagination`;
+    let loading = this.props.loading;
+    if (typeof (loading) === 'boolean') {
+      loading = {
+        spinning: loading,
+      };
+    }
     const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
     return (
       <div className={`${className} clearfix`} style={style}>
-        <Spin className={spinClassName} spinning={this.props.loading}>
+        <Spin className={spinClassName} {...loading}>
         {table}
         {this.renderPagination()}
         </Spin>
