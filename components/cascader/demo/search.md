@@ -25,6 +25,10 @@ const options = [{
     children: [{
       value: 'xihu',
       label: 'West Lake',
+    }, {
+      value: 'xiasha',
+      label: 'Xia Sha',
+      disabled: true,
     }],
   }],
 }, {

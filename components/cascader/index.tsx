@@ -239,6 +239,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
           path,
           label: render(inputValue, path, prefixCls),
           value: path.map(o => o.value),
+          disabled: path.some(o => o.disabled),
         };
       });
     }
