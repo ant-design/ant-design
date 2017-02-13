@@ -56,9 +56,9 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     }
   }
 
-  onSearchChange = (value) => {
+  onSearchChange = (value, prefix) => {
     if (this.props.onSearchChange) {
-      return this.props.onSearchChange(value);
+      return this.props.onSearchChange(value, prefix);
     }
     return this.defaultSearchChange(value);
   }
