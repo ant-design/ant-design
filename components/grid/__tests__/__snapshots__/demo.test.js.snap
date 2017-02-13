@@ -566,15 +566,15 @@ exports[`test renders ./components/grid/demo/reponsive.md correctly 1`] = `
 <div
   class="ant-row">
   <div
-    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8">
+    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10">
     Col
   </div>
   <div
-    class="ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8">
+    class="ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4">
     Col
   </div>
   <div
-    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8">
+    class="ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10">
     Col
   </div>
 </div>

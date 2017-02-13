@@ -108,3 +108,4 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 | sm       | `≥768px`, could be a `span` value or a object contain above props | number\|object | - |
 | md       | `≥992px`, could be a `span` value or a object contain above props | number\|object | - |
 | lg       | `≥1200px`, could be a `span` value or a object contain above props | number\|object | - |
+| xl       | `≥1600px`, could be a `span` value or a object contain above props | number\|object | - |
