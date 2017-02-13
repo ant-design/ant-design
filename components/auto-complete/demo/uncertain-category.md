@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 查询模式 - 不确定类目
   en-US: Lookup-Patterns - Uncertain Category
