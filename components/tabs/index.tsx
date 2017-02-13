@@ -32,6 +32,7 @@ export interface TabPaneProps {
   /** 选项卡头显示文字 */
   tab?: React.ReactNode | string;
   style?: React.CSSProperties;
+  closable?: boolean;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -98,11 +99,19 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
+        let closable = child.props.closable;
+        closable = typeof closable === 'undefined' ? true : closable;
+        const closeIcon = closable ? (
+           <Icon
+             type="close"
+             onClick={e => this.removeTab(child.key, e)}
+           />
+        ) : null;
         childrenWithClose.push(cloneElement(child, {
           tab: (
-            <div>
+            <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
               {child.props.tab}
-              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
+              {closeIcon}
             </div>
           ),
           key: child.key || index,

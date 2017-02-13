@@ -362,10 +362,9 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
               role="tab">
-              <div>
+              <div
+                class="ant-tabs-tab-unclosable">
                 Tab 1
-                <i
-                  class="anticon anticon-close" />
               </div>
             </div>
             <div
