@@ -2,7 +2,7 @@
 category: Components
 subtitle: 自动完成
 type: Data Entry
-cols: 1
+cols: 2
 title: AutoComplete
 ---
 
@@ -18,7 +18,6 @@ title: AutoComplete
 const dataSource = ['12345', '23456', '34567'];
 <AutoComplete dataSource={dataSource} />
 ```
-因为 `AutoComplete` 是基于 `Select` 封装的，所以除了以下 API 外，`AutoComplete` 跟 `Select` 拥有一样的 API。
 
 | 参数           | 说明                             | 类型        | 默认值 |
 |----------------|----------------------------------|------------|---------|
@@ -33,3 +32,4 @@ const dataSource = ['12345', '23456', '34567'];
 | children (自动完成的数据源) | 自动完成的数据源 | React.ReactElement<OptionProps> / Array<React.ReactElement<OptionProps>> | - |
 | children (自定义输入框) | 自定义输入框 |  HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` |
+| filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |
