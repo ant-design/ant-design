@@ -849,7 +849,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -871,7 +871,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -893,7 +893,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -916,7 +916,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -939,7 +939,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -962,7 +962,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -985,7 +985,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -1008,7 +1008,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -1031,7 +1031,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <span
@@ -1053,7 +1053,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
           </label>
         </div>
         <div
-          class="">
+          class="ant-form-item-control-wrapper">
           <div
             class="ant-form-item-control ">
             <div

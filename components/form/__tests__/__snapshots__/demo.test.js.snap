@@ -19,7 +19,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -47,7 +47,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -75,7 +75,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -103,7 +103,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -131,7 +131,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -159,7 +159,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             </label>
           </div>
           <div
-            class="ant-col-19">
+            class="ant-col-19 ant-form-item-control-wrapper">
             <div
               class="ant-form-item-control ">
               <input
@@ -224,7 +224,7 @@ exports[`test renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8">
+      class="ant-col-8 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <input
@@ -247,7 +247,7 @@ exports[`test renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8">
+      class="ant-col-8 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -283,7 +283,7 @@ exports[`test renders ./components/form/demo/coordinated.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-8 ant-col-offset-4">
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -313,7 +313,7 @@ exports[`test renders ./components/form/demo/customized-form-controls.md correct
       </label>
     </div>
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-success">
         <span>
@@ -357,7 +357,7 @@ exports[`test renders ./components/form/demo/customized-form-controls.md correct
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -379,7 +379,7 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-20 ant-col-offset-4">
+      class="ant-col-20 ant-col-offset-4 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -398,7 +398,7 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-20 ant-col-offset-4">
+      class="ant-col-20 ant-col-offset-4 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -441,7 +441,7 @@ exports[`test renders ./components/form/demo/global-state.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="">
+        class="ant-form-item-control-wrapper">
         <div
           class="ant-form-item-control has-success">
           <input
@@ -471,7 +471,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -495,7 +495,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -519,7 +519,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -549,7 +549,7 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14">
+        class="ant-col-14 ant-form-item-control-wrapper">
         <div
           class="ant-form-item-control ">
           <div
@@ -611,7 +611,7 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14">
+        class="ant-col-14 ant-form-item-control-wrapper">
         <div
           class="ant-form-item-control ">
           <input
@@ -631,7 +631,7 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14">
+        class="ant-col-14 ant-form-item-control-wrapper">
         <div
           class="ant-form-item-control ">
           <input
@@ -644,7 +644,7 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
     <div
       class="ant-row ant-form-item">
       <div
-        class="ant-col-14 ant-col-offset-4">
+        class="ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper">
         <div
           class="ant-form-item-control ">
           <button
@@ -667,7 +667,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -691,7 +691,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -715,7 +715,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-success">
         <label
@@ -768,7 +768,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <input
@@ -791,7 +791,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <input
@@ -814,7 +814,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <input
@@ -841,7 +841,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <input
@@ -864,7 +864,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-success">
         <span
@@ -901,7 +901,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -957,7 +957,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -996,7 +996,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
     style="margin-bottom:8px;">
     <div
-      class="ant-col-14 ant-col-offset-6">
+      class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <label
@@ -1022,7 +1022,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-14 ant-col-offset-6">
+      class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -1052,7 +1052,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1081,7 +1081,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1111,7 +1111,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1140,7 +1140,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1179,7 +1179,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1219,7 +1219,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       </label>
     </div>
     <div
-      class="ant-col-16">
+      class="ant-col-16 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1239,7 +1239,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-16 ant-col-offset-8">
+      class="ant-col-16 ant-col-offset-8 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -1268,7 +1268,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1289,7 +1289,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1333,7 +1333,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1383,7 +1383,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-success">
         <div
@@ -1433,7 +1433,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1458,7 +1458,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1540,7 +1540,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1602,7 +1602,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1664,7 +1664,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14">
+      class="ant-col-14 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <span
@@ -1685,7 +1685,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-12 ant-col-offset-6">
+      class="ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <button
@@ -1714,7 +1714,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-error">
         <input
@@ -1739,7 +1739,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-warning">
         <input
@@ -1760,7 +1760,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-feedback is-validating">
         <input
@@ -1785,7 +1785,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-feedback has-success">
         <input
@@ -1806,7 +1806,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-feedback has-warning">
         <input
@@ -1827,7 +1827,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control has-feedback has-error">
         <input
@@ -1852,7 +1852,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       </label>
     </div>
     <div
-      class="">
+      class="ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
@@ -1860,7 +1860,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
           <div
             class="ant-row ant-form-item ant-form-item-with-help">
             <div
-              class="">
+              class="ant-form-item-control-wrapper">
               <div
                 class="ant-form-item-control has-error">
                 <span
@@ -1895,7 +1895,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
           <div
             class="ant-row ant-form-item">
             <div
-              class="">
+              class="ant-form-item-control-wrapper">
               <div
                 class="ant-form-item-control ">
                 <span
@@ -1935,7 +1935,7 @@ exports[`test renders ./components/form/demo/without-form-create.md correctly 1`
       </label>
     </div>
     <div
-      class="ant-col-12">
+      class="ant-col-12 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
         <div
