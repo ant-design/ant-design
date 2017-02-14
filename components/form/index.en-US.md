@@ -99,7 +99,7 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 |-----------|-----------------------------------------|------|---------------|
 | id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string | |
 | options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
-| options.initialValue | You can specify initial value, type, optional value of children node. | | n/a |
+| options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internaly, we recommend to use vairable as `initialValue`, instead of literal) | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
 | options.getValueFromEvent | To convert parameters of onChange to the value of control | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | When to validate the value of children node. | string\|string[] | 'onChange' |

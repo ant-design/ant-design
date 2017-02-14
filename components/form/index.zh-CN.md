@@ -100,7 +100,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |-----------|-----------------------------------------|-----|--------|
 | id | 必填输入控件唯一标志。支持嵌套式的[写法](https://github.com/react-component/form/pull/48)。 | string | |
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
-| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
+| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
