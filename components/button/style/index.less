@@ -123,8 +123,12 @@
     border-radius: inherit;
     border: 0 solid @primary-color;
     opacity: 0.4;
-    animation: buttonEffect 0.36s ease-out forwards;
+    animation: buttonEffect 0.48s ease-in-out forwards;
     display: block;
+  }
+
+  &-danger&-clicked:after {
+    border-color: @btn-danger-bg;
   }
 
   &-background-ghost {
