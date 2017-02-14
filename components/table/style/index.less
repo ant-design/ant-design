@@ -484,29 +484,12 @@
     overflow: scroll;
   }
 
-  // Fix https://github.com/ant-design/ant-design/issues/4637
-  // avoid column misalign in #4750 and #4753
-  &-fixed-header &-scroll {
-    position: relative;
-    border-radius: @border-radius-base @border-radius-base 0 0;
-    &:after {
-      background: @table-head-background-color;
-      position: absolute;
-      content: '0';
-      width: 18px;
-      right: 0;
-      top: 0;
-      padding: 16px 0;
-      user-select: none;
-      color: transparent;
-      border-radius: 0 @border-radius-base 0 0;
-    }
-  }
-
   &-fixed-header &-scroll &-header {
     overflow: scroll;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
+    // Fix https://github.com/ant-design/ant-design/issues/4637
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   /* fix firefox scrollbar bug */

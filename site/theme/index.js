@@ -59,7 +59,6 @@ module.exports = {
     childRoutes: [{
       path: 'index-cn',
       component: homeTmpl,
-      dataPath: '/',
     }, {
       path: 'docs/practice/:children',
       component: contentTmpl,
@@ -72,11 +71,9 @@ module.exports = {
     }, {
       path: 'changelog',
       component: contentTmpl,
-      dataPath: 'CHANGELOG',
     }, {
       path: 'changelog-cn',
       component: contentTmpl,
-      dataPath: 'CHANGELOG',
     }, {
       path: 'components/:children/',
       component: contentTmpl,

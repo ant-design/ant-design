@@ -13,7 +13,7 @@ title:
 
 A standard progress bar.
 
-````__react
+````jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(

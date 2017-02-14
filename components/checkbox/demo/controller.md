@@ -13,7 +13,7 @@ title:
 
 Communicated with other components.
 
-````__react
+````jsx
 import { Checkbox, Button } from 'antd';
 
 const App = React.createClass({

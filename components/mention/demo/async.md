@@ -13,7 +13,7 @@ title:
 
 async
 
-````__react
+````jsx
 import { Mention } from 'antd';
 
 const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];

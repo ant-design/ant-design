@@ -64,6 +64,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
+> 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
+
 | 参数      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |
@@ -98,7 +100,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |-----------|-----------------------------------------|-----|--------|
 | id | 必填输入控件唯一标志。支持嵌套式的[写法](https://github.com/react-component/form/pull/48)。 | string | |
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
-| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
+| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
@@ -114,7 +116,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|-----------------------------------------|-----------|--------|
 | label | label 标签的文本 | string\|ReactNode |  |
-| labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object | |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object | |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object | |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | |
 | extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | |

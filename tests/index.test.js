@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import pkg from '../package.json';
 
 describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1638
@@ -18,6 +19,11 @@ describe('antd dist files', () => {
         antdJsContent.toString()
         .indexOf('function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }')
       ).toBe(-1);
+    });
+
+    it('should have antd.version', () => {
+      const antd = require('../dist/antd'); // eslint-disable-line global-require
+      expect(antd.version).toBe(pkg.version);
     });
   }
 });

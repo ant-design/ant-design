@@ -20,12 +20,12 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 | overlay | the dropdown menu       | [Menu](/components/menu)   | -           |
 | getPopupContainer       | to set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001)   | Function(triggerNode)   | () => document.body |
 | visible | determine whether the dropdown menu is visible | boolean | -           |
-| onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function           | - |
+| onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function(visible) | - |
+| placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
 You can get the menu list by `antd.Menu`, and set a callback function `onSelect` for it if you need. The menu items and the dividers are also available, by using `antd.Menu.Item` and `antd.Menu.Divider` respectively.
 
 > Warning: You must set a unique `key` for `Menu.Item`.
-
 
 ### Dropdown.Button
 
@@ -37,3 +37,4 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 | overlay | the dropdown menu | [Menu](/components/menu) | -           |
 | visible     | determine whether the dropdown menu is visible | boolean | -           |
 | onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function     | -        |
+| placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |

@@ -13,7 +13,7 @@ title:
 
 To use `confirm()` to popup a confirmation modal dialog.
 
-````__react
+````jsx
 import { Modal, Button } from 'antd';
 const confirm = Modal.confirm;
 

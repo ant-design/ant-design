@@ -13,7 +13,7 @@ title:
 
 Cards usually cooperate with grid layout in overview page.
 
-````__react
+````jsx
 import { Card, Col, Row } from 'antd';
 
 ReactDOM.render(

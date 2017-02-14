@@ -18,7 +18,7 @@ And you can always set it to a hex color string for custom color.
 
 > Preset colors are supported after `antd@2.7.0`.
 
-````__react
+````jsx
 import { Tag } from 'antd';
 
 ReactDOM.render(

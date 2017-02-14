@@ -13,7 +13,7 @@ title:
 
 Vertical menu with inline submenus.
 
-````__react
+````jsx
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;

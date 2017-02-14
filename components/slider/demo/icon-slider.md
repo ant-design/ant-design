@@ -13,7 +13,7 @@ title:
 
 You can add an icon beside the slider to make it meaningful.
 
-````__react
+````jsx
 import { Slider, Icon } from 'antd';
 
 const IconSlider = React.createClass({

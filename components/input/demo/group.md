@@ -17,7 +17,7 @@ Input.Group example
 
 Note: You don't need `Col` to control the width in the `compact` mode.
 
-````__react
+````jsx
 import { Input, Col, Select, InputNumber, DatePicker } from 'antd';
 const InputGroup = Input.Group;
 const Option = Select.Option;

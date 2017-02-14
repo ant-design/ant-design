@@ -8,6 +8,44 @@
     <meta name="description" content="A set of high-quality React components">
     <meta name="description" content="One of best React UI library for enterprise background">
     <title>Ant Design - A UI Design Language</title>
+    <script>
+    (function() {
+      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+      var pathname = location.pathname;
+
+      function isZhCN(pathname) {
+        return /-cn\/?$/.test(pathname);
+      }
+      function getLocalizedPathname(path, zhCN) {
+        var pathname = path.startsWith('/') ? path : '/' + path;
+        if (!zhCN) { // to enUS
+          return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+        } else if (pathname === '/') {
+          return '/index-cn';
+        } else if (pathname.endsWith('/')) {
+          return pathname.replace(/\/$/, '-cn/');
+        }
+        return pathname + '-cn';
+      }
+
+      // 兼容旧的 URL， `?locale=...`
+      var queryString = location.search;
+      if (queryString) {
+        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+        if (isZhCNConfig !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
+        }
+      }
+
+      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+      if (pathname === '/' || pathname === '/index-cn') {
+        var lang = (window.localStorage && localStorage.getItem('locale')) || navigator.language;
+        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        }
+      }
+    })()
+    </script>
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.cnpmjs.org/css?family=Lato:400,700|Raleway"/>
     <link rel="stylesheet" type="text/css" href="{{ root }}index.css"/>
@@ -51,30 +89,6 @@
     <div id="react-content">
       {{ content | safe }}
     </div>
-    <script>
-    function isZhCN(pathname) {
-      return /-cn\/?$/.test(pathname);
-    }
-    function getLocalizedPathname(path, zhCN) {
-      var pathname = path.startsWith('/') ? path : '/' + path;
-      if (!zhCN) { // to enUS
-        return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
-      } else if (pathname === '/') {
-        return '/index-cn';
-      } else if (pathname.endsWith('/')) {
-        return pathname.replace(/\/$/, '-cn/');
-      }
-      return pathname + '-cn';
-    }
-    var queryString = location.search;
-    if (queryString) {
-      var pathname = location.pathname;
-      var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
-      if (isZhCNConfig !== isZhCN(pathname)) {
-        location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
-      }
-    }
-    </script>
     <script src="{{ root }}common.js"></script>
     <script src="{{ root }}index.js"></script>
   </body>

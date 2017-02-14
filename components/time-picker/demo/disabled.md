@@ -14,7 +14,7 @@ title:
 A disabled state of the `TimePicker`.
 
 
-````__react
+````jsx
 import { TimePicker } from 'antd';
 import moment from 'moment';
 

@@ -13,7 +13,7 @@ title:
 
 The most basic usage.
 
-````__react
+````jsx
 import { TreeSelect } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
 

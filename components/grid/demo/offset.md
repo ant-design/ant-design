@@ -15,7 +15,7 @@ title:
 
 `Offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
 
-````__react
+````jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

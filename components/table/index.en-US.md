@@ -54,7 +54,7 @@ const columns = [{
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | object  | null  |
 | pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | object |  |
-| size          | size of table: `default` or `small`  | string | `default` |
+| size          | size of table: `default`, `middle` or `small`  | string | `default` |
 | dataSource    | data record array to be rendered | any[] |            |
 | columns       | columns of table | [ColumnProps](https://git.io/vMMXC)[] | - |
 | rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |

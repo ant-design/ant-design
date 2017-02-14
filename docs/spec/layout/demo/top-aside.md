@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 顶部导航 + 侧边栏
   en-US: Top aside
 ---
@@ -13,7 +13,7 @@ title:
 
 The top navigation is placed on the top, and the secondary navigation is placed on the aside.
 
-````__react
+````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;
@@ -36,9 +36,9 @@ ReactDOM.render(
         <div className="layout-wrapper">
           <Menu mode="horizontal"
             defaultSelectedKeys={['1']} style={{marginLeft: 124}}>
-            <Menu.Item key="1">The second level navigation</Menu.Item>
-            <Menu.Item key="2">The second level navigation</Menu.Item>
-            <Menu.Item key="3">The second level navigation</Menu.Item>
+            <Menu.Item key="1">Second nav</Menu.Item>
+            <Menu.Item key="2">Second nav</Menu.Item>
+            <Menu.Item key="3">Second nav</Menu.Item>
           </Menu>
         </div>
       </div>

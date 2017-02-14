@@ -13,7 +13,7 @@ title:
 
 Slides use fade for transition.
 
-````__react
+````jsx
 import { Carousel } from 'antd';
 
 ReactDOM.render(

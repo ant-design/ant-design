@@ -13,7 +13,7 @@ title:
 
 The simplest use.
 
-```__react
+```jsx
 import { Radio } from 'antd';
 
 ReactDOM.render(<Radio>Radio</Radio>, mountNode);

@@ -13,7 +13,7 @@ title:
 
 Separate trigger button and result.
 
-````__react
+````jsx
 import { Cascader } from 'antd';
 
 const options = [{

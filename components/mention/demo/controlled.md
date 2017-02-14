@@ -13,7 +13,7 @@ title:
 
 Controlled mode, for example, to work with `Form` .
 
-````__react
+````jsx
 import { Mention, Form, Button } from 'antd';
 const { toEditorState, getMentions } = Mention;
 const FormItem = Form.Item;

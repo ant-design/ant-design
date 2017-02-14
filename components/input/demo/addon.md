@@ -13,7 +13,7 @@ title:
 
 Using pre & post tabs example.
 
-````__react
+````jsx
 import { Input, Select, Icon } from 'antd';
 const Option = Select.Option;
 

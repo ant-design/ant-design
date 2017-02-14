@@ -17,7 +17,7 @@ There are `primary` button, `default` button, `dashed` button and `danger` butto
 
 > `danger` is supported after `antd@2.7`.
 
-````__react
+````jsx
 import { Button } from 'antd';
 
 ReactDOM.render(

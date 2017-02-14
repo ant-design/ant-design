@@ -13,7 +13,7 @@ title:
 
 The most basic dropdown menu.
 
-````__react
+````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = (

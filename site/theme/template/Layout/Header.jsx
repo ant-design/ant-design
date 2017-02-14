@@ -4,8 +4,11 @@ import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
 import * as utils from '../utils';
+import { version as antdVersion } from '../../../../package.json';
 
 const Option = Select.Option;
+const searchEngine = 'Google';
+const searchLink = 'https://www.google.com/#q=site:ant.design+';
 
 export default class Header extends React.Component {
   static contextTypes = {
@@ -36,8 +39,12 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    const { intl, router } = this.context;
+    if (value === searchEngine) {
+      window.location.href = `${searchLink}${this.state.inputValue}`;
+      return;
+    }
 
+    const { intl, router } = this.context;
     this.setState({
       inputValue: '',
     }, () => {
@@ -64,11 +71,16 @@ export default class Header extends React.Component {
   }
 
   handleSelectFilter = (value, option) => {
-    return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
+    const optionValue = option.props['data-label'];
+    return optionValue === searchEngine ||
+      optionValue.indexOf(value.toLowerCase()) > -1;
   }
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
+    if (window.localStorage) {
+      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
+    }
     if (pathname === '/') {
       location.pathname = utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname));
     } else {
@@ -76,9 +88,19 @@ export default class Header extends React.Component {
     }
   }
 
+  handleVersionChange = (url) => {
+    const currentUrl = window.location.href;
+    const currentPathname = window.location.pathname;
+    window.location.href = currentUrl.replace(window.location.origin, url)
+      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+  }
+
   render() {
     const { inputValue, menuMode, menuVisible } = this.state;
-    const { location, picked, isFirstScreen } = this.props;
+    const { location, picked, isFirstScreen, themeConfig } = this.props;
+    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+    const versionOptions = Object.keys(docVersions)
+            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
@@ -112,6 +134,16 @@ export default class Header extends React.Component {
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
+      <Select
+        key="version"
+        className="version"
+        size="small"
+        dropdownMatchSelectWidth={false}
+        defaultValue={antdVersion}
+        onChange={this.handleVersionChange}
+      >
+        {versionOptions}
+      </Select>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
@@ -164,13 +196,13 @@ export default class Header extends React.Component {
           />
         </Popover> : null}
         <Row>
-          <Col lg={4} md={6} sm={24} xs={24}>
+          <Col lg={4} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>
             </Link>
           </Col>
-          <Col lg={20} md={18} sm={0} xs={0}>
+          <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Select
                 combobox
@@ -178,13 +210,13 @@ export default class Header extends React.Component {
                 dropdownStyle={{ display: inputValue ? 'block' : 'none' }}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
-                optionFilterProp="data-label"
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
+                <Option value={searchEngine} data-label={searchEngine}>全文本搜索...</Option>
                 {options}
               </Select>
             </div>

@@ -35,4 +35,19 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-label label').at(0).text()).toContain(':');
     expect(wrapper.find('.ant-form-item-label label').at(1).text()).toContain('：');
   });
+
+  it('should has dom with .ant-form-item-control-wrapper', () => {
+    const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
+    };
+    const wrapper = mount(
+      <Form>
+        <Form.Item {...formItemLayout}>input</Form.Item>
+        <Form.Item>input</Form.Item>
+      </Form>
+    );
+    expect(wrapper.find('.ant-form-item-control-wrapper').length).toBe(2);
+    expect(wrapper.find('.ant-form-item-control-wrapper.ant-col-14').length).toBe(1);
+  });
 });

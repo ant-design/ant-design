@@ -13,7 +13,7 @@ title:
 
 Usage of basic Tag, and it could be closable by set `closable` property. Closable Tag supports `onClose` `afterClose` events.
 
-````__react
+````jsx
 import { Tag } from 'antd';
 
 function log(e) {

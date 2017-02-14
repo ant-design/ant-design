@@ -13,7 +13,7 @@ title:
 
 Demostration for validataion configuration for form controls which are not show in the above demos.
 
-````__react
+````jsx
 import {
   Form, Select, InputNumber, Switch, Radio,
   Slider, Button, Upload, Icon,

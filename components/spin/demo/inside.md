@@ -13,7 +13,7 @@ title:
 
 Spin in a container.
 
-````__react
+````jsx
 import { Spin } from 'antd';
 
 ReactDOM.render(

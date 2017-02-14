@@ -13,7 +13,7 @@ title:
 
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and change callback functions.
 
-````__react
+````jsx
 import { Transfer } from 'antd';
 
 const mockData = [];

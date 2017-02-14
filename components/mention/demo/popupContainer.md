@@ -13,7 +13,7 @@ title:
 
 To set the container of the suggestion.
 
-````__react
+````jsx
 import { Mention, Popover, Button } from 'antd';
 const { toString, toEditorState } = Mention;
 

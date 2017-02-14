@@ -13,7 +13,7 @@ title:
 
 Classic page layouts.
 
-````__react
+````jsx
 import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 

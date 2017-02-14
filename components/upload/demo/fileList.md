@@ -25,7 +25,7 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 
 3) filter successfully uploaded files according to response from server.
 
-````__react
+````jsx
 import { Upload, Button, Icon } from 'antd';
 
 const MyUpload = React.createClass({

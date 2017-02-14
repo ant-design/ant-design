@@ -13,7 +13,7 @@ title:
 
 Add border, title and footer for table.
 
-````__react
+````jsx
 import { Table } from 'antd';
 
 const columns = [{

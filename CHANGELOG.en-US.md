@@ -17,6 +17,38 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.7.1
+
+`2017-02-10`
+
+- **Affix**
+  - Fix the problem of element been hidden when hover on. [#4800](https://github.com/ant-design/ant-design/issues/4800)
+  - Fix event listener can not be removed. [#4755](https://github.com/ant-design/ant-design/issues/4755)
+  - Fix can not be unfixed when scrolling fastly. [#4760](https://github.com/ant-design/ant-design/issues/4760)
+- **Anchor** Fix the location problem when offsetTop has been set. [#4706](https://github.com/ant-design/ant-design/issues/4706)
+- **AutoComplete**
+  - Fix the wrong size. [#4766](https://github.com/ant-design/ant-design/issues/4766)
+  - Fix adding error character automatically. [#4778](https://github.com/ant-design/ant-design/issues/4778)
+- **Dropdown** Add the documentation and demo about positioning of Dropdown menus. [#4811](https://github.com/ant-design/ant-design/issues/4811)
+- **Layout** Improve Sider's animation effect. [#4752](https://github.com/ant-design/ant-design/issues/4752)
+- **LocaleProvider** Fix issues with the new Swedish locale provider. [pull-4762](https://github.com/ant-design/ant-design/pull/4762) [@JesperWe](https://github.com/JesperWe)
+- **RangePicker** Fix the overlapping problem about the date icon. [#4783](https://github.com/ant-design/ant-design/issues/4783) [@zhenzong](https://github.com/zhenzong)
+- **Table**
+  - Add the missing value 'middle' for size definition. [#4819](https://github.com/ant-design/ant-design/pull/4819) [@warrenseymour](https://github.com/warrenseymour)
+  - Fix controlled filter does not work with JSX style. [#4759](https://github.com/ant-design/ant-design/issues/4759)
+  - Fix switch pagination problem. [#4779](https://github.com/ant-design/ant-design/issues/4779)
+- **Tabs** Fix content missing problem since the second tab pane under IE9. [#4795](https://github.com/ant-design/ant-design/issues/4795)
+- **rc-pagination** Upgrade to ~1.7.0, add pageSize as onChange's second argument.
+- **Global optimization**
+  - Make some bugfixes and optimizations about documentation、link and style.
+  - Use stylelint instead of lesslint, and fix some lint issues. [#2179](https://github.com/ant-design/ant-design/issues/2179)
+  - Unify border radius to 4px. [#4772](https://github.com/ant-design/ant-design/issues/4772)
+  - Support `import { version } from 'antd'`. [#4751](https://github.com/ant-design/ant-design/pull/4751)
+- **Site**
+  - Add default locale looking-up in Home Page. [#4552](https://github.com/ant-design/ant-design/issues/4552)
+  - Can search with Google. [#4814](https://github.com/ant-design/ant-design/issues/4814)
+  - Change the position of version switch. [pull-4799](https://github.com/ant-design/ant-design/pull/4799)
+
 ## 2.7.0
 
 `2017-02-03`

@@ -13,7 +13,7 @@ title:
 
 A simple playground for column count and gutter.
 
-````__react
+````jsx
 import { Row, Col, Slider } from 'antd';
 
 class App extends React.Component {

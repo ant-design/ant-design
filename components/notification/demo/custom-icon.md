@@ -13,7 +13,7 @@ title:
 
 The icon can be customized to any react node.
 
-````__react
+````jsx
 import { Button, notification, Icon } from 'antd';
 
 const openNotification = () => {

@@ -13,7 +13,7 @@ title:
 
 Multiple selection, selecting from existing items (scroll the menu).
 
-````__react
+````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
 

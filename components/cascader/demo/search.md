@@ -13,7 +13,7 @@ title:
 
 Search and select options directly.
 
-````__react
+````jsx
 import { Cascader } from 'antd';
 
 const options = [{
@@ -25,6 +25,10 @@ const options = [{
     children: [{
       value: 'xihu',
       label: 'West Lake',
+    }, {
+      value: 'xiasha',
+      label: 'Xia Sha',
+      disabled: true,
     }],
   }],
 }, {

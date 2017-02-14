@@ -13,7 +13,7 @@ title:
 
 You can use the `gutter` property of `Row` as grid spacing, we recommend set it to `(16 + 8n) px`.
 
-````__react
+````jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

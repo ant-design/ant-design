@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 多级菜单
   en-US: Cascading menu
@@ -13,7 +13,7 @@ title:
 
 The menu has multiple levels.
 
-````__react
+````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 

@@ -23,7 +23,7 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
 
 > `<BrowserDemo />` This is for demo, don't need to copy.
 
-````__react
+````jsx
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 
@@ -45,9 +45,9 @@ ReactDOM.render(
         <div className="layout-wrapper">
           <Menu mode="horizontal"
             defaultSelectedKeys={['1']} style={{marginLeft: 124}}>
-            <Menu.Item key="1">The second level navigation</Menu.Item>
-            <Menu.Item key="2">The second level navigation</Menu.Item>
-            <Menu.Item key="3">The second level navigation</Menu.Item>
+            <Menu.Item key="1">Second nav</Menu.Item>
+            <Menu.Item key="2">Second nav</Menu.Item>
+            <Menu.Item key="3">Second nav</Menu.Item>
           </Menu>
         </div>
       </div>

@@ -110,7 +110,7 @@ $ yarn run eject
 
 ### Import on demand
 
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started-cn#按需加载)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
 ```bash
 $ yarn add babel-plugin-import --save-dev

@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 其他元素
   en-US: Other elements
@@ -13,7 +13,7 @@ title:
 
 Divider and disabled menu item.
 
-````__react
+````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = (

@@ -13,7 +13,7 @@ title:
 
 This pattern is used when the horizontal space is limited. By default, Aside navigation is collapsed. You can click the button at the bottom to expand it.
 
-````__react
+````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;

@@ -14,7 +14,7 @@ title:
 
 Manually destroying a modal.
 
-````__react
+````jsx
 import { Modal, Button } from 'antd';
 
 function success() {

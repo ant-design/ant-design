@@ -13,7 +13,7 @@ title:
 
 After `antd@2.0`, the `value` of time-related components had been changed to `moment`. So, we need to pre-process those values.
 
-````__react
+````jsx
 import { Form, DatePicker, TimePicker, Button } from 'antd';
 const FormItem = Form.Item;
 const MonthPicker = DatePicker.MonthPicker;

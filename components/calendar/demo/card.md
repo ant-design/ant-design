@@ -13,7 +13,7 @@ title:
 
 Nested inside a container element for rendering in limited space.
 
-````__react
+````jsx
 import { Calendar } from 'antd';
 
 function onPanelChange(value, mode) {

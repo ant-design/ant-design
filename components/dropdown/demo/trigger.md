@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 触发方式
   en-US: Trigger mode
@@ -13,7 +13,7 @@ title:
 
 The default trigger mode is `hover`, you can change it to `click`.
 
-````__react
+````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = (

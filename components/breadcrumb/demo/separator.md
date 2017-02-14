@@ -13,7 +13,7 @@ title:
 
 The separator can be customized by setting the separator property: separator=">"
 
-````__react
+````jsx
 import { Breadcrumb } from 'antd';
 
 ReactDOM.render(

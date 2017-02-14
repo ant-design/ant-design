@@ -13,7 +13,7 @@ title:
 
 There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
 
-````__react
+````jsx
 import { Menu, Icon, Switch } from 'antd';
 const SubMenu = Menu.SubMenu;
 

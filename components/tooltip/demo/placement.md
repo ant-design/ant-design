@@ -13,7 +13,7 @@ title:
 
 The ToolTip has 12 placements choice.
 
-````__react
+````jsx
 import { Tooltip } from 'antd';
 const text = <span>prompt text</span>;
 

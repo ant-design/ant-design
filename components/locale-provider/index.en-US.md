@@ -13,6 +13,7 @@ title: LocaleProvider
 
 
 ```jsx
+import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 
 ...

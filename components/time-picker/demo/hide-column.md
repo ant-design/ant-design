@@ -13,7 +13,7 @@ TimePicker 浮层中的列会随着 `format` 变化，当略去 `format` 中的�
 
 While part of `format` is omitted, the corresponding column in panel will disappear, too.
 
-````__react
+````jsx
 import { TimePicker } from 'antd';
 import moment from 'moment';
 

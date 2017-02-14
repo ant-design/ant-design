@@ -13,7 +13,7 @@ title:
 
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
-````__react
+````jsx
 import { Checkbox } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 

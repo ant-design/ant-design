@@ -13,7 +13,7 @@ title:
 
 Classic mode. File selection dialog pops up when upload button is clicked 
 
-````__react
+````jsx
 import { Upload, message, Button, Icon } from 'antd';
 
 const props = {

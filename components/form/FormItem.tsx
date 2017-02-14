@@ -190,7 +190,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <Col {...wrapperCol} key="wrapper">
+      <Col className={`${this.props.prefixCls}-item-control-wrapper`} {...wrapperCol} key="wrapper">
         {children}
       </Col>
     );

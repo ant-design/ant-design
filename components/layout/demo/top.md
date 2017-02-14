@@ -13,7 +13,7 @@ title:
 
 The most basic "header-content-footer" layout.
 
-````__react
+````jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
 const { Header, Content, Footer } = Layout;
 

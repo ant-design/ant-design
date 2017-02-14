@@ -3,41 +3,23 @@
 /* eslint-disable */
 'use strict';
 
-// Build a entry less file to dist/antd.less
 const fs = require('fs');
 const path = require('path');
 const packageInfo = require('../package.json');
 
+if (fs.existsSync(path.join(__dirname, '../lib'))) {
+  // Build package.json version to lib/version/index.js
+  // prevent json-loader needing in user-side
+  const versionFilePath = path.join(process.cwd(), 'lib', 'version', 'index.js');
+  const versionFileContent = fs.readFileSync(versionFilePath).toString();
+  fs.writeFileSync(
+    versionFilePath,
+    versionFileContent.replace(`require('../../package.json')`, `{ version: '${packageInfo.version}' }`)
+  );
+}
+
 if (fs.existsSync(path.join(__dirname, '../dist'))) {
-  fs.writeFileSync(path.join(process.cwd(), 'lib', 'version.js'), `
-module.exports = '${packageInfo.version}';
-`);
-
-  const antdV = `
-  (function(root) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports.version = '${packageInfo.version}';
-	else
-		root["antd"].version = '${packageInfo.version}';
-})(this);
-`;
-
-  const antdPath = path.join(process.cwd(), 'dist', 'antd.js');
-  const antdMinPath = path.join(process.cwd(), 'dist', 'antd.min.js');
-
-  if (fs.existsSync(antdPath)) {
-    const content = fs.readFileSync(antdPath, 'utf-8');
-    const minContent = fs.readFileSync(antdMinPath, 'utf-8');
-    fs.writeFileSync(antdPath, `
-${content}
-${antdV}
-`);
-    fs.writeFileSync(antdMinPath, `
-${minContent}
-${antdV}
-`);
-  }
-
+  // Build a entry less file to dist/antd.less
   console.log('Building a entry less file to dist/antd.less');
   const componentsPath = path.join(process.cwd(), 'components');
   let componentsLessContent = '';

@@ -13,7 +13,7 @@ title:
 
 Table with editable rows.
 
-````__react
+````jsx
 import { Table, Input, Popconfirm } from 'antd';
 
 class EditableCell extends React.Component {

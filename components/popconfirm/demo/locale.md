@@ -13,7 +13,7 @@ title:
 
 Set `okText` and `cancelText` props to customise the button's labels.
 
-````__react
+````jsx
 import { Popconfirm } from 'antd';
 
 ReactDOM.render(

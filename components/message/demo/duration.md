@@ -13,7 +13,7 @@ title:
 
 Customize message display duration from default `1.5s` to `10s`.
 
-````__react
+````jsx
 import { message, Button } from 'antd';
 
 const success = function () {

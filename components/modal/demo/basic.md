@@ -13,7 +13,7 @@ title:
 
 Basic modal dialog.
 
-````__react
+````jsx
 import { Modal, Button } from 'antd';
 
 const App = React.createClass({

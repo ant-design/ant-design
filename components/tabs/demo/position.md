@@ -13,7 +13,7 @@ title:
 
 Tab's position: left, right, top or bottom.
 
-````__react
+````jsx
 import { Tabs, Select } from 'antd';
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;

@@ -13,7 +13,7 @@ title:
 
 Components which need localization support are listed here, you can toggle the language in the demo.
 
-````__react
+````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 带下拉框的按钮
   en-US: Button with dropdown menu
@@ -13,7 +13,7 @@ title:
 
 A button is on the left, and a related functional menu is on the right.
 
-````__react
+````jsx
 import { Menu, Dropdown, Button, Icon, message } from 'antd';
 
 function handleButtonClick(e) {

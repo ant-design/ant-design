@@ -13,7 +13,7 @@ title:
 
 Disable option by specifying the `disabled` property in `options`.
 
-````__react
+````jsx
 import { Cascader } from 'antd';
 
 const options = [{

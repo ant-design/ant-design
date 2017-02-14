@@ -13,7 +13,7 @@ title:
 
 Controlled mode.
 
-````__react
+````jsx
 import { Mention } from 'antd';
 const { toEditorState } = Mention;
 

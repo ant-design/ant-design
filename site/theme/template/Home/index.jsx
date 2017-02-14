@@ -60,6 +60,12 @@ function getStyle() {
       color: rgba(0, 0, 0, 0.65);
       border-color: rgba(0, 0, 0, 0.65);
     }
+    .home-nav-white .version > .ant-select-selection {
+      color: rgba(0, 0, 0, 0.65);
+    }
+    .home-nav-white .version > .ant-select-selection:not(:hover) {
+      border-color: rgba(0, 0, 0, 0.65);
+    }
     .nav-phone-icon:before {
       background: #eee;
       box-shadow: 0 7px 0 0 #eee, 0 14px 0 0 #eee;
@@ -69,9 +75,10 @@ function getStyle() {
       box-shadow: 0 7px 0 0 #777, 0 14px 0 0 #777;
     }
     .lang,
+    .version > .ant-select-selection,
     #nav a {
       color: #eee;
-      transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     }
     #search-box {
       border-left-color: rgba(235, 237, 238, .5);

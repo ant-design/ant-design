@@ -1,11 +1,13 @@
 import React from 'react';
 import { cloneElement } from 'react';
+import { findDOMNode } from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
+import isFlexSupported from '../_util/isFlexSupported';
 
 export type TabsType = 'line' | 'card' | 'editable-card'
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -33,6 +35,8 @@ export interface TabPaneProps {
   tab?: React.ReactNode | string;
   style?: React.CSSProperties;
   closable?: boolean;
+  className?: string;
+  disabled?: boolean;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
@@ -67,6 +71,14 @@ export default class Tabs extends React.Component<TabsProps, any> {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(activeKey);
+    }
+  }
+
+  componentDidMount() {
+    const NO_FLEX = ' no-flex';
+    const tabNode = findDOMNode(this);
+    if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
+      tabNode.className += NO_FLEX;
     }
   }
 

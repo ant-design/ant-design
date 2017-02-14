@@ -13,7 +13,7 @@ title:
 
 Click the button to toggle between available and disabled states.
 
-````__react
+````jsx
 import { InputNumber, Button } from 'antd';
 
 const Test = React.createClass({

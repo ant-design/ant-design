@@ -13,7 +13,7 @@ title:
 
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
-```__react
+```jsx
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;

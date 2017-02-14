@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 触发事件
   en-US: Click event
@@ -13,7 +13,7 @@ title:
 
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
-````__react
+````jsx
 import { Menu, Dropdown, Icon, message } from 'antd';
 const onClick = function ({ key }) {
   message.info(`Click on item ${key}`);

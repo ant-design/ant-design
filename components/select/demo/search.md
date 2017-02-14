@@ -13,7 +13,7 @@ title:
 
 Search the options while expanded.
 
-````__react
+````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
 

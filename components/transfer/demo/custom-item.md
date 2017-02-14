@@ -13,7 +13,7 @@ title:
 
 Custom each Transfer Item, and in this way you can render a complex datasource.
 
-````__react
+````jsx
 import { Transfer } from 'antd';
 
 const App = React.createClass({

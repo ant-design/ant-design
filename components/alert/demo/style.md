@@ -13,7 +13,7 @@ title:
 
 There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 
-````__react
+````jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(<div>

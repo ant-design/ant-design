@@ -13,7 +13,7 @@ value 和 onChange 需要配合使用。
 
 `value` and `onChange` should be used together,
 
-````__react
+````jsx
 import { TimePicker } from 'antd';
 
 class Demo extends React.Component {

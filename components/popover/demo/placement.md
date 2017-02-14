@@ -13,7 +13,7 @@ title:
 
 There are 12 `placement` options available.
 
-````__react
+````jsx
 import { Popover, Button } from 'antd';
 
 const text = <span>Title</span>;

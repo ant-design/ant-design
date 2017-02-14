@@ -83,3 +83,9 @@ declare var process: {
     NODE_ENV: string
   }
 };
+
+declare module "*.json" {
+  const value: any;
+  export const version: string;
+  export default value;
+}

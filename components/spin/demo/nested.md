@@ -13,7 +13,7 @@ title:
 
 Embedding content into `Spin` will alter it into loading state.
 
-````__react
+````jsx
 import { Spin, Switch, Alert } from 'antd';
 
 const Card = React.createClass({

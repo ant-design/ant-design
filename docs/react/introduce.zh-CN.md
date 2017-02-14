@@ -36,7 +36,7 @@ title: Ant Design of React
 
 现代浏览器和 IE9 及以上。
 
-> [更多兼容性信息](/docs/react/getting-started-cn#兼容性)
+> [更多兼容性信息](/docs/react/getting-started#兼容性)
 
 ## 版本
 
@@ -126,7 +126,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [定制主题](/docs/react/customize-theme-cn)
+- [定制主题](/docs/react/customize-theme)
 
 ## 谁在使用
 
