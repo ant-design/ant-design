@@ -20,7 +20,7 @@ describe('Button', () => {
 
   it('have static perperty for type detecting', () => {
     const wrapper = mount(
-      <Button>按钮</Button>
+      <Button>Button Text</Button>
     );
     // eslint-disable-next-line
     expect(wrapper.type().__ANT_BUTTON).toBe(true);
