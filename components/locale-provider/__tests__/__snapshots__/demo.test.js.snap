@@ -126,7 +126,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
     <div
       class="example">
       <div
-        class="ant-select-show-search ant-select ant-select-enabled"
+        class="ant-select ant-select-enabled"
         style="width:200px;">
         <div
           aria-autocomplete="list"
