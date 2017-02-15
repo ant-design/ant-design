@@ -185,7 +185,10 @@ export default class Upload extends React.Component<UploadProps, any> {
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    this.handleRemove(targetItem);
+    this.onChange({
+      file: targetItem,
+      fileList,
+    });
   }
 
   handleRemove(file) {

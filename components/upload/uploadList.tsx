@@ -1,6 +1,7 @@
 import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
+import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
 import { UploadListProps } from './interface';
@@ -147,7 +148,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
 
-      return (
+      const item = (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
@@ -157,6 +158,17 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           {progress}
         </div>
       );
+
+      if (file.status === 'error') {
+        const message = file.response || (file.error && file.error.statusText) || 'Upload Error';
+        return (
+          <Tooltip title={message} key={file.uid}>
+            {item}
+          </Tooltip>
+        );
+      }
+
+      return item;
     });
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
