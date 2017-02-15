@@ -1,5 +1,5 @@
 ---
-order: 24
+order: 25
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性

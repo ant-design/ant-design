@@ -6555,6 +6555,238 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
 </div>
 `;
 
+exports[`test renders ./components/table/demo/nested-table.md correctly 1`] = `
+<div
+  class="components-table-demo-nested clearfix">
+  <div
+    class="ant-spin-nested-loading">
+    <div
+      class="ant-spin-container">
+      <div
+        class="ant-table ant-table-large ant-table-scroll-position-left">
+        <div
+          class="ant-table-content">
+          <div
+            class="">
+            <span>
+              <div
+                class="ant-table-body">
+                <table
+                  class="">
+                  <colgroup>
+                    <col
+                      class="ant-table-expand-icon-col" />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead">
+                    <tr>
+                      <th
+                        class="ant-table-expand-icon-th"
+                        rowspan="1"
+                        title="" />
+                      <th
+                        class="">
+                        <span>
+                          Name
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Platform
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Version
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Upgraded
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Creator
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Date
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Action
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody">
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="ant-table-row-expand-icon-cell">
+                        <span
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
+                        <a
+                          href="#">
+                          Publish
+                        </a>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="ant-table-row-expand-icon-cell">
+                        <span
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
+                        <a
+                          href="#">
+                          Publish
+                        </a>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="ant-table-row-expand-icon-cell">
+                        <span
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
+                        <a
+                          href="#">
+                          Publish
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination"
+        unselectable="unselectable">
+        <li
+          class="ant-pagination-disabled ant-pagination-prev"
+          title="上一页">
+          <a />
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          title="1">
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          class="ant-pagination-disabled ant-pagination-next"
+          title="下一页">
+          <a />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
 <div>
   <div
