@@ -90,6 +90,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element) {
     if ((element.type.__ANT_BUTTON || element.type === 'button') && element.props.disabled) {
+      // reserve display style for <Button style={{ display: 'block '}}></Button>
+      // Note:
+      //   If people override ant-btn's style.display by css,
+      //   it will be affected cause we reset it to 'inline-block'
       const displayStyle = (element.props.style && element.props.style.display)
         ? element.props.style.display : 'inline-block';
       const child = cloneElement(element, {
