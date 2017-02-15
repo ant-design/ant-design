@@ -72,8 +72,8 @@
     text-align: left;
     outline: 0;
     -moz-appearance: textfield;
-    line-height: 26px;
-    height: 26px;
+    line-height: @input-height-base - 2px;
+    height: @input-height-base - 2px;
     transition: all 0.3s linear;
     color: @text-color;
     border: 0;
@@ -87,48 +87,19 @@
 
   &-lg {
     padding: 0;
-    .@{input-number-prefix-cls}-handler {
-      height: 16px;
-    }
 
     input {
-      height: 30px;
-      line-height: 30px;
-    }
-
-    .@{input-number-prefix-cls}-handler-up-inner {
-      top: 2px;
-    }
-    .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: 2px;
-    }
-    .@{input-number-prefix-cls}-handler-up:hover {
-      height: 18px;
+      height: @input-height-lg - 2px;
+      line-height: @input-height-lg - 2px;
     }
   }
 
   &-sm {
     padding: 0;
-    .@{input-number-prefix-cls}-handler {
-      height: 11px;
-    }
 
     input {
-      height: 20px;
-      line-height: 20px;
-    }
-
-    .@{input-number-prefix-cls}-handler-up-inner {
-      top: -1px;
-    }
-    .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: -1px;
-    }
-    .@{input-number-prefix-cls}-handler-up:hover {
-      height: 13px;
-    }
-    .@{input-number-prefix-cls}-handler-down:hover .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: 4px;
+      height: @input-height-sm - 2px;
+      line-height: @input-height-sm - 2px;
     }
   }
 
@@ -145,6 +116,10 @@
     transition: opacity 0.24s linear 0.1s;
   }
 
+  &-handler-wrap:hover &-handler {
+    height: 40%;
+  }
+
   &:hover &-handler-wrap {
     opacity: 1;
   }
@@ -152,17 +127,15 @@
   &-handler-up {
     cursor: pointer;
     &-inner {
-      top: 1px;
+      top: 50%;
+      margin-top: -6px;
       &:before {
         text-align: center;
         content: "\e61e";
       }
     }
     &:hover {
-      height: 16px;
-    }
-    &:hover &-inner {
-      margin-top: 2px;
+      height: 60%!important;
     }
   }
 
@@ -171,14 +144,15 @@
     top: -1px;
     cursor: pointer;
     &-inner {
+      top: 50%;
+      margin-top: -6px;
       &:before {
         text-align: center;
         content: "\e61d";
       }
     }
     &:hover {
-      height: 16px;
-      margin-top: -2px;
+      height: 60%!important;
     }
   }
 
