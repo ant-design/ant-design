@@ -333,10 +333,15 @@
           display: none;
         }
       }
+
+      .@{table-prefix-cls}-placeholder {
+        border: 0;
+      }
     }
   }
 
   &-placeholder {
+    position: relative;
     padding: 16px 8px;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
