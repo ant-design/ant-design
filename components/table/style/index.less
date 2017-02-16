@@ -493,6 +493,11 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
+
+    // Fix https://github.com/ant-design/ant-design/issues/4637
+    &::-webkit-scrollbar {
+      opacity: 0.001;
+    }
   }
 
   /* fix firefox scrollbar bug */
