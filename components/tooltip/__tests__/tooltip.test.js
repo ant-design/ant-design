@@ -64,13 +64,14 @@ describe('Tooltip', () => {
       </Tooltip>
     );
 
-    const button = wrapper.find('button').at(0);
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
-    expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
 
     button.simulate('mouseleave');
-    expect(onVisibleChange).not.toHaveBeenCalled();
+    expect(onVisibleChange).toBeCalledWith(false);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
   });
 
@@ -87,13 +88,14 @@ describe('Tooltip', () => {
       </Tooltip>
     );
 
-    const button = wrapper.find('button').at(0);
+    expect(wrapper.getDOMNode().tagName).toBe('SPAN');
+    const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
-    expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
 
     button.simulate('mouseleave');
-    expect(onVisibleChange).not.toHaveBeenCalled();
+    expect(onVisibleChange).toBeCalledWith(false);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
   });
 
