@@ -85,6 +85,32 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     });
   }
 
+  // Fix Tooltip won't hide at disabled button
+  // mouse events don't trigger at disabled button in Chrome
+  // https://github.com/react-component/tooltip/issues/18
+  getDisabledCompatibleChildren(element) {
+    if ((element.type.__ANT_BUTTON || element.type === 'button') && element.props.disabled) {
+      // reserve display style for <Button style={{ display: 'block '}}></Button>
+      // Note:
+      //   If people override ant-btn's style.display by css,
+      //   it will be affected cause we reset it to 'inline-block'
+      const displayStyle = (element.props.style && element.props.style.display)
+        ? element.props.style.display : 'inline-block';
+      const child = cloneElement(element, {
+        style: {
+          ...element.props.style,
+          pointerEvents: 'none',
+        },
+      });
+      return (
+        <span style={{ display: displayStyle, cursor: 'not-allowed' }}>
+          {child}
+        </span>
+      );
+    }
+    return element;
+  }
+
   isNoTitle() {
     const { title, overlay } = this.props;
     return !title && !overlay;  // overlay for old version compatibility
@@ -132,7 +158,9 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       visible = false;
     }
 
-    const child = React.isValidElement(children) ? children : <span>{children}</span>;
+    const child = this.getDisabledCompatibleChildren(
+      React.isValidElement(children) ? children : <span>{children}</span>
+    );
     const childProps = child.props;
     const childCls = classNames(childProps.className, {
       [openClassName || `${prefixCls}-open`]: true,

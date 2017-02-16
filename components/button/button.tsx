@@ -46,6 +46,7 @@ export interface ButtonProps {
 
 export default class Button extends React.Component<ButtonProps, any> {
   static Group: any;
+  static __ANT_BUTTON = true;
 
   static defaultProps = {
     prefixCls: 'ant-btn',
