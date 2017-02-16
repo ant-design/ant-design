@@ -290,12 +290,19 @@
   &-item-group-list {
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 16px 0 28px;
+      padding: 0 16px;
       font-size: @font-size-base;
       line-height: 42px;
       height: 42px;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+  }
+
+  &-item-group-list {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      padding: 0 16px 0 28px;
     }
   }
 
