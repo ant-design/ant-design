@@ -18,8 +18,8 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 Property | Description | Type | Default
 -----|-----|-----|------
-value | To set the current selected treeNode(s). | __Default:__ string\|string[]. __With `labelInValue` set:__ { value: string, label: ReactNode }/Array<{ value: string, label: ReactNode }>. __With `treeCheckStrictly` set(`halfChecked` is set to `false`):__ { value: string, label: ReactNode, halfChecked: string[] }/Array<{ value: string, label: ReactNode, halfChecked: string[] }>. | -
-labelInValue | Determine whether to put `label` into `value`, the type of `value` as specified in the above | boolean | false
+value | To set the current selected treeNode(s). | string\|string[] | -
+labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode, halfChecked: string[]} | boolean | false
 defaultValue | To set the initial selected treeNode(s).  | string\|string[] | -
 multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | boolean | false
 onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | -
