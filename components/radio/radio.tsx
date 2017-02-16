@@ -49,7 +49,7 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseLeave={this.props.onMouseLeave}
       >
         <RcRadio {...this.props} className={classString} style={null} children={null} />
-        {children ? <span>{children}</span> : null}
+        {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
   }
