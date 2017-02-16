@@ -75,8 +75,8 @@
 
   &-blur {
     opacity: 0.7;
-    -webkit-filter: blur(1px);
-    filter: blur(1px);
+    -webkit-filter: blur(0.8px);
+    filter: blur(0.8px);
 
     /* IE6~IE9 */
     filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; // lesshint duplicateProperty: false
@@ -91,7 +91,9 @@
       right: 0;
       top: 0;
       bottom: 0;
-      background: transparent;
+      background: #fff;
+      opacity: 0.2;
+      transition: all .3s;
     }
   }
 
