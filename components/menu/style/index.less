@@ -124,10 +124,19 @@
     }
   }
 
-  &-vertical &-sub {
+  &-vertical&-sub {
     border-right: 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
+      margin-left: 0;
+      left: 0;
+    }
+    > .@{menu-prefix-cls}-item:first-child {
+      border-radius: @border-radius-base @border-radius-base 0 0;
+    }
+    > .@{menu-prefix-cls}-item:last-child,
+    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
