@@ -491,10 +491,8 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
-    // Fix https://github.com/ant-design/ant-design/issues/4637
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    padding-bottom: 20px;
+    margin-bottom: -20px;
   }
 
   /* fix firefox scrollbar bug */
