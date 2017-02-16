@@ -79,8 +79,8 @@ export default class Sider extends React.Component<SiderProps, any> {
       [`${prefixCls}-has-trigger`]: !!trigger,
     });
     const divStyle = {
-      ...style,
       flex: `0 0 ${this.state.collapsed ? collapsedWidth : width}px`,
+      ...style,
     };
     const iconObj = {
       'expanded': reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
