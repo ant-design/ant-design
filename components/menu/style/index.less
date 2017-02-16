@@ -116,7 +116,7 @@
   &-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: @border-width-base @border-style-base @border-color-split;
+      border-right: 3px @border-style-base transparent;
       margin-left: -1px;
       left: 1px;
       position: relative;
@@ -134,7 +134,7 @@
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right: 3px solid @primary-color;
+      border-right-color: @primary-color;
       transform: translateZ(0);
     }
   }
