@@ -3,6 +3,17 @@
 
 @layout-prefix-cls: ~"@{ant-prefix}-layout";
 
+.make-sider(@size: ~'', @type: ~'') when (@{type} == '-banner') {
+  .@{layout-prefix-cls}-sider@{size}@{type} {
+    flex: 0 0 100%;
+  }
+}
+.make-sider(@size: ~'', @type: ~'') when (@{type} != '-banner') {
+  .@{layout-prefix-cls}-sider@{size}@{type} {
+    flex: 0 0 200px;
+  }
+}
+
 .@{layout-prefix-cls} {
   display: flex;
   flex-direction: column;
@@ -61,4 +72,24 @@
       color: #fff;
     }
   }
+}
+
+.make-sider();
+
+.make-sider(-xs, -banner);
+
+@media (min-width: @screen-sm-min) {
+  .make-grid(-sm, -banner);
+}
+
+@media (min-width: @screen-md-min) {
+  .make-grid(-md, -banner);
+}
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(-lg, -banner);
+}
+
+@media (min-width: @screen-xl-min) {
+  .make-grid(-xl, -banner);
 }
