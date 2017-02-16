@@ -6555,9 +6555,9 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
+exports[`test renders ./components/table/demo/nested-table.md correctly 1`] = `
 <div
-  class=" clearfix">
+  class="components-table-demo-nested clearfix">
   <div
     class="ant-spin-nested-loading">
     <div
@@ -6574,6 +6574,12 @@ exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
                 <table
                   class="">
                   <colgroup>
+                    <col
+                      class="ant-table-expand-icon-col" />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
                     <col />
                     <col />
                     <col />
@@ -6581,6 +6587,10 @@ exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
                   <thead
                     class="ant-table-thead">
                     <tr>
+                      <th
+                        class="ant-table-expand-icon-th"
+                        rowspan="1"
+                        title="" />
                       <th
                         class="">
                         <span>
@@ -6590,13 +6600,37 @@ exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
                       <th
                         class="">
                         <span>
-                          Age
+                          Platform
                         </span>
                       </th>
                       <th
                         class="">
                         <span>
-                          Address
+                          Version
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Upgraded
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Creator
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Date
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Action
                         </span>
                       </th>
                     </tr>
@@ -6606,211 +6640,118 @@ exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
                     <tr
                       class="ant-table-row  ant-table-row-level-0">
                       <td
-                        class="">
+                        class="ant-table-row-expand-icon-cell">
                         <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
                         <a
                           href="#">
-                          Edward King 0
+                          Publish
                         </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 0
                       </td>
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0">
                       <td
-                        class="">
+                        class="ant-table-row-expand-icon-cell">
                         <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
                         <a
                           href="#">
-                          Edward King 1
+                          Publish
                         </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 1
                       </td>
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0">
                       <td
-                        class="">
+                        class="ant-table-row-expand-icon-cell">
                         <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
+                          class="ant-table-row-expand-icon ant-table-row-collapsed" />
+                      </td>
+                      <td
+                        class="">
+                        Screem
+                      </td>
+                      <td
+                        class="">
+                        iOS
+                      </td>
+                      <td
+                        class="">
+                        10.3.4.5654
+                      </td>
+                      <td
+                        class="">
+                        500
+                      </td>
+                      <td
+                        class="">
+                        Jack
+                      </td>
+                      <td
+                        class="">
+                        2014-12-24 23:12:00
+                      </td>
+                      <td
+                        class="">
                         <a
                           href="#">
-                          Edward King 2
+                          Publish
                         </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 2
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 3
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 3
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 4
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 4
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 5
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 5
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 6
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 6
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 7
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 7
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 8
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 8
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        <a
-                          href="#">
-                          Edward King 9
-                        </a>
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                      <td
-                        class="">
-                        London, Park Lane no. 9
                       </td>
                     </tr>
                   </tbody>
@@ -6836,68 +6777,10 @@ exports[`test renders ./components/table/demo/paging.md correctly 1`] = `
           </a>
         </li>
         <li
-          class="ant-pagination-item ant-pagination-item-2"
-          title="2">
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-3"
-          title="3">
-          <a>
-            3
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-4"
-          title="4">
-          <a>
-            4
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-5"
-          title="5">
-          <a>
-            5
-          </a>
-        </li>
-        <li
-          class=" ant-pagination-next"
+          class="ant-pagination-disabled ant-pagination-next"
           title="下一页">
           <a />
         </li>
-        <div
-          class="ant-pagination-options">
-          <div
-            class="ant-pagination-options-size-changer ant-select ant-select-enabled">
-            <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0">
-              <div
-                class="ant-select-selection__rendered">
-                <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
-                  title="10 条/页">
-                  10 条/页
-                </div>
-              </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
-                unselectable="unselectable">
-                <b />
-              </span>
-            </div>
-          </div>
-        </div>
       </ul>
     </div>
   </div>
