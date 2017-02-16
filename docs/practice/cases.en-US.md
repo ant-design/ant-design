@@ -5,11 +5,11 @@ title: Cases
 
 Ant Design is a design language for enterprise-like complex UIs.
 
-Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 40 systems.
+Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 300 applications.
 Designed for enterprise-like complex UIs, used by both professional and non-professional designers,
 Ant Design has a low learning curve that helps you getting started fast and achieve rapid results.
- 
-With a strong focus on proof-based design and user experience, 
+
+With a strong focus on proof-based design and user experience,
 Ant Design provides a complete front-end development solution that can greatly enhance the design and development efficiency.
 
 Currently, there are many products and sites using Ant Design.
@@ -53,7 +53,7 @@ OceanBase Cloud is a distributed relational database in a real sense, but OceanB
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/sBlmIcJXZdJTJbC.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/fRDuTjVbVApxyzU.png">
 
-Experience Platform is used for collecting all the points of contact and information of the user (including microblogging and other channels). 
+Experience Platform is used for collecting all the points of contact and information of the user (including microblogging and other channels).
 Through data mining, it exposes the users's experience and it helps the company's internal business team / product managers, facilitating the experience problem solving, in order to achieve healthy functioning streams.
 
 <p><a class="outside-link internal" href="http://tiyan.alipay.com/" target="_blank">Website</a></p>
@@ -66,8 +66,8 @@ Through data mining, it exposes the users's experience and it helps the company'
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/nvJftlNzfzhVDVW.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/LugOCvzybKsmQCj.png">
 
-AntV is a graphical library that is based on the work of a data group team 
-whose results of exploring data visualization were summarized 
+AntV is a graphical library that is based on the work of a data group team
+whose results of exploring data visualization were summarized
 and shared them together with the required data visualization theory.
 
 <p><a class="outside-link internal" href="https://antv.alipay.com/" target="_blank">Website</a></p>

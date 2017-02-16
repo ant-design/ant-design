@@ -25,7 +25,7 @@ ReactDOM.render(
   <div>
     <DatePicker onChange={onChange} />
     <br />
-    <MonthPicker onChange={onChange} />
+    <MonthPicker onChange={onChange} placeholder="Select month" />
     <br />
     <RangePicker onChange={onChange} />
   </div>

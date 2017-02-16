@@ -18,7 +18,7 @@ exports[`test renders ./components/date-picker/demo/basic.md correctly 1`] = `
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select month"
         readonly=""
         value="" />
       <span

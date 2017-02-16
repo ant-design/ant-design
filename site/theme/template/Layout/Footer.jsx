@@ -68,14 +68,14 @@ class Footer extends React.Component {
               </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+              <a target="_blank " href="https://ant.design/docs/react/customize-theme">
+                <FormattedMessage id="app.footer.customize-theme" />
+              </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
-              <FormattedMessage id="app.footer.scaffold" />
-            </div>
-            <div>
-              <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - <FormattedMessage id="app.footer.dev-tools" />
+              <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
+                <FormattedMessage id="app.footer.awesome" />
+              </a>
             </div>
           </li>
           <li>
@@ -84,6 +84,13 @@ class Footer extends React.Component {
               <a href="http://mobile.ant.design">Ant Design Mobile</a>
               <span> - </span>
               <FormattedMessage id="app.footer.mobile" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
+              <FormattedMessage id="app.footer.dev-tools" />
             </div>
             <div>
               <a href="https://antv.alipay.com/">AntV</a>
@@ -103,7 +110,7 @@ class Footer extends React.Component {
             <div>
               <a href="http://ux.ant.design">Ant UX</a>
               <span> - </span>
-              <FormattedMessage id="app.footer.material" />
+              <FormattedMessage id="app.footer.antux" />
             </div>
           </li>
           <li>
@@ -114,8 +121,8 @@ class Footer extends React.Component {
               </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
-                <FormattedMessage id="app.footer.feedback" />
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/wiki/FAQ">
+                <FormattedMessage id="app.footer.faq" />
               </a>
             </div>
             <div>
@@ -128,9 +135,22 @@ class Footer extends React.Component {
                 <FormattedMessage id="app.footer.bug-report" />
               </a>
             </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="http://stackoverflow.com/questions/tagged/antd">
+                <FormattedMessage id="app.footer.stackoverflow" />
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/t/antd">
+                <FormattedMessage id="app.footer.segmentfault" />
+              </a>
+            </div>
           </li>
           <li>
-            <div>©2016 <FormattedMessage id="app.footer.author" /></div>
+            <h2>Copyright © 2017</h2>
+            <div>
+              <FormattedMessage id="app.footer.author" />
+            </div>
             <div>Built with <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
           </li>
         </ul>

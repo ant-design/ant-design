@@ -351,6 +351,19 @@ exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
       Click me!
     </span>
   </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-circle ant-btn-loading"
+    type="button">
+    <i
+      class="anticon anticon-spin anticon-loading" />
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-loading"
+    type="button">
+    <i
+      class="anticon anticon-spin anticon-loading" />
+  </button>
 </div>
 `;
 
