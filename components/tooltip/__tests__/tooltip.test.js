@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from '..';
+import Button from '../../button';
 
 describe('Tooltip', () => {
   it('check `onVisibleChange` arguments', () => {
@@ -48,5 +49,68 @@ describe('Tooltip', () => {
     wrapper.simulate('mouseleave');
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+  });
+
+  it('should hide when mouse leave native disabled button', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <button disabled>Hello world!</button>
+      </Tooltip>
+    );
+
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
+
+    button.simulate('mouseleave');
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+  });
+
+  it('should hide when mouse leave antd disabled Button', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <Button disabled>Hello world!</Button>
+      </Tooltip>
+    );
+
+    expect(wrapper.getDOMNode().tagName).toBe('SPAN');
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
+
+    button.simulate('mouseleave');
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+  });
+
+  it('should render disabled Button style properly', () => {
+    const wrapper1 = mount(
+      <Tooltip title="xxxxx">
+        <Button disabled>Hello world!</Button>
+      </Tooltip>
+    );
+    const wrapper2 = mount(
+      <Tooltip title="xxxxx">
+        <Button disabled style={{ display: 'block' }}>Hello world!</Button>
+      </Tooltip>
+    );
+    expect(wrapper1.getDOMNode().style.display).toBe('inline-block');
+    expect(wrapper2.getDOMNode().style.display).toBe('block');
   });
 });

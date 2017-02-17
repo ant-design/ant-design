@@ -6,6 +6,7 @@
 @import "./mixin";
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
+@form-component-height: @input-height-lg;
 
 .reset-form();
 
@@ -75,7 +76,7 @@ input[type="checkbox"] {
   }
 
   &-control {
-    line-height: 32px;
+    line-height: @form-component-height;
     position: relative;
     .clearfix;
   }
@@ -87,7 +88,7 @@ input[type="checkbox"] {
   &-label {
     text-align: right;
     vertical-align: middle;
-    padding: 7px 0;
+    line-height: @form-component-height;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;

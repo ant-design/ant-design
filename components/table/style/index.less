@@ -333,10 +333,15 @@
           display: none;
         }
       }
+
+      .@{table-prefix-cls}-placeholder {
+        border: 0;
+      }
     }
   }
 
   &-placeholder {
+    position: relative;
     padding: 16px 8px;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -486,9 +491,12 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+
     // Fix https://github.com/ant-design/ant-design/issues/4637
     &::-webkit-scrollbar {
-      display: none;
+      opacity: 0.001;
     }
   }
 

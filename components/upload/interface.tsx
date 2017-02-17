@@ -16,6 +16,8 @@ export interface File {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File;
+  response?: string;
+  error?: any;
 }
 
 export interface UploadChangeParam {

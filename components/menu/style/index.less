@@ -38,6 +38,11 @@
     transition: all 0.3s ease;
   }
 
+  &-item:active,
+  &-submenu-title:active {
+    background: @primary-1;
+  }
+
   &-submenu &-sub {
     cursor: initial;
   }
@@ -70,6 +75,7 @@
 
   &-item:hover,
   &-item-active,
+  &-submenu-open,
   &-submenu-active,
   &-submenu-title:hover {
     color: @primary-color;
@@ -110,7 +116,7 @@
   &-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: @border-width-base @border-style-base @border-color-split;
+      border-right: 3px @border-style-base transparent;
       margin-left: -1px;
       left: 1px;
       position: relative;
@@ -118,17 +124,26 @@
     }
   }
 
-  &-vertical &-sub {
+  &-vertical&-sub {
     border-right: 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
+      margin-left: 0;
+      left: 0;
+    }
+    > .@{menu-prefix-cls}-item:first-child {
+      border-radius: @border-radius-base @border-radius-base 0 0;
+    }
+    > .@{menu-prefix-cls}-item:last-child,
+    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right: 3px solid @primary-color;
+      border-right-color: @primary-color;
       transform: translateZ(0);
     }
   }
@@ -247,6 +262,7 @@
 
       &:hover,
       &-active,
+      &-open,
       &-selected {
         border-bottom: 2px solid @primary-color;
         color: @primary-color;
@@ -270,16 +286,22 @@
   }
 
   &-vertical,
-  &-inline,
-  &-item-group-list {
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 16px 0 28px;
+  &-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0 16px;
       font-size: @font-size-base;
       line-height: 42px;
       height: 42px;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+  }
+
+  &-item-group-list {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0 16px 0 28px;
     }
   }
 
@@ -373,6 +395,7 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark &-submenu-open,
   &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {

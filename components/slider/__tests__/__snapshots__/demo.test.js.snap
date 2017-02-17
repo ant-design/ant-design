@@ -5,12 +5,12 @@ exports[`test renders ./components/slider/demo/basic.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:30%;" />
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:30%;" />
     <div
       class="ant-slider-mark" />
@@ -25,10 +25,10 @@ exports[`test renders ./components/slider/demo/basic.md correctly 1`] = `
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+      class="ant-slider-handle ant-slider-handle-1"
       style="left:20%;" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle ant-slider-handle-2"
       style="left:50%;" />
     <div
       class="ant-slider-mark" />
@@ -50,12 +50,12 @@ exports[`test renders ./components/slider/demo/event.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:30%;" />
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:30%;" />
     <div
       class="ant-slider-mark" />
@@ -70,10 +70,10 @@ exports[`test renders ./components/slider/demo/event.md correctly 1`] = `
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+      class="ant-slider-handle ant-slider-handle-1"
       style="left:20%;" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle ant-slider-handle-2"
       style="left:50%;" />
     <div
       class="ant-slider-mark" />
@@ -91,12 +91,12 @@ exports[`test renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:0%;" />
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:0%;" />
     <div
       class="ant-slider-mark" />
@@ -117,12 +117,12 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
         <div
           class="ant-slider-rail" />
         <div
-          class="ant-slider-track ant-slider-track-1"
+          class="ant-slider-track"
           style="visibility:visible;left:0%;width:0%;" />
         <div
           class="ant-slider-step" />
         <div
-          class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+          class="ant-slider-handle"
           style="left:0%;" />
         <div
           class="ant-slider-mark" />
@@ -171,12 +171,12 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
         <div
           class="ant-slider-rail" />
         <div
-          class="ant-slider-track ant-slider-track-1"
+          class="ant-slider-track"
           style="visibility:visible;left:0%;width:0%;" />
         <div
           class="ant-slider-step" />
         <div
-          class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+          class="ant-slider-handle"
           style="left:0%;" />
         <div
           class="ant-slider-mark" />
@@ -229,7 +229,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:37%;" />
     <div
       class="ant-slider-step">
@@ -247,7 +247,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
         style="left:100%;" />
     </div>
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:37%;" />
     <div
       class="ant-slider-mark">
@@ -298,10 +298,10 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
         style="left:100%;" />
     </div>
     <div
-      class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+      class="ant-slider-handle ant-slider-handle-1"
       style="left:26%;" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle ant-slider-handle-2"
       style="left:37%;" />
     <div
       class="ant-slider-mark">
@@ -337,7 +337,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:hidden;left:0%;width:37%;" />
     <div
       class="ant-slider-step">
@@ -355,7 +355,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
         style="left:100%;" />
     </div>
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:37%;" />
     <div
       class="ant-slider-mark">
@@ -391,7 +391,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:37%;" />
     <div
       class="ant-slider-step">
@@ -409,7 +409,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
         style="left:100%;" />
     </div>
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:37%;" />
     <div
       class="ant-slider-mark">
@@ -445,7 +445,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:37%;" />
     <div
       class="ant-slider-step">
@@ -463,7 +463,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
         style="left:100%;" />
     </div>
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:37%;" />
     <div
       class="ant-slider-mark">
@@ -501,12 +501,12 @@ exports[`test renders ./components/slider/demo/tip-formatter.md correctly 1`] = 
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:0%;" />
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:0%;" />
     <div
       class="ant-slider-mark" />
@@ -516,12 +516,12 @@ exports[`test renders ./components/slider/demo/tip-formatter.md correctly 1`] = 
     <div
       class="ant-slider-rail" />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track"
       style="visibility:visible;left:0%;width:0%;" />
     <div
       class="ant-slider-step" />
     <div
-      class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+      class="ant-slider-handle"
       style="left:0%;" />
     <div
       class="ant-slider-mark" />
@@ -539,12 +539,12 @@ exports[`test renders ./components/slider/demo/vertical.md correctly 1`] = `
       <div
         class="ant-slider-rail" />
       <div
-        class="ant-slider-track ant-slider-track-1"
+        class="ant-slider-track"
         style="visibility:visible;bottom:0%;height:30%;" />
       <div
         class="ant-slider-step" />
       <div
-        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        class="ant-slider-handle"
         style="bottom:30%;" />
       <div
         class="ant-slider-mark" />
@@ -562,10 +562,10 @@ exports[`test renders ./components/slider/demo/vertical.md correctly 1`] = `
       <div
         class="ant-slider-step" />
       <div
-        class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+        class="ant-slider-handle ant-slider-handle-1"
         style="bottom:20%;" />
       <div
-        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        class="ant-slider-handle ant-slider-handle-2"
         style="bottom:50%;" />
       <div
         class="ant-slider-mark" />
@@ -596,10 +596,10 @@ exports[`test renders ./components/slider/demo/vertical.md correctly 1`] = `
           style="bottom:100%;" />
       </div>
       <div
-        class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+        class="ant-slider-handle ant-slider-handle-1"
         style="bottom:26%;" />
       <div
-        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        class="ant-slider-handle ant-slider-handle-2"
         style="bottom:37%;" />
       <div
         class="ant-slider-mark">

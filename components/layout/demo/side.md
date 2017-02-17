@@ -16,14 +16,19 @@ Be used in the two-columns layout.
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 class SiderDemo extends React.Component {
   state = {
     collapsed: false,
+    mode: 'inline',
   };
   onCollapse = (collapsed) => {
     console.log(collapsed);
-    this.setState({ collapsed });
+    this.setState({
+      collapsed,
+      mode: collapsed ? 'vertical' : 'inline',
+    });
   }
   render() {
     return (
@@ -34,30 +39,27 @@ class SiderDemo extends React.Component {
           onCollapse={this.onCollapse}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span className="nav-text">nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span className="nav-text">nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span className="nav-text">nav 3</span>
-            </Menu.Item>
-            <Menu.Item key="4">
-              <Icon type="user" />
-              <span className="nav-text">nav 4</span>
-            </Menu.Item>
-            <Menu.Item key="5">
-              <Icon type="heart-o" />
-              <span className="nav-text">nav 5</span>
-            </Menu.Item>
+          <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
+            <SubMenu
+              key="sub1"
+              title={<span><Icon type="user" /><span className="nav-text">User</span></span>}
+            >
+              <Menu.Item key="1">Tom</Menu.Item>
+              <Menu.Item key="2">Bill</Menu.Item>
+              <Menu.Item key="3">Alex</Menu.Item>
+            </SubMenu>
+            <SubMenu
+              key="sub2"
+              title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
+            >
+              <Menu.Item key="4">Team 1</Menu.Item>
+              <Menu.Item key="5">Team 2</Menu.Item>
+            </SubMenu>
             <Menu.Item key="6">
-              <Icon type="team" />
-              <span className="nav-text">nav 6</span>
+              <span>
+                <Icon type="file" />
+                <span className="nav-text">File</span>
+              </span>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -65,12 +67,11 @@ class SiderDemo extends React.Component {
           <Header style={{ background: '#fff', padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '12px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              content
+              Bill is a cat.
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
@@ -100,4 +101,8 @@ ReactDOM.render(<SiderDemo />, mountNode);
 #components-layout-demo-side .ant-layout-sider-collapsed .nav-text {
   display: none;
 }
+
+#components-layout-demo-side .ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
+  display: none;
+} 
 ````

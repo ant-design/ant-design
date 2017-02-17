@@ -4,15 +4,15 @@
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
 .collapse-close() {
-  .iconfont-size-under-12px(7px, 270deg);
+  .iconfont-size-under-12px(9px, 0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(7px, 360deg);
+  .iconfont-size-under-12px(9px, 90deg);
 }
 
 .@{collapse-prefix-cls} {
   background-color: @background-color-base;
-  border-radius: 3px;
+  border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
 
@@ -25,18 +25,22 @@
       color: @text-color;
       cursor: pointer;
       position: relative;
+      transition: all .3s;
+
+      &:active {
+        background-color: #eee!important;
+      }
 
       .arrow {
         .collapse-close();
         .iconfont-mixin();
         position: absolute;
-        color: @text-color;
+        color: @text-color-secondary;
         display: inline-block;
-        margin-right: 8px;
+        font-weight: bold;
         line-height: 40px;
-        content: "\e606";
         vertical-align: middle;
-        transition: transform 0.24s ease;
+        transition: transform 0.24s;
         top: 0;
         left: 16px;
         /* stylelint-disable declaration-block-no-duplicate-properties */
@@ -44,7 +48,7 @@
         left: ~"0 \9";
         /* stylelint-enable declaration-block-no-duplicate-properties */
         &:before {
-          content: "\e606";
+          content: "\E61F";
         }
       }
     }
@@ -72,7 +76,7 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
