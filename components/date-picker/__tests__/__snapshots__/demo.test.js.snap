@@ -127,7 +127,7 @@ exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1
   <br />
   <span
     class="ant-calendar-picker"
-    style="min-width:300px;">
+    style="width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input
@@ -255,7 +255,7 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
   <br />
   <span
     class="ant-calendar-picker"
-    style="min-width:300px;">
+    style="width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input
@@ -429,7 +429,7 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
   <br />
   <span
     class="ant-calendar-picker"
-    style="min-width:300px;">
+    style="width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input

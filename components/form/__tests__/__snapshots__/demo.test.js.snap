@@ -1184,7 +1184,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         class="ant-form-item-control ">
         <span
           class="ant-calendar-picker"
-          style="min-width:300px;">
+          style="width:300px;">
           <span
             class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
