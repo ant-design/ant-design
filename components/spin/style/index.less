@@ -78,9 +78,9 @@
     -webkit-filter: blur(0.8px);
     filter: blur(0.8px);
 
-    /* IE6~IE9 */
     /* autoprefixer: off */
-    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; // lesshint duplicateProperty: false
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)";
+    /* autoprefixer: on */
     // workround for a strange style bug in safari:
     // https://github.com/ant-design/ant-design/issues/4622
     // have no clue why this works
