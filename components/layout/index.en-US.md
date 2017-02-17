@@ -55,6 +55,9 @@ onCollapse | the callback function, can be executed when you switch the sidebar,
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
 collapsedWidth | width of the collapsed sidebar, available only `collapsible: true` | number | 64
+breakpoint | breakpoint of the responsive layout | string: `xs` \| `sm` \| `md` \| `lg` \| `xl` | - |
+widthBelow | to set the Sider width when the window width is below the breakpoint | number\|string | `0` by default, means hide completely, and will be set to `collapsedWidth` when `collapsible=true`
+onResponse | the callback function, can be executed when the responsive layout is changing | function | (below: boolean) => {}
 style | to custom the styles | object | -
 className | container className | string | -
 

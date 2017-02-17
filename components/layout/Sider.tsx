@@ -3,6 +3,14 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
 
+const dimensionMap = {
+  xs: '480px',
+  sm: '768px',
+  md: '992px',
+  lg: '1200px',
+  xl: '1600px',
+};
+
 export interface SiderProps {
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -14,7 +22,10 @@ export interface SiderProps {
   onCollapse?: (collapsed: boolean) => void;
   trigger?: React.ReactNode;
   width?: number | string;
-  collapsedWidth?: number;
+  collapsedWidth?: number | string;
+  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  widthBelow?: number | string;
+  onResponse?: (below: boolean) => void;
 }
 
 export default class Sider extends React.Component<SiderProps, any> {
@@ -40,6 +51,8 @@ export default class Sider extends React.Component<SiderProps, any> {
     }
     this.state = {
       collapsed,
+      below: false,
+      belowShow: false,
     };
   }
 
@@ -48,6 +61,24 @@ export default class Sider extends React.Component<SiderProps, any> {
       this.setState({
         collapsed: nextProps.collapsed,
       });
+    }
+  }
+
+  componentDidMount() {
+    const matchMedia = window.matchMedia;
+    const props = this.props;
+    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMap) {
+      const mql = matchMedia(`(max-width: ${dimensionMap[props.breakpoint]})`);
+      mql.addListener(this.responsiveHandler);
+      this.responsiveHandler(mql);
+    }
+  }
+
+  responsiveHandler = (mql) => {
+    this.setState({ below: mql.matches });
+    const { onResponse } = this.props;
+    if (onResponse) {
+      onResponse(mql.matches);
     }
   }
 
@@ -68,21 +99,51 @@ export default class Sider extends React.Component<SiderProps, any> {
     this.setCollapsed(collapsed);
   }
 
+  belowShowChange = () => {
+    this.setState({ belowShow: !this.state.belowShow });
+  }
+
   render() {
-    const {
-      prefixCls, className, collapsible, reverseArrow, trigger, style, width, collapsedWidth,
+    const { prefixCls, className,
+      collapsible, reverseArrow, trigger, style, width, collapsedWidth, widthBelow,
       ...others,
     } = this.props;
-    const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse']);
+    const divProps = omit(others, ['collapsed',
+      'defaultCollapsed', 'onCollapse', 'breakpoint', 'onResponse']);
+    let siderWidth;
+    let belowTrigger;
+    if (this.state.below) {
+      if (this.state.belowShow) {
+        siderWidth = width;
+      } else {
+        // priority(higher -> lower): widthBelow(if set) -> collapsedWidth(if collapsible) -> 0
+        // belowTrigger will show only if siderWidth === 0
+        if (widthBelow || widthBelow === 0) {
+          siderWidth = widthBelow;
+        } else {
+          siderWidth = collapsible ? collapsedWidth : 0;
+        }
+      }
+      if (!widthBelow && !collapsible || widthBelow === 0) {
+        belowTrigger = (
+          <span onClick={this.belowShowChange} className={`${prefixCls}-below-default-trigger`}>
+            <Icon type="bars" />
+          </span>);
+      }
+    } else {
+      siderWidth = this.state.collapsed ? collapsedWidth : width;
+    }
+    const divStyle = {
+      ...style,
+      flex: `0 0 ${siderWidth}px`,
+      width: `${siderWidth}px`,
+    };
     const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: !!trigger,
+      [`${prefixCls}-below`]: !!this.state.below,
+      [`${prefixCls}-below-default`]: !!this.state.below && !siderWidth,
     });
-    const divStyle = {
-      ...style,
-      flex: `0 0 ${this.state.collapsed ? collapsedWidth : width}px`,
-      width: `${this.state.collapsed ? collapsedWidth : width}px`,
-    };
     const iconObj = {
       'expanded': reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
       'collapsed': reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
@@ -99,7 +160,8 @@ export default class Sider extends React.Component<SiderProps, any> {
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
         {this.props.children}
-        {collapsible && triggerDom}
+        {!this.state.below && collapsible && triggerDom}
+        {belowTrigger || null}
       </div>
     );
   }

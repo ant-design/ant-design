@@ -3,17 +3,6 @@
 
 @layout-prefix-cls: ~"@{ant-prefix}-layout";
 
-.make-sider(@size: ~'', @type: ~'') when (@{type} == '-banner') {
-  .@{layout-prefix-cls}-sider@{size}@{type} {
-    flex: 0 0 100%;
-  }
-}
-.make-sider(@size: ~'', @type: ~'') when (@{type} != '-banner') {
-  .@{layout-prefix-cls}-sider@{size}@{type} {
-    flex: 0 0 200px;
-  }
-}
-
 .@{layout-prefix-cls} {
   display: flex;
   flex-direction: column;
@@ -71,25 +60,31 @@
       background: tint(@heading-color, 20%);
       color: #fff;
     }
+
+    &-below-default {
+      & > * {
+        overflow: hidden;
+      }
+
+      &-trigger {
+        position: absolute;
+        top: @layout-header-height;
+        right: -@layout-below-trigger-width;
+        text-align: center;
+        width: @layout-below-trigger-width;
+        height: @layout-below-trigger-height;
+        line-height: @layout-below-trigger-height;
+        background: @layout-sider-background;
+        color: #fff;
+        font-size: @layout-below-trigger-width / 2;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+        cursor: pointer;
+        transition: background .3s ease;
+
+        &:hover {
+          background: tint(@layout-sider-background, 10%);
+        }
+      }
+    }
   }
-}
-
-.make-sider();
-
-.make-sider(-xs, -banner);
-
-@media (min-width: @screen-sm-min) {
-  .make-grid(-sm, -banner);
-}
-
-@media (min-width: @screen-md-min) {
-  .make-grid(-md, -banner);
-}
-
-@media (min-width: @screen-lg-min) {
-  .make-grid(-lg, -banner);
-}
-
-@media (min-width: @screen-xl-min) {
-  .make-grid(-xl, -banner);
 }

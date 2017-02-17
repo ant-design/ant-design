@@ -56,6 +56,9 @@ title: Layout
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
 | width | 宽度 | number\|string | 200 |
 | collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | number | 64 |
+| breakpoint | 触发响应式布局的断点 | string: `xs` \| `sm` \| `md` \| `lg` \| `xl` | - |
+| widthBelow | 视窗宽度低于 breakpoint 时的 Sider 宽度 | number\|string | 默认为 0，即全部隐藏，当可收起时默认为 collapsedWidth |
+| onResponse | 触发响应式布局的回调函数 | function | (below: boolean) => {} |
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
