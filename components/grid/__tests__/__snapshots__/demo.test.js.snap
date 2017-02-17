@@ -385,7 +385,7 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
         <div
           class="ant-slider-rail" />
         <div
-          class="ant-slider-track ant-slider-track-1"
+          class="ant-slider-track"
           style="visibility:visible;left:0%;width:20%;" />
         <div
           class="ant-slider-step">
@@ -409,7 +409,7 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
             style="left:100%;" />
         </div>
         <div
-          class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+          class="ant-slider-handle"
           style="left:20%;" />
         <div
           class="ant-slider-mark">
@@ -457,7 +457,7 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
         <div
           class="ant-slider-rail" />
         <div
-          class="ant-slider-track ant-slider-track-1"
+          class="ant-slider-track"
           style="visibility:visible;left:0%;width:40%;" />
         <div
           class="ant-slider-step">
@@ -481,7 +481,7 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
             style="left:100%;" />
         </div>
         <div
-          class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+          class="ant-slider-handle"
           style="left:40%;" />
         <div
           class="ant-slider-mark">
