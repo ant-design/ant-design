@@ -52,6 +52,7 @@ By clicking the input box, you can select a date from a popup calendar.
 | style        | to customize the style of the input box     | Object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
 | size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | String   | -  |
+| inline       | adapt width to the parent   | bool   | false  |
 | locale       | localization configuration | Object   | [default](https://github.com/ant-design/ant-design/issues/424)  |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 
