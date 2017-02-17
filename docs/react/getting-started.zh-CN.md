@@ -166,7 +166,7 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 
 ```jsx
 import Button from 'antd/lib/button';
-import Button from 'antd/lib/button/style/css'; // 按需引入 css
+import 'antd/lib/button/style/css'; // 按需引入 css
 ```
 
 如果你使用了 babel，那么可以使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来进行按需加载，加入这个插件后。你可以仍然这么写：
