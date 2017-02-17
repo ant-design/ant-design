@@ -168,7 +168,7 @@ But, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
-import Button from 'antd/lib/button/style/css'; // import style
+import 'antd/lib/button/style/css'; // import style
 ```
 
 We strongly recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
