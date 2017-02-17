@@ -81,6 +81,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     const divStyle = {
       ...style,
       flex: `0 0 ${this.state.collapsed ? collapsedWidth : width}px`,
+      width: `${this.state.collapsed ? collapsedWidth : width}px`,
     };
     const iconObj = {
       'expanded': reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
