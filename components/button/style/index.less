@@ -82,13 +82,16 @@
     display: block;
   }
 
+  .@{iconfont-css-prefix} {
+    transition: all .3s @ease-in-out;
+  }
+
   &&-loading:not(&-circle):not(&-circle-outline) {
     padding-left: 29px;
     pointer-events: none;
     position: relative;
     .@{iconfont-css-prefix} {
       margin-left: -14px;
-      transition: all .3s @ease-in-out;
     }
   }
 
