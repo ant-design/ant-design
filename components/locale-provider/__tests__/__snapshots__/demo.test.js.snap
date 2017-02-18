@@ -1148,48 +1148,54 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <div
         class="">
         <div
-          class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left">
+          class="ant-spin-nested-loading">
           <div
-            class="ant-table-content">
+            class="ant-spin-container">
             <div
-              class="">
-              <span>
-                <div
-                  class="ant-table-body">
-                  <table
-                    class="">
-                    <colgroup>
-                      <col />
-                      <col />
-                    </colgroup>
-                    <thead
-                      class="ant-table-thead">
-                      <tr>
-                        <th
-                          class="">
-                          <span>
-                            Name
-                            <i
-                              class="anticon anticon-filter ant-dropdown-trigger"
-                              title="Filter Menu" />
-                          </span>
-                        </th>
-                        <th
-                          class="">
-                          <span>
-                            Age
-                          </span>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody
-                      class="ant-table-tbody" />
-                  </table>
-                </div>
-              </span>
+              class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left">
               <div
-                class="ant-table-placeholder">
-                No Data
+                class="ant-table-content">
+                <div
+                  class="">
+                  <span>
+                    <div
+                      class="ant-table-body">
+                      <table
+                        class="">
+                        <colgroup>
+                          <col />
+                          <col />
+                        </colgroup>
+                        <thead
+                          class="ant-table-thead">
+                          <tr>
+                            <th
+                              class="">
+                              <span>
+                                Name
+                                <i
+                                  class="anticon anticon-filter ant-dropdown-trigger"
+                                  title="Filter Menu" />
+                              </span>
+                            </th>
+                            <th
+                              class="">
+                              <span>
+                                Age
+                              </span>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="ant-table-tbody" />
+                      </table>
+                    </div>
+                  </span>
+                  <div
+                    class="ant-table-placeholder">
+                    No Data
+                  </div>
+                </div>
               </div>
             </div>
           </div>

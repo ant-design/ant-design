@@ -875,16 +875,15 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
       ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
 
-    const tableWithSpin = loading ? (
-      <Spin className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}>
-        {table}
-        {this.renderPagination()}
-      </Spin>
-    ) : [table, this.renderPagination()];
-
     return (
       <div className={className} style={style}>
-        {tableWithSpin}
+        <Spin
+          spinning={loading}
+          className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
+        >
+          {table}
+          {this.renderPagination()}
+        </Spin>
       </div>
     );
   }
