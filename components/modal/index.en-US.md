@@ -25,7 +25,7 @@ and so on.
 | onOk       | Specify a function that will be called when a user clicked OK button | function | no |
 | onCancel   | Specify a function that will be called when a user clicked mask, close button on top right or cancel button | function(e)  | no         |
 | width      | Width of a modal dialog           | string\|number | 520           |
-| footer     | Footer content       | string\|ReactNode | OK and cancel button |
+| footer     | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and cancel button |
 | okText     | Text of the OK button    | string           | OK       |
 | cancelText | Text of the Cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | boolean   | true       |
