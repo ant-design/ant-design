@@ -13,6 +13,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
+import { SpinProps } from '../spin';
 
 function noop() {
 }
@@ -63,7 +64,7 @@ export interface TableProps<T> {
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
-  loading?: boolean;
+  loading?: boolean | SpinProps ;
   locale?: Object;
   indentSize?: number;
   onRowClick?: (record: T, index: number) => any;
@@ -97,7 +98,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     rowSelection: React.PropTypes.object,
     className: React.PropTypes.string,
     size: React.PropTypes.string,
-    loading: React.PropTypes.bool,
+    loading: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.object,
+    ]),
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
@@ -720,7 +724,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     let total = pagination.total || this.getLocalData().length;
     return (total > 0) ?
       <Pagination
-        key="pagination"
         {...pagination}
         className={`${this.props.prefixCls}-pagination`}
         onChange={this.handlePageChange}
@@ -830,7 +833,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   render() {
-    const { style, className, prefixCls, showHeader, loading, ...restProps } = this.props;
+    const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -855,9 +858,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
 
-    const table = (
+    let table = (
       <RcTable
-        key="table"
         {...restProps}
         prefixCls={prefixCls}
         data={data}
@@ -869,22 +871,24 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         emptyText={() => locale.emptyText}
       />
     );
-
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-      ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
-
-    const tableWithSpin = loading ? (
-      <Spin className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}>
+            ? `${prefixCls}-with-pagination`
+            : `${prefixCls}-without-pagination`;
+    let loading = this.props.loading;
+    if (typeof (loading) === 'boolean') {
+      loading = {
+        spinning: loading,
+      };
+    }
+    const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
+    return (
+      <div className={`${className} clearfix`} style={style}>
+        <Spin className={spinClassName} {...loading}>
         {table}
         {this.renderPagination()}
-      </Spin>
-    ) : [table, this.renderPagination()];
-
-    return (
-      <div className={className} style={style}>
-        {tableWithSpin}
+        </Spin>
       </div>
     );
   }
