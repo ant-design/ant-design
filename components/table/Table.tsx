@@ -731,9 +731,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       /> : null;
   }
 
+  // Get pagination, filters, sorter
   prepareParamsArguments(state: any): [any, string[], Object] {
-    // 准备筛选、排序、分页的参数
-    const pagination = state.pagination;
+    const pagination = { ...state.pagination };
+    // remove useless handle function in Table.onChange
+    delete pagination.onChange;
+    delete pagination.onShowSizeChange;
     const filters = state.filters;
     const sorter: any = {};
     if (state.sortColumn && state.sortOrder) {

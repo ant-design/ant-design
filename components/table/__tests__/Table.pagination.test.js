@@ -68,8 +68,6 @@ describe('Table.pagination', () => {
     expect(handleChange).toBeCalledWith(
       {
         current: 2,
-        onChange: handlePaginationChange,
-        onShowSizeChange: noop,
         pageSize: 2,
       },
       {},
