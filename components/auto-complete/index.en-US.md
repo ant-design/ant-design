@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Entry
-cols: 1
+cols: 2
 title: AutoComplete
 ---
 
