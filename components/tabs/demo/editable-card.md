@@ -17,31 +17,34 @@ Only card type Tabs support adding & closeable.
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 
-const Demo = React.createClass({
-  getInitialState() {
+
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     this.newTabIndex = 0;
     const panes = [
-      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
-      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
+      { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' },
     ];
-    return {
+    this.state = {
       activeKey: panes[0].key,
       panes,
     };
-  },
-  onChange(activeKey) {
+  }
+
+  onChange = (activeKey) => {
     this.setState({ activeKey });
-  },
-  onEdit(targetKey, action) {
+  }
+  onEdit = (targetKey, action) => {
     this[action](targetKey);
-  },
-  add() {
+  }
+  add = () => {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
     panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
     this.setState({ panes, activeKey });
-  },
-  remove(targetKey) {
+  }
+  remove = (targetKey) => {
     let activeKey = this.state.activeKey;
     let lastIndex;
     this.state.panes.forEach((pane, i) => {
@@ -54,7 +57,7 @@ const Demo = React.createClass({
       activeKey = panes[lastIndex].key;
     }
     this.setState({ panes, activeKey });
-  },
+  }
   render() {
     return (
       <Tabs
@@ -66,8 +69,8 @@ const Demo = React.createClass({
         {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
       </Tabs>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````
