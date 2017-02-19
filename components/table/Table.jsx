@@ -33,7 +33,14 @@ const defaultPagination = {
 
 export default class Table extends React.Component {
   static propTypes = {
-    dataSource: React.PropTypes.array,
+    dataSource: React.PropTypes.arrayOf((propValue) => {
+      let isVaild = propValue.filter((item) => {
+        return item.key === undefined;
+      }).length === 0;
+      if (!isVaild) {
+        return new Error('Each child in table\'s dataSource should have a unique "key" prop.');
+      }
+    }),
     prefixCls: React.PropTypes.string,
     useFixedHeader: React.PropTypes.bool,
     rowSelection: React.PropTypes.object,
