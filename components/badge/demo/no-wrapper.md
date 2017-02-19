@@ -18,9 +18,11 @@ Used in standalone when children is empty.
 ````jsx
 import { Badge } from 'antd';
 
-ReactDOM.render(<div>
-  <Badge count={25} />
-  <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} />
-  <Badge count={109} style={{ backgroundColor: '#87d068' }} />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Badge count={25} />
+    <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} />
+    <Badge count={109} style={{ backgroundColor: '#87d068' }} />
+  </div>
+, mountNode);
 ````
