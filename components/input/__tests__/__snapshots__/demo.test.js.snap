@@ -405,15 +405,11 @@ exports[`test renders ./components/input/demo/textarea.md correctly 1`] = `
 `;
 
 exports[`test renders ./components/input/demo/tooltip.md correctly 1`] = `
-<div
-  class="numeric-input-demo">
-  <div>
-    <input
-      class="ant-input"
-      maxlength="25"
-      placeholder="input a number"
-      type="text"
-      value="" />
-  </div>
-</div>
+<input
+  class="ant-input"
+  maxlength="25"
+  placeholder="Input a number"
+  style="width:120px;"
+  type="text"
+  value="" />
 `;

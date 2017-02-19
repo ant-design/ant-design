@@ -40,7 +40,6 @@ class NumericInput extends React.Component {
       this.props.onChange(value);
     }
   }
-
   // '.' at the end or only '-' in the input box.
   onBlur = () => {
     const { value, onBlur, onChange } = this.props;
@@ -51,14 +50,13 @@ class NumericInput extends React.Component {
       onBlur();
     }
   }
-
   render() {
     const { value } = this.props;
     const title = value ? (
       <span className="numeric-input-title">
         {value !== '-' ? formatNumber(value) : '-'}
       </span>
-    ) : '';
+    ) : 'Input a number';
     return (
       <Tooltip
         trigger={['focus']}
@@ -70,7 +68,7 @@ class NumericInput extends React.Component {
           {...this.props}
           onChange={this.onChange}
           onBlur={this.onBlur}
-          placeholder="input a number"
+          placeholder="Input a number"
           maxLength="25"
         />
       </Tooltip>
@@ -87,8 +85,7 @@ class NumericInputDemo extends React.Component {
     this.setState({ value });
   }
   render() {
-    const { value } = this.state;
-    return <NumericInput style={{ width: 120 }} value={value} onChange={this.onChange} />;
+    return <NumericInput style={{ width: 120 }} value={this.state.value} onChange={this.onChange} />;
   }
 }
 
