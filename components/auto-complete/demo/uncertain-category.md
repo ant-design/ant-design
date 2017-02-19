@@ -47,7 +47,7 @@ function renderOption(item) {
         {item.category}
       </a>
       区块中
-      <span style={{ float: 'right' }}>约 {item.count} 个结果</span>
+      <span className="global-search-item-count">约 {item.count} 个结果</span>
     </Option>
   );
 }
@@ -128,11 +128,17 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
-  right: 0;
+  right: 1px;
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
+  border-radius: 3px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.global-search-item-count {
+ position: absolute;
+ right: 16px;
 }
 ````
