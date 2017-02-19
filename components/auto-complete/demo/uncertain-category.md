@@ -52,19 +52,19 @@ function renderOption(item) {
   );
 }
 
-const Complete = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: [],
-    };
-  },
-  handleChange(value) {
+class Complete extends React.Component {
+  state = {
+    dataSource: [],
+  }
+
+  handleChange = (value) => {
     if (value) {
       this.setState({
         dataSource: searchResult(value),
       });
     }
-  },
+  }
+
   render() {
     const { dataSource } = this.state;
     return (
@@ -89,8 +89,8 @@ const Complete = React.createClass({
         </AutoComplete>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Complete />, mountNode);
 ````
