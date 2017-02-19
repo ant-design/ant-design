@@ -10,52 +10,47 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         <div
           class="ant-table-content">
           <div
-            class="">
-            <span>
-              <div
-                class="ant-table-body">
-                <table
-                  class="">
-                  <colgroup>
-                    <col />
-                  </colgroup>
-                  <thead
-                    class="ant-table-thead">
-                    <tr>
-                      <th
-                        class="">
-                        <span>
-                          Name
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="ant-table-tbody">
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Jack
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Lucy
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </span>
+            class="ant-table-body">
+            <table
+              class="">
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead">
+                <tr>
+                  <th
+                    class="">
+                    <span>
+                      Name
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody">
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Lucy
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
