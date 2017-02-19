@@ -500,7 +500,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  handlePageChange = (current) => {
+  handlePageChange = (current, ...otherArguments) => {
     const props = this.props;
     let pagination = assign({}, this.state.pagination);
     if (current) {
@@ -508,7 +508,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     } else {
       pagination.current = pagination.current || 1;
     }
-    pagination.onChange(pagination.current);
+    pagination.onChange(pagination.current, ...otherArguments);
 
     const newState = {
       pagination,
