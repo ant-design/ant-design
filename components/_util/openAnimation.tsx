@@ -1,4 +1,5 @@
 import cssAnimation from 'css-animation';
+import getRequestAnimationFrame from './getRequestAnimationFrame';
 
 function animate(node, show, done) {
   let height;
@@ -6,16 +7,22 @@ function animate(node, show, done) {
     start() {
       if (!show) {
         node.style.height = `${node.offsetHeight}px`;
+        node.style.opacity = 1;
       } else {
         height = node.offsetHeight;
         node.style.height = 0;
+        node.style.opacity = 0;
       }
     },
     active() {
-      node.style.height = `${show ? height : 0}px`;
+      getRequestAnimationFrame()(() => {
+        node.style.height = `${show ? height : 0}px`;
+        node.style.opacity = show ? 1 : 0;
+      });
     },
     end() {
       node.style.height = '';
+      node.style.opacity = '';
       done();
     },
   });
