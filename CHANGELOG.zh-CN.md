@@ -10,12 +10,42 @@ timeline: true
 #### 发布周期
 
 * patch 版本：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
-* minor 版本：每月发布一个带有新特性的版本。
+* minor 版本：每月发布一个带有新特性的向下兼容的版本。
 * 大版本号：含有破坏性更新和新特性，不在发布周期内。
 
 如果需要查看 `2.0.0` 之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md)。
 
 ---
+
+## 2.7.2
+
+`2017-02-17`
+
+- 修复 `antd.version` 无法正常使用的问题。 [#4844](https://github.com/ant-design/ant-design/issues/4844)
+- 修复 dist 文件没有 locales 的问题。 [#4910](https://github.com/ant-design/ant-design/pull/4910)
+- 修复 Cascader 搜索模式下可以选择已禁用选项的问题。 [#4699](https://github.com/ant-design/ant-design/issues/4699)
+- **Button**
+  - 修复 `Button[type=danger]` 的点击动画。
+  - 修复设置 `loading` 时的样式问题。 [#4875](https://github.com/ant-design/ant-design/issues/4875)
+- **Menu**
+  - 修复 `vertical` 模式下 `openKeys` 为受控属性。 [#4876](https://github.com/ant-design/ant-design/issues/4876)
+  - 修复 Menu.Item 选中时的动画问题。
+  - 修复 Menu.SubMenu 的样式问题。 [#4906](https://github.com/ant-design/ant-design/issues/4906)
+- **Table**
+  - 修复在混合使用固定表头和小尺寸时的样式问题。 [#4850](https://github.com/ant-design/ant-design/issues/4850)
+  - 修复无数据时的占位符样式问题。 [#4851](https://github.com/ant-design/ant-design/pull/4851)
+  - 精简了 DOM 结构。 [#4868](https://github.com/ant-design/ant-design/issues/4868)
+- 修复 Radio 组件 children 无法为数字 `0` 的问题。 [#4874](https://github.com/ant-design/ant-design/issues/4874) [@HQidea](https://github.com/HQidea)
+- 修复 RangePicker `style.width` 无法小于 300 的问题。 [#4920](https://github.com/ant-design/ant-design/issues/4920)
+- 修复 Spin 样式在打包时会导致编译错误的问题。 [#4915](https://github.com/ant-design/ant-design/issues/4915)
+- 修复 Chrome 下 Tooltip 无法在 disabled 的按钮上使用的问题。 [#4865](https://github.com/ant-design/ant-design/pull/4865)
+- 修复 Tree 节点在拖动时会导致整棵树抖动的问题。 [#4858](https://github.com/ant-design/ant-design/issues/4858)
+- 修复 Upload 上传失败的样式问题。 [#4810](https://github.com/ant-design/ant-design/issues/4810)
+- 修复 `Menu[vertical]` 和 Layout.Sider 配合使用时二级菜单无法弹出的问题。 [#4890](https://github.com/ant-design/ant-design/issues/4890)
+- 优化 Button、`Badge[status=processing]` 的动画。
+
+![Badge animation](https://camo.githubusercontent.com/6874b2333f2fac3fac346404c6e70684e4dafc1a/68747470733a2f2f7a6f732e616c697061796f626a656374732e636f6d2f726d73706f7274616c2f73516b72756c716346734b4e54785158615971512e676966)
+![Button animation](https://camo.githubusercontent.com/3963d12b45de4f522c2799361dbc3177e7bd93d1/68747470733a2f2f7a6f732e616c697061796f626a656374732e636f6d2f726d73706f7274616c2f46624b776d636f766d795364666c557468494e522e676966)
 
 ## 2.7.1
 

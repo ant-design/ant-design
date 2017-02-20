@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers.
+Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v4.x) correctly.
 
 ---
 
@@ -23,7 +23,7 @@ Such features, together with packaging the production version are covered in thi
 
 ### 1. Installation
 
-> Please make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) before using `antd-init`.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) is our recommendation.
 
 ```bash
 $ npm install antd-init -g
@@ -168,7 +168,7 @@ But, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
-import Button from 'antd/lib/button/style/css'; // import style
+import 'antd/lib/button/style/css'; // import style
 ```
 
 We strongly recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:

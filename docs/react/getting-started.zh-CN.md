@@ -7,7 +7,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ---
 
-在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。
+在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并确认 已经正确安装和配置了 [Node.js](https://nodejs.org/) v4.x 或以上。
 
 ## 第一个例子
 
@@ -22,7 +22,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装脚手架工具
 
-> 使用 `antd-init` 前，务必确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，真实项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli)。
 
 ```bash
 $ npm install antd-init -g
@@ -166,7 +166,7 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 
 ```jsx
 import Button from 'antd/lib/button';
-import Button from 'antd/lib/button/style/css'; // 按需引入 css
+import 'antd/lib/button/style/css'; // 按需引入 css
 ```
 
 如果你使用了 babel，那么可以使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来进行按需加载，加入这个插件后。你可以仍然这么写：

@@ -37,7 +37,7 @@ One or more elements can be selected from either column, one click on the proper
 
 ## Warning
 
-According the [standard](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.
+According the [standard](http://facebook.github.io/react/docs/lists-and-keys.html#keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.
 
 If there's no `key` in your data, you should use `rowKey` to specify the key that will be used for uniquely identify each element.
 ```jsx

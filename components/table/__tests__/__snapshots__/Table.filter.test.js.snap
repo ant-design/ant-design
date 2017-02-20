@@ -14,7 +14,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 
 exports[`Table.filter renders filter correctly 1`] = `
 <div
-  class=" clearfix">
+  class="ant-table-wrapper">
   <div
     class="ant-spin-nested-loading">
     <div
@@ -24,75 +24,70 @@ exports[`Table.filter renders filter correctly 1`] = `
         <div
           class="ant-table-content">
           <div
-            class="">
-            <span>
-              <div
-                class="ant-table-body">
-                <table
-                  class="">
-                  <colgroup>
-                    <col />
-                  </colgroup>
-                  <thead
-                    class="ant-table-thead">
-                    <tr>
-                      <th
-                        class="">
-                        <span>
-                          Name
-                          <i
-                            class="anticon anticon-filter ant-dropdown-trigger"
-                            title="筛选" />
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="ant-table-tbody">
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Jack
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Lucy
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Tom
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Jerry
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </span>
+            class="ant-table-body">
+            <table
+              class="">
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead">
+                <tr>
+                  <th
+                    class="">
+                    <span>
+                      Name
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="筛选" />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody">
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

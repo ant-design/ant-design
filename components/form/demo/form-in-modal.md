@@ -56,17 +56,17 @@ const CollectionCreateForm = Form.create()(
   }
 );
 
-const CollectionsPage = React.createClass({
-  getInitialState() {
-    return { visible: false };
-  },
-  showModal() {
+class CollectionsPage extends React.Component {
+  state = {
+    visible: false,
+  };
+  showModal = () => {
     this.setState({ visible: true });
-  },
-  handleCancel() {
+  }
+  handleCancel = () => {
     this.setState({ visible: false });
-  },
-  handleCreate() {
+  }
+  handleCreate = () => {
     const form = this.form;
     form.validateFields((err, values) => {
       if (err) {
@@ -77,10 +77,10 @@ const CollectionsPage = React.createClass({
       form.resetFields();
       this.setState({ visible: false });
     });
-  },
-  saveFormRef(form) {
+  }
+  saveFormRef = (form) => {
     this.form = form;
-  },
+  }
   render() {
     return (
       <div>
@@ -93,8 +93,8 @@ const CollectionsPage = React.createClass({
         />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<CollectionsPage />, mountNode);
 ````

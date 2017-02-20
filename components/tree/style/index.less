@@ -11,7 +11,7 @@
   padding: 5px;
   font-size: @font-size-base;
   li {
-    padding: 3.5px 0;
+    padding: 1.5px 0;
     margin: 0;
     list-style: none;
     white-space: nowrap;
@@ -19,6 +19,8 @@
     a[draggable],
     a[draggable="true"] {
       user-select: none;
+      border-top: 2px transparent solid;
+      border-bottom: 2px transparent solid;
 
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
@@ -33,12 +35,12 @@
     }
     &.drag-over-gap-top {
       > a[draggable] {
-        border-top: 2px @primary-color solid;
+        border-top-color: @primary-color;
       }
     }
     &.drag-over-gap-bottom {
       > a[draggable] {
-        border-bottom: 2px @primary-color solid;
+        border-bottom-color: @primary-color;
       }
     }
     &.filter-node {

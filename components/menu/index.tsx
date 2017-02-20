@@ -88,7 +88,7 @@ export default class Menu extends React.Component<MenuProps, any> {
       this.switchModeFromInline = true;
     }
     if ('openKeys' in nextProps) {
-      this.setOpenKeys(nextProps.openKeys);
+      this.setState({ openKeys: nextProps.openKeys });
     }
   }
   handleClick = (e) => {
@@ -114,7 +114,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   render() {
     let openAnimation = this.props.openAnimation || this.props.openTransitionName;
-    if (!openAnimation) {
+    if (this.props.openAnimation === undefined && this.props.openTransitionName === undefined) {
       switch (this.props.mode) {
         case 'horizontal':
           openAnimation = 'slide-up';

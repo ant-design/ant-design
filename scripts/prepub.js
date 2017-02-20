@@ -16,6 +16,15 @@ if (fs.existsSync(path.join(__dirname, '../lib'))) {
     versionFilePath,
     versionFileContent.replace(`require('../../package.json')`, `{ version: '${packageInfo.version}' }`)
   );
+
+  // Build package.json version to lib/version/index.d.ts
+  // prevent https://github.com/ant-design/ant-design/issues/4935
+  const versionDefPath = path.join(process.cwd(), 'lib', 'version', 'index.d.ts');
+  const versionDefContent = fs.readFileSync(versionDefPath).toString();
+  fs.writeFileSync(
+    versionDefPath,
+    versionDefContent.replace(`require('../../package.json')`, `{ version: '${packageInfo.version}' }`)
+  );
 }
 
 if (fs.existsSync(path.join(__dirname, '../dist'))) {

@@ -1086,7 +1086,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         class="ant-form-item-control ">
         <span
           class="ant-calendar-picker"
-          style="min-width:154px;">
+          style="width:154px;">
           <span>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
@@ -1184,7 +1184,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         class="ant-form-item-control ">
         <span
           class="ant-calendar-picker"
-          style="min-width:300px;">
+          style="width:300px;">
           <span
             class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
@@ -1466,7 +1466,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
           <div
             class="ant-slider-rail" />
           <div
-            class="ant-slider-track ant-slider-track-1"
+            class="ant-slider-track"
             style="visibility:visible;left:0%;width:0%;" />
           <div
             class="ant-slider-step">
@@ -1490,7 +1490,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
               style="left:100%;" />
           </div>
           <div
-            class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+            class="ant-slider-handle"
             style="left:0%;" />
           <div
             class="ant-slider-mark">

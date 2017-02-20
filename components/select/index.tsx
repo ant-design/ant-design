@@ -92,7 +92,6 @@ export default class Select extends React.Component<SelectProps, any> {
       className = '',
       size,
       combobox,
-      showSearch,
     } = this.props;
 
     let { notFoundContent = 'Not Found', optionLabelProp } = this.props;
@@ -100,7 +99,6 @@ export default class Select extends React.Component<SelectProps, any> {
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [`${prefixCls}-show-search`]: showSearch,
     }, className);
 
     const { antLocale } = this.context;

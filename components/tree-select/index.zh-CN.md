@@ -17,8 +17,8 @@ title: TreeSelect
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| value    | 指定当前选中的条目 | 通常: string/string[]. 设置 labelInValue: { value: string, label: ReactNode }/Array<{ value: string, label: ReactNode }>. 设置 treeCheckStrictly(halfChecked 默认为 false): { value: string, label: ReactNode, halfChecked: string[] }/Array<{ value: string, label: ReactNode, halfChecked: string[] }>. |  -  |
-| labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | boolean | false |
+| value    | 指定当前选中的条目 | string/string[] |  -  |
+| labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 `{key: string, label: ReactNode, halfChecked(treeCheckStrictly 时有效): string[] }` 的格式 | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/string[]   |  -  |
 | multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
 | onSelect | 被选中时调用 | function(value, node, extra) | -   |

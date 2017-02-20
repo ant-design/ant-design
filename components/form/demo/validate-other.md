@@ -23,23 +23,21 @@ const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
-const Demo = Form.create()(React.createClass({
-  handleSubmit(e) {
+class Demo extends React.Component {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  },
-
-  normFile(e) {
+  }
+  normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
     }
     return e && e.fileList;
-  },
-
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -149,7 +147,7 @@ const Demo = Form.create()(React.createClass({
         >
           {getFieldDecorator('upload', {
             valuePropName: 'fileList',
-            normalize: this.normFile,
+            getValueFromEvent: this.normFile,
           })(
             <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
               <Button>
@@ -164,8 +162,10 @@ const Demo = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<Demo />, mountNode);
+const WrappedDemo = Form.create()(Demo);
+
+ReactDOM.render(<WrappedDemo />, mountNode);
 ````

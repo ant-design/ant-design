@@ -126,7 +126,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
     <div
       class="example">
       <div
-        class="ant-select-show-search ant-select ant-select-enabled"
+        class="ant-select ant-select-enabled"
         style="width:200px;">
         <div
           aria-autocomplete="list"
@@ -1146,7 +1146,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
     <div
       class="example">
       <div
-        class=" clearfix">
+        class="ant-table-wrapper">
         <div
           class="ant-spin-nested-loading">
           <div
@@ -1156,45 +1156,40 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               <div
                 class="ant-table-content">
                 <div
-                  class="">
-                  <span>
-                    <div
-                      class="ant-table-body">
-                      <table
-                        class="">
-                        <colgroup>
-                          <col />
-                          <col />
-                        </colgroup>
-                        <thead
-                          class="ant-table-thead">
-                          <tr>
-                            <th
-                              class="">
-                              <span>
-                                Name
-                                <i
-                                  class="anticon anticon-filter ant-dropdown-trigger"
-                                  title="Filter Menu" />
-                              </span>
-                            </th>
-                            <th
-                              class="">
-                              <span>
-                                Age
-                              </span>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody
-                          class="ant-table-tbody" />
-                      </table>
-                    </div>
-                  </span>
-                  <div
-                    class="ant-table-placeholder">
-                    No Data
-                  </div>
+                  class="ant-table-body">
+                  <table
+                    class="">
+                    <colgroup>
+                      <col />
+                      <col />
+                    </colgroup>
+                    <thead
+                      class="ant-table-thead">
+                      <tr>
+                        <th
+                          class="">
+                          <span>
+                            Name
+                            <i
+                              class="anticon anticon-filter ant-dropdown-trigger"
+                              title="Filter Menu" />
+                          </span>
+                        </th>
+                        <th
+                          class="">
+                          <span>
+                            Age
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody" />
+                  </table>
+                </div>
+                <div
+                  class="ant-table-placeholder">
+                  No Data
                 </div>
               </div>
             </div>

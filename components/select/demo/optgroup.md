@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 分组
   en-US: Option Group
 ---
@@ -23,9 +23,9 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select defaultValue="lucy"
+  <Select
+    defaultValue="lucy"
     style={{ width: 200 }}
-    showSearch={false}
     onChange={handleChange}
   >
     <OptGroup label="Manager">

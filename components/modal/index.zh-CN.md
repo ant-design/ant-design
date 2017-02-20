@@ -24,7 +24,7 @@ title: Modal
 | onOk       | 点击确定回调       | function     | 无           |
 | onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无         |
 | width      | 宽度           | string\|number | 520           |
-| footer     | 底部内容       | string\|ReactNode | 确定取消按钮 |
+| footer     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | okText     | 确认按钮文字    | string           | 确定       |
 | cancelText | 取消按钮文字    | string           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |

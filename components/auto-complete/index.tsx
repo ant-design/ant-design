@@ -39,17 +39,18 @@ export interface AutoCompleteProps extends AbstractSelectProps {
 }
 
 class InputElement extends React.Component<any, any> {
-  private ele: Element;
+  private ele: HTMLInputElement;
+
   focus = () => {
-    (findDOMNode(this.ele) as HTMLInputElement).focus();
+    this.ele.focus ? this.ele.focus() : (findDOMNode(this.ele) as HTMLInputElement).focus();
   }
   blur = () => {
-    (findDOMNode(this.ele) as HTMLInputElement).blur();
+    this.ele.blur ? this.ele.blur() : (findDOMNode(this.ele) as HTMLInputElement).blur();
   }
   render() {
     return React.cloneElement(this.props.children, {
       ...this.props,
-      ref: ele => this.ele = ele,
+      ref: ele => this.ele = (ele as HTMLInputElement),
     }, null);
   }
 }

@@ -36,16 +36,14 @@ const treeData = [{
   key: '0-1',
 }];
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      value: undefined,
-    };
-  },
-  onChange(value) {
+class Demo extends React.Component {
+  state = {
+    value: undefined,
+  }
+  onChange = (value) => {
     console.log(arguments);
     this.setState({ value });
-  },
+  }
   render() {
     return (
       <TreeSelect
@@ -58,8 +56,8 @@ const Demo = React.createClass({
         onChange={this.onChange}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

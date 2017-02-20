@@ -17,6 +17,36 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.7.2
+
+`2017-02-17`
+
+- Fix that `antd.version` doesn't work as expected. [#4844](https://github.com/ant-design/ant-design/issues/4844)
+- Fix that dist files don't include locales. [#4910](https://github.com/ant-design/ant-design/pull/4910)
+- Fix that disabled option is selectable in search mode of Cascader. [#4699](https://github.com/ant-design/ant-design/issues/4699)
+- **Button**
+  - Fix click animation of `Button[type=danger]`.
+  - Fix broken style with `loading`. [#4875](https://github.com/ant-design/ant-design/issues/4875)
+- **Menu**
+  - Fix that `openKeys` should be controlled property in `vertical` mode. [#4876](https://github.com/ant-design/ant-design/issues/4876)
+  - Fix selected animation of Menu.Item.
+  - Fix broken style of Menu.SubMenu. [#4906](https://github.com/ant-design/ant-design/issues/4906)
+- **Table**
+  - Fix broken style of table which use small size and fixed header. [#4850](https://github.com/ant-design/ant-design/issues/4850)
+  - Fix placeholder style. [#4851](https://github.com/ant-design/ant-design/pull/4851)
+  - Simplify DOM structure. [#4868](https://github.com/ant-design/ant-design/issues/4868)
+- Fix that Radio should support number `0` as children. [#4874](https://github.com/ant-design/ant-design/issues/4874) [@HQidea](https://github.com/HQidea)
+- Fix that RangePicker should work with `style.width` which is small than 300. [#4920](https://github.com/ant-design/ant-design/issues/4920)
+- Fix CSS compile error caused by Spin. [#4915](https://github.com/ant-design/ant-design/issues/4915)
+- Fix that Tooltip should work with disabled button in Chrome. [#4865](https://github.com/ant-design/ant-design/pull/4865)
+- Fix UX of Tree while dragging. [#4858](https://github.com/ant-design/ant-design/issues/4858)
+- Fix failed style of Upload. [#4810](https://github.com/ant-design/ant-design/issues/4810)
+- Fix that `Menu[vertical]`'s SubMenu cannot popup in Layout.Sider. [#4890](https://github.com/ant-design/ant-design/issues/4890)
+- Improve animation of Button and `Badge[status=processing]`.
+
+![Badge animation](https://camo.githubusercontent.com/6874b2333f2fac3fac346404c6e70684e4dafc1a/68747470733a2f2f7a6f732e616c697061796f626a656374732e636f6d2f726d73706f7274616c2f73516b72756c716346734b4e54785158615971512e676966)
+![Button animation](https://camo.githubusercontent.com/3963d12b45de4f522c2799361dbc3177e7bd93d1/68747470733a2f2f7a6f732e616c697061796f626a656374732e636f6d2f726d73706f7274616c2f46624b776d636f766d795364666c557468494e522e676966)
+
 ## 2.7.1
 
 `2017-02-10`

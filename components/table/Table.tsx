@@ -504,7 +504,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  handlePageChange = (current) => {
+  handlePageChange = (current, ...otherArguments) => {
     const props = this.props;
     let pagination = assign({}, this.state.pagination);
     if (current) {
@@ -512,7 +512,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     } else {
       pagination.current = pagination.current || 1;
     }
-    pagination.onChange(pagination.current);
+    pagination.onChange(pagination.current, ...otherArguments);
 
     const newState = {
       pagination,
@@ -724,6 +724,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     let total = pagination.total || this.getLocalData().length;
     return (total > 0) ?
       <Pagination
+        key="pagination"
         {...pagination}
         className={`${this.props.prefixCls}-pagination`}
         onChange={this.handlePageChange}
@@ -734,9 +735,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       /> : null;
   }
 
+  // Get pagination, filters, sorter
   prepareParamsArguments(state: any): [any, string[], Object] {
-    // 准备筛选、排序、分页的参数
-    const pagination = state.pagination;
+    const pagination = { ...state.pagination };
+    // remove useless handle function in Table.onChange
+    delete pagination.onChange;
+    delete pagination.onShowSizeChange;
     const filters = state.filters;
     const sorter: any = {};
     if (state.sortColumn && state.sortOrder) {
@@ -858,8 +862,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
 
-    let table = (
+    const table = (
       <RcTable
+        key="table"
         {...restProps}
         prefixCls={prefixCls}
         data={data}
@@ -871,23 +876,27 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         emptyText={() => locale.emptyText}
       />
     );
+
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-            ? `${prefixCls}-with-pagination`
-            : `${prefixCls}-without-pagination`;
+      ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
+
     let loading = this.props.loading;
-    if (typeof (loading) === 'boolean') {
+    if (typeof loading === 'boolean') {
       loading = {
         spinning: loading,
       };
     }
-    const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
+
     return (
-      <div className={`${className} clearfix`} style={style}>
-        <Spin className={spinClassName} {...loading}>
-        {table}
-        {this.renderPagination()}
+      <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
+        <Spin
+          {...loading}
+          className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
+        >
+          {table}
+          {this.renderPagination()}
         </Spin>
       </div>
     );

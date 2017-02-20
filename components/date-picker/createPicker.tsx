@@ -143,7 +143,7 @@ export default function createPicker(TheCalendar) {
       // default width for showTime
       const pickerStyle = {} as any;
       if (props.showTime) {
-        pickerStyle.minWidth = 154;
+        pickerStyle.width = (props.style && props.style.width) || 154;
       }
 
       const clearIcon = (!props.disabled && props.allowClear && value) ?

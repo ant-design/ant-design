@@ -21,7 +21,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |expandedKeys |(controlled) Specifies keys of expanded treeNodes | string[] | [] |
 |autoExpandParent | Whether to automatically expand a parent treeNode | boolean | true |
 |defaultCheckedKeys | Specifies keys of default checked treeNodes | string[] | [] |
-|checkedKeys |(controlled) Specifies keys of checked treeNodes（PS： When specifies a key of treeNode which is a parent treeNode, all children treeNodes of its will be checked; And vice versa, when specifies a key of treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, it'a object has `checked` and `halfChecked` property, and no matter child treeNode or parent treeNode is checked, they won't impact on eachother. | string[]/{checked:string[],halfChecked:string[]} | [] |
+|checkedKeys |(controlled) Specifies keys of checked treeNodes（PS： When specifies a key of treeNode which is a parent treeNode, all children treeNodes of its will be checked; And vice versa, when specifies a key of treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, it'a object has `checked` and `halfChecked` property, and no matter child treeNode or parent treeNode is checked, they won't impact on eachother. | string[] \| {checked: string[], halfChecked: string[]} | [] |
 |checkStrictly| Check treeNode precisely, parent treeNode and children treeNodes are not associated | boolean | false |
 |defaultSelectedKeys | Specifies keys of default selected treeNodes | string[] | [] |
 |selectedKeys |(controlled) Specifies keys of selected treeNode | string[] | - |
@@ -30,13 +30,13 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |onSelect | The callback will be invoked when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 |filterTreeNode | Defines a function to filter treeNodes（highlight），when return true, corresponding treeNode will be highlight | function(node) | - |
 |loadData | load data asynchronously | function(node)| - |
-|onRightClick | The call back will be invoked when the user right clicks a treeNode | function({event,node}) | - |
+|onRightClick | The call back will be invoked when the user right clicks a treeNode | function({event, node}) | - |
 |draggable | Specifies whether this Tree is draggable（IE>8） | boolean | false |
-|onDragStart | Defines a function will be called when the onDragStart event occurs | function({event,node}) | - |
-|onDragEnter | Defines a function will be called when the onDragEnter event occurs | function({event,node,expandedKeys}) | - |
-|onDragOver  | Defines a function will be called when the onDragOver event occurs | function({event,node}) | - |
-|onDragLeave | Defines a function will be called when the onDragLeave event occurs | function({event,node}) | - |
-|onDragEnd | Defines a function will be called when the onDragEnd event occurs | function({event,node}) | - |
+|onDragStart | Defines a function will be called when the onDragStart event occurs | function({event, node}) | - |
+|onDragEnter | Defines a function will be called when the onDragEnter event occurs | function({event, node,  expandedKeys}) | - |
+|onDragOver  | Defines a function will be called when the onDragOver event occurs | function({event, node}) | - |
+|onDragLeave | Defines a function will be called when the onDragLeave event occurs | function({event, node}) | - |
+|onDragEnd | Defines a function will be called when the onDragEnd event occurs | function({event, node}) | - |
 |onDrop | Defines a function will be called when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
 
 ### TreeNode props

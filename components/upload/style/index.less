@@ -60,7 +60,7 @@
     position: relative;
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
-      border: 2px dashed@primary-5;
+      border: 2px dashed @primary-5;
     }
 
     &.@{upload-prefix-cls}-disabled {
@@ -152,12 +152,14 @@
     }
 
     &-error,
-    &-error .@{iconfont-css-prefix}-paper-clip {
+    &-error .@{iconfont-css-prefix}-paper-clip,
+    &-error &-item-name {
       color: @error-color;
     }
 
     &-error .@{iconfont-css-prefix}-cross {
       opacity: 1;
+      color: @error-color!important;
     }
 
     &-progress {
@@ -181,6 +183,9 @@
       position: relative;
       &:hover {
         background: transparent;
+      }
+      &-error {
+        border-color: @error-color;
       }
     }
 

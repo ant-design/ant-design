@@ -62,6 +62,24 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           title="Remove file" />
       </div>
     </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-error">
+      <div
+        class="ant-upload-list-item-info">
+        <i
+          class="anticon anticon-paper-clip" />
+        <a
+          class="ant-upload-list-item-name"
+          href="http://www.baidu.com/zzz.png"
+          rel="noopener noreferrer"
+          target="_blank">
+          zzz.png
+        </a>
+        <i
+          class="anticon anticon-cross"
+          title="Remove file" />
+      </div>
+    </div>
   </div>
 </span>
 `;

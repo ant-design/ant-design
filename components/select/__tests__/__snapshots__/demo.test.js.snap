@@ -323,7 +323,7 @@ exports[`test renders ./components/select/demo/optgroup.md correctly 1`] = `
 
 exports[`test renders ./components/select/demo/search.md correctly 1`] = `
 <div
-  class="ant-select-show-search ant-select ant-select-enabled"
+  class="ant-select ant-select-enabled"
   style="width:200px;">
   <div
     aria-autocomplete="list"

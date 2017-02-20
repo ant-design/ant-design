@@ -58,13 +58,14 @@
       color: @text-color;
       white-space: nowrap;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all .3s;
 
       > a {
         color: @text-color;
         display: block;
         padding: 7px 16px;
         margin: -7px -16px;
+        transition: all .3s;
       }
 
       &:hover {
@@ -83,15 +84,18 @@
         }
       }
 
-      &:first-child {
+      &:first-child,
+      &:first-child > a {
         border-radius: @border-radius-base @border-radius-base 0 0;
       }
 
-      &:last-child {
+      &:last-child,
+      &:last-child > a {
         border-radius: 0 0 @border-radius-base @border-radius-base;
       }
 
-      &:only-child {
+      &:only-child,
+      &:only-child > a {
         border-radius: @border-radius-base;
       }
 
@@ -180,5 +184,33 @@
   }
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
+  }
+}
+
+// https://github.com/ant-design/ant-design/issues/4903
+.@{dropdown-prefix-cls}-menu-dark {
+  &,
+  .@{dropdown-prefix-cls}-menu {
+    background: @menu-dark-bg;
+  }
+  .@{dropdown-prefix-cls}-menu-item,
+  .@{dropdown-prefix-cls}-menu-submenu-title,
+  .@{dropdown-prefix-cls}-menu-item > a {
+    color: @text-color-secondary-dark;
+    &:after {
+      color: @text-color-secondary-dark;
+    }
+    &:hover {
+      color: #fff;
+      background: transparent;
+    }
+  }
+  .@{dropdown-prefix-cls}-menu-item-selected {
+    &,
+    &:hover,
+    > a {
+      background: @primary-color;
+      color: #fff;
+    }
   }
 }

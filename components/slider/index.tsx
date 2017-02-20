@@ -1,6 +1,8 @@
 import React from 'react';
-import { PropTypes } from 'react';
-import RcSlider from 'rc-slider';
+import RcSlider from 'rc-slider/lib/Slider';
+import RcRange from 'rc-slider/lib/Range';
+import RcHandle from 'rc-slider/lib/Handle';
+import Tooltip from '../tooltip';
 
 export interface SliderMarks {
   [key: number]: React.ReactNode | {
@@ -12,6 +14,8 @@ export interface SliderMarks {
 export type SliderValue = number | [number, number];
 
 export interface SliderProps {
+  prefixCls?: string;
+  tooltipPrefixCls?: string;
   range?: boolean;
   min?: number;
   max?: number;
@@ -32,15 +36,46 @@ export default class Slider extends React.Component<SliderProps, any> {
   static defaultProps = {
     prefixCls: 'ant-slider',
     tooltipPrefixCls: 'ant-tooltip',
-    tipTransitionName: 'zoom-down',
+    tipFormatter(value) {
+      return value.toString();
+    },
   };
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    tipTransitionName: PropTypes.string,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { visibles: {} };
+  }
+
+  handleTooltipVisibleChange = (index, visible) => {
+    this.setState({
+      visibles: {
+        ...this.state.visibles,
+        [index]: visible,
+      },
+    });
+  }
+  handleWithTooltip = ({ value, dragging, index, ...restProps }) => {
+    const { tooltipPrefixCls, tipFormatter } = this.props;
+    return (
+      <Tooltip
+        prefixCls={tooltipPrefixCls}
+        title={tipFormatter ? tipFormatter(value) : ''}
+        visible={tipFormatter && (this.state.visibles[index] || dragging)}
+        onVisibleChange={visible => this.handleTooltipVisibleChange(index, visible)}
+        placement="top"
+        transitionName="zoom-down"
+        key={index}
+      >
+        <RcHandle {...restProps} />
+      </Tooltip>
+    );
+  }
 
   render() {
-    return <RcSlider {...this.props} />;
+    const { range, ...restProps } = this.props;
+    if (range) {
+      return <RcRange {...restProps} handle={this.handleWithTooltip} />;
+    }
+    return <RcSlider {...restProps} handle={this.handleWithTooltip} />;
   }
 }

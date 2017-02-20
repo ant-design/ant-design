@@ -4,6 +4,10 @@
 @table-prefix-cls: ~"@{ant-prefix}-table";
 @table-head-background-color: @background-color-base;
 
+.@{table-prefix-cls}-wrapper {
+  .clearfix;
+}
+
 .@{table-prefix-cls} {
   font-size: @font-size-base;
   color: @text-color;
@@ -333,10 +337,15 @@
           display: none;
         }
       }
+
+      .@{table-prefix-cls}-placeholder {
+        border: 0;
+      }
     }
   }
 
   &-placeholder {
+    position: relative;
     padding: 16px 8px;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -364,6 +373,8 @@
       border: 0;
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
+      max-height: 400px;
+      overflow-x: hidden;
 
       &-item > label + span {
         padding: 0;
@@ -486,10 +497,8 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
-    // Fix https://github.com/ant-design/ant-design/issues/4637
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    padding-bottom: 20px;
+    margin-bottom: -20px;
   }
 
   /* fix firefox scrollbar bug */
@@ -503,7 +512,6 @@
     position: absolute;
     top: 0;
     overflow: hidden;
-    z-index: 1;
     transition: box-shadow .3s ease;
     border-radius: 0;
     table {

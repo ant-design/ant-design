@@ -156,7 +156,7 @@ class NameColumn extends Table.Column<IUser> {}
 
 ## Note
 
-According to [React documentation](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value defaultly for `dataSource`.
+According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value defaultly for `dataSource`.
 
 If `dataSource[i].key` is not existed, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
 
