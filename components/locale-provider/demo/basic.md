@@ -21,7 +21,7 @@ const App = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
   </div>
-};
+);
 
 ReactDOM.render(
   <LocaleProvider locale={enUS}>

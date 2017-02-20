@@ -48,5 +48,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<MyProgress />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

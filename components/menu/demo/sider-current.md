@@ -44,7 +44,7 @@ class Sider extends React.Component {
     }
     this.setState({ openKeys: nextOpenKeys });
   }
-  getAncestorKeys(key) {
+  getAncestorKeys = (key) => {
     const map = {
       sub3: ['sub2'],
     };
