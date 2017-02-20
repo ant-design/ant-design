@@ -9,22 +9,23 @@
   width: 100%;
   top: 16px;
   left: 0;
+  pointer-events: none;
 
   &-notice {
-    width: auto;
-    vertical-align: middle;
-    position: absolute;
-    left: 50%;
+    padding: 8px;
+    text-align: center;
+    &:first-child {
+      margin-top: -8px;
+    }
   }
 
   &-notice-content {
-    position: relative;
-    right: 50%;
     padding: 8px 16px;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
     background: @component-background;
-    display: block;
+    display: inline-block;
+    pointer-events: all;
   }
 
   &-success .@{iconfont-css-prefix} {
@@ -49,5 +50,23 @@
     font-size: @font-size-lg;
     top: 1px;
     position: relative;
+  }
+
+  &-notice.move-up-leave.move-up-leave-active {
+    animation-name: MessageMoveOut;
+    overflow: hidden;
+  }
+}
+
+@keyframes MessageMoveOut {
+  0% {
+    opacity: 1;
+    max-height: 60px;
+    padding: 8px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
   }
 }
