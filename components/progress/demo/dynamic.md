@@ -17,26 +17,24 @@ A dynamic progress bar is better.
 import { Progress, Button } from 'antd';
 const ButtonGroup = Button.Group;
 
-const MyProgress = React.createClass({
-  getInitialState() {
-    return {
-      percent: 0,
-    };
-  },
-  increase() {
+class App extends React.Component {
+  state = {
+    percent: 0,
+  }
+  increase = () => {
     let percent = this.state.percent + 10;
     if (percent > 100) {
       percent = 100;
     }
     this.setState({ percent });
-  },
-  decline() {
+  }
+  decline = () => {
     let percent = this.state.percent - 10;
     if (percent < 0) {
       percent = 0;
     }
     this.setState({ percent });
-  },
+  }
   render() {
     return (
       <div>
@@ -47,8 +45,8 @@ const MyProgress = React.createClass({
         </ButtonGroup>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<MyProgress />, mountNode);
 ````
