@@ -13,7 +13,7 @@ title:
 
 > 建议指定 `scroll.x` 为固定宽度。注意，非固定列宽度之和不要超过 `scroll.x`。
 
-> 如果希望 `scroll.x` 为自适应内容宽度，可以指定 `scroll={{ x: true }}`，然后使用 `white-space: nowrap` 样式强制单元格不自动换行。
+> 如果希望 `scroll.x` 为自适应内容宽度，可以指定 `scroll={{ x: true }}`，然后设置单元格内容的 `white-space: nowrap` 样式强制不自动换行。
 
 ## en-US
 
