@@ -3,7 +3,7 @@ order: 1
 title:
   zh-CN: RadioGroup 组合
   en-US: RadioGroup group
------------------------
+---
 
 ## zh-CN
 
@@ -17,18 +17,16 @@ A set of mutually exclusive Radio with the use of
 import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      value: 1,
-    };
-  },
-  onChange(e) {
+class App extends React.Component {
+  state = {
+    value: 1,
+  }
+  onChange = (e) => {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
-  },
+  }
   render() {
     return (
       <RadioGroup onChange={this.onChange} value={this.state.value}>
@@ -38,8 +36,8 @@ const App = React.createClass({
         <Radio value={4}>D</Radio>
       </RadioGroup>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ```
