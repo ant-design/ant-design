@@ -81,7 +81,7 @@ class App extends React.Component {
   }
 }
 
-App = Form.create()(App);
+const FormDemo = Form.create()(App);
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<FormDemo />, mountNode);
 ````
