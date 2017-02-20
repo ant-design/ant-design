@@ -16,9 +16,11 @@ Disabled checkbox.
 ````jsx
 import { Checkbox } from 'antd';
 
-ReactDOM.render(<div>
-  <Checkbox defaultChecked={false} disabled />
-  <br />
-  <Checkbox defaultChecked disabled />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Checkbox defaultChecked={false} disabled />
+    <br />
+    <Checkbox defaultChecked disabled />
+  </div>
+  , mountNode);
 ````
