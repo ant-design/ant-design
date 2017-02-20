@@ -168,6 +168,41 @@ describe('Table.rowSelection', () => {
     expect(handleSelectAll).toBeCalledWith(true, data, data);
   });
 
+  it('fires selectInvert event', () => {
+    const handleSelectInvert = jest.fn();
+    const rowSelection = {
+      onSelectInvert: handleSelectInvert,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const checkboxes = wrapper.find('input');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
+
+    expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
+  });
+
+  it('fires selection event', () => {
+    const handleSelection = jest.fn();
+    const rowSelection = {
+      onSelection: handleSelection,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+      }, {
+        key: 'even',
+        text: '偶数项',
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item').at(2).simulate('click');
+
+    expect(handleSelection).toBeCalledWith('odd', [0, 1, 2, 3]);
+  });
+
   // https://github.com/ant-design/ant-design/issues/4245
   it('handles disabled checkbox correctly when dataSource changes', () => {
     const rowSelection = {
