@@ -13,7 +13,7 @@ title:
 
 Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
-````__react
+````jsx
 import { Mention } from 'antd';
 const { toString, toEditorState } = Mention;
 
