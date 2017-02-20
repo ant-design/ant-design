@@ -45,21 +45,19 @@ const CustomizedForm = Form.create({
   );
 });
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      fields: {
-        username: {
-          value: 'benjycui',
-        },
+class Demo extends React.Component {
+  state = {
+    fields: {
+      username: {
+        value: 'benjycui',
       },
-    };
-  },
-  handleFormChange(changedFields) {
+    },
+  };
+  handleFormChange = (changedFields) => {
     this.setState({
       fields: { ...this.state.fields, ...changedFields },
     });
-  },
+  }
   render() {
     const fields = this.state.fields;
     return (
@@ -70,8 +68,8 @@ const Demo = React.createClass({
         </pre>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

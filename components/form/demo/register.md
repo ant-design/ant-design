@@ -42,39 +42,37 @@ const residences = [{
   }],
 }];
 
-const RegistrationForm = Form.create()(React.createClass({
-  getInitialState() {
-    return {
-      passwordDirty: false,
-    };
-  },
-  handleSubmit(e) {
+class RegistrationForm extends React.Component {
+  state = {
+    passwordDirty: false,
+  };
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  },
-  handlePasswordBlur(e) {
+  }
+  handlePasswordBlur = (e) => {
     const value = e.target.value;
     this.setState({ passwordDirty: this.state.passwordDirty || !!value });
-  },
-  checkPassword(rule, value, callback) {
+  }
+  checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
     } else {
       callback();
     }
-  },
-  checkConfirm(rule, value, callback) {
+  }
+  checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.passwordDirty) {
       form.validateFields(['confirm'], { force: true });
     }
     callback();
-  },
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -210,10 +208,12 @@ const RegistrationForm = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<RegistrationForm />, mountNode);
+const WrappedRegistrationForm = Form.create()(RegistrationForm);
+
+ReactDOM.render(<WrappedRegistrationForm />, mountNode);
 ````
 
 ````css
