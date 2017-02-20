@@ -42,15 +42,13 @@ const columns = [{
   dataIndex: 'email',
 }];
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      data: [],
-      pagination: {},
-      loading: false,
-    };
-  },
-  handleTableChange(pagination, filters, sorter) {
+class App extends React.Component {
+  state = {
+    data: [],
+    pagination: {},
+    loading: false,
+  };
+  handleTableChange = (pagination, filters, sorter) => {
     const pager = this.state.pagination;
     pager.current = pagination.current;
     this.setState({
@@ -63,8 +61,8 @@ const Test = React.createClass({
       sortOrder: sorter.order,
       ...filters,
     });
-  },
-  fetch(params = {}) {
+  }
+  fetch = (params = {}) => {
     console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
@@ -86,10 +84,10 @@ const Test = React.createClass({
         pagination,
       });
     });
-  },
+  }
   componentDidMount() {
     this.fetch();
-  },
+  }
   render() {
     return (
       <Table columns={columns}
@@ -100,8 +98,8 @@ const Test = React.createClass({
         onChange={this.handleTableChange}
       />
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````
