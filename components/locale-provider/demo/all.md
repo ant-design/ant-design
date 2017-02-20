@@ -37,11 +37,8 @@ const columns = [{
 }];
 
 class Page extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      visible: false,
-    };
+  state = {
+    visible: false,
   }
   showModal = () => {
     this.setState({ visible: true });

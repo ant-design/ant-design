@@ -19,12 +19,9 @@ import { Mention } from 'antd';
 const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];
 
 class AsyncMention extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      suggestions: [],
-      loading: false,
-    };
+  state = {
+    suggestions: [],
+    loading: false,
   }
   fetchSuggestions(value, callback) {
     setTimeout(() => {

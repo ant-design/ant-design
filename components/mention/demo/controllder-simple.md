@@ -18,11 +18,8 @@ import { Mention } from 'antd';
 const { toEditorState } = Mention;
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: toEditorState('@afc163'),
-    };
+  state = {
+    value: toEditorState('@afc163'),
   }
   handleChange = (editorState) => {
     this.setState({

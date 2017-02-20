@@ -19,11 +19,8 @@ const { toEditorState, getMentions } = Mention;
 const FormItem = Form.Item;
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      initValue: toEditorState('@afc163'),
-    };
+  state = {
+    initValue: toEditorState('@afc163'),
   }
   handleReset = (e) => {
     e.preventDefault();

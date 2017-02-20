@@ -32,11 +32,8 @@ function onSelect(suggestion, data) {
 }
 
 class CustomNavMention extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      suggestions: [],
-    };
+  state = {
+    suggestions: [],
   }
   onSearchChange = (value) => {
     const searchValue = value.toLowerCase();
