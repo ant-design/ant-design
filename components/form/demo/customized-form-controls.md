@@ -23,22 +23,24 @@ import { Form, Input, Select, Button } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-const PriceInput = React.createClass({
-  getInitialState() {
+class PriceInput extends React.Component {
+  constructor(props) {
+    super(props);
+
     const value = this.props.value || {};
-    return {
+    this.state = {
       number: value.number || 0,
       currency: value.currency || 'rmb',
     };
-  },
+  }
   componentWillReceiveProps(nextProps) {
     // Should be a controlled component.
     if ('value' in nextProps) {
       const value = nextProps.value;
       this.setState(value);
     }
-  },
-  handleNumberChange(e) {
+  }
+  handleNumberChange = (e) => {
     const number = parseInt(e.target.value || 0, 10);
     if (isNaN(number)) {
       return;
@@ -47,20 +49,20 @@ const PriceInput = React.createClass({
       this.setState({ number });
     }
     this.triggerChange({ number });
-  },
-  handleCurrencyChange(currency) {
+  }
+  handleCurrencyChange = (currency) => {
     if (!('value' in this.props)) {
       this.setState({ currency });
     }
     this.triggerChange({ currency });
-  },
-  triggerChange(changedValue) {
+  }
+  triggerChange = (changedValue) => {
     // Should provide an event to pass value to Form.
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(Object.assign({}, this.state, changedValue));
     }
-  },
+  }
   render() {
     const { size } = this.props;
     const state = this.state;
@@ -84,25 +86,25 @@ const PriceInput = React.createClass({
         </Select>
       </span>
     );
-  },
-});
+  }
+}
 
-const Demo = Form.create()(React.createClass({
-  handleSubmit(e) {
+class Demo extends React.Component {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  },
-  checkPrice(rule, value, callback) {
+  }
+  checkPrice = (rule, value, callback) => {
     if (value.number > 0) {
       callback();
       return;
     }
     callback('Price must greater than zero!');
-  },
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -118,8 +120,10 @@ const Demo = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<Demo />, mountNode);
+const WrappedDemo = Form.create()(Demo);
+
+ReactDOM.render(<WrappedDemo />, mountNode);
 ````

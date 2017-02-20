@@ -17,15 +17,15 @@ Normal login form which can contain more elements.
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
-const NormalLoginForm = Form.create()(React.createClass({
-  handleSubmit(e) {
+class NormalLoginForm extends React.Component {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  },
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -59,10 +59,12 @@ const NormalLoginForm = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<NormalLoginForm />, mountNode);
+const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
+
+ReactDOM.render(<WrappedNormalLoginForm />, mountNode);
 ````
 
 ```css
