@@ -16,17 +16,15 @@ Click the button to toggle between available and disabled states.
 ````jsx
 import { InputNumber, Button } from 'antd';
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      disabled: true,
-    };
-  },
-  toggle() {
+class App extends React.Component {
+  state = {
+    disabled: true,
+  };
+  toggle = () => {
     this.setState({
       disabled: !this.state.disabled,
     });
-  },
+  }
   render() {
     return (
       <div>
@@ -36,8 +34,8 @@ const Test = React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````
