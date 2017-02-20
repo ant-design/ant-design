@@ -48,7 +48,7 @@ ReactDOM.render(
 ````
 
 ````css
-#components-layout-demo-top .logo {
+.ant-layout-header .logo {
   width: 120px;
   height: 31px;
   background: #333;
