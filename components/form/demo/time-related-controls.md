@@ -19,8 +19,8 @@ const FormItem = Form.Item;
 const MonthPicker = DatePicker.MonthPicker;
 const RangePicker = DatePicker.RangePicker;
 
-const TimeRelatedForm = Form.create()(React.createClass({
-  handleSubmit(e) {
+class TimeRelatedForm extends React.Component {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     this.props.form.validateFields((err, fieldsValue) => {
@@ -45,7 +45,7 @@ const TimeRelatedForm = Form.create()(React.createClass({
       };
       console.log('Received values of form: ', values);
     });
-  },
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -113,8 +113,10 @@ const TimeRelatedForm = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<TimeRelatedForm />, mountNode);
+const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+
+ReactDOM.render(<WrappedTimeRelatedForm />, mountNode);
 ````
