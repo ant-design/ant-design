@@ -20,7 +20,6 @@ class IconSlider extends React.Component {
   constructor(props) {
     super(props);
     const { max, min } = props;
-    const min = this.props.min;
     const mid = ((max - min) / 2).toFixed(5);
     this.state = {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
