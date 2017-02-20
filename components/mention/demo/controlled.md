@@ -7,28 +7,29 @@ title:
 
 ## zh-CN
 
-受控模式，例如配合 Form 使用
+受控模式，例如配合 Form 使用。
 
 ## en-US
 
-Controlled mode, for example, to work with `Form` .
+Controlled mode, for example, to work with `Form`.
 
 ````jsx
 import { Mention, Form, Button } from 'antd';
 const { toEditorState, getMentions } = Mention;
 const FormItem = Form.Item;
 
-let App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       initValue: toEditorState('@afc163'),
     };
-  },
-  handleReset(e) {
+  }
+  handleReset = (e) => {
     e.preventDefault();
     this.props.form.resetFields();
-  },
-  handleSubmit(e) {
+  }
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
@@ -38,8 +39,8 @@ let App = React.createClass({
       console.log('Submit!!!');
       console.log(values);
     });
-  },
-  checkMention(rule, value, callback) {
+  }
+  checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
     const mentions = getMentions(getFieldValue('mention'));
     if (mentions.length < 2) {
@@ -47,7 +48,7 @@ let App = React.createClass({
     } else {
       callback();
     }
-  },
+  }
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
@@ -77,8 +78,8 @@ let App = React.createClass({
         </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
 App = Form.create()(App);
 
