@@ -879,7 +879,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
 
     return (
-      <div className={className} style={style}>
+      <div className={`${className} clearfix`} style={style}>
         <Spin
           spinning={loading}
           className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
