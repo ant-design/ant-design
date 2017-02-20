@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
+选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项，通过 `rowSelection.selections` 自定义选择项
 
 ## en-US
 
-To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
+To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows, use `rowSelection.selections` custom selections.
 
 
 ````jsx
@@ -38,14 +38,12 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      selectedRowKeys: [],  // Check here to configure the default column
-      loading: false,
-    };
-  },
-  start() {
+class App extends React.Component {
+  state = {
+    selectedRowKeys: [],  // Check here to configure the default column
+    loading: false,
+  };
+  start = () => {
     this.setState({ loading: true });
     // ajax request after empty completing
     setTimeout(() => {
@@ -54,16 +52,48 @@ const App = React.createClass({
         loading: false,
       });
     }, 1000);
-  },
-  onSelectChange(selectedRowKeys) {
+  }
+  onSelectChange = (selectedRowKeys) => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
-  },
+  }
+  onSelection = (selectionKey, changableRowKeys) => {
+    let selectedRowKeys = [];
+    switch (selectionKey) {
+      case 'odd':
+        selectedRowKeys = changableRowKeys.filter((key, index) => {
+          if (index % 2 !== 0) {
+            return false;
+          }
+          return true;
+        });
+        break;
+      case 'even':
+        selectedRowKeys = changableRowKeys.filter((key, index) => {
+          if (index % 2 !== 0) {
+            return true;
+          }
+          return false;
+        });
+        break;
+      default:
+        break;
+    }
+    this.setState({ selectedRowKeys });
+  }
   render() {
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+      }, {
+        key: 'even',
+        text: '偶数项',
+      }],
+      onSelection: this.onSelection,
     };
     const hasSelected = selectedRowKeys.length > 0;
     return (
@@ -77,8 +107,8 @@ const App = React.createClass({
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

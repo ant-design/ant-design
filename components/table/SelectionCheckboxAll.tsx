@@ -1,6 +1,14 @@
 import React from 'react';
 import Checkbox from '../checkbox';
 import { Store } from './createStore';
+import Dropdown from '../dropdown';
+import Menu from '../menu';
+import Icon from '../icon';
+
+export interface SelectionDecorator {
+  key: string;
+  text: string;
+}
 
 export interface SelectionCheckboxAllProps {
   store: Store;
@@ -8,8 +16,19 @@ export interface SelectionCheckboxAllProps {
   getCheckboxPropsByItem: (item, index) => any;
   getRecordKey: (record, index?) => string;
   data: any[];
-  onChange: (e) => void;
+  prefixCls: string | undefined;
+  onSelect: (selectionKey: string) => void;
+
+  selections?: SelectionDecorator[];
 }
+
+const defaultSelections: SelectionDecorator[] = [{
+  key: 'all',
+  text: '全选',
+}, {
+  key: 'invert',
+  text: '反选',
+}];
 
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
   unsubscribe: () => void;
@@ -106,17 +125,58 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return indeterminate;
   }
 
+  handleSelectAllChagne(e) {
+    let checked = e.target.checked;
+    this.props.onSelect(checked ? 'all' : 'removeAll');
+  }
+
+  renderMenus(selections: SelectionDecorator[]) {
+    return selections.map(selection => {
+      return (
+        <Menu.Item
+          key={selection.key}
+        >
+          {selection.text}
+        </Menu.Item>
+      );
+    });
+  }
+
   render() {
-    const { disabled, onChange } = this.props;
+    const { disabled, prefixCls } = this.props;
     const { checked, indeterminate } = this.state;
 
+    let selectionPrefixCls = `${prefixCls}-selection`;
+
+    let selections = defaultSelections.concat(this.props.selections || []);
+
+    let menu = (
+      <Menu
+        className={`${selectionPrefixCls}-menu`}
+        onClick={(e) => {this.props.onSelect(e.key);}}
+      >
+        {this.renderMenus(selections)}
+      </Menu>
+    );
+
     return (
-      <Checkbox
-        checked={checked}
-        indeterminate={indeterminate}
-        disabled={disabled}
-        onChange={onChange}
-      />
+      <div className={selectionPrefixCls}>
+        <Checkbox
+          checked={checked}
+          indeterminate={indeterminate}
+          disabled={disabled}
+          onChange={this.handleSelectAllChagne.bind(this)}
+        />
+        <Dropdown
+          overlay={menu}
+        >
+          <div className={`${selectionPrefixCls}-down`}>
+            <span>
+              <Icon type="down" />
+            </span>
+          </div>
+        </Dropdown>
+      </div>
     );
   }
 }

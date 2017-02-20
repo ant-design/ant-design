@@ -10,7 +10,7 @@ import assign from 'object-assign';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
-import SelectionCheckboxAll from './SelectionCheckboxAll';
+import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
 import { SpinProps } from '../spin';
@@ -46,6 +46,9 @@ export interface TableRowSelection<T> {
   getCheckboxProps?: (record: T) => Object;
   onSelect?: (record: T, selected: boolean, selectedRows: Object[]) => any;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
+  onSelectInvert?: (selectedRows: Object[]) => any;
+  selections?: SelectionDecorator[];
+  onSelection?: (key: string, changableRowKeys: string[]) => void;
 }
 
 export interface TableProps<T> {
@@ -270,6 +273,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
       );
       rowSelection.onSelectAll(checked, selectedRows, changeRows);
+    } else if (selectWay === 'onSelectInvert' && rowSelection.onSelectInvert) {
+      rowSelection.onSelectInvert(selectedRowKeys);
     }
   }
 
@@ -468,8 +473,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  handleSelectAllRow = (e) => {
-    const checked = e.target.checked;
+  handleSelectRow = (selectionKey) => {
     const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
@@ -477,28 +481,55 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
-    // 记录变化的列
-    const changeRowKeys: string[] = [];
-    if (checked) {
-      changableRowKeys.forEach(key => {
-        if (selectedRowKeys.indexOf(key) < 0) {
-          selectedRowKeys.push(key);
+    let changeRowKeys: string[] = [];
+    let selectWay = '';
+    let checked;
+    switch (selectionKey) {
+      case 'all':
+        changableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) < 0) {
+            selectedRowKeys.push(key);
+            changeRowKeys.push(key);
+          }
+        });
+        selectWay = 'onSelectAll';
+        checked = true;
+        break;
+      case 'removeAll':
+        changableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) >= 0) {
+            selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+            changeRowKeys.push(key);
+          }
+        });
+        selectWay = 'onSelectAll';
+        checked = false;
+        break;
+      case 'invert':
+        changableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) < 0) {
+            selectedRowKeys.push(key);
+          }else {
+            selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+          }
           changeRowKeys.push(key);
-        }
-      });
-    } else {
-      changableRowKeys.forEach(key => {
-        if (selectedRowKeys.indexOf(key) >= 0) {
-          selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
-          changeRowKeys.push(key);
-        }
-      });
+          selectWay = 'onSelectInvert';
+        });
+        break;
+      default:
+        break;
     }
+
     this.store.setState({
       selectionDirty: true,
     });
+    const { rowSelection = {} } = this.props;
+    if (rowSelection.onSelection && selectionKey !== 'all'
+    && selectionKey !== 'removeAll' && selectionKey !== 'invert') {
+      return rowSelection.onSelection(selectionKey, changableRowKeys);
+    }
     this.setSelectedRowKeys(selectedRowKeys, {
-      selectWay: 'onSelectAll',
+      selectWay: selectWay,
       checked,
       changeRowKeys,
     });
@@ -597,7 +628,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             getCheckboxPropsByItem={this.getCheckboxPropsByItem}
             getRecordKey={this.getRecordKey}
             disabled={checkboxAllDisabled}
-            onChange={this.handleSelectAllRow}
+            prefixCls={prefixCls}
+            onSelect={this.handleSelectRow}
+            selections={rowSelection.selections}
           />
         );
       }
