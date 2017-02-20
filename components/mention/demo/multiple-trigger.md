@@ -15,7 +15,7 @@ Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also 
 
 ````jsx
 import { Mention } from 'antd';
-const { toString, toEditorState } = Mention;
+const { toString } = Mention;
 
 function onChange(editorState) {
   console.log(toString(editorState));
@@ -29,7 +29,7 @@ const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];
 const tags = ['1.0', '2.0', '3.0'];
 
 class App extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       suggestions: [],
@@ -39,19 +39,21 @@ class App extends React.Component {
     console.log('onSearchChange', value, trigger);
     const dataSource = trigger === '@' ? users : tags;
     this.setState({
-      suggestions: dataSource.filter(item => item.indexOf(value) !== -1)
+      suggestions: dataSource.filter(item => item.indexOf(value) !== -1),
     });
   }
   render() {
-    return <Mention
-      style={{ width: '100%', height: 100 }}
-      onChange={onChange}
-      placeholder="input @ to mention people, # to mention tag"
-      prefix={['@', '#']}
-      onSearchChange={this.onSearchChange}
-      suggestions={this.state.suggestions}
-      onSelect={onSelect}
-    />
+    return (
+      <Mention
+        style={{ width: '100%', height: 100 }}
+        onChange={onChange}
+        placeholder="input @ to mention people, # to mention tag"
+        prefix={['@', '#']}
+        onSearchChange={this.onSearchChange}
+        suggestions={this.state.suggestions}
+        onSelect={onSelect}
+      />
+    );
   }
 }
 
