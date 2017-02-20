@@ -34,7 +34,7 @@ class App extends React.Component {
         onChange={this.handleChange}
       />
     );
-  },
+  }
 });
 
 ReactDOM.render(<App />, mountNode);

@@ -17,7 +17,7 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 import { Pagination, LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 
-const App = () = >(
+const App = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
   </div>
