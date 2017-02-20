@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
+import omit from 'omit.js';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -67,6 +68,29 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   timeout: any;
   clickedTimeout: any;
+  delayTimeout: number;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: props.loading,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentLoading = this.props.loading;
+    const loading = nextProps.loading;
+
+    if (currentLoading) {
+      clearTimeout(this.delayTimeout);
+    }
+
+    if (loading) {
+      this.delayTimeout = setTimeout(() => this.setState({ loading }), 200);
+    } else {
+      this.setState({ loading });
+    }
+  }
 
   componentWillUnmount() {
     if (this.clickedTimeout) {
@@ -74,6 +98,9 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
     if (this.timeout) {
       clearTimeout(this.timeout);
+    }
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
     }
   }
 
@@ -105,9 +132,10 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ghost, ...others,
+      type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, ...others,
     } = this.props;
 
+    const { loading } = this.state;
     // large => lg
     // small => sm
     const sizeCls = ({
@@ -130,7 +158,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <button
-        {...others}
+        {...omit(others, ['loading'])}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
