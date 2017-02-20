@@ -1,6 +1,6 @@
 exports[`Table.pagination renders pagination correctly 1`] = `
 <div
-  class="">
+  class="ant-table-wrapper">
   <div
     class="ant-spin-nested-loading">
     <div

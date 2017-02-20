@@ -1146,7 +1146,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
     <div
       class="example">
       <div
-        class="">
+        class="ant-table-wrapper">
         <div
           class="ant-spin-nested-loading">
           <div
