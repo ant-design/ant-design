@@ -23,7 +23,7 @@ class AsyncMention extends React.Component {
     suggestions: [],
     loading: false,
   }
-  fetchSuggestions(value, callback) {
+  fetchSuggestions = (value, callback) => {
     setTimeout(() => {
       callback(users.filter(item => item.indexOf(value) !== -1));
     }, 500);

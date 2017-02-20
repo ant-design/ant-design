@@ -20,7 +20,7 @@ class App extends React.Component {
   state = {
     visible: false,
     condition: true,   // Whether meet the condition, if not show popconfirm.
-  },
+  }
   changeCondition = (value) => {
     this.setState({ condition: value });
   }
