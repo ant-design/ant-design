@@ -16,27 +16,26 @@ You can add an icon beside the slider to make it meaningful.
 ````jsx
 import { Slider, Icon } from 'antd';
 
-const IconSlider = React.createClass({
-  getInitialState() {
-    const max = this.props.max;
+class IconSlider extends React.Component {
+  constructor(props) {
+    super(props);
+    const { max, min } = props;
     const min = this.props.min;
     const mid = ((max - min) / 2).toFixed(5);
-    return {
+    this.state = {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
       mid,
       sliderValue: this.props.value,
     };
-  },
-
-  handleChange(v) {
+  }
+  handleChange = (v) => {
     this.setState({
       preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
       nextIconClass: v >= this.state.mid ? 'anticon-highlight' : '',
       sliderValue: v,
     });
-  },
-
+  }
   render() {
     return (
       <div className="icon-wrapper">
@@ -45,8 +44,8 @@ const IconSlider = React.createClass({
         <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-o']} />, mountNode);
 ````

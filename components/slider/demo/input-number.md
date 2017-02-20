@@ -16,17 +16,15 @@ Synchronize with [InptNumber](/components/input-number/) component.
 ````jsx
 import { Slider, InputNumber, Row, Col } from 'antd';
 
-const IntegerStep = React.createClass({
-  getInitialState() {
-    return {
-      inputValue: 1,
-    };
-  },
-  onChange(value) {
+class IntegerStep extends React.Component {
+  state = {
+    inputValue: 1,
+  }
+  onChange = (value) => {
     this.setState({
       inputValue: value,
     });
-  },
+  }
   render() {
     return (
       <Row>
@@ -40,20 +38,18 @@ const IntegerStep = React.createClass({
         </Col>
       </Row>
     );
-  },
-});
+  }
+}
 
-const DecimalStep = React.createClass({
-  getInitialState() {
-    return {
-      inputValue: 0,
-    };
-  },
-  onChange(value) {
+class DecimalStep extends React.Component {
+  state = {
+    inputValue: 0,
+  }
+  onChange = (value) => {
     this.setState({
       inputValue: value,
     });
-  },
+  }
   render() {
     return (
       <Row>
@@ -67,14 +63,13 @@ const DecimalStep = React.createClass({
         </Col>
       </Row>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(
   <div>
     <IntegerStep />
     <DecimalStep />
-  </div>,
-  mountNode
-);
+  </div>
+, mountNode);
 ````
