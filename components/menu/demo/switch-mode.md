@@ -18,17 +18,15 @@ import { Menu, Icon, Switch } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-const Sider = React.createClass({
-  getInitialState() {
-    return {
-      mode: 'inline',
-    };
-  },
-  changeMode(value) {
+class Sider extends React.Component {
+  state = {
+    mode: 'inline',
+  }
+  changeMode = (value) => {
     this.setState({
       mode: value ? 'vertical' : 'inline',
     });
-  },
+  }
   render() {
     return (
       <div>
@@ -67,8 +65,8 @@ const Sider = React.createClass({
         </Menu>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Sider />, mountNode);
 ````
