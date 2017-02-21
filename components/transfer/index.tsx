@@ -160,10 +160,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
-    //filter the disabled options
+    // filter the disabled options
     const newMoveKeys = moveKeys.filter(key => {
       return !dataSource.some(data => !!(key === data.key && data.disabled));
-    })
+    });
     // move items to target box
     const newTargetKeys = direction === 'right'
       ? newMoveKeys.concat(targetKeys)
