@@ -222,7 +222,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
     });
 
-    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
+    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
     const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
       <div {...props} style={placeholderStyle}>
