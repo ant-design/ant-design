@@ -48,7 +48,6 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
   onSelectInvert?: (selectedRows: Object[]) => any;
   selections?: SelectionDecorator[];
-  onSelection?: (key: string, changableRowKeys: string[]) => void;
 }
 
 export interface TableProps<T> {
@@ -473,20 +472,21 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  handleSelectRow = (selectionKey) => {
+  handleSelectRow = (selectionKey, index, onSelectFunc) => {
     const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
-    const changableRowKeys = data
+    const changeableRowKeys = data
       .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
     let changeRowKeys: string[] = [];
     let selectWay = '';
     let checked;
+    // handle default selection
     switch (selectionKey) {
       case 'all':
-        changableRowKeys.forEach(key => {
+        changeableRowKeys.forEach(key => {
           if (selectedRowKeys.indexOf(key) < 0) {
             selectedRowKeys.push(key);
             changeRowKeys.push(key);
@@ -496,7 +496,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         checked = true;
         break;
       case 'removeAll':
-        changableRowKeys.forEach(key => {
+        changeableRowKeys.forEach(key => {
           if (selectedRowKeys.indexOf(key) >= 0) {
             selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
             changeRowKeys.push(key);
@@ -506,7 +506,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         checked = false;
         break;
       case 'invert':
-        changableRowKeys.forEach(key => {
+        changeableRowKeys.forEach(key => {
           if (selectedRowKeys.indexOf(key) < 0) {
             selectedRowKeys.push(key);
           }else {
@@ -523,10 +523,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     this.store.setState({
       selectionDirty: true,
     });
-    const { rowSelection = {} } = this.props;
-    if (rowSelection.onSelection && selectionKey !== 'all'
-    && selectionKey !== 'removeAll' && selectionKey !== 'invert') {
-      return rowSelection.onSelection(selectionKey, changableRowKeys);
+    // when select custom selection, callback selections[n].onSelect
+    if (index > 1 && typeof onSelectFunc === 'function') {
+      return onSelectFunc(changeableRowKeys);
     }
     this.setSelectedRowKeys(selectedRowKeys, {
       selectWay: selectWay,
@@ -630,7 +629,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             disabled={checkboxAllDisabled}
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
-            selections={rowSelection.selections}
+            selections={rowSelection.selections || []}
           />
         );
       }

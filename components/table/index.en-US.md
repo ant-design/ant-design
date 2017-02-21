@@ -120,8 +120,15 @@ Properties for selection.
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
-| selections | custom selection | {key: string, text: string}[] | - |
-| onSelection | callback that is called when select custom selection | Fcuntion(key, changableRowKeys) | - |
+| selections | custom selection, [config](#rowSelection) | object[] | - |
+
+### selection
+
+| Property      | Description              | Type            |  Default     |
+|---------------|--------------------------|-----------------|--------------|
+| key | key of this selection | string | -  |
+| text | display text is this selection | string\|React.ReactNode | -  |
+| onSelect | callback when click this selection | Function(changeableRowKeys) | -   |
 
 ## Using in TypeScript
 

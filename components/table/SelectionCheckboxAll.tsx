@@ -7,7 +7,8 @@ import Icon from '../icon';
 
 export interface SelectionDecorator {
   key: string;
-  text: string;
+  text: React.ReactNode;
+  onSelect: (changeableRowKeys: string[]) => void;
 }
 
 export interface SelectionCheckboxAllProps {
@@ -17,17 +18,18 @@ export interface SelectionCheckboxAllProps {
   getRecordKey: (record, index?) => string;
   data: any[];
   prefixCls: string | undefined;
-  onSelect: (selectionKey: string) => void;
-
-  selections?: SelectionDecorator[];
+  onSelect: (key: string, index: number, selectFunc: any) => void;
+  selections: SelectionDecorator[];
 }
 
 const defaultSelections: SelectionDecorator[] = [{
   key: 'all',
   text: '全选',
+  onSelect: () => {},
 }, {
   key: 'invert',
   text: '反选',
+  onSelect: () => {},
 }];
 
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
@@ -125,18 +127,22 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return indeterminate;
   }
 
-  handleSelectAllChagne(e) {
+  handleSelectAllChagne = (e) => {
     let checked = e.target.checked;
-    this.props.onSelect(checked ? 'all' : 'removeAll');
+    this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
   }
 
   renderMenus(selections: SelectionDecorator[]) {
-    return selections.map(selection => {
+    return selections.map((selection, index) => {
       return (
         <Menu.Item
-          key={selection.key}
+          key={selection.key || index}
         >
-          {selection.text}
+          <div
+            onClick={() => {this.props.onSelect(selection.key, index, selection.onSelect);}}
+          >
+            {selection.text}
+          </div>
         </Menu.Item>
       );
     });
@@ -153,7 +159,6 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     let menu = (
       <Menu
         className={`${selectionPrefixCls}-menu`}
-        onClick={(e) => {this.props.onSelect(e.key);}}
       >
         {this.renderMenus(selections)}
       </Menu>
@@ -165,7 +170,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
           checked={checked}
           indeterminate={indeterminate}
           disabled={disabled}
-          onChange={this.handleSelectAllChagne.bind(this)}
+          onChange={this.handleSelectAllChagne}
         />
         <Dropdown
           overlay={menu}
