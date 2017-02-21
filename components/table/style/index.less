@@ -373,8 +373,12 @@
       border: 0;
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
-      max-height: 400px;
-      overflow-x: hidden;
+
+      // https://github.com/ant-design/ant-design/issues/4916
+      &-without-submenu {
+        max-height: 400px;
+        overflow-x: hidden;
+      }
 
       &-item > label + span {
         padding: 0;
