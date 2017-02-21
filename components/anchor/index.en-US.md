@@ -21,7 +21,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |
 | bounds     | Bounding distance of anchor area | number | 5(px) |
 | affix | Fixed mode of Anchor | boolean | false |
-| inkInFixed | Whether show ink-balls in Fixed mode | boolean | false |
+| showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |
 
 ### Link Props
 
