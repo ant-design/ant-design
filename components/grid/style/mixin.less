@@ -72,7 +72,7 @@
 
 .loop-grid-columns(@index, @class) when (@index = 0) {
   .@{ant-prefix}-col@{class}-@{index} {
-    display: none;
+    display: none!important;
   }
   .@{ant-prefix}-col-push-@{index} {
     left: auto;
