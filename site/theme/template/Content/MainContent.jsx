@@ -195,8 +195,10 @@ export default class MainContent extends React.Component {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col lg={4} md={6} sm={24} xs={24}>
-            <Menu className="aside-container" mode="inline"
+          <Col lg={4} md={6} sm={0} xs={0}>
+            <Menu
+              className="aside-container"
+              mode="inline"
               openKeys={this.state.openKeys}
               selectedKeys={[activeMenuItem]}
               onOpenChange={this.handleMenuOpenChange}
