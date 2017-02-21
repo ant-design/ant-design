@@ -58,7 +58,7 @@ const columns = [{
 | size          | 正常或迷你类型，`default` or `small`  | string | default |
 | dataSource    | 数据数组 | any[] |            |
 | columns       | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)[] | - |
-| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
+| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record,index):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
