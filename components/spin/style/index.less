@@ -29,6 +29,7 @@
     height: 100%;
     width: 100%;
     z-index: 4;
+
     &-dot {
       position: absolute;
       top: 50%;
@@ -39,6 +40,7 @@
     &-sm .@{spin-prefix-cls}-dot {
       margin: -@spin-dot-size-sm / 2;
     }
+
     &-lg .@{spin-prefix-cls}-dot {
       margin: -@spin-dot-size-lg / 2;
     }
@@ -61,13 +63,16 @@
       width: 100%;
       padding-top: (@spin-dot-size - @font-size-base) / 2 + 2;
     }
+
     &-sm .@{spin-prefix-cls}-text {
       padding-top: (@spin-dot-size-sm - @font-size-base) / 2 + 2;
     }
+
     &-lg .@{spin-prefix-cls}-text {
       padding-top: (@spin-dot-size-lg - @font-size-base) / 2 + 2;
     }
   }
+
   &-container {
     transition: all 0.3s @ease-in-out;
     position: relative;
