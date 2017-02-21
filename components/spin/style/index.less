@@ -24,52 +24,51 @@
     position: relative;
   }
 
-  &-nested-loading & {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 4;
-
-    &-dot {
+  &-nested-loading {
+    > div > .@{spin-prefix-cls} {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -@spin-dot-size / 2;
-    }
-
-    &-sm .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-sm / 2;
-    }
-
-    &-lg .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-lg / 2;
-    }
-
-    &-show-text .@{spin-prefix-cls}-dot {
-      margin-top: -@spin-dot-size / 2 - 10;
-    }
-
-    &-show-text.@{spin-prefix-cls}-sm .@{spin-prefix-cls}-dot {
-      margin-top: -@spin-dot-size-sm / 2 - 10;
-    }
-
-    &-show-text.@{spin-prefix-cls}-lg .@{spin-prefix-cls}-dot {
-      margin-top: -@spin-dot-size-lg / 2 - 10;
-    }
-
-    &-text {
-      position: absolute;
-      top: 50%;
+      height: 100%;
       width: 100%;
-      padding-top: (@spin-dot-size - @font-size-base) / 2 + 2;
+      z-index: 4;
+      .@{spin-prefix-cls}-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -@spin-dot-size / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding-top: (@spin-dot-size - @font-size-base) / 2 + 2;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size / 2 - 10;
+      }
     }
 
-    &-sm .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-sm - @font-size-base) / 2 + 2;
+    > div > .@{spin-prefix-cls}-sm {
+      .@{spin-prefix-cls}-dot {
+        margin: -@spin-dot-size-sm / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: (@spin-dot-size-sm - @font-size-base) / 2 + 2;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size-sm / 2 - 10;
+      }
     }
 
-    &-lg .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-lg - @font-size-base) / 2 + 2;
+    > div > .@{spin-prefix-cls}-lg {
+      .@{spin-prefix-cls}-dot {
+        margin: -@spin-dot-size-lg / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: (@spin-dot-size-lg - @font-size-base) / 2 + 2;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size-lg / 2 - 10;
+      }
     }
   }
 
