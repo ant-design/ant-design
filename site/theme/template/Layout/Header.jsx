@@ -70,6 +70,12 @@ export default class Header extends React.Component {
     });
   }
 
+  onMenuVisibleChange = (visible) => {
+    this.setState({
+      menuVisible: visible,
+    });
+  }
+
   handleSelectFilter = (value, option) => {
     const optionValue = option.props['data-label'];
     return optionValue === searchEngine ||
@@ -78,14 +84,13 @@ export default class Header extends React.Component {
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
-    if (window.localStorage) {
+    if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
-    if (pathname === '/') {
-      location.pathname = utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname));
-    } else {
-      location.href = location.href.replace(location.pathname, utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)));
-    }
+    location.href = location.href.replace(
+      new RegExp(`${location.pathname}$`),
+      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+    );
   }
 
   handleVersionChange = (url) => {
@@ -188,6 +193,7 @@ export default class Header extends React.Component {
           trigger="click"
           visible={menuVisible}
           arrowPointAtCenter
+          onVisibleChange={this.onMenuVisibleChange}
         >
           <Icon
             className="nav-phone-icon"

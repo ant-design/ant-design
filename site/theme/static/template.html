@@ -10,6 +10,17 @@
     <title>Ant Design - A UI Design Language</title>
     <script>
     (function() {
+      function isLocalStorageNameSupported() {
+        const testKey = 'test';
+        const storage = window.localStorage;
+        try {
+          storage.setItem(testKey, '1');
+          storage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
       // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
       var pathname = location.pathname;
 
@@ -38,7 +49,7 @@
       }
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (pathname === '/' || pathname === '/index-cn') {
+      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
         var lang = (window.localStorage && localStorage.getItem('locale')) || navigator.language;
         if ((lang === 'zh-CN') !== isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
