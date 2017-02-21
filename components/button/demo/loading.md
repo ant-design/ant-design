@@ -57,7 +57,7 @@ class App extends React.Component {
           Click me!
         </Button>
         <Button type="primary" loading={this.state.delayLoading} onClick={this.delayLoading}>
-          Won\'t show loading
+          Won&apos;t show loading
         </Button>
         <br />
         <Button shape="circle" loading />

@@ -355,7 +355,7 @@ exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
     class="ant-btn ant-btn-primary"
     type="button">
     <span>
-      Won\\\'t show loading
+      Won\'t show loading
     </span>
   </button>
   <br />
