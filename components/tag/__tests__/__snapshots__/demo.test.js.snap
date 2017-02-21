@@ -87,14 +87,6 @@ exports[`test renders ./components/tag/demo/colorful.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-tag ant-tag-yellow"
-      data-show="true">
-      <span
-        class="ant-tag-text">
-        yellow
-      </span>
-    </div>
-    <div
       class="ant-tag ant-tag-green"
       data-show="true">
       <span
@@ -151,14 +143,6 @@ exports[`test renders ./components/tag/demo/colorful.md correctly 1`] = `
       <span
         class="ant-tag-text">
         orange-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-yellow-inverse"
-      data-show="true">
-      <span
-        class="ant-tag-text">
-        yellow-inverse
       </span>
     </div>
     <div
