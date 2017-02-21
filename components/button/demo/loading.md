@@ -20,6 +20,7 @@ class App extends React.Component {
   state = {
     loading: false,
     iconLoading: false,
+    delayLoading: false,
   }
 
   enterLoading = () => {
@@ -28,6 +29,15 @@ class App extends React.Component {
 
   enterIconLoading = () => {
     this.setState({ iconLoading: true });
+  }
+  delayLoading = () => {
+    this.setState({
+      delayLoading: true,
+    });
+
+    setTimeout(() => this.setState({
+      delayLoading: false,
+    }), 150);
   }
 
   render() {
@@ -45,6 +55,9 @@ class App extends React.Component {
         </Button>
         <Button type="primary" icon="poweroff" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
           Click me!
+        </Button>
+        <Button type="primary" loading={this.state.delayLoading} onClick={this.delayLoading}>
+          Won&apos;t show loading
         </Button>
         <br />
         <Button shape="circle" loading />
