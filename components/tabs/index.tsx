@@ -19,6 +19,7 @@ export interface TabsProps {
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
   tabBarExtraContent?: React.ReactNode | null;
+  tabBarStyle?: React.CSSProperties;
   type?: TabsType;
   tabPosition?: TabsPosition;
   onEdit?: (targetKey: string, action: any) => void;
@@ -91,6 +92,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       tabBarExtraContent,
+      tabBarStyle,
       hideAdd,
       onTabClick,
       animated,
@@ -150,6 +152,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       <ScrollableInkTabBar
         extraContent={tabBarExtraContent}
         onTabClick={onTabClick}
+        style={tabBarStyle}
       />
     );
 
