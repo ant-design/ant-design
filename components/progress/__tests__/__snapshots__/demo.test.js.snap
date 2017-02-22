@@ -6,10 +6,10 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -17,7 +17,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -39,10 +39,10 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -50,7 +50,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -73,10 +73,10 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -84,7 +84,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -112,10 +112,10 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -123,7 +123,7 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -165,10 +165,10 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
       class="ant-progress-inner"
       style="width:80px;height:80px;font-size:18.8px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -176,7 +176,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -198,10 +198,10 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
       class="ant-progress-inner"
       style="width:80px;height:80px;font-size:18.8px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -209,7 +209,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -232,10 +232,10 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
       class="ant-progress-inner"
       style="width:80px;height:80px;font-size:18.8px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -243,7 +243,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -309,10 +309,10 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -320,7 +320,7 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -342,10 +342,10 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
       class="ant-progress-inner"
       style="width:132px;height:132px;font-size:27.12px;">
       <svg
-        class="rc-progress-circle "
+        class="ant-progress-circle "
         viewbox="0 0 100 100">
         <path
-          class="rc-progress-circle-trail"
+          class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
@@ -353,7 +353,7 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#f3f3f3"
           stroke-width="6" />
         <path
-          class="rc-progress-circle-path"
+          class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
              a 47,47 0 1 1 0,94
              a 47,47 0 1 1 0,-94"
