@@ -21,7 +21,7 @@ export default class Article extends React.Component {
     // eslint-disable-next-line
     const checkImgUrl = 'https://g-assets.daily.taob' + 'ao.net/seajs/seajs/2.2.0/sea.js';
     this.pingTimer = utils.ping(checkImgUrl, (status) => {
-      if (status !== 'timeout') {
+      if (status !== 'timeout' && status !== 'error') {
         links.forEach(link => (link.style.display = 'block'));
       } else {
         links.forEach(link => link.parentNode.removeChild(link));
