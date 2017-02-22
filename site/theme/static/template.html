@@ -43,7 +43,7 @@
       var queryString = location.search;
       if (queryString) {
         var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
-        if (isZhCNConfig !== isZhCN(pathname)) {
+        if (isZhCNConfig && !isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
         }
       }
@@ -55,6 +55,7 @@
           location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
         }
       }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })()
     </script>
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
@@ -74,9 +75,6 @@
     if (!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
-    document.documentElement.className += /-cn\/?$/.test(location.pathname) ? 'zh-cn' : 'en-us';
-    </script>
-    <script>
     // Enable Google Analytics
     if (!location.port) {
       /* eslint-disable */
