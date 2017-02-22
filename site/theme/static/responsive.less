@@ -9,13 +9,22 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1280px) {
-  #search-box {
+@media only screen and (min-width: 0) and (max-width: 1280px) {
+  .en-us #search-box {
     display: none;
   }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 992px) {
+@media only screen and (min-width: 0) and (max-width: 1080px) {
+  .zh-cn #search-box {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 992px) {
+  #search-box {
+    display: none;
+  }
   .code-boxes-col-2-1, .code-boxes-col-1-1 {
     float: none;
     width: 100%;

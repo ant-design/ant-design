@@ -74,6 +74,7 @@
     if (!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
+    document.documentElement.className += /-cn\/?$/.test(location.pathname) ? 'zh-cn' : 'en-us';
     </script>
     <script>
     // Enable Google Analytics
