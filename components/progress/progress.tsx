@@ -102,6 +102,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
             trailWidth={circleWidth}
             strokeColor={statusColorMap[progressStatus]}
             trailColor={trailColor}
+            prefixCls={prefixCls}
           />
           {progressInfo}
         </div>
