@@ -1,16 +1,18 @@
 @input-box-height: 34px;
 
 .@{calendar-prefix-cls}-range-picker-input {
-  background-color: transparent;
-  border: 0;
-  height: 18px;
-  line-height: 18px;
-  outline: 0;
-  width: 43%;
-  text-align: center;
+  padding: 0;
 
-  &[disabled] {
-    cursor: not-allowed;
+  &-part {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 43%;
+    text-align: center;
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
   }
 }
 
