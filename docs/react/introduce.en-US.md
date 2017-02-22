@@ -125,8 +125,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - Manually import
 
    ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // just for js
-   import 'antd/lib/date-picker/style/css';  // with style
+   import DatePicker from 'antd/lib/date-picker';  // just js
+   import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
    ```
 
 ## Useful Links
