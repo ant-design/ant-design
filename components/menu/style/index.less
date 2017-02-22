@@ -81,6 +81,10 @@
     color: @primary-color;
   }
 
+  &:not(&-inline) &-submenu-open {
+    z-index: @zindex-dropdown;
+  }
+
   &-horizontal &-item,
   &-horizontal &-submenu {
     margin-top: -1px;
