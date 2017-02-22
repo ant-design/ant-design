@@ -29,9 +29,9 @@ exports[`test renders ./components/date-picker/demo/basic.md correctly 1`] = `
   <span
     class="ant-calendar-picker">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="" />
@@ -40,7 +40,7 @@ exports[`test renders ./components/date-picker/demo/basic.md correctly 1`] = `
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="" />
@@ -84,10 +84,10 @@ exports[`test renders ./components/date-picker/demo/disabled.md correctly 1`] = 
   <span
     class="ant-calendar-picker">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input"
+      class="ant-calendar-picker-input ant-input"
       disabled="">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         disabled=""
         placeholder="开始日期"
         readonly=""
@@ -97,7 +97,7 @@ exports[`test renders ./components/date-picker/demo/disabled.md correctly 1`] = 
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         disabled=""
         placeholder="结束日期"
         readonly=""
@@ -129,9 +129,9 @@ exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1
     class="ant-calendar-picker"
     style="width:300px;">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="" />
@@ -140,7 +140,7 @@ exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="" />
@@ -186,9 +186,9 @@ exports[`test renders ./components/date-picker/demo/format.md correctly 1`] = `
   <span
     class="ant-calendar-picker">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="2015/01/01" />
@@ -197,7 +197,7 @@ exports[`test renders ./components/date-picker/demo/format.md correctly 1`] = `
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="2015/01/01" />
@@ -233,9 +233,9 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
   <span
     class="ant-calendar-picker">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="" />
@@ -244,7 +244,7 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="" />
@@ -257,9 +257,9 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
     class="ant-calendar-picker"
     style="width:300px;">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="" />
@@ -268,7 +268,7 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="" />
@@ -358,9 +358,9 @@ exports[`test renders ./components/date-picker/demo/size.md correctly 1`] = `
   <span
     class="ant-calendar-picker">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="开始日期"
         readonly=""
         value="" />
@@ -369,7 +369,7 @@ exports[`test renders ./components/date-picker/demo/size.md correctly 1`] = `
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="结束日期"
         readonly=""
         value="" />
@@ -431,9 +431,9 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
     class="ant-calendar-picker"
     style="width:300px;">
     <span
-      class="ant-calendar-picker-input ant-input ant-calendar-range-picker-input">
+      class="ant-calendar-picker-input ant-input">
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="Start Time"
         readonly=""
         value="" />
@@ -442,7 +442,7 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
          ~ 
       </span>
       <input
-        class="ant-calendar-range-picker-input-part"
+        class="ant-calendar-range-picker-input"
         placeholder="End Time"
         readonly=""
         value="" />

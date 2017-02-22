@@ -1146,9 +1146,9 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         <span
           class="ant-calendar-picker">
           <span
-            class="ant-calendar-picker-input ant-input ant-input-lg ant-calendar-range-picker-input">
+            class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
-              class="ant-calendar-range-picker-input-part"
+              class="ant-calendar-range-picker-input"
               placeholder="开始日期"
               readonly=""
               value="" />
@@ -1157,7 +1157,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
                ~ 
             </span>
             <input
-              class="ant-calendar-range-picker-input-part"
+              class="ant-calendar-range-picker-input"
               placeholder="结束日期"
               readonly=""
               value="" />
@@ -1186,9 +1186,9 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
           class="ant-calendar-picker"
           style="width:300px;">
           <span
-            class="ant-calendar-picker-input ant-input ant-input-lg ant-calendar-range-picker-input">
+            class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
-              class="ant-calendar-range-picker-input-part"
+              class="ant-calendar-range-picker-input"
               placeholder="开始日期"
               readonly=""
               value="" />
@@ -1197,7 +1197,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
                ~ 
             </span>
             <input
-              class="ant-calendar-range-picker-input-part"
+              class="ant-calendar-range-picker-input"
               placeholder="结束日期"
               readonly=""
               value="" />
