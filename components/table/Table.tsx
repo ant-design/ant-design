@@ -62,6 +62,8 @@ export interface TableProps<T> {
   expandedRowKeys?: string[];
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
+  onExpandedRowsChange?: (expandedRowKeys: string[]) => void;
+  onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
   loading?: boolean;
   locale?: Object;
