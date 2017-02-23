@@ -169,7 +169,7 @@ describe('Table.rowSelection', () => {
     expect(handleSelectAll).toBeCalledWith(true, data, data);
 
     wrapper.find('input').first().simulate('change', { target: { checked: false } });
-    expect(handleSelectAll).toBeCalledWith(false, [], data);    
+    expect(handleSelectAll).toBeCalledWith(false, [], data);
   });
 
   it('render selection correctly', () => {
