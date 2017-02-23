@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.rowSelection', () => {
@@ -165,6 +166,25 @@ describe('Table.rowSelection', () => {
     const wrapper = mount(createTable({ rowSelection }));
 
     wrapper.find('input').first().simulate('change', { target: { checked: true } });
+    expect(handleSelectAll).toBeCalledWith(true, data, data);
+  });
+
+  it('render selection correctly', () => {
+    const wrapper = mount(createTable());
+    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+  });
+
+  it('click select all selection', () => {
+    const handleSelectAll = jest.fn();
+    const rowSelection = {
+      onSelectAll: handleSelectAll,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').first().simulate('click');
+
     expect(handleSelectAll).toBeCalledWith(true, data, data);
   });
 
