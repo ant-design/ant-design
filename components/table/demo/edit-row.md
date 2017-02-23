@@ -47,21 +47,23 @@ class EditableCell extends React.Component {
   }
   render() {
     const { value, editable } = this.state;
-    return (<div>
-      {
-        editable ?
-        <div>
-          <Input
-            value={value}
-            onChange={e => this.handleChange(e)}
-          />
-        </div>
-        :
-        <div className="editable-row-text">
-          {value.toString() || ' '}
-        </div>
-      }
-    </div>);
+    return (
+      <div>
+        {
+          editable ?
+            <div>
+              <Input
+                value={value}
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            :
+            <div className="editable-row-text">
+              {value.toString() || ' '}
+            </div>
+        }
+      </div>
+    );
   }
 }
 
@@ -88,21 +90,23 @@ class EditableTable extends React.Component {
       dataIndex: 'operation',
       render: (text, record, index) => {
         const { editable } = this.state.data[index].name;
-        return (<div className="editable-row-operations">
-          {
-            editable ?
-            <span>
-              <a onClick={() => this.editDone(index, 'save')}>Save</a>
-              <Popconfirm title="Sure to cancel?" onConfirm={() => this.editDone(index, 'cancel')}>
-                <a>Cancel</a>
-              </Popconfirm>
-            </span>
-            :
-            <span>
-              <a onClick={() => this.edit(index)}>Edit</a>
-            </span>
-          }
-        </div>);
+        return (
+          <div className="editable-row-operations">
+            {
+              editable ?
+                <span>
+                  <a onClick={() => this.editDone(index, 'save')}>Save</a>
+                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.editDone(index, 'cancel')}>
+                    <a>Cancel</a>
+                  </Popconfirm>
+                </span>
+                :
+                <span>
+                  <a onClick={() => this.edit(index)}>Edit</a>
+                </span>
+            }
+          </div>
+        );
       },
     }];
     this.state = {

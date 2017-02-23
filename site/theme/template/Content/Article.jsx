@@ -69,7 +69,7 @@ export default class Article extends React.Component {
             {title[locale] || title}
             {
               !subtitle || locale === 'en-US' ? null :
-                <span className="subtitle">{subtitle}</span>
+              <span className="subtitle">{subtitle}</span>
             }
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
           </h1>
@@ -81,7 +81,7 @@ export default class Article extends React.Component {
           }
           {
             (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
-              <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
+            <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
             this.getArticle(props.utils.toReactComponent(
