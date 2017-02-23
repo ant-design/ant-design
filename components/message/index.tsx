@@ -4,12 +4,14 @@ import Icon from '../icon';
 
 let defaultDuration = 1.5;
 let defaultTop;
+let defaultContainer = 'body;
 let messageInstance;
 let key = 1;
 let prefixCls = 'ant-message';
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
+    container: defaultContainer,
     prefixCls,
     transitionName: 'move-up',
     style: { top: defaultTop }, // 覆盖原来的样式
@@ -58,6 +60,7 @@ type ConfigDuration = number;
 export type ConfigOnClose = () => void;
 
 export interface ConfigOptions {
+  container?: string;
   top?: number;
   duration?: number;
   prefixCls?: string;
@@ -84,6 +87,9 @@ export default {
     return notice(content, duration, 'loading', onClose);
   },
   config(options: ConfigOptions) {
+    if (options.container !== undefined) {
+      defaultContainer = options.container;
+    }
     if (options.top !== undefined) {
       defaultTop = options.top;
       messageInstance = null; // delete messageInstance for new defaultTop
