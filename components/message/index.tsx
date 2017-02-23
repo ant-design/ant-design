@@ -4,7 +4,7 @@ import Icon from '../icon';
 
 let defaultDuration = 1.5;
 let defaultTop;
-let defaultContainer = 'body;
+let defaultContainer = 'body';
 let messageInstance;
 let key = 1;
 let prefixCls = 'ant-message';
