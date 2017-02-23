@@ -18,6 +18,7 @@ export interface SiderProps {
 }
 
 export default class Sider extends React.Component<SiderProps, any> {
+  static __ANT_LAYOUT_SIDER: any = true;
 
   static defaultProps = {
     prefixCls: 'ant-layout-sider',
@@ -27,7 +28,6 @@ export default class Sider extends React.Component<SiderProps, any> {
     width: 200,
     collapsedWidth: 64,
     style: {},
-    name: 'Sider',
   };
 
   constructor(props) {
@@ -73,7 +73,7 @@ export default class Sider extends React.Component<SiderProps, any> {
       prefixCls, className, collapsible, reverseArrow, trigger, style, width, collapsedWidth,
       ...others,
     } = this.props;
-    const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse', 'name']);
+    const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse']);
     const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: !!trigger,

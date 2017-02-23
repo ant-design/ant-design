@@ -58,3 +58,12 @@ title: Layout
 | collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | number | 64 |
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
+
+> 注意：如果你想在 `Sider` 基础上进行包装，需要给自定义组件加上 `__ANT_LAYOUT_SIDER = true` 设置，例如：
+
+```jsx
+const CustomizedSider = (props) => <Sider {...props} />
+CustomizedSider.__ANT_LAYOUT_SIDER = true;
+...
+<CustomizedSider>Sider Content</CustomizedSider>
+```
