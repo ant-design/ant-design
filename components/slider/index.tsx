@@ -43,30 +43,36 @@ export default class Slider extends React.Component<SliderProps, any> {
 
   constructor(props) {
     super(props);
-    this.state = { visibles: {} };
+    this.state = {
+      visibles: {},
+    };
   }
 
-  handleTooltipVisibleChange = (index, visible) => {
-    this.setState({
+  toggleTooltipVisible = (index, visible) => {
+    this.setState(({ visibles }) => ({
       visibles: {
-        ...this.state.visibles,
+        ...visibles,
         [index]: visible,
       },
-    });
+    }));
   }
   handleWithTooltip = ({ value, dragging, index, ...restProps }) => {
     const { tooltipPrefixCls, tipFormatter } = this.props;
+    const { visibles } = this.state;
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
-        visible={tipFormatter && (this.state.visibles[index] || dragging)}
-        onVisibleChange={visible => this.handleTooltipVisibleChange(index, visible)}
+        visible={tipFormatter && (visibles[index] || dragging)}
         placement="top"
         transitionName="zoom-down"
         key={index}
       >
-        <RcHandle {...restProps} />
+        <RcHandle
+          {...restProps}
+          onMouseEnter={() => this.toggleTooltipVisible(index, true)}
+          onMouseLeave={() => this.toggleTooltipVisible(index, false)}
+        />
       </Tooltip>
     );
   }
