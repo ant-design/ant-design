@@ -6,8 +6,8 @@ import Button from '../button';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
-  onConfirm?: () => void;
-  onCancel?: () => void;
+  onConfirm?: (e: React.MouseEvent<any>) => void;
+  onCancel?: (e: React.MouseEvent<any>) => void;
   okText?: React.ReactNode;
   cancelText?: React.ReactNode;
 }
@@ -46,21 +46,21 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  confirm = () => {
+  confirm = (e) => {
     this.setVisible(false);
 
     const onConfirm = this.props.onConfirm;
     if (onConfirm) {
-      onConfirm.call(this);
+      onConfirm.call(this, e);
     }
   }
 
-  cancel = () => {
+  cancel = (e) => {
     this.setVisible(false);
 
     const onCancel = this.props.onCancel;
     if (onCancel) {
-      onCancel.call(this);
+      onCancel.call(this, e);
     }
   }
 

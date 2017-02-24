@@ -17,8 +17,8 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 | Param     | Description   | Type     | Default value       |
 |-----------|------------------------------------------|---------------|--------|
 | title     | title of the confirmation box                             | string\|ReactNode | none     |
-| onConfirm | callback of confirmation                           | function      | none     |
-| onCancel  | callback of cancel                           | function      | none     |
+| onConfirm | callback of confirmation                           | function(e)      | none     |
+| onCancel  | callback of cancel                           | function(e)      | none     |
 | okText    | text of the confirmation button                              | string        | Confirm   |
 | cancelText| text of the cancel button                              | string        | Cancel   |
 
