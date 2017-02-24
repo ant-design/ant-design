@@ -163,7 +163,7 @@
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && tslint -c node_modules/antd-tools/lib/tslint.json",
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
-    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md"
+    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },
   "lint-staged": {
     "components/**/*.tsx": [
