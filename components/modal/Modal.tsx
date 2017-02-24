@@ -17,7 +17,7 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: () => void;
+  onOk?: (e: React.MouseEvent<any>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
   afterClose?: () => void;
@@ -89,10 +89,10 @@ export default class Modal extends React.Component<ModalProps, any> {
     }
   }
 
-  handleOk = () => {
+  handleOk = (e) => {
     const onOk = this.props.onOk;
     if (onOk) {
-      onOk();
+      onOk(e);
     }
   }
 

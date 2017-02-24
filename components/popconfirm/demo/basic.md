@@ -16,11 +16,13 @@ The basic example.
 ````jsx
 import { Popconfirm, message } from 'antd';
 
-function confirm() {
+function confirm(e) {
+  console.log(e);
   message.success('Click on Yes');
 }
 
-function cancel() {
+function cancel(e) {
+  console.log(e);
   message.error('Click on No');
 }
 

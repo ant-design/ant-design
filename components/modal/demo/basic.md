@@ -23,8 +23,8 @@ class App extends React.Component {
       visible: true,
     });
   }
-  handleOk = () => {
-    console.log('Clicked OK');
+  handleOk = (e) => {
+    console.log(e);
     this.setState({
       visible: false,
     });
