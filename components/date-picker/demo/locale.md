@@ -2,25 +2,25 @@
 order: 7
 title:
   zh-CN: 国际化
-  en-US: Locale
+  en-US: Localization
 ---
 
 ## zh-CN
 
-通过 `locale` 设置语言, 默认支持 `en_US`，`zh_CN`。
+通过 `LocaleProvider` 设置语言。
 
-moment 会自动使用当前时区，如果需要使用别的时区，则需要自行设置，设置方法请参考示例代码中的注释。
+`moment` 会自动使用当前时区，如果需要使用别的时区，则需要自行设置，设置方法请参考示例代码中的注释。
 
 ## en-US
 
-Use locale to set the language. `en_US`, `zh_CN` are supported by default.
+Use locale to set the language.
 
-moment will use your time zone automatically. If you want to set other time zone, please set it by yourself.
+`moment` will use your time zone automatically. If you want to set other time zone, please set it by yourself.
 
 
 ````jsx
-import { DatePicker } from 'antd';
-import enUS from 'antd/lib/date-picker/locale/en_US';
+import { DatePicker, LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
 import moment from 'moment-timezone/moment-timezone';
 
 // It's recommended to set moment locale and time zone globally in entry file,
@@ -34,11 +34,13 @@ import moment from 'moment-timezone/moment-timezone';
 const log = console.log.bind(console);
 
 ReactDOM.render(
-  <DatePicker
-    defaultValue={moment().locale('en').utcOffset(0)}
-    locale={enUS}
-    showTime
-    onChange={log}
-  />
-, mountNode);
+  <LocaleProvider locale={enUS}>
+    <DatePicker
+      defaultValue={moment().locale('en').utcOffset(0)}
+      showTime
+      onChange={log}
+    />
+  </LocaleProvider>,
+  mountNode
+);
 ````

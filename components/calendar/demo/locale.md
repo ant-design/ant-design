@@ -2,20 +2,20 @@
 order: 3
 title:
   zh-CN: 国际化
-  en-US: locale
+  en-US: Localization
 ---
 
 ## zh-CN
 
-通过 `locale` 配置语言, 默认支持 en_US, zh_CN
+通过 `LocaleProvider` 配置语言。
 
 ## en-US
 
-To set the language. en_US, zh_CN are supported by default.
+To set the language.
 
 ````jsx
-import { Calendar } from 'antd';
-import enUS from 'antd/lib/calendar/locale/en_US';
+import { Calendar, LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
 import moment from 'moment';
 // It's recommended to set moment locale globally, otherwise, you need to set it by `value` or `defaultValue`
 // moment.locale('en');
@@ -23,8 +23,13 @@ import moment from 'moment';
 function onPanelChange(value, mode) {
   console.log(value, mode);
 }
-
 ReactDOM.render(
-  <Calendar defaultValue={moment().locale('en')} onPanelChange={onPanelChange} locale={enUS} />
-, mountNode);
+  <LocaleProvider locale={enUS}>
+    <Calendar
+      defaultValue={moment().locale('en')}
+      onPanelChange={onPanelChange}
+    />
+  </LocaleProvider>,
+  mountNode
+);
 ````
