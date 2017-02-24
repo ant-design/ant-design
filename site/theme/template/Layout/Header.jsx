@@ -88,7 +88,7 @@ export default class Header extends React.Component {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
     location.href = location.href.replace(
-      new RegExp(`${location.pathname}$`),
+      location.pathname,
       utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
     );
   }
@@ -222,7 +222,9 @@ export default class Header extends React.Component {
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
-                <Option value={searchEngine} data-label={searchEngine}>全文本搜索...</Option>
+                <Option value={searchEngine} data-label={searchEngine}>
+                  <FormattedMessage id="app.header.search" />
+                </Option>
                 {options}
               </Select>
             </div>

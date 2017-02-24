@@ -147,6 +147,7 @@ section.code-box-meta p {
 }
 
 .code-box .highlight {
+  position: relative;
   pre {
     margin: 0;
     padding: 0;
@@ -155,6 +156,13 @@ section.code-box-meta p {
   &:not(:first-child) {
      border-top: 1px dashed @border-color-split;
   }
+}
+
+.code-box .code-box-code-copy {
+  position: absolute;
+  top: 10px;
+  right: 13.5px;
+  margin: 0 !important;
 }
 
 .code-box pre {
