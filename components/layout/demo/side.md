@@ -96,6 +96,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
 
 #components-layout-demo-side .ant-layout-sider-collapsed .anticon {
   font-size: 16px;
+  margin-left: 8px;
 }
 
 #components-layout-demo-side .ant-layout-sider-collapsed .nav-text {
@@ -104,5 +105,5 @@ ReactDOM.render(<SiderDemo />, mountNode);
 
 #components-layout-demo-side .ant-layout-sider-collapsed .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
   display: none;
-} 
+}
 ````
