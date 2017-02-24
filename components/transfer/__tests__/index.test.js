@@ -27,6 +27,20 @@ const listCommonProps = {
   lazy: false,
 };
 
+const listDisabledProps = {
+  dataSource: [{
+    key: 'a',
+    title: 'a',
+    disabled: true,
+  }, {
+    key: 'b',
+    title: 'b',
+  }],
+  selectedKeys: ['a', 'b'],
+  targetKeys: [],
+  lazy: false,
+};
+
 const searchTransferProps = {
   dataSource: [
     {
@@ -82,6 +96,13 @@ describe('Transfer', () => {
     const wrapper = mount(<Transfer {...listCommonProps} onChange={handleChange} />);
     wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
+  });
+
+  it('should move selected keys expect disabled to corresponding list', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
+    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
+    expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
   it('should uncheck checkbox when click on checked item', () => {
