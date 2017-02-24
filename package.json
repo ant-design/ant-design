@@ -161,21 +161,20 @@
     "pre-publish": "npm run test-all && node ./scripts/prepub",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "lint-staged": "lint-staged",
+    "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json",
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
-    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md"
+    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },
   "lint-staged": {
     "components/**/*.tsx": [
-      "lint:ts"
+      "lint-staged:ts"
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
-      "lint-staged:es",
-      "git add"
+      "lint-staged:es"
     ],
     "components/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [
-      "lint-staged:demo",
-      "git add"
+      "lint-staged:demo"
     ]
   },
   "jest": {
@@ -210,6 +209,6 @@
     ]
   },
   "pre-commit": [
-    "lint"
+    "lint-staged"
   ]
 }
