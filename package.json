@@ -36,6 +36,7 @@
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
+    "closest": "^0.0.1",
     "css-animation": "^1.2.5",
     "moment": "~2.17.0",
     "object-assign": "~4.1.0",

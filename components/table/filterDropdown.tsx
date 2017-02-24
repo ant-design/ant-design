@@ -1,5 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
+import closest from 'closest';
 import classNames from 'classnames';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
@@ -16,6 +18,7 @@ export interface FilterMenuProps {
     filters?: { text: string; value: string, children?: any[] }[],
     filterDropdownVisible?: boolean,
     onFilterDropdownVisibleChange?: (visible: boolean) => any,
+    fixed?: boolean | string,
   };
   confirmFilter: (column: Object, selectedKeys: string[]) => any;
   prefixCls: string;
@@ -28,6 +31,8 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     column: {},
   };
 
+  neverShown: boolean;
+
   constructor(props) {
     super(props);
 
@@ -39,6 +44,18 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
       visible,
     };
+  }
+
+  componentDidMount() {
+    const { column } = this.props;
+    const rootNode = ReactDOM.findDOMNode(this);
+    const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
+    if (filterBelongToScrollBody && column.fixed) {
+      // When fixed column have filters, there will be two dropdown menus
+      // Filter dropdown menu inside scroll body should never be shown
+      // To fix https://github.com/ant-design/ant-design/issues/5010
+      this.neverShown = true;
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -199,7 +216,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       <Dropdown
         trigger={['click']}
         overlay={menus}
-        visible={this.state.visible}
+        visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
       >
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
