@@ -26,16 +26,11 @@ class Basic extends React.Component<BasicProps, any> {
   render() {
     const { prefixCls, className, children, ...others } = this.props;
     let hasSider;
-    React.Children.forEach(
-      children,
-      (ele: React.ReactElement<any>) => {
-        if (ele: any
-              && ele.type
-              && ele.type.__ANT_LAYOUT_SIDER) {
-          hasSider = true;
-        }
+    React.Children.forEach(children, (element: any) => {
+      if (element && element.type && element.type.__ANT_LAYOUT_SIDER) {
+        hasSider = true;
       }
-    );
+    });
     const divCls = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider,
     });
