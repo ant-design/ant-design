@@ -42,7 +42,7 @@ export interface UploadProps {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: File) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: File, FileList: File[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: 'text' | 'picture' | 'picture-card';
   className?: string;
@@ -52,6 +52,8 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
+  customRequest?: (option: any) => void;
+  withCredentials?: boolean;
 }
 
 export interface UploadListProps {
