@@ -32,8 +32,11 @@ const listDisabledProps = {
     key: 'a',
     title: 'a',
     disabled: true,
+  }, {
+    key: 'b',
+    title: 'b',
   }],
-  selectedKeys: ['a'],
+  selectedKeys: ['a', 'b'],
   targetKeys: [],
   lazy: false,
 };
@@ -99,7 +102,7 @@ describe('Transfer', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
     wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
-    expect(handleChange).toHaveBeenCalledWith([], 'right', []);
+    expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
   it('should uncheck checkbox when click on checked item', () => {
