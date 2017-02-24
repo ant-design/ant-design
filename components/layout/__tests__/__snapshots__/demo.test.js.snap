@@ -69,7 +69,7 @@ exports[`test renders ./components/layout/demo/basic.md correctly 1`] = `
       Sider
     </div>
     <div
-      class="ant-layout-content">
+      class="ant-layout">
       <div
         class="ant-layout-header">
         Header
