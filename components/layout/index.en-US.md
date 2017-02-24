@@ -9,11 +9,11 @@ When you are handling the overall layout of a page, this component might be help
 
 ## Overview
 
-- `Layout`: The layout wrapper, in which `Header` `Sider` `Content` `Footer` or `Layout` itself can be nested.
-- `Header`: The top layout with default style.
-- `Sider`: The sidebar with default style and basic functions.
-- `Content`: The content layout with default style.
-- `Footer`: The bottom layout with default style.
+- `Layout`: The layout wrapper, in which `Header` `Sider` `Content` `Footer` or `Layout` itself can be nested, and can be placed in any parent container.
+- `Header`: The top layout with default style, in which any element can be nested, and must be placed in `Layout`.
+- `Sider`: The sidebar with default style and basic functions, in which any element can be nested, and must be placed in `Layout`.
+- `Content`: The content layout with default style, in which any element can be nested, and must be placed in `Layout`.
+- `Footer`: The bottom layout with default style, in which any element can be nested, and must be placed in `Layout`.
 
 > Base on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
 

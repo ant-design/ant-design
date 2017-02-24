@@ -45,11 +45,11 @@ ReactDOM.render(
 
     <Layout>
       <Sider>Sider</Sider>
-      <Content>
+      <Layout>
         <Header>Header</Header>
         <Content>Content</Content>
         <Footer>Footer</Footer>
-      </Content>
+      </Layout>
     </Layout>
   </div>
 , mountNode);
