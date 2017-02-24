@@ -19,7 +19,7 @@ export default class Article extends React.Component {
       return;
     }
     // eslint-disable-next-line
-    const checkImgUrl = 'https://g-assets.daily.taob' + 'ao.net/seajs/seajs/2.2.0/sea.js';
+    const checkImgUrl = 'https://private.alipay' + 'objects.com/alip' + 'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
     this.pingTimer = utils.ping(checkImgUrl, (status) => {
       if (status !== 'timeout' && status !== 'error') {
         links.forEach(link => (link.style.display = 'block'));
