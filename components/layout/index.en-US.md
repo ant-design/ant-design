@@ -57,3 +57,12 @@ width | width of the sidebar | number\|string | 200
 collapsedWidth | width of the collapsed sidebar, available only `collapsible: true` | number | 64
 style | to custom the styles | object | -
 className | container className | string | -
+
+> Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
+
+```jsx
+const CustomizedSider = (props) => <Sider {...props} />
+CustomizedSider.__ANT_LAYOUT_SIDER = true;
+...
+<CustomizedSider>Sider Content</CustomizedSider>
+```

@@ -5,7 +5,6 @@ export interface BasicProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  name: string;
 }
 
 function generator(props) {
@@ -17,7 +16,7 @@ function generator(props) {
       static Sider: any;
       render() {
         const { prefixCls } = props;
-        return <Basic prefixCls={prefixCls} name={props.name} {...this.props}/>;
+        return <Basic prefixCls={prefixCls} {...this.props}/>;
       }
     };
   };
@@ -25,15 +24,13 @@ function generator(props) {
 
 class Basic extends React.Component<BasicProps, any> {
   render() {
-    const { prefixCls, className, children, name, ...others } = this.props;
+    const { prefixCls, className, children, ...others } = this.props;
     let hasSider;
-    if (name === 'Layout') {
-      React.Children.forEach(children, (ele: React.ReactElement<any>) => {
-        if (ele && ele.props && ele.props.name === 'Sider') {
-          hasSider = true;
-        }
-      });
-    }
+    React.Children.forEach(children, (element: any) => {
+      if (element && element.type && element.type.__ANT_LAYOUT_SIDER) {
+        hasSider = true;
+      }
+    });
     const divCls = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider,
     });
@@ -45,22 +42,18 @@ class Basic extends React.Component<BasicProps, any> {
 
 const Layout = generator({
   prefixCls: 'ant-layout',
-  name: 'Layout',
 })(Basic);
 
 const Header = generator({
   prefixCls: 'ant-layout-header',
-  name: 'Header',
 })(Basic);
 
 const Footer = generator({
   prefixCls: 'ant-layout-footer',
-  name: 'Footer',
 })(Basic);
 
 const Content = generator({
   prefixCls: 'ant-layout-content',
-  name: 'Content',
 })(Basic);
 
 Layout.Header = Header;
