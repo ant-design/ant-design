@@ -17,6 +17,41 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.7.3
+
+`2017-02-25`
+
+- Unify demo code to ES6 class. [#4878](https://github.com/ant-design/ant-design/issues/4878)
+- TypeScript
+  - Fix that `Cannot find module '../../package.json'` error. [#4935](https://github.com/ant-design/ant-design/issues/4935)
+  - Fix definitions of Table, RangePicker and Upload.
+- Fix lack of event argument for Modal `onOk` `afterClose` and Popconfirm `onConfirm` `onCancel`. [#4787](https://github.com/ant-design/ant-design/issues/4787)
+- Improve animation of Menu[inline] and Collapse.
+- Improve Checkbox and Radio vertical align style.
+- Table
+  - Fix misplace header when fix column. [#4936](https://github.com/ant-design/ant-design/issues/4936)
+  - Fix not clearing float issue. [#4945](https://github.com/ant-design/ant-design/issues/4945)
+  - Fix submenu of filter. [#4975](https://github.com/ant-design/ant-design/issues/4975)
+  - Fix that filterDropdown of fixed column cannot be interacted with. [#5010](https://github.com/ant-design/ant-design/issues/5010)
+  - Fix that arguments of `pagination.onChange` do not match Pagination `onChange`.
+  - Fix that table loading animation is not smoothing. [#4934](https://github.com/ant-design/ant-design/issues/4934)
+- Improve multiple message display. [#3543](https://github.com/ant-design/ant-design/issues/3543)
+- Fix Carousel autoplay not working after resize window. [#2550](https://github.com/ant-design/ant-design/issues/2550)
+- Fix that controlled InputNumber cannot input number like `1.01` `1.001`. [#5012](https://github.com/ant-design/ant-design/issues/5012)
+- Improve Button loading switching.[#4913](https://github.com/ant-design/ant-design/issues/4913)
+- Fix Dropdown selected menu style and `Menu[theme="dark"]` style. [#5013](https://github.com/ant-design/ant-design/issues/5013) [#4903](https://github.com/ant-design/ant-design/issues/4903)
+- Fix Menu submenu `z-index` issue. [#4937](https://github.com/ant-design/ant-design/issues/4937)
+- Fix that DatePicker and RangePicker width cannot be reset below `300px` issue. [#4920](https://github.com/ant-design/ant-design/issues/4920)
+- Fix style of Spin nested in Spin. [#4971](https://github.com/ant-design/ant-design/issues/4971)
+- Fix that lack of Button style when import Popconfirm by babel-plugin-import.
+- Fix that less variables cannot work on circle Progress. [#5002](https://github.com/ant-design/ant-design/issues/5002)
+- Fix falsy children of Breadcrumb. [#5015](https://github.com/ant-design/ant-design/issues/5015)
+- Fix blinking tooltip of Slider. [#5003](https://github.com/ant-design/ant-design/issues/5003)
+- Fix that Transfer disabled option can be moved. [#4981](https://github.com/ant-design/ant-design/pull/4981) [@tianlizhao](https://github.com/tianlizhao)
+- Documentation
+  - Fix and improve site for mobile devices.
+  - Improve 1.x to 2.x compatibility instruction.
+
 ## 2.7.2
 
 `2017-02-17`
