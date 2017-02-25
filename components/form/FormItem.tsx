@@ -234,6 +234,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         <label
           htmlFor={id || this.getId()}
           className={className}
+          title={typeof label === 'string' ? label : ''}
         >
           {labelChildren}
         </label>
