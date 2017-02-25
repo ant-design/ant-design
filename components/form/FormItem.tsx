@@ -213,27 +213,29 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderLabel() {
-    const props = this.props;
+    const { label, labelCol, prefixCls, colon, id } = this.props;
     const context = this.context;
-    const labelCol = props.labelCol;
     const required = this.isRequired();
 
     const className = classNames({
-      [`${props.prefixCls}-item-required`]: required,
+      [`${prefixCls}-item-required`]: required,
     });
 
-    let label = props.label;
+    let labelChildren = label;
     // Keep label is original where there should have no colon
-    const haveColon = props.colon && !context.vertical;
+    const haveColon = colon && !context.vertical;
     // Remove duplicated user input colon
     if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-      label = (props.label as string).replace(/[：|:]\s*$/, '');
+      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
     }
 
-    return props.label ? (
-      <Col {...labelCol} key="label" className={`${props.prefixCls}-item-label`}>
-        <label htmlFor={props.id || this.getId()} className={className}>
-          {label}
+    return label ? (
+      <Col {...labelCol} key="label" className={`${prefixCls}-item-label`}>
+        <label
+          htmlFor={id || this.getId()}
+          className={className}
+        >
+          {labelChildren}
         </label>
       </Col>
     ) : null;
