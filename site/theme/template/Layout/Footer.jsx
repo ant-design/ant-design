@@ -1,18 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Modal, Icon } from 'antd';
-
-function isLocalStorageNameSupported() {
-  const testKey = 'test';
-  const storage = window.localStorage;
-  try {
-    storage.setItem(testKey, '1');
-    storage.removeItem(testKey);
-    return true;
-  } catch (error) {
-    return false;
-  }
-}
+import { isLocalStorageNameSupported } from '../utils';
 
 class Footer extends React.Component {
   componentDidMount() {

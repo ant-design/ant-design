@@ -157,13 +157,15 @@ export default class Transfer extends React.Component<TransferProps, any> {
   }
 
   moveTo = (direction) => {
-    const { targetKeys = [], onChange } = this.props;
+    const { targetKeys = [], dataSource = [], onChange } = this.props;
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
+    // filter the disabled options
+    const newMoveKeys = moveKeys.filter(key => !dataSource.some(data => !!(key === data.key && data.disabled)));
     // move items to target box
     const newTargetKeys = direction === 'right'
-      ? moveKeys.concat(targetKeys)
-      : targetKeys.filter(targetKey => moveKeys.indexOf(targetKey) === -1);
+      ? newMoveKeys.concat(targetKeys)
+      : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -173,7 +175,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     this.handleSelectChange(oppositeDirection, []);
 
     if (onChange) {
-      onChange(newTargetKeys, direction, moveKeys);
+      onChange(newTargetKeys, direction, newMoveKeys);
     }
   }
 

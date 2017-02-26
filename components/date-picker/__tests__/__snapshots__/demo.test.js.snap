@@ -210,24 +210,6 @@ exports[`test renders ./components/date-picker/demo/format.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/date-picker/demo/locale.md correctly 1`] = `
-<span
-  class="ant-calendar-picker"
-  style="width:154px;">
-  <span>
-    <input
-      class="ant-calendar-picker-input ant-input"
-      placeholder="Select date"
-      readonly=""
-      value="2016-11-22" />
-    <i
-      class="anticon anticon-cross-circle ant-calendar-picker-clear" />
-    <span
-      class="ant-calendar-picker-icon" />
-  </span>
-</span>
-`;
-
 exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
 <div>
   <span

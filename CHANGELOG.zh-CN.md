@@ -498,9 +498,11 @@ timeline: true
 
 > 建议从 `1.x` 升级时，直接升级到 `2.x` 的最新版本。
 
-此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
+> 建议在升级 antd 的过程中，每做完一次合理的修改并 review 和测试之后，就 git commit 一次，这样在误操作时能随时回滚到之前的版本
 
-* 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。
+此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
+
+* 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。需要对代码进行如下修改，可人手修改也可用我们提供的 [codemod](https://github.com/ant-design/antd-codemod#time-related-value-to-moment) 脚本自动修改类似用法，但注意脚本不能覆盖所有情况，所以在运行脚本后仍然需要 review 和测试。
   ```diff
   - <TimePicker defaultValue="12:08:23" />
   + <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
@@ -511,9 +513,16 @@ timeline: true
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。你也可以参考这个 [commit](https://github.com/ant-design/ant-design/commit/4026221d451b246956983bb42140142d4a48b7d7) 来进行修改。
-
-  由于 `JSON.stringify(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
+* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。
+  1. 也可以参考这个 [commit](https://github.com/ant-design/ant-design/commit/4026221d451b246956983bb42140142d4a48b7d7) 来进行修改。
+  1. 也可用我们提供的 [codemod](https://github.com/ant-design/antd-codemod#gergoriancalendar-to-moment) 脚本自动修改类似用法，但注意脚本不能覆盖所有情况，所以在运行脚本后仍然需要 review 和测试。
+  ```diff
+  function disabledDate(date) {
+  - console.log(date.getTime());
+  + console.log(date.valueOf());
+  }
+  ```
+* 由于 `JSON.stringify(date: moment)` 返回的值会丢失时区设置，所以在提交前要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -522,9 +531,17 @@ timeline: true
     // 发送 data 到服务器
   }
   ```
-
 * 时间类组件与表单校验一起使用时，`type: 'date'` 改为 `type: 'object'`。
-* 时间类组件的 `format` 属性也发生了变化，从 [gregorian-calendar-format 的格式](https://github.com/yiminghe/gregorian-calendar-format#api) 变化为与 [moment 的格式](http://momentjs.com/docs/#/parsing/string-format/)，例如原来的 `yyyy-MM-dd` 将变为 `YYYY-MM-DD`。
+  ```diff
+  getFieldDecorator('time', {
+    rules: [{
+      required: true,
+  -   type: 'date',
+  +   type: 'object',
+    }],
+  })(...)
+  ```
+* 时间类组件的 `format` 属性也发生了变化，从 [gregorian-calendar-format 的格式](https://github.com/yiminghe/gregorian-calendar-format#api) 变化为与 [moment 的格式](http://momentjs.com/docs/#/parsing/string-format/)，例如原来的 `yyyy-MM-dd` 将变为 `YYYY-MM-DD`。可人手修改也可用我们提供的 [codemod](https://github.com/ant-design/antd-codemod#time-related-value-to-moment) 脚本自动修改类似用法，但注意脚本不能覆盖所有情况，所以在运行脚本后仍然需要 review 和测试。
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
@@ -532,7 +549,7 @@ timeline: true
 
 以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
 
-* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`：
+* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`。可人手修改也可用我们提供的 [codemod](https://github.com/ant-design/antd-codemod#getfieldprops-to-getfielddecorator) 脚本自动修改类似用法，但注意脚本不能覆盖所有情况，所以在运行脚本后仍然需要 review 和测试。
 
   ```diff
   -  <Input placeholder="text" {...getFieldProps('userName', { ... })} />
@@ -551,6 +568,8 @@ timeline: true
     ...
   }
   ```
+
+最后，由于时间类组件修改比较复杂，可能还需要深入业务逻辑，所以在项目比较赶的情况下，可以考虑使用 [antd-adapter](https://github.com/ant-design/antd-adapter) 适配为 `antd@1.x` 里面的用法，但不建议。
 
 ### 2.x Bug 修复
 

@@ -55,13 +55,14 @@
   &-notice.move-up-leave.move-up-leave-active {
     animation-name: MessageMoveOut;
     overflow: hidden;
+    animation-duration: .3s;
   }
 }
 
 @keyframes MessageMoveOut {
   0% {
     opacity: 1;
-    max-height: 60px;
+    max-height: 150px;
     padding: 8px;
   }
   100% {

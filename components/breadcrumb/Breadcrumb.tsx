@@ -88,8 +88,11 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     } else if (children) {
       crumbs = React.Children.map(children, (element: any, index) => {
+        if (!element) {
+          return element;
+        }
         warning(
-          element && element.type.__ANT_BREADCRUMB_ITEM,
+          element.type && element.type.__ANT_BREADCRUMB_ITEM,
           'Breadcrumb only accetps Breadcrumb.Item as it\'s children'
         );
         return cloneElement(element, {

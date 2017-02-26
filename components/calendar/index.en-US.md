@@ -13,7 +13,15 @@ When data is in the form of date, such as schedule, timetable, prices calendar, 
 
 ## API
 
-```html
+**Note:** Part of locale of Calendar is read from value. So, please set the locale of moment correctly.
+
+```jsx
+import moment from 'moment';
+
+// It's recommended to set locale in entry file globaly.
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+
 <Calendar
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}

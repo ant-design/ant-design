@@ -11,9 +11,7 @@ title:
 
 > 若列头与内容不对齐，请指定列的宽度 `width`。
 
-> 建议指定 `scroll.x` 为固定宽度。注意，非固定列宽度之和不要超过 `scroll.x`。
-
-> 如果希望 `scroll.x` 为自适应内容宽度，可以指定 `scroll={{ x: true }}`，然后使用 `white-space: nowrap` 样式强制单元格不自动换行。
+> 建议指定 `scroll.x` 为大于表格宽度的固定值或百分比。注意，且非固定列宽度之和不要超过 `scroll.x`。
 
 ## en-US
 
@@ -21,9 +19,7 @@ A Solution for displaying large amounts of data with long columns.
 
 > Specify the width of columns if header and cell do not align properly.
 
-> A fixed width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
-
-> If you hope the `scroll.x` will adapt content's witdh, you can set `scroll={{ x: true }}` ant then use css `white-space: nowrap` to make sure table cell will not be wrapped.
+> A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
 ````jsx
 import { Table } from 'antd';

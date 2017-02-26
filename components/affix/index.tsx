@@ -29,6 +29,8 @@ function getOffset(element: HTMLElement, target) {
       scrollTop - clientTop,
     left: elemRect.left - targetRect.left +
       scrollLeft - clientLeft,
+    width: elemRect.width,
+    height: elemRect.height,
   };
 }
 
@@ -138,14 +140,15 @@ export default class Affix extends React.Component<AffixProps, any> {
       (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
+      const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
         top: targetRect.top + offsetTop,
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
       this.setPlaceholderStyle({
-        width: affixNode.offsetWidth,
+        width,
         height: affixNode.offsetHeight,
       });
     } else if (
@@ -154,14 +157,15 @@ export default class Affix extends React.Component<AffixProps, any> {
     ) {
       // Fixed Bottom
       const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
+      const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
         bottom: targetBottomOffet + offsetBottom,
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
       this.setPlaceholderStyle({
-        width: affixNode.offsetWidth,
+        width,
         height: affixNode.offsetHeight,
       });
     } else {
@@ -222,7 +226,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
     });
 
-    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
+    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
     const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
       <div {...props} style={placeholderStyle}>

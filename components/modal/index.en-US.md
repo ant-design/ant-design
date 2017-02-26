@@ -22,7 +22,7 @@ and so on.
 | confirmLoading | Determine whether to apply loading visual effect for OK button or not  | boolean    | no           |
 | title      | The modal dialog's title          | string\|ReactNode | no           |
 | closable   | Determine whether a close (x) button is visible on top right of the modal dialog or not | boolean    | true        |
-| onOk       | Specify a function that will be called when a user clicked OK button | function | no |
+| onOk       | Specify a function that will be called when a user clicked OK button | function(e) | no |
 | onCancel   | Specify a function that will be called when a user clicked mask, close button on top right or cancel button | function(e)  | no         |
 | width      | Width of a modal dialog           | string\|number | 520           |
 | footer     | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and cancel button |

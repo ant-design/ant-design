@@ -128,11 +128,12 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
-  right: 1px;
+  right: 0;
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
-  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

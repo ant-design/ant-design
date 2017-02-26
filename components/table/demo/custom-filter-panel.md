@@ -38,18 +38,16 @@ const data = [{
   address: 'London No. 2 Lake Park',
 }];
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      filterDropdownVisible: false,
-      data,
-      searchText: '',
-    };
-  },
-  onInputChange(e) {
+class App extends React.Component {
+  state = {
+    filterDropdownVisible: false,
+    data,
+    searchText: '',
+  };
+  onInputChange = (e) => {
     this.setState({ searchText: e.target.value });
-  },
-  onSearch() {
+  }
+  onSearch = () => {
     const { searchText } = this.state;
     const reg = new RegExp(searchText, 'gi');
     this.setState({
@@ -71,7 +69,7 @@ const App = React.createClass({
         };
       }).filter(record => !!record),
     });
-  },
+  }
   render() {
     const columns = [{
       title: 'Name',
@@ -100,8 +98,8 @@ const App = React.createClass({
       key: 'address',
     }];
     return <Table columns={columns} dataSource={this.state.data} />;
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

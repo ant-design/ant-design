@@ -22,27 +22,25 @@ You could set `footer` to `null` if you don't need default footer buttons.
 ````jsx
 import { Modal, Button } from 'antd';
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      loading: false,
-      visible: false,
-    };
-  },
-  showModal() {
+class App extends React.Component {
+  state = {
+    loading: false,
+    visible: false,
+  }
+  showModal = () => {
     this.setState({
       visible: true,
     });
-  },
-  handleOk() {
+  }
+  handleOk = () => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
-  },
-  handleCancel() {
+  }
+  handleCancel = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     return (
       <div>
@@ -69,8 +67,8 @@ const Test = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

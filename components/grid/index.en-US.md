@@ -104,8 +104,10 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 | offset     | the number of cells to the left of the grid spacing, no cell in grid spacing  | number | 0        |
 | push     | the number of cells that raster move to the right | number | 0        |
 | pull     | the number of cells that raster move to the left   | number | 0        |
-| xs       | `<768px`, could be a `span` value or a object contain above props | number\|object | - |
+| xs       | `<768px` and also default setting, could be a `span` value or a object contain above props | number\|object | - |
 | sm       | `≥768px`, could be a `span` value or a object contain above props | number\|object | - |
 | md       | `≥992px`, could be a `span` value or a object contain above props | number\|object | - |
 | lg       | `≥1200px`, could be a `span` value or a object contain above props | number\|object | - |
 | xl       | `≥1600px`, could be a `span` value or a object contain above props | number\|object | - |
+
+The breakpoints of responsive grid follow [BootStrap 3 media queries rules](http://getbootstrap.com/css/#grid-media-queries)(not contain `occasionally part`).

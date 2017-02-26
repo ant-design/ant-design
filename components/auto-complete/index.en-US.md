@@ -27,6 +27,7 @@ const dataSource = ['12345', '23456', '34567'];
 | onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | -   |
 | disabled | Whether disabled select | boolean | false |
+| defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | placeholder | placeholder of input | string | - |
 | children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> /  Array<React.ReactElement<OptionProps>> | - |
 | children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |

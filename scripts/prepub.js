@@ -16,20 +16,20 @@ if (fs.existsSync(path.join(__dirname, '../lib'))) {
     versionFilePath,
     versionFileContent.replace(`require('../../package.json')`, `{ version: '${packageInfo.version}' }`)
   );
+  console.log('Wrote version into lib/version/index.js');
 
   // Build package.json version to lib/version/index.d.ts
   // prevent https://github.com/ant-design/ant-design/issues/4935
   const versionDefPath = path.join(process.cwd(), 'lib', 'version', 'index.d.ts');
-  const versionDefContent = fs.readFileSync(versionDefPath).toString();
   fs.writeFileSync(
     versionDefPath,
-    versionDefContent.replace(`require('../../package.json')`, `{ version: '${packageInfo.version}' }`)
+    `declare var _default: "${packageInfo.version}";\nexport default _default;\n`
   );
+  console.log('Wrote version into lib/version/index.d.ts');
 }
 
 if (fs.existsSync(path.join(__dirname, '../dist'))) {
   // Build a entry less file to dist/antd.less
-  console.log('Building a entry less file to dist/antd.less');
   const componentsPath = path.join(process.cwd(), 'components');
   let componentsLessContent = '';
 
@@ -48,4 +48,5 @@ if (fs.existsSync(path.join(__dirname, '../dist'))) {
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";'
     );
   });
+  console.log('Built a entry less file to dist/antd.less');
 }

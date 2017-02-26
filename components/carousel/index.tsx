@@ -1,6 +1,8 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 import assign from 'object-assign';
+import debounce from 'lodash.debounce';
+
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
     return {
@@ -47,6 +49,41 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     prefixCls: 'ant-carousel',
     draggable: false,
   };
+
+  refs: {
+    slick: any,
+  };
+
+  constructor() {
+    super();
+    this.onWindowResized = debounce(this.onWindowResized, 500, {
+      leading: false,
+    });
+  }
+
+  componentDidMount() {
+    const { autoplay } = this.props;
+    if (autoplay) {
+      window.addEventListener('resize', this.onWindowResized);
+    }
+  }
+
+  componentWillUnmount() {
+    const { autoplay } = this.props;
+    if (autoplay) {
+      window.removeEventListener('resize', this.onWindowResized);
+      (this.onWindowResized as any).cancel();
+    }
+  }
+
+  onWindowResized = () => {
+    // Fix https://github.com/ant-design/ant-design/issues/2550
+    const { slick } = this.refs;
+    const { autoplay } = this.props;
+    if (autoplay && slick && slick.innerSlider && slick.innerSlider.autoPlay) {
+      slick.innerSlider.autoPlay();
+    }
+  }
 
   render() {
     let props = assign({}, this.props);

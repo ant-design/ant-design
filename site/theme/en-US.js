@@ -4,6 +4,7 @@ module.exports = {
   locale: 'en-US',
   data: appLocaleData,
   messages: {
+    'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
     'app.header.menu.practice': 'Practice',
     'app.header.menu.pattern': 'Pattern',
@@ -14,6 +15,7 @@ module.exports = {
     'app.content.edit-page': 'Edit this page on Github!',
     'app.content.edit-demo': 'Edit this demo on Github!',
     'app.component.examples': 'Examples',
+    'app.demo.copy': 'Copy',
     'app.home.slogan': 'A UI Design Language',
     'app.home.introduce': 'Introduce',
     'app.home.start': 'Get Started',

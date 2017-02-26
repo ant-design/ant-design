@@ -86,8 +86,7 @@ export default class ComponentDoc extends React.Component {
             <h1>
               {title[locale] || title}
               {
-                !subtitle ? null :
-                  <span className="subtitle">{subtitle}</span>
+                !subtitle ? null : <span className="subtitle">{subtitle}</span>
               }
               <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
             </h1>
@@ -114,8 +113,7 @@ export default class ComponentDoc extends React.Component {
               {leftChildren}
             </Col>
             {
-              isSingleCol ? null :
-                <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
+              isSingleCol ? null : <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
             }
           </Row>
           {

@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'react-intl';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
-import { Icon } from 'antd';
+import { Icon, Tooltip, message } from 'antd';
 import EditButton from './EditButton';
 
 export default class Demo extends React.Component {
@@ -15,7 +16,15 @@ export default class Demo extends React.Component {
 
     this.state = {
       codeExpand: false,
+      sourceCode: '',
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { highlightedCode } = nextProps;
+    const div = document.createElement('div');
+    div.innerHTML = highlightedCode[1].highlighted;
+    this.setState({ sourceCode: div.textContent });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -27,6 +36,7 @@ export default class Demo extends React.Component {
     if (meta.id === location.hash.slice(1)) {
       this.anchor.click();
     }
+    this.componentWillReceiveProps(this.props);
   }
 
   handleCodeExapnd = () => {
@@ -38,6 +48,7 @@ export default class Demo extends React.Component {
   }
 
   render() {
+    const state = this.state;
     const props = this.props;
     const {
       meta,
@@ -52,8 +63,7 @@ export default class Demo extends React.Component {
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? <iframe src={src} /> : preview(React, ReactDOM);
     }
-
-    const codeExpand = this.state.codeExpand || expand;
+    const codeExpand = state.codeExpand || expand;
     const codeBoxClass = classNames({
       'code-box': true,
       expand: codeExpand,
@@ -93,6 +103,14 @@ export default class Demo extends React.Component {
           key="code"
         >
           <div className="highlight">
+            <CopyToClipboard
+              text={state.sourceCode}
+              onCopy={() => message.success('Code copied!')}
+            >
+              <Tooltip title={<FormattedMessage id="app.demo.copy" />}>
+                <Icon type="copy" className="code-box-code-copy" />
+              </Tooltip>
+            </CopyToClipboard>
             {props.utils.toReactComponent(highlightedCode)}
           </div>
           {

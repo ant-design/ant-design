@@ -4,6 +4,7 @@ module.exports = {
   locale: 'zh-CN',
   data: appLocaleData,
   messages: {
+    'app.header.search': '全文本搜索...',
     'app.header.menu.home': '首页',
     'app.header.menu.practice': '实践',
     'app.header.menu.pattern': '模式',
@@ -14,6 +15,7 @@ module.exports = {
     'app.content.edit-page': '在 Github 上编辑此页！',
     'app.content.edit-demo': '在 Github 上编辑此示例！',
     'app.component.examples': '代码演示',
+    'app.demo.copy': '拷贝代码',
     'app.home.slogan': '一个 UI 设计语言',
     'app.home.introduce': '设计规范',
     'app.home.start': '开发指引',

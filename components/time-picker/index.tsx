@@ -60,6 +60,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
   };
 
   context: TimePickerContext;
+  timePickerRef: any;
 
   constructor(props) {
     super(props);
@@ -97,6 +98,14 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     return timePickerLocale;
   }
 
+  saveTimePicker = (timePickerRef) => {
+    this.timePickerRef = timePickerRef;
+  }
+
+  focus() {
+    this.timePickerRef.focus();
+  }
+
   render() {
     const props = assign({ format: 'HH:mm:ss' }, this.props);
     delete props.defaultValue;
@@ -116,6 +125,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     return (
       <RcTimePicker
         {...props}
+        ref={this.saveTimePicker}
         className={className}
         value={this.state.value}
         placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}

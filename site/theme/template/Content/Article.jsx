@@ -19,9 +19,9 @@ export default class Article extends React.Component {
       return;
     }
     // eslint-disable-next-line
-    const checkImgUrl = 'https://g-assets.daily.taob' + 'ao.net/seajs/seajs/2.2.0/sea.js';
+    const checkImgUrl = 'https://private.alipay' + 'objects.com/alip' + 'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
     this.pingTimer = utils.ping(checkImgUrl, (status) => {
-      if (status !== 'timeout') {
+      if (status !== 'timeout' && status !== 'error') {
         links.forEach(link => (link.style.display = 'block'));
       } else {
         links.forEach(link => link.parentNode.removeChild(link));
@@ -69,7 +69,7 @@ export default class Article extends React.Component {
             {title[locale] || title}
             {
               !subtitle || locale === 'en-US' ? null :
-                <span className="subtitle">{subtitle}</span>
+              <span className="subtitle">{subtitle}</span>
             }
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
           </h1>
@@ -81,7 +81,7 @@ export default class Article extends React.Component {
           }
           {
             (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
-              <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
+            <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
             this.getArticle(props.utils.toReactComponent(

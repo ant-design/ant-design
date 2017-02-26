@@ -5,9 +5,9 @@ export interface FilterDropdownMenuWrapperProps {
   children?: any;
   className?: string;
 }
-export default class FilterDropdownMenuWrapper extends React.Component<FilterDropdownMenuWrapperProps, any> {
-  render() {
-    const { onClick, children, className } = this.props;
-    return <div className={className} onClick={onClick}>{children}</div>;
-  }
-}
+
+export default (props: FilterDropdownMenuWrapperProps) => (
+  <div className={props.className} onClick={props.onClick}>
+    {props.children}
+  </div>
+);

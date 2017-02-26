@@ -28,6 +28,7 @@ const dataSource = ['12345', '23456', '34567'];
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |
 | onSelect | 被选中时调用，参数为选中项的 value 值	| function(value, option)	| 无 |
 | disabled | 是否禁用 | boolean | false |
+| defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true
 | placeholder | 输入框提示 | string | - |
 | children (自动完成的数据源) | 自动完成的数据源 | React.ReactElement<OptionProps> / Array<React.ReactElement<OptionProps>> | - |
 | children (自定义输入框) | 自定义输入框 |  HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |

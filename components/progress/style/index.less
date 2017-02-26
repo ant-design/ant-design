@@ -26,9 +26,17 @@
   &-inner {
     display: inline-block;
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: @background-color-base;
     border-radius: 100px;
     vertical-align: middle;
+  }
+
+  &-circle-trail {
+    stroke: @background-color-base;
+  }
+
+  &-circle-path {
+    stroke: @process-default-color;
   }
 
   &-bg {
@@ -75,6 +83,9 @@
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @error-color;
+    }
   }
 
   &-status-success {
@@ -83,6 +94,9 @@
     }
     .@{progress-prefix-cls}-text {
       color: @success-color;
+    }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @success-color;
     }
   }
 

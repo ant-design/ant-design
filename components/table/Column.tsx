@@ -6,7 +6,7 @@ export interface ColumnProps<T> {
   key?: string;
   dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
-  filters?: { text: string; value: string }[];
+  filters?: { text: string; value: string, children?: any[] }[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;

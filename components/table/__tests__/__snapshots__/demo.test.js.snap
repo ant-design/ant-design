@@ -819,7 +819,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Bordered">
             Bordered
           </label>
         </div>
@@ -841,7 +842,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="loading">
             loading
           </label>
         </div>
@@ -863,7 +865,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Pagination">
             Pagination
           </label>
         </div>
@@ -886,7 +889,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Title">
             Title
           </label>
         </div>
@@ -909,7 +913,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Column Header">
             Column Header
           </label>
         </div>
@@ -932,7 +937,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Footer">
             Footer
           </label>
         </div>
@@ -955,7 +961,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Expandable">
             Expandable
           </label>
         </div>
@@ -978,7 +985,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Checkbox">
             Checkbox
           </label>
         </div>
@@ -1001,7 +1009,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Fixed Header">
             Fixed Header
           </label>
         </div>
@@ -1023,7 +1032,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Size">
             Size
           </label>
         </div>
@@ -2741,72 +2751,6 @@ exports[`test renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         <div
           class="ant-table-content">
           <div
-            class="ant-table-fixed-left">
-            <div
-              class="ant-table-body-outer">
-              <div
-                class="ant-table-body-inner">
-                <table
-                  class="ant-table-fixed">
-                  <colgroup>
-                    <col
-                      style="width:100px;min-width:100px;" />
-                    <col
-                      style="width:100px;min-width:100px;" />
-                  </colgroup>
-                  <thead
-                    class="ant-table-thead">
-                    <tr>
-                      <th
-                        class="">
-                        <span>
-                          Full Name
-                        </span>
-                      </th>
-                      <th
-                        class="">
-                        <span>
-                          Age
-                        </span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="ant-table-tbody">
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Jim Green
-                      </td>
-                      <td
-                        class="">
-                        40
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div
             class="ant-table-scroll">
             <div
               class="ant-table-body"
@@ -3014,6 +2958,72 @@ exports[`test renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             </div>
           </div>
           <div
+            class="ant-table-fixed-left">
+            <div
+              class="ant-table-body-outer">
+              <div
+                class="ant-table-body-inner">
+                <table
+                  class="ant-table-fixed">
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px;" />
+                    <col
+                      style="width:100px;min-width:100px;" />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead">
+                    <tr>
+                      <th
+                        class="">
+                        <span>
+                          Full Name
+                        </span>
+                      </th>
+                      <th
+                        class="">
+                        <span>
+                          Age
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody">
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Jim Green
+                      </td>
+                      <td
+                        class="">
+                        40
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div
             class="ant-table-fixed-right">
             <div
               class="ant-table-body-outer">
@@ -3102,197 +3112,6 @@ exports[`test renders ./components/table/demo/fixed-columns-header.md correctly 
         class="ant-table ant-table-large ant-table-fixed-header ant-table-scroll-position-left">
         <div
           class="ant-table-content">
-          <div
-            class="ant-table-fixed-left">
-            <div
-              class="ant-table-header">
-              <table
-                class="ant-table-fixed">
-                <colgroup>
-                  <col
-                    style="width:100px;min-width:100px;" />
-                  <col
-                    style="width:100px;min-width:100px;" />
-                </colgroup>
-                <thead
-                  class="ant-table-thead">
-                  <tr>
-                    <th
-                      class="">
-                      <span>
-                        Full Name
-                      </span>
-                    </th>
-                    <th
-                      class="">
-                      <span>
-                        Age
-                      </span>
-                    </th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-            <div
-              class="ant-table-body-outer"
-              style="height:300px;">
-              <div
-                class="ant-table-body-inner">
-                <table
-                  class="ant-table-fixed">
-                  <colgroup>
-                    <col
-                      style="width:100px;min-width:100px;" />
-                    <col
-                      style="width:100px;min-width:100px;" />
-                  </colgroup>
-                  <tbody
-                    class="ant-table-tbody">
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 0
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 1
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 2
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 3
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 4
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 5
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 6
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 7
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 8
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        Edrward 9
-                      </td>
-                      <td
-                        class="">
-                        32
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
           <div
             class="ant-table-scroll">
             <div
@@ -3959,6 +3778,197 @@ exports[`test renders ./components/table/demo/fixed-columns-header.md correctly 
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-left">
+            <div
+              class="ant-table-header">
+              <table
+                class="ant-table-fixed">
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px;" />
+                  <col
+                    style="width:100px;min-width:100px;" />
+                </colgroup>
+                <thead
+                  class="ant-table-thead">
+                  <tr>
+                    <th
+                      class="">
+                      <span>
+                        Full Name
+                      </span>
+                    </th>
+                    <th
+                      class="">
+                      <span>
+                        Age
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body-outer"
+              style="height:300px;">
+              <div
+                class="ant-table-body-inner">
+                <table
+                  class="ant-table-fixed">
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px;" />
+                    <col
+                      style="width:100px;min-width:100px;" />
+                  </colgroup>
+                  <tbody
+                    class="ant-table-tbody">
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 0
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 1
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 2
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 3
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 4
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 5
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 6
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 7
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 8
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Edrward 9
+                      </td>
+                      <td
+                        class="">
+                        32
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div
@@ -5184,151 +5194,6 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
         <div
           class="ant-table-content">
           <div
-            class="ant-table-fixed-left">
-            <div
-              class="ant-table-header">
-              <table
-                class="ant-table-fixed">
-                <colgroup>
-                  <col
-                    style="width:100px;min-width:100px;" />
-                </colgroup>
-                <thead
-                  class="ant-table-thead">
-                  <tr>
-                    <th
-                      class=""
-                      rowspan="4">
-                      <span>
-                        Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选" />
-                      </span>
-                    </th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-            <div
-              class="ant-table-body-outer"
-              style="height:240px;">
-              <div
-                class="ant-table-body-inner">
-                <table
-                  class="ant-table-fixed">
-                  <colgroup>
-                    <col
-                      style="width:100px;min-width:100px;" />
-                  </colgroup>
-                  <tbody
-                    class="ant-table-tbody">
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0">
-                      <td
-                        class="">
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;" />
-                        John Brown
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div
             class="ant-table-scroll">
             <div
               class="ant-table-header">
@@ -5874,6 +5739,151 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-left">
+            <div
+              class="ant-table-header">
+              <table
+                class="ant-table-fixed">
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px;" />
+                </colgroup>
+                <thead
+                  class="ant-table-thead">
+                  <tr>
+                    <th
+                      class=""
+                      rowspan="4">
+                      <span>
+                        Name
+                        <i
+                          class="anticon anticon-filter ant-dropdown-trigger"
+                          title="筛选" />
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body-outer"
+              style="height:240px;">
+              <div
+                class="ant-table-body-inner">
+                <table
+                  class="ant-table-fixed">
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px;" />
+                  </colgroup>
+                  <tbody
+                    class="ant-table-tbody">
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        John Brown
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div

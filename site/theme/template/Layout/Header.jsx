@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 
     /* eslint-disable global-require */
     require('enquire.js')
-      .register('only screen and (min-width: 320px) and (max-width: 1024px)', {
+      .register('only screen and (min-width: 0) and (max-width: 992px)', {
         match: () => {
           this.setState({ menuMode: 'inline' });
         },
@@ -70,6 +70,12 @@ export default class Header extends React.Component {
     });
   }
 
+  onMenuVisibleChange = (visible) => {
+    this.setState({
+      menuVisible: visible,
+    });
+  }
+
   handleSelectFilter = (value, option) => {
     const optionValue = option.props['data-label'];
     return optionValue === searchEngine ||
@@ -78,14 +84,17 @@ export default class Header extends React.Component {
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
-    if (window.localStorage) {
+    const currentProtocol = `${location.protocol}//`;
+    const currentHref = location.href.substr(currentProtocol.length);
+
+    if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
-    if (pathname === '/') {
-      location.pathname = utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname));
-    } else {
-      location.href = location.href.replace(location.pathname, utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)));
-    }
+
+    location.href = currentProtocol + currentHref.replace(
+      location.pathname,
+      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+    );
   }
 
   handleVersionChange = (url) => {
@@ -188,6 +197,7 @@ export default class Header extends React.Component {
           trigger="click"
           visible={menuVisible}
           arrowPointAtCenter
+          onVisibleChange={this.onMenuVisibleChange}
         >
           <Icon
             className="nav-phone-icon"
@@ -216,7 +226,9 @@ export default class Header extends React.Component {
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
-                <Option value={searchEngine} data-label={searchEngine}>全文本搜索...</Option>
+                <Option value={searchEngine} data-label={searchEngine}>
+                  <FormattedMessage id="app.header.search" />
+                </Option>
                 {options}
               </Select>
             </div>
