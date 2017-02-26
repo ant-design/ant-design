@@ -84,9 +84,9 @@ export default class Header extends React.Component {
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
-    const currentProtocol = location.protocol + '//';
+    const currentProtocol = `${location.protocol}//`;
     const currentHref = location.href.substr(currentProtocol.length);
-    
+
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
