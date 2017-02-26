@@ -61,31 +61,20 @@
 }
 
 .markdown ul > li {
-  list-style: circle;
+  list-style: circle inside;
   &:empty {
     display: none;
   }
 }
 
-.markdown > ul li,
-.markdown blockquote ul > li {
-  margin-left: 20px;
-  padding-left: 4px;
-}
-
-.markdown > ul li > p,
-.markdown > ol li > p {
-  margin: 0.2em 0;
-}
-
 .markdown ol > li {
-  list-style: decimal;
+  list-style: decimal inside;
 }
 
-.markdown > ol li,
-.markdown blockquote ol > li {
-  margin-left: 20px;
-  padding-left: 4px;
+.markdown ul > li > p,
+.markdown ol > li > p {
+  margin: 0.2em 0;
+  display: inline;
 }
 
 .markdown code {
