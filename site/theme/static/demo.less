@@ -112,13 +112,13 @@ section.code-box-meta p {
 
 .code-box .collapse {
   position: absolute;
-  right: 16px;
-  bottom: 17px;
+  right: 14px;
+  bottom: 22px;
   cursor: pointer;
-  width: 18px;
-  height: 18px;
-  font-size: 18px;
-  line-height: 18px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
   opacity: 0.5;
   text-align: center;
   transition: all 0.3s;
@@ -161,8 +161,21 @@ section.code-box-meta p {
 .code-box .code-box-code-copy {
   position: absolute;
   top: 10px;
-  right: 13.5px;
+  right: 12px;
   margin: 0 !important;
+  font-size: 14px;
+  cursor: pointer;
+  color: #888;
+  transition: all .3s;
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 20px;
+  &:hover {
+    color: @primary-color;
+  }
 }
 
 .code-box pre {

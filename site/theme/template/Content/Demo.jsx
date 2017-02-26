@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
-import { Icon, Tooltip, Button, message } from 'antd';
+import { Icon, Tooltip, message } from 'antd';
 import EditButton from './EditButton';
 
 export default class Demo extends React.Component {
@@ -108,13 +108,7 @@ export default class Demo extends React.Component {
               onCopy={() => message.success('Code copied!')}
             >
               <Tooltip title={<FormattedMessage id="app.demo.copy" />}>
-                <Button
-                  shape="circle"
-                  size="small"
-                  className="code-box-code-copy"
-                >
-                  <Icon type="copy" />
-                </Button>
+                <Icon type="copy" className="code-box-code-copy" />
               </Tooltip>
             </CopyToClipboard>
             {props.utils.toReactComponent(highlightedCode)}
