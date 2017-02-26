@@ -107,8 +107,6 @@ exports[`Cascader can be selected 3`] = `
 </div>
 `;
 
-exports[`Cascader can be selected 4`] = `null`;
-
 exports[`Cascader popup correctly when panel is hidden 1`] = `
 <div>
   <div
