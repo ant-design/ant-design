@@ -27,7 +27,7 @@ export default class Header extends React.Component {
 
     /* eslint-disable global-require */
     require('enquire.js')
-      .register('only screen and (min-width: 0px) and (max-width: 992px)', {
+      .register('only screen and (min-width: 0) and (max-width: 992px)', {
         match: () => {
           this.setState({ menuMode: 'inline' });
         },

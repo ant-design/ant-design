@@ -145,7 +145,7 @@
     "lint:ts": "npm run tsc && antd-tools run ts-lint",
     "lint:es": "eslint tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
-    "lint:style": "stylelint \"components/**/*.less\" --syntax less",
+    "lint:style": "stylelint \"{site,components}/**/*.less\" --syntax less",
     "lint-fix": "npm run lint-fix:code && npm run lint-fix:demo",
     "lint-fix:code": "eslint --fix tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
     "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
@@ -173,7 +173,7 @@
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
       "lint-staged:es"
     ],
-    "components/**/*.less": "stylelint --syntax less",
+    "{site,components}/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [
       "lint-staged:demo"
     ]
