@@ -3,7 +3,9 @@ import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
 import omit from 'omit.js';
+import getRequestAnimationFrame, { cancelRequestAnimationFrame } from '../_util/getRequestAnimationFrame';
 
+const reqAnimFrame = getRequestAnimationFrame();
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str) {
@@ -94,7 +96,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   componentWillUnmount() {
     if (this.clickedTimeout) {
-      clearTimeout(this.clickedTimeout);
+      cancelRequestAnimationFrame(this.clickedTimeout);
     }
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -112,7 +114,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     // Add click effect
     const buttonNode = findDOMNode(this);
     this.clearButton(buttonNode);
-    this.clickedTimeout = setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
+    this.clickedTimeout = reqAnimFrame(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`);
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 

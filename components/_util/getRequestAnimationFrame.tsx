@@ -27,7 +27,6 @@ export default function getRequestAnimationFrame() {
 }
 
 export function cancelRequestAnimationFrame(id) {
-
   if (typeof window === 'undefined') {
     return null;
   }
