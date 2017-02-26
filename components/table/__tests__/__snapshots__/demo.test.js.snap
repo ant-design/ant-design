@@ -819,7 +819,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Bordered">
             Bordered
           </label>
         </div>
@@ -841,7 +842,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="loading">
             loading
           </label>
         </div>
@@ -863,7 +865,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Pagination">
             Pagination
           </label>
         </div>
@@ -886,7 +889,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Title">
             Title
           </label>
         </div>
@@ -909,7 +913,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Column Header">
             Column Header
           </label>
         </div>
@@ -932,7 +937,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Footer">
             Footer
           </label>
         </div>
@@ -955,7 +961,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Expandable">
             Expandable
           </label>
         </div>
@@ -978,7 +985,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Checkbox">
             Checkbox
           </label>
         </div>
@@ -1001,7 +1009,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Fixed Header">
             Fixed Header
           </label>
         </div>
@@ -1023,7 +1032,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
         <div
           class="ant-form-item-label">
           <label
-            class="">
+            class=""
+            title="Size">
             Size
           </label>
         </div>

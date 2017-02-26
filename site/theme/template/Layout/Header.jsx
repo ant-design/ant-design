@@ -90,6 +90,7 @@ export default class Header extends React.Component {
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
+
     location.href = currentProtocol + currentHref.replace(
       location.pathname,
       utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
