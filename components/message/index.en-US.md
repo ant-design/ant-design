@@ -27,6 +27,7 @@ This components provides 4 static methods, with arguments as following:
 |------------|------------------------------------|--------------------------|--------------|
 | content    | content of the message             | string\|ReactNode | -            |
 | duration   | time before auto-dismiss,in seconds | number                   | 1.5          |
+| getContainer | specify render container | () => HTMLElement | () => document.body |
 
 Methods for global configuration and destruction are also provided:
 
