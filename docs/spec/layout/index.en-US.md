@@ -13,7 +13,7 @@ The Layout and Navigation design specification for Ant Design are as follows:
 
 ### The specification of size
 
-The first level of the navigation is placed near by a logo inclined left, and the secondary menu is placed inclined right. 
+The first level of the navigation is placed near by a logo inclined left, and the secondary menu is placed inclined right.
 
 - Top Navigation (almost systems): the height of the first level navigation `64px`, the second level of navigation `48px`。
 - Top Navigation(contents page): the height of the first level navigation `80px`,the second level of navigation `56px`。
@@ -47,4 +47,4 @@ The first level of the navigation is placed near by a logo inclined left, and th
 
   `12px`、`14px` is a standard font size of navigations，14 is used for the first and the second level of the navigation. You can choose a approprigate font size in terms of the level of your navigation.
 
-In almost middle-back systems,  Ant Design uses two general layouts of top navigation and aside navition, we collect some basic layouts of middle-back systems are designed by Ant Design as follows:
+In almost middle-back systems,  Ant Design uses two general layouts of top navigation and aside navition, we collect some basic layouts of middle-back systems are designed by Ant Design as follows. The demo code below is used of sample, you should [Layout](/components/layout/) component in real project.
