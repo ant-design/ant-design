@@ -121,7 +121,7 @@ class RegistrationForm extends React.Component {
               validator: this.checkConfirm,
             }],
           })(
-            <Input type="password" onBlur={this.handlePasswordBlur} />
+            <Input type="password" />
           )}
         </FormItem>
         <FormItem
@@ -136,7 +136,7 @@ class RegistrationForm extends React.Component {
               validator: this.checkPassword,
             }],
           })(
-            <Input type="password" />
+            <Input type="password" onBlur={this.handlePasswordBlur} />
           )}
         </FormItem>
         <FormItem
