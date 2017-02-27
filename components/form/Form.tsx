@@ -178,7 +178,7 @@ export default class Form extends React.Component<FormProps, any> {
       '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.'
     );
     const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: layout === 'horizontal' || horizontal,
+      [`${prefixCls}-horizontal`]: (!inline && !vertical && layout === 'horizontal') || horizontal,
       [`${prefixCls}-vertical`]: layout === 'vertical' || vertical,
       [`${prefixCls}-inline`]: layout === 'inline' || inline,
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,

@@ -813,7 +813,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
   <div
     class="components-table-demo-control-bar">
     <form
-      class="ant-form ant-form-horizontal ant-form-inline">
+      class="ant-form ant-form-inline">
       <div
         class="ant-row ant-form-item">
         <div

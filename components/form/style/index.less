@@ -243,7 +243,8 @@ form {
   // == common style of Horizontal Form & Inline Form
   .@{form-prefix-cls}-horizontal,
   .@{form-prefix-cls}-inline {
-    .@{form-prefix-cls}-item-label {
+    // when labelCol is 24, it is a vertical form
+    .@{form-prefix-cls}-item-label:not(.@{ant-prefix}-col-24) {
       display: inline-block;
       float: left; // To revert `col-*`
       padding: 0;
