@@ -174,11 +174,6 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.pattern" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="docs/practice">
-          <Link to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
-            <FormattedMessage id="app.header.menu.practice" />
-          </Link>
-        </Menu.Item>
         <Menu.Item key="docs/resource">
           <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />

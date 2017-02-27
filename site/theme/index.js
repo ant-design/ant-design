@@ -41,7 +41,6 @@ module.exports = {
       }
     },
     'docs/pattern': pickerGenerator('pattern'),
-    'docs/practice': pickerGenerator('practice'),
     'docs/react': pickerGenerator('react'),
     'docs/resource': pickerGenerator('resource'),
     'docs/spec': pickerGenerator('spec'),
@@ -59,9 +58,6 @@ module.exports = {
     childRoutes: [{
       path: 'index-cn',
       component: homeTmpl,
-    }, {
-      path: 'docs/practice/:children',
-      component: contentTmpl,
     }, {
       path: 'docs/pattern/:children',
       component: contentTmpl,

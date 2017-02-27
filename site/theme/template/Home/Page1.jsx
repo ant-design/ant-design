@@ -33,7 +33,7 @@ export default function Page1({ location }) {
         <h2 key="h2"><FormattedMessage id="app.home.best-practice" /></h2>
         <p key="p" style={{ maxWidth: 310 }}><FormattedMessage id="app.home.experience" /></p>
         <div key="button">
-          <Link to={utils.getLocalizedPathname('/docs/practice/cases', utils.isZhCN(location.pathname))}>
+          <Link to={utils.getLocalizedPathname('/docs/spec/cases', utils.isZhCN(location.pathname))}>
             <Button type="primary" size="large">
               <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />

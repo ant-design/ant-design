@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 3
 title: 对比
 ---

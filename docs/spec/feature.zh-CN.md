@@ -1,11 +1,11 @@
 ---
 order: 1
 title:
-  zh-CN: 三大特性
+  zh-CN: 基本理念
   en-US: Features
 ---
 
-与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』的使用体验，真真正正贯彻和践行『以人为本』的设计理念。
+与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』和『开发者』的使用体验，践行『以人为本』的设计理念。
 
 <div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
   <div class="ant-col-8 features">
@@ -58,7 +58,7 @@ title:
 
 <img class="preview-img" align="right" alt="字数校验框示例" description="使用颜色和下划线标注超出的文案，系统即时反应，以便用户进行调整。" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
-『不同』不一定『更好』，但是『更好』一定『不同』。不断追求细节上的『更好』，使得我们的组件和同类产品都不一样，自然而然的『不同』。
+『不同』不一定『更好』，但是『更好』一定『不同』。不断追求细节上的『更好』，使得我们的组件和同类产品都不一样，自然而然的更好。
 
 ### 集成创新
 
@@ -86,7 +86,7 @@ title:
 
 ### 通俗而科学的设计原则
 
-详见[『十大原则』](/docs/spec/principle)。
+详见[『设计原则』](/docs/spec/principle)。
 
 ---
 

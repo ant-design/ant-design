@@ -1,11 +1,9 @@
 ---
-order: 0
+order: 1
 title: Cases
 ---
 
-Ant Design is a design language for enterprise-like complex UIs.
-
-Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 300 applications.
+Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 400 applications.
 Designed for enterprise-like complex UIs, used by both professional and non-professional designers,
 Ant Design has a low learning curve that helps you getting started fast and achieve rapid results.
 
@@ -60,17 +58,7 @@ Through data mining, it exposes the users's experience and it helps the company'
 
 ---
 
-### AntV
-
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/yWNVSFBhKsoShvi.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/nvJftlNzfzhVDVW.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/LugOCvzybKsmQCj.png">
-
-AntV is a graphical library that is based on the work of a data group team
-whose results of exploring data visualization were summarized
-and shared them together with the required data visualization theory.
-
-<p><a class="outside-link internal" href="https://antv.alipay.com/" target="_blank">Website</a></p>
+更多 [社区案例](https://github.com/ant-design/ant-design/issues/477)。
 
 <style>
 .preview-image-boxes {
