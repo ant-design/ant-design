@@ -19,7 +19,7 @@ export interface FormItemProps {
   labelCol?: FormItemLabelColOption;
   wrapperCol?: FormItemLabelColOption;
   help?: React.ReactNode;
-  extra?: string;
+  extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
   hasFeedback?: boolean;
   className?: string;
