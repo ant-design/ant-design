@@ -52,6 +52,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     prefixCls: 'ant-btn',
     loading: false,
+    clicked: false,
     ghost: false,
   };
 
@@ -66,8 +67,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     icon: React.PropTypes.string,
   };
 
-  timeout: any;
-  clickedTimeout: any;
+  timeout: number;
   delayTimeout: number;
 
   constructor(props) {
@@ -93,9 +93,6 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   componentWillUnmount() {
-    if (this.clickedTimeout) {
-      clearTimeout(this.clickedTimeout);
-    }
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
@@ -104,17 +101,11 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
   }
 
-  clearButton = (button) => {
-    button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
-  }
-
   handleClick = (e) => {
     // Add click effect
-    const buttonNode = findDOMNode(this);
-    this.clearButton(buttonNode);
-    this.clickedTimeout = setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
+    this.setState({ clicked: true });
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
+    this.timeout = setTimeout(() => this.setState({ clicked: false }), 500);
 
     const onClick = this.props.onClick;
     if (onClick) {
@@ -135,7 +126,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, ...others,
     } = this.props;
 
-    const { loading } = this.state;
+    const { loading, clicked } = this.state;
     // large => lg
     // small => sm
     const sizeCls = ({
@@ -149,6 +140,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
     }, className);
 
@@ -158,7 +150,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <button
-        {...omit(others, ['loading'])}
+        {...omit(others, ['loading', 'clicked'])}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
