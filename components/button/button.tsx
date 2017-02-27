@@ -150,7 +150,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <button
-        {...omit(others, ['loading'])}
+        {...omit(others, ['loading', 'clicked'])}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
