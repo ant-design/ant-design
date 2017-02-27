@@ -48,10 +48,6 @@ title: 足不出户
 
 <br>
 
-<p><span class="waiting">详情嵌入层 (敬请期待)</span></p>
-
-<br>
-
 <img class="preview-img" align="right" alt="标签页示例" src="https://os.alipayobjects.com/rmsportal/MsVyvEIJtlxZWBL.png">
 
 标签页：将多个平级的信息进行整理和分类了，一次只显示一组信息。
@@ -67,10 +63,6 @@ title: 足不出户
 无限加载和分页器，详见[『模式／列表／显示长列表』](/docs/pattern/list#显示长列表)
 
 走马灯，详见[『模式／列表／显示图片』](/docs/pattern/list#显示图片)
-
-<br>
-
-<p><span class="waiting">伸缩式用户界面（敬请期待）</span></p>
 
 <br>
 

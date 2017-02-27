@@ -1,8 +1,6 @@
 ---
 order: 1
-title:
-  zh-CN: 基本理念
-  en-US: Features
+title: Features
 ---
 
 Unlike other design specifications, Ant Design pursues not only user expirerence, but also expirerence of desigers and developers, which practice a humanist design idea.
@@ -52,21 +50,19 @@ Unlike other design specifications, Ant Design pursues not only user expirerence
 
 ### Micro innovation
 
-<img class="preview-img" align="right" alt="Number Input Sample" description="鼠标『悬停』时，可点击区域会放大。" src="https://os.alipayobjects.com/rmsportal/GGXdyrOtvUtOKXe.png">
+<img class="preview-img" align="right" alt="Number Input Sample" description="Clickable area zoom out when hovering" src="https://os.alipayobjects.com/rmsportal/GGXdyrOtvUtOKXe.png">
 
-<img class="preview-img" align="right" alt="Pagination Sample" description="鼠标点击省略符，可以实现批量切换。" src="https://os.alipayobjects.com/rmsportal/UEYPnVhQsOjytSa.png">
+<img class="preview-img" align="right" alt="Pagination Sample" description="Click the ellipsis to switch multiple pager" src="https://os.alipayobjects.com/rmsportal/UEYPnVhQsOjytSa.png">
 
-<img class="preview-img" align="right" alt="Charactor Count Sample" description="使用颜色和下划线标注超出的文案，系统即时反应，以便用户进行调整。" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
+<img class="preview-img" align="right" alt="Charactor Count Sample" description="Make overflow text with color and underline instantly." src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
 "Diffrerence" is not always "better", but "better" is always different. Pursuing "better" in every details make our components is different, and also better naturally.
 
 ### Compositive innovation
 
-<img class="preview-img" align="right" alt="Input inside text" description="组合了标签和输入项，可以帮助用户理解当前的状况，以及需要提供什么数据。" src="https://os.alipayobjects.com/rmsportal/RGFMJRSgCAVCKOl.png">
+<img class="preview-img" align="right" alt="Input inside text" description="Compose tag, input and text to help people understand what data need to input" src="https://os.alipayobjects.com/rmsportal/RGFMJRSgCAVCKOl.png">
 
-<img class="preview-img" align="right" alt="Table with charts" description="组合了 Table 和 Chart ，鼠标『悬停』时展现更多详情内容。" src="https://os.alipayobjects.com/rmsportal/hjHOMRIbvIUUBXS.png">
-
-选择合适的组件进行组合和集成，形成优势互补的创新过程，来满足多变的业务需求。
+<img class="preview-img" align="right" alt="Table with charts" description="Compose Table and Chart" src="https://os.alipayobjects.com/rmsportal/hjHOMRIbvIUUBXS.png">
 
 Compose different components for more powerful functions, it is a good path to meet varies of different bussiness requirements.
 
@@ -76,19 +72,19 @@ Compose different components for more powerful functions, it is a good path to m
 
 ### Object oriented
 
-<img class="preview-img" align="right" alt="Color Sample" description="定义『原色』后，用『加黑』和『加白』的方式快速、科学的得出 Normal、Hover 等多个『状态色』。" src="https://os.alipayobjects.com/rmsportal/MqsXoBBSDmoEDqn.png">
+<img class="preview-img" align="right" alt="Color Sample" description="Generate status colors via tint/shade functions from a original primary color" src="https://os.alipayobjects.com/rmsportal/MqsXoBBSDmoEDqn.png">
 
-<img class="preview-img" align="right" alt="Typography Sample" description="运用『亲密性』原则，只需定义 n 的值，就可以得出确定的间距。" src="https://os.alipayobjects.com/rmsportal/WNEbRORxzEvvFKy.png">
+<img class="preview-img" align="right" alt="Typography Sample" description="Following『intimacy』principle, get the distance by a specified n value" src="https://os.alipayobjects.com/rmsportal/WNEbRORxzEvvFKy.png">
 
-<img class="preview-img no-padding good" align="right" alt="Feedback - Good" description="将可被通用的文案抽象成『确定』、『操作』等通用术语，集中进行调用和维护。虽然『用户』体验 -1 分，但是『设计者』体验 +5 分。" src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
+<img class="preview-img no-padding good" align="right" alt="Feedback - Good" description="Unify and simpcify the button text to same text like `Ok` or `Actions` in all situations, improve designers expirerence by sacrifice a little user expirerence." src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
 
-<img class="preview-img no-padding bad" align="right" alt="Feedback - Bad" description="这是体验更好的反馈方式，但是对『设计者』来说是灾难。因为这些『删除』文案只能通过人肉维护，难免产生遗漏和错别字，增大了系统的不确定性，这在多人合作和需求变更时尤为明显。" src="https://os.alipayobjects.com/rmsportal/OWLtvGCGmqawyPt.png">
+<img class="preview-img no-padding bad" align="right" alt="Feedback - Bad" description="It is better for this certain situation but a disaster for text maintainers. It is very easy to make typo mistakes cause text are different and unpredicable in every pages." src="https://os.alipayobjects.com/rmsportal/OWLtvGCGmqawyPt.png">
 
 We create a object-oriented design method and abstract UI patterns. That help us to do our jobs with continuity.
 
 ### Scientific design principles
 
-See more at [『design principles』](/docs/spec/principle).
+See more at [『Ant Design Principles』](/docs/spec/principle).
 
 ---
 
@@ -96,7 +92,7 @@ See more at [『design principles』](/docs/spec/principle).
 
 ### Happiness of user
 
-<img class="preview-img no-padding" align="right" alt="User Happiess Levels" description="想了解更多内容，可阅读唐纳德•A•诺曼所著的 《设计心理学 3》。" src="https://os.alipayobjects.com/rmsportal/sBjNEGgHEpNfqTs.png">
+<img class="preview-img no-padding" align="right" alt="User Happiess Levels" description="Please read <em>Emotional Design 3</em> for more infomation." src="https://os.alipayobjects.com/rmsportal/sBjNEGgHEpNfqTs.png">
 
 Beatuful looks, tide typography and smooth animation produce positive reaction at instinct level.
 
@@ -106,7 +102,7 @@ Self-image, satisfaction, and good memories bring user a combining expirerence o
 
 ### Happiness of designer
 
-<img class="preview-img no-padding" align="right" alt="Designer Happiess" description="Ant Design 无法保证业务产品能否成功，但是能帮助业务产品『正确的成功』或者『正确的失败』。" src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
+<img class="preview-img no-padding" align="right" alt="Designer Happiess" description="Ant Design can not guarantee the success of products, but try to help those products <strong>successed correctly</strong> or <strong>failed correctly</strong>." src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
 
 From 0 to 1, Ant Design help designers to implement a quick prototype for trial and error.
 

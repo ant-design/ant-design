@@ -70,13 +70,4 @@ title: 提供邀请
 
 更多内容邀请：用于邀请用户查看更多内容。
 
-
 <br>
-
-<br>
-
-<p><span class="waiting">预期功能邀请 (敬请期待)</span></p>
-
-<br>
-
-<p><span class="waiting">拖放邀请 (敬请期待)</span></p>
