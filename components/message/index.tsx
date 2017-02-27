@@ -61,6 +61,7 @@ export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;
+  getContainer?: () => HTMLElement;
 }
 
 export default {
