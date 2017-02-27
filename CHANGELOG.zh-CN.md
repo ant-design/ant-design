@@ -17,6 +17,41 @@ timeline: true
 
 ---
 
+## 2.7.3
+
+`2017-02-25`
+
+- 演示代码统一为 ES6 class 的写法。[#4878](https://github.com/ant-design/ant-design/issues/4878)
+- TypeScript
+  - 修复 `Cannot find module '../../package.json'` 的问题。[#4935](https://github.com/ant-design/ant-design/issues/4935)
+  - 补充了 Table、RangePicker 和 Upload 的部分属性定义。
+- 修复了 Modal `onOk` `afterClose` 和 Popconfirm `onConfirm` `onCancel` 缺少点击 event 参数的问题。 [#4787](https://github.com/ant-design/ant-design/issues/4787)
+- 优化 Menu[inline] 和 Collapse 的折叠动画效果。
+- 优化了 Checkbox 和 Radio 的垂直对齐样式。
+- Table
+  - 修复固定列时列头样式错位的问题。[#4936](https://github.com/ant-design/ant-design/issues/4936)
+  - 修复未清除浮动导致排版错位的问题。[#4945](https://github.com/ant-design/ant-design/issues/4945)
+  - 修复筛选子菜单无法显示的问题。[#4975](https://github.com/ant-design/ant-design/issues/4975)
+  - 修复固定列上的自定义筛选菜单无法交互的问题。[#5010](https://github.com/ant-design/ant-design/issues/5010)
+  - 修正 `pagination.onChange` 和 Pagination 的 `onChange` 参数不一致的问题。
+  - 修复加载状态切换不柔和的问题。[#4934](https://github.com/ant-design/ant-design/issues/4934)
+- 优化多个 message 展示重叠的问题。[#3543](https://github.com/ant-design/ant-design/issues/3543)
+- 修复 Carousel 在改变浏览器窗口大小后 autoplay 会失效的问题。[#2550](https://github.com/ant-design/ant-design/issues/2550)
+- 修复了 InputNumber 在受控模式（Form 表单内）无法输入 `1.01` `1.001` 等数字的问题。[#5012](https://github.com/ant-design/ant-design/issues/5012)
+- 优化 Button 加载状态切换时的宽度抖动问题。[#4913](https://github.com/ant-design/ant-design/issues/4913)
+- 修复 Dropdown 的菜单选中样式和 `Menu[theme="dark"]` 样式无效的问题。[#5013](https://github.com/ant-design/ant-design/issues/5013) [#4903](https://github.com/ant-design/ant-design/issues/4903)
+- 修复 Menu 的弹出菜单的 `z-index` 问题。[#4937](https://github.com/ant-design/ant-design/issues/4937)
+- 修复 DatePicker 和 RangePicker 无法设置小于 300px 的宽度的问题。[#4920](https://github.com/ant-design/ant-design/issues/4920)
+- 修复 Spin 内嵌 Spin 的样式问题。[#4971](https://github.com/ant-design/ant-design/issues/4971)
+- 修复了使用 babel-plugin-import 引入 Popconfirm 时，未引入 Button 样式的问题。
+- 修复了样式变量在 Progress `type="circle"` 上未生效的问题。[#5002](https://github.com/ant-design/ant-design/issues/5002)
+- 修复了 Breadcrumb 的 chilren 为 `null` 或 `undefined` 时报错的问题。[#5015](https://github.com/ant-design/ant-design/issues/5015)
+- 修复 Slider 的 tooltip 闪烁的问题。[#5003](https://github.com/ant-design/ant-design/issues/5003)
+- 修复了 Transfer 中 disabled 选项仍然可以被移动的问题。[#4981](https://github.com/ant-design/ant-design/pull/4981) [@tianlizhao](https://github.com/tianlizhao)
+- 文档
+  - 修复和优化了移动端的展现。
+  - 优化了 1.x 升级到 2.x 的不兼容改动文档。
+
 ## 2.7.2
 
 `2017-02-17`
