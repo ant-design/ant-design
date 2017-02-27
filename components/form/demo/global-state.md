@@ -35,7 +35,7 @@ const CustomizedForm = Form.create({
 })((props) => {
   const { getFieldDecorator } = props.form;
   return (
-    <Form inline>
+    <Form layout="inline">
       <FormItem label="Username">
         {getFieldDecorator('username', {
           rules: [{ required: true, message: 'Username is required!' }],

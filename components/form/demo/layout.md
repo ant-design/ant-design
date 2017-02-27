@@ -36,10 +36,9 @@ class FormLayoutDemo extends React.Component {
     const buttonItemLayout = formLayout === 'horizontal' ? {
       wrapperCol: { span: 14, offset: 4 },
     } : null;
-    const layoutProps = { [formLayout]: true };
     return (
       <div>
-        <Form {...layoutProps}>
+        <Form layout={formLayout}>
           <FormItem
             label="Form Layout"
             {...formItemLayout}
