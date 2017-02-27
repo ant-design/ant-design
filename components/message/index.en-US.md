@@ -14,12 +14,12 @@ Display global messages as feedbacks to user operations.
 
 ## API
 
-- `message.success(content, duration)`
-- `message.error(content, duration)`
-- `message.info(content, duration)`
-- `message.warning(content, duration)`
-- `message.warn(content, duration)`
-- `message.loading(content, duration)`
+- `message.success(content, duration, onClose)`
+- `message.error(content, duration, onClose)`
+- `message.info(content, duration, onClose)`
+- `message.warning(content, duration, onClose)`
+- `message.warn(content, duration, onClose)`
+- `message.loading(content, duration, onClose)`
 
 This components provides 4 static methods, with arguments as following:
 
@@ -27,6 +27,7 @@ This components provides 4 static methods, with arguments as following:
 |------------|------------------------------------|--------------------------|--------------|
 | content    | content of the message             | string\|ReactNode | -            |
 | duration   | time before auto-dismiss,in seconds | number                   | 1.5          |
+| onClose   | Specify a function that will be called after the message closed| Function                   | -          |
 
 Methods for global configuration and destruction are also provided:
 

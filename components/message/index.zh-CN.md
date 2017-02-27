@@ -15,12 +15,12 @@ title: Message
 
 ## API
 
-- `message.success(content, duration)`
-- `message.error(content, duration)`
-- `message.info(content, duration)`
-- `message.warning(content, duration)`
-- `message.warn(content, duration)`
-- `message.loading(content, duration)`
+- `message.success(content, duration, onClose)`
+- `message.error(content, duration, onClose)`
+- `message.info(content, duration, onClose)`
+- `message.warning(content, duration, onClose)`
+- `message.warn(content, duration, onClose)`
+- `message.loading(content, duration, onClose)`
 
 组件提供了四个静态方法，参数如下：
 
@@ -28,6 +28,8 @@ title: Message
 |------------|----------------|--------------------------|--------------|
 | content    | 提示内容       | string\|ReactNode | -           |
 | duration   | 自动关闭的延时，单位秒 | number               | 1.5          |
+| onClose   | 关闭时触发的回调函数 | Function          | -         |
+
 
 还提供了全局配置和全局销毁方法：
 
