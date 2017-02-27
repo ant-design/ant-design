@@ -61,20 +61,23 @@
 }
 
 .markdown ul > li {
-  list-style: circle inside;
+  list-style-type: circle;
+  margin-left: 20px;
+  padding-left: 4px;
   &:empty {
     display: none;
   }
 }
 
 .markdown ol > li {
-  list-style: decimal inside;
+  list-style-type: decimal;
+  margin-left: 20px;
+  padding-left: 4px;
 }
 
 .markdown ul > li > p,
 .markdown ol > li > p {
   margin: 0.2em 0;
-  display: inline;
 }
 
 .markdown code {
