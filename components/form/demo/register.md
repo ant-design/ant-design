@@ -44,7 +44,7 @@ const residences = [{
 
 class RegistrationForm extends React.Component {
   state = {
-    passwordDirty: false,
+    confirmDirty: false,
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -54,9 +54,9 @@ class RegistrationForm extends React.Component {
       }
     });
   }
-  handlePasswordBlur = (e) => {
+  handleConfirmBlur = (e) => {
     const value = e.target.value;
-    this.setState({ passwordDirty: this.state.passwordDirty || !!value });
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
@@ -68,7 +68,7 @@ class RegistrationForm extends React.Component {
   }
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
-    if (value && this.state.passwordDirty) {
+    if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });
     }
     callback();
@@ -121,7 +121,7 @@ class RegistrationForm extends React.Component {
               validator: this.checkConfirm,
             }],
           })(
-            <Input type="password" onBlur={this.handlePasswordBlur} />
+            <Input type="password" />
           )}
         </FormItem>
         <FormItem
@@ -136,7 +136,7 @@ class RegistrationForm extends React.Component {
               validator: this.checkPassword,
             }],
           })(
-            <Input type="password" />
+            <Input type="password" onBlur={this.handleConfirmBlur} />
           )}
         </FormItem>
         <FormItem
