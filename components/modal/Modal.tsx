@@ -3,7 +3,6 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
-import { ModalFuncProps } from './';
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -44,7 +43,20 @@ export interface ModalContext {
     Modal?: any,
   };
 }
-type ModalFunc = (props: ModalFuncProps) => {
+
+export interface ModalFuncProps {
+  visible?: boolean;
+  title?: React.ReactNode | string;
+  content?: React.ReactNode | string;
+  onOk?: (func: Function) => any;
+  onCancel?: (func: Function) => any;
+  width?: string | number;
+  iconClassName?: string;
+  okText?: string;
+  cancelText?: string;
+  iconType?: string;
+}
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void
 }
 
