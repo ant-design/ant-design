@@ -17,6 +17,14 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.7.4
+
+`2017-02-28`
+
+- Fix TreeSelect cannot display bug. [#5092](https://github.com/ant-design/ant-design/issues/5092)
+- Fix Anchor `e.stopPreventDefault is not a function` error. [#5080](https://github.com/ant-design/ant-design/issues/5080)
+- Fix some detail styles of Input, Cascader, Upload.
+
 ## 2.7.3
 
 `2017-02-25`
