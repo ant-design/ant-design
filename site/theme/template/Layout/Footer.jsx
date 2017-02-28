@@ -136,7 +136,7 @@ class Footer extends React.Component {
             </div>
           </li>
           <li>
-            <h2>Copyright © 2017</h2>
+            <h2>Copyright © {new Date().getFullYear()}</h2>
             <div>
               <FormattedMessage id="app.footer.author" />
             </div>
