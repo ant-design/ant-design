@@ -13,11 +13,9 @@
     vertical-align: middle;
 
     .@{checkbox-prefix-cls}-wrapper:hover &,
-    &:hover,
-    &-focused {
-      .@{checkbox-inner-prefix-cls} {
-        border-color: @primary-color;
-      }
+    &:hover &-inner,
+    &-input:focus + &-inner {
+      border-color: @primary-color;
     }
 
     &-inner {
