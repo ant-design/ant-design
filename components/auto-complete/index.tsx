@@ -55,6 +55,10 @@ class InputElement extends React.Component<any, any> {
   }
 }
 
+function isSelectOptionOrSelectOptGroup(child: any): Boolean {
+  return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
+}
+
 export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
@@ -94,7 +98,9 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
 
     let options;
     const childArray = React.Children.toArray(children);
-    if (childArray.length && (childArray[0] as React.ReactElement<any>).type === Option) {
+    if (childArray.length &&
+        isSelectOptionOrSelectOptGroup(childArray[0])
+      ) {
       options = children;
     } else {
       options = dataSource ? dataSource.map((item) => {
