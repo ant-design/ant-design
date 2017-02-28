@@ -3,6 +3,7 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
+import { ModalFuncProps } from './';
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -43,14 +44,17 @@ export interface ModalContext {
     Modal?: any,
   };
 }
+type ModalFunc = (props: ModalFuncProps) => {
+  destroy: () => void
+}
 
 export default class Modal extends React.Component<ModalProps, any> {
-  static info: any;
-  static success: any;
-  static error: any;
-  static warn: any;
-  static warning: any;
-  static confirm: any;
+  static info: ModalFunc;
+  static success: ModalFunc;
+  static error: ModalFunc;
+  static warn: ModalFunc;
+  static warning: ModalFunc;
+  static confirm: ModalFunc;
 
   static defaultProps = {
     prefixCls: 'ant-modal',
