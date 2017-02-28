@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
+import warning from '../_util/warning';
 
 export default class RangePicker extends React.Component<any, any> {
   static contextTypes = {
@@ -119,6 +120,7 @@ export default class RangePicker extends React.Component<any, any> {
       ranges, prefixCls, popupStyle,
       style, onOk, locale, format,
     } = props;
+    warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,

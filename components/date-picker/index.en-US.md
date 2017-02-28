@@ -47,6 +47,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | open | open state of picker | boolean | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | placeholder  | placeholder of date input | string\|RangePicker[] | - |
+| onOk | callback when click ok button | function() | - |
 
 ### DatePicker
 
@@ -59,7 +60,6 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
-| onOk | callback when click ok button | function() | - |
 
 ### MonthPicker
 

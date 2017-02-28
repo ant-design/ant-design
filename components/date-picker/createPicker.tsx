@@ -7,6 +7,7 @@ import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
+import warning from '../_util/warning';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -122,6 +123,7 @@ export default function createPicker(TheCalendar) {
         };
       }
 
+      warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
       const calendar = (
         <TheCalendar
           {...calendarHandler}
