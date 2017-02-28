@@ -41,7 +41,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
         </a>
         <i
           class="anticon anticon-cross"
-          title="Remove file" />
+          title="删除文件" />
       </div>
     </div>
     <div
@@ -59,7 +59,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
         </a>
         <i
           class="anticon anticon-cross"
-          title="Remove file" />
+          title="删除文件" />
       </div>
     </div>
     <div
@@ -77,7 +77,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
         </a>
         <i
           class="anticon anticon-cross"
-          title="Remove file" />
+          title="删除文件" />
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
         </a>
         <i
           class="anticon anticon-cross"
-          title="Remove file" />
+          title="删除文件" />
       </div>
     </div>
   </div>
@@ -158,13 +158,13 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
-              title="Preview file">
+              title="预览文件">
               <i
                 class="anticon anticon-eye-o" />
             </a>
             <i
               class="anticon anticon-delete"
-              title="Remove file" />
+              title="删除文件" />
           </span>
         </div>
       </div>
@@ -207,7 +207,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
           </a>
           <i
             class="anticon anticon-cross"
-            title="Remove file" />
+            title="删除文件" />
         </div>
       </div>
       <div
@@ -232,7 +232,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
           </a>
           <i
             class="anticon anticon-cross"
-            title="Remove file" />
+            title="删除文件" />
         </div>
       </div>
     </div>
@@ -268,7 +268,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
           </a>
           <i
             class="anticon anticon-cross"
-            title="Remove file" />
+            title="删除文件" />
         </div>
       </div>
       <div
@@ -293,7 +293,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
           </a>
           <i
             class="anticon anticon-cross"
-            title="Remove file" />
+            title="删除文件" />
         </div>
       </div>
     </div>

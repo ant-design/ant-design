@@ -31,6 +31,13 @@ export interface ShowUploadListInterface {
   showPreviewIcon?: boolean;
 }
 
+export interface UploadLocale {
+  uploading?: string;
+  removeFile?: string;
+  uploadError?: string;
+  previewFile?: string;
+}
+
 export interface UploadProps {
   type?: 'drag' | 'select';
   name?: string;
@@ -54,6 +61,7 @@ export interface UploadProps {
   prefixCls?: string;
   customRequest?: (option: any) => void;
   withCredentials?: boolean;
+  locale?: UploadLocale;
 }
 
 export interface UploadListProps {
@@ -65,4 +73,5 @@ export interface UploadListProps {
   prefixCls?: string;
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
+  locale: UploadLocale;
 }
