@@ -63,7 +63,9 @@
     transition: all .3s ease;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      background: @primary-1;
+      & > td {
+        background: @primary-1;
+      }
     }
   }
 
