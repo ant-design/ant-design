@@ -3,11 +3,11 @@ exports[`test renders ./components/checkbox/demo/basic.md correctly 1`] = `
   class="ant-checkbox-wrapper">
   <span
     class="ant-checkbox">
-    <span
-      class="ant-checkbox-inner" />
     <input
       class="ant-checkbox-input"
       type="checkbox" />
+    <span
+      class="ant-checkbox-inner" />
   </span>
   <span>
     Checkbox
@@ -22,12 +22,12 @@ exports[`test renders ./components/checkbox/demo/check-all.md correctly 1`] = `
     <label
       class="ant-checkbox-wrapper">
       <span
-        class="ant-checkbox-indeterminate ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-indeterminate">
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Check all
@@ -40,13 +40,13 @@ exports[`test renders ./components/checkbox/demo/check-all.md correctly 1`] = `
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked">
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Apple
@@ -56,11 +56,11 @@ exports[`test renders ./components/checkbox/demo/check-all.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Pear
@@ -69,13 +69,13 @@ exports[`test renders ./components/checkbox/demo/check-all.md correctly 1`] = `
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked">
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Orange
@@ -92,13 +92,13 @@ exports[`test renders ./components/checkbox/demo/controller.md correctly 1`] = `
     <label
       class="ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked">
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Checked-Enabled
@@ -131,26 +131,26 @@ exports[`test renders ./components/checkbox/demo/disabled.md correctly 1`] = `
     class="ant-checkbox-wrapper">
     <span
       class="ant-checkbox ant-checkbox-disabled">
-      <span
-        class="ant-checkbox-inner" />
       <input
         class="ant-checkbox-input"
         disabled=""
         type="checkbox" />
+      <span
+        class="ant-checkbox-inner" />
     </span>
   </label>
   <br />
   <label
     class="ant-checkbox-wrapper">
     <span
-      class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1 ant-checkbox-disabled">
-      <span
-        class="ant-checkbox-inner" />
+      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled">
       <input
         checked=""
         class="ant-checkbox-input"
         disabled=""
         type="checkbox" />
+      <span
+        class="ant-checkbox-inner" />
     </span>
   </label>
 </div>
@@ -163,13 +163,13 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked">
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Apple
@@ -179,11 +179,11 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Pear
@@ -193,11 +193,11 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Orange
@@ -211,11 +211,11 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Apple
@@ -224,13 +224,13 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked">
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Pear
@@ -240,11 +240,11 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Orange
@@ -257,14 +257,14 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1 ant-checkbox-disabled">
-        <span
-          class="ant-checkbox-inner" />
+        class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled">
         <input
           checked=""
           class="ant-checkbox-input"
           disabled=""
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Apple
@@ -274,12 +274,12 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox ant-checkbox-disabled">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           disabled=""
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Pear
@@ -289,11 +289,11 @@ exports[`test renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper">
       <span
         class="ant-checkbox">
-        <span
-          class="ant-checkbox-inner" />
         <input
           class="ant-checkbox-input"
           type="checkbox" />
+        <span
+          class="ant-checkbox-inner" />
       </span>
       <span>
         Orange

@@ -568,13 +568,13 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
               <span
-                class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
-                <span
-                  class="ant-radio-button-inner" />
+                class="ant-radio-button ant-radio-button-checked">
                 <input
                   checked=""
                   class="ant-radio-button-input"
                   type="radio" />
+                <span
+                  class="ant-radio-button-inner" />
               </span>
               <span>
                 Horizontal
@@ -584,11 +584,11 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-radio-button-wrapper">
               <span
                 class="ant-radio-button">
-                <span
-                  class="ant-radio-button-inner" />
                 <input
                   class="ant-radio-button-input"
                   type="radio" />
+                <span
+                  class="ant-radio-button-inner" />
               </span>
               <span>
                 Vertical
@@ -598,11 +598,11 @@ exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
               class="ant-radio-button-wrapper">
               <span
                 class="ant-radio-button">
-                <span
-                  class="ant-radio-button-inner" />
                 <input
                   class="ant-radio-button-input"
                   type="radio" />
+                <span
+                  class="ant-radio-button-inner" />
               </span>
               <span>
                 Inline
@@ -734,13 +734,13 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
         <label
           class="ant-checkbox-wrapper">
           <span
-            class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-            <span
-              class="ant-checkbox-inner" />
+            class="ant-checkbox ant-checkbox-checked">
             <input
               checked=""
               class="ant-checkbox-input"
               type="checkbox" />
+            <span
+              class="ant-checkbox-inner" />
           </span>
           <span>
             Remember me
@@ -1023,11 +1023,11 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-checkbox-wrapper">
           <span
             class="ant-checkbox">
-            <span
-              class="ant-checkbox-inner" />
             <input
               class="ant-checkbox-input"
               type="checkbox" />
+            <span
+              class="ant-checkbox-inner" />
           </span>
           <span>
             I had read the 
@@ -1582,11 +1582,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-wrapper">
             <span
               class="ant-radio">
-              <span
-                class="ant-radio-inner" />
               <input
                 class="ant-radio-input"
                 type="radio" />
+              <span
+                class="ant-radio-inner" />
             </span>
             <span>
               item 1
@@ -1596,11 +1596,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-wrapper">
             <span
               class="ant-radio">
-              <span
-                class="ant-radio-inner" />
               <input
                 class="ant-radio-input"
                 type="radio" />
+              <span
+                class="ant-radio-inner" />
             </span>
             <span>
               item 2
@@ -1610,11 +1610,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-wrapper">
             <span
               class="ant-radio">
-              <span
-                class="ant-radio-inner" />
               <input
                 class="ant-radio-input"
                 type="radio" />
+              <span
+                class="ant-radio-inner" />
             </span>
             <span>
               item 3
@@ -1645,11 +1645,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-button-wrapper">
             <span
               class="ant-radio-button">
-              <span
-                class="ant-radio-button-inner" />
               <input
                 class="ant-radio-button-input"
                 type="radio" />
+              <span
+                class="ant-radio-button-inner" />
             </span>
             <span>
               item 1
@@ -1659,11 +1659,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-button-wrapper">
             <span
               class="ant-radio-button">
-              <span
-                class="ant-radio-button-inner" />
               <input
                 class="ant-radio-button-input"
                 type="radio" />
+              <span
+                class="ant-radio-button-inner" />
             </span>
             <span>
               item 2
@@ -1673,11 +1673,11 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-radio-button-wrapper">
             <span
               class="ant-radio-button">
-              <span
-                class="ant-radio-button-inner" />
               <input
                 class="ant-radio-button-input"
                 type="radio" />
+              <span
+                class="ant-radio-button-inner" />
             </span>
             <span>
               item 3

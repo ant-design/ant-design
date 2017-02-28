@@ -410,11 +410,11 @@ exports[`test renders ./components/button/demo/size.md correctly 1`] = `
       class="ant-radio-button-wrapper">
       <span
         class="ant-radio-button">
-        <span
-          class="ant-radio-button-inner" />
         <input
           class="ant-radio-button-input"
           type="radio" />
+        <span
+          class="ant-radio-button-inner" />
       </span>
       <span>
         Large
@@ -423,13 +423,13 @@ exports[`test renders ./components/button/demo/size.md correctly 1`] = `
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
       <span
-        class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
-        <span
-          class="ant-radio-button-inner" />
+        class="ant-radio-button ant-radio-button-checked">
         <input
           checked=""
           class="ant-radio-button-input"
           type="radio" />
+        <span
+          class="ant-radio-button-inner" />
       </span>
       <span>
         Default
@@ -439,11 +439,11 @@ exports[`test renders ./components/button/demo/size.md correctly 1`] = `
       class="ant-radio-button-wrapper">
       <span
         class="ant-radio-button">
-        <span
-          class="ant-radio-button-inner" />
         <input
           class="ant-radio-button-input"
           type="radio" />
+        <span
+          class="ant-radio-button-inner" />
       </span>
       <span>
         Small

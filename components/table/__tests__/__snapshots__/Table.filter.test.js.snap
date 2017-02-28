@@ -115,11 +115,11 @@ exports[`Table.filter renders menu correctly 1`] = `
             class="ant-checkbox-wrapper">
             <span
               class="ant-checkbox">
-              <span
-                class="ant-checkbox-inner" />
               <input
                 class="ant-checkbox-input"
                 type="checkbox" />
+              <span
+                class="ant-checkbox-inner" />
             </span>
           </label>
           <span>
@@ -134,11 +134,11 @@ exports[`Table.filter renders menu correctly 1`] = `
             class="ant-checkbox-wrapper">
             <span
               class="ant-checkbox">
-              <span
-                class="ant-checkbox-inner" />
               <input
                 class="ant-checkbox-input"
                 type="checkbox" />
+              <span
+                class="ant-checkbox-inner" />
             </span>
           </label>
           <span>
@@ -191,11 +191,11 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             class="ant-radio-wrapper">
             <span
               class="ant-radio">
-              <span
-                class="ant-radio-inner" />
               <input
                 class="ant-radio-input"
                 type="radio" />
+              <span
+                class="ant-radio-inner" />
             </span>
           </label>
           <span>
@@ -210,11 +210,11 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             class="ant-radio-wrapper">
             <span
               class="ant-radio">
-              <span
-                class="ant-radio-inner" />
               <input
                 class="ant-radio-input"
                 type="radio" />
+              <span
+                class="ant-radio-inner" />
             </span>
           </label>
           <span>

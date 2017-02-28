@@ -8,13 +8,13 @@ exports[`Transfer should render correctly 1`] = `
       <label
         class="ant-checkbox-wrapper">
         <span
-          class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-          <span
-            class="ant-checkbox-inner" />
+          class="ant-checkbox ant-checkbox-checked">
           <input
             checked=""
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -35,13 +35,13 @@ exports[`Transfer should render correctly 1`] = `
           <label
             class="ant-checkbox-wrapper">
             <span
-              class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
-              <span
-                class="ant-checkbox-inner" />
+              class="ant-checkbox ant-checkbox-checked">
               <input
                 checked=""
                 class="ant-checkbox-input"
                 type="checkbox" />
+              <span
+                class="ant-checkbox-inner" />
             </span>
           </label>
           <span />
@@ -52,12 +52,12 @@ exports[`Transfer should render correctly 1`] = `
             class="ant-checkbox-wrapper">
             <span
               class="ant-checkbox ant-checkbox-disabled">
-              <span
-                class="ant-checkbox-inner" />
               <input
                 class="ant-checkbox-input"
                 disabled=""
                 type="checkbox" />
+              <span
+                class="ant-checkbox-inner" />
             </span>
           </label>
           <span />
@@ -97,11 +97,11 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -123,11 +123,11 @@ exports[`Transfer should render correctly 1`] = `
             class="ant-checkbox-wrapper">
             <span
               class="ant-checkbox">
-              <span
-                class="ant-checkbox-inner" />
               <input
                 class="ant-checkbox-input"
                 type="checkbox" />
+              <span
+                class="ant-checkbox-inner" />
             </span>
           </label>
           <span />

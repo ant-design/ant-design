@@ -11,13 +11,13 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
         <span
-          class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
-          <span
-            class="ant-radio-button-inner" />
+          class="ant-radio-button ant-radio-button-checked">
           <input
             checked=""
             class="ant-radio-button-input"
             type="radio" />
+          <span
+            class="ant-radio-button-inner" />
         </span>
         <span>
           English
@@ -27,11 +27,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
         class="ant-radio-button-wrapper">
         <span
           class="ant-radio-button">
-          <span
-            class="ant-radio-button-inner" />
           <input
             class="ant-radio-button-input"
             type="radio" />
+          <span
+            class="ant-radio-button-inner" />
         </span>
         <span>
           中文
@@ -246,11 +246,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               class="ant-checkbox-wrapper">
               <span
                 class="ant-checkbox">
-                <span
-                  class="ant-checkbox-inner" />
                 <input
                   class="ant-checkbox-input"
                   type="checkbox" />
+                <span
+                  class="ant-checkbox-inner" />
               </span>
             </label>
             <span
@@ -316,11 +316,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               class="ant-checkbox-wrapper">
               <span
                 class="ant-checkbox">
-                <span
-                  class="ant-checkbox-inner" />
                 <input
                   class="ant-checkbox-input"
                   type="checkbox" />
+                <span
+                  class="ant-checkbox-inner" />
               </span>
             </label>
             <span
@@ -424,13 +424,13 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
               <span
-                class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
-                <span
-                  class="ant-radio-button-inner" />
+                class="ant-radio-button ant-radio-button-checked">
                 <input
                   checked=""
                   class="ant-radio-button-input"
                   type="radio" />
+                <span
+                  class="ant-radio-button-inner" />
               </span>
               <span>
                 Month
@@ -440,11 +440,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               class="ant-radio-button-wrapper">
               <span
                 class="ant-radio-button">
-                <span
-                  class="ant-radio-button-inner" />
                 <input
                   class="ant-radio-button-input"
                   type="radio" />
+                <span
+                  class="ant-radio-button-inner" />
               </span>
               <span>
                 Year

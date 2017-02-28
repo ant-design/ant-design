@@ -10,11 +10,11 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -94,11 +94,11 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -160,11 +160,11 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -260,11 +260,11 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -322,11 +322,11 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -378,11 +378,11 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -418,11 +418,11 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -473,11 +473,11 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -513,11 +513,11 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
@@ -583,11 +583,11 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-checkbox-wrapper">
         <span
           class="ant-checkbox">
-          <span
-            class="ant-checkbox-inner" />
           <input
             class="ant-checkbox-input"
             type="checkbox" />
+          <span
+            class="ant-checkbox-inner" />
         </span>
       </label>
       <span
