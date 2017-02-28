@@ -106,7 +106,6 @@ ReactDOM.render(<Complete />, mountNode);
 
 .global-search.ant-select-auto-complete .ant-input {
   height: 40px;
-  padding: 11px 12px;
 }
 
 .global-search.ant-select-auto-complete .ant-select-selection__placeholder {
