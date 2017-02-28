@@ -36,10 +36,6 @@ export default class Radio extends React.Component<RadioProps, any> {
       [`${prefixCls}-wrapper-checked`]: checked,
       [`${prefixCls}-wrapper-disabled`]: disabled,
     }, className);
-    const classString = classNames(prefixCls, {
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-disabled`]: disabled,
-    });
 
     return (
       <label
@@ -48,7 +44,7 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={this.props.onMouseEnter}
         onMouseLeave={this.props.onMouseLeave}
       >
-        <RcRadio {...this.props} className={classString} style={null} children={null} />
+        <RcRadio {...this.props} style={null} children={null} />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
