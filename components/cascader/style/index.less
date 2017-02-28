@@ -8,7 +8,9 @@
   font-size: @font-size-base;
 
   &-input.@{ant-prefix}-input {
-    background-color: transparent;
+    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
+    // because input.less will compile after cascader.less
+    background-color: transparent!important;
     cursor: pointer;
     width: 100%;
     z-index: 1;
