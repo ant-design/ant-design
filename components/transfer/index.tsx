@@ -38,6 +38,7 @@ export interface TransferProps {
   rowKey?: (record: TransferItem) => string;
   onSearchChange?: (direction: 'left' | 'right', e: Event) => void;
   lazy?: {};
+  onScroll?: (direction: 'left' | 'right', e: Event) => void;
 }
 
 export interface TransferContext {
@@ -258,6 +259,16 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleLeftSelect = (selectedItem, checked) => this.handleSelect('left', selectedItem, checked);
   handleRightSelect = (selectedItem, checked) => this.handleSelect('right', selectedItem, checked);
 
+  handleScroll = (direction, e) => {
+    const { onScroll } = this.props;
+    if (onScroll) {
+      onScroll(direction, e);
+    }
+  }
+
+  handleLeftScroll = (e) => this.handleScroll('left', e);
+  handleRightScroll = (e) => this.handleScroll('right', e);
+
   getTitles(): string[] {
     const { props, context } = this;
     if (props.titles) {
@@ -312,6 +323,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           footer={footer}
           prefixCls={`${prefixCls}-list`}
           lazy={lazy}
+          onScroll={this.handleLeftScroll}
         />
         <Operation
           rightActive={rightActive}
@@ -341,6 +353,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           footer={footer}
           prefixCls={`${prefixCls}-list`}
           lazy={lazy}
+          onScroll={this.handleRightScroll}
         />
       </div>
     );
