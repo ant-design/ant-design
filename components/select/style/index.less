@@ -351,9 +351,6 @@
   }
 
   &-combobox {
-    .@{select-prefix-cls}-selection__rendered {
-       margin-left: 6px;
-    }
     .@{select-prefix-cls}-arrow {
       display: none;
     }
@@ -425,20 +422,20 @@
       padding: 0;
 
       > .@{select-prefix-cls}-dropdown-menu-item {
-        padding-left: 15px;
+        padding-left: 24px;
       }
     }
 
     &-item-group-title {
       color: @text-color-secondary;
       line-height: 1.5;
-      padding: 8px 7px;
+      padding: 8px 16px;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px;
+      padding: 7px 16px;
       font-weight: normal;
       color: @text-color;
       white-space: nowrap;
