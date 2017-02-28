@@ -1,4 +1,3 @@
-import React from 'react';
 import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
 import assign from 'object-assign';
