@@ -17,6 +17,14 @@ timeline: true
 
 ---
 
+## 2.7.4
+
+`2017-02-28`
+
+- 修复 TreeSelect 多选框无法展现的问题。[#5092](https://github.com/ant-design/ant-design/issues/5092)
+- 修复 Anchor 的 `e.stopPreventDefault is not a function` 的报错。[#5080](https://github.com/ant-design/ant-design/issues/5080)
+- 修复 Input、Cascader、Upload 的一些样式细节。
+
 ## 2.7.3
 
 `2017-02-25`
