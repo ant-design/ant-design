@@ -23,6 +23,7 @@
 @steps-small-icon-size: 18px;
 @steps-dot-size: 5px;
 @steps-current-dot-size: 7px;
+@steps-desciption-max-width: 120px;
 
 .@{steps-prefix-cls} {
   font-size: 0;
@@ -349,7 +350,7 @@
      visibility: hidden;
   }
   .@{steps-prefix-cls}-description {
-    max-width: 120px;
+    max-width: @steps-desciption-max-width;
   }
   .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
     padding-left: 10px;
@@ -357,43 +358,21 @@
   }
 }
 
-.@{steps-prefix-cls}-label-vertical {
-  .@{steps-prefix-cls}-tail {
-    padding: 0 32px 0 60px;
-  }
+.@{steps-prefix-cls}-dot {
   .@{steps-prefix-cls}-item {
     .@{steps-prefix-cls}-step {
       display: inline-block;
       text-align: center;
-      width: 120px;
+      width: @steps-desciption-max-width;
+    }
+    &:not(:first-child) .@{steps-prefix-cls}-head {
+      margin-left: 0;
+      padding-left: 0;
     }
   }
-  .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .@{steps-prefix-cls}-head {
-    display: inline-block;
-    padding-right: 10px;
-    &-inner {
-      margin: 0 auto;
-    }
-  }
-  .@{steps-prefix-cls}-main {
-    display: block;
-    margin-top: 10px;
-    .@{steps-prefix-cls}-title {
-      padding-right: 0;
-    }
-    .@{steps-prefix-cls}-description {
-      text-align: left;
-    }
-  }
-}
-
-.@{steps-prefix-cls}-dot {
   .@{steps-prefix-cls}-tail {
-    padding: 0 0 0 60px;
+    margin: 0 0 0 @steps-desciption-max-width / 2;
+    padding: 0;
     width: 100%;
     top: 1px;
 
@@ -402,8 +381,10 @@
     }
   }
   .@{steps-prefix-cls}-head {
+    display: inline-block;
     padding-right: 0;
     &-inner {
+      margin: 0 auto;
       width: @steps-dot-size;
       height: @steps-dot-size;
       line-height: @steps-dot-size;
@@ -428,6 +409,13 @@
           transform: scale(1.3);
         }
       }
+    }
+  }
+  .@{steps-prefix-cls}-main {
+    display: block;
+    margin-top: 10px;
+    .@{steps-prefix-cls}-title {
+      padding-right: 0;
     }
   }
   .@{steps-prefix-cls}-status-process {
