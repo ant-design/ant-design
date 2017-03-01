@@ -102,12 +102,35 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-以下两种方法都可以达到按需加载的目的：
+### 按需加载
 
-- `import DatePicker from 'antd/lib/date-picker'`
-- 配合插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 使用 `import { DatePicker } from 'antd';`
+下面两种方式都可以只加载用到的组件。
 
-> babel-plugin-import 支持 js 和 css 同时按需加载。
+- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
+
+   ```js
+   // .babelrc or babel-loader option
+   {
+     "plugins": [
+       ["import", { libraryName: "antd", style: "css" }] // `style: true` 会加载 less 文件
+     ]
+   }
+   ```
+
+   然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
+
+   ```jsx
+   // babel-plugin-import 会帮助你加载 JS 和 CSS
+   import { DatePicker } from 'antd';
+   ```
+
+- 手动引入
+
+   ```jsx
+   import DatePicker from 'antd/lib/date-picker';  // 加载 JS
+   import 'antd/lib/date-picker/style/css';        // 加载 CSS
+   // import 'antd/lib/date-picker/style';         // 加载 LESS
+   ```
 
 ## 链接
 
