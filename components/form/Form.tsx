@@ -24,7 +24,7 @@ export interface FormProps {
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
-  hideRequiredMark?: false;
+  hideRequiredMark?: boolean;
 }
 
 // function create
