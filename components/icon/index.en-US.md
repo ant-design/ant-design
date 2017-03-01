@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic
+type: General
 title: Icon
 toc: false
 ---
@@ -47,14 +47,23 @@ ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ### Suggested Icons
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
 ### Other Icons
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
+
+## Props
+
+| Property | Description      | Type   | Default |
+|----------|------------------|------- |---------|
+| type | Type of ant design icons | string | - |
+| spin | Rotate icon with animation | boolean | false |
 
 <style>
 .markdown .icons {
@@ -96,7 +105,7 @@ ul.anticons-list li:after {
   content: "Copied!";
   text-align: center;
   line-height: 110px;
-  color: #2db7f5;
+  color: #108ee9;
   transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   opacity: 0;
 }
@@ -116,7 +125,7 @@ ul.anticons-list li:hover .anticon {
   display: block;
   text-align: center;
   transform: scale(0.83);
-  font-family: Consolas;
+  font-family: "Lucida Console", Consolas;
   white-space: nowrap;
 }
 </style>

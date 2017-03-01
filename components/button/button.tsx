@@ -2,7 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
+import omit from 'omit.js';
+
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str) {
@@ -24,7 +25,7 @@ function insertSpace(child) {
   return child;
 }
 
-export type ButtonType = 'primary' | 'ghost' | 'dashed'
+export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger'
 export type ButtonShape = 'circle' | 'circle-outline'
 export type ButtonSize = 'small' | 'large'
 
@@ -34,22 +35,25 @@ export interface ButtonProps {
   icon?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
-  onClick?: React.FormEventHandler;
-  onMouseUp?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
+  onMouseUp?: React.FormEventHandler<any>;
   loading?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  ghost?: boolean;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
   static Group: any;
+  static __ANT_BUTTON = true;
 
   static defaultProps = {
     prefixCls: 'ant-btn',
-    onClick() {},
     loading: false,
+    clicked: false,
+    ghost: false,
   };
 
   static propTypes = {
@@ -63,31 +67,50 @@ export default class Button extends React.Component<ButtonProps, any> {
     icon: React.PropTypes.string,
   };
 
-  timeout: any;
-  clickedTimeout: any;
+  timeout: number;
+  delayTimeout: number;
 
-  componentWillUnmount() {
-    if (this.clickedTimeout) {
-      clearTimeout(this.clickedTimeout);
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: props.loading,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentLoading = this.props.loading;
+    const loading = nextProps.loading;
+
+    if (currentLoading) {
+      clearTimeout(this.delayTimeout);
     }
-    if (this.timeout) {
-      clearTimeout(this.timeout);
+
+    if (loading) {
+      this.delayTimeout = setTimeout(() => this.setState({ loading }), 200);
+    } else {
+      this.setState({ loading });
     }
   }
 
-  clearButton = (button) => {
-    button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
+    }
   }
 
   handleClick = (e) => {
     // Add click effect
-    const buttonNode = findDOMNode(this);
-    this.clearButton(buttonNode);
-    this.clickedTimeout = setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
+    this.setState({ clicked: true });
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
+    this.timeout = setTimeout(() => this.setState({ clicked: false }), 500);
 
-    this.props.onClick(e);
+    const onClick = this.props.onClick;
+    if (onClick) {
+      onClick(e);
+    }
   }
 
   // Handle auto focus when click button in Chrome
@@ -99,10 +122,11 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   render() {
-    const props = this.props;
-    const [{ type, shape, size, className, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
-      ['type', 'shape', 'size', 'className', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
+    const {
+      type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, ...others,
+    } = this.props;
 
+    const { loading, clicked } = this.state;
     // large => lg
     // small => sm
     const sizeCls = ({
@@ -110,28 +134,29 @@ export default class Button extends React.Component<ButtonProps, any> {
       small: 'sm',
     })[size] || '';
 
-    const classes = classNames({
-      [prefixCls]: true,
+    const classes = classNames(prefixCls, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading,
-      [className]: className,
-    });
+      [`${prefixCls}-clicked`]: clicked,
+      [`${prefixCls}-background-ghost`]: ghost,
+    }, className);
 
     const iconType = loading ? 'loading' : icon;
-
+    const iconNode = iconType ? <Icon type={iconType} /> : null;
     const kids = React.Children.map(children, insertSpace);
 
     return (
-      <button {...others}
+      <button
+        {...omit(others, ['loading', 'clicked'])}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
         onClick={this.handleClick}
       >
-        {iconType ? <Icon type={iconType} /> : null}{kids}
+        {iconNode}{kids}
       </button>
     );
   }

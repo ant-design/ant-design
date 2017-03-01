@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Data Display
 subtitle: 日历
 cols: 1
 title: Calendar
@@ -15,7 +15,15 @@ title: Calendar
 
 ## API
 
-```html
+**注意：**Calendar 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
+
+```jsx
+import moment from 'moment';
+
+// 推荐在入口文件全局设置 locale
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+
 <Calendar
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}
@@ -31,5 +39,5 @@ title: Calendar
 | fullscreen   | 是否全屏显示   | boolean     | true         |
 | dateCellRender     | 自定义渲染日期单元格| function(date: moment): ReactNode   | 无 |
 | monthCellRender    | 自定义渲染月单元格  | function(date: moment): ReactNode   | 无 |
-| locale       | 国际化配置     | Object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
+| locale       | 国际化配置     | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| 日期面板变化回调 | function(date: moment, mode: string) | 无 |

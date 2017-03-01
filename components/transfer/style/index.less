@@ -3,20 +3,19 @@
 @import "../../checkbox/style/mixin";
 
 @transfer-prefix-cls: ~"@{ant-prefix}-transfer";
-.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-transfer-checkbox");
 
 .@{transfer-prefix-cls} {
   position: relative;
   line-height: @line-height-base;
 
   &-list {
-    font-size: 12px;
-    border: 1px solid @border-color-base;
+    font-size: @font-size-base;
+    border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;
     vertical-align: middle;
     position: relative;
-    width: 160px;
+    width: 180px;
     height: 200px;
     padding-top: 33px;
 
@@ -26,32 +25,35 @@
 
     &-search {
       &-action {
-        color: #ccc;
+        color: @disabled-color;
         position: absolute;
-        top: 2px;
-        right: 2px;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        width: 28px;
+        line-height: 26px;
         text-align: center;
-        font-size: 14px;
+        font-size: @font-size-lg;
         .@{iconfont-css-prefix} {
           transition: all .3s;
-          font-size: 12px;
-          color: #ccc;
+          font-size: @font-size-base;
+          color: @disabled-color;
           &:hover {
-            color: #999;
+            color: @text-color-secondary;
           }
+        }
+        span& {
+          pointer-events: none;
         }
       }
     }
 
     &-header {
-      padding: 7px 16px;
+      padding: 7px 15px;
       border-radius: @border-radius-base @border-radius-base 0 0;
-      background: #fff;
-      color: #666;
-      border-bottom: 1px solid @border-color-split;
+      background: @component-background;
+      color: @text-color;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
       overflow: hidden;
       position: absolute;
       top: 0;
@@ -59,12 +61,13 @@
       width: 100%;
 
       &-title {
-        float: right;
+        position: absolute;
+        right: 15px;
       }
     }
 
     &-body {
-      font-size: 12px;
+      font-size: @font-size-base;
       position: relative;
       height: 100%;
 
@@ -72,16 +75,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 28px;
         padding: 4px;
         width: 100%;
-      }
-
-      &-not-found {
-        padding-top: 24px;
-        color: #ccc;
-        text-align: center;
-        height: 100%;
       }
     }
 
@@ -96,13 +91,14 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 7px 16px;
+        padding: 7px 15px;
+        min-height: 32px;
         transition: all 0.3s ease;
       }
 
       &-item:not(&-item-disabled):hover {
         cursor: pointer;
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
 
       &-item-disabled {
@@ -116,8 +112,23 @@
       }
     }
 
+    &-body-not-found {
+      padding-top: 0;
+      color: @disabled-color;
+      text-align: center;
+      display: none;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      margin-top: -10px;
+    }
+
+    &-content:empty + &-body-not-found {
+      display: block;
+    }
+
     &-footer {
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
       border-radius: 0 0 @border-radius-base @border-radius-base;
       position: absolute;
       bottom: 0;
@@ -133,15 +144,14 @@
     vertical-align: middle;
 
     .@{ant-prefix}-btn {
-      float: left;
-      clear: both;
+      display: block;
 
       &:first-child {
         margin-bottom: 4px;
       }
 
       .@{iconfont-css-prefix} {
-        .iconfont-size-under-12px(8px);
+        .iconfont-size-under-12px(10px);
       }
     }
   }
@@ -149,7 +159,7 @@
 
 @keyframes transferHighlightIn {
   0% {
-    background: tint(@primary-color, 80%);
+    background: @primary-2;
   }
   100% {
     background: transparent;

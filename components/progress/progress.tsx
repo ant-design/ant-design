@@ -3,20 +3,22 @@ import React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 const statusColorMap = {
-  normal: '#2db7f5',
+  normal: '#108ee9',
   exception: '#ff5500',
   success: '#87d068',
 };
 
 export interface ProgressProps {
+  prefixCls?: string;
+  className?: string;
   type?: 'line' | 'circle';
   percent?: number;
   format?: (percent: number) => string;
   status?: 'success' | 'active' | 'exception';
   showInfo?: boolean;
   strokeWidth?: number;
+  trailColor?: string;
   width?: number;
   style?: React.CSSProperties;
 }
@@ -45,14 +47,13 @@ export default class Progress extends React.Component<ProgressProps, any> {
   };
 
   render() {
-    const [{
-      prefixCls, status, format, percent, trailColor,
-      type, strokeWidth, width, className, showInfo,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'status', 'format', 'percent', 'trailColor', 'type', 'strokeWidth', 'width',
-        'className', 'showInfo']);
-    const progressStatus = (parseInt(percent, 10) >= 100 && !('status' in this.props))
-      ? 'success' : (status || 'normal');
+    const props = this.props;
+    const {
+      prefixCls, className, percent = 0, status, format, trailColor,
+      type, strokeWidth, width, showInfo, ...restProps,
+    } = props;
+    const progressStatus = parseInt(percent.toString(), 10) >= 100 && !('status' in props) ?
+      'success' : (status || 'normal');
     let progressInfo;
     let progress;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
@@ -79,7 +80,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
         <div>
           <div className={`${prefixCls}-outer`}>
             <div className={`${prefixCls}-inner`}>
-              <div className={`${prefixCls}-bg`} style={percentStyle}></div>
+              <div className={`${prefixCls}-bg`} style={percentStyle} />
             </div>
           </div>
           {progressInfo}
@@ -95,21 +96,24 @@ export default class Progress extends React.Component<ProgressProps, any> {
       const circleWidth = strokeWidth || 6;
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
-          <Circle percent={percent} strokeWidth={circleWidth} trailWidth={circleWidth}
-            strokeColor={statusColorMap[progressStatus]} trailColor={trailColor}
+          <Circle
+            percent={percent}
+            strokeWidth={circleWidth}
+            trailWidth={circleWidth}
+            strokeColor={statusColorMap[progressStatus]}
+            trailColor={trailColor}
+            prefixCls={prefixCls}
           />
           {progressInfo}
         </div>
       );
     }
 
-    const classString = classNames({
-      [`${prefixCls}`]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
-      [className]: !!className,
-    });
+    }, className);
 
     return (
       <div {...restProps} className={classString}>

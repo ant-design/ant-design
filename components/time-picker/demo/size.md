@@ -1,8 +1,8 @@
 ---
-order: 2 
-title: 
+order: 2
+title:
   zh-CN: 三种大小
-  en-US: Three sizes
+  en-US: Three Sizes
 ---
 
 ## zh-CN

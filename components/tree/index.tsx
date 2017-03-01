@@ -27,7 +27,7 @@ export interface AntTreeNodeEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEventHandler;
+  event: React.MouseEventHandler<any>;
 }
 
 export interface TreeProps {
@@ -98,8 +98,10 @@ export default class Tree extends React.Component<TreeProps, any> {
     const props = this.props;
     let checkable = props.checkable;
     return (
-      <RcTree {...props}
-        checkable={checkable ? (<span className={`${props.prefixCls}-checkbox-inner`}></span>) : checkable }>
+      <RcTree
+        {...props}
+        checkable={checkable ? (<span className={`${props.prefixCls}-checkbox-inner`} />) : checkable }
+      >
         {this.props.children}
       </RcTree>
     );

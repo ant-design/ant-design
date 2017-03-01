@@ -23,8 +23,8 @@ ReactDOM.render(
 , mountNode);
 ````
 
-````css
-.ant-badge {
+<style>
+.ant-badge:not(.ant-badge-status) {
   margin-right: 16px;
 }
 .head-example {
@@ -34,4 +34,4 @@ ReactDOM.render(
   background: #eee;
   display: inline-block;
 }
-````
+</style>

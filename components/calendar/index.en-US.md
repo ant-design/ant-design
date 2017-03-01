@@ -1,11 +1,11 @@
 ---
 category: Components
-type: Views
+type: Data Display
 cols: 1
 title: Calendar
 ---
 
-When To Use container for displaying data in calendar form.
+Container for displaying data in calendar form.
 
 ## When To Use
 
@@ -13,7 +13,15 @@ When data is in the form of date, such as schedule, timetable, prices calendar, 
 
 ## API
 
-```html
+**Note:** Part of locale of Calendar is read from value. So, please set the locale of moment correctly.
+
+```jsx
+import moment from 'moment';
+
+// It's recommended to set locale in entry file globaly.
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+
 <Calendar
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}
@@ -29,5 +37,5 @@ When data is in the form of date, such as schedule, timetable, prices calendar, 
 | fullscreen   | to set whether full-screen display   | boolean     | true         |
 | dateCellRender     | to set the way of renderer the date cell | function(date: moment): ReactNode | - |
 | monthCellRender    | to set the way of renderer the month cell | function(date: moment): ReactNode | - |
-| locale       | set locale | Object   | [defualt](https://github.com/ant-design/ant-design/issues/424)  |
+| locale       | set locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| the callback when panel change | function(date: moment, mode: string) | - |

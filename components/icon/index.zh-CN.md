@@ -1,12 +1,12 @@
 ---
 category: Components
 subtitle: 图标
-type: Basic
+type: General
 title: Icon
 toc: false
 ---
 
-有含义的矢量图形，每一个图标打倒一个敌人。
+语义化的矢量图形。
 
 ## 图标的命名规范
 
@@ -48,14 +48,23 @@ ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ### 提示建议性图标
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
 ### 网站通用图标
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
+
+## Props
+
+| 参数      | 说明             | 类型      | 默认值  |
+|----------|------------------|----------|--------|
+| type | 图标类型 | string | - |
+| spin | 是否有旋转动画 | boolean | false |
 
 <style>
 .markdown .icons {
@@ -97,7 +106,7 @@ ul.anticons-list li:after {
   content: "Copied!";
   text-align: center;
   line-height: 110px;
-  color: #2db7f5;
+  color: #108ee9;
   transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   opacity: 0;
 }
@@ -117,7 +126,7 @@ ul.anticons-list li:hover .anticon {
   display: block;
   text-align: center;
   transform: scale(0.83);
-  font-family: Consolas;
+  font-family: "Lucida Console", Consolas;
   white-space: nowrap;
 }
 </style>

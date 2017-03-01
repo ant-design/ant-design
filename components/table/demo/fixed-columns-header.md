@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 19
 title:
   en-US: Fixed Columns and Header
   zh-CN: 固定头和列
@@ -9,17 +9,17 @@ title:
 
 适合同时展示有大量数据和数据列。
 
-> 若列头与内容不对齐，请指定每列宽度 `width`。
+> 若列头与内容不对齐，请指定列的宽度 `width`。
 
-> 建议指定 scroll.x 为固定宽度。
+> 建议指定 `scroll.x` 为大于表格宽度的固定值或百分比。注意，且非固定列宽度之和不要超过 `scroll.x`。
 
 ## en-US
 
-Suitable for large amounts of data with long columns.
+A Solution for displaying large amounts of data with long columns.
 
-> Specify the width of each column if header and cell do not align properly.
+> Specify the width of columns if header and cell do not align properly.
 
-> A fixed width for `scroll.x` is recommended.
+> A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
 ````jsx
 import { Table } from 'antd';
@@ -34,7 +34,7 @@ const columns = [
   { title: 'Column 5', dataIndex: 'address', key: '5', width: 150 },
   { title: 'Column 6', dataIndex: 'address', key: '6', width: 150 },
   { title: 'Column 7', dataIndex: 'address', key: '7', width: 150 },
-  { title: 'Column 8', dataIndex: 'address', key: '8', width: 150 },
+  { title: 'Column 8', dataIndex: 'address', key: '8' },
   {
     title: 'Action',
     key: 'operation',
@@ -54,9 +54,5 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-function App() {
-  return <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />;
-}
-
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />, mountNode);
 ````

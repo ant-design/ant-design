@@ -1,17 +1,17 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
 
 ## zh-CN
 
-最简单的用法。
+点击 TimePicker，然后可以在浮层中选择或者输入某一时间。
 
-## en-US  
+## en-US
 
-The most basic usage. 
+Click `TimePicker`, and then we could select or input a time in panel.
 
 ````jsx
 import { TimePicker } from 'antd';
@@ -20,7 +20,5 @@ function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-ReactDOM.render(
-  <TimePicker onChange={onChange} />
-, mountNode);
+ReactDOM.render(<TimePicker onChange={onChange} />, mountNode);
 ````

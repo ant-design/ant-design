@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 title:
   zh-CN: 完全控制的上传列表
   en-US: Complete control over file list
@@ -28,18 +28,16 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 ````jsx
 import { Upload, Button, Icon } from 'antd';
 
-const MyUpload = React.createClass({
-  getInitialState() {
-    return {
-      fileList: [{
-        uid: -1,
-        name: 'xxx.png',
-        status: 'done',
-        url: 'http://www.baidu.com/xxx.png',
-      }],
-    };
-  },
-  handleChange(info) {
+class MyUpload extends React.Component {
+  state = {
+    fileList: [{
+      uid: -1,
+      name: 'xxx.png',
+      status: 'done',
+      url: 'http://www.baidu.com/xxx.png',
+    }],
+  }
+  handleChange = (info) => {
     let fileList = info.fileList;
 
     // 1. Limit the number of uploaded files
@@ -64,7 +62,7 @@ const MyUpload = React.createClass({
     });
 
     this.setState({ fileList });
-  },
+  }
   render() {
     const props = {
       action: '/upload.do',
@@ -73,13 +71,13 @@ const MyUpload = React.createClass({
     };
     return (
       <Upload {...props} fileList={this.state.fileList}>
-        <Button type="ghost">
+        <Button>
           <Icon type="upload" /> upload
         </Button>
       </Upload>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<MyUpload />, mountNode);
 ````

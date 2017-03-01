@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 2
 title: 
   zh-CN: 卡片模式
   en-US: Card

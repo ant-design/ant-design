@@ -17,14 +17,20 @@ Mini size pagination.
 import { Pagination } from 'antd';
 
 function showTotal(total) {
-  return `共 ${total} 条`;
+  return `Total ${total} items`;
 }
 
-ReactDOM.render(<div>
-  <Pagination size="small" total={50} />
-  <br />
-  <Pagination size="small" total={50} showSizeChanger showQuickJumper />
-  <br />
-  <Pagination size="small" total={50} showTotal={showTotal} />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Pagination size="small" total={50} />
+    <Pagination size="small" total={50} showSizeChanger showQuickJumper />
+    <Pagination size="small" total={50} showTotal={showTotal} />
+  </div>
+, mountNode);
 ````
+
+<style>
+#components-pagination-demo-mini .ant-pagination:not(:last-child) {
+  margin-bottom: 24px;
+}
+</style>

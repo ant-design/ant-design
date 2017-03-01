@@ -9,15 +9,14 @@
   height: 22px;
   padding: 0 8px;
   border-radius: @border-radius-base;
-  border: 1px solid @border-color-split;
+  border: @border-width-base @border-style-base @border-color-split;
   background: @background-color-base;
   font-size: @font-size-base;
   transition: all 0.3s @ease-in-out-circ;
-  vertical-align: middle;
   opacity: 1;
-  overflow: hidden;
-  margin: 2px 4px 2px 0;
+  margin-right: 8px;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     opacity: 0.85;
@@ -42,7 +41,6 @@
     cursor: pointer;
     font-weight: bold;
     margin-left: 3px;
-    color: #666;
     transition: all 0.3s ease;
     opacity: 0.66;
 
@@ -53,12 +51,6 @@
 
   &-has-color {
     border-color: transparent;
-  }
-
-  &-blue,
-  &-green,
-  &-yellow,
-  &-red {
     &,
     a,
     a:hover,
@@ -68,20 +60,23 @@
     }
   }
 
-  &-blue {
-    background: @link-color;
-  }
-
-  &-green {
-    background: @success-color;
-  }
-
-  &-yellow {
-    background: @warning-color;
-  }
-
-  &-red {
-    background: @error-color;
+  &-checkable {
+    background-color: transparent;
+    border-color: transparent;
+    &:hover,
+    &:active,
+    &-checked {
+      color: #fff;
+    }
+    &:hover {
+      background-color: @primary-5;
+    }
+    &-checked {
+      background-color: @primary-6;
+    }
+    &:active {
+      background-color: @primary-7;
+    }
   }
 
   &-close {
@@ -100,4 +95,26 @@
     animation: antZoomOut .3s @ease-in-out-circ;
     animation-fill-mode: both;
   }
+
+  @colors: pink, red, orange, yellow, cyan, green, blue, purple;
+
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@colors, @i);
+    @lightColor: "@{color}-2";
+    @darkColor: "@{color}-6";
+    &-@{color} {
+      color: @@darkColor;
+      background: @@lightColor;
+      border-color: @@lightColor;
+    }
+    &-@{color}-inverse {
+      background: @@darkColor;
+      border-color: @@darkColor;
+      color: #fff;
+    }
+  }
+
+  .make-color-classes();
 }

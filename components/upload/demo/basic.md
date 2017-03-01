@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 点击上传
   en-US: Upload by clicking
 ---
@@ -36,7 +36,7 @@ const props = {
 
 ReactDOM.render(
   <Upload {...props}>
-    <Button type="ghost">
+    <Button>
       <Icon type="upload" /> Click to Upload
     </Button>
   </Upload>

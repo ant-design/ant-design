@@ -1,0 +1,129 @@
+exports[`test renders ./components/rate/demo/basic.md correctly 1`] = `
+<ul
+  class="ant-rate ">
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+</ul>
+`;
+
+exports[`test renders ./components/rate/demo/disabled.md correctly 1`] = `
+<ul
+  class="ant-rate ant-rate-disabled">
+  <li
+    class="ant-rate-star ant-rate-star-full">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-full">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+</ul>
+`;
+
+exports[`test renders ./components/rate/demo/half.md correctly 1`] = `
+<ul
+  class="ant-rate ">
+  <li
+    class="ant-rate-star ant-rate-star-full">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-full">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-half ant-rate-star-active">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero">
+    <div
+      class="ant-rate-star-content" />
+  </li>
+</ul>
+`;
+
+exports[`test renders ./components/rate/demo/text.md correctly 1`] = `
+<span>
+  <ul
+    class="ant-rate ">
+    <li
+      class="ant-rate-star ant-rate-star-full">
+      <div
+        class="ant-rate-star-content" />
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full">
+      <div
+        class="ant-rate-star-content" />
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full">
+      <div
+        class="ant-rate-star-content" />
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero">
+      <div
+        class="ant-rate-star-content" />
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero">
+      <div
+        class="ant-rate-star-content" />
+    </li>
+  </ul>
+  <span
+    class="ant-rate-text">
+    3 stars
+  </span>
+</span>
+`;

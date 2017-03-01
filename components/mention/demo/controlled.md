@@ -1,34 +1,32 @@
 ---
-order: 3
+order: 4
 title:
-  zh-CN: 受控模式
-  en-US: Controlled
+  zh-CN: 配合 Form 使用
+  en-US: With Form
 ---
 
 ## zh-CN
 
-受控模式，例如配合 Form 使用
+受控模式，例如配合 Form 使用。
 
 ## en-US
 
-Controlled mode, for example, to work with `Form` .
+Controlled mode, for example, to work with `Form`.
 
 ````jsx
 import { Mention, Form, Button } from 'antd';
 const { toEditorState, getMentions } = Mention;
 const FormItem = Form.Item;
 
-let App = React.createClass({
-  getInitialState() {
-    return {
-      initValue: toEditorState('@afc163'),
-    };
-  },
-  handleReset(e) {
+class App extends React.Component {
+  state = {
+    initValue: toEditorState('@afc163'),
+  }
+  handleReset = (e) => {
     e.preventDefault();
     this.props.form.resetFields();
-  },
-  handleSubmit(e) {
+  }
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
@@ -38,8 +36,8 @@ let App = React.createClass({
       console.log('Submit!!!');
       console.log(values);
     });
-  },
-  checkMention(rule, value, callback) {
+  }
+  checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
     const mentions = getMentions(getFieldValue('mention'));
     if (mentions.length < 2) {
@@ -47,7 +45,7 @@ let App = React.createClass({
     } else {
       callback();
     }
-  },
+  }
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
@@ -55,7 +53,7 @@ let App = React.createClass({
       <Form horizontal>
         <FormItem
           id="control-mention"
-          label="Top programmers"
+          label="Top coders"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
         >
@@ -73,14 +71,14 @@ let App = React.createClass({
         <FormItem wrapperCol={{ span: 14, offset: 6 }}>
           <Button type="primary" onClick={this.handleSubmit}>Submit</Button>
           &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
+          <Button onClick={this.handleReset}>Reset</Button>
         </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
-App = Form.create()(App);
+const FormDemo = Form.create()(App);
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<FormDemo />, mountNode);
 ````

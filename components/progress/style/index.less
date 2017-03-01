@@ -8,7 +8,7 @@
 
   &-line {
     width: 100%;
-    font-size: 12px;
+    font-size: @font-size-base;
     position: relative;
   }
 
@@ -26,14 +26,22 @@
   &-inner {
     display: inline-block;
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: @background-color-base;
     border-radius: 100px;
     vertical-align: middle;
   }
 
+  &-circle-trail {
+    stroke: @background-color-base;
+  }
+
+  &-circle-path {
+    stroke: @process-default-color;
+  }
+
   &-bg {
     border-radius: 100px;
-    background-color: @info-color;
+    background-color: @process-default-color;
     transition: all .4s @ease-out-circ 0s;
     position: relative;
   }
@@ -45,9 +53,10 @@
     margin-left: 10px;
     vertical-align: middle;
     display: inline-block;
-    font-family: tahoma;
+    position: relative;
+    top: -1px;
     .@{iconfont-css-prefix} {
-      font-size: 12px;
+      font-size: @font-size-base;
     }
   }
 
@@ -60,9 +69,9 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: #fff;
+      background: @component-background;
       border-radius: 10px;
-      animation: ~"@{ant-prefix}-progress-active" 2s @ease-out-quint infinite;
+      animation: ~"@{ant-prefix}-progress-active" 2.4s @ease-out-quint infinite;
     }
   }
 
@@ -73,6 +82,9 @@
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @error-color;
+    }
   }
 
   &-status-success {
@@ -81,6 +93,9 @@
     }
     .@{progress-prefix-cls}-text {
       color: @success-color;
+    }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @success-color;
     }
   }
 
@@ -121,7 +136,11 @@
 
 @keyframes ~"@{ant-prefix}-progress-active" {
   0% {
-    opacity: .3;
+    opacity: 0.1;
+    width: 0;
+  }
+  20% {
+    opacity: 0.5;
     width: 0;
   }
   100% {

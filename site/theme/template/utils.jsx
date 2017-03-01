@@ -19,6 +19,22 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
+export function isZhCN(pathname) {
+  return /-cn\/?$/.test(pathname);
+}
+
+export function getLocalizedPathname(path, zhCN) {
+  const pathname = path.startsWith('/') ? path : `/${path}`;
+  if (!zhCN) { // to enUS
+    return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+  } else if (pathname === '/') {
+    return '/index-cn';
+  } else if (pathname.endsWith('/')) {
+    return pathname.replace(/\/$/, '-cn/');
+  }
+  return `${pathname}-cn`;
+}
+
 export function ping(url, callback) {
   const img = new Image();
   let done;
@@ -33,4 +49,16 @@ export function ping(url, callback) {
   img.onerror = () => finish('error');
   img.src = url;
   return setTimeout(() => finish('timeout'), 1500);
+}
+
+export function isLocalStorageNameSupported() {
+  const testKey = 'test';
+  const storage = window.localStorage;
+  try {
+    storage.setItem(testKey, '1');
+    storage.removeItem(testKey);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }

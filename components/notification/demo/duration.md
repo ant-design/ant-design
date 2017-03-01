@@ -18,7 +18,7 @@ the notification box will never close automatically.
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotification = function () {
+const openNotification = () => {
   const args = {
     message: 'Notification Title',
     description: 'I will never close automatically. I will be close automatically. I will never close automatically.',

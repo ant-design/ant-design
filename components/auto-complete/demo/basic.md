@@ -16,13 +16,16 @@ Basic Usage, set datasource of autocomplete with `dataSource` property.
 ````jsx
 import { AutoComplete } from 'antd';
 
-const Complete = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: [],
-    };
-  },
-  handleChange(value) {
+function onSelect(value) {
+  console.log('onSelect', value);
+}
+
+class Complete extends React.Component {
+  state = {
+    dataSource: [],
+  }
+
+  handleChange = (value) => {
     this.setState({
       dataSource: !value ? [] : [
         value,
@@ -30,18 +33,21 @@ const Complete = React.createClass({
         value + value + value,
       ],
     });
-  },
+  }
+
   render() {
     const { dataSource } = this.state;
     return (
       <AutoComplete
         dataSource={dataSource}
         style={{ width: 200 }}
+        onSelect={onSelect}
         onChange={this.handleChange}
+        placeholder="input here"
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Complete />, mountNode);
 ````

@@ -2,7 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
+import warning from '../_util/warning';
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -24,7 +24,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
     count: null,
     dot: false,
     overflowCount: 99,
-    // status: 'default',
   };
 
   static propTypes = {
@@ -37,59 +36,68 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let [{
-      count, prefixCls, overflowCount, className, style, children, dot, status, text,
-    }, restProps] = splitObject(
-      this.props,
-      ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
-    );
+    const { count, prefixCls, overflowCount, className, style, children, dot, status, text, ...restProps } = this.props;
     const isDot = dot || status;
-
-    count = count > overflowCount ? `${overflowCount}+` : count;
-
+    let displayCount = count > overflowCount ? `${overflowCount}+` : count;
     // dot mode don't need count
     if (isDot) {
-      count = '';
+      displayCount = '';
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !isDot;
+    const hidden = (!displayCount || displayCount === '0') && !isDot;
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
-      [`${prefixCls}-status`]: status,
-      [`${prefixCls}-status-${status}`]: status,
-      [`${prefixCls}-status-with-text`]: text,
     });
-    const badgeCls = classNames({
-      [className]: !!className,
-      [prefixCls]: true,
+    const badgeCls = classNames(className, prefixCls, {
+      [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
 
+    warning(
+      !(children && status),
+      '`Badge[children]` and `Badge[status]` cannot be used at the same time.'
+    );
+    // <Badge status="success" />
+    if (!children && status) {
+      const statusCls = classNames({
+        [`${prefixCls}-status-dot`]: !!status,
+        [`${prefixCls}-status-${status}`]: true,
+      });
+      return (
+        <span className={badgeCls}>
+          <span className={statusCls} />
+          <span className={`${prefixCls}-status-text`}>{text}</span>
+        </span>
+      );
+    }
+
+    const scrollNumber = hidden ? null : (
+      <ScrollNumber
+        data-show={!hidden}
+        className={scrollNumberCls}
+        count={displayCount}
+        style={style}
+      />
+    );
+
+    const statusText = (hidden || !text) ? null : (
+      <span className={`${prefixCls}-status-text`}>{text}</span>
+    );
+
     return (
-      <span className={badgeCls} title={count} style={null} {...restProps}>
+      <span {...restProps} className={badgeCls} title={count as string}>
         {children}
         <Animate
           component=""
           showProp="data-show"
-          transitionName={`${prefixCls}-zoom`}
+          transitionName={children ? `${prefixCls}-zoom` : ''}
           transitionAppear
         >
-          {
-            hidden ? null :
-              <ScrollNumber
-                data-show={!hidden}
-                className={scrollNumberCls}
-                count={count}
-                style={style}
-              />
-          }
+          {scrollNumber}
         </Animate>
-        {
-          hidden || !text ? null :
-            <span className={`${prefixCls}-status-text`}>{text}</span>
-        }
+        {statusText}
       </span>
     );
   }

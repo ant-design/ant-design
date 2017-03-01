@@ -4,6 +4,11 @@
 
 @btn-prefix-cls: ~"@{ant-prefix}-btn";
 
+// for compatibile
+@btn-ghost-color        : @text-color;
+@btn-ghost-bg           : transparent;
+@btn-ghost-border       : @border-color-base;
+
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
@@ -16,6 +21,10 @@
     .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
       border-right-color: @btn-group-border;
       border-left-color: @btn-group-border;
+
+      &:disabled {
+        border-color: @btn-default-border;
+      }
     }
 
     .@{btn-prefix-cls}-group &:first-child {
@@ -28,7 +37,7 @@
     }
 
     .@{btn-prefix-cls}-group &:last-child:not(:first-child),
-    .@{btn-prefix-cls}-group & + .@{btn-prefix-cls} {
+    .@{btn-prefix-cls}-group & + & {
       border-left-color: @btn-group-border;
       &[disabled] {
         border-left-color: @btn-default-border;
@@ -42,6 +51,10 @@
 
   &-dashed {
     .btn-dashed;
+  }
+
+  &-danger {
+    .btn-danger;
   }
 
   &-circle,
@@ -65,20 +78,24 @@
     display: none;
   }
 
-  &&-loading {
+  &&-loading:before {
+    display: block;
+  }
+
+  .@{iconfont-css-prefix} {
+    transition: all .3s @ease-in-out;
+  }
+
+  &&-loading:not(&-circle):not(&-circle-outline) {
     padding-left: 29px;
     pointer-events: none;
     position: relative;
     .@{iconfont-css-prefix} {
       margin-left: -14px;
-      transition: all .3s @ease-in-out;
-    }
-    &:before {
-      display: block;
     }
   }
 
-  &-sm&-loading {
+  &-sm&-loading:not(&-circle):not(&-circle-outline) {
     padding-left: 24px;
     .@{iconfont-css-prefix} {
       margin-left: -17px;
@@ -101,27 +118,41 @@
   }
 
   &-clicked:after {
-  	content: '';
-  	position: absolute;
-  	top: -1px;
-  	left: -1px;
-  	bottom: -1px;
-  	right: -1px;
-  	border-radius: inherit;
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-radius: inherit;
     border: 0 solid @primary-color;
-  	opacity: 0.4;
-    animation: buttonEffect 0.36s ease-out forwards;
+    opacity: 0.4;
+    animation: buttonEffect .4s;
     display: block;
+  }
+
+  &-danger&-clicked:after {
+    border-color: @btn-danger-bg;
+  }
+
+  &-background-ghost {
+    background: transparent!important;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  &-background-ghost&-primary {
+    .button-variant-other(@primary-color; transparent; @primary-color);
   }
 }
 
 @keyframes buttonEffect {
-	to {
-		opacity: 0;
+  to {
+    opacity: 0;
     top: -6px;
-  	left: -6px;
-  	bottom: -6px;
-  	right: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
     border-width: 6px;
-	}
+  }
 }

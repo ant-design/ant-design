@@ -16,6 +16,8 @@ export interface File {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File;
+  response?: string;
+  error?: any;
 }
 
 export interface UploadChangeParam {
@@ -24,34 +26,43 @@ export interface UploadChangeParam {
   event?: { percent: number };
 }
 
+export interface ShowUploadListInterface {
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
+}
+
 export interface UploadProps {
   type?: 'drag' | 'select';
   name?: string;
   defaultFileList?: Array<File>;
   fileList?: Array<File>;
   action: string;
-  data?: Object | ((File) => any);
+  data?: Object | ((file: File) => any);
   headers?: HttpRequestHeader;
-  showUploadList?: boolean;
+  showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: File) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: File, FileList: File[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: 'text' | 'picture' | 'picture-card';
   className?: string;
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
+  customRequest?: (option: any) => void;
+  withCredentials?: boolean;
 }
 
 export interface UploadListProps {
   listType?: 'text' | 'picture' | 'picture-card';
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   items?: Array<File>;
   progressAttr?: Object;
   prefixCls?: string;
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
 }

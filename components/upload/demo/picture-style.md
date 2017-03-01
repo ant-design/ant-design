@@ -24,28 +24,28 @@ const props = {
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-    thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
+    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-    thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
+    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   }],
 };
 
 ReactDOM.render(
   <div>
     <Upload {...props}>
-      <Button type="ghost">
+      <Button>
         <Icon type="upload" /> upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props} className="upload-list-inline">
-      <Button type="ghost">
+      <Button>
         <Icon type="upload" /> upload
       </Button>
     </Upload>

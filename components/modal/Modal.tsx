@@ -4,8 +4,6 @@ import Dialog from 'rc-dialog';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 
-function noop() {}
-
 let mousePosition;
 let mousePositionEventBinded;
 
@@ -19,9 +17,10 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: () => void;
+  onOk?: (e: React.MouseEvent<any>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
-  onCancel?: (e: React.MouseEvent) => void;
+  onCancel?: (e: React.MouseEvent<any>) => void;
+  afterClose?: () => void;
   /** 宽度*/
   width?: string | number;
   /** 底部内容*/
@@ -55,8 +54,6 @@ export default class Modal extends React.Component<ModalProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-modal',
-    onOk: noop,
-    onCancel: noop,
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
@@ -86,11 +83,17 @@ export default class Modal extends React.Component<ModalProps, any> {
   context: ModalContext;
 
   handleCancel = (e) => {
-    this.props.onCancel(e);
+    const onCancel = this.props.onCancel;
+    if (onCancel) {
+      onCancel(e);
+    }
   }
 
-  handleOk = () => {
-    this.props.onOk();
+  handleOk = (e) => {
+    const onOk = this.props.onOk;
+    if (onOk) {
+      onOk(e);
+    }
   }
 
   componentDidMount() {
@@ -103,10 +106,10 @@ export default class Modal extends React.Component<ModalProps, any> {
         x: e.pageX,
         y: e.pageY,
       };
-      // 20ms 内发生过点击事件，则从点击位置动画展示
+      // 100ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
       // 这样可以兼容非点击方式展开
-      setTimeout(() => mousePosition = null, 20);
+      setTimeout(() => mousePosition = null, 100);
     });
     mousePositionEventBinded = true;
   }
@@ -122,7 +125,6 @@ export default class Modal extends React.Component<ModalProps, any> {
     const defaultFooter = [
       <Button
         key="cancel"
-        type="ghost"
         size="large"
         onClick={this.handleCancel}
       >

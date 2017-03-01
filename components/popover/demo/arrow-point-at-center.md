@@ -27,10 +27,10 @@ const content = (
 ReactDOM.render(
   <div>
     <Popover placement="topLeft" title={text} content={content}>
-      <Button>Align edge of element by default.</Button>
+      <Button>Align edge / 边缘对齐</Button>
     </Popover>
     <Popover placement="topLeft" title={text} content={content} arrowPointAtCenter>
-      <Button>The arrow points to the center of the target element.</Button>
+      <Button>Arrow points to center / 箭头指向中心</Button>
     </Popover>
   </div>
 , mountNode);

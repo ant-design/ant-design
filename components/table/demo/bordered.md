@@ -1,8 +1,8 @@
 ---
-order: 10
+order: 11
 title:
   en-US: border, title and footer
-  zh-CN: 基本用法
+  zh-CN: 带边框
 ---
 
 ## zh-CN

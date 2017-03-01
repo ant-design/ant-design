@@ -36,24 +36,16 @@ const columns = [{
   dataIndex: 'age',
 }];
 
-const customLocale = {
-  timezoneOffset: 8 * 60,
-  firstDayOfWeek: 1,
-  minimalDaysInFirstWeek: 1,
-};
-
-const Page = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  showModal() {
+class Page extends React.Component {
+  state = {
+    visible: false,
+  }
+  showModal = () => {
     this.setState({ visible: true });
-  },
-  hideModal() {
+  }
+  hideModal = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     const info = () => {
       Modal.info({
@@ -93,7 +85,6 @@ const Page = React.createClass({
           <Transfer
             dataSource={[]}
             showSearch
-            titles={['', '']}
             targetKeys={[]}
             render={item => item.title}
           />
@@ -109,16 +100,17 @@ const Page = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       locale: enUS,
     };
-  },
-  changeLocale(e) {
+  }
+  changeLocale = (e) => {
     const localeValue = e.target.value;
     this.setState({ locale: localeValue });
     if (!localeValue) {
@@ -126,12 +118,8 @@ const App = React.createClass({
     } else {
       moment.locale('en');
     }
-  },
+  }
   render() {
-    const locale = { ...this.state.locale };
-    if (locale.DatePicker) {
-      locale.DatePicker = { ...locale.DatePicker, ...customLocale };
-    }
     return (
       <div>
         <div className="change-locale">
@@ -141,11 +129,11 @@ const App = React.createClass({
             <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

@@ -12,7 +12,7 @@
   z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
   color: @text-color;
-  background: #fff;
+  background: @component-background;
   line-height: 46px;
 
   &-hidden {
@@ -25,8 +25,8 @@
   }
 
   &-item-group-title {
-    color: #999;
-    font-size: 12px;
+    color: @text-color-secondary;
+    font-size: @font-size-base;
     line-height: 1.5;
     padding: 8px 16px;
   }
@@ -38,6 +38,11 @@
     transition: all 0.3s ease;
   }
 
+  &-item:active,
+  &-submenu-title:active {
+    background: @primary-1;
+  }
+
   &-submenu &-sub {
     cursor: initial;
   }
@@ -46,7 +51,7 @@
     display: block;
     color: @text-color;
     &:hover {
-      color: @text-color;
+      color: @primary-color;
     }
     &:before {
       position: absolute;
@@ -61,11 +66,23 @@
     }
   }
 
+  &-item-divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: @border-color-split;
+    line-height: 0;
+  }
+
   &-item:hover,
   &-item-active,
+  &:not(&-inline) &-submenu-open,
   &-submenu-active,
   &-submenu-title:hover {
-    background-color: tint(@primary-color, 90%);
+    color: @primary-color;
+  }
+
+  &:not(&-inline) &-submenu-open {
+    z-index: @zindex-dropdown;
   }
 
   &-horizontal &-item,
@@ -89,6 +106,10 @@
     }
   }
 
+  &:not(&-horizontal) &-item-selected {
+    background-color: @primary-1;
+  }
+
   &-horizontal,
   &-inline,
   &-vertical {
@@ -97,9 +118,9 @@
 
   &-inline,
   &-vertical {
-    border-right: 1px solid @border-color-split;
+    border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: 1px solid @border-color-split;
+      border-right: 3px @border-style-base transparent;
       margin-left: -1px;
       left: 1px;
       position: relative;
@@ -107,17 +128,26 @@
     }
   }
 
-  &-vertical &-sub {
+  &-vertical&-sub {
     border-right: 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
+      margin-left: 0;
+      left: 0;
+    }
+    > .@{menu-prefix-cls}-item:first-child {
+      border-radius: @border-radius-base @border-radius-base 0 0;
+    }
+    > .@{menu-prefix-cls}-item:last-child,
+    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right: 2px solid @primary-color;
+      border-right-color: @primary-color;
       transform: translateZ(0);
     }
   }
@@ -152,21 +182,10 @@
     display: block;
     white-space: nowrap;
 
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.@{menu-prefix-cls}-item-disabled,
-    &.@{menu-prefix-cls}-submenu-disabled {
-      color: #999 !important;
-      cursor: not-allowed;
-      background: none;
-      > a {
-        color: #999 !important;
-        pointer-events: none;
-      }
-    }
-
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
+      transition: all .3s;
     }
   }
 
@@ -183,7 +202,7 @@
     position: relative;
 
     > .@{menu-prefix-cls} {
-      background-color: #fff;
+      background-color: @component-background;
       border-radius: 4px;
     }
 
@@ -234,7 +253,7 @@
 
   &-horizontal {
     border: 0;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     z-index: 0;
 
@@ -244,14 +263,13 @@
       top: 1px;
       float: left;
       border-bottom: 2px solid transparent;
-      z-index: 2;
 
       &:hover,
       &-active,
+      &-open,
       &-selected {
         border-bottom: 2px solid @primary-color;
         color: @primary-color;
-        transform: translateZ(0);
       }
 
       > a {
@@ -272,14 +290,22 @@
   }
 
   &-vertical,
-  &-inline,
-  &-item-group-list {
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0px 16px 0 28px;
-      font-size: 12px;
+  &-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0 16px;
+      font-size: @font-size-base;
       line-height: 42px;
       height: 42px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &-item-group-list {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0 16px 0 28px;
     }
   }
 
@@ -314,35 +340,48 @@
       padding-left: 32px;
     }
   }
-}
 
+  // Disabled state sets text to gray and nukes hover/tab effects
+  &-item-disabled,
+  &-submenu-disabled {
+    color: @disabled-color !important;
+    cursor: not-allowed;
+    background: none;
+    border-color: transparent !important;
+    > a {
+      color: @disabled-color !important;
+      pointer-events: none;
+    }
+  }
+}
 
 // dark theme
 .@{menu-prefix-cls} {
   &-dark,
   &-dark &-sub {
-    color: #999;
-    background: #404040;
+    color: @text-color-secondary-dark;
+    background: @menu-dark-bg;
   }
 
   &-dark &-inline&-sub {
-    background: #333;
+    background: @menu-dark-submenu-bg;
   }
 
   &-dark&-horizontal {
-    border-bottom-color: #404040;
+    border-bottom-color: @menu-dark-bg;
   }
 
   &-dark&-horizontal > &-item,
   &-dark&-horizontal > &-submenu {
-    border-color: #404040;
+    border-color: @menu-dark-bg;
     border-bottom: 0;
     top: 0;
   }
 
   &-dark &-item,
+  &-dark &-item-group-title,
   &-dark &-item > a {
-    color: #999;
+    color: @text-color-secondary-dark;
   }
 
   &-dark&-inline,
@@ -360,6 +399,7 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark:not(&-inline) &-submenu-open,
   &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
@@ -379,7 +419,21 @@
     }
   }
 
+  &&-dark &-item-selected {
+    background-color: transparent;
+  }
+
   &-dark&-inline &-item-selected {
     background-color: @primary-color;
+  }
+
+  // Disabled state sets text to dark gray and nukes hover/tab effects
+  &-dark &-item-disabled,
+  &-dark &-submenu-disabled {
+    &,
+    > a {
+      opacity: 0.8;
+      color: @disabled-color-dark !important;
+    }
   }
 }

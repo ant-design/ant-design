@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 顶部导航
   en-US: Top Navigation
 ---
@@ -18,21 +18,20 @@ import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      current: 'mail',
-    };
-  },
-  handleClick(e) {
+class App extends React.Component {
+  state = {
+    current: 'mail',
+  }
+  handleClick = (e) => {
     console.log('click ', e);
     this.setState({
       current: e.key,
     });
-  },
+  }
   render() {
     return (
-      <Menu onClick={this.handleClick}
+      <Menu
+        onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
@@ -57,8 +56,8 @@ const App = React.createClass({
         </Menu.Item>
       </Menu>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

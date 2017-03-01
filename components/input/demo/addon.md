@@ -14,7 +14,7 @@ title:
 Using pre & post tabs example.
 
 ````jsx
-import { Input, Select } from 'antd';
+import { Input, Select, Icon } from 'antd';
 const Option = Select.Option;
 
 const selectBefore = (
@@ -34,9 +34,14 @@ const selectAfter = (
 
 ReactDOM.render(
   <div>
-    <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
-    <div style={{ marginTop: 8 }}>
+    <div style={{ marginBottom: 16 }}>
+      <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
+    </div>
+    <div style={{ marginBottom: 16 }}>
       <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+    </div>
+    <div style={{ marginBottom: 16 }}>
+      <Input addonAfter={<Icon type="setting" />} defaultValue="mysite" />
     </div>
   </div>
 , mountNode);

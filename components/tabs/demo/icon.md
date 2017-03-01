@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 图标
   en-US: Icon
 ---

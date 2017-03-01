@@ -88,7 +88,7 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
       <p class="font-text">
         <a href="#">
           <span>我是链接文字</span>
-          <span>#2db7f5</span>
+          <span>#108ee9</span>
           <span>12px</span>
         </a>
       </p>
@@ -151,7 +151,7 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
       <p class="font-text">
         <a href="#">
           <span>I am example text</span>
-          <span>#2db7f5</span>
+          <span>#108ee9</span>
           <span>12px</span>
         </a>
       </p>

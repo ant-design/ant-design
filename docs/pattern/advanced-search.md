@@ -53,6 +53,3 @@ title:
 <img class="preview-img" align="right" alt="交互示例" src="https://os.alipayobjects.com/rmsportal/TUxfnHjfTJeKaDq.png">
 
 字段型一般会出现在主搜索框底部，适合搜索条件和值都比较少的场景中。
-
-
-<h2><span class="waiting">案例（敬请期待）</span></h2>

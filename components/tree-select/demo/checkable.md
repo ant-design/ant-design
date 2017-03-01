@@ -45,16 +45,14 @@ const treeData = [{
   }],
 }];
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      value: ['0-0-0'],
-    };
-  },
-  onChange(value) {
+class Demo extends React.Component {
+  state = {
+    value: ['0-0-0'],
+  }
+  onChange = (value) => {
     console.log('onChange ', value, arguments);
     this.setState({ value });
-  },
+  }
   render() {
     const tProps = {
       treeData,
@@ -69,8 +67,8 @@ const Demo = React.createClass({
       },
     };
     return <TreeSelect {...tProps} />;
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

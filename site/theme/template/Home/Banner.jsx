@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import GitHubButton from 'react-github-button';
-import 'react-github-button/assets/style.css';
 import { Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
 function typeFunc(a) {
   if (a.key === 'line') {
@@ -16,19 +16,20 @@ function typeFunc(a) {
   return 'left';
 }
 
-export default function Banner() {
+export default function Banner({ location, onEnterChange }) {
+  const isZhCN = utils.isZhCN(location.pathname);
   return (
-    <section id="banner">
-      <ScrollElement scrollName="banner" className="page">
-        <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300}>
+    <section className="page banner-wrapper">
+      <ScrollElement id="banner" onChange={({ mode }) => onEnterChange(mode)}>
+        <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300} key="banner">
           <h2 key="h2">ANT <p>DESIGN</p></h2>
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>
           <span className="line" key="line" />
           <div key="button1" className="start-button clearfix">
-            <Link to="/docs/spec/introduce">
+            <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
               <FormattedMessage id="app.home.introduce" />
             </Link>
-            <Link to="/docs/react/introduce">
+            <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
               <FormattedMessage id="app.home.start" />
             </Link>
           </div>

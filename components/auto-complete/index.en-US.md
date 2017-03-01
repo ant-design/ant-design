@@ -1,7 +1,7 @@
 ---
 category: Components
-type: Form Controls
-cols: 1
+type: Data Entry
+cols: 2
 title: AutoComplete
 ---
 
@@ -9,7 +9,7 @@ Autocomplete function of input field.
 
 ## When To Use
 
-When need to use autocomplete function.
+When there is a need for autocomplete functionality.
 
 ## API
 
@@ -18,12 +18,17 @@ const dataSource = ['12345', '23456', '34567'];
 <AutoComplete dataSource={dataSource} />
 ```
 
-
 | Property           | Description                             |  Type | Default |
 |----------------|----------------------------------|------------|--------|
-| dataSource          | Data source for autocomplete | Array     |      |
-| value    | selected option | String/Array<String>/{key: String, label: React.Node}/Array<{key, label}>   |  -  |
-| defaultValue | Initial selected option. | string/Array<String>   |  -  |
+| dataSource          | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)[]     |      |
+| value    | selected option | string\|string[]\|{ key: string, label: string\|ReactNode }\|Array<{ key: string, label: string\|ReactNode }>   |  -  |
+| defaultValue | Initial selected option. | string\|string[]\|{ key: string, label: string\|ReactNode }\|Array<{ key: string, label: string\|ReactNode }> |  -  |
 | allowClear   | Show clear button, effective in multiple mode only. | boolean | false |
-| onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
+| onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
+| onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | -   |
 | disabled | Whether disabled select | boolean | false |
+| defaultActiveFirstOption | Whether active first option by default | boolean | true |
+| placeholder | placeholder of input | string | - |
+| children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> /  Array<React.ReactElement<OptionProps>> | - |
+| children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |
+| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true     |

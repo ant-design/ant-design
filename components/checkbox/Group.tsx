@@ -1,6 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 import Checkbox from './index';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface CheckboxOptionType {
   label: string;
@@ -20,6 +21,7 @@ export interface CheckboxGroupProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  className?: string;
 }
 
 export interface CheckboxGroupState {
@@ -29,7 +31,6 @@ export interface CheckboxGroupState {
 export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    onChange() {},
     prefixCls: 'ant-checkbox-group',
   };
   static propTypes = {
@@ -57,7 +58,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   getOptions() {
     const { options } = this.props;
     // https://github.com/Microsoft/TypeScript/issues/7960
-    return (options as Array<any>).map(option => {
+    return (options as Array<CheckboxOptionType>).map(option => {
       if (typeof option === 'string') {
         return {
           label: option,
@@ -78,24 +79,29 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(value);
+    }
   }
   render() {
-    const { prefixCls } = this.props;
-    const options = this.getOptions();
+    const { prefixCls, className } = this.props;
+    const options = this.getOptions().map(option =>
+      <Checkbox
+        disabled={'disabled' in option ? option.disabled : this.props.disabled}
+        checked={this.state.value.indexOf(option.value) !== -1}
+        onChange={() => this.toggleOption(option)}
+        className={`${prefixCls}-item`}
+        key={option.value}
+      >
+        {option.label}
+      </Checkbox>
+    );
+
+    const classString = classNames(prefixCls, className);
     return (
-      <div className={prefixCls}>
-        {
-          options.map(option =>
-            <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
-              checked={this.state.value.indexOf(option.value) !== -1}
-              onChange={() => this.toggleOption(option)}
-              className={`${prefixCls}-item`} key={option.value}
-            >
-              {option.label}
-            </Checkbox>
-          )
-        }
+      <div className={classString}>
+        {options}
       </div>
     );
   }

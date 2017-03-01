@@ -1,17 +1,17 @@
 ---
-order: 2
+order: 1
 title:
-  zh-CN: 通知事项日历演示
-  en-US: A demo of Notice Calendar
+  zh-CN: 通知事项日历
+  en-US: Notice Calendar
 ---
 
 ## zh-CN
 
-一个复杂的应用示例。
+一个复杂的应用示例，用 `dateCellRender` 和 `monthCellRender` 函数来自定义需要渲染的数据。
 
 ## en-US
 
-A complex application.
+This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
 ````jsx
 import { Calendar } from 'antd';
@@ -34,10 +34,10 @@ function getListData(value) {
       listData = [
         { type: 'warning', content: 'This is warning event' },
         { type: 'normal', content: 'This is very long usual event。。....' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
       ]; break;
     default:
   }
@@ -49,8 +49,8 @@ function dateCellRender(value) {
   return (
     <ul className="events">
       {
-        listData.map((item, index) =>
-          <li key={index}>
+        listData.map(item =>
+          <li key={item.content}>
             <span className={`event-${item.type}`}>●</span>
             {item.content}
           </li>
@@ -108,7 +108,7 @@ ReactDOM.render(
 }
 
 .event-normal {
-  color: #2db7f5;
+  color: #108ee9;
 }
 
 .event-error {

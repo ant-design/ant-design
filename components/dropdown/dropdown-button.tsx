@@ -4,18 +4,20 @@ import Icon from '../icon';
 import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
 export interface DropdownButtonProps {
-  type?: 'primary' | 'ghost' | 'dash';
-  onClick?: React.FormEventHandler;
-  trigger?: 'click' | 'hover';
+  prefixCls?: string;
+  className?: string;
+  type?: 'primary' | 'ghost' | 'dashed';
+  onClick?: React.MouseEventHandler<any>;
+  trigger?: ('click' | 'hover')[];
+  align?: any;
   overlay: React.ReactNode;
   visible?: boolean;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   style?: React.CSSProperties;
-  prefixCls?: string;
+  children?: any;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -34,17 +36,27 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   };
 
   render() {
-    const [{ type, overlay, trigger, align, children, className, onClick, prefixCls, disabled }, restProps] =
-     splitObject(this.props,
-       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick', 'prefixCls', 'disabled']);
-    const cls = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
-    });
+    const {
+      type, overlay, trigger, align, children, className, onClick, prefixCls,
+      disabled, visible, onVisibleChange, ...restProps,
+    } = this.props;
+    const cls = classNames(prefixCls, className);
+
+    const dropdownProps = {
+      align,
+      overlay,
+      trigger: disabled ? [] : trigger,
+      onVisibleChange,
+    };
+
+    if ('visible' in this.props) {
+      (dropdownProps as any).visible = visible;
+    }
+
     return (
       <ButtonGroup {...restProps} className={cls}>
         <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
-        <Dropdown align={align} overlay={overlay} trigger={trigger}>
+        <Dropdown {...dropdownProps}>
           <Button type={type} disabled={disabled}>
             <Icon type="down" />
           </Button>

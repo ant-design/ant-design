@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Data Display
 title: Timeline
 ---
 
@@ -8,8 +8,8 @@ Vertical display timeline.
 
 ## When To Use
 
-- When a series of information need to be lined from top to bottom by time.
-- When need a timeline to make a visual connection.
+- When a series of information need to be ordered from top to bottom by time.
+- When you need a timeline to make a visual connection.
 
 ## API
 
@@ -28,7 +28,7 @@ Timeline
 
 | Property      | Description                                     | Type       | Default |
 |----------|----------------------------------------|------------|-------|
-| pending  | to set the last ghost node's existence or its content | boolean or React.Element | false  |
+| pending  | to set the last ghost node's existence or its content | boolean\|string\|ReactNode | false  |
 
 ### Timeline.Item
 
@@ -37,4 +37,4 @@ Node of timeline
 | Property      | Description                                     | Type       | Default |
 |----------|------------------------------------------|------------|-------|
 | color   | to set the circle's color to `blue, red, green` or other custom colors | string | blue  |
-| dot   | custom timeline dot | React.Element | -  |
+| dot   | custom timeline dot | string\|ReactNode | -  |

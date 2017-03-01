@@ -1,7 +1,5 @@
-import Row from './row';
-import Col from './col';
+import Layout from './layout';
+import Sider from './Sider';
 
-export {
-  Row,
-  Col,
-};
+Layout.Sider = Sider;
+export default Layout;

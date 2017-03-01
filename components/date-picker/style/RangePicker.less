@@ -1,9 +1,5 @@
 @input-box-height: 34px;
 
-.@{calendar-prefix-cls}-range-picker.@{ant-prefix}-input {
-  padding-right: 26px;
-}
-
 .@{calendar-prefix-cls}-range-picker-input {
   background-color: transparent;
   border: 0;
@@ -19,7 +15,7 @@
 }
 
 .@{calendar-prefix-cls}-range-picker-separator {
-  color: #999;
+  color: @text-color-secondary;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -44,7 +40,7 @@
     float: left;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        border-right: 1px solid @border-color-split;
+        border-right: 2px solid @border-color-split;
       }
     }
   }
@@ -53,8 +49,7 @@
     float: right;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        margin-left: 21px;
-        border-left: 1px solid @border-color-split;
+        border-left: 2px solid @border-color-split;
       }
     }
   }
@@ -67,7 +62,7 @@
     text-align: center;
     height: @input-box-height;
     line-height: @input-box-height;
-    color: #999;
+    color: @text-color-secondary;
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
@@ -86,14 +81,10 @@
     position: relative;
     height: @input-box-height;
   }
-  .@{calendar-prefix-cls}-input {
-    border: 1px solid @border-color-base;
-    border-radius: @border-radius-sm;
-  }
+
   .@{calendar-prefix-cls}-input,
-  .@{timepicker-prefix-cls}-input {
+  .@{calendar-timepicker-prefix-cls}-input {
     .input;
-    border-radius: @border-radius-sm;
     height: @input-height-sm;
     border: 0;
     box-shadow: none;
@@ -102,7 +93,8 @@
       box-shadow: none;
     }
   }
-  .@{timepicker-prefix-cls}-icon {
+
+  .@{calendar-timepicker-prefix-cls}-icon {
     display: none;
   }
 
@@ -137,7 +129,7 @@
     &:before {
       content: '';
       display: block;
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       border-radius: 0;
       border: 0;
       position: absolute;
@@ -150,6 +142,22 @@
 
   &-bottom {
     text-align: right;
+
+    .@{calendar-prefix-cls}-footer-btn {
+      padding-right: 16px;
+    }
+  }
+
+  // `div` for selector specificity
+  div&-quick-selector {
+    display: block;
+    text-align: left;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    padding: 10.5px 10px;
+
+    > a {
+      margin-right: 16px;
+    }
   }
 
   .@{calendar-prefix-cls},
@@ -159,13 +167,14 @@
       border-bottom: 0;
     }
     &-body {
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &.@{calendar-prefix-cls}-time {
-    .@{timepicker-prefix-cls} {
+    .@{calendar-timepicker-prefix-cls} {
       height: 207px;
+      width: 100%;
       top: 68px;
       z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
       &-panel {
@@ -175,33 +184,27 @@
 
       &-inner {
         padding-top: 34px;
-        height: 241px;
+        height: 100%;
         background: none;
       }
 
       &-combobox {
         display: inline-block;
-        background-color: white;
-        border-top: 1px solid @border-color-split;
+        height: 100%;
+        background-color: @component-background;
+        border-top: @border-width-base @border-style-base @border-color-split;
       }
       &-select {
-        width: 71px;
-
+        height: 100%;
         ul {
-          max-height: 206px;
+          max-height: 100%;
         }
       }
     }
     .@{calendar-prefix-cls}-footer-btn {
-      padding-right: 12px;
+      padding: 9px 12px 9px 0;
       display: block;
-      &::after {
-        content: 'x';
-        height: 0;
-        font-size: 0;
-        overflow: hidden;
-        clear: both;
-      }
+      .clearfix;
     }
     .@{calendar-prefix-cls}-ok-btn {
       position: static;
@@ -215,5 +218,18 @@
       height: 22px;
       line-height: 22px;
     }
+  }
+
+  &-with-ranges.@{calendar-prefix-cls}-time .@{calendar-timepicker-prefix-cls} {
+    height: 247px;
+    &-panel {
+      height: 281px;
+    }
+  }
+}
+
+.@{calendar-prefix-cls}-range.@{calendar-prefix-cls}-show-time-picker {
+  .@{calendar-prefix-cls}-body {
+    border-top-color: transparent;
   }
 }

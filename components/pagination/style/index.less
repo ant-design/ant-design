@@ -33,14 +33,14 @@
     text-align: center;
     list-style: none;
     float: left;
-    border: 1px solid @border-color-base;
-    background-color: #fff;
+    border: @border-width-base @border-style-base @border-color-base;
+    background-color: @component-background;
     margin-right: 8px;
     font-family: Arial;
 
     a {
       text-decoration: none;
-      color: #666;
+      color: @text-color;
       transition: none;
       margin: 0 6px;
     }
@@ -70,7 +70,7 @@
       content: "•••";
       display: block;
       letter-spacing: 2px;
-      color: #ccc;
+      color: @disabled-color;
       text-align: center;
     }
 
@@ -82,7 +82,6 @@
         font-family: "anticon";
       }
     }
-
   }
 
   &-jump-prev {
@@ -112,7 +111,7 @@
   &-jump-next {
     font-family: Arial;
     cursor: pointer;
-    color: #666;
+    color: @text-color;
     border-radius: @border-radius-base;
     list-style: none;
     min-width: 28px;
@@ -126,11 +125,11 @@
 
   &-prev,
   &-next {
-    border: 1px solid @border-color-base;
-    background-color: #fff;
+    border: @border-width-base @border-style-base @border-color-base;
+    background-color: @component-background;
 
     a {
-      color: #666;
+      color: @text-color;
 
       &:after {
         .iconfont-size-under-12px(8px);
@@ -140,7 +139,6 @@
         font-family: "anticon";
         text-align: center;
       }
-
     }
 
     &:hover {
@@ -175,13 +173,13 @@
     &:hover {
       border-color: @border-color-base;
       a {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
       }
     }
     cursor: not-allowed;
     a {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -199,8 +197,8 @@
 
     &-quick-jumper {
       float: left;
-      height: 28px;
-      line-height: 28px;
+      height: @input-height-base;
+      line-height: @input-height-base;
 
       input {
         .input;
@@ -226,9 +224,9 @@
     input {
       margin: 0 8px;
       box-sizing: border-box;
-      background-color: #fff;
+      background-color: @component-background;
       border-radius: @border-radius-base;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       outline: none;
       padding: 5px 8px;
       width: 30px;
@@ -289,6 +287,15 @@
         .input-sm;
         width: 44px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .@{pagination-prefix-cls}-item {
+    &-after-jump-prev,
+    &-before-jump-next {
+      display: none;
     }
   }
 }

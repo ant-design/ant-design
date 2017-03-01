@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 带下拉框的按钮
   en-US: Button with dropdown menu
@@ -36,18 +36,18 @@ const menu = (
 
 ReactDOM.render(
   <div>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu} type="ghost">
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button
       onClick={handleButtonClick} overlay={menu}
-      type="ghost" disabled
+      disabled
       style={{ marginLeft: 8 }}
     >
       Dropdown
     </Dropdown.Button>
     <Dropdown overlay={menu}>
-      <Button type="ghost" style={{ marginLeft: 8 }}>
+      <Button style={{ marginLeft: 8 }}>
         Button <Icon type="down" />
       </Button>
     </Dropdown>

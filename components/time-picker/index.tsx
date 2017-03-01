@@ -29,9 +29,9 @@ export interface TimePickerProps {
   disabledMinutes?: Function;
   /** 禁止选择部分秒选项 */
   disabledSeconds?: Function;
-
   style?: React.CSSProperties;
   getPopupContainer?: (trigger: any) => any;
+  addon?: Function;
 }
 
 export interface TimePickerContext {
@@ -42,10 +42,7 @@ export interface TimePickerContext {
 
 export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    format: 'HH:mm:ss',
     prefixCls: 'ant-time-picker',
-    onChange() {
-    },
     align: {
       offset: [0, -2],
     },
@@ -63,12 +60,19 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
   };
 
   context: TimePickerContext;
+  timePickerRef: any;
 
   constructor(props) {
     super(props);
-
+    const value = props.value || props.defaultValue;
+    if (value && !moment.isMoment(value)) {
+      throw new Error(
+        'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
+        'see: http://u.ant.design/time-picker-value'
+      );
+    }
     this.state = {
-      value: props.value || props.defaultValue,
+      value,
     };
   }
 
@@ -82,7 +86,10 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value, (value && value.format(this.props.format)) || '');
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
   }
 
   getLocale() {
@@ -91,24 +98,42 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     return timePickerLocale;
   }
 
+  saveTimePicker = (timePickerRef) => {
+    this.timePickerRef = timePickerRef;
+  }
+
+  focus() {
+    this.timePickerRef.focus();
+  }
+
   render() {
-    const props = assign({}, this.props);
+    const props = assign({ format: 'HH:mm:ss' }, this.props);
     delete props.defaultValue;
 
-    const className = classNames({
-      [props.className]: !!props.className,
+    const className = classNames(props.className, {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
+
+    const addon = (panel) => (
+      props.addon ? (
+        <div className={`${props.prefixCls}-panel-addon`}>
+          {props.addon(panel)}
+        </div>
+      ) : null
+    );
 
     return (
       <RcTimePicker
         {...props}
+        ref={this.saveTimePicker}
         className={className}
         value={this.state.value}
-        placeholder={props.placeholder || this.getLocale().placeholder}
+        placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
         showHour={props.format.indexOf('HH') > -1}
+        showMinute={props.format.indexOf('mm') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
+        addon={addon}
       />
     );
   }

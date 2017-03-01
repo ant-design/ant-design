@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 10
 title: 即时反应
 ---

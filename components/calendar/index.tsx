@@ -4,7 +4,7 @@ import moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
-import getLocale from '../_util/getLocale';
+import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
 declare const require: Function;
 
 function noop() { return null; }
@@ -22,28 +22,32 @@ export interface CalendarContext {
   };
 }
 
+export type CalendarMode = 'month' | 'year';
+
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
   value?: moment.Moment;
   defaultValue?: moment.Moment;
-  mode?: 'month' | 'year';
+  mode?: CalendarMode;
   fullscreen?: boolean;
   dateCellRender?: (date: moment.Moment) => React.ReactNode;
   monthCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
-  onPanelChange?: (date: moment.Moment, mode: string) => void;
+  onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
 }
 
-export default class Calendar extends React.Component<CalendarProps, any> {
+export interface CalendarState {
+  value?: moment.Moment;
+  mode?: CalendarMode;
+}
+
+export default class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
-    monthCellRender: noop,
-    dateCellRender: noop,
     locale: {},
     fullscreen: true,
     prefixCls: PREFIX_CLS,
-    onPanelChange: noop,
     mode: 'month',
   };
 
@@ -65,15 +69,25 @@ export default class Calendar extends React.Component<CalendarProps, any> {
 
   context: CalendarContext;
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+    // Make sure that moment locale had be set correctly.
+    getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
+
+    const value = props.value || props.defaultValue || moment();
+    if (!moment.isMoment(value)) {
+      throw new Error(
+        'The value/defaultValue of Calendar must be a moment object after `antd@2.0`, ' +
+        'see: http://u.ant.design/calendar-value'
+      );
+    }
     this.state = {
-      value: props.value || props.defaultValue || moment(),
+      value,
       mode: props.mode,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: CalendarProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
@@ -82,28 +96,28 @@ export default class Calendar extends React.Component<CalendarProps, any> {
   }
 
   monthCellRender = (value) => {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, monthCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
           {value.localeData().monthsShort(value)}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.monthCellRender(value)}
+          {monthCellRender(value)}
         </div>
       </div>
     );
   }
 
   dateCellRender = (value) => {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, dateCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>
           {zerofixed(value.date())}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.dateCellRender(value)}
+          {dateCellRender(value)}
         </div>
       </div>
     );
@@ -113,26 +127,33 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     if (!('value' in this.props) && this.state.value !== value) {
       this.setState({ value });
     }
-    this.props.onPanelChange(value, this.state.mode);
+    const onPanelChange = this.props.onPanelChange;
+    if (onPanelChange) {
+      onPanelChange(value, this.state.mode);
+    }
   }
 
   setType = (type) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
       this.setState({ mode });
-      this.props.onPanelChange(this.state.value, mode);
+      const onPanelChange = this.props.onPanelChange;
+      if (onPanelChange) {
+        onPanelChange(this.state.value, mode);
+      }
     }
   }
 
   render() {
-    const props = this.props;
-    const { value, mode } = this.state;
+    const { state, props, context } = this;
+    const { value, mode } = state;
+    const localeCode = getLocaleCode(context);
+    if (value && localeCode) {
+      value.locale(localeCode);
+    }
     const { prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = getLocale(
-      this.props, this.context, 'Calendar',
-      () => require('./locale/zh_CN')
-    );
+    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
 
     let cls = className || '';
     if (fullscreen) {

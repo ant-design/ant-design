@@ -13,6 +13,7 @@ export interface LocaleProviderProps {
     Transfer?: Object,
     Select?: Object,
   };
+  children?: React.ReactElement<any>;
 }
 
 export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
@@ -26,7 +27,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
 
   getChildContext() {
     return {
-      antLocale: this.props.locale,
+      antLocale: {
+        ...this.props.locale,
+        exist: true,
+      },
     };
   }
 

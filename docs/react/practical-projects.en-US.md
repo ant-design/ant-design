@@ -1,6 +1,6 @@
 ---
 order: 3
-title: Practical Projects
+title: Real project with dva
 ---
 
 [dva](https://github.com/dvajs/dva) is a React and redux based, lightweight and elm-style framework, which supports side effects, hot module replacement, dynamic on demand, react-native, SSR. And it has been widely used in production environment.
@@ -11,12 +11,14 @@ Include the following:
 
 ---
 
-## Install dva
+## Install dva-cli
 
-Install dva with npm.
+Install dva-cli with npm, and make sure the version is larger then `0.7.0`.
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.7.0
 ```
 
 ## Create New App
@@ -36,35 +38,40 @@ $ cd dva-quickstart
 $ npm start
 ```
 
-After a few seconds, you will see thw following output:
+After a few seconds, you will see the following output:
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
-Open http://localhost:8989 in your browser, you will see dva welcome page.
+Open http://localhost:8000 in your browser, you will see dva welcome page.
 
 ## Integrate antd
 
-Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd. See [repo](https://github.com/ant-design/babel-plugin-import) 。
+Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd in demand. See [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
 $ npm install antd babel-plugin-import --save
 ```
 
-Edit `webpack.config.js` to integrate `babel-plugin-import`.
+Edit `.roadhogrc` to integrate `babel-plugin-import`.
 
 ```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd',
-+   style: 'css',
-+ }]);
+  "extraBabelPlugins": [
+-    "transform-runtime"
++    "transform-runtime",
++    ["import", { "libraryName": "antd", "style": "css" }]
+  ],
 ```
 
-> Notice: No need to manually restart the server, it will restart automatically after you save the `webpack.config.js`.
+> Notice: dva-cli's build and server is bases on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
 
 ## Define Router
 
@@ -75,16 +82,14 @@ Create a route component `routes/Products.js`:
 ```javascript
 import React from 'react';
 
-const Products = (props) => {
-  return (
-    <h2>List of Products</h2>
-  );
-};
+const Products = (props) => (
+  <h2>List of Products</h2>
+);
 
 export default Products;
 ```
 
-Add routing infomation to router, edit `router.js`:
+Add routing information to router, edit `router.js`:
 
 ```diff
 + import Products from './routes/Products';
@@ -92,7 +97,7 @@ Add routing infomation to router, edit `router.js`:
 + <Route path="/products" component={Products} />
 ```
 
-Then open http://localhost:8989/#/products in your browser, you should be able to see the `<h2>` tag defined before.
+Then open http://localhost:8000/#/products in your browser, you should be able to see the `<h2>` tag defined before.
 
 ## Write UI Components
 
@@ -107,22 +112,19 @@ import React, { PropTypes } from 'react';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
+  const columns = [{
+    title: 'Name',
+    dataIndex: 'name',
+  }, {
+    title: 'Actions',
+    render: (text, record) => {
+      return (
+        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+          <Button>Delete</Button>
+        </Popconfirm>
+      );
     },
-    {
-      title: 'Actions',
-      render(text, record) {
-        return (
-          <Popconfirm title="Delete?" onConfirm={onDelete.bind(this, record.id)}>
-            <Button>删除</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  }];
   return (
     <Table
       dataSource={products}
@@ -176,9 +178,9 @@ Then don't forget to require it in `index.js`:
 
 ## Connect
 
-So far, wee have completed a seperate model and component. Then how to connect these together? 
+So far, we have completed a separate model and component. Then how to connect these together?
 
-dva provides a `connect` method. If you are familar with redux, this `connect` is from react-router.
+dva provides a `connect` method. If you are familiar with redux, this `connect` is from react-router.
 
 Edit `routes/Products.js` and replace with following:
 
@@ -187,26 +189,24 @@ import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../components/ProductList';
 
-const Products = (props) => {
-
+const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
-    props.dispatch({
+    dispatch({
       type: 'products/delete',
       payload: id,
     });
   }
-
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={props.products} />
+      <ProductList onDelete={handleDelete} products={products} />
     </div>
   );
 };
 
 // export default Products;
 export default connect(({ products }) => ({
-  products
+  products,
 }))(Products);
 ```
 
@@ -241,13 +241,16 @@ $ npm run build
 After a few seconds, the output should be as follows:
 
 ```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
+> @ build /private/tmp/myapp
+> roadhog build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  82.98 KB  dist/index.js
+  270 B     dist/index.css
 ```
 
 The `build` command packages up all of the assets that make up your application —— JavaScript, templates, CSS, web fonts, images, and more. Then you can find these files in the `dist /` directory.
@@ -266,7 +269,9 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-- Visit [dva offical website](https://github.com/dvajs/dva)
-- View all the [API](https://github.com/dvajs/dva#api)
-- View [toturial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step
-- View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews)
+- Visit [dva official website](https://github.com/dvajs/dva).
+- Be familiar with the [8 Conpects](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and understand how they are connected together
+- Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
+- Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
+- Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
+- If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#配置)

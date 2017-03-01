@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -9,7 +9,7 @@ title:
 
 最简单的用法。
 
-## en-US 
+## en-US
 
 The simplest usage.
 
@@ -18,7 +18,7 @@ import { Tooltip } from 'antd';
 
 ReactDOM.render(
   <Tooltip title="prompt text">
-    <span>Text will show when mouse enter.</span>
+    <span>Tooltip will show when mouse enter.</span>
   </Tooltip>
 , mountNode);
 ````

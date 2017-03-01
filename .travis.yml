@@ -3,4 +3,13 @@ sudo: false
 language: node_js
 
 node_js:
-  - "5"
+  - "6"
+
+env:
+  - MAX_WORKERS=2
+
+script:
+  - npm run test-all
+
+after_script:
+  - cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
