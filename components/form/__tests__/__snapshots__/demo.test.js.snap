@@ -1030,7 +1030,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-checkbox-inner" />
           </span>
           <span>
-            I had read the 
+            I have read the 
             <a>
               agreement
             </a>
