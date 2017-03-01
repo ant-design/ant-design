@@ -473,6 +473,7 @@ exports[`test renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class="ant-fullcalendar-current-week"
             role="row">
             <td
               class="ant-fullcalendar-cell"
@@ -1259,6 +1260,7 @@ exports[`test renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class="ant-fullcalendar-current-week"
               role="row">
               <td
                 class="ant-fullcalendar-cell"
@@ -2187,6 +2189,7 @@ exports[`test renders ./components/calendar/demo/notice-calendar.md correctly 1`
             </td>
           </tr>
           <tr
+            class="ant-fullcalendar-current-week"
             role="row">
             <td
               class="ant-fullcalendar-cell"

@@ -3792,10 +3792,10 @@ exports[`test renders ./components/table/demo/fixed-columns-header.md correctly 
               </table>
             </div>
             <div
-              class="ant-table-body-outer"
-              style="height:300px;">
+              class="ant-table-body-outer">
               <div
-                class="ant-table-body-inner">
+                class="ant-table-body-inner"
+                style="max-height:300px;overflow-y:scroll;">
                 <table
                   class="ant-table-fixed">
                   <colgroup>
@@ -3975,10 +3975,10 @@ exports[`test renders ./components/table/demo/fixed-columns-header.md correctly 
               </table>
             </div>
             <div
-              class="ant-table-body-outer"
-              style="height:300px;">
+              class="ant-table-body-outer">
               <div
-                class="ant-table-body-inner">
+                class="ant-table-body-inner"
+                style="max-height:300px;overflow-y:scroll;">
                 <table
                   class="ant-table-fixed">
                   <colgroup>
@@ -5749,10 +5749,10 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
               </table>
             </div>
             <div
-              class="ant-table-body-outer"
-              style="height:240px;">
+              class="ant-table-body-outer">
               <div
-                class="ant-table-body-inner">
+                class="ant-table-body-inner"
+                style="max-height:240px;overflow-y:scroll;">
                 <table
                   class="ant-table-fixed">
                   <colgroup>
@@ -5891,10 +5891,10 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
               </table>
             </div>
             <div
-              class="ant-table-body-outer"
-              style="height:240px;">
+              class="ant-table-body-outer">
               <div
-                class="ant-table-body-inner">
+                class="ant-table-body-inner"
+                style="max-height:240px;overflow-y:scroll;">
                 <table
                   class="ant-table-fixed">
                   <colgroup>
