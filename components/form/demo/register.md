@@ -200,7 +200,7 @@ class RegistrationForm extends React.Component {
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',
           })(
-            <Checkbox>I had read the <a>agreement</a></Checkbox>
+            <Checkbox>I have read the <a>agreement</a></Checkbox>
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
