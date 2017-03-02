@@ -82,22 +82,22 @@ class Footer extends React.Component {
               <FormattedMessage id="app.footer.dev-tools" />
             </div>
             <div>
-              <a href="https://antv.alipay.com/">AntV</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
               <span> - </span>
               <FormattedMessage id="app.footer.data-vis" />
             </div>
             <div>
-              <a href="http://motion.ant.design">Ant Motion</a>
+              <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">Ant Motion</a>
               <span> - </span>
               <FormattedMessage id="app.footer.motion" />
             </div>
             <div>
-              <a href="http://library.ant.design/">AntD Library</a>
+              <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">AntD Library</a>
               <span> - </span>
               <FormattedMessage id="app.footer.antd-library" />
             </div>
             <div>
-              <a href="http://ux.ant.design">Ant UX</a>
+              <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">Ant UX</a>
               <span> - </span>
               <FormattedMessage id="app.footer.antux" />
             </div>
@@ -105,7 +105,7 @@ class Footer extends React.Component {
           <li>
             <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.community" /></h2>
             <div>
-              <a rel="noopener noreferrer" href="/changelog">
+              <a href="/changelog">
                 <FormattedMessage id="app.footer.change-log" />
               </a>
             </div>
@@ -140,7 +140,12 @@ class Footer extends React.Component {
             <div>
               <FormattedMessage id="app.footer.author" />
             </div>
-            <div>Built with <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
+            <div>
+              Built with&nbsp;
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/benjycui/bisheng">
+                BiSheng
+              </a>
+            </div>
           </li>
         </ul>
       </footer>
