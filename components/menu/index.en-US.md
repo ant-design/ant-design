@@ -40,6 +40,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | onClick | callback of the clicked menu item, params: {item, key, keyPath} | function | - |
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
+| multiple | Allow select multiple item | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
