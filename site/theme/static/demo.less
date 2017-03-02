@@ -166,7 +166,7 @@ section.code-box-meta p {
   font-size: 14px;
   cursor: pointer;
   color: #888;
-  transition: all .3s;
+  transition: all .24s;
   background: #fff;
   width: 20px;
   height: 20px;
@@ -175,6 +175,11 @@ section.code-box-meta p {
   border-radius: 20px;
   &:hover {
     color: @primary-color;
+    transform: scale(1.2);
+  }
+  &.anticon-check {
+    color: @green-6!important;
+    font-weight: bold;
   }
 }
 
