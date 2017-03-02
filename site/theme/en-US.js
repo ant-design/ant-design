@@ -37,6 +37,7 @@ module.exports = {
     'app.footer.links': 'Links',
     'app.footer.mobile': 'Mobile UI',
     'app.footer.data-vis': 'Data Visualization',
+    'app.footer.eggjs': 'Enterprise Node Framework',
     'app.footer.motion': 'Motion Soluction',
     'app.footer.antd-library': 'Axure library',
     'app.footer.antux': 'Sitemap Template',

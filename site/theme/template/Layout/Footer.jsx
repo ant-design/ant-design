@@ -82,6 +82,11 @@ class Footer extends React.Component {
               <FormattedMessage id="app.footer.dev-tools" />
             </div>
             <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.eggjs" />
+            </div>
+            <div>
               <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
               <span> - </span>
               <FormattedMessage id="app.footer.data-vis" />
