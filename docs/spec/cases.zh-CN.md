@@ -49,7 +49,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ---
 
-[More cases](https://github.com/ant-design/ant-design/issues/477) from community.
+更多 [社区案例](https://github.com/ant-design/ant-design/issues/477)。
 
 <style>
 .preview-image-boxes {
