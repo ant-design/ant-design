@@ -1,5 +1,5 @@
 import React from 'react';
-import Moment from 'Moment';
+import Moment from 'moment';
 import { mount } from 'enzyme';
 import Calendar from '..';
 
