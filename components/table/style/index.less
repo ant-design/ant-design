@@ -94,7 +94,7 @@
   }
 
   &-title {
-    padding: 16px 8px;
+    padding: 16px 0;
     position: relative;
     top: 1px;
     border-radius: @border-radius-base @border-radius-base 0 0;
@@ -102,6 +102,8 @@
 
   &.@{table-prefix-cls}-bordered &-title {
     border: @border-width-base @border-style-base @border-color-split;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   &-title + &-content {
