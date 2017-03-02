@@ -11,6 +11,7 @@ import { FIELD_META_PROP } from './constants';
 
 export interface FormCreateOption {
   onFieldsChange?: (props: any, fields: Array<any>) => void;
+  onValuesChange?: (props: any, values: any) => void;
   mapPropsToFields?: (props: any) => void;
   withRef?: boolean;
 }
@@ -48,7 +49,7 @@ export type WrappedFormUtils = {
                           callback?: (erros: any, values: any) => void): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
-  getFieldsError(names?: Array<string>): Object[];
+  getFieldsError(names?: Array<string>): Object;
   /** 判断一个输入控件是否在校验状态*/
   isFieldValidating(name: string): boolean;
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
