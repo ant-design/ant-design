@@ -47,23 +47,19 @@ title: Ant Design of React
 
 ## 安装
 
-### 使用 npm 安装
+### 使用 npm 或 yarn 安装
 
-**我们推荐使用 npm 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
-
-可以通过 npm 直接安装到项目中，使用 `import` 或 `require` 进行引用。
-
-稳定版：
+**我们推荐使用 npm 或 yarn 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
 ```bash
 $ npm install antd --save
 ```
 
-开发版本：
-
 ```bash
-$ npm install antd@beta --save
+$ yarn add antd
 ```
+
+如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
 ### 浏览器引入
 
@@ -73,21 +69,10 @@ $ npm install antd@beta --save
 
 > 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
 
-#### stable
-
 - https://unpkg.com/antd/dist/antd.js
 - https://unpkg.com/antd/dist/antd.css
 - https://unpkg.com/antd/dist/antd.min.js
 - https://unpkg.com/antd/dist/antd.min.css
-
-#### beta
-
-- https://unpkg.com/antd@beta/dist/antd.js
-- https://unpkg.com/antd@beta/dist/antd.css
-- https://unpkg.com/antd@beta/dist/antd.min.js
-- https://unpkg.com/antd@beta/dist/antd.min.css
-
-> 对于 1.0 之前的版本，这里有一个 [自行构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
 
 ## 示例
 

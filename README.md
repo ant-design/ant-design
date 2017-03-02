@@ -38,8 +38,6 @@ npm install antd
 
 ## Usage
 
-### Use prebuilt bundle
-
 ```jsx
 import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);

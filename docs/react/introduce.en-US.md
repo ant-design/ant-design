@@ -47,23 +47,19 @@ You can subscribe to this feed for new version notification: https://github.com/
 
 ## Installation
 
-### Using npm to install
+### Using npm or yarn
 
-**We recommend using npm to install**，it not only makes development easier，but you can also take advantage of the whole ecosystem.
-
-If using npm to install, you could use `import` or `require`.
-
-Stable version：
+**We recommend using npm or yarn to install**，it not only makes development easier，but you can also take advantage of the whole ecosystem.
 
 ```bash
 $ npm install antd --save
 ```
 
-Beta version：
-
 ```bash
-$ npm install antd@beta --save
+$ yarn add antd
 ```
+
+If you are in a bad network enviornment，you can try other registers and tools like [cnpm](https://github.com/cnpm/cnpm).
 
 ### Import in Browser
 
@@ -73,25 +69,12 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 
 > It's not recommended to use the already built files, as you cannot get bugfixes from the dependencies of antd.
 
-#### stable
-
 - https://unpkg.com/antd/dist/antd.js
 - https://unpkg.com/antd/dist/antd.css
 - https://unpkg.com/antd/dist/antd.min.js
 - https://unpkg.com/antd/dist/antd.min.css
 
-#### beta
-
-- https://unpkg.com/antd@beta/dist/antd.js
-- https://unpkg.com/antd@beta/dist/antd.css
-- https://unpkg.com/antd@beta/dist/antd.min.js
-- https://unpkg.com/antd@beta/dist/antd.min.css
-
-> Here is an [example](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) of how to build your own antd.js if you are using antd@<1.0.0.
-
 ## Usage
-
-### Use prebuilt bundle
 
 ```jsx
 import { DatePicker } from 'antd';
