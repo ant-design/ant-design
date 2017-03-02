@@ -835,6 +835,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
+                  class="ant-fullcalendar-current-week"
                   role="row">
                   <td
                     class="ant-fullcalendar-cell"
