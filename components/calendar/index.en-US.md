@@ -35,7 +35,9 @@ moment.locale('zh-cn');
 | defaultValue | set default date | [moment](http://momentjs.com/) | default date     |
 | mode         | can be set to month or year | string | month  |
 | fullscreen   | to set whether full-screen display   | boolean     | true         |
-| dateCellRender     | to set the way of renderer the date cell | function(date: moment): ReactNode | - |
-| monthCellRender    | to set the way of renderer the month cell | function(date: moment): ReactNode | - |
+| dateCellRender      | to set the way of renderer the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| monthCellRender     | to set the way of renderer the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| dateFullCellRender  | to set the way of renderer the date cell,the returned content will override the cell | function(date: moment): ReactNode | - |
+| monthFullCellRender | to set the way of renderer the month cell,the returned content will override the cell | function(date: moment): ReactNode | - |
 | locale       | set locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| the callback when panel change | function(date: moment, mode: string) | - |
