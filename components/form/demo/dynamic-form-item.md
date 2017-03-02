@@ -63,7 +63,10 @@ class DynamicFieldSet extends React.Component {
       wrapperCol: { span: 20 },
     };
     const formItemLayoutWithOutLabel = {
-      wrapperCol: { span: 20, offset: 4 },
+      wrapperCol: {
+        xs: { span: 20, offset: 0 },
+        sm: { span: 20, offset: 4 },
+      },
     };
     getFieldDecorator('keys', { initialValue: [] });
     const keys = getFieldValue('keys');

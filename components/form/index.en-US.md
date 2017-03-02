@@ -37,8 +37,10 @@ A form field is defined using `<Form.Item />`.
 | Property  | Description                              | Type       | Default Value |
 |-----------|------------------------------------------|------------|---------|
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a
-| vertical | Use vertical layout. | boolean | false |
-| inline | Use inline alignment. | boolean | false |
+| layout | Define form layout(Support after 2.8) | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| horizontal | Use horizontal layout(Deprecated after 2.8) | boolean | true |
+| vertical | Use vertical layout(Deprecated after 2.8) | boolean | false |
+| inline | Use inline alignment(Deprecated after 2.8) | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
 

@@ -41,7 +41,7 @@ class HorizontalLoginForm extends React.Component {
     const userNameError = isFieldTouched('userName') && getFieldError('userName');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
-      <Form inline onSubmit={this.handleSubmit}>
+      <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem
           validateStatus={userNameError ? 'error' : ''}
           help={userNameError || ''}
