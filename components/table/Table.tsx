@@ -516,7 +516,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       pagination,
     };
     // Controlled current prop will not respond user interaction
-    if (typeof props.pagination === 'object' && 'current' in (props.pagination as Object)) {
+    if (props.pagination &&
+        typeof props.pagination === 'object' &&
+        'current' in (props.pagination as Object)) {
       newState.pagination = assign({}, pagination, {
         current: this.state.pagination.current,
       });
