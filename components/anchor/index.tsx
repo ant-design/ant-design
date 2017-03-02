@@ -92,7 +92,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
   renderAnchorLink = (child) => {
     const { href } = child.props;
-    if (href) {
+    if (child.type.__ANT_ANCHOR_LINK && href) {
       this.anchorHelper.addLink(href);
       return React.cloneElement(child, {
         onClick: this.clickAnchorLink,
@@ -128,7 +128,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
           <div className={`${prefixCls}-ink`} >
             <span className={inkClass} ref="ink" />
           </div>
-          {React.Children.map(this.props.children, this.renderAnchorLink)}
+          {React.Children.toArray(this.props.children).map(this.renderAnchorLink)}
         </div>
       </div>
     );

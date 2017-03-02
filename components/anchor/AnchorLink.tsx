@@ -16,6 +16,7 @@ export interface AnchorLinkProps {
 }
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
+  static __ANT_ANCHOR_LINK = true;
   static contextTypes = {
     anchorHelper: React.PropTypes.any,
   };
