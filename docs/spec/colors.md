@@ -114,6 +114,10 @@ const ExtendPalettes = React.createClass({
       {
         name: 'cyan',
         description: '清新、冷静、结构化',
+      },
+      {
+        name: 'grey',
+        description: '平稳、中性',
       }
     ];
     return (
