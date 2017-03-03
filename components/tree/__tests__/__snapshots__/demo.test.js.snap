@@ -1,12 +1,12 @@
 exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
 <ul
-  class="myCls ant-tree"
+  class="ant-tree"
   role="tree-node"
   unselectable="true">
   <li
     class="">
     <span
-      class="ant-tree-switcher ant-tree-roots_open" />
+      class="ant-tree-switcher ant-tree-noline_open" />
     <span
       class="ant-tree-checkbox ant-tree-checkbox-checked">
       <span
@@ -26,7 +26,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
       <li
         class="ant-tree-treenode-disabled">
         <span
-          class="ant-tree-switcher ant-tree-center_open ant-tree-switcher-disabled" />
+          class="ant-tree-switcher ant-tree-noline_open ant-tree-switcher-disabled" />
         <span
           class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled">
           <span
@@ -41,12 +41,12 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
           </span>
         </a>
         <ul
-          class="ant-tree-child-tree ant-tree-child-tree-open ant-tree-line"
+          class="ant-tree-child-tree ant-tree-child-tree-open"
           data-expanded="true">
           <li
             class="">
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-center_docu" />
+              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <span
               class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled">
               <span
@@ -64,7 +64,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
           <li
             class="">
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-bottom_docu" />
+              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <span
               class="ant-tree-checkbox ant-tree-checkbox-checked">
               <span
@@ -84,7 +84,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
       <li
         class="">
         <span
-          class="ant-tree-switcher ant-tree-bottom_open" />
+          class="ant-tree-switcher ant-tree-noline_open" />
         <span
           class="ant-tree-checkbox ant-tree-checkbox-checked">
           <span
@@ -104,7 +104,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
           <li
             class="">
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-bottom_docu" />
+              class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <span
               class="ant-tree-checkbox ant-tree-checkbox-checked">
               <span
