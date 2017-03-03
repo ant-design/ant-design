@@ -3,7 +3,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  background: #fff;
+  background: @component-background;
   z-index: 10;
   position: absolute;
   outline: none;
@@ -27,12 +27,13 @@
 
 .@{calendar-prefix-cls}-decade-panel-cell {
   text-align: center;
+  white-space: nowrap;
 }
 
 .@{calendar-prefix-cls}-decade-panel-decade {
   display: inline-block;
   margin: 0 auto;
-  color: #666;
+  color: @text-color;
   background: transparent;
   text-align: center;
   height: 24px;
@@ -42,7 +43,7 @@
   transition: background 0.3s ease;
 
   &:hover {
-    background: tint(@primary-color, 90%);
+    background: @primary-1;
     cursor: pointer;
   }
 }
@@ -61,15 +62,6 @@
 .@{calendar-prefix-cls}-decade-panel-next-century-cell {
   .@{calendar-prefix-cls}-decade-panel-decade {
     user-select: none;
-  }
-  .@{calendar-prefix-cls}-decade-panel-decade:before {
-    content: "\e600";
-    font-family: "anticon" !important;
-  }
-}
-
-.@{calendar-prefix-cls}-decade-panel-last-century-cell {
-  .@{calendar-prefix-cls}-decade-panel-decade:before {
-    content: "\e601";
+    color: @disabled-color;
   }
 }

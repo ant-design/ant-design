@@ -1,60 +1,74 @@
 ---
 order: 2
-title: 自定义页脚
+title:
+  zh-CN: 自定义页脚
+  en-US: Customized Footer
 ---
 
+## zh-CN
+
 更复杂的例子，自定义了页脚的按钮，点击提交后进入 loading 状态，完成后关闭。
+
+不需要默认确定取消按钮时，你可以把 `footer` 设为 `null`。
+
+## en-US
+
+A more complex example which define a customized footer button bar,
+the dialog will change to loading state after clicking submit button, when the loading is over,
+the modal dialog will be closed.
+
+You could set `footer` to `null` if you don't need default footer buttons.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      loading: false,
-      visible: false,
-    };
-  },
-  showModal() {
+class App extends React.Component {
+  state = {
+    loading: false,
+    visible: false,
+  }
+  showModal = () => {
     this.setState({
       visible: true,
     });
-  },
-  handleOk() {
+  }
+  handleOk = () => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
-  },
-  handleCancel() {
+  }
+  handleCancel = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>
-          显示对话框
+          Open modal dialog
         </Button>
-        <Modal ref="modal"
+        <Modal
           visible={this.state.visible}
-          title="对话框标题" onOk={this.handleOk} onCancel={this.handleCancel}
+          title="Title"
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
           footer={[
-            <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
+            <Button key="back" size="large" onClick={this.handleCancel}>Return</Button>,
             <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>
-              提 交
+              Submit
             </Button>,
           ]}
         >
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

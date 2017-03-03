@@ -1,16 +1,48 @@
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import Row from '../row';
+import Col from '../col';
+import { WrappedFormUtils } from './Form';
+import { FIELD_META_PROP } from './constants';
+import warning from '../_util/warning';
 
-export default class FormItem extends React.Component {
+export interface FormItemLabelColOption {
+  span: number;
+  offset?: number;
+}
+
+export interface FormItemProps {
+  prefixCls?: string;
+  id?: string;
+  label?: React.ReactNode;
+  labelCol?: FormItemLabelColOption;
+  wrapperCol?: FormItemLabelColOption;
+  help?: React.ReactNode;
+  extra?: React.ReactNode;
+  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  hasFeedback?: boolean;
+  className?: string;
+  required?: boolean;
+  style?: React.CSSProperties;
+  colon?: boolean;
+}
+
+export interface FormItemContext {
+  form: WrappedFormUtils;
+  vertical: boolean;
+}
+
+export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
-  }
+    colon: true,
+  };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.node,
+    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -19,24 +51,26 @@ export default class FormItem extends React.Component {
     className: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.node,
-  }
+    colon: React.PropTypes.bool,
+  };
 
   static contextTypes = {
     form: React.PropTypes.object,
+    vertical: React.PropTypes.bool,
+  };
+
+  context: FormItemContext;
+
+  componentDidMount() {
+    warning(
+      this.getControls(this.props.children, true).length <= 1,
+      '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
+      'while there are more than one `getFieldDecorator` in it.'
+    );
   }
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
-  }
-
-  getLayoutClass(colDef) {
-    if (!colDef) {
-      return '';
-    }
-    const { span, offset } = colDef;
-    const col = span ? `ant-col-${span}` : '';
-    const offsetCol = offset ? ` ant-col-offset-${offset}` : '';
-    return col + offsetCol;
   }
 
   getHelpMsg() {
@@ -49,16 +83,37 @@ export default class FormItem extends React.Component {
     return props.help;
   }
 
+  getControls(children, recursively: boolean) {
+    let controls: React.ReactElement<any>[] = [];
+    const childrenArray = React.Children.toArray(children);
+    for (let i = 0; i < childrenArray.length; i++) {
+      if (!recursively && controls.length > 0) {
+        break;
+      }
+
+      const child = childrenArray[i] as React.ReactElement<any>;
+      if (child.type as any === FormItem) {
+        continue;
+      }
+      if (!child.props) {
+        continue;
+      }
+      if (FIELD_META_PROP in child.props) {
+        controls.push(child);
+      } else if (child.props.children) {
+        controls = controls.concat(this.getControls(child.props.children, recursively));
+      }
+    }
+    return controls;
+  }
+
   getOnlyControl() {
-    const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c) => {
-      return c.props && '__meta' in c.props;
-    })[0];
+    const child = this.getControls(this.props.children, false)[0];
     return child !== undefined ? child : null;
   }
 
   getChildProp(prop) {
-    const child = this.getOnlyControl();
+    const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
 
@@ -67,7 +122,7 @@ export default class FormItem extends React.Component {
   }
 
   getMeta() {
-    return this.getChildProp('__meta');
+    return this.getChildProp(FIELD_META_PROP);
   }
 
   renderHelp() {
@@ -83,21 +138,24 @@ export default class FormItem extends React.Component {
   renderExtra() {
     const { prefixCls, extra } = this.props;
     return extra ? (
-      <span className={`${prefixCls}-extra`}>{extra}</span>
+      <div className={`${prefixCls}-extra`}>{extra}</div>
     ) : null;
   }
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.getId();
-    if (!field) {
+    const fieldId = this.getId();
+    if (!fieldId) {
       return '';
     }
-    if (isFieldValidating(field)) {
+    if (isFieldValidating(fieldId)) {
       return 'validating';
-    } else if (!!getFieldError(field)) {
+    }
+    if (!!getFieldError(fieldId)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined) {
+    }
+    const fieldValue = getFieldValue(fieldId);
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
     return '';
@@ -132,13 +190,17 @@ export default class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this.getLayoutClass(wrapperCol)} key="wrapper">
+      <Col className={`${this.props.prefixCls}-item-control-wrapper`} {...wrapperCol} key="wrapper">
         {children}
-      </div>
+      </Col>
     );
   }
 
   isRequired() {
+    const { required } = this.props;
+    if (required !== undefined) {
+      return required;
+    }
     if (this.context.form) {
       const meta = this.getMeta() || {};
       const validate = (meta.validate || []);
@@ -151,33 +213,38 @@ export default class FormItem extends React.Component {
   }
 
   renderLabel() {
-    const props = this.props;
-    const labelCol = props.labelCol;
-    const required = props.required === undefined ?
-      this.isRequired() :
-      props.required;
+    const { label, labelCol, prefixCls, colon, id } = this.props;
+    const context = this.context;
+    const required = this.isRequired();
 
     const className = classNames({
-      [this.getLayoutClass(labelCol)]: true,
-      [`${props.prefixCls}-item-required`]: required,
+      [`${prefixCls}-item-required`]: required,
     });
 
-    // remove user input colon
-    let label = props.label;
-    if (typeof label === 'string' && label.trim() !== '') {
-      label = props.label.replace(/：|:$/, '');
+    let labelChildren = label;
+    // Keep label is original where there should have no colon
+    const haveColon = colon && !context.vertical;
+    // Remove duplicated user input colon
+    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
+      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
     }
 
-    return props.label ? (
-      <label htmlFor={props.id || this.getId()} className={className} key="label">
-        {label}
-      </label>
+    return label ? (
+      <Col {...labelCol} key="label" className={`${prefixCls}-item-label`}>
+        <label
+          htmlFor={id || this.getId()}
+          className={className}
+          title={typeof label === 'string' ? label : ''}
+        >
+          {labelChildren}
+        </label>
+      </Col>
     ) : null;
   }
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child) => {
+    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }
@@ -202,13 +269,14 @@ export default class FormItem extends React.Component {
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
+      [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
 
     return (
-      <div className={classNames(itemClassName)} style={style}>
+      <Row className={classNames(itemClassName)} style={style}>
         {children}
-      </div>
+      </Row>
     );
   }
 

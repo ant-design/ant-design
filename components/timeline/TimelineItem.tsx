@@ -1,26 +1,32 @@
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-export default class TimelineItem extends React.Component {
+
+export interface TimeLineItemProps {
+  prefixCls?: string;
+  className?: string;
+  color?: string;
+  dot?: React.ReactNode;
+  pending?: boolean;
+  last?: boolean;
+  style?: React.CSSProperties;
+}
+
+export default class TimelineItem extends React.Component<TimeLineItemProps, any> {
   static defaultProps = {
     prefixCls: 'ant-timeline',
     color: 'blue',
     last: false,
     pending: false,
-  }
+  };
 
   render() {
-    const [{
-      prefixCls, color, last, children, pending, className, dot
-    },restProps] = splitObject(this.props,
-      ['prefixCls', 'color', 'last','children','pending','className','dot']);
+    const { prefixCls, className, color = '', last, children, pending, dot, ...restProps } = this.props;
 
     const itemClassName = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-last`]: last,
       [`${prefixCls}-item-pending`]: pending,
-      [className]: className,
-    });
+    }, className);
 
     const dotClassName = classNames({
       [`${prefixCls}-item-head`]: true,
@@ -31,7 +37,10 @@ export default class TimelineItem extends React.Component {
     return (
       <li {...restProps} className={itemClassName}>
         <div className={`${prefixCls}-item-tail`} />
-        <div className={dotClassName} style={{ color: /blue|red|green/.test(color) ? null : color }}>
+        <div
+          className={dotClassName}
+          style={{ borderColor: /blue|red|green/.test(color) ? null : color }}
+        >
           {dot}
         </div>
         <div className={`${prefixCls}-item-content`}>

@@ -1,7 +1,10 @@
-import Modal from './Modal';
+import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
 import assign from 'object-assign';
-Modal.info = function (props) {
+
+export { ModalFuncProps }
+
+Modal.info = function (props: ModalFuncProps) {
   const config = assign({}, {
     type: 'info',
     iconType: 'info-circle',
@@ -10,7 +13,7 @@ Modal.info = function (props) {
   return confirm(config);
 };
 
-Modal.success = function (props) {
+Modal.success = function (props: ModalFuncProps) {
   const config = assign({}, {
     type: 'success',
     iconType: 'check-circle',
@@ -19,7 +22,7 @@ Modal.success = function (props) {
   return confirm(config);
 };
 
-Modal.error = function (props) {
+Modal.error = function (props: ModalFuncProps) {
   const config = assign({}, {
     type: 'error',
     iconType: 'cross-circle',
@@ -28,7 +31,7 @@ Modal.error = function (props) {
   return confirm(config);
 };
 
-Modal.warning = Modal.warn = function (props) {
+Modal.warning = Modal.warn = function (props: ModalFuncProps) {
   const config = assign({}, {
     type: 'warning',
     iconType: 'exclamation-circle',
@@ -37,7 +40,7 @@ Modal.warning = Modal.warn = function (props) {
   return confirm(config);
 };
 
-Modal.confirm = function (props) {
+Modal.confirm = function (props: ModalFuncProps) {
   const config = assign({}, {
     type: 'confirm',
     okCancel: true,

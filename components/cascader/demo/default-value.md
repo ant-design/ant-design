@@ -1,33 +1,41 @@
 ---
-order: 0
-title: 默认值
+order: 1
+title:
+  zh-CN: 默认值
+  en-US: Default value
 ---
 
+## zh-CN
+
 默认值通过数组的方式指定。
+
+## en-US
+
+Specifies default value by an array.
 
 ````jsx
 import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: 'West Lake',
     }],
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: 'Zhong Hua Men',
     }],
   }],
 }];

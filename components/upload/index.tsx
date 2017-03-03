@@ -3,10 +3,8 @@ import RcUpload from 'rc-upload';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
-const prefixCls = 'ant-upload';
 import assign from 'object-assign';
-function noop() {
-}
+import { UploadProps } from './interface';
 
 function T() {
   return true;
@@ -14,7 +12,7 @@ function T() {
 
 // Fix IE file.status problem
 // via coping a new Object
-function fileToObject(file) {
+function fileToObject(file): any {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -26,6 +24,7 @@ function fileToObject(file) {
     error: file.error,
     percent: 0,
     originFileObj: file,
+    status: null,
   };
 }
 
@@ -52,27 +51,36 @@ function genPercentAdd() {
   };
 }
 
+export { UploadProps };
+
 export function Dragger(props) {
-  return <Upload {...props} type="drag" style={{ height: props.height }} />;
+  return <Upload {...props} type="drag" style={{ height: props.height }}/>;
 }
 
-export default class Upload extends React.Component {
+export default class Upload extends React.Component<UploadProps, any> {
   static Dragger = Dragger;
 
   static defaultProps = {
+    prefixCls: 'ant-upload',
     type: 'select',
-    // do not set
-    // name: '',
     multiple: false,
     action: '',
     data: {},
     accept: '',
-    onChange: noop,
     beforeUpload: T,
     showUploadList: true,
     listType: 'text', // or pictrue
     className: '',
-  }
+    disabled: false,
+    supportServerRender: true,
+  };
+
+  recentUploadStatus: boolean | PromiseLike<any>;
+  progressTimer: any;
+  refs: {
+    [key: string]: any;
+    upload: any;
+  };
 
   constructor(props) {
     super(props);
@@ -83,8 +91,6 @@ export default class Upload extends React.Component {
   }
 
   onStart = (file) => {
-    if (this.recentUploadStatus === false) return;
-
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
@@ -104,12 +110,12 @@ export default class Upload extends React.Component {
       fileList: nextFileList,
     });
     // fix ie progress
-    if (!window.FormData) {
+    if (!(window as any).FormData) {
       this.autoUpdateProgress(0, targetItem);
     }
   }
 
-  autoUpdateProgress(percent, file) {
+  autoUpdateProgress(_, file) {
     const getPercent = genPercentAdd();
     let curPercent = 0;
     this.progressTimer = setInterval(() => {
@@ -137,24 +143,29 @@ export default class Upload extends React.Component {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-    } catch (e) { /* do nothing */ }
+    } catch (e) { /* do nothing */
+    }
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
-    // 之前已经删除
-    if (targetItem) {
-      targetItem.status = 'done';
-      targetItem.response = response;
-      this.onChange({
-        file: targetItem,
-        fileList,
-      });
+    // removed
+    if (!targetItem) {
+      return;
     }
+    targetItem.status = 'done';
+    targetItem.response = response;
+    this.onChange({
+      file: targetItem,
+      fileList,
+    });
   }
 
   onProgress = (e, file) => {
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
-    if (!targetItem) return;
+    // removed
+    if (!targetItem) {
+      return;
+    }
     targetItem.percent = e.percent;
     this.onChange({
       event: e,
@@ -167,49 +178,49 @@ export default class Upload extends React.Component {
     this.clearProgressTimer();
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
+    // removed
+    if (!targetItem) {
+      return;
+    }
     targetItem.error = error;
     targetItem.response = response;
     targetItem.status = 'error';
-    this.handleRemove(targetItem);
-  }
-
-  beforeUpload = (file) => {
-    this.recentUploadStatus = this.props.beforeUpload(file);
-    return this.recentUploadStatus;
+    this.onChange({
+      file: targetItem,
+      fileList,
+    });
   }
 
   handleRemove(file) {
-    let fileList = this.removeFile(file);
-    if (fileList) {
-      this.onChange({
-        file,
-        fileList,
-      });
-    }
-  }
-
-  handlePreview = (file) => {
-    if ('onPreview' in this.props) {
-      this.props.onPreview(file);
+    const { onRemove } = this.props;
+    // Prevent removing file
+    const onRemoveReturnValue = onRemove && onRemove(file);
+    if (onRemoveReturnValue !== false) {
+      let fileList = this.removeFile(file);
+      if (fileList) {
+        this.onChange({
+          file,
+          fileList,
+        });
+      }
     }
   }
 
   handleManualRemove = (file) => {
-    /*eslint-disable */
-    file.status = 'removed';
-    /*eslint-enable */
-    if ('onRemove' in this.props) {
-      this.props.onRemove(file);
-    } else {
-      this.handleRemove(file);
-    }
+    this.refs.upload.abort(file);
+    file.status = 'removed'; // eslint-disable-line
+    this.handleRemove(file);
   }
 
   onChange = (info) => {
-    this.setState({
-      fileList: info.fileList,
-    });
-    this.props.onChange(info);
+    if (!('fileList' in this.props)) {
+      this.setState({ fileList: info.fileList });
+    }
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(info);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -231,39 +242,49 @@ export default class Upload extends React.Component {
   }
 
   render() {
-    let type = this.props.type || 'select';
-    let props = assign({}, this.props, {
+    const {
+      prefixCls = '', showUploadList, listType, onPreview,
+      type, disabled, children, className,
+    } = this.props;
+
+    const rcUploadProps = assign({}, this.props, {
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
-      beforeUpload: this.beforeUpload,
     });
-    let uploadList;
-    if (this.props.showUploadList) {
-      uploadList = (
-        <UploadList listType={this.props.listType}
-          items={this.state.fileList}
-          onPreview={this.handlePreview}
-          onRemove={this.handleManualRemove}
-        />
-      );
-    }
+    delete rcUploadProps.className;
+
+    const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
+    const uploadList = showUploadList ? (
+      <UploadList
+        listType={listType}
+        items={this.state.fileList}
+        onPreview={onPreview}
+        onRemove={this.handleManualRemove}
+        showRemoveIcon={showRemoveIcon}
+        showPreviewIcon={showPreviewIcon}
+      />
+    ) : null;
+
     if (type === 'drag') {
-      let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
-        ? `${prefixCls}-drag-uploading` : '';
-      let draggingClass = this.state.dragState === 'dragover'
-        ? `${prefixCls}-drag-hover` : '';
+      const dragCls = classNames(prefixCls, {
+        [`${prefixCls}-drag`]: true,
+        [`${prefixCls}-drag-uploading`]: this.state.fileList.some(file => file.status === 'uploading'),
+        [`${prefixCls}-drag-hover`]: this.state.dragState === 'dragover',
+        [`${prefixCls}-disabled`]: disabled,
+      });
       return (
-        <span className={this.props.className}>
-          <div className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
+        <span className={className}>
+          <div
+            className={dragCls}
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...props}>
+            <RcUpload {...rcUploadProps} ref="upload" className={`${prefixCls}-btn`}>
               <div className={`${prefixCls}-drag-container`}>
-                {this.props.children}
+                {children}
               </div>
             </RcUpload>
           </div>
@@ -272,27 +293,28 @@ export default class Upload extends React.Component {
       );
     }
 
-    const uploadButtonCls = classNames({
-      [prefixCls]: true,
+    const uploadButtonCls = classNames(prefixCls, {
       [`${prefixCls}-select`]: true,
-      [`${prefixCls}-select-${this.props.listType}`]: true,
+      [`${prefixCls}-select-${listType}`]: true,
+      [`${prefixCls}-disabled`]: disabled,
     });
 
-    const uploadButton = this.props.children
-      ? <div className={uploadButtonCls}><RcUpload {...props} /></div>
-      : null;
+    const uploadButton = (
+      <div className={uploadButtonCls} style={{ display: children ? '' : 'none'}}>
+        <RcUpload {...rcUploadProps} ref="upload" />
+      </div>
+    );
 
-    if (this.props.listType === 'picture-card') {
+    if (listType === 'picture-card') {
       return (
-        <span className={this.props.className}>
+        <span className={className}>
           {uploadList}
           {uploadButton}
         </span>
       );
     }
-
     return (
-      <span className={this.props.className}>
+      <span className={className}>
         {uploadButton}
         {uploadList}
       </span>

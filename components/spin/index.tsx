@@ -1,26 +1,43 @@
 import React from 'react';
+import { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
-import warning from 'warning';
-import splitObject from '../_util/splitObject';
-export default class Spin extends React.Component {
+import omit from 'omit.js';
+
+export interface SpinProps {
+  prefixCls?: string;
+  className?: string;
+  spinning?: boolean;
+  size?: 'small' | 'default' | 'large';
+  tip?: string;
+  delay?: number;
+}
+
+export default class Spin extends React.Component<SpinProps, any> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
-  }
+    size: 'default',
+  };
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
+    spinning: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'default', 'large']),
+  };
+
+  debounceTimeout: number;
+  delayTimeout: number;
 
   constructor(props) {
     super(props);
-    const spinning = this.getSpinning(props);
+    const spinning = props.spinning;
     this.state = {
       spinning,
     };
-  }
-
-  static propTypes = {
-    className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
   }
 
   isNestedPattern() {
@@ -28,7 +45,6 @@ export default class Spin extends React.Component {
   }
 
   componentDidMount() {
-    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
     if (!isCssAnimationSupported()) {
       // Show text in IE8/9
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
@@ -39,60 +55,78 @@ export default class Spin extends React.Component {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-  }
-
-  getSpinning(props) {
-    // Backwards support
-    if ('spining' in props) {
-      warning(false, '`spining` property of Spin is a spell mistake, use `spinning` instead.');
-      return props.spining;
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
     }
-    return props.spinning;
   }
 
   componentWillReceiveProps(nextProps) {
-    const spinning = this.getSpinning(nextProps);
+    const currentSpinning = this.props.spinning;
+    const spinning = nextProps.spinning;
+    const { delay } = this.props;
+
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    if (spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
+    if (currentSpinning && !spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
+      if (this.delayTimeout) {
+        clearTimeout(this.delayTimeout);
+      }
     } else {
-      this.setState({ spinning });
+      if (spinning && delay && !isNaN(Number(delay))) {
+        this.delayTimeout = setTimeout(() => this.setState({ spinning }), delay);
+      } else {
+        this.setState({ spinning });
+      }
     }
   }
-
   render() {
-    const [{
-      className, size, prefixCls, tip
-    },restProps] = splitObject(this.props,
-      ['className', 'size', 'prefixCls', 'tip']);
+    const { className, size, prefixCls, tip, ...restProps } = this.props;
     const { spinning } = this.state;
 
-    const spinClassName = classNames({
-      [prefixCls]: true,
+    const spinClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!this.props.tip,
-      [className]: !!className,
-    });
+      [`${prefixCls}-show-text`]: !!tip,
+    }, className);
+
+    // fix https://fb.me/react-unknown-prop
+    const divProps = omit(restProps, [
+      'spinning',
+      'delay',
+    ]);
 
     const spinElement = (
-      <div {...restProps} className={spinClassName}>
-        <span className={`${prefixCls}-dot`} />
-        <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
+      <div {...divProps} className={spinClassName} >
+        <span className={`${prefixCls}-dot`}>
+          <i />
+          <i />
+          <i />
+          <i />
+        </span>
+        {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
-
     if (this.isNestedPattern()) {
+      const containerClassName = classNames({
+        [`${prefixCls}-container`]: true,
+        [`${prefixCls}-blur`]: spinning,
+      });
       return (
-        <div {...restProps} className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
-          {spinElement}
-          <div className={`${prefixCls}-container`}>
+        <Animate
+          {...divProps}
+          component="div"
+          className={`${prefixCls}-nested-loading`}
+          style={null}
+          transitionName="fade"
+        >
+          {spinning && <div key="loading">{spinElement}</div>}
+          <div className={containerClassName} key="container">
             {this.props.children}
           </div>
-        </div>
+        </Animate>
       );
     }
     return spinElement;

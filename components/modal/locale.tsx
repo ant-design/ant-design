@@ -8,7 +8,7 @@ const defaultLocale = {
 
 let runtimeLocale = assign({}, defaultLocale);
 
-export function changeConfirmLocale(newLocale) {
+export function changeConfirmLocale(newLocale?: Object) {
   if (newLocale) {
     runtimeLocale = assign({}, runtimeLocale, newLocale);
   } else {

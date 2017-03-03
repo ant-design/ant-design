@@ -1,7 +1,8 @@
 ---
 order: 1
-chinese: 导航
-english: Navigation
+title:
+  zh-CN: 导航
+  en-US: Navigation
 ---
 
 在广义上，任何告知用户他在哪里，他能去什么地方以及如何到达那里的方式，都可以称之为导航。而我们将中后台常见的导航方式进行提炼和封装，帮助设计者快速构建清晰和流畅的系统。当设计者使用导航或者自定义一些导航结构时，请注意：
@@ -39,7 +40,7 @@ english: Navigation
 
 我们将常见的导航模式分为：侧栏导航和顶部导航，两者各有优缺点，设计者可以根据各自的业务需求进行选择。
 
-前端实现代码可以参考 [常用布局](/docs/spec/layout?scrollTo=components-spec-demo-top)。
+前端实现代码可以参考 [常用布局](/docs/spec/layout#docs-spec-layout-demo-top)。
 
 ## 侧栏导航
 

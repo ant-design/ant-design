@@ -1,25 +1,27 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Button from '../button';
 import Icon from '../icon';
 
 function noop() {
 }
 
-export default class TransferOperation extends React.Component {
+export interface TransferOperationProps {
+  className?: string;
+  leftArrowText?: string;
+  rightArrowText?: string;
+  moveToLeft?: React.FormEventHandler<any>;
+  moveToRight?: React.FormEventHandler<any>;
+  leftActive?: boolean;
+  rightActive?: boolean;
+}
+
+export default class TransferOperation extends React.Component<TransferOperationProps, any> {
   static defaultProps = {
     leftArrowText: '',
     rightArrowText: '',
     moveToLeft: noop,
     moveToRight: noop,
-  }
-
-  static propTypes = {
-    className: PropTypes.string,
-    leftArrowText: PropTypes.string,
-    rightArrowText: PropTypes.string,
-    moveToLeft: PropTypes.func,
-    moveToRight: PropTypes.func,
-  }
+  };
 
   render() {
     const {

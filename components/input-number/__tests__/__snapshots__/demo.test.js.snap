@@ -1,0 +1,200 @@
+exports[`test renders ./components/input-number/demo/basic.md correctly 1`] = `
+<div
+  class="ant-input-number">
+  <div
+    class="ant-input-number-handler-wrap">
+    <span
+      class="ant-input-number-handler ant-input-number-handler-up "
+      unselectable="unselectable">
+      <span
+        class="ant-input-number-handler-up-inner"
+        unselectable="unselectable" />
+    </span>
+    <span
+      class="ant-input-number-handler ant-input-number-handler-down "
+      unselectable="unselectable">
+      <span
+        class="ant-input-number-handler-down-inner"
+        unselectable="unselectable" />
+    </span>
+  </div>
+  <div
+    class="ant-input-number-input-wrap">
+    <input
+      autocomplete="off"
+      class="ant-input-number-input"
+      max="10"
+      min="1"
+      value="3" />
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/input-number/demo/digit.md correctly 1`] = `
+<div
+  class="ant-input-number">
+  <div
+    class="ant-input-number-handler-wrap">
+    <span
+      class="ant-input-number-handler ant-input-number-handler-up "
+      unselectable="unselectable">
+      <span
+        class="ant-input-number-handler-up-inner"
+        unselectable="unselectable" />
+    </span>
+    <span
+      class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+      unselectable="unselectable">
+      <span
+        class="ant-input-number-handler-down-inner"
+        unselectable="unselectable" />
+    </span>
+  </div>
+  <div
+    class="ant-input-number-input-wrap">
+    <input
+      autocomplete="off"
+      class="ant-input-number-input"
+      max="10"
+      min="0"
+      value="" />
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/input-number/demo/disabled.md correctly 1`] = `
+<div>
+  <div
+    class="ant-input-number ant-input-number-disabled">
+    <div
+      class="ant-input-number-handler-wrap">
+      <span
+        class="ant-input-number-handler ant-input-number-handler-up "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable" />
+      </span>
+      <span
+        class="ant-input-number-handler ant-input-number-handler-down "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable" />
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap">
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        disabled=""
+        max="10"
+        min="1"
+        value="3" />
+    </div>
+  </div>
+  <div
+    style="margin-top:20px;">
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        Toggle disabled
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/input-number/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-input-number ant-input-number-lg">
+    <div
+      class="ant-input-number-handler-wrap">
+      <span
+        class="ant-input-number-handler ant-input-number-handler-up "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable" />
+      </span>
+      <span
+        class="ant-input-number-handler ant-input-number-handler-down "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable" />
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap">
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        value="3" />
+    </div>
+  </div>
+  <div
+    class="ant-input-number">
+    <div
+      class="ant-input-number-handler-wrap">
+      <span
+        class="ant-input-number-handler ant-input-number-handler-up "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable" />
+      </span>
+      <span
+        class="ant-input-number-handler ant-input-number-handler-down "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable" />
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap">
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        value="3" />
+    </div>
+  </div>
+  <div
+    class="ant-input-number ant-input-number-sm">
+    <div
+      class="ant-input-number-handler-wrap">
+      <span
+        class="ant-input-number-handler ant-input-number-handler-up "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable" />
+      </span>
+      <span
+        class="ant-input-number-handler ant-input-number-handler-down "
+        unselectable="unselectable">
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable" />
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap">
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        value="3" />
+    </div>
+  </div>
+</div>
+`;

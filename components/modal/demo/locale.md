@@ -1,32 +1,38 @@
 ---
 order: 6
-title: 国际化
+title:
+  zh-CN: 国际化
+  en-US: Internationalization
 ---
 
+## zh-CN
+
 设置 `okText` 与 `cancelText` 以自定义按钮文字。
+
+## en-US
+
+To customize the text of the buttons, you need to set `okText` and `cancelText` props.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
-const LocalizedModal = React.createClass({
-  getInitialState() {
-    return { visible: false };
-  },
-  showModal() {
+class LocalizedModal extends React.Component {
+  state = { visible: false }
+  showModal = () => {
     this.setState({
       visible: true,
     });
-  },
-  handleOk() {
+  }
+  handleOk = () => {
     this.setState({
       visible: false,
     });
-  },
-  handleCancel() {
+  }
+  handleCancel = () => {
     this.setState({
       visible: false,
     });
-  },
+  }
   render() {
     return (
       <div>
@@ -41,8 +47,8 @@ const LocalizedModal = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
 function confirm() {
   Modal.confirm({
@@ -59,4 +65,3 @@ ReactDOM.render(<div>
   <Button onClick={confirm}>confirm</Button>
 </div>, mountNode);
 ````
-

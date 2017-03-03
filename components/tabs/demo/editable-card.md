@@ -1,39 +1,50 @@
 ---
 order: 9
-title: 新增和关闭页签
+title:
+  zh-CN: 新增和关闭页签
+  en-US: Add & close tab
 ---
 
+## zh-CN
+
 只有卡片样式的页签支持新增和关闭选项。
+
+## en-US
+
+Only card type Tabs support adding & closeable.
 
 ````jsx
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 
-const Demo = React.createClass({
-  getInitialState() {
+
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     this.newTabIndex = 0;
     const panes = [
-      <TabPane tab="选项卡" key="1">选项卡一内容</TabPane>,
-      <TabPane tab="选项卡" key="2">选项卡二内容</TabPane>,
+      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
     ];
-    return {
+    this.state = {
       activeKey: panes[0].key,
       panes,
     };
-  },
-  onChange(activeKey) {
+  }
+
+  onChange = (activeKey) => {
     this.setState({ activeKey });
-  },
-  onEdit(targetKey, action) {
+  }
+  onEdit = (targetKey, action) => {
     this[action](targetKey);
-  },
-  add() {
+  }
+  add = () => {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
-    panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);
+    panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
     this.setState({ panes, activeKey });
-  },
-  remove(targetKey) {
+  }
+  remove = (targetKey) => {
     let activeKey = this.state.activeKey;
     let lastIndex;
     this.state.panes.forEach((pane, i) => {
@@ -46,17 +57,20 @@ const Demo = React.createClass({
       activeKey = panes[lastIndex].key;
     }
     this.setState({ panes, activeKey });
-  },
+  }
   render() {
     return (
-      <Tabs onChange={this.onChange} activeKey={this.state.activeKey}
-        type="editable-card" onEdit={this.onEdit}
+      <Tabs
+        onChange={this.onChange}
+        activeKey={this.state.activeKey}
+        type="editable-card"
+        onEdit={this.onEdit}
       >
-        {this.state.panes}
+        {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
       </Tabs>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

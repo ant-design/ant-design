@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 面包屑
+subtitle: 面包屑
 type: Navigation
-english: Breadcrumb
+title: Breadcrumb
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -15,19 +15,26 @@ english: Breadcrumb
 
 ## API
 
-```html
-<Breadcrumb>
-  <Breadcrumb.Item>首页</Breadcrumb.Item>
-  <Breadcrumb.Item>应用中心</Breadcrumb.Item>
-  <Breadcrumb.Item>应用列表</Breadcrumb.Item>
-  <Breadcrumb.Item>某应用</Breadcrumb.Item>
-</Breadcrumb>
-```
-
 | 参数      | 说明                              | 类型              |  可选值 | 默认值 |
 |-----------|-----------------------------------|-----------------|---------|--------|
-| routes    | router 的路由栈信息               | Array             |         | -      |
-| params    | 路由的参数                        | Object            |         | -      |
-| separator | 分隔符自定义                      | String or Element |         | '/'    |
-| linkRender | 自定义链接函数，和 react-router 配置使用 | Function(href, name, paths) | | - |
-| nameRender | 自定义文字函数，和 react-router 配置使用 | Function(breadcrumbName, route, params) | | - |
+| routes    | router 的路由栈信息               | object[]             |         | -      |
+| params    | 路由的参数                        | object            |         | -      |
+| separator | 分隔符自定义                      | string\|ReactNode |         | '/'    |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | | - |
+
+> 2.0 之后，`linkRender` 和 `nameRender` 被移除，请使用 `itemRender` 来代替。
+
+### 和 browserHistory 配合
+
+和 react-router 一起使用时，默认生成的 url 路径是带有 `#` 的，如果和 browserHistory 一起使用的话，你可以使用 `itemRender` 属性定义面包屑链接。
+
+```jsx
+import { Link } from 'react-router';
+
+function itemRender(route, params, routes, paths) {
+  const last = routes.indexOf(route) === routes.length - 1;
+  return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
+}
+
+return <Breadcrumb itemRender={itemRender} />;
+```

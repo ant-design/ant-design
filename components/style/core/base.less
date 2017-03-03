@@ -76,35 +76,14 @@ a {
   }
 
   &[disabled] {
-    color: #ccc;
+    color: @disabled-color;
     cursor: not-allowed;
     pointer-events: none;
   }
 }
 
-// Utility classes
-.clearfix {
-  .clearfix();
-}
-.pull-left {
-  float: left;
-}
-.pull-right {
-  float: right;
-}
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
-.invisible {
-  visibility: hidden;
-}
-
-.ant-divider {
-  margin: 0 4px;
-  color: #999;
+.@{ant-prefix}-divider {
+  margin: 0 6px;
   display: inline-block;
   height: 8px;
   width: 1px;
@@ -116,4 +95,9 @@ kbd,
 pre,
 samp {
   font-family: @code-family;
+}
+
+// Utility classes
+.clearfix {
+  .clearfix();
 }

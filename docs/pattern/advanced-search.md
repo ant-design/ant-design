@@ -1,7 +1,8 @@
 ---
 order: 6
-chinese: 高级搜索
-english: Advanced Search
+title:
+  zh-CN: 高级搜索
+  en-US: Advanced Search
 ---
 
 借助『高级搜索』，用户可以缩小复杂列表／表格等的展示范围。
@@ -52,6 +53,3 @@ english: Advanced Search
 <img class="preview-img" align="right" alt="交互示例" src="https://os.alipayobjects.com/rmsportal/TUxfnHjfTJeKaDq.png">
 
 字段型一般会出现在主搜索框底部，适合搜索条件和值都比较少的场景中。
-
-
-<h2><span class="waiting">案例（敬请期待）</span></h2>

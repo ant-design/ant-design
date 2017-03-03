@@ -1,11 +1,33 @@
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+.nav-phone-icon {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 32px;
+  z-index: 1;
+  width: 16px;
+  height: 22px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 0) and (max-width: 1280px) {
+  .en-us #search-box {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 1080px) {
+  .zh-cn #search-box {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 0) and (max-width: 992px) {
+  #search-box {
+    display: none;
+  }
   .code-boxes-col-2-1, .code-boxes-col-1-1 {
     float: none;
     width: 100%;
-    padding: 0!important;
-  }
-  #search-box {
-    display: none;
   }
   .preview-image-boxes {
     margin: 0!important;
@@ -15,13 +37,6 @@
   .preview-image-box {
     padding-left: 0;
     margin: 10px 0;
-  }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-  #list,
-  #search-box {
-    display: none;
   }
 
   a#logo {
@@ -39,34 +54,85 @@
     text-align: center;
   }
 
-  .nav {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    background: #fff;
-    line-height: 60px;
-    margin-right: 0;
-    width: 50%;
-    height: 100%;
-    box-shadow: 10px 0 12px rgba(0,0,0,0.1);
-    transform: translateX(-100%);
-    overflow-x: hidden;
-    overflow-y: auto;
-    opacity: 0;
-    transition: transform .3s, opacity .3s;
-    text-align: center;
+  .image-wrapper {
+    display: none;
+  }
 
-    #lang {
-      margin: 0;
-      float: none;
-      color: #666;
+  .banner-wrapper {
+    background-position: 40%;
+  }
+
+  .content-wrapper .text-wrapper {
+    float: none;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    > p {
+      max-width: 100% !important;
+      padding: 0 40px;
     }
   }
 
-  .nav.nav-show {
-    transform: translateX(0);
-    opacity: 1;
+  .content-wrapper.page {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .banner-text-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    .start-button {
+      text-align: center;
+      > a {
+        margin: 0 4px;
+      }
+    }
+    .github-btn {
+      text-align: center;
+      float: none;
+      display: inline-block;
+    }
+    .line {
+      display: none;
+    }
+  }
+
+  button.lang {
+    display: block;
+    margin: 29px auto 16px;
+    color: @text-color;
+    border-color: @text-color;
+  }
+
+  div.version {
+    display: block;
+    margin: 29px auto 16px;
+    & > .ant-select-selection {
+      color: @text-color;
+      &:not(:hover) {
+        border-color: @text-color;
+      }
+    }
+  }
+
+  .popover-menu {
+    width: 300px;
+    button.lang {
+      margin: 16px auto;
+      float: none;
+    }
+    div.version {
+      margin: 32px auto 16px;
+      float: none;
+    }
+    .ant-popover-inner {
+      overflow: hidden;
+      &-content {
+        padding: 0;
+      }
+    }
   }
 
   ul#nav,
@@ -79,6 +145,7 @@
     line-height: 60px;
     height: 60px;
     padding: 0 !important;
+    border: 0;
     a {
       color: #333;
     }
@@ -90,12 +157,6 @@
 
   .nav-phone-icon {
     display: block;
-    width: 16px;
-    height: 50px;
-    position: absolute;
-    left: 30px;
-    top: 32px;
-    cursor: pointer;
   }
 
   .nav-phone-icon:before {
@@ -118,11 +179,14 @@
     width: auto;
     padding-bottom: 30px;
     border-bottom: 1px solid #e9e9e9;
+    border-right: 0;
     margin-bottom: 30px;
   }
 
   .main-container {
-    margin-left: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0;
     > .markdown > * {
       width: 100%!important;
     }
@@ -131,19 +195,17 @@
   .main-wrapper {
     width: 100%;
     border-radius: 0;
-  }
-
-  .main-container {
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 0;
   }
 
   footer {
     text-align: center;
-  }
-
-  footer ul li {
-    float: none;
-    width: auto;
+    ul li {
+      float: none;
+      width: auto;
+      > h2 .anticon {
+        display: none;
+      }
+    }
   }
 }

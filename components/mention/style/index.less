@@ -1,0 +1,111 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import '../../input/style/mixin';
+
+.@{ant-prefix}-mention-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+  &-active .@{ant-prefix}-mention-editor {
+    .active;
+  }
+  .@{ant-prefix}-mention-editor {
+   .input;
+   padding: 0;
+   display: block;
+  }
+  .@{ant-prefix}-mention-editor-wrapper {
+    overflow-y: auto;
+    height: auto;
+  }
+  .public-DraftEditorPlaceholder-root {
+    position: absolute;
+    .public-DraftEditorPlaceholder-inner {
+      color: @input-placeholder-color;
+      opacity: 1;
+      outline: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      height: auto;
+      padding: 4px 7px;
+    }
+  }
+  .DraftEditor-editorContainer .public-DraftEditor-content {
+    height: auto;
+    padding: 4px 7px;
+  }
+}
+
+.@{ant-prefix}-mention-dropdown {
+  margin-top: 1.5em;
+  max-height: 250px;
+  min-width: 120px;
+  background-color: @component-background;
+  box-shadow: @box-shadow-base;
+  border-radius: @border-radius-base;
+  box-sizing: border-box;
+  z-index: @zindex-dropdown;
+  left: -9999px;
+  top: -9999px;
+  position: absolute;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: @font-size-base;
+  &-notfound.@{ant-prefix}-mention-dropdown-item {
+    color: @disabled-color;
+
+    .@{iconfont-css-prefix}-loading {
+      color: @primary-color;
+      text-align: center;
+      display: block;
+    }
+  }
+  &-item {
+    position: relative;
+    display: block;
+    padding: 7px 16px;
+    font-weight: normal;
+    color: @text-color;
+    white-space: nowrap;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: background 0.3s ease;
+
+    &:hover,
+    &.focus,
+    &-active {
+      background-color: @primary-1;
+    }
+
+    &-disabled {
+      color: @disabled-color;
+      cursor: not-allowed;
+
+      &:hover {
+        color: @disabled-color;
+        background-color: @component-background;
+        cursor: not-allowed;
+      }
+    }
+
+    &-selected {
+      &,
+      &:hover {
+        background-color: @background-color-base;
+        font-weight: bold;
+        color: @text-color;
+      }
+    }
+
+    &-divider {
+      height: 1px;
+      margin: 1px 0;
+      overflow: hidden;
+      background-color: @border-color-split;
+      line-height: 0;
+    }
+  }
+}

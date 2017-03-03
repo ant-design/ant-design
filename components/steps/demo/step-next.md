@@ -1,56 +1,95 @@
 ---
 order: 3
-title: 切换到下一步
+title:
+  zh-CN: 步骤切换
+  en-US: Switch Step
 ---
 
-随机生成 3~6 个步骤，初始随机进行到其中一个步骤。
+## zh-CN
 
-````css
-#components-steps-demo-step-next > div > div {
-  margin-bottom: 30px;
-}
-````
+通常配合内容及按钮使用，表示一个流程的处理进度。
+
+## en-US
+
+Cooperate with the content and buttons, to represent the progress of a process.
 
 ````jsx
-import { Steps, Button } from 'antd';
+import { Steps, Button, message } from 'antd';
 const Step = Steps.Step;
-const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
-const steps = array.map((item, i) => {
-  return {
-    title: `步骤${i + 1}`,
-  };
-});
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      currentStep: Math.floor(Math.random() * steps.length),
+const steps = [{
+  title: 'First',
+  content: 'First-content',
+}, {
+  title: 'Second',
+  content: 'Second-content',
+}, {
+  title: 'Last',
+  content: 'Last-content',
+}];
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: 0,
     };
-  },
+  }
   next() {
-    let s = this.state.currentStep + 1;
-    if (s === steps.length) {
-      s = 0;
-    }
-    this.setState({
-      currentStep: s,
-    });
-  },
+    const current = this.state.current + 1;
+    this.setState({ current });
+  }
+  prev() {
+    const current = this.state.current - 1;
+    this.setState({ current });
+  }
   render() {
-    const cs = this.state.currentStep;
+    const { current } = this.state;
     return (
       <div>
-        <div style={{ marginBottom: 24 }}>当前正在执行第 {cs + 1} 步</div>
-        <Steps current={cs}>
-          {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
+        <Steps current={current}>
+          {steps.map(item => <Step key={item.title} title={item.title} />)}
         </Steps>
-        <div style={{ marginTop: 24 }}>
-          <Button onClick={this.next}>下一步</Button>
+        <div className="steps-content">{steps[this.state.current].content}</div>
+        <div className="steps-action">
+          {
+            this.state.current < steps.length - 1
+            &&
+            <Button type="primary" onClick={() => this.next()}>Next</Button>
+          }
+          {
+            this.state.current === steps.length - 1
+            &&
+            <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
+          }
+          {
+            this.state.current > 0
+            &&
+            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+              Previous
+            </Button>
+          }
         </div>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
+````
+
+````css
+.steps-content {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.steps-action {
+  margin-top: 24px;
+}
 ````

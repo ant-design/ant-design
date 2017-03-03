@@ -1,8 +1,11 @@
 import React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
+import { TreeSelectProps, TreeSelectContext } from './interface';
 
-export default class TreeSelect extends React.Component {
+export { TreeSelectProps };
+
+export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static TreeNode = TreeNode;
   static SHOW_ALL = SHOW_ALL;
   static SHOW_PARENT = SHOW_PARENT;
@@ -14,40 +17,39 @@ export default class TreeSelect extends React.Component {
     choiceTransitionName: 'zoom',
     showSearch: false,
     dropdownClassName: 'ant-select-tree-dropdown',
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
+
+  context: TreeSelectContext;
 
   render() {
     const props = this.props;
     let {
-      size, className, combobox, notFoundContent, prefixCls,
+      size, className = '', notFoundContent, prefixCls, dropdownStyle,
     } = this.props;
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
-    });
+    }, className);
 
     const { antLocale } = this.context;
     if (antLocale && antLocale.Select) {
       notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
     }
 
-    if (combobox) {
-      notFoundContent = null;
-    }
-
     let checkable = props.treeCheckable;
     if (checkable) {
-      checkable = <span className={`${prefixCls}-tree-checkbox-inner`}></span>;
+      checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
     return (
-      <RcTreeSelect {...this.props}
+      <RcTreeSelect
+        {...this.props}
+        dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
         treeCheckable={checkable}
         className={cls}
         notFoundContent={notFoundContent}

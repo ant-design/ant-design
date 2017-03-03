@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import RcDropdown from 'rc-dropdown';
-import splitObject from '../_util/splitObject';
+import classNames from 'classnames';
 
-export default class Dropdown extends React.Component {
+export interface DropDownProps {
+  trigger?: ('click' | 'hover')[];
+  overlay: React.ReactNode;
+  style?: React.CSSProperties;
+  onVisibleChange?: (visible?: boolean) => void;
+  visible?: boolean;
+  align?: Object;
+  getPopupContainer?: () => HTMLElement;
+  prefixCls?: string;
+  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+}
+
+export default class Dropdown extends React.Component<DropDownProps, any> {
+  static Button: React.ReactNode;
   static defaultProps = {
-    transitionName: 'slide-up',
     prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
+    placement: 'bottomLeft',
+  };
+
+  getTransitionName() {
+    const { placement = '' } = this.props;
+    if (placement.indexOf('top') >= 0) {
+      return 'slide-down';
+    }
+    return 'slide-up';
   }
 
   render() {
-    const [{overlay}, others] = splitObject(this.props,
-      ['overlay']);
-    
-    const menu = React.cloneElement(overlay, {
-      openTransitionName: 'zoom-big',
+    const { children, prefixCls } = this.props;
+    const dropdownTrigger = cloneElement(children as any, {
+      className: classNames((children as any).props.className, `${prefixCls}-trigger`),
     });
     return (
-      <RcDropdown {...others} overlay={menu} />
+      <RcDropdown transitionName={this.getTransitionName()} {...this.props}>
+        {dropdownTrigger}
+      </RcDropdown>
     );
   }
 }

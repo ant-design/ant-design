@@ -1,12 +1,20 @@
 ---
 order: 2
-title: 前置/后置标签
+title:
+    zh-CN: 前置/后置标签
+    en-US: Pre / Post tab
 ---
+
+## zh-CN
 
 用于配置一些固定组合。
 
+## en-US
+
+Using pre & post tabs example.
+
 ````jsx
-import { Input, Select } from 'antd';
+import { Input, Select, Icon } from 'antd';
 const Option = Select.Option;
 
 const selectBefore = (
@@ -26,9 +34,14 @@ const selectAfter = (
 
 ReactDOM.render(
   <div>
-    <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
-    <div style={{ marginTop: 8 }}>
+    <div style={{ marginBottom: 16 }}>
+      <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
+    </div>
+    <div style={{ marginBottom: 16 }}>
       <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+    </div>
+    <div style={{ marginBottom: 16 }}>
+      <Input addonAfter={<Icon type="setting" />} defaultValue="mysite" />
     </div>
   </div>
 , mountNode);

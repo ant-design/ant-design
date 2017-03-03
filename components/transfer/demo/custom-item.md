@@ -1,31 +1,37 @@
 ---
 order: 3
-title: 自定义渲染行数据
+title:
+  zh-CN: 自定义渲染行数据
+  en-US: Custom datasource
 ---
+
+## zh-CN
 
 自定义渲染每一个 Transfer Item，可用于渲染复杂数据。
 
-````jsx
-import { Transfer, Icon } from 'antd';
+## en-US
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      mockData: [],
-      targetKeys: [],
-    };
-  },
+Custom each Transfer Item, and in this way you can render a complex datasource.
+
+````jsx
+import { Transfer } from 'antd';
+
+class App extends React.Component {
+  state = {
+    mockData: [],
+    targetKeys: [],
+  }
   componentDidMount() {
     this.getMock();
-  },
-  getMock() {
+  }
+  getMock = () => {
     const targetKeys = [];
     const mockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
-        key: i,
-        title: `内容${i + 1}`,
-        description: `内容${i + 1}的描述`,
+        key: i.toString(),
+        title: `content${i + 1}`,
+        description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
@@ -34,23 +40,23 @@ const App = React.createClass({
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  },
-  handleChange(targetKeys, direction, moveKeys) {
+  }
+  handleChange = (targetKeys, direction, moveKeys) => {
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
-  },
-  renderItem(item) {
+  }
+  renderItem = (item) => {
     const customLabel = (
-      <div className="custom-item">
-        {item.title} - {item.description} <Icon type="android" />
-      </div>
+      <span className="custom-item">
+        {item.title} - {item.description}
+      </span>
     );
 
     return {
       label: customLabel,  // for displayed item
       value: item.title,   // for title and filter matching
     };
-  },
+  }
   render() {
     return (
       <Transfer
@@ -64,8 +70,8 @@ const App = React.createClass({
         render={this.renderItem}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

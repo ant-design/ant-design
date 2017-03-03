@@ -1,9 +1,17 @@
 ---
 order: 2
-title: 拖动示例
+title:
+  zh-CN: 拖动示例
+  en-US: draggable
 ---
 
+## zh-CN
+
 将节点拖拽到其他节点内部或前后。
+
+## en-US
+
+Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
 ````jsx
 import { Tree } from 'antd';
@@ -37,21 +45,19 @@ const generateData = (_level, _preKey, _tns) => {
 };
 generateData(z);
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      gData,
-      expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
-    };
-  },
-  onDragEnter(info) {
+class Demo extends React.Component {
+  state = {
+    gData,
+    expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
+  }
+  onDragEnter = (info) => {
     console.log(info);
     // expandedKeys 需要受控时设置
     // this.setState({
     //   expandedKeys: info.expandedKeys,
     // });
-  },
-  onDrop(info) {
+  }
+  onDrop = (info) => {
     console.log(info);
     const dropKey = info.node.props.eventKey;
     const dragKey = info.dragNode.props.eventKey;
@@ -90,24 +96,34 @@ const Demo = React.createClass({
     this.setState({
       gData: data,
     });
-  },
+  }
   render() {
     const loop = data => data.map((item) => {
-      if (item.children) {
+      if (item.children && item.children.length) {
         return <TreeNode key={item.key} title={item.key}>{loop(item.children)}</TreeNode>;
       }
       return <TreeNode key={item.key} title={item.key} />;
     });
     return (
-      <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
+      <Tree
+        className="draggable-tree"
+        defaultExpandedKeys={this.state.expandedKeys}
+        draggable
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}
       >
         {loop(this.state.gData)}
       </Tree>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
+````
+
+````css
+// You can add the following CSS to your project to make draggable area bigger
+#components-tree-demo-draggable .draggable-tree .ant-tree-node-content-wrapper {
+  width: calc(100% - 18px);
+}
 ````

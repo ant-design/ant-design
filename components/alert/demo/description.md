@@ -1,30 +1,40 @@
 ---
 order: 3
-title: 含有辅助性文字介绍
+title:
+  zh-CN: 含有辅助性文字介绍
+  en-US: Description
 ---
 
+## zh-CN
+
 含有辅助性文字介绍的警告提示。
+
+## en-US
+
+Additional description for alert message.
 
 ````jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(<div>
-  <Alert message="成功提示的文案"
-    description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"
+  <Alert
+    message="Success Text"
+    description="Success Description Success Description Success Description"
     type="success"
   />
-  <Alert message="消息提示的文案"
-    description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
+  <Alert
+    message="Info Text"
+    description="Info Description Info Description Info Description Info Description"
     type="info"
   />
   <Alert
-    message="警告提示的文案"
-    description="警告提示的辅助性文字介绍警告提示的辅助性文字介绍"
+    message="Warning Text"
+    description="Warning Description Warning Description Warning Description Warning Description"
     type="warning"
   />
   <Alert
-    message="错误提示的文案"
-    description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
+    message="Error Text"
+    description="Error Description Error Description Error Description Error Description"
     type="error"
   />
 </div>, mountNode);

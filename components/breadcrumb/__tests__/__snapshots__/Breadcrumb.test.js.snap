@@ -1,0 +1,15 @@
+exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
+<div
+  class="ant-breadcrumb">
+  <span>
+    <span
+      class="ant-breadcrumb-link">
+      Home
+    </span>
+    <span
+      class="ant-breadcrumb-separator">
+      /
+    </span>
+  </span>
+</div>
+`;

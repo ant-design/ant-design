@@ -1,11 +1,14 @@
 ---
-category: 设计基础
+category:
+  zh-CN: 设计基础
+  en-US: Design Fundamental
 order: 5
-chinese: 组件动画
-english: Motion
+title:
+  zh-CN: 组件动画
+  en-US: Motion
 ---
 
-依据『巧用过渡』的设计原则，Ant Design 提供了一些预设的组件动画和缓动函数。
+依据『巧用过渡』的设计原则，Ant Design 提供了一些预设的组件动画和缓动函数。更多动画可参考 [Ant Motion](https://motion.ant.design/)
 
 > 示例延长了动画时长以便展示。
 

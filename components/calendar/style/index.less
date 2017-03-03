@@ -1,10 +1,12 @@
 @import "../../style/themes/default";
 
-@full-calendar-prefix-cls: ant-fullcalendar;
+@full-calendar-prefix-cls: ~"@{ant-prefix}-fullcalendar";
 
 .@{full-calendar-prefix-cls} {
   font-size: @font-size-base;
-  line-height: 1.5;
+  line-height: @line-height-base;
+  outline: none;
+  border-top: @border-width-base @border-style-base @border-color-base;
 
   &-month-select {
     margin-left: 5px;
@@ -14,24 +16,22 @@
     padding: 11px 16px 11px 0;
     text-align: right;
 
-    .ant-select {
+    .@{ant-prefix}-select {
       text-align: left;
     }
 
-    .ant-radio-group {
+    .@{ant-prefix}-radio-group {
       margin-left: 8px;
       text-align: left;
     }
 
-    label.ant-radio-button {
+    label.@{ant-prefix}-radio-button {
       height: 22px;
       line-height: 20px;
       padding: 0 10px;
     }
   }
 
-  outline: none;
-  border-top: 1px solid @legend-border-color;
   &-date-panel {
     position: relative;
     outline: none;
@@ -98,7 +98,7 @@
     line-height: 22px;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
   }
@@ -137,7 +137,7 @@
 
   &-last-month-cell &-value,
   &-next-month-btn-day &-value {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-month-panel-table {
@@ -162,10 +162,10 @@
   }
 
   &-fullscreen &-header {
-    .ant-radio-group {
+    .@{ant-prefix}-radio-group {
       margin-left: 16px;
     }
-    label.ant-radio-button {
+    label.@{ant-prefix}-radio-button {
       height: 28px;
       line-height: 26px;
     }
@@ -179,11 +179,11 @@
     color: @text-color;
     height: 116px;
     padding: 4px 8px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid @border-color-split;
     transition: background 0.3s ease;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
   }
@@ -201,14 +201,13 @@
   }
 
   &-fullscreen &-today &-value {
-    color: #666;
+    color: @text-color;
   }
-
 
   &-fullscreen &-month-panel-current-cell &-month,
   &-fullscreen &-today &-date {
     border-top-color: @primary-color;
-    background-color: tint(@primary-color, 90%);
+    background-color: @primary-1;
     color: @primary-color;
   }
   &-fullscreen &-month-panel-current-cell &-value {
@@ -216,7 +215,7 @@
   }
   &-fullscreen &-last-month-cell &-date,
   &-fullscreen &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-fullscreen &-content {

@@ -1,37 +1,40 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: basic
 ---
 
+## zh-CN
+
 最简单的用法，展示可勾选，可选中，禁用，默认展开等功能。
+
+## en-US
+
+The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
 
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 
-const Demo = React.createClass({
-  getDefaultProps() {
-    return {
-      keys: ['0-0-0', '0-0-1'],
-    };
-  },
-  getInitialState() {
-    const keys = this.props.keys;
-    return {
-      defaultExpandedKeys: keys,
-      defaultSelectedKeys: keys,
-      defaultCheckedKeys: keys,
-    };
-  },
-  onSelect(info) {
+class Demo extends React.Component {
+  static defaultProps = {
+    keys: ['0-0-0', '0-0-1'],
+  }
+  state = {
+    defaultExpandedKeys: this.props.keys,
+    defaultSelectedKeys: this.props.keys,
+    defaultCheckedKeys: this.props.keys,
+  }
+  onSelect = (info) => {
     console.log('selected', info);
-  },
-  onCheck(info) {
+  }
+  onCheck = (info) => {
     console.log('onCheck', info);
-  },
+  }
   render() {
     return (
-      <Tree className="myCls" showLine multiple checkable
+      <Tree className="myCls" showLine checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
         defaultSelectedKeys={this.state.defaultSelectedKeys}
         defaultCheckedKeys={this.state.defaultCheckedKeys}
@@ -48,8 +51,8 @@ const Demo = React.createClass({
         </TreeNode>
       </Tree>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

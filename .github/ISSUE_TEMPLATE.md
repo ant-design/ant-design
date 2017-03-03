@@ -1,27 +1,32 @@
-<!-- Issue Template For Chinese Users -->
+<!-- Issue Template -->
 
-<!-- 请按照下列格式报告问题，务必提供复现步骤，否则恕难解决，感谢您的支持。-->
+<!--
+1. 官方 issue 用于报告 bug 和需求建议。用法咨询类问题建议到 https://segmentfault.com/t/antd 上提问，目前社区没有足够精力提供此类服务，感谢您的理解。
+2. 建议使用英文进行提问，这样你的问题可以被更多的人阅读和回答。如果表达上确实较复杂，英文标题加中文描述也是可选的方案。
+3. 报告 BUG 时请务必按照下列格式书写，并尽可能提供源代码、复现步骤、复现演示、GIF 演示等。我们和你一样都希望尽快解决问题，请不要浪费时间在互相追问上。
+4. 注意你的 issue 格式，不适合阅读的格式会被忽视或直接关闭。
+5. 如果需要粘贴源码，尽量避免截图并注意代码格式。关于如何在 Markdown 中书写代码可以参考：https://segmentfault.com/markdown
+6. 抱怨不能解决问题，通畅有效和心情舒畅的交流才能解决。
+-->
 
-### 本地环境
+#### Environment(required)
 
-<!-- 务必提供 -->
+- antd version:
+- OS and its version:
+- Browser and its version:
 
-- antd 版本:
-- 操作系统及其版本：
-- 浏览器及其版本:
+#### What did you do? Please provide steps to re-produce your problem.
 
-### 你做了什么？
+<!-- e.g. I just imported Button from antd -->
 
-<!-- 引入 antd 了 Button -->
+#### What do you expected?
 
-### 你期待的结果是：
+<!-- e.g. It works fine as official website -->
 
-<!-- 像官网一样正常显示 -->
+#### What happen?
 
-## 实际上的结果：
+<!-- e.g. Style is not as expected. (And it will be better to provide screenshot) -->
 
-<!-- 缺少样式 -->
+#### Re-producible online demo
 
-### 可重现的在线演示
-
-<!-- 请修改并 Fork http://codepen.io/anon/pen/wGOWGW?editors=001 -->
+<!-- Please fork http://codepen.io/benjycui/pen/KgPZrE?editors=001 to re-produce you issue -->

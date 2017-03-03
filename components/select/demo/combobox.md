@@ -1,21 +1,32 @@
 ---
 order: 4
-title: 智能提示
+title:
+  zh-CN: 智能提示
+  en-US: Automatic completion
 ---
 
+## zh-CN
+
 输入框自动完成功能，下面是一个账号注册表单的例子。
+
+推荐使用 [AutoComplete](/components/auto-complete/) 组件。
+
+## en-US
+
+Automatic completion of select input.
+
+Using the [AutoComplete](/components/auto-complete/) component is strongly recommended instead as it is more flexible and capable.
+
 
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      options: [],
-    };
-  },
-  handleChange(value) {
+class App extends React.Component {
+  state = {
+    options: [],
+  }
+  handleChange = (value) => {
     let options;
     if (!value || value.indexOf('@') >= 0) {
       options = [];
@@ -26,21 +37,21 @@ const Test = React.createClass({
       });
     }
     this.setState({ options });
-  },
+  }
   render() {
-    // filterOption 需要设置为 false，数据是动态设置的
+    // filterOption needs to be false，as the value is dynamically generated
     return (
       <Select combobox
         style={{ width: 200 }}
         onChange={this.handleChange}
         filterOption={false}
-        placeholder="请输入账户名"
+        placeholder="Enter the account name"
       >
         {this.state.options}
       </Select>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

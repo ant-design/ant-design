@@ -1,24 +1,34 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
+## zh-CN
+
 最简单的用法。
+
+## en-US
+
+The basic example.
 
 ````jsx
 import { Popconfirm, message } from 'antd';
 
-function confirm() {
-  message.success('点击了确定');
+function confirm(e) {
+  console.log(e);
+  message.success('Click on Yes');
 }
 
-function cancel() {
-  message.error('点击了取消');
+function cancel(e) {
+  console.log(e);
+  message.error('Click on No');
 }
 
 ReactDOM.render(
-  <Popconfirm title="确定要删除这个任务吗？" onConfirm={confirm} onCancel={cancel}>
-    <a href="#">删除</a>
+  <Popconfirm title="Are you sure delete this task?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
+    <a href="#">Delete</a>
   </Popconfirm>
 , mountNode);
 ````

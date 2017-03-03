@@ -1,7 +1,8 @@
 ---
 order: 3
-chinese: 列表
-english: List
+title:
+  zh-CN: 列表
+  en-US: List
 ---
 
 列表是非常常见的界面元素，有多种使用场景：
@@ -98,5 +99,3 @@ english: List
 <img class="preview-img" align="right" alt="两层折叠面板表格" src="https://os.alipayobjects.com/rmsportal/XaJeuLfHeSSXCJq.png">
 
 <br />
-
-<h2><span class="waiting">案例（敬请期待）</span></h2>

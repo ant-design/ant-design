@@ -1,0 +1,73 @@
+exports[`Search should show cross icon when input value exists 1`] = `
+<Search
+  placeholder=""
+  value="">
+  <div>
+    <Input
+      autosize={false}
+      disabled={false}
+      onChange={[Function]}
+      placeholder=""
+      prefixCls="ant-input"
+      type="text"
+      value="">
+      <input
+        className="ant-input"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value="" />
+    </Input>
+    <span
+      className="undefined-action">
+      <Component
+        type="search">
+        <i
+          className="anticon anticon-search" />
+      </Component>
+    </span>
+  </div>
+</Search>
+`;
+
+exports[`Search should show cross icon when input value exists 2`] = `
+<Search
+  placeholder=""
+  value="a">
+  <div>
+    <Input
+      autosize={false}
+      disabled={false}
+      onChange={[Function]}
+      placeholder=""
+      prefixCls="ant-input"
+      type="text"
+      value="a">
+      <input
+        className="ant-input"
+        disabled={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value="a" />
+    </Input>
+    <a
+      className="undefined-action"
+      href="#"
+      onClick={[Function]}>
+      <Component
+        type="cross-circle">
+        <i
+          className="anticon anticon-cross-circle" />
+      </Component>
+    </a>
+  </div>
+</Search>
+`;

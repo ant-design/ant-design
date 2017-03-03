@@ -1,7 +1,8 @@
 ---
 order: 2
-chinese: 表单
-english: Form
+title:
+  zh-CN: 表单
+  en-US: Form
 ---
 
 作为获取用户输入的重要交互方式，表单也承担将问题和答案进行配对的角色。
@@ -101,7 +102,7 @@ english: Form
 <img class="preview-img" align="right" description="输入时的实时校验。" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
 <img class="preview-img" align="right" description="输入框失去焦点后的校验。" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
-<img class="preview-img" align="right" description="点击『提交』后，系统将处理结果直接在页面上进行反馈（统计错误数量和标记错误内容）。" src="https://os.alipayobjects.com/rmsportal/PLdlPvaebRdJOgu.png">
+<img class="preview-img" align="right" description="点击『提交』后，系统将处理结果直接在页面上进行反馈（统计错误数量和标记错误内容）。" src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 
 通过不同的『校验』规则和形式进行反馈，避免用户在点击提交后才刚刚开始『校验』，让用户提前纠正错误。
 
