@@ -44,13 +44,29 @@ export interface ModalContext {
   };
 }
 
+export interface ModalFuncProps {
+  visible?: boolean;
+  title?: React.ReactNode | string;
+  content?: React.ReactNode | string;
+  onOk?: (func: Function) => any;
+  onCancel?: (func: Function) => any;
+  width?: string | number;
+  iconClassName?: string;
+  okText?: string;
+  cancelText?: string;
+  iconType?: string;
+}
+export type ModalFunc = (props: ModalFuncProps) => {
+  destroy: () => void
+}
+
 export default class Modal extends React.Component<ModalProps, any> {
-  static info: any;
-  static success: any;
-  static error: any;
-  static warn: any;
-  static warning: any;
-  static confirm: any;
+  static info: ModalFunc;
+  static success: ModalFunc;
+  static error: ModalFunc;
+  static warn: ModalFunc;
+  static warning: ModalFunc;
+  static confirm: ModalFunc;
 
   static defaultProps = {
     prefixCls: 'ant-modal',
