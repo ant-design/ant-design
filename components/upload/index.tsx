@@ -90,6 +90,10 @@ export default class Upload extends React.Component<UploadProps, any> {
     };
   }
 
+  componentWillUnmount() {
+    this.clearProgressTimer();
+  }
+
   onStart = (file) => {
     let targetItem;
     let nextFileList = this.state.fileList.concat();
