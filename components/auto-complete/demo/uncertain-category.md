@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 查询模式 - 不确定类目
   en-US: Lookup-Patterns - Uncertain Category
@@ -58,11 +58,9 @@ class Complete extends React.Component {
   }
 
   handleChange = (value) => {
-    if (value) {
-      this.setState({
-        dataSource: searchResult(value),
-      });
-    }
+    this.setState({
+      dataSource: value ? searchResult(value) : [],
+    });
   }
 
   render() {
