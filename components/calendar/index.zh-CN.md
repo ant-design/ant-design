@@ -28,6 +28,7 @@ moment.locale('zh-cn');
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}
   onPanelChange={onPanelChange}
+  onSelect={onSelect}
 />
 ```
 
@@ -43,3 +44,4 @@ moment.locale('zh-cn');
 | monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格  | function(date: moment): ReactNode   | 无 |
 | locale       | 国际化配置     | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| 日期面板变化回调 | function(date: moment, mode: string) | 无 |
+| onSelect     | 点击选择日期回调 | function(date: moment）              | 无 |
