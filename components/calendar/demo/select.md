@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 选择功能
-  en-US: Basic
+  en-US: Selectable Calendar
 ---
 
 ## zh-CN
