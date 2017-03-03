@@ -36,4 +36,10 @@ export default {
   Select: {
     notFoundContent: 'Nenalezeno',
   },
+  Upload: {
+    uploading: 'Nahrávání...',
+    removeFile: 'Smazat soubor',
+    uploadError: 'Chyba při nahrávání',
+    previewFile: 'Zobrazit soubor',
+  },
 };
