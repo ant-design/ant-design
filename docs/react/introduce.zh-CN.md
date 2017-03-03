@@ -63,16 +63,12 @@ $ yarn add antd
 
 ### 浏览器引入
 
-[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
-我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
+我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+ 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
 
-> 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
-
-- https://unpkg.com/antd/dist/antd.js
-- https://unpkg.com/antd/dist/antd.css
-- https://unpkg.com/antd/dist/antd.min.js
-- https://unpkg.com/antd/dist/antd.min.css
+> **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
 ## 示例
 

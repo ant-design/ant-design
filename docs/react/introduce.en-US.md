@@ -63,16 +63,11 @@ If you are in a bad network enviornment，you can try other registers and tools 
 
 ### Import in Browser
 
-[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+Add `script` and `link` tag in your browser and use global variable `antd`.
 
-We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package, in order to import all the components of antd directly. Also, you can use [unpkg](https://unpkg.com/).
+We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package. Also you can download from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd) or [unpkg](https://unpkg.com/).
 
-> It's not recommended to use the already built files, as you cannot get bugfixes from the dependencies of antd.
-
-- https://unpkg.com/antd/dist/antd.js
-- https://unpkg.com/antd/dist/antd.css
-- https://unpkg.com/antd/dist/antd.min.js
-- https://unpkg.com/antd/dist/antd.min.css
+> **We are strongly not recommended to use these built files**, that make you import all components with large size, and you cannot get bugfixes from the dependencies of antd.
 
 ## Usage
 
