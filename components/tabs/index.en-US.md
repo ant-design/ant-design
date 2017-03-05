@@ -25,6 +25,7 @@ Ant Design has 3 types Tabs for different situation.
 | onChange     | Callback when tab is switched | Function | - |
 | onTabClick   | Callback when tab is clicked | Function | - |
 | tabBarExtraContent | Extra element in tab bar | React.ReactNode | - |
+| tabBarStyle  | tar bar style object           | object   | -        |
 | type         | Basic style of tabs. Options: line, card & editable-card | string | line |
 | size         | Tab bar size. Options: default, small. Only works while `type="line"`. | string | default |
 | tabPosition  | Position of tabs. Options: top, right, bottom & left | string | top |

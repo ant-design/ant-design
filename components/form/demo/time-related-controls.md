@@ -108,7 +108,12 @@ class TimeRelatedForm extends React.Component {
             <TimePicker />
           )}
         </FormItem>
-        <FormItem wrapperCol={{ span: 16, offset: 8 }}>
+        <FormItem
+          wrapperCol={{
+            xs: { span: 16, offset: 0 },
+            sm: { span: 16, offset: 8 },
+          }}
+        >
           <Button type="primary" htmlType="submit" size="large">Submit</Button>
         </FormItem>
       </Form>

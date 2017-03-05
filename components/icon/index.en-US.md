@@ -51,11 +51,18 @@ import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
-### Other Icons
+### Application Icons
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
+```
+
+### Brand and Logos
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 ```
 
 ## Props

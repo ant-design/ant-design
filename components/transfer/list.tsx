@@ -37,6 +37,7 @@ export interface TransferListProps {
   notFoundContent?: React.ReactNode;
   filterOption: (filterText: any, item: any) => boolean;
   lazy?: boolean | {};
+  onScroll: Function;
 }
 
 export interface TransferListContext {
@@ -127,8 +128,11 @@ export default class TransferList extends React.Component<TransferListProps, any
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, checkedKeys, lazy,
-            body = noop, footer = noop, showSearch, style, filter } = this.props;
+    const {
+      prefixCls, dataSource, titleText, checkedKeys, lazy,
+      body = noop, footer = noop, showSearch, style, filter,
+      onScroll,
+    } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
 
@@ -197,6 +201,7 @@ export default class TransferList extends React.Component<TransferListProps, any
         {search}
         <Animate
           component="ul"
+          componentProps={{ onScroll }}
           className={`${prefixCls}-content`}
           transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
           transitionLeave={false}

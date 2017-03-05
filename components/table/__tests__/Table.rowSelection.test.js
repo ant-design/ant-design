@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.rowSelection', () => {
@@ -166,6 +167,68 @@ describe('Table.rowSelection', () => {
 
     wrapper.find('input').first().simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toBeCalledWith(true, data, data);
+
+    wrapper.find('input').first().simulate('change', { target: { checked: false } });
+    expect(handleSelectAll).toBeCalledWith(false, [], data);
+  });
+
+  it('render selection correctly', () => {
+    const wrapper = mount(createTable());
+    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+  });
+
+  it('click select all selection', () => {
+    const handleSelectAll = jest.fn();
+    const rowSelection = {
+      onSelectAll: handleSelectAll,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').first().simulate('click');
+
+    expect(handleSelectAll).toBeCalledWith(true, data, data);
+  });
+
+  it('fires selectInvert event', () => {
+    const handleSelectInvert = jest.fn();
+    const rowSelection = {
+      onSelectInvert: handleSelectInvert,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const checkboxes = wrapper.find('input');
+
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').last().simulate('click');
+
+    expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
+  });
+
+  it('fires selection event', () => {
+    const handleSelectOdd = jest.fn();
+    const handleSelectEven = jest.fn();
+    const rowSelection = {
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+        onSelect: handleSelectOdd,
+      }, {
+        key: 'even',
+        text: '偶数项',
+        onSelect: handleSelectEven,
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
+    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(3).simulate('click');
+    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
   });
 
   // https://github.com/ant-design/ant-design/issues/4245

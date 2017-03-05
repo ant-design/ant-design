@@ -59,6 +59,13 @@ import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 
+### 品牌和标识
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
+```
+
 ## Props
 
 | 参数      | 说明             | 类型      | 默认值  |

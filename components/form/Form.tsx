@@ -17,6 +17,7 @@ export interface FormCreateOption {
 }
 
 export interface FormProps {
+  layout?: 'horizontal' | 'inline' | 'vertical';
   horizontal?: boolean;
   inline?: boolean;
   vertical?: boolean;
@@ -87,6 +88,7 @@ export interface ComponentDecorator {
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
+    layout: 'horizontal',
     hideRequiredMark: false,
     onSubmit(e) {
       e.preventDefault();
@@ -94,13 +96,11 @@ export default class Form extends React.Component<FormProps, any> {
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    vertical: React.PropTypes.bool,
-    horizontal: React.PropTypes.bool,
-    inline: React.PropTypes.bool,
-    children: React.PropTypes.any,
-    onSubmit: React.PropTypes.func,
-    hideRequiredMark: React.PropTypes.bool,
+    prefixCls: PropTypes.string,
+    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    children: PropTypes.any,
+    onSubmit: PropTypes.func,
+    hideRequiredMark: PropTypes.bool,
   };
 
   static childContextTypes = {
@@ -163,23 +163,33 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   getChildContext() {
+    const { layout, vertical } = this.props;
     return {
-      vertical: this.props.vertical,
+      vertical: layout === 'vertical' || vertical,
     };
   }
 
   render() {
-    const { prefixCls, hideRequiredMark, className = '', inline, horizontal, vertical } = this.props;
+    const {
+      prefixCls, hideRequiredMark, className = '', layout,
+      // @deprecated
+      inline, horizontal, vertical,
+    } = this.props;
+    warning(
+      !inline && !horizontal && !vertical,
+      '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.'
+    );
     const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: horizontal,
-      [`${prefixCls}-vertical`]: vertical,
-      [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-horizontal`]: (!inline && !vertical && layout === 'horizontal') || horizontal,
+      [`${prefixCls}-vertical`]: layout === 'vertical' || vertical,
+      [`${prefixCls}-inline`]: layout === 'inline' || inline,
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
     }, className);
 
     const formProps = omit(this.props, [
       'prefixCls',
       'className',
+      'layout',
       'inline',
       'horizontal',
       'vertical',

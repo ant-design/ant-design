@@ -51,9 +51,19 @@ Property | Description | Type | Default
 collapsible | whether can be collapsed | boolean | false
 defaultCollapsed | to set the initial status | boolean | false  |
 collapsed | to set the current status | boolean | -
-onCollapse | the callback function, can be executed when you switch the sidebar, available only `collapsible: true` | (collapsed) => {}  | -
+onCollapse | the callback function, can be executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
-collapsedWidth | width of the collapsed sidebar, available only `collapsible: true` | number | 64
+collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
+breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 style | to custom the styles | object | -
 className | container className | string | -
+
+> Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
+
+```jsx
+const CustomizedSider = (props) => <Sider {...props} />
+CustomizedSider.__ANT_LAYOUT_SIDER = true;
+...
+<CustomizedSider>Sider Content</CustomizedSider>
+```

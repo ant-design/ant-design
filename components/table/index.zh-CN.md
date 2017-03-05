@@ -120,6 +120,16 @@ const columns = [{
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
+| selections | 自定义选择项, [配置项](#selection) | object[] | - |
+
+### selection
+
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|---------|
+| key | React 需要的 key，建议设置 | string | -  |
+| text | 选择项显示的文字 | string\|React.ReactNode | -  |
+| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
 ## 在 TypeScript 中使用
 

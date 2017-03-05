@@ -1132,17 +1132,27 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                     <th
                       class="ant-table-selection-column">
                       <span>
-                        <label
-                          class="ant-checkbox-wrapper">
-                          <span
-                            class="ant-checkbox">
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox" />
+                        <div
+                          class="ant-table-selection">
+                          <label
+                            class="ant-checkbox-wrapper">
                             <span
-                              class="ant-checkbox-inner" />
-                          </span>
-                        </label>
+                              class="ant-checkbox">
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox" />
+                              <span
+                                class="ant-checkbox-inner" />
+                            </span>
+                          </label>
+                          <div
+                            class="ant-table-selection-down ant-dropdown-trigger">
+                            <span>
+                              <i
+                                class="anticon anticon-down" />
+                            </span>
+                          </div>
+                        </div>
                       </span>
                     </th>
                     <th
@@ -2322,17 +2332,27 @@ exports[`test renders ./components/table/demo/expand-children.md correctly 1`] =
                   <th
                     class="ant-table-selection-column">
                     <span>
-                      <label
-                        class="ant-checkbox-wrapper">
-                        <span
-                          class="ant-checkbox">
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox" />
+                      <div
+                        class="ant-table-selection">
+                        <label
+                          class="ant-checkbox-wrapper">
                           <span
-                            class="ant-checkbox-inner" />
-                        </span>
-                      </label>
+                            class="ant-checkbox">
+                            <input
+                              class="ant-checkbox-input"
+                              type="checkbox" />
+                            <span
+                              class="ant-checkbox-inner" />
+                          </span>
+                        </label>
+                        <div
+                          class="ant-table-selection-down ant-dropdown-trigger">
+                          <span>
+                            <i
+                              class="anticon anticon-down" />
+                          </span>
+                        </div>
+                      </div>
                     </span>
                   </th>
                   <th
@@ -6964,17 +6984,27 @@ exports[`test renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <th
                     class="ant-table-selection-column">
                     <span>
-                      <label
-                        class="ant-checkbox-wrapper">
-                        <span
-                          class="ant-checkbox">
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox" />
+                      <div
+                        class="ant-table-selection">
+                        <label
+                          class="ant-checkbox-wrapper">
                           <span
-                            class="ant-checkbox-inner" />
-                        </span>
-                      </label>
+                            class="ant-checkbox">
+                            <input
+                              class="ant-checkbox-input"
+                              type="checkbox" />
+                            <span
+                              class="ant-checkbox-inner" />
+                          </span>
+                        </label>
+                        <div
+                          class="ant-table-selection-down ant-dropdown-trigger">
+                          <span>
+                            <i
+                              class="anticon anticon-down" />
+                          </span>
+                        </div>
+                      </div>
                     </span>
                   </th>
                   <th
@@ -7220,17 +7250,27 @@ exports[`test renders ./components/table/demo/row-selection-and-operation.md cor
                     <th
                       class="ant-table-selection-column">
                       <span>
-                        <label
-                          class="ant-checkbox-wrapper">
-                          <span
-                            class="ant-checkbox">
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox" />
+                        <div
+                          class="ant-table-selection">
+                          <label
+                            class="ant-checkbox-wrapper">
                             <span
-                              class="ant-checkbox-inner" />
-                          </span>
-                        </label>
+                              class="ant-checkbox">
+                              <input
+                                class="ant-checkbox-input"
+                                type="checkbox" />
+                              <span
+                                class="ant-checkbox-inner" />
+                            </span>
+                          </label>
+                          <div
+                            class="ant-table-selection-down ant-dropdown-trigger">
+                            <span>
+                              <i
+                                class="anticon anticon-down" />
+                            </span>
+                          </div>
+                        </div>
                       </span>
                     </th>
                     <th
@@ -7650,6 +7690,477 @@ exports[`test renders ./components/table/demo/row-selection-and-operation.md cor
           </li>
         </ul>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/table/demo/row-selection-custom.md correctly 1`] = `
+<div
+  class="ant-table-wrapper">
+  <div
+    class="ant-spin-nested-loading">
+    <div
+      class="ant-spin-container">
+      <div
+        class="ant-table ant-table-large ant-table-scroll-position-left">
+        <div
+          class="ant-table-content">
+          <div
+            class="ant-table-body">
+            <table
+              class="">
+              <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead">
+                <tr>
+                  <th
+                    class="ant-table-selection-column">
+                    <span>
+                      <div
+                        class="ant-table-selection">
+                        <label
+                          class="ant-checkbox-wrapper">
+                          <span
+                            class="ant-checkbox">
+                            <input
+                              class="ant-checkbox-input"
+                              type="checkbox" />
+                            <span
+                              class="ant-checkbox-inner" />
+                          </span>
+                        </label>
+                        <div
+                          class="ant-table-selection-down ant-dropdown-trigger">
+                          <span>
+                            <i
+                              class="anticon anticon-down" />
+                          </span>
+                        </div>
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="">
+                    <span>
+                      Name
+                    </span>
+                  </th>
+                  <th
+                    class="">
+                    <span>
+                      Age
+                    </span>
+                  </th>
+                  <th
+                    class="">
+                    <span>
+                      Address
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody">
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 0
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 0
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 1
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 1
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 2
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 2
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 3
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 3
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 4
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 4
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 5
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 5
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 6
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 6
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 7
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 7
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 8
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 8
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0">
+                  <td
+                    class="ant-table-selection-column">
+                    <span>
+                      <label
+                        class="ant-checkbox-wrapper">
+                        <span
+                          class="ant-checkbox">
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox" />
+                          <span
+                            class="ant-checkbox-inner" />
+                        </span>
+                      </label>
+                    </span>
+                  </td>
+                  <td
+                    class="">
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px;" />
+                    Edward King 9
+                  </td>
+                  <td
+                    class="">
+                    32
+                  </td>
+                  <td
+                    class="">
+                    London, Park Lane no. 9
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination"
+        unselectable="unselectable">
+        <li
+          class="ant-pagination-disabled ant-pagination-prev"
+          title="上一页">
+          <a />
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          title="1">
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-2"
+          title="2">
+          <a>
+            2
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-3"
+          title="3">
+          <a>
+            3
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-4"
+          title="4">
+          <a>
+            4
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-5"
+          title="5">
+          <a>
+            5
+          </a>
+        </li>
+        <li
+          class=" ant-pagination-next"
+          title="下一页">
+          <a />
+        </li>
+      </ul>
     </div>
   </div>
 </div>

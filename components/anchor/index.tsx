@@ -14,6 +14,7 @@ export interface AnchorProps {
   className?: string;
   style?: React.CSSProperties;
   affix?: boolean;
+  showInkInFixed?: boolean;
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
@@ -22,6 +23,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   static defaultProps = {
     prefixCls: 'ant-anchor',
     affix: true,
+    showInkInFixed: false,
   };
 
   static childContextTypes = {
@@ -91,6 +93,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   renderAnchorLink = (child) => {
+
     const { href } = child.props;
     if (child.type.__ANT_ANCHOR_LINK && href) {
       this.anchorHelper.addLink(href);
@@ -98,7 +101,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
         onClick: this.clickAnchorLink,
         prefixCls: this.props.prefixCls,
         bounds: this.props.bounds,
-        affix: this.props.affix,
+        affix: this.props.affix || this.props.showInkInFixed,
         offsetTop: this.props.offsetTop,
       });
     }
@@ -106,7 +109,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   render() {
-    const { prefixCls, offsetTop, style, className = '', affix } = this.props;
+    const { prefixCls, offsetTop, style, className = '', affix, showInkInFixed } = this.props;
     const { activeAnchor, animated } = this.state;
     const inkClass = classNames({
       [`${prefixCls}-ink-ball`]: true,
@@ -119,7 +122,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }, className);
 
     const anchorClass = classNames(prefixCls, {
-      'fixed': !affix,
+      'fixed': !affix && !showInkInFixed,
     });
 
     const anchorContent = (

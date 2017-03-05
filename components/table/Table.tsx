@@ -10,9 +10,10 @@ import assign from 'object-assign';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
-import SelectionCheckboxAll from './SelectionCheckboxAll';
+import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
+import { SpinProps } from '../spin';
 
 function noop() {
 }
@@ -45,6 +46,8 @@ export interface TableRowSelection<T> {
   getCheckboxProps?: (record: T) => Object;
   onSelect?: (record: T, selected: boolean, selectedRows: Object[]) => any;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
+  onSelectInvert?: (selectedRows: Object[]) => any;
+  selections?: SelectionDecorator[];
 }
 
 export interface TableProps<T> {
@@ -65,7 +68,7 @@ export interface TableProps<T> {
   onExpandedRowsChange?: (expandedRowKeys: string[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
-  loading?: boolean;
+  loading?: boolean | SpinProps ;
   locale?: Object;
   indentSize?: number;
   onRowClick?: (record: T, index: number) => any;
@@ -99,7 +102,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     rowSelection: React.PropTypes.object,
     className: React.PropTypes.string,
     size: React.PropTypes.string,
-    loading: React.PropTypes.bool,
+    loading: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.object,
+    ]),
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
@@ -268,6 +274,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
       );
       rowSelection.onSelectAll(checked, selectedRows, changeRows);
+    } else if (selectWay === 'onSelectInvert' && rowSelection.onSelectInvert) {
+      rowSelection.onSelectInvert(selectedRowKeys);
     }
   }
 
@@ -466,37 +474,63 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  handleSelectAllRow = (e) => {
-    const checked = e.target.checked;
+  handleSelectRow = (selectionKey, index, onSelectFunc) => {
     const data = this.getFlatCurrentPageData();
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
-    const changableRowKeys = data
+    const changeableRowKeys = data
       .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
-    // 记录变化的列
-    const changeRowKeys: string[] = [];
-    if (checked) {
-      changableRowKeys.forEach(key => {
-        if (selectedRowKeys.indexOf(key) < 0) {
-          selectedRowKeys.push(key);
+    let changeRowKeys: string[] = [];
+    let selectWay = '';
+    let checked;
+    // handle default selection
+    switch (selectionKey) {
+      case 'all':
+        changeableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) < 0) {
+            selectedRowKeys.push(key);
+            changeRowKeys.push(key);
+          }
+        });
+        selectWay = 'onSelectAll';
+        checked = true;
+        break;
+      case 'removeAll':
+        changeableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) >= 0) {
+            selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+            changeRowKeys.push(key);
+          }
+        });
+        selectWay = 'onSelectAll';
+        checked = false;
+        break;
+      case 'invert':
+        changeableRowKeys.forEach(key => {
+          if (selectedRowKeys.indexOf(key) < 0) {
+            selectedRowKeys.push(key);
+          }else {
+            selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+          }
           changeRowKeys.push(key);
-        }
-      });
-    } else {
-      changableRowKeys.forEach(key => {
-        if (selectedRowKeys.indexOf(key) >= 0) {
-          selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
-          changeRowKeys.push(key);
-        }
-      });
+          selectWay = 'onSelectInvert';
+        });
+        break;
+      default:
+        break;
     }
+
     this.store.setState({
       selectionDirty: true,
     });
+    // when select custom selection, callback selections[n].onSelect
+    if (index > 1 && typeof onSelectFunc === 'function') {
+      return onSelectFunc(changeableRowKeys);
+    }
     this.setSelectedRowKeys(selectedRowKeys, {
-      selectWay: 'onSelectAll',
+      selectWay: selectWay,
       checked,
       changeRowKeys,
     });
@@ -597,7 +631,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             getCheckboxPropsByItem={this.getCheckboxPropsByItem}
             getRecordKey={this.getRecordKey}
             disabled={checkboxAllDisabled}
-            onChange={this.handleSelectAllRow}
+            prefixCls={prefixCls}
+            onSelect={this.handleSelectRow}
+            selections={rowSelection.selections || []}
           />
         );
       }
@@ -837,7 +873,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   render() {
-    const { style, className, prefixCls, showHeader, loading, ...restProps } = this.props;
+    const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -882,10 +918,17 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
       ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
 
+    let loading = this.props.loading;
+    if (typeof loading === 'boolean') {
+      loading = {
+        spinning: loading,
+      };
+    }
+
     return (
       <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
         <Spin
-          spinning={loading}
+          {...loading}
           className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
           {table}
