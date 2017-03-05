@@ -36,4 +36,10 @@ export default {
   Select: {
     notFoundContent: '데이터 없음',
   },
+  Upload: {
+    uploading: '업로드 중...',
+    removeFile: '파일 삭제',
+    uploadError: '업로드 실패',
+    previewFile: '파일 미리보기',
+  },
 };
