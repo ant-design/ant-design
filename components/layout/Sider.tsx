@@ -39,7 +39,7 @@ export interface SiderProps {
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
-  breakPoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default class Sider extends React.Component<SiderProps, any> {
@@ -63,8 +63,8 @@ export default class Sider extends React.Component<SiderProps, any> {
     if (typeof window !== 'undefined') {
       matchMedia = window.matchMedia;
     }
-    if (matchMedia && props.breakPoint && props.breakPoint in dimensionMap) {
-      this.mql = matchMedia(`(max-width: ${dimensionMap[props.breakPoint]})`);
+    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMap) {
+      this.mql = matchMedia(`(max-width: ${dimensionMap[props.breakpoint]})`);
     }
     let collapsed;
     if ('collapsed' in props) {
@@ -133,7 +133,7 @@ export default class Sider extends React.Component<SiderProps, any> {
       ...others,
     } = this.props;
     const divProps = omit(others, ['collapsed',
-      'defaultCollapsed', 'onCollapse', 'breakPoint']);
+      'defaultCollapsed', 'onCollapse', 'breakpoint']);
     const siderWidth = this.state.collapsed ? collapsedWidth : width;
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' ?

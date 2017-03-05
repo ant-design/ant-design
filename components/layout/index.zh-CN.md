@@ -56,7 +56,7 @@ title: Layout
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
 | width | 宽度 | number\|string | 200 |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 64 |
-| breakPoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
+| breakpoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 

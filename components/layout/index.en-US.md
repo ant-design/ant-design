@@ -55,7 +55,7 @@ onCollapse | the callback function, can be executed by clicking the trigger or a
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
 collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
-breakPoint | breakPoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
+breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 style | to custom the styles | object | -
 className | container className | string | -
 
