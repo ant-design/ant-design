@@ -119,6 +119,9 @@ Properties for selection.
 | getCheckboxProps | get Checkbox or Radio props | Function(record) |  -   |
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
+| selections | custom selection | {key: string, text: string}[] | - |
+| onSelection | callback that is called when select custom selection | Fcuntion(key, changableRowKeys) | - |
 
 ## Using in TypeScript
 

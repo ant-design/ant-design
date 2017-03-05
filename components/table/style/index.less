@@ -434,6 +434,36 @@
     }
   }
 
+  &-selection {
+    width: 40px;
+
+    .@{iconfont-css-prefix}-down {
+      color: #aaa;
+    }
+
+    &-menu {
+      min-width: 96px;
+      margin-top: 5px;
+      margin-left: -30px;
+      background: @component-background;
+      border-radius: @border-radius-base;
+      box-shadow: @box-shadow-base;
+
+      .@{ant-prefix}-dropdown-menu-item {
+        color: black;
+      }
+
+      .@{ant-prefix}-action-down {
+        color: #aaa;
+      }
+    }
+
+    &-down {
+      padding: 0;
+      display: inline-block;
+    }
+  }
+
   &-row {
     &-expand-icon {
       cursor: pointer;
