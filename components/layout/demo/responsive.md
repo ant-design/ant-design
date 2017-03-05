@@ -9,16 +9,24 @@ title:
 
 Layout.Sider 支持响应式布局。
 
+> 说明：配置 `breakPoint` 属性即生效，视窗宽度小于 `breakPoint` 时 Sider 缩小为 `collapsedWidth` 宽度，若将 `collapsedWidth` 设置为零，会出现特殊 trigger。
+
 ## en-US
 
 Layout.Sider supports responsive layout.
+
+> Note: You can get a responsive layout by setting `breakPoint`, the Sider will collapse to the width of `collapsedWidth` when window width is below the `breakPoint`. And a special trigger will appear if the `collapsedWidth` is set to `0`.
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(<Layout>
-  <Sider breakpoint="lg" onResponse={(below) => { console.log(below); }}>
+  <Sider
+    breakPoint="lg"
+    collapsedWidth="0"
+    onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
+  >
     <div className="logo" />
     <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
       <Menu.Item key="1">

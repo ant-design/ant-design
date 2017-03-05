@@ -61,7 +61,7 @@
       color: #fff;
     }
 
-    &-below-default {
+    &-zero-width {
       & > * {
         overflow: hidden;
       }
@@ -69,14 +69,14 @@
       &-trigger {
         position: absolute;
         top: @layout-header-height;
-        right: -@layout-below-trigger-width;
+        right: -@layout-zero-trigger-width;
         text-align: center;
-        width: @layout-below-trigger-width;
-        height: @layout-below-trigger-height;
-        line-height: @layout-below-trigger-height;
+        width: @layout-zero-trigger-width;
+        height: @layout-zero-trigger-height;
+        line-height: @layout-zero-trigger-height;
         background: @layout-sider-background;
         color: #fff;
-        font-size: @layout-below-trigger-width / 2;
+        font-size: @layout-zero-trigger-width / 2;
         border-radius: 0 @border-radius-base @border-radius-base 0;
         cursor: pointer;
         transition: background .3s ease;

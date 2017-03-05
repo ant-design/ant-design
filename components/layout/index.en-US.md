@@ -51,13 +51,11 @@ Property | Description | Type | Default
 collapsible | whether can be collapsed | boolean | false
 defaultCollapsed | to set the initial status | boolean | false  |
 collapsed | to set the current status | boolean | -
-onCollapse | the callback function, can be executed when you switch the sidebar, available only `collapsible: true` | (collapsed) => {}  | -
+onCollapse | the callback function, can be executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
-collapsedWidth | width of the collapsed sidebar, available only `collapsible: true` | number | 64
-breakpoint | breakpoint of the responsive layout | string: `xs` \| `sm` \| `md` \| `lg` \| `xl` | - |
-widthBelow | to set the Sider width when the window width is below the breakpoint | number\|string | `0` by default, means hide completely, and will be set to `collapsedWidth` when `collapsible=true`
-onResponse | the callback function, can be executed when the responsive layout is changing | function | (below: boolean) => {}
+collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
+breakPoint | breakPoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 style | to custom the styles | object | -
 className | container className | string | -
 
