@@ -33,6 +33,8 @@ export interface CalendarProps {
   fullscreen?: boolean;
   dateCellRender?: (date: moment.Moment) => React.ReactNode;
   monthCellRender?: (date: moment.Moment) => React.ReactNode;
+  dateFullCellRender?: (date: moment.Moment) => React.ReactNode;
+  monthFullCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
@@ -54,6 +56,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   static propTypes = {
     monthCellRender: PropTypes.func,
     dateCellRender: PropTypes.func,
+    monthFullCellRender: PropTypes.func,
+    dateFullCellRender: PropTypes.func,
     fullscreen: PropTypes.bool,
     locale: PropTypes.object,
     prefixCls: PropTypes.string,
@@ -151,7 +155,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     if (value && localeCode) {
       value.locale(localeCode);
     }
-    const { prefixCls, style, className, fullscreen } = props;
+    const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender } = props;
     const type = (mode === 'year') ? 'month' : 'date';
     const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
 
@@ -159,6 +163,9 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     if (fullscreen) {
       cls += (` ${prefixCls}-fullscreen`);
     }
+
+    const monthCellRender = monthFullCellRender || this.monthCellRender;
+    const dateCellRender = dateFullCellRender || this.dateCellRender;
 
     return (
       <div className={cls} style={style}>
@@ -179,8 +186,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           prefixCls={prefixCls}
           showHeader={false}
           value={value}
-          monthCellRender={this.monthCellRender}
-          dateCellRender={this.dateCellRender}
+          monthCellRender={monthCellRender}
+          dateCellRender={dateCellRender}
         />
       </div>
     );
