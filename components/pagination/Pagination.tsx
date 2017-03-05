@@ -28,7 +28,7 @@ export interface PaginationProps {
   /** 当为「small」时，是小尺寸分页 */
   size?: string;
   /** 当添加该属性时，显示为简单分页*/
-  simple?: Object;
+  simple?: boolean;
   /** 用于显示总共有多少条数据*/
   showTotal?: (total: number) => React.ReactNode;
   style?: React.CSSProperties;

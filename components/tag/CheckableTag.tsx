@@ -22,7 +22,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps, any
       [`${prefixCls}-checkable-checked`]: checked,
     }, className);
 
-    delete restProps.onChange; // TypeScript cannot check delete now.
+    delete (restProps as any).onChange; // TypeScript cannot check delete now.
     return <div {...restProps as any} className={cls} onClick={this.handleClick} />;
   }
 }

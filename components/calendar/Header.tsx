@@ -26,8 +26,8 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
-    const start = year - yearSelectOffset;
-    const end = start + yearSelectTotal;
+    const start = year - (yearSelectOffset as number);
+    const end = start + (yearSelectTotal as number);
     const suffix = locale.year === '年' ? '年' : '';
 
     const options: React.ReactElement<any>[] = [];
