@@ -11,8 +11,8 @@
     <script>
     (function() {
       function isLocalStorageNameSupported() {
-        const testKey = 'test';
-        const storage = window.localStorage;
+        var testKey = 'test';
+        var storage = window.localStorage;
         try {
           storage.setItem(testKey, '1');
           storage.removeItem(testKey);
