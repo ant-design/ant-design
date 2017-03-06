@@ -1135,7 +1135,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                         <div
                           class="ant-table-selection">
                           <label
-                            class="ant-checkbox-wrapper">
+                            class="ant-table-selection-select-all ant-checkbox-wrapper">
                             <span
                               class="ant-checkbox">
                               <input
@@ -2335,7 +2335,7 @@ exports[`test renders ./components/table/demo/expand-children.md correctly 1`] =
                       <div
                         class="ant-table-selection">
                         <label
-                          class="ant-checkbox-wrapper">
+                          class="ant-table-selection-select-all ant-checkbox-wrapper">
                           <span
                             class="ant-checkbox">
                             <input
@@ -6987,7 +6987,7 @@ exports[`test renders ./components/table/demo/row-selection.md correctly 1`] = `
                       <div
                         class="ant-table-selection">
                         <label
-                          class="ant-checkbox-wrapper">
+                          class="ant-table-selection-select-all ant-checkbox-wrapper">
                           <span
                             class="ant-checkbox">
                             <input
@@ -7253,7 +7253,7 @@ exports[`test renders ./components/table/demo/row-selection-and-operation.md cor
                         <div
                           class="ant-table-selection">
                           <label
-                            class="ant-checkbox-wrapper">
+                            class="ant-table-selection-select-all ant-checkbox-wrapper">
                             <span
                               class="ant-checkbox">
                               <input
@@ -7725,7 +7725,7 @@ exports[`test renders ./components/table/demo/row-selection-custom.md correctly 
                       <div
                         class="ant-table-selection">
                         <label
-                          class="ant-checkbox-wrapper">
+                          class="ant-table-selection-select-all ant-checkbox-wrapper">
                           <span
                             class="ant-checkbox">
                             <input

@@ -138,12 +138,17 @@
     word-break: break-all;
   }
 
+  &-thead > tr > th.@{table-prefix-cls}-selection-column {
+    padding-left: 16px;
+    padding-right: 0;
+  }
+
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column,
   &-expand-icon-th,
   &-row-expand-icon-cell {
     text-align: center;
-    width: 48px;
+    width: 62px;
   }
 
   &-header {
@@ -432,7 +437,9 @@
   }
 
   &-selection {
-    width: 40px;
+    &-select-all {
+      margin-right: 4px !important;
+    }
 
     .@{iconfont-css-prefix}-down {
       color: #aaa;
@@ -456,8 +463,11 @@
     }
 
     &-down {
+      cursor: pointer;
       padding: 0;
       display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
     }
   }
 

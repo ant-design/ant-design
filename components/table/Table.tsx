@@ -30,6 +30,8 @@ const defaultLocale = {
   filterConfirm: '确定',
   filterReset: '重置',
   emptyText: <span><Icon type="frown-o" />暂无数据</span>,
+  selectAll: '全选',
+  selectInvert: '反选',
 };
 
 const defaultPagination = {
@@ -627,6 +629,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         selectionColumn.title  = (
           <SelectionCheckboxAll
             store={this.store}
+            locale={this.getLocale()}
             data={data}
             getCheckboxPropsByItem={this.getCheckboxPropsByItem}
             getRecordKey={this.getRecordKey}

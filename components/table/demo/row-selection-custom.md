@@ -53,7 +53,7 @@ class App extends React.Component {
       onChange: this.onSelectChange,
       selections: [{
         key: 'odd',
-        text: '奇数项',
+        text: 'Select Odd Row',
         onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {
@@ -66,7 +66,7 @@ class App extends React.Component {
         },
       }, {
         key: 'even',
-        text: '偶数项',
+        text: 'Select Even Row',
         onSelect: (changableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changableRowKeys.filter((key, index) => {

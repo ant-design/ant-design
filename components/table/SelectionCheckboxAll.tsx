@@ -13,6 +13,7 @@ export interface SelectionDecorator {
 
 export interface SelectionCheckboxAllProps {
   store: Store;
+  locale: any;
   disabled: boolean;
   getCheckboxPropsByItem: (item, index) => any;
   getRecordKey: (record, index?) => string;
@@ -22,21 +23,22 @@ export interface SelectionCheckboxAllProps {
   selections: SelectionDecorator[];
 }
 
-const defaultSelections: SelectionDecorator[] = [{
-  key: 'all',
-  text: '全选',
-  onSelect: () => {},
-}, {
-  key: 'invert',
-  text: '反选',
-  onSelect: () => {},
-}];
-
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
   unsubscribe: () => void;
+  defaultSelections: SelectionDecorator[];
 
   constructor(props) {
     super(props);
+
+    this.defaultSelections = [{
+      key: 'all',
+      text: props.locale.selectAll,
+      onSelect: () => {},
+    }, {
+      key: 'invert',
+      text: props.locale.selectInvert,
+      onSelect: () => {},
+    }];
 
     this.state = {
       checked: this.getCheckState(props),
@@ -154,11 +156,12 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
 
     let selectionPrefixCls = `${prefixCls}-selection`;
 
-    let selections = defaultSelections.concat(this.props.selections || []);
+    let selections = this.defaultSelections.concat(this.props.selections || []);
 
     let menu = (
       <Menu
         className={`${selectionPrefixCls}-menu`}
+        selectedKeys={[]}
       >
         {this.renderMenus(selections)}
       </Menu>
@@ -167,6 +170,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return (
       <div className={selectionPrefixCls}>
         <Checkbox
+          className={`${selectionPrefixCls}-select-all`}
           checked={checked}
           indeterminate={indeterminate}
           disabled={disabled}
