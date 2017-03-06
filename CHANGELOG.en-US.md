@@ -32,7 +32,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - `spin` now spport Spin props. [#4824](https://github.com/ant-design/ant-design/pull/4824) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
   - Fix issue resulting header's bottom border doesn't show when `size` is `small`. [#5182](https://github.com/ant-design/ant-design/issues/5182)
 - Mention added custom trigger character support. [demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
-  ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
+  - ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
 - Rate
   - Support custom character. [demo](https://ant.design/components/rate-cn/#components-rate-demo-character)
   - Added new `className` prop.

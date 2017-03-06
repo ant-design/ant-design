@@ -31,10 +31,8 @@ timeline: true
   - 新增反选功能并允许自定义全选选项。[#4962](https://github.com/ant-design/ant-design/pull/4962)
   - `spin` 属性支持所有 Spin 的属性。[#4824](https://github.com/ant-design/ant-design/pull/4824) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
   - 修正 `size` 是 `small` 的时候表头没有底边框的问题。[#5182](https://github.com/ant-design/ant-design/issues/5182)
-- Mention
-  - 新增自定义触发字符的支持。[demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
-
-  ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
+- Mention 新增自定义触发字符的支持。[demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
+  - ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
 - Rate
   - 支持自定义字符。[demo](https://ant.design/components/rate-cn/#components-rate-demo-charactor)
   - 新增 `className` 属性。
