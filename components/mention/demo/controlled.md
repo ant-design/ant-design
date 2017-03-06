@@ -50,7 +50,7 @@ class App extends React.Component {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
     return (
-      <Form horizontal>
+      <Form layout="horizontal">
         <FormItem
           id="control-mention"
           label="Top coders"
