@@ -30,7 +30,7 @@ const defaultLocale = {
   filterConfirm: '确定',
   filterReset: '重置',
   emptyText: <span><Icon type="frown-o" />暂无数据</span>,
-  selectALL: '全选',
+  selectAll: '全选',
   selectInvert: '反选',
 };
 
