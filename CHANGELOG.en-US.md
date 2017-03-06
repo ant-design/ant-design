@@ -17,6 +17,59 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.8.0
+
+`2017-03-06`
+
+- Tabs
+  - Added `tabBarStyle` to allow customize style of tab bar. [#4966](https://github.com/ant-design/ant-design/issues/4966)
+  - Added `TabPane[closable]` to allow config whether to show delete icon or not. [#4807](https://github.com/ant-design/ant-design/pull/4807) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+- Anchor
+  - Added `showInkInFixed` to allow config whether to show circle icon or not when anchor is fixed. [#4960](https://github.com/ant-design/ant-design/pull/4960)
+  - Fix issue resulting in Anchor throw errors when `children` is not AnchorLink. [#5129](https://github.com/ant-design/ant-design/issues/5129)
+- Table
+  - Added invert selection feature. [demo](https://ant.design/components/table-cn/#components-table-demo-row-selection-custom) [#4962](https://github.com/ant-design/ant-design/pull/4962)
+  - `spin` now spport Spin props. [#4824](https://github.com/ant-design/ant-design/pull/4824) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+  - Fix issue resulting header's bottom border doesn't show when `size` is `small`. [#5182](https://github.com/ant-design/ant-design/issues/5182)
+- Mention added custom trigger character support. [demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
+  ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
+- Rate
+  - Support custom character. [demo](https://ant.design/components/rate-cn/#components-rate-demo-character)
+  - Added new `className` prop.
+- Layout
+  - Added a new `Header Sider` demo. [demo](http://ant.design/components/layout-cn/#components-layout-demo-top-side-2)
+  - Added a new `Fixed Header` demo. [demo](https://ant.design/components/layout-cn/#components-layout-demo-fixed)
+  - Added `Sider[breakpoint]` to allow config responsive breakpoint. [#4931](https://github.com/ant-design/ant-design/pull/4931)
+- Form
+  - Added `layout` to replace the original `horizontal`、`vertical`、`inline`. [#5056](https://github.com/ant-design/ant-design/issues/5056)
+  - Added responsive support. [#5055](https://github.com/ant-design/ant-design/issues/5055)
+- Calendar
+  - Added `dateFullCellRender` and `monthFullCellRender` to allow override the content of cell. [#5138](https://github.com/ant-design/ant-design/pull/5138) [@wonyun](https://github.com/wonyun)
+  - Added  `onSelect` for date selection. [demo](https://ant.design/components/calendar-cn/#components-calendar-demo-select)
+- AutoComplete
+  - Fix alignment issue in Form.Item. [#5139](https://github.com/ant-design/ant-design/issues/5139)
+  - Adde a newd `Uncertain Category` demo. [demo](https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-uncertain-category)
+- Col added `xl` to support 1600px breakpoint. [#4796](https://github.com/ant-design/ant-design/pull/4796) [@hjin-me](https://github.com/hjin-me)
+- Upload added `locale` to support i18n. [#4697](https://github.com/ant-design/ant-design/issues/4697)
+- Transfer added `onScroll` to support load data dynamically. [#4188](https://github.com/ant-design/ant-design/issues/4188)
+- `message` and `notification` add `getContainer` to allow config the render container. [#5019](https://github.com/ant-design/ant-design/issues/5019)
+- Badge added `showZero` to allow config whether to show `0` or not. [#4251](https://github.com/ant-design/ant-design/issues/4251)
+- InputNumber
+  - Added `formatter` to allow format the value to present.
+  - Added ctrl and shift key support. [detail](https://github.com/react-component/input-number#keyboard-navigation)
+- Added some new icons. [#5107](https://github.com/ant-design/ant-design/pull/5107)
+- New locale support:
+  - Dutch [#4785](https://github.com/ant-design/ant-design/pull/4785) [@corneyl](https://github.com/corneyl)
+  - Catalan [#4929](https://github.com/ant-design/ant-design/pull/4929) [@aaronplanell](https://github.com/aaronplanell)
+  - Czech [#5169](https://github.com/ant-design/ant-design/pull/5169) [@martinnov92](https://github.com/ant-design/ant-design/pull/5169)
+  - Korean [#5141](https://github.com/ant-design/ant-design/pull/5141) [@minsungryu](https://github.com/ant-design/ant-design/pull/5141)
+- Improve Spin display position. [#4722](https://github.com/ant-design/ant-design/issues/4722)
+- Fix Checkbox comatible issue with `browser-sync`. [#2744](https://github.com/ant-design/ant-design/issues/2744)
+- Fix Steps width issue when resize window. [#5083](https://github.com/ant-design/ant-design/issues/5083)
+- Fix Upload.Dragger unmount error. [#5162](https://github.com/ant-design/ant-design/issues/5162)
+- Fix Button shifting during click in IE issue.
+- FIx Input prefix and suffix vertical alignment.
+
 ## 2.7.4
 
 `2017-02-28`

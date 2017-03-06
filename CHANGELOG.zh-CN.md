@@ -17,6 +17,61 @@ timeline: true
 
 ---
 
+## 2.8.0
+
+`2017-03-06`
+
+- Tabs
+  - 新增 `tabBarStyle` 用于自定义 tabBar 的样式。[#4966](https://github.com/ant-design/ant-design/issues/4966)
+  - 新增 `TabPane[closable]` 用于设置是否显示删除按钮。[#4807](https://github.com/ant-design/ant-design/pull/4807) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+- Anchor
+  - 新增 `showInkInFixed` 用于设置在 fixed 状态下是否圆形图标。[#4960](https://github.com/ant-design/ant-design/pull/4960)
+  - 修复 `children` 不是 AnchorLink 时会报错的问题。[#5129](https://github.com/ant-design/ant-design/issues/5129)
+- Table
+  - 新增反选功能并允许自定义全选选项。[#4962](https://github.com/ant-design/ant-design/pull/4962)
+  - `spin` 属性支持所有 Spin 的属性。[#4824](https://github.com/ant-design/ant-design/pull/4824) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+  - 修正 `size` 是 `small` 的时候表头没有底边框的问题。[#5182](https://github.com/ant-design/ant-design/issues/5182)
+- Mention
+  - 新增自定义触发字符的支持。[demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
+
+  ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
+- Rate
+  - 支持自定义字符。[demo](https://ant.design/components/rate-cn/#components-rate-demo-charactor)
+  - 新增 `className` 属性。
+- Layout
+  - 新增 `顶部-侧边布局-通栏` 的例子。[demo](http://ant.design/components/layout-cn/#components-layout-demo-top-side-2)
+  - 新增 `固定头部` 的例子。[demo](https://ant.design/components/layout-cn/#components-layout-demo-fixed)
+  - Sider 新增 `breakpoint` 用于设置响应式展示。[#4931](https://github.com/ant-design/ant-design/pull/4931)
+- Form
+  - 新增 `layout` 属性用于取代原有的 `horizontal`、`vertical`、`inline`。[#5056](https://github.com/ant-design/ant-design/issues/5056)
+  - 支持响应式布局变化。[#5055](https://github.com/ant-design/ant-design/issues/5055)
+- Calendar
+  - 新增 `dateFullCellRender` 和 `monthFullCellRender` 用于覆盖单元格的内容。[#5138](https://github.com/ant-design/ant-design/pull/5138) [@wonyun](https://github.com/wonyun)
+  - 新增 `onSelect` 用于日期选择功能。[demo](https://ant.design/components/calendar-cn/#components-calendar-demo-select)
+- AutoComplete
+  - 修复在 Form.Item 里不对齐的问题。[#5139](https://github.com/ant-design/ant-design/issues/5139)
+  - 新增 `查询模式 - 确定类目` 的例子。[demo](https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-uncertain-category)
+- Col 新增 `xl` 属性，支持 1600px 的响应布局断点。[#4796](https://github.com/ant-design/ant-design/pull/4796) [@hjin-me](https://github.com/hjin-me)
+- Upload 新增 `locale` 支持国际化文案定义。[#4697](https://github.com/ant-design/ant-design/issues/4697)
+- Transfer 新增 `onScroll` 支持动态加载数据。[#4188](https://github.com/ant-design/ant-design/issues/4188)
+- message 和 notification 新增 `getContainer` 参数支持自定义消息渲染的容器。[#5019](https://github.com/ant-design/ant-design/issues/5019)
+- Badge 新增 `showZero` 支持设置是否显示 `0`。[#4251](https://github.com/ant-design/ant-design/issues/4251)
+- InputNumber
+  - 新增 `formatter` 用于格式化展示的值。
+  - 新增组合键的支持。[详细](https://github.com/react-component/input-number#keyboard-navigation)
+- 新增大量图标。[#5107](https://github.com/ant-design/ant-design/pull/5107)
+- 新增语言支持：
+  - 荷兰语 [#4785](https://github.com/ant-design/ant-design/pull/4785) [@corneyl](https://github.com/corneyl)
+  - 加泰罗尼亚语 [#4929](https://github.com/ant-design/ant-design/pull/4929) [@aaronplanell](https://github.com/aaronplanell)
+  - 捷克语 [#5169](https://github.com/ant-design/ant-design/pull/5169) [@martinnov92](https://github.com/ant-design/ant-design/pull/5169)
+  - 朝鲜语 [#5141](https://github.com/ant-design/ant-design/pull/5141) [@minsungryu](https://github.com/ant-design/ant-design/pull/5141)
+- 优化 Spin 显示位置。[#4722](https://github.com/ant-design/ant-design/issues/4722)
+- 优化 Checkbox 以兼容 `browser-sync`。[#2744](https://github.com/ant-design/ant-design/issues/2744)
+- 修复 Steps 在窗口变化时的宽度问题。[#5083](https://github.com/ant-design/ant-design/issues/5083)
+- 修复 Upload.Dragger unmount 时会报错的问题。[#5162](https://github.com/ant-design/ant-design/issues/5162)
+- 修复 Button 里的文字在 IE 下点击时会移动的问题。
+- 修复 Input 的前缀跟后缀的垂直居中对齐问题。
+
 ## 2.7.4
 
 `2017-02-28`
