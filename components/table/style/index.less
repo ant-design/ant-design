@@ -144,11 +144,15 @@
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+    width: 62px;
+  }
+
   &-expand-icon-th,
   &-row-expand-icon-cell {
     text-align: center;
-    width: 62px;
+    width: 50px;
   }
 
   &-header {
@@ -183,7 +187,7 @@
   }
 
   &-middle {
-    .@{table-prefix-cls}-thead > tr > th,
+    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column),
     .@{table-prefix-cls}-tbody > tr > td {
       padding: 10px 8px;
     }
@@ -215,7 +219,7 @@
 
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
-    .@{table-prefix-cls}-thead > tr > th {
+    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column) {
       padding: 10px 8px;
     }
 
@@ -482,9 +486,6 @@
       border: @border-width-base @border-style-base @border-color-split;
       user-select: none;
       background: @component-background;
-      &-cell {
-        width: 18px;
-      }
     }
 
     &-expanded:after {
