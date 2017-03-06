@@ -67,7 +67,12 @@ export default function createPicker(TheCalendar) {
     },
 
     handleTempChange(tempValue) {
-      this.setState({ tempValue });
+      const onSelect = this.props.onSelect;
+
+      // allow temp value to be modified from onSelect callback
+      const modValue = onSelect && onSelect(tempValue) || tempValue;
+
+      this.setState({ tempValue: modValue });
     },
 
     // Clear temp value and trigger onChange when hide DatePicker[showTime] panel
