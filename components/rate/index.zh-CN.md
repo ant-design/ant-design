@@ -23,6 +23,6 @@ title: Rate
 | onHoverChange | 鼠标经过时数值变化的回调 | Function(value: number) | - |
 | allowHalf | 是否允许半选   | boolean | false |
 | disabled | 只读，无法进行交互 | boolean | false |
-| charactor | 自定义字符 | ReactNode | `<Icon type="star" />` |
+| character | 自定义字符 | ReactNode | `<Icon type="star" />` |
 | className | 自定义样式类名 | string | - |
 | style | 自定义样式对象 | object | - |

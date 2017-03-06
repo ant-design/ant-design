@@ -69,7 +69,7 @@ exports[`test renders ./components/rate/demo/basic.md correctly 1`] = `
 </ul>
 `;
 
-exports[`test renders ./components/rate/demo/charactor.md correctly 1`] = `
+exports[`test renders ./components/rate/demo/character.md correctly 1`] = `
 <div>
   <ul
     class="ant-rate">

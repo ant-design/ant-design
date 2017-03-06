@@ -12,7 +12,7 @@ export interface RateProps {
   disabled?: boolean;
   onChange?: (value: number) => any;
   onHoverChange?: (value: number) => any;
-  charactor?: React.ReactNode;
+  character?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -20,11 +20,11 @@ export interface RateProps {
 export default class Rate extends React.Component<RateProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
-    charactor: PropTypes.node,
+    character: PropTypes.node,
   };
   static defaultProps = {
     prefixCls: 'ant-rate',
-    charactor: <Icon type="star" />,
+    character: <Icon type="star" />,
   };
   render() {
     return <RcRate {...this.props} />;
