@@ -17,6 +17,8 @@ export default {
     filterConfirm: 'OK',
     filterReset: 'Reset',
     emptyText: 'No Data',
+    selectAll: 'Select All',
+    selectInvert: 'Select Invert',
   },
   Modal: {
     okText: 'OK',
