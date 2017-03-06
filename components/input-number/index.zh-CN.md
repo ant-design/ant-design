@@ -25,3 +25,4 @@ title: InputNumber
 | onChange     | 变化回调       | Function(value: number | string) |            |
 | disabled     | 禁用       | boolean      |      false      |
 | size    | 输入框大小  | string      |      无      |
+| formatter | 指定输入框展示值的格式 | function(value: number | string): string | - |
