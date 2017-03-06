@@ -33,7 +33,7 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   onChange?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>) => void;
   onSelect?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>, option: Object) => any;
   disabled?: boolean;
-  children: ValidInputElement |
+  children?: ValidInputElement |
     React.ReactElement<OptionProps> |
     Array<React.ReactElement<OptionProps>>;
 }
