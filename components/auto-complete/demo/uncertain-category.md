@@ -102,23 +102,8 @@ ReactDOM.render(<Complete />, mountNode);
   width: 100%;
 }
 
-.global-search.ant-select-auto-complete .ant-input {
-  height: 40px;
-  padding: 11px 12px;
-}
-
-.global-search.ant-select-auto-complete .ant-select-selection__placeholder {
-  top: 20px;
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
-.global-search .search-btn {
-  font-size: 18px;
-}
-
 .global-search.ant-select-auto-complete .ant-select-selection--single {
-  margin-right: -50px;
+  margin-right: -46px;
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input:not(:last-child) {
@@ -130,14 +115,12 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
-  padding-top: 5px;
-  padding-bottom: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 .global-search-item-count {
- position: absolute;
- right: 16px;
+  position: absolute;
+  right: 16px;
 }
 ````

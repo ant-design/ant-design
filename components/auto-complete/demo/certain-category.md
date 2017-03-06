@@ -46,16 +46,18 @@ const dataSource = [{
 }];
 
 function renderTitle(title) {
-  return (<span>
-    {title}
-    <a
-      style={{ float: 'right' }}
-      href="https://www.google.com/search?q=antd"
-      target="_blank"
-      rel="noopener noreferrer"
-    >更多
-    </a>
-  </span>);
+  return (
+    <span>
+      {title}
+      <a
+        style={{ float: 'right' }}
+        href="https://www.google.com/search?q=antd"
+        target="_blank"
+        rel="noopener noreferrer"
+      >更多
+      </a>
+    </span>
+  );
 }
 
 const options = dataSource.map(group =>
@@ -92,18 +94,8 @@ function Complete() {
         dataSource={options}
         placeholder="input here"
         optionLabelProp="value"
-        dropdownAlign={{
-          points: ['bl', 'tl'],
-          offset: [0, -4],
-          overflow: {
-            adjustX: 0,
-            adjustY: 0,
-          },
-        }}
       >
-        <Input
-          suffix={<Icon type="search" className="certain-category-icon" />}
-        />
+        <Input suffix={<Icon type="search" className="certain-category-icon" />} />
       </AutoComplete>
     </div>
   );
@@ -113,18 +105,8 @@ ReactDOM.render(<Complete />, mountNode);
 ````
 
 ````css
-.certain-category-search.ant-select-auto-complete .ant-input {
-  height: 40px;
-  padding: 11px 12px;
-}
 .certain-category-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
-  right: 16px;
-}
-
-.certain-category-search.ant-select-auto-complete .ant-select-selection__placeholder {
-  top: 20px;
-  margin-left: 12px;
-  margin-right: 12px;
+  right: 12px;
 }
 
 .certain-category-search-dropdown .ant-select-dropdown-menu-item-group-title {
@@ -156,7 +138,7 @@ ReactDOM.render(<Complete />, mountNode);
 }
 
 .certain-category-search.ant-select-focused .certain-category-icon {
-  color: #49A9EE;
+  color: #108ee9;
 }
 
 .certain-category-icon {
