@@ -138,12 +138,12 @@ export default class Affix extends React.Component<AffixProps, any> {
     const targetRect = getTargetRect(targetNode);
     const targetInnerHeight =
       (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
-    if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
+    if (scrollTop > elemOffset.top - (offsetTop as number) && offsetMode.top) {
       // Fixed Top
       const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
-        top: targetRect.top + offsetTop,
+        top: targetRect.top + (offsetTop as number),
         left: targetRect.left + elemOffset.left,
         width,
       });
@@ -152,7 +152,7 @@ export default class Affix extends React.Component<AffixProps, any> {
         height: affixNode.offsetHeight,
       });
     } else if (
-      scrollTop < elemOffset.top + elemSize.height + offsetBottom - targetInnerHeight &&
+      scrollTop < elemOffset.top + elemSize.height + (offsetBottom as number) - targetInnerHeight &&
         offsetMode.bottom
     ) {
       // Fixed Bottom
@@ -160,7 +160,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
-        bottom: targetBottomOffet + offsetBottom,
+        bottom: targetBottomOffet + (offsetBottom as number),
         left: targetRect.left + elemOffset.left,
         width,
       });

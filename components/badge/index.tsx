@@ -53,7 +53,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       ...restProps,
     } = this.props;
     const isDot = dot || status;
-    let displayCount = count > overflowCount ? `${overflowCount}+` : count;
+    let displayCount = count > (overflowCount as number) ? `${overflowCount}+` : count;
     // dot mode don't need count
     if (isDot) {
       displayCount = '';

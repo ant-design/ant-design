@@ -78,7 +78,7 @@
     "@types/react": "^15.0.8",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.0.5",
-    "antd-tools": "~0.16.0",
+    "antd-tools": "~0.18.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
@@ -133,7 +133,7 @@
     "rimraf": "^2.5.4",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
-    "typescript": "~2.1.6",
+    "typescript": "~2.2.1",
     "typescript-babel-jest": "^0.1.5",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"

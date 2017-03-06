@@ -6,13 +6,13 @@ import Icon from '../icon';
 
 export interface MentionProps {
   prefixCls: string;
-  suggestionStyle?: Object;
+  suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;
   onChange?: Function;
   notFoundContent?: any;
   loading?: Boolean;
-  style?: Object;
+  style?: React.CSSProperties;
   defaultValue?: any;
   value?: any;
   className?: string;

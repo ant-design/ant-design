@@ -31,5 +31,5 @@ pageSizeOptions | specify the sizeChanger selections | string[] | ['10', '20', '
 onShowSizeChange | a callback function, can be executed when `pageSize` is changing | Function(current, size) | noop
 showQuickJumper | determine whether you can jump to a page directly | boolean | false
 size | specify the size of `Pagination`, can be set to `small` | string | ""
-simple | whether to use simple mode | object | -
+simple | whether to use simple mode | boolean | -
 showTotal | to display the total number and range | Function(total, range) | -
