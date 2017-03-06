@@ -159,6 +159,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     let menu = (
       <Menu
         className={`${selectionPrefixCls}-menu`}
+        selectedKeys={[]}
       >
         {this.renderMenus(selections)}
       </Menu>
