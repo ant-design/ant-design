@@ -39,7 +39,6 @@ export default function createPicker(TheCalendar) {
       }
       return {
         value,
-        tempValue: undefined,
       };
     },
 
@@ -47,7 +46,6 @@ export default function createPicker(TheCalendar) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.value,
-          tempValue: nextProps.value,
         });
       }
     },
@@ -66,34 +64,25 @@ export default function createPicker(TheCalendar) {
       props.onChange(value, (value && value.format(props.format)) || '');
     },
 
-    handleTempChange(tempValue) {
-      this.setState({ tempValue });
+    handleTempChange(value) {
+      const props = this.props;
+      if (!('value' in props)) {
+        this.setState({ value });
+      }
+      props.onChange(value, (value && value.format(props.format)) || '');
     },
 
-    // Clear temp value and trigger onChange when hide DatePicker[showTime] panel
+    // Trigger onChange when hide DatePicker[showTime] panel
     handleOpenChange(open) {
-      const { showTime, onOpenChange, onChange, format } = this.props;
-      if (!open) {
-        // tricky code to avoid triggering onChange multiple times
-        // when click `Now` button
-        let tempValue;
-        this.setState(prevState => {
-          tempValue = prevState.tempValue;
-          const nextState = { tempValue: undefined } as any;
-          if (showTime && tempValue) {
-            nextState.value = tempValue;
-            onChange(tempValue, (tempValue && tempValue.format(format)) || '');
-          }
-          return nextState;
-        });
-      }
+      const { onOpenChange } = this.props;
+
       if (onOpenChange) {
         onOpenChange(open);
       }
     },
 
     render() {
-      const { value, tempValue } = this.state;
+      const { value } = this.state;
       const props = omit(this.props, ['onChange']);
       const { prefixCls, locale } = props;
 
@@ -169,7 +158,7 @@ export default function createPicker(TheCalendar) {
         </span>
       );
 
-      const pickerValue = tempValue || value;
+      const pickerValue = value;
       const localeCode = getLocaleCode(this.context);
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
