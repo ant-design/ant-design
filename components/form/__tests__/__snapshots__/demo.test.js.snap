@@ -485,11 +485,12 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-wrapper ant-input-group">
+          class="ant-input-preSuffix-wrapper">
           <span
-            class="ant-input-group-addon">
+            class="ant-input-prefix">
             <i
-              class="anticon anticon-user" />
+              class="anticon anticon-user"
+              style="font-size:13px;" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -509,11 +510,12 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-wrapper ant-input-group">
+          class="ant-input-preSuffix-wrapper">
           <span
-            class="ant-input-group-addon">
+            class="ant-input-prefix">
             <i
-              class="anticon anticon-lock" />
+              class="anticon anticon-lock"
+              style="font-size:13px;" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -684,11 +686,12 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-wrapper ant-input-group">
+          class="ant-input-preSuffix-wrapper">
           <span
-            class="ant-input-group-addon">
+            class="ant-input-prefix">
             <i
-              class="anticon anticon-user" />
+              class="anticon anticon-user"
+              style="font-size:13px;" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -708,11 +711,12 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-wrapper ant-input-group">
+          class="ant-input-preSuffix-wrapper">
           <span
-            class="ant-input-group-addon">
+            class="ant-input-prefix">
             <i
-              class="anticon anticon-lock" />
+              class="anticon anticon-lock"
+              style="font-size:13px;" />
           </span>
           <input
             class="ant-input ant-input-lg"

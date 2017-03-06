@@ -49,7 +49,7 @@ class HorizontalLoginForm extends React.Component {
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
           )}
         </FormItem>
         <FormItem
@@ -59,7 +59,7 @@ class HorizontalLoginForm extends React.Component {
           {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }],
           })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
           )}
         </FormItem>
         <FormItem>
