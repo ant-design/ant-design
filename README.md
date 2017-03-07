@@ -100,6 +100,8 @@ tsconfig.json
 
 > Note: set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
 
+> Note: Don't use @types/antd, antd provide a built-in ts definition already.
+
 ## Links
 
 - [Home page](http://ant.design/)
