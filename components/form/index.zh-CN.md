@@ -106,7 +106,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
-| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator#rules) | object[] | |
+| options.rules | 校验规则，参考下方文档 | object[] | |
 | options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
 
 ### Form.Item
@@ -126,6 +126,23 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |
 | colon | 配合 label 属性使用，表示是否显示 label 后面的分号 | boolean | true |
+
+### 校验规则
+
+参数  | 说明  | 类型 | 默认值 |
+-----|------|------|-------|
+message | 校验文案 | string | - |
+type | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string' |
+required | 是否必选 | boolean | - |
+len | 字段长度 | number | - |
+min | 最小长度 | number | - |
+max | 最大长度 | number | - |
+enum | 枚举类型 | string | - |
+pattern | 正则表达式校验 | RegExp | - |
+transform | 校验前转换字段值 | function(value) => transformedValue:any | - |
+validator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) | - |
+
+更多高级用法可研究 [async-validator](https://github.com/yiminghe/async-validator)。
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
