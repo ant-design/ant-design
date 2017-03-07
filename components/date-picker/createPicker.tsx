@@ -64,23 +64,6 @@ export default function createPicker(TheCalendar) {
       props.onChange(value, (value && value.format(props.format)) || '');
     },
 
-    handleTempChange(value) {
-      const props = this.props;
-      if (!('value' in props)) {
-        this.setState({ value });
-      }
-      props.onChange(value, (value && value.format(props.format)) || '');
-    },
-
-    // Trigger onChange when hide DatePicker[showTime] panel
-    handleOpenChange(open) {
-      const { onOpenChange } = this.props;
-
-      if (onOpenChange) {
-        onOpenChange(open);
-      }
-    },
-
     render() {
       const { value } = this.state;
       const props = omit(this.props, ['onChange']);
@@ -96,15 +79,12 @@ export default function createPicker(TheCalendar) {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
-      // 需要选择时间时，点击 ok 时才触发 onChange
       let pickerChangeHandler: Object = {};
       let calendarHandler: Object = {};
       if (props.showTime) {
         calendarHandler = {
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (selectedValue) => {
-            this.handleTempChange(selectedValue);
-          },
+          onSelect: this.handleChange,
         };
       } else {
         pickerChangeHandler = {
@@ -168,7 +148,6 @@ export default function createPicker(TheCalendar) {
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
-            onOpenChange={this.handleOpenChange}
             calendar={calendar}
             value={pickerValue}
             prefixCls={`${prefixCls}-picker-container`}
