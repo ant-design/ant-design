@@ -129,18 +129,18 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### 校验规则
 
-参数  | 说明  | 类型 | 默认值 |
------|------|------|-------|
-message | 校验文案 | string | - |
-type | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string' |
-required | 是否必选 | boolean | - |
-len | 字段长度 | number | - |
-min | 最小长度 | number | - |
-max | 最大长度 | number | - |
-enum | 枚举类型 | string | - |
-pattern | 正则表达式校验 | RegExp | - |
-transform | 校验前转换字段值 | function(value) => transformedValue:any | - |
-validator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) | - |
+参数  | 说明  | 类型 | 默认值
+-----|------|------|------
+message | 校验文案 | string | -
+type | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'
+required | 是否必选 | boolean | `false`
+len | 字段长度 | number | -
+min | 最小长度 | number | -
+max | 最大长度 | number | -
+enum | 枚举类型 | string | -
+pattern | 正则表达式校验 | RegExp | -
+transform | 校验前转换字段值 | function(value) => transformedValue:any | -
+validator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) | -
 
 更多高级用法可研究 [async-validator](https://github.com/yiminghe/async-validator)。
 

@@ -128,18 +128,18 @@ Note:
 
 ### Validation Rules
 
-Property | Description | Type | Default Value |
----------|-------------|------|---------------|
-message | validation error message | string | - |
-type | built-in validation type, [available options](https://github.com/yiminghe/async-validator#type) | string | 'string' |
-required | indicates whether field is required | boolean | false |
-len | validate an exact length of a field | number | - |
-min | validate a min length of a field | number | - |
-max | validate a max length of a field | number | - |
-enum | validate a value from a list of possible values | string | - |
-pattern | validate from a regular expression | RegExp | - |
-transform | transform a value before validation | function(value) => transformedValue:any | - |
-validator | custom validate function (Note: [callback must be called](https://github.com/ant-design/ant-design/issues/5155)) | function(rule, value, callback) | - |
+Property | Description | Type | Default Value
+---------|-------------|------|--------------
+message | validation error message | string | -
+type | built-in validation type, [available options](https://github.com/yiminghe/async-validator#type) | string | 'string'
+required | indicates whether field is required | boolean | `false`
+len | validate an exact length of a field | number | -
+min | validate a min length of a field | number | -
+max | validate a max length of a field | number | -
+enum | validate a value from a list of possible values | string | -
+pattern | validate from a regular expression | RegExp | -
+transform | transform a value before validation | function(value) => transformedValue:any | -
+validator | custom validate function (Note: [callback must be called](https://github.com/ant-design/ant-design/issues/5155)) | function(rule, value, callback) | -
 
 See more advanced usage at [async-validator](https://github.com/yiminghe/async-validator).
 
