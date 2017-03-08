@@ -30,58 +30,64 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
       class="ant-upload-list-item ant-upload-list-item-done">
       <div
         class="ant-upload-list-item-info">
-        <i
-          class="anticon anticon-paper-clip" />
-        <a
-          class="ant-upload-list-item-name"
-          href="http://www.baidu.com/xxx.png"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="xxx.png">
-          xxx.png
-        </a>
-        <i
-          class="anticon anticon-cross"
-          title="删除文件" />
+        <span>
+          <i
+            class="anticon anticon-paper-clip" />
+          <a
+            class="ant-upload-list-item-name"
+            href="http://www.baidu.com/xxx.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="xxx.png">
+            xxx.png
+          </a>
+        </span>
       </div>
+      <i
+        class="anticon anticon-cross"
+        title="删除文件" />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done">
       <div
         class="ant-upload-list-item-info">
-        <i
-          class="anticon anticon-paper-clip" />
-        <a
-          class="ant-upload-list-item-name"
-          href="http://www.baidu.com/yyy.png"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="yyy.png">
-          yyy.png
-        </a>
-        <i
-          class="anticon anticon-cross"
-          title="删除文件" />
+        <span>
+          <i
+            class="anticon anticon-paper-clip" />
+          <a
+            class="ant-upload-list-item-name"
+            href="http://www.baidu.com/yyy.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="yyy.png">
+            yyy.png
+          </a>
+        </span>
       </div>
+      <i
+        class="anticon anticon-cross"
+        title="删除文件" />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-error">
       <div
         class="ant-upload-list-item-info">
-        <i
-          class="anticon anticon-paper-clip" />
-        <a
-          class="ant-upload-list-item-name"
-          href="http://www.baidu.com/zzz.png"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="zzz.png">
-          zzz.png
-        </a>
-        <i
-          class="anticon anticon-cross"
-          title="删除文件" />
+        <span>
+          <i
+            class="anticon anticon-paper-clip" />
+          <a
+            class="ant-upload-list-item-name"
+            href="http://www.baidu.com/zzz.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="zzz.png">
+            zzz.png
+          </a>
+        </span>
       </div>
+      <i
+        class="anticon anticon-cross"
+        title="删除文件" />
     </div>
   </div>
 </span>
@@ -110,20 +116,22 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
       class="ant-upload-list-item ant-upload-list-item-done">
       <div
         class="ant-upload-list-item-info">
-        <i
-          class="anticon anticon-paper-clip" />
-        <a
-          class="ant-upload-list-item-name"
-          href="http://www.baidu.com/xxx.png"
-          rel="noopener noreferrer"
-          target="_blank"
-          title="xxx.png">
-          xxx.png
-        </a>
-        <i
-          class="anticon anticon-cross"
-          title="删除文件" />
+        <span>
+          <i
+            class="anticon anticon-paper-clip" />
+          <a
+            class="ant-upload-list-item-name"
+            href="http://www.baidu.com/xxx.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="xxx.png">
+            xxx.png
+          </a>
+        </span>
       </div>
+      <i
+        class="anticon anticon-cross"
+        title="删除文件" />
     </div>
   </div>
 </span>
@@ -140,38 +148,40 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
         class="ant-upload-list-item ant-upload-list-item-done">
         <div
           class="ant-upload-list-item-info">
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank">
-            <img
-              alt="xxx.png"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="xxx.png">
-            xxx.png
-          </a>
-          <span
-            class="ant-upload-list-item-actions">
+          <span>
             <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank">
+              <img
+                alt="xxx.png"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
-              title="预览文件">
-              <i
-                class="anticon anticon-eye-o" />
+              title="xxx.png">
+              xxx.png
             </a>
-            <i
-              class="anticon anticon-delete"
-              title="删除文件" />
           </span>
         </div>
+        <span
+          class="ant-upload-list-item-actions">
+          <a
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="预览文件">
+            <i
+              class="anticon anticon-eye-o" />
+          </a>
+          <i
+            class="anticon anticon-delete"
+            title="删除文件" />
+        </span>
       </div>
     </div>
     <div
@@ -194,53 +204,57 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
         class="ant-upload-list-item ant-upload-list-item-done">
         <div
           class="ant-upload-list-item-info">
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank">
-            <img
-              alt="xxx.png"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="xxx.png">
-            xxx.png
-          </a>
-          <i
-            class="anticon anticon-cross"
-            title="删除文件" />
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank">
+              <img
+                alt="xxx.png"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="xxx.png">
+              xxx.png
+            </a>
+          </span>
         </div>
+        <i
+          class="anticon anticon-cross"
+          title="删除文件" />
       </div>
       <div
         class="ant-upload-list-item ant-upload-list-item-done">
         <div
           class="ant-upload-list-item-info">
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank">
-            <img
-              alt="yyy.png"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="yyy.png">
-            yyy.png
-          </a>
-          <i
-            class="anticon anticon-cross"
-            title="删除文件" />
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank">
+              <img
+                alt="yyy.png"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="yyy.png">
+              yyy.png
+            </a>
+          </span>
         </div>
+        <i
+          class="anticon anticon-cross"
+          title="删除文件" />
       </div>
     </div>
   </span>
@@ -257,53 +271,57 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
         class="ant-upload-list-item ant-upload-list-item-done">
         <div
           class="ant-upload-list-item-info">
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank">
-            <img
-              alt="xxx.png"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="xxx.png">
-            xxx.png
-          </a>
-          <i
-            class="anticon anticon-cross"
-            title="删除文件" />
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank">
+              <img
+                alt="xxx.png"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="xxx.png">
+              xxx.png
+            </a>
+          </span>
         </div>
+        <i
+          class="anticon anticon-cross"
+          title="删除文件" />
       </div>
       <div
         class="ant-upload-list-item ant-upload-list-item-done">
         <div
           class="ant-upload-list-item-info">
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank">
-            <img
-              alt="yyy.png"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="yyy.png">
-            yyy.png
-          </a>
-          <i
-            class="anticon anticon-cross"
-            title="删除文件" />
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank">
+              <img
+                alt="yyy.png"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="yyy.png">
+              yyy.png
+            </a>
+          </span>
         </div>
+        <i
+          class="anticon anticon-cross"
+          title="删除文件" />
       </div>
     </div>
   </span>

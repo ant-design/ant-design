@@ -65,8 +65,14 @@ ReactDOM.render(
 ````css
 /* tile uploaded pictures */
 .upload-list-inline .ant-upload-list-item {
-  display: inline-block;
+  float: left;
   width: 200px;
   margin-right: 8px;
+}
+.upload-list-inline .ant-upload-animate-enter {
+  animation-name: uploadAnimateInlineIn;
+}
+.upload-list-inline .ant-upload-animate-leave {
+  animation-name: uploadAnimateInlineOut;
 }
 ````

@@ -150,35 +150,30 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
 
-      const item = (
+      const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
+      const iconAndPreview = (file.status === 'error')
+        ? <Tooltip title={message}>{icon}{preview}</Tooltip>
+        : <span>{icon}{preview}</span>;
+
+      return (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
-            {icon}
-            {preview}
-            {actions}
+            {iconAndPreview}
           </div>
+          {actions}
           {progress}
         </div>
       );
-
-      if (file.status === 'error') {
-        const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
-        return (
-          <Tooltip title={message} key={file.uid}>
-            {item}
-          </Tooltip>
-        );
-      }
-
-      return item;
     });
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
     });
+    const animationDirection =
+      listType === 'picture-card' ? 'animate-inline' : 'animate';
     return (
       <Animate
-        transitionName={`${prefixCls}-margin-top`}
+        transitionName={`${prefixCls}-${animationDirection}`}
         component="div"
         className={listClassNames}
       >
