@@ -5,7 +5,7 @@ import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import classNames from 'classnames';
-import { flatArray, treeMap, normalizeColumns } from './util';
+import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import assign from 'object-assign';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
@@ -300,11 +300,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getSortOrderColumns(columns?) {
-    return (columns || this.columns || []).filter(column => 'sortOrder' in column);
+    return flatFilter(columns || this.columns || [], column => 'sortOrder' in column);
   }
 
   getFilteredValueColumns(columns?) {
-    return (columns || this.columns || []).filter(column => typeof column.filteredValue !== 'undefined');
+    return flatFilter(columns || this.columns || [], column => typeof column.filteredValue !== 'undefined');
   }
 
   getFiltersFromColumns(columns?) {
