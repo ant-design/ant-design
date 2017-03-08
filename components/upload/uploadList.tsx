@@ -159,8 +159,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {iconAndPreview}
-            {actions}
           </div>
+          {actions}
           {progress}
         </div>
       );
