@@ -196,7 +196,10 @@ timeline: true
 * 添加了对法语的支持。[#4538](https://github.com/ant-design/ant-design/pull/4538)
 * Transfer 添加了 `onSearchChange` 回调。 [#4464](https://github.com/ant-design/ant-design/pull/4464)
 * Modal.confirm 添加了 maskClosable 配置项。[#4488](https://github.com/ant-design/ant-design/pull/4488), [#4488](https://github.com/ant-design/ant-design/pull/4490)
-* Form 增加 `hideRequiredMark` 属性。[#4732](https://github.com/ant-design/ant-design/pull/4732)
+* Form
+  * 增加 `options.onValuesChange` 参数，可用于代替会触发多次 `options.onFieldsChange`。[#2934](https://github.com/ant-design/ant-design/pull/2934)
+  * 增加 `props.form.getFieldsError` `props.form.isFieldTouched` `props.form.isFieldsTouched` 三个方法，可用于提交表单按钮的禁用展示。 [#4374](https://github.com/ant-design/ant-design/issues/4374)
+  * 增加 `hideRequiredMark` 属性。[#4732](https://github.com/ant-design/ant-design/pull/4732)
 * 改进了 Upload 的列表图片预览。 [#4516](https://github.com/ant-design/ant-design/pull/4516)
 * 升级了 rc-select 到 6.7.1。
   * 修复了 Select 的 `onChange` 回调重复触发的问题。[#156@rc-select](https://github.com/react-component/select/pull/156)
