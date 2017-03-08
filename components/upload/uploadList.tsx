@@ -150,36 +150,30 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
 
-      let infoChild;
-      infoChild = [icon, preview].map((c, i) => React.cloneElement(c, { key: i }));
-      if (file.status === 'error') {
-        const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
-        infoChild = (
-          <Tooltip title={message} key={file.uid}>
-            {infoChild}
-          </Tooltip>
-        );
-      }
-      const item = (
+      const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
+      const iconAndPreview = (file.status === 'error')
+        ? <Tooltip title={message}>{icon}{preview}</Tooltip>
+        : <span>{icon}{preview}</span>;
+
+      return (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
-            {infoChild}
+            {iconAndPreview}
             {actions}
           </div>
           {progress}
         </div>
       );
-
-      return item;
     });
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
     });
-    const animateClassName = listType === 'picture-card' ? '-inline' : '';
+    const animationDirection =
+      listType === 'picture-card' ? 'animate-inline' : 'animate';
     return (
       <Animate
-        transitionName={`${prefixCls}-animate-list${animateClassName}`}
+        transitionName={`${prefixCls}-${animationDirection}`}
         component="div"
         className={listClassNames}
       >

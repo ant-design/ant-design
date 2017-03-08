@@ -371,30 +371,32 @@
     font-weight: bold;
   }
 
-  .@{upload-prefix-cls}-animate-list-enter,
-  .@{upload-prefix-cls}-animate-list-leave,
-  .@{upload-prefix-cls}-animate-list-inline-enter,
-  .@{upload-prefix-cls}-animate-list-inline-leave {
+  .@{upload-prefix-cls}-animate-enter,
+  .@{upload-prefix-cls}-animate-leave,
+  .@{upload-prefix-cls}-animate-inline-enter,
+  .@{upload-prefix-cls}-animate-inline-leave {
     animation-duration: .3s;
     animation-fill-mode: @ease-in-out-circ;
   }
-  .@{upload-prefix-cls}-animate-list-enter {
-    animation-name: uploadAnimateListIn;
+
+  .@{upload-prefix-cls}-animate-enter {
+    animation-name: uploadAnimateIn;
   }
 
-  .@{upload-prefix-cls}-animate-list-leave {
-    animation-name: uploadAnimateListOut;
+  .@{upload-prefix-cls}-animate-leave {
+    animation-name: uploadAnimateOut;
   }
-  .@{upload-prefix-cls}-animate-list-inline-enter {
+
+  .@{upload-prefix-cls}-animate-inline-enter {
     animation-name: uploadAnimateInlineIn;
   }
 
-  .@{upload-prefix-cls}-animate-list-inline-leave {
+  .@{upload-prefix-cls}-animate-inline-leave {
     animation-name: uploadAnimateInlineOut;
   }
 }
 
-@keyframes uploadAnimateListIn {
+@keyframes uploadAnimateIn {
   from {
     height: 0;
     margin: 0;
@@ -403,7 +405,7 @@
   }
 }
 
-@keyframes uploadAnimateListOut {
+@keyframes uploadAnimateOut {
   to {
     height: 0;
     margin: 0;

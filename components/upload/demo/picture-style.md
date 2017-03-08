@@ -60,10 +60,10 @@ ReactDOM.render(
   width: 200px;
   margin-right: 8px;
 }
-.upload-list-inline .ant-upload-animate-list-enter{
+.upload-list-inline .ant-upload-animate-enter {
   animation-name: uploadAnimateInlineIn;
 }
-.upload-list-inline .ant-upload-animate-list-leave{
-  animation-name: uploadAnimateInlineOut
+.upload-list-inline .ant-upload-animate-leave {
+  animation-name: uploadAnimateInlineOut;
 }
 ````
