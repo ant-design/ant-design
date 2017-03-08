@@ -17,7 +17,7 @@ Use `defaultFileList` for uploaded files when page init.
 import { Upload, Button, Icon } from 'antd';
 
 const props = {
-  action: '/upload.do',
+  action: '//jsonplaceholder.typicode.com/posts/',
   onChange({ file, fileList }) {
     if (file.status !== 'uploading') {
       console.log(file, fileList);

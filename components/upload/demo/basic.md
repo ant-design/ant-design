@@ -18,7 +18,7 @@ import { Upload, message, Button, Icon } from 'antd';
 
 const props = {
   name: 'file',
-  action: '/upload.do',
+  action: '//jsonplaceholder.typicode.com/posts/',
   headers: {
     authorization: 'authorization-text',
   },

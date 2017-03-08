@@ -65,7 +65,7 @@ class MyUpload extends React.Component {
   }
   render() {
     const props = {
-      action: '/upload.do',
+      action: '//jsonplaceholder.typicode.com/posts/',
       onChange: this.handleChange,
       multiple: true,
     };

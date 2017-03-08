@@ -18,7 +18,7 @@ If uploade file is picture, a thumbnail can be shown. `IE8/9` do not support loc
 import { Upload, Button, Icon } from 'antd';
 
 const props = {
-  action: '/upload.do',
+  action: '//jsonplaceholder.typicode.com/posts/',
   listType: 'picture',
   defaultFileList: [{
     uid: -1,
