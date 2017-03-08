@@ -364,7 +364,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Table
   * We can control the visible of customized `filterDropdown`. [demo](https://ant.design/components/table/#components-table-demo-custom-filter-panel)
   * Supports JSX-style columns. [demo](https://ant.design/components/table/#components-table-demo-jsx)
-  * Can listen the click event of table cell. [#3774](https://github.com/ant-design/ant-design/issues/3774)
+  * Can listen the click event of table cell by `onCellClick`. [#3774](https://github.com/ant-design/ant-design/issues/3774)
   * Fix border radius of head of border-less table.
   * Fix that height of title and footer don't follow `Table[size]`. [commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
   * Fix issue with selected status. [#3900](https://github.com/ant-design/ant-design/issues/3900)
