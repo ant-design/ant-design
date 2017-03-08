@@ -120,3 +120,8 @@ title:
 我们可以采用 [模糊测试](https://chrome.google.com/webstore/detail/the-squint-test/gppnipfbappicilfniaimcnagbpfflpg) 的方法，即眯起眼睛从整体来检视结构上的合理与否。
 
 <img src="https://t.alipayobjects.com/images/T1bY4hXkpfXXXXXXXX.png" width="600">
+## 布局规范 Layout 
+首页式
+表单式
+内容式
+类目式
