@@ -118,6 +118,7 @@
     margin-top: 8px;
     font-size: @font-size-base;
     position: relative;
+    height: 22px;
 
     &-name {
       overflow: hidden;
@@ -129,7 +130,6 @@
     }
 
     &-info {
-      height: 22px;
       line-height: 22px;
       padding: 0 12px 0 4px;
       transition: background-color .3s;
@@ -173,7 +173,7 @@
 
     &-error .@{iconfont-css-prefix}-cross {
       opacity: 1;
-      color: @error-color!important;
+      color: @error-color !important;
     }
 
     &-progress {
@@ -272,7 +272,8 @@
     display: inline;
 
     .@{upload-item} {
-      display: inline-block;
+      //display: inline-block;
+      float: left;
       width: @upload-pictrue-card-size;
       height: @upload-pictrue-card-size;
       margin: 0 8px 8px 0;
@@ -296,7 +297,7 @@
       .@{iconfont-css-prefix}-eye-o,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
-        transition: all .3;
+        transition: all .3s;
         cursor: pointer;
         font-size: 16px;
         width: 16px;
@@ -371,25 +372,63 @@
     font-weight: bold;
   }
 
-  .@{upload-prefix-cls}-margin-top-enter {
-    animation: uploadMarginTopIn .3s @ease-in-out-circ;
+  .@{upload-prefix-cls}-animate-list-enter,
+  .@{upload-prefix-cls}-animate-list-leave,
+  .@{upload-prefix-cls}-animate-list-inline-enter,
+  .@{upload-prefix-cls}-animate-list-inline-leave {
+    animation-duration: .3s;
+    animation-fill-mode: @ease-in-out-circ;
+  }
+  .@{upload-prefix-cls}-animate-list-enter {
+    animation-name: uploadAnimateListIn;
   }
 
-  .@{upload-prefix-cls}-margin-top-leave {
-    animation: uploadMarginTopOut .3s @ease-in-out-circ;
+  .@{upload-prefix-cls}-animate-list-leave {
+    animation-name: uploadAnimateListOut;
+  }
+  .@{upload-prefix-cls}-animate-list-inline-enter {
+    animation-name: uploadAnimateInlineIn;
+  }
+
+  .@{upload-prefix-cls}-animate-list-inline-leave {
+    animation-name: uploadAnimatInlineOut;
   }
 }
 
-@keyframes uploadMarginTopIn {
+@keyframes uploadAnimateListIn {
   from {
-    margin-top: -25px;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateListOut {
+  to {
+    height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
   }
 }
 
-@keyframes uploadMarginTopOut {
+@keyframes uploadAnimateInlineIn {
+  from {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateInlineOut {
   to {
-    margin-top: -25px;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
   }
 }

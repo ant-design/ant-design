@@ -4,7 +4,7 @@ import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
-import { UploadListProps } from './interface';
+import {UploadListProps} from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file, callback) => {
@@ -150,25 +150,25 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
 
+      let infoChild;
+      infoChild = [icon, preview].map((c, i) => React.cloneElement(c, { key: i }));
+      if (file.status === 'error') {
+        const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
+        infoChild = (
+          <Tooltip title={message} key={file.uid}>
+            {infoChild}
+          </Tooltip>
+        );
+      }
       const item = (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
-            {icon}
-            {preview}
+            {infoChild}
             {actions}
           </div>
           {progress}
         </div>
       );
-
-      if (file.status === 'error') {
-        const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
-        return (
-          <Tooltip title={message} key={file.uid}>
-            {item}
-          </Tooltip>
-        );
-      }
 
       return item;
     });
@@ -176,9 +176,10 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
     });
+    const animateClassName = listType === 'picture-card' ? '-inline' : '';
     return (
       <Animate
-        transitionName={`${prefixCls}-margin-top`}
+        transitionName={`${prefixCls}-animate-list${animateClassName}`}
         component="div"
         className={listClassNames}
       >
