@@ -197,7 +197,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Added `onSearchChange` callback of Transfer. [#4464](https://github.com/ant-design/ant-design/pull/4464)
 * Added `maskClosable` property of Modal.confirm. [#4488](https://github.com/ant-design/ant-design/pull/4488), [#4488](https://github.com/ant-design/ant-design/pull/4490)
 * Form
-  * Added `options.onValuesChange` option, cause `options.onFieldsChange` would be triggered multiply. [#2934](https://github.com/ant-design/ant-design/pull/2934)
+  * Added `options.onValuesChange` option, because `options.onFieldsChange` would be triggered multiply. [#2934](https://github.com/ant-design/ant-design/pull/2934)
   * Added `props.form.getFieldsError` `props.form.isFieldTouched` `props.form.isFieldsTouched` options that can be used to disable submit button. [#4374](https://github.com/ant-design/ant-design/issues/4374)
   * Added `hideRequiredMark` property. [#4732](https://github.com/ant-design/ant-design/pull/4732)
 * Improvement upload list of Upload. [#4516](https://github.com/ant-design/ant-design/pull/4516)
