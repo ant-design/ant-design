@@ -65,6 +65,6 @@ ReactDOM.render(
   animation-name: uploadAnimateInlineIn;
 }
 .upload-list-inline .ant-upload-animate-list-leave{
-  animation-name: uploadAnimateListInlineOut
+  animation-name: uploadAnimateInlineOut
 }
 ````
