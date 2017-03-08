@@ -15,8 +15,8 @@ export interface SelectionCheckboxAllProps {
   store: Store;
   locale: any;
   disabled: boolean;
-  getCheckboxPropsByItem: (item, index) => any;
-  getRecordKey: (record, index?) => string;
+  getCheckboxPropsByItem: (item: any, index: number) => any;
+  getRecordKey: (record: any, index?: number) => string;
   data: any[];
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
