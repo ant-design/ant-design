@@ -34,6 +34,7 @@ export default function confirm(config) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
+      props.onCancel(e);
     }
   }
 
