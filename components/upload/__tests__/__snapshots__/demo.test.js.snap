@@ -36,7 +36,8 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/xxx.png"
           rel="noopener noreferrer"
-          target="_blank">
+          target="_blank"
+          title="xxx.png">
           xxx.png
         </a>
         <i
@@ -54,7 +55,8 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/yyy.png"
           rel="noopener noreferrer"
-          target="_blank">
+          target="_blank"
+          title="yyy.png">
           yyy.png
         </a>
         <i
@@ -72,7 +74,8 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/zzz.png"
           rel="noopener noreferrer"
-          target="_blank">
+          target="_blank"
+          title="zzz.png">
           zzz.png
         </a>
         <i
@@ -113,7 +116,8 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/xxx.png"
           rel="noopener noreferrer"
-          target="_blank">
+          target="_blank"
+          title="xxx.png">
           xxx.png
         </a>
         <i
@@ -149,7 +153,8 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
             class="ant-upload-list-item-name"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
-            target="_blank">
+            target="_blank"
+            title="xxx.png">
             xxx.png
           </a>
           <span
@@ -202,7 +207,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             class="ant-upload-list-item-name"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
-            target="_blank">
+            target="_blank"
+            title="xxx.png">
             xxx.png
           </a>
           <i
@@ -227,7 +233,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             class="ant-upload-list-item-name"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
-            target="_blank">
+            target="_blank"
+            title="yyy.png">
             yyy.png
           </a>
           <i
@@ -263,7 +270,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             class="ant-upload-list-item-name"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
-            target="_blank">
+            target="_blank"
+            title="xxx.png">
             xxx.png
           </a>
           <i
@@ -288,7 +296,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             class="ant-upload-list-item-name"
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
-            target="_blank">
+            target="_blank"
+            title="yyy.png">
             yyy.png
           </a>
           <i
