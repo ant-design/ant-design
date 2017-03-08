@@ -117,24 +117,38 @@
     overflow: hidden;
     margin-top: 8px;
     font-size: @font-size-base;
+    position: relative;
+
+    &-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 16px;
+      width: 100%;
+      display: inline-block;
+    }
 
     &-info {
       height: 22px;
       line-height: 22px;
-      padding: 0 4px;
-      transition: background-color 0.3s ease;
+      padding: 0 12px 0 4px;
+      transition: background-color .3s;
 
       .@{iconfont-css-prefix}-paper-clip {
         margin-right: 4px;
         font-size: @font-size-base;
         color: @text-color-secondary;
+        position: absolute;
+        top: 6px;
       }
+
       .@{iconfont-css-prefix}-cross {
         .iconfont-size-under-12px(10px);
-        transition: all 0.3s ease;
+        transition: all .3s;
         opacity: 0;
         cursor: pointer;
-        float: right;
+        position: absolute;
+        right: 4px;
         color: @text-color-secondary;
         line-height: 22px;
         &:hover {
@@ -229,7 +243,7 @@
       white-space: nowrap;
       margin: 0 0 0 8px;
       line-height: 44px;
-      transition: all 0.3s ease;
+      transition: all .3s;
       padding-left: 48px;
       padding-right: 8px;
       max-width: 100%;

@@ -111,6 +111,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           rel="noopener noreferrer"
           className={`${prefixCls}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
+          title={file.name}
         >
           {file.name}
         </a>
@@ -118,6 +119,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         <span
           className={`${prefixCls}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
+          title={file.name}
         >
           {file.name}
         </span>
