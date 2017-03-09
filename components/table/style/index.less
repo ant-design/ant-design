@@ -43,7 +43,7 @@
       font-size: @font-size-base;
       cursor: pointer;
       color: #aaa;
-      transition: all 0.3s ease;
+      transition: all .3s;
       &:hover {
         color: @text-color;
       }
@@ -56,11 +56,12 @@
 
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
+    transition: all .3s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s ease;
+    transition: all .3s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       & > td {
