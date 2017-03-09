@@ -26,6 +26,8 @@ Ant Design 的色板由 8 种基本色彩组成，每种基本色（第 6 格）
 
 
 `````__react
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { message } from 'antd';
 const rgbToHex = (rgbString) => {
   const hexChars = '0123456789ABCDEF';
   const rgb = rgbString.match(/\d+/g);
@@ -48,25 +50,31 @@ const Palette = React.createClass({
     });
     this.setState({ hexColors });
   },
+  onCopied() {
+    message.success('Copied.');
+  },
   render() {
     this.colorNodes = this.colorNodes || {};
     const { name, description, color } = this.props.color;
     const { hexColors } = this.state;
     const colors = [];
     for (let i = 1; i <= 10; i++) {
+      const colorText = `${name}-${i}`;
       colors.push(
-        <div
-          key={i}
-          ref={node => { this.colorNodes[`${name}-${i}`] = node; } }
-          className={`main-color-item palatte-${name}-${i}`}
-          style={{
-            color: i > 5 ? '#fff' : 'unset',
-            fontWeight: i === 6 ? 'bold' : 'normal',
-          }}
-        >
-          {name}-{i}
-          {hexColors ? <span className="main-color-value">{hexColors[`${name}-${i}`]}</span> : null}
-        </div>
+        <CopyToClipboard text={text} onCopy={this.onCopied} key={i}>
+          <div
+            key={i}
+            ref={node => { this.colorNodes[`${name}-${i}`] = node; } }
+            className={`main-color-item palatte-${name}-${i}`}
+            style={{
+              color: i > 5 ? '#fff' : 'unset',
+              fontWeight: i === 6 ? 'bold' : 'normal',
+            }}
+          >
+            {colorText}
+            {hexColors ? <span className="main-color-value">{hexColors[`${name}-${i}`]}</span> : null}
+          </div>
+        </CopyToClipboard>
       );
     }
     return (
