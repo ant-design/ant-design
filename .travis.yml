@@ -6,10 +6,27 @@ node_js:
   - "6"
 
 env:
-  - MAX_WORKERS=2
+  matrix:
+    - TEST_TYPE=lint
+    - TEST_TYPE=dist
+    - TEST_TYPE=compile
+    - TEST_TYPE=test:dom
+    - TEST_TYPE=test:node
 
 script:
-  - npm run test-all
-
-after_script:
-  - bash <(curl -s https://codecov.io/bash)
+  - |
+    if [ "$TEST_TYPE" = lint ]; then
+      npm run lint
+    elif [ "$TEST_TYPE" = dist ]; then
+      npm run dist && \
+      node ./tests/dekko/dist.test.js
+    elif [ "$TEST_TYPE" = compile ]; then
+      npm run compile && \
+      node ./tests/dekko/lib.test.js
+    elif [ "$TEST_TYPE" = test:dom]; then
+      npm run dist && \
+      npm test -- --coverage -w 2 && \
+      bash <(curl -s https://codecov.io/bash)
+    elif [ "$TEST_TYPE" = test:node]; then
+      npm test -- --config .jest.node.json -w 2
+    fi
