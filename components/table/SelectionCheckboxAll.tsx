@@ -176,13 +176,9 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
           disabled={disabled}
           onChange={this.handleSelectAllChagne}
         />
-        <Dropdown
-          overlay={menu}
-        >
+        <Dropdown overlay={menu}>
           <div className={`${selectionPrefixCls}-down`}>
-            <span>
-              <Icon type="down" />
-            </span>
+            <Icon type="down" />
           </div>
         </Dropdown>
       </div>

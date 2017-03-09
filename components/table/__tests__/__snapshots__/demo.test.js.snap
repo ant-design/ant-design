@@ -1147,10 +1147,8 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                           </label>
                           <div
                             class="ant-table-selection-down ant-dropdown-trigger">
-                            <span>
-                              <i
-                                class="anticon anticon-down" />
-                            </span>
+                            <i
+                              class="anticon anticon-down" />
                           </div>
                         </div>
                       </span>
@@ -2347,10 +2345,8 @@ exports[`test renders ./components/table/demo/expand-children.md correctly 1`] =
                         </label>
                         <div
                           class="ant-table-selection-down ant-dropdown-trigger">
-                          <span>
-                            <i
-                              class="anticon anticon-down" />
-                          </span>
+                          <i
+                            class="anticon anticon-down" />
                         </div>
                       </div>
                     </span>
@@ -6999,10 +6995,8 @@ exports[`test renders ./components/table/demo/row-selection.md correctly 1`] = `
                         </label>
                         <div
                           class="ant-table-selection-down ant-dropdown-trigger">
-                          <span>
-                            <i
-                              class="anticon anticon-down" />
-                          </span>
+                          <i
+                            class="anticon anticon-down" />
                         </div>
                       </div>
                     </span>
@@ -7265,10 +7259,8 @@ exports[`test renders ./components/table/demo/row-selection-and-operation.md cor
                           </label>
                           <div
                             class="ant-table-selection-down ant-dropdown-trigger">
-                            <span>
-                              <i
-                                class="anticon anticon-down" />
-                            </span>
+                            <i
+                              class="anticon anticon-down" />
                           </div>
                         </div>
                       </span>
@@ -7737,10 +7729,8 @@ exports[`test renders ./components/table/demo/row-selection-custom.md correctly 
                         </label>
                         <div
                           class="ant-table-selection-down ant-dropdown-trigger">
-                          <span>
-                            <i
-                              class="anticon anticon-down" />
-                          </span>
+                          <i
+                            class="anticon anticon-down" />
                         </div>
                       </div>
                     </span>
