@@ -38,6 +38,7 @@
     "classnames": "~2.2.0",
     "css-animation": "^1.2.5",
     "dom-closest": "^0.2.0",
+    "lodash.debounce": "^4.0.8",
     "moment": "~2.17.0",
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
@@ -111,7 +112,6 @@
     "jest": "^18.1.0",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^3.3.1",
-    "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
     "pre-commit": "^1.2.2",
@@ -207,7 +207,7 @@
       "components/**/*.{ts,tsx}",
       "!components/*/style/index.tsx"
     ],
-     "transformIgnorePatterns": [
+    "transformIgnorePatterns": [
       "/node_modules/",
       "/dist/antd.js"
     ]
