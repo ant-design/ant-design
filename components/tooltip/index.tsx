@@ -35,6 +35,18 @@ export interface TooltipProps extends AbstractTooltipProps {
   overlay?: React.ReactNode;
 }
 
+const splitObject = (obj, keys) => {
+  const picked = {};
+  const omited = { ...obj };
+  keys.forEach(key => {
+    if (obj && key in obj) {
+      picked[key] = obj[key];
+      delete omited[key];
+    }
+  });
+  return { picked, omited };
+};
+
 export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
@@ -90,23 +102,23 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element) {
     if ((element.type.__ANT_BUTTON || element.type === 'button') && element.props.disabled) {
-      // reserve display style for <Button style={{ display: 'block '}}></Button>
-      // Note:
-      //   If people override ant-btn's style.display by css,
-      //   it will be affected cause we reset it to 'inline-block'
-      const displayStyle = (element.props.style && element.props.style.display)
-        ? element.props.style.display : 'inline-block';
-      const child = cloneElement(element, {
-        style: {
-          ...element.props.style,
-          pointerEvents: 'none',
-        },
-      });
-      return (
-        <span style={{ display: displayStyle, cursor: 'not-allowed' }}>
-          {child}
-        </span>
+      // Pick some layout related style properties up to span
+      // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
+      const { picked, omited } = splitObject(
+        element.props.style,
+        ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
       );
+      const spanStyle = {
+        display: 'inline-block',  // default inline-block is important
+        ...picked,
+        cursor: 'not-allowed',
+      };
+      const buttonStyle = {
+        ...omited,
+        pointerEvents: 'none',
+      };
+      const child = cloneElement(element, { style: buttonStyle });
+      return <span style={spanStyle}>{child}</span>;
     }
     return element;
   }
