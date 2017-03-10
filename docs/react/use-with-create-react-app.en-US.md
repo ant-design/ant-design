@@ -188,8 +188,12 @@ loaders: [
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
 
----
+## Source code and other boilerplates
 
 Finally, we use antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack config in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
 
-Source code about this article：https://github.com/ant-design/create-react-app-antd
+There are a lot of great boilerplates in React community. You may encounter some problems when import antd in them, there are some source code samples including create-react-app in this article.
+
+- [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
+- [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
+- [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
