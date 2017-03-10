@@ -158,10 +158,7 @@ class Demo extends React.Component {
         </FormItem>
 
         <FormItem
-          wrapperCol={{
-            xs: { span: 12, offset: 0 },
-            sm: { span: 12, offset: 6 },
-          }}
+          wrapperCol={{ span: 12, offset: 6 }}
         >
           <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>

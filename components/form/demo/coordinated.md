@@ -64,10 +64,7 @@ class App extends React.Component {
           )}
         </FormItem>
         <FormItem
-          wrapperCol={{
-            xs: { span: 8, offset: 0 },
-            sm: { span: 8, offset: 4 },
-          }}
+          wrapperCol={{ span: 8, offset: 4 }}
         >
           <Button type="primary" htmlType="submit">
             Submit
