@@ -192,7 +192,7 @@ loaders: [
 
 以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd，更多 webpack 配置可参考 [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。（例如加入 [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) 避免加载所有语言文件）
 
-React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd 时，你可能会遇到一些问题，下面是一些著名脚手架使用 antd 的范例，包括本文中的 create-react-app 示例源码。
+React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd 时，你可能会遇到一些问题，下面是一些著名脚手架使用 antd 的范例，包括本文的 create-react-app。
 
 - [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
