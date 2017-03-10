@@ -267,12 +267,13 @@ export default class Upload extends React.Component<UploadProps, any> {
       type, disabled, children, className,
     } = this.props;
 
-    const rcUploadProps = assign({}, this.props, {
+    const rcUploadProps = assign({}, {
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
-    });
+    }, this.props);
+
     delete rcUploadProps.className;
 
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
