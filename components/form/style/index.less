@@ -86,23 +86,32 @@ input[type="checkbox"] {
   }
 
   &-label {
-    display: block;
-    float: none; // To reset `col-*`
-    padding: 0 0 8px;
-    text-align: left;
+    text-align: right;
     vertical-align: middle;
     line-height: @form-component-height;
+    display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     label {
       color: @label-color;
+
+      &:after {
+        content: ":";
+        margin: 0 8px 0 2px;
+        position: relative;
+        top: -0.5px;
+      }
     }
   }
 
   .@{ant-prefix}-switch {
     margin: 4px 0;
+  }
+
+  &-no-colon &-label label:after {
+    content: " ";
   }
 }
 
@@ -238,59 +247,47 @@ form {
   }
 }
 
-@media (min-width: @screen-sm) {
-  // Form layout
-  // == common style of Horizontal Form & Inline Form
-  .@{form-prefix-cls}-horizontal,
-  .@{form-prefix-cls}-inline {
-    // when labelCol is 24, it is a vertical form
-    .@{form-prefix-cls}-item-label:not(.@{ant-prefix}-col-24) {
-      display: inline-block;
-      float: left; // To revert `col-*`
-      padding: 0;
-      text-align: right;
+// Form layout
+//== Vertical Form
+.@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
+.@{ant-prefix}-col-24.@{form-prefix-cls}-item-label {  // when labelCol is 24, it is a vertical form
+  padding: 0 0 8px;
+  display: block;
+  text-align: left;
 
-      label:after {
-        content: ":";
-        margin: 0 8px 0 2px;
-        position: relative;
-        top: -0.5px;
-      }
+  label:after {
+    content: '';
+  }
+}
+
+//== Inline Form
+.@{form-prefix-cls}-inline {
+  .@{form-prefix-cls}-item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+
+    &-with-help {
+      margin-bottom: 24px;
     }
-    .@{form-prefix-cls}-item-no-colon .@{form-prefix-cls}-item-label label:after {
-      content: " ";
+
+    > div {
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 
-  //== Inline Form
-  .@{form-prefix-cls}-inline {
-    .@{form-prefix-cls}-item {
-      display: inline-block;
-      margin-right: 10px;
-      margin-bottom: 0;
+  .@{form-prefix-cls}-text {
+    display: inline-block;
+  }
 
-      &-with-help {
-        margin-bottom: 24px;
-      }
+  .has-feedback {
+    display: inline-block;
+  }
 
-      > div {
-        display: inline-block;
-        vertical-align: middle;
-      }
-    }
-
-    .@{form-prefix-cls}-text {
-      display: inline-block;
-    }
-
-    .has-feedback {
-      display: inline-block;
-    }
-
-    // Fix https://github.comdesigndesign/issues/1040
-    .@{form-prefix-cls}-explain {
-      position: absolute;
-    }
+  // Fix https://github.com/ant-design/ant-design/issues/1040
+  .@{form-prefix-cls}-explain {
+    position: absolute;
   }
 }
 
