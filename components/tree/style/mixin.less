@@ -1,16 +1,16 @@
 @import "../../style/mixins/index";
 
-.antTreeSwitcherIcon() {
-  position: relative;
+@open: "\e621";
+@close: "\e645";
+@doc: "\e664";
+
+.antTreeSwitcherIcon(@type) {
   &:after {
-    .iconfont-size-under-12px(7px);
+    .iconfont-size-under-12px(8px);
     display: inline-block;
-    .iconfont-font("\e606");
+    .iconfont-font(@@type);
     font-weight: bold;
-    position: absolute;
-    top: 0;
-    right: 4px;
-    color: @text-color;
+    color: @tree-icon-color;
     transition: transform .3s ease;
   }
 }

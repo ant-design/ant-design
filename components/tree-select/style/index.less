@@ -77,17 +77,13 @@
         &.@{select-tree-prefix-cls}-center_open,
         &.@{select-tree-prefix-cls}-bottom_open,
         &.@{select-tree-prefix-cls}-noline_open {
-          .antTreeSwitcherIcon();
+          .antTreeSwitcherIcon("open");
         }
         &.@{select-tree-prefix-cls}-roots_close,
         &.@{select-tree-prefix-cls}-center_close,
         &.@{select-tree-prefix-cls}-bottom_close,
         &.@{select-tree-prefix-cls}-noline_close {
-          .antTreeSwitcherIcon();
-          .ie-rotate(3);
-          &:after {
-            transform: rotate(270deg) scale(0.5);
-          }
+          .antTreeSwitcherIcon("close");
         }
       }
     }

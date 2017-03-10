@@ -39,6 +39,7 @@ subtitle: 树形控件
 |onDragLeave | dragleave 触发时调用 | function({event, node}) | - |
 |onDragEnd | dragend 触发时调用 | function({event, node}) | - |
 |onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+|showLine | 是否展示连接线 | boolean | false |
 
 ### TreeNode props
 
