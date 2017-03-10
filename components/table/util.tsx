@@ -28,6 +28,19 @@ export function treeMap(tree: Object[], mapper: Function, childrenName = 'childr
   });
 }
 
+export function flatFilter(tree: any[], callback: Function) {
+  return tree.reduce((acc, node) => {
+    if (callback(node)) {
+      acc.push(node);
+    }
+    if (node.children) {
+      const children = flatFilter(node.children, callback);
+      acc.push(...children);
+    }
+    return acc;
+  }, []);
+}
+
 export function normalizeColumns(elements) {
   const columns: any[] = [];
   React.Children.forEach(elements, (element: React.ReactElement<any>) => {

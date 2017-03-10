@@ -17,6 +17,7 @@ export interface ColumnProps<T> {
   fixed?: boolean | ('left' | 'right');
   filteredValue?: any[];
   sortOrder?: boolean | ('ascend' | 'descend');
+  children?: ColumnProps<T>[];
 }
 
 export default class Column<T> extends (RcTable.Column as React.ComponentClass<ColumnProps<T>>) {}
