@@ -147,7 +147,9 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-select-search__field"
                   value="" />
                 <span
-                  class="ant-select-search__field__mirror" />
+                  class="ant-select-search__field__mirror">
+                   
+                </span>
               </div>
             </div>
           </div>

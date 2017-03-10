@@ -26,7 +26,9 @@ exports[`test renders ./components/auto-complete/demo/antd.md correctly 1`] = `
               class="ant-input ant-select-search__field"
               style="height:50px;" />
             <span
-              class="ant-select-search__field__mirror" />
+              class="ant-select-search__field__mirror">
+               
+            </span>
           </div>
         </li>
       </ul>
@@ -70,7 +72,9 @@ exports[`test renders ./components/auto-complete/demo/basic.md correctly 1`] = `
               type="text"
               value="" />
             <span
-              class="ant-select-search__field__mirror" />
+              class="ant-select-search__field__mirror">
+               
+            </span>
           </div>
         </li>
       </ul>
@@ -125,7 +129,9 @@ exports[`test renders ./components/auto-complete/demo/certain-category.md correc
                 </span>
               </span>
               <span
-                class="ant-select-search__field__mirror" />
+                class="ant-select-search__field__mirror">
+                 
+              </span>
             </div>
           </li>
         </ul>
@@ -170,7 +176,9 @@ exports[`test renders ./components/auto-complete/demo/non-case-sensitive.md corr
               type="text"
               value="" />
             <span
-              class="ant-select-search__field__mirror" />
+              class="ant-select-search__field__mirror">
+               
+            </span>
           </div>
         </li>
       </ul>
@@ -214,7 +222,9 @@ exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] =
               type="text"
               value="" />
             <span
-              class="ant-select-search__field__mirror" />
+              class="ant-select-search__field__mirror">
+               
+            </span>
           </div>
         </li>
       </ul>
@@ -273,7 +283,9 @@ exports[`test renders ./components/auto-complete/demo/uncertain-category.md corr
                 </span>
               </span>
               <span
-                class="ant-select-search__field__mirror" />
+                class="ant-select-search__field__mirror">
+                 
+              </span>
             </div>
           </li>
         </ul>
