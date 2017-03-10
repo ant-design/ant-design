@@ -116,35 +116,6 @@ export default class Input extends Component<InputProps, any> {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    const { props, state, refs } = this;
-    const preHasPresuffix = prevProps.prefix || prevProps.suffix;
-    const curHasPresuffix = props.prefix || props.suffix;
-    if (state.isFocus && (preHasPresuffix !== curHasPresuffix)) {
-      refs.input.focus();
-    }
-  }
-
-  handleFocus = (e) => {
-    const { onFocus } = this.props;
-    this.setState({
-      isFocus: true,
-    });
-    if (onFocus) {
-      onFocus(e);
-    }
-  }
-
-  handleBlur = (e) => {
-    const { onBlur } = this.props;
-    this.setState({
-      isFocus: false,
-    });
-    if (onBlur) {
-      onBlur(e);
-    }
-  }
-
   handleKeyDown = (e) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
@@ -219,7 +190,7 @@ export default class Input extends Component<InputProps, any> {
   renderLabeledIcon(children) {
     const { props } = this;
 
-    if (props.type === 'textarea' || (!props.prefix && !props.suffix)) {
+    if (props.type === 'textarea' || !('prefix' in props || 'suffix' in props)) {
       return children;
     }
 
@@ -292,8 +263,6 @@ export default class Input extends Component<InputProps, any> {
             {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
             ref="input"
           />
         );
