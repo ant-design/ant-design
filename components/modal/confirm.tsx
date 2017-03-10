@@ -30,11 +30,12 @@ export default function confirm(config) {
     (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
-  function close() {
+  function close(...args) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
+    props.onCancel(...args);
   }
 
   let body = (
