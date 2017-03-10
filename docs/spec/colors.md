@@ -50,8 +50,8 @@ const Palette = React.createClass({
     });
     this.setState({ hexColors });
   },
-  onCopied() {
-    message.success('Copied.');
+  onCopied(name, color) {
+    message.success(`@${name} copied: ${color}`);
   },
   render() {
     this.colorNodes = this.colorNodes || {};
@@ -61,7 +61,11 @@ const Palette = React.createClass({
     for (let i = 1; i <= 10; i++) {
       const colorText = `${name}-${i}`;
       colors.push(
-        <CopyToClipboard text={text} onCopy={this.onCopied} key={i}>
+        <CopyToClipboard
+          text={hexColors ? hexColors[colorText] : ''}
+          onCopy={() => this.onCopied(colorText, hexColors[colorText])}
+          key={colorText}
+        >
           <div
             key={i}
             ref={node => { this.colorNodes[`${name}-${i}`] = node; } }
@@ -70,9 +74,10 @@ const Palette = React.createClass({
               color: i > 5 ? '#fff' : 'unset',
               fontWeight: i === 6 ? 'bold' : 'normal',
             }}
+            title="click to copy color"
           >
             {colorText}
-            {hexColors ? <span className="main-color-value">{hexColors[`${name}-${i}`]}</span> : null}
+            {hexColors ? <span className="main-color-value">{hexColors[colorText]}</span> : null}
           </div>
         </CopyToClipboard>
       );

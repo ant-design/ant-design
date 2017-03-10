@@ -14,7 +14,7 @@ export default class CopyableIcon extends React.Component {
     this.setState({ justCopied: true }, () => {
       setTimeout(() => {
         this.setState({ justCopied: false });
-      }, 1000);
+      }, 2000);
     });
   }
 

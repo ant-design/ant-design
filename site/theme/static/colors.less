@@ -3,9 +3,9 @@
 }
 
 .main-color {
-  overflow: hidden;
   display: flex;
   &-item {
+    cursor: pointer;
     flex: 1;
     height: 80px;
     border-radius: 4px;
@@ -19,6 +19,10 @@
     font-size: 12px;
     &:last-child {
       margin-right: 0;
+    }
+    &:hover {
+      margin-top: -10px;
+      height: 90px;
     }
   }
   &-item &-value {
@@ -58,38 +62,6 @@
     opacity: 0.7;
     bottom: 3px;
   }
-}
-
-.color-block {
-  position: relative;
-  width: 60px;
-  border-radius: @border-radius-base;
-  height: 28px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-  cursor: pointer;
-}
-.color-block:after {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  content: "Copied!";
-  font-size: 12px;
-  line-height: 28px;
-  text-align: center;
-  color: #444;
-  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  opacity: 0;
-}
-.color-block.copied:after {
-  opacity: 1;
-  top: 0;
-}
-.color-block.dark:after {
-  color: #fff;
 }
 
 .make-palatte(@color, @index: 1) when (@index <= 10) {
