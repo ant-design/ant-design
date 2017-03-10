@@ -19,7 +19,7 @@ When a numeric value needs to be provided.
 | value     | current value       | number      |            |
 | step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | number\|string      |  1      |
 | defaultValue     | initial value       | number      |            |
-| onChange     | The callback triggered when the value is changed.     | function(value: number | string) |            |
+| onChange     | The callback triggered when the value is changed.     | function(value: number \| string) |            |
 | disabled     | disable the input       | boolean      |      false      |
 | size    | width of input box  | string      | - |
-| formatter | Specifies the format of the value presented | function(value: number | string): string | - |
+| formatter | Specifies the format of the value presented | function(value: number \| string): string | - |
