@@ -21,15 +21,14 @@ timeline: true
 
 `2017-03-11`
 
-- **DatePicker** 修复父组件 state 变化导致被错误赋值的问题。[#5189](https://github.com/ant-design/ant-design/issues/5189) [@megawac](https://github.com/megawac)
+- **DatePicker** 优化了带时间的 DatePicker 的选择行为，并修复父组件 state 变化导致无法选中的问题。[#5189](https://github.com/ant-design/ant-design/issues/5189) [@megawac](https://github.com/megawac)
 - **Form**
   - 补充了校验规则相关文档。[#5201](https://github.com/ant-design/ant-design/issues/5201)
-  - 去掉默认的响应式布局行为。[pull/5253](https://github.com/ant-design/ant-design/pull/5253)
+  - 修复了一些样式问题。[#5196](https://github.com/ant-design/ant-design/issues/5196) [#5236](https://github.com/ant-design/ant-design/issues/5236) [#5222](https://github.com/ant-design/ant-design/issues/5222)
 - **Icon** 增加 `shake` 和 `android-o` 图标。[commit/941782](https://github.com/ant-design/ant-design/commit/941782f7ec000a9054c3bc945ab887f93ab46749)
 - **Input** 修复有 `addonBefore` 时 `hasFeedback` 失效的问题。[#5228](https://github.com/ant-design/ant-design/issues/5228)
 - **InputNumber** 补充缺失的 type 定义。[#5240](https://github.com/ant-design/ant-design/issues/5240) [@hlehmann](https://github.com/hlehmann)
 - **Modal** 支持点击 esc 调用 `onCancle`。[#5203](https://github.com/ant-design/ant-design/issues/5203) [@elios264](https://github.com/elios264)
-- **Rate** 颜色样式提取到主题。[pull/5238](https://github.com/ant-design/ant-design/pull/5238) [@JesperWe](https://github.com/JesperWe)
 - **Table**
   - 补充缺失的 type 定义。[#5206](https://github.com/ant-design/ant-design/issues/5206) [@kvey](https://github.com/kvey)
   - 修复小号表格无数据时右边线缺失的问题。[#5237](https://github.com/ant-design/ant-design/issues/5237)

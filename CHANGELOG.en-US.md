@@ -21,15 +21,14 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-03-11`
 
-- **DatePicker** Fix got reset to the previous value when state of parent component has changed. [#5189](https://github.com/ant-design/ant-design/issues/5189) [@megawac](https://github.com/megawac)
+- **DatePicker** Fix can't select time when new props are passed, and improve the selection behavior of `DatePicker[showTime]`. [#5189](https://github.com/ant-design/ant-design/issues/5189) [@megawac](https://github.com/megawac)
 - **Form**
   - Add document for validate rules. [#5201](https://github.com/ant-design/ant-design/issues/5201)
-  - Remove auto-responsive layout. [pull/5253](https://github.com/ant-design/ant-design/pull/5253)
+  - Fix some style issues. [#5196](https://github.com/ant-design/ant-design/issues/5196) [#5236](https://github.com/ant-design/ant-design/issues/5236) [#5222](https://github.com/ant-design/ant-design/issues/5222)
 - **Icon** Add iconfont `shake` and `android-o`. [commit/941782](https://github.com/ant-design/ant-design/commit/941782f7ec000a9054c3bc945ab887f93ab46749)
 - **Input** Fix `hasFeedback` not work with `addonBefore`. [#5228](https://github.com/ant-design/ant-design/issues/5228)
 - **InputNumber** Add typings for props `formatter`. [#5240](https://github.com/ant-design/ant-design/issues/5240) [@hlehmann](https://github.com/hlehmann)
 - **Modal** Call `onCancel` when pressing esc key. [#5203](https://github.com/ant-design/ant-design/issues/5203) [@elios264](https://github.com/elios264)
-- **Rate** Make colors available in theme. [pull/5238](https://github.com/ant-design/ant-design/pull/5238) [@JesperWe](https://github.com/JesperWe)
 - **Table**
   - Fix implicit type issue. [#5206](https://github.com/ant-design/ant-design/issues/5206) [@kvey](https://github.com/kvey)
   - Fix right border not visible with no data in `small` size. [#5237](https://github.com/ant-design/ant-design/issues/5237)
