@@ -17,6 +17,35 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.8.1
+
+`2017-03-11`
+
+- **DatePicker** Fix got reset to the previous value when state of parent component has changed. [#5189](https://github.com/ant-design/ant-design/issues/5189) [@megawac](https://github.com/megawac)
+- **Form**
+	- Add document for validate rules. [#5201](https://github.com/ant-design/ant-design/issues/5201)
+	- Remove auto-responsive layout. [pull/5253](https://github.com/ant-design/ant-design/pull/5253)
+- **Icon** Add iconfont shake and android-o. [commit/941782](https://github.com/ant-design/ant-design/commit/941782f7ec000a9054c3bc945ab887f93ab46749)
+- **Input** Fix hasFeedback not work with addonBefore. [#5228](https://github.com/ant-design/ant-design/issues/5228)
+- **InputNumber** Add typings for props formatter. [#5240](https://github.com/ant-design/ant-design/issues/5240) [@hlehmann](https://github.com/hlehmann)
+- **Modal** Call onCancel when pressing esc key. [#5203](https://github.com/ant-design/ant-design/issues/5203) [@elios264](https://github.com/elios264)
+- **Rate** Make colors available in theme. [pull/5238](https://github.com/ant-design/ant-design/pull/5238) [@JesperWe](https://github.com/JesperWe)
+- **Table**
+	- Fix implicit type issue. [#5206](https://github.com/ant-design/ant-design/issues/5206) [@kvey](https://github.com/kvey)
+	- Fix right border not visible with no data in small size. [#5237](https://github.com/ant-design/ant-design/issues/5237)
+	- Fix sort not working when using grouping column. [#5158](https://github.com/ant-design/ant-design/issues/5158)
+- **Tooltip** Fix layout style on disabled Button. [#5254](https://github.com/ant-design/ant-design/issues/5254)
+- **Upload**
+	- Fix long name of upload item style. [commit/0a3519](https://github.com/ant-design/ant-design/commit/0a35197a35513ca45308bb7163c8243b75dd6f8d)
+	- Fix and improve animation. [pull/5210](https://github.com/ant-design/ant-design/pull/5210)
+	- Allow override onProgress. [pull/5260](https://github.com/ant-design/ant-design/pull/5260) [@minwe](https://github.com/minwe)
+- **Global Optimization**
+	- Fix Cannot resolve module lodash.debounce. [#5230](https://github.com/ant-design/ant-design/issues/5230)
+- **Site**
+	- Fix safari language check. [pull/5245](https://github.com/ant-design/ant-design/pull/5245)
+	- Add ability to copy color when clicking on palette. [pull/5247](https://github.com/ant-design/ant-design/pull/5247) [@bsheikh](https://github.com/bsheikh)
+	- Add boilerplate samples. [commit/f2f786](https://github.com/ant-design/ant-design/commit/f2f786d66d75eebef8406a72db8a15e1640cea1f)
+
 ## 2.8.0
 
 `2017-03-06`
