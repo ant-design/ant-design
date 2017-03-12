@@ -55,9 +55,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## TypeScript
 
-tsconfig.json
-
 ```js
+// tsconfig.json
 {
   "compilerOptions": {
     "moduleResolution": "node",
@@ -71,14 +70,18 @@ tsconfig.json
 
 > 注意: 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
 
+## 国际化
+
+参考 [国际化文档](http://ant.design/docs/react/i18n)。
+
 ## 链接
 
 - [首页](http://ant.design/index-cn)
-- [组件文档](http://ant.design/docs/react/introduce-cn)
+- [UI 组件库](http://ant.design/docs/react/introduce-cn)
 - [更新日志](CHANGELOG.en-US.md)
 - [开发脚手架](https://github.com/dvajs/dva-cli)
 - [开发工具文档](http://ant-tool.github.io/)
-- [React 基础组件](http://react-component.github.io/)
+- [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [动效](https://motion.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)

@@ -86,9 +86,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## TypeScript
 
-tsconfig.json
-
 ```js
+// tsconfig.json
 {
   "compilerOptions": {
     "moduleResolution": "node",
@@ -102,6 +101,10 @@ tsconfig.json
 
 > Note: Don't use @types/antd, antd provide a built-in ts definition already.
 
+## Internationalization
+
+See [i18n](http://ant.design/docs/react/i18n).
+
 ## Links
 
 - [Home page](http://ant.design/)
@@ -109,7 +112,7 @@ tsconfig.json
 - [Change Log](CHANGELOG.en-US.md)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
 - [Development tool](http://ant-tool.github.io/)
-- [React components](http://react-component.github.io/)
+- [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
 - [Motion](https://motion.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
@@ -119,6 +122,16 @@ tsconfig.json
 - [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](http://ant.design/docs/react/customize-theme)
+
+## Development
+
+```bash
+$ git clone git@github.com:ant-design/ant-design.git
+$ npm install
+$ npm start
+```
+
+Open your browser and visit http://127.0.0.1:8001 .
 
 ## Contributing
 

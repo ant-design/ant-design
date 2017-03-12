@@ -113,14 +113,31 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // 加载 LESS
    ```
 
+ ## TypeScript
+
+ ```js
+ // tsconfig.json
+ {
+   "compilerOptions": {
+     "moduleResolution": "node",
+     "jsx": "preserve",
+     "allowSyntheticDefaultImports": true
+   }
+ }
+ ```
+
+ > 注意：设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
+
+ > 注意: 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
+
 ## 链接
 
 - [首页](http://ant.design/)
-- [组件文档](/docs/react/introduce)
+- [UI 组件库](/docs/react/introduce)
 - [更新日志](/changelog)
 - [开发脚手架](https://github.com/dvajs/dva-cli/)
 - [开发工具文档](http://ant-tool.github.io/)
-- [React 基础组件](http://react-component.github.io/)
+- [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [动效](https://motion.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
