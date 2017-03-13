@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Checkbox from './index';
+import Checkbox from './Checkbox';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface CheckboxOptionType {
