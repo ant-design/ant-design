@@ -26,7 +26,7 @@ const columns = [{
   key: 'operation',
   render: (text, record) => (
     <span>
-      <a href="#">操作一{record.name}</a>
+      <a href="#">操作一{record.age}</a>
       <span className="ant-divider"></span>
       <a href="#">操作二</a>
       <span className="ant-divider"></span>
