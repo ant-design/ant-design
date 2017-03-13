@@ -1,6 +1,6 @@
 ---
 order: 10
-title: 
+title:
   zh-CN: 卡片式页签容器
   en-US: Container of card type Tab
 ---
@@ -30,7 +30,7 @@ ReactDOM.render(
 
 ````css
 #components-tabs-demo-card-top .code-box-demo {
-  background: #ECECEC;
+  background: #ececec;
   overflow: hidden;
   padding: 24px;
 }
