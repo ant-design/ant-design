@@ -35,7 +35,9 @@ export default function confirm(config) {
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
-    props.onCancel && props.onCancel(...args);
+    if (props.onCancel) {
+      props.onCancel(...args);
+    }
   }
 
   let body = (
