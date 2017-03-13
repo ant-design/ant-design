@@ -188,6 +188,8 @@ loaders: [
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
 
+> Note, we only modified `webpack.config.dev.js` now, if you wish this config working on production environment, you need to update `webpack.config.prod.js` as well.
+
 ## Source code and other boilerplates
 
 Finally, we use antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack config in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
