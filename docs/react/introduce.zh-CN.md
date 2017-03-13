@@ -113,22 +113,22 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // 加载 LESS
    ```
 
- ## TypeScript
+### TypeScript
 
- ```js
- // tsconfig.json
- {
-   "compilerOptions": {
-     "moduleResolution": "node",
-     "jsx": "preserve",
-     "allowSyntheticDefaultImports": true
-   }
+```js
+// tsconfig.json
+{
+ "compilerOptions": {
+   "moduleResolution": "node",
+   "jsx": "preserve",
+   "allowSyntheticDefaultImports": true
  }
- ```
+}
+```
 
- > 注意：设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
+> 注意：设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
 
- > 注意: 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
+> 注意: 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
 
 ## 链接
 

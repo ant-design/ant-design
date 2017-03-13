@@ -26,9 +26,15 @@ An enterprise-class UI design language and React-based implementation.
 - Written in TypeScript with complete define types.
 - A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 
+## Environment Support
+
+* Browser: Modern browsers and Internet Explorer 9+
+* Server-side Rendering
+* [Electron](http://electron.atom.io/)
+
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` is an open source project, improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute.
+`antd` is an open source project, improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute. And we are always happy to [offer collaborator permission](https://github.com/ant-design/ant-design/issues/3222) for some active contributors.
 
 ## Install
 
@@ -77,14 +83,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // that will import less
    ```
 
-## Environment Support
-
-* Browser: Modern browsers and Internet Explorer 9+.
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
-* Server-side Rendering
-* [Electron](http://electron.atom.io/)
-
-## TypeScript
+### TypeScript
 
 ```js
 // tsconfig.json

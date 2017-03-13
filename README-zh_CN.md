@@ -26,6 +26,16 @@
 - 使用 TypeScript 构建，提供完整的类型定义文件。
 - 基于 npm + webpack + [dva](https://github.com/dvajs/dva) 的企业级开发框架。
 
+## 支持环境
+
+* 现代浏览器和 IE9 及以上。
+* 支持服务端渲染。
+* [Electron](http://electron.atom.io/)
+
+## 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+`antd` 是一个开源项目，我们欢迎社区参与共建。如果你对此项目感兴趣，有 [很多方式](https://opensource.guide/how-to-contribute/) 进行参与。你可以 watch 这个仓库，加入 [issue 中的讨论](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion)，以及尝试实现一些 [已接受的特性](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22)。我们会给予有活跃贡献的社区成员 [collaborator 权限](https://github.com/ant-design/ant-design/issues/3222)。
+
 ## 安装
 
 ```bash
@@ -46,12 +56,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
 按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)。
-
-## 浏览器支持
-
-现代浏览器和 IE9 及以上。
-
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
 
 ## TypeScript
 
