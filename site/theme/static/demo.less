@@ -173,6 +173,8 @@
     line-height: 20px;
     text-align: center;
     border-radius: 20px;
+    opacity: 0;
+
     &:hover {
       color: @primary-color;
       transform: scale(1.2);
@@ -181,6 +183,10 @@
       color: @green-6!important;
       font-weight: bold;
     }
+  }
+
+  .highlight-wrapper:hover &-code-copy {
+    opacity: 1;
   }
 
   pre {
