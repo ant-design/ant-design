@@ -32,11 +32,11 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 - Written in TypeScript with complete define types.
 - A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 
-## Compatibility
+## Environment Support
 
-Modern browsers and IE9+.
-
-> [Read more about compatibility](/docs/react/getting-started#Compatibility)
+* Browser: Modern browsers and Internet Explorer 9+
+* Server-side Rendering
+* [Electron](http://electron.atom.io/)
 
 ## Version
 

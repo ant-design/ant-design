@@ -32,11 +32,11 @@ title: Ant Design of React
 - 使用 TypeScript 构建，提供完整的类型定义文件。
 - 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
 
-## 浏览器支持
+## 支持环境
 
-现代浏览器和 IE9 及以上。
-
-> [更多兼容性信息](/docs/react/getting-started#兼容性)
+* 现代浏览器和 IE9 及以上。
+* 支持服务端渲染。
+* [Electron](http://electron.atom.io/)
 
 ## 版本
 
