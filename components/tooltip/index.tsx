@@ -117,8 +117,15 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         ...omited,
         pointerEvents: 'none',
       };
-      const child = cloneElement(element, { style: buttonStyle });
-      return <span style={spanStyle}>{child}</span>;
+      const child = cloneElement(element, {
+        style: buttonStyle,
+        className: null,
+      });
+      return (
+        <span style={spanStyle} className={element.props.className}>
+          {child}
+        </span>
+      );
     }
     return element;
   }
