@@ -16,3 +16,5 @@ title: Third-Party Libraries
 * **Document head manager: ** [react-helmet](https://github.com/nfl/react-helmet)
 * **Font Awesome Icons: ** [react-fa](https://github.com/andreypopp/react-fa)
 * **QR Code: **: [qrcode.react](https://github.com/zpao/qrcode.react)
+* **Charts**: [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+* **Top Progress Bar**: [nprogress](https://github.com/rstacruz/nprogress)

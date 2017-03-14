@@ -16,3 +16,5 @@ title: 社区精选组件
 * **管理 document head：** [react-helmet](https://github.com/nfl/react-helmet)
 * **Font Awesome 图标**: [react-fa](https://github.com/andreypopp/react-fa)
 * **二维码：**: [qrcode.react](https://github.com/zpao/qrcode.react)
+* **可视化图表**: [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+* **顶部进度条**: [nprogress](https://github.com/rstacruz/nprogress)
