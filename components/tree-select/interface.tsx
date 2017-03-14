@@ -41,9 +41,3 @@ export interface TreeSelectProps {
   treeCheckStrictly?: boolean;
   getPopupContainer?: (triggerNode: React.ReactNode) => HTMLElement;
 }
-
-export interface TreeSelectContext {
-  antLocale?: {
-    Select?: any,
-  };
-}
