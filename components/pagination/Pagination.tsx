@@ -36,12 +36,12 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
   abstract getLocale()
 
   render() {
-    const { className, size, ...rest } = this.props;
+    const { className, size, ...restProps } = this.props;
     const locale = this.getLocale();
     const isSmall = size === 'small';
     return (
       <RcPagination
-        {...rest}
+        {...restProps}
         className={classNames(className, { mini: isSmall })}
         selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
