@@ -39,6 +39,12 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
+/**
+ * Avoid creating new object, so that parent component's shouldComponentUpdate
+ * can works appropriately。
+ */
+const emptyObject = {};
+
 export type TableColumnConfig<T> = ColumnProps<T>;
 
 export interface TableRowSelection<T> {
@@ -210,7 +216,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
         newPagination.current = newPagination.current || 1;
         newPagination.pageSize = newPagination.pageSize || 10;
-        return { pagination: nextProps.pagination !== false ? newPagination : {} };
+        return { pagination: nextProps.pagination !== false ? newPagination : emptyObject };
       });
     }
     if (nextProps.rowSelection &&
