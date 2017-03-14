@@ -1,10 +1,14 @@
-export default function getFileItem(file, fileList) {
-  let matchWay = (!file.uid) ? 'byName' : 'byUid';
-  let target = fileList.filter((item) => {
-    if (matchWay === 'byName') {
-      return item.name === file.name;
-    }
-    return item.uid === file.uid;
-  })[0];
-  return target;
+export function getFileItem(file, fileList) {
+  const matchKey = file.uid ? 'uid' : 'name';
+  const target = fileList.filter(item => item[matchKey] === file[matchKey])[0];
+  return { ...target };
+}
+
+export function removeFileItem(file, fileList) {
+  const matchKey = file.uid ? 'uid' : 'name';
+  const removed = fileList.filter(item => item[matchKey] !== file[matchKey]);
+  if (removed.length === fileList.length) {
+    return null;
+  }
+  return removed;
 }

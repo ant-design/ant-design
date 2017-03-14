@@ -1,7 +1,7 @@
 import React from 'react';
 import RcUpload from 'rc-upload';
 import UploadList from './uploadList';
-import getFileItem from './getFileItem';
+import { getFileItem, removeFileItem } from './getFileItem';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import { UploadProps, UploadLocale } from './interface';
@@ -146,17 +146,6 @@ export default class Upload extends React.Component<UploadProps, any> {
     }, 200);
   }
 
-  removeFile(file) {
-    let fileList = this.state.fileList;
-    let targetItem = getFileItem(file, fileList);
-    let index = fileList.indexOf(targetItem);
-    if (index !== -1) {
-      fileList.splice(index, 1);
-      return fileList;
-    }
-    return null;
-  }
-
   onSuccess = (response, file) => {
     this.clearProgressTimer();
     try {
@@ -215,14 +204,15 @@ export default class Upload extends React.Component<UploadProps, any> {
     const { onRemove } = this.props;
     // Prevent removing file
     const onRemoveReturnValue = onRemove && onRemove(file);
-    if (onRemoveReturnValue !== false) {
-      let fileList = this.removeFile(file);
-      if (fileList) {
-        this.onChange({
-          file,
-          fileList,
-        });
-      }
+    if (onRemoveReturnValue === false) {
+      return;
+    }
+    const removedFileList = removeFileItem(file, this.state.fileList);
+    if (removedFileList) {
+      this.onChange({
+        file,
+        fileList: removedFileList,
+      });
     }
   }
 
