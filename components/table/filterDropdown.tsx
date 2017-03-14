@@ -210,8 +210,11 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       </FilterDropdownMenuWrapper>
     );
 
-    const dropdownSelectedClass = (this.props.selectedKeys.length > 0 || this.props.filtered)
-      ? `${prefixCls}-selected` : '';
+    const dropdownSelectedClass = classNames({
+      [`${prefixCls}-selected`]: this.props.hasOwnProperty('filtered') ?
+        this.props.filtered :
+        this.props.selectedKeys.length > 0,
+    });
 
     return (
       <Dropdown
