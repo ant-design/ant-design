@@ -35,7 +35,13 @@ export default function confirm(config) {
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
-    props.onCancel(...args);
+    const triggerCancel = args && args.length &&
+      args.some((param) => {
+        return typeof param === 'object' && param !== null && param.triggerCancel;
+      });
+    if (props.onCancel && triggerCancel) {
+      props.onCancel(...args);
+    }
   }
 
   let body = (
@@ -75,7 +81,7 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
-      onCancel={close}
+      onCancel={close.bind(this, { triggerCancel: true })}
       visible
       title=""
       transitionName="zoom"
