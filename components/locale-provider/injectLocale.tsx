@@ -19,7 +19,13 @@ export default (componentName: string, defaultLocale) => (
 
       getLocale() {
         const { antLocale } = this.context;
-        return this.props.locale || (antLocale && antLocale[componentName]) || defaultLocale;
+        const localeFromContext = antLocale && antLocale[componentName];
+        const localeFromProps: any = this.props.locale || {};
+        return {
+          ...defaultLocale,
+          ...(localeFromContext || {}),
+          ...localeFromProps,
+        };
       }
     };
   }

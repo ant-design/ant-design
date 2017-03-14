@@ -1,19 +1,18 @@
 import React from 'react';
 import RcTable from 'rc-table';
-import FilterDropdown from './filterDropdown';
+import classNames from 'classnames';
+import assign from 'object-assign';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
-import Spin from '../spin';
-import classNames from 'classnames';
-import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
-import assign from 'object-assign';
+import Spin, { SpinProps } from '../spin';
 import warning from '../_util/warning';
+import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
-import { SpinProps } from '../spin';
+import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 
 function noop() {
 }
