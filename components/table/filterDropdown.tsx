@@ -23,6 +23,7 @@ export interface FilterMenuProps {
   confirmFilter: (column: Object, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
+  filtered?: boolean;
 }
 
 export default class FilterMenu extends React.Component<FilterMenuProps, any> {
@@ -209,7 +210,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       </FilterDropdownMenuWrapper>
     );
 
-    const dropdownSelectedClass = (this.props.selectedKeys.length > 0)
+    const dropdownSelectedClass = (this.props.selectedKeys.length > 0 || this.props.filtered)
       ? `${prefixCls}-selected` : '';
 
     return (

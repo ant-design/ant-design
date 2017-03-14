@@ -43,6 +43,7 @@ class App extends React.Component {
     filterDropdownVisible: false,
     data,
     searchText: '',
+    isFiltered: false,
   };
   onInputChange = (e) => {
     this.setState({ searchText: e.target.value });
@@ -52,6 +53,7 @@ class App extends React.Component {
     const reg = new RegExp(searchText, 'gi');
     this.setState({
       filterDropdownVisible: false,
+      isFiltered: !!searchText,
       data: data.map((record) => {
         const match = record.name.match(reg);
         if (!match) {
@@ -78,6 +80,7 @@ class App extends React.Component {
       filterDropdown: (
         <div className="custom-filter-dropdown">
           <Input
+            ref={ele => this.searchInput = ele}
             placeholder="Search name"
             value={this.state.searchText}
             onChange={this.onInputChange}
@@ -86,8 +89,9 @@ class App extends React.Component {
           <Button type="primary" onClick={this.onSearch}>Search</Button>
         </div>
       ),
+      filtered: this.state.isFiltered,
       filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }),
+      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus()),
     }, {
       title: 'Age',
       dataIndex: 'age',

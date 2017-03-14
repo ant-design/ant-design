@@ -692,6 +692,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
           <FilterDropdown
             locale={locale}
             column={column}
+            filtered={column.filtered}
             selectedKeys={colFilters}
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
