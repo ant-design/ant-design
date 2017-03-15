@@ -16,5 +16,5 @@ The simplest use.
 ```jsx
 import { Radio } from 'antd';
 
-ReactDOM.render(<Radio>Radio</Radio>, mountNode);
+ReactDOM.render(<Radio className="customized">Radio</Radio>, mountNode);
 ```
