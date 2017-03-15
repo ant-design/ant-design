@@ -10,6 +10,7 @@ export interface SpinProps {
   prefixCls?: string;
   className?: string;
   spinning?: boolean;
+  spinStyle?: React.CSSProperties;
   size?: 'small' | 'default' | 'large';
   tip?: string;
   delay?: number;
@@ -19,6 +20,7 @@ export default class Spin extends React.Component<SpinProps, any> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
+    spinStyle: null,
     size: 'default',
   };
 
@@ -26,6 +28,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     spinning: PropTypes.bool,
+    spinStyle: PropTypes.object,
     size: PropTypes.oneOf(['small', 'default', 'large']),
   };
 
@@ -82,7 +85,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
   }
   render() {
-    const { className, size, prefixCls, tip, ...restProps } = this.props;
+    const { className, size, prefixCls, tip, spinStyle, ...restProps } = this.props;
     const { spinning } = this.state;
 
     const spinClassName = classNames(prefixCls, {
@@ -119,11 +122,11 @@ export default class Spin extends React.Component<SpinProps, any> {
           {...divProps}
           component="div"
           className={`${prefixCls}-nested-loading`}
-          style={null}
+          style={spinStyle}
           transitionName="fade"
         >
           {spinning && <div key="loading">{spinElement}</div>}
-          <div className={containerClassName} key="container">
+          <div className={containerClassName} style={spinStyle} key="container">
             {this.props.children}
           </div>
         </Animate>

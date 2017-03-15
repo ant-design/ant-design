@@ -17,5 +17,6 @@ subtitle: 加载中
 |------------|----------------|-------------|--------------|
 | size       | enum           | default     | spin组件中点的大小，可选值为 small default large |
 | spinning   | boolean        | true        | 用于内嵌其他组件的模式，可以关闭 loading 效果    |
+| spinStyle      | spin 的样式对象                           | object   | -             |
 | tip    | string        | 无        | 自定义描述文案 |
 | delay | number (毫秒) | 无 | 延迟显示 loading 效果 |
