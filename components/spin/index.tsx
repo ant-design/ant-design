@@ -13,6 +13,7 @@ export interface SpinProps {
   size?: 'small' | 'default' | 'large';
   tip?: string;
   delay?: number;
+  wrapperClassName?: string;
 }
 
 export default class Spin extends React.Component<SpinProps, any> {
@@ -27,6 +28,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     className: PropTypes.string,
     spinning: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'default', 'large']),
+    wrapperClassName: PropTypes.string,
   };
 
   debounceTimeout: number;
@@ -82,7 +84,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
   }
   render() {
-    const { className, size, prefixCls, tip, ...restProps } = this.props;
+    const { className, size, prefixCls, tip, wrapperClassName, ...restProps } = this.props;
     const { spinning } = this.state;
 
     const spinClassName = classNames(prefixCls, {
@@ -115,18 +117,20 @@ export default class Spin extends React.Component<SpinProps, any> {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <Animate
-          {...divProps}
-          component="div"
-          className={`${prefixCls}-nested-loading`}
-          style={null}
-          transitionName="fade"
-        >
-          {spinning && <div key="loading">{spinElement}</div>}
-          <div className={containerClassName} key="container">
-            {this.props.children}
-          </div>
-        </Animate>
+        <div className={wrapperClassName}>
+          <Animate
+            {...divProps}
+            component="div"
+            className={`${prefixCls}-nested-loading`}
+            style={null}
+            transitionName="fade"
+          >
+            {spinning && <div key="loading">{spinElement}</div>}
+            <div className={containerClassName} key="container">
+              {this.props.children}
+            </div>
+          </Animate>
+        </div>
       );
     }
     return spinElement;

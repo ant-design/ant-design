@@ -19,3 +19,4 @@ subtitle: 加载中
 | spinning   | boolean        | true        | 用于内嵌其他组件的模式，可以关闭 loading 效果    |
 | tip    | string        | 无        | 自定义描述文案 |
 | delay | number (毫秒) | 无 | 延迟显示 loading 效果 |
+| wrapperClassName   | string        | 无 | 包装器的类属性 |
