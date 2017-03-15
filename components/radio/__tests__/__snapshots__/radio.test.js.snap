@@ -1,0 +1,16 @@
+exports[`Radio should render correctly 1`] = `
+<label
+  class="ant-radio-wrapper customized">
+  <span
+    class="ant-radio">
+    <input
+      class="ant-radio-input"
+      type="radio" />
+    <span
+      class="ant-radio-inner" />
+  </span>
+  <span>
+    Test
+  </span>
+</label>
+`;

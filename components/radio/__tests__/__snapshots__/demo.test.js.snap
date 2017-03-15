@@ -1,6 +1,6 @@
 exports[`test renders ./components/radio/demo/basic.md correctly 1`] = `
 <label
-  class="ant-radio-wrapper customized">
+  class="ant-radio-wrapper">
   <span
     class="ant-radio">
     <input
