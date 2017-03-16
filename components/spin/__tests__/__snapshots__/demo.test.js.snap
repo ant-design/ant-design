@@ -14,7 +14,7 @@ exports[`test renders ./components/spin/demo/basic.md correctly 1`] = `
 exports[`test renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
 <div>
   <div
-    class="ant-spin-nested-loading undefined">
+    class="ant-spin-nested-loading ">
     <div
       class="ant-spin-container">
       <div
@@ -60,7 +60,7 @@ exports[`test renders ./components/spin/demo/inside.md correctly 1`] = `
 exports[`test renders ./components/spin/demo/nested.md correctly 1`] = `
 <div>
   <div
-    class="ant-spin-nested-loading undefined">
+    class="ant-spin-nested-loading ">
     <div
       class="ant-spin-container">
       <div
@@ -124,7 +124,7 @@ exports[`test renders ./components/spin/demo/size.md correctly 1`] = `
 
 exports[`test renders ./components/spin/demo/tip.md correctly 1`] = `
 <div
-  class="ant-spin-nested-loading undefined">
+  class="ant-spin-nested-loading ">
   <div>
     <div
       class="ant-spin ant-spin-spinning ant-spin-show-text">

@@ -21,6 +21,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     prefixCls: 'ant-spin',
     spinning: true,
     size: 'default',
+    wrapperClassName: '',
   };
 
   static propTypes = {

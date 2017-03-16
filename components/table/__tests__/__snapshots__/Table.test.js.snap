@@ -2,7 +2,7 @@ exports[`Table renders JSX correctly 1`] = `
 <div
   class="ant-table-wrapper">
   <div
-    class="ant-spin-nested-loading undefined">
+    class="ant-spin-nested-loading ">
     <div
       class="ant-spin-container">
       <div
