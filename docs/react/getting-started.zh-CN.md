@@ -32,6 +32,7 @@ $ npm install antd-init -g
 
 > 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
 >
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
 >   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
