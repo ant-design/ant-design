@@ -1151,7 +1151,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <div
         class="ant-table-wrapper">
         <div
-          class="ant-spin-nested-loading">
+          class="ant-spin-nested-loading undefined">
           <div
             class="ant-spin-container">
             <div

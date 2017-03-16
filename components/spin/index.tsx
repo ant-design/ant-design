@@ -117,20 +117,18 @@ export default class Spin extends React.Component<SpinProps, any> {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <div className={wrapperClassName}>
-          <Animate
-            {...divProps}
-            component="div"
-            className={`${prefixCls}-nested-loading`}
-            style={null}
-            transitionName="fade"
-          >
-            {spinning && <div key="loading">{spinElement}</div>}
-            <div className={containerClassName} key="container">
-              {this.props.children}
-            </div>
-          </Animate>
-        </div>
+        <Animate
+          {...divProps}
+          component="div"
+          className={`${prefixCls}-nested-loading ${wrapperClassName}`}
+          style={null}
+          transitionName="fade"
+        >
+          {spinning && <div key="loading">{spinElement}</div>}
+          <div className={containerClassName} key="container">
+            {this.props.children}
+          </div>
+        </Animate>
       );
     }
     return spinElement;

@@ -16,7 +16,7 @@ exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper">
   <div
-    class="ant-spin-nested-loading">
+    class="ant-spin-nested-loading undefined">
     <div
       class="ant-spin-container">
       <div
