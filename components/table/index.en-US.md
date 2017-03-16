@@ -93,7 +93,7 @@ One of Property `columns` for descriping column, Column has the same API.
 | filterDropdownVisible | whether filterDropdown is visible | boolean | - |
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value | string[] | - |
-| sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. Arguments will be automatically swapped based on ascend/descend sort order. If you need sort buttons only, set it `true` | Function\|boolean | - |
+| sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set it `true` | Function\|boolean | - |
 | colSpan    | span of this column's title | number |         |
 | width      | width of this column | string\|number | -  |
 | className  | className of this column            | string          |  -      |
