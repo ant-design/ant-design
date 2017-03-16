@@ -30,3 +30,9 @@ Ant Design 的图标在设计和使用时有以下两个原则点需要注意：
 请将所有图标在 1024×1024（16×16 的 64 倍）的画板中制作。
 
 [制作小技巧](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
+
+<img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/XzoySLGeUaMCOVymkyZq.png" alt="正方形外轮廓">
+<img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/fdWiCCIQiJIViSNhmcHo.png" alt="横向矩形外轮廓">
+
+<img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/xEvvEZHaSlstcozKgoBd.png" alt="圆形外轮廓">
+<img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/GyBKoeSnRDFPvJudEgOA.png" alt="纵向矩形外轮廓">
