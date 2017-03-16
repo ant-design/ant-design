@@ -665,7 +665,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   getMaxCurrent(total) {
     const { current, pageSize } = this.state.pagination;
     if ((current - 1) * pageSize >= total) {
-      return current - 1;
+      return Math.floor((total - 1) / pageSize) + 1;
     }
     return current;
   }
