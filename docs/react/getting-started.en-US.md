@@ -33,6 +33,7 @@ Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/
 
 > Also, you can use scaffold/demo which is provided by community:
 >
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
 >   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
