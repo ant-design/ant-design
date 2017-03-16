@@ -1,7 +1,6 @@
 export function getFileItem(file, fileList) {
   const matchKey = file.uid ? 'uid' : 'name';
-  const target = fileList.filter(item => item[matchKey] === file[matchKey])[0];
-  return { ...target };
+  return fileList.filter(item => item[matchKey] === file[matchKey])[0];
 }
 
 export function removeFileItem(file, fileList) {

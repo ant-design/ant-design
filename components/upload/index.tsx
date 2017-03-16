@@ -163,7 +163,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     targetItem.status = 'done';
     targetItem.response = response;
     this.onChange({
-      file: targetItem,
+      file: { ...targetItem },
       fileList,
     });
   }
@@ -178,7 +178,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     targetItem.percent = e.percent;
     this.onChange({
       event: e,
-      file: targetItem,
+      file: { ...targetItem },
       fileList: this.state.fileList,
     });
   }
@@ -195,7 +195,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     targetItem.response = response;
     targetItem.status = 'error';
     this.onChange({
-      file: targetItem,
+      file: { ...targetItem },
       fileList,
     });
   }
