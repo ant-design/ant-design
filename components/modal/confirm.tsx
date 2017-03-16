@@ -36,9 +36,7 @@ export default function confirm(config) {
       div.parentNode.removeChild(div);
     }
     const triggerCancel = args && args.length &&
-      args.some((param) => {
-        return typeof param === 'object' && param !== null && param.triggerCancel;
-      });
+      args.some(param => param && param.triggerCancel);
     if (props.onCancel && triggerCancel) {
       props.onCancel(...args);
     }
