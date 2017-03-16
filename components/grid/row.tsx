@@ -44,12 +44,12 @@ export default class Row extends React.Component<RowProps, any> {
       if (!col) {
         return null;
       }
-      if (col.props) {
+      if (col.props && (gutter as number) > 0) {
         return cloneElement(col, {
-          style: (gutter as number) > 0 ? assign({}, {
+          style: assign({}, {
             paddingLeft: (gutter as number) / 2,
             paddingRight: (gutter as number) / 2,
-          }, col.props.style) : col.props.style,
+          }, col.props.style),
         });
       }
       return col;
