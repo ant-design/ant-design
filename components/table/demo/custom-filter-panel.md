@@ -14,7 +14,7 @@ title:
 Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
 
 ````jsx
-import { Table, Input, Button } from 'antd';
+import { Table, Input, Button, Icon } from 'antd';
 
 const data = [{
   key: '1',
@@ -89,7 +89,7 @@ class App extends React.Component {
           <Button type="primary" onClick={this.onSearch}>Search</Button>
         </div>
       ),
-      filtered: this.state.filtered,
+      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
       filterDropdownVisible: this.state.filterDropdownVisible,
       onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus()),
     }, {
