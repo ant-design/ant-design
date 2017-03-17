@@ -20,6 +20,8 @@ export interface RadioProps {
 }
 
 export default class Radio extends React.Component<RadioProps, any> {
+  static __ANT_RADIO = true;
+
   static Group: any;
   static Button: any;
 
