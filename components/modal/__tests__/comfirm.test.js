@@ -3,6 +3,16 @@ import Modal from '..';
 const confirm = Modal.confirm;
 
 describe('Modal.confirm triggers callbacks correctly', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   function $$(className) {
     return document.body.querySelectorAll(className);
   }
@@ -45,15 +55,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     open();
     // Third Modal
     $$('.ant-btn')[4].click();
-    // eslint-disable-next-line
-    expect(console.error.calls).toBe(undefined);
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should allow Modal.comfirm without onOk been set', () => {
     open();
     // Fourth Modal
     $$('.ant-btn-primary')[3].click();
-    // eslint-disable-next-line
-    expect(console.error.calls).toBe(undefined);
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 });

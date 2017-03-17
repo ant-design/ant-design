@@ -1,36 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Table renders JSX correctly 1`] = `
 <div
-  class="ant-table-wrapper">
+  class="ant-table-wrapper"
+>
   <div
-    class="ant-spin-nested-loading">
+    class="ant-spin-nested-loading"
+  >
     <div
-      class="ant-spin-container">
+      class="ant-spin-container"
+    >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left">
+        class="ant-table ant-table-large ant-table-scroll-position-left"
+      >
         <div
-          class="ant-table-content">
+          class="ant-table-content"
+        >
           <div
-            class="ant-table-body">
+            class="ant-table-body"
+          >
             <table
-              class="">
+              class=""
+            >
               <colgroup>
                 <col />
                 <col />
                 <col />
               </colgroup>
               <thead
-                class="ant-table-thead">
+                class="ant-table-thead"
+              >
                 <tr>
                   <th
                     class=""
-                    colspan="2">
+                    colspan="2"
+                  >
                     <span>
                       Name
                     </span>
                   </th>
                   <th
                     class=""
-                    rowspan="2">
+                    rowspan="2"
+                  >
                     <span>
                       Age
                     </span>
@@ -38,13 +50,15 @@ exports[`Table renders JSX correctly 1`] = `
                 </tr>
                 <tr>
                   <th
-                    class="">
+                    class=""
+                  >
                     <span>
                       First Name
                     </span>
                   </th>
                   <th
-                    class="">
+                    class=""
+                  >
                     <span>
                       Last Name
                     </span>
@@ -52,40 +66,51 @@ exports[`Table renders JSX correctly 1`] = `
                 </tr>
               </thead>
               <tbody
-                class="ant-table-tbody">
+                class="ant-table-tbody"
+              >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0">
+                  class="ant-table-row  ant-table-row-level-0"
+                >
                   <td
-                    class="">
+                    class=""
+                  >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;" />
+                      style="padding-left:0px;"
+                    />
                     John
                   </td>
                   <td
-                    class="">
+                    class=""
+                  >
                     Brown
                   </td>
                   <td
-                    class="">
+                    class=""
+                  >
                     32
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0">
+                  class="ant-table-row  ant-table-row-level-0"
+                >
                   <td
-                    class="">
+                    class=""
+                  >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;" />
+                      style="padding-left:0px;"
+                    />
                     Jim
                   </td>
                   <td
-                    class="">
+                    class=""
+                  >
                     Green
                   </td>
                   <td
-                    class="">
+                    class=""
+                  >
                     42
                   </td>
                 </tr>

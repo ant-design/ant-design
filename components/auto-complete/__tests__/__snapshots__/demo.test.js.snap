@@ -1,32 +1,42 @@
-exports[`test renders ./components/auto-complete/demo/antd.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/auto-complete/demo/antd.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;height:50px;">
+  style="width:200px;height:50px;"
+>
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
               ant-select-selection--single"
-    role="combobox">
+    role="combobox"
+  >
     <div
-      class="ant-select-selection__rendered">
+      class="ant-select-selection__rendered"
+    >
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         input here
       </div>
       <ul>
         <li
-          class="ant-select-search ant-select-search--inline">
+          class="ant-select-search ant-select-search--inline"
+        >
           <div
-            class="ant-select-search__field__wrap">
+            class="ant-select-search__field__wrap"
+          >
             <textarea
               class="ant-input ant-select-search__field"
-              style="height:50px;" />
+              style="height:50px;"
+            />
             <span
-              class="ant-select-search__field__mirror">
+              class="ant-select-search__field__mirror"
+            >
                
             </span>
           </div>
@@ -36,43 +46,52 @@ exports[`test renders ./components/auto-complete/demo/antd.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable">
+      unselectable="unselectable"
+    >
       <b />
     </span>
   </div>
 </div>
 `;
 
-exports[`test renders ./components/auto-complete/demo/basic.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;">
+  style="width:200px;"
+>
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
               ant-select-selection--single"
-    role="combobox">
+    role="combobox"
+  >
     <div
-      class="ant-select-selection__rendered">
+      class="ant-select-selection__rendered"
+    >
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         input here
       </div>
       <ul>
         <li
-          class="ant-select-search ant-select-search--inline">
+          class="ant-select-search ant-select-search--inline"
+        >
           <div
-            class="ant-select-search__field__wrap">
+            class="ant-select-search__field__wrap"
+          >
             <input
               class="ant-input ant-input ant-select-search__field"
               type="text"
-              value="" />
+              value=""
+            />
             <span
-              class="ant-select-search__field__mirror">
+              class="ant-select-search__field__mirror"
+            >
                
             </span>
           </div>
@@ -82,54 +101,67 @@ exports[`test renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable">
+      unselectable="unselectable"
+    >
       <b />
     </span>
   </div>
 </div>
 `;
 
-exports[`test renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
 <div
   class="certain-category-search-wrapper"
-  style="width:250px;">
+  style="width:250px;"
+>
   <div
     class="ant-select-lg ant-select-lg certain-category-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;">
+    style="width:100%;"
+  >
     <div
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
                 ant-select-selection--single"
-      role="combobox">
+      role="combobox"
+    >
       <div
-        class="ant-select-selection__rendered">
+        class="ant-select-selection__rendered"
+      >
         <div
           class="ant-select-selection__placeholder"
           style="display:block;user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           input here
         </div>
         <ul>
           <li
-            class="ant-select-search ant-select-search--inline">
+            class="ant-select-search ant-select-search--inline"
+          >
             <div
-              class="ant-select-search__field__wrap">
+              class="ant-select-search__field__wrap"
+            >
               <span
-                class="ant-input-preSuffix-wrapper">
+                class="ant-input-preSuffix-wrapper"
+              >
                 <input
                   class="ant-input ant-input ant-select-search__field"
                   type="text"
-                  value="" />
+                  value=""
+                />
                 <span
-                  class="ant-input-suffix">
+                  class="ant-input-suffix"
+                >
                   <i
-                    class="anticon anticon-search certain-category-icon" />
+                    class="anticon anticon-search certain-category-icon"
+                  />
                 </span>
               </span>
               <span
-                class="ant-select-search__field__mirror">
+                class="ant-select-search__field__mirror"
+              >
                  
               </span>
             </div>
@@ -139,7 +171,8 @@ exports[`test renders ./components/auto-complete/demo/certain-category.md correc
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         <b />
       </span>
     </div>
@@ -147,36 +180,44 @@ exports[`test renders ./components/auto-complete/demo/certain-category.md correc
 </div>
 `;
 
-exports[`test renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;">
+  style="width:200px;"
+>
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
               ant-select-selection--single"
-    role="combobox">
+    role="combobox"
+  >
     <div
-      class="ant-select-selection__rendered">
+      class="ant-select-selection__rendered"
+    >
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         try to type \`b\`
       </div>
       <ul>
         <li
-          class="ant-select-search ant-select-search--inline">
+          class="ant-select-search ant-select-search--inline"
+        >
           <div
-            class="ant-select-search__field__wrap">
+            class="ant-select-search__field__wrap"
+          >
             <input
               class="ant-input ant-input ant-select-search__field"
               type="text"
-              value="" />
+              value=""
+            />
             <span
-              class="ant-select-search__field__mirror">
+              class="ant-select-search__field__mirror"
+            >
                
             </span>
           </div>
@@ -186,43 +227,52 @@ exports[`test renders ./components/auto-complete/demo/non-case-sensitive.md corr
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable">
+      unselectable="unselectable"
+    >
       <b />
     </span>
   </div>
 </div>
 `;
 
-exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;">
+  style="width:200px;"
+>
   <div
     aria-autocomplete="list"
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
               ant-select-selection--single"
-    role="combobox">
+    role="combobox"
+  >
     <div
-      class="ant-select-selection__rendered">
+      class="ant-select-selection__rendered"
+    >
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         input here
       </div>
       <ul>
         <li
-          class="ant-select-search ant-select-search--inline">
+          class="ant-select-search ant-select-search--inline"
+        >
           <div
-            class="ant-select-search__field__wrap">
+            class="ant-select-search__field__wrap"
+          >
             <input
               class="ant-input ant-input ant-select-search__field"
               type="text"
-              value="" />
+              value=""
+            />
             <span
-              class="ant-select-search__field__mirror">
+              class="ant-select-search__field__mirror"
+            >
                
             </span>
           </div>
@@ -232,58 +282,72 @@ exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] =
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable">
+      unselectable="unselectable"
+    >
       <b />
     </span>
   </div>
 </div>
 `;
 
-exports[`test renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
 <div
   class="global-search-wrapper"
-  style="width:300px;">
+  style="width:300px;"
+>
   <div
     class="ant-select-lg ant-select-lg global-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;">
+    style="width:100%;"
+  >
     <div
       aria-autocomplete="list"
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
                 ant-select-selection--single"
-      role="combobox">
+      role="combobox"
+    >
       <div
-        class="ant-select-selection__rendered">
+        class="ant-select-selection__rendered"
+      >
         <div
           class="ant-select-selection__placeholder"
           style="display:block;user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           input here
         </div>
         <ul>
           <li
-            class="ant-select-search ant-select-search--inline">
+            class="ant-select-search ant-select-search--inline"
+          >
             <div
-              class="ant-select-search__field__wrap">
+              class="ant-select-search__field__wrap"
+            >
               <span
-                class="ant-input-preSuffix-wrapper">
+                class="ant-input-preSuffix-wrapper"
+              >
                 <input
                   class="ant-input ant-input ant-select-search__field"
                   type="text"
-                  value="" />
+                  value=""
+                />
                 <span
-                  class="ant-input-suffix">
+                  class="ant-input-suffix"
+                >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-lg search-btn"
-                    type="button">
+                    type="button"
+                  >
                     <i
-                      class="anticon anticon-search" />
+                      class="anticon anticon-search"
+                    />
                   </button>
                 </span>
               </span>
               <span
-                class="ant-select-search__field__mirror">
+                class="ant-select-search__field__mirror"
+              >
                  
               </span>
             </div>
@@ -293,7 +357,8 @@ exports[`test renders ./components/auto-complete/demo/uncertain-category.md corr
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable">
+        unselectable="unselectable"
+      >
         <b />
       </span>
     </div>

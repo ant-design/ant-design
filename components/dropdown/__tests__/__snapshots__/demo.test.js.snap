@@ -1,38 +1,48 @@
-exports[`test renders ./components/dropdown/demo/basic.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#">
+  href="#"
+>
   Hover me 
   <i
-    class="anticon anticon-down" />
+    class="anticon anticon-down"
+  />
 </a>
 `;
 
-exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 <div>
   <div
-    class="ant-btn-group ant-dropdown-button">
+    class="ant-btn-group ant-dropdown-button"
+  >
     <button
       class="ant-btn ant-btn-default"
-      type="button">
+      type="button"
+    >
       <span>
         Dropdown
       </span>
     </button>
     <button
       class="ant-btn ant-btn-default ant-dropdown-trigger"
-      type="button">
+      type="button"
+    >
       <i
-        class="anticon anticon-down" />
+        class="anticon anticon-down"
+      />
     </button>
   </div>
   <div
     class="ant-btn-group ant-dropdown-button"
-    style="margin-left:8px;">
+    style="margin-left:8px;"
+  >
     <button
       class="ant-btn ant-btn-default"
       disabled=""
-      type="button">
+      type="button"
+    >
       <span>
         Dropdown
       </span>
@@ -40,73 +50,86 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
     <button
       class="ant-btn ant-btn-default ant-dropdown-trigger"
       disabled=""
-      type="button">
+      type="button"
+    >
       <i
-        class="anticon anticon-down" />
+        class="anticon anticon-down"
+      />
     </button>
   </div>
   <button
     class="ant-btn ant-dropdown-trigger"
     style="margin-left:8px;"
-    type="button">
+    type="button"
+  >
     <span>
       Button 
     </span>
     <i
-      class="anticon anticon-down" />
+      class="anticon anticon-down"
+    />
   </button>
 </div>
 `;
 
-exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#">
+  href="#"
+>
   Hover me, Click menu item 
   <i
-    class="anticon anticon-down" />
+    class="anticon anticon-down"
+  />
 </a>
 `;
 
-exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#">
+  href="#"
+>
   Hover me 
   <i
-    class="anticon anticon-down" />
+    class="anticon anticon-down"
+  />
 </a>
 `;
 
-exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#">
+  href="#"
+>
   Hover me 
   <i
-    class="anticon anticon-down" />
+    class="anticon anticon-down"
+  />
 </a>
 `;
 
-exports[`test renders ./components/dropdown/demo/placement.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       bottomLeft
     </span>
   </button>
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       bottomCenter
     </span>
   </button>
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       bottomRight
     </span>
@@ -114,21 +137,24 @@ exports[`test renders ./components/dropdown/demo/placement.md correctly 1`] = `
   <br />
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       topLeft
     </span>
   </button>
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       topCenter
     </span>
   </button>
   <button
     class="ant-btn ant-dropdown-trigger"
-    type="button">
+    type="button"
+  >
     <span>
       topRight
     </span>
@@ -136,24 +162,28 @@ exports[`test renders ./components/dropdown/demo/placement.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#">
+  href="#"
+>
   Cascading menu 
   <i
-    class="anticon anticon-down" />
+    class="anticon anticon-down"
+  />
 </a>
 `;
 
-exports[`test renders ./components/dropdown/demo/trigger.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 <div>
   <a
     class="ant-dropdown-link ant-dropdown-trigger"
-    href="#">
+    href="#"
+  >
     Click me 
     <i
-      class="anticon anticon-down" />
+      class="anticon anticon-down"
+    />
   </a>
 </div>
 `;

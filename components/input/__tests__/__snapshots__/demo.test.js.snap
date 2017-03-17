@@ -1,32 +1,43 @@
-exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 <div>
   <div
-    style="margin-bottom:16px;">
+    style="margin-bottom:16px;"
+  >
     <span
-      class="ant-input-wrapper ant-input-group">
+      class="ant-input-wrapper ant-input-group"
+    >
       <span
-        class="ant-input-group-addon">
+        class="ant-input-group-addon"
+      >
         Http://
       </span>
       <input
         class="ant-input"
         type="text"
-        value="mysite" />
+        value="mysite"
+      />
       <span
-        class="ant-input-group-addon">
+        class="ant-input-group-addon"
+      >
         .com
       </span>
     </span>
   </div>
   <div
-    style="margin-bottom:16px;">
+    style="margin-bottom:16px;"
+  >
     <span
-      class="ant-input-wrapper ant-input-group">
+      class="ant-input-wrapper ant-input-group"
+    >
       <span
-        class="ant-input-group-addon">
+        class="ant-input-group-addon"
+      >
         <div
           class="ant-select ant-select-enabled"
-          style="width:80px;">
+          style="width:80px;"
+        >
           <div
             aria-autocomplete="list"
             aria-expanded="false"
@@ -34,20 +45,24 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
             class="ant-select-selection
                       ant-select-selection--single"
             role="combobox"
-            tabindex="0">
+            tabindex="0"
+          >
             <div
-              class="ant-select-selection__rendered">
+              class="ant-select-selection__rendered"
+            >
               <div
                 class="ant-select-selection-selected-value"
                 style="display:block;opacity:1;"
-                title="Http://">
+                title="Http://"
+              >
                 Http://
               </div>
             </div>
             <span
               class="ant-select-arrow"
               style="user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable">
+              unselectable="unselectable"
+            >
               <b />
             </span>
           </div>
@@ -56,12 +71,15 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
       <input
         class="ant-input"
         type="text"
-        value="mysite" />
+        value="mysite"
+      />
       <span
-        class="ant-input-group-addon">
+        class="ant-input-group-addon"
+      >
         <div
           class="ant-select ant-select-enabled"
-          style="width:70px;">
+          style="width:70px;"
+        >
           <div
             aria-autocomplete="list"
             aria-expanded="false"
@@ -69,20 +87,24 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
             class="ant-select-selection
                       ant-select-selection--single"
             role="combobox"
-            tabindex="0">
+            tabindex="0"
+          >
             <div
-              class="ant-select-selection__rendered">
+              class="ant-select-selection__rendered"
+            >
               <div
                 class="ant-select-selection-selected-value"
                 style="display:block;opacity:1;"
-                title=".com">
+                title=".com"
+              >
                 .com
               </div>
             </div>
             <span
               class="ant-select-arrow"
               style="user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable">
+              unselectable="unselectable"
+            >
               <b />
             </span>
           </div>
@@ -91,83 +113,102 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
     </span>
   </div>
   <div
-    style="margin-bottom:16px;">
+    style="margin-bottom:16px;"
+  >
     <span
-      class="ant-input-wrapper ant-input-group">
+      class="ant-input-wrapper ant-input-group"
+    >
       <input
         class="ant-input"
         type="text"
-        value="mysite" />
+        value="mysite"
+      />
       <span
-        class="ant-input-group-addon">
+        class="ant-input-group-addon"
+      >
         <i
-          class="anticon anticon-setting" />
+          class="anticon anticon-setting"
+        />
       </span>
     </span>
   </div>
 </div>
 `;
 
-exports[`test renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
+exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 <div>
   <textarea
     class="ant-input"
     placeholder="Autosize height based on content lines"
-    type="textarea" />
+    type="textarea"
+  />
   <div
-    style="margin:24px 0;" />
+    style="margin:24px 0;"
+  />
   <textarea
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
-    type="textarea" />
+    type="textarea"
+  />
 </div>
 `;
 
-exports[`test renders ./components/input/demo/basic.md correctly 1`] = `
+exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 <input
   class="ant-input"
   placeholder="Basic usage"
-  type="text" />
+  type="text"
+/>
 `;
 
-exports[`test renders ./components/input/demo/group.md correctly 1`] = `
+exports[`renders ./components/input/demo/group.md correctly 1`] = `
 <div>
   <span
-    class="ant-input-group ant-input-group-lg">
+    class="ant-input-group ant-input-group-lg"
+  >
     <div
-      class="ant-col-4">
+      class="ant-col-4"
+    >
       <input
         class="ant-input"
         type="text"
-        value="0571" />
+        value="0571"
+      />
     </div>
     <div
-      class="ant-col-8">
+      class="ant-col-8"
+    >
       <input
         class="ant-input"
         type="text"
-        value="26888888" />
+        value="26888888"
+      />
     </div>
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact">
+    class="ant-input-group ant-input-group-compact"
+  >
     <input
       class="ant-input"
       style="width:20%;"
       type="text"
-      value="0571" />
+      value="0571"
+    />
     <input
       class="ant-input"
       style="width:30%;"
       type="text"
-      value="26888888" />
+      value="26888888"
+    />
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact">
+    class="ant-input-group ant-input-group-compact"
+  >
     <div
-      class="ant-select ant-select-enabled">
+      class="ant-select ant-select-enabled"
+    >
       <div
         aria-autocomplete="list"
         aria-expanded="false"
@@ -175,20 +216,24 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-select-selection
                   ant-select-selection--single"
         role="combobox"
-        tabindex="0">
+        tabindex="0"
+      >
         <div
-          class="ant-select-selection__rendered">
+          class="ant-select-selection__rendered"
+        >
           <div
             class="ant-select-selection-selected-value"
             style="display:block;opacity:1;"
-            title="Zhejiang">
+            title="Zhejiang"
+          >
             Zhejiang
           </div>
         </div>
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <b />
         </span>
       </div>
@@ -197,13 +242,16 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
       class="ant-input"
       style="width:50%;"
       type="text"
-      value="Xihu District, Hangzhou" />
+      value="Xihu District, Hangzhou"
+    />
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact">
+    class="ant-input-group ant-input-group-compact"
+  >
     <div
-      class="ant-select ant-select-enabled">
+      class="ant-select ant-select-enabled"
+    >
       <div
         aria-autocomplete="list"
         aria-expanded="false"
@@ -211,20 +259,24 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-select-selection
                   ant-select-selection--single"
         role="combobox"
-        tabindex="0">
+        tabindex="0"
+      >
         <div
-          class="ant-select-selection__rendered">
+          class="ant-select-selection__rendered"
+        >
           <div
             class="ant-select-selection-selected-value"
             style="display:block;opacity:1;"
-            title="Option1">
+            title="Option1"
+          >
             Option1
           </div>
         </div>
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <b />
         </span>
       </div>
@@ -233,63 +285,79 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
       class="ant-input"
       style="width:50%;"
       type="text"
-      value="input content" />
+      value="input content"
+    />
     <div
-      class="ant-input-number">
+      class="ant-input-number"
+    >
       <div
-        class="ant-input-number-handler-wrap">
+        class="ant-input-number-handler-wrap"
+      >
         <span
           class="ant-input-number-handler ant-input-number-handler-up "
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <span
             class="ant-input-number-handler-up-inner"
-            unselectable="unselectable" />
+            unselectable="unselectable"
+          />
         </span>
         <span
           class="ant-input-number-handler ant-input-number-handler-down "
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <span
             class="ant-input-number-handler-down-inner"
-            unselectable="unselectable" />
+            unselectable="unselectable"
+          />
         </span>
       </div>
       <div
-        class="ant-input-number-input-wrap">
+        class="ant-input-number-input-wrap"
+      >
         <input
           autocomplete="off"
           class="ant-input-number-input"
           max="Infinity"
           min="-Infinity"
-          value="" />
+          value=""
+        />
       </div>
     </div>
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact">
+    class="ant-input-group ant-input-group-compact"
+  >
     <input
       class="ant-input"
       style="width:50%;"
       type="text"
-      value="input content" />
+      value="input content"
+    />
     <span
-      class="ant-calendar-picker">
+      class="ant-calendar-picker"
+    >
       <span>
         <input
           class="ant-calendar-picker-input ant-input"
           placeholder="请选择日期"
           readonly=""
-          value="" />
+          value=""
+        />
         <span
-          class="ant-calendar-picker-icon" />
+          class="ant-calendar-picker-icon"
+        />
       </span>
     </span>
   </span>
   <br />
   <span
-    class="ant-input-group ant-input-group-compact">
+    class="ant-input-group ant-input-group-compact"
+  >
     <div
-      class="ant-select ant-select-enabled">
+      class="ant-select ant-select-enabled"
+    >
       <div
         aria-autocomplete="list"
         aria-expanded="false"
@@ -297,26 +365,31 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-select-selection
                   ant-select-selection--single"
         role="combobox"
-        tabindex="0">
+        tabindex="0"
+      >
         <div
-          class="ant-select-selection__rendered">
+          class="ant-select-selection__rendered"
+        >
           <div
             class="ant-select-selection-selected-value"
             style="display:block;opacity:1;"
-            title="Option1-1">
+            title="Option1-1"
+          >
             Option1-1
           </div>
         </div>
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <b />
         </span>
       </div>
     </div>
     <div
-      class="ant-select ant-select-enabled">
+      class="ant-select ant-select-enabled"
+    >
       <div
         aria-autocomplete="list"
         aria-expanded="false"
@@ -324,20 +397,24 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-select-selection
                   ant-select-selection--single"
         role="combobox"
-        tabindex="0">
+        tabindex="0"
+      >
         <div
-          class="ant-select-selection__rendered">
+          class="ant-select-selection__rendered"
+        >
           <div
             class="ant-select-selection-selected-value"
             style="display:block;opacity:1;"
-            title="Option2-2">
+            title="Option2-2"
+          >
             Option2-2
           </div>
         </div>
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable">
+          unselectable="unselectable"
+        >
           <b />
         </span>
       </div>
@@ -347,69 +424,83 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/input/demo/presuffix.md correctly 1`] = `
+exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
 <span
-  class="ant-input-preSuffix-wrapper">
+  class="ant-input-preSuffix-wrapper"
+>
   <span
-    class="ant-input-prefix">
+    class="ant-input-prefix"
+  >
     <i
-      class="anticon anticon-user" />
+      class="anticon anticon-user"
+    />
   </span>
   <input
     class="ant-input"
     placeholder="Enter your userName"
     type="text"
-    value="" />
+    value=""
+  />
 </span>
 `;
 
-exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
+exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 <span
   class="ant-input-preSuffix-wrapper"
-  style="width:200px;">
+  style="width:200px;"
+>
   <input
     class="ant-input ant-input-search"
     placeholder="input search text"
-    type="text" />
+    type="text"
+  />
   <span
-    class="ant-input-suffix">
+    class="ant-input-suffix"
+  >
     <i
-      class="anticon anticon-search ant-input-search-icon" />
+      class="anticon anticon-search ant-input-search-icon"
+    />
   </span>
 </span>
 `;
 
-exports[`test renders ./components/input/demo/size.md correctly 1`] = `
+exports[`renders ./components/input/demo/size.md correctly 1`] = `
 <div
-  class="example-input">
+  class="example-input"
+>
   <input
     class="ant-input ant-input-lg"
     placeholder="large size"
-    type="text" />
+    type="text"
+  />
   <input
     class="ant-input"
     placeholder="default size"
-    type="text" />
+    type="text"
+  />
   <input
     class="ant-input ant-input-sm"
     placeholder="small size"
-    type="text" />
+    type="text"
+  />
 </div>
 `;
 
-exports[`test renders ./components/input/demo/textarea.md correctly 1`] = `
+exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
 <textarea
   class="ant-input"
   rows="4"
-  type="textarea" />
+  type="textarea"
+/>
 `;
 
-exports[`test renders ./components/input/demo/tooltip.md correctly 1`] = `
+exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
 <input
   class="ant-input"
   maxlength="25"
   placeholder="Input a number"
   style="width:120px;"
   type="text"
-  value="" />
+  value=""
+/>
 `;
