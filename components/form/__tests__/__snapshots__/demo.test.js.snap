@@ -1726,6 +1726,34 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
   <div
     class="ant-row ant-form-item">
     <div
+      class="ant-col-6 ant-form-item-label">
+      <label
+        class=""
+        for="dragger"
+        title="Dragger">
+        Dragger
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper">
+      <div
+        class="ant-form-item-control ">
+        <div
+          class="dropbox">
+          <span
+            class="">
+            <div
+              class="ant-upload ant-upload-drag" />
+            <div
+              class="ant-upload-list ant-upload-list-text" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item">
+    <div
       class="ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper">
       <div
         class="ant-form-item-control ">
