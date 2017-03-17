@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-wrapper-width: 17;
+@input-affix-width: 17;
 
 // size mixins for input
 .input-lg() {
@@ -188,7 +188,7 @@
     }
   }
 
-  > .@{inputClass}-wrapper {
+  > .@{inputClass}-affix-wrapper {
     &:not(:first-child) .@{inputClass} {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
@@ -273,7 +273,7 @@
   }
 }
 
-.input-wrapper(@inputClass) {
+.input-affix-wrapper(@inputClass) {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -304,10 +304,10 @@
   }
 
   .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal + @input-wrapper-width;
+    padding-left: @input-padding-horizontal + @input-affix-width;
   }
 
   .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal + @input-wrapper-width;
+    padding-right: @input-padding-horizontal + @input-affix-width;
   }
 }
