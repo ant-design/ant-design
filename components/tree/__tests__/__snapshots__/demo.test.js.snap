@@ -526,7 +526,7 @@ exports[`test renders ./components/tree/demo/dynamic.md correctly 1`] = `
 exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
 <div>
   <span
-    class="ant-input-preSuffix-wrapper"
+    class="ant-input-affix-wrapper"
     style="width:300px;">
     <input
       class="ant-input ant-input-search"

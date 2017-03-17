@@ -207,7 +207,7 @@ export default class Input extends Component<InputProps, any> {
     ) : null;
 
     return (
-      <span className={`${props.prefixCls}-preSuffix-wrapper`} style={props.style}>
+      <span className={`${props.prefixCls}-affix-wrapper`} style={props.style}>
         {prefix}
         {cloneElement(children, { style: null })}
         {suffix}

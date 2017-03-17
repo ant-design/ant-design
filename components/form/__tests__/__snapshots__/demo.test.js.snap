@@ -202,7 +202,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
         </button>
         <a
           style="margin-left:8px;font-size:12px;">
-          Collapse 
+          Collapse
           <i
             class="anticon anticon-down" />
         </a>
@@ -485,7 +485,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-preSuffix-wrapper">
+          class="ant-input-affix-wrapper">
           <span
             class="ant-input-prefix">
             <i
@@ -510,7 +510,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-preSuffix-wrapper">
+          class="ant-input-affix-wrapper">
           <span
             class="ant-input-prefix">
             <i
@@ -686,7 +686,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-preSuffix-wrapper">
+          class="ant-input-affix-wrapper">
           <span
             class="ant-input-prefix">
             <i
@@ -711,7 +711,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-preSuffix-wrapper">
+          class="ant-input-affix-wrapper">
           <span
             class="ant-input-prefix">
             <i
@@ -761,7 +761,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
             Log in
           </span>
         </button>
-        Or 
+        Or
         <a>
           register now!
         </a>
@@ -1034,7 +1034,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-checkbox-inner" />
           </span>
           <span>
-            I have read the 
+            I have read the
             <a>
               agreement
             </a>
@@ -1182,7 +1182,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
               value="" />
             <span
               class="ant-calendar-range-picker-separator">
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
@@ -1223,7 +1223,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
               value="" />
             <span
               class="ant-calendar-range-picker-separator">
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
