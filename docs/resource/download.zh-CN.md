@@ -14,7 +14,7 @@ title: 资源下载
   </span>
 </a>
 <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Template.sketch" class="resource-card">
-  <img src="https://www.sketchapp.com/images/app-icon@2x.png">
+  <img src="https://zos.alipayobjects.com/rmsportal/vfxJzCLqZxehgquvQNqX.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Sketch Template</span>
     <span class="resource-card-description">精心整理的组件设计素材</span>
