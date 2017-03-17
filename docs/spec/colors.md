@@ -144,6 +144,16 @@ ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 
 为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色]()。
 
+### 色板生成工具
+
+如果上面的色板不能满足你的需求，你可以选择一个主色，Ant Design 的色彩生成算法会为你生成完整的色板。
+
+`````__react
+import ColorPaletteTool from '../../site/theme/template/ColorPaletteTool';
+
+ReactDOM.render(<ColorPaletteTool />, mountNode);
+`````
+
 ---
 
 ## 色彩应用
