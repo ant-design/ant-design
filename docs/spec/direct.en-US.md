@@ -4,7 +4,7 @@ order: 5
 title: Make it Direct
 ---
 
-As Alan Cooper states：『Where there is output, let there be input』. This is the principle of direct manipulation. eg：Instead of editing content on a separate page, do it directly in context. 
+As Alan Cooper states：『Where there is output, let there be input』. This is the principle of direct manipulation. eg：Instead of editing content on a separate page, do it directly in context.
 
 ---
 
@@ -41,7 +41,7 @@ More mode of 『In-page Edit』 ，please visit [『Mode／Table／Interaction�
 
 ---
 
-## Drag and Drop 
+## Drag and Drop
 
 <img class="preview-img" align="right" alt="Example of Drag and Drop List" description="Status 1: On mouse hover,a removable 『icon』 appears.；<br>Status 2： When hovering over the 『icon』，the pointer changes into a 『hand』， click-and-drag operation can be used；<br>Status 3：Drag  target to the placeable block. When  blue stroke appears, inform  user that object can be placed in the block." src="https://os.alipayobjects.com/rmsportal/DjMFcqSxZrulbGF.png">
 
@@ -56,13 +56,3 @@ Drag and Drop can only limited in one dimension（upper/down or left/right）
 Drag and Drop picture/file
 
 <br>
-
-<p><span class="waiting">Drag and Drop Object（Coming Soon）</span></p>
-
-<p><span class="waiting">Drag and Drop Multi-Objects（Coming Soon）</span></p>
-
-<br>
-
----
-
-<h2><span class="waiting">Direct Selection（Coming Soon）</span></h2>
