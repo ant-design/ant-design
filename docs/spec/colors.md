@@ -24,122 +24,9 @@ Ant Design 的色板由 8 种基本色彩组成，每种基本色（第 6 格）
 > 注：在由浅至深的色板里，第 6 格色彩单元格普遍满足 [WCAG 2.0](http://leaverou.github.io/contrast-ratio/) 的 4.5:1 最小对比度（AA 级），我们将其定义为色板的默认品牌色。
 
 `````__react
-import CopyToClipboard from 'react-copy-to-clipboard';
-import { message } from 'antd';
-const rgbToHex = (rgbString) => {
-  const hexChars = '0123456789ABCDEF';
-  const rgb = rgbString.match(/\d+/g);
-  let r = parseInt(rgb[0]).toString(16);
-  let g = parseInt(rgb[1]).toString(16);
-  let b = parseInt(rgb[2]).toString(16);
-  r = r.length === 1 ? `0${r}` : r;
-  g = g.length === 1 ? `0${g}` : g;
-  b =  b.length === 1 ? `0${ b}` : b;
-  return '#' + r + g + b;
-};
-const Palette = React.createClass({
-  getInitialState() {
-    return { hexColors: null };
-  },
-  componentDidMount() {
-    const hexColors = {};
-    Object.keys(this.colorNodes).forEach(key => {
-      hexColors[key] = rgbToHex(getComputedStyle(this.colorNodes[key])['background-color'])
-    });
-    this.setState({ hexColors });
-  },
-  onCopied(name, color) {
-    message.success(`@${name} copied: ${color}`);
-  },
-  render() {
-    this.colorNodes = this.colorNodes || {};
-    const { name, description, color } = this.props.color;
-    const { hexColors } = this.state;
-    const colors = [];
-    for (let i = 1; i <= 10; i++) {
-      const colorText = `${name}-${i}`;
-      colors.push(
-        <CopyToClipboard
-          text={hexColors ? hexColors[colorText] : ''}
-          onCopy={() => this.onCopied(colorText, hexColors[colorText])}
-          key={colorText}
-        >
-          <div
-            key={i}
-            ref={node => { this.colorNodes[`${name}-${i}`] = node; } }
-            className={`main-color-item palatte-${name}-${i}`}
-            style={{
-              color: i > 5 ? '#fff' : 'unset',
-              fontWeight: i === 6 ? 'bold' : 'normal',
-            }}
-            title="click to copy color"
-          >
-            {colorText}
-            {hexColors ? <span className="main-color-value">{hexColors[colorText]}</span> : null}
-          </div>
-        </CopyToClipboard>
-      );
-    }
-    return (
-      <div className="color-palette">
-        <div className="color-title">
-          {name}
-          <span className="color-description">{description}</span>
-        </div>
-        <div className="main-color">{colors}</div>
-      </div>
-    );
-  }
-});
-const ExtendPalettes = React.createClass({
-  render() {
-    const colors = [
-      {
-        name: 'red',
-        description: '热情、警示',
-      },
-      {
-        name: 'green',
-        description: '成功、通过、安全',
-      },
-      {
-        name: 'blue',
-        description: '专业、科技',
-      },
-      {
-        name: 'pink',
-        description: '典雅、明快、女性',
-      },
-      {
-        name: 'orange',
-        description: '醒目、温暖',
-      },
-      {
-        name: 'purple',
-        description: '高雅、浪漫',
-      },
-      {
-        name: 'yellow',
-        description: '活力、提示',
-      },
-      {
-        name: 'cyan',
-        description: '清新、冷静、结构化',
-      },
-      {
-        name: 'grey',
-        description: '平稳、中性',
-      }
-    ];
-    return (
-      <div>
-        {colors.map((color, i) => <Palette key={color.name} color={color} />)}
-      </div>
-    );
-  }
-});
+import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 
-ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
+ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
 为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色]()。
@@ -149,7 +36,7 @@ ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 如果上面的色板不能满足你的需求，你可以选择一个主色，Ant Design 的色彩生成算法会为你生成完整的色板。
 
 `````__react
-import ColorPaletteTool from '../../site/theme/template/ColorPaletteTool';
+import ColorPaletteTool from '../../site/theme/template/Color/ColorPaletteTool';
 
 ReactDOM.render(<ColorPaletteTool />, mountNode);
 `````

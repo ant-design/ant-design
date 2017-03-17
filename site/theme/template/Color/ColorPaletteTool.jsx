@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Color from 'color-standalone';
 import { ChromePicker } from 'react-color-standalone';
 import BezierEasing from 'bezier-easing/dist/bezier-easing';
-import { message } from 'antd';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import ColorBlock from './ColorBlock';
 
 const easing = BezierEasing.apply(null, [0.26, 0.09, 0.37, 0.18]); // 色彩分布曲线
 const warmDark = 0.5;    // 暖色深度
@@ -81,40 +80,6 @@ class Picker extends React.Component {
 }
 
 // eslint-disable-next-line
-class ColorBlock extends Component {
-  getTextStyle() {
-    const { color, dark } = this.props;
-    return {
-      background: color,
-      color: dark ? '#fff' : '',
-    };
-  }
-  onCopied = () => {
-    const { color } = this.props;
-    message.success(`Copied: ${color}`);
-  }
-  render() {
-    const { color, index } = this.props;
-    return (
-      <CopyToClipboard
-        text={color}
-        onCopy={this.onCopied}
-      >
-        <div
-          className="main-color-item"
-          style={this.getTextStyle()}
-        >
-          color-{index}
-          <span className="main-color-value">
-            {color}
-          </span>
-        </div>
-      </CopyToClipboard>
-    );
-  }
-}
-
-// eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
   state = {
     primaryColor: '#1088e9',
@@ -164,7 +129,7 @@ export default class ColorPaletteTool extends Component {
           .mix(sColor, 1 - ((easing(i * 0.1) - primaryEasing) / (1 - primaryEasing)))
           .hexString();
       patterns.push(
-        <ColorBlock color={colorString} index={index} key={`shade-${i}`} dark />
+        <ColorBlock color={colorString} index={index} key={`shade-${i}`} />
       );
       index += 1;
     }
