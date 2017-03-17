@@ -15,7 +15,8 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -25,7 +26,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:73.82742735936014px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -48,7 +49,8 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -58,7 +60,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#ff5500"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:88.59291283123217px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -82,7 +84,8 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -92,7 +95,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:0px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -121,7 +124,8 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -131,7 +135,7 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:295.3097094374406px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -174,7 +178,8 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -184,7 +189,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:206.7167966062084px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -207,7 +212,8 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -217,7 +223,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#ff5500"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:88.59291283123217px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -241,7 +247,8 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -251,7 +258,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:0px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -318,7 +325,8 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -328,7 +336,7 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:73.82742735936014px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -351,7 +359,8 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
              a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
-          stroke-width="6" />
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
@@ -361,7 +370,7 @@ exports[`test renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:0px;transition:stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;" />
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
       </svg>
       <span
         class="ant-progress-text">
@@ -539,6 +548,45 @@ exports[`test renders ./components/progress/demo/line-mini.md correctly 1`] = `
         class="ant-progress-text">
         <i
           class="anticon anticon-check-circle" />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/progress/demo/dashboard.md correctly 1`] = `
+<div>
+  <div
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">
+    <div
+      class="ant-progress-inner"
+      style="width:132px;height:132px;font-size:27.12px;">
+      <svg
+        class="ant-progress-circle "
+        viewbox="0 0 100 100">
+        <path
+          class="ant-progress-circle-trail"
+          d="M 50,50 m 0,47
+             a 47,47 0 1 1 0,-94
+             a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke="#f3f3f3"
+          stroke-width="6"
+          style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
+        <path
+          class="ant-progress-circle-path"
+          d="M 50,50 m 0,47
+             a 47,47 0 1 1 0,-94
+             a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke="#108ee9"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s;" />
+      </svg>
+      <span
+        class="ant-progress-text">
+        75%
       </span>
     </div>
   </div>
