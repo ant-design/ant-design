@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
+import classNames from 'classnames';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -198,6 +199,9 @@ export default class MainContent extends React.Component {
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
     const localizedPageData = props.localizedPageData;
+    const mainContainerClass = classNames('main-container', {
+      'main-container-component': !!props.demos,
+    });
     return (
       <div className="main-wrapper">
         <Row>
@@ -212,7 +216,7 @@ export default class MainContent extends React.Component {
               {menuItems}
             </Menu>
           </Col>
-          <Col lg={20} md={18} sm={24} xs={24} className="main-container">
+          <Col lg={20} md={18} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
