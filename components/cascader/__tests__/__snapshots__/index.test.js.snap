@@ -1,26 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Cascader can be selected 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft ">
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
     <div>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Zhejiang">
+          title="Zhejiang"
+        >
           Zhejiang
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Jiangsu">
+          title="Jiangsu"
+        >
           Jiangsu
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Hangzhou">
+          title="Hangzhou"
+        >
           Hangzhou
         </li>
       </ul>
@@ -32,34 +40,42 @@ exports[`Cascader can be selected 1`] = `
 exports[`Cascader can be selected 2`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft ">
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
     <div>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Zhejiang">
+          title="Zhejiang"
+        >
           Zhejiang
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Jiangsu">
+          title="Jiangsu"
+        >
           Jiangsu
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Hangzhou">
+          title="Hangzhou"
+        >
           Hangzhou
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item"
-          title="West Lake">
+          title="West Lake"
+        >
           West Lake
         </li>
       </ul>
@@ -71,34 +87,42 @@ exports[`Cascader can be selected 2`] = `
 exports[`Cascader can be selected 3`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden">
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
     <div>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Zhejiang">
+          title="Zhejiang"
+        >
           Zhejiang
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Jiangsu">
+          title="Jiangsu"
+        >
           Jiangsu
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Hangzhou">
+          title="Hangzhou"
+        >
           Hangzhou
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-active"
-          title="West Lake">
+          title="West Lake"
+        >
           West Lake
         </li>
       </ul>
@@ -110,7 +134,8 @@ exports[`Cascader can be selected 3`] = `
 exports[`Cascader popup correctly when panel is hidden 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden">
+    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
     <div />
   </div>
 </div>
@@ -119,18 +144,22 @@ exports[`Cascader popup correctly when panel is hidden 1`] = `
 exports[`Cascader popup correctly when panel is open 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft ">
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
     <div>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Zhejiang">
+          title="Zhejiang"
+        >
           Zhejiang
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Jiangsu">
+          title="Jiangsu"
+        >
           Jiangsu
         </li>
       </ul>
@@ -142,34 +171,42 @@ exports[`Cascader popup correctly when panel is open 1`] = `
 exports[`Cascader popup correctly with defaultValue 1`] = `
 <div>
   <div
-    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft ">
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
     <div>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Zhejiang">
+          title="Zhejiang"
+        >
           Zhejiang
         </li>
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-          title="Jiangsu">
+          title="Jiangsu"
+        >
           Jiangsu
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
-          title="Hangzhou">
+          title="Hangzhou"
+        >
           Hangzhou
         </li>
       </ul>
       <ul
-        class="ant-cascader-menu">
+        class="ant-cascader-menu"
+      >
         <li
           class="ant-cascader-menu-item"
-          title="West Lake">
+          title="West Lake"
+        >
           West Lake
         </li>
       </ul>

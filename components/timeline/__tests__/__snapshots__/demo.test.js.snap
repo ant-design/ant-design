@@ -1,86 +1,118 @@
-exports[`test renders ./components/timeline/demo/basic.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/timeline/demo/basic.md correctly 1`] = `
 <ul
-  class="ant-timeline">
+  class="ant-timeline"
+>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Create a services site 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Solve initial network problems 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Technical testing 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last">
+    class="ant-timeline-item ant-timeline-item-last"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Network problems being solved 2015-09-01
     </div>
   </li>
 </ul>
 `;
 
-exports[`test renders ./components/timeline/demo/color.md correctly 1`] = `
+exports[`renders ./components/timeline/demo/color.md correctly 1`] = `
 <ul
-  class="ant-timeline">
+  class="ant-timeline"
+>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-green" />
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Create a services site 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-green" />
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Create a services site 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-red" />
+      class="ant-timeline-item-head ant-timeline-item-head-red"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       <p>
         Solve initial network problems 1
       </p>
@@ -93,13 +125,17 @@ exports[`test renders ./components/timeline/demo/color.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last">
+    class="ant-timeline-item ant-timeline-item-last"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       <p>
         Technical testing 1
       </p>
@@ -114,106 +150,142 @@ exports[`test renders ./components/timeline/demo/color.md correctly 1`] = `
 </ul>
 `;
 
-exports[`test renders ./components/timeline/demo/custom.md correctly 1`] = `
+exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
 <ul
-  class="ant-timeline">
+  class="ant-timeline"
+>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Create a services site 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Solve initial network problems 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red">
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
+    >
       <i
         class="anticon anticon-clock-circle-o"
-        style="font-size:16px;" />
+        style="font-size:16px;"
+      />
     </div>
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Technical testing 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last">
+    class="ant-timeline-item ant-timeline-item-last"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Network problems being solved 2015-09-01
     </div>
   </li>
 </ul>
 `;
 
-exports[`test renders ./components/timeline/demo/pending.md correctly 1`] = `
+exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
 <ul
-  class="ant-timeline ant-timeline-pending">
+  class="ant-timeline ant-timeline-pending"
+>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Create a services site 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item">
+    class="ant-timeline-item"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Solve initial network problems 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last">
+    class="ant-timeline-item ant-timeline-item-last"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       Technical testing 2015-09-01
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-pending">
+    class="ant-timeline-item ant-timeline-item-pending"
+  >
     <div
-      class="ant-timeline-item-tail" />
+      class="ant-timeline-item-tail"
+    />
     <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue" />
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
     <div
-      class="ant-timeline-item-content">
+      class="ant-timeline-item-content"
+    >
       <a
-        href="#">
+        href="#"
+      >
         See more
       </a>
     </div>

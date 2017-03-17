@@ -109,7 +109,7 @@
     "eslint-tinker": "^0.4.0",
     "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",
-    "jest": "^18.1.0",
+    "jest": "^19.0.2",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^3.3.1",
     "mockdate": "^2.0.1",
