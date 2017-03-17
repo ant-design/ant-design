@@ -144,7 +144,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-preSuffix-wrapper"
+                class="ant-input-affix-wrapper"
               >
                 <input
                   class="ant-input ant-input ant-select-search__field"
@@ -325,7 +325,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-preSuffix-wrapper"
+                class="ant-input-affix-wrapper"
               >
                 <input
                   class="ant-input ant-input ant-select-search__field"
