@@ -19,7 +19,7 @@ Ant Design 的图标在设计和使用时有以下两个原则点需要注意：
 
 系统图标通常用来表示常用的操作，比如：删除、保存、编辑。也可以用来表示一个文件或者状态。
 
-[查看图标库](/components/icon/)
+- [查看图标库](/components/icon/)
 
 ### 关键轮廓线
 
@@ -29,7 +29,7 @@ Ant Design 的图标在设计和使用时有以下两个原则点需要注意：
 
 请将所有图标在 1024×1024（16×16 的 64 倍）的画板中制作。
 
-[制作小技巧](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
+- [制作小技巧](https://zos.alipayobjects.com/rmsportal/hmNuLjCkBssupcZgYAde.png)
 
 <img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/XzoySLGeUaMCOVymkyZq.png" alt="正方形外轮廓">
 <img class="preview-img no-padding inline" align="right" src="https://zos.alipayobjects.com/rmsportal/fdWiCCIQiJIViSNhmcHo.png" alt="横向矩形外轮廓">

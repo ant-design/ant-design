@@ -84,7 +84,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ZmFVCMzdHymNuWyXFvId.svg">
 
-通用基本用词要规范，不要写错字，词语表达要完整，详见《规范用词》。
+通用基本用词要规范，不要写错字，词语表达要完整。
 
 专业用语要精准，并是所属行业认可通用用词；时间的表述必须明确。
 
