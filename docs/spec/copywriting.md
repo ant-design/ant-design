@@ -51,7 +51,13 @@ title:
 
 ### 表述一致
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/doMpGAHqSxngzUJUatrx.svg">
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/kZxTKnieUptIioCYsMFD.png" alt="正确示范" description="备注描述使用相同的介词。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/moXaaoyeNxPHLcanTNVG.png" alt="错误示范" description="同一区块描述中出现了『受』和『被』两个不同的介词。">
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/gwNjncNTEREdWiKYrUAL.png" alt="正确示范" description="在同一页面、同一区域在语序上一致。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/DYJkKoQzEKCQGxATBdsB.png" alt="错误示范" description="语序上不一致，会影响用户理解成本。">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/pZZSDjsQLqSVPKOYPgso.png" description="操作名称和目标页面的标题一致。">
 
 - 描述同一个事物的词汇要保持统一;
 - 上下文的语法、语种、语序要保持统一;
@@ -82,7 +88,52 @@ title:
 
 ### 用词精准完整
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ZmFVCMzdHymNuWyXFvId.svg">
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/munDtTOsHjRcvOfVEsCS.png" alt="正确示范" description="完整的表达。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/itpQLlpjvEGgdvHkdGOC.png" alt="错误示范" description="不完整，有歧义或太口语化。">
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/DOJdYTWqpbrwFJMTDAZD.png" alt="正确示范" description="专业用语精准。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/EYQBkePnyOXZhirDXBJu.png" alt="错误示范" description="专业的行业用词有别字。">
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/KMnFshyMGODpIBEzWGci.png" alt="正确示范" description="时间信息的表述精准完整。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/MOppPcGzLxutrzmtxNSd.png" alt="错误示范" description="时间信息的描述词不是具体的『日』、『月』，容易让用户产生困扰。">
+
+<table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
+  <tr>
+    <th style="border-bottom: 2px solid #108ee9;width:20%;">使用</th>
+    <th style="border-bottom: 2px solid #f04134;width:25%;">不使用</th>
+    <th>备注</th>
+  </tr>
+  <tr>
+    <th>其他</th>
+    <td>其它</td>
+    <td>『其他』的应用范围更广</td>
+  </tr>
+  <tr>
+    <th>抱歉</th>
+    <td>对不起</td>
+    <td>如果是我们系统造成的结果，可以使用『抱歉』，如果是用户自己造成的结果，不能使用。</td>
+  </tr>
+  <tr>
+    <th>验证码</th>
+    <td></td>
+    <td>4位或多位数字或字母图片，可有效防止黑客发起对账户的登录尝试。</td>
+  </tr>
+  <tr>
+    <th>校验码</th>
+    <td></td>
+    <td>手机或即时通讯工具收到的6位数字，用于验证用户的身份。</td>
+  </tr>
+  <tr>
+    <th>登录</th>
+    <td>登陆</td>
+    <td>登记记录用户输入的注册账号和密码。</td>
+  </tr>
+  <tr>
+    <th>此</th>
+    <td>该</td>
+    <td>当要表达当前事物时，『此』更加明确。</td>
+  </tr>
+</table>
 
 通用基本用词要规范，不要写错字，词语表达要完整。
 
@@ -96,15 +147,15 @@ title:
 
 ### 拉近彼此的距离
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/qDFUPVMgtiXRcBonlirw.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/oJUejPtdofEjDaFxVRMb.png" alt="错误示范" description="建议不要使用『您』，太过客气，让用户感觉有些疏远。">
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/qYJmqCMojZrLHDhTeDDC.png" alt="正确示范">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/VtTmFViiLyzffMlylBab.png" alt="错误示范" description="建议不要使用『您』，太过客气，让用户感觉有些疏远。">
 
 直接使用『你』、『我』来和用户对话，与用户建立亲密感。避免使用『您』，让用户感觉太过疏远。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/mQqnqQYXgkADZXXIpRkH.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/WeWacsyUvpchzMMvOhlM.png" alt="错误示范" description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。">
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/yjQeptUiKWSvRBhgiBEi.png" alt="正确示范">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/EvbzsGGPhPvPwUEAEjui.png" alt="错误示范" description="同时出现了称谓『我』和『你』，用户会感到迷惑，不清楚到底指代对象是谁。">
 
 > 注：不要在同一个句式中混用『你』和『我』，交互中指代混乱会让用户相当纠结。
 
@@ -176,8 +227,8 @@ title:
 
 以下元素单独出现时需要加上标点：
 
-- 多句或多段的文案和列表内容
-- 任何文字链前的句子
+- 多句或多段的文案和列表内容。
+- 任何文字链前的句子。
 
 ### 谨慎使用感叹号
 
@@ -190,7 +241,7 @@ title:
 
 ### 基本标点规范
 
-<Table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
+<table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
   <tr>
     <th>标点名称</th>
     <th>字符</th>
@@ -198,35 +249,36 @@ title:
   </tr>
   <tr>
     <th>空格</th>
-    <td></td>
-    <td></td>
+    <td> </td>
+    <td>段落句子中的链接和文字之间增加空格；
+全角字符和半角字符搭配时，需要添加空格，如：两个、2 个、50%。</td>
   </tr>
   <tr>
     <th>句号</th>
     <td>。</td>
-    <td></td>
+    <td>以下情况中不使用句号：输入框下的提示；表格中的句子；句末为文字链（链接前使用句号）；按钮和标题。</td>
   </tr>
   <tr>
     <th>感叹号</th>
     <td>！</td>
-    <td></td>
+    <td>只在需要表达强烈情感的情况下使用。</td>
   </tr>
   <tr>
     <th>连接号</th>
     <td>-</td>
-    <td></td>
+    <td>不使用中文全角的连接号。如：2012-11-12。</td>
   </tr>
   <tr>
     <th>省略号</th>
     <td>…</td>
-    <td></td>
+    <td>使用半角的『…』为省略号。</td>
   </tr>
   <tr>
     <th>隐藏符号</th>
     <td>*</td>
-    <td></td>
+    <td>多用于替换显示隐私信息。</td>
   </tr>
-</Table>
+</table>
 
 正确得使用标点符号会让句子看起来更清晰和具有可读性。
 

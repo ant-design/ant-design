@@ -18,7 +18,9 @@ title:
 
 ### 网站展示页
 
-<img class="preview-img no-padding" align="right" alt="网站展示页" src="https://os.alipayobjects.com/rmsportal/LrIqTyEhDObCsCTAZEmp.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/olHkTiGQqfwThlgPIXzx.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/uxbNrsFCmPFjYdhDowky.png">
 
 网站展示页（即官网页）通常是用户了解网站或产品的第一步。这类页面通常会包含产品展示图，简短的产品介绍信息，以及用户登录入口等。在设计时我们建议：
 
@@ -27,7 +29,9 @@ title:
 
 ### Dashboard
 
-<img class="preview-img no-padding" align="right" alt="Dashboard" src="https://os.alipayobjects.com/rmsportal/XNtyRKbUUBGlrJEPNjMN.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fCVwqOiItdbzyZkQOOiQ.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/LvYKhbKsPzIRLGsBxUJA.png">
 
 Dashboard 集合了大量多样化的信息（如数字，图形，文案等），需要一目了然地将关键信息展示给用户。因此，如何将庞大复杂的信息精简清晰地展示出来，是设计此类页面的关键。在设计时要注意以下几点：
 
@@ -37,7 +41,9 @@ Dashboard 集合了大量多样化的信息（如数字，图形，文案等）�
 
 ### 列表页
 
-<img class="preview-img no-padding" align="right" alt="列表页" src="https://os.alipayobjects.com/rmsportal/tmpGaMXFfRCNHXnGgCHu.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/GSIyiSRJmxUhmxpMoyrj.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/VyFWYXzkQYYzMzqBXfzO.png">
 
 列表设计是并列式展现信息，方便用户能快速查看基本信息及操作。因此，信息的「可阅读性」及「可操作性」是设计的关键。在设计时要注意以下几点：
 
@@ -46,7 +52,9 @@ Dashboard 集合了大量多样化的信息（如数字，图形，文案等）�
 
 ## 表格页
 
-<img class="preview-img no-padding" align="right" alt="表格页" src="https://os.alipayobjects.com/rmsportal/olguOhjfXvkxKFErcQwA.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ArRESSbBrLJWhjscKiZh.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/gDwAZagDBphbcePRDnBZ.png">
 
 表格作为多维信息展示的载体，使复杂的信息更易于阅读与理解。它的易读性，便捷性，易操作性对产品的体验起着举足轻重的作用。因此，我们在设计时要注意以下几点：
 
@@ -56,7 +64,9 @@ Dashboard 集合了大量多样化的信息（如数字，图形，文案等）�
 
 ### 详情页
 
-<img class="preview-img no-padding" align="right" alt="详情页" src="https://os.alipayobjects.com/rmsportal/mYyicLsxmYIMJJvQNilK.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/wRdLpkIoTNfxOvNOqKyf.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/IWXpmErtdIHzDYbtNohi.png">
 
 详情页面一般会承载大量的基本信息，扩展信息，或者状态信息。对于信息效率和优先级判定的要求会比较高。清晰的布局能帮助快速看到关键信息，提高决策效率。这设计时有以下几点需要注意：
 
@@ -65,7 +75,9 @@ Dashboard 集合了大量多样化的信息（如数字，图形，文案等）�
 
 ### 表单页
 
-<img class="preview-img no-padding" align="right" alt="表单页" src="https://os.alipayobjects.com/rmsportal/MFTYEhxguAVtWYtcOvJo.png">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AVxFnNgjBPIaxLnCOxJv.png">
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/sqeTZuWlqiGboOITncCh.png">
 
 表单页通常用来执行登录、注册、预定、下单、评论等任务，是产品中数据录入必不可少的页面模式。因此，舒适的表单设计，可以引导用户高效地完成表单背后的工作流程：
 

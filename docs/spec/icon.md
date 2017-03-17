@@ -49,7 +49,7 @@ Ant Design 的图标在设计和使用时有以下两个原则点需要注意：
 #### 边角
 
 <img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/FBhKrLDoNmfgwZRbfXRi.png" alt="正确示范" description="图标的边角设计都遵循了 Ant Design 的规范">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/pdLgzaadpHndkqAPLNmx.png" alt="错误示范" description="线条的终端并不是圆角">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/NtrZWeUsfVWiOjRcWDqv.png" alt="错误示范" description="线条的终端并不是圆角">
 
 一致的角度半径也是保持整个图标系统视觉统一的重要元素。
 
