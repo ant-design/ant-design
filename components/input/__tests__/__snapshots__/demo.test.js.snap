@@ -349,7 +349,7 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
 
 exports[`test renders ./components/input/demo/presuffix.md correctly 1`] = `
 <span
-  class="ant-input-preSuffix-wrapper">
+  class="ant-input-affix-wrapper">
   <span
     class="ant-input-prefix">
     <i
@@ -365,7 +365,7 @@ exports[`test renders ./components/input/demo/presuffix.md correctly 1`] = `
 
 exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
 <span
-  class="ant-input-preSuffix-wrapper"
+  class="ant-input-affix-wrapper"
   style="width:200px;">
   <input
     class="ant-input ant-input-search"
