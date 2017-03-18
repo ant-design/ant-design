@@ -2,22 +2,24 @@
 @import "../../style/mixins/index";
 @import '../../input/style/mixin';
 
-.@{ant-prefix}-mention-wrapper {
+@mention-prefix-cls: ~"@{ant-prefix}-mention";
+
+.@{mention-prefix-cls}-wrapper {
   position: relative;
   display: inline-block;
   width: 100%;
   vertical-align: middle;
-  &-active .@{ant-prefix}-mention-editor {
+  .@{mention-prefix-cls}-editor {
+    .input;
+    padding: 0;
+    display: block;
+    &-wrapper {
+      overflow-y: auto;
+      height: auto;
+    }
+  }
+  &.@{mention-prefix-cls}-active .@{mention-prefix-cls}-editor {
     .active;
-  }
-  .@{ant-prefix}-mention-editor {
-   .input;
-   padding: 0;
-   display: block;
-  }
-  .@{ant-prefix}-mention-editor-wrapper {
-    overflow-y: auto;
-    height: auto;
   }
   .public-DraftEditorPlaceholder-root {
     position: absolute;
@@ -37,7 +39,7 @@
   }
 }
 
-.@{ant-prefix}-mention-dropdown {
+.@{mention-prefix-cls}-dropdown {
   margin-top: 1.5em;
   max-height: 250px;
   min-width: 120px;
@@ -53,7 +55,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   font-size: @font-size-base;
-  &-notfound.@{ant-prefix}-mention-dropdown-item {
+  &-notfound&-item {
     color: @disabled-color;
 
     .@{iconfont-css-prefix}-loading {
