@@ -485,7 +485,8 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-affix-wrapper">
+          class="ant-input-affix-wrapper"
+        >
           <span
             class="ant-input-prefix">
             <i
@@ -510,7 +511,8 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-affix-wrapper">
+          class="ant-input-affix-wrapper"
+        >
           <span
             class="ant-input-prefix">
             <i
@@ -686,7 +688,8 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-affix-wrapper">
+          class="ant-input-affix-wrapper"
+        >
           <span
             class="ant-input-prefix">
             <i
@@ -711,7 +714,8 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-input-affix-wrapper">
+          class="ant-input-affix-wrapper"
+        >
           <span
             class="ant-input-prefix">
             <i

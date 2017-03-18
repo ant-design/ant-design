@@ -117,7 +117,8 @@ exports[`test renders ./components/auto-complete/demo/certain-category.md correc
             <div
               class="ant-select-search__field__wrap">
               <span
-                class="ant-input-affix-wrapper">
+                class="ant-input-affix-wrapper"
+              >
                 <input
                   class="ant-input ant-input ant-select-search__field"
                   type="text"
@@ -267,7 +268,8 @@ exports[`test renders ./components/auto-complete/demo/uncertain-category.md corr
             <div
               class="ant-select-search__field__wrap">
               <span
-                class="ant-input-affix-wrapper">
+                class="ant-input-affix-wrapper"
+              >
                 <input
                   class="ant-input ant-input ant-select-search__field"
                   type="text"
