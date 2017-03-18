@@ -8,6 +8,13 @@ describe('message', () => {
       getContainer: null,
     });
   });
+  it('should be able to config top', () => {
+    message.config({
+      top: 100,
+    });
+    message.info('whatever');
+    expect(document.querySelectorAll('.ant-message')[0].style.top).toBe('100px');
+  });
   it('should be able to config getContainer', () => {
     message.config({
       getContainer: () => {
