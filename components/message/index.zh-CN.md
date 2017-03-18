@@ -29,12 +29,13 @@ title: Message
 | content    | 提示内容       | string\|ReactNode | -           |
 | duration   | 自动关闭的延时，单位秒 | number               | 1.5          |
 | onClose   | 关闭时触发的回调函数 | Function          | -         |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |
 
 还提供了全局配置和全局销毁方法：
 
 - `message.config(options)`
 - `message.destroy()`
+
+### message.config
 
 ```js
 message.config({
@@ -47,3 +48,4 @@ message.config({
 |------------|--------------------|--------------------------|-------------|
 | top        | 消息距离顶部的位置 | number                      | 24px        |
 | duration   | 默认自动关闭延时，单位秒 | number                 | 1.5         |
+| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |

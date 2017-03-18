@@ -7,12 +7,14 @@ let defaultTop;
 let messageInstance;
 let key = 1;
 let prefixCls = 'ant-message';
+let getContainer;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
     prefixCls,
     transitionName: 'move-up',
     style: { top: defaultTop }, // 覆盖原来的样式
+    getContainer,
   });
   return messageInstance;
 }
@@ -23,7 +25,8 @@ function notice(
   content: React.ReactNode,
   duration: number = defaultDuration,
   type: NoticeType,
-  onClose?: () => void) {
+  onClose?: () => void,
+) {
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -94,6 +97,9 @@ export default {
     }
     if (options.prefixCls !== undefined) {
       prefixCls = options.prefixCls;
+    }
+    if (options.getContainer !== undefined) {
+      getContainer = options.getContainer;
     }
   },
   destroy() {
