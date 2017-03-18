@@ -12,9 +12,9 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 ## API
 
-| Property      | Type           | Default      | Description         |
-|------------|----------------|-------------|--------------|
-| size       | enum           | default     | Size of dot in spin component, available in `small`, `default` and `large`. |
-| spinning   | boolean        | true        | Use in embedded mode, to modify loading state. |
-| tip    | string        | None        | Customize description content  |
-| delay | number (milliseconds) | None | Specifies a delay for loading state |
+Property | Description | Type | Default Value
+---------|-------------|------|--------------
+size | size of spin, available in `small`, `default` and `large` | string | 'default'
+spinning | whether Spin is spinning | boolean | true
+tip | customize description content when spin has children | string | -
+delay | specifies a delay millisecond for loading state (prevent flush) | number (millisecond) | -
