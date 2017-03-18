@@ -64,7 +64,9 @@ exports[`renders ./components/breadcrumb/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/breadcrumb/demo/router.md correctly 1`] = `
-<div>
+<div
+  class="demo"
+>
   <div
     class="demo-nav"
   >
