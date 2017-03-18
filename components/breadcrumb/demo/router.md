@@ -1,6 +1,6 @@
 ---
 order: 2
-iframe: true
+iframe: 200
 title:
   zh-CN: 路由
   en-US: React Router Integration
@@ -30,7 +30,7 @@ const Apps = () => (
 );
 
 const Home = ({ routes, params, children }) => (
-  <div>
+  <div className="demo">
     <div className="demo-nav">
       <Link to="/">Home</Link>
       <Link to="/apps">Application List</Link>
@@ -55,20 +55,20 @@ ReactDOM.render(
 ````
 
 ````css
-#components-breadcrumb-demo-router iframe {
-  height: 180px;
+.demo {
+  margin: 16px;
 }
 .demo-nav {
   height: 30px;
   line-height: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   background: #f8f8f8;
 }
 .demo-nav a {
   line-height: 30px;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 .app-list {
-  margin-top: 15px;
+  margin-top: 16px;
 }
 ````

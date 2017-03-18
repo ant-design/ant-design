@@ -5,6 +5,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import { Icon, Tooltip } from 'antd';
 import EditButton from './EditButton';
+import BrowserFrame from '../BrowserFrame';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -82,7 +83,9 @@ export default class Demo extends React.Component {
       expand,
     } = props;
     if (!this.liveDemo) {
-      this.liveDemo = meta.iframe ? <iframe src={src} height={meta.iframe} /> : preview(React, ReactDOM);
+      this.liveDemo = meta.iframe
+        ? <BrowserFrame><iframe src={src} height={meta.iframe} /></BrowserFrame>
+        : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;
     const codeBoxClass = classNames({
