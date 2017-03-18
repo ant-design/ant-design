@@ -266,7 +266,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      Primary Ghost
+      Primary
     </span>
   </button>
   <button
@@ -274,7 +274,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      Default Ghost
+      Default
     </span>
   </button>
   <button
@@ -282,7 +282,15 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     type="button"
   >
     <span>
-      Dashed Ghost
+      Dashed
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-danger ant-btn-background-ghost"
+    type="button"
+  >
+    <span>
+      danger
     </span>
   </button>
 </div>
