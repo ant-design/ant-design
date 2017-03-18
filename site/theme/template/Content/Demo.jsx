@@ -82,7 +82,7 @@ export default class Demo extends React.Component {
       expand,
     } = props;
     if (!this.liveDemo) {
-      this.liveDemo = meta.iframe ? <iframe src={src} /> : preview(React, ReactDOM);
+      this.liveDemo = meta.iframe ? <iframe src={src} height={meta.iframe} /> : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;
     const codeBoxClass = classNames({

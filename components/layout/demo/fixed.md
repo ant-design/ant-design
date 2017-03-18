@@ -1,6 +1,6 @@
 ---
 order: 6
-iframe: true
+iframe: 360
 title:
   zh-CN: 固定头部
   en-US: Fixed Header
@@ -20,7 +20,7 @@ const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
   <Layout>
-    <Header className="header">
+    <Header style={{ position: 'fixed', width: '100%' }}>
       <div className="logo" />
       <Menu
         theme="dark"
@@ -33,13 +33,13 @@ ReactDOM.render(
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
     </Header>
-    <Content className="content">
+    <Content style={{ padding: '0 50px', marginTop: 64 }}>
       <Breadcrumb style={{ margin: '12px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
+      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>Content</div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2016 Created by Ant UED
@@ -56,13 +56,5 @@ ReactDOM.render(
   border-radius: 6px;
   margin: 16px 24px 16px 0;
   float: left;
-}
-#components-layout-demo-fixed .header {
-  position: fixed;
-  width: 100%;
-}
-#components-layout-demo-fixed .content {
-  padding: 0 50px;
-  margin-top: 64px;
 }
 ````

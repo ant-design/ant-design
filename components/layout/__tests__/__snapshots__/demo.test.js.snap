@@ -201,7 +201,8 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
   class="ant-layout"
 >
   <div
-    class="header ant-layout-header"
+    class="ant-layout-header"
+    style="position:fixed;width:100%;"
   >
     <div
       class="logo"
@@ -237,7 +238,8 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </div>
   <div
-    class="content ant-layout-content"
+    class="ant-layout-content"
+    style="padding:0 50px;margin-top:64px;"
   >
     <div
       class="ant-breadcrumb"
@@ -281,7 +283,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:280px;"
+      style="background:#fff;padding:24px;min-height:380px;"
     >
       Content
     </div>
