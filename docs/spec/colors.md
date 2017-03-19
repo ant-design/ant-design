@@ -29,7 +29,7 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
-为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色]()。
+为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色](/docs/spec/font-cn#字体颜色)。
 
 ### 色板生成工具
 
