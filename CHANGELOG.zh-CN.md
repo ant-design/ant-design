@@ -20,7 +20,7 @@ timeline: true
 ## 2.8.2
 
 `2017-03-19`
-- 全新的 [设计基础文档](https://ant.design/docs/spec/colors)。
+- 全新的 [设计基础文档](https://ant.design/docs/spec/colors-cn)。
 - 修复 Upload 的蒙层样式 [#5275](https://github.com/ant-design/ant-design/issues/5275)。
 - 修复 Upload 上传进度条不显示的问题 [#5323](https://github.com/ant-design/ant-design/issues/5323)。
 - 修复 Modal.confirm 的一个bug [#5269](https://github.com/ant-design/ant-design/issues/5269)。
