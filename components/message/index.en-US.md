@@ -21,7 +21,7 @@ Display global messages as feedbacks to user operations.
 - `message.warn(content, duration, onClose)`
 - `message.loading(content, duration, onClose)`
 
-This components provides 4 static methods, with arguments as following:
+This components provides above static methods, with arguments as following:
 
 | Argument   | Description                        | Type                     | Default      |
 |------------|------------------------------------|--------------------------|--------------|
@@ -40,6 +40,7 @@ Methods for global configuration and destruction are also provided:
 message.config({
   top: 100,
   duration: 2,
+  getContainer: document.getElementById('myMessageContainer')
 });
 ```
 
