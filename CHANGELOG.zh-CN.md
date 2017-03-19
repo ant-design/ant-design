@@ -20,18 +20,19 @@ timeline: true
 ## 2.8.2
 
 `2017-03-19`
-- 全新的 [设计基础文档](https://ant.design/docs/spec/colors-cn)。
+
+- 发布了新的 [设计基础文档](https://ant.design/docs/spec/colors-cn)。
+- 修复使用 Modal.confirm 时报错的问题。[#5269](https://github.com/ant-design/ant-design/issues/5269)。
 - 修复 Upload 的蒙层样式 [#5275](https://github.com/ant-design/ant-design/issues/5275)。
 - 修复 Upload 上传进度条不显示的问题 [#5323](https://github.com/ant-design/ant-design/issues/5323)。
-- 修复 Modal.confirm 的一个bug [#5269](https://github.com/ant-design/ant-design/issues/5269)。
-- 修复 Table 的分页组件的 bug [#5259](https://github.com/ant-design/ant-design/issues/5259)。
-- 修复了 Popconfirm 与 button 同时使用时的一些问题 [5301](https://github.com/ant-design/ant-design/issues/5301)。
+- 修复 Table 的分页的 showTotal 数据错误的问题 [#5259](https://github.com/ant-design/ant-design/issues/5259)。
+- 修复了 Popconfirm 与 Button 同时使用时的样式问题 [5301](https://github.com/ant-design/ant-design/issues/5301)。
 - 修复 Radio 的一个样式问题 [#5336](https://github.com/ant-design/ant-design/pull/5336)。
 - 修复 Message 的 getContainer 无法使用的问题 [#5380](https://github.com/ant-design/ant-design/issues/5380)。
-- 修复 Checkbox 和 Radio 标签的文字对齐 [#696a3c0e](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec)。
-- 修复 AutoComplete 的额外阴影 [#7bc2b1](https://github.com/ant-design/ant-design/commit/7bc2b1dbff1e16e7ad92a9b4ea2601b82e3b58b6)。
-- 调整了 Spin 的动画 [#fa1e031a7](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232)。
-- 调整了 Mention 的一些样式 [#240a93ce](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773)。
+- 修复 Checkbox 和 Radio 标签的文字对齐 [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec)。
+- 修复 AutoComplete 的额外阴影 [7bc2b1d](https://github.com/ant-design/ant-design/commit/7bc2b1dbff1e16e7ad92a9b4ea2601b82e3b58b6)。
+- 调整了 Spin 的动画 [fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232)。
+- 调整了 Mention 的一些样式 [240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773)。
 
 ## 2.8.1
 

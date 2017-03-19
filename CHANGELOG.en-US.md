@@ -21,19 +21,18 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-03-11`
 
-- New [Specification Document](https://ant.design/docs/spec/colors).
+- New [design specification documentation](https://ant.design/docs/spec/colors).
+- Fix error of Modal.confirm [#5269](https://github.com/ant-design/ant-design/issues/5269).
 - Fix mask style of Upload [#5275](https://github.com/ant-design/ant-design/issues/5275).
 - Fix progress not showing of Upload [#5323](https://github.com/ant-design/ant-design/issues/5323).
-- Fix a bug of  Modal.confirm [#5269](https://github.com/ant-design/ant-design/issues/5269).
-- Fix a pagination issue of Table [#5259](https://github.com/ant-design/ant-design/issues/5259).
-- Fix a issue while using Popconfirm and Button togeter [5301](https://github.com/ant-design/ant-design/issues/5301).
+- Fix a pagination showTotal wrong data issue of Table [#5259](https://github.com/ant-design/ant-design/issues/5259).
+- Fix a style issue while using Popconfirm and Button together [5301](https://github.com/ant-design/ant-design/issues/5301).
 - Fix a style issue of Radio [#5336](https://github.com/ant-design/ant-design/pull/5336).
-- Fix a issue that `getContainer` of Message not take effect [#5380](https://github.com/ant-design/ant-design/issues/5380).
-- Fix text alignment of Checkbox and Radio [#696a3c0e](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec).
-- Remote extra shadow of AutoComplete [#7bc2b1](https://github.com/ant-design/ant-design/commit/7bc2b1dbff1e16e7ad92a9b4ea2601b82e3b58b6).
-- Tweak animation and blur style of Spin [#fa1e031a7](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232).
-- Tweak some styles of Mention  [#240a93ce](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773).
-
+- Fix a issue that `getContainer` of Message didn't work [#5380](https://github.com/ant-design/ant-design/issues/5380).
+- Fix text alignment of Checkbox and Radio [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec).
+- Fix box shadow of AutoComplete [7bc2b1d](https://github.com/ant-design/ant-design/commit/7bc2b1dbff1e16e7ad92a9b4ea2601b82e3b58b6).
+- Tweak animation and blur style of Spin [fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232).
+- Tweak some styles of Mention  [240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773).
 
 ## 2.8.1
 
