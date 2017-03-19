@@ -61,13 +61,13 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 ### 功能色的应用
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ADUfVlZwjziJRUQSMbMt.png" alt="Ant Design 功能色卡">
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/mewwdThVwyTQzpZQtYXw.png" alt="Ant Design 功能色卡">
 
 UI 设计中，比较稳定的色彩除了中性色外还有具备特定含义的功能色，这类色彩起到传递功能信息、代表某种状态等作用。主要应用于消息通知、反馈提醒、表单校验这类场景中的成功、出错、失败、提醒、链接等状态。
 
 ### 视觉层次
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/mewwdThVwyTQzpZQtYXw.png" alt="正确示例" description="通过品牌色引导用户的视线路径">
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/ADUfVlZwjziJRUQSMbMt.png" alt="正确示例" description="通过品牌色引导用户的视线路径">
 
 将品牌色赋予在重要信息或关键主动点上，并衬以大面积的中性色，可以让用户更聚焦到任务本身，从而提高任务的执行效率。
 
