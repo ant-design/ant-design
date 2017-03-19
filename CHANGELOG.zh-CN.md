@@ -17,6 +17,10 @@ timeline: true
 
 ---
 
+## 2.8.2
+- **Progress**
+  - 支持仪表盘显示方式。[#5225](https://github.com/ant-design/ant-design/issues/5225)
+
 ## 2.8.1
 
 `2017-03-11`
@@ -44,7 +48,7 @@ timeline: true
   - 修复 safari 语言检测失效的问题。[pull/5245](https://github.com/ant-design/ant-design/pull/5245)
   - 色板支持点击复制色号。[pull/5247](https://github.com/ant-design/ant-design/pull/5247) [@bsheikh](https://github.com/bsheikh)
   - 增加脚手架示例。[commit/f2f786](https://github.com/ant-design/ant-design/commit/f2f786d66d75eebef8406a72db8a15e1640cea1f)
-
+  
 ## 2.8.0
 
 `2017-03-06`

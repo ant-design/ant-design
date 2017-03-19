@@ -19,7 +19,7 @@ title: Progress
 
 | 属性      | 说明           | 类型     | 默认值         |
 |----------|---------------|----------|---------------|
-| type     | 类型，可选 `line` `circle` | string   | line      |
+| type     | 类型，可选 `line` `circle` `dashboard` | string   | line      |
 | percent  | 百分比 | number | 0 |
 | format   | 内容的模板函数 | function(percent)   | `percent => percent + '%'` |
 | status   | 状态，可选：`success` `exception` `active` | string   | - |

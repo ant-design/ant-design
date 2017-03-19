@@ -17,6 +17,10 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.8.2
+- **Progress**
+  - Support dashboard. [#5225](https://github.com/ant-design/ant-design/issues/5225)
+
 ## 2.8.1
 
 `2017-03-11`
