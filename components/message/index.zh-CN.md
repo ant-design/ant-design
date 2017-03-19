@@ -22,7 +22,7 @@ title: Message
 - `message.warn(content, duration, onClose)`
 - `message.loading(content, duration, onClose)`
 
-组件提供了四个静态方法，参数如下：
+组件提供了上面这些静态方法，参数如下：
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|--------------------------|--------------|
@@ -41,6 +41,7 @@ title: Message
 message.config({
   top: 100,
   duration: 2,
+  getContainer: document.getElementById('myMessageContainer')
 });
 ```
 
