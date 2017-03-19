@@ -87,7 +87,7 @@ Ant Design 的图标设计中，外轮廓线统一半径为 72px 的圆角，ico
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/uYhuxxiWZlgVwdmfqUli.png" description="注：表格中 @Black = #000000、@White = #FFFFFF、@Blue-6 = #108EE9">
 
-icon 的颜色需要与搭配文案的色值保持一致（表示状态的除外）。
+图标的颜色需要与搭配文案的色值保持一致（表示状态的除外）。
 
 ---
 
