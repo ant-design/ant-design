@@ -57,7 +57,7 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AmXwsVOWrLxDfwLNlyvL.png" alt="Ant Design 中性色常用色值">
 
-灰色（Gray）作为中性色在 Ant Design 的网页设计中被大量使用到，它的使用有利于关键内容的衬托和功能的引导。这类色彩主要体现在导航框架、背景底色、描边、或次级操作等等。
+灰色作为中性色在 Ant Design 的网页设计中被大量使用到，它的使用有利于关键内容的衬托和功能的引导。这类色彩主要体现在导航框架、背景底色、描边、或次级操作等等。
 
 ### 功能色的应用
 
