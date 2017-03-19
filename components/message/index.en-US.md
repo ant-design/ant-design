@@ -14,14 +14,13 @@ Display global messages as feedbacks to user operations.
 
 ## API
 
+This components provides some static methods, with usage and arguments as following:
+
 - `message.success(content, duration, onClose)`
 - `message.error(content, duration, onClose)`
 - `message.info(content, duration, onClose)`
 - `message.warning(content, duration, onClose)`
-- `message.warn(content, duration, onClose)`
 - `message.loading(content, duration, onClose)`
-
-This components provides 4 static methods, with arguments as following:
 
 | Argument   | Description                        | Type                     | Default      |
 |------------|------------------------------------|--------------------------|--------------|

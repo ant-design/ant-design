@@ -15,14 +15,13 @@ title: Message
 
 ## API
 
+组件提供了一些静态方法，使用方式和参数如下：
+
 - `message.success(content, duration, onClose)`
 - `message.error(content, duration, onClose)`
 - `message.info(content, duration, onClose)`
 - `message.warning(content, duration, onClose)`
-- `message.warn(content, duration, onClose)`
 - `message.loading(content, duration, onClose)`
-
-组件提供了四个静态方法，参数如下：
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|--------------------------|--------------|
