@@ -7,6 +7,12 @@ import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 
+export interface UploadContext {
+  antLocale?: {
+    Upload?: any,
+  };
+}
+
 const defaultLocale: UploadLocale = {
   uploading: '文件上传中',
   removeFile: '删除文件',
@@ -33,6 +39,12 @@ export default class Upload extends React.Component<UploadProps, any> {
     disabled: false,
     supportServerRender: true,
   };
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  };
+
+  context: UploadContext;
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;

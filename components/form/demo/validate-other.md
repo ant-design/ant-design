@@ -49,7 +49,7 @@ class Demo extends React.Component {
       <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label="Nation"
+          label="Plain Text"
         >
           <span className="ant-form-text">China</span>
         </FormItem>
