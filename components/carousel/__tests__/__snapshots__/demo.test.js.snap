@@ -1,15 +1,22 @@
-exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
 <div
-  class="ant-carousel">
+  class="ant-carousel"
+>
   <div
-    class="slick-initialized slick-slider">
+    class="slick-initialized slick-slider"
+  >
     <div
-      class="slick-list">
+      class="slick-list"
+    >
       <div
-        class="slick-track">
+        class="slick-track"
+      >
         <div
           class="slick-slide slick-cloned"
-          data-index="-1">
+          data-index="-1"
+        >
           <h3>
             4
           </h3>
@@ -18,7 +25,8 @@ exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
           class="slick-slide slick-active slick-cloned"
           data-index="0"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             1
           </h3>
@@ -27,7 +35,8 @@ exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="1"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             2
           </h3>
@@ -36,7 +45,8 @@ exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="2"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             3
           </h3>
@@ -45,14 +55,16 @@ exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="3"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             4
           </h3>
         </div>
         <div
           class="slick-slide slick-active slick-cloned"
-          data-index="4">
+          data-index="4"
+        >
           <h3>
             1
           </h3>
@@ -63,18 +75,23 @@ exports[`test renders ./components/carousel/demo/autoplay.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
+exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
 <div
-  class="ant-carousel">
+  class="ant-carousel"
+>
   <div
-    class="slick-initialized slick-slider">
+    class="slick-initialized slick-slider"
+  >
     <div
-      class="slick-list">
+      class="slick-list"
+    >
       <div
-        class="slick-track">
+        class="slick-track"
+      >
         <div
           class="slick-slide slick-cloned"
-          data-index="-1">
+          data-index="-1"
+        >
           <h3>
             4
           </h3>
@@ -83,7 +100,8 @@ exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
           class="slick-slide slick-active slick-cloned"
           data-index="0"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             1
           </h3>
@@ -92,7 +110,8 @@ exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="1"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             2
           </h3>
@@ -101,7 +120,8 @@ exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="2"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             3
           </h3>
@@ -110,14 +130,16 @@ exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="3"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             4
           </h3>
         </div>
         <div
           class="slick-slide slick-active slick-cloned"
-          data-index="4">
+          data-index="4"
+        >
           <h3>
             1
           </h3>
@@ -128,20 +150,25 @@ exports[`test renders ./components/carousel/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/carousel/demo/fade.md correctly 1`] = `
+exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
 <div
-  class="ant-carousel">
+  class="ant-carousel"
+>
   <div
-    class="slick-initialized slick-slider">
+    class="slick-initialized slick-slider"
+  >
     <div
-      class="slick-list">
+      class="slick-list"
+    >
       <div
-        class="slick-track">
+        class="slick-track"
+      >
         <div
           class="slick-slide slick-active slick-cloned"
           data-index="0"
           style="outline:none;position:relative;left:0;opacity:1;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             1
           </h3>
@@ -150,7 +177,8 @@ exports[`test renders ./components/carousel/demo/fade.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="1"
           style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             2
           </h3>
@@ -159,7 +187,8 @@ exports[`test renders ./components/carousel/demo/fade.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="2"
           style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             3
           </h3>
@@ -168,7 +197,8 @@ exports[`test renders ./components/carousel/demo/fade.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="3"
           style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             4
           </h3>
@@ -179,18 +209,23 @@ exports[`test renders ./components/carousel/demo/fade.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/carousel/demo/vertical.md correctly 1`] = `
+exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
 <div
-  class="ant-carousel ant-carousel-vertical">
+  class="ant-carousel ant-carousel-vertical"
+>
   <div
-    class="slick-initialized slick-slider slick-vertical">
+    class="slick-initialized slick-slider slick-vertical"
+  >
     <div
-      class="slick-list">
+      class="slick-list"
+    >
       <div
-        class="slick-track">
+        class="slick-track"
+      >
         <div
           class="slick-slide slick-cloned"
-          data-index="-1">
+          data-index="-1"
+        >
           <h3>
             4
           </h3>
@@ -199,7 +234,8 @@ exports[`test renders ./components/carousel/demo/vertical.md correctly 1`] = `
           class="slick-slide slick-active slick-cloned"
           data-index="0"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             1
           </h3>
@@ -208,7 +244,8 @@ exports[`test renders ./components/carousel/demo/vertical.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="1"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             2
           </h3>
@@ -217,7 +254,8 @@ exports[`test renders ./components/carousel/demo/vertical.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="2"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             3
           </h3>
@@ -226,14 +264,16 @@ exports[`test renders ./components/carousel/demo/vertical.md correctly 1`] = `
           class="slick-slide slick-cloned"
           data-index="3"
           style="outline:none;"
-          tabindex="-1">
+          tabindex="-1"
+        >
           <h3>
             4
           </h3>
         </div>
         <div
           class="slick-slide slick-active slick-cloned"
-          data-index="4">
+          data-index="4"
+        >
           <h3>
             1
           </h3>

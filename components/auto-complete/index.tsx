@@ -71,10 +71,6 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     showSearch: false,
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
-  };
-
   getInputElement = () => {
     const { children } = this.props;
     const element = children && React.isValidElement(children) && children.type !== Option ?

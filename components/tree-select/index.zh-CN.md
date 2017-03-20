@@ -29,7 +29,7 @@ title: TreeSelect
 | searchPlaceholder | 搜索框默认文字 | string | - |
 | dropdownStyle | 下拉菜单的样式 | object | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| size    | 选择框大小，可选 `large` `small`  | string      |      default      |
+| size    | 选择框大小，可选 `large` `small`  | string      | 'default' |
 | showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | showCheckedStrategy | `TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |

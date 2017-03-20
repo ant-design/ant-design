@@ -69,7 +69,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
     const list = items.map(file => {
       let progress;
-      let icon = <Icon type="paper-clip" />;
+      let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
@@ -95,9 +95,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
       if (file.status === 'uploading') {
         // show loading icon if upload progress listener is disabled
-        const loadingProgress = file.percent ? (
+        const loadingProgress = ('percent' in file) ? (
           <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
-        ) : <Icon type="loading" />;
+        ) : null;
 
         progress = (
           <div className={`${prefixCls}-list-item-progress`}>

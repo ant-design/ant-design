@@ -105,7 +105,7 @@ ReactDOM.render(<Complete />, mountNode);
 ````
 
 ````css
-.certain-category-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
+.certain-category-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
   right: 12px;
 }
 

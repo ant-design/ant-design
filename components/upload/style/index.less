@@ -118,7 +118,6 @@
     margin-top: 8px;
     font-size: @font-size-base;
     position: relative;
-    height: 22px;
 
     &-name {
       overflow: hidden;
@@ -130,16 +129,18 @@
     }
 
     &-info {
+      height: 22px;
       line-height: 22px;
       padding: 0 12px 0 4px;
       transition: background-color .3s;
 
+      .@{iconfont-css-prefix}-loading,
       .@{iconfont-css-prefix}-paper-clip {
         margin-right: 4px;
         font-size: @font-size-base;
         color: @text-color-secondary;
         position: absolute;
-        top: 6px;
+        top: 5.5px;
       }
     }
 
@@ -178,7 +179,7 @@
     }
 
     &-progress {
-      padding: 0 8px 0 20px;
+      padding: 0 6px 0 20px;
       margin-top: -2px;
       margin-bottom: 1px;
       font-size: @font-size-base;

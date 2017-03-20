@@ -1,8 +1,5 @@
 ---
-category:
-  zh-CN: 设计基础
-  en-US: Design Fundamental
-order: 0
+order: 5
 title:
   zh-CN: 字体
   en-US: Font

@@ -249,14 +249,43 @@ form {
 
 // Form layout
 //== Vertical Form
-.@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
-.@{ant-prefix}-col-24.@{form-prefix-cls}-item-label {  // when labelCol is 24, it is a vertical form
+.make-vertical-layout() {
   padding: 0 0 8px;
   display: block;
   text-align: left;
 
   label:after {
     content: '';
+  }
+}
+.@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
+// when labelCol is 24, it is a vertical form
+.@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
+.@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+  .make-vertical-layout();
+}
+
+@media (max-width: @screen-xs-max) {
+  .@{ant-prefix}-col-xs-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout();
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .@{ant-prefix}-col-sm-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout();
+  }
+}
+
+@media (max-width: @screen-md-max) {
+  .@{ant-prefix}-col-md-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout();
+  }
+}
+
+@media (max-width: @screen-lg-max) {
+  .@{ant-prefix}-col-lg-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout();
   }
 }
 
@@ -423,7 +452,7 @@ form {
         border-color: @error-color;
       }
     }
-    &.active .@{ant-prefix}-mention-editor,
+    &.@{ant-prefix}-mention-active .@{ant-prefix}-mention-editor,
     .@{ant-prefix}-mention-editor:not([disabled]):focus {
       .active(@error-color);
     }

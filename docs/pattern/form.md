@@ -84,8 +84,8 @@ title:
 
 ### 输入提示 & 输入提醒
 
-<img class="preview-img" align="right" alt="输入提示示例" description="在输入框激活后，输入提示一直出现至该输入框失去焦点。" src="https://os.alipayobjects.com/rmsportal/cTlmdEprGSzMZfs.png">
-<img class="preview-img" align="right" alt="输入提醒示例" description="在输入框激活后，输入提醒不要马上消失，等用户完成第一个词输入后再消失。" src="https://os.alipayobjects.com/rmsportal/QPhvLWfMbLTvjRw.png">
+<img class="preview-img inline" align="right" alt="输入提示示例" description="在输入框激活后，输入提示一直出现至该输入框失去焦点。" src="https://os.alipayobjects.com/rmsportal/cTlmdEprGSzMZfs.png">
+<img class="preview-img inline" align="right" alt="输入提醒示例" description="在输入框激活后，输入提醒不要马上消失，等用户完成第一个词输入后再消失。" src="https://os.alipayobjects.com/rmsportal/QPhvLWfMbLTvjRw.png">
 
 输入提示：不希望在标签上放置太多文字进行解释，同时只有标签又会引起误解。
 
@@ -99,8 +99,8 @@ title:
 
 ### 校验
 
-<img class="preview-img" align="right" description="输入时的实时校验。" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
-<img class="preview-img" align="right" description="输入框失去焦点后的校验。" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
+<img class="preview-img inline" align="right" description="输入时的实时校验。" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
+<img class="preview-img inline" align="right" description="输入框失去焦点后的校验。" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
 <img class="preview-img" align="right" description="点击『提交』后，系统将处理结果直接在页面上进行反馈（统计错误数量和标记错误内容）。" src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 

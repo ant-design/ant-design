@@ -49,7 +49,7 @@ class App extends React.Component {
     loading: false,
   };
   handleTableChange = (pagination, filters, sorter) => {
-    const pager = this.state.pagination;
+    const pager = { ...this.state.pagination };
     pager.current = pagination.current;
     this.setState({
       pagination: pager,
@@ -74,7 +74,7 @@ class App extends React.Component {
       },
       type: 'json',
     }).then((data) => {
-      const pagination = this.state.pagination;
+      const pagination = { ...this.state.pagination };
       // Read total count from server
       // pagination.total = data.totalCount;
       pagination.total = 200;

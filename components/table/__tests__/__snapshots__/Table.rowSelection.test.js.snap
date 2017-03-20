@@ -1,16 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Table.rowSelection render selection correctly 1`] = `
 <div>
   <div
-    class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden">
+    class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden"
+  >
     <ul
       aria-activedescendant=""
       class="ant-dropdown-menu ant-dropdown-menu-vertical ant-table-selection-menu ant-dropdown-menu-light ant-dropdown-menu-root"
       role="menu"
-      tabindex="0">
+      tabindex="0"
+    >
       <li
         aria-selected="false"
         class="ant-dropdown-menu-item"
-        role="menuitem">
+        role="menuitem"
+      >
         <div>
           全选
         </div>
@@ -18,7 +23,8 @@ exports[`Table.rowSelection render selection correctly 1`] = `
       <li
         aria-selected="false"
         class="ant-dropdown-menu-item"
-        role="menuitem">
+        role="menuitem"
+      >
         <div>
           反选
         </div>
