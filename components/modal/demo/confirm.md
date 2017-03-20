@@ -24,7 +24,9 @@ function showConfirm() {
     onOk() {
       console.log('OK');
     },
-    onCancel() {},
+    onCancel() {
+      console.log('Cancel');
+    },
   });
 }
 

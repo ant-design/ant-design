@@ -94,7 +94,7 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
-| sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function\|boolean | - |
+| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
 | className  | 列的 className             | string          |  -      |

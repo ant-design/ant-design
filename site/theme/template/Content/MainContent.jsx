@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
+import classNames from 'classnames';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -147,18 +148,24 @@ export default class MainContent extends React.Component {
     const menuItems = utils.getMenuItems(
       moduleData, this.context.intl.locale
     );
+    const categories = Object.keys(menuItems).filter(isNotTopLevel);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
-    const subMenu = Object.keys(menuItems).filter(isNotTopLevel)
-      .sort((a, b) => themeConfig.categoryOrder[a] - themeConfig.categoryOrder[b])
-      .map((category) => {
-        const subMenuItems = this.generateSubMenuItems(menuItems[category]);
-        return (
-          <SubMenu title={<h4>{category}</h4>} key={category}>
-            {subMenuItems}
+    const result = [...topLevel];
+    result.forEach((item, i) => {
+      const insertCategory = categories.filter(
+        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] < i : i === result.length - 1)
+      )[0];
+      if (insertCategory) {
+        const target = (
+          <SubMenu title={<h4>{insertCategory}</h4>} key={insertCategory}>
+            {this.generateSubMenuItems(menuItems[insertCategory])}
           </SubMenu>
         );
-      });
-    return [...topLevel, ...subMenu];
+        result.splice(i, 0, target);
+        categories.splice(categories.indexOf(insertCategory), 1);
+      }
+    });
+    return result;
   }
 
   flattenMenu(menu) {
@@ -192,6 +199,9 @@ export default class MainContent extends React.Component {
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
     const localizedPageData = props.localizedPageData;
+    const mainContainerClass = classNames('main-container', {
+      'main-container-component': !!props.demos,
+    });
     return (
       <div className="main-wrapper">
         <Row>
@@ -206,7 +216,7 @@ export default class MainContent extends React.Component {
               {menuItems}
             </Menu>
           </Col>
-          <Col lg={20} md={18} sm={24} xs={24} className="main-container">
+          <Col lg={20} md={18} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :

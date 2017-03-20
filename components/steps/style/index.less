@@ -90,8 +90,10 @@
       .@{steps-prefix-cls}-tail > i:after {
         width: 100%;
         background: @finish-tail-color;
-        transition: all 0.6s;
+        transition: all .6s;
         opacity: 1;
+        box-shadow: 0 0 0 0 @primary-color;
+        animation: tailEffect .4s;
       }
       .@{steps-prefix-cls}-title {
         color: @finish-title-color;
@@ -452,5 +454,11 @@
         left: 0;
       }
     }
+  }
+}
+
+@keyframes tailEffect {
+  to {
+    box-shadow: 0 0 3px 3px transparent;
   }
 }

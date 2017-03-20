@@ -25,14 +25,3 @@ A carousel component. Scales with its container.
 | afterChange  | Callback function called after the current index changes    | function(current)  |
 
 For more info on the parameters, refer to the https://github.com/akiran/react-slick
-
-<style>
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  background: #364d79;
-  color: #fff;
-  overflow: hidden;
-}
-</style>

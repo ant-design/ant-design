@@ -1,8 +1,11 @@
-exports[`test renders ./components/modal/demo/async.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/modal/demo/async.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
-    type="button">
+    type="button"
+  >
     <span>
       Open a modal dialog
     </span>
@@ -10,11 +13,12 @@ exports[`test renders ./components/modal/demo/async.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/basic.md correctly 1`] = `
+exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
-    type="button">
+    type="button"
+  >
     <span>
       Open a modal dialog
     </span>
@@ -22,31 +26,34 @@ exports[`test renders ./components/modal/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/confirm.md correctly 1`] = `
+exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
 <button
   class="ant-btn"
-  type="button">
+  type="button"
+>
   <span>
     confirmation modal dialog
   </span>
 </button>
 `;
 
-exports[`test renders ./components/modal/demo/confirm-promise.md correctly 1`] = `
+exports[`renders ./components/modal/demo/confirm-promise.md correctly 1`] = `
 <button
   class="ant-btn"
-  type="button">
+  type="button"
+>
   <span>
     Confirmation modal dialog
   </span>
 </button>
 `;
 
-exports[`test renders ./components/modal/demo/footer.md correctly 1`] = `
+exports[`renders ./components/modal/demo/footer.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
-    type="button">
+    type="button"
+  >
     <span>
       Open modal dialog
     </span>
@@ -54,32 +61,36 @@ exports[`test renders ./components/modal/demo/footer.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/info.md correctly 1`] = `
+exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Info
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Success
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Error
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Warning
     </span>
@@ -87,12 +98,13 @@ exports[`test renders ./components/modal/demo/info.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/locale.md correctly 1`] = `
+exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
 <div>
   <div>
     <button
       class="ant-btn ant-btn-primary"
-      type="button">
+      type="button"
+    >
       <span>
         Show Modal
       </span>
@@ -101,7 +113,8 @@ exports[`test renders ./components/modal/demo/locale.md correctly 1`] = `
   <br />
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       confirm
     </span>
@@ -109,11 +122,12 @@ exports[`test renders ./components/modal/demo/locale.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/manual.md correctly 1`] = `
+exports[`renders ./components/modal/demo/manual.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Success
     </span>
@@ -121,11 +135,12 @@ exports[`test renders ./components/modal/demo/manual.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/modal/demo/position.md correctly 1`] = `
+exports[`renders ./components/modal/demo/position.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
-    type="button">
+    type="button"
+  >
     <span>
       Display a modal dialog at 20px to Top
     </span>
@@ -134,7 +149,8 @@ exports[`test renders ./components/modal/demo/position.md correctly 1`] = `
   <br />
   <button
     class="ant-btn ant-btn-primary"
-    type="button">
+    type="button"
+  >
     <span>
       Vertically centered modal dialog
     </span>

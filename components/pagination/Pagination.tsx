@@ -1,87 +1,54 @@
 import React from 'react';
 import RcPagination from 'rc-pagination';
+import zhCN from 'rc-pagination/lib/locale/zh_CN';
+import classNames from 'classnames';
+import injectLocale from '../locale-provider/injectLocale';
 import Select from '../select';
 import MiniSelect from './MiniSelect';
-import zhCN from 'rc-pagination/lib/locale/zh_CN';
 
 export interface PaginationProps {
-  /** 当前页数*/
-  current?: number;
-  /** 默认的当前页数*/
-  defaultCurrent?: number;
-  /** 数据总数*/
   total: number;
-  /** 初始的每页条数*/
+  defaultCurrent?: number;
+  current?: number;
   defaultPageSize?: number;
-  /** 每页条数*/
   pageSize?: number;
-  /** 页码改变的回调，参数是改变后的页码*/
   onChange?: (page: number, pageSize: number) => void;
-  /** 是否可以改变 pageSize */
   showSizeChanger?: boolean;
-  /** 指定每页可以显示多少条*/
-  pageSizeOptions?: Array<string>;
-  /** pageSize 变化的回调  */
+  pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
-  /** 是否可以快速跳转至某页*/
   showQuickJumper?: boolean;
-  /** 当为「small」时，是小尺寸分页 */
-  size?: string;
-  /** 当添加该属性时，显示为简单分页*/
-  simple?: boolean;
-  /** 用于显示总共有多少条数据*/
   showTotal?: (total: number) => React.ReactNode;
+  size?: string;
+  simple?: boolean;
   style?: React.CSSProperties;
-  className?: string;
   locale?: Object;
+  className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
 }
 
-export interface PaginationContext {
-  antLocale?: {
-    Pagination?: any,
-  };
-}
-
-export default class Pagination extends React.Component<PaginationProps, any> {
+abstract class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
-    locale: zhCN,
-    className: '',
     prefixCls: 'ant-pagination',
     selectPrefixCls: 'ant-select',
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
-  };
-
-  context: PaginationContext;
+  abstract getLocale()
 
   render() {
-    let className = this.props.className;
-    let selectComponentClass = Select as React.ReactNode;
-
-    let locale;
-    if (this.context.antLocale && this.context.antLocale.Pagination) {
-      locale = this.context.antLocale.Pagination;
-    } else {
-      locale = this.props.locale;
-    }
-
-    if (this.props.size === 'small') {
-      className += ' mini';
-      selectComponentClass = MiniSelect;
-    }
-
+    const { className, size, ...restProps } = this.props;
+    const locale = this.getLocale();
+    const isSmall = size === 'small';
     return (
       <RcPagination
-        selectComponentClass={selectComponentClass}
-        selectPrefixCls={this.props.selectPrefixCls}
-        {...this.props}
+        {...restProps}
+        className={classNames(className, { mini: isSmall })}
+        selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
-        className={className}
       />
     );
   }
 }
+
+const injectPaginationLocale = injectLocale('Pagination', zhCN);
+export default injectPaginationLocale<PaginationProps>(Pagination as any);

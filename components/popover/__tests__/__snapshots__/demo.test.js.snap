@@ -1,15 +1,19 @@
-exports[`test renders ./components/popover/demo/arrow-point-at-center.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/popover/demo/arrow-point-at-center.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Align edge / 边缘对齐
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Arrow points to center / 箭头指向中心
     </span>
@@ -17,120 +21,139 @@ exports[`test renders ./components/popover/demo/arrow-point-at-center.md correct
 </div>
 `;
 
-exports[`test renders ./components/popover/demo/basic.md correctly 1`] = `
+exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
-  type="button">
+  type="button"
+>
   <span>
     Hover me
   </span>
 </button>
 `;
 
-exports[`test renders ./components/popover/demo/control.md correctly 1`] = `
+exports[`renders ./components/popover/demo/control.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
-  type="button">
+  type="button"
+>
   <span>
     Click me
   </span>
 </button>
 `;
 
-exports[`test renders ./components/popover/demo/placement.md correctly 1`] = `
+exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 <div
-  class="demo">
+  class="demo"
+>
   <div
-    style="margin-left:70px;white-space:nowrap;">
+    style="margin-left:70px;white-space:nowrap;"
+  >
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         TL
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         Top
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         TR
       </span>
     </button>
   </div>
   <div
-    style="width:70px;float:left;">
+    style="width:70px;float:left;"
+  >
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         LT
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         Left
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         LB
       </span>
     </button>
   </div>
   <div
-    style="width:70px;margin-left:304px;">
+    style="width:70px;margin-left:304px;"
+  >
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         RT
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         Right
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         RB
       </span>
     </button>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap;">
+    style="margin-left:70px;clear:both;white-space:nowrap;"
+  >
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         BL
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         Bottom
       </span>
     </button>
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         BR
       </span>
@@ -139,25 +162,28 @@ exports[`test renders ./components/popover/demo/placement.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/popover/demo/triggerType.md correctly 1`] = `
+exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Hover me
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Focus me
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Click me
     </span>

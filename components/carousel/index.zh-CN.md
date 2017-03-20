@@ -26,14 +26,3 @@ subtitle: 走马灯
 | afterChange       | 切换面板的回调                              | function(current)  | 无
 
 更多参数可参考：https://github.com/akiran/react-slick
-
-<style>
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 130px;
-  background: #506b9e;
-  color: #fff;
-  overflow: hidden;
-}
-</style>

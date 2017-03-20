@@ -43,6 +43,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
     disabledSeconds?: () => [number, number],
   };
   onOpenChange?: (status: boolean) => void;
+  onOk?: () => void;
   placeholder?: string;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
@@ -57,6 +58,7 @@ export interface RangePickerProps extends PickerProps {
   defaultValue?: [moment.Moment, moment.Moment];
   defaultPickerValue?: [moment.Moment, moment.Moment];
   onChange?: (dates: [moment.Moment, moment.Moment], dateStrings: [string, string]) => void;
+  onOk?: () => void;
   showTime?: TimePickerProps | boolean;
   ranges?: {
     [range: string]: moment.Moment[],

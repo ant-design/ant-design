@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 13
 title:
   zh-CN: 校验其他组件
   en-US: Other Form Controls
@@ -33,6 +33,7 @@ class Demo extends React.Component {
     });
   }
   normFile = (e) => {
+    console.log('Upload event:', e);
     if (Array.isArray(e)) {
       return e;
     }
@@ -149,12 +150,32 @@ class Demo extends React.Component {
             valuePropName: 'fileList',
             getValueFromEvent: this.normFile,
           })(
-            <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
+            <Upload name="logo" action="/upload.do" listType="picture">
               <Button>
                 <Icon type="upload" /> Click to upload
               </Button>
             </Upload>
           )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Dragger"
+        >
+          <div className="dropbox">
+            {getFieldDecorator('dragger', {
+              valuePropName: 'fileList',
+              getValueFromEvent: this.normFile,
+            })(
+              <Upload.Dragger name="files" action="/upload.do">
+                <p className="ant-upload-drag-icon">
+                  <Icon type="inbox" />
+                </p>
+                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+              </Upload.Dragger>
+            )}
+          </div>
         </FormItem>
 
         <FormItem
@@ -170,4 +191,11 @@ class Demo extends React.Component {
 const WrappedDemo = Form.create()(Demo);
 
 ReactDOM.render(<WrappedDemo />, mountNode);
+````
+
+````css
+#components-form-demo-validate-other .dropbox {
+  height: 180px;
+  line-height: 1.5;
+}
 ````

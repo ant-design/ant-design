@@ -23,7 +23,7 @@ ReactDOM.render(
       <div className="ant-back-top-inner">UP</div>
     </BackTop>
     Scroll down to see the bottom-right
-    <strong style={{ color: '#57c5f7' }}> blue </strong>
+    <strong style={{ color: '#1088e9' }}> blue </strong>
     button.
   </div>,
   mountNode
@@ -39,7 +39,7 @@ ReactDOM.render(
   width: 40px;
   line-height: 40px;
   border-radius: 4px;
-  background-color: #57c5f7;
+  background-color: #1088e9;
   color: #fff;
   text-align: center;
   font-size: 20px;

@@ -25,12 +25,22 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 5 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 12 },
+  },
+};
+
 ReactDOM.render(
   <Form>
     <FormItem
+      {...formItemLayout}
       label="Fail"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
@@ -38,18 +48,16 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Warning"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       validateStatus="warning"
     >
       <Input placeholder="Warning" id="warning" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Validating"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="validating"
       help="The information is being validated..."
@@ -58,9 +66,8 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Success"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="success"
     >
@@ -68,9 +75,8 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Warning"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="warning"
     >
@@ -78,9 +84,8 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Fail"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
@@ -90,7 +95,14 @@ ReactDOM.render(
 
     <FormItem
       label="inline"
-      labelCol={{ span: 5 }}
+      labelCol={{
+        xs: { span: 24 },
+        sm: { span: 5 },
+      }}
+      wrapperCol={{
+        xs: { span: 24 },
+        sm: { span: 19 },
+      }}
       help
     >
       <Col span="6">

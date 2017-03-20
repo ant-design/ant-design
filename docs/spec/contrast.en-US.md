@@ -17,9 +17,7 @@ Contrast is one of the effective ways to add visual interest to your page, and t
 
 In order to help user make a quick operation (something like the form，modal), a more important operation or a operation with higher frequency would be emphasized.
 
-
 > Notes: ways of emphasizing are not just to intensify the key item. It could also weaken the other items.
-
 
 <br>
 

@@ -1,15 +1,19 @@
-exports[`test renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
 <div>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Align edge / 边缘对齐
     </span>
   </button>
   <button
     class="ant-btn"
-    type="button">
+    type="button"
+  >
     <span>
       Arrow points to center / 箭头指向中心
     </span>
@@ -17,71 +21,87 @@ exports[`test renders ./components/tooltip/demo/arrow-point-at-center.md correct
 </div>
 `;
 
-exports[`test renders ./components/tooltip/demo/basic.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 <span>
   Tooltip will show when mouse enter.
 </span>
 `;
 
-exports[`test renders ./components/tooltip/demo/placement.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
 <div>
   <div
-    style="margin-left:60px;">
+    style="margin-left:60px;"
+  >
     <a
-      href="#">
+      href="#"
+    >
       TL
     </a>
     <a
-      href="#">
+      href="#"
+    >
       Top
     </a>
     <a
-      href="#">
+      href="#"
+    >
       TR
     </a>
   </div>
   <div
-    style="width:60px;float:left;">
+    style="width:60px;float:left;"
+  >
     <a
-      href="#">
+      href="#"
+    >
       LT
     </a>
     <a
-      href="#">
+      href="#"
+    >
       Left
     </a>
     <a
-      href="#">
+      href="#"
+    >
       LB
     </a>
   </div>
   <div
-    style="width:60px;margin-left:270px;">
+    style="width:60px;margin-left:270px;"
+  >
     <a
-      href="#">
+      href="#"
+    >
       RT
     </a>
     <a
-      href="#">
+      href="#"
+    >
       Right
     </a>
     <a
-      href="#">
+      href="#"
+    >
       RB
     </a>
   </div>
   <div
-    style="margin-left:60px;clear:both;">
+    style="margin-left:60px;clear:both;"
+  >
     <a
-      href="#">
+      href="#"
+    >
       BL
     </a>
     <a
-      href="#">
+      href="#"
+    >
       Bottom
     </a>
     <a
-      href="#">
+      href="#"
+    >
       BR
     </a>
   </div>

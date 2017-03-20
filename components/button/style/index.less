@@ -148,7 +148,11 @@
   }
 
   &-background-ghost&-primary {
-    .button-variant-other(@primary-color; transparent; @primary-color);
+    .button-variant-ghost(@primary-color);
+  }
+
+  &-background-ghost&-danger {
+    .button-variant-ghost(@btn-danger-bg);
   }
 }
 

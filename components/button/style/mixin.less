@@ -39,12 +39,28 @@
 
   &:hover,
   &:focus {
-    .button-color(@primary-5; @background; @primary-5);
+    .button-color(@primary-color; @background; @primary-color);
   }
 
   &:active,
   &.active {
     .button-color(@primary-7; @background; @primary-7);
+  }
+
+  .button-disabled();
+}
+
+.button-variant-ghost(@color) {
+  .button-color(@color; transparent; @color);
+
+  &:hover,
+  &:focus {
+    .button-color(~`colorPalette("@{color}", 5)`; transparent; ~`colorPalette("@{color}", 5)`);
+  }
+
+  &:active,
+  &.active {
+    .button-color(~`colorPalette("@{color}", 7)`; transparent; ~`colorPalette("@{color}", 7)`);
   }
 
   .button-disabled();

@@ -20,6 +20,8 @@ export interface RadioProps {
 }
 
 export default class Radio extends React.Component<RadioProps, any> {
+  static __ANT_RADIO = true;
+
   static Group: any;
   static Button: any;
 
@@ -30,11 +32,11 @@ export default class Radio extends React.Component<RadioProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const { prefixCls, children, checked, disabled, className = '', style } = this.props;
+    const { prefixCls, className, children, style, ...restProps } = this.props;
     const wrapperClassString = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-checked`]: checked,
-      [`${prefixCls}-wrapper-disabled`]: disabled,
+      [`${prefixCls}-wrapper-checked`]: restProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: restProps.disabled,
     }, className);
 
     return (
@@ -44,7 +46,7 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={this.props.onMouseEnter}
         onMouseLeave={this.props.onMouseLeave}
       >
-        <RcRadio {...this.props} style={null} children={null} />
+        <RcRadio {...restProps} prefixCls={prefixCls} />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
     );

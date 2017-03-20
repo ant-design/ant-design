@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-presuffix-width: 17;
+@input-affix-width: 17;
 
 // size mixins for input
 .input-lg() {
@@ -188,7 +188,7 @@
     }
   }
 
-  > .@{inputClass}-preSuffix-wrapper {
+  > .@{inputClass}-affix-wrapper {
     &:not(:first-child) .@{inputClass} {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
@@ -230,7 +230,7 @@
     .input-sm();
   }
 
-  .@{inputClass}-preSuffix-wrapper {
+  .@{inputClass}-affix-wrapper {
     display: table-cell;
     width: 100%;
     float: left;
@@ -273,7 +273,7 @@
   }
 }
 
-.input-preSuffix-wrapper(@inputClass) {
+.input-affix-wrapper(@inputClass) {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -304,10 +304,10 @@
   }
 
   .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal + @input-presuffix-width;
+    padding-left: @input-padding-horizontal + @input-affix-width;
   }
 
   .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal + @input-presuffix-width;
+    padding-right: @input-padding-horizontal + @input-affix-width;
   }
 }

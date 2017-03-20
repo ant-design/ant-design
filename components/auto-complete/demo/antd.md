@@ -44,7 +44,7 @@ class Complete extends React.Component {
     return (
       <AutoComplete
         dataSource={dataSource}
-        style={{ width: 200 }}
+        style={{ width: 200, height: 50 }}
         onSelect={onSelect}
         onChange={this.handleChange}
         placeholder="input here"
