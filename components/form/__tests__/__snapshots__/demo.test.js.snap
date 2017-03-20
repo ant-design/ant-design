@@ -1614,9 +1614,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
-        title="Nation"
+        title="Plain Text"
       >
-        Nation
+        Plain Text
       </label>
     </div>
     <div
