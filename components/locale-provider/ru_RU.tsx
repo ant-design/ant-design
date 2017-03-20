@@ -22,6 +22,8 @@ export default {
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
     emptyText: 'Нет данных',
+    selectAll: 'Выбрать всё',
+    selectInvert: 'Инвертировать выбор',
   },
   Modal: {
     okText: 'OK',
@@ -40,5 +42,11 @@ export default {
   },
   Select: {
     notFoundContent: 'Ничего не найдено',
+  },
+  Upload: {
+    uploading: 'Закачиваю...',
+    removeFile: 'Удалить файл',
+    uploadError: 'Ошибка при закачке',
+    previewFile: 'Предпросмотр файл',
   },
 };
