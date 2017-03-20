@@ -19,6 +19,7 @@ export interface AbstractSelectProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   placeholder?: string;
+  filterOption?: boolean | ((inputValue: string, option: Object) => any);
 }
 
 export interface SelectProps extends AbstractSelectProps {
@@ -26,7 +27,6 @@ export interface SelectProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   combobox?: boolean;
   multiple?: boolean;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
   tags?: boolean;
   onSelect?: (value: SelectValue, option: Object) => any;
   onDeselect?: (value: SelectValue) => any;
