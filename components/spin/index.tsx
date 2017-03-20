@@ -113,6 +113,10 @@ export default class Spin extends React.Component<SpinProps, any> {
       </div>
     );
     if (this.isNestedPattern()) {
+      let animateClassName = prefixCls + '-nested-loading';
+      if (wrapperClassName) {
+        animateClassName += ' ' + wrapperClassName;
+      }
       const containerClassName = classNames({
         [`${prefixCls}-container`]: true,
         [`${prefixCls}-blur`]: spinning,
@@ -121,7 +125,7 @@ export default class Spin extends React.Component<SpinProps, any> {
         <Animate
           {...divProps}
           component="div"
-          className={`${prefixCls}-nested-loading ${wrapperClassName}`}
+          className={animateClassName}
           style={null}
           transitionName="fade"
         >
