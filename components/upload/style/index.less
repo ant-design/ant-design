@@ -118,7 +118,7 @@
     margin-top: 8px;
     font-size: @font-size-base;
     position: relative;
-
+    height: 24px;
     &-name {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -129,8 +129,7 @@
     }
 
     &-info {
-      height: 22px;
-      line-height: 22px;
+      line-height: 24px;
       padding: 0 12px 0 4px;
       transition: background-color .3s;
 
@@ -153,7 +152,7 @@
       top: 0;
       right: 4px;
       color: @text-color-secondary;
-      line-height: 22px;
+      line-height: 24px;
       &:hover {
         color: @text-color;
       }
@@ -179,13 +178,11 @@
     }
 
     &-progress {
-      padding: 0 6px 0 20px;
-      margin-top: -2px;
-      margin-bottom: 1px;
+      line-height: 0;
       font-size: @font-size-base;
-      .@{ant-prefix}-progress-line-inner {
-        vertical-align: middle;
-      }
+      position: absolute;
+      width: 100%;
+      bottom: 0;
     }
   }
 
