@@ -17,7 +17,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
     progressAttr: {
-      strokeWidth: 3,
+      strokeWidth: 2,
       showInfo: false,
     },
     prefixCls: 'ant-upload',
@@ -100,7 +100,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ) : null;
 
         progress = (
-          <div className={`${prefixCls}-list-item-progress`}>
+          <div className={`${prefixCls}-list-item-progress`} key="progress">
             {loadingProgress}
           </div>
         );
@@ -166,7 +166,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             {iconAndPreview}
           </div>
           {actions}
-          {progress}
+          <Animate transitionName="fade" component="">
+            {progress}
+          </Animate>
         </div>
       );
     });
