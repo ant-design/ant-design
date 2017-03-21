@@ -187,7 +187,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return (
       <div className={selectionPrefixCls}>
         <Checkbox
-          className={classNames(`${selectionPrefixCls}-select-all`, {custom: customSelections})}
+          className={classNames({ [`${selectionPrefixCls}-select-all-custom`]: customSelections })}
           checked={checked}
           indeterminate={indeterminate}
           disabled={disabled}

@@ -1439,7 +1439,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           class="ant-table-selection"
                         >
                           <label
-                            class="ant-table-selection-select-all ant-checkbox-wrapper"
+                            class="ant-checkbox-wrapper"
                           >
                             <span
                               class="ant-checkbox"
@@ -2959,7 +2959,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                         class="ant-table-selection"
                       >
                         <label
-                          class="ant-table-selection-select-all ant-checkbox-wrapper"
+                          class="ant-checkbox-wrapper"
                         >
                           <span
                             class="ant-checkbox"
@@ -8827,7 +8827,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                         class="ant-table-selection"
                       >
                         <label
-                          class="ant-table-selection-select-all ant-checkbox-wrapper"
+                          class="ant-checkbox-wrapper"
                         >
                           <span
                             class="ant-checkbox"
@@ -9155,7 +9155,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           class="ant-table-selection"
                         >
                           <label
-                            class="ant-table-selection-select-all ant-checkbox-wrapper"
+                            class="ant-checkbox-wrapper"
                           >
                             <span
                               class="ant-checkbox"
@@ -9739,14 +9739,14 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               >
                 <tr>
                   <th
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <div
                         class="ant-table-selection"
                       >
                         <label
-                          class="ant-table-selection-select-all custom ant-checkbox-wrapper"
+                          class="ant-table-selection-select-all-custom ant-checkbox-wrapper"
                         >
                           <span
                             class="ant-checkbox"
@@ -9800,7 +9800,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -9844,7 +9844,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -9888,7 +9888,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -9932,7 +9932,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -9976,7 +9976,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -10020,7 +10020,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -10064,7 +10064,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -10108,7 +10108,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -10152,7 +10152,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label
@@ -10196,7 +10196,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class="ant-table-selection-column custom"
+                    class="ant-table-selection-column ant-table-selection-column-custom"
                   >
                     <span>
                       <label

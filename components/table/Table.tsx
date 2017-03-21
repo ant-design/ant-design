@@ -625,7 +625,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         return true;
       });
       let selectionColumnClass = classNames(`${prefixCls}-selection-column`, {
-        custom: rowSelection.selections,
+        [`${prefixCls}-selection-column-custom`]: rowSelection.selections,
       });
       const selectionColumn: ColumnProps<any> = {
         key: 'selection-column',
