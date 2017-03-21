@@ -133,6 +133,7 @@ Property | Description | Type | Default Value
 message | validation error message | string | -
 type | built-in validation type, [available options](https://github.com/yiminghe/async-validator#type) | string | 'string'
 required | indicates whether field is required | boolean | `false`
+whitespace | treat required fields that only contain whitespace as errors | boolean | `false`
 len | validate an exact length of a field | number | -
 min | validate a min length of a field | number | -
 max | validate a max length of a field | number | -

@@ -164,7 +164,7 @@ class RegistrationForm extends React.Component {
           hasFeedback
         >
           {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!' }],
+            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
           })(
             <Input />
           )}
