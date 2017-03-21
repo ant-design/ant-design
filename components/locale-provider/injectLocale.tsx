@@ -8,8 +8,12 @@ export interface ComponentContext {
   antLocale?: { [key: string]: any };
 }
 
+export interface ComponentClass<P> {
+  [key: string]: any;
+}
+
 export default (componentName: string, defaultLocale) => (
-  function<P>(Component: typeof React.Component): React.ComponentClass<P> {
+  function<P>(Component: typeof React.Component): ComponentClass<P> {
     return class extends Component<P & ComponentProps, any> {
       static contextTypes = {
         antLocale: PropTypes.object,
