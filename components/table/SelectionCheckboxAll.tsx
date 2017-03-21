@@ -4,7 +4,7 @@ import { Store } from './createStore';
 import Dropdown from '../dropdown';
 import Menu from '../menu';
 import Icon from '../icon';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 export interface SelectionDecorator {
   key: string;
@@ -21,7 +21,7 @@ export interface SelectionCheckboxAllProps {
   data: any[];
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
-  selections: SelectionDecorator[] | boolean | undefined;
+  selections?: SelectionDecorator[] | boolean;
 }
 
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
@@ -187,7 +187,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return (
       <div className={selectionPrefixCls}>
         <Checkbox
-          className={classnames(`${selectionPrefixCls}-select-all`, {custom: customSelections})}
+          className={classNames(`${selectionPrefixCls}-select-all`, {custom: customSelections})}
           checked={checked}
           indeterminate={indeterminate}
           disabled={disabled}
