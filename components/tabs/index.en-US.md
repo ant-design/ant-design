@@ -24,6 +24,8 @@ Ant Design has 3 types Tabs for different situation.
 | defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | - |
 | onChange     | Callback when tab is switched | Function | - |
 | onTabClick   | Callback when tab is clicked | Function | - |
+| onPrevClick  | Callback when prev button is clicked | Function | 无 |
+| onNextClick  | Callback when next button is clicked | Function | 无 |
 | tabBarExtraContent | Extra element in tab bar | React.ReactNode | - |
 | tabBarStyle  | tar bar style object           | object   | -        |
 | type         | Basic style of tabs. Options: line, card & editable-card | string | line |

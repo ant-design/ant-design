@@ -27,6 +27,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string   | 第一个面板    |
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
+| onPrevClick      | prev 按钮被点击的回调                         | Function | 无            |
+| onNextClick      | next 按钮被点击的回调                         | Function | 无            |
 | tabBarExtraContent | tab bar 上额外的元素                       | React.ReactNode | 无          |
 | tabBarStyle      | tar bar 的样式对象                           | object   | -             |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型   | string   | 'line'      |
