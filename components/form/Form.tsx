@@ -106,7 +106,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
-  static create = <TOwnProps extends any>(options?: FormCreateOption): ComponentDecorator<TOwnProps> => {
+  static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
     const formWrapper = createDOMForm(assign({
       fieldNameProp: 'id',
     }, options, {
