@@ -35,7 +35,7 @@ export interface SelectProps extends AbstractSelectProps {
   optionFilterProp?: string;
   defaultActiveFirstOption?: boolean;
   labelInValue?: boolean;
-  getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode | HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value: SelectValue) => void;
