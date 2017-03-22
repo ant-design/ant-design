@@ -1,5 +1,6 @@
 ---
 order: 6
+iframe: true
 title:
   zh-CN: 顶部公告
   en-US: Banner
@@ -7,11 +8,11 @@ title:
 
 ## zh-CN
 
-用作顶部公告时，默认有图标，`type` 为 'warning'，并有特殊样式。
+页面顶部通告形式，默认有图标且`type` 为 'warning'。
 
 ## en-US
 
-When `Alert` is used as banner, it has particular style, Icon and `type`(warning) are specified by default.
+Display Alert as a banner at top of page.
 
 ````jsx
 import { Alert } from 'antd';
