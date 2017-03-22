@@ -9,7 +9,7 @@ Category | Recommanded Components
 ---------|-----------------------
 Router | [react-router](https://github.com/ReactTraining/react-router)
 Layout | [react-blocks](http://whoisandie.github.io/react-blocks/)
-Drag and drop | [react-dnd](https://github.com/gaearon/react-dnd)
+Drag and drop | [react-dnd](https://github.com/gaearon/react-dnd)  [react-draggable](https://github.com/mzabriskie/react-draggable)
 Code Editor | [react-codemirror](https://github.com/JedWatson/react-codemirror)
 Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)
 Color Picker | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/)
@@ -20,6 +20,8 @@ Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https:/
 QR Code | [qrcode.react](https://github.com/zpao/qrcode.react)
 Charts | [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
+i18n | [react-intl](https://github.com/yahoo/react-intl)
+Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
 
 <style>
 .markdown table td:first-child {
