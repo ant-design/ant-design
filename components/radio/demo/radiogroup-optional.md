@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-一组互斥的 Radio 配合使用。
+通过配置参数来控制渲染单选框。
 
 ## en-US
 
-A set of mutually exclusive Radio with the use of
+Render radios by configuring parameters.
 
 ```jsx
 import { Radio } from 'antd';
