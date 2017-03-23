@@ -258,12 +258,13 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       [`${inputPrefixCls}-lg`]: size === 'large',
       [`${inputPrefixCls}-sm`]: size === 'small',
     });
-    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ?
+    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
-      /> : null;
+      />
+    ) : null;
     const arrowCls = classNames({
       [`${prefixCls}-picker-arrow`]: true,
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,

@@ -766,7 +766,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       size = 'small';
     }
     let total = pagination.total || this.getLocalData().length;
-    return (total > 0) ?
+    return (total > 0) ? (
       <Pagination
         key="pagination"
         {...pagination}
@@ -776,7 +776,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         size={size}
         current={this.getMaxCurrent(total)}
         onShowSizeChange={this.handleShowSizeChange}
-      /> : null;
+      />
+    ) : null;
   }
 
   // Get pagination, filters, sorter

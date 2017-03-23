@@ -170,12 +170,13 @@ export default class RangePicker extends React.Component<any, any> {
       pickerStyle.width = (style && style.width) || 300;
     }
 
-    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1]))
-      ? <Icon
+    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
+      <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
-      /> : null;
+      />
+    ) : null;
 
     const input = ({ value: inputValue }) => {
       const start = inputValue[0];

@@ -117,12 +117,13 @@ export default function createPicker(TheCalendar) {
         pickerStyle.width = (props.style && props.style.width) || 154;
       }
 
-      const clearIcon = (!props.disabled && props.allowClear && value) ?
+      const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
           type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
-        /> : null;
+        />
+      ) : null;
 
       const input = ({ value: inputValue }) => (
         <span>
