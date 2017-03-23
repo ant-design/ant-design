@@ -20,7 +20,7 @@ if (typeof window !== 'undefined') {
 import SlickCarousel from 'react-slick';
 import React from 'react';
 
-export type CarouselEffect = 'scrollx' | 'fade'
+export type CarouselEffect = 'scrollx' | 'fade';
 // Carousel
 export interface CarouselProps {
   /** 动画效果函数，可取 scrollx, fade */

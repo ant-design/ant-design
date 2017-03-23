@@ -264,7 +264,7 @@ export default class Input extends Component<InputProps, any> {
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
             ref="input"
-          />
+          />,
         );
     }
   }

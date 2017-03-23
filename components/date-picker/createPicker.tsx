@@ -34,7 +34,7 @@ export default function createPicker(TheCalendar) {
       if (value && !moment.isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value'
+          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value',
         );
       }
       return {
@@ -117,12 +117,13 @@ export default function createPicker(TheCalendar) {
         pickerStyle.width = (props.style && props.style.width) || 154;
       }
 
-      const clearIcon = (!props.disabled && props.allowClear && value) ?
+      const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
           type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
-        /> : null;
+        />
+      ) : null;
 
       const input = ({ value: inputValue }) => (
         <span>

@@ -169,8 +169,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  moveToLeft = () => this.moveTo('left')
-  moveToRight = () => this.moveTo('right')
+  moveToLeft = () => this.moveTo('left');
+  moveToRight = () => this.moveTo('right');
 
   handleSelectChange(direction: string, holder: string[]) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -199,10 +199,10 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
   handleLeftSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('left', filteredDataSource, checkAll)
-  )
+  );
   handleRightSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('right', filteredDataSource, checkAll)
-  )
+  );
 
   handleFilter = (direction, e) => {
     this.setState({
@@ -214,8 +214,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleLeftFilter = (e) => this.handleFilter('left', e)
-  handleRightFilter = (e) => this.handleFilter('right', e)
+  handleLeftFilter = (e) => this.handleFilter('left', e);
+  handleRightFilter = (e) => this.handleFilter('right', e);
 
   handleClear = (direction) => {
     this.setState({
@@ -223,8 +223,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     });
   }
 
-  handleLeftClear = () => this.handleClear('left')
-  handleRightClear = () => this.handleClear('right')
+  handleLeftClear = () => this.handleClear('left');
+  handleRightClear = () => this.handleClear('right');
 
   handleSelect = (direction, selectedItem, checked) => {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export type ButtonSize = 'small' | 'large'
+export type ButtonSize = 'small' | 'large';
 
 export interface ButtonGroupProps {
   size?: ButtonSize;

@@ -155,7 +155,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       key => (
         placements[key].points[0] === align.points[0] &&
         placements[key].points[1] === align.points[1]
-      )
+      ),
     )[0];
     if (!placement) {
       return;
@@ -190,7 +190,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     }
 
     const child = this.getDisabledCompatibleChildren(
-      React.isValidElement(children) ? children : <span>{children}</span>
+      React.isValidElement(children) ? children : <span>{children}</span>,
     );
     const childProps = child.props;
     const childCls = classNames(childProps.className, {
