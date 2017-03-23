@@ -123,9 +123,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 }
 ```
 
-> Note: set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-
-> Note: Don't use @types/antd, antd provide a built-in ts definition already.
+> Note:
+> - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
+> - Don't use @types/antd, antd provide a built-in ts definition already.
 
 ## Links
 
