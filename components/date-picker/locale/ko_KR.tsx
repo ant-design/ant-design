@@ -2,7 +2,7 @@ import CalendarLocale from 'rc-calendar/lib/locale/ko_KR';
 import TimePickerLocale from '../../time-picker/locale/ko_KR';
 import assign from 'object-assign';
 
-// 统一合并为完整的 Locale
+// Merge into a locale object
 const locale = {
   lang: assign({
     placeholder: '날짜 선택',
