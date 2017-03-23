@@ -21,7 +21,7 @@ function getBreadcrumbName(route, params) {
   const paramsKeys = Object.keys(params).join('|');
   const name = route.breadcrumbName.replace(
     new RegExp(`:(${paramsKeys})`, 'g'),
-    (replacement, key) => params[key] || replacement
+    (replacement, key) => params[key] || replacement,
   );
   return name;
 }
@@ -56,7 +56,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     warning(
       !('linkRender' in props || 'nameRender' in props),
       '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
-      'see: http://u.ant.design/item-render.'
+      'see: http://u.ant.design/item-render.',
     );
   }
 
@@ -90,7 +90,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         }
         warning(
           element.type && element.type.__ANT_BREADCRUMB_ITEM,
-          'Breadcrumb only accepts Breadcrumb.Item as it\'s children'
+          'Breadcrumb only accepts Breadcrumb.Item as it\'s children',
         );
         return cloneElement(element, {
           separator,

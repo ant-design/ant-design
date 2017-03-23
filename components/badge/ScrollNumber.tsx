@@ -144,7 +144,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     return createElement(
       this.props.component || 'sup',
       props,
-      this.renderNumberElement()
+      this.renderNumberElement(),
     );
   }
 }

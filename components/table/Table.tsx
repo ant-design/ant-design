@@ -149,7 +149,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
-      'fixed columns instead, see: http://u.ant.design/fixed-columns.'
+      'fixed columns instead, see: http://u.ant.design/fixed-columns.',
     );
 
     this.columns = props.columns || normalizeColumns(props.children);
@@ -269,7 +269,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       return;
     }
     const selectedRows = data.filter(
-      (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+      (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0,
     );
     if (rowSelection.onChange) {
       rowSelection.onChange(selectedRowKeys, selectedRows);
@@ -278,7 +278,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       rowSelection.onSelect(record, checked, selectedRows);
     } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
       const changeRows = data.filter(
-        (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+        (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0,
       );
       rowSelection.onSelectAll(checked, selectedRows, changeRows);
     } else if (selectWay === 'onSelectInvert' && rowSelection.onSelectInvert) {
@@ -609,7 +609,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       rowKey(record, index) :  record[rowKey as string];
     warning(recordKey !== undefined,
       'Each record in dataSource of table should have a unique `key` prop, or set `rowKey` to an unique primary key,' +
-      'see http://u.ant.design/table-row-key'
+      'see http://u.ant.design/table-row-key',
     );
     return recordKey === undefined ? index : recordKey;
   }
@@ -766,7 +766,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       size = 'small';
     }
     let total = pagination.total || this.getLocalData().length;
-    return (total > 0) ?
+    return (total > 0) ? (
       <Pagination
         key="pagination"
         {...pagination}
@@ -776,7 +776,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         size={size}
         current={this.getMaxCurrent(total)}
         onShowSizeChange={this.handleShowSizeChange}
-      /> : null;
+      />
+    ) : null;
   }
 
   // Get pagination, filters, sorter
@@ -846,7 +847,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       {},
       item, {
         [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
-      }
+      },
     ) : item));
   }
 

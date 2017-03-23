@@ -13,7 +13,7 @@ export interface CascaderOptionType {
   children?: Array<CascaderOptionType>;
 }
 
-export type CascaderExpandTrigger = 'click' | 'hover'
+export type CascaderExpandTrigger = 'click' | 'hover';
 
 export interface ShowSearchType {
   filter?: (inputValue: string, path: CascaderOptionType[]) => boolean;
@@ -109,7 +109,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   refs: {
     [key: string]: any;
     input: {
-      refs: { input: HTMLElement }
+      refs: { input: HTMLElement },
     };
   };
 
@@ -258,12 +258,13 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       [`${inputPrefixCls}-lg`]: size === 'large',
       [`${inputPrefixCls}-sm`]: size === 'small',
     });
-    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ?
+    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
       <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
-      /> : null;
+      />
+    ) : null;
     const arrowCls = classNames({
       [`${prefixCls}-picker-arrow`]: true,
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,

@@ -57,8 +57,8 @@ export interface ModalFuncProps {
   iconType?: string;
 }
 export type ModalFunc = (props: ModalFuncProps) => {
-  destroy: () => void
-}
+  destroy: () => void,
+};
 
 export default class Modal extends React.Component<ModalProps, any> {
   static info: ModalFunc;
@@ -138,14 +138,15 @@ export default class Modal extends React.Component<ModalProps, any> {
       cancelText = cancelText || this.context.antLocale.Modal.cancelText;
     }
 
-    const defaultFooter = [
+    const defaultFooter = [(
       <Button
         key="cancel"
         size="large"
         onClick={this.handleCancel}
       >
         {cancelText || '取消'}
-      </Button>,
+      </Button>
+    ), (
       <Button
         key="confirm"
         type="primary"
@@ -154,8 +155,8 @@ export default class Modal extends React.Component<ModalProps, any> {
         onClick={this.handleOk}
       >
         {okText || '确定'}
-      </Button>,
-    ];
+      </Button>
+    )];
 
     return (
       <Dialog
