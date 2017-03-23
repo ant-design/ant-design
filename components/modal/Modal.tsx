@@ -57,8 +57,8 @@ export interface ModalFuncProps {
   iconType?: string;
 }
 export type ModalFunc = (props: ModalFuncProps) => {
-  destroy: () => void
-}
+  destroy: () => void,
+};
 
 export default class Modal extends React.Component<ModalProps, any> {
   static info: ModalFunc;

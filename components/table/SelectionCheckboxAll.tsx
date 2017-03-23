@@ -141,7 +141,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
           key={selection.key || index}
         >
           <div
-            onClick={() => {this.props.onSelect(selection.key, index, selection.onSelect);}}
+            onClick={() => {this.props.onSelect(selection.key, index, selection.onSelect); }}
           >
             {selection.text}
           </div>

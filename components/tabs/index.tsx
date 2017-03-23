@@ -9,7 +9,7 @@ import Icon from '../icon';
 import warning from '../_util/warning';
 import isFlexSupported from '../_util/isFlexSupported';
 
-export type TabsType = 'line' | 'card' | 'editable-card'
+export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TabsProps {
@@ -99,7 +99,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     } = this.props;
     warning(
       !(type.indexOf('card') >= 0 && size === 'small'),
-      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.'
+      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
     );
     let cls = classNames(className, {
       [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',

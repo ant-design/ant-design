@@ -88,7 +88,7 @@ export default function calculateNodeHeight(
   uiTextNode,
   useCache = false,
   minRows: number | null = null,
-  maxRows: number | null = null
+  maxRows: number | null = null,
 ) {
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea');

@@ -171,7 +171,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     } else {
       const { affixStyle } = this.state;
       if (e.type === 'resize' && affixStyle && affixStyle.position === 'fixed' && affixNode.offsetWidth) {
-        this.setAffixStyle(e, {...affixStyle, width: affixNode.offsetWidth });
+        this.setAffixStyle(e, { ...affixStyle, width: affixNode.offsetWidth });
       } else {
         this.setAffixStyle(e, null);
       }

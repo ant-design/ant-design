@@ -27,7 +27,7 @@ export default class RangePicker extends React.Component<any, any> {
     ) {
       throw new Error(
         'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
-        'see: http://u.ant.design/date-picker-value'
+        'see: http://u.ant.design/date-picker-value',
       );
     }
     this.state = {
@@ -76,7 +76,7 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  handleShowDateChange = showDate => this.setState({ showDate })
+  handleShowDateChange = showDate => this.setState({ showDate });
 
   setValue(value) {
     this.handleChange(value);

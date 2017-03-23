@@ -95,7 +95,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
         key={option.value}
       >
         {option.label}
-      </Checkbox>
+      </Checkbox>,
     );
 
     const classString = classNames(prefixCls, className);

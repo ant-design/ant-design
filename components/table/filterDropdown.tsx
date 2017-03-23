@@ -140,7 +140,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       if (item.children && item.children.length > 0) {
         const { keyPathOfSelectedItem } = this.state;
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
-          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0
+          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
         );
         const subMenuCls = containSelected ? `${this.props.dropdownPrefixCls}-submenu-contain-selected` : '';
         return (

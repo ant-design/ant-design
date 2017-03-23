@@ -13,7 +13,7 @@ export interface CascaderOptionType {
   children?: Array<CascaderOptionType>;
 }
 
-export type CascaderExpandTrigger = 'click' | 'hover'
+export type CascaderExpandTrigger = 'click' | 'hover';
 
 export interface ShowSearchType {
   filter?: (inputValue: string, path: CascaderOptionType[]) => boolean;
@@ -109,7 +109,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   refs: {
     [key: string]: any;
     input: {
-      refs: { input: HTMLElement }
+      refs: { input: HTMLElement },
     };
   };
 

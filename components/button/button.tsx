@@ -25,9 +25,9 @@ function insertSpace(child) {
   return child;
 }
 
-export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger'
-export type ButtonShape = 'circle' | 'circle-outline'
-export type ButtonSize = 'small' | 'large'
+export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
+export type ButtonShape = 'circle' | 'circle-outline';
+export type ButtonSize = 'small' | 'large';
 
 export interface ButtonProps {
   type?: ButtonType;
