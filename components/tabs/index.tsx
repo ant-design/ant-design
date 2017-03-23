@@ -28,7 +28,10 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animated?: any;
+  animated?: boolean | {
+    inkBar: boolean;
+    tabPane: boolean;
+  };
 }
 
 // Tabs
