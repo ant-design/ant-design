@@ -22,7 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ````jsx
-import { Form, Input, DatePicker, Col } from 'antd';
+import { Form, Input, DatePicker, Col, Icon } from 'antd';
 const FormItem = Form.Item;
 
 const formItemLayout = {
@@ -91,6 +91,19 @@ ReactDOM.render(
       help="Should be combination of numbers & alphabets"
     >
       <Input placeholder="unavailable choice" id="error" />
+    </FormItem>
+
+    <FormItem
+      {...formItemLayout}
+      label="Fail"
+      hasFeedback
+      validateStatus="error"
+      help="Should be combination of numbers & alphabets"
+    >
+      <Input
+        prefix={<Icon type="user" style={{ fontSize: 13 }} />}
+        placeholder="input prefix icon with feed icon" id="error"
+      />
     </FormItem>
 
     <FormItem
