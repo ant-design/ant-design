@@ -61,7 +61,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
-    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK].forEach((locale) => {{
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK].forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
