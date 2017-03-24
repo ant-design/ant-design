@@ -1,8 +1,8 @@
 ---
 order: 1
 title:
-  zh-CN: RadioGroup 组合
-  en-US: RadioGroup group
+  zh-CN: 单选组合
+  en-US: Radio Group
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-A set of mutually exclusive Radio with the use of
+A group of radio components.
 
 ```jsx
 import { Radio } from 'antd';
