@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table.rowSelection render selection correctly 1`] = `
+exports[`Table.rowSelection render with default selection correctly 1`] = `
 <div>
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden"

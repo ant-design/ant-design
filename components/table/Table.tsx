@@ -54,7 +54,7 @@ export interface TableRowSelection<T> {
   onSelect?: (record: T, selected: boolean, selectedRows: Object[]) => any;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
   onSelectInvert?: (selectedRows: Object[]) => any;
-  selections?: SelectionDecorator[];
+  selections?: SelectionDecorator[] | boolean;
 }
 
 export interface TableProps<T> {
@@ -624,10 +624,13 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         }
         return true;
       });
+      let selectionColumnClass = classNames(`${prefixCls}-selection-column`, {
+        [`${prefixCls}-selection-column-custom`]: rowSelection.selections,
+      });
       const selectionColumn: ColumnProps<any> = {
         key: 'selection-column',
         render: this.renderSelectionBox(rowSelection.type),
-        className: `${prefixCls}-selection-column`,
+        className: selectionColumnClass,
       };
       if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every((item, index) => this.getCheckboxPropsByItem(item, index).disabled);
@@ -641,7 +644,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             disabled={checkboxAllDisabled}
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
-            selections={rowSelection.selections || []}
+            selections={rowSelection.selections}
           />
         );
       }

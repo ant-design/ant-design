@@ -172,8 +172,11 @@ describe('Table.rowSelection', () => {
     expect(handleSelectAll).toBeCalledWith(false, [], data);
   });
 
-  it('render selection correctly', () => {
-    const wrapper = mount(createTable());
+  it('render with default selection correctly', () => {
+    const rowSelection = {
+      selections: true,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
     expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
   });
@@ -182,6 +185,7 @@ describe('Table.rowSelection', () => {
     const handleSelectAll = jest.fn();
     const rowSelection = {
       onSelectAll: handleSelectAll,
+      selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
 
@@ -195,6 +199,7 @@ describe('Table.rowSelection', () => {
     const handleSelectInvert = jest.fn();
     const rowSelection = {
       onSelectInvert: handleSelectInvert,
+      selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
     const checkboxes = wrapper.find('input');
