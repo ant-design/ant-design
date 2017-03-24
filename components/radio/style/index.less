@@ -27,7 +27,7 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -110,7 +110,6 @@
 span.@{radio-prefix-cls} + * {
   padding-left: 8px;
   padding-right: 8px;
-  vertical-align: middle;
 }
 
 .@{radio-prefix-cls}-button-wrapper {
@@ -194,13 +193,13 @@ span.@{radio-prefix-cls} + * {
 
     &:hover {
       border-color: @primary-5;
-      box-shadow: -1px 0 0 0@primary-5;
+      box-shadow: -1px 0 0 0 @primary-5;
       color: @primary-5;
     }
 
     &:active {
       border-color: @primary-7;
-      box-shadow: -1px 0 0 0@primary-7;
+      box-shadow: -1px 0 0 0 @primary-7;
       color: @primary-7;
     }
   }

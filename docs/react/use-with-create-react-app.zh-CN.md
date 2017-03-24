@@ -188,6 +188,8 @@ loaders: [
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
+> 注意，上述示例只修改了 `webpack.config.dev.js`，如果需要在生产环境生效，你需要同步修改 `webpack.config.prod.js`。
+
 ## 源码和其他脚手架
 
 以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd，更多 webpack 配置可参考 [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。（例如加入 [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) 避免加载所有语言文件）

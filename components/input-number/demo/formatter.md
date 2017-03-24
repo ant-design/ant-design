@@ -21,6 +21,9 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <InputNumber formatter={value => `$ ${value}`} defaultValue={100} onChange={onChange} />
+  <div>
+    <InputNumber formatter={value => `$ ${value}`} defaultValue={100} onChange={onChange} />
+    <InputNumber formatter={value => `${value.replace('%', '')}%`} defaultValue={100} onChange={onChange} />
+  </div>
 , mountNode);
 ````

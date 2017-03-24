@@ -106,15 +106,15 @@ ReactDOM.render(<Complete />, mountNode);
   margin-right: -46px;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input:not(:last-child) {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
   padding-right: 62px;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
   right: 0;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

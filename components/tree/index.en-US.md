@@ -38,6 +38,8 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |onDragLeave | Defines a function will be called when the onDragLeave event occurs | function({event, node}) | - |
 |onDragEnd | Defines a function will be called when the onDragEnd event occurs | function({event, node}) | - |
 |onDrop | Defines a function will be called when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
+|showLine | Whether show connecting line | boolean | false |
+|showIcon | Whether show the icon before TreeNode title, which has no default style, you must set custom style for it if set to true | boolean | false |
 
 ### TreeNode props
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import Radio from './radio';
-import RadioButton from './radioButton';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
 
@@ -87,7 +85,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   render() {
     const props = this.props;
     const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
-      if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
+      if (radio && radio.type && (radio.type.__ANT_RADIO || radio.type.__ANT_RADIO_BUTTON) && radio.props) {
         return React.cloneElement(radio, assign({}, radio.props, {
           onChange: this.onRadioChange,
           checked: this.state.value === radio.props.value,

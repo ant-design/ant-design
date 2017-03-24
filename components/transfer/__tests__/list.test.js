@@ -18,6 +18,7 @@ const listCommonProps = {
     disabled: true,
   }],
   checkedKeys: ['a'],
+  notFoundContent: 'Not Found',
   lazy: false,
 };
 

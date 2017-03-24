@@ -14,7 +14,6 @@ Fitts’s Law is an ergonomic principle that ties the size of a target and its c
 
 ## Always-Visible Tools
 
-
 <img class="preview-img" align="right" alt="example of Always-Visible Tools, from Zhihu" description="Status No.1: A clear clickable area makes it easier to highlight the button on the page.<br>Status No.2: As hovering over the button, the mouse pointer turns into a hand symbol, and the fill colour of the button changes to a dark colour, which provides a clear call to action.<br>Status No.3: The style of the button obviously changes once clicked." src="https://os.alipayobjects.com/rmsportal/sfytaOSssRrdYFg.png">
 
 If an action is critical, expose it directly in the interface and keep it always visible.
@@ -36,11 +35,9 @@ Instead of making Contextual Tools always visible, we can show them on demand. O
 
 ## Toggle-Reveal Tools
 
-
 <img class="preview-img" align="right" alt="example of Toggle-Reveal Tools" description="The table reveals an input box from the text only when the edit mode is turned on for the area." src="https://os.alipayobjects.com/rmsportal/uGWcpAFgWdynxBy.png">
 
 Toggle a tool mode for an area or page when the actions are not the main flow. The tools to accomplish this are revealed on the activation of the toggle.
-
 
 <br>
 
@@ -53,7 +50,6 @@ Toggle a tool mode for an area or page when the actions are not the main flow. T
 <img class="preview-img" align="right" alt="good example" description="When highlighted or double-clicked, the text is automatically copied to the clipboard. The system helps automate the user flow and brings a surprise." src="https://os.alipayobjects.com/rmsportal/aRihOoBCQHGATBA.png" good>
 
 <img class="preview-img" align="right" alt="bad example" description="The copy icon appears near the copyable text." src="https://os.alipayobjects.com/rmsportal/MfbnQfAJhQfIODY.png" bad>
-
 
 If the actions are secondary or alternative, hide Contextual Tools in the user flow, in order to keep visual clutter to a minimum, reduce the load of cognition burden and bring a surprise.
 
@@ -75,4 +71,4 @@ The clickable area of hypertext is affected by the length of the string in a cel
 
 Increase the clickable hot spot to strengthen the responsiveness rather than increase the size of the button.
 
->Note that it is especially suited for Mobile.
+> Note that it is especially suited for Mobile.

@@ -1,5 +1,4 @@
-import React from 'react';
-import { cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import { findDOMNode } from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
@@ -18,6 +17,8 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
+  onPrevClick?: (e) => void;
+  onNextClick?: (e) => void;
   tabBarExtraContent?: React.ReactNode | null;
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
@@ -95,6 +96,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabBarStyle,
       hideAdd,
       onTabClick,
+      onPrevClick,
+      onNextClick,
       animated,
     } = this.props;
     warning(
@@ -152,6 +155,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
       <ScrollableInkTabBar
         extraContent={tabBarExtraContent}
         onTabClick={onTabClick}
+        onPrevClick={onPrevClick}
+        onNextClick={onNextClick}
         style={tabBarStyle}
       />
     );

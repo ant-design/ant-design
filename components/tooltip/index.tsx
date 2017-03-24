@@ -97,11 +97,23 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     });
   }
 
+  isHoverTrigger() {
+    const { trigger } = this.props;
+    if (!trigger || trigger === 'hover') {
+      return true;
+    }
+    if (Array.isArray(trigger)) {
+      return trigger.indexOf('hover') >= 0;
+    }
+    return false;
+  }
+
   // Fix Tooltip won't hide at disabled button
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element) {
-    if ((element.type.__ANT_BUTTON || element.type === 'button') && element.props.disabled) {
+    if ((element.type.__ANT_BUTTON || element.type === 'button') &&
+        element.props.disabled && this.isHoverTrigger()) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
       const { picked, omited } = splitObject(
@@ -117,8 +129,15 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         ...omited,
         pointerEvents: 'none',
       };
-      const child = cloneElement(element, { style: buttonStyle });
-      return <span style={spanStyle}>{child}</span>;
+      const child = cloneElement(element, {
+        style: buttonStyle,
+        className: null,
+      });
+      return (
+        <span style={spanStyle} className={element.props.className}>
+          {child}
+        </span>
+      );
     }
     return element;
   }

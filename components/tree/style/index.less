@@ -21,7 +21,7 @@
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
-
+      margin-top: -2px;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
@@ -96,23 +96,27 @@
       }
       &.@{tree-prefix-cls}-switcher {
         &.@{tree-prefix-cls}-switcher-noop {
-          cursor: auto;
+          cursor: default;
         }
         &.@{tree-prefix-cls}-roots_open,
         &.@{tree-prefix-cls}-center_open,
         &.@{tree-prefix-cls}-bottom_open,
         &.@{tree-prefix-cls}-noline_open {
-          .antTreeSwitcherIcon();
+          .antTreeSwitcherIcon("open");
         }
         &.@{tree-prefix-cls}-roots_close,
         &.@{tree-prefix-cls}-center_close,
         &.@{tree-prefix-cls}-bottom_close,
         &.@{tree-prefix-cls}-noline_close {
-          .antTreeSwitcherIcon();
-          .ie-rotate(3);
-          &:after {
-            transform: rotate(270deg) scale(0.6);
-          }
+          .antTreeSwitcherIcon("close");
+        }
+      }
+    }
+    &:last-child > span {
+      &.@{tree-prefix-cls}-switcher,
+      &.@{tree-prefix-cls}-iconEle {
+        &:before {
+          display: none;
         }
       }
     }
@@ -146,5 +150,28 @@
   &-icon__close {
     margin-right: 2px;
     vertical-align: top;
+  }
+  // Tree with line
+  &&-show-line {
+    li {
+      position: relative;
+      span {
+        &.@{tree-prefix-cls}-switcher {
+          background: @component-background;
+          &.@{tree-prefix-cls}-switcher-noop {
+            .antTreeSwitcherIcon("doc");
+          }
+        }
+      }
+    }
+    li:not(:last-child):before {
+      content: ' ';
+      width: 1px;
+      border-left: 1px solid @border-color-base;
+      height: 100%;
+      position: absolute;
+      left: 6px;
+      margin: 16px 0;
+    }
   }
 }

@@ -14,10 +14,8 @@ module.exports = {
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
     categoryOrder: {
-      设计原则: 0,
-      Principles: 0,
-      设计基础: 1,
-      'Design Fundamental': 1,
+      设计原则: 2,
+      Principles: 2,
     },
     typeOrder: {
       General: 0,

@@ -39,6 +39,8 @@ subtitle: 树形控件
 |onDragLeave | dragleave 触发时调用 | function({event, node}) | - |
 |onDragEnd | dragend 触发时调用 | function({event, node}) | - |
 |onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+|showLine | 是否展示连接线 | boolean | false |
+|showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
 
 ### TreeNode props
 

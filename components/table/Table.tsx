@@ -1,19 +1,18 @@
 import React from 'react';
 import RcTable from 'rc-table';
-import FilterDropdown from './filterDropdown';
+import classNames from 'classnames';
+import assign from 'object-assign';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
-import Spin from '../spin';
-import classNames from 'classnames';
-import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
-import assign from 'object-assign';
+import Spin, { SpinProps } from '../spin';
 import warning from '../_util/warning';
+import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
-import { SpinProps } from '../spin';
+import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 
 function noop() {
 }
@@ -38,6 +37,12 @@ const defaultPagination = {
   onChange: noop,
   onShowSizeChange: noop,
 };
+
+/**
+ * Avoid creating new object, so that parent component's shouldComponentUpdate
+ * can works appropriately。
+ */
+const emptyObject = {};
 
 export type TableColumnConfig<T> = ColumnProps<T>;
 
@@ -210,7 +215,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
         newPagination.current = newPagination.current || 1;
         newPagination.pageSize = newPagination.pageSize || 10;
-        return { pagination: nextProps.pagination !== false ? newPagination : {} };
+        return { pagination: nextProps.pagination !== false ? newPagination : emptyObject };
       });
     }
     if (nextProps.rowSelection &&
@@ -659,7 +664,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   getMaxCurrent(total) {
     const { current, pageSize } = this.state.pagination;
     if ((current - 1) * pageSize >= total) {
-      return current - 1;
+      return Math.floor((total - 1) / pageSize) + 1;
     }
     return current;
   }

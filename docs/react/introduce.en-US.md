@@ -32,11 +32,11 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 - Written in TypeScript with complete define types.
 - A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 
-## Compatibility
+## Environment Support
 
-Modern browsers and IE9+.
-
-> [Read more about compatibility](/docs/react/getting-started#Compatibility)
+* Browser: Modern browsers and Internet Explorer 9+
+* Server-side Rendering
+* [Electron](http://electron.atom.io/)
 
 ## Version
 
@@ -110,13 +110,30 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // that will import less
    ```
 
-## Useful Links
+### TypeScript
 
-- [Home page](http://ant.design/)
+```js
+// tsconfig.json
+{
+ "compilerOptions": {
+   "moduleResolution": "node",
+   "jsx": "preserve",
+   "allowSyntheticDefaultImports": true
+ }
+}
+```
+
+> Note: set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
+
+> Note: Don't use @types/antd, antd provide a built-in ts definition already.
+
+## Links
+
+- [Home Page](http://ant.design/)
 - [UI library](/docs/react/introduce)
 - [Change Log](/changelog)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
-- [React components](http://react-component.github.io/)
+- [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
 - [Motion](https://motion.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
