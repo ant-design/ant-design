@@ -9,7 +9,7 @@ export interface DropDownProps {
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
   align?: Object;
-  getPopupContainer?: () => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }

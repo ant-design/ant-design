@@ -9,7 +9,7 @@ title: 社区精选组件
 ----|--------
 路由 | [react-router](https://github.com/ReactTraining/react-router)
 布局 | [react-blocks](http://whoisandie.github.io/react-blocks/)
-拖拽 | [react-dnd](https://github.com/gaearon/react-dnd)
+拖拽 | [react-dnd](https://github.com/gaearon/react-dnd) [react-draggable](https://github.com/mzabriskie/react-draggable)
 代码编辑器 | [react-codemirror](https://github.com/JedWatson/react-codemirror)
 富文本编辑器 | [react-quill](https://github.com/zenoamaro/react-quill) [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)
 拾色器 | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/)
@@ -20,6 +20,8 @@ title: 社区精选组件
 二维码  | [qrcode.react](https://github.com/zpao/qrcode.react)
 可视化图表 | [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress)
+应用国际化 | [react-intl](https://github.com/yahoo/react-intl)
+代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
 
 <style>
 .markdown table td:first-child {

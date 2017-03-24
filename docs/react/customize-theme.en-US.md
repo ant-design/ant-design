@@ -39,8 +39,10 @@ This approach is available only when using [antd-init](https://github.com/ant-de
 
 Note:
 
-- Importing style from less files is necessary. Please specify `style` option of `babel-plugin-import` to be `true`.
-- You should write `theme` field in [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) rather then `package.json` when using `dva-cli@0.7.0+`.
+- Importing style from less files is necessary.
+  - If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will importing the `less` version of antd.
+  - If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
+- When using `dva-cli@0.7.0+`, you should add the `theme` block to [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) instead of `package.json`.
 - If you want to override `@icon-url`, the quotes must be contained in value like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
 ### 2) Overriding Less variables (alternative way)

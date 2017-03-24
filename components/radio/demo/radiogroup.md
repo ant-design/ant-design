@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: RadioGroup 组合
   en-US: RadioGroup group

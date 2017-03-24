@@ -77,14 +77,11 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         if (path) {
           paths.push(path);
         }
-        if (route.breadcrumbName) {
-          return (
-            <BreadcrumbItem separator={separator} key={route.breadcrumbName}>
-              {itemRender(route, params, routes, paths)}
-            </BreadcrumbItem>
-          );
-        }
-        return null;
+        return (
+          <BreadcrumbItem separator={separator} key={route.breadcrumbName || path}>
+            {itemRender(route, params, routes, paths)}
+          </BreadcrumbItem>
+        );
       });
     } else if (children) {
       crumbs = React.Children.map(children, (element: any, index) => {

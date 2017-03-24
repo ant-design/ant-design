@@ -31,7 +31,7 @@ ReactDOM.render(
 ````
 
 ````css
-// For demo
+/* For demo */
 .ant-carousel .slick-slide {
   text-align: center;
   height: 160px;

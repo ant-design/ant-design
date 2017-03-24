@@ -134,6 +134,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 message | 校验文案 | string | -
 type | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'
 required | 是否必选 | boolean | `false`
+whitespace | 必选时，空格是否会被视为错误 | boolean | `false`
 len | 字段长度 | number | -
 min | 最小长度 | number | -
 max | 最大长度 | number | -
