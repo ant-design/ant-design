@@ -75,14 +75,11 @@ export type WrappedFormUtils = {
 };
 
 export interface FormComponentProps {
-  form?: WrappedFormUtils;
+  form: WrappedFormUtils;
 }
 
-export class FormComponent extends React.Component<FormComponentProps, {}> {
-}
-
-export interface ComponentDecorator {
-  <T extends (typeof FormComponent)>(component: T): T;
+export interface ComponentDecorator<TOwnProps> {
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -109,7 +106,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
-  static create = (options?: FormCreateOption): ComponentDecorator => {
+  static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
     const formWrapper = createDOMForm(assign({
       fieldNameProp: 'id',
     }, options, {
