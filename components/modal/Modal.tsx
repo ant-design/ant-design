@@ -161,7 +161,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     return (
       <Dialog
         onClose={this.handleCancel}
-        footer={footer || defaultFooter}
+        footer={footer === undefined ? defaultFooter : footer}
         {...this.props}
         visible={visible}
         mousePosition={mousePosition}
