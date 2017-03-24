@@ -143,17 +143,6 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
           );
         }
       });
-    } else {
-      children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
-        if (radio && radio.type && (radio.type.__ANT_RADIO || radio.type.__ANT_RADIO_BUTTON) && radio.props) {
-          return React.cloneElement(radio, assign({}, radio.props, {
-            onChange: this.onRadioChange,
-            checked: this.state.value === radio.props.value,
-            disabled: radio.props.disabled || this.props.disabled,
-          }));
-        }
-        return radio;
-      });
     }
 
     const { prefixCls = 'ant-radio-group', className = '' } = props;
