@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 5
 title:
   zh-CN: RadioGroup 垂直
   en-US: Vertical RadioGroup
