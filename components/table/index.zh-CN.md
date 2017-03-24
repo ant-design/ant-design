@@ -121,7 +121,7 @@ const columns = [{
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
-| selections | 自定义选择项, [配置项](#selection) | object[] | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true | - |
 
 ### selection
 
