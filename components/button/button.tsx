@@ -12,6 +12,10 @@ function isString(str) {
 
 // Insert one space between two chinese characters automatically.
 function insertSpace(child) {
+  // Check the child if is undefined or null.
+  if (child == null) {
+    return;
+  }
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(child, {},
                               child.props.children.split('').join(' '));
