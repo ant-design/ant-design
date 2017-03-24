@@ -33,7 +33,7 @@ Ant Design has 3 types Tabs for different situation.
 | tabPosition  | Position of tabs. Options: top, right, bottom & left | string | top |
 | onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | (targetKey, action): void | - |
 | hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | boolean | false |
-| animated | Whether to change tabs with animation, this property only works with `tabPosition=top|bottom` | boolean | true |
+| animated | Whether to change tabs with animation, this property only works with `tabPosition=top|bottom` | boolean \| {inkBar:boolean, tabPane:boolean} | true |
 
 ### Tabs.TabPane
 | Property     | Description           | Type     | Default      |
