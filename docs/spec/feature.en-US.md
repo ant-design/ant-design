@@ -84,7 +84,7 @@ We create a object-oriented design method and abstract UI patterns. That help us
 
 ### Scientific design principles
 
-See more at [『Ant Design Principles』](/docs/spec/principle).
+See more at [『Ant Design Principles』](/docs/spec/proximity).
 
 ---
 
