@@ -147,7 +147,7 @@ export default class Form extends React.Component<FormProps, any> {
         return <Component {...this.props} {...withRef} />;
       },
     }));
-  }
+  };
 
   constructor(props) {
     super(props);
