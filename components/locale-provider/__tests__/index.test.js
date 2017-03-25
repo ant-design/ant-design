@@ -14,6 +14,7 @@ import nlNL from '../nl_NL';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
 import koKR from '../ko_KR';
+import trTR from '../tr_TR';
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
@@ -59,7 +60,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
-    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR].forEach((locale) => {
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, trTR].forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
