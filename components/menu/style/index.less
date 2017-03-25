@@ -35,7 +35,7 @@
   &-submenu,
   &-submenu-title {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all .3s;
   }
 
   &-item:active,
@@ -194,7 +194,7 @@
     overflow: hidden;
     padding: 0;
     line-height: 0;
-    background-color: #e5e5e5;
+    background-color: @border-color-split;
   }
 
   &-submenu {
@@ -202,7 +202,7 @@
 
     > .@{menu-prefix-cls} {
       background-color: @component-background;
-      border-radius: 4px;
+      border-radius: @border-radius-base;
     }
 
     &-vertical > .@{menu-prefix-cls}-submenu-title:after {
@@ -213,7 +213,7 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s ease;
+      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       .ie-rotate(3);
@@ -228,7 +228,7 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s ease;
+      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       top: 0;
