@@ -18,3 +18,4 @@ size | size of spin, available in `small`, `default` and `large` | string | 'def
 spinning | whether Spin is spinning | boolean | true
 tip | customize description content when spin has children | string | -
 delay | specifies a delay millisecond for loading state (prevent flush) | number (millisecond) | -
+wrapperClassName | className of wrapper when Spin has children | string | -

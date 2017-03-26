@@ -18,8 +18,10 @@
     box-sizing: border-box;
     height: 2px;
     background-color: @primary-color;
-    transition: transform 0.3s @ease-in-out;
     transform-origin: 0 0;
+    &-animated {
+      transition: transform 0.3s @ease-in-out;
+    }
   }
 
   &-bar {
