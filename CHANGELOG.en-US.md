@@ -17,6 +17,34 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.8.3
+
+`2017-03-27`
+
+- TypeScript
+  - Fixed missing definition of `AutoComplete[filterOption]`. [#5393](https://github.com/ant-design/ant-design/pull/5393) [@mitchelldemler](https://github.com/mitchelldemler)
+  - Improve definition of `getPopupContainer` `getCalendarContainer` `getTooltipContainer` `getSuggestionContainer`, etc. [322e9ef](https://github.com/ant-design/ant-design/commit/322e9efdc9db28bd92230fc690f1fdf5a72cf7cd)
+  - Improve definition of `Form.create`. [#5420](https://github.com/ant-design/ant-design/pull/5420) [@infeng](https://github.com/infeng)
+- Fixed Badge should work in Maxthon. [#5477](https://github.com/ant-design/ant-design/issues/5477)
+- Fixed Button cannot work with `null` `undefined` as children. [#5472](https://github.com/ant-design/ant-design/issues/5472) [@blade254353074](https://github.com/blade254353074)
+- Breadcrumb are not rely on `route.breadcrumbName` now. [ac1c7f3](https://github.com/ant-design/ant-design/commit/ac1c7f312bc46ba6ef7aacace43e4ac99b87dd54)
+- Fixed `Form.Item[hasFeedback]` will lost styles while using with `Input[prefix]`. [#5456](https://github.com/ant-design/ant-design/issues/5456) [@william-yz](https://github.com/william-yz)
+- Fixed Layout.Content will show scrollbar while using with Carousel. [#5415](https://github.com/ant-design/ant-design/issues/5415)
+- LocaleProvider
+  - Fixed missing locales of German. [#5387](https://github.com/ant-design/ant-design/pull/5387) [@Knacktus](https://github.com/Knacktus)
+  - Fixed missing locales of Russian. [#5406](https://github.com/ant-design/ant-design/pull/5406) [@plandem](https://github.com/plandem)
+  - Fixed it doesn't work with Upload. [#5388](https://github.com/ant-design/ant-design/pull/5388) [@natergj](https://github.com/natergj)
+- Fixed inconsistet animation of Menu Icon and text. [#5495](https://github.com/ant-design/ant-design/issues/5495)
+- Fixed `Modale[footer]` cannot be set to `null`. [#5462](https://github.com/ant-design/ant-design/issues/5462)
+- Fixed Pagination will lost styles in `IE<=10` which is introduced in `2.8.2`. [#5484](https://github.com/ant-design/ant-design/issues/5484)
+- Fixed Popover will be closed by mistake while using Table in it. [#5407](https://github.com/ant-design/ant-design/issues/5407)
+- Remove restriction that Radio can only be direct chidlren of Radio.Group. [#5443](https://github.com/ant-design/ant-design/issues/5443)
+- Fixed warning while using Switch in Form.Item. [#5368](https://github.com/ant-design/ant-design/issues/5368)
+- Fixed Table cannot use default "Select All" behavior. [#5246](https://github.com/ant-design/ant-design/issues/5246) [@infeng](https://github.com/infeng)
+- New theme variable `@info-color`. [#5442](https://github.com/ant-design/ant-design/issues/5442)
+- Supporting suppress warning(You are using a whole package of antd...) with `NODE_ENV=test` while testing. [#5345](https://github.com/ant-design/ant-design/issues/5345)
+- Upgrade moment to `2.18.0`.
+
 ## 2.8.2
 
 `2017-03-11`
