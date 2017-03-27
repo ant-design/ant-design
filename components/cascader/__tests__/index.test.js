@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 
 const options = [{
@@ -51,7 +52,6 @@ describe('Cascader', () => {
     expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
   });
 
-
   it('can be selected', () => {
     const wrapper = mount(<Cascader options={options} />);
     wrapper.find('input').simulate('click');
@@ -67,5 +67,14 @@ describe('Cascader', () => {
     popupWrapper.find('.ant-cascader-menu').at(2).find('.ant-cascader-menu-item').at(0)
       .simulate('click');
     expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+  });
+
+  it('backspace should work with `Cascader[showSearch]`', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: '123' } });
+    expect(wrapper.state('inputValue')).toBe('123');
+    wrapper.find('input').simulate('keydown', { keyCode: KeyCode.BACKSPACE });
+    // Simulate onKeyDown will not trigger onChange by default, so the value is still '123'
+    expect(wrapper.state('inputValue')).toBe('123');
   });
 });
