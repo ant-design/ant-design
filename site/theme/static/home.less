@@ -81,6 +81,7 @@
   color: rgba(255, 255, 255, .75);
   left: 50%;
   margin-left: -7px;
+  animation: upDownMove 1.2s ease-in-out infinite alternate;
 }
 
 .page {
@@ -163,4 +164,10 @@
   font-size: 16px;
   line-height: 28px;
   color: #999;
+}
+
+@keyframes upDownMove {
+  to {
+    transform: translateY(10px);
+  }
 }
