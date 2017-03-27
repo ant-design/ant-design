@@ -47,6 +47,6 @@ export default {
     uploading: 'Закачиваю...',
     removeFile: 'Удалить файл',
     uploadError: 'Ошибка при закачке',
-    previewFile: 'Предпросмотр файл',
+    previewFile: 'Предпросмотр файла',
   },
 };
