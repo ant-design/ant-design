@@ -72,17 +72,14 @@ export type WrappedFormUtils = {
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
     exclusive?: boolean;
   }): (node: React.ReactNode) => React.ReactNode;
-}
+};
 
 export interface FormComponentProps {
-  form?: WrappedFormUtils;
+  form: WrappedFormUtils;
 }
 
-export class FormComponent extends React.Component<FormComponentProps, {}> {
-}
-
-export interface ComponentDecorator {
-  <T extends (typeof FormComponent)>(component: T): T;
+export interface ComponentDecorator<TOwnProps> {
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -109,7 +106,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
-  static create = (options?: FormCreateOption): ComponentDecorator => {
+  static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
     const formWrapper = createDOMForm(assign({
       fieldNameProp: 'id',
     }, options, {
@@ -136,7 +133,7 @@ export default class Form extends React.Component<FormProps, any> {
         warning(
           false,
           '`getFieldProps` is not recommended, please use `getFieldDecorator` instead, ' +
-          'see: http://u.ant.design/get-field-decorator'
+          'see: http://u.ant.design/get-field-decorator',
         );
         return this.__getFieldProps(name, option);
       },
@@ -177,7 +174,7 @@ export default class Form extends React.Component<FormProps, any> {
     } = this.props;
     warning(
       !inline && !horizontal && !vertical,
-      '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.'
+      '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.',
     );
     const formClassName = classNames(prefixCls, {
       [`${prefixCls}-horizontal`]: (!inline && !vertical && layout === 'horizontal') || horizontal,

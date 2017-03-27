@@ -10,8 +10,12 @@ export interface ComponentContext {
 
 export default (componentName: string, defaultLocale) => (
   function<P>(Component: typeof React.Component): React.ComponentClass<P> {
+    const ComponentWithStatics = Component as any;
     return class extends Component<P & ComponentProps, any> {
+      static propTypes = ComponentWithStatics.propTypes;
+      static defaultProps = ComponentWithStatics.defaultProps;
       static contextTypes = {
+        ...(ComponentWithStatics.context || {}),
         antLocale: PropTypes.object,
       };
 

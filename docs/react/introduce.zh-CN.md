@@ -126,9 +126,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 }
 ```
 
-> 注意：设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
-
-> 注意: 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
+> 注意：
+> - 设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
+> - 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
 
 ## 链接
 
@@ -161,7 +161,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
 

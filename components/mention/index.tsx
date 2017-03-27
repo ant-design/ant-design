@@ -72,7 +72,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   defaultSearchChange(value: String): void {
     const searchValue = value.toLowerCase();
     const filteredSuggestions = (this.props.suggestions || []).filter(
-      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1
+      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1,
     );
     this.setState({
       suggestions: filteredSuggestions,

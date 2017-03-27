@@ -136,10 +136,11 @@ export default class Sider extends React.Component<SiderProps, any> {
       'defaultCollapsed', 'onCollapse', 'breakpoint']);
     const siderWidth = this.state.collapsed ? collapsedWidth : width;
     // special trigger when collapsedWidth == 0
-    const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' ?
-      (<span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
+    const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' ? (
+      <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
         <Icon type="bars" />
-      </span>) : null;
+      </span>
+    ) : null;
     const iconObj = {
       'expanded': reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
       'collapsed': reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
@@ -148,11 +149,11 @@ export default class Sider extends React.Component<SiderProps, any> {
     const defaultTrigger = iconObj[status];
     const triggerDom = (
       trigger !== null ?
-      zeroWidthTrigger ||
-      (<div className={`${prefixCls}-trigger`} onClick={this.toggle}>
-        {trigger || defaultTrigger}
-      </div>)
-      : null
+      zeroWidthTrigger || (
+        <div className={`${prefixCls}-trigger`} onClick={this.toggle}>
+          {trigger || defaultTrigger}
+        </div>
+      ) : null
     );
     const divStyle = {
       ...style,

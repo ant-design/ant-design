@@ -84,7 +84,7 @@ title: 基本理念
 
 ### 通俗而科学的设计原则
 
-详见[『设计原则』](/docs/spec/principle)。
+详见[『设计原则』](/docs/spec/proximity)。
 
 ---
 

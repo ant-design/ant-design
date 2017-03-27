@@ -120,7 +120,7 @@ Properties for selection.
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
-| selections | custom selection, [config](#rowSelection) | object[] | - |
+| selections | custom selection [config](#rowSelection), show default selections via setting to `true` | object[] | - |
 
 ### selection
 

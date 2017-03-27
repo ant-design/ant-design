@@ -17,6 +17,34 @@ timeline: true
 
 ---
 
+## 2.8.3
+
+`2017-03-27`
+
+- TypeScript
+  - 修复 `AutoComplete[filterOption]` 定义缺失的问题。[#5393](https://github.com/ant-design/ant-design/pull/5393) [@mitchelldemler](https://github.com/mitchelldemler)
+  - 修复 `getPopupContainer` `getCalendarContainer` `getTooltipContainer` `getSuggestionContainer` 等的定义问题。[322e9ef](https://github.com/ant-design/ant-design/commit/322e9efdc9db28bd92230fc690f1fdf5a72cf7cd)
+  - 优化 `Form.create` 的定义。[#5420](https://github.com/ant-design/ant-design/pull/5420) [@infeng](https://github.com/infeng)
+- 修复 Badge 在 Maxthon 内的兼容性问题。[#5477](https://github.com/ant-design/ant-design/issues/5477)
+- 修复 Button 内无法使用 `null` `undefined` 的问题。[#5472](https://github.com/ant-design/ant-design/issues/5472) [@blade254353074](https://github.com/blade254353074)
+- Breadcrumb 不再强依赖于 `route.breadcrumbName` [ac1c7f3](https://github.com/ant-design/ant-design/commit/ac1c7f312bc46ba6ef7aacace43e4ac99b87dd54)
+- 修复 `Form.Item[hasFeedback]` 与 `Input[prefix]` 混用时的样式问题。[#5456](https://github.com/ant-design/ant-design/issues/5456) [@william-yz](https://github.com/william-yz)
+- 修复 Layout.Content 与 Carousel 一起使用时的样式问题。[#5415](https://github.com/ant-design/ant-design/issues/5415)
+- LocaleProvider
+  - 修复对德语支持不完善的问题。[#5387](https://github.com/ant-design/ant-design/pull/5387) [@Knacktus](https://github.com/Knacktus)
+  - 修复对俄语支持不完善的问题。[#5406](https://github.com/ant-design/ant-design/pull/5406) [@plandem](https://github.com/plandem)
+  - 修复不支持 Upload 的问题。[#5388](https://github.com/ant-design/ant-design/pull/5388) [@natergj](https://github.com/natergj)
+- 修复 Menu 内 Icon 动画效果与文字不一致的问题。[#5495](https://github.com/ant-design/ant-design/issues/5495)
+- 修复 `Modale[footer]` 无法置空的问题。[#5462](https://github.com/ant-design/ant-design/issues/5462)
+- 修复 `2.8.2` 引入的 Pagination 在 `IE<=10` 下样式丢失的问题。[#5484](https://github.com/ant-design/ant-design/issues/5484)
+- 修复 Popover 内使用 Table 时会意外关闭的问题。[#5407](https://github.com/ant-design/ant-design/issues/5407)
+- 去掉 Radio 只能作为 Radio.Group 的直接后代的限制。[#5443](https://github.com/ant-design/ant-design/issues/5443)
+- 修复 Switch 在 Form.Item 内使用时的 warning。[#5368](https://github.com/ant-design/ant-design/issues/5368)
+- 修复 Table 无法使用默认全选功能的问题。[#5246](https://github.com/ant-design/ant-design/issues/5246) [@infeng](https://github.com/infeng)
+- 新增 `@info-color` 主题变量。[#5442](https://github.com/ant-design/ant-design/issues/5442)
+- 现在可以通过 `NODE_ENV=test` 来禁用测试时 antd 全量加载的 warning。[#5345](https://github.com/ant-design/ant-design/issues/5345)
+- 升级 moment 到 `2.18.0`。
+
 ## 2.8.2
 
 `2017-03-19`

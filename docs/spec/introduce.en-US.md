@@ -17,7 +17,7 @@ Ant Design which is specially created for internal desktop applications, is comm
 
 We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
 
-- [Principles](/docs/spec/principle)
+- [Principles](/docs/spec/proximity)
 - [Patterns](/docs/pattern/navigation)
 - [Resource Download](/docs/resource/download)
 

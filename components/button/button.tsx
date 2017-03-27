@@ -12,6 +12,10 @@ function isString(str) {
 
 // Insert one space between two chinese characters automatically.
 function insertSpace(child) {
+  // Check the child if is undefined or null.
+  if (child == null) {
+    return;
+  }
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(child, {},
                               child.props.children.split('').join(' '));
@@ -25,9 +29,9 @@ function insertSpace(child) {
   return child;
 }
 
-export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger'
-export type ButtonShape = 'circle' | 'circle-outline'
-export type ButtonSize = 'small' | 'large'
+export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
+export type ButtonShape = 'circle' | 'circle-outline';
+export type ButtonSize = 'small' | 'large';
 
 export interface ButtonProps {
   type?: ButtonType;

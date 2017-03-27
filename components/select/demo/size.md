@@ -1,8 +1,8 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 三种大小
-  en-US: Three sizes
+  en-US: Sizes
 ---
 
 ## zh-CN
@@ -14,35 +14,83 @@ title:
 The height of the inpub field for the select defaults to 28px. If size is set to large, the height will be 32px, and if set to small, 22px.
 
 ````jsx
-import { Select } from 'antd';
+import { Select, Radio } from 'antd';
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
+const children = [];
+for (let i = 10; i < 36; i++) {
+  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 
-ReactDOM.render(
-  <div>
-    <Select size="large" defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">Yiminghe</Option>
-    </Select>
-    <Select defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">Yiminghe</Option>
-    </Select>
-    <Select size="small" defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">Yiminghe</Option>
-    </Select>
-  </div>
-, mountNode);
+function handleChange(value) {
+  console.log(`Selected: ${value}`);
+}
+
+class SelectSizesDemo extends React.Component {
+  state = {
+    size: 'default',
+  };
+
+  handleSizeChange = (e) => {
+    this.setState({ size: e.target.value });
+  }
+
+  render() {
+    const { size } = this.state;
+    return (
+      <div>
+        <Radio.Group value={size} onChange={this.handleSizeChange}>
+          <Radio.Button value="large">Large</Radio.Button>
+          <Radio.Button value="default">Default</Radio.Button>
+          <Radio.Button value="small">Small</Radio.Button>
+        </Radio.Group>
+        <br /><br />
+        <Select
+          size={size}
+          defaultValue="a1"
+          onChange={handleChange}
+          style={{ width: 200 }}
+        >
+          {children}
+        </Select>
+        <br />
+        <Select
+          combobox
+          size={size}
+          defaultValue="a1"
+          onChange={handleChange}
+          style={{ width: 200 }}
+        >
+          {children}
+        </Select>
+        <br />
+        <Select
+          multiple
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+        >
+          {children}
+        </Select>
+        <br />
+        <Select
+          tags
+          size={size}
+          placeholder="Please select"
+          defaultValue={['a10', 'c12']}
+          onChange={handleChange}
+          style={{ width: '100%' }}
+        >
+          {children}
+        </Select>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<SelectSizesDemo />, mountNode);
 ````
 
 ````css
