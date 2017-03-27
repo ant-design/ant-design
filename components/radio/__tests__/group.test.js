@@ -16,6 +16,21 @@ describe('Radio', () => {
     );
   }
 
+  function createRadioGroupByOption(props) {
+    const options = [
+      { label: 'A', value: 'A' },
+      { label: 'B', value: 'B' },
+      { label: 'C', value: 'C' },
+    ];
+
+    return (
+      <RadioGroup
+        {...props}
+        options={options}
+      />
+    );
+  }
+
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
@@ -76,5 +91,14 @@ describe('Radio', () => {
     wrapper.setProps({ value: 'A' });
     radios.at(0).simulate('change');
     expect(onChange.mock.calls.length).toBe(0);
+  });
+
+  it('optional should correct render', () => {
+    const wrapper = mount(
+      createRadioGroupByOption()
+    );
+    const radios = wrapper.find('input');
+
+    expect(radios.length).toBe(3);
   });
 });
