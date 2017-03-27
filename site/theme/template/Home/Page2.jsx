@@ -10,8 +10,7 @@ import * as utils from '../utils';
 export default function Page2({ location }) {
   return (
     <ScrollOverPack id="page2"
-      className="content-wrapper page" replay
-      hideProps={{ image: { reverse: true } }}
+      className="content-wrapper page"
     >
       <QueueAnim className="text-wrapper left-text" key="text"
         duration={450} type="bottom" leaveReverse
