@@ -14,7 +14,7 @@ title:
 Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
 
 ````jsx
-import { Table, Input, Button } from 'antd';
+import { Table, Input, Button, Icon } from 'antd';
 
 const data = [{
   key: '1',
@@ -43,6 +43,7 @@ class App extends React.Component {
     filterDropdownVisible: false,
     data,
     searchText: '',
+    filtered: false,
   };
   onInputChange = (e) => {
     this.setState({ searchText: e.target.value });
@@ -52,6 +53,7 @@ class App extends React.Component {
     const reg = new RegExp(searchText, 'gi');
     this.setState({
       filterDropdownVisible: false,
+      filtered: !!searchText,
       data: data.map((record) => {
         const match = record.name.match(reg);
         if (!match) {
@@ -78,6 +80,7 @@ class App extends React.Component {
       filterDropdown: (
         <div className="custom-filter-dropdown">
           <Input
+            ref={ele => this.searchInput = ele}
             placeholder="Search name"
             value={this.state.searchText}
             onChange={this.onInputChange}
@@ -86,8 +89,9 @@ class App extends React.Component {
           <Button type="primary" onClick={this.onSearch}>Search</Button>
         </div>
       ),
+      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
       filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }),
+      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus()),
     }, {
       title: 'Age',
       dataIndex: 'age',
