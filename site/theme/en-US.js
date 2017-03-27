@@ -51,7 +51,7 @@ module.exports = {
     'app.footer.discuss': 'Chat Room',
     'app.footer.bug-report': 'Bug Report',
     'app.footer.version': 'Version: ',
-    'app.footer.author': 'Created by Ant UED',
+    'app.footer.author': 'Created by AIUX',
     'app.publish.title': 'antd@2.0.0 is released!',
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' is released, and please upgrade. ',
