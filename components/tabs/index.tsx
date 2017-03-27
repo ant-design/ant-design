@@ -101,7 +101,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       animated,
     } = this.props;
 
-    let {inkBarAnimated, tabPaneAnimated} = typeof animated === 'object' ? {
+    let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
       inkBarAnimated: animated.inkBar, tabPaneAnimated: animated.tabPane,
     } : {
       inkBarAnimated: animated, tabPaneAnimated: animated,
