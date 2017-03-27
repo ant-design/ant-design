@@ -173,6 +173,9 @@
           line-height: @input-height-lg - 8px;
         }
       }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-lg / 2;
+      }
     }
   }
 
@@ -190,6 +193,9 @@
           height: @input-height-sm - 8px;
           line-height: @input-height-sm - 8px;
         }
+      }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-sm / 2;
       }
     }
   }
@@ -335,6 +341,14 @@
         content: "\e633";
       }
     }
+
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-base / 2;
+    }
+  }
+
+  &-allow-clear &-selection--multiple &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 
   &-open {
@@ -371,6 +385,9 @@
       transition: all .3s @ease-in-out;
       box-shadow: none;
     }
+  }
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 }
 
