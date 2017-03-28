@@ -32,3 +32,4 @@ title: Radio
 | value          | 用于设置当前选中的值             | any            | 无     | 无     |
 | defaultValue   | 默认选中的值                     | any            | 无     | 无     |
 | size           | 大小，只对按钮样式生效           | string            | `large` `default` `small` | `default` |
+| options        | 以配置形式设置子元素             | string[] \| Array<{ label: string value: string disabled?: boolean }>            | 无     | 无     |
