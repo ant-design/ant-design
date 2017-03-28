@@ -6,8 +6,8 @@ import Affix from '../affix';
 import AnchorHelper, { getDefaultTarget } from './anchorHelper';
 
 export interface AnchorProps {
-  target: () => HTMLElement | Window;
-  children: React.ReactNode;
+  target?: () => HTMLElement | Window;
+  children?: React.ReactNode;
   prefixCls?: string;
   offsetTop?: number;
   bounds?: number;
