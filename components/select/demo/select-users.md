@@ -59,7 +59,7 @@ class UserRemoteSelect extends React.Component {
     const { fetching, data, value } = this.state;
     return (
       <Select
-        multiple
+        mode="multiple"
         labelInValue
         value={value}
         placeholder="Select users"
