@@ -61,7 +61,7 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
-  it.only('should accept openKeys in mode inline', () => {
+  it('should accept openKeys in mode inline', () => {
     const wrapper = mount(
       <Menu openKeys={['1']} mode="inline" openAnimation="">
         <SubMenu key="1" title="submenu1">
