@@ -3,6 +3,7 @@ import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Input from '../input';
 import Icon from '../icon';
 
@@ -172,6 +173,12 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     }
   }
 
+  handleKeyDown = (e) => {
+    if (e.keyCode === KeyCode.BACKSPACE) {
+      e.stopPropagation();
+    }
+  }
+
   handleInputChange = (e) => {
     const inputValue = e.target.value;
     this.setState({ inputValue });
@@ -334,6 +341,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
           autoComplete="off"
           onClick={showSearch ? this.handleInputClick : undefined}
           onBlur={showSearch ? this.handleInputBlur : undefined}
+          onKeyDown={this.handleKeyDown}
           onChange={showSearch ? this.handleInputChange : undefined}
         />
         <span className={`${prefixCls}-picker-label`}>
