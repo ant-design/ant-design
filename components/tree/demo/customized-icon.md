@@ -56,16 +56,10 @@ ReactDOM.render(<Demo />, mountNode);
 }
 #components-tree-demo-customized-icon .ant-tree-iconEle::after {
   font-size: 12px;
-  font-size: 8px \9;
-  transform: scale(0.66666667) rotate(0deg);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
   zoom: 1;
   display: inline-block;
   font-family: 'anticon';
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: bold;
   color: #999;
   transition: transform .3s ease;
   margin-top: 2px;

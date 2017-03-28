@@ -72,7 +72,8 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 0 4px 0 0;
+        margin: 0 4px 0 2px;
+        vertical-align: middle;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
@@ -102,13 +103,17 @@
         &.@{tree-prefix-cls}-center_open,
         &.@{tree-prefix-cls}-bottom_open,
         &.@{tree-prefix-cls}-noline_open {
-          .antTreeSwitcherIcon("open");
+          .antTreeSwitcherIcon();
         }
         &.@{tree-prefix-cls}-roots_close,
         &.@{tree-prefix-cls}-center_close,
         &.@{tree-prefix-cls}-bottom_close,
         &.@{tree-prefix-cls}-noline_close {
-          .antTreeSwitcherIcon("close");
+          .antTreeSwitcherIcon();
+          .ie-rotate(3);
+          &:after {
+            transform: rotate(270deg) scale(0.59);
+          }
         }
       }
     }
@@ -159,7 +164,19 @@
         &.@{tree-prefix-cls}-switcher {
           background: @component-background;
           &.@{tree-prefix-cls}-switcher-noop {
-            .antTreeSwitcherIcon("doc");
+            .antTreeShowLineIcon("tree-doc-icon");
+          }
+          &.@{tree-prefix-cls}-roots_open,
+          &.@{tree-prefix-cls}-center_open,
+          &.@{tree-prefix-cls}-bottom_open,
+          &.@{tree-prefix-cls}-noline_open {
+            .antTreeShowLineIcon("tree-showline-open-icon");
+          }
+          &.@{tree-prefix-cls}-roots_close,
+          &.@{tree-prefix-cls}-center_close,
+          &.@{tree-prefix-cls}-bottom_close,
+          &.@{tree-prefix-cls}-noline_close {
+            .antTreeShowLineIcon("tree-showline-close-icon");
           }
         }
       }
@@ -171,7 +188,7 @@
       height: 100%;
       position: absolute;
       left: 6px;
-      margin: 16px 0;
+      margin: 18px 0;
     }
   }
 }
