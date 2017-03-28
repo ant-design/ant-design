@@ -175,7 +175,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
       customSelections =  (
         <Dropdown
           overlay={menu}
-          getPopupContainer={(trigger: HTMLElement) => trigger.parentNode as HTMLElement}
+          getPopupContainer={trigger => trigger.parentNode as HTMLElement}
         >
           <div className={`${selectionPrefixCls}-down`}>
             <Icon type="down" />
