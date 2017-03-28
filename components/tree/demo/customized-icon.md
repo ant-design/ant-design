@@ -63,6 +63,7 @@ ReactDOM.render(<Demo />, mountNode);
   color: #999;
   transition: transform .3s ease;
   margin-top: 2px;
+  background: #fff;
 }
 #components-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__docu::after {
   content: "\E664";
