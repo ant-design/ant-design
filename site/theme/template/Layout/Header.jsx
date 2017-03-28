@@ -49,6 +49,7 @@ export default class Header extends React.Component {
       inputValue: '',
     }, () => {
       router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+      document.querySelector('#search-box .ant-select-search__field').blur();
     });
   }
 
@@ -210,9 +211,8 @@ export default class Header extends React.Component {
           <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Select
-                combobox
+                mode="combobox"
                 value={inputValue}
-                dropdownStyle={{ display: inputValue ? 'block' : 'none' }}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
                 optionLabelProp="data-label"

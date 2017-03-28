@@ -25,6 +25,7 @@ export interface ColProps {
   sm?: number | ColSize;
   md?: number | ColSize;
   lg?: number | ColSize;
+  xl?: number | ColSize;
   prefixCls?: string;
   style?: React.CSSProperties;
 }
@@ -42,13 +43,14 @@ export default class Col extends React.Component<ColProps, any> {
     sm: objectOrNumber,
     md: objectOrNumber,
     lg: objectOrNumber,
+    xl: objectOrNumber,
   };
 
   render() {
     const props = this.props;
     const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
     let sizeClassObj = {};
-    ['xs', 'sm', 'md', 'lg'].forEach(size => {
+    ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
       let sizeProps: ColSize = {};
       if (typeof props[size] === 'number') {
         sizeProps.span = props[size];

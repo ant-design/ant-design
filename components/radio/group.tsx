@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Radio from './radio';
-import RadioButton from './radioButton';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import assign from 'object-assign';
+import shallowEqual from 'shallowequal';
 
 function getCheckedValue(children) {
   let value = null;
@@ -38,6 +35,11 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   static defaultProps = {
     disabled: false,
   };
+
+  static childContextTypes = {
+    radioGroup: PropTypes.any,
+  };
+
   constructor(props) {
     super(props);
     let value;
@@ -53,6 +55,17 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       value,
     };
   }
+
+  getChildContext() {
+    return {
+      radioGroup: {
+        onChange: this.onRadioChange,
+        value: this.state.value,
+        disabled: this.props.disabled,
+      },
+    };
+  }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
@@ -67,9 +80,13 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
     }
   }
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.group, nextContext.group);
   }
+
   onRadioChange = (ev) => {
     const lastValue = this.state.value;
     const { value } = ev.target;
@@ -86,18 +103,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
-      if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
-        return React.cloneElement(radio, assign({}, radio.props, {
-          onChange: this.onRadioChange,
-          checked: this.state.value === radio.props.value,
-          disabled: radio.props.disabled || this.props.disabled,
-        }));
-      }
-      return radio;
-    });
-
-    const { prefixCls = 'ant-radio-group', className = '' } = props;
+    const { prefixCls = 'ant-radio-group', className = '', children } = props;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${props.size}`]: props.size,
     }, className);

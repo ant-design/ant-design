@@ -17,7 +17,7 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 
 我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
 
-- [设计原则](/docs/spec/principle)
+- [设计原则](/docs/spec/proximity)
 - [设计模式](/docs/pattern/navigation)
 - [设计资源](/docs/resource/download)
 
@@ -29,7 +29,7 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 - <div class="outside-link internal"><a href="http://zorro.alibaba.net" target="_blank">Ant Design of Angular 2</a></div>
 - <div class="outside-link"><a href="https://github.com/iview/iview/" target="_blank">iView (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty</a></div>
-- <div class="outside-link"><a href="http://aliqin.github.io/" target="_blank">ATUI (vue)</a></div>
+- <div class="outside-link"><a href="https://github.com/aliqin/atui" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
 ## 谁在使用

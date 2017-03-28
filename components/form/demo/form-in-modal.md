@@ -29,7 +29,7 @@ const CollectionCreateForm = Form.create()(
         onCancel={onCancel}
         onOk={onCreate}
       >
-        <Form vertical>
+        <Form layout="vertical">
           <FormItem label="Title">
             {getFieldDecorator('title', {
               rules: [{ required: true, message: 'Please input the title of collection!' }],

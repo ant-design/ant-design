@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
+import Checkbox from '../checkbox';
 import { TransferItem } from './index';
 import Search from './search';
 import Item from './item';
-import Checkbox from '../checkbox';
 
 function noop() {
 }
@@ -18,31 +18,26 @@ function isRenderResultPlainObject(result) {
 
 export interface TransferListProps {
   prefixCls: string;
+  titleText: string;
   dataSource: TransferItem[];
-  filter?: string;
-  showSearch?: boolean;
-  searchPlaceholder?: string;
-  titleText?: string;
+  filter: string;
+  filterOption: (filterText: any, item: any) => boolean;
   style?: React.CSSProperties;
+  checkedKeys: string[];
   handleFilter: (e: any) => void;
   handleSelect: (selectedItem: any, checked: boolean) => void;
   handleSelectAll: (dataSource: any[], checkAll: boolean) => void;
   handleClear: () => void;
   render?: (item: any) => any;
+  showSearch?: boolean;
+  searchPlaceholder: string;
+  notFoundContent: React.ReactNode;
+  itemUnit: string;
+  itemsUnit: string;
   body?: (props: any) => any;
   footer?: (props: any) => void;
-  checkedKeys: string[];
-  checkStatus?: boolean;
-  position?: string;
-  notFoundContent?: React.ReactNode;
-  filterOption: (filterText: any, item: any) => boolean;
   lazy?: boolean | {};
-}
-
-export interface TransferListContext {
-  antLocale?: {
-    Transfer?: any,
-  };
+  onScroll: Function;
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {
@@ -54,11 +49,6 @@ export default class TransferList extends React.Component<TransferListProps, any
     lazy: {},
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
-  };
-
-  context: TransferListContext;
   timer: number;
 
   constructor(props) {
@@ -127,10 +117,11 @@ export default class TransferList extends React.Component<TransferListProps, any
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, checkedKeys, lazy,
-            body = noop, footer = noop, showSearch, style, filter } = this.props;
-
-    let { searchPlaceholder, notFoundContent } = this.props;
+    const {
+      prefixCls, dataSource, titleText, checkedKeys, lazy,
+      body = noop, footer = noop, showSearch, style, filter,
+      searchPlaceholder, notFoundContent, itemUnit, itemsUnit, onScroll,
+    } = this.props;
 
     // Custom Layout
     const footerDom = footer(assign({}, this.props));
@@ -171,14 +162,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       );
     });
 
-    let unit = '';
-    const antLocale = this.context.antLocale;
-    if (antLocale && antLocale.Transfer) {
-      const transferLocale = antLocale.Transfer;
-      unit = dataSource.length > 1 ? transferLocale.itemsUnit : transferLocale.itemUnit;
-      searchPlaceholder = searchPlaceholder || transferLocale.searchPlaceholder;
-      notFoundContent = notFoundContent || transferLocale.notFoundContent;
-    }
+    const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -186,7 +170,7 @@ export default class TransferList extends React.Component<TransferListProps, any
           prefixCls={`${prefixCls}-search`}
           onChange={this.handleFilter}
           handleClear={this.handleClear}
-          placeholder={searchPlaceholder || 'Search'}
+          placeholder={searchPlaceholder}
           value={filter}
         />
       </div>
@@ -197,6 +181,7 @@ export default class TransferList extends React.Component<TransferListProps, any
         {search}
         <Animate
           component="ul"
+          componentProps={{ onScroll }}
           className={`${prefixCls}-content`}
           transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
           transitionLeave={false}
@@ -204,7 +189,7 @@ export default class TransferList extends React.Component<TransferListProps, any
           {showItems}
         </Animate>
         <div className={`${prefixCls}-body-not-found`}>
-          {notFoundContent || 'Not Found'}
+          {notFoundContent}
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
+import { render, shallow, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
@@ -59,5 +59,21 @@ describe('Table', () => {
     wrapper.setProps({ columns: newColumns });
 
     expect(wrapper.instance().columns).toBe(newColumns);
+  });
+
+  it('loading with Spin', async () => {
+    const loading = {
+      spinning: false,
+      delay: 500,
+    };
+    const wrapper = mount(<Table loading={loading} />);
+    expect(wrapper.find('.ant-spin')).toHaveLength(0);
+
+    loading.spinning = true;
+    wrapper.setProps({ loading });
+    expect(wrapper.find('.ant-spin')).toHaveLength(0);
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+    expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
 });

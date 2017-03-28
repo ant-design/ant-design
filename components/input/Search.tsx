@@ -32,7 +32,7 @@ export default class Search extends React.Component<SearchProps, any> {
   }
   render() {
     const { className, prefixCls, ...others } = this.props;
-    delete others.onSearch;
+    delete (others as any).onSearch;
     const searchSuffix = (
       <Icon
         className={`${prefixCls}-icon`}

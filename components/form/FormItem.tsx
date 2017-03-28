@@ -65,7 +65,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     warning(
       this.getControls(this.props.children, true).length <= 1,
       '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
-      'while there are more than one `getFieldDecorator` in it.'
+      'while there are more than one `getFieldDecorator` in it.',
     );
   }
 
@@ -177,7 +177,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',
           'is-validating': validateStatus === 'validating',
-        }
+        },
       );
     }
     return (
@@ -256,8 +256,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         this.renderValidateWrapper(
           children,
           this.renderHelp(),
-          this.renderExtra()
-        )
+          this.renderExtra(),
+        ),
       ),
     ];
   }

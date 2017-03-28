@@ -12,6 +12,7 @@ export interface InputNumberProps {
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
+  formatter?: (value: number | string | undefined) => string;
   placeholder?: string;
   style?: React.CSSProperties;
   className?: string;

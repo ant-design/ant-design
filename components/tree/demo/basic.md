@@ -18,27 +18,21 @@ import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 
 class Demo extends React.Component {
-  static defaultProps = {
-    keys: ['0-0-0', '0-0-1'],
+  onSelect = (selectedKeys, info) => {
+    console.log('selected', selectedKeys, info);
   }
-  state = {
-    defaultExpandedKeys: this.props.keys,
-    defaultSelectedKeys: this.props.keys,
-    defaultCheckedKeys: this.props.keys,
-  }
-  onSelect = (info) => {
-    console.log('selected', info);
-  }
-  onCheck = (info) => {
-    console.log('onCheck', info);
+  onCheck = (checkedKeys, info) => {
+    console.log('onCheck', checkedKeys, info);
   }
   render() {
     return (
-      <Tree className="myCls" showLine checkable
-        defaultExpandedKeys={this.state.defaultExpandedKeys}
-        defaultSelectedKeys={this.state.defaultSelectedKeys}
-        defaultCheckedKeys={this.state.defaultCheckedKeys}
-        onSelect={this.onSelect} onCheck={this.onCheck}
+      <Tree
+        checkable
+        defaultExpandedKeys={['0-0-0', '0-0-1']}
+        defaultSelectedKeys={['0-0-0', '0-0-1']}
+        defaultCheckedKeys={['0-0-0', '0-0-1']}
+        onSelect={this.onSelect}
+        onCheck={this.onCheck}
       >
         <TreeNode title="parent 1" key="0-0">
           <TreeNode title="parent 1-0" key="0-0-0" disabled>

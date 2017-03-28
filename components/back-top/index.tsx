@@ -82,7 +82,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     const { visibilityHeight, target = getDefaultTarget } = this.props;
     const scrollTop = getScroll(target(), true);
     this.setState({
-      visible: scrollTop > visibilityHeight,
+      visible: scrollTop > (visibilityHeight as number),
     });
   }
 

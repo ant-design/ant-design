@@ -50,12 +50,12 @@ class App extends React.Component {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
     return (
-      <Form horizontal>
+      <Form layout="horizontal">
         <FormItem
           id="control-mention"
           label="Top coders"
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}
+          wrapperCol={{ span: 16 }}
         >
           {getFieldDecorator('mention', {
             rules: [
@@ -65,6 +65,7 @@ class App extends React.Component {
           })(
             <Mention
               suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+              style={{ height: 60 }}
             />
           )}
         </FormItem>

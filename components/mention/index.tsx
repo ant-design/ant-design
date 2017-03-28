@@ -6,20 +6,20 @@ import Icon from '../icon';
 
 export interface MentionProps {
   prefixCls: string;
-  suggestionStyle?: Object;
+  suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;
   onChange?: Function;
   notFoundContent?: any;
   loading?: Boolean;
-  style?: Object;
+  style?: React.CSSProperties;
   defaultValue?: any;
   value?: any;
   className?: string;
   multiLines?: Boolean;
   prefix?: string;
   placeholder?: string;
-  getSuggestionContainer?: Function;
+  getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: Function;
   onBlur?: Function;
 }
@@ -56,9 +56,9 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     }
   }
 
-  onSearchChange = (value) => {
+  onSearchChange = (value, prefix) => {
     if (this.props.onSearchChange) {
-      return this.props.onSearchChange(value);
+      return this.props.onSearchChange(value, prefix);
     }
     return this.defaultSearchChange(value);
   }
@@ -72,7 +72,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   defaultSearchChange(value: String): void {
     const searchValue = value.toLowerCase();
     const filteredSuggestions = (this.props.suggestions || []).filter(
-      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1
+      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1,
     );
     this.setState({
       suggestions: filteredSuggestions,

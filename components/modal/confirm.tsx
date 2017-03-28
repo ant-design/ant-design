@@ -30,10 +30,15 @@ export default function confirm(config) {
     (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
-  function close() {
+  function close(...args) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
+    }
+    const triggerCancel = args && args.length &&
+      args.some(param => param && param.triggerCancel);
+    if (props.onCancel && triggerCancel) {
+      props.onCancel(...args);
     }
   }
 
@@ -74,7 +79,7 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
-      onCancel={close}
+      onCancel={close.bind(this, { triggerCancel: true })}
       visible
       title=""
       transitionName="zoom"

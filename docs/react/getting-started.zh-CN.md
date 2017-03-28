@@ -7,7 +7,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ---
 
-在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并确认 已经正确安装和配置了 [Node.js](https://nodejs.org/) v4.x 或以上。
+在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v4.x 或以上。
 
 ## 第一个例子
 
@@ -32,6 +32,7 @@ $ npm install antd-init -g
 
 > 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
 >
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
 >   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)

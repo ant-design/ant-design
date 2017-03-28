@@ -32,5 +32,5 @@ cols: 1
 | onShowSizeChange | pageSize 变化的回调                | Function(current, size)      | noop                     |
 | showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |
 | size             | 当为「small」时，是小尺寸分页      | string        | ""                       |
-| simple           | 当添加该属性时，显示为简单分页     | object        | -                       |
+| simple           | 当添加该属性时，显示为简单分页     | boolean        | -                       |
 | showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) | -              |

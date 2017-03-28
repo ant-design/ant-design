@@ -9,7 +9,7 @@ import Icon from '../icon';
 import warning from '../_util/warning';
 import isFlexSupported from '../_util/isFlexSupported';
 
-export type TabsType = 'line' | 'card' | 'editable-card'
+export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TabsProps {
@@ -19,6 +19,7 @@ export interface TabsProps {
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
   tabBarExtraContent?: React.ReactNode | null;
+  tabBarStyle?: React.CSSProperties;
   type?: TabsType;
   tabPosition?: TabsPosition;
   onEdit?: (targetKey: string, action: any) => void;
@@ -34,6 +35,7 @@ export interface TabPaneProps {
   /** 选项卡头显示文字 */
   tab?: React.ReactNode | string;
   style?: React.CSSProperties;
+  closable?: boolean;
   className?: string;
   disabled?: boolean;
 }
@@ -90,13 +92,14 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       tabBarExtraContent,
+      tabBarStyle,
       hideAdd,
       onTabClick,
       animated,
     } = this.props;
     warning(
       !(type.indexOf('card') >= 0 && size === 'small'),
-      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.'
+      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
     );
     let cls = classNames(className, {
       [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
@@ -110,11 +113,19 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
+        let closable = child.props.closable;
+        closable = typeof closable === 'undefined' ? true : closable;
+        const closeIcon = closable ? (
+           <Icon
+             type="close"
+             onClick={e => this.removeTab(child.key, e)}
+           />
+        ) : null;
         childrenWithClose.push(cloneElement(child, {
           tab: (
-            <div>
+            <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
               {child.props.tab}
-              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
+              {closeIcon}
             </div>
           ),
           key: child.key || index,
@@ -141,6 +152,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       <ScrollableInkTabBar
         extraContent={tabBarExtraContent}
         onTabClick={onTabClick}
+        style={tabBarStyle}
       />
     );
 

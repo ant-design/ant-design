@@ -32,11 +32,11 @@ title: Ant Design of React
 - 使用 TypeScript 构建，提供完整的类型定义文件。
 - 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
 
-## 浏览器支持
+## 支持环境
 
-现代浏览器和 IE9 及以上。
-
-> [更多兼容性信息](/docs/react/getting-started#兼容性)
+* 现代浏览器和 IE9 及以上。
+* 支持服务端渲染。
+* [Electron](http://electron.atom.io/)
 
 ## 版本
 
@@ -47,47 +47,28 @@ title: Ant Design of React
 
 ## 安装
 
-### 使用 npm 安装
+### 使用 npm 或 yarn 安装
 
-**我们推荐使用 npm 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
-
-可以通过 npm 直接安装到项目中，使用 `import` 或 `require` 进行引用。
-
-稳定版：
+**我们推荐使用 npm 或 yarn 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
 ```bash
 $ npm install antd --save
 ```
 
-开发版本：
-
 ```bash
-$ npm install antd@beta --save
+$ yarn add antd
 ```
+
+如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
 ### 浏览器引入
 
-[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
-我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
+我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+ 或 [UNPKG](https://unpkg.com/antd/dist/) 进行下载。
 
-> 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
-
-#### stable
-
-- https://unpkg.com/antd/dist/antd.js
-- https://unpkg.com/antd/dist/antd.css
-- https://unpkg.com/antd/dist/antd.min.js
-- https://unpkg.com/antd/dist/antd.min.css
-
-#### beta
-
-- https://unpkg.com/antd@beta/dist/antd.js
-- https://unpkg.com/antd@beta/dist/antd.css
-- https://unpkg.com/antd@beta/dist/antd.min.js
-- https://unpkg.com/antd@beta/dist/antd.min.css
-
-> 对于 1.0 之前的版本，这里有一个 [自行构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
+> **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
 ## 示例
 
@@ -102,21 +83,61 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-以下两种方法都可以达到按需加载的目的：
+### 按需加载
 
-- `import DatePicker from 'antd/lib/date-picker'`
-- 配合插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 使用 `import { DatePicker } from 'antd';`
+下面两种方式都可以只加载用到的组件。
 
-> babel-plugin-import 支持 js 和 css 同时按需加载。
+- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
+
+   ```js
+   // .babelrc or babel-loader option
+   {
+     "plugins": [
+       ["import", { libraryName: "antd", style: "css" }] // `style: true` 会加载 less 文件
+     ]
+   }
+   ```
+
+   然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
+
+   ```jsx
+   // babel-plugin-import 会帮助你加载 JS 和 CSS
+   import { DatePicker } from 'antd';
+   ```
+
+- 手动引入
+
+   ```jsx
+   import DatePicker from 'antd/lib/date-picker';  // 加载 JS
+   import 'antd/lib/date-picker/style/css';        // 加载 CSS
+   // import 'antd/lib/date-picker/style';         // 加载 LESS
+   ```
+
+### TypeScript
+
+```js
+// tsconfig.json
+{
+ "compilerOptions": {
+   "moduleResolution": "node",
+   "jsx": "preserve",
+   "allowSyntheticDefaultImports": true
+ }
+}
+```
+
+> 注意：
+> - 设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
+> - 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
 
 ## 链接
 
 - [首页](http://ant.design/)
-- [组件文档](/docs/react/introduce)
+- [UI 组件库](/docs/react/introduce)
 - [更新日志](/changelog)
 - [开发脚手架](https://github.com/dvajs/dva-cli/)
 - [开发工具文档](http://ant-tool.github.io/)
-- [React 基础组件](http://react-component.github.io/)
+- [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [动效](https://motion.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
@@ -140,7 +161,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
 

@@ -53,6 +53,7 @@ export interface ArgsProps {
   duration?: number;
   icon?: React.ReactNode;
   placement?: notificationPlacement;
+  getContainer?: () => HTMLElement;
 }
 
 export interface ConfigProps {

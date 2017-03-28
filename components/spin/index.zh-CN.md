@@ -13,9 +13,9 @@ subtitle: 加载中
 
 ## API
 
-| 参数       | 类型           | 默认值      | 说明         |
-|------------|----------------|-------------|--------------|
-| size       | enum           | default     | spin组件中点的大小，可选值为 small default large |
-| spinning   | boolean        | true        | 用于内嵌其他组件的模式，可以关闭 loading 效果    |
-| tip    | string        | 无        | 自定义描述文案 |
-| delay | number (毫秒) | 无 | 延迟显示 loading 效果 |
+参数 | 说明 | 类型 | 默认值
+----|------|-----|------
+size | 组件大小，可选值为 `small` `default` `large` | string | 'default'
+spinning | 是否旋转 | boolean | true
+tip | 当作为包裹元素时，可以自定义描述文案 | string | -
+delay | 延迟显示加载效果的时间（防止闪烁） | number (毫秒) | -

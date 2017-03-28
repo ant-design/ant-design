@@ -20,7 +20,11 @@ export default function Banner({ location, onEnterChange }) {
   const isZhCN = utils.isZhCN(location.pathname);
   return (
     <section className="page banner-wrapper">
-      <ScrollElement id="banner" onChange={({ mode }) => onEnterChange(mode)}>
+      <ScrollElement
+        className="page" id="banner"
+        onChange={({ mode }) => onEnterChange(mode)}
+        playScale={0.9}
+      >
         <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300} key="banner">
           <h2 key="h2">ANT <p>DESIGN</p></h2>
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>

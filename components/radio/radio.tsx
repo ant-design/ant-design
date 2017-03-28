@@ -1,7 +1,7 @@
 import RcRadio from 'rc-radio';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import shallowEqual from 'shallowequal';
 
 export interface RadioProps {
   /** 指定当前是否选中*/
@@ -26,15 +26,29 @@ export default class Radio extends React.Component<RadioProps, any> {
   static defaultProps = {
     prefixCls: 'ant-radio',
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  static contextTypes = {
+    radioGroup: PropTypes.any,
+  };
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
   }
+
   render() {
-    const { prefixCls, children, checked, disabled, className = '', style } = this.props;
+    const { prefixCls, className, children, style, ...restProps } = this.props;
+    let radioProps: RadioProps = { ...restProps };
+    if (this.context.radioGroup) {
+      radioProps.onChange = this.context.radioGroup.onChange;
+      radioProps.checked = this.props.value === this.context.radioGroup.value;
+      radioProps.disabled = this.props.disabled || this.context.radioGroup.disabled;
+    }
     const wrapperClassString = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-checked`]: checked,
-      [`${prefixCls}-wrapper-disabled`]: disabled,
+      [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
     }, className);
 
     return (
@@ -44,7 +58,10 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={this.props.onMouseEnter}
         onMouseLeave={this.props.onMouseLeave}
       >
-        <RcRadio {...this.props} style={null} children={null} />
+        <RcRadio
+          {...radioProps}
+          prefixCls={prefixCls}
+        />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
     );

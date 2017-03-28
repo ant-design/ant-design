@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: Cases
 ---
 
@@ -58,7 +58,7 @@ Through data mining, it exposes the users's experience and it helps the company'
 
 ---
 
-更多 [社区案例](https://github.com/ant-design/ant-design/issues/477)。
+[More cases](https://github.com/ant-design/ant-design/issues/477) from community.
 
 <style>
 .preview-image-boxes {

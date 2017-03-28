@@ -25,6 +25,7 @@ title: Transfer
 | selectedKeys | 设置哪些项应该被选中 | string[] | [] |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void | |
+| onScroll | 选项列表滚动时的回调函数 | (direction, event): void | |
 | listStyle | 两个穿梭框的自定义样式 | object |  |
 | className | 自定义类 | string |  |
 | titles | 标题集合,顺序从左至右 | string[] | ['', ''] |
@@ -35,7 +36,7 @@ title: Transfer
 | notFoundContent | 当列表为空时显示的内容 | string\|ReactNode | '列表为空'  |
 | footer | 底部渲染函数 | (props): ReactNode |  |
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数 | object | `{ height: 32, offset: 32 }` |
-| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left' | 'right', event: Event): void | - |
+| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', event: Event): void | - |
 
 ## 注意
 

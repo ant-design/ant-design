@@ -10,10 +10,6 @@
   .clearfix;
   color: @text-color;
 
-  &-bar {
-    outline: none;
-  }
-
   &-ink-bar {
     z-index: 1;
     position: absolute;
@@ -29,6 +25,7 @@
   &-bar {
     border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
+    outline: none;
   }
 
   &-nav-container {
@@ -40,11 +37,11 @@
     white-space: nowrap;
     margin-bottom: -1px;
     .clearfix;
-  }
 
-  &-nav-container-scrolling {
-    padding-left: 32px;
-    padding-right: 32px;
+    &-scrolling {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   &-tab-prev,

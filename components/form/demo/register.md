@@ -76,13 +76,25 @@ class RegistrationForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 6 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 14 },
+      },
     };
     const tailFormItemLayout = {
       wrapperCol: {
-        span: 14,
-        offset: 6,
+        xs: {
+          span: 24,
+          offset: 0,
+        },
+        sm: {
+          span: 14,
+          offset: 6,
+        },
       },
     };
     const prefixSelector = getFieldDecorator('prefix', {
@@ -152,7 +164,7 @@ class RegistrationForm extends React.Component {
           hasFeedback
         >
           {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!' }],
+            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
           })(
             <Input />
           )}
@@ -200,7 +212,7 @@ class RegistrationForm extends React.Component {
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',
           })(
-            <Checkbox>I had read the <a>agreement</a></Checkbox>
+            <Checkbox>I have read the <a>agreement</a></Checkbox>
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>

@@ -29,8 +29,8 @@ onSearch | A callback function, can be executed when the search input changes. |
 placeholder | Placeholder of the select input | string | -
 searchPlaceholder | Placeholder of the search input  | string | -
 dropdownStyle | To set the style of the dropdown menu  | object | -
-dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width  | boolean | -
-size | To set the size of the select input, options: `large` `small`  | string | default
+dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width  | boolean | true
+size | To set the size of the select input, options: `large` `small`  | string | 'default'
 showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false
 disabled | Disabled or not  | boolean | false
 showCheckedStrategy | __Default:__ just show child nodes. __`TreeSelect.SHOW_ALL`:__ show all checked treeNodes (include parent treeNode). __`TreeSelect.SHOW_PARENT`:__ show checked treeNodes (just show parent treeNode). | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD

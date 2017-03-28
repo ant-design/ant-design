@@ -17,6 +17,7 @@ export default class Row extends React.Component<RowProps, any> {
   static defaultProps = {
     gutter: 0,
   };
+
   static propTypes = {
     type: React.PropTypes.string,
     align: React.PropTypes.string,
@@ -27,27 +28,28 @@ export default class Row extends React.Component<RowProps, any> {
     prefixCls: React.PropTypes.string,
   };
   render() {
-    const { type, justify, align, className, gutter, style, children, prefixCls = 'ant-row', ...others } = this.props;
+    const { type, justify, align, className, gutter, style, children,
+      prefixCls = 'ant-row', ...others } = this.props;
     const classes = classNames({
       [prefixCls]: !type,
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${type}-${justify}`]: type && justify,
       [`${prefixCls}-${type}-${align}`]: type && align,
     }, className);
-    const rowStyle = gutter > 0 ? assign({}, {
-      marginLeft: gutter / -2,
-      marginRight: gutter / -2,
+    const rowStyle = (gutter as number) > 0 ? assign({}, {
+      marginLeft: (gutter as number) / -2,
+      marginRight: (gutter as number) / -2,
     }, style) : style;
     const cols = Children.map(children, (col: React.ReactElement<any>) => {
       if (!col) {
         return null;
       }
-      if (col.props) {
+      if (col.props && (gutter as number) > 0) {
         return cloneElement(col, {
-          style: gutter > 0 ? assign({}, {
-            paddingLeft: gutter / 2,
-            paddingRight: gutter / 2,
-          }, col.props.style) : col.props.style,
+          style: assign({}, {
+            paddingLeft: (gutter as number) / 2,
+            paddingRight: (gutter as number) / 2,
+          }, col.props.style),
         });
       }
       return col;

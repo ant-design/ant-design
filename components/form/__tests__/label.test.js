@@ -27,7 +27,7 @@ describe('Form', () => {
 
   it('should not remove duplicated user input colon when layout is vertical', () => {
     const wrapper = mount(
-      <Form vertical>
+      <Form layout="vertical">
         <Form.Item label="label:">input</Form.Item>
         <Form.Item label="label：">input</Form.Item>
       </Form>

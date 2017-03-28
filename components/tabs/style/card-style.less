@@ -52,9 +52,12 @@
     }
   }
 
-  &&-editable-card > &-bar &-tab:not(&-tab-active):hover {
-    padding-left: 8px;
-    padding-right: 8px;
+  &&-editable-card > &-bar &-tab > div {
+    transition: all 0.3s @ease-in-out;
+  }
+  &&-editable-card > &-bar &-tab:not(&-tab-active):hover > div:not(&-tab-unclosable) {
+    margin-left: -8px;
+    margin-right: -8px;
   }
 
   &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-close,

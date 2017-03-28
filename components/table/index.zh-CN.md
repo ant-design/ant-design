@@ -94,7 +94,7 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
-| sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function\|boolean | - |
+| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
 | className  | 列的 className             | string          |  -      |
@@ -120,6 +120,16 @@ const columns = [{
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true | - |
+
+### selection
+
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|---------|
+| key | React 需要的 key，建议设置 | string | -  |
+| text | 选择项显示的文字 | string\|React.ReactNode | -  |
+| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
 ## 在 TypeScript 中使用
 

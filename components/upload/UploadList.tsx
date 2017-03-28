@@ -17,7 +17,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
     progressAttr: {
-      strokeWidth: 3,
+      strokeWidth: 2,
       showInfo: false,
     },
     prefixCls: 'ant-upload',
@@ -66,15 +66,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon } = this.props;
+    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
     const list = items.map(file => {
       let progress;
-      let icon = <Icon type="paper-clip" />;
+      let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
           if (listType === 'picture-card') {
-            icon = <div className={`${prefixCls}-list-item-uploading-text`}>Uploading...</div>;
+            icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
           } else {
             icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
           }
@@ -94,9 +94,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       }
 
       if (file.status === 'uploading') {
+        // show loading icon if upload progress listener is disabled
+        const loadingProgress = ('percent' in file) ? (
+          <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
+        ) : null;
+
         progress = (
-          <div className={`${prefixCls}-list-item-progress`}>
-            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
+          <div className={`${prefixCls}-list-item-progress`} key="progress">
+            {loadingProgress}
           </div>
         );
       }
@@ -111,6 +116,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           rel="noopener noreferrer"
           className={`${prefixCls}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
+          title={file.name}
         >
           {file.name}
         </a>
@@ -118,6 +124,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         <span
           className={`${prefixCls}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
+          title={file.name}
         >
           {file.name}
         </span>
@@ -133,50 +140,47 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           rel="noopener noreferrer"
           style={style}
           onClick={e => this.handlePreview(file, e)}
-          title="Preview file"
+          title={locale.previewFile}
         >
           <Icon type="eye-o" />
         </a>
       ) : null;
       const removeIcon = showRemoveIcon ? (
-        <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
+        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const removeIconCross = showRemoveIcon ? (
-        <Icon type="cross" title="Remove file" onClick={() => this.handleClose(file)} />
+        <Icon type="cross" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const actions = (listType === 'picture-card' && file.status !== 'uploading')
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
 
-      const item = (
+      const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
+      const iconAndPreview = (file.status === 'error')
+        ? <Tooltip title={message}>{icon}{preview}</Tooltip>
+        : <span>{icon}{preview}</span>;
+
+      return (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
-            {icon}
-            {preview}
-            {actions}
+            {iconAndPreview}
           </div>
-          {progress}
+          {actions}
+          <Animate transitionName="fade" component="">
+            {progress}
+          </Animate>
         </div>
       );
-
-      if (file.status === 'error') {
-        const message = file.response || (file.error && file.error.statusText) || 'Upload Error';
-        return (
-          <Tooltip title={message} key={file.uid}>
-            {item}
-          </Tooltip>
-        );
-      }
-
-      return item;
     });
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
     });
+    const animationDirection =
+      listType === 'picture-card' ? 'animate-inline' : 'animate';
     return (
       <Animate
-        transitionName={`${prefixCls}-margin-top`}
+        transitionName={`${prefixCls}-${animationDirection}`}
         component="div"
         className={listClassNames}
       >

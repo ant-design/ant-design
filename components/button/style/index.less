@@ -111,6 +111,12 @@
     padding-right: 8px;
   }
 
+  // http://stackoverflow.com/a/21281554/3040605
+  &:focus > span,
+  &:active > span {
+    position: relative;
+  }
+
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
@@ -142,7 +148,11 @@
   }
 
   &-background-ghost&-primary {
-    .button-variant-other(@primary-color; transparent; @primary-color);
+    .button-variant-ghost(@primary-color);
+  }
+
+  &-background-ghost&-danger {
+    .button-variant-ghost(@btn-danger-bg);
   }
 }
 

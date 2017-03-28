@@ -108,7 +108,7 @@ class Demo extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form inline onSubmit={this.handleSubmit}>
+      <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem label="Price">
           {getFieldDecorator('price', {
             initialValue: { number: 0, currency: 'rmb' },

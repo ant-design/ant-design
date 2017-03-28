@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 11
 title:
   zh-CN: 表单联动
   en-US: Coordinated Controls
@@ -63,7 +63,9 @@ class App extends React.Component {
             </Select>
           )}
         </FormItem>
-        <FormItem wrapperCol={{ span: 8, offset: 4 }}>
+        <FormItem
+          wrapperCol={{ span: 8, offset: 4 }}
+        >
           <Button type="primary" htmlType="submit">
             Submit
           </Button>

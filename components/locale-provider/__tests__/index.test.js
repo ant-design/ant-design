@@ -10,6 +10,10 @@ import esES from '../es_ES';
 import svSE from '../sv_SE';
 import frBE from '../fr_BE';
 import deDE from '../de_DE';
+import nlNL from '../nl_NL';
+import caES from '../ca_ES';
+import csCZ from '../cs_CZ';
+import koKR from '../ko_KR';
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
@@ -55,7 +59,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
-    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE].forEach((locale) => {
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR].forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
@@ -63,6 +67,31 @@ describe('Locale Provider', () => {
       );
       const DatePickerPlaceholder = wrapper.find('.ant-calendar-picker-input').at(0).node.getAttribute('placeholder');
       expect(DatePickerPlaceholder).toBe(locale.DatePicker.lang.placeholder);
+    });
+  });
+
+  it('should change locale of Modal.xxx', () => {
+    class ModalDemo extends React.Component {
+      componentDidMount() {
+        Modal.confirm({
+          title: 'Hello World!',
+        });
+      }
+      render() {
+        return null;
+      }
+    }
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR].forEach((locale) => {
+      mount(
+        <LocaleProvider locale={locale}>
+          <ModalDemo />
+        </LocaleProvider>
+      );
+      const currentConfirmNode = document.querySelectorAll('.ant-confirm')[document.querySelectorAll('.ant-confirm').length - 1];
+      const cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
+      const okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
+      expect(cancelButtonText).toBe(locale.Modal.cancelText);
+      expect(okButtonText).toBe(locale.Modal.okText);
     });
   });
 });

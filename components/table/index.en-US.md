@@ -93,7 +93,7 @@ One of Property `columns` for descriping column, Column has the same API.
 | filterDropdownVisible | whether filterDropdown is visible | boolean | - |
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value | string[] | - |
-| sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function\|boolean | - |
+| sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set it `true` | Function\|boolean | - |
 | colSpan    | span of this column's title | number |         |
 | width      | width of this column | string\|number | -  |
 | className  | className of this column            | string          |  -      |
@@ -119,6 +119,16 @@ Properties for selection.
 | getCheckboxProps | get Checkbox or Radio props | Function(record) |  -   |
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
+| selections | custom selection [config](#rowSelection), show default selections via setting to `true` | object[] | - |
+
+### selection
+
+| Property      | Description              | Type            |  Default     |
+|---------------|--------------------------|-----------------|--------------|
+| key | key of this selection | string | -  |
+| text | display text is this selection | string\|React.ReactNode | -  |
+| onSelect | callback when click this selection | Function(changeableRowKeys) | -   |
 
 ## Using in TypeScript
 

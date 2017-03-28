@@ -119,7 +119,7 @@ class Demo extends React.Component {
     return (
       <div>
         <div className="components-table-demo-control-bar">
-          <Form inline>
+          <Form layout="inline">
             <FormItem label="Bordered">
               <Switch checked={state.bordered} onChange={this.handleToggle('bordered')} />
             </FormItem>

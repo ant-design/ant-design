@@ -54,9 +54,9 @@ export default function wrapPicker(Picker, defaultFormat?) {
         warning(
           false,
           '`toggleOpen` is deprecated and will be removed in the future, ' +
-          'please use `onOpenChange` instead, see: http://u.ant.design/date-picker-on-open-change'
+          'please use `onOpenChange` instead, see: http://u.ant.design/date-picker-on-open-change',
         );
-        toggleOpen({open});
+        toggleOpen({ open });
       }
     },
 
@@ -75,7 +75,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
       const locale = getComponentLocale(
         props, this.context, 'DatePicker',
-        () => require('./locale/zh_CN')
+        () => require('./locale/zh_CN'),
       );
 
       const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';
