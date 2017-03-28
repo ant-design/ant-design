@@ -211,7 +211,7 @@ export default class Header extends React.Component {
           <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
               <Select
-                combobox
+                mode="combobox"
                 value={inputValue}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}

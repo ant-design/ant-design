@@ -55,7 +55,7 @@ class SelectSizesDemo extends React.Component {
         </Select>
         <br />
         <Select
-          combobox
+          mode="combobox"
           size={size}
           defaultValue="a1"
           onChange={handleChange}
@@ -65,7 +65,7 @@ class SelectSizesDemo extends React.Component {
         </Select>
         <br />
         <Select
-          multiple
+          mode="multiple"
           size={size}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}
@@ -76,7 +76,7 @@ class SelectSizesDemo extends React.Component {
         </Select>
         <br />
         <Select
-          tags
+          mode="tags"
           size={size}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}

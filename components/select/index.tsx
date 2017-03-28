@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
+import warning from '../_util/warning';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -26,9 +27,10 @@ export type SelectValue = string | any[] | LabeledValue | LabeledValue[];
 export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
-  combobox?: boolean;
+  mode?: 'default' | 'multiple' | 'tags' | 'combobox';
   multiple?: boolean;
   tags?: boolean;
+  combobox?: boolean;
   optionLabelProp?: string;
   filterOption?: boolean | ((inputValue: string, option: Object) => any);
   onChange?: (value: SelectValue) => void;
@@ -89,36 +91,58 @@ export default class Select extends React.Component<SelectProps, any> {
 
   context: SelectContext;
 
+  getLocale() {
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      return antLocale.Select;
+    }
+    return {
+      notFoundContent: 'Not Found',
+    };
+  }
+
   render() {
     const {
       prefixCls,
       className = '',
       size,
+      mode,
+      // @deprecated
+      multiple,
+      tags,
       combobox,
+      ...restProps,
     } = this.props;
-
-    let { notFoundContent = 'Not Found', optionLabelProp } = this.props;
+    warning(
+      !multiple && !tags && !combobox,
+      '`Select[multiple|tags|combobox]` is deprecated, please use `Select[mode]` instead.',
+    );
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
     }, className);
 
-    const { antLocale } = this.context;
-    if (antLocale && antLocale.Select) {
-      notFoundContent = ('notFoundContent' in this.props)
-        ? notFoundContent : antLocale.Select.notFoundContent;
-    }
-
-    if (combobox) {
+    const locale = this.getLocale();
+    let { notFoundContent = locale.notFoundContent, optionLabelProp } = this.props;
+    const isCombobox = mode === 'combobox' || combobox;
+    if (isCombobox) {
       notFoundContent = null;
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
 
+    const modeConfig = {
+      multiple: mode === 'multiple' || multiple,
+      tags: mode === 'tags' || tags,
+      combobox: isCombobox,
+    };
+
     return (
       <RcSelect
-        {...this.props}
+        {...restProps}
+        {...modeConfig}
+        prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContent}
