@@ -19,7 +19,7 @@ export interface PickerProps {
   popupStyle?: React.CSSProperties;
   locale?: any;
   size?: 'large' | 'small' | 'default';
-  getCalendarContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getCalendarContainer?: (triggerNode: Element) => HTMLElement;
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment) => boolean;

@@ -20,7 +20,7 @@ export interface TimePickerProps {
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
   style?: React.CSSProperties;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   addon?: Function;
 }
 

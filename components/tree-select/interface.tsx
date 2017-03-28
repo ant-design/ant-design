@@ -39,5 +39,5 @@ export interface TreeSelectProps {
   notFoundContent?: React.ReactNode;
   labelInValue?: boolean;
   treeCheckStrictly?: boolean;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
 }
