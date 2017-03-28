@@ -1,30 +1,25 @@
 import React from 'react';
+import { AbstractSelectProps } from '../select';
 
 export interface TreeData {
   key: string;
   value: string;
   label: React.ReactNode;
-  children?: Array<TreeData>;
+  children?: TreeData[];
 }
 
-export interface TreeSelectProps {
-  style?: React.CSSProperties;
+export interface TreeSelectProps extends AbstractSelectProps {
   value?: string | Array<any>;
   defaultValue?: string | Array<any>;
   multiple?: boolean;
   tags?: boolean;
   onSelect?: (value: any) => void;
   onChange?: (value: any, label: any) => void;
-  allowClear?: boolean;
   onSearch?: (value: any) => void;
-  placeholder?: string;
   searchPlaceholder?: string;
   dropdownStyle?: React.CSSProperties;
   dropdownMatchSelectWidth?: boolean;
   combobox?: boolean;
-  size?: 'large' | 'small';
-  showSearch?: boolean;
-  disabled?: boolean;
   treeDefaultExpandAll?: boolean;
   treeCheckable?: boolean | React.ReactNode;
   treeDefaultExpandedKeys?: Array<string>;
@@ -35,9 +30,6 @@ export interface TreeSelectProps {
   treeDataSimpleMode?: boolean | Object;
   loadData?: (node: any) => void;
   showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
-  className?: string;
-  prefixCls?: string;
-  notFoundContent?: React.ReactNode;
   labelInValue?: boolean;
   treeCheckStrictly?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
