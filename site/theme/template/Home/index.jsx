@@ -94,9 +94,6 @@ function getStyle() {
     #footer a {
       color: #eee;
     }
-    .down {
-      animation: upDownMove 1.2s ease-in-out infinite;
-    }
   `;
 }
 

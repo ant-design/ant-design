@@ -9,9 +9,7 @@ import * as utils from '../utils';
 
 export default function Page3({ location }) {
   return (
-    <ScrollOverPack id="page3" className="content-wrapper page" replay
-      hideProps={{ image: { reverse: true } }}
-    >
+    <ScrollOverPack id="page3" className="content-wrapper page">
       <TweenOne key="image" className="image3 image-wrapper"
         animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }}

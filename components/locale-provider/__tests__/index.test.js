@@ -72,4 +72,29 @@ describe('Locale Provider', () => {
       expect(DatePickerPlaceholder).toBe(locale.DatePicker.lang.placeholder);
     });
   });
+
+  it('should change locale of Modal.xxx', () => {
+    class ModalDemo extends React.Component {
+      componentDidMount() {
+        Modal.confirm({
+          title: 'Hello World!',
+        });
+      }
+      render() {
+        return null;
+      }
+    }
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR].forEach((locale) => {
+      mount(
+        <LocaleProvider locale={locale}>
+          <ModalDemo />
+        </LocaleProvider>
+      );
+      const currentConfirmNode = document.querySelectorAll('.ant-confirm')[document.querySelectorAll('.ant-confirm').length - 1];
+      const cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
+      const okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
+      expect(cancelButtonText).toBe(locale.Modal.cancelText);
+      expect(okButtonText).toBe(locale.Modal.okText);
+    });
+  });
 });

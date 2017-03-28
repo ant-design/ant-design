@@ -25,8 +25,8 @@ export interface AbstractTooltipProps {
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   // getTooltipContainer had been rename to getPopupContainer
-  getTooltipContainer?: (triggerNode?: HTMLElement) => HTMLElement;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getTooltipContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactElement<any>;
 }
 

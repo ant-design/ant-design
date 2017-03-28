@@ -19,7 +19,7 @@ export interface MentionProps {
   multiLines?: Boolean;
   prefix?: string;
   placeholder?: string;
-  getSuggestionContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: Function;
   onBlur?: Function;
 }

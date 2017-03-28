@@ -75,7 +75,7 @@ export interface TableProps<T> {
   onExpandedRowsChange?: (expandedRowKeys: string[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
-  loading?: boolean | SpinProps ;
+  loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
   onRowClick?: (record: T, index: number) => any;
