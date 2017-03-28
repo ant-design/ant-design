@@ -27,6 +27,7 @@ export interface TreeSelectProps {
   disabled?: boolean;
   treeDefaultExpandAll?: boolean;
   treeCheckable?: boolean | React.ReactNode;
+  treeDefaultExpandedKeys?: Array<string>;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
