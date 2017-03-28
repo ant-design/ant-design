@@ -5,7 +5,7 @@ import assign from 'object-assign';
 const locale = {
   lang: assign({
     placeholder: '日付を選択',
-    rangePlaceholder: ['開始', '終了'],
+    rangePlaceholder: ['開始日付', '終了日付'],
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };

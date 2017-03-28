@@ -13,7 +13,7 @@ export default {
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Filter Menu',
+    filterTitle: 'メニューをフィルター',
     filterConfirm: 'OK',
     filterReset: 'リセット',
     emptyText: 'データがありません',
@@ -30,13 +30,13 @@ export default {
     cancelText: 'キャンセル',
   },
   Transfer: {
-    notFoundContent: 'Not Found',
-    searchPlaceholder: 'ここを選択',
+    notFoundContent: '結果はありません',
+    searchPlaceholder: 'ここを検索',
     itemUnit: 'アイテム',
     itemsUnit: 'アイテム',
   },
   Select: {
-    notFoundContent: 'Not Found',
+    notFoundContent: '結果はありません',
   },
   Upload: {
     uploading: 'アップロード中...',
