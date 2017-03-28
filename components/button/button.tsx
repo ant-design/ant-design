@@ -89,7 +89,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       clearTimeout(this.delayTimeout);
     }
 
-    if (loading.delay) {
+    if (loading && loading.delay) {
       this.delayTimeout = setTimeout(() => this.setState({ loading }), loading.delay);
     } else {
       this.setState({ loading });
