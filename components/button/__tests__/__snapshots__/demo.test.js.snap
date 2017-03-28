@@ -422,14 +422,6 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
       Click me!
     </span>
   </button>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Won't show loading
-    </span>
-  </button>
   <br />
   <button
     class="ant-btn ant-btn-circle ant-btn-loading"

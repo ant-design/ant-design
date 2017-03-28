@@ -41,7 +41,7 @@ export interface ButtonProps {
   size?: ButtonSize;
   onClick?: React.FormEventHandler<any>;
   onMouseUp?: React.FormEventHandler<any>;
-  loading?: boolean;
+  loading?: boolean | { delay?: number };
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -66,7 +66,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     size: React.PropTypes.oneOf(['large', 'default', 'small']),
     htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
     onClick: React.PropTypes.func,
-    loading: React.PropTypes.bool,
+    loading: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.object]),
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
   };
@@ -89,8 +89,8 @@ export default class Button extends React.Component<ButtonProps, any> {
       clearTimeout(this.delayTimeout);
     }
 
-    if (loading) {
-      this.delayTimeout = setTimeout(() => this.setState({ loading }), 200);
+    if (loading && loading.delay) {
+      this.delayTimeout = setTimeout(() => this.setState({ loading }), loading.delay);
     } else {
       this.setState({ loading });
     }
