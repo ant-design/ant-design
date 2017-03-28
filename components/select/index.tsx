@@ -1,26 +1,27 @@
-import React from 'react';
-import { PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
- Array<{ key: string, label: React.ReactNode }>;
-
 export interface AbstractSelectProps {
-  size?: 'default' | 'large' | 'small';
-  className?: string;
-  notFoundContent?: React.ReactNode | null;
   prefixCls?: string;
+  className?: string;
+  size?: 'default' | 'large' | 'small';
+  notFoundContent?: React.ReactNode | null;
   transitionName?: string;
-  optionLabelProp?: string;
   choiceTransitionName?: string;
   showSearch?: boolean;
   allowClear?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
   placeholder?: string;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
 }
+
+export interface LabeledValue {
+  key: string;
+  label: React.ReactNode;
+}
+
+export type SelectValue = string | any[] | LabeledValue | LabeledValue[];
 
 export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
@@ -28,6 +29,9 @@ export interface SelectProps extends AbstractSelectProps {
   combobox?: boolean;
   multiple?: boolean;
   tags?: boolean;
+  optionLabelProp?: string;
+  filterOption?: boolean | ((inputValue: string, option: Object) => any);
+  onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
   onDeselect?: (value: SelectValue) => any;
   onSearch?: (value: string) => any;
@@ -38,7 +42,6 @@ export interface SelectProps extends AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
-  onChange?: (value: SelectValue) => void;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
 }
