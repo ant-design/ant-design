@@ -39,4 +39,16 @@ describe('Breadcrumb', () => {
     expect(errorSpy).not.toHaveBeenCalled();
     expect(renderToJson(wrapper)).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/5542
+  it('should not display Breadcrumb Item when its children is falsy', () => {
+    const wrapper = render(
+      <Breadcrumb>
+        <Breadcrumb.Item />
+        <Breadcrumb.Item>xxx</Breadcrumb.Item>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>
+    );
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
 });

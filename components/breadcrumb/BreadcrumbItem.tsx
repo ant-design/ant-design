@@ -32,11 +32,14 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
     } else {
       link = <span className={`${prefixCls}-link`} {...restProps}>{children}</span>;
     }
-    return (
-      <span>
-        {link}
-        <span className={`${prefixCls}-separator`}>{separator}</span>
-      </span>
-    );
+    if (children) {
+      return (
+        <span>
+          {link}
+          <span className={`${prefixCls}-separator`}>{separator}</span>
+        </span>
+      );
+    }
+    return null;
   }
 }

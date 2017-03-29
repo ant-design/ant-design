@@ -18,3 +18,34 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
   </span>
 </div>
 `;
+
+exports[`Breadcrumb should not display Breadcrumb Item when its children is falsy 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      xxx
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
