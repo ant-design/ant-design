@@ -130,7 +130,7 @@ $ npm install
 $ npm start
 ```
 
-Open your browser and visit http://127.0.0.1:8001 .
+Open your browser and visit http://127.0.0.1:8001 , see more at https://github.com/ant-design/ant-design/wiki/Development .
 
 ## Contributing
 
