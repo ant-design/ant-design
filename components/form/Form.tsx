@@ -29,6 +29,8 @@ export interface FormProps {
   hideRequiredMark?: boolean;
 }
 
+export type ValidateCallback = (erros: any, values: any) => void;
+
 // function create
 export type WrappedFormUtils = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
@@ -40,14 +42,15 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: Object, callback: (erros: any, values: any) => void): any;
-  validateFields(fieldNames: Array<string>, callback: (erros: any, values: any) => void): any;
-  validateFields(options: Object, callback: (erros: any, values: any) => void): any;
-  validateFields(callback: (erros: any, values: any) => void): any;
+  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): any;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): any;
+  validateFields(options: Object, callback: ValidateCallback): any;
+  validateFields(callback: ValidateCallback): any;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(fieldNames?: Array<string>,
-                          options?: Object,
-                          callback?: (erros: any, values: any) => void): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(callback?: ValidateCallback): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   getFieldsError(names?: Array<string>): Object;
@@ -58,7 +61,7 @@ export type WrappedFormUtils = {
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
 
-  getFieldDecorator(id: string, options: {
+  getFieldDecorator(id: string, options?: {
     /** 子节点的值的属性，如 Checkbox 的是 'checked' */
     valuePropName?: string;
     /** 子节点的初始值，类型、可选值均由子节点决定 */
@@ -80,8 +83,9 @@ export interface FormComponentProps {
   form: WrappedFormUtils;
 }
 
+// https://github.com/DefinitelyTyped/DefinitelyTyped/issues/9951
 export interface ComponentDecorator<TOwnProps> {
-  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): any;
 }
 
 export default class Form extends React.Component<FormProps, any> {
