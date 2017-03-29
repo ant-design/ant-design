@@ -53,6 +53,8 @@ export type WrappedFormUtils = {
   getFieldsError(names?: Array<string>): Object;
   /** 判断一个输入控件是否在校验状态*/
   isFieldValidating(name: string): boolean;
+  isFieldTouched(name: string): boolean;
+  isFieldsTouched(names?: Array<string>): boolean;
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
 
