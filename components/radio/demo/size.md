@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 大小
   en-US: Size
