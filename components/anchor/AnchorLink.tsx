@@ -4,13 +4,13 @@ import AnchorHelper, { scrollTo } from './anchorHelper';
 
 export interface AnchorLinkProps {
   href: string;
-  onClick: (href: string, component: Element) => void;
+  onClick?: (href: string, component: Element) => void;
   active?: boolean;
   prefixCls?: string;
   children?: any;
-  title?: React.ReactNode;
-  offsetTop: number;
-  bounds: number;
+  title: React.ReactNode;
+  offsetTop?: number;
+  bounds?: number;
   target?: () => HTMLElement | Window;
   affix?: boolean;
 }

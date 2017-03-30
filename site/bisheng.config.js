@@ -1,4 +1,5 @@
 const path = require('path');
+const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 module.exports = {
   port: 8001,
@@ -66,6 +67,8 @@ module.exports = {
         regenerator: true,
       },
     ]);
+
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },

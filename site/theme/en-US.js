@@ -41,6 +41,7 @@ module.exports = {
     'app.footer.eggjs': 'Enterprise Node Framework',
     'app.footer.motion': 'Motion Soluction',
     'app.footer.antd-library': 'Axure library',
+    'app.footer.design-platform': 'Ant Financial Design Platform',
     'app.footer.antux': 'Sitemap Template',
     'app.footer.community': 'Community',
     'app.footer.change-log': 'Change Log',

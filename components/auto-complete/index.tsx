@@ -98,8 +98,8 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       <Select
         {...this.props}
         className={cls}
+        mode="combobox"
         optionLabelProp={optionLabelProp}
-        combobox
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
       >

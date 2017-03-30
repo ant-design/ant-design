@@ -97,6 +97,16 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](http://ant.design/docs/react/customize-theme-cn)
 
+## 本地开发
+
+```bash
+$ git clone git@github.com:ant-design/ant-design.git
+$ npm install
+$ npm start
+```
+
+打开浏览器访问 http://127.0.0.1:8001 ，更多本地开发文档参见: https://github.com/ant-design/ant-design/wiki/Development 。
+
 ## 如何贡献
 
 在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。

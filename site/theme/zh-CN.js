@@ -41,6 +41,7 @@ module.exports = {
     'app.footer.eggjs': '企业级 Node 开发框架',
     'app.footer.motion': '设计动效',
     'app.footer.antd-library': 'Axure 部件库',
+    'app.footer.design-platform': '蚂蚁金服设计平台',
     'app.footer.antux': '页面逻辑素材',
     'app.footer.community': '社区',
     'app.footer.change-log': '更新记录',

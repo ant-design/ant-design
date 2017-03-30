@@ -880,6 +880,10 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   >
                     <span>
                       Address
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="筛选"
+                      />
                     </span>
                   </th>
                 </tr>
@@ -920,7 +924,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px;"
                     />
-                    Jim Green
+                    Joe Black
                   </td>
                   <td
                     class=""
@@ -943,7 +947,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px;"
                     />
-                    Joe Black
+                    Jim Green
                   </td>
                   <td
                     class=""

@@ -67,7 +67,7 @@ class SearchInput extends React.Component {
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
       <Select
-        combobox
+        mode="combobox"
         value={this.state.value}
         placeholder={this.props.placeholder}
         notFoundContent=""
