@@ -58,15 +58,8 @@ ReactDOM.render(
 ````
 
 ````css
-.column-money {
-  text-align: right;
-}
-
-/* Align the column header too */
-/*
 th.column-money,
 td.column-money {
   text-align: right;
 }
-*/
 ````
