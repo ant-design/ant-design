@@ -79,7 +79,7 @@ class Demo extends React.Component {
               { required: true, message: 'Please select your favourite colors!', type: 'array' },
             ],
           })(
-            <Select multiple placeholder="Please select favourite colors">
+            <Select mode="multiple" placeholder="Please select favourite colors">
               <Option value="red">Red</Option>
               <Option value="green">Green</Option>
               <Option value="blue">Blue</Option>
