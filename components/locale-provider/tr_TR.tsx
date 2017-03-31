@@ -18,7 +18,7 @@ export default {
     filterReset: 'Sıfırla',
     emptyText: 'Veri Yok',
     selectAll: 'Hepsini Seç',
-    selectInvert: 'Select Invert',
+    selectInvert: 'Tersini Seç',
   },
   Modal: {
     okText: 'Tamam',
@@ -40,8 +40,8 @@ export default {
   },
   Upload: {
     uploading: 'Yükleniyor...',
-    removeFile: `Dosya'ı kaldır`,
+    removeFile: `Dosyayı kaldır`,
     uploadError: 'Yükleme Hatası',
-    previewFile: `Dosya'ı Önizle`,
+    previewFile: `Dosyayı Önizle`,
   },
 };
