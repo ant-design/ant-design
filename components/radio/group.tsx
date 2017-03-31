@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import Radio from './radio';
 
 function getCheckedValue(children) {
   let value = null;
@@ -29,6 +30,12 @@ export interface RadioGroupProps {
   disabled?: boolean;
   onMouseEnter?: React.FormEventHandler<any>;
   onMouseLeave?: React.FormEventHandler<any>;
+  /** 以配置的方式设置 Radio 子元素，设置了此参数，会忽略 children */
+  options?: Array<string | {
+    label: string;
+    value: string;
+    disabled?: boolean;
+  }>;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
@@ -83,8 +90,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return !shallowEqual(this.props, nextProps) ||
-           !shallowEqual(this.state, nextState) ||
-           !shallowEqual(this.context.group, nextContext.group);
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.group, nextContext.group);
   }
 
   onRadioChange = (ev) => {
@@ -103,10 +110,44 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const { prefixCls = 'ant-radio-group', className = '', children } = props;
+    const { prefixCls = 'ant-radio-group', className = '' } = props;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${props.size}`]: props.size,
     }, className);
+
+    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
+
+    // 如果存在 options, 优先使用
+    if (props.options && props.options.length > 0) {
+      children = props.options.map((option, index) => {
+        if (typeof option === 'string') { // 此处类型自动推导为 string
+          return (
+            <Radio
+              key={index}
+              disabled={this.props.disabled}
+              value={option}
+              onChange={this.onRadioChange}
+              checked={this.state.value === option}
+            >
+              {option}
+            </Radio>
+          );
+        } else { // 此处类型自动推导为 { label: string value: string }
+          return (
+            <Radio
+              key={index}
+              disabled={option.disabled || this.props.disabled}
+              value={option.value}
+              onChange={this.onRadioChange}
+              checked={this.state.value === option.value}
+            >
+              {option.label}
+            </Radio>
+          );
+        }
+      });
+    }
+
     return (
       <div
         className={classString}

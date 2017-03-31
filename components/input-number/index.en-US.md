@@ -23,3 +23,4 @@ When a numeric value needs to be provided.
 | disabled     | disable the input       | boolean      |      false      |
 | size    | width of input box  | string      | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string): string | - |
+| parser | Specifies the value extracted from formatter | function( string): number | - |

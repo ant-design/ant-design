@@ -21,7 +21,7 @@
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
-
+      margin-top: -2px;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
@@ -72,7 +72,8 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 0 4px 0 0;
+        margin: 0 4px 0 2px;
+        vertical-align: middle;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
@@ -96,7 +97,7 @@
       }
       &.@{tree-prefix-cls}-switcher {
         &.@{tree-prefix-cls}-switcher-noop {
-          cursor: auto;
+          cursor: default;
         }
         &.@{tree-prefix-cls}-roots_open,
         &.@{tree-prefix-cls}-center_open,
@@ -111,8 +112,16 @@
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {
-            transform: rotate(270deg) scale(0.6);
+            transform: rotate(270deg) scale(0.59);
           }
+        }
+      }
+    }
+    &:last-child > span {
+      &.@{tree-prefix-cls}-switcher,
+      &.@{tree-prefix-cls}-iconEle {
+        &:before {
+          display: none;
         }
       }
     }
@@ -132,9 +141,9 @@
     }
   }
   &-treenode-disabled {
-    >span,
-    >a,
-    >a span {
+    > span,
+    > a,
+    > a span {
       color: @disabled-color;
       cursor: not-allowed;
     }
@@ -146,5 +155,40 @@
   &-icon__close {
     margin-right: 2px;
     vertical-align: top;
+  }
+  // Tree with line
+  &&-show-line {
+    li {
+      position: relative;
+      span {
+        &.@{tree-prefix-cls}-switcher {
+          background: @component-background;
+          &.@{tree-prefix-cls}-switcher-noop {
+            .antTreeShowLineIcon("tree-doc-icon");
+          }
+          &.@{tree-prefix-cls}-roots_open,
+          &.@{tree-prefix-cls}-center_open,
+          &.@{tree-prefix-cls}-bottom_open,
+          &.@{tree-prefix-cls}-noline_open {
+            .antTreeShowLineIcon("tree-showline-open-icon");
+          }
+          &.@{tree-prefix-cls}-roots_close,
+          &.@{tree-prefix-cls}-center_close,
+          &.@{tree-prefix-cls}-bottom_close,
+          &.@{tree-prefix-cls}-noline_close {
+            .antTreeShowLineIcon("tree-showline-close-icon");
+          }
+        }
+      }
+    }
+    li:not(:last-child):before {
+      content: ' ';
+      width: 1px;
+      border-left: 1px solid @border-color-base;
+      height: 100%;
+      position: absolute;
+      left: 6px;
+      margin: 18px 0;
+    }
   }
 }

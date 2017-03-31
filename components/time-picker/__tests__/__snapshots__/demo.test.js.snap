@@ -1,5 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
+<div>
+  <span
+    class="ant-time-picker "
+  >
+    <input
+      class="ant-time-picker-input"
+      placeholder="请选择时间"
+      readonly=""
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-time-picker-icon"
+    />
+  </span>
+  <span
+    class="ant-time-picker "
+  >
+    <input
+      class="ant-time-picker-input"
+      placeholder="请选择时间"
+      readonly=""
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-time-picker-icon"
+    />
+  </span>
+  <span
+    class="ant-time-picker "
+  >
+    <input
+      class="ant-time-picker-input"
+      placeholder="请选择时间"
+      readonly=""
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-time-picker-icon"
+    />
+  </span>
+</div>
+`;
+
 exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
 <span
   class="ant-time-picker "

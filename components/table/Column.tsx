@@ -15,6 +15,7 @@ export interface ColumnProps<T> {
   width?: string | number;
   className?: string;
   fixed?: boolean | ('left' | 'right');
+  filterIcon?: React.ReactNode;
   filteredValue?: any[];
   sortOrder?: boolean | ('ascend' | 'descend');
   children?: ColumnProps<T>[];

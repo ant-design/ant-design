@@ -1,5 +1,4 @@
-import React from 'react';
-import { cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import { findDOMNode } from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
@@ -18,6 +17,8 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
+  onPrevClick?: (e) => void;
+  onNextClick?: (e) => void;
   tabBarExtraContent?: React.ReactNode | null;
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
@@ -27,7 +28,7 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animated?: boolean;
+  animated?: boolean | { inkBar: boolean; tabPane: boolean; };
 }
 
 // Tabs
@@ -95,8 +96,17 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabBarStyle,
       hideAdd,
       onTabClick,
+      onPrevClick,
+      onNextClick,
       animated,
     } = this.props;
+
+    let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
+      inkBarAnimated: animated.inkBar, tabPaneAnimated: animated.tabPane,
+    } : {
+      inkBarAnimated: animated, tabPaneAnimated: animated,
+    };
+
     warning(
       !(type.indexOf('card') >= 0 && size === 'small'),
       'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
@@ -150,8 +160,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     const renderTabBar = () => (
       <ScrollableInkTabBar
+        inkBarAnimated={inkBarAnimated}
         extraContent={tabBarExtraContent}
         onTabClick={onTabClick}
+        onPrevClick={onPrevClick}
+        onNextClick={onNextClick}
         style={tabBarStyle}
       />
     );
@@ -162,7 +175,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={renderTabBar}
-        renderTabContent={() => <TabContent animated={animated} animatedWithMargin />}
+        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
         {childrenWithClose || children}

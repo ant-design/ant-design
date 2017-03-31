@@ -862,7 +862,8 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <span>
                       Name
                       <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
+                        class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
+                        style="color:#aaa;"
                         title="筛选"
                       />
                     </span>

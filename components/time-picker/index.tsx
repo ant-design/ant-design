@@ -22,6 +22,7 @@ export interface TimePickerProps {
   style?: React.CSSProperties;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   addon?: Function;
+  use12Hours?: boolean;
 }
 
 abstract class TimePicker extends React.Component<TimePickerProps, any> {
@@ -81,10 +82,21 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     this.timePickerRef.focus();
   }
 
+  getDefaultFormat() {
+    const { format, use12Hours } = this.props;
+    if (format) {
+      return format;
+    } else if (use12Hours) {
+      return 'h:mm:ss a';
+    }
+    return 'HH:mm:ss';
+  }
+
   render() {
-    const props = assign({ format: 'HH:mm:ss' }, this.props);
+    const props = assign({}, this.props);
     delete props.defaultValue;
 
+    const format = this.getDefaultFormat();
     const className = classNames(props.className, {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
@@ -101,12 +113,13 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
       <RcTimePicker
         {...props}
         ref={this.saveTimePicker}
+        format={format}
         className={className}
         value={this.state.value}
         placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
-        showHour={props.format.indexOf('HH') > -1}
-        showMinute={props.format.indexOf('mm') > -1}
-        showSecond={props.format.indexOf('ss') > -1}
+        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
+        showMinute={format.indexOf('mm') > -1}
+        showSecond={format.indexOf('ss') > -1}
         onChange={this.handleChange}
         addon={addon}
       />
