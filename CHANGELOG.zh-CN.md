@@ -75,7 +75,7 @@ timeline: true
 - 修复 Popover 内使用 Table 时会意外关闭的问题。[#5407](https://github.com/ant-design/ant-design/issues/5407)
 - 去掉 Radio 只能作为 Radio.Group 的直接后代的限制。[#5443](https://github.com/ant-design/ant-design/issues/5443)
 - 修复 Switch 在 Form.Item 内使用时的 warning。[#5368](https://github.com/ant-design/ant-design/issues/5368)
-- Table 的选择全部菜单现在默认隐藏，`selections` 设置为 true 时展现。[#5246](https://github.com/ant-design/ant-design/issues/5246)
+- Table 的选择全部菜单现在默认隐藏，`selections` 设置为 true 时展现。[#5246](https://github.com/ant-design/ant-design/issues/5246) [@infeng](https://github.com/infeng)
 - 新增 `@info-color` 主题变量。[#5442](https://github.com/ant-design/ant-design/issues/5442)
 - 现在可以通过 `NODE_ENV=test` 来禁用测试时 antd 全量加载的 warning。[#5345](https://github.com/ant-design/ant-design/issues/5345)
 - 升级 moment 到 `2.18.0`。
