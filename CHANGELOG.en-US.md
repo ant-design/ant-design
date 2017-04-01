@@ -17,6 +17,41 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.9.0
+
+`2017-04-01` :ghost:
+
+- Change the default font family to be monospaced for numbers. [b526083](https://github.com/ant-design/ant-design/commit/b526083fa6a619113a3d26c4f4f092a8648f3bd4)
+- Select
+  - Add `mode` prop, deprecate the `tags|combobox|multiple` properties, replaced by `mode={tags|combobox|multiple}`.
+  - `tags|multiple` now supports `allowClear`. [#4843](https://github.com/ant-design/ant-design/issues/4843)
+- Add a new type `dashboard` of Progress. [#5225](https://github.com/ant-design/ant-design/issues/5225) [@qiaolb](https://github.com/qiaolb)
+- Add `showLine` prop of Tree, for connecting line style in tree nodes. [#3854](https://github.com/ant-design/ant-design/issues/3854)
+- TimePicker now supports 12 hours via `use12Hours`. [#4063](https://github.com/ant-design/ant-design/issues/4063)
+- Add `column.filterIcon` prop of Table, which can be used to customize filter icon. [#5293](https://github.com/ant-design/ant-design/pull/5293)
+- Add `wrapperClassName` prop of Spin. [#5425](https://github.com/ant-design/ant-design/pull/5425) [@aaronplanell](https://github.com/aaronplanell)
+- Add `onPrevClick` `onNextClick` props of Tabs. [#4395](https://github.com/ant-design/ant-design/issues/4395)
+- Add `parser` prop of InputNumber, to extract value from formatter. [#5178](https://github.com/ant-design/ant-design/pull/5178#issuecomment-284557933)
+- 国际化
+  - Japanese [#5529](https://github.com/ant-design/ant-design/pull/5529)  [@novi](https://github.com/novi)
+  - Slovak [#5304](https://github.com/ant-design/ant-design/pull/5304) [@Kamahl19](https://github.com/Kamahl19)
+  - Estonian [#5266](https://github.com/ant-design/ant-design/pull/5266) [@madisvain](https://github.com/madisvain)
+  - Turkish [#5536](https://github.com/ant-design/ant-design/pull/5536) [@c0b41](https://github.com/c0b41)
+- TypeScript
+  - Fix definitions of Carousel following react-slick
+  - Fix some definitions of Form.
+  - Fix `getPopupContainer` definitions.
+- Allow to disable animation of inkBar and panes of Tabs separately. [#5089](https://github.com/ant-design/ant-design/issues/5089) [@xieguanglei](https://github.com/xieguanglei)
+- Button `loading` prop now supports like `{ delay: 1000 }`, removed the default loading delay. [#5365](https://github.com/ant-design/ant-design/issues/5365)
+- Add less variables for Card header. [#5354](https://github.com/ant-design/ant-design/pull/5354) [@kossel](https://github.com/kossel)
+- Fix extra separator of Breadcrumb without `breadcrumbName`.
+- Fix `Unknown prop placement` warning of Dropdown.Button. [#5594](https://github.com/ant-design/ant-design/issues/5594)
+- Fix RangePicker and InputNumber placeholder color.
+- Fix that Cascader search can't use [Backspace]. [#5340](https://github.com/ant-design/ant-design/issues/5340)
+- Fix that LocaleProvider can't affect `Modal.confirm` sometimes. [#5493](https://github.com/ant-design/ant-design/issues/5493) [@hargasinski](https://github.com/hargasinski)
+- Fix scroll animation of BackTop which specifies the `target` prop. [#5564](https://github.com/ant-design/ant-design/issues/5564)
+- Optimize the block style of Pagination. [#5557](https://github.com/ant-design/ant-design/issues/5557)
+
 ## 2.8.3
 
 `2017-03-27`
