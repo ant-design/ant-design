@@ -36,7 +36,7 @@ const menu = (
 
 ReactDOM.render(
   <div>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu} placement="bottomLeft">
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button
