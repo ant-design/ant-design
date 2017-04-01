@@ -65,7 +65,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="button"
                       title="选择月份"
                     >
-                      1月
+                      一月
                     </a>
                   </span>
                 </div>
@@ -85,78 +85,78 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Sun"
+                        title="周一"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Su
+                          一
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Mon"
+                        title="周二"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Mo
+                          二
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Tue"
+                        title="周三"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Tu
+                          三
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Wed"
+                        title="周四"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          We
+                          四
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Thu"
+                        title="周五"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Th
+                          五
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Fri"
+                        title="周六"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Fr
+                          六
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Sat"
+                        title="周日"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Sa
+                          日
                         </span>
                       </th>
                     </tr>
@@ -165,21 +165,9 @@ exports[`RangePicker show month panel according to value 1`] = `
                     class="ant-calendar-tbody"
                   >
                     <tr
+                      class="ant-calendar-active-week"
                       role="row"
                     >
-                      <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
-                        role="gridcell"
-                        title="1999-12-26"
-                      >
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="ant-calendar-date"
-                        >
-                          26
-                        </div>
-                      </td>
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
@@ -258,10 +246,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           1
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -275,6 +259,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           2
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -353,10 +342,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           8
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -370,6 +355,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           9
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -448,10 +438,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           15
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -465,6 +451,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           16
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -543,10 +534,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           22
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -560,6 +547,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           23
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -638,10 +630,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           29
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -655,6 +643,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           30
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -731,6 +724,19 @@ exports[`RangePicker show month panel according to value 1`] = `
                           class="ant-calendar-date"
                         >
                           5
+                        </div>
+                      </td>
+                      <td
+                        class="ant-calendar-cell ant-calendar-next-month-btn-day"
+                        role="gridcell"
+                        title="2000-2-6"
+                      >
+                        <div
+                          aria-disabled="false"
+                          aria-selected="false"
+                          class="ant-calendar-date"
+                        >
+                          6
                         </div>
                       </td>
                     </tr>
@@ -784,7 +790,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="button"
                       title="选择月份"
                     >
-                      2月
+                      二月
                     </a>
                   </span>
                   <a
@@ -812,78 +818,78 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Sun"
+                        title="周一"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Su
+                          一
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Mon"
+                        title="周二"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Mo
+                          二
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Tue"
+                        title="周三"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Tu
+                          三
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Wed"
+                        title="周四"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          We
+                          四
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Thu"
+                        title="周五"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Th
+                          五
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Fri"
+                        title="周六"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Fr
+                          六
                         </span>
                       </th>
                       <th
                         class="ant-calendar-column-header"
                         role="columnheader"
-                        title="Sat"
+                        title="周日"
                       >
                         <span
                           class="ant-calendar-column-header-inner"
                         >
-                          Sa
+                          日
                         </span>
                       </th>
                     </tr>
@@ -892,21 +898,9 @@ exports[`RangePicker show month panel according to value 1`] = `
                     class="ant-calendar-tbody"
                   >
                     <tr
+                      class=""
                       role="row"
                     >
-                      <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
-                        role="gridcell"
-                        title="2000-1-30"
-                      >
-                        <div
-                          aria-disabled="false"
-                          aria-selected="false"
-                          class="ant-calendar-date"
-                        >
-                          30
-                        </div>
-                      </td>
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
@@ -985,10 +979,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           5
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1002,6 +992,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           6
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1080,10 +1075,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           12
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1097,6 +1088,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           13
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1175,10 +1171,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           19
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1192,6 +1184,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           20
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1270,10 +1267,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           26
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1287,6 +1280,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           27
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
@@ -1365,10 +1363,6 @@ exports[`RangePicker show month panel according to value 1`] = `
                           4
                         </div>
                       </td>
-                    </tr>
-                    <tr
-                      role="row"
-                    >
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
@@ -1382,6 +1376,11 @@ exports[`RangePicker show month panel according to value 1`] = `
                           5
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class=""
+                      role="row"
+                    >
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
@@ -1458,6 +1457,19 @@ exports[`RangePicker show month panel according to value 1`] = `
                           class="ant-calendar-date"
                         >
                           11
+                        </div>
+                      </td>
+                      <td
+                        class="ant-calendar-cell ant-calendar-next-month-btn-day"
+                        role="gridcell"
+                        title="2000-3-12"
+                      >
+                        <div
+                          aria-disabled="false"
+                          aria-selected="false"
+                          class="ant-calendar-date"
+                        >
+                          12
                         </div>
                       </td>
                     </tr>
@@ -1558,7 +1570,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="button"
                       title="选择月份"
                     >
-                      1月
+                      一月
                     </a>
                   </span>
                 </div>
@@ -1658,6 +1670,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                     class="ant-calendar-tbody"
                   >
                     <tr
+                      class="ant-calendar-active-week"
                       role="row"
                     >
                       <td
@@ -1753,6 +1766,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -1848,6 +1862,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -1943,6 +1958,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2038,6 +2054,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2133,6 +2150,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2277,7 +2295,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="button"
                       title="选择月份"
                     >
-                      2月
+                      二月
                     </a>
                   </span>
                   <a
@@ -2385,6 +2403,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                     class="ant-calendar-tbody"
                   >
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2480,6 +2499,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2575,6 +2595,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2670,6 +2691,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2765,6 +2787,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td
@@ -2860,6 +2883,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       </td>
                     </tr>
                     <tr
+                      class=""
                       role="row"
                     >
                       <td

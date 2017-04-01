@@ -6,7 +6,7 @@ import { RangePicker } from '../';
 
 describe('RangePicker', () => {
   it('show month panel according to value', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(
       <RangePicker
         getCalendarContainer={trigger => trigger}
@@ -21,7 +21,7 @@ describe('RangePicker', () => {
   });
 
   it('switch to corresponding month panel when click presetted ranges', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(
       <RangePicker
         ranges={{

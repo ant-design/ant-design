@@ -212,6 +212,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           class="ant-fullcalendar-tbody"
         >
           <tr
+            class=""
             role="row"
           >
             <td
@@ -342,6 +343,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -472,6 +474,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -602,7 +605,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
-            class="ant-fullcalendar-current-week"
+            class="ant-fullcalendar-current-week ant-fullcalendar-active-week"
             role="row"
           >
             <td
@@ -733,6 +736,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -863,6 +867,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -1214,6 +1219,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             class="ant-fullcalendar-tbody"
           >
             <tr
+              class=""
               role="row"
             >
               <td
@@ -1344,6 +1350,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -1474,6 +1481,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -1604,7 +1612,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
-              class="ant-fullcalendar-current-week"
+              class="ant-fullcalendar-current-week ant-fullcalendar-active-week"
               role="row"
             >
               <td
@@ -1735,6 +1743,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -1865,6 +1874,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -2214,6 +2224,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           class="ant-fullcalendar-tbody"
         >
           <tr
+            class=""
             role="row"
           >
             <td
@@ -2372,6 +2383,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -2572,6 +2584,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -2779,7 +2792,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </td>
           </tr>
           <tr
-            class="ant-fullcalendar-current-week"
+            class="ant-fullcalendar-current-week ant-fullcalendar-active-week"
             role="row"
           >
             <td
@@ -2938,6 +2951,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -3096,6 +3110,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             </td>
           </tr>
           <tr
+            class=""
             role="row"
           >
             <td
@@ -3528,6 +3543,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             class="ant-fullcalendar-tbody"
           >
             <tr
+              class=""
               role="row"
             >
               <td
@@ -3658,6 +3674,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -3788,6 +3805,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -3918,6 +3936,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
@@ -4048,6 +4067,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class="ant-fullcalendar-active-week"
               role="row"
             >
               <td
@@ -4178,6 +4198,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               </td>
             </tr>
             <tr
+              class=""
               role="row"
             >
               <td
