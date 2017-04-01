@@ -7,18 +7,14 @@ title:
 
 ## zh-CN
 
-仪表盘。
+仪表盘样式的进度条。
 
 ## en-US
 
-A dashboard.
+A dashboard style of progress.
 
 ````jsx
 import { Progress } from 'antd';
 
-ReactDOM.render(
-  <div>
-    <Progress type="dashboard" percent={75} />
-  </div>
-, mountNode);
+ReactDOM.render(<Progress type="dashboard" percent={75} />, mountNode);
 ````
