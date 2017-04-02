@@ -19,7 +19,7 @@ timeline: true
 
 ## 2.9.0
 
-`2017-04-01` :ghost:
+`2017-04-01` 👻
 
 - 默认字体中数字设为等宽，方便进行纵向比较。[b526083](https://github.com/ant-design/ant-design/commit/b526083fa6a619113a3d26c4f4f092a8648f3bd4)
 - Select
