@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -37,7 +36,7 @@ describe('Breadcrumb', () => {
       </Breadcrumb>
     );
     expect(errorSpy).not.toHaveBeenCalled();
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/5542
@@ -49,6 +48,6 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
       </Breadcrumb>
     );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

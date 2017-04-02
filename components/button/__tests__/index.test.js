@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Button from '..';
 
 describe('Button', () => {
@@ -8,14 +7,14 @@ describe('Button', () => {
     const wrapper = render(
       <Button>Follow</Button>
     );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders Chinese characters correctly', () => {
     const wrapper = render(
       <Button>按钮</Button>
     );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('have static perperty for type detecting', () => {

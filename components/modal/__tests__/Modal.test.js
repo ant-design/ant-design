@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Modal from '..';
 
 class ModalTester extends React.Component {
@@ -35,11 +34,11 @@ class ModalTester extends React.Component {
 describe('Modal', () => {
   it('render correctly', () => {
     const wrapper = mount(<ModalTester />);
-    expect(renderToJson(wrapper.render())).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render without footer', () => {
     const wrapper = mount(<ModalTester footer={null} />);
-    expect(renderToJson(wrapper.render())).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

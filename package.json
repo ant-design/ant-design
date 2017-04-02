@@ -213,7 +213,8 @@
     "transformIgnorePatterns": [
       "/node_modules/",
       "/dist/antd.js"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "pre-commit": [
     "lint-staged"

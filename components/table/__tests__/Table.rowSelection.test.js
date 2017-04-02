@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.rowSelection', () => {
@@ -178,7 +177,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
-    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+    expect(dropdownWrapper).toMatchSnapshot();
   });
 
   it('click select all selection', () => {
