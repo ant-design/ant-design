@@ -51,6 +51,7 @@ module.exports = {
     'app.footer.segmentfault': 'SegmentFault',
     'app.footer.discuss': 'Chat Room',
     'app.footer.bug-report': 'Bug Report',
+    'app.footer.issues': 'Issues',
     'app.footer.version': 'Version: ',
     'app.footer.author': 'Created by AIUX',
     'app.publish.title': 'antd@2.0.0 is released!',

@@ -130,8 +130,13 @@ class Footer extends React.Component {
               </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues/new">
+              <a target="_blank" rel="noopener noreferrer" href="http://new-issue.ant.design/">
                 <FormattedMessage id="app.footer.bug-report" />
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
+                <FormattedMessage id="app.footer.issues" />
               </a>
             </div>
             <div>
