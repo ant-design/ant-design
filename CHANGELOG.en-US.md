@@ -75,7 +75,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Fixed Popover will be closed by mistake while using Table in it. [#5407](https://github.com/ant-design/ant-design/issues/5407)
 - Remove restriction that Radio can only be direct chidlren of Radio.Group. [#5443](https://github.com/ant-design/ant-design/issues/5443)
 - Fixed warning while using Switch in Form.Item. [#5368](https://github.com/ant-design/ant-design/issues/5368)
-- Fixed Table cannot use default "Select All" behavior. [#5246](https://github.com/ant-design/ant-design/issues/5246) [@infeng](https://github.com/infeng)
 - Now we defaultly hide the Table's "Select All" dropdown icon, display it when set `selections` to true. [#5246](https://github.com/ant-design/ant-design/issues/5246) [@infeng](https://github.com/infeng)
 - New theme variable `@info-color`. [#5442](https://github.com/ant-design/ant-design/issues/5442)
 - Supporting suppress warning(You are using a whole package of antd...) with `NODE_ENV=test` while testing. [#5345](https://github.com/ant-design/ant-design/issues/5345)
