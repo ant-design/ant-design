@@ -98,8 +98,6 @@
 
   &-item-selected {
     color: @primary-color;
-    // fix chrome render bug
-    transform: translateZ(0);
     > a,
     > a:hover {
       color: @primary-color;
@@ -120,11 +118,20 @@
   &-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: 3px @border-style-base transparent;
       margin-left: -1px;
       left: 1px;
       position: relative;
       z-index: 1;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 3px solid @primary-color;
+        transform: scaleY(.0001);
+        transition: all .2s;
+      }
     }
   }
 
@@ -134,6 +141,9 @@
       border-right: 0;
       margin-left: 0;
       left: 0;
+      &:after {
+        border-right: 0;
+      }
     }
     > .@{menu-prefix-cls}-item:first-child {
       border-radius: @border-radius-base @border-radius-base 0 0;
@@ -147,8 +157,9 @@
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right-color: @primary-color;
-      transform: translateZ(0);
+      &:after {
+        transform: scaleY(1);
+      }
     }
   }
 
@@ -393,6 +404,9 @@
     border-right: 0;
     margin-left: 0;
     left: 0;
+    &:after {
+      border-right: 0;
+    }
   }
 
   &-dark &-item:hover,
@@ -412,6 +426,9 @@
   &-dark &-item-selected {
     border-right: 0;
     color: #fff;
+    &:after {
+      border-right: 0;
+    }
     > a,
     > a:hover {
       color: #fff;
