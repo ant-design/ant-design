@@ -58,25 +58,30 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 <div>
   <div
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
-    Unchecked
+    Tag1
   </div>
   <div
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
-    Checked
+    Tag2
   </div>
   <div
-    class="ant-tag ant-tag-checkable"
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
-    Uncontrolled
+    Tag3
   </div>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
 <div>
+  <h4
+    style="margin-bottom:16px;"
+  >
+    Presets:
+  </h4>
   <div>
     <div
       class="ant-tag ant-tag-pink"
@@ -149,83 +154,12 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <div
-    style="margin-top:24px;"
+  <h4
+    style="margin:16px 0;"
   >
-    <div
-      class="ant-tag ant-tag-pink-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        pink-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-red-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        red-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-orange-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        orange-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-green-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        green-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-cyan-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        cyan-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-blue-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        blue-inverse
-      </span>
-    </div>
-    <div
-      class="ant-tag ant-tag-purple-inverse"
-      data-show="true"
-    >
-      <span
-        class="ant-tag-text"
-      >
-        purple-inverse
-      </span>
-    </div>
-  </div>
-  <div
-    style="margin-top:24px;"
-  >
+    Custom:
+  </h4>
+  <div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"

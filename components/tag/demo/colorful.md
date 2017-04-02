@@ -23,6 +23,7 @@ import { Tag } from 'antd';
 
 ReactDOM.render(
   <div>
+    <h4 style={{ marginBottom: 16 }}>Presets:</h4>
     <div>
       <Tag color="pink">pink</Tag>
       <Tag color="red">red</Tag>
@@ -32,16 +33,8 @@ ReactDOM.render(
       <Tag color="blue">blue</Tag>
       <Tag color="purple">purple</Tag>
     </div>
-    <div style={{ marginTop: 24 }}>
-      <Tag color="pink-inverse">pink-inverse</Tag>
-      <Tag color="red-inverse">red-inverse</Tag>
-      <Tag color="orange-inverse">orange-inverse</Tag>
-      <Tag color="green-inverse">green-inverse</Tag>
-      <Tag color="cyan-inverse">cyan-inverse</Tag>
-      <Tag color="blue-inverse">blue-inverse</Tag>
-      <Tag color="purple-inverse">purple-inverse</Tag>
-    </div>
-    <div style={{ marginTop: 24 }}>
+    <h4 style={{ margin: '16px 0' }}>Custom:</h4>
+    <div>
       <Tag color="#f50">#f50</Tag>
       <Tag color="#2db7f5">#2db7f5</Tag>
       <Tag color="#87d068">#87d068</Tag>
