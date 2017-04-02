@@ -14,5 +14,6 @@
     "\\.md$": "./node_modules/antd-demo-jest"
   },
   "testRegex": "demo\\.test\\.js$",
-  "testEnvironment": "node"
+  "testEnvironment": "node",
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
 }
