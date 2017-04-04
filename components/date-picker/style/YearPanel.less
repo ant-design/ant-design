@@ -1,9 +1,9 @@
 .@{calendar-prefix-cls}-year-panel {
   left: 0;
-  top: 34px;
+  top: 1px;
   bottom: 0;
   right: 0;
-  background: #fff;
+  background: @component-background;
   z-index: 10;
   position: absolute;
   outline: none;
@@ -32,7 +32,7 @@
 .@{calendar-prefix-cls}-year-panel-year {
   display: inline-block;
   margin: 0 auto;
-  color: #666;
+  color: @text-color;
   background: transparent;
   text-align: center;
   height: 24px;
@@ -42,7 +42,7 @@
   transition: background 0.3s ease;
 
   &:hover {
-    background: tint(@primary-color, 90%);
+    background: @primary-1;
     cursor: pointer;
   }
 }
@@ -61,15 +61,6 @@
 .@{calendar-prefix-cls}-year-panel-next-decade-cell {
   .@{calendar-prefix-cls}-year-panel-year {
     user-select: none;
-  }
-  .@{calendar-prefix-cls}-year-panel-year:before {
-    content: "\e600";
-    font-family: "anticon" !important;
-  }
-}
-
-.@{calendar-prefix-cls}-year-panel-last-decade-cell {
-  .@{calendar-prefix-cls}-year-panel-year:before {
-    content: "\e601";
+    color: @disabled-color;
   }
 }

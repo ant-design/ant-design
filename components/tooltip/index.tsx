@@ -1,80 +1,161 @@
-import * as React from 'react';
+import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
-import getPlacements from '../popover/placements';
 import classNames from 'classnames';
+import getPlacements from './placements';
 
-const placements = getPlacements({
-  verticalArrowShift: 8,
-});
+export type TooltipPlacement =
+  'top' | 'left' | 'right' | 'bottom' |
+  'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
+  'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 
-type PopoverPlacement =
-  'top' | 'left' | 'right' | 'bottom' | 'topLeft' |
-  'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' |
-  'leftBottom' | 'rightTop' | 'rightBottom'
-
-// Tooltip
-export interface TooltipProps {
-  /**
-    气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft`
-    `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`
-  */
-  placement?: PopoverPlacement;
-  /** 提示文字 */
-  title: React.ReactNode;
-  style?: React.CSSProperties;
-  builtinPlacements?: Object;
-  /** Style of overlay */
-  overlayStyle?: React.CSSProperties;
+export interface AbstractTooltipProps {
   prefixCls?: string;
-  /** Callback when display/hide */
-  onVisibleChange?: (visible: boolean) => void;
-  transitionName?: string;
+  overlayClassName?: string;
+  style?: React.CSSProperties;
+  overlayStyle?: React.CSSProperties;
+  placement?: TooltipPlacement;
+  builtinPlacements?: Object;
   visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
+  transitionName?: string;
   trigger?: 'hover' | 'focus' | 'click';
-  overlay?: React.ReactNode;
   openClassName?: string;
+  arrowPointAtCenter?: boolean;
+  // getTooltipContainer had been rename to getPopupContainer
+  getTooltipContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  children?: React.ReactElement<any>;
 }
+
+export interface TooltipProps extends AbstractTooltipProps {
+  title?: React.ReactNode;
+  overlay?: React.ReactNode;
+}
+
+const splitObject = (obj, keys) => {
+  const picked = {};
+  const omited = { ...obj };
+  keys.forEach(key => {
+    if (obj && key in obj) {
+      picked[key] = obj[key];
+      delete omited[key];
+    }
+  });
+  return { picked, omited };
+};
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
     placement: 'top',
-    transitionName: 'zoom-big',
+    transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    onVisibleChange() {},
+    arrowPointAtCenter: false,
   };
 
   refs: {
-    [key: string]: any;
     tooltip: any;
   };
 
-  constructor(props) {
+  constructor(props: TooltipProps) {
     super(props);
+
     this.state = {
-      visible: false,
+      visible: !!props.visible,
     };
   }
 
+  componentWillReceiveProps(nextProps: TooltipProps) {
+    if ('visible' in nextProps) {
+      this.setState({ visible: nextProps.visible });
+    }
+  }
+
   onVisibleChange = (visible) => {
-    this.setState({ visible });
-    this.props.onVisibleChange(visible);
+    const { onVisibleChange } = this.props;
+    if (!('visible' in this.props)) {
+      this.setState({ visible: this.isNoTitle() ? false : visible });
+    }
+    if (onVisibleChange && !this.isNoTitle()) {
+      onVisibleChange(visible);
+    }
   }
 
   getPopupDomNode() {
     return this.refs.tooltip.getPopupDomNode();
   }
 
+  getPlacements() {
+    const { builtinPlacements, arrowPointAtCenter } = this.props;
+    return builtinPlacements || getPlacements({
+      arrowPointAtCenter,
+      verticalArrowShift: 8,
+    });
+  }
+
+  isHoverTrigger() {
+    const { trigger } = this.props;
+    if (!trigger || trigger === 'hover') {
+      return true;
+    }
+    if (Array.isArray(trigger)) {
+      return trigger.indexOf('hover') >= 0;
+    }
+    return false;
+  }
+
+  // Fix Tooltip won't hide at disabled button
+  // mouse events don't trigger at disabled button in Chrome
+  // https://github.com/react-component/tooltip/issues/18
+  getDisabledCompatibleChildren(element) {
+    if ((element.type.__ANT_BUTTON || element.type === 'button') &&
+        element.props.disabled && this.isHoverTrigger()) {
+      // Pick some layout related style properties up to span
+      // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
+      const { picked, omited } = splitObject(
+        element.props.style,
+        ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
+      );
+      const spanStyle = {
+        display: 'inline-block',  // default inline-block is important
+        ...picked,
+        cursor: 'not-allowed',
+      };
+      const buttonStyle = {
+        ...omited,
+        pointerEvents: 'none',
+      };
+      const child = cloneElement(element, {
+        style: buttonStyle,
+        className: null,
+      });
+      return (
+        <span style={spanStyle} className={element.props.className}>
+          {child}
+        </span>
+      );
+    }
+    return element;
+  }
+
+  isNoTitle() {
+    const { title, overlay } = this.props;
+    return !title && !overlay;  // overlay for old version compatibility
+  }
+
   // 动态设置动画点
   onPopupAlign = (domNode, align) => {
+    const placements = this.getPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).filter(
       key => (
         placements[key].points[0] === align.points[0] &&
         placements[key].points[1] === align.points[1]
-      )
+      ),
     )[0];
     if (!placement) {
       return;
@@ -99,34 +180,35 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   render() {
-    const { prefixCls, title, overlay, children, transitionName } = this.props;
+    const { props, state } = this;
+    const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
+    const children = props.children as React.ReactElement<any>;
+    let visible = state.visible;
     // Hide tooltip when there is no title
-    let visible = this.state.visible;
-    if (!title && !overlay) {
+    if (!('visible' in props) && this.isNoTitle()) {
       visible = false;
     }
-    if ('visible' in this.props) {
-      visible = this.props.visible;
-    }
 
-    const childrenProps = children ? (children as React.ReactElement<any>).props : {};
-    const childrenCls = classNames({
-      [childrenProps.className]: !!childrenProps.className,
-      [this.props.openClassName || `${prefixCls}-open`]: true,
+    const child = this.getDisabledCompatibleChildren(
+      React.isValidElement(children) ? children : <span>{children}</span>,
+    );
+    const childProps = child.props;
+    const childCls = classNames(childProps.className, {
+      [openClassName || `${prefixCls}-open`]: true,
     });
 
     return (
       <RcTooltip
-        transitionName={transitionName}
-        builtinPlacements={placements}
-        overlay={title}
-        visible={visible}
-        onPopupAlign={this.onPopupAlign}
-        ref="tooltip"
         {...this.props}
+        getTooltipContainer={getPopupContainer || getTooltipContainer}
+        ref="tooltip"
+        builtinPlacements={this.getPlacements()}
+        overlay={overlay || title}
+        visible={visible}
         onVisibleChange={this.onVisibleChange}
-        >
-        {visible ? cloneElement((children as React.ReactElement<any>), { className: childrenCls }) : children}
+        onPopupAlign={this.onPopupAlign}
+      >
+        {visible ? cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
     );
   }

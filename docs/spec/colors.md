@@ -1,240 +1,87 @@
 ---
-category: 设计基础
-order: 2
-chinese: 色彩
-english: Colors
+order: 3
+title:
+  zh-CN: 色彩
+  en-US: Colors
 ---
 
-## 有意义的色彩
+设计中对色彩的运用不仅应考虑品牌的识别性，还需达到信息传递、操作指引、交互反馈，或是强化和凸显某一个元素的目的。基于操作系统更注重高效、清晰等特点，Ant Design 的用色上更偏向简洁实用一些。在选择色彩时有以下三个注意点：
 
-色彩在界面设计中的使用应同时具备品牌识别性以及界面设计功能性。色彩是相当感性的东西，设计中对色彩的运用首要应考虑到品牌层面的表达，另外很重要的一点是色彩的运用应达到信息传递，动作指引，交互反馈，或是强化和凸现某一个元素的目的。任何颜色的选取和使用应该是有意义的。
+- 色彩应与产品定位相匹配，且符合用户心理认知；
+- 视觉层次应清晰分明，为重要行动点或关键信息定义一个主色，并建立视觉连续性；
+- 遵守 WCAG 2.0 的 标准，保证足够的对比度，让色彩更容易被视障碍（色盲）用户识别。
+
+---
 
 ## Ant Design Colors
 
-Ant Design 的色板由 9 种基本色彩组成，每种基本色又衍生出九宫格色板，在此基础上还可以通过黑白叠加的方式实现色彩明暗的效果。
+Ant Design PC 端的色板由 10 个由浅至深的色彩单元格组成，我们为部分色彩格定义了默认使用场景，用户在进行色彩配色时只需根据关键词选择一条色板即可得到一套完整的系统配色方案。在理论上，在 UI 设计中的色彩都应取自这份色板。
+
+经过设计师和程序员的精心调教，结合了色彩加白、加黑、加深，贝塞尔曲线，以及针对冷暖色的不同旋转角度，得出一套[色板生成算法](https://github.com/ant-design/ant-design/blob/734beb84ffc3f0469fbae1566aa8450f966cb261/components/style/color/colorPalette.less)（用以取代我们原来的 tint/shade 色彩系统）。使用者只需指定主色，便可导出一条完整的渐变色板。
+
+Ant Design 的色板由 8 种基本色彩组成，每种基本色（第 6 格）又按上述算法衍生出 10 种渐变色。
+
+> 注：在由浅至深的色板里，第 6 格色彩单元格普遍满足 [WCAG 2.0](http://leaverou.github.io/contrast-ratio/) 的 4.5:1 最小对比度（AA 级），我们将其定义为色板的默认品牌色。
 
 `````__react
-const Palette = React.createClass({
-  render() {
-    const color = this.props.color;
-    return <div className="color-palette">
-      <div className="main-color">
-        {color.colors.map(function(color) {
-          return (<div key={color} style={{backgroundColor:color}}></div>);
-        })}
-      </div>
-      <div className={"color-msg"}>
-        <p className={"color-msg-title"}>{color.title}</p>
-        <p className={"color-msg-description"}>{color.description}</p>
-      </div>
-    </div>;
-  }
-});
-const ExtendPalettes = React.createClass({
-  render() {
-    const colors = [
-      {
-        'title': 'Primary Color',
-        'description': '尽管同一种颜色传达的含义会因人而异，受到文化和地域的影响。但颜色还是可以提取出一些共通的特性，例如暖色系的红、橙、黄通常用于象征活力，激情，积极；而冷色系的绿、蓝、紫通常给人感觉是安全、稳定、专业。',
-        'colors': [
-          "#E01515", "#FF6600", "#FAC450",
-          "#E4249B", "#CCCCCC", "#5FBC29",
-          "#582DAA", "#0097DA", "#01B3CA"
-        ]
-      },
-      {
-        'title': 'Grey #CCCCCC',
-        'description': '灰色是中性化的颜色，通常传递出来的感觉是沉稳，在配色心理学中描述 “专业化、系统化”的词条中灰色的使用占了较高的比例。建议可用于字体颜色的选择以及界面中大面积背景的底色搭配。',
-        'colors': [
-          "#FFFFFF", "#FCFCFC", "#ECECEC",
-          "#989898", "#CCCCCC", "#D9D9D9",
-          "#666666", "#323232", "#000000"
-        ]
-      },
-      {
-        'title': 'Red #E01515',
-        'description': '红色是具有强烈情感因素的颜色，通常红色传递的心理暗示有激情、欲望、战争以及危险。考虑到红色的特性，在后台系统的设计中建议作为辅助色来突出元素特性或是强化信息，常见的有图表元素，状态，危险信号，错误提示等。',
-        'colors': [
-          "#F9CCD6", "#FFA5B4", "#FA727D",
-          "#BB0606", "#E01515", "#FF3858",
-          "#881414", "#4E1212", "#260404"
-        ]
-      },
-      {
-        'title': 'Green #60BE29',
-        'description': '绿色是非常务实的颜色，它吸收了蓝色的沉稳同时具备黄色的活力。绿色蕴含着和平、生命、希望、轻松、富饶的含义。在我们的设计实例中绿色可用来传达任务完成、健康状态以及安全感等状态。',
-        'colors': [
-          "#E2F582", "#D0EE9C", "#A6E33C",
-          "#39A30E", "#60BE29", "#70D445",
-          "#18791B", "#1F4A12", "#102803"
-        ]
-      },
-      {
-        'title': 'Blue #00A0E9',
-        'description': '这里的蓝色沿用的是蚂蚁金服的品牌色，深蓝色的运用可以传递出可靠和稳定的情绪，而浅蓝色系则更为友好和清新，同时还代表了科技感与想象力。在很多专业类、管理类的后台系统设计中蓝色系常常会被选择作为设计的主色来使用。',
-        'colors': [
-          "#CCE4F6", "#95CCF5", "#6AC2F5",
-          "#1D80D3", "#00A0E9", "#2DB7F5",
-          "#1F5AA3", "#0B366A", "#08172F"
-        ]
-      },
-      {
-        'title': 'Magenta #E9259',
-        'description': '玫红色是较为正面的色彩，含有鼓励、友好、活力的意义。但考虑到洋红色的特性，建议作为辅助色来使用。',
-        'colors': [
-          "#F8C5ED", "#F5A6D3", "#F387C0",
-          "#BC0F69", "#E9259E", "#F056AD",
-          "#890B4C", "#5E0B36", "#230213"
-        ]
-      },
-      {
-        'title': 'Orange #FF6100',
-        'description': '介于红色和黄色之间，传达愉悦，创造力，热情，吸引力。但橙色又不如红色那样具侵略性，同时又能够很好的引起视觉的注意力。可以作为设计的主色也可以用于辅助色。但大面积使用时需要慎重。',
-        'colors': [
-          "#F1DDBD", "#FBCA72", "#FDAC23",
-          "#CE630F", "#FF6100", "#FF8A0C",
-          "#8B4A04", "#523A13", "#341F0B"
-        ]
-      },
-      {
-        'title': 'Purple #5E30B5',
-        'description': '紫色是赤黄黄绿青蓝紫中最后一名，也是人类可见光谱中波长最短的光，有华贵、信仰、神秘等含义，同时是红与蓝的结合体，传达中性、中立等信息。在界面设计中建议作为辅助颜色使用。',
-        'colors': [
-          "#E8DFFA", "#B196EE", "#8867D2",
-          "#581CB6", "#5E30B5", "#7A43E2",
-          "#3F187D", "#2B1845", "#0F061B"
-        ]
-      },
-      {
-        'title': 'Yellow #FAC450',
-        'description': '黄色传达了愉悦，活力，创造力等正面的情绪，是具正能量的色彩。在具体设计中黄色常常于表达警示性的信息。建议作为辅助色来使用。',
-        'colors': [
-          "#FAF4B2", "#FDF161", "#FDE023",
-          "#D9B416", "#FAC450", "#F7CD07",
-          "#B48513", "#6B4C01", "#241A06"
-        ]
-      },
-      {
-        'title': 'Cyan #01BAD2',
-        'description': '介于蓝色和绿色之间，带有专业、冷静、从容的心理暗示。在体验专业化和结构化的设计中常常被用到，可以作为系统主色来使用。',
-        'colors': [
-          "#E0F7FA", "#B2EBF2", "#80DEEA",
-          "#00ACC2", "#01BAD2", "#26C6DA",
-          "#00708F", "#014B62", "#031213"
-        ]
-      }
-    ];
-    return <div>
-      {colors.map((color, i) => {
-        return <Palette key={i} color={color} />;
-      })}
-    </div>;
-  }
-});
-ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
+import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
+
+ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
-## 色彩和交互
+为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色](/docs/spec/font-cn#字体颜色)。
 
-设计元素本身由于交互行为会引发一系列细微的视觉变化，而元素本身的颜色变化有时也能很好的实现这一目的。在进行这类设计的同时，建议采取在颜色上添加黑色或者白色并按照 `n+5%` 的规律递增的方式来实现。以下图为例，当鼠标 hover 某个特定元素，就视为浮起，对应颜色就相应增加白色叠加，相反点击的行为可以理解为按下去，在颜色上就相应的增加黑色的叠加。
+### 色板生成工具
 
-<img src="https://t.alipayobjects.com/images/T1ZHxhXdNmXXXXXXXX.png" width="100%">
-
-<img src="https://t.alipayobjects.com/images/T1fZJhXahgXXXXXXXX.png" width="100%">
-
-## 色彩识别
-
-合适的色彩对比为信息传达加分，同时也应放考虑到有颜色识别障碍人群的需求。我们将每种主色衍生出来的颜色进行了打标，在考虑对比颜色的选择时建议两种颜色对应标签数值的差要大于等于 5。
-
-<img src="https://t.alipayobjects.com/images/rmsweb/T1hLphXgXcXXXXXXXX.png" width="100%">
-
-<img src="https://t.alipayobjects.com/images/rmsweb/T1v2phXj8bXXXXXXXX.png" width="100%">
-
-## 色彩换算工具
-
-> 正数为变淡 `tint` ，负数为加深 `shade`。
+如果上面的色板不能满足你的需求，你可以选择一个主色，Ant Design 的色彩生成算法会为你生成完整的色板。
 
 `````__react
-const Values = require('values.js');
-const CopyToClipboard = require('react-copy-to-clipboard');
-const antd = require('antd');
-const Button = antd.Button;
-const InputNumber = antd.InputNumber;
-const Slider = antd.Slider;
-const Tooltip = antd.Tooltip;
-const TintShadeTool = React.createClass({
-  getInitialState() {
-    return {
-      result: '#2db7f5',
-      color: '#2db7f5',
-      justCopied: false,
-      darkBackground: false,
-      value: 80
-    };
-  },
-  handleChangeColor(e) {
-    this.setState({
-      color: e.target.value
-    }, this.calculate);
-  },
-  handleChangeValue(value) {
-    this.setState({
-      value: value
-    }, this.calculate);
-  },
-  componentDidMount() {
-    this.calculate();
-  },
-  calculate() {
-    if (this.state.value === 0) {
-      this.setState({
-        result: this.state.color
-      });
-      return;
-    }
-    const tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
-    const c = new Values(this.state.color);
-    const resultColor = c[tintOrShade](Math.abs(this.state.value));
-    this.setState({
-      result: '#' + resultColor.hex,
-      darkBackground: resultColor.getBrightness() < 50
-    });
-  },
-  copySuccess(e) {
-    this.setState({ justCopied: true }, () => {
-      setTimeout(() => {
-        this.setState({ justCopied: false });
-      }, 1000);
-    });
-  },
-  render() {
-    const marks = {
-      '-100': '加黑',
-      '0': '原色',
-      '100': '加白'
-    };
-    return <div style={{margin: '40px 0'}}>
-      <div>
-        <Tooltip title="点击色块复制色值">
-          <CopyToClipboard onCopy={this.copySuccess} text={this.state.result}>
-            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '') + (this.state.darkBackground ? ' dark' : '')}></div>
-          </CopyToClipboard>
-        </Tooltip>
-        <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>
-        <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
-        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
-        <span style={{margin: '0 0 0 8px'}}>%</span>
-      </div>
-      <div style={{width: 420, margin: '40px 10px 60px'}}>
-        <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} marks={marks} />
-      </div>
-    </div>;
-  }
-});
+import ColorPaletteTool from '../../site/theme/template/Color/ColorPaletteTool';
 
-ReactDOM.render(<TintShadeTool key="tintShadeTool" />, mountNode);
+ReactDOM.render(<ColorPaletteTool />, mountNode);
 `````
 
-Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。
+---
 
-less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5, 80%)` 的语法。
+## 色彩应用
+
+### 品牌色的应用
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/lVKfKMuLmaTlnTDitPEJ.png" alt="Ant Design 品牌色常用色值">
+
+品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需先了解品牌色在界面中的使用场景及选色范围。以 Ant Design 网页组件的默认样式为例，品牌色主要体现在关键行动点及操作状态、重要信息高亮等场景。
+
+> 注：图形插画和 logo 可以不必遵循色板，但需保持相近的色系。
+
+### 中性色的应用
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AmXwsVOWrLxDfwLNlyvL.png" alt="Ant Design 中性色常用色值">
+
+灰色作为中性色在 Ant Design 的网页设计中被大量使用到，它的使用有利于关键内容的衬托和功能的引导。这类色彩主要体现在导航框架、背景底色、描边、或次级操作等等。
+
+### 功能色的应用
+
+<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/mewwdThVwyTQzpZQtYXw.png" alt="Ant Design 功能色卡">
+
+UI 设计中，比较稳定的色彩除了中性色外还有具备特定含义的功能色，这类色彩起到传递功能信息、代表某种状态等作用。主要应用于消息通知、反馈提醒、表单校验这类场景中的成功、出错、失败、提醒、链接等状态。
+
+### 视觉层次
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/ADUfVlZwjziJRUQSMbMt.png" alt="正确示例" description="通过品牌色引导用户的视线路径">
+
+将品牌色赋予在重要信息或关键主动点上，并衬以大面积的中性色，可以让用户更聚焦到任务本身，从而提高任务的执行效率。
+
+<br />
+
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/RmSDSeAAYphuiDFszIMa.png" alt="错误示例" description="操作界面使用的色彩应尽量避免面积过大或种类过多而造成用户视觉疲劳">
+
+> 注：界面用色建议不超过三种（数据图表和图形类插画除外）。
+
+### 色彩的易识别性
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/jeyvhMIQgoPUotNerRGy.png" alt="正确示例">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/ppdlrVnFCsYVicjDrnzi.png" alt="错误示例" description="当对比度数值低于 3:1 时，弱视用户将很难识别">
+
+Ant Design 的色板颜色遵守 WCAG 2.0 的标准，操作类的色彩搭配都应满足颜色对比值 3:1 的最低标准。
+
+- [色彩对比值校验工具](http://leaverou.github.io/contrast-ratio/#%23454545-on-%23fff)

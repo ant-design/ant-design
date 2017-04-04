@@ -1,32 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'bisheng/router';
 import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
-export default function Page2() {
+export default function Page2({ location }) {
   return (
-    <ScrollOverPack scrollName="page2"
-      className="content-wrapper page" playScale={1} replay
-      hideProps={{ image: { reverse: true } }}
+    <ScrollOverPack id="page2"
+      className="content-wrapper page"
     >
-      <QueueAnim className="text-wrapper left-text" delay={300} key="text"
-        duration={550} type="bottom" leaveReverse
+      <QueueAnim className="text-wrapper left-text" key="text"
+        duration={450} type="bottom" leaveReverse
       >
-        <h2 key="h2">设计模式</h2>
-        <p key="p" style={{ maxWidth: 260 }}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
+        <h2 key="h2"><FormattedMessage id="app.home.design-pattern" /></h2>
+        <p key="p" style={{ maxWidth: 260 }}><FormattedMessage id="app.home.pattern" /></p>
         <div key="button">
-          <Link to="/docs/pattern/navigation">
+          <Link to={utils.getLocalizedPathname('/docs/pattern/navigation', utils.isZhCN(location.pathname))}>
             <Button type="primary" size="large">
-              了解更多
+              <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />
             </Button>
           </Link>
         </div>
       </QueueAnim>
       <TweenOne key="image" className="image2 image-wrapper"
-        animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
+        animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(100px)', opacity: 0 }}
       />
     </ScrollOverPack>

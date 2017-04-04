@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 6
 title: Stay on the Page
 ---
@@ -66,9 +66,9 @@ Tabs: Provides additional panels of information accessible by tab controls.
 
 In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the cur- rent page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page. 
 
-Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](../pattern/list#显示长列表)
+Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](/docs/pattern/list#显示长列表)
 
-Carousel, more on [Patterns／Lists／Show Images](../pattern/list#显示图片)
+Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图片)
 
 <br>
 
@@ -80,7 +80,7 @@ Carousel, more on [Patterns／Lists／Show Images](../pattern/list#显示图片)
 
 ##  Process Flows
 
-It has long been common practice on the Web to turn each step into a sepa- rate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process. 
+It has long been common practice on the Web to turn each step into a separate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process.
 
 <br>
 

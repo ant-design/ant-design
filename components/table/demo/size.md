@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   en-US: size
   zh-CN: 紧凑型
@@ -17,38 +17,40 @@ Two compacted table size: `middle` and `small`, `small` size is used in Modal on
 import { Table } from 'antd';
 
 const columns = [{
-  title: '姓名',
+  title: 'Name',
   dataIndex: 'name',
 }, {
-  title: '年龄',
+  title: 'Age',
   dataIndex: 'age',
 }, {
-  title: '住址',
+  title: 'Address',
   dataIndex: 'address',
 }];
 const data = [{
   key: '1',
-  name: '胡彦斌',
+  name: 'John Brown',
   age: 32,
-  address: '西湖区湖底公园1号',
+  address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: '胡彦祖',
+  name: 'Jim Green',
   age: 42,
-  address: '西湖区湖底公园1号',
+  address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: '李大嘴',
+  name: 'Joe Black',
   age: 32,
-  address: '西湖区湖底公园1号',
+  address: 'Sidney No. 1 Lake Park',
 }];
 
-ReactDOM.render(<div>
-  <h4>中号表格（紧凑型）</h4>
-  <Table columns={columns} dataSource={data} size="middle" />
-  <h4>小号表格</h4>
-  <Table columns={columns} dataSource={data} size="small" />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <h4>Middle size table</h4>
+    <Table columns={columns} dataSource={data} size="middle" />
+    <h4>Small size table</h4>
+    <Table columns={columns} dataSource={data} size="small" />
+  </div>
+, mountNode);
 ````
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>

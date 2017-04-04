@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 自动关闭的延时
   en-US: Duration after which the notification box is closed
 ---
@@ -18,10 +18,10 @@ the notification box will never close automatically.
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotification = function () {
+const openNotification = () => {
   const args = {
-    message: 'This is the title',
-    description: 'I will never close automatically.I will be close automatically.I will never close automatically.',
+    message: 'Notification Title',
+    description: 'I will never close automatically. I will be close automatically. I will never close automatically.',
     duration: 0,
   };
   notification.open(args);

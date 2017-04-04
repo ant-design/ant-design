@@ -1,2 +1,61 @@
 @import "../../style/themes/default";
-@import "../../select/style/index";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@input-prefix-cls: ~"@{ant-prefix}-input";
+@select-prefix-cls: ~"@{ant-prefix}-select";
+@autocomplete-prefix-cls: ~"@{select-prefix-cls}-auto-complete";
+
+.@{autocomplete-prefix-cls} {
+  &.@{select-prefix-cls} {
+    .@{select-prefix-cls} {
+      &-selection {
+        border: 0;
+        box-shadow: none;
+        &--single {
+          height: 100%;
+        }
+        &__rendered {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        &__placeholder {
+          margin-left: 8px;
+          margin-right: 8px;
+          top: @input-height-base / 2;
+        }
+      }
+    }
+
+    .@{input-prefix-cls} {
+      .input();
+      background: transparent;
+    }
+
+    &-lg {
+      .@{select-prefix-cls}-selection__placeholder {
+        top: @input-height-lg / 2;
+      }
+      .@{input-prefix-cls} {
+        .input-lg();
+      }
+    }
+
+    &-sm {
+      .@{select-prefix-cls}-selection__placeholder {
+        top: @input-height-sm / 2;
+      }
+      .@{input-prefix-cls} {
+        .input-sm();
+      }
+    }
+
+    .@{input-prefix-cls} {
+      border: @border-width-base @border-style-base @border-color-base;
+      &:focus,
+      &:hover {
+        .hover;
+      }
+    }
+  }
+}

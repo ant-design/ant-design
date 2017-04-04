@@ -1,102 +1,91 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-@import "./mixin";
 
-// Grid system
-.ant-row {
-  .make-row();
-  display: block;
-}
+@layout-prefix-cls: ~"@{ant-prefix}-layout";
 
-.ant-row-flex {
+.@{layout-prefix-cls} {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex: auto;
+  overflow: auto;
+  background: @layout-body-background;
 
-  &:before,
-  &:after {
-    display: flex;
+  &&-has-sider {
+    flex-direction: row;
   }
-}
 
-// x轴原点
-.ant-row-flex-start {
-  justify-content: flex-start;
-}
+  &-header,
+  &-footer {
+    flex: 0 0 auto;
+  }
 
-// x轴居中
-.ant-row-flex-center {
-  justify-content: center;
-}
+  &-header {
+    background: @layout-header-background;
+    padding: @layout-header-padding;
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+  }
 
-// x轴反方向
-.ant-row-flex-end {
-  justify-content: flex-end;
-}
+  &-footer {
+    padding: @layout-footer-padding;
+    color: @text-color;
+    font-size: @font-size-base;
+  }
 
-// x轴平分
-.ant-row-flex-space-between {
-  justify-content: space-between;
-}
+  &-content {
+    flex: auto;
+    overflow: auto;
+  }
 
-// x轴有间隔地平分
-.ant-row-flex-space-around {
-  justify-content: space-around;
-}
+  &-sider {
+    transition: all .3s @ease-out;
+    position: relative;
+    background: @layout-sider-background;
 
-// 顶部对齐
-.ant-row-flex-top {
-  align-items: flex-start;
-}
+    &-has-trigger {
+      padding-bottom: @layout-trigger-height;
+    }
 
-// 居中对齐
-.ant-row-flex-middle {
-  align-items: center;
-}
+    &-right {
+      order: 1;
+    }
 
-// 底部对齐
-.ant-row-flex-bottom {
-  align-items: flex-end;
-}
+    &-trigger {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 0;
+      cursor: pointer;
+      height: @layout-trigger-height;
+      line-height: @layout-trigger-height;
+      background: tint(@heading-color, 20%);
+      color: #fff;
+    }
 
-.ant-col {
-  position: relative;
-  display: block;
-}
+    &-zero-width {
+      & > * {
+        overflow: hidden;
+      }
 
-.make-grid-columns();
-.make-grid();
+      &-trigger {
+        position: absolute;
+        top: @layout-header-height;
+        right: -@layout-zero-trigger-width;
+        text-align: center;
+        width: @layout-zero-trigger-width;
+        height: @layout-zero-trigger-height;
+        line-height: @layout-zero-trigger-height;
+        background: @layout-sider-background;
+        color: #fff;
+        font-size: @layout-zero-trigger-width / 2;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+        cursor: pointer;
+        transition: background .3s ease;
 
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
-
-.make-grid(-xs);
-
-// Small grid
-//
-// Columns, offsets, pushes, and pulls for the small device range, from phones
-// to tablets.
-
-@media (min-width: @screen-sm-min) {
-  .make-grid(-sm);
-}
-
-
-// Medium grid
-//
-// Columns, offsets, pushes, and pulls for the desktop device range.
-
-@media (min-width: @screen-md-min) {
-  .make-grid(-md);
-}
-
-
-// Large grid
-//
-// Columns, offsets, pushes, and pulls for the large desktop device range.
-
-@media (min-width: @screen-lg-min) {
-  .make-grid(-lg);
+        &:hover {
+          background: tint(@layout-sider-background, 10%);
+        }
+      }
+    }
+  }
 }

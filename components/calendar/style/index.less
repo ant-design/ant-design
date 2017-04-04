@@ -1,10 +1,12 @@
 @import "../../style/themes/default";
 
-@full-calendar-prefix-cls: ant-fullcalendar;
+@full-calendar-prefix-cls: ~"@{ant-prefix}-fullcalendar";
 
 .@{full-calendar-prefix-cls} {
   font-size: @font-size-base;
-  line-height: 1.5;
+  line-height: @line-height-base;
+  outline: none;
+  border-top: @border-width-base @border-style-base @border-color-base;
 
   &-month-select {
     margin-left: 5px;
@@ -14,24 +16,22 @@
     padding: 11px 16px 11px 0;
     text-align: right;
 
-    .ant-select {
+    .@{ant-prefix}-select {
       text-align: left;
     }
 
-    .ant-radio-group {
+    .@{ant-prefix}-radio-group {
       margin-left: 8px;
       text-align: left;
     }
 
-    label.ant-radio-button {
+    label.@{ant-prefix}-radio-button {
       height: 22px;
       line-height: 20px;
       padding: 0 10px;
     }
   }
 
-  outline: none;
-  border-top: 1px solid @legend-border-color;
   &-date-panel {
     position: relative;
     outline: none;
@@ -84,22 +84,29 @@
   &-month,
   &-date {
     text-align: center;
+    transition: all .3s;
   }
 
   &-value {
     display: block;
     margin: 0 auto;
     color: @text-color;
-    border-radius: 4px;
+    border-radius: @border-radius-base;
     width: 22px;
     height: 22px;
     padding: 0;
     background: transparent;
     line-height: 22px;
+    transition: all .3s;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
+    }
+
+    &:active {
+      background: @primary-color;
+      color: #fff;
     }
   }
 
@@ -109,35 +116,40 @@
 
   &-today &-value,
   &-month-panel-current-cell &-value {
+    box-shadow: 0 0 0 1px @primary-color;
+  }
+
+  &-selected-day &-value,
+  &-month-panel-selected-cell &-value {
     background: @primary-color;
     color: #fff;
   }
 
   &-disabled-cell &-value {
     cursor: not-allowed;
-    color: #bcbcbc;
-    background: #f3f3f3;
+    color: @disabled-color;
+    background: @background-color-base;
     border-radius: 0;
     width: auto;
 
     &:hover {
-      background: #f3f3f3;
+      background: @background-color-base;
     }
   }
 
   &-disabled-cell-first-of-row &-value {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-top-left-radius: @border-radius-base;
+    border-bottom-left-radius: @border-radius-base;
   }
 
   &-disabled-cell-last-of-row &-value {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
   }
 
   &-last-month-cell &-value,
   &-next-month-btn-day &-value {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-month-panel-table {
@@ -162,12 +174,12 @@
   }
 
   &-fullscreen &-header {
-    .ant-radio-group {
+    .@{ant-prefix}-radio-group {
       margin-left: 16px;
     }
-    label.ant-radio-button {
-      height: 28px;
-      line-height: 26px;
+    label.@{ant-prefix}-radio-button {
+      height: @input-height-base;
+      line-height: @input-height-base - 2px;
     }
   }
 
@@ -179,12 +191,16 @@
     color: @text-color;
     height: 116px;
     padding: 4px 8px;
-    border-top: 2px solid #eee;
-    transition: background 0.3s ease;
+    border-top: 2px solid @border-color-split;
+    transition: background .3s;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
+    }
+
+    &:active {
+      background: @primary-2;
     }
   }
 
@@ -201,22 +217,33 @@
   }
 
   &-fullscreen &-today &-value {
-    color: #666;
+    color: @text-color;
   }
-
 
   &-fullscreen &-month-panel-current-cell &-month,
   &-fullscreen &-today &-date {
     border-top-color: @primary-color;
-    background-color: tint(@primary-color, 90%);
+    background: transparent;
+  }
+
+  &-fullscreen &-month-panel-current-cell &-value,
+  &-fullscreen &-today &-value {
+    box-shadow: none;
+  }
+
+  &-fullscreen &-month-panel-selected-cell &-month,
+  &-fullscreen &-selected-day &-date {
+    background: @primary-1;
+  }
+
+  &-fullscreen &-month-panel-selected-cell &-value,
+  &-fullscreen &-selected-day &-value {
     color: @primary-color;
   }
-  &-fullscreen &-month-panel-current-cell &-value {
-    color: @primary-color;
-  }
+
   &-fullscreen &-last-month-cell &-date,
   &-fullscreen &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-fullscreen &-content {

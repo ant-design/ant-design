@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 带下拉框的按钮
   en-US: Button with dropdown menu
@@ -14,28 +14,43 @@ title:
 A button is on the left, and a related functional menu is on the right.
 
 ````jsx
-import { Menu, Dropdown } from 'antd';
-const DropdownButton = Dropdown.Button;
+import { Menu, Dropdown, Button, Icon, message } from 'antd';
 
 function handleButtonClick(e) {
+  message.info('Click on left button.');
   console.log('click left button', e);
 }
 
 function handleMenuClick(e) {
+  message.info('Click on menu item.');
   console.log('click', e);
 }
 
 const menu = (
   <Menu onClick={handleMenuClick}>
-    <Menu.Item key="1">第一个菜单项</Menu.Item>
-    <Menu.Item key="2">第二个菜单项</Menu.Item>
-    <Menu.Item key="3">第三个菜单项</Menu.Item>
+    <Menu.Item key="1">1st menu item</Menu.Item>
+    <Menu.Item key="2">2nd menu item</Menu.Item>
+    <Menu.Item key="3">3d menu item</Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
-  <DropdownButton onClick={handleButtonClick} overlay={menu} type="primary">
-    某功能按钮
-  </DropdownButton>
+  <div>
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu} placement="bottomLeft">
+      Dropdown
+    </Dropdown.Button>
+    <Dropdown.Button
+      onClick={handleButtonClick} overlay={menu}
+      disabled
+      style={{ marginLeft: 8 }}
+    >
+      Dropdown
+    </Dropdown.Button>
+    <Dropdown overlay={menu}>
+      <Button style={{ marginLeft: 8 }}>
+        Button <Icon type="down" />
+      </Button>
+    </Dropdown>
+  </div>
 , mountNode);
 ````

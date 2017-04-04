@@ -1,8 +1,7 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 6
-subtitle: Stay on the Page
-english: 足不出户
+title: 足不出户
 ---
 
 能在这个页面解决的问题，就不要去其它页面解决，因为任何页面刷新和跳转都会引起变化盲视（Change Blindness），导致用户心流（Flow）被打断。频繁的页面刷新和跳转，就像在看戏时，演员说完一行台词就安排一次谢幕一样。
@@ -49,10 +48,6 @@ english: 足不出户
 
 <br>
 
-<p><span class="waiting">详情嵌入层 (敬请期待)</span></p>
-
-<br>
-
 <img class="preview-img" align="right" alt="标签页示例" src="https://os.alipayobjects.com/rmsportal/MsVyvEIJtlxZWBL.png">
 
 标签页：将多个平级的信息进行整理和分类了，一次只显示一组信息。
@@ -65,13 +60,9 @@ english: 足不出户
 
 在交互过程中，『覆盖层』可以在当前页面上方显示附加内容和交互链接；『嵌入层』可以在页面内部实现同样效果；而『虚拟页面』不局限机械时代的『页面』，可以利用信息时代的特点构建一种新型『页面』。
 
-无限加载和分页器，详见[『模式／列表／显示长列表』](../pattern/list#显示长列表)
+无限加载和分页器，详见[『模式／列表／显示长列表』](/docs/pattern/list#显示长列表)
 
-走马灯，详见[『模式／列表／显示图片』](../pattern/list#显示图片)
-
-<br>
-
-<p><span class="waiting">伸缩式用户界面（敬请期待）</span></p>
+走马灯，详见[『模式／列表／显示图片』](/docs/pattern/list#显示图片)
 
 <br>
 

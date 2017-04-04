@@ -1,12 +1,12 @@
 ---
 category: Components
-type: Views
-english: Badge
+type: Data Display
+title: Badge
 ---
 
 Small numerical value or status descriptors for UI elements.
 
-## When to use
+## When To Use
 
 Badge normally appears in proximity to notification or head picture with eye-catching appeal, typically displaying unread messages count.
 
@@ -25,8 +25,9 @@ Badge normally appears in proximity to notification or head picture with eye-cat
 
 | Property       | Description             | Type       | Default |
 |----------------|-------------------------|------------|---------|
-| count          | Number to show in badge | Number     |         |
-| overflowCount  | Max count to show       | Number     | 99      |
-| dot            | whether to show red dot without number | Boolean | false  |
+| count          | Number to show in badge | number     |         |
+| overflowCount  | Max count to show       | number     | 99      |
+| showZero       | Whether to show badge when `count` is zero   | boolean | false |
+| dot            | Whether to show red dot without number | boolean | false  |
 | status         | Set Badge as a status dot | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
-| text           | If `status` is set, `text` is to set the text of status dot | String | '' |
+| text           | If `status` is set, `text` is to set the text of status dot | string | '' |

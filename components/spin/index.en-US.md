@@ -1,21 +1,21 @@
 ---
 category: Components
-type: Other
+type: Feedback
 title: Spin
 ---
 
-A Spin is used for displaying loading state of a page or a block.
+A spinner for displaying loading state of a page or a section.
 
-## When to use
+## When To Use
 
-When partial of page is waiting for asynchronous data or during a rendering process, an appropriate loading animation can effectively alleviate users' inquietude. 
-
+When part of the page is waiting for asynchronous data or during a rendering process, an appropriate loading animation can effectively alleviate users' inquietude.
 
 ## API
 
-
-| Property      | Type           | Default      | Description         |
-|------------|----------------|-------------|--------------|
-| size       | enum           | default     | Size of dot in spin component, avaliable in `small`, `default` and `large`. |
-| spinning   | boolean        | true        | Use in embedded mode, to modify loading state. |
-| tip    | string        | None        | Customize decription content  |
+Property | Description | Type | Default Value
+---------|-------------|------|--------------
+size | size of spin, available in `small`, `default` and `large` | string | 'default'
+spinning | whether Spin is spinning | boolean | true
+tip | customize description content when spin has children | string | -
+delay | specifies a delay millisecond for loading state (prevent flush) | number (millisecond) | -
+wrapperClassName | className of wrapper when Spin has children | string | -

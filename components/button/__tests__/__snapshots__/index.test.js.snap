@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders Chinese characters correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    按 钮
+  </span>
+</button>
+`;
+
+exports[`Button renders correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Follow
+  </span>
+</button>
+`;

@@ -1,5 +1,5 @@
 .markdown {
-  color: #666;
+  color: @text-color;
   font-size: 14px;
   line-height: 1.8;
 }
@@ -14,12 +14,12 @@
 }
 
 .markdown h1 {
-  color: #404040;
+  color: @heading-color;
   font-weight: 500;
   line-height: 40px;
   margin-bottom: 24px;
   margin-top: 8px;
-  font-family: lato,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+  font-family: Lato, @font-family;
 
   .subtitle {
     font-weight: normal;
@@ -33,9 +33,9 @@
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  color: #404040;
-  font-family: lato,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
-  margin: 1.6em 0 0.6em 0;
+  color: @heading-color;
+  font-family: Lato, @font-family;
+  margin: 1.6em 0 0.6em;
   font-weight: 500;
   clear: both;
 }
@@ -61,56 +61,47 @@
 }
 
 .markdown ul > li {
-  list-style: circle;
+  list-style-type: circle;
+  margin-left: 20px;
+  padding-left: 4px;
   &:empty {
     display: none;
   }
 }
 
-.markdown > ul li,
-.markdown blockquote ul > li {
+.markdown ol > li {
+  list-style-type: decimal;
   margin-left: 20px;
   padding-left: 4px;
 }
 
-.markdown > ul li > p,
-.markdown > ol li > p {
+.markdown ul > li > p,
+.markdown ol > li > p {
   margin: 0.2em 0;
 }
 
-.markdown ol > li {
-  list-style: decimal;
-}
-
-.markdown > ol li,
-.markdown blockquote ol > li {
-  margin-left: 20px;
-  padding-left: 4px;
-}
-
 .markdown code {
-  margin: 0 3px;
+  margin: 0 1px;
   background: #f7f7f7;
-  padding: 1px 6px;
+  padding: .2em .4em;
   border-radius: 3px;
-  color: #777;
-  font-size: .8rem;
-  border: 1px solid #e9e9e9;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: .9em;
+  border: 1px solid #eee;
 }
 
 .markdown pre {
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   background: #f7f7f7;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
   border: none;
   background: #f7f7f7;
   margin: 0;
+  padding: 0;
   font-size: 13px;
-  color: #666;
+  color: @text-color;
   overflow: auto;
 }
 
@@ -121,16 +112,16 @@
 
 .markdown > table {
   border-collapse: collapse;
-  border-spacing: 0px;
+  border-spacing: 0;
   empty-cells: show;
   border: 1px solid #e9e9e9;
   width: 100%;
-  margin-bottom: 24px;
+  margin: 16px 0;
 }
 
 .markdown > table th {
   white-space: nowrap;
-  color: #5C6B77;
+  color: #5c6b77;
   font-weight: 600;
 }
 
@@ -142,7 +133,7 @@
 }
 
 .markdown > table th {
-  background: #F7F7F7;
+  background: #f7f7f7;
 }
 
 .markdown blockquote {
@@ -151,7 +142,6 @@
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
-  font-style: italic;
 }
 
 .markdown blockquote p {
@@ -179,13 +169,13 @@
     color: #999;
 
     &:hover {
-      color: #2db7f5;
+      color: @primary-color;
     }
   }
 
   .anticon {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -205,20 +195,36 @@
 }
 
 .markdown.api-container table {
-  font-family: Consolas, Menlo, Courier, monospace;
   font-size: 13px;
+  td:first-child {
+    background: #fcfcfc;
+    font-weight: 500;
+    width: 20%;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+  }
+  td:nth-child(3) {
+    width: 22%;
+    font-size: 12px;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+  }
+  td:last-child {
+    width: 13%;
+    font-size: 12px;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+  }
 }
 
-.layout-demo,
-[id^="components-layout-demo-"] {
+.grid-demo,
+[id^="components-grid-demo-"] {
   .demo-row,
   .code-box-demo .demo-row {
-    background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
+    background-image: linear-gradient(90deg, #f5f5f5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #f5f5f5 8.33333333%, #f5f5f5 12.5%, transparent 12.5%, transparent 16.66666667%, #f5f5f5 16.66666667%, #f5f5f5 20.83333333%, transparent 20.83333333%, transparent 25%, #f5f5f5 25%, #f5f5f5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #f5f5f5 33.33333333%, #f5f5f5 37.5%, transparent 37.5%, transparent 41.66666667%, #f5f5f5 41.66666667%, #f5f5f5 45.83333333%, transparent 45.83333333%, transparent 50%, #f5f5f5 50%, #f5f5f5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #f5f5f5 58.33333333%, #f5f5f5 62.5%, transparent 62.5%, transparent 66.66666667%, #f5f5f5 66.66666667%, #f5f5f5 70.83333333%, transparent 70.83333333%, transparent 75%, #f5f5f5 75%, #f5f5f5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #f5f5f5 83.33333333%, #f5f5f5 87.5%, transparent 87.5%, transparent 91.66666667%, #f5f5f5 91.66666667%, #f5f5f5 95.83333333%, transparent 95.83333333%);
     overflow: hidden;
+    margin-bottom: 8px;
   }
   .ant-row-flex,
   .code-box-demo .ant-row-flex {
-    background: #F5F5F5;
+    background: #f5f5f5;
   }
   .ant-row > div,
   .code-box-demo .ant-row > div,
@@ -226,21 +232,24 @@
   .code-box-demo .ant-row-flex > div {
     padding: 5px 0;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 0;
     min-height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     color: #fff;
   }
   .code-box-demo .ant-row > div:not(.gutter-row),
   .code-box-demo .ant-row-flex > div:not(.gutter-row) {
-    background: #6AC2F5;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #00a0e9;
+    padding: 16px 0;
+    &:nth-child(2n+1) {
+      background: fade(#00a0e9, 70%);
+    }
   }
   .ant-row .demo-col,
   .code-box-demo .ant-row .demo-col {
     text-align: center;
-    padding: 40px 0;
+    padding: 30px 0;
     color: #fff;
     font-size: 18px;
     border: none;
@@ -249,20 +258,20 @@
   }
   .ant-row .demo-col-1,
   .ant-row .demo-col-1 {
-    background: rgba(29, 128, 211, 0.7);
+    background: fade(#00a0e9, 70%);
   }
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
-    background: rgba(29, 128, 211, 0.5);
+    background: fade(#00a0e9, 50%);
   }
   .ant-row .demo-col-3,
-  .code-box-demo .ant-row .demo-col-3{
+  .code-box-demo .ant-row .demo-col-3 {
     background: rgba(255, 255, 255, 0.2);
     color: #999;
   }
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
-    background: rgba(29, 128, 211, 0.6);
+    background: fade(#00a0e9, 60%);
   }
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
@@ -271,15 +280,19 @@
   }
   .code-box-demo .height-100 {
     height: 100px;
+    line-height: 100px;
   }
   .code-box-demo .height-50 {
     height: 50px;
+    line-height: 50px;
   }
   .code-box-demo .height-120 {
     height: 120px;
+    line-height: 120px;
   }
   .code-box-demo .height-80 {
     height: 80px;
+    line-height: 80px;
   }
 }
 
@@ -289,7 +302,7 @@
     li.ant-timeline-item {
       list-style: none;
       margin: 0;
-      padding: 0 0 30px 0;
+      padding: 0 0 30px;
       .ant-timeline-item-content {
         font-size: 14px;
         padding-left: 32px;

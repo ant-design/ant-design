@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 受控操作示例
   en-US: basic controlled example
 ---
@@ -45,34 +45,32 @@ const generateData = (_level, _preKey, _tns) => {
 };
 generateData(z);
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      expandedKeys: ['0-0-0', '0-0-1'],
-      autoExpandParent: true,
-      checkedKeys: ['0-0-0'],
-      selectedKeys: [],
-    };
-  },
-  onExpand(expandedKeys) {
+class Demo extends React.Component {
+  state = {
+    expandedKeys: ['0-0-0', '0-0-1'],
+    autoExpandParent: true,
+    checkedKeys: ['0-0-0'],
+    selectedKeys: [],
+  }
+  onExpand = (expandedKeys) => {
     console.log('onExpand', arguments);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
-    // or, you can remove all expanded chilren keys.
+    // or, you can remove all expanded children keys.
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
-  },
-  onCheck(checkedKeys) {
+  }
+  onCheck = (checkedKeys) => {
     this.setState({
       checkedKeys,
       selectedKeys: ['0-3', '0-4'],
     });
-  },
-  onSelect(selectedKeys, info) {
+  }
+  onSelect = (selectedKeys, info) => {
     console.log('onSelect', info);
     this.setState({ selectedKeys });
-  },
+  }
   render() {
     const loop = data => data.map((item) => {
       if (item.children) {
@@ -95,8 +93,8 @@ const Demo = React.createClass({
         {loop(gData)}
       </Tree>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

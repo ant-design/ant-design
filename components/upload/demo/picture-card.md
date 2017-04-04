@@ -1,70 +1,72 @@
 ---
-order: 8
-title: 
-  zh-CN: 图片卡片样式
-  en-US: Pictures with card tyle
+order: 3
+title:
+  zh-CN: 照片墙
+  en-US: Pictures Wall
 ---
 
 ## zh-CN
 
-上传文件为图片，可展示本地缩略图。
+用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
 
 ## en-US
 
-If uploade file is picture, a thumbnail can be shown.
+After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
 ````jsx
 import { Upload, Icon, Modal } from 'antd';
 
-const ImageUploadList = React.createClass({
-  getInitialState() {
-    return {
-      previewVisible: false,
-      previewImage: '',
-    };
-  },
-  handleCancel() {
+class PicturesWall extends React.Component {
+  state = {
+    previewVisible: false,
+    previewImage: '',
+    fileList: [{
+      uid: -1,
+      name: 'xxx.png',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    }],
+  };
+
+  handleCancel = () => this.setState({ previewVisible: false })
+
+  handlePreview = (file) => {
     this.setState({
-      previewVisible: false,
+      previewImage: file.url || file.thumbUrl,
+      previewVisible: true,
     });
-  },
+  }
+
+  handleChange = ({ fileList }) => this.setState({ fileList })
+
   render() {
-    const props = {
-      action: '/upload.do',
-      listType: 'picture-card',
-      defaultFileList: [{
-        uid: -1,
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-        thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-      }],
-      onPreview: (file) => {
-        this.setState({
-          previewImage: file.url,
-          previewVisible: true,
-        });
-      },
-    };
+    const { previewVisible, previewImage, fileList } = this.state;
+    const uploadButton = (
+      <div>
+        <Icon type="plus" />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
     return (
       <div className="clearfix">
-        <Upload {...props}>
-          <Icon type="plus" />
-          <div className="ant-upload-text">upload pictures</div>
+        <Upload
+          action="//jsonplaceholder.typicode.com/posts/"
+          listType="picture-card"
+          fileList={fileList}
+          onPreview={this.handlePreview}
+          onChange={this.handleChange}
+        >
+          {fileList.length >= 3 ? null : uploadButton}
         </Upload>
-        <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" rel="noopener noreferrer" className="upload-example">
-          <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
-          <span>sample</span>
-        </a>
-        <Modal visible={this.state.previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" src={this.state.previewImage} />
+        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+          <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<ImageUploadList />, mountNode);
+ReactDOM.render(<PicturesWall />, mountNode);
 ````
 
 ````css
@@ -78,43 +80,5 @@ ReactDOM.render(<ImageUploadList />, mountNode);
   margin-top: 8px;
   font-size: 12px;
   color: #666;
-}
-
-.upload-example {
-  position: relative;
-  display: inline-block;
-  height: 96px;
-  width: 96px;
-  padding: 8px;
-  border: 1px solid #d9d9d9;
-  border-radius: 6px;
-  vertical-align: top;
-}
-
-.upload-example img {
-  height: 78px;
-  width: 78px;
-}
-
-.upload-example:before {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  content: ' ';
-  width: 78px;
-  height: 24px;
-  background-color: #808080;
-  opacity: .8;
-}
-
-.upload-example span {
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  width: 78px;
-  height: 24px;
-  color: #fff;
-  line-height: 24px;
-  text-align: center;
 }
 ````

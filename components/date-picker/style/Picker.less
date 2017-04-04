@@ -32,51 +32,58 @@
   display: inline-block;
   outline: none;
   font-size: @font-size-base;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
 
-  > input {
+  &-input {
     outline: none;
   }
+
+  &:hover &-input:not([disabled]) {
+    border-color: @primary-color;
+  }
+
   &-clear {
     opacity: 0;
-    z-index: -1;
+    pointer-events: none;
+    z-index: 1;
     position: absolute;
     right: 7px;
     background: #fff;
     top: 50%;
-    font-size: 12px;
-    color: #ccc;
+    font-size: @font-size-base;
+    color: @disabled-color;
     width: 14px;
     height: 14px;
     margin-top: -7px;
     line-height: 14px;
     cursor: pointer;
-    transition: color 0.3s ease, opacity 0.15s ease;
+    transition: color 0.3s, opacity 0.3s;
     &:hover {
-      color: #999;
+      color: @text-color-secondary;
     }
   }
 
   &:hover &-clear {
     opacity: 1;
-    z-index: 1;
+    pointer-events: auto;
   }
+
   &-icon {
     position: absolute;
     user-select: none;
-    transition: all .3s @ease-in-out;
+    transition: all .3s;
     width: 12px;
     height: 12px;
     line-height: 12px;
     right: 8px;
-    color: #999;
+    color: @text-color-secondary;
     top: 50%;
     margin-top: -6px;
     &:after {
-      content: "\e654";
+      content: "\e6bb";
       font-family: "anticon";
-      font-size: 12px;
-      color: #999;
+      font-size: @font-size-base;
+      color: @text-color-secondary;
       display: inline-block;
       line-height: 1;
       vertical-align: bottom;

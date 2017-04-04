@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 滑动
   en-US: Slide
 ---
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Tab can be slide to left or right, which is used for a lot of tabs. 
+Tab can be slide to left or right, which is used for a lot of tabs.
 
 ````jsx
 import { Tabs } from 'antd';

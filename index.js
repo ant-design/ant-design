@@ -1,6 +1,4 @@
 /* eslint no-console:0 */
-// this file is not used if use https://github.com/ant-design/babel-plugin-antd
-
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
     name.slice(1).replace(/-(\w)/g, (m, n) => {
@@ -8,7 +6,8 @@ function camelCase(name) {
     });
 }
 
-const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
+// Just import style for https://github.com/ant-design/ant-design/issues/3745
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/style\/index\.tsx?$/);
 
 req.keys().forEach((mod) => {
   let v = req(mod);
@@ -26,9 +25,4 @@ req.keys().forEach((mod) => {
   }
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  if (typeof console !== 'undefined' && console.warn) {
-    console.warn(`You are using prebuilt antd,
-please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
-  }
-}
+module.exports = require('./components');

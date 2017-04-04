@@ -1,12 +1,13 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@upload-prefix-cls: ant-upload;
-@upload-item: ant-upload-list-item;
+@upload-prefix-cls: ~"@{ant-prefix}-upload";
+@upload-item: ~"@{ant-prefix}-upload-list-item";
 @upload-pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
   font-size: @font-size-base;
+  outline: 0;
 
   &-btn {
     display: block;
@@ -23,10 +24,9 @@
   }
 
   &&-select-picture-card {
-    border: 1px dashed @border-color-base;
+    border: @border-width-base dashed @border-color-base;
     width: @upload-pictrue-card-size;
     height: @upload-pictrue-card-size;
-    padding: 24px 0;
     border-radius: @border-radius-base;
     background-color: #fbfbfb;
     text-align: center;
@@ -37,13 +37,20 @@
     margin-right: 8px;
     margin-bottom: 8px;
 
+    > .@{upload-prefix-cls} {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 20px 0;
+    }
+
     &:hover {
       border-color: @primary-color;
     }
   }
 
   &&-drag {
-    border: 1px dashed @border-color-base;
+    border: @border-width-base dashed @border-color-base;
     transition: border-color 0.3s ease;
     cursor: pointer;
     border-radius: @border-radius-base;
@@ -53,7 +60,7 @@
     position: relative;
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
-      border: 2px dashed tint(@primary-color, 20%);
+      border: 2px dashed @primary-5;
     }
 
     &.@{upload-prefix-cls}-disabled {
@@ -71,35 +78,35 @@
     }
 
     &:not(.@{upload-prefix-cls}-disabled):hover {
-      border-color: tint(@primary-color, 20%);
+      border-color: @primary-5;
     }
 
     p.@{upload-prefix-cls}-drag-icon {
-      .anticon {
+      .@{iconfont-css-prefix} {
         font-size: 80px;
         margin-top: -5px;
-        color: tint(@primary-color, 20%);
+        color: @primary-5;
       }
       height: 60px;
       margin-bottom: 24px;
     }
     p.@{upload-prefix-cls}-text {
-      font-size: 14px;
+      font-size: @font-size-lg;
     }
     p.@{upload-prefix-cls}-hint {
-      font-size: 12px;
-      color: #999;
+      font-size: @font-size-base;
+      color: @text-color-secondary;
     }
-    .anticon-plus {
+    .@{iconfont-css-prefix}-plus {
       font-size: 30px;
       transition: all 0.3s ease;
-      color: #ccc;
+      color: @disabled-color;
       &:hover {
-        color: #999;
+        color: @text-color-secondary;
       }
     }
-    &:hover .anticon-plus {
-      color: #999;
+    &:hover .@{iconfont-css-prefix}-plus {
+      color: @text-color-secondary;
     }
   }
 }
@@ -109,58 +116,73 @@
   &-item {
     overflow: hidden;
     margin-top: 8px;
-    font-size: 12px;
+    font-size: @font-size-base;
+    position: relative;
+    height: 24px;
+    &-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 16px;
+      width: 100%;
+      display: inline-block;
+    }
 
     &-info {
-      height: 22px;
-      line-height: 22px;
-      padding: 0 4px;
-      transition: background-color 0.3s ease;
+      line-height: 24px;
+      padding: 0 12px 0 4px;
+      transition: background-color .3s;
 
-      .anticon-paper-clip {
+      .@{iconfont-css-prefix}-loading,
+      .@{iconfont-css-prefix}-paper-clip {
         margin-right: 4px;
-        font-size: 12px;
-        color: #999;
+        font-size: @font-size-base;
+        color: @text-color-secondary;
+        position: absolute;
+        top: 5.5px;
       }
-      .anticon-cross {
-        .iconfont-size-under-12px(10px);
-        transition: all 0.3s ease;
-        opacity: 0;
-        cursor: pointer;
-        float: right;
-        color: #999;
-        line-height: 22px;
-        &:hover {
-          color: #666;
-        }
+    }
+
+    .@{iconfont-css-prefix}-cross {
+      .iconfont-size-under-12px(10px);
+      transition: all .3s;
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 4px;
+      color: @text-color-secondary;
+      line-height: 24px;
+      &:hover {
+        color: @text-color;
       }
     }
 
     &:hover &-info {
-      background-color: tint(@primary-color, 90%);
+      background-color: @primary-1;
     }
 
-    &:hover .anticon-cross {
+    &:hover .@{iconfont-css-prefix}-cross {
       opacity: 1;
     }
 
     &-error,
-    &-error .anticon-paper-clip {
+    &-error .@{iconfont-css-prefix}-paper-clip,
+    &-error &-name {
       color: @error-color;
     }
 
-    &-error .anticon-cross {
+    &-error .@{iconfont-css-prefix}-cross {
       opacity: 1;
+      color: @error-color !important;
     }
 
     &-progress {
-      padding: 0 8px 0 20px;
-      margin-top: -2px;
-      margin-bottom: 1px;
-      font-size: 12px;
-      .ant-progress-line-inner {
-        vertical-align: middle;
-      }
+      line-height: 0;
+      font-size: @font-size-base;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
     }
   }
 
@@ -169,11 +191,14 @@
     .@{upload-item} {
       padding: 8px;
       border-radius: @border-radius-base;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       height: 66px;
       position: relative;
       &:hover {
         background: transparent;
+      }
+      &-error {
+        border-color: @error-color;
       }
     }
 
@@ -201,12 +226,14 @@
       width: 48px;
       height: 48px;
       display: block;
+      overflow: hidden;
+      border-radius: @border-radius-base;
     }
 
-    .@{upload-item}-thumbnail.anticon:before {
+    .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
       line-height: 48px;
       font-size: 24px;
-      color: #999;
+      color: @text-color-secondary;
     }
 
     .@{upload-item}-name {
@@ -214,8 +241,8 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       margin: 0 0 0 8px;
-      line-height: 42px;
-      transition: all 0.3s ease;
+      line-height: 44px;
+      transition: all .3s;
       padding-left: 48px;
       padding-right: 8px;
       max-width: 100%;
@@ -232,7 +259,7 @@
       margin-top: 0;
     }
 
-    .anticon-cross {
+    .@{iconfont-css-prefix}-cross {
       position: absolute;
       right: 8px;
       top: 8px;
@@ -244,7 +271,7 @@
     display: inline;
 
     .@{upload-item} {
-      display: inline-block;
+      float: left;
       width: @upload-pictrue-card-size;
       height: @upload-pictrue-card-size;
       margin: 0 8px 8px 0;
@@ -258,49 +285,46 @@
         content: ' ';
         position: absolute;
         z-index: 1;
-        background-color: #808080;
-        transition: all 0.3s ease;
-        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all .3s;
         width: 100%;
         height: 100%;
+        opacity: 0;
       }
+    }
 
-      .anticon-eye-o,
-      .anticon-delete {
-        position: absolute;
-        left: 50%;
-        top: 50%;
+    .@{upload-item}:hover .@{upload-item}-info:before {
+      opacity: 1;
+    }
+
+    .@{upload-item}-actions {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all .3s;
+
+      .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-delete {
         z-index: 10;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+        transition: all .3s;
         cursor: pointer;
         font-size: 16px;
         width: 16px;
-        line-height: 1;
-        color: #eee;
-        opacity: 0;
-        margin-top: -8px;
-        margin-left: -22px;
+        color: @text-color-dark;
+        margin: 0 4px;
         &:hover {
           color: #fff;
         }
       }
+    }
 
-      .anticon-delete {
-        left: 50%;
-        margin-left: 6px;
-      }
-
-      &:hover {
-        &:before {
-          opacity: .8;
-        }
-
-        .anticon-eye-o,
-        .anticon-delete {
-          opacity: 1;
-        }
-      }
+    .@{upload-item}-info:hover + .@{upload-item}-actions,
+    .@{upload-item}-actions:hover {
+      opacity: 1;
     }
 
     .@{upload-item}-thumbnail,
@@ -323,15 +347,15 @@
       .@{upload-item}-info {
         height: auto;
         &:before,
-        .anticon-eye-o,
-        .anticon-delete {
+        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-delete {
           display: none;
         }
       }
 
       &-text {
         margin-top: 18px;
-        color: #999;
+        color: @text-color-secondary;
       }
     }
 
@@ -345,25 +369,65 @@
     font-weight: bold;
   }
 
-  .@{upload-prefix-cls}-margin-top-enter {
-    animation: uploadMarginTopIn .3s @ease-in-out-circ;
+  .@{upload-prefix-cls}-animate-enter,
+  .@{upload-prefix-cls}-animate-leave,
+  .@{upload-prefix-cls}-animate-inline-enter,
+  .@{upload-prefix-cls}-animate-inline-leave {
+    animation-duration: .3s;
+    animation-fill-mode: @ease-in-out-circ;
   }
 
-  .@{upload-prefix-cls}-margin-top-leave {
-    animation: uploadMarginTopOut .3s @ease-in-out-circ;
+  .@{upload-prefix-cls}-animate-enter {
+    animation-name: uploadAnimateIn;
+  }
+
+  .@{upload-prefix-cls}-animate-leave {
+    animation-name: uploadAnimateOut;
+  }
+
+  .@{upload-prefix-cls}-animate-inline-enter {
+    animation-name: uploadAnimateInlineIn;
+  }
+
+  .@{upload-prefix-cls}-animate-inline-leave {
+    animation-name: uploadAnimateInlineOut;
   }
 }
 
-@keyframes uploadMarginTopIn {
+@keyframes uploadAnimateIn {
   from {
-    margin-top: -25px;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateOut {
+  to {
+    height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
   }
 }
 
-@keyframes uploadMarginTopOut {
+@keyframes uploadAnimateInlineIn {
+  from {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateInlineOut {
   to {
-    margin-top: -25px;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
     opacity: 0;
   }
 }

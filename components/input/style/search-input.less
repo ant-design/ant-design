@@ -3,21 +3,37 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
-.ant-search-input-wrapper {
+.@{ant-prefix}-input-search-icon {
+  cursor: pointer;
+  transition: all .3s;
+  font-size: 14px;
+  &:hover {
+    color: @input-hover-border-color;
+  }
+}
+
+// code blow is keeped for compatibility
+// for this demo: http://1x.ant.design/components/select/#components-select-demo-search-box
+// do not delete until 3.x
+.@{ant-prefix}-search-input-wrapper {
   display: inline-block;
   vertical-align: middle;
 }
 
-.ant-search-input {
-  &.ant-input-group .ant-input:first-child,
-  &.ant-input-group .ant-select:first-child {
+.@{ant-prefix}-search-input {
+  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child,
+  &.@{ant-prefix}-input-group .@{ant-prefix}-select:first-child {
     border-radius: @border-radius-base;
     position: absolute;
     top: -1px;
     width: 100%;
   }
 
-  .ant-search-btn {
+  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child {
+    padding-right: 36px;
+  }
+
+  .@{ant-prefix}-search-btn {
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
     left: -1px;
@@ -29,18 +45,14 @@
     &:hover {
       border-color: @border-color-base;
     }
-    form & {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
   }
-  &&-focus .ant-search-btn-noempty,
-  &:hover .ant-search-btn-noempty {
+  &&-focus .@{ant-prefix}-search-btn-noempty,
+  &:hover .@{ant-prefix}-search-btn-noempty {
     .btn-primary;
   }
-  .ant-select-combobox {
-    .ant-select-selection__rendered {
-      right: 29px;
+  .@{ant-prefix}-select-combobox {
+    .@{ant-prefix}-select-selection__rendered {
+      margin-right: 29px;
     }
   }
 }

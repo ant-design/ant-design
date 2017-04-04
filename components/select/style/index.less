@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 @import "../../input/style/mixin";
 
-@select-prefix-cls: ant-select;
+@select-prefix-cls: ~"@{ant-prefix}-select";
 
 .selection__clear() {
   display: inline-block;
@@ -15,10 +15,10 @@
   position: absolute;
   right: 8px;
   z-index: 1;
-  background: #fff;
+  background: @component-background;
   top: 50%;
-  font-size: 12px;
-  color: #ccc;
+  font-size: @font-size-base;
+  color: @disabled-color;
   width: 12px;
   height: 12px;
   margin-top: -6px;
@@ -27,10 +27,10 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    .iconfont-font("\e631");
+    .iconfont-font("\e62e");
   }
   &:hover {
-    color: #999;
+    color: @text-color-secondary;
   }
 }
 
@@ -38,13 +38,12 @@
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  vertical-align: middle;
-  color: #666;
+  color: @text-color;
   font-size: @font-size-base;
 
   > ul > li > a {
     padding: 0;
-    background-color: #fff;
+    background-color: @component-background;
   }
 
   // arrow
@@ -55,14 +54,14 @@
     right: 8px;
     line-height: 1;
     margin-top: -6px;
-    .iconfont-size-under-12px(8px);
+    .iconfont-size-under-12px(9px);
 
     * {
       display: none;
     }
 
     &:before {
-      content: '\e603';
+      content: '\e61d';
       transition: transform 0.2s ease;
     }
   }
@@ -74,9 +73,9 @@
     box-sizing: border-box;
     display: block;
 
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
+    border: @border-width-base @border-style-base @border-color-base;
     transition: all .3s @ease-in-out;
 
     &:hover {
@@ -96,10 +95,19 @@
     &:hover &__clear {
       opacity: 1;
     }
+
+    &-selected-value {
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      padding-right: 14px;
+    }
   }
 
   &-disabled {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-disabled &-selection {
@@ -129,73 +137,74 @@
   }
 
   &-selection--single {
-    height: 28px;
+    height: @input-height-base;
     position: relative;
     cursor: pointer;
-
-    .@{select-prefix-cls}-selection__rendered {
-      height: 26px;
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-left: 8px;
-      padding-right: 24px;
-      line-height: 26px;
-    }
   }
 
-  &-open&-show-search &-selection--single &-selection-selected-value {
-    position: absolute;
-    left: 8px;
-    top: 0;
+  &-selection__rendered {
+    display: block;
+    margin-left: 7px;
+    margin-right: 7px;
+    position: relative;
+    line-height: @input-height-base - 2px;
+    // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
+    &:after {
+      content: '.';
+      visibility: hidden;
+      pointer-events: none;
+      display: inline-block;
+      width: 0;
+    }
   }
 
   &-lg {
     .@{select-prefix-cls}-selection--single {
-      height: 32px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 30px;
-      }
+      height: @input-height-lg;
     }
-
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: @input-height-lg - 2px;
+    }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 32px;
+      min-height: @input-height-lg;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 24px;
-          line-height: 24px;
+          height: @input-height-lg - 8px;
+          line-height: @input-height-lg - 8px;
         }
+      }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-lg / 2;
       }
     }
   }
 
   &-sm {
-    .@{select-prefix-cls}-selection {
-      border-radius: @border-radius-sm;
-    }
     .@{select-prefix-cls}-selection--single {
-      height: 22px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 20px;
-      }
+      height: @input-height-sm;
+    }
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: @input-height-sm - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 22px;
+      min-height: @input-height-sm;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 14px;
-          line-height: 14px;
+          height: @input-height-sm - 8px;
+          line-height: @input-height-sm - 8px;
         }
+      }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-sm / 2;
       }
     }
   }
 
   &-disabled &-selection__choice__remove {
-    color: #ccc;
+    color: @disabled-color;
     cursor: default;
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -208,9 +217,9 @@
   &-search__field__placeholder { // for TreeSelect compatibility
     position: absolute;
     top: 50%;
-    left: 9px;
+    left: 0;
     right: 9px;
-    color: #ccc;
+    color: @input-placeholder-color;
     line-height: 20px;
     height: 20px;
     max-width: 100%;
@@ -220,10 +229,18 @@
     white-space: nowrap;
   }
 
+  &-search__field__placeholder {
+    left: 8px;
+  }
+
   &-search--inline {
-    float: left;
-    width: 100%;
+    position: absolute;
     height: 100%;
+
+    .@{select-prefix-cls}-selection--multiple & {
+      float: left;
+      position: static;
+    }
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -234,6 +251,7 @@
       border: 0;
       font-size: 100%;
       height: 100%;
+      width: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
@@ -242,7 +260,7 @@
     .@{select-prefix-cls}-search__field__mirror {
       position: absolute;
       top: 0;
-      left: 9999px;
+      left: -9999px;
       white-space: pre;
       pointer-events: none;
     }
@@ -253,28 +271,30 @@
   }
 
   &-selection--multiple {
-    min-height: 28px;
+    min-height: @input-height-base;
     cursor: text;
+    padding-bottom: 3px;
+    .clearfix;
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
+      padding: 0;
       .@{select-prefix-cls}-search__field {
         width: 0.75em;
       }
     }
 
     .@{select-prefix-cls}-selection__rendered {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-left: 6px;
-      padding-bottom: 4px;
+      margin-left: 5px;
+      margin-bottom: -3px;
+      height: auto;
     }
 
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
-      margin-top: 4px;
-      height: 20px;
-      line-height: 20px;
+      margin-top: 3px;
+      height: @input-height-base - 8px;
+      line-height: @input-height-base - 8px;
     }
 
     .@{select-prefix-cls}-selection__choice {
@@ -282,7 +302,6 @@
       border-radius: 4px;
       cursor: default;
       float: left;
-      padding: 0 15px;
       margin-right: 4px;
       max-width: 99%;
       position: relative;
@@ -305,7 +324,7 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #999;
+      color: @text-color-secondary;
       line-height: inherit;
       cursor: pointer;
       display: inline-block;
@@ -319,9 +338,17 @@
         color: #404040;
       }
       &:before {
-        content: "\e62d";
+        content: "\e633";
       }
     }
+
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-base / 2;
+    }
+  }
+
+  &-allow-clear &-selection--multiple &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 
   &-open {
@@ -343,6 +370,7 @@
     }
     .@{select-prefix-cls}-search--inline {
       height: 100%;
+      width: 100%;
       float: none;
     }
     .@{select-prefix-cls}-search__field__wrap {
@@ -350,7 +378,6 @@
       height: 100%;
     }
     .@{select-prefix-cls}-search__field {
-      padding: 0 10px;
       width: 100%;
       height: 100%;
       position: relative;
@@ -358,16 +385,9 @@
       transition: all .3s @ease-in-out;
       box-shadow: none;
     }
-    .@{select-prefix-cls}-selection__rendered {
-      padding: 0 24px 0 0;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      > ul {
-        height: 100%;
-      }
-    }
+  }
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 }
 
@@ -394,8 +414,7 @@
     display: none;
   }
 
-  background-color: white;
-  border: 1px solid @border-color-base;
+  background-color: @component-background;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -425,36 +444,34 @@
     }
 
     &-item-group-title {
-      color: #999;
+      color: @text-color-secondary;
       line-height: 1.5;
-      padding: 8px 15px;
+      padding: 8px 16px;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 15px;
+      padding: 7px 16px;
       font-weight: normal;
-      color: #666;
+      color: @text-color;
       white-space: nowrap;
       cursor: pointer;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       overflow: hidden;
       transition: background 0.3s ease;
 
       &:hover,
       &-active {
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
 
       &-disabled {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
 
         &:hover {
-          color: #ccc;
-          background-color: #fff;
+          color: @disabled-color;
+          background-color: @component-background;
           cursor: not-allowed;
         }
       }
@@ -464,7 +481,7 @@
         &:hover {
           background-color: @background-color-base;
           font-weight: bold;
-          color: #666;
+          color: @text-color;
         }
       }
 
@@ -481,12 +498,14 @@
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
       &:after {
-        .iconfont-font("\e62e");
+        .iconfont-font("\e632");
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
         position: absolute;
-        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
         font-weight: bold;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }
@@ -511,25 +530,6 @@
   &-open {
     .@{select-prefix-cls}-dropdown {
       display: block;
-    }
-  }
-
-  .@{select-prefix-cls}-dropdown-search {
-    display: block;
-    padding: 4px;
-    .@{select-prefix-cls}-search__field__wrap {
-      width: 100%;
-    }
-    .@{select-prefix-cls}-search__field {
-      padding: 4px 7px;
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid @border-color-base;
-      border-radius: 4px;
-      outline: none;
-    }
-    &.@{select-prefix-cls}-search--hide {
-      display: none;
     }
   }
 }

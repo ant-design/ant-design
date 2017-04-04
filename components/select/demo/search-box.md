@@ -1,24 +1,22 @@
 ---
 order: 9
-title: 
+title:
   zh-CN: 搜索框
   en-US: Search Box
 ---
 
 ## zh-CN
 
-带有搜索按钮的自动补全输入框。
+自动补全和远程数据结合。
 
 ## en-US
 
-Autocomplete select with search field.
-
+Autocomplete with remote ajax data.
 
 ````jsx
-import { Input, Select, Button, Icon } from 'antd';
-import jsonp from 'jsonp';
+import { Select } from 'antd';
+import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
-import classNames from 'classnames';
 const Option = Select.Option;
 
 let timeout;
@@ -36,81 +34,54 @@ function fetch(value, callback) {
       code: 'utf-8',
       q: value,
     });
-    jsonp(`http://suggest.taobao.com/sug?${str}`, (err, d) => {
-      if (currentValue === value) {
-        const result = d.result;
-        const data = [];
-        result.forEach((r) => {
-          data.push({
-            value: r[0],
-            text: r[0],
+    jsonp(`https://suggest.taobao.com/sug?${str}`)
+      .then(response => response.json())
+      .then((d) => {
+        if (currentValue === value) {
+          const result = d.result;
+          const data = [];
+          result.forEach((r) => {
+            data.push({
+              value: r[0],
+              text: r[0],
+            });
           });
-        });
-        callback(data);
-      }
-    });
+          callback(data);
+        }
+      });
   }
 
   timeout = setTimeout(fake, 300);
 }
 
-const SearchInput = React.createClass({
-  getInitialState() {
-    return {
-      data: [],
-      value: '',
-      focus: false,
-    };
-  },
-  handleChange(value) {
+class SearchInput extends React.Component {
+  state = {
+    data: [],
+    value: '',
+  }
+  handleChange = (value) => {
     this.setState({ value });
-    fetch(value, (data) => this.setState({ data }));
-  },
-  handleSubmit() {
-    console.log('输入框内容是: ', this.state.value);
-  },
-  handleFocusBlur(e) {
-    this.setState({
-      focus: e.target === document.activeElement,
-    });
-  },
+    fetch(value, data => this.setState({ data }));
+  }
   render() {
-    const btnCls = classNames({
-      'ant-search-btn': true,
-      'ant-search-btn-noempty': !!this.state.value.trim(),
-    });
-    const searchCls = classNames({
-      'ant-search-input': true,
-      'ant-search-input-focus': this.state.focus,
-    });
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
-      <div className="ant-search-input-wrapper" style={this.props.style}>
-        <Input.Group className={searchCls}>
-          <Select
-            combobox
-            value={this.state.value}
-            placeholder={this.props.placeholder}
-            notFoundContent=""
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            onChange={this.handleChange}
-            onFocus={this.handleFocusBlur}
-            onBlur={this.handleFocusBlur}
-          >
-            {options}
-          </Select>
-          <div className="ant-input-group-wrap">
-            <Button className={btnCls} onClick={this.handleSubmit}>
-              <Icon type="search" />
-            </Button>
-          </div>
-        </Input.Group>
-      </div>
+      <Select
+        mode="combobox"
+        value={this.state.value}
+        placeholder={this.props.placeholder}
+        notFoundContent=""
+        style={this.props.style}
+        defaultActiveFirstOption={false}
+        showArrow={false}
+        filterOption={false}
+        onChange={this.handleChange}
+      >
+        {options}
+      </Select>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(
   <SearchInput placeholder="input search text" style={{ width: 200 }} />

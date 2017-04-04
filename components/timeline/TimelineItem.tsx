@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
-// Timeline
 export interface TimeLineItemProps {
-  /** 指定圆圈颜色 */
+  prefixCls?: string;
+  className?: string;
   color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
+  last?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -20,17 +20,13 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
   };
 
   render() {
-    const [{
-      prefixCls, color, last, children, pending, className, dot,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'color', 'last', 'children', 'pending', 'className', 'dot']);
+    const { prefixCls, className, color = '', last, children, pending, dot, ...restProps } = this.props;
 
     const itemClassName = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-last`]: last,
       [`${prefixCls}-item-pending`]: pending,
-      [className]: className,
-    });
+    }, className);
 
     const dotClassName = classNames({
       [`${prefixCls}-item-head`]: true,

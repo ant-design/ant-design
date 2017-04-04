@@ -1,53 +1,33 @@
-import * as React from 'react';
-import DateTimeFormat from 'gregorian-calendar-format';
+import React from 'react';
+import moment from 'moment';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
-import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
-import GregorianCalendar from 'gregorian-calendar';
 import assign from 'object-assign';
+import injectLocale from '../locale-provider/injectLocale';
+import defaultLocale from './locale/zh_CN';
 
-// TimePicker
 export interface TimePickerProps {
-  size: 'large' | 'default' | 'small';
-  /** 默认时间 */
-  value?: string | Date;
-  /** 初始默认时间 */
-  defaultValue?: string | Date;
-  /** 展示的时间格式 : "HH:mm:ss"、"HH:mm"、"mm:ss" */
+  className?: string;
+  size?: 'large' | 'default' | 'small';
+  value?: moment.Moment;
+  defaultValue?: moment.Moment;
   format?: string;
-  /** 时间发生变化的回调 */
-  onChange?: (date: Date, dateString: string) => void;
-  /** 禁用全部操作 */
+  onChange?: (time: moment.Moment, timeString: string) => void;
   disabled?: boolean;
-  /** 没有值的时候显示的内容 */
   placeholder?: string;
-  /** 国际化配置 */
-  locale?: {};
-  /** 隐藏禁止选择的选项 */
   hideDisabledOptions?: boolean;
-  /** 禁止选择部分小时选项 */
-  disabledHours?: Function;
-  /** 禁止选择部分分钟选项 */
-  disabledMinutes?: Function;
-  /** 禁止选择部分秒选项 */
-  disabledSeconds?: Function;
-
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
   style?: React.CSSProperties;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  addon?: Function;
+  use12Hours?: boolean;
 }
 
-export interface TimePickerContext {
-  antLocale?: {
-    TimePicker?: any,
-  };
-}
-
-export default class TimePicker extends React.Component<TimePickerProps, any> {
+abstract class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    format: 'HH:mm:ss',
     prefixCls: 'ant-time-picker',
-    onChange() {
-    },
-    locale: {},
     align: {
       offset: [0, -2],
     },
@@ -60,96 +40,92 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     transitionName: 'slide-up',
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
-  };
+  timePickerRef: any;
 
-  context: TimePickerContext;
-
-  getFormatter() {
-    return new DateTimeFormat(this.props.format as string, this.getLocale().format);
-  }
-
-  /**
-   * 获得输入框的 className
-   */
-  getSizeClass() {
-    let sizeClass = '';
-    if (this.props.size === 'large') {
-      sizeClass = ' ant-input-lg';
-    } else if (this.props.size === 'small') {
-      sizeClass = ' ant-input-sm';
+  constructor(props: TimePickerProps) {
+    super(props);
+    const value = props.value || props.defaultValue;
+    if (value && !moment.isMoment(value)) {
+      throw new Error(
+        'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
+        'see: http://u.ant.design/time-picker-value',
+      );
     }
-    return sizeClass;
+    this.state = {
+      value,
+    };
   }
 
-  /**
-   * 获得输入框的默认值
-   */
-  parseTimeFromValue(value) {
-    if (value) {
-      if (typeof value === 'string') {
-        return this.getFormatter().parse(value, {
-          locale: this.getLocale().calendar,
-          obeyCount: true,
-        });
-      } else if (value instanceof Date) {
-        let date = new GregorianCalendar(this.getLocale().calendar);
-        date.setTime(+value);
-        return date;
-      }
+  abstract getLocale()
+
+  componentWillReceiveProps(nextProps: TimePickerProps) {
+    if ('value' in nextProps) {
+      this.setState({ value: nextProps.value });
     }
-    return value;
   }
 
-  handleChange = (value) => {
-    this.props.onChange(
-      value ? new Date(value.getTime()) : null,
-      value ? this.getFormatter().format(value) : ''
-    );
-  }
-
-  getLocale() {
-    let locale = defaultLocale;
-    if (this.context.antLocale && this.context.antLocale.TimePicker) {
-      locale = this.context.antLocale.TimePicker;
+  handleChange = (value: moment.Moment) => {
+    if (!('value' in this.props)) {
+      this.setState({ value });
     }
-    // 统一合并为完整的 Locale
-    return assign({}, locale, this.props.locale);
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
+  }
+
+  saveTimePicker = (timePickerRef) => {
+    this.timePickerRef = timePickerRef;
+  }
+
+  focus() {
+    this.timePickerRef.focus();
+  }
+
+  getDefaultFormat() {
+    const { format, use12Hours } = this.props;
+    if (format) {
+      return format;
+    } else if (use12Hours) {
+      return 'h:mm:ss a';
+    }
+    return 'HH:mm:ss';
   }
 
   render() {
-    const locale = this.getLocale();
     const props = assign({}, this.props);
-    props.placeholder = ('placeholder' in this.props)
-      ? props.placeholder : locale.placeholder;
-    if (props.defaultValue) {
-      props.defaultValue = this.parseTimeFromValue(props.defaultValue);
-    } else {
-      delete props.defaultValue;
-    }
-    if (props.value) {
-      props.value = this.parseTimeFromValue(props.value);
-    }
-    let className = classNames({
-      [props.className]: !!props.className,
+    delete props.defaultValue;
+
+    const format = this.getDefaultFormat();
+    const className = classNames(props.className, {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
-    if (props.format.indexOf('ss') < 0) {
-      props.showSecond = false;
-    }
-    if (props.format.indexOf('HH') < 0) {
-      props.showHour = false;
-    }
+
+    const addon = (panel) => (
+      props.addon ? (
+        <div className={`${props.prefixCls}-panel-addon`}>
+          {props.addon(panel)}
+        </div>
+      ) : null
+    );
 
     return (
       <RcTimePicker
         {...props}
+        ref={this.saveTimePicker}
+        format={format}
         className={className}
-        locale={locale}
-        formatter={this.getFormatter() }
+        value={this.state.value}
+        placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
+        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
+        showMinute={format.indexOf('mm') > -1}
+        showSecond={format.indexOf('ss') > -1}
         onChange={this.handleChange}
-        />
+        addon={addon}
+      />
     );
   }
 }
+
+const injectTimePickerLocale = injectLocale('TimePicker', defaultLocale);
+export default injectTimePickerLocale<TimePickerProps>(TimePicker as any);

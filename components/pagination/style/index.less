@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 @import "../../input/style/mixin";
 
-@pagination-prefix-cls: ant-pagination;
+@pagination-prefix-cls: ~"@{ant-prefix}-pagination";
 
 .@{pagination-prefix-cls} {
   font-size: @font-size-base;
@@ -17,7 +17,7 @@
   }
 
   &-total-text {
-    float: left;
+    display: inline-block;
     height: 30px;
     line-height: 30px;
     margin-right: 10px;
@@ -32,15 +32,15 @@
     line-height: 28px;
     text-align: center;
     list-style: none;
-    float: left;
-    border: 1px solid @border-color-base;
-    background-color: #fff;
+    display: inline-block;
+    border: @border-width-base @border-style-base @border-color-base;
+    background-color: @component-background;
     margin-right: 8px;
     font-family: Arial;
 
     a {
       text-decoration: none;
-      color: #666;
+      color: @text-color;
       transition: none;
       margin: 0 6px;
     }
@@ -70,7 +70,7 @@
       content: "•••";
       display: block;
       letter-spacing: 2px;
-      color: #ccc;
+      color: @disabled-color;
       text-align: center;
     }
 
@@ -82,13 +82,12 @@
         font-family: "anticon";
       }
     }
-
   }
 
   &-jump-prev {
     &:hover {
       &:after {
-        content: "\e601\e601";
+        content: "\e620\e620";
       }
     }
   }
@@ -96,7 +95,7 @@
   &-jump-next {
     &:hover {
       &:after {
-        content: "\e600\e600";
+        content: "\e61f\e61f";
       }
     }
   }
@@ -112,13 +111,12 @@
   &-jump-next {
     font-family: Arial;
     cursor: pointer;
-    color: #666;
+    color: @text-color;
     border-radius: @border-radius-base;
     list-style: none;
     min-width: 28px;
     height: 28px;
     line-height: 28px;
-    float: left;
     text-align: center;
     transition: all 0.3s ease;
     display: inline-block;
@@ -126,11 +124,11 @@
 
   &-prev,
   &-next {
-    border: 1px solid @border-color-base;
-    background-color: #fff;
+    border: @border-width-base @border-style-base @border-color-base;
+    background-color: @component-background;
 
     a {
-      color: #666;
+      color: @text-color;
 
       &:after {
         .iconfont-size-under-12px(8px);
@@ -140,7 +138,6 @@
         font-family: "anticon";
         text-align: center;
       }
-
     }
 
     &:hover {
@@ -156,7 +153,7 @@
     a {
       &:after {
         margin-top: -.5px;
-        content: "\e601";
+        content: "\e620";
         display: block;
       }
     }
@@ -165,7 +162,7 @@
   &-next {
     a {
       &:after {
-        content: "\e600";
+        content: "\e61f";
         display: block;
       }
     }
@@ -175,13 +172,13 @@
     &:hover {
       border-color: @border-color-base;
       a {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
       }
     }
     cursor: not-allowed;
     a {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -190,17 +187,17 @@
   }
 
   &-options {
-    float: left;
+    display: inline-block;
     margin-left: 15px;
     &-size-changer {
-      float: left;
+      display: inline-block;
       margin-right: 10px;
     }
 
     &-quick-jumper {
-      float: left;
-      height: 28px;
-      line-height: 28px;
+      display: inline-block;
+      height: @input-height-base;
+      line-height: @input-height-base;
 
       input {
         .input;
@@ -220,15 +217,15 @@
   }
 
   &-simple &-simple-pager {
-    float: left;
+    display: inline-block;
     margin-right: 8px;
 
     input {
       margin: 0 8px;
       box-sizing: border-box;
-      background-color: #fff;
+      background-color: @component-background;
       border-radius: @border-radius-base;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       outline: none;
       padding: 5px 8px;
       width: 30px;
@@ -289,6 +286,15 @@
         .input-sm;
         width: 44px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .@{pagination-prefix-cls}-item {
+    &-after-jump-prev,
+    &-before-jump-next {
+      display: none;
     }
   }
 }

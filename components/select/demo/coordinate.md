@@ -1,6 +1,6 @@
 ---
 order: 6
-title: 
+title:
   zh-CN: 联动
   en-US: coordinate
 ---
@@ -9,7 +9,7 @@ title:
 
 省市联动是典型的例子。
 
-推荐使用 [Cascader](/components/cascader) 组件。
+推荐使用 [Cascader](/components/cascader/) 组件。
 
 ## en-US
 
@@ -22,30 +22,28 @@ Using the [Cascader](/components/cascader) component is strongly recommended ins
 import { Select } from 'antd';
 const Option = Select.Option;
 
-const provinceData = ['浙江', '江苏'];
+const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
-  浙江: ['杭州', '宁波', '温州'],
-  江苏: ['南京', '苏州', '镇江'],
+  Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
+  Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
 };
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      cities: cityData[provinceData[0]],
-      secondCity: cityData[provinceData[0]][0],
-    };
-  },
-  handleProvinceChange(value) {
+class App extends React.Component {
+  state = {
+    cities: cityData[provinceData[0]],
+    secondCity: cityData[provinceData[0]][0],
+  }
+  handleProvinceChange = (value) => {
     this.setState({
       cities: cityData[value],
       secondCity: cityData[value][0],
     });
-  },
-  onSecondCityChange(value) {
+  }
+  onSecondCityChange = (value) => {
     this.setState({
       secondCity: value,
     });
-  },
+  }
   render() {
     const provinceOptions = provinceData.map(province => <Option key={province}>{province}</Option>);
     const cityOptions = this.state.cities.map(city => <Option key={city}>{city}</Option>);
@@ -59,7 +57,8 @@ const App = React.createClass({
         </Select>
       </div>
     );
-  },
-});
+  }
+}
+
 ReactDOM.render(<App />, mountNode);
 ````

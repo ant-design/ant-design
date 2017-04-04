@@ -1,41 +1,45 @@
-import * as React from 'react';
-import splitObject from '../_util/splitObject';
+import React from 'react';
+import { PropTypes } from 'react';
 
-interface BreadcrumbItemProps {
+export interface BreadcrumbItemProps {
+  prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
 }
 
 export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps, any> {
+  static __ANT_BREADCRUMB_ITEM = true;
+
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    separator: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
+    prefixCls: PropTypes.string,
+    separator: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element,
     ]),
-    href: React.PropTypes.string,
+    href: PropTypes.string,
   };
 
   render() {
-    const [{ prefixCls, separator, children }, restProps] = splitObject(
-      this.props, ['prefixCls', 'separator', 'children']
-    );
+    const { prefixCls, separator, children, ...restProps } = this.props;
     let link;
     if ('href' in this.props) {
       link = <a className={`${prefixCls}-link`} {...restProps}>{children}</a>;
     } else {
       link = <span className={`${prefixCls}-link`} {...restProps}>{children}</span>;
     }
-    return (
-      <span>
-        {link}
-        <span className={`${prefixCls}-separator`}>{separator}</span>
-      </span>
-    );
+    if (children) {
+      return (
+        <span>
+          {link}
+          <span className={`${prefixCls}-separator`}>{separator}</span>
+        </span>
+      );
+    }
+    return null;
   }
 }

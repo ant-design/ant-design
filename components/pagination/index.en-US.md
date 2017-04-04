@@ -2,11 +2,12 @@
 category: Components
 type: Navigation
 title: Pagination
+cols: 1
 ---
 
 A long list can be divided into several pages by `Pagination`, and only one page will be loaded at a time.
 
-## When to use
+## When To Use
 
 - When it will take a long time to load/render all items.
 - If you want to browse the data by switching in the pages.
@@ -19,16 +20,16 @@ A long list can be divided into several pages by `Pagination`, and only one page
 
 Property | Description | Type | Default
 -----|-----|-----|------
-current | current page number | Number | -
-defaultCurrent | default current page number | Number | 1
-total | total number of data | Number | 0
-defaultPageSize | default number of data per page | Number | 10
-pageSize | number of data per page | Number | -
-onChange | a callback function, can be executed when the page number is changing, and it takes the resulting page number as an argument | Function | noop
-showSizeChanger | determine whether `pageSize` can be changed | Boolean | false
-pageSizeOptions | specify the sizeChanger selections | Array | ['10', '20', '30', '40']
-onShowSizeChange | a callback function, can be executed when `pageSize` is changing | Function | noop
-showQuickJumper | determine whether you can jump to a page directly | Boolean | false
-size | specify the size of `Pagination`, can be set to `small` | String | ""
-simple | whether to use simple mode | Object | -
-showTotal | to custom the total number display | Function | -
+current | current page number | number | -
+defaultCurrent | default current page number | number | 1
+total | total number of data | number | 0
+defaultPageSize | default number of data per page | number | 10
+pageSize | number of data per page | number | -
+onChange | a callback function, can be executed when the page number is changing, and it takes the resulting page number and pageSize as its arguments | Function(page, pageSize) | noop
+showSizeChanger | determine whether `pageSize` can be changed | boolean | false
+pageSizeOptions | specify the sizeChanger selections | string[] | ['10', '20', '30', '40']
+onShowSizeChange | a callback function, can be executed when `pageSize` is changing | Function(current, size) | noop
+showQuickJumper | determine whether you can jump to a page directly | boolean | false
+size | specify the size of `Pagination`, can be set to `small` | string | ""
+simple | whether to use simple mode | boolean | -
+showTotal | to display the total number and range | Function(total, range) | -

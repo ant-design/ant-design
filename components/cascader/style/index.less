@@ -1,27 +1,45 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
+@import "../../input/style/mixin";
 
-@cascader-prefix-cls: ant-cascader;
+@cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
   font-size: @font-size-base;
-  &-input.ant-input {
-    display: block;
+
+  &-input.@{ant-prefix}-input {
+    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
+    // because input.less will compile after cascader.less
+    background-color: transparent!important;
     cursor: pointer;
     width: 100%;
     z-index: 1;
   }
+
   &-picker {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    vertical-align: middle;
     font-size: @font-size-base;
     background-color: #fff;
     border-radius: @border-radius-base;
+    outline: 0;
+
+    &-with-value &-label {
+      color: transparent;
+    }
 
     &-disabled {
       cursor: not-allowed;
+      background: @input-disabled-bg;
+      color: @disabled-color;
+      .@{cascader-prefix-cls}-input {
+        cursor: not-allowed;
+      }
+    }
+
+    &:focus .@{cascader-prefix-cls}-input {
+      .active;
     }
 
     &-label {
@@ -36,7 +54,6 @@
       overflow: hidden;
       width: 100%;
       padding: 0 12px 0 8px;
-      z-index: 1;
     }
 
     &-clear {
@@ -46,8 +63,8 @@
       z-index: 2;
       background: #fff;
       top: 50%;
-      font-size: 12px;
-      color: #ccc;
+      font-size: @font-size-base;
+      color: @disabled-color;
       width: 12px;
       height: 12px;
       margin-top: -6px;
@@ -55,7 +72,7 @@
       cursor: pointer;
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
-        color: #999;
+        color: @text-color-secondary;
       }
     }
 
@@ -73,8 +90,8 @@
       height: 12px;
       margin-top: -6px;
       line-height: 12px;
-      color: #999;
-      .iconfont-size-under-12px(8px);
+      color: @text-color-secondary;
+      .iconfont-size-under-12px(9px);
       &:before {
         transition: transform 0.2s ease;
       }
@@ -87,11 +104,10 @@
     }
   }
   &-menus {
-    font-size: 12px;
+    font-size: @font-size-base;
     background: #fff;
     position: absolute;
     z-index: @zindex-dropdown;
-    border: 1px solid @border-color-base;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     white-space: nowrap;
@@ -125,7 +141,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    border-right: 1px solid @border-color-split;
+    border-right: @border-width-base @border-style-base @border-color-split;
     overflow: auto;
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
@@ -145,11 +161,11 @@
     white-space: nowrap;
     transition: all 0.3s ease;
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
     }
     &-disabled {
       cursor: not-allowed;
-      color: #ccc;
+      color: @disabled-color;
       &:hover {
         background: transparent;
       }
@@ -164,12 +180,20 @@
     &-expand {
       position: relative;
       &:after {
-        .iconfont-font("\e600");
+        .iconfont-font("\e61f");
         .iconfont-size-under-12px(8px);
-        color: #999;
+        color: @text-color-secondary;
         position: absolute;
         right: 15px;
       }
+    }
+    &-loading:after {
+      .iconfont-font("\e64d");
+      animation: loadingCircle 1s infinite linear;
+    }
+
+    & &-keyword {
+      color: @highlight-color;
     }
   }
 }

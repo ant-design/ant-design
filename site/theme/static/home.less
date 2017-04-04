@@ -1,46 +1,25 @@
-#list {
-  position: fixed;
-  z-index: 9998;
-  top: 50%;
-  right: 20px;
-  width: 6px;
-  margin-top: -35px;
-}
-.list-point {
-  width: 6px;
-  height: 6px;
-  background: #00AAEE;
-  border-radius: 6px;
-  float: left;
-  margin: 4px auto;
-  opacity: 0.5;
-  cursor: pointer;
-  transition: opacity .3s;
-}
-.list-point:hover, .list-point.active {
-  opacity: 1;
-}
-
-#banner {
+.banner-wrapper {
   position: relative;
-  height: 100%;
   width: 100%;
+  overflow: hidden;
   background: url("https://os.alipayobjects.com/rmsportal/GhjqstwSgxBXrZS.png") no-repeat center / cover;
 }
 .banner-text-wrapper {
   position: absolute;
-  left: 10%;
-  top: 55%;
+  left: 13%;
+  top: 53%;
   color: #fff;
   text-align: right;
+  font-family: Lato, @font-family;
 }
 .banner-text-wrapper h2 {
   font-size: 40px;
   font-weight: normal;
   font-family: 'Raleway', 'Hiragino Sans GB';
+  white-space: nowrap;
 }
 .banner-text-wrapper h2 p {
-  color: #FF3171;
+  color: #ff3171;
   display: inline-block;
 }
 .banner-text-wrapper .line {
@@ -61,33 +40,33 @@
 }
 
 .banner-text-wrapper .start-button {
+  @start-button-color: tint(@primary-color, 20%);
   margin-bottom: 24px;
-
+  text-align: right;
   > a {
-    float: right;
-    width: 155px;
-    height: 45px;
-    border-radius: 6px;
-    border: 1px solid #00AAEE;
-    color: #00AAEE;
-    font-size: 18px;
+    display: inline-block;
+    height: 40px;
+    padding: 0 16px;
+    font-weight: 500;
+    border-radius: @border-radius-base;
+    border: 1px solid @start-button-color;
+    color: #0ae;
+    font-size: 15px;
     background: transparent;
-    transition: box-shadow .45s ease-out;
+    transition: all .45s;
     text-align: center;
-    line-height: 42px;
-  }
-  > a:hover {
-    box-shadow: 0 0 10px #00AAEE;
-  }
-  > a span {
-    margin-left: 15px;
+    line-height: 36px;
+    margin-left: 8px;
+    &:hover {
+      color: #fff;
+      background: @start-button-color;
+    }
   }
 }
 
 .banner-text-wrapper .github-btn {
   float: right;
   line-height: 14px;
-  width: 91px;
   text-align: left;
 
   a:hover {
@@ -102,15 +81,17 @@
   color: rgba(255, 255, 255, .75);
   left: 50%;
   margin-left: -7px;
+  animation: upDownMove 1.2s ease-in-out infinite alternate;
 }
 
 .page {
   min-height: 700px;
+  height: 100vh;
 }
 
 .content-wrapper {
   width: 100%;
-  height: 100%;
+  max-width: 1500px;
   margin: auto;
   overflow: hidden;
   background: #fff;
@@ -126,19 +107,22 @@
     float: left;
     position: relative;
     top: 20%;
-    left: 10px;
+    left: -30px;
+    font-family: Lato, @font-family;
+    z-index: 1;
   }
   .text-wrapper h2,
   .text-wrapper-bottom h2 {
     font-size: 32px;
-    color: #666;
+    color: @text-color;
     font-weight: normal;
+    white-space: nowrap;
   }
   .text-wrapper p {
     margin: 10px 0 20px;
     font-size: 16px;
     line-height: 28px;
-    color: #999999;
+    color: #999;
   }
   .left-text {
     padding-left: 10%;
@@ -180,4 +164,10 @@
   font-size: 16px;
   line-height: 28px;
   color: #999;
+}
+
+@keyframes upDownMove {
+  to {
+    transform: translateY(10px);
+  }
 }

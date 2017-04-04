@@ -11,10 +11,10 @@ title:
 
 ## en-US
 
-Basic usage example
+Basic usage example.
 
 ````jsx
 import { Input } from 'antd';
 
-ReactDOM.render(<Input placeholder="基本使用" />, mountNode);
+ReactDOM.render(<Input placeholder="Basic usage" />, mountNode);
 ````

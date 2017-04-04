@@ -1,11 +1,11 @@
+import React from 'react';
 import { PropTypes } from 'react';
-import * as React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
-import defaultLocale from './locale/zh_CN';
+import moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
-import assign from 'object-assign';
+import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
+declare const require: Function;
 
 function noop() { return null; }
 
@@ -16,47 +16,59 @@ function zerofixed(v) {
   return `${v}`;
 }
 
-interface CalendarContext {
+export interface CalendarContext {
   antLocale?: {
-    Calendar?: any
+    Calendar?: any,
   };
 }
+
+export type CalendarMode = 'month' | 'year';
 
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
-  value?: Date;
-  defaultValue?: Date;
-  mode?: 'month' | 'year';
+  value?: moment.Moment;
+  defaultValue?: moment.Moment;
+  mode?: CalendarMode;
   fullscreen?: boolean;
-  dateCellRender?: (date) => React.ReactNode;
-  monthCellRender?: (month) => React.ReactNode;
+  dateCellRender?: (date: moment.Moment) => React.ReactNode;
+  monthCellRender?: (date: moment.Moment) => React.ReactNode;
+  dateFullCellRender?: (date: moment.Moment) => React.ReactNode;
+  monthFullCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
-  onPanelChange?: (date: Date, mode: string) => void;
+  onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
+  onSelect?: (date?: moment.Moment) => void;
 }
 
-export default class Calendar extends React.Component<CalendarProps, any> {
+export interface CalendarState {
+  value?: moment.Moment;
+  mode?: CalendarMode;
+}
+
+export default class Calendar extends React.Component<CalendarProps, CalendarState> {
   static defaultProps = {
-    monthCellRender: noop,
-    dateCellRender: noop,
     locale: {},
     fullscreen: true,
     prefixCls: PREFIX_CLS,
-    onPanelChange: noop,
     mode: 'month',
+    onSelect: noop,
+    onPanelChange: noop,
   };
 
   static propTypes = {
     monthCellRender: PropTypes.func,
     dateCellRender: PropTypes.func,
+    monthFullCellRender: PropTypes.func,
+    dateFullCellRender: PropTypes.func,
     fullscreen: PropTypes.bool,
     locale: PropTypes.object,
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
     onPanelChange: PropTypes.func,
-    value: PropTypes.instanceOf(Date),
+    value: PropTypes.object,
+    onSelect: PropTypes.func,
   };
 
   static contextTypes = {
@@ -65,96 +77,118 @@ export default class Calendar extends React.Component<CalendarProps, any> {
 
   context: CalendarContext;
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+    // Make sure that moment locale had be set correctly.
+    getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
+
+    const value = props.value || props.defaultValue || moment();
+    if (!moment.isMoment(value)) {
+      throw new Error(
+        'The value/defaultValue of Calendar must be a moment object after `antd@2.0`, ' +
+        'see: http://u.ant.design/calendar-value',
+      );
+    }
     this.state = {
-      value: this.parseDateFromValue(props.value || new Date()),
+      value,
       mode: props.mode,
     };
   }
 
-  parseDateFromValue(value) {
-    const date = new GregorianCalendar(this.getLocale());
-    date.setTime(+value);
-    return date;
-  }
-
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: CalendarProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: this.parseDateFromValue(nextProps.value),
+        value: nextProps.value,
       });
     }
   }
 
-  getLocale = () => {
-    const props = this.props;
-    let locale = defaultLocale;
-    const context = this.context;
-    if (context && context.antLocale && context.antLocale.Calendar) {
-      locale = context.antLocale.Calendar;
-    }
-    // 统一合并为完整的 Locale
-    const result = assign({}, locale, props.locale);
-    result.lang = assign({}, locale.lang, props.locale.lang);
-    return result;
-  }
-
-  monthCellRender = (value, locale) => {
-    const prefixCls = this.props.prefixCls;
-    const month = value.getMonth();
+  monthCellRender = (value) => {
+    const { prefixCls, monthCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
-          {locale.format.shortMonths[month]}
+          {value.localeData().monthsShort(value)}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.monthCellRender(value)}
+          {monthCellRender(value)}
         </div>
       </div>
     );
   }
 
   dateCellRender = (value) => {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, dateCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>
-          {zerofixed(value.getDayOfMonth())}
+          {zerofixed(value.date())}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.dateCellRender(value)}
+          {dateCellRender(value)}
         </div>
       </div>
     );
   }
 
-  setValue = (value) => {
-    if (!('value' in this.props) && this.state.value !== value) {
+  setValue = (value, way: 'select' | 'changePanel') => {
+    if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onPanelChange(value, this.state.mode);
+    if (way === 'select') {
+      if (this.props.onSelect) {
+        this.props.onSelect(value);
+      }
+    } else if (way === 'changePanel') {
+      this.onPanelChange(value, this.state.mode);
+    }
   }
 
   setType = (type) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
       this.setState({ mode });
-      this.props.onPanelChange(this.state.value, mode);
+      this.onPanelChange(this.state.value, mode);
     }
   }
 
+  onHeaderValueChange = (value) => {
+    this.setValue(value, 'changePanel');
+  }
+
+  onHeaderTypeChange = (type) => {
+    this.setType(type);
+  }
+
+  onPanelChange(value, mode) {
+    const { onPanelChange } = this.props;
+    if (onPanelChange) {
+      onPanelChange(value, mode);
+    }
+  }
+
+  onSelect = (value) => {
+    this.setValue(value, 'select');
+  }
+
   render() {
-    const props = this.props;
-    const { value, mode } = this.state;
-    const { prefixCls, style, className, fullscreen } = props;
+    const { state, props, context } = this;
+    const { value, mode } = state;
+    const localeCode = getLocaleCode(context);
+    if (value && localeCode) {
+      value.locale(localeCode);
+    }
+    const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = this.getLocale();
+    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
 
     let cls = className || '';
     if (fullscreen) {
       cls += (` ${prefixCls}-fullscreen`);
     }
+
+    const monthCellRender = monthFullCellRender || this.monthCellRender;
+    const dateCellRender = dateFullCellRender || this.dateCellRender;
 
     return (
       <div className={cls} style={style}>
@@ -164,8 +198,8 @@ export default class Calendar extends React.Component<CalendarProps, any> {
           value={value}
           locale={locale.lang}
           prefixCls={prefixCls}
-          onTypeChange={this.setType}
-          onValueChange={this.setValue}
+          onTypeChange={this.onHeaderTypeChange}
+          onValueChange={this.onHeaderValueChange}
         />
         <FullCalendar
           {...props}
@@ -175,8 +209,9 @@ export default class Calendar extends React.Component<CalendarProps, any> {
           prefixCls={prefixCls}
           showHeader={false}
           value={value}
-          monthCellRender={this.monthCellRender}
-          dateCellRender={this.dateCellRender}
+          monthCellRender={monthCellRender}
+          dateCellRender={dateCellRender}
+          onSelect={this.onSelect}
         />
       </div>
     );

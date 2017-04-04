@@ -1,24 +1,25 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../row';
 import Col from '../col';
 import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
+import warning from '../_util/warning';
 
 export interface FormItemLabelColOption {
   span: number;
-  offset: number;
+  offset?: number;
 }
 
 export interface FormItemProps {
   prefixCls?: string;
   id?: string;
-  label?: string;
+  label?: React.ReactNode;
   labelCol?: FormItemLabelColOption;
   wrapperCol?: FormItemLabelColOption;
   help?: React.ReactNode;
-  extra?: string;
+  extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
   hasFeedback?: boolean;
   className?: string;
@@ -29,6 +30,7 @@ export interface FormItemProps {
 
 export interface FormItemContext {
   form: WrappedFormUtils;
+  vertical: boolean;
 }
 
 export default class FormItem extends React.Component<FormItemProps, any> {
@@ -40,7 +42,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.string,
+    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -54,9 +56,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static contextTypes = {
     form: React.PropTypes.object,
+    vertical: React.PropTypes.bool,
   };
 
   context: FormItemContext;
+
+  componentDidMount() {
+    warning(
+      this.getControls(this.props.children, true).length <= 1,
+      '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
+      'while there are more than one `getFieldDecorator` in it.',
+    );
+  }
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
@@ -72,11 +83,32 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return props.help;
   }
 
+  getControls(children, recursively: boolean) {
+    let controls: React.ReactElement<any>[] = [];
+    const childrenArray = React.Children.toArray(children);
+    for (let i = 0; i < childrenArray.length; i++) {
+      if (!recursively && controls.length > 0) {
+        break;
+      }
+
+      const child = childrenArray[i] as React.ReactElement<any>;
+      if (child.type as any === FormItem) {
+        continue;
+      }
+      if (!child.props) {
+        continue;
+      }
+      if (FIELD_META_PROP in child.props) {
+        controls.push(child);
+      } else if (child.props.children) {
+        controls = controls.concat(this.getControls(child.props.children, recursively));
+      }
+    }
+    return controls;
+  }
+
   getOnlyControl() {
-    const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c: React.ReactElement<any>) => {
-      return c.props && FIELD_META_PROP in c.props;
-    })[0];
+    const child = this.getControls(this.props.children, false)[0];
     return child !== undefined ? child : null;
   }
 
@@ -106,21 +138,24 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderExtra() {
     const { prefixCls, extra } = this.props;
     return extra ? (
-      <span className={`${prefixCls}-extra`}>{extra}</span>
+      <div className={`${prefixCls}-extra`}>{extra}</div>
     ) : null;
   }
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.getId();
-    if (!field) {
+    const fieldId = this.getId();
+    if (!fieldId) {
       return '';
     }
-    if (isFieldValidating(field)) {
+    if (isFieldValidating(fieldId)) {
       return 'validating';
-    } else if (!!getFieldError(field)) {
+    }
+    if (!!getFieldError(fieldId)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined) {
+    }
+    const fieldValue = getFieldValue(fieldId);
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
     return '';
@@ -142,7 +177,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',
           'is-validating': validateStatus === 'validating',
-        }
+        },
       );
     }
     return (
@@ -155,13 +190,17 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <Col {...wrapperCol} key="wrapper">
+      <Col className={`${this.props.prefixCls}-item-control-wrapper`} {...wrapperCol} key="wrapper">
         {children}
       </Col>
     );
   }
 
   isRequired() {
+    const { required } = this.props;
+    if (required !== undefined) {
+      return required;
+    }
     if (this.context.form) {
       const meta = this.getMeta() || {};
       const validate = (meta.validate || []);
@@ -174,26 +213,30 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderLabel() {
-    const props = this.props;
-    const labelCol = props.labelCol;
-    const required = props.required === undefined ?
-      this.isRequired() :
-      props.required;
+    const { label, labelCol, prefixCls, colon, id } = this.props;
+    const context = this.context;
+    const required = this.isRequired();
 
     const className = classNames({
-      [`${props.prefixCls}-item-required`]: required,
+      [`${prefixCls}-item-required`]: required,
     });
 
-    // remove user input colon
-    let label = props.label;
-    if (typeof label === 'string' && label.trim() !== '') {
-      label = props.label.replace(/[：|:]\s*$/, '');
+    let labelChildren = label;
+    // Keep label is original where there should have no colon
+    const haveColon = colon && !context.vertical;
+    // Remove duplicated user input colon
+    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
+      labelChildren = (label as string).replace(/[：|:]\s*$/, '');
     }
 
-    return props.label ? (
-      <Col {...labelCol} key="label" className={`${props.prefixCls}-item-label`}>
-        <label htmlFor={props.id || this.getId()} className={className}>
-          {label}
+    return label ? (
+      <Col {...labelCol} key="label" className={`${prefixCls}-item-label`}>
+        <label
+          htmlFor={id || this.getId()}
+          className={className}
+          title={typeof label === 'string' ? label : ''}
+        >
+          {labelChildren}
         </label>
       </Col>
     ) : null;
@@ -201,7 +244,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child: React.ReactElement<any>) => {
+    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }
@@ -213,8 +256,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         this.renderValidateWrapper(
           children,
           this.renderHelp(),
-          this.renderExtra()
-        )
+          this.renderExtra(),
+        ),
       ),
     ];
   }

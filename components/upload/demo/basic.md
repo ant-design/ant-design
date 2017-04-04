@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 点击上传
   en-US: Upload by clicking
 ---
@@ -11,14 +11,14 @@ title:
 
 ## en-US
 
-Classic mode. File selection dialog pops up when upload button is clicked 
+Classic mode. File selection dialog pops up when upload button is clicked.
 
 ````jsx
 import { Upload, message, Button, Icon } from 'antd';
 
 const props = {
   name: 'file',
-  action: '/upload.do',
+  action: '//jsonplaceholder.typicode.com/posts/',
   headers: {
     authorization: 'authorization-text',
   },
@@ -27,17 +27,17 @@ const props = {
       console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
-      message.success(`${info.file.name} 上传成功。`);
+      message.success(`${info.file.name} file uploaded successfully`);
     } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} 上传失败。`);
+      message.error(`${info.file.name} file upload failed.`);
     }
   },
 };
 
 ReactDOM.render(
   <Upload {...props}>
-    <Button type="ghost">
-      <Icon type="upload" /> 点击上传
+    <Button>
+      <Icon type="upload" /> Click to Upload
     </Button>
   </Upload>
 , mountNode);

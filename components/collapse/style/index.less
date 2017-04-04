@@ -1,51 +1,54 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@collapse-prefix-cls: ant-collapse;
+@collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
 .collapse-close() {
-  .iconfont-size-under-12px(7px, 270deg);
+  .iconfont-size-under-12px(9px, 0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(7px, 360deg);
+  .iconfont-size-under-12px(9px, 90deg);
 }
 
 .@{collapse-prefix-cls} {
   background-color: @background-color-base;
-  border-radius: 3px;
-  border: 1px solid @border-color-base;
+  border-radius: @border-radius-base;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-bottom: 0;
 
   & > &-item {
-    border-top: 1px solid @border-color-base;
-    &:first-child {
-      border-top: 0;
-    }
-
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
       padding-left: 32px;
-      color: #666;
+      color: @heading-color;
       cursor: pointer;
       position: relative;
+      transition: all .3s;
+
+      &:active {
+        background-color: #eee!important;
+      }
 
       .arrow {
         .collapse-close();
         .iconfont-mixin();
         position: absolute;
-        color: #666;
+        color: @text-color-secondary;
         display: inline-block;
-        margin-right: 8px;
+        font-weight: bold;
         line-height: 40px;
-        content: "\e611";
         vertical-align: middle;
-        transition: transform 0.24s ease;
+        transition: transform 0.24s;
         top: 0;
         left: 16px;
+        /* stylelint-disable declaration-block-no-duplicate-properties */
         top: ~"16px \9";
         left: ~"0 \9";
+        /* stylelint-enable declaration-block-no-duplicate-properties */
         &:before {
-          content: "\e611";
+          content: "\E61F";
         }
       }
     }
@@ -59,7 +62,7 @@
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
-    background-color: #fff;
+    background-color: @component-background;
 
     & > &-box {
       padding-top: 16px;
@@ -73,13 +76,34 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
   & > &-item > &-header[aria-expanded="true"] {
     .arrow {
       .collapse-open();
+    }
+  }
+
+  &-borderless {
+    background-color: @component-background;
+    border: 0;
+  }
+
+  &-borderless > &-item-active {
+    border: 0;
+  }
+
+  &-borderless > &-item > &-content {
+    background-color: transparent;
+    border-top: @border-width-base @border-style-base @border-color-base;
+  }
+
+  &-borderless > &-item > &-header {
+    transition: all .3s;
+    &:hover {
+      background-color: @background-color-base;
     }
   }
 }

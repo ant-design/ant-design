@@ -1,106 +1,107 @@
 ---
 category: Components
-type: Basic
+type: Layout
 cols: 1
-english: Layout
+title: Layout
 ---
 
-24 Grids System。
+Handling the overall layout of a page.
 
-## Design concept
+## Specification
 
-<div class="layout-demo">
-<div class="ant-row demo-row">
-  <div class="ant-col-24 demo-col demo-col-1">
-    100%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-6 demo-col demo-col-2">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-3">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-2">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-3">
-    25%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-8 demo-col demo-col-4">
-    33.33%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-5">
-    33.33%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-4">
-    33.33%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-12 demo-col demo-col-1">
-    50%
-  </div>
-  <div class="ant-col-12 demo-col demo-col-3">
-    50%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-16 demo-col demo-col-4">
-    66.66%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-5">
-    33.33%
-  </div>
-</div>
-</div>
+### Size
 
-In most business situations,Ant Design need solve a lot of information storage problems within the design area,so based on 12 Grids System,we divided the design area into 24 aliquots.
+The first level of the navigation is placed near by a logo inclined left, and the secondary menu is placed inclined right.
 
-We name the divided area as 'box'.We suggest that four boxes horizontal arrangement at most, one at least.Box on the proportion of the entire screen as above picture.To ensure that the level of visual comfort,we custom typography inside of the box based on the box unit.
+- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level of navigation `48px`。
+- Top Navigation(contents page): the height of the first level navigation `80px`, the second level of navigation `56px`。
+- Calculation formula of a top navigation:`48+8n`.
+- Calculation formula a aside navigation:`200+8n`.
 
-## Outline
+### Interaction rules
 
-In the grid system, we define the frame outside the information area based on row and colum,to ensure that every area can steady arrangement.
+- The first level navigation and the last level navigation should be distincted by visualization;
+- The current item should have the highest priority of visualization;
+- When the current navigation item is collapsed, the stlye of the current navigation item will be applied to the parent level of it;
+- The left side navigation bar support for both the according and the expanding style, you can choose the one of it case by case.
 
-Following is a brief look at how it works:
+## Visualization rules
 
-* To establish a set of `column` in the horizontal direction by` row` (abbreviated col)
-* Direct your content elements should be placed in the `col`, and only` col` as the `row`
-* The column grid system is a value of 1-24 to represent its range spans.For example, three columns of equal width can be created by `.col-8`.
-* If a `row` sum of` col` more than 24, then the extra `col` as a whole will start a new line arrangement.
+ Style of a navigation should conform to the level of it.
 
-## Flex layout
+- **Emphasis by colorblock**
 
-Our grid systems support Flex layout to allow the child elements within the parent horizontal alignment - Left, center, right of abode, and other wide arrangement, decentralized arrangement. Between sub-elements and sub-elements, support the top of the aligned vertically centered, bottom-aligned manner. At the same time, you can define the order of elements by using 'order'.
+  When background color is a deep color, you can use this pattern for the parent level navigation item of current page.
 
-Flex layout is based on a grid 24 to define each "box" in width, but not rigidly adhere to the grid layout.
+- **The highlight match stick**
+
+  When background color is a light color, you can use this pattern for the current page navigation item, we recommed to use it for the last item of the navigation path.
+
+- **Hightlighted font**
+
+  From the visualization aspect, hightlighted font is stronger than colorblock, this pattern is often used for the parent level of the current item.
+
+- **Enlarge the size of the font**
+
+  `12px`、`14px` is a standard font size of navigations，14 is used for the first and the second level of the navigation. You can choose a approprigate font size in terms of the level of your navigation.
+
+## Component Overview
+
+- `Layout`: The layout wrapper, in which `Header` `Sider` `Content` `Footer` or `Layout` itself can be nested, and can be placed in any parent container.
+- `Header`: The top layout with default style, in which any element can be nested, and must be placed in `Layout`.
+- `Sider`: The sidebar with default style and basic functions, in which any element can be nested, and must be placed in `Layout`.
+- `Content`: The content layout with default style, in which any element can be nested, and must be placed in `Layout`.
+- `Footer`: The bottom layout with default style, in which any element can be nested, and must be placed in `Layout`.
+
+> Base on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
 
 ## API
 
-Ant Design layout component if it can not meet your needs, you can use the excellent layout of the components of the community:
+```jsx
+<Layout>
+  <Header>header</Header>
+  <Layout>
+    <Sider>left sidebar</Sider>
+    <Content>main content</Content>
+    <Sider>right sidebar</Sider>
+  </Layout>
+  <Footer>footer</Footer>
+</Layout>
+```
 
-- [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
-- [react-blocks](http://whoisandie.github.io/react-blocks/)
+### Layout
 
-### Row
+The wrapper.
 
-| Member        | Explanation             | Type               | Default       |
-|------------|-----------------|--------------------|-------------|
-| gutter     | grid spacing   | number | 0        |
-| type     | layout mode, the optional `flex`, effective modern browser | string |         |
-| align     | the vertical alignment of the layout of flex: `top` ` middle` `bottom`  | string | `top`      |
-| justify   | horizontal arrangement of the layout of flex: `start` ` end` `center` ` space-around` `space-between`   | string | `start`        |
+Property | Description | Type | Default
+-----|-----|-----|------
+style | to custom the styles | object | -
+className | container className | string | -
 
-### Col
+> API of `Layout.Header` `Layout.Footer` `Layout.Content` is the same with `Layout`.
 
-| Member        | Explanation             | Type               | Default       |
-|------------|-----------------|--------------------|-------------|
-| span     | raster occupying the number of cells,0 corresponds to `display: none`  | number | none        |
-| order     | raster order, under `flex` effective layout mode   | number | 0        |
-| offset     | the number of cells to the left of the grid spacing, no cell in grid spaceing  | number | 0        |
-| push     | the number of cells that raster move to the right | number | 0        |
-| pull     | the number of cells that raster move to the left   | number | 0        |
+### Layout.Sider
+
+The sidebar.
+
+Property | Description | Type | Default
+-----|-----|-----|------
+collapsible | whether can be collapsed | boolean | false
+defaultCollapsed | to set the initial status | boolean | false  |
+collapsed | to set the current status | boolean | -
+onCollapse | the callback function, can be executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
+trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
+width | width of the sidebar | number\|string | 200
+collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
+breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
+style | to custom the styles | object | -
+className | container className | string | -
+
+> Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
+
+```jsx
+const CustomizedSider = (props) => <Sider {...props} />
+CustomizedSider.__ANT_LAYOUT_SIDER = true;
+...
+<CustomizedSider>Sider Content</CustomizedSider>
+```

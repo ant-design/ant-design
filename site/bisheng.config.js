@@ -1,64 +1,53 @@
 const path = require('path');
-
-function pickerGenerator(module) {
-  const tester = new RegExp(`^docs/${module}`);
-  return (markdownData) => {
-    const filename = markdownData.meta.filename;
-    if (tester.test(filename) &&
-        !/\/demo$/.test(path.dirname(filename)) &&
-        !/\.en-US\.md/.test(filename)) {
-      return {
-        meta: markdownData.meta,
-      };
-    }
-  };
-}
+const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 module.exports = {
   port: 8001,
-  source: [
-    './components',
-    './docs',
-    'CHANGELOG.md', // TODO: fix it in bisheng
-  ],
-  lazyLoad(nodePath, nodeValue) {
-    if (typeof nodeValue === 'string') {
-      return true;
-    }
-    return nodePath.endsWith('/demo');
-  },
-  pick: {
-    components(markdownData) {
-      const filename = markdownData.meta.filename;
-      if (!/^components/.test(filename) ||
-          /\/demo$/.test(path.dirname(filename)) ||
-          /\.en-US\.md/.test(filename)) return;
-
-      return {
-        meta: markdownData.meta,
-      };
-    },
-    changelog(markdownData) {
-      if (markdownData.meta.filename === 'CHANGELOG.md') {
-        return {
-          meta: markdownData.meta,
-        };
-      }
-    },
-    'docs/pattern': pickerGenerator('pattern'),
-    'docs/practice': pickerGenerator('practice'),
-    'docs/react': pickerGenerator('react'),
-    'docs/resource': pickerGenerator('resource'),
-    'docs/spec': pickerGenerator('spec'),
+  source: {
+    components: './components',
+    docs: './docs',
+    changelog: [
+      'CHANGELOG.zh-CN.md',
+      'CHANGELOG.en-US.md',
+    ],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
-  plugins: [
-    'bisheng-plugin-description',
-    'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-react?lang=__react',
-    'bisheng-plugin-antd',
-  ],
+  themeConfig: {
+    categoryOrder: {
+      设计原则: 2,
+      Principles: 2,
+    },
+    typeOrder: {
+      General: 0,
+      Layout: 1,
+      Navigation: 2,
+      'Data Entry': 3,
+      'Data Display': 4,
+      Feedback: 5,
+      Localization: 6,
+      Other: 7,
+    },
+    docVersions: {
+      '0.9.x': 'http://09x.ant.design',
+      '0.10.x': 'http://010x.ant.design',
+      '0.11.x': 'http://011x.ant.design',
+      '0.12.x': 'http://012x.ant.design',
+      '1.x': 'http://1x.ant.design',
+    },
+  },
+  filePathMapper(filePath) {
+    if (filePath === '/index.html') {
+      return ['/index.html', '/index-cn.html'];
+    }
+    if (filePath.endsWith('/index.html')) {
+      return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
+    }
+    if (filePath !== '/404.html' && filePath !== '/index-cn.html') {
+      return [filePath, filePath.replace(/\.html$/, '-cn.html')];
+    }
+    return filePath;
+  },
   doraConfig: {
     verbose: true,
     plugins: ['dora-plugin-upload'],
@@ -66,19 +55,20 @@ module.exports = {
   webpackConfig(config) {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
-      antd: process.cwd(),
+      antd: path.join(process.cwd(), 'index'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
 
     config.babel.plugins.push([
-      require.resolve('babel-plugin-antd'),
+      require.resolve('babel-plugin-transform-runtime'),
       {
-        style: true,
-        libraryName: 'antd',
-        libDir: 'components',
+        polyfill: false,
+        regenerator: true,
       },
     ]);
+
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },

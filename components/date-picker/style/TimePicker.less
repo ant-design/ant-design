@@ -1,9 +1,8 @@
-.@{timepicker-prefix-cls} {
+.@{calendar-timepicker-prefix-cls} {
   position: absolute;
   width: 100%;
   top: 34px;
-  background-color: white;
-  height: 206px;
+  background-color: @component-background;
 
   &-panel {
     z-index: @zindex-picker;
@@ -16,78 +15,48 @@
     position: relative;
     outline: none;
     list-style: none;
-    font-size: 12px;
+    font-size: @font-size-base;
     text-align: left;
-    background-color: #fff;
+    background-color: @component-background;
     background-clip: padding-box;
     line-height: 1.5;
     overflow: hidden;
-  }
-
-  &-input {
-    margin: 0;
-    padding: 0;
-    border: 0;
     width: 100%;
-    cursor: auto;
-    line-height: 1.5;
-    outline: 0;
+  }
+  &-combobox {
+    width: 100%;
+  }
 
-    &-wrap {
-      display: none;
-      box-sizing: border-box;
-      position: relative;
-      padding: 6px;
-      border-bottom: 1px solid @border-color-split;
+  &-1-column,
+  &-1-column &-select {
+    width: 100%;
+  }
+  &-2-columns &-select {
+    width: 50%;
+  }
+  &-1-column &-select,
+  &-2-columns &-select {
+    li {
+      padding: 0;
+      text-align: center;
     }
-
-    &-invalid {
-      border-color: red;
-    }
   }
 
-  &-clear-btn {
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 5px;
-    margin: 0;
-  }
-
-  &-clear-btn:after {
-    content: "\e631";
-    font-family: "anticon";
-    font-size: 12px;
-    color: #ccc;
-    display: inline-block;
-    line-height: 1;
-    width: 20px;
-    transition: color 0.3s ease;
-  }
-
-  &-clear-btn:hover:after {
-    color: #999;
-  }
-
-  &-narrow &-input-wrap {
-    max-width: 111px;
+  &-input-wrap {
+    display: none;
   }
 
   &-select {
     float: left;
-    font-size: 12px;
-    border: 1px solid @border-color-split;
+    font-size: @font-size-base;
+    border: @border-width-base @border-style-base @border-color-split;
     border-width: 0 1px;
     margin-left: -1px;
     box-sizing: border-box;
-    width: 77px;
+    width: 33.6%;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
+    height: 206px;
 
     &:hover {
       overflow-y: auto;
@@ -112,7 +81,7 @@
     }
 
     li {
-      text-align: center;
+      padding: 0 0 0 28px;
       list-style: none;
       box-sizing: content-box;
       margin: 0;
@@ -131,7 +100,7 @@
     }
 
     li:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
     }
 
     li&-option-selected {
@@ -143,119 +112,46 @@
       color: @btn-disable-color;
       &:hover {
         background: transparent;
-        cursor: @cursor-disabled;
+        cursor: not-allowed;
       }
     }
   }
-
-  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
-  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
-    animation-name: antSlideDownIn;
-  }
-
-  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-  &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
-  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
-    animation-name: antSlideUpIn;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
-  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
-    animation-name: antSlideDownOut;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
-  &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
-    animation-name: antSlideUpOut;
-  }
 }
 
-.@{timepicker-prefix-cls} {
-  display: inline-block;
-  outline: none;
-  font-size: @font-size-base;
-
-  &-input {
-    .input;
-    width: 100px;
+.@{calendar-prefix-cls}-time {
+  .@{calendar-prefix-cls}-day-select {
+    padding: 0 2px;
+    font-weight: bold;
+    display: inline-block;
+    color: @text-color;
+    line-height: 34px;
   }
 
-  &-large &-input {
-    .input-lg;
-  }
+  .@{calendar-prefix-cls}-footer {
+    text-align: right;
+    position: relative;
+    height: auto;
+    line-height: auto;
 
-  &-small &-input {
-    .input-sm;
-  }
-
-  &-open {
-    opacity: 0;
-  }
-
-  &-icon {
-    position: absolute;
-    user-select: none;
-    transition: all .3s @ease-in-out;
-    width: 12px;
-    height: 12px;
-    line-height: 12px;
-    right: 8px;
-    color: #999;
-    top: 50%;
-    margin-top: -6px;
-    &:after {
-      content: "\e643";
-      font-family: "anticon";
-      font-size: 12px;
-      color: #999;
-      display: inline-block;
-      line-height: 1;
-      vertical-align: bottom;
-    }
-  }
-}
-
-
-.@{calendar-prefix-cls} {
-  &-time {
-    .@{calendar-prefix-cls}-day-select {
-      padding: 0 2px;
-      font-weight: bold;
-      display: inline-block;
-      color: #666;
-      line-height: 34px;
-    }
-
-    .@{calendar-prefix-cls}-footer {
-      border-top: 1px solid @border-color-split;
+    &-btn {
       padding: 10px 0;
+      line-height: 1.5;
       text-align: right;
-      position: relative;
-      height: auto;
-      line-height: auto;
+    }
 
-      &-btn {
-        line-height: 1.5;
-        text-align: right;
-      }
+    .@{calendar-prefix-cls}-today-btn {
+      float: left;
+      margin: 0;
+      padding-left: 12px;
+    }
 
-      .@{calendar-prefix-cls}-today-btn {
-        float: left;
-        margin: 0;
-        padding-left: 12px;
-      }
+    .@{calendar-prefix-cls}-time-picker-btn {
+      display: inline-block;
+      text-align: center;
+      margin-right: 60px;
 
-      .@{calendar-prefix-cls}-time-picker-btn {
-        display: inline-block;
-        text-align: center;
-        margin-right: 60px;
-
-        &-disabled {
-          color: #ccc;
-        }
+      &-disabled {
+        color: @disabled-color;
       }
     }
   }

@@ -1,6 +1,8 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
+@input-affix-width: 17;
+
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal;
@@ -10,27 +12,26 @@
 .input-sm() {
   padding: @input-padding-vertical-sm @input-padding-horizontal;
   height: @input-height-sm;
-  border-radius: @border-radius-sm;
 }
 
 // input status
 // == when focus or actived
-.active(@color: @input-hover-border-color) {
-  border-color: tint(@color, 20%);
+.active(@color: @outline-color) {
+  border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
-  box-shadow: 0 0 0 2px fade(@color, 20%);
+  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: tint(@color, 20%);
+  border-color: ~`colorPalette("@{color}", 5)`;
 }
 
 .disabled() {
   background-color: @input-disabled-bg;
   opacity: 1;
-  cursor: @cursor-disabled;
-  color: #ccc;
+  cursor: not-allowed;
+  color: @disabled-color;
   &:hover {
     .hover(@input-border-color);
   }
@@ -49,10 +50,10 @@
   color: @input-color;
   background-color: @input-bg;
   background-image: none;
-  border: 1px solid @input-border-color;
+  border: @border-width-base @border-style-base @input-border-color;
   border-radius: @border-radius-base;
   .placeholder(); // Reset placeholder
-  transition: border .2s @ease-in-out, background .2s @ease-in-out, box-shadow .2s @ease-in-out;
+  transition: all .3s;
 
   &:hover {
     .hover();
@@ -62,9 +63,8 @@
     .active();
   }
 
-  &[disabled],
-  fieldset[disabled] & {
-   .disabled();
+  &[disabled] {
+    .disabled();
   }
 
   // Reset height for `textarea`s
@@ -84,28 +84,12 @@
   }
 }
 
-// Input with icons, you can define @height if you wish to change the input size
-.input-with-icon(@height: @input-height-base) {
-  position: relative;
-
-  .@{iconfont-css-prefix} {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    .square(@height);
-    font-size: 14px;
-    line-height: @height;
-    text-align: center;
-    pointer-events: none;
-  }
-}
-
 // label input
 .input-group(@inputClass) {
   position: relative;
   display: table;
   border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
 
   // Undo padding and float of grid classes
@@ -131,7 +115,7 @@
 
   &-addon,
   &-wrap {
-    width: 1%;
+    width: 1px; // To make addon/wrap as small as possible
     white-space: nowrap;
     vertical-align: middle;
   }
@@ -141,8 +125,6 @@
   }
 
   .@{inputClass} {
-    position: relative;
-    z-index: 2;
     float: left;
     width: 100%;
     margin-bottom: 0;
@@ -156,26 +138,39 @@
     color: @input-color;
     text-align: center;
     background-color: #eee;
-    border: 1px solid @input-border-color;
+    border: @border-width-base @border-style-base @input-border-color;
     border-radius: @border-radius-base;
+    position: relative;
+    transition: all .3s;
 
     // Reset Select's style in addon
-    .ant-select {
+    .@{ant-prefix}-select {
       margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
 
-      .ant-select-selection {
+      .@{ant-prefix}-select-selection {
         background-color: inherit;
-        border: 0;
         margin: -1px;
-        border: 1px solid transparent;
+        border: @border-width-base @border-style-base transparent;
+        box-shadow: none;
       }
 
       &-open,
       &-focused {
-        .ant-select-selection {
-          border-color: tint(@primary-color, 20%);
+        .@{ant-prefix}-select-selection {
+          color: @primary-color;
         }
       }
+    }
+
+    // Expand addon icon click area
+    // https://github.com/ant-design/ant-design/issues/3714
+    > i:only-child:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
   }
 
@@ -187,7 +182,19 @@
     border-top-right-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  > .@{inputClass}-affix-wrapper {
+    &:not(:first-child) .@{inputClass} {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:not(:last-child) .@{inputClass} {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
     }
@@ -206,7 +213,7 @@
     border-top-left-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
     }
@@ -221,5 +228,86 @@
   &-sm .@{inputClass},
   &-sm > &-addon {
     .input-sm();
+  }
+
+  .@{inputClass}-affix-wrapper {
+    display: table-cell;
+    width: 100%;
+    float: left;
+  }
+
+  &&-compact {
+    & > * {
+      border-radius: 0;
+      border-right-width: 0;
+      vertical-align: middle;
+    }
+
+    // Undo float for .ant-input-group .ant-input
+    .@{inputClass} {
+      float: none;
+      z-index: auto;
+    }
+
+    // reset border for Select, datePicker
+    & > .@{ant-prefix}-select > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input {
+      border-radius: 0;
+      border-right-width: 0;
+    }
+
+    & > *:first-child,
+    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input {
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
+
+    & > *:last-child,
+    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input {
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+      border-right-width: 1px;
+    }
+  }
+}
+
+.input-affix-wrapper(@inputClass) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .@{inputClass} {
+    z-index: 1;
+  }
+
+  &:hover .@{inputClass} {
+    .hover();
+  }
+
+  .@{inputClass}-prefix,
+  .@{inputClass}-suffix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    line-height: 0;
+  }
+
+  .@{inputClass}-prefix {
+    left: @input-padding-horizontal;
+  }
+
+  .@{inputClass}-suffix {
+    right: @input-padding-horizontal;
+  }
+
+  .@{inputClass}:not(:first-child) {
+    padding-left: @input-padding-horizontal + @input-affix-width;
+  }
+
+  .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal + @input-affix-width;
   }
 }

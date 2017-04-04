@@ -3,14 +3,15 @@
 @import "../../tree/style/mixin";
 @import "../../checkbox/style/mixin";
 
-@select-tree-prefix-cls: ant-select-tree;
+@select-prefix-cls: ~"@{ant-prefix}-select";
+@select-tree-prefix-cls: ~"@{ant-prefix}-select-tree";
 
-.antCheckboxFn(@checkbox-prefix-cls: ant-select-tree-checkbox);
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
 
 .@{select-tree-prefix-cls} {
   margin: 0;
   padding: 8px;
-  font-size: 12px;
+  font-size: @font-size-base;
   li {
     padding: 0;
     margin: 8px 0;
@@ -34,13 +35,13 @@
       cursor: pointer;
       text-decoration: none;
       vertical-align: top;
-      color: #666;
+      color: @text-color;
       transition: all 0.3s ease;
       &:hover {
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
       &.@{select-tree-prefix-cls}-node-selected {
-        background-color: tint(@primary-color, 80%);
+        background-color: @primary-2;
       }
     }
     span {
@@ -62,7 +63,7 @@
       &.@{select-tree-prefix-cls}-icon_loading {
         &:after {
           display: inline-block;
-          .iconfont-font("\e6a1");
+          .iconfont-font("\e64d");
           font-weight: bold;
           animation: loadingCircle 1s infinite linear;
           margin-top: 8px;
@@ -83,10 +84,6 @@
         &.@{select-tree-prefix-cls}-bottom_close,
         &.@{select-tree-prefix-cls}-noline_close {
           .antTreeSwitcherIcon();
-          .ie-rotate(3);
-          &:after {
-            transform: rotate(270deg) scale(0.5);
-          }
         }
       }
     }
@@ -101,7 +98,7 @@
     > span,
     > a,
     > a span {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
     }
   }
@@ -115,16 +112,29 @@
   }
 }
 
-.@{select-tree-prefix-cls}-dropdown .ant-select-dropdown-search + span {
-  padding: 7px 15px;
-  color: #ccc;
-  cursor: not-allowed;
-  display: block;
-}
-
-.ant-select-not-found {
-  cursor: not-allowed;
-  color: #ccc;
-  padding: 7px 15px;
-  display: block;
+.@{select-prefix-cls}-tree-dropdown {
+  .@{select-prefix-cls}-dropdown-search {
+    display: block;
+    padding: 4px;
+    .@{select-prefix-cls}-search__field__wrap {
+      width: 100%;
+    }
+    .@{select-prefix-cls}-search__field {
+      padding: 4px 7px;
+      width: 100%;
+      box-sizing: border-box;
+      border: @border-width-base @border-style-base @border-color-base;
+      border-radius: 4px;
+      outline: none;
+    }
+    &.@{select-prefix-cls}-search--hide {
+      display: none;
+    }
+  }
+  .@{select-prefix-cls}-not-found {
+    cursor: not-allowed;
+    color: @disabled-color;
+    padding: 7px 16px;
+    display: block;
+  }
 }

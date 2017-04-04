@@ -1,32 +1,33 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon from '../icon';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-import omit from 'object.omit';
+import omit from 'omit.js';
+import assign from 'object-assign';
+import Icon from '../icon';
+import CheckableTag from './CheckableTag';
 
 export interface TagProps {
+  prefixCls?: string;
+  className?: string;
+  color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
   /** 关闭时的回调 */
   onClose?: Function;
   /** 动画关闭后的回调 */
   afterClose?: Function;
-  /** 标签的色彩 */
-  color?: string;
   style?: React.CSSProperties;
 }
 
 export default class Tag extends React.Component<TagProps, any> {
+  static CheckableTag = CheckableTag;
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
-    onClose() { },
-    afterClose() { },
   };
 
-  constructor(props) {
+  constructor(props: TagProps) {
     super(props);
 
     this.state = {
@@ -36,7 +37,10 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   close = (e) => {
-    this.props.onClose(e);
+    const onClose = this.props.onClose;
+    if (onClose) {
+      onClose(e);
+    }
     if (e.defaultPrevented) {
       return;
     }
@@ -49,53 +53,61 @@ export default class Tag extends React.Component<TagProps, any> {
     });
   }
 
-  animationEnd = (key, existed) => {
+  animationEnd = (_, existed) => {
     if (!existed && !this.state.closed) {
       this.setState({
         closed: true,
         closing: false,
       });
-      this.props.afterClose();
+
+      const afterClose = this.props.afterClose;
+      if (afterClose) {
+        afterClose();
+      }
     }
   }
 
+  isPresetColor(color) {
+    return /^(pink|red|yellow|orange|cyan|green|blue|purple)(-inverse)?$/.test(color);
+  }
+
   render() {
-    const [{
-      prefixCls, closable, color, className, children,
-    }, otherProps] = splitObject(
-      this.props,
-      ['prefixCls', 'closable', 'color', 'className', 'children']
-    );
+    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
-    const classString = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-${color}`]: !!color,
+    const isPresetColor = this.isPresetColor(color);
+    const classString = classNames(prefixCls, {
+      [`${prefixCls}-${color}`]: isPresetColor,
+      [`${prefixCls}-has-color`]: (color && !isPresetColor),
       [`${prefixCls}-close`]: this.state.closing,
-      [className]: !!className,
-    });
+    }, className);
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(otherProps, [
       'onClose',
       'afterClose',
     ]);
+    const tagStyle = assign({
+      backgroundColor: (color && !isPresetColor) ? color : null,
+    }, style);
+    const tag = this.state.closed ? null : (
+      <div
+        data-show={!this.state.closing}
+        {...divProps}
+        className={classString}
+        style={tagStyle}
+      >
+        <span className={`${prefixCls}-text`}>{children}</span>
+        {closeIcon}
+      </div>
+    );
     return (
-      <Animate component=""
+      <Animate
+        component=""
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
         onEnd={this.animationEnd}
-        >
-        {this.state.closed ? null : (
-          <div
-            data-show={!this.state.closing}
-            {...divProps}
-            className={classString}
-            style={{ backgroundColor: /blue|red|green|yellow/.test(color) ? null : color }}
-          >
-            <span className={`${prefixCls}-text`}>{children}</span>
-            {closeIcon}
-          </div>
-        ) }
+      >
+        {tag}
       </Animate>
     );
   }

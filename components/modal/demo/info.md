@@ -1,8 +1,8 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 信息提示
-  en-US: Infomation modal dialog
+  en-US: Information modal dialog
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-In the various types of informaion modal dialog, only one button to close dialog is provided.
+In the various types of information modal dialog, only one button to close dialog is provided.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -45,7 +45,7 @@ function error() {
 
 function warning() {
   Modal.warning({
-    title: 'This is a warning messge',
+    title: 'This is a warning message',
     content: 'some messages...some messages...',
   });
 }

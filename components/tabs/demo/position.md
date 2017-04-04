@@ -1,6 +1,6 @@
 ---
 order: 6
-title: 
+title:
   zh-CN: 位置
   en-US: Position
 ---
@@ -18,20 +18,19 @@ import { Tabs, Select } from 'antd';
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      tabPosition: 'top',
-    };
-  },
-  changeTabPosition(tabPosition) {
+
+class Demo extends React.Component {
+  state = {
+    tabPosition: 'top',
+  }
+  changeTabPosition = (tabPosition) => {
     this.setState({ tabPosition });
-  },
+  }
   render() {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          页签位置：
+          Tab position：
           <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
             dropdownMatchSelectWidth={false}
           >
@@ -48,8 +47,8 @@ const Demo = React.createClass({
         </Tabs>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

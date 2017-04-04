@@ -1,10 +1,10 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@radio-prefix-cls: ant-radio;
+@radio-prefix-cls: ~"@{ant-prefix}-radio";
 @radio-group-prefix-cls: ~"@{radio-prefix-cls}-group";
 @radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
-@radio-duration: .2s;
+@radio-duration: .3s;
 
 .@{radio-group-prefix-cls} {
   display: inline-block;
@@ -14,11 +14,11 @@
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
   font-size: @font-size-base;
-  vertical-align: middle;
   display: inline-block;
   position: relative;
   white-space: nowrap;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .@{radio-prefix-cls} {
@@ -27,12 +27,13 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   cursor: pointer;
+  .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
   &-focused {
     .@{radio-inner-prefix-cls} {
-      border-color: #bcbcbc;
+      border-color: @primary-color;
     }
   }
   &-inner {
@@ -56,15 +57,15 @@
     position: relative;
     top: 0;
     left: 0;
-    display: inline-block;
+    display: block;
     width: 14px;
     height: 14px;
     border-width: 1px;
     border-style: solid;
     border-radius: 14px;
     border-color: @border-color-base;
-    background-color: #fff;
-    transition: all @radio-duration @ease-in-out-circ;
+    background-color: @component-background;
+    transition: all @radio-duration;
   }
 
   &-input {
@@ -82,7 +83,7 @@
 // 选中状态
 .@{radio-prefix-cls}-checked {
   .@{radio-inner-prefix-cls} {
-    border-color: @border-color-base;
+    border-color: @primary-color;
     &:after {
       transform: scale(1);
       opacity: 1;
@@ -92,45 +93,36 @@
 }
 
 .@{radio-prefix-cls}-disabled {
-  &:hover {
-    .@{radio-inner-prefix-cls} {
-      border-color: @border-color-base;
-    }
-  }
   .@{radio-inner-prefix-cls} {
-    border-color: @border-color-base;
+    border-color: @border-color-base!important;
     background-color: #f3f3f3;
     &:after {
-      background-color: #cccccc;
+      background-color: #ccc;
     }
   }
 
-  .@{radio-inner-prefix-cls}-input {
-    cursor: default;
-  }
-
-  .@{radio-prefix-cls}-disabled + span {
-    color: #ccc;
-    cursor: @cursor-disabled;
+  & + span {
+    color: @disabled-color;
+    cursor: not-allowed;
   }
 }
 
 span.@{radio-prefix-cls} + * {
-  margin-left: 8px;
-  margin-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .@{radio-prefix-cls}-button-wrapper {
   margin: 0;
-  height: 28px;
-  line-height: 26px;
+  height: @input-height-base;
+  line-height: @input-height-base - 2;
   color: @btn-default-color;
   display: inline-block;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 1px solid @border-color-base;
+  border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
-  background: #fff;
+  background: @component-background;
   padding: 0 16px;
 
   a {
@@ -145,13 +137,13 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-group-prefix-cls}-large & {
-    height: 32px;
-    line-height: 30px;
+    height: @input-height-lg;
+    line-height: @input-height-lg - 2px;
   }
 
   .@{radio-group-prefix-cls}-small & {
-    height: 22px;
-    line-height: 20px;
+    height: @input-height-sm;
+    line-height: @input-height-sm - 2;
     padding: 0 12px;
     &:first-child {
       border-radius: @border-radius-sm 0 0 @border-radius-sm;
@@ -163,7 +155,7 @@ span.@{radio-prefix-cls} + * {
 
   &:first-child {
     border-radius: @border-radius-base 0 0 @border-radius-base;
-    border-left: 1px solid @border-color-base;
+    border-left: @border-width-base @border-style-base @border-color-base;
   }
 
   &:last-child {
@@ -181,14 +173,15 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-prefix-cls}-inner,
-  input {
+  input[type="checkbox"],
+  input[type="radio"] {
     .opacity(0);
     width: 0;
     height: 0;
   }
 
   &-checked {
-    background: #fff;
+    background: @component-background;
     border-color: @primary-color;
     color: @primary-color;
     box-shadow: -1px 0 0 0 @primary-color;
@@ -199,15 +192,15 @@ span.@{radio-prefix-cls} + * {
     }
 
     &:hover {
-      border-color: tint(@primary-color, 20%);
-      box-shadow: -1px 0 0 0 tint(@primary-color, 20%);
-      color: tint(@primary-color, 20%);
+      border-color: @primary-5;
+      box-shadow: -1px 0 0 0 @primary-5;
+      color: @primary-5;
     }
 
     &:active {
-      border-color: shade(@primary-color, 5%);
-      box-shadow: -1px 0 0 0 shade(@primary-color, 5%);
-      color: shade(@primary-color, 5%);
+      border-color: @primary-7;
+      box-shadow: -1px 0 0 0 @primary-7;
+      color: @primary-7;
     }
   }
 
@@ -215,13 +208,13 @@ span.@{radio-prefix-cls} + * {
     border-color: @border-color-base;
     background-color: @background-color-base;
     cursor: not-allowed;
-    color: #ccc;
+    color: @disabled-color;
 
     &:first-child,
     &:hover {
       border-color: @border-color-base;
       background-color: @background-color-base;
-      color: #ccc;
+      color: @disabled-color;
     }
     &:first-child {
       border-left-color: @border-color-base;
@@ -232,5 +225,6 @@ span.@{radio-prefix-cls} + * {
     color: #fff;
     background-color: #e6e6e6;
     border-color: @border-color-base;
+    box-shadow: none;
   }
 }

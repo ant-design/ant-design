@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 迷你型
   en-US: Mini tab
 ---
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Small size can be uesed in Modal.
+Small size can be used in Modal.
 
 ````jsx
 import { Tabs } from 'antd';
@@ -25,4 +25,3 @@ ReactDOM.render(
   </Tabs>
 , mountNode);
 ````
-

@@ -3,7 +3,7 @@
   line-height: 34px;
   text-align: center;
   user-select: none;
-  border-bottom: 1px solid @border-color-split;
+  border-bottom: @border-width-base @border-style-base @border-color-split;
 
   a:hover {
     color: @link-hover-color;
@@ -16,7 +16,7 @@
     padding: 0 2px;
     font-weight: bold;
     display: inline-block;
-    color: #666;
+    color: @text-color;
     line-height: 34px;
   }
 
@@ -37,7 +37,7 @@
   .@{calendar-prefix-cls}-next-year-btn {
     position: absolute;
     top: 0;
-    color: #999;
+    color: @text-color-secondary;
     font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
     padding: 0 5px;
     font-size: 16px;
@@ -49,20 +49,36 @@
   .@{calendar-prefix-cls}-prev-decade-btn,
   .@{calendar-prefix-cls}-prev-year-btn {
     left: 7px;
+
+    &:after {
+      content: '«';
+    }
   }
 
   .@{calendar-prefix-cls}-next-century-btn,
   .@{calendar-prefix-cls}-next-decade-btn,
   .@{calendar-prefix-cls}-next-year-btn {
     right: 7px;
+
+    &:after {
+      content: '»';
+    }
   }
 
   .@{calendar-prefix-cls}-prev-month-btn {
     left: 29px;
+
+    &:after {
+      content: '‹';
+    }
   }
 
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
+
+    &:after {
+      content: '›';
+    }
   }
 }
 
@@ -70,11 +86,11 @@
   position: relative;
   outline: none;
   width: 231px;
-  border: 1px solid @border-color-base;
+  border: @border-width-base @border-style-base #fff;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
-  background-color: #fff;
+  background-color: @component-background;
   border-radius: @border-radius-base;
   box-shadow: @box-shadow-base;
   background-clip: padding-box;
@@ -83,7 +99,7 @@
   &-input-wrap {
     height: 34px;
     padding: 6px;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
   &-input {
@@ -92,6 +108,7 @@
     cursor: auto;
     outline: 0;
     height: 22px;
+    color: @input-color;
   }
 
   &-week-number {
@@ -152,12 +169,12 @@
   &-date {
     display: block;
     margin: 0 auto;
-    color: #666;
+    color: @text-color;
     border-radius: @border-radius-sm;
     width: 20px;
     height: 20px;
     line-height: 18px;
-    border: 1px solid transparent;
+    border: @border-width-base @border-style-base transparent;
     padding: 0;
     background: transparent;
     text-align: center;
@@ -168,13 +185,13 @@
     }
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
 
     &:active {
       color: #fff;
-      background: tint(@primary-color, 20%);
+      background: @primary-5;
     }
   }
 
@@ -186,13 +203,13 @@
 
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-selected-day &-date {
     background: @primary-color;
     color: #fff;
-    border: 1px solid transparent;
+    border: @border-width-base @border-style-base transparent;
 
     &:hover {
       background: @primary-color;
@@ -205,6 +222,7 @@
     background: #f3f3f3;
     border-radius: 0;
     width: auto;
+    border: @border-width-base @border-style-base transparent;
 
     &:hover {
       background: #f3f3f3;
@@ -221,14 +239,8 @@
     border-bottom-right-radius: 4px;
   }
 
-  &-footer {
-    padding: 0 15px;
-    height: 38px;
-    line-height: 38px;
-    border-top: 1px solid @border-color-split;
-  }
-
   &-footer-btn {
+    border-top: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     display: block;
     line-height: 38px;
@@ -244,7 +256,7 @@
     text-align: center;
     margin: 0 0 0 8px;
     &-disabled {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
     }
   }
@@ -264,9 +276,9 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:after {
-    .iconfont-font("\e631");
-    font-size: 12px;
-    color: #ccc;
+    .iconfont-font("\e62e");
+    font-size: @font-size-base;
+    color: @disabled-color;
     display: inline-block;
     line-height: 1;
     width: 20px;
@@ -275,13 +287,13 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:hover:after {
-    color: #999;
+    color: @text-color-secondary;
   }
 
   .@{calendar-prefix-cls}-ok-btn {
     .btn;
     .btn-primary;
-    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-base);
     position: absolute;
     bottom: 8px;
     right: 9px;

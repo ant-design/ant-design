@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 
+title:
   zh-CN: 附加内容
   en-US: Extra content
 ---

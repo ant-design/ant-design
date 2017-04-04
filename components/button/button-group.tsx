@@ -1,19 +1,17 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
-const prefix = 'ant-btn-group-';
+export type ButtonSize = 'small' | 'large';
 
-type ButtonSize = 'small' | 'large'
-
-interface ButtonGroupProps {
+export interface ButtonGroupProps {
   size?: ButtonSize;
   style?: React.CSSProperties;
   className?: string;
+  prefixCls?: string;
 }
 
 export default function ButtonGroup(props: ButtonGroupProps) {
-  const [{ size, className }, others] = splitObject(props, ['size', 'className']);
+  const { prefixCls = 'ant-btn-group', size = '', className, ...others } = props;
 
   // large => lg
   // small => sm
@@ -22,11 +20,9 @@ export default function ButtonGroup(props: ButtonGroupProps) {
     small: 'sm',
   })[size] || '';
 
-  const classes = classNames({
-    'ant-btn-group': true,
-    [prefix + sizeCls]: sizeCls,
-    [className]: className,
-  });
+  const classes = classNames(prefixCls, {
+    [`${prefixCls}-${sizeCls}`]: sizeCls,
+  }, className);
 
   return <div {...others} className={classes} />;
 }

@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 @import "../../input/style/mixin";
 
-@input-number-prefix-cls: ant-input-number;
+@input-number-prefix-cls: ~"@{ant-prefix}-input-number";
 
 .handler-disabled() {
   opacity: 0.72;
@@ -14,32 +14,30 @@
   .input();
   margin: 0;
   padding: 0;
-  line-height: 28px;
-  font-size: 12px;
-  height: 28px;
+  font-size: @font-size-base;
+  height: @input-height-base;
   display: inline-block;
-  vertical-align: middle;
-  border: 1px solid @border-color-base;
+  border: @border-width-base @border-style-base @border-color-base;
   border-radius: @border-radius-base;
-  overflow: hidden;
   width: 80px;
 
   &-handler {
     text-align: center;
     line-height: 0;
-    height: 14px;
+    height: 50%;
     overflow: hidden;
-    color: #999;
+    color: @text-color-secondary;
     position: relative;
     transition: all 0.1s linear;
     display: block;
     width: 100%;
-    &:hover {
-      background: #fefefe;
+    font-weight: bold;
+    &:active {
+      background: #f4f4f4;
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
-      color: tint(@primary-color, 20%);
+      color: @primary-5;
     }
   }
 
@@ -54,7 +52,7 @@
     transition: all 0.1s linear;
     .iconfont-size-under-12px(7px);
     right: 4px;
-    color: #999;
+    color: @text-color-secondary;
   }
 
   &:hover {
@@ -69,23 +67,18 @@
     .disabled();
   }
 
-  &-input-wrap {
-    overflow: hidden;
-    height: 28px;
-  }
-
   &-input {
     width: 100%;
     text-align: left;
     outline: 0;
     -moz-appearance: textfield;
-    line-height: 28px;
-    height: 28px;
+    height: @input-height-base - 2px;
     transition: all 0.3s linear;
-    color: #666;
+    color: @input-color;
     border: 0;
     border-radius: @border-radius-base;
     padding: 0 7px;
+    .placeholder();
 
     &[disabled] {
       .disabled();
@@ -94,74 +87,35 @@
 
   &-lg {
     padding: 0;
-    .@{input-number-prefix-cls}-handler-wrap {
-      height: 32px;
-    }
-    .@{input-number-prefix-cls}-input-wrap {
-      height: 32px;
-    }
-    .@{input-number-prefix-cls}-handler {
-      height: 16px;
-    }
 
     input {
-      height: 32px;
-      line-height: 32px;
-    }
-
-    .@{input-number-prefix-cls}-handler-up-inner {
-      top: 2px;
-    }
-    .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: 2px;
-    }
-    .@{input-number-prefix-cls}-handler-up:hover {
-      height: 18px;
+      height: @input-height-lg - 2px;
     }
   }
 
   &-sm {
     padding: 0;
-    .@{input-number-prefix-cls}-handler-wrap {
-      height: 22px;
-    }
-    .@{input-number-prefix-cls}-input-wrap {
-      height: 22px;
-    }
-    .@{input-number-prefix-cls}-handler {
-      height: 11px;
-    }
 
     input {
-      height: 22px;
-      line-height: 22px;
-      margin-top: -1px;
-      vertical-align: top;
-    }
-    .@{input-number-prefix-cls}-handler-up-inner {
-      top: -1px;
-    }
-    .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: -1px;
-    }
-    .@{input-number-prefix-cls}-handler-up:hover {
-      height: 13px;
-    }
-    .@{input-number-prefix-cls}-handler-down:hover .@{input-number-prefix-cls}-handler-down-inner {
-      bottom: 4px;
+      height: @input-height-sm - 2px;
     }
   }
 
   &-handler-wrap {
-    border-left: 1px solid @border-color-base;
+    border-left: @border-width-base @border-style-base @border-color-base;
     width: 22px;
-    height: 28px;
-    background: #fff;
+    height: 100%;
+    background: @component-background;
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0;
+    border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
+  }
+
+  &-handler-wrap:hover &-handler {
+    height: 40%;
   }
 
   &:hover &-handler-wrap {
@@ -171,33 +125,32 @@
   &-handler-up {
     cursor: pointer;
     &-inner {
-      top: 1px;
+      top: 50%;
+      margin-top: -6px;
       &:before {
         text-align: center;
-        content: "\e602";
+        content: "\e61e";
       }
     }
     &:hover {
-      height: 16px;
-    }
-    &:hover &-inner {
-      margin-top: 2px;
+      height: 60%!important;
     }
   }
 
   &-handler-down {
-    border-top: 1px solid @border-color-base;
+    border-top: @border-width-base @border-style-base @border-color-base;
     top: -1px;
     cursor: pointer;
     &-inner {
+      top: 50%;
+      margin-top: -6px;
       &:before {
         text-align: center;
-        content: "\e603";
+        content: "\e61d";
       }
     }
     &:hover {
-      height: 16px;
-      margin-top: -2px;
+      height: 60%!important;
     }
   }
 

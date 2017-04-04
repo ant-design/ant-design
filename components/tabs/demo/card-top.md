@@ -1,6 +1,6 @@
 ---
 order: 10
-title: 
+title:
   zh-CN: 卡片式页签容器
   en-US: Container of card type Tab
 ---
@@ -20,9 +20,9 @@ const TabPane = Tabs.TabPane;
 ReactDOM.render(
   <div className="card-container">
     <Tabs type="card">
-      <TabPane tab="Tab 1" key="1">Conten of Tab Pane 1</TabPane>
-      <TabPane tab="Tab 2" key="2">Conten of Tab Pane 2</TabPane>
-      <TabPane tab="Tab 3" key="3">Conten of Tab Pane 2</TabPane>
+      <TabPane tab="Tab 1" key="1">Content of Tab Pane 1</TabPane>
+      <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
+      <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
     </Tabs>
   </div>
 , mountNode);
@@ -30,16 +30,19 @@ ReactDOM.render(
 
 ````css
 #components-tabs-demo-card-top .code-box-demo {
-  background: #ECECEC;
+  background: #ececec;
   overflow: hidden;
   padding: 24px;
 }
 
 .card-container > .ant-tabs-card > .ant-tabs-content {
-  background: #fff;
-  padding: 16px;
   height: 120px;
   margin-top: -16px;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+  background: #fff;
+  padding: 16px;
 }
 
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {

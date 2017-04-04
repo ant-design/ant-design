@@ -1,23 +1,35 @@
+@import "../../input/style/mixin";
+
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
-  .ant-form-explain,
-  .ant-form-split {
+  .@{ant-prefix}-form-explain,
+  .@{ant-prefix}-form-split {
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .ant-input {
-    border-color: @border-color;
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+  .@{ant-prefix}-input {
+    &,
+    &:hover {
+      border-color: @border-color;
+    }
+
+    &:focus {
+      .active(@border-color);
+    }
 
     &:not([disabled]):hover {
       border-color: @border-color;
     }
   }
 
-  .ant-calendar-picker-open .ant-calendar-picker-input {
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+  .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
+    .active(@border-color);
   }
 
-  .ant-input-group-addon {
+  .@{ant-prefix}-input-prefix {
+    color: @text-color;
+  }
+
+  .@{ant-prefix}-input-group-addon {
     color: @text-color;
     border-color: @border-color;
     background-color: @background-color;
@@ -32,23 +44,16 @@
 // -----------------------------
 // Based on Bootstrap framework
 .reset-form() {
-  fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    min-width: 0;
-  }
-
   legend {
     display: block;
     width: 100%;
     padding: 0;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: @font-size-lg;
     line-height: inherit;
-    color: @legend-color;
+    color: @text-color-secondary;
     border: 0;
-    border-bottom: 1px solid @legend-border-color;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
   }
 
   label {
@@ -86,7 +91,7 @@
   input[type="radio"]:focus,
   input[type="checkbox"]:focus {
     outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color; // lesshint spaceAroundOperator: false
+    outline: 5px auto -webkit-focus-ring-color; // lesshint duplicateProperty: false
     outline-offset: -2px;
   }
 

@@ -1,25 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@popover-prefix-cls: ant-popover;
-
-//** Popover body background color
-@popover-bg: #fff;
-//** Popover maximum width
-@popover-min-width: 177px;
-//** Popover border color
-@popover-border-color: @border-color-base;
-
-//** Popover arrow width
-@popover-arrow-width: 4px;
-
-//** Popover arrow color
-@popover-arrow-color: @popover-bg;
-
-//** Popover outer arrow width
-@popover-arrow-outer-width: (@popover-arrow-width + 1);
-//** Popover outer arrow color
-@popover-arrow-outer-color: fadein(@popover-border-color, 5%);
+@popover-prefix-cls: ~"@{ant-prefix}-popover";
 
 .@{popover-prefix-cls} {
   position: absolute;
@@ -70,21 +52,21 @@
   }
 
   &-inner {
-    min-width: @popover-min-width;
     background-color: @popover-bg;
     background-clip: padding-box;
-    border: 1px solid @popover-border-color;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
   }
 
   &-title {
+    min-width: @popover-min-width;
     margin: 0; // reset heading margin
     padding: 0 16px;
     line-height: 32px;
     height: 32px;
     border-bottom: 1px solid @border-color-split;
-    color: #666;
+    color: @heading-color;
+    font-weight: 500;
   }
 
   &-inner-content {
@@ -94,9 +76,9 @@
 
   &-message {
     padding: 8px 0 16px;
-    font-size: 12px;
+    font-size: @font-size-base;
     color: @text-color;
-    > .anticon {
+    > .@{iconfont-css-prefix} {
       color: @warning-color;
       line-height: 17px;
       position: absolute;
@@ -132,17 +114,18 @@
   &-arrow {
     border-width: @popover-arrow-outer-width;
   }
+
   &-arrow:after {
     border-width: @popover-arrow-width;
     content: "";
   }
 
-  &-placement-top &-arrow,
-  &-placement-topLeft &-arrow,
-  &-placement-topRight &-arrow {
+  &-placement-top > &-content > &-arrow,
+  &-placement-topLeft > &-content >  &-arrow,
+  &-placement-topRight > &-content >  &-arrow {
     border-bottom-width: 0;
     border-top-color: @popover-arrow-outer-color;
-    bottom: 0;
+    bottom: -1px;
     &:after {
       content: " ";
       bottom: 1px;
@@ -151,21 +134,21 @@
       border-top-color: @popover-arrow-color;
     }
   }
-  &-placement-top &-arrow {
+  &-placement-top > &-content >  &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
   }
-  &-placement-topLeft &-arrow {
+  &-placement-topLeft > &-content >  &-arrow {
     left: 16px;
   }
-  &-placement-topRight &-arrow {
+  &-placement-topRight > &-content >  &-arrow {
     right: 16px;
   }
 
-  &-placement-right &-arrow,
-  &-placement-rightTop &-arrow,
-  &-placement-rightBottom &-arrow {
-    left: 0;
+  &-placement-right > &-content >  &-arrow,
+  &-placement-rightTop > &-content >  &-arrow,
+  &-placement-rightBottom > &-content >  &-arrow {
+    left: -1px;
     border-left-width: 0;
     border-right-color: @popover-arrow-outer-color;
     &:after {
@@ -176,23 +159,23 @@
       border-right-color: @popover-arrow-color;
     }
   }
-  &-placement-right &-arrow {
+  &-placement-right > &-content >  &-arrow {
     top: 50%;
     margin-top: -@popover-arrow-outer-width;
   }
-  &-placement-rightTop &-arrow {
+  &-placement-rightTop > &-content >  &-arrow {
     top: 12px;
   }
-  &-placement-rightBottom &-arrow {
+  &-placement-rightBottom > &-content >  &-arrow {
     bottom: 12px;
   }
 
-  &-placement-bottom &-arrow,
-  &-placement-bottomLeft &-arrow,
-  &-placement-bottomRight &-arrow {
+  &-placement-bottom > &-content >  &-arrow,
+  &-placement-bottomLeft > &-content >  &-arrow,
+  &-placement-bottomRight > &-content >  &-arrow {
     border-top-width: 0;
     border-bottom-color: @popover-arrow-outer-color;
-    top: 0;
+    top: -1px;
     &:after {
       content: " ";
       top: 1px;
@@ -201,21 +184,21 @@
       border-bottom-color: @popover-arrow-color;
     }
   }
-  &-placement-bottom &-arrow {
+  &-placement-bottom > &-content >  &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
   }
-  &-placement-bottomLeft &-arrow {
+  &-placement-bottomLeft > &-content >  &-arrow {
     left: 16px;
   }
-  &-placement-bottomRight &-arrow {
+  &-placement-bottomRight > &-content >  &-arrow {
     right: 16px;
   }
 
-  &-placement-left &-arrow,
-  &-placement-leftTop &-arrow,
-  &-placement-leftBottom &-arrow {
-    right: 0;
+  &-placement-left > &-content >  &-arrow,
+  &-placement-leftTop > &-content >  &-arrow,
+  &-placement-leftBottom > &-content >  &-arrow {
+    right: -1px;
     border-right-width: 0;
     border-left-color: @popover-arrow-outer-color;
     &:after {
@@ -226,14 +209,14 @@
       bottom: -@popover-arrow-width;
     }
   }
-  &-placement-left &-arrow {
+  &-placement-left > &-content >  &-arrow {
     top: 50%;
     margin-top: -@popover-arrow-outer-width;
   }
-  &-placement-leftTop &-arrow {
+  &-placement-leftTop > &-content >  &-arrow {
     top: 12px;
   }
-  &-placement-leftBottom &-arrow {
+  &-placement-leftBottom > &-content >  &-arrow {
     bottom: 12px;
   }
 }

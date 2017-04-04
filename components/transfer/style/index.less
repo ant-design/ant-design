@@ -2,21 +2,20 @@
 @import "../../style/mixins/index";
 @import "../../checkbox/style/mixin";
 
-@transfer-prefix-cls: ant-transfer;
-.antCheckboxFn(@checkbox-prefix-cls: ant-transfer-checkbox);
+@transfer-prefix-cls: ~"@{ant-prefix}-transfer";
 
 .@{transfer-prefix-cls} {
   position: relative;
   line-height: @line-height-base;
 
   &-list {
-    font-size: 12px;
-    border: 1px solid @border-color-base;
+    font-size: @font-size-base;
+    border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;
     vertical-align: middle;
     position: relative;
-    width: 160px;
+    width: 180px;
     height: 200px;
     padding-top: 33px;
 
@@ -26,32 +25,35 @@
 
     &-search {
       &-action {
-        color: #ccc;
+        color: @disabled-color;
         position: absolute;
-        top: 2px;
-        right: 2px;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        width: 28px;
+        line-height: 26px;
         text-align: center;
-        font-size: 14px;
-        .anticon {
+        font-size: @font-size-lg;
+        .@{iconfont-css-prefix} {
           transition: all .3s;
-          font-size: 12px;
-          color: #ccc;
+          font-size: @font-size-base;
+          color: @disabled-color;
           &:hover {
-            color: #999;
+            color: @text-color-secondary;
           }
+        }
+        span& {
+          pointer-events: none;
         }
       }
     }
 
     &-header {
-      padding: 7px 16px;
+      padding: 7px 15px;
       border-radius: @border-radius-base @border-radius-base 0 0;
-      background: #fff;
-      color: #666;
-      border-bottom: 1px solid @border-color-split;
+      background: @component-background;
+      color: @text-color;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
       overflow: hidden;
       position: absolute;
       top: 0;
@@ -59,12 +61,13 @@
       width: 100%;
 
       &-title {
-        float: right;
+        position: absolute;
+        right: 15px;
       }
     }
 
     &-body {
-      font-size: 12px;
+      font-size: @font-size-base;
       position: relative;
       height: 100%;
 
@@ -72,46 +75,60 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 28px;
         padding: 4px;
         width: 100%;
       }
-
-      &-not-found {
-        padding-top: 24px;
-        color: #ccc;
-        text-align: center;
-        height: 100%;
-      }
-
-      ul {
-        height: 100%;
-        overflow: auto;
-        li {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          padding: 7px 16px;
-          transition: all 0.3s ease;
-          &:hover {
-            cursor: pointer;
-            background-color: tint(@primary-color, 90%);
-          }
-        }
-      }
-    }
-
-    ul li&-highlight-enter {
-      animation: transferHighlightIn 1s ease;
-      transition: none;
     }
 
     &-body-with-search {
       padding-top: 34px;
     }
 
+    &-content {
+      height: 100%;
+      overflow: auto;
+      &-item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 7px 15px;
+        min-height: 32px;
+        transition: all 0.3s ease;
+      }
+
+      &-item:not(&-item-disabled):hover {
+        cursor: pointer;
+        background-color: @primary-1;
+      }
+
+      &-item-disabled {
+        cursor: not-allowed;
+        color: @btn-disable-color;
+      }
+
+      &-item-highlight-enter {
+        animation: transferHighlightIn 1s ease;
+        transition: none;
+      }
+    }
+
+    &-body-not-found {
+      padding-top: 0;
+      color: @disabled-color;
+      text-align: center;
+      display: none;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      margin-top: -10px;
+    }
+
+    &-content:empty + &-body-not-found {
+      display: block;
+    }
+
     &-footer {
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
       border-radius: 0 0 @border-radius-base @border-radius-base;
       position: absolute;
       bottom: 0;
@@ -126,16 +143,15 @@
     margin: 0 8px;
     vertical-align: middle;
 
-    .ant-btn {
-      float: left;
-      clear: both;
+    .@{ant-prefix}-btn {
+      display: block;
 
       &:first-child {
         margin-bottom: 4px;
       }
 
-      .anticon {
-        .iconfont-size-under-12px(8px);
+      .@{iconfont-css-prefix} {
+        .iconfont-size-under-12px(10px);
       }
     }
   }
@@ -143,7 +159,7 @@
 
 @keyframes transferHighlightIn {
   0% {
-    background: tint(@primary-color, 80%);
+    background: @primary-2;
   }
   100% {
     background: transparent;

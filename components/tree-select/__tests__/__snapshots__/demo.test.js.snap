@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
+<span
+  class="ant-select ant-select-enabled"
+  style="width:300px;"
+>
+  <span
+    aria-autocomplete="list"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <span
+      class="ant-select-selection__rendered"
+    >
+      <span
+        class="ant-select-selection__placeholder"
+      >
+        Please select
+      </span>
+    </span>
+    <span
+      class="ant-select-arrow"
+      style="outline:none;"
+    >
+      <b />
+    </span>
+  </span>
+</span>
+`;
+
+exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
+<span
+  class="ant-select ant-select-enabled"
+  style="width:300px;"
+>
+  <span
+    aria-autocomplete="list"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <ul
+      class="ant-select-selection__rendered"
+    >
+      <li
+        class="ant-select-selection__choice"
+        style="user-select:none;-webkit-user-select:none;"
+        title="Node1"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-select-selection__choice__remove"
+        />
+        <span
+          class="ant-select-selection__choice__content"
+        >
+          Node1
+        </span>
+      </li>
+      <li
+        class="ant-select-search ant-select-search--inline"
+      >
+        <span
+          class="ant-select-search__field__wrap"
+        >
+          <input
+            class="ant-select-search__field"
+            role="textbox"
+            value=""
+          />
+        </span>
+      </li>
+    </ul>
+    <span
+      class="ant-select-search__field__placeholder"
+      style="display:none;"
+    >
+      Please select
+    </span>
+  </span>
+</span>
+`;
+
+exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
+<span
+  class="ant-select ant-select-enabled"
+  style="width:300px;"
+>
+  <span
+    aria-autocomplete="list"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <span
+      class="ant-select-selection__rendered"
+    >
+      <span
+        class="ant-select-selection__placeholder"
+      >
+        Please select
+      </span>
+    </span>
+    <span
+      class="ant-select-arrow"
+      style="outline:none;"
+    >
+      <b />
+    </span>
+  </span>
+</span>
+`;

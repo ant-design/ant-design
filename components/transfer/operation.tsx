@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '../button';
 import Icon from '../icon';
 
@@ -9,8 +9,8 @@ export interface TransferOperationProps {
   className?: string;
   leftArrowText?: string;
   rightArrowText?: string;
-  moveToLeft?: React.FormEventHandler;
-  moveToRight?: React.FormEventHandler;
+  moveToLeft?: React.FormEventHandler<any>;
+  moveToRight?: React.FormEventHandler<any>;
   leftActive?: boolean;
   rightActive?: boolean;
 }

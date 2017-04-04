@@ -1,43 +1,43 @@
 ---
-order: 2
+order: 1
 title:
-  zh-CN: 通知事项日历演示
-  en-US: A demo of Notice Calendar
+  zh-CN: 通知事项日历
+  en-US: Notice Calendar
 ---
 
 ## zh-CN
 
-一个复杂的应用示例。
+一个复杂的应用示例，用 `dateCellRender` 和 `monthCellRender` 函数来自定义需要渲染的数据。
 
 ## en-US
 
-A complex application.
+This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
 ````jsx
 import { Calendar } from 'antd';
 
 function getListData(value) {
   let listData;
-  switch (value.getDayOfMonth()) {
+  switch (value.date()) {
     case 8:
       listData = [
-        { type: 'warning', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' },
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'normal', content: 'This is usual event.' },
       ]; break;
     case 10:
       listData = [
-        { type: 'warning', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' },
-        { type: 'error', content: '这里是错误事项.' },
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'normal', content: 'This is usual event.' },
+        { type: 'error', content: 'This is error event.' },
       ]; break;
     case 15:
       listData = [
-        { type: 'warning', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项好长啊。。....' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
+        { type: 'warning', content: 'This is warning event' },
+        { type: 'normal', content: 'This is very long usual event。。....' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
       ]; break;
     default:
   }
@@ -49,8 +49,8 @@ function dateCellRender(value) {
   return (
     <ul className="events">
       {
-        listData.map((item, index) =>
-          <li key={index}>
+        listData.map(item =>
+          <li key={item.content}>
             <span className={`event-${item.type}`}>●</span>
             {item.content}
           </li>
@@ -61,16 +61,16 @@ function dateCellRender(value) {
 }
 
 function getMonthData(value) {
-  if (value.getMonth() === 8) {
+  if (value.month() === 8) {
     return 1394;
   }
 }
 
 function monthCellRender(value) {
-  let num = getMonthData(value);
+  const num = getMonthData(value);
   return num ? <div className="notes-month">
     <section>{num}</section>
-    <span>待办事项数</span>
+    <span>Backlog number</span>
   </div> : null;
 }
 
@@ -108,7 +108,7 @@ ReactDOM.render(
 }
 
 .event-normal {
-  color: #2db7f5;
+  color: #108ee9;
 }
 
 .event-error {

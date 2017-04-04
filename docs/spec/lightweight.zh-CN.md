@@ -1,8 +1,7 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 6
-subtitle: Keep it Lightweight
-english: 简化交互
+title: 简化交互
 ---
 
 根据费茨法则（Fitts's Law）所描述的，如果用户鼠标移动距离越少、对象相对目标越大，那么用户越容易操作。通过运用上下文工具（即：放在内容中的操作工具），使内容和操作融合，从而简化交互。
@@ -12,7 +11,6 @@ english: 简化交互
 ---
 
 ## 实时可见工具
-
 
 <img class="preview-img" align="right" alt="实时可见工具示例 --摘自知乎" description="状态一：在文案中出现一个相对明显的点击区域；<br>状态二：鼠标悬停时，鼠标『指针』变为『手型』，底色发生变化，邀请用户点击。<br>状态三：鼠标点击后，和未点击前有明显的区分。" src="https://os.alipayobjects.com/rmsportal/sfytaOSssRrdYFg.png">
 
@@ -35,11 +33,9 @@ english: 简化交互
 
 ## 开关显示工具
 
-
 <img class="preview-img" align="right" alt="开关显示工具示例" description="用户点击『修改』后，Table 中『文本』变成『输入框』，开启编辑功能。" src="https://os.alipayobjects.com/rmsportal/uGWcpAFgWdynxBy.png">
 
 如果某些操作只需要在特定模式时显示，可以通过开关来实现。
-
 
 <br>
 
@@ -52,7 +48,6 @@ english: 简化交互
 <img class="preview-img" align="right" alt="推荐示例" description="鼠标滑选/双击时，系统自动复制该部分内容。通过大胆猜测用户的行为，并帮助完成，给用户小惊喜。" src="https://os.alipayobjects.com/rmsportal/aRihOoBCQHGATBA.png" good>
 
 <img class="preview-img" align="right" alt="不推荐示例" description="在可复制内容的附近出现『图标』，点击后复制。" src="https://os.alipayobjects.com/rmsportal/MfbnQfAJhQfIODY.png" bad>
-
 
 如果操作不重要或者可以通过其他途径完成时，可以将工具放置在用户的操作流程中，减少界面元素，降低认知负担，给用户小惊喜。
 
@@ -74,4 +69,4 @@ english: 简化交互
 
 当需要增强按钮的响应性时，可以通过增加用户点击热区的范围，而不是增大按钮形状，从而增强响应性，又不缺失美感。
 
->注：在移动端尤其适用。
+> 注：在移动端尤其适用。

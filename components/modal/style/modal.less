@@ -1,4 +1,4 @@
-@dialog-prefix-cls: ant-modal;
+@dialog-prefix-cls: ~"@{ant-prefix}-modal";
 
 .@{dialog-prefix-cls} {
   position: relative;
@@ -21,17 +21,19 @@
 
   &-title {
     margin: 0;
-    font-size: 14px;
+    font-size: @font-size-lg;
     line-height: 21px;
-    font-weight: bold;
+    font-weight: 500;
+    color: @heading-color;
   }
 
   &-content {
     position: relative;
-    background-color: #fff;
+    background-color: @component-background;
     border: 0;
     border-radius: @border-radius-base;
     background-clip: padding-box;
+    box-shadow: @shadow-2;
   }
 
   &-close {
@@ -39,14 +41,14 @@
     border: 0;
     background: transparent;
     position: absolute;
-    right: 18px;
+    right: 16px;
     top: 16px;
     z-index: 10;
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
     transition: color .3s ease;
-    color: #999;
+    color: @text-color-secondary;
     outline: 0;
 
     &-x {
@@ -58,11 +60,11 @@
       text-rendering: auto;
       width: 14px;
       height: 14px;
-      font-size: 14px;
+      font-size: @font-size-lg;
       line-height: 1;
 
       &:before {
-        content: "\e62d";
+        content: "\e633";
         display: block;
         font-family: "anticon" !important;
       }
@@ -78,20 +80,20 @@
   &-header {
     padding: 14px 16px;
     border-radius: @border-radius-base @border-radius-base 0 0;
-    background: #fff;
-    color: #666;
-    border-bottom: 1px solid @border-color-split;
+    background: @component-background;
+    color: @text-color;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
   &-body {
     padding: 16px;
-    font-size: 12px;
+    font-size: @font-size-base;
     line-height: 1.5;
   }
 
   &-footer {
-    border-top: 1px solid @border-color-split;
-    padding: 10px 18px 10px 10px;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    padding: 10px 16px 10px 10px;
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
@@ -102,7 +104,7 @@
 
   &.zoom-enter,
   &.zoom-appear {
-    animation-duration: .3s;
+    animation-duration: @animation-duration-slow;
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
   }
@@ -114,7 +116,7 @@
     left: 0;
     bottom: 0;
     background-color: #373737;
-    background-color: rgba(55, 55, 55, 0.6);
+    background-color: rgba(55, 55, 55, 0.6); // lesshint duplicateProperty: false
     height: 100%;
     z-index: @zindex-modal-mask;
     filter: ~"alpha(opacity=50)";
@@ -128,7 +130,6 @@
     overflow: hidden;
   }
 }
-
 
 @media (max-width: 768px) {
   .@{dialog-prefix-cls} {

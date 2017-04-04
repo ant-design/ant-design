@@ -1,34 +1,63 @@
+@import "../color/colors";
+
+// http://stackoverflow.com/a/13611748/3040605
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
+
+// Prefix
+@ant-prefix             : ant;
+
 // Color
-@primary-color          : #2db7f5;
-@info-color             : #2db7f5;
-@success-color          : #87d068;
-@error-color            : #f50;
-@warning-color          : #fa0;
+@primary-color          : @blue-6;
+@info-color             : @blue-6;
+@success-color          : @green-6;
+@error-color            : @red-6;
+@highlight-color        : @red-6;
+@warning-color          : @yellow-6;
 @normal-color           : #d9d9d9;
+
+@primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
+@primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+@primary-3: color(~`colorPalette("@{primary-color}", 3)`);
+@primary-4: color(~`colorPalette("@{primary-color}", 4)`);
+@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
+@primary-6: @primary-color;                                 // don't use, use @primary-color
+@primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+@primary-8: color(~`colorPalette("@{primary-color}", 8)`);
+@primary-9: color(~`colorPalette("@{primary-color}", 9)`);
+@primary-10: color(~`colorPalette("@{primary-color}", 10)`);
 
 // ------ Base & Require ------
 @body-background        : #fff;
-@font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-@code-family            : Consolas,Menlo,Courier,monospace;
-@text-color             : #666;
+@component-background   : #fff;
+@font-family            : "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@code-family            : Consolas, Menlo, Courier, monospace;
+@heading-color          : fade(#000, 85%);
+@text-color             : fade(#000, 65%);
+@text-color-secondary   : fade(#000, 43%);
+@disabled-color         : fade(#000, 25%);
+@heading-color-dark     : fade(#fff, 97%);
+@text-color-dark        : fade(#fff, 91%);
+@text-color-secondary-dark: fade(#fff, 67%);
+@disabled-color-dark    : fade(#fff, 35%);
 @font-size-base         : 12px;
+@font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
-@line-height-computed   : floor((@font-size-base * @line-height-base));
-@border-radius-base     : 6px;
-@border-radius-sm       : 4px;
+@border-radius-base     : 4px;
+@border-radius-sm       : 2px;
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_1463992151_360388";
+@icon-url               : "https://at.alicdn.com/t/font_0qcp222wvwijm7vi";
 
 // LINK
-@link-color             : #2db7f5;
-@link-hover-color       : tint(@link-color, 20%);
-@link-active-color      : shade(@link-color, 5%);
+@link-color             : @primary-color;
+@link-hover-color       : @primary-5;
+@link-active-color      : @primary-7;
 @link-hover-decoration  : none;
-
-// Disabled cursor for form controls and buttons.
-@cursor-disabled        : not-allowed;
 
 // Animation
 @ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -47,78 +76,97 @@
 // Border color
 @border-color-base      : #d9d9d9;        // base border outline a component
 @border-color-split     : #e9e9e9;        // split border inside a component
+@border-width-base      : 1px;            // width of the border for a component
+@border-style-base      : solid;          // style of a components border
+
+// Outline
+@outline-blur-size      : 0;
+@outline-width          : 2px;
+@outline-color          : @primary-color;
 
 // Background color
 @background-color-base  : #f7f7f7;        // basic gray background
 
 // Shadow
-@shadow-color           : rgba(100, 100, 100, .2);
+@shadow-color           : rgba(0, 0, 0, .2);
 @box-shadow-base        : @shadow-1-down;
 @shadow-1-up            : 0 -1px 6px @shadow-color;
 @shadow-1-down          : 0 1px 6px @shadow-color;
 @shadow-1-left          : -1px 0 6px @shadow-color;
 @shadow-1-right         : 1px 0 6px @shadow-color;
-@shadow-2               : 0 1px 8px @shadow-color;
+@shadow-2               : 0 2px 8px @shadow-color;
 
 // Buttons
 @btn-font-weight        : 500;
+@btn-border-radius-base : @border-radius-base;
+@btn-border-radius-sm   : @border-radius-base;
 
 @btn-primary-color      : #fff;
 @btn-primary-bg         : @primary-color;
-@btn-group-border       : shade(@primary-color, 5%);
 
 @btn-default-color      : @text-color;
-@btn-default-bg         : @background-color-base;
+@btn-default-bg         : #fff;
 @btn-default-border     : @border-color-base;
 
-@btn-ghost-color        : @text-color;
-@btn-ghost-bg           : transparent;
-@btn-ghost-border       : @border-color-base;
+@btn-danger-color      : #fff;
+@btn-danger-bg         : @red-6;
 
-@btn-disable-color      : #ccc;
+@btn-disable-color      : @disabled-color;
 @btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 4px 15px;
-
-@btn-font-size-lg       : 14px;
+@btn-font-size-lg       : @font-size-lg;
 @btn-padding-lg         : 4px 15px 5px 15px;
-
 @btn-padding-sm         : 1px 7px;
 
 @btn-circle-size        : 28px;
 @btn-circle-size-lg     : 32px;
 @btn-circle-size-sm     : 22px;
 
+@btn-group-border       : @primary-7;
+
 // Media queries breakpoints
 // Extra small screen / phone
 @screen-xs              : 480px;
 @screen-xs-min          : @screen-xs;
-@screen-xs-max          : (@screen-xs-min - 1);
 
 // Small screen / tablet
 @screen-sm              : 768px;
 @screen-sm-min          : @screen-sm;
-@screen-sm-max          : (@screen-sm-min - 1);
 
 // Medium screen / desktop
 @screen-md              : 992px;
 @screen-md-min          : @screen-md;
-@screen-md-max          : (@screen-md-min - 1);
 
 // Large screen / wide desktop
 @screen-lg              : 1200px;
 @screen-lg-min          : @screen-lg;
-@screen-lg-max          : (@screen-lg-min - 1);
 
-// Layout and Grid system
+// Extra Large screen / full hd
+@screen-xl              : 1600px;
+@screen-xl-min          : @screen-xl;
+
+// provide a maximum
+@screen-xs-max          : (@screen-sm-min - 1);
+@screen-sm-max          : (@screen-md-min - 1);
+@screen-md-max          : (@screen-lg-min - 1);
+@screen-lg-max          : (@screen-xl-min - 1);
+
+// Grid system
 @grid-columns           : 24;
 @grid-gutter-width      : 0;
 
-// Container sizes
-@container-sm           : (720px + @grid-gutter-width);
-@container-md           : (940px + @grid-gutter-width);
-@container-lg           : (1140px + @grid-gutter-width);
+// Layout
+@layout-body-background      : #ececec;
+@layout-header-background    : #404040;
+@layout-header-height        : 64px;
+@layout-header-padding       : 0 50px;
+@layout-footer-padding       : 24px 50px;
+@layout-sider-background     : @layout-header-background;
+@layout-trigger-height       : 48px;
+@layout-zero-trigger-width   : 36px;
+@layout-zero-trigger-height  : 42px;
 
 // z-index list
 @zindex-affix           : 10;
@@ -132,31 +180,101 @@
 @zindex-dropdown        : 1050;
 @zindex-tooltip         : 1060;
 
-// Form
-// --------------------------------
-// Legend
-@legend-color                : #999;
-@legend-border-color         : @border-color-base;
-// Label
-@label-required-color        : #f50;
-@label-color                 : @text-color;
-// Input
-@input-height-base: 28px;
-@input-height-lg: 32px;
-@input-height-sm: 22px;
+// Animation
+@animation-duration-slow: .3s; // Modal
+@animation-duration-base: .2s;
+@animation-duration-fast: .1s; // Tooltip
 
+// Form
+// ---
+@label-required-color        : @highlight-color;
+@label-color                 : @text-color;
+@form-item-margin-bottom     : 24px;
+
+// Input
+// ---
+@input-height-base           : 28px;
+@input-height-lg             : 32px;
+@input-height-sm             : 22px;
 @input-padding-horizontal    : 7px;
 @input-padding-vertical-base : 4px;
 @input-padding-vertical-sm   : 1px;
 @input-padding-vertical-lg   : 6px;
-
 @input-placeholder-color     : #ccc;
 @input-color                 : @text-color;
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
-
 @input-hover-border-color    : @primary-color;
-@input-focus-border-color    : @primary-color;
 @input-disabled-bg           : @background-color-base;
 
-@form-item-margin-bottom     : 24px;
+// Tooltip
+// ---
+//* Tooltip max width
+@tooltip-max-width: 250px;
+//** Tooltip text color
+@tooltip-color: #fff;
+//** Tooltip background color
+@tooltip-bg: rgba(64, 64, 64, .85);
+//** Tooltip arrow width
+@tooltip-arrow-width: 5px;
+//** Tooltip distance with trigger
+@tooltip-distance: @tooltip-arrow-width - 1 + 4;
+//** Tooltip arrow color
+@tooltip-arrow-color: @tooltip-bg;
+
+// Popover
+// ---
+//** Popover body background color
+@popover-bg: #fff;
+//** Popover maximum width
+@popover-min-width: 177px;
+//** Popover arrow width
+@popover-arrow-width: 4px;
+//** Popover arrow color
+@popover-arrow-color: @popover-bg;
+//** Popover outer arrow width
+@popover-arrow-outer-width: (@popover-arrow-width + 1);
+//** Popover outer arrow color
+@popover-arrow-outer-color: fadeout(@border-color-base, 30%);
+
+// Progress
+// --
+@process-default-color: @primary-color;
+
+// Menu
+// ---
+@menu-dark-bg: @layout-header-background;
+@menu-dark-submenu-bg: #333;
+
+// Spin
+// ---
+@spin-dot-size-sm: 14px;
+@spin-dot-size: 20px;
+@spin-dot-size-lg: 32px;
+
+// TimePicker
+// ---
+@time-picker-panel-column-width: 56px;
+@time-picker-panel-width: @time-picker-panel-column-width * 3;
+
+// Carousel
+// ---
+@carousel-dot-width: 16px;
+@carousel-dot-height: 3px;
+@carousel-dot-active-width: 24px;
+
+// Badge
+// ---
+@badge-height: 20px;
+@badge-dot-size: 8px;
+
+// Rate
+// ---
+@rate-star-color: #f5a623;
+@rate-star-bg: #e9e9e9;
+
+// Card
+// ---
+@card-head-height: 48px;
+@card-head-color: @heading-color;
+@card-head-background: @component-background;

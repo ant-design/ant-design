@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@notification-prefix-cls: ant-notification;
+@notification-prefix-cls: ~"@{ant-prefix}-notification";
 @notification-width: 335px;
 @notification-padding: 16px;
 @notification-margin-bottom: 10px;
@@ -12,53 +12,63 @@
   width: @notification-width;
   margin-right: 24px;
 
+  &-topLeft,
+  &-bottomLeft {
+    margin-left: 24px;
+    margin-right: 0;
+
+    .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
+    .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
+      animation-name: NotificationLeftFadeIn;
+    }
+  }
+
   &-notice {
     padding: @notification-padding;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
-    border: 1px solid @border-color-base;
-    background: #fff;
+    background: @component-background;
     line-height: 1.5;
     position: relative;
     margin-bottom: @notification-margin-bottom;
     overflow: hidden;
 
     &-message {
-      font-size: 14px;
-      color: @text-color;
+      font-size: @font-size-lg;
+      color: @heading-color;
       margin-bottom: 4px;
+      line-height: 20px;
     }
 
     &-description {
       font-size: @font-size-base;
-      color: @legend-color;
     }
 
-    &-with-icon  &-message {
-      font-size: 14px;
-      color: @text-color;
-      margin-left: 51px;
+    &-closable &-message {
+      padding-right: 24px;
+    }
+
+    &-with-icon &-message {
+      font-size: @font-size-lg;
+      margin-left: 48px;
       margin-bottom: 4px;
     }
 
-    &-with-icon  &-description {
-      margin-left: 51px;
+    &-with-icon &-description {
+      margin-left: 48px;
       font-size: @font-size-base;
-      color: @legend-color;
     }
 
     &-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      margin-top: -17px;
-      font-size: 34px;
+      float: left;
+      font-size: 32px;
+      line-height: 32px;
 
       &-success {
         color: @success-color;
       }
       &-info {
-        color: @primary-color;
+        color: @info-color;
       }
       &-warning {
         color: @warning-color;
@@ -69,8 +79,8 @@
     }
 
     &-close-x:after {
-      font-size: 12px;
-      content: "\e62d";
+      font-size: @font-size-base;
+      content: "\e633";
       font-family: "anticon";
       cursor: pointer;
     }
@@ -79,8 +89,11 @@
       position: absolute;
       right: 16px;
       top: 10px;
-      color: #999;
+      color: @text-color-secondary;
       outline: none;
+      &:hover {
+        color: #404040;
+      }
     }
 
     &-btn {
@@ -127,6 +140,17 @@
   }
   100% {
     left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes NotificationLeftFadeIn {
+  0% {
+    opacity: 0;
+    right: @notification-width;
+  }
+  100% {
+    right: 0;
     opacity: 1;
   }
 }

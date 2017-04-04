@@ -17,6 +17,10 @@ Components which need localization support are listed here, you can toggle the l
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('en');
+
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
 
@@ -32,24 +36,16 @@ const columns = [{
   dataIndex: 'age',
 }];
 
-const customLocale = {
-  timezoneOffset: 8 * 60,
-  firstDayOfWeek: 1,
-  minimalDaysInFirstWeek: 1,
-};
-
-const Page = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  showModal() {
+class Page extends React.Component {
+  state = {
+    visible: false,
+  }
+  showModal = () => {
     this.setState({ visible: true });
-  },
-  hideModal() {
+  }
+  hideModal = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     const info = () => {
       Modal.info({
@@ -89,13 +85,12 @@ const Page = React.createClass({
           <Transfer
             dataSource={[]}
             showSearch
-            titles={['', '']}
             targetKeys={[]}
             render={item => item.title}
           />
         </div>
-        <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
-          <Calendar fullscreen={false} />
+        <div style={{ width: 319, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+          <Calendar fullscreen={false} value={moment()} />
         </div>
         <div className="example">
           <Table dataSource={[]} columns={columns} />
@@ -105,23 +100,26 @@ const Page = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       locale: enUS,
     };
-  },
-  changeLocale(e) {
-    this.setState({ locale: e.target.value });
-  },
-  render() {
-    const locale = { ...this.state.locale };
-    if (locale.DatePicker) {
-      locale.DatePicker = { ...locale.DatePicker, ...customLocale };
+  }
+  changeLocale = (e) => {
+    const localeValue = e.target.value;
+    this.setState({ locale: localeValue });
+    if (!localeValue) {
+      moment.locale('zh-cn');
+    } else {
+      moment.locale('en');
     }
+  }
+  render() {
     return (
       <div>
         <div className="change-locale">
@@ -131,11 +129,11 @@ const App = React.createClass({
             <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

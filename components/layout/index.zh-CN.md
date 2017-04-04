@@ -1,109 +1,108 @@
 ---
 category: Components
-chinese: 栅格
-type: Basic
+subtitle: 布局
+type: Layout
 cols: 1
-english: Layout
+title: Layout
 ---
 
-24 栅格系统。
+协助进行页面级整体布局。
 
-## 设计理念
+## 设计规则
 
-<div class="layout-demo">
-<div class="ant-row demo-row">
-  <div class="ant-col-24 demo-col demo-col-1">
-    100%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-6 demo-col demo-col-2">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-3">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-2">
-    25%
-  </div>
-  <div class="ant-col-6 demo-col demo-col-3">
-    25%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-8 demo-col demo-col-4">
-    33.33%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-5">
-    33.33%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-4">
-    33.33%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-12 demo-col demo-col-1">
-    50%
-  </div>
-  <div class="ant-col-12 demo-col demo-col-3">
-    50%
-  </div>
-</div>
-<div class="ant-row demo-row">
-  <div class="ant-col-16 demo-col demo-col-4">
-    66.66%
-  </div>
-  <div class="ant-col-8 demo-col demo-col-5">
-    33.33%
-  </div>
-</div>
-</div>
+### 尺寸
 
-在多数业务情况下，Ant Design需要在设计区域内解决大量信息收纳的问题，因此在 12 栅格系统的基础上，我们将整个设计建议区域按照 24 等分的原则进行划分。
+一级导航项偏左靠近 logo 放置，辅助菜单偏右放置。
 
-划分之后的信息区块我们称之为『盒子』。建议横向排列的盒子数量最多四个，最少一个。『盒子』在整个屏幕上占比见上图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证视觉层面的舒适感。
+- 顶部导航（大部分系统）：一级导航高度 `64px`，二级导航 `48px`。
+- 顶部导航（展示类页面）：一级导航高度 `80px`，二级导航 `56px`。
+- 顶部导航高度的范围计算公式为：`48+8n`。
+- 侧边导航宽度的范围计算公式：`200+8n`。
 
-## 概述
+### 交互
 
-布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页面的每个区域能够稳健地排布起来。下面简单介绍一下它的工作原理：
+- 一级导航和末级的导航需要在可视化的层面被强调出来；
+- 当前项应该在呈现上优先级最高；
+- 当导航收起的时候，当前项的样式自动赋予给它的上一个层级；
+- 左侧导航栏的收放交互同时支持手风琴和全展开的样式，根据业务的要求进行适当的选择。
 
-* 通过`row`在水平方向建立一组`column`（简写col）
-* 你的内容应当放置于`col`内，并且，只有`col`可以作为`row`的直接元素
-* 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽的列可以使用`.col-8`来创建
-* 如果一个`row`中的`col`总和超过 24，那么多余的`col`会作为一个整体另起一行排列
+### 视觉
 
-## Flex 布局
+导航样式上需要根据信息层级合理的选择样式：
 
-我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。
+- **大色块强调**
 
-Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排版则不拘泥于栅格。
+  建议用于底色为深色系时，当前页面父级的导航项。
+
+- **高亮火柴棍**
+
+  当导航栏底色为浅色系时使用，可用于当前页面对应导航项，建议尽量在导航路径的最终项使用。
+
+- **字体高亮变色**
+
+  从可视化层面，字体高亮的视觉强化力度低于大色块，通常在当前项的上一级使用。
+
+- **字体放大**
+
+  `12px`、`14px` 是导航的标准字号，14 号字体用在一、二级导航中。字号可以考虑导航项的等级做相应选择。
+
+## 组件概述
+
+- `Layout`：布局容器，其下可嵌套 `Header` `Sider` `Content` `Footer` 或 `Layout` 本身，可以放在任何父容器中。
+- `Header`：顶部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。
+- `Sider`：侧边栏，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 `Layout` 中。
+- `Content`：内容部分，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。
+- `Footer`：底部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。
+
+> 注意：采用 flex 布局实现，请注意[浏览器兼容性](http://caniuse.com/#search=flex)问题。
 
 ## API
 
-Ant Design 的布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
+```jsx
+<Layout>
+  <Header>header</Header>
+  <Layout>
+    <Sider>left sidebar</Sider>
+    <Content>main content</Content>
+    <Sider>right sidebar</Sider>
+  </Layout>
+  <Footer>footer</Footer>
+</Layout>
+```
 
-- [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
-- [react-blocks](http://whoisandie.github.io/react-blocks/)
+### Layout
 
-### Row
+布局容器。
 
-| 成员       | 说明             | 类型               | 默认值       |
-|-----------|-----------------|--------------------|-------------|
-| gutter    | 栅格间隔   | number | 0        |
-| type      | 布局模式，可选 `flex`，现代浏览器下有效 | string |         |
-| align     | flex 布局下的垂直对齐方式：`top` `middle` `bottom`  | string | `top`      |
-| justify   | flex 布局下的水平排列方式：`start` `end` `center` `space-around` `space-between`   | string | `start`        |
+| 参数      | 说明                                      | 类型         | 默认值 |
+|----------|------------------------------------------|-------------|-------|
+| style | 指定样式 | object | - |
+| className | 容器 className | string | - |
 
-### Col
+> `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
 
-| 成员      | 说明             | 类型               | 默认值       |
-|----------|-----------------|--------------------|-------------|
-| span     | 栅格占位格数，为 0 时相当于 `display: none`   | number | -        |
-| order    | 栅格顺序，`flex` 布局模式下有效   | number | 0        |
-| offset   | 栅格左侧的间隔格数，间隔内不可以有栅格  | number | 0        |
-| push     | 栅格向右移动格数   | number | 0        |
-| pull     | 栅格向左移动格数   | number | 0        |
-| xs       | `<768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
-| sm       | `≥768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
-| md       | `≥992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
-| lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number or object | - |
+### Layout.Sider
+
+侧边栏。
+
+| 参数      | 说明                                     | 类型       | 默认值 |
+|----------|-----------------------------------------|------------|-------|
+| collapsible | 是否可收起 | boolean | false  |
+| defaultCollapsed | 是否默认收起 | boolean | false  |
+| collapsed | 当前收起状态 | boolean | - |
+| onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |
+| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
+| width | 宽度 | number\|string | 200 |
+| collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 64 |
+| breakpoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
+| style | 指定样式 | object | - |
+| className | 容器 className | string | - |
+
+> 注意：如果你想在 `Sider` 基础上进行包装，需要给自定义组件加上 `__ANT_LAYOUT_SIDER = true` 设置，例如：
+
+```jsx
+const CustomizedSider = (props) => <Sider {...props} />
+CustomizedSider.__ANT_LAYOUT_SIDER = true;
+...
+<CustomizedSider>Sider Content</CustomizedSider>
+```

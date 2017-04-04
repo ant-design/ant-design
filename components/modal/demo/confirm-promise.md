@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 确认对话框
   en-US: Confirmation modal dialog
 ---
@@ -20,12 +20,12 @@ const confirm = Modal.confirm;
 
 function showConfirm() {
   confirm({
-    title: 'Are you sure you want to delete this item ?',
+    title: 'Want to delete these items?',
     content: 'When clicked the OK button, this dialog will be closed after 1 second',
     onOk() {
-      return new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
+      return new Promise((resolve, reject) => {
+        setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+      }).catch(() => console.log('Oops errors!'));
     },
     onCancel() {},
   });

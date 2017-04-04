@@ -1,213 +1,201 @@
 ---
-order: 12
+order: 13
 title:
   zh-CN: 校验其他组件
-  en-US: Others components related to validation
+  en-US: Other Form Controls
 ---
 
 ## zh-CN
 
-提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
+以上演示没有出现的表单控件对应的校验演示。
 
 ## en-US
 
-Provide validation for fllowing input filed: `Select` `Radio` `DatePicker` `InputNumber` `Cascader`. To use `validateFieldsAndScroll` with form validation, it will scroll the form to the failed input field which is not in visible area.
+Demostration for validataion configuration for form controls which are not show in the above demos.
 
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, TimePicker, InputNumber, Form, Cascader, Icon } from 'antd';
-const Option = Select.Option;
-const RadioGroup = Radio.Group;
-const createForm = Form.create;
+import {
+  Form, Select, InputNumber, Switch, Radio,
+  Slider, Button, Upload, Icon,
+} from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
-let Demo = React.createClass({
-  componentDidMount() {
-    this.props.form.setFieldsValue({
-      eat: true,
-      sleep: true,
-      beat: true,
-    });
-  },
-
-  handleReset(e) {
+class Demo extends React.Component {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.resetFields();
-  },
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((errors, values) => {
-      if (errors) {
-        console.log('Errors in form!!!');
-        return;
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-      console.log('Submit!!!');
-      console.log(values);
     });
-  },
-
-  checkBirthday(rule, value, callback) {
-    if (value && value.getTime() >= Date.now()) {
-      callback(new Error("You can't be born in the future!"));
-    } else {
-      callback();
+  }
+  normFile = (e) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
     }
-  },
-
-  checkPrime(rule, value, callback) {
-    if (value !== 11) {
-      callback(new Error('The prime number between 8 to 12 is obiviously 11!'));
-    } else {
-      callback();
-    }
-  },
-
+    return e && e.fileList;
+  }
   render() {
-    const address = [{
-      value: 'zhejiang',
-      label: 'Zhe Jiang',
-      children: [{
-        value: 'hangzhou',
-        label: 'Hang Zhou',
-      }],
-    }];
-    const { getFieldProps } = this.props.form;
-    const selectProps = getFieldProps('select', {
-      rules: [
-        { required: true, message: 'Please select your country' },
-      ],
-    });
-    const multiSelectProps = getFieldProps('multiSelect', {
-      rules: [
-        { required: true, message: 'Please select your favourite colors', type: 'array' },
-      ],
-    });
-    const radioProps = getFieldProps('radio', {
-      rules: [
-        { required: true, message: 'Please select your gender' },
-      ],
-    });
-    const birthdayProps = getFieldProps('birthday', {
-      rules: [
-        {
-          required: true,
-          type: 'date',
-          message: 'When is your birthday?',
-        }, {
-          validator: this.checkBirthday,
-        },
-      ],
-    });
-    const timeProps = getFieldProps('time', {
-      getValueFromEvent: (value, timeString) => timeString,
-      rules: [
-        { required: true, message: 'Please select the time' },
-      ],
-    });
-    const primeNumberProps = getFieldProps('primeNumber', {
-      rules: [{ validator: this.checkPrime }],
-    });
-    const addressProps = getFieldProps('address', {
-      rules: [{ required: true, type: 'array' }],
-    });
+    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
-      labelCol: { span: 7 },
-      wrapperCol: { span: 12 },
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
     };
     return (
-      <Form horizontal form={this.props.form}>
+      <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label="Country"
+          label="Plain Text"
         >
-          <Select {...selectProps} placeholder="Please select a country" style={{ width: '100%' }}>
-            <Option value="china">China</Option>
-            <Option value="use">U.S.A</Option>
-            <Option value="japan">Japan</Option>
-            <Option value="korean">Korea</Option>
-            <Option value="Thailand">Thai</Option>
-          </Select>
+          <span className="ant-form-text">China</span>
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Select"
+          hasFeedback
+        >
+          {getFieldDecorator('select', {
+            rules: [
+              { required: true, message: 'Please select your country!' },
+            ],
+          })(
+            <Select placeholder="Please select a country">
+              <Option value="china">China</Option>
+              <Option value="use">U.S.A</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Favourite colors"
+          label="Select[multiple]"
         >
-          <Select {...multiSelectProps} multiple placeholder="Please select favourite colors" style={{ width: '100%' }}>
-            <Option value="red">Red</Option>
-            <Option value="orange">Orange</Option>
-            <Option value="yellow">Yellow</Option>
-            <Option value="green">Green</Option>
-            <Option value="blue">Blue</Option>
-          </Select>
+          {getFieldDecorator('select-multiple', {
+            rules: [
+              { required: true, message: 'Please select your favourite colors!', type: 'array' },
+            ],
+          })(
+            <Select mode="multiple" placeholder="Please select favourite colors">
+              <Option value="red">Red</Option>
+              <Option value="green">Green</Option>
+              <Option value="blue">Blue</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Gender"
+          label="InputNumber"
         >
-          <RadioGroup {...radioProps}>
-            <Radio value="male">male</Radio>
-            <Radio value="female">female</Radio>
-          </RadioGroup>
-          <span><Icon type="info-circle-o" /> Temporarily does not support ohter gender</span>
+          {getFieldDecorator('input-number', { initialValue: 3 })(
+            <InputNumber min={1} max={10} />
+          )}
+          <span className="ant-form-text"> machines</span>
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Hobby"
+          label="Switch"
         >
-          <Checkbox {...getFieldProps('eat', {
-            valuePropName: 'checked',
-          })}>eat</Checkbox>
-          <Checkbox {...getFieldProps('sleep', {
-            valuePropName: 'checked',
-          })}>sleeping</Checkbox>
-          <Checkbox {...getFieldProps('beat', {
-            valuePropName: 'checked',
-          })}>dozen doug</Checkbox>
+          {getFieldDecorator('switch', { valuePropName: 'checked' })(
+            <Switch />
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Birthday"
+          label="Slider"
         >
-          <DatePicker {...birthdayProps} />
+          {getFieldDecorator('slider')(
+            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Select the time"
+          label="Radio.Group"
         >
-          <TimePicker {...timeProps} />
+          {getFieldDecorator('radio-group')(
+            <RadioGroup>
+              <Radio value="a">item 1</Radio>
+              <Radio value="b">item 2</Radio>
+              <Radio value="c">item 3</Radio>
+            </RadioGroup>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="A prime number between 8 to 12"
+          label="Radio.Button"
         >
-          <InputNumber {...primeNumberProps} min={8} max={12} />
+          {getFieldDecorator('radio-button')(
+            <RadioGroup>
+              <RadioButton value="a">item 1</RadioButton>
+              <RadioButton value="b">item 2</RadioButton>
+              <RadioButton value="c">item 3</RadioButton>
+            </RadioGroup>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Please select address"
+          label="Upload"
+          extra="longgggggggggggggggggggggggggggggggggg"
         >
-          <Cascader {...addressProps} options={address} />
+          {getFieldDecorator('upload', {
+            valuePropName: 'fileList',
+            getValueFromEvent: this.normFile,
+          })(
+            <Upload name="logo" action="/upload.do" listType="picture">
+              <Button>
+                <Icon type="upload" /> Click to upload
+              </Button>
+            </Upload>
+          )}
         </FormItem>
 
         <FormItem
-          wrapperCol={{ span: 12, offset: 7 }}
+          {...formItemLayout}
+          label="Dragger"
         >
-          <Button type="primary" onClick={this.handleSubmit}>OK</Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
+          <div className="dropbox">
+            {getFieldDecorator('dragger', {
+              valuePropName: 'fileList',
+              getValueFromEvent: this.normFile,
+            })(
+              <Upload.Dragger name="files" action="/upload.do">
+                <p className="ant-upload-drag-icon">
+                  <Icon type="inbox" />
+                </p>
+                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+              </Upload.Dragger>
+            )}
+          </div>
+        </FormItem>
+
+        <FormItem
+          wrapperCol={{ span: 12, offset: 6 }}
+        >
+          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
-Demo = createForm()(Demo);
-ReactDOM.render(<Demo />, mountNode);
+const WrappedDemo = Form.create()(Demo);
+
+ReactDOM.render(<WrappedDemo />, mountNode);
+````
+
+````css
+#components-form-demo-validate-other .dropbox {
+  height: 180px;
+  line-height: 1.5;
+}
 ````

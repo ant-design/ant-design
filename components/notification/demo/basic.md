@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -16,10 +16,10 @@ The simplest usage that close the notification box after 4.5s.
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotification = function () {
+const openNotification = () => {
   notification.open({
-    message: 'This is the title',
-    description: 'This is the content of the notification.This is the content of the notification.This is the content of the notification.',
+    message: 'Notification Title',
+    description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
   });
 };
 

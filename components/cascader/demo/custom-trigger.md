@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 可以自定义显示
   en-US: Custom trigger
@@ -18,43 +18,42 @@ import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
   }],
 }];
 
-const CitySwitcher = React.createClass({
-  getInitialState() {
-    return {
-      text: '未选择',
-    };
-  },
-  onChange(value, selectedOptions) {
+class CitySwitcher extends React.Component {
+  state = {
+    text: 'Unselect',
+  };
+
+  onChange = (value, selectedOptions) => {
     this.setState({
       text: selectedOptions.map(o => o.label).join(', '),
     });
-  },
+  }
   render() {
     return (
       <span>
         {this.state.text}
         &nbsp;
         <Cascader options={options} onChange={this.onChange}>
-          <a href="#">切换城市</a>
+          <a href="#">Change city</a>
         </Cascader>
       </span>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<CitySwitcher />, mountNode);
 ````

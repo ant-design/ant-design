@@ -9,13 +9,18 @@ title:
 
 输入框的组合展现。
 
+注意：使用 `compact` 模式时，不需要通过 `Col` 来控制宽度。
+
 ## en-US
 
 Input.Group example
 
+Note: You don't need `Col` to control the width in the `compact` mode.
+
 ````jsx
-import { Input, Col } from 'antd';
+import { Input, Col, Select, InputNumber, DatePicker } from 'antd';
 const InputGroup = Input.Group;
+const Option = Select.Option;
 
 ReactDOM.render(
   <div>
@@ -27,6 +32,45 @@ ReactDOM.render(
         <Input defaultValue="26888888" />
       </Col>
     </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Input style={{ width: '20%' }} defaultValue="0571" />
+      <Input style={{ width: '30%' }} defaultValue="26888888" />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Select defaultValue="Zhejiang">
+        <Option value="Zhejiang">Zhejiang</Option>
+        <Option value="Jiangsu">Jiangsu</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Select defaultValue="Option1">
+        <Option value="Option1">Option1</Option>
+        <Option value="Option2">Option2</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <InputNumber />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <DatePicker />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Select defaultValue="Option1-1">
+        <Option value="Option1-1">Option1-1</Option>
+        <Option value="Option1-2">Option1-2</Option>
+      </Select>
+      <Select defaultValue="Option2-2">
+        <Option value="Option2-1">Option2-1</Option>
+        <Option value="Option2-2">Option2-2</Option>
+      </Select>
+    </InputGroup>
+    <br />
   </div>
 , mountNode);
 ````

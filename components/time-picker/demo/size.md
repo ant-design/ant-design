@@ -1,8 +1,8 @@
 ---
-order: 2 
-title: 
+order: 2
+title:
   zh-CN: 三种大小
-  en-US: Three sizes
+  en-US: Three Sizes
 ---
 
 ## zh-CN
@@ -15,12 +15,13 @@ The input box comes in three sizes. large is used in the form, while the medium 
 
 ````jsx
 import { TimePicker } from 'antd';
+import moment from 'moment';
 
 ReactDOM.render(
   <div>
-    <TimePicker defaultValue="12:08:23" size="large" />
-    <TimePicker defaultValue="12:08:23" />
-    <TimePicker defaultValue="12:08:23" size="small" />
+    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
+    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
+    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
   </div>
 , mountNode);
 ````

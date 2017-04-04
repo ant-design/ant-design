@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import animation from '../_util/openAnimation';
+import classNames from 'classnames';
 
 export interface AntTreeNodeProps {
   disabled?: boolean;
@@ -27,7 +28,7 @@ export interface AntTreeNodeEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEventHandler;
+  event: React.MouseEventHandler<any>;
 }
 
 export interface TreeProps {
@@ -48,7 +49,7 @@ export interface TreeProps {
   /** （受控）展开指定的树节点 */
   expandedKeys?: Array<string>;
   /** （受控）选中复选框的树节点 */
-  checkedKeys?: Array<string>;
+  checkedKeys?: Array<string> | { checked: Array<string>, halfChecked: Array<string> };
   /** 默认选中复选框的树节点 */
   defaultCheckedKeys?: Array<string>;
   /** （受控）设置选中的树节点 */
@@ -81,6 +82,7 @@ export interface TreeProps {
   onDrop?: (options: AntTreeNodeMouseEvent) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
+  filterTreeNode?: (node: AntTreeNode) => boolean;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
@@ -95,10 +97,17 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   render() {
     const props = this.props;
+    const { prefixCls, className, showLine } = props;
     let checkable = props.checkable;
+    const classString = classNames({
+      [`${prefixCls}-show-line`]: !!showLine,
+    }, className);
     return (
-      <RcTree {...props}
-        checkable={checkable ? (<span className={`${props.prefixCls}-checkbox-inner`}></span>) : checkable }>
+      <RcTree
+        {...props}
+        className={classString}
+        checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+      >
         {this.props.children}
       </RcTree>
     );

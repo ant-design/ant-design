@@ -1,8 +1,12 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@table-prefix-cls: ant-table;
+@table-prefix-cls: ~"@{ant-prefix}-table";
 @table-head-background-color: @background-color-base;
+
+.@{table-prefix-cls}-wrapper {
+  .clearfix;
+}
 
 .@{table-prefix-cls} {
   font-size: @font-size-base;
@@ -10,7 +14,6 @@
   overflow: hidden;
   position: relative;
   border-radius: @border-radius-base @border-radius-base 0 0;
-  overflow: hidden;
 
   &-body {
     transition: opacity 0.3s ease;
@@ -27,36 +30,44 @@
 
   &-thead > tr > th {
     background: @table-head-background-color;
-    font-weight: bold;
+    font-weight: 500;
     transition: background .3s ease;
     text-align: left;
+    color: @heading-color;
 
-    .anticon-filter {
+    &[colspan] {
+      text-align: center;
+    }
+
+    .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
       margin-left: 4px;
-      .iconfont-size-under-12px(10px);
+      font-size: @font-size-base;
       cursor: pointer;
       color: #aaa;
-      transition: all 0.3s ease;
+      transition: all .3s;
       &:hover {
-        color: #666;
+        color: @text-color;
       }
     }
 
-    .@{table-prefix-cls}-filter-selected.anticon-filter {
+    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
   }
 
   &-tbody > tr > td {
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    transition: all .3s;
   }
 
   &-thead > tr,
   &-tbody > tr {
-    transition: all .3s ease;
+    transition: all .3s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      background: tint(@primary-color, 90%);
+      & > td {
+        background: @primary-1;
+      }
     }
   }
 
@@ -67,33 +78,52 @@
   &-footer {
     padding: 16px 8px;
     background: @table-head-background-color;
-    position: relative;
-    top: -1px;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+    position: relative;
+    &:before {
+      content: '';
+      height: 1px;
+      background: @table-head-background-color;
+      position: absolute;
+      top: -1px;
+      width: 100%;
+      left: 0;
+    }
   }
 
   &.@{table-prefix-cls}-bordered &-footer {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
   }
 
   &-title {
-    padding: 16px 8px;
+    padding: 16px 0;
     position: relative;
     top: 1px;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &.@{table-prefix-cls}-bordered &-title {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   &-title + &-content {
     position: relative;
-
-    table {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    overflow: hidden;
+    .@{table-prefix-cls}-bordered & {
+      &,
+      table {
+        border-radius: 0;
+      }
     }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/4373
+  &-without-column-header &-title + &-content,
+  &-without-column-header table {
+    border-radius: 0;
   }
 
   &-tbody > tr.@{table-prefix-cls}-row-selected {
@@ -110,16 +140,26 @@
     word-break: break-all;
   }
 
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    padding-left: 16px;
+    padding-right: 0;
+  }
+
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
     text-align: center;
-    width: 60px;
+    width: 62px;
+  }
+
+  &-expand-icon-th,
+  &-row-expand-icon-cell {
+    text-align: center;
+    width: 50px;
   }
 
   &-header {
     background: @table-head-background-color;
     overflow: hidden;
-    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header table {
@@ -129,7 +169,7 @@
   &-loading {
     position: relative;
     .@{table-prefix-cls}-body {
-      background: #fff;
+      background: @component-background;
       opacity: 0.5;
     }
     .@{table-prefix-cls}-spin-holder {
@@ -149,45 +189,55 @@
   }
 
   &-middle {
-    .@{table-prefix-cls}-thead > tr > th,
+    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column),
     .@{table-prefix-cls}-tbody > tr > td {
+      padding: 10px 8px;
+    }
+
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer {
       padding: 10px 8px;
     }
   }
 
   &-small {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
 
+    .@{table-prefix-cls}-header > table,
     .@{table-prefix-cls}-body > table {
       border: 0;
       padding: 0 8px;
     }
 
-    &.@{table-prefix-cls}-bordered .@{table-prefix-cls}-body > table {
-      border: 0;
-    }
-
     .@{table-prefix-cls}-thead > tr > th {
-      padding: 10px 8px;
-      background: #fff;
-      border-bottom: 1px solid @border-color-split;
+      background: @component-background;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-tbody > tr > td {
       padding: 6px 8px;
     }
 
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer,
+    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column) {
+      padding: 10px 8px;
+    }
+
+    .@{table-prefix-cls}-title {
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+      top: 0;
+    }
+
     .@{table-prefix-cls}-header {
-      background: #fff;
+      background: @component-background;
       table {
-        border-bottom: 1px solid @border-color-split;
-      }
-      .@{table-prefix-cls}-thead > tr > th {
-        border-bottom: 0;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
       }
     }
 
+    .@{table-prefix-cls}-placeholder,
     .@{table-prefix-cls}-row:last-child td {
       border-bottom: 0;
     }
@@ -197,29 +247,29 @@
     margin-left: 4px;
     display: inline-block;
     width: 12px;
-    height: 15px;
+    height: 14px;
     vertical-align: middle;
     text-align: center;
     &-up,
     &-down {
       line-height: 4px;
-      height: 6px;
+      height: 5px;
       display: block;
       width: 12px;
       cursor: pointer;
-      &:hover .anticon {
-        color: #666;
+      &:hover .@{iconfont-css-prefix} {
+        color: @text-color;
       }
       &.on {
-        .anticon-caret-up,
-        .anticon-caret-down {
+        .@{iconfont-css-prefix}-caret-up,
+        .@{iconfont-css-prefix}-caret-down {
           color: @primary-color;
         }
       }
     }
-    .anticon-caret-up,
-    .anticon-caret-down {
-      .iconfont-size-under-12px(6px);
+    .@{iconfont-css-prefix}-caret-up,
+    .@{iconfont-css-prefix}-caret-down {
+      .iconfont-size-under-12px(7px);
       line-height: 6px;
       height: 6px;
       color: #aaa;
@@ -230,50 +280,93 @@
   }
 
   &-bordered {
-    .@{table-prefix-cls}-body > table {
-      border: 1px solid @border-color-split;
+    .@{table-prefix-cls}-header > table,
+    .@{table-prefix-cls}-body > table,
+    .@{table-prefix-cls}-fixed-left table,
+    .@{table-prefix-cls}-fixed-right table {
+      border: @border-width-base @border-style-base @border-color-split;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    &.@{table-prefix-cls}-empty {
+      .@{table-prefix-cls}-placeholder {
+        border-left: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
     }
 
     &.@{table-prefix-cls}-fixed-header {
-      border: 1px solid @border-color-split;
-      table {
+      .@{table-prefix-cls}-header > table {
+        border-bottom: 0;
+      }
+
+      .@{table-prefix-cls}-body > table {
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .@{table-prefix-cls}-body-inner > table {
+        border-top: 0;
+      }
+
+      .@{table-prefix-cls}-placeholder {
         border: 0;
-      }
-      .@{table-prefix-cls}-fixed-left {
-        border-right: 1px solid @border-color-split;
-      }
-      .@{table-prefix-cls}-fixed-right {
-        border-left: 1px solid @border-color-split;
       }
     }
 
     .@{table-prefix-cls}-thead > tr > th {
-      border-bottom: 1px solid @border-color-split;
-    }
-
-    .@{table-prefix-cls}-tbody tr:last-child {
-      > th,
-      > td {
-        border-bottom: 0;
-      }
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
-      border-right: 1px solid @border-color-split;
-      &:last-child {
-        border-right: 0;
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+
+    &.@{table-prefix-cls}-small {
+      border-right: 0;
+
+      .@{table-prefix-cls}-header > table,
+      .@{table-prefix-cls}-body > table,
+      .@{table-prefix-cls}-fixed-left table,
+      .@{table-prefix-cls}-fixed-right table {
+        border: 0;
+        padding: 0;
+      }
+
+      .@{table-prefix-cls}-title {
+        border: 0;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+
+      .@{table-prefix-cls}-footer {
+        border: 0;
+        border-top: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
+        &:before {
+          display: none;
+        }
+      }
+
+      .@{table-prefix-cls}-placeholder {
+        border-left: 0;
+        border-bottom: 0;
       }
     }
   }
 
   &-placeholder {
-    height: 65px;
-    line-height: 65px;
+    position: relative;
+    padding: 16px 8px;
+    background: @component-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
-    font-size: 12px;
-    color: #999;
-    .anticon {
+    font-size: @font-size-base;
+    color: @text-color-secondary;
+    .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
   }
@@ -286,48 +379,52 @@
   &-filter-dropdown {
     min-width: 96px;
     margin-left: -8px;
-    background: #fff;
+    background: @component-background;
     border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
     box-shadow: @box-shadow-base;
 
-    .ant-dropdown-menu {
+    .@{ant-prefix}-dropdown-menu {
       border: 0;
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
 
+      // https://github.com/ant-design/ant-design/issues/4916
+      &-without-submenu {
+        max-height: 400px;
+        overflow-x: hidden;
+      }
+
       &-item > label + span {
-        margin-left: 8px;
+        padding: 0;
       }
 
       &-sub {
         border-radius: @border-radius-base;
-        border: 1px solid @border-color-base;
         box-shadow: @box-shadow-base;
       }
 
-      .ant-dropdown-submenu-contain-selected {
-        .ant-dropdown-menu-submenu-title:after {
+      .@{ant-prefix}-dropdown-submenu-contain-selected {
+        .@{ant-prefix}-dropdown-menu-submenu-title:after {
           color: @primary-color;
           font-weight: bold;
-          text-shadow: 0 0 2px tint(@primary-color, 80%);
+          text-shadow: 0 0 2px @primary-2;
         }
       }
     }
 
-    .ant-dropdown-menu-item {
+    .@{ant-prefix}-dropdown-menu-item {
       overflow: hidden;
     }
 
-    > .ant-dropdown-menu > .ant-dropdown-menu-item:last-child,
-    > .ant-dropdown-menu > .ant-dropdown-menu-submenu:last-child .ant-dropdown-menu-submenu-title {
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-submenu:last-child .@{ant-prefix}-dropdown-menu-submenu-title {
       border-radius: 0;
     }
 
     &-btns {
       overflow: hidden;
-      padding: 7px 15px;
-      border-top: 1px solid @border-color-split;
+      padding: 7px 16px;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
 
     &-link {
@@ -347,8 +444,35 @@
     }
   }
 
-  &-expand-icon-th {
-    width: 34px;
+  &-selection {
+    &-select-all-custom {
+      margin-right: 4px !important;
+    }
+
+    .@{iconfont-css-prefix}-down {
+      color: #aaa;
+    }
+
+    &-menu {
+      min-width: 96px;
+      margin-top: 5px;
+      margin-left: -30px;
+      background: @component-background;
+      border-radius: @border-radius-base;
+      box-shadow: @box-shadow-base;
+
+      .@{ant-prefix}-action-down {
+        color: #aaa;
+      }
+    }
+
+    &-down {
+      cursor: pointer;
+      padding: 0;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
   }
 
   &-row {
@@ -359,12 +483,9 @@
       height: 17px;
       text-align: center;
       line-height: 14px;
-      border: 1px solid @border-color-split;
+      border: @border-width-base @border-style-base @border-color-split;
       user-select: none;
-      background: #fff;
-      &-cell {
-        width: 18px;
-      }
+      background: @component-background;
     }
 
     &-expanded:after {
@@ -400,6 +521,7 @@
 
   &-scroll {
     overflow: auto;
+    overflow-x: hidden;
     table {
       width: auto;
       min-width: 100%;
@@ -412,7 +534,7 @@
 
   &-fixed-header &-body {
     position: relative;
-    background: #fff;
+    background: @component-background;
   }
 
   &-fixed-header &-body-inner {
@@ -425,17 +547,22 @@
     margin-bottom: -20px;
   }
 
+  /* fix firefox scrollbar bug */
+  &-fixed-header&-empty &-scroll &-body {
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
   &-fixed-left,
   &-fixed-right {
     position: absolute;
     top: 0;
     overflow: hidden;
-    z-index: 1;
     transition: box-shadow .3s ease;
     border-radius: 0;
     table {
       width: auto;
-      background: #fff;
+      background: @component-background;
     }
   }
 
@@ -446,7 +573,7 @@
 
   &-fixed-left {
     left: 0;
-    box-shadow: @shadow-1-right;
+    box-shadow: 6px 0 6px -4px @shadow-color;
     .@{table-prefix-cls}-header {
       overflow-y: hidden;
     }
@@ -466,7 +593,7 @@
 
   &-fixed-right {
     right: 0;
-    box-shadow: @shadow-1-left;
+    box-shadow: -6px 0 6px -4px @shadow-color;
     &,
     table {
       border-radius: 0 @border-radius-base 0 0;
@@ -485,57 +612,5 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
-  }
-
-  &-column-hidden {
-    display: none;
-  }
-
-  &-thead > tr > th&-column-has-prev {
-    position: relative;
-  }
-
-  &-thead > tr > th&-column-has-prev,
-  &-tbody > tr > td&-column-has-prev {
-    padding-left: 24px;
-  }
-
-  &-prev-columns-page,
-  &-next-columns-page {
-    cursor: pointer;
-    color: #666;
-    z-index: 1;
-    &:hover {
-      color: @primary-color;
-    }
-    &-disabled {
-      cursor: not-allowed;
-      color: #bbb;
-      &:hover {
-        color: #bbb;
-      }
-    }
-  }
-
-  &-prev-columns-page {
-    position: absolute;
-    left: 8px;
-    &:before {
-      content: '\e601';
-      .iconfont-size-under-12px(9px);
-      font-weight: bold;
-      font-family: anticon;
-    }
-  }
-
-  &-next-columns-page {
-    float: right;
-    margin-left: 8px;
-    &:before {
-      content: '\e600';
-      .iconfont-size-under-12px(9px);
-      font-weight: bold;
-      font-family: anticon;
-    }
   }
 }
