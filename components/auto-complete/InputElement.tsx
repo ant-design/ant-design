@@ -10,6 +10,7 @@ export default class InputElement extends React.Component<any, any> {
     };
   }
   set refs(ref) {
+    this.ele = ref.ele;
   }
 
   focus = () => {
