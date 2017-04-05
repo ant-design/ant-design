@@ -11,7 +11,7 @@ export interface IconProps {
   style?: React.CSSProperties;
 }
 
-export default (props: IconProps) => {
+const icon = (props: IconProps) => {
   const { type, className = '', spin } = props;
   const classString = classNames({
     anticon: true,
@@ -20,3 +20,7 @@ export default (props: IconProps) => {
   }, className);
   return <i {...omit(props, ['type', 'spin'])} className={classString} />;
 };
+
+icon.displayName = 'Icon';
+
+export default icon;
