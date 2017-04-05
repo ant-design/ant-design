@@ -17,8 +17,8 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
-  onPrevClick?: (e: React.MouseEventHandler<any>) => void;
-  onNextClick?: (e: React.MouseEventHandler<any>) => void;
+  onPrevClick?: React.MouseEventHandler<any>;
+  onNextClick?: React.MouseEventHandler<any>;
   tabBarExtraContent?: React.ReactNode | null;
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
