@@ -21,6 +21,6 @@ const icon = (props: IconProps) => {
   return <i {...omit(props, ['type', 'spin'])} className={classString} />;
 };
 
-icon.displayName = 'Icon';
+icon['displayName'] = 'Icon';
 
 export default icon;
