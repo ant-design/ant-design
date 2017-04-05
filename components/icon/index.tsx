@@ -19,8 +19,8 @@ const icon = (props: IconProps) => {
     [`anticon-${type}`]: true,
   }, className);
   return <i {...omit(props, ['type', 'spin'])} className={classString} />;
-};
+}
 
-icon['displayName'] = 'Icon';
+(icon as any).displayName = 'Icon';
 
 export default icon;
