@@ -7,11 +7,15 @@ title:
 
 ## zh-CN
 
-通过配置参数来控制渲染单选框。
+通过配置 `options` 参数来渲染单选框。
+
+> `2.9.0` 之后支持。
 
 ## en-US
 
-Render radios by configuring parameters.
+Render radios by configuring `options`.
+
+> support after `2.9.0`.
 
 ```jsx
 import { Radio } from 'antd';
