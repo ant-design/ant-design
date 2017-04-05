@@ -18,7 +18,8 @@ class ModalTester extends React.Component {
   }
   render() {
     return (
-      <div ref={this.saveContainer}>
+      <div>
+        <div ref={this.saveContainer} />
         <Modal
           {...this.props}
           visible={this.state.visible}
