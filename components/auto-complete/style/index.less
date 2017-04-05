@@ -12,9 +12,6 @@
       &-selection {
         border: 0;
         box-shadow: none;
-        &--single {
-          height: 100%;
-        }
         &__rendered {
           margin-left: 0;
           margin-right: 0;
@@ -24,6 +21,12 @@
           margin-right: 8px;
           top: @input-height-base / 2;
         }
+      }
+    }
+
+    &-allow-clear {
+      .@{select-prefix-cls}-selection:hover .@{select-prefix-cls}-selection__rendered {
+        margin-right: 0 !important;
       }
     }
 
