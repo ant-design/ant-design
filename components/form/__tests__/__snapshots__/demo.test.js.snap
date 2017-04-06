@@ -937,6 +937,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </label>
         <a
           class="login-form-forgot"
+          href=""
         >
           Forgot password
         </a>
@@ -949,7 +950,9 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
         </button>
         Or 
-        <a>
+        <a
+          href=""
+        >
           register now!
         </a>
       </div>
@@ -1289,7 +1292,9 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </span>
           <span>
             I have read the 
-            <a>
+            <a
+              href=""
+            >
               agreement
             </a>
           </span>

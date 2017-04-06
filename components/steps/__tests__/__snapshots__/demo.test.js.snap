@@ -137,8 +137,14 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -261,8 +267,14 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -420,8 +432,14 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait ant-steps-custom"
+    class="ant-steps-item ant-steps-status-wait ant-steps-custom"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -547,8 +565,14 @@ exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -673,8 +697,14 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -787,8 +817,14 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -899,8 +935,14 @@ exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+      class="ant-steps-item ant-steps-status-wait"
     >
+      <div
+        class="ant-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="ant-steps-step"
       >
@@ -1034,8 +1076,14 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >
@@ -1156,8 +1204,14 @@ exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-item-last ant-steps-status-wait"
+    class="ant-steps-item ant-steps-status-wait"
   >
+    <div
+      class="ant-steps-tail"
+      style="padding-right:0;"
+    >
+      <i />
+    </div>
     <div
       class="ant-steps-step"
     >

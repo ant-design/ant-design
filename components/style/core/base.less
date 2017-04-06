@@ -61,6 +61,11 @@ a {
   cursor: pointer;
   transition: color .3s ease;
 
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
+
   &:hover {
     color: @link-hover-color;
   }
