@@ -103,3 +103,7 @@ Self-image, satisfaction, and good memories bring user a combining experience of
 ### Happiness of designer
 
 <img class="preview-img no-padding" align="right" alt="Designer Happiess" description="Ant Design can not guarantee the success of products, but try to help those products <strong>successed correctly</strong> or <strong>failed correctly</strong>." src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
+
+From 0 to 1, Ant Design help designers to implement a quick prototype for trial and error.
+
+From 1 to 100, Ant Design provide a complete UI solution, help designers to create their own product personality and improve user experience.
