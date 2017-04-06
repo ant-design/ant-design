@@ -1,13 +1,17 @@
 .@{calendar-prefix-cls}-month-panel {
-  left: 0;
-  top: 1px;
-  bottom: 0;
-  right: 0;
-  background: @component-background;
-  z-index: 10;
   position: absolute;
-  outline: none;
+  top: 1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
   border-radius: @border-radius-base;
+  background: @component-background;
+  outline: none;
+
+  > div { // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+    height: 100%;
+  }
 }
 
 .@{calendar-prefix-cls}-month-panel-hidden {
@@ -18,10 +22,14 @@
   .calendarPanelHeader(~"@{calendar-prefix-cls}-month-panel");
 }
 
+.@{calendar-prefix-cls}-month-panel-body {
+  height: ~"calc(100% - 34px)";
+}
+
 .@{calendar-prefix-cls}-month-panel-table {
   table-layout: fixed;
   width: 100%;
-  height: 248px;
+  height: 100%;
   border-collapse: separate;
 }
 
