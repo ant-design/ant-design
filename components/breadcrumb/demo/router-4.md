@@ -1,7 +1,7 @@
 ---
-order: 2
+order: 3
 iframe: 200
-reactRouter: react-router
+reactRouter: react-router-dom
 title:
   zh-CN: 路由
   en-US: React Router Integration
@@ -9,14 +9,14 @@ title:
 
 ## zh-CN
 
-和 `react-router@2` `react-router@3` 进行结合使用。
+和 `react-router@4` 进行结合使用。
 
 ## en-US
 
-Used together with `react-router@2` `react-router@3`.
+Used together with `react-router@4`.
 
 ````jsx
-import { Router, Route, Link, hashHistory } from 'react-router';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
@@ -43,7 +43,7 @@ const Home = ({ routes, params, children }) => (
 );
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Router>
     <Route name="home" breadcrumbName="Home" path="/" component={Home}>
       <Route name="apps" breadcrumbName="Application List" path="apps" component={Apps}>
         <Route name="app" breadcrumbName="Application:id" path=":id">
