@@ -89,6 +89,10 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: PropTypes.string,
   };
 
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  };
+
   context: SelectContext;
 
   getLocale() {
@@ -97,7 +101,7 @@ export default class Select extends React.Component<SelectProps, any> {
       return antLocale.Select;
     }
     return {
-      notFoundContent: 'Not Found',
+      notFoundContent: '无匹配结果',
     };
   }
 
