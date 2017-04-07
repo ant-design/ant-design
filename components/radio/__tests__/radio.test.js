@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Radio from '../radio';
 
 describe('Radio', () => {
   it('should render correctly', () => {
     const wrapper = render(<Radio className="customized">Test</Radio>);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('responses hover events', () => {

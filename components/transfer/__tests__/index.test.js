@@ -1,7 +1,6 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
@@ -88,7 +87,7 @@ const searchTransferProps = {
 describe('Transfer', () => {
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should move selected keys to corresponding list', () => {

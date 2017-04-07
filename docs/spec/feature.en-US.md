@@ -3,7 +3,7 @@ order: 1
 title: Features
 ---
 
-Unlike other design specifications, Ant Design pursues not only user expirerence, but also expirerence of desigers and developers, which practice a humanist design idea.
+Unlike other design specifications, Ant Design pursues not only user experience, but also experience of desigers and developers, which practice a humanist design idea.
 
 <div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
   <div class="ant-col-8 features">
@@ -76,7 +76,7 @@ Compose different components for more powerful functions, it is a good path to m
 
 <img class="preview-img" align="right" alt="Typography Sample" description="Following『intimacy』principle, get the distance by a specified n value" src="https://os.alipayobjects.com/rmsportal/WNEbRORxzEvvFKy.png">
 
-<img class="preview-img no-padding good" align="right" alt="Feedback - Good" description="Unify and simpcify the button text to same text like `Ok` or `Actions` in all situations, improve designers expirerence by sacrifice a little user expirerence." src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
+<img class="preview-img no-padding good" align="right" alt="Feedback - Good" description="Unify and simpcify the button text to same text like `Ok` or `Actions` in all situations, improve designers experience by sacrifice a little user experience." src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
 
 <img class="preview-img no-padding bad" align="right" alt="Feedback - Bad" description="It is better for this certain situation but a disaster for text maintainers. It is very easy to make typo mistakes cause text are different and unpredicable in every pages." src="https://os.alipayobjects.com/rmsportal/OWLtvGCGmqawyPt.png">
 
@@ -98,7 +98,7 @@ Beatuful looks, tide typography and smooth animation produce positive reaction a
 
 Good functions, perfermance and usability produce positive reaction at behavious level.
 
-Self-image, satisfaction, and good memories bring user a combining expirerence of thoughts and emotions at learning level.
+Self-image, satisfaction, and good memories bring user a combining experience of thoughts and emotions at learning level.
 
 ### Happiness of designer
 
@@ -106,4 +106,4 @@ Self-image, satisfaction, and good memories bring user a combining expirerence o
 
 From 0 to 1, Ant Design help designers to implement a quick prototype for trial and error.
 
-From 1 to 100, Ant Design provide a complete UI solution, help designers to create their own product personality and improve user expirerence.
+From 1 to 100, Ant Design provide a complete UI solution, help designers to create their own product personality and improve user experience.

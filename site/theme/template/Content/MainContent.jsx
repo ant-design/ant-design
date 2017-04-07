@@ -153,7 +153,7 @@ export default class MainContent extends React.Component {
     const result = [...topLevel];
     result.forEach((item, i) => {
       const insertCategory = categories.filter(
-        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] < i : i === result.length - 1)
+        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] <= i : i === result.length - 1)
       )[0];
       if (insertCategory) {
         const target = (
@@ -161,7 +161,7 @@ export default class MainContent extends React.Component {
             {this.generateSubMenuItems(menuItems[insertCategory])}
           </SubMenu>
         );
-        result.splice(i, 0, target);
+        result.splice(i + 1, 0, target);
         categories.splice(categories.indexOf(insertCategory), 1);
       }
     });

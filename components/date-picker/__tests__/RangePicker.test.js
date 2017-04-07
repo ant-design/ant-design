@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import moment from 'moment';
 import { RangePicker } from '../';
 
@@ -16,7 +15,7 @@ describe('RangePicker', () => {
     );
 
     wrapper.setProps({ value: [birthday, birthday] });
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent())))
+    expect(render(wrapper.find('Trigger').node.getComponent()))
       .toMatchSnapshot();
   });
 
@@ -36,7 +35,7 @@ describe('RangePicker', () => {
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
     rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
       .simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent())))
+    expect(render(wrapper.find('Trigger').node.getComponent()))
       .toMatchSnapshot();
   });
 });

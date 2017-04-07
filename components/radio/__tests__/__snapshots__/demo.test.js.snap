@@ -493,7 +493,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/radio/demo/radiogroup-optional.md correctly 1`] = `
+exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
 <div>
   <div
     class="ant-radio-group"

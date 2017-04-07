@@ -9,7 +9,7 @@ module.exports = {
     'app.header.menu.practice': '实践',
     'app.header.menu.pattern': '模式',
     'app.header.menu.components': '组件',
-    'app.header.menu.spec': '规范',
+    'app.header.menu.spec': '指引',
     'app.header.menu.resource': '资源',
     'app.header.lang': 'EN',
     'app.content.edit-page': '在 Github 上编辑此页！',

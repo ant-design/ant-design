@@ -23,15 +23,7 @@ export interface DropdownButtonProps {
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    align: {
-      points: ['tr', 'br'],
-      overlay: {
-        adjustX: 1,
-        adjustY: 1,
-      },
-      offset: [0, 4],
-      targetOffset: [0, 0],
-    },
+    placement: 'bottomRight',
     type: 'default',
     prefixCls: 'ant-dropdown-button',
   };

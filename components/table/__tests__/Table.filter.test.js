@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.filter', () => {
@@ -48,13 +47,13 @@ describe('Table.filter', () => {
   it('renders filter correctly', () => {
     const wrapper = render(createTable());
 
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders menu correctly', () => {
     const wrapper = mount(createTable());
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
-    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+    expect(dropdownWrapper).toMatchSnapshot();
   });
 
   it('renders radio filter correctly', () => {
@@ -65,7 +64,7 @@ describe('Table.filter', () => {
       }],
     }));
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
-    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+    expect(dropdownWrapper).toMatchSnapshot();
   });
 
   it('renders custom content correctly', () => {
@@ -82,7 +81,7 @@ describe('Table.filter', () => {
     }));
 
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
-    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+    expect(dropdownWrapper).toMatchSnapshot();
   });
 
   it('can be controlled by filterDropdownVisible', () => {

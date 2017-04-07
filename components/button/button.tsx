@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
 import omit from 'omit.js';
 
@@ -119,7 +118,6 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   // Handle auto focus when click button in Chrome
   handleMouseUp = (e) => {
-    (findDOMNode(this) as HTMLElement).blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(e);
     }
