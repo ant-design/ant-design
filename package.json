@@ -98,6 +98,7 @@
     "cross-env": "^4.0.0",
     "css-split-webpack-plugin": "^0.2.3",
     "dekko": "^0.2.0",
+    "delegate": "^3.1.2",
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
     "enzyme": "^2.6.0",
@@ -214,7 +215,9 @@
       "/node_modules/",
       "/dist/antd.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "pre-commit": [
     "lint-staged"

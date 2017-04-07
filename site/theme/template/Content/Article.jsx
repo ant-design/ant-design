@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
+import delegate from 'delegate';
 import EditButton from './EditButton';
 import * as utils from '../utils';
 
@@ -11,6 +12,12 @@ export default class Article extends React.Component {
     intl: PropTypes.object.isRequired,
   }
   componentDidMount() {
+    // Add ga event click
+    this.delegation = delegate(this.node, '.resource-card', 'click', (e) => {
+      if (window.ga) {
+        window.ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
+      }
+    }, false);
     this.componentDidUpdate();
   }
   componentDidUpdate() {
@@ -30,6 +37,9 @@ export default class Article extends React.Component {
   }
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
+    if (this.delegation) {
+      this.delegation.destroy();
+    }
   }
   getArticle(article) {
     const { content } = this.props;
@@ -64,7 +74,7 @@ export default class Article extends React.Component {
     const locale = this.context.intl.locale;
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
-        <article className="markdown">
+        <article className="markdown" ref={(node) => { this.node = node; }}>
           <h1>
             {title[locale] || title}
             {
