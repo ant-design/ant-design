@@ -18,6 +18,7 @@ import etEE from '../et_EE';
 import skSK from '../sk_SK';
 import jaJP from '../ja_JP';
 import trTR from '../tr_TR';
+import zhTW from '../zh_TW';
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
@@ -63,7 +64,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
-    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR].forEach((locale) => {
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW].forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
@@ -85,7 +86,7 @@ describe('Locale Provider', () => {
         return null;
       }
     }
-    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, trTR].forEach((locale) => {
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, trTR, zhTW].forEach((locale) => {
       mount(
         <LocaleProvider locale={locale}>
           <ModalDemo />
