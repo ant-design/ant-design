@@ -101,7 +101,7 @@ export default class Select extends React.Component<SelectProps, any> {
       return antLocale.Select;
     }
     return {
-      notFoundContent: '暂无数据',
+      notFoundContent: '无匹配结果',
     };
   }
 
