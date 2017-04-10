@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-In dealing with long content, a fixed sider can provide a better user experience.
+When dealing with long content, a fixed sider can provide a better user experience.
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
