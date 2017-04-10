@@ -48,7 +48,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+      class="ant-input-number-handler ant-input-number-handler-up "
       unselectable="unselectable"
     >
       <span
@@ -57,7 +57,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       />
     </span>
     <span
-      class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+      class="ant-input-number-handler ant-input-number-handler-down "
       unselectable="unselectable"
     >
       <span
