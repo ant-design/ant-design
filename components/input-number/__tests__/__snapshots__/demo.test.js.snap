@@ -48,7 +48,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
-      class="ant-input-number-handler ant-input-number-handler-up "
+      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
       unselectable="unselectable"
     >
       <span
@@ -170,7 +170,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-input"
         max="Infinity"
         min="-Infinity"
-        value="$ 100"
+        value="$ 1,000"
       />
     </div>
   </div>
@@ -181,7 +181,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       class="ant-input-number-handler-wrap"
     >
       <span
-        class="ant-input-number-handler ant-input-number-handler-up "
+        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
         unselectable="unselectable"
       >
         <span
@@ -205,8 +205,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        max="Infinity"
-        min="-Infinity"
+        max="100"
+        min="0"
         value="100%"
       />
     </div>

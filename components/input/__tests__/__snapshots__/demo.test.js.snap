@@ -294,7 +294,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
-          class="ant-input-number-handler ant-input-number-handler-up "
+          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
           unselectable="unselectable"
         >
           <span
@@ -303,7 +303,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           />
         </span>
         <span
-          class="ant-input-number-handler ant-input-number-handler-down "
+          class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
           unselectable="unselectable"
         >
           <span
