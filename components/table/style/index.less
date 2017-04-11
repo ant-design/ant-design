@@ -2,7 +2,6 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
-@table-head-background-color: @background-color-base;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -66,7 +65,7 @@
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       & > td {
-        background: @primary-1;
+        background: @table-row-background-hover;
       }
     }
   }
