@@ -4,25 +4,20 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
-import { UploadProps, UploadLocale } from './interface';
+import { UploadProps } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+import Localizable from '../locale-provider/Localizable';
 
-export interface UploadContext {
-  antLocale?: {
-    Upload?: any,
-  };
-}
+export { UploadProps };
 
-const defaultLocale: UploadLocale = {
+const UploadLocalizable = Localizable<UploadProps, any>('Upload', {
   uploading: '文件上传中',
   removeFile: '删除文件',
   uploadError: '上传错误',
   previewFile: '预览文件',
-};
+});
 
-export { UploadProps };
-
-export default class Upload extends React.Component<UploadProps, any> {
+export default class Upload extends UploadLocalizable {
   static Dragger: typeof Dragger;
 
   static defaultProps = {
@@ -40,11 +35,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     supportServerRender: true,
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
-  };
-
-  context: UploadContext;
+  static contextTypes = UploadLocalizable.contextTypes;
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
@@ -63,14 +54,6 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   componentWillUnmount() {
     this.clearProgressTimer();
-  }
-
-  getLocale() {
-    let locale = {};
-    if (this.context.antLocale && this.context.antLocale.Upload) {
-      locale = this.context.antLocale.Upload;
-    }
-    return assign({}, defaultLocale, locale, this.props.locale);
   }
 
   onStart = (file) => {
