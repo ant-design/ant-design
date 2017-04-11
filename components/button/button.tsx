@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../icon';
 import omit from 'omit.js';
@@ -60,14 +61,14 @@ export default class Button extends React.Component<ButtonProps, any> {
   };
 
   static propTypes = {
-    type: React.PropTypes.string,
-    shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
-    size: React.PropTypes.oneOf(['large', 'default', 'small']),
-    htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
-    onClick: React.PropTypes.func,
-    loading: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.object]),
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
+    type: PropTypes.string,
+    shape: PropTypes.oneOf(['circle', 'circle-outline']),
+    size: PropTypes.oneOf(['large', 'default', 'small']),
+    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
+    onClick: PropTypes.func,
+    loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    className: PropTypes.string,
+    icon: PropTypes.string,
   };
 
   timeout: number;
