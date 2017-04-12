@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AnchorHelper, { scrollTo } from './anchorHelper';
 
@@ -18,7 +19,7 @@ export interface AnchorLinkProps {
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   static __ANT_ANCHOR_LINK = true;
   static contextTypes = {
-    anchorHelper: React.PropTypes.any,
+    anchorHelper: PropTypes.any,
   };
 
   static defaultProps = {

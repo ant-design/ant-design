@@ -42,6 +42,7 @@
     "moment": "^2.18.1",
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
+    "prop-types": "^15.5.7",
     "rc-animate": "~2.3.0",
     "rc-calendar": "~7.8.0",
     "rc-cascader": "~0.11.0",

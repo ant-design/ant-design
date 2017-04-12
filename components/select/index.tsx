@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import warning from '../_util/warning';
@@ -90,7 +91,7 @@ export default class Select extends React.Component<SelectProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: SelectContext;

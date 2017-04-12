@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
@@ -34,10 +35,10 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     prefixCls: 'ant-checkbox-group',
   };
   static propTypes = {
-    defaultValue: React.PropTypes.array,
-    value: React.PropTypes.array,
-    options: React.PropTypes.array.isRequired,
-    onChange: React.PropTypes.func,
+    defaultValue: PropTypes.array,
+    value: PropTypes.array,
+    options: PropTypes.array.isRequired,
+    onChange: PropTypes.func,
   };
   constructor(props) {
     super(props);

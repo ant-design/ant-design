@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -10,7 +11,7 @@ import warning from '../_util/warning';
 
 export default class RangePicker extends React.Component<any, any> {
   static contextTypes = {
-      antLocale: React.PropTypes.object,
+      antLocale: PropTypes.object,
   };
   static defaultProps = {
     prefixCls: 'ant-calendar',
