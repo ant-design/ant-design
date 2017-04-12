@@ -69,7 +69,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       });
     }
   }
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps, nextState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }

@@ -75,7 +75,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps, nextState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
