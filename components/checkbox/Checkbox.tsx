@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import shallowEqual from 'shallowequal';
 import CheckboxGroup from './Group';
 
 export interface AbstractCheckboxProps {
@@ -27,14 +27,36 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     prefixCls: 'ant-checkbox',
     indeterminate: false,
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  static contextTypes = {
+    checkboxGroup: PropTypes.any,
+  };
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
   }
+
   render() {
+    const { props, context } = this;
     const {
-      prefixCls, style, children, className, indeterminate,
-      onMouseEnter, onMouseLeave, ...restProps,
-     } = this.props;
+      prefixCls,
+      className,
+      children,
+      indeterminate,
+      style,
+      onMouseEnter,
+      onMouseLeave,
+      ...restProps,
+    } = props;
+    const { checkboxGroup } = context;
+    let checkboxProps: CheckboxProps = { ...restProps };
+    if (checkboxGroup) {
+      checkboxProps.onChange = (...args) => checkboxGroup.toggleOption({ label: children, value: props.value });
+      checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
+      checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
+    }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
     });
@@ -49,10 +71,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
         onMouseLeave={onMouseLeave}
       >
         <RcCheckbox
-          {...restProps}
+          {...checkboxProps}
           prefixCls={prefixCls}
           className={checkboxClass}
-          children={null}
         />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
