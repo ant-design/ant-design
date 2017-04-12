@@ -22,7 +22,7 @@ title:
 > 1. 表格中的时间、状态、操作栏需保持词语完整不过行。
 > 2. 当数据为空时，可使用『- -』来表示暂无数据。
 
-## 折叠面板
+## 折叠面板 Collapse
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/UzmOpWyvIZmFibFPOjuo.png">
 
