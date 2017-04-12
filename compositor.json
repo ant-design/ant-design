@@ -1,0 +1,94 @@
+{
+  "name": "ant-design/ant-design",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "ant-design",
+  "branch": "",
+  "style": {
+    "name": "Material",
+    "componentSet": {
+      "nav": "nav/DarkAbsoluteNav",
+      "header": "header/GradientHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Roboto, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "letterSpacing": "-0.01em"
+    },
+    "colors": {
+      "text": "#212121",
+      "background": "#fff",
+      "primary": "#2196f3",
+      "secondary": "#1565c0",
+      "highlight": "#ff4081",
+      "border": "#e0e0e0",
+      "muted": "#f5f5f5"
+    },
+    "layout": {
+      "centered": true,
+      "bannerHeight": "80vh",
+      "maxWidth": 896
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "http://ant.design",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/ant-design/ant-design",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/antd",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "ant-design",
+      "subhead": "🐜 A UI Design Language",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "ant-design: 🐜 A UI Design Language",
+          "url": "http://ant.design"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "ant-design",
+          "repo": "ant-design"
+        }
+      ],
+      "text": "v2.9.1"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p>\n  <a href=\"http://ant.design\">\n    <img src=\"https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg\">\n  </a>\n</p>\n\n\n<p><a href=\"https://travis-ci.org/ant-design/ant-design\"><img src=\"https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square\"></a>\n<a href=\"https://codecov.io/gh/ant-design/ant-design/branch/master\"><img src=\"https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square\"></a>\n<a href=\"https://gemnasium.com/ant-design/ant-design\"><img src=\"https://img.shields.io/gemnasium/react-component/trigger.svg?style=flat-square\"></a></p>\n<p><a href=\"https://www.npmjs.org/package/antd\"><img src=\"https://img.shields.io/npm/v/antd.svg?style=flat-square\"></a>\n<a href=\"https://npmjs.org/package/antd\"><img src=\"http://img.shields.io/npm/dm/antd.svg?style=flat-square\"></a>\n<a href=\"http://isitmaintained.com/project/ant-design/ant-design\"><img src=\"http://isitmaintained.com/badge/open/ant-design/ant-design.svg\"></a>\n<a href=\"https://gitter.im/ant-design/ant-design-english?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge\"><img src=\"https://badges.gitter.im/ant-design/ant-design-english.svg\"></a> (English)\n<a href=\"https://gitter.im/ant-design/ant-design?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\"><img src=\"https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square\"></a>&#xFF08;&#x4E2D;&#x6587;&#xFF09;</p>\n<p>&#x4E00;&#x5957;&#x4F01;&#x4E1A;&#x7EA7;&#x7684; UI &#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x548C; React &#x5B9E;&#x73B0;&#x3002;</p>\n<p><a href=\"README.md\">README in English</a></p>\n<h2>&#x7279;&#x6027;</h2>\n<ul>\n<li>&#x63D0;&#x70BC;&#x81EA;&#x4F01;&#x4E1A;&#x7EA7;&#x4E2D;&#x540E;&#x53F0;&#x4EA7;&#x54C1;&#x7684;&#x4EA4;&#x4E92;&#x8BED;&#x8A00;&#x548C;&#x89C6;&#x89C9;&#x98CE;&#x683C;&#x3002;</li>\n<li>&#x5F00;&#x7BB1;&#x5373;&#x7528;&#x7684;&#x9AD8;&#x8D28;&#x91CF; React &#x7EC4;&#x4EF6;&#x3002;</li>\n<li>&#x4F7F;&#x7528; TypeScript &#x6784;&#x5EFA;&#xFF0C;&#x63D0;&#x4F9B;&#x5B8C;&#x6574;&#x7684;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#x3002;</li>\n<li>&#x57FA;&#x4E8E; npm + webpack + <a href=\"https://github.com/dvajs/dva\">dva</a> &#x7684;&#x4F01;&#x4E1A;&#x7EA7;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#x3002;</li>\n</ul>\n<h2>&#x652F;&#x6301;&#x73AF;&#x5883;</h2>\n<ul>\n<li>&#x73B0;&#x4EE3;&#x6D4F;&#x89C8;&#x5668;&#x548C; IE9 &#x53CA;&#x4EE5;&#x4E0A;&#x3002;</li>\n<li>&#x652F;&#x6301;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x3002;</li>\n<li><a href=\"http://electron.atom.io/\">Electron</a></li>\n</ul>\n<h2>&#x53C2;&#x4E0E;&#x5171;&#x5EFA; <a href=\"http://makeapullrequest.com\"><img src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square\"></a></h2>\n<p><code>antd</code> &#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#xFF0C;&#x6211;&#x4EEC;&#x6B22;&#x8FCE;&#x793E;&#x533A;&#x53C2;&#x4E0E;&#x5171;&#x5EFA;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x6B64;&#x9879;&#x76EE;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x6709; <a href=\"https://opensource.guide/how-to-contribute/\">&#x5F88;&#x591A;&#x65B9;&#x5F0F;</a> &#x8FDB;&#x884C;&#x53C2;&#x4E0E;&#x3002;&#x4F60;&#x53EF;&#x4EE5; watch &#x8FD9;&#x4E2A;&#x4ED3;&#x5E93;&#xFF0C;&#x52A0;&#x5165; <a href=\"https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion\">issue &#x4E2D;&#x7684;&#x8BA8;&#x8BBA;</a>&#xFF0C;&#x4EE5;&#x53CA;&#x5C1D;&#x8BD5;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B; <a href=\"https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22\">&#x5DF2;&#x63A5;&#x53D7;&#x7684;&#x7279;&#x6027;</a>&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x7ED9;&#x4E88;&#x6709;&#x6D3B;&#x8DC3;&#x8D21;&#x732E;&#x7684;&#x793E;&#x533A;&#x6210;&#x5458; <a href=\"https://github.com/ant-design/ant-design/issues/3222\">collaborator &#x6743;&#x9650;</a>&#x3002;</p>\n<h2>&#x5B89;&#x88C5;</h2>\n<pre>npm install antd</pre><h2>&#x793A;&#x4F8B;</h2>\n<pre><span class=\"hljs-keyword\">import</span> { DatePicker } <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&apos;antd&apos;</span>;\nReactDOM.render(<span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">DatePicker</span> /&gt;</span>, mountNode);</span></pre><p>&#x5F15;&#x5165;&#x6837;&#x5F0F;&#xFF1A;</p>\n<pre><span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&apos;antd/dist/antd.css&apos;</span>;  <span class=\"hljs-comment\">// or &apos;antd/dist/antd.less&apos;</span></pre><p>&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x53EF;&#x901A;&#x8FC7;&#x6B64;&#x5199;&#x6CD5; <code>import DatePicker from &apos;antd/lib/date-picker&apos;</code> &#x6216;&#x4F7F;&#x7528;&#x63D2;&#x4EF6; <a href=\"https://github.com/ant-design/babel-plugin-import\">babel-plugin-import</a>&#x3002;</p>\n<h2>TypeScript</h2>\n<pre><span class=\"hljs-comment\">// tsconfig.json</span>\n{\n  <span class=\"hljs-string\">&quot;compilerOptions&quot;</span>: {\n    <span class=\"hljs-string\">&quot;moduleResolution&quot;</span>: <span class=\"hljs-string\">&quot;node&quot;</span>,\n    <span class=\"hljs-string\">&quot;jsx&quot;</span>: <span class=\"hljs-string\">&quot;preserve&quot;</span>,\n    <span class=\"hljs-string\">&quot;allowSyntheticDefaultImports&quot;</span>: <span class=\"hljs-literal\">true</span>\n  }\n}</pre><blockquote>\n<p>&#x6CE8;&#x610F;&#xFF1A;</p>\n<ul>\n<li>&#x8BBE;&#x7F6E; <code>allowSyntheticDefaultImports</code> &#x907F;&#x514D; <code>error TS1192: Module &apos;react&apos; has no default export</code> &#x7684;&#x9519;&#x8BEF;&#x3002;</li>\n<li>&#x4E0D;&#x8981;&#x4F7F;&#x7528; @types/antd, antd &#x5DF2;&#x7ECF;&#x81EA;&#x5E26;&#x4E86; TypeScript &#x5B9A;&#x4E49;&#x3002;</li>\n</ul>\n</blockquote>\n<h2>&#x56FD;&#x9645;&#x5316;</h2>\n<p>&#x53C2;&#x8003; <a href=\"http://ant.design/docs/react/i18n\">&#x56FD;&#x9645;&#x5316;&#x6587;&#x6863;</a>&#x3002;</p>\n<h2>&#x94FE;&#x63A5;</h2>\n<ul>\n<li><a href=\"http://ant.design/index-cn\">&#x9996;&#x9875;</a></li>\n<li><a href=\"http://ant.design/docs/react/introduce-cn\">UI &#x7EC4;&#x4EF6;&#x5E93;</a></li>\n<li><a href=\"CHANGELOG.en-US.md\">&#x66F4;&#x65B0;&#x65E5;&#x5FD7;</a></li>\n<li><a href=\"https://github.com/dvajs/dva-cli\">&#x5F00;&#x53D1;&#x811A;&#x624B;&#x67B6;</a></li>\n<li><a href=\"http://ant-tool.github.io/\">&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x6587;&#x6863;</a></li>\n<li><a href=\"http://react-component.github.io/\">React &#x5E95;&#x5C42;&#x57FA;&#x7840;&#x7EC4;&#x4EF6;</a></li>\n<li><a href=\"http://mobile.ant.design\">&#x79FB;&#x52A8;&#x7AEF;&#x7EC4;&#x4EF6;</a></li>\n<li><a href=\"https://motion.ant.design\">&#x52A8;&#x6548;</a></li>\n<li><a href=\"https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88\">&#x8BBE;&#x8BA1;&#x89C4;&#x8303;&#x901F;&#x67E5;&#x624B;&#x518C;</a></li>\n<li><a href=\"https://github.com/ant-design/ant-design/wiki/Development\">&#x5F00;&#x53D1;&#x8005;&#x8BF4;&#x660E;</a></li>\n<li><a href=\"https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B\">&#x7248;&#x672C;&#x53D1;&#x5E03;&#x89C4;&#x5219;</a></li>\n<li><a href=\"https://github.com/ant-design/ant-design/issues/129\">&#x793E;&#x533A;&#x8D21;&#x732E;&#x811A;&#x624B;&#x67B6;&#x548C;&#x8303;&#x4F8B;</a></li>\n<li><a href=\"https://github.com/ant-design/ant-design/wiki/FAQ\">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a></li>\n<li><a href=\"http://codepen.io/benjycui/pen/KgPZrE?editors=001\">CodePen &#x6A21;&#x677F;</a> for bug reports</li>\n<li><a href=\"https://github.com/websemantics/awesome-ant-design\">Awesome Ant Design</a></li>\n<li><a href=\"http://ant.design/docs/react/customize-theme-cn\">&#x5B9A;&#x5236;&#x4E3B;&#x9898;</a></li>\n</ul>\n<h2>&#x672C;&#x5730;&#x5F00;&#x53D1;</h2>\n<pre>$ git <span class=\"hljs-built_in\">clone</span> git@github.com:ant-design/ant-design.git\n$ npm install\n$ npm start</pre><p>&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; <a href=\"http://127.0.0.1:8001\">http://127.0.0.1:8001</a> &#xFF0C;&#x66F4;&#x591A;&#x672C;&#x5730;&#x5F00;&#x53D1;&#x6587;&#x6863;&#x53C2;&#x89C1;: <a href=\"https://github.com/ant-design/ant-design/wiki/Development\">https://github.com/ant-design/ant-design/wiki/Development</a> &#x3002;</p>\n<h2>&#x5982;&#x4F55;&#x8D21;&#x732E;</h2>\n<p>&#x5728;&#x4EFB;&#x4F55;&#x5F62;&#x5F0F;&#x7684;&#x53C2;&#x4E0E;&#x524D;&#xFF0C;&#x8BF7;&#x5148;&#x9605;&#x8BFB; <a href=\"https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md\">&#x8D21;&#x732E;&#x8005;&#x6587;&#x6863;</a>&#x3002;&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x53C2;&#x4E0E;&#x8D21;&#x732E;&#xFF0C;&#x6B22;&#x8FCE; <a href=\"https://github.com/ant-design/ant-design/pulls\">Pull Request</a>&#xFF0C;&#x6216;&#x7ED9;&#x6211;&#x4EEC; <a href=\"http://new-issue.ant.design/\">&#x62A5;&#x544A; Bug</a>&#x3002;</p>\n<blockquote>\n<p>&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x9605;&#x8BFB; <a href=\"https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way\">&#x300A;&#x63D0;&#x95EE;&#x7684;&#x667A;&#x6167;&#x300B;</a>&#x3001;<a href=\"https://github.com/seajs/seajs/issues/545\">&#x300A;&#x5982;&#x4F55;&#x5411;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x63D0;&#x95EE;&#x9898;&#x300B;</a> &#x548C; <a href=\"http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html\">&#x300A;&#x5982;&#x4F55;&#x6709;&#x6548;&#x5730;&#x62A5;&#x544A; Bug&#x300B;</a>&#xFF0C;&#x66F4;&#x597D;&#x7684;&#x95EE;&#x9898;&#x66F4;&#x5BB9;&#x6613;&#x83B7;&#x5F97;&#x5E2E;&#x52A9;&#x3002;</p>\n</blockquote>\n<h2>&#x793E;&#x533A;&#x4E92;&#x52A9;</h2>\n<p>&#x5982;&#x679C;&#x60A8;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x78B0;&#x5230;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x9014;&#x5F84;&#x5BFB;&#x6C42;&#x5E2E;&#x52A9;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x4E5F;&#x9F13;&#x52B1;&#x8D44;&#x6DF1;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x9014;&#x5F84;&#x7ED9;&#x65B0;&#x4EBA;&#x63D0;&#x4F9B;&#x5E2E;&#x52A9;&#x3002;</p>\n<p>&#x901A;&#x8FC7; Stack Overflow &#x6216;&#x8005; Segment Fault &#x63D0;&#x95EE;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x52A0;&#x4E0A; <code>antd</code> &#x6807;&#x7B7E;&#x3002;</p>\n<ol>\n<li><a href=\"http://stackoverflow.com/questions/tagged/antd\">Stack Overflow</a>&#xFF08;&#x82F1;&#x6587;&#xFF09;</li>\n<li><a href=\"https://segmentfault.com/t/antd\">Segment Fault</a>&#xFF08;&#x4E2D;&#x6587;&#xFF09;</li>\n<li><a href=\"https://gitter.im/ant-design/ant-design?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\"><img src=\"https://badges.gitter.im/Join%20Chat.svg\"></a></li>\n</ol>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/ant-design/ant-design",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/ant-design",
+          "text": "ant-design"
+        }
+      ]
+    }
+  ]
+}
