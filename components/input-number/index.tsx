@@ -13,6 +13,7 @@ export interface InputNumberProps {
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
+  parser?: (displayValue: string | undefined) => number;
   placeholder?: string;
   style?: React.CSSProperties;
   className?: string;
