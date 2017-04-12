@@ -96,8 +96,8 @@ Ok, you now see a blue primary button displaying in page now, next you can choos
 
 ## Advanced Guides
 
-We are successd to run antd components now, but in the real world, there are still lots of problems about antd-demo.
-For instance, we actully import all components in the project which will be a serious network perfermance issue.
+We are successfully running antd components now; but in the real world, there are still lots of problems about antd-demo.
+For instance, we actually import all components in the project which will cause a serious network perfermance issue.
 
 > You will see a warning in your browser console.
 > ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
