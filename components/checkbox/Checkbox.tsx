@@ -1,24 +1,24 @@
-import RcCheckbox from 'rc-checkbox';
-import React from 'react';
-import CheckboxGroup from './Group';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import RcCheckbox from 'rc-checkbox';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import CheckboxGroup from './Group';
 
-export interface CheckboxProps {
+export interface AbstractCheckboxProps {
   prefixCls?: string;
-  /** 指定当前是否选中 */
-  checked?: boolean;
-  /** 初始是否选中 */
+  className?: string;
   defaultChecked?: boolean;
-  /** indeterminate 状态，只负责样式控制 */
-  indeterminate?: boolean;
-  /** 变化时回调函数 */
+  checked?: boolean;
+  style?: React.CSSProperties;
+  disabled?: boolean;
   onChange?: React.FormEventHandler<any>;
   onMouseEnter?: React.MouseEventHandler<any>;
   onMouseLeave?: React.MouseEventHandler<any>;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  className?: string;
+  value?: any;
+}
+
+export interface CheckboxProps extends AbstractCheckboxProps {
+  indeterminate?: boolean;
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {

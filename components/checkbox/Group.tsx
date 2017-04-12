@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 import Checkbox from './Checkbox';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface CheckboxOptionType {
   label: string;
@@ -10,19 +10,18 @@ export interface CheckboxOptionType {
   disabled?: boolean;
 }
 
-export interface CheckboxGroupProps {
-  /** 默认选中的选项 */
-  defaultValue?: Array<string>;
-  /** 指定选中的选项 */
-  value?: Array<string>;
-  /** 指定可选项 */
-  options?: Array<CheckboxOptionType> | Array<string>;
-  /** 变化时回调函数 */
-  onChange?: (checkedValue: Array<string>) => void;
-  disabled?: boolean;
-  style?: React.CSSProperties;
+export interface AbstractCheckboxGroupProps {
   prefixCls?: string;
   className?: string;
+  options?: Array<CheckboxOptionType | string>;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+}
+
+export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
+  defaultValue?: Array<string>;
+  value?: Array<string>;
+  onChange?: (checkedValue: Array<string>) => void;
 }
 
 export interface CheckboxGroupState {
