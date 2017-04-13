@@ -175,7 +175,6 @@
   }
 
   // Reset rounded corners
-  > span > .@{inputClass}:first-child,
   > .@{inputClass}:first-child,
   &-addon:first-child {
     border-bottom-right-radius: 0;
@@ -241,6 +240,8 @@
       border-radius: 0;
       border-right-width: 0;
       vertical-align: middle;
+      float: none;
+      display: inline-block;
     }
 
     // Undo float for .ant-input-group .ant-input
