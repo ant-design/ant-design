@@ -156,7 +156,7 @@ timeline: true
 - Mention 新增自定义触发字符的支持。[demo](https://ant.design/components/mention-cn/#components-mention-demo-multiple-trigger)
   - ![Mention animation](https://zos.alipayobjects.com/rmsportal/QDYwAbwKrqOUOykRaNai.gif)
 - Rate
-  - 支持自定义字符。[demo](https://ant.design/components/rate-cn/#components-rate-demo-charactor)
+  - 支持自定义字符。[demo](https://ant.design/components/rate-cn/#components-rate-demo-character)
   - 新增 `className` 属性。
 - Layout
   - 新增 `顶部-侧边布局-通栏` 的例子。[demo](http://ant.design/components/layout-cn/#components-layout-demo-top-side-2)
