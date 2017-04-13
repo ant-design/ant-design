@@ -161,11 +161,15 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If you see a log like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
+If you see logs like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
 
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
 
-But, we can import individual components on demand:
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+
+However, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';

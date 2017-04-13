@@ -478,6 +478,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * RangePicker can set presetted ranges. [demo](https://ant.design/components/date-picker/#components-date-picker-demo-presetted-ranges)
   * Fix "Now" button doesn't work while `DatePicker[showTime]` is set. [#3748](https://github.com/ant-design/ant-design/issues/3748)
   * Fix `RangePicker[format]` should work. [#3808](https://github.com/ant-design/ant-design/issues/3808)
+  * Fix issue that RangePicker `placeholder=['xx', 'xx']` not working.
 * Add and update some icons. [#3977](https://github.com/ant-design/ant-design/pull/3977)
 * New component `Input.Search`. [demo](https://ant.design/components/input/#components-input-demo-search-input)
 * Mention onSelect event will get complete record. [#3867](https://github.com/ant-design/ant-design/issues/3867)

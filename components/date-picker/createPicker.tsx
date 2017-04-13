@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -18,7 +19,7 @@ export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass<any, any>({
     contextTypes: {
-      antLocale: React.PropTypes.object,
+      antLocale: PropTypes.object,
     },
     getDefaultProps() {
       return {

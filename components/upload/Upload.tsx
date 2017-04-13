@@ -1,5 +1,6 @@
 import React from 'react';
 import RcUpload from 'rc-upload';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Dragger from './Dragger';
@@ -41,7 +42,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: UploadContext;
