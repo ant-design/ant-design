@@ -134,6 +134,7 @@
     "react-intl": "^2.0.1",
     "react-stateless-wrapper": "^1.0.2",
     "react-sublime-video": "^0.2.0",
+    "react-test-renderer": "^15.5.4",
     "reqwest": "^2.0.5",
     "rimraf": "^2.5.4",
     "stylelint": "^7.8.0",
