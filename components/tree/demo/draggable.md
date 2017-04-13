@@ -122,7 +122,7 @@ ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css
-// You can add the following CSS to your project to make draggable area bigger
+/* You can add the following CSS to your project to make draggable area bigger */
 #components-tree-demo-draggable .draggable-tree .ant-tree-node-content-wrapper {
   width: calc(100% - 18px);
 }
