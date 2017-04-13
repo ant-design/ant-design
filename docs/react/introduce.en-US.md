@@ -115,11 +115,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```js
 // tsconfig.json
 {
- "compilerOptions": {
-   "moduleResolution": "node",
-   "jsx": "preserve",
-   "allowSyntheticDefaultImports": true
- }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  }
 }
 ```
 
