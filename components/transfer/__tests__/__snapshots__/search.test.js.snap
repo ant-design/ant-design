@@ -28,13 +28,13 @@ exports[`Search should show cross icon when input value exists 1`] = `
     <span
       className="undefined-action"
     >
-      <Component
+      <Icon
         type="search"
       >
         <i
           className="anticon anticon-search"
         />
-      </Component>
+      </Icon>
     </span>
   </div>
 </Search>
@@ -70,13 +70,13 @@ exports[`Search should show cross icon when input value exists 2`] = `
       href="#"
       onClick={[Function]}
     >
-      <Component
+      <Icon
         type="cross-circle"
       >
         <i
           className="anticon anticon-cross-circle"
         />
-      </Component>
+      </Icon>
     </a>
   </div>
 </Search>
