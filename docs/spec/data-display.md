@@ -12,7 +12,7 @@ title:
 
 ---
 
-## 表格 Table
+## 表格（Table）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/OGkfpUVQFWqlioeslvue.png">
 
@@ -22,7 +22,7 @@ title:
 > 1. 表格中的时间、状态、操作栏需保持词语完整不过行。
 > 2. 当数据为空时，可使用『- -』来表示暂无数据。
 
-## 折叠面板 Collapse
+## 折叠面板（Collapse）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/UzmOpWyvIZmFibFPOjuo.png">
 
@@ -35,7 +35,7 @@ title:
 
 ---
 
-## 卡片 Card
+## 卡片（Card）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fpXuAguWCWWbmQNzOmnM.png" description="如页面内容加载过慢时，可采用『预加载』或『分步获取』的方式来缓解用户在等待时间中的焦虑感。">
 
@@ -47,7 +47,7 @@ title:
 
 ---
 
-## 走马灯 Carousel
+## 走马灯（Carousel）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fELwaApwGyZoUDCZQtLb.png">
 
@@ -59,7 +59,7 @@ title:
 
 ---
 
-## 树形控件 Tree
+## 树形控件（Tree）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/iIicElfzdIoNzyRJXlqx.png">
 
@@ -69,7 +69,7 @@ title:
 
 ---
 
-## 时间轴 Timeline
+## 时间轴（Timeline）
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/bIYaUSPaBWSzXEpRsIjO.png">
 

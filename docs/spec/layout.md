@@ -27,13 +27,13 @@ title:
 - 明确你要传达的内容，保持简短而清晰的文案。
 - 搭配清晰、直观的产品图片，有助于加深用户对产品的理解和记忆。
 
-### Dashboard
+### 控制台页
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fCVwqOiItdbzyZkQOOiQ.png">
 
 <img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/LvYKhbKsPzIRLGsBxUJA.png">
 
-Dashboard 集合了大量多样化的信息（如数字，图形，文案等），需要一目了然地将关键信息展示给用户。因此，如何将庞大复杂的信息精简清晰地展示出来，是设计此类页面的关键。在设计时要注意以下几点：
+控制台页（Dashboard）集合了大量多样化的信息（如数字，图形，文案等），需要一目了然地将关键信息展示给用户。因此，如何将庞大复杂的信息精简清晰地展示出来，是设计此类页面的关键。在设计时要注意以下几点：
 
 - 按照信息的重要程度来组织页面排版，突出展示关键信息。
 - 将数据可视化，让用户可以直观地了解关键信息及整体情况。
@@ -88,7 +88,7 @@ Dashboard 集合了大量多样化的信息（如数字，图形，文案等）�
 
 ---
 
-## 栅格 Grid
+## 栅格
 
 我们通过定义网格、间距来呈现产品布局的最佳效果，设计师在设计时可按『页面总宽 1440px，内容区 1208px』来设定，并在此基础上以 24 等分的栅格来划分整个设计建议区域。
 
