@@ -2,7 +2,7 @@
 
 exports[`Radio should render correctly 1`] = `
 <label
-  class="ant-radio-wrapper customized"
+  class="customized ant-radio-wrapper"
 >
   <span
     class="ant-radio"
