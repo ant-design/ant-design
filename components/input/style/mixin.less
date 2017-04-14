@@ -229,6 +229,15 @@
     .input-sm();
   }
 
+  // Fix https://github.com/ant-design/ant-design/issues/5754
+  &-lg .@{ant-prefix}-select-selection--single {
+    height: @input-height-lg;
+  }
+
+  &-sm .@{ant-prefix}-select-selection--single {
+    height: @input-height-sm;
+  }
+
   .@{inputClass}-affix-wrapper {
     display: table-cell;
     width: 100%;
