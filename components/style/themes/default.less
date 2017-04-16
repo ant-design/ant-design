@@ -115,14 +115,18 @@
 @btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 4px 15px;
+@btn-padding-base       : 0 15px;
 @btn-font-size-lg       : @font-size-lg;
-@btn-padding-lg         : 4px 15px 5px 15px;
-@btn-padding-sm         : 1px 7px;
+@btn-padding-lg         : @btn-padding-base;
+@btn-padding-sm         : 0 7px;
 
-@btn-circle-size        : 28px;
-@btn-circle-size-lg     : 32px;
-@btn-circle-size-sm     : 22px;
+@btn-height-base        : 28px;
+@btn-height-lg          : 32px;
+@btn-height-sm          : 22px;
+
+@btn-circle-size        : @btn-height-base;
+@btn-circle-size-lg     : @btn-height-lg;
+@btn-circle-size-sm     : @btn-height-sm;
 
 @btn-group-border       : @primary-7;
 
