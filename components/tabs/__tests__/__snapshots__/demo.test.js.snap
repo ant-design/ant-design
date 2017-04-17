@@ -132,8 +132,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
-    style="margin-left:0%;"
+    class="ant-tabs-content ant-tabs-content-no-animated"
   >
     <div
       aria-hidden="false"
@@ -213,8 +212,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
-      style="margin-left:0%;"
+      class="ant-tabs-content ant-tabs-content-no-animated"
     >
       <div
         aria-hidden="false"
@@ -307,8 +305,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content ant-tabs-content-animated"
-      style="margin-left:0%;"
+      class="ant-tabs-content ant-tabs-content-no-animated"
     >
       <div
         aria-hidden="false"
@@ -473,8 +470,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content ant-tabs-content-animated"
-    style="margin-left:0%;"
+    class="ant-tabs-content ant-tabs-content-no-animated"
   >
     <div
       aria-hidden="false"
