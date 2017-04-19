@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
     zh-CN: 输入框组合
     en-US: Input Group
 ---
@@ -71,6 +71,15 @@ ReactDOM.render(
       </Select>
     </InputGroup>
     <br />
+    <InputGroup compact>
+      <Select defaultValue="1">
+        <Option value="1">介于</Option>
+        <Option value="2">除了</Option>
+      </Select>
+      <Input style={{ width: 100, textAlign: 'center' }} placeholder="最小值" />
+      <Input style={{ width: 24, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+      <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="最大值" />
+    </InputGroup>
   </div>
 , mountNode);
 ````
