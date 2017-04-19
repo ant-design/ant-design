@@ -51,6 +51,22 @@
   .button-disabled();
 }
 
+.button-variant-danger(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &:hover,
+  &:focus {
+    .button-color(@btn-primary-color; @color; @color;);
+  }
+
+  &:active,
+  &.active {
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+  }
+
+  .button-disabled();
+}
+
 .button-variant-ghost(@color) {
   .button-color(@color; transparent; @color);
 
@@ -202,7 +218,7 @@
 
 // danger button style
 .btn-danger() {
-  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
+  .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
 }
 
 // circle button: the content only contains icon
