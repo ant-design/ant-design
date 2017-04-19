@@ -421,6 +421,60 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
   </span>
   <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="介于"
+          >
+            介于
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input"
+      placeholder="最小值"
+      style="width:100px;text-align:center;"
+      type="text"
+    />
+    <input
+      class="ant-input"
+      placeholder="~"
+      style="width:24px;border-left:0;pointer-events:none;"
+      type="text"
+    />
+    <input
+      class="ant-input"
+      placeholder="最大值"
+      style="width:100px;text-align:center;border-left:0;"
+      type="text"
+    />
+  </span>
 </div>
 `;
 
