@@ -3,7 +3,7 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 import assign from 'object-assign';
 let notificationInstance;
-let defaultDuration = 4.5;
+let defaultDuration = 0;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement = 'topRight';
@@ -120,12 +120,16 @@ function notice(args) {
     iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />;
   }
 
+  const autoMarginTag = (!args.description && iconNode)
+    ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
+    : null;
+
   getNotificationInstance(outerPrefixCls).notice({
     content: (
       <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
         {iconNode}
         <div className={`${prefixCls}-message`}>
-          <span className={`${prefixCls}-message-single-line-auto-margin`} />
+          {autoMarginTag}
           {args.message}
         </div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
