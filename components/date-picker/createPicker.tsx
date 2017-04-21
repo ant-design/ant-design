@@ -15,8 +15,7 @@ export interface PickerProps {
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar) {
-  // use class typescript error
+export default function createPicker(TheCalendar): any {
   return class CalenderWrapper extends React.Component<any, any> {
     static contextTypes = {
       antLocale: PropTypes.object,
