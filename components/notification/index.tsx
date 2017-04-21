@@ -124,7 +124,10 @@ function notice(args) {
     content: (
       <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
         {iconNode}
-        <div className={`${prefixCls}-message`}>{args.message}</div>
+        <div className={`${prefixCls}-message`}>
+          <span className={`${prefixCls}-message-single-line-auto-margin`} />
+          {args.message}
+        </div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
         {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
       </div>
