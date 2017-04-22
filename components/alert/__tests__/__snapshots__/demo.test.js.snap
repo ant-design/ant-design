@@ -42,6 +42,37 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
       />
     </a>
   </div>
+  <br />
+  <div
+    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Warning text without icon
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <br />
+  <div
+    class="ant-alert ant-alert-error ant-alert-banner"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-cross-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Error text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
 </div>
 `;
 
