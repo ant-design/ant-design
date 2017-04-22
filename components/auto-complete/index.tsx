@@ -53,12 +53,12 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       React.Children.only(this.props.children) :
       <Input/>;
     return (
-    <InputElement
-      {...element.props}
-      className={classNames('ant-input', element.props.className)}
-    >
-      {element}
-    </InputElement>
+      <InputElement
+        {...element.props}
+        className={classNames('ant-input', element.props.className)}
+      >
+        {element}
+      </InputElement>
     );
   }
 
