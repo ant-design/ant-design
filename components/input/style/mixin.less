@@ -261,21 +261,24 @@
 
     // reset border for Select, datePicker
     & > .@{ant-prefix}-select > .@{ant-prefix}-select-selection,
-    & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input {
+    & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input,
+    & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
       border-radius: 0;
       border-right-width: 0;
     }
 
     & > *:first-child,
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selection,
-    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input {
+    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input {
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
 
     & > *:last-child,
     & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selection,
-    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input {
+    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
+    & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input {
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
       border-right-width: 1px;

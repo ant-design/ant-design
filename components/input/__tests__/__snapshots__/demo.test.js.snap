@@ -442,9 +442,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           <div
             class="ant-select-selection-selected-value"
             style="display:block;opacity:1;"
-            title="介于"
+            title="Between"
           >
-            介于
+            Between
           </div>
         </div>
         <span
@@ -458,7 +458,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
     <input
       class="ant-input"
-      placeholder="最小值"
+      placeholder="Minimum"
       style="width:100px;text-align:center;"
       type="text"
     />
@@ -470,10 +470,99 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     />
     <input
       class="ant-input"
-      placeholder="最大值"
+      placeholder="Maximum"
       style="width:100px;text-align:center;border-left:0;"
       type="text"
     />
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Sign Up"
+          >
+            Sign Up
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+      style="width:200px;"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection__placeholder"
+            style="display:block;user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            Email
+          </div>
+          <ul>
+            <li
+              class="ant-select-search ant-select-search--inline"
+            >
+              <div
+                class="ant-select-search__field__wrap"
+              >
+                <input
+                  class="ant-input ant-input ant-select-search__field"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-select-search__field__mirror"
+                >
+                   
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
   </span>
 </div>
 `;
