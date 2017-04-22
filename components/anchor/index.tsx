@@ -94,17 +94,17 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   renderAnchorLink = (child: React.ReactElement<any>) => {
-      const { href } = child.props;
-      const { type } = child as any
-      if (type.__ANT_ANCHOR_LINK && href) {
-        this.anchorHelper.addLink(href);
-        return React.cloneElement(child, {
-          onClick: this.clickAnchorLink,
-          prefixCls: this.props.prefixCls,
-          bounds: this.props.bounds,
-          affix: this.props.affix || this.props.showInkInFixed,
-          offsetTop: this.props.offsetTop,
-        });
+    const { href } = child.props;
+    const { type } = child as any;
+    if (type.__ANT_ANCHOR_LINK && href) {
+      this.anchorHelper.addLink(href);
+      return React.cloneElement(child, {
+        onClick: this.clickAnchorLink,
+        prefixCls: this.props.prefixCls,
+        bounds: this.props.bounds,
+        affix: this.props.affix || this.props.showInkInFixed,
+        offsetTop: this.props.offsetTop,
+      });
     }
     return child;
   }
