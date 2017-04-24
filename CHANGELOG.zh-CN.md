@@ -17,6 +17,13 @@ timeline: true
 
 ---
 
+## 2.9.3
+
+`2017-04-24`
+
+- **notification** 修复了不能在默认的 4.5s 后关闭的问题。[#5869](https://github.com/ant-design/ant-design/issues/5869)
+- **Tabs** 增加了 `ink-bar` 宽度渐变动效。[#5858](https://github.com/ant-design/ant-design/pull/5858) [@hlehmann](https://github.com/hlehmann)
+
 ## 2.9.2
 
 `2017-04-22`
