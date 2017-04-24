@@ -3,7 +3,7 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 import assign from 'object-assign';
 let notificationInstance;
-let defaultDuration = 0;
+let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement = 'topRight';
