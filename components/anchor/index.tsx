@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import AnchorLink from './AnchorLink';
@@ -27,7 +28,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   };
 
   static childContextTypes = {
-    anchorHelper: React.PropTypes.any,
+    anchorHelper: PropTypes.any,
   };
 
   refs: {

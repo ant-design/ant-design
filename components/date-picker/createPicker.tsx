@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
@@ -14,22 +15,20 @@ export interface PickerProps {
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar) {
-  // use class typescript error
-  const CalenderWrapper = React.createClass<any, any>({
-    contextTypes: {
-      antLocale: React.PropTypes.object,
-    },
-    getDefaultProps() {
-      return {
-        prefixCls: 'ant-calendar',
-        allowClear: true,
-        showToday: true,
-      };
-    },
+export default function createPicker(TheCalendar): any {
+  return class CalenderWrapper extends React.Component<any, any> {
+    static contextTypes = {
+      antLocale: PropTypes.object,
+    };
 
-    getInitialState() {
-      const props = this.props;
+    static defaultProps = {
+      prefixCls: 'ant-calendar',
+      allowClear: true,
+      showToday: true,
+    };
+
+    constructor(props) {
+      super(props);
       const value = props.value || props.defaultValue;
       if (value && !moment.isMoment(value)) {
         throw new Error(
@@ -37,10 +36,10 @@ export default function createPicker(TheCalendar) {
           'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value',
         );
       }
-      return {
+      this.state = {
         value,
       };
-    },
+    }
 
     componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
@@ -48,21 +47,21 @@ export default function createPicker(TheCalendar) {
           value: nextProps.value,
         });
       }
-    },
+    }
 
-    clearSelection(e) {
+    clearSelection = (e) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
-    },
+    }
 
-    handleChange(value) {
+    handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-    },
+    }
 
     render() {
       const { value } = this.state;
@@ -158,8 +157,6 @@ export default function createPicker(TheCalendar) {
           </RcDatePicker>
         </span>
       );
-    },
-  });
-
-  return CalenderWrapper;
+    }
+  };
 }

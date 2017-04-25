@@ -6589,30 +6589,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:1010px;"
+                style="width:130%;"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px;"
                   />
                   <col
+                    style="width:200px;min-width:200px;"
+                  />
+                  <col
+                    style="width:200px;min-width:200px;"
+                  />
+                  <col
                     style="width:100px;min-width:100px;"
                   />
                   <col
-                    style="width:200px;min-width:200px;"
-                  />
-                  <col
-                    style="width:50px;min-width:50px;"
-                  />
-                  <col
                     style="width:100px;min-width:100px;"
                   />
-                  <col
-                    style="width:200px;min-width:200px;"
-                  />
-                  <col
-                    style="width:200px;min-width:200px;"
-                  />
+                  <col />
+                  <col />
                   <col
                     style="width:60px;min-width:60px;"
                   />
@@ -6755,30 +6751,26 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:1010px;"
+                style="width:130%;"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px;"
                   />
                   <col
+                    style="width:200px;min-width:200px;"
+                  />
+                  <col
+                    style="width:200px;min-width:200px;"
+                  />
+                  <col
                     style="width:100px;min-width:100px;"
                   />
                   <col
-                    style="width:200px;min-width:200px;"
-                  />
-                  <col
-                    style="width:50px;min-width:50px;"
-                  />
-                  <col
                     style="width:100px;min-width:100px;"
                   />
-                  <col
-                    style="width:200px;min-width:200px;"
-                  />
-                  <col
-                    style="width:200px;min-width:200px;"
-                  />
+                  <col />
+                  <col />
                   <col
                     style="width:60px;min-width:60px;"
                   />

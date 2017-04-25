@@ -30,9 +30,6 @@ export interface AlertProps {
 }
 
 export default class Alert extends React.Component<AlertProps, any> {
-  static defaultProps = {
-    type: 'info',
-  };
   constructor(props) {
     super(props);
     this.state = {
@@ -66,9 +63,9 @@ export default class Alert extends React.Component<AlertProps, any> {
     } = this.props;
 
     // banner模式默认有 Icon
-    showIcon = showIcon || banner;
+    showIcon = banner && showIcon === undefined ? true : showIcon;
     // banner模式默认为警告
-    type = banner ? 'warning' : type;
+    type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconType = '';
     switch (type) {

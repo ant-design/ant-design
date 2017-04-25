@@ -107,6 +107,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
       inkBarAnimated: animated, tabPaneAnimated: animated,
     };
 
+    if (type !== 'line') {
+      tabPaneAnimated = false;
+    }
+
     warning(
       !(type.indexOf('card') >= 0 && size === 'small'),
       'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',

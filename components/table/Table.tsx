@@ -1,5 +1,6 @@
 import React from 'react';
 import RcTable from 'rc-table';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Pagination, { PaginationProps } from '../pagination';
@@ -102,21 +103,21 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   static ColumnGroup = ColumnGroup;
 
   static propTypes = {
-    dataSource: React.PropTypes.array,
-    columns: React.PropTypes.array,
-    prefixCls: React.PropTypes.string,
-    useFixedHeader: React.PropTypes.bool,
-    rowSelection: React.PropTypes.object,
-    className: React.PropTypes.string,
-    size: React.PropTypes.string,
-    loading: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.object,
+    dataSource: PropTypes.array,
+    columns: PropTypes.array,
+    prefixCls: PropTypes.string,
+    useFixedHeader: PropTypes.bool,
+    rowSelection: PropTypes.object,
+    className: PropTypes.string,
+    size: PropTypes.string,
+    loading: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
     ]),
-    bordered: React.PropTypes.bool,
-    onChange: React.PropTypes.func,
-    locale: React.PropTypes.object,
-    dropdownPrefixCls: React.PropTypes.string,
+    bordered: PropTypes.bool,
+    onChange: PropTypes.func,
+    locale: PropTypes.object,
+    dropdownPrefixCls: PropTypes.string,
   };
 
   static defaultProps = {
@@ -135,7 +136,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: TableContext;

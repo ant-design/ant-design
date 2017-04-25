@@ -1,13 +1,13 @@
 .@{calendar-prefix-cls}-decade-panel {
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background: @component-background;
-  z-index: 10;
   position: absolute;
-  outline: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: @component-background;
   border-radius: @border-radius-base;
+  outline: none;
 }
 
 .@{calendar-prefix-cls}-decade-panel-hidden {
@@ -18,10 +18,14 @@
   .calendarPanelHeader(~"@{calendar-prefix-cls}-decade-panel");
 }
 
+.@{calendar-prefix-cls}-decade-panel-body {
+  height: ~"calc(100% - 34px)";
+}
+
 .@{calendar-prefix-cls}-decade-panel-table {
   table-layout: fixed;
   width: 100%;
-  height: 248px;
+  height: 100%;
   border-collapse: separate;
 }
 

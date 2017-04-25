@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import warning from '../_util/warning';
@@ -20,33 +20,31 @@ function getColumns({ showHour, showMinute, showSecond }) {
   return column;
 }
 
-export default function wrapPicker(Picker, defaultFormat?) {
-  const PickerWrapper = React.createClass({
-    contextTypes: {
+export default function wrapPicker(Picker, defaultFormat?: string): any {
+  return class PickerWrapper extends React.Component<any, any> {
+    static contextTypes = {
       antLocale: PropTypes.object,
-    },
+    };
 
-    getDefaultProps() {
-      return {
-        format: defaultFormat || 'YYYY-MM-DD',
-        transitionName: 'slide-up',
-        popupStyle: {},
-        onChange() {
-        },
-        onOk() {
-        },
-        onOpenChange() {
-        },
-        locale: {},
-        align: {
-          offset: [0, -9],
-        },
-        prefixCls: 'ant-calendar',
-        inputPrefixCls: 'ant-input',
-      };
-    },
+    static defaultProps = {
+      format: defaultFormat || 'YYYY-MM-DD',
+      transitionName: 'slide-up',
+      popupStyle: {},
+      onChange() {
+      },
+      onOk() {
+      },
+      onOpenChange() {
+      },
+      locale: {},
+      align: {
+        offset: [0, -9],
+      },
+      prefixCls: 'ant-calendar',
+      inputPrefixCls: 'ant-input',
+    };
 
-    handleOpenChange(open) {
+    handleOpenChange = (open) => {
       const { onOpenChange, toggleOpen } = this.props;
       onOpenChange(open);
 
@@ -58,7 +56,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         );
         toggleOpen({ open });
       }
-    },
+    }
 
     render() {
       const props = this.props;
@@ -111,7 +109,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
           onOpenChange={this.handleOpenChange}
         />
       );
-    },
-  });
-  return PickerWrapper;
+    }
+  };
 }

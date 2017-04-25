@@ -108,23 +108,32 @@
 @btn-default-bg         : #fff;
 @btn-default-border     : @border-color-base;
 
-@btn-danger-color      : #fff;
-@btn-danger-bg         : @red-6;
+@btn-danger-color      : @error-color;
+@btn-danger-bg         : @background-color-base;
+@btn-danger-border     : @border-color-base;
 
 @btn-disable-color      : @disabled-color;
 @btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 4px 15px;
+@btn-padding-base       : 0 15px;
 @btn-font-size-lg       : @font-size-lg;
-@btn-padding-lg         : 4px 15px 5px 15px;
-@btn-padding-sm         : 1px 7px;
+@btn-padding-lg         : @btn-padding-base;
+@btn-padding-sm         : 0 7px;
 
-@btn-circle-size        : 28px;
-@btn-circle-size-lg     : 32px;
-@btn-circle-size-sm     : 22px;
+@btn-height-base        : 28px;
+@btn-height-lg          : 32px;
+@btn-height-sm          : 22px;
+
+@btn-circle-size        : @btn-height-base;
+@btn-circle-size-lg     : @btn-height-lg;
+@btn-circle-size-sm     : @btn-height-sm;
 
 @btn-group-border       : @primary-7;
+
+// Radio buttons
+@radio-button-bg           : @btn-default-bg;
+@radio-button-color        : @btn-default-color;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -190,6 +199,7 @@
 @label-required-color        : @highlight-color;
 @label-color                 : @text-color;
 @form-item-margin-bottom     : 24px;
+@form-item-trailing-colon    : true;
 
 // Input
 // ---
@@ -251,6 +261,11 @@
 @spin-dot-size-sm: 14px;
 @spin-dot-size: 20px;
 @spin-dot-size-lg: 32px;
+
+// Table
+// --
+@table-header-bg: @background-color-base;
+@table-row-hover-bg: @primary-1;
 
 // TimePicker
 // ---

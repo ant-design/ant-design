@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import warning from '../_util/warning';
@@ -89,6 +90,10 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: PropTypes.string,
   };
 
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
   context: SelectContext;
 
   getLocale() {
@@ -97,7 +102,7 @@ export default class Select extends React.Component<SelectProps, any> {
       return antLocale.Select;
     }
     return {
-      notFoundContent: 'Not Found',
+      notFoundContent: '无匹配结果',
     };
   }
 

@@ -120,11 +120,18 @@ function notice(args) {
     iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />;
   }
 
+  const autoMarginTag = (!args.description && iconNode)
+    ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
+    : null;
+
   getNotificationInstance(outerPrefixCls).notice({
     content: (
       <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
         {iconNode}
-        <div className={`${prefixCls}-message`}>{args.message}</div>
+        <div className={`${prefixCls}-message`}>
+          {autoMarginTag}
+          {args.message}
+        </div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
         {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
       </div>

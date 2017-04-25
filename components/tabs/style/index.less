@@ -20,7 +20,7 @@
     background-color: @primary-color;
     transform-origin: 0 0;
     &-animated {
-      transition: transform 0.3s @ease-in-out;
+      transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out;
     }
   }
 
@@ -202,6 +202,7 @@
       > .@{tab-prefix-cls}-tabpane-inactive {
         opacity: 0;
         height: 0;
+        padding: 0!important;
       }
     }
     > .@{tab-prefix-cls}-content-animated {
@@ -215,6 +216,7 @@
   &-vertical {
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
+      height: 100%;
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -230,6 +232,11 @@
 
       .@{tab-prefix-cls}-nav-scroll {
         width: auto;
+      }
+
+      .@{tab-prefix-cls}-nav-container,
+      .@{tab-prefix-cls}-nav-wrap {
+        height: 100%;
       }
 
       .@{tab-prefix-cls}-nav-container {
