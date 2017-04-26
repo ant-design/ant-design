@@ -11,8 +11,10 @@ export interface TimePickerProps {
   size?: 'large' | 'default' | 'small';
   value?: moment.Moment;
   defaultValue?: moment.Moment;
+  open?: boolean;
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
+  onOpenChange?: (status: boolean) => void;
   disabled?: boolean;
   placeholder?: string;
   hideDisabledOptions?: boolean;
@@ -74,6 +76,13 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     }
   }
 
+  handleOpenClose = ({ open }) => {
+    const { onOpenChange } = this.props;
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+  }
+
   saveTimePicker = (timePickerRef) => {
     this.timePickerRef = timePickerRef;
   }
@@ -121,6 +130,8 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
         showMinute={format.indexOf('mm') > -1}
         showSecond={format.indexOf('ss') > -1}
         onChange={this.handleChange}
+        onOpen={this.handleOpenClose}
+        onClose={this.handleOpenClose}
         addon={addon}
       />
     );
