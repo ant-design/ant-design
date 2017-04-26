@@ -9,8 +9,12 @@ import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
 
-function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] {
+function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
   const [ start, end ] = value;
+  // value could be an empty array, then we should not reset showDate
+  if (!start && !end) {
+    return;
+  }
   const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
   return [start, newEnd];
 }
