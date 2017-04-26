@@ -1,4 +1,5 @@
 const locale = {
-    placeholder: 'Seleccionar hora',
+  placeholder: 'Seleccionar hora',
 };
+
 export default locale;
