@@ -186,7 +186,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
+            aria-disabled="false"
+            aria-label="Increase Value"
             class="ant-input-number-handler ant-input-number-handler-up "
+            role="button"
             unselectable="unselectable"
           >
             <span
@@ -195,7 +198,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             />
           </span>
           <span
+            aria-disabled="true"
+            aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
+            role="button"
             unselectable="unselectable"
           >
             <span
@@ -205,7 +211,11 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           </span>
         </div>
         <div
+          aria-valuemax="20"
+          aria-valuemin="1"
+          aria-valuenow="1"
           class="ant-input-number-input-wrap"
+          role="spinbutton"
         >
           <input
             autocomplete="off"
@@ -257,7 +267,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-input-number-handler-wrap"
         >
           <span
+            aria-disabled="false"
+            aria-label="Increase Value"
             class="ant-input-number-handler ant-input-number-handler-up "
+            role="button"
             unselectable="unselectable"
           >
             <span
@@ -266,7 +279,10 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             />
           </span>
           <span
+            aria-disabled="false"
+            aria-label="Decrease Value"
             class="ant-input-number-handler ant-input-number-handler-down "
+            role="button"
             unselectable="unselectable"
           >
             <span
@@ -276,7 +292,11 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           </span>
         </div>
         <div
+          aria-valuemax="1"
+          aria-valuemin="0"
+          aria-valuenow="0"
           class="ant-input-number-input-wrap"
+          role="spinbutton"
         >
           <input
             autocomplete="off"
