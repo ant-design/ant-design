@@ -1786,7 +1786,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-input-number-handler-wrap"
           >
             <span
+              aria-disabled="false"
+              aria-label="Increase Value"
               class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -1795,7 +1798,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               />
             </span>
             <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
               class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -1805,7 +1811,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-valuemax="10"
+            aria-valuemin="1"
+            aria-valuenow="3"
             class="ant-input-number-input-wrap"
+            role="spinbutton"
           >
             <input
               autocomplete="off"
@@ -2545,7 +2555,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
             class="ant-input-number-handler-wrap"
           >
             <span
+              aria-disabled="false"
+              aria-label="Increase Value"
               class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -2554,7 +2567,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               />
             </span>
             <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
               class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -2564,7 +2580,11 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-valuemax="12"
+            aria-valuemin="8"
+            aria-valuenow="11"
             class="ant-input-number-input-wrap"
+            role="spinbutton"
           >
             <input
               autocomplete="off"
