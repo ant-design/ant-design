@@ -573,6 +573,64 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </div>
     </div>
   </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+      style="width:30%;"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Home"
+          >
+            Home
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <span
+      class="ant-cascader-picker"
+      style="width:70%;"
+      tabindex="0"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input ant-cascader-input "
+        placeholder="Select Address"
+        readonly=""
+        type="text"
+        value=""
+      />
+      <span
+        class="ant-cascader-picker-label"
+      />
+      <i
+        class="anticon anticon-down ant-cascader-picker-arrow"
+      />
+    </span>
+  </span>
 </div>
 `;
 
