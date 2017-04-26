@@ -31,7 +31,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     anchorHelper: AnchorHelper;
   };
 
-  private _component: Element;
+  private _component: HTMLAnchorElement;
 
   setActiveAnchor() {
     const { bounds, offsetTop, href, affix } = this.props;
@@ -50,25 +50,28 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.setActiveAnchor();
   }
 
-  renderAnchorLink = (child) => {
-    const { href } = child.props;
-    if (href) {
-      this.context.anchorHelper.addLink(href);
-      return React.cloneElement(child, {
-        onClick: this.props.onClick,
-        prefixCls: this.props.prefixCls,
-        affix: this.props.affix,
-        offsetTop: this.props.offsetTop,
-      });
+  renderAnchorLink = (child: React.ReactChild) => {
+    // Here child is a ReactChild type
+    if (typeof child !== 'string' && typeof child !== 'number') {
+      const { href } = child.props;
+      if (href) {
+        this.context.anchorHelper.addLink(href);
+        return React.cloneElement(child, {
+          onClick: this.props.onClick,
+          prefixCls: this.props.prefixCls,
+          affix: this.props.affix,
+          offsetTop: this.props.offsetTop,
+        });
+      }
     }
     return child;
   }
 
-  refsTo = (component) => {
+  refsTo = (component: HTMLAnchorElement) => {
     this._component = component;
   }
 
-  scrollTo = (e) => {
+  scrollTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const { onClick, href } = this.props;
     const { anchorHelper } = this.context;

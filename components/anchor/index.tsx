@@ -39,7 +39,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   private anchorHelper: AnchorHelper;
   private _avoidInk: boolean;
 
-  constructor(props) {
+  constructor(props: AnchorProps) {
     super(props);
     this.state = {
       activeAnchor: null,
@@ -85,7 +85,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }
   }
 
-  clickAnchorLink = (href, component) => {
+  clickAnchorLink = (href: string, component: HTMLElement) => {
     this._avoidInk = true;
     this.refs.ink.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
     this.anchorHelper.scrollTo(href, this.props.offsetTop, getDefaultTarget, () => {
@@ -93,10 +93,10 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
   }
 
-  renderAnchorLink = (child) => {
-
+  renderAnchorLink = (child: React.ReactElement<any>) => {
     const { href } = child.props;
-    if (child.type.__ANT_ANCHOR_LINK && href) {
+    const { type } = child as any;
+    if (type.__ANT_ANCHOR_LINK && href) {
       this.anchorHelper.addLink(href);
       return React.cloneElement(child, {
         onClick: this.clickAnchorLink,
