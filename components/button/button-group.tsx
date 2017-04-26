@@ -15,10 +15,16 @@ export default function ButtonGroup(props: ButtonGroupProps) {
 
   // large => lg
   // small => sm
-  const sizeCls = ({
-    large: 'lg',
-    small: 'sm',
-  })[size] || '';
+  let sizeCls = '';
+  switch (size) {
+    case 'large':
+      sizeCls = 'lg';
+      break;
+    case 'small':
+      sizeCls = 'sm';
+    default:
+      break;
+  }
 
   const classes = classNames(prefixCls, {
     [`${prefixCls}-${sizeCls}`]: sizeCls,
