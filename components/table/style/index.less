@@ -75,7 +75,7 @@
   }
 
   &-footer {
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     background: @table-header-bg;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     position: relative;
@@ -95,7 +95,7 @@
   }
 
   &-title {
-    padding: 16px 0;
+    padding: @table-padding-vertical 0;
     position: relative;
     top: 1px;
     border-radius: @border-radius-base @border-radius-base 0 0;
@@ -103,8 +103,8 @@
 
   &.@{table-prefix-cls}-bordered &-title {
     border: @border-width-base @border-style-base @border-color-split;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: @table-padding-horizontal;
+    padding-right: @table-padding-horizontal;
   }
 
   &-title + &-content {
@@ -135,7 +135,7 @@
 
   &-thead > tr > th,
   &-tbody > tr > td {
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     word-break: break-all;
   }
 
@@ -361,7 +361,7 @@
 
   &-placeholder {
     position: relative;
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
