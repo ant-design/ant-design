@@ -7,18 +7,18 @@ describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref;
-    const App = React.createClass({
+    class App extends React.Comoponent {
       componentDidMount() {
         ref = this.refs.input;
-      },
+      }
       render() {
         return (
           <Upload supportServerRender={false}>
             <input ref="input" />
           </Upload>
         );
-      },
-    });
+      }
+    }
     mount(<App />);
     expect(ref).toBeDefined();
   });
