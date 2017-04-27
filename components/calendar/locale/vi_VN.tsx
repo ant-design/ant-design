@@ -1,2 +1,2 @@
-import en_US from '../../date-picker/locale/en_US';
-export default en_US;
+import vi_VN from '../../date-picker/locale/vi_VN';
+export default vi_VN;

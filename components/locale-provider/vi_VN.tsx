@@ -1,47 +1,47 @@
 import moment from 'moment';
-moment.locale('en');
+moment.locale('vi');
 
 import Pagination from 'rc-pagination/lib/locale/en_US';
-import DatePicker from '../date-picker/locale/en_US';
-import TimePicker from '../time-picker/locale/en_US';
-import Calendar from '../calendar/locale/en_US';
+import DatePicker from '../date-picker/locale/vi_VN';
+import TimePicker from '../time-picker/locale/vi_VN';
+import Calendar from '../calendar/locale/vi_VN';
 
 export default {
-  locale: 'en',
+  locale: 'vi',
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Filter Menu',
+    filterTitle: 'Bộ ',
     filterConfirm: 'OK',
-    filterReset: 'Reset',
-    emptyText: 'No Data',
-    selectAll: 'Select All',
-    selectInvert: 'Select Invert',
+    filterReset: 'Tạo Lại',
+    emptyText: 'Trống',
+    selectAll: 'Chọn Tất Cả',
+    selectInvert: 'Chọn Ngược Lại',
   },
   Modal: {
     okText: 'OK',
-    cancelText: 'Cancel',
+    cancelText: 'Huỷ',
     justOkText: 'OK',
   },
   Popconfirm: {
     okText: 'OK',
-    cancelText: 'Cancel',
+    cancelText: 'Huỷ',
   },
   Transfer: {
-    notFoundContent: 'Not Found',
-    searchPlaceholder: 'Search here',
-    itemUnit: 'item',
-    itemsUnit: 'items',
+    notFoundContent: 'Không Tìm Thấy',
+    searchPlaceholder: 'Tìm ở đây',
+    itemUnit: 'mục',
+    itemsUnit: 'mục',
   },
   Select: {
-    notFoundContent: 'Not Found',
+    notFoundContent: 'Không Tìm Thấy',
   },
   Upload: {
-    uploading: 'Uploading...',
-    removeFile: 'Remove file',
-    uploadError: 'Upload error',
-    previewFile: 'Preview file',
+    uploading: 'Đang tải lên...',
+    removeFile: 'Gỡ bỏ tập tin',
+    uploadError: 'Lỗi tải lên',
+    previewFile: 'Xem thử tập tin',
   },
 };

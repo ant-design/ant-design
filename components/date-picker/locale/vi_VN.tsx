@@ -5,8 +5,8 @@ import assign from 'object-assign';
 // Merge into a locale object
 const locale = {
   lang: assign({
-    placeholder: 'Select date',
-    rangePlaceholder: ['Start date', 'End date'],
+    placeholder: 'Chọn thời điểm',
+    rangePlaceholder: ['Ngày bắt đầu', 'Ngày kết thúc'],
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };
