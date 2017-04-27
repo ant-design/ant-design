@@ -26,13 +26,15 @@ class Complete extends React.Component {
   }
 
   handleChange = (value) => {
-    this.setState({
-      dataSource: !value ? [] : [
-        value,
-        value + value,
-        value + value + value,
-      ],
-    });
+    setTimeout(() => {
+      this.setState({
+        dataSource: !value ? [] : [
+          value,
+          value + value,
+          value + value + value,
+        ],
+      });
+    }, 500);
   }
 
   handleKeyPress = (ev) => {
