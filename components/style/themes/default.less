@@ -38,11 +38,9 @@
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
 @text-color-secondary   : fade(#000, 43%);
-@disabled-color         : fade(#000, 25%);
 @heading-color-dark     : fade(#fff, 97%);
 @text-color-dark        : fade(#fff, 91%);
 @text-color-secondary-dark: fade(#fff, 67%);
-@disabled-color-dark    : fade(#fff, 35%);
 @font-size-base         : 12px;
 @font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
@@ -87,6 +85,11 @@
 // Background color
 @background-color-base  : #f7f7f7;        // basic gray background
 
+// Disabled states
+@disabled-color         : fade(#000, 25%);
+@disabled-bg            : @background-color-base;
+@disabled-color-dark    : fade(#fff, 35%);
+
 // Shadow
 @shadow-color           : rgba(0, 0, 0, .2);
 @box-shadow-base        : @shadow-1-down;
@@ -108,12 +111,12 @@
 @btn-default-bg         : #fff;
 @btn-default-border     : @border-color-base;
 
-@btn-danger-color      : @error-color;
-@btn-danger-bg         : @background-color-base;
-@btn-danger-border     : @border-color-base;
+@btn-danger-color       : @error-color;
+@btn-danger-bg          : @background-color-base;
+@btn-danger-border      : @border-color-base;
 
 @btn-disable-color      : @disabled-color;
-@btn-disable-bg         : @background-color-base;
+@btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 0 15px;
@@ -215,7 +218,7 @@
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
 @input-hover-border-color    : @primary-color;
-@input-disabled-bg           : @background-color-base;
+@input-disabled-bg           : @disabled-bg;
 
 // Tooltip
 // ---
@@ -254,6 +257,7 @@
 // Progress
 // --
 @process-default-color: @primary-color;
+@progress-remaining-color: @background-color-base;
 
 // Menu
 // ---
@@ -299,3 +303,7 @@
 @card-head-height: 48px;
 @card-head-color: @heading-color;
 @card-head-background: @component-background;
+
+// Cascader
+// ---
+@cascader-active-color: @background-color-base;

@@ -95,7 +95,7 @@
 .@{radio-prefix-cls}-disabled {
   .@{radio-inner-prefix-cls} {
     border-color: @border-color-base!important;
-    background-color: @background-color-base;
+    background-color: @input-disabled-bg;
     &:after {
       background-color: #ccc;
     }
@@ -210,14 +210,14 @@ span.@{radio-prefix-cls} + * {
 
   &-disabled {
     border-color: @border-color-base;
-    background-color: @background-color-base;
+    background-color: @input-disabled-bg;
     cursor: not-allowed;
     color: @disabled-color;
 
     &:first-child,
     &:hover {
       border-color: @border-color-base;
-      background-color: @background-color-base;
+      background-color: @input-disabled-bg;
       color: @disabled-color;
     }
     &:first-child {

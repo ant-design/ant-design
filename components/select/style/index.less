@@ -111,7 +111,7 @@
   }
 
   &-disabled &-selection {
-    background: @background-color-base;
+    background: @input-disabled-bg;
     cursor: not-allowed;
     &:hover,
     &:focus,
@@ -298,7 +298,7 @@
     }
 
     .@{select-prefix-cls}-selection__choice {
-      background-color: @background-color-base;
+      background-color: @cascader-active-bg;
       border-radius: 4px;
       cursor: default;
       float: left;
@@ -479,7 +479,7 @@
       &-selected {
         &,
         &:hover {
-          background-color: @background-color-base;
+          background-color: @cascader-active-bg;
           font-weight: bold;
           color: @text-color;
         }
