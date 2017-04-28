@@ -59,7 +59,7 @@ $ npm install antd --save
 $ yarn add antd
 ```
 
-If you are in a bad network enviornment，you can try other registers and tools like [cnpm](https://github.com/cnpm/cnpm).
+If you are in a bad network environment，you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
 
 ### Import in Browser
 
@@ -67,7 +67,7 @@ Add `script` and `link` tags in your browser and use the global variable `antd`.
 
 We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd) or [unpkg](https://unpkg.com/).
 
-> **We strongly discourage loading these entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Ant is intended to be used in conjunction with a built a tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
+> **We strongly discourage loading these entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Ant is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
 ## Usage
 
