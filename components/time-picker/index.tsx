@@ -14,7 +14,7 @@ export interface TimePickerProps {
   open?: boolean;
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
-  onOpenChange?: (status: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   disabled?: boolean;
   placeholder?: string;
   hideDisabledOptions?: boolean;
