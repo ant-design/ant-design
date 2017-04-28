@@ -13,6 +13,7 @@ export interface TimePickerProps {
   defaultValue?: moment.Moment;
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
+  onBlur?: React.FormEventHandler<any>;
   disabled?: boolean;
   placeholder?: string;
   hideDisabledOptions?: boolean;
