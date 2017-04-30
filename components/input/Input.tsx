@@ -57,6 +57,7 @@ export interface InputProps {
   style?: React.CSSProperties;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  spellCheck?: boolean;
 }
 
 export default class Input extends Component<InputProps, any> {
