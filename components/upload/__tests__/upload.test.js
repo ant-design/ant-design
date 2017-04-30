@@ -7,7 +7,7 @@ describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref;
-    class App extends React.Comoponent {
+    class App extends React.Component {
       componentDidMount() {
         ref = this.refs.input;
       }
