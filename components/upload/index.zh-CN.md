@@ -35,7 +35,7 @@ title: Upload
 | onChange   | 上传文件改变时的状态，详见 onChange                | Function    | 无    |
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | string      | 'text'|
 | onPreview  | 点击文件链接或预览图标时的回调                              | Function(file) | 无    |
-| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除                | Function(file): Boolean | 无    |
+| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。                | Function(file): `boolean | Promise` | 无   |
 | supportServerRender | 服务端渲染时需要打开这个                           | boolean | false    |
 | disabled | 是否禁用                           | boolean | false    |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |
