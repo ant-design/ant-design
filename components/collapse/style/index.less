@@ -3,6 +3,7 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 @collapse-active-bg: #eee;
+@collapse-header-bg: @background-color-base;
 
 .collapse-close() {
   .iconfont-size-under-12px(9px, 0);
@@ -12,7 +13,7 @@
 }
 
 .@{collapse-prefix-cls} {
-  background-color: @background-color-base;
+  background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
@@ -104,7 +105,7 @@
   &-borderless > &-item > &-header {
     transition: all .3s;
     &:hover {
-      background-color: @background-color-base;
+      background-color: @collapse-header-bg;
     }
   }
 }

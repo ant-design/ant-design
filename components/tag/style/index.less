@@ -3,6 +3,8 @@
 
 @tag-prefix-cls: ~"@{ant-prefix}-tag";
 
+@tag-default-bg: @background-color-base;
+
 .@{tag-prefix-cls} {
   display: inline-block;
   line-height: 20px;
@@ -10,7 +12,7 @@
   padding: 0 8px;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-split;
-  background: @background-color-base;
+  background: @tag-default-bg;
   font-size: @font-size-base;
   transition: all 0.3s @ease-in-out-circ;
   opacity: 1;
