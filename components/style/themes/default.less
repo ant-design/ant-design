@@ -7,10 +7,10 @@
   unicode-range: U+30-39;
 }
 
-// Prefix
+// The prefix to use on all css classes from ant.
 @ant-prefix             : ant;
 
-// Color
+// -------- Colors -----------
 @primary-color          : @blue-6;
 @info-color             : @blue-6;
 @success-color          : @green-6;
@@ -19,19 +19,31 @@
 @warning-color          : @yellow-6;
 @normal-color           : #d9d9d9;
 
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
 @primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
 @primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+// unused
 @primary-3: color(~`colorPalette("@{primary-color}", 3)`);
 @primary-4: color(~`colorPalette("@{primary-color}", 4)`);
+// Color used to control the text color in many active and hover states.
 @primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
 @primary-6: @primary-color;                                 // don't use, use @primary-color
+// Color used to control the text color of active buttons.
 @primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+// unused
 @primary-8: color(~`colorPalette("@{primary-color}", 8)`);
+// unused
 @primary-9: color(~`colorPalette("@{primary-color}", 9)`);
+// unused
 @primary-10: color(~`colorPalette("@{primary-color}", 10)`);
 
-// ------ Base & Require ------
+// Base Scaffolding Variables
+// ---
+
+// Background color for `<body>`
 @body-background        : #fff;
+// Base background color for most components
 @component-background   : #fff;
 @font-family            : "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @code-family            : Consolas, Menlo, Courier, monospace;
@@ -82,8 +94,9 @@
 @outline-width          : 2px;
 @outline-color          : @primary-color;
 
-// Background color
-@background-color-base  : #f7f7f7;        // basic gray background
+// Default background color for disabled states, Collapse wrappers,
+// and several active and hover states.
+@background-color-base  : #f7f7f7;
 
 // Disabled states
 @disabled-color         : fade(#000, 25%);

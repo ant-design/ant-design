@@ -5,7 +5,7 @@ title: Third-Party Libraries
 
 `antd` is designed to provide high-quality React UI components which following Ant Design Specification. So, we are not going to implement other functions which are not relative to `antd`'s target, and recommend to use excellent third-party library which came from React community:
 
-Category | Recommanded Components
+Category | Recommended Components
 ---------|-----------------------
 Router | [react-router](https://github.com/ReactTraining/react-router)
 Layout | [react-blocks](http://whoisandie.github.io/react-blocks/)
