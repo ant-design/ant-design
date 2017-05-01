@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
+import { AbstractCheckboxGroupProps } from '../checkbox/Group';
 
 function getCheckedValue(children) {
   let value = null;
@@ -15,27 +16,13 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export interface RadioGroupProps {
-  prefixCls?: string;
-  className?: string;
-  /** 选项变化时的回调函数*/
-  onChange?: React.FormEventHandler<any>;
-  /** 用于设置当前选中的值*/
-  value?: string | number;
-  /** 默认选中的值*/
+export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: string | number;
-  /**  大小，只对按钮样式生效*/
+  value?: string | number;
+  onChange?: React.FormEventHandler<any>;
   size?: 'large' | 'default' | 'small';
-  style?: React.CSSProperties;
-  disabled?: boolean;
   onMouseEnter?: React.FormEventHandler<any>;
   onMouseLeave?: React.FormEventHandler<any>;
-  /** 以配置的方式设置 Radio 子元素，设置了此参数，会忽略 children */
-  options?: Array<string | {
-    label: string;
-    value: string;
-    disabled?: boolean;
-  }>;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
@@ -88,10 +75,9 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps, nextState) {
     return !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState) ||
-      !shallowEqual(this.context.group, nextContext.group);
+      !shallowEqual(this.state, nextState);
   }
 
   onRadioChange = (ev) => {

@@ -1,24 +1,24 @@
-import RcCheckbox from 'rc-checkbox';
-import React from 'react';
-import CheckboxGroup from './Group';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import RcCheckbox from 'rc-checkbox';
+import shallowEqual from 'shallowequal';
+import CheckboxGroup from './Group';
 
-export interface CheckboxProps {
+export interface AbstractCheckboxProps {
   prefixCls?: string;
-  /** 指定当前是否选中 */
-  checked?: boolean;
-  /** 初始是否选中 */
+  className?: string;
   defaultChecked?: boolean;
-  /** indeterminate 状态，只负责样式控制 */
-  indeterminate?: boolean;
-  /** 变化时回调函数 */
+  checked?: boolean;
+  style?: React.CSSProperties;
+  disabled?: boolean;
   onChange?: React.FormEventHandler<any>;
   onMouseEnter?: React.MouseEventHandler<any>;
   onMouseLeave?: React.MouseEventHandler<any>;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  className?: string;
+  value?: any;
+}
+
+export interface CheckboxProps extends AbstractCheckboxProps {
+  indeterminate?: boolean;
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
@@ -27,14 +27,36 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     prefixCls: 'ant-checkbox',
     indeterminate: false,
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  static contextTypes = {
+    checkboxGroup: PropTypes.any,
+  };
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
   }
+
   render() {
+    const { props, context } = this;
     const {
-      prefixCls, style, children, className, indeterminate,
-      onMouseEnter, onMouseLeave, ...restProps,
-     } = this.props;
+      prefixCls,
+      className,
+      children,
+      indeterminate,
+      style,
+      onMouseEnter,
+      onMouseLeave,
+      ...restProps,
+    } = props;
+    const { checkboxGroup } = context;
+    let checkboxProps: CheckboxProps = { ...restProps };
+    if (checkboxGroup) {
+      checkboxProps.onChange = () => checkboxGroup.toggleOption({ label: children, value: props.value });
+      checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
+      checkboxProps.disabled = 'disabled' in props ? props.disabled : checkboxGroup.disabled;
+    }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
     });
@@ -49,10 +71,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
         onMouseLeave={onMouseLeave}
       >
         <RcCheckbox
-          {...restProps}
+          {...checkboxProps}
           prefixCls={prefixCls}
           className={checkboxClass}
-          children={null}
         />
         {children !== undefined ? <span>{children}</span> : null}
       </label>

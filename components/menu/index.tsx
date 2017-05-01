@@ -38,6 +38,7 @@ export interface MenuProps {
   className?: string;
   prefixCls?: string;
   multiple?: boolean;
+  inlineIndent?: number;
 }
 
 export default class Menu extends React.Component<MenuProps, any> {

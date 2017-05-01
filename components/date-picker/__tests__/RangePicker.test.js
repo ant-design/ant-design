@@ -38,4 +38,20 @@ describe('RangePicker', () => {
     expect(render(wrapper.find('Trigger').node.getComponent()))
       .toMatchSnapshot();
   });
+
+  // issue: https://github.com/ant-design/ant-design/issues/5872
+  it('should not throw error when value is reset to `[]`', () => {
+    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const wrapper = mount(
+      <RangePicker
+        getCalendarContainer={trigger => trigger}
+        value={[birthday, birthday]}
+        open
+      />
+    );
+    wrapper.setProps({ value: [] });
+    const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').simulate('click').simulate('click'))
+      .not.toThrow();
+  });
 });

@@ -125,7 +125,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |
-| colon | 配合 label 属性使用，表示是否显示 label 后面的分号 | boolean | true |
+| colon | 配合 label 属性使用，表示是否显示 label 后面的冒号 | boolean | true |
 
 ### 校验规则
 

@@ -16,8 +16,8 @@
     list-style: none;
     white-space: nowrap;
     outline: 0;
-    a[draggable],
-    a[draggable="true"] {
+    span[draggable],
+    span[draggable="true"] {
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
@@ -27,24 +27,24 @@
       -webkit-user-drag: element;
     }
     &.drag-over {
-      > a[draggable] {
+      > span[draggable] {
         background-color: @primary-color;
         color: white;
         opacity: 0.8;
       }
     }
     &.drag-over-gap-top {
-      > a[draggable] {
+      > span[draggable] {
         border-top-color: @primary-color;
       }
     }
     &.drag-over-gap-bottom {
-      > a[draggable] {
+      > span[draggable] {
         border-bottom-color: @primary-color;
       }
     }
     &.filter-node {
-      > a {
+      > span {
         color: @highlight-color!important;
         font-weight: bold!important;
       }
@@ -53,7 +53,7 @@
       margin: 0;
       padding: 0 0 0 18px;
     }
-    a {
+    .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
       padding: 1px 5px;
       border-radius: 2px;
@@ -142,8 +142,8 @@
   }
   &-treenode-disabled {
     > span,
-    > a,
-    > a span {
+    > .@{tree-prefix-cls}-node-content-wrapper,
+    > .@{tree-prefix-cls}-node-content-wrapper span {
       color: @disabled-color;
       cursor: not-allowed;
     }

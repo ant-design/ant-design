@@ -14,6 +14,7 @@
     cursor: pointer;
     width: 100%;
     z-index: 1;
+    display: block;
   }
 
   &-picker {
@@ -173,7 +174,7 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        background-color: @background-color-base;
+        background: @background-color-base;
         font-weight: bold;
       }
     }

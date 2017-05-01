@@ -297,6 +297,267 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
+<div
+  class="ant-layout ant-layout-has-sider"
+  style="height:100vh;"
+>
+  <div
+    class="ant-layout-sider"
+    style="overflow:auto;flex:0 0 200px;width:200px;"
+  >
+    <div
+      class="logo"
+    />
+    <ul
+      aria-activedescendant=""
+      class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+      role="menu"
+      tabindex="0"
+    >
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-user"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 1
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-video-camera"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 2
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-upload"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 3
+        </span>
+      </li>
+      <li
+        aria-selected="true"
+        class="ant-menu-item-selected ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-bar-chart"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 4
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-cloud-o"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 5
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-appstore-o"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 6
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-team"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 7
+        </span>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-shop"
+        />
+        <span
+          class="nav-text"
+        >
+          nav 8
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-layout"
+  >
+    <div
+      class="ant-layout-header"
+      style="background:#fff;padding:0;"
+    />
+    <div
+      class="ant-layout-content"
+      style="margin:24px 16px 0;overflow:initial;"
+    >
+      <div
+        style="padding:24px;background:#fff;text-align:center;"
+      >
+        ...
+        <br />
+        Really
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        long
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        content
+      </div>
+    </div>
+    <div
+      class="ant-layout-footer"
+      style="text-align:center;"
+    >
+      Ant Design ©2016 Created by Ant UED
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 <div
   class="ant-layout ant-layout-has-sider"

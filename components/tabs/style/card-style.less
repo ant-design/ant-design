@@ -28,10 +28,10 @@
     transform: translateZ(0);
     border-color: @border-color-base;
     color: @primary-color;
-  }
-  &&-card > &-bar &-tab-active {
     padding-bottom: 5px;
-    transform: translateZ(0);
+  }
+  &&-card > &-bar &-tab-inactive {
+    padding: 0;
   }
   &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
@@ -50,6 +50,11 @@
       color: #404040;
       font-weight: bold;
     }
+  }
+
+  &&-card &-content > &-tabpane,
+  &&-editable-card &-content > &-tabpane {
+    transition: none!important;
   }
 
   &&-editable-card > &-bar &-tab > div {

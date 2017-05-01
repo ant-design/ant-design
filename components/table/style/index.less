@@ -2,7 +2,6 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
-@table-head-background-color: @background-color-base;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -29,7 +28,7 @@
   }
 
   &-thead > tr > th {
-    background: @table-head-background-color;
+    background: @table-header-bg;
     font-weight: 500;
     transition: background .3s ease;
     text-align: left;
@@ -66,7 +65,7 @@
     &.@{table-prefix-cls}-row-hover,
     &:hover {
       & > td {
-        background: @primary-1;
+        background: @table-row-hover-bg;
       }
     }
   }
@@ -76,14 +75,14 @@
   }
 
   &-footer {
-    padding: 16px 8px;
-    background: @table-head-background-color;
+    padding: @table-padding-vertical @table-padding-horizontal;
+    background: @table-header-bg;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     position: relative;
     &:before {
       content: '';
       height: 1px;
-      background: @table-head-background-color;
+      background: @table-header-bg;
       position: absolute;
       top: -1px;
       width: 100%;
@@ -96,7 +95,7 @@
   }
 
   &-title {
-    padding: 16px 0;
+    padding: @table-padding-vertical 0;
     position: relative;
     top: 1px;
     border-radius: @border-radius-base @border-radius-base 0 0;
@@ -104,8 +103,8 @@
 
   &.@{table-prefix-cls}-bordered &-title {
     border: @border-width-base @border-style-base @border-color-split;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: @table-padding-horizontal;
+    padding-right: @table-padding-horizontal;
   }
 
   &-title + &-content {
@@ -136,7 +135,7 @@
 
   &-thead > tr > th,
   &-tbody > tr > td {
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     word-break: break-all;
   }
 
@@ -148,17 +147,19 @@
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
   &-tbody > tr > td.@{table-prefix-cls}-selection-column {
     text-align: center;
+    min-width: 62px;
     width: 62px;
   }
 
   &-expand-icon-th,
   &-row-expand-icon-cell {
     text-align: center;
+    min-width: 50px;
     width: 50px;
   }
 
   &-header {
-    background: @table-head-background-color;
+    background: @table-header-bg;
     overflow: hidden;
   }
 
@@ -360,7 +361,7 @@
 
   &-placeholder {
     position: relative;
-    padding: 16px 8px;
+    padding: @table-padding-vertical @table-padding-horizontal;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;

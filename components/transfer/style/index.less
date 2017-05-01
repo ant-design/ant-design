@@ -87,13 +87,17 @@
     &-content {
       height: 100%;
       overflow: auto;
+      > .LazyLoad {
+        animation: transferHighlightIn 1s;
+      }
+
       &-item {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         padding: 7px 15px;
         min-height: 32px;
-        transition: all 0.3s ease;
+        transition: all .3s;
       }
 
       &-item:not(&-item-disabled):hover {
@@ -104,11 +108,6 @@
       &-item-disabled {
         cursor: not-allowed;
         color: @btn-disable-color;
-      }
-
-      &-item-highlight-enter {
-        animation: transferHighlightIn 1s ease;
-        transition: none;
       }
     }
 

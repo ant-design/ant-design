@@ -82,7 +82,7 @@ class Picker extends React.Component {
 // eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
   state = {
-    primaryColor: '#1088e9',
+    primaryColor: '#108ee9',
   };
   handleChangeColor = (e) => {
     const value = e.target ? e.target.value : e;
@@ -105,7 +105,7 @@ export default class ColorPaletteTool extends Component {
   }
   renderColorPatterns() {
     const patterns = [];
-    const [count1, count2] = [4, 5];
+    const [count1, count2] = [5, 4];
     const tColor = Color('#fff');
     const pColor = Color(this.state.primaryColor);
     const sColor = Color(this.getShadeColor());
