@@ -167,18 +167,21 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   handleRemove(file) {
     const { onRemove } = this.props;
-    // Prevent removing file
-    const onRemoveReturnValue = onRemove && onRemove(file);
-    if (onRemoveReturnValue === false) {
-      return;
-    }
-    const removedFileList = removeFileItem(file, this.state.fileList);
-    if (removedFileList) {
-      this.onChange({
-        file,
-        fileList: removedFileList,
-      });
-    }
+
+    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
+      // Prevent removing file
+      if (ret === false) {
+        return;
+      }
+
+      const removedFileList = removeFileItem(file, this.state.fileList);
+      if (removedFileList) {
+        this.onChange({
+          file,
+          fileList: removedFileList,
+        });
+      }
+    });
   }
 
   handleManualRemove = (file) => {
