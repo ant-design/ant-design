@@ -3,7 +3,6 @@ order: 5
 title:
   zh-CN: 布局
   en-US: Use with Grid
-debug: true
 ---
 
 ## zh-CN

@@ -17,6 +17,42 @@ timeline: true
 
 ---
 
+## 2.10.0
+
+`2017-05-02`
+
+- LocaleProvider
+  - 新增繁体中文。[#5665](https://github.com/ant-design/ant-design/pull/5665) [@GeorgioWan](https://github.com/GeorgioWan)
+  - 新增芬兰语。[#5699](https://github.com/ant-design/ant-design/pull/5699) [@kirbo](https://github.com/kirbo)
+  - 新增越南语。[#5927](https://github.com/ant-design/ant-design/pull/5927) [@pnghai](https://github.com/pnghai)
+  - 更新西班牙语。[#5932](https://github.com/ant-design/ant-design/pull/5932) [@ginodeise](https://github.com/ginodeis)
+- AutoComplete 新增 `onSearch` 以监听搜索事件。[#5888](https://github.com/ant-design/ant-design/issues/5888)
+- Checkbox.Group 可以内嵌 Checkbox，以支持更灵活的布局。[demo](http://ant.design/components/checkbox-cn/#components-checkbox-demo-layout)
+- Notification 现在可以自定义弹出框的样式和 className。[#5893](https://github.com/ant-design/ant-design/issues/5893) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+- TimePicker 的展开状态可以通过受控属性 `open` 控制。[#5913](https://github.com/ant-design/ant-design/pull/5913)
+- Upload[onRemove] 可以返回一个 promise 以异步控制移除逻辑。[#5973](https://github.com/ant-design/ant-design/issues/5973) [@shlice](https://github.com/shlice)
+- 调整 Dropdown 弹出层的边距。[#5088](https://github.com/ant-design/ant-design/issues/5088)
+- AutoComplete
+  - 修复 dataSource 为 `Object[]` 时行为与 `String[]` 不一致的问题。[#5860](https://github.com/ant-design/ant-design/issues/5860)
+  - 修复在 Form 内使用时，错误样式显示错误的问题。[#5834](https://github.com/ant-design/ant-design/issues/5834) [@kossel](https://github.com/kossel)
+- 修复 Button 内嵌 Icon 后，两个汉字之间会插入空格的问题。[#5977](https://github.com/ant-design/ant-design/issues/5977)
+- 修复 Card[title] 内使用 Cascader 导致样式错乱的问题。[#5952](https://github.com/ant-design/ant-design/issues/5952)
+- 修复 Checkbox Radio 禁用后的 cursor 样式问题。[#5935](https://github.com/ant-design/ant-design/issues/5935)
+- 修复 DatePicker 内嵌的 TimePicker 使用 `use12Hours` 后样式错误的问题。[#5959](https://github.com/ant-design/ant-design/issues/5959)
+- 修复 Input.Group 内嵌 AutoComplete Cascader Mention TimePicker 时的样式问题。[#5832](https://github.com/ant-design/ant-design/issues/5832)
+- 修复 Menu 的 TypeScript 定义缺少 `inlineIndent` 的问题。[#5903](https://github.com/ant-design/ant-design/pull/5903) [@brookshi](https://github.com/brooksh)
+- Mention
+  - 修复不支持 readOnly 和 disabled 的问题。[#5175](https://github.com/ant-design/ant-design/issues/5175)
+  - 修复受控模式。[#5788](https://github.com/ant-design/ant-design/issues/5788)
+- 修复 RangePicker 与 Form 一起使用时会报错的问题。[#5872](https://github.com/ant-design/ant-design/issues/5872)
+- 修复 loading 状态 Table 的分页能点击的问题。[#5937](https://github.com/ant-design/ant-design/issues/5937)
+- Tabs
+  - 修复内嵌 Table 或者表单控件时布局错乱的问题。[#5953](https://github.com/ant-design/ant-design/issues/5953)
+  - 修复 `2.9.2` 引入的垂直布局样式错乱的问题。[#5877](https://github.com/ant-design/ant-design/issues/5877)
+- Transfer
+  - 修复搜索结果无法正常显示的问题。[#5631](https://github.com/ant-design/ant-design/issues/5631)
+  - 修复搜索模式下全选和反选的逻辑。[#5993](https://github.com/ant-design/ant-design/issues/5993)
+
 ## 2.9.3
 
 `2017-04-24`
