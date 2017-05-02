@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Input from './Input';
+import Input, { HTMLInputProps } from './Input';
 import Icon from '../icon';
 
 export interface SearchProps {
@@ -10,14 +10,13 @@ export interface SearchProps {
   style?: React.CSSProperties;
   defaultValue?: any;
   value?: any;
-  onChange?: React.FormEventHandler<any>;
   onSearch?: (value: string) => any;
   size?: 'large' | 'default' | 'small';
   disabled?: boolean;
   readOnly?: boolean;
 }
 
-export default class Search extends React.Component<SearchProps, any> {
+export default class Search extends React.Component<SearchProps & HTMLInputProps, any> {
   static defaultProps = {
     prefixCls: 'ant-input-search',
     onSearch() {},
@@ -42,11 +41,11 @@ export default class Search extends React.Component<SearchProps, any> {
     );
     return (
       <Input
-        className={classNames(prefixCls, className)}
         onPressEnter={this.onSearch}
-        ref={node => this.input = node}
-        suffix={searchSuffix}
         {...others}
+        suffix={searchSuffix}
+        className={classNames(prefixCls, className)}
+        ref={node => this.input = node}
       />
     );
   }
