@@ -80,7 +80,7 @@ describe('Notification.placement', () => {
       top: 50,
       bottom: 50,
     });
-    style = getStyle($$('.ant-notification-topLeft')[1]);
+    style = getStyle($$('.ant-notification-topLeft')[0]);
     expect(style.top).toBe('50px');
     expect(style.left).toBe('0px');
     expect(style.bottom).toBe('');
@@ -91,7 +91,7 @@ describe('Notification.placement', () => {
       top: 100,
       bottom: 50,
     });
-    style = getStyle($$('.ant-notification-topRight')[1]);
+    style = getStyle($$('.ant-notification-topRight')[0]);
     expect(style.top).toBe('100px');
     expect(style.right).toBe('0px');
     expect(style.bottom).toBe('');
@@ -102,7 +102,7 @@ describe('Notification.placement', () => {
       top: 50,
       bottom: 100,
     });
-    style = getStyle($$('.ant-notification-bottomRight')[1]);
+    style = getStyle($$('.ant-notification-bottomRight')[0]);
     expect(style.top).toBe('');
     expect(style.right).toBe('0px');
     expect(style.bottom).toBe('100px');
@@ -113,7 +113,7 @@ describe('Notification.placement', () => {
       top: 100,
       bottom: 50,
     });
-    style = getStyle($$('.ant-notification-bottomLeft')[1]);
+    style = getStyle($$('.ant-notification-bottomLeft')[0]);
     expect(style.top).toBe('');
     expect(style.left).toBe('0px');
     expect(style.bottom).toBe('50px');
