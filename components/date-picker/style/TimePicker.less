@@ -27,19 +27,18 @@
     width: 100%;
   }
 
-  &-1-column,
-  &-1-column &-select {
+  &-column-1,
+  &-column-1 &-select {
     width: 100%;
   }
-  &-2-columns &-select {
+  &-column-2 &-select {
     width: 50%;
   }
-  &-1-column &-select,
-  &-2-columns &-select {
-    li {
-      padding: 0;
-      text-align: center;
-    }
+  &-column-3 &-select {
+    width: 33.33%;
+  }
+  &-column-4 &-select {
+    width: 25%;
   }
 
   &-input-wrap {
@@ -49,11 +48,8 @@
   &-select {
     float: left;
     font-size: @font-size-base;
-    border: @border-width-base @border-style-base @border-color-split;
-    border-width: 0 1px;
-    margin-left: -1px;
+    border-right: @border-width-base @border-style-base @border-color-split;
     box-sizing: border-box;
-    width: 33.6%;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
     height: 206px;
@@ -81,7 +77,7 @@
     }
 
     li {
-      padding: 0 0 0 28px;
+      text-align: center;
       list-style: none;
       box-sizing: content-box;
       margin: 0;
