@@ -45,6 +45,16 @@ describe('DatePicker with showTime', () => {
     expect(onOpenChangeFn).toHaveBeenCalledWith(false);
     expect(onChangeFn).toHaveBeenCalled();
   });
+
+  it('should have correct className when use12Hours is true', () => {
+    const wrapper = mount(
+      <DatePicker showTime={{ use12Hours: true }} open />
+    );
+    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(calendarWrapper.find('.ant-calendar-time-picker-column-4').length).toBe(0);
+    calendarWrapper.find('.ant-calendar-time-picker-btn').at(0).simulate('click');
+    expect(calendarWrapper.find('.ant-calendar-time-picker-column-4').length).toBe(1);
+  });
 });
 
 describe('RangePicker with showTime', () => {

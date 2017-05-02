@@ -20,8 +20,6 @@ import moment from 'moment';
 <TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
 ```
 
-> 注意：`0.11+` 后 `Timepicker` 改名为 `TimePicker`。
-
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|
 | defaultValue        | 默认时间 | [moment](http://momentjs.com/) | 无 |
@@ -39,5 +37,7 @@ import moment from 'moment';
 | getPopupContainer   | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
+| className | 选择器类名 | string | '' |
+| popupClassName | 弹出层类名 | string | '' |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
