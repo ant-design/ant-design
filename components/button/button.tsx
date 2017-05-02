@@ -11,20 +11,21 @@ function isString(str: any) {
 }
 
 // Insert one space between two chinese characters automatically.
-function insertSpace(child: React.ReactChild) {
+function insertSpace(child: React.ReactChild, needInserted: boolean) {
   // Check the child if is undefined or null.
   if (child == null) {
     return;
   }
+  const SPACE = needInserted ? ' ' : '';
   // strictNullChecks oops.
   if (typeof child !== 'string' && typeof child !== 'number' &&
     isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(child, {},
-      child.props.children.split('').join(' '));
+      child.props.children.split('').join(SPACE));
   }
   if (typeof child === 'string') {
     if (isTwoCNChar(child)) {
-      child = child.split('').join(' ');
+      child = child.split('').join(SPACE);
     }
     return <span>{child}</span>;
   }
@@ -158,7 +159,8 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
-    const kids = React.Children.map(children, insertSpace);
+    const needInserted = React.Children.count(children) === 1 && !iconType;
+    const kids = React.Children.map(children, child => insertSpace(child, needInserted));
 
     return (
       <button

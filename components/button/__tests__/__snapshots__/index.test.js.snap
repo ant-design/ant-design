@@ -11,6 +11,34 @@ exports[`Button renders Chinese characters correctly 1`] = `
 </button>
 `;
 
+exports[`Button renders Chinese characters correctly 2`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <i
+    class="anticon anticon-search"
+  />
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
+exports[`Button renders Chinese characters correctly 3`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <i
+    class="anticon anticon-search"
+  />
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
 exports[`Button renders correctly 1`] = `
 <button
   class="ant-btn"

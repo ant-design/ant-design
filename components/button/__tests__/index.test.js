@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
 import Button from '..';
+import Icon from '../../icon';
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -15,6 +16,16 @@ describe('Button', () => {
       <Button>按钮</Button>
     );
     expect(wrapper).toMatchSnapshot();
+    // should not insert space when there is icon
+    const wrapper1 = render(
+      <Button icon="search">按钮</Button>
+    );
+    expect(wrapper1).toMatchSnapshot();
+    // should not insert space when there is icon
+    const wrapper2 = render(
+      <Button><Icon type="search" />按钮</Button>
+    );
+    expect(wrapper2).toMatchSnapshot();
   });
 
   it('have static perperty for type detecting', () => {
