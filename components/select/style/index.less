@@ -460,9 +460,12 @@
       overflow: hidden;
       transition: background 0.3s ease;
 
-      &:hover,
+      &:hover {
+        background-color: @item-hover-bg;
+      }
+
       &-active {
-        background-color: @active-item-bg;
+        background-color: @item-active-bg;
       }
 
       &-disabled {
