@@ -452,6 +452,7 @@
 
     .@{iconfont-css-prefix}-down {
       color: #aaa;
+      transition: all .3s;
     }
 
     &-menu {
@@ -471,8 +472,10 @@
       cursor: pointer;
       padding: 0;
       display: inline-block;
-      vertical-align: middle;
       line-height: 1;
+      &:hover .@{iconfont-css-prefix}-down {
+        color: #666;
+      }
     }
   }
 
