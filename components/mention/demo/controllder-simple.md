@@ -15,11 +15,11 @@ Controlled mode.
 
 ````jsx
 import { Mention } from 'antd';
-const { toEditorState } = Mention;
+const { toContentState } = Mention;
 
 class App extends React.Component {
   state = {
-    value: toEditorState('@afc163'),
+    value: toContentState('@afc163'),
   }
   handleChange = (editorState) => {
     this.setState({
