@@ -212,4 +212,21 @@ describe('Transfer', () => {
     wrapper.find(TransferOperation).find(Button).at(1).simulate('click');
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
+
+  it('should check correctly when there is a search text', () => {
+    const props = { ...listCommonProps };
+    delete props.targetKeys;
+    delete props.selectedKeys;
+    const handleSelectChange = jest.fn();
+    const wrapper = mount(
+      <Transfer {...props} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
+    );
+    wrapper.find(TransferItem).filterWhere(n => n.prop('item').key === 'b').simulate('click');
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
+    wrapper.find(TransferSearch).at(0).find('input').simulate('change', { target: { value: 'a' } });
+    wrapper.find(TransferList).at(0).find('.ant-transfer-list-header input[type="checkbox"]').simulate('change');
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b', 'a'], []);
+    wrapper.find(TransferList).at(0).find('.ant-transfer-list-header input[type="checkbox"]').simulate('change');
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
+  });
 });

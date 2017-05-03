@@ -187,7 +187,17 @@ abstract class Transfer extends React.Component<TransferProps, any> {
   }
 
   handleSelectAll = (direction, filteredDataSource, checkAll) => {
-    const holder = checkAll ? [] : filteredDataSource.map(item => item.key);
+    const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
+    const currentKeys = filteredDataSource.map(item => item.key);
+    // Only operate current keys from original selected keys
+    const newKeys1 = originalSelectedKeys.filter(key => currentKeys.indexOf(key) === -1);
+    const newKeys2 = [...originalSelectedKeys];
+    currentKeys.forEach((key) => {
+      if (newKeys2.indexOf(key) === -1) {
+        newKeys2.push(key);
+      }
+    });
+    const holder = checkAll ? newKeys1 : newKeys2;
     this.handleSelectChange(direction, holder);
 
     if (!this.props.selectedKeys) {
