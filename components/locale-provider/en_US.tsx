@@ -17,7 +17,7 @@ export default {
     filterConfirm: 'OK',
     filterReset: 'Reset',
     emptyText: 'No Data',
-    selectAll: 'Select All',
+    selectAll: 'Select Current Page',
     selectInvert: 'Select Invert',
   },
   Modal: {

@@ -17,7 +17,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
         role="menuitem"
       >
         <div>
-          全选
+          全选当页
         </div>
       </li>
       <li
@@ -26,7 +26,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
         role="menuitem"
       >
         <div>
-          反选
+          反选当页
         </div>
       </li>
     </ul>
