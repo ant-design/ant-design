@@ -14,9 +14,10 @@ title:
 Fill in this form to create a new account for you.
 
 ````jsx
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
+const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [{
   value: 'zhejiang',
@@ -45,6 +46,7 @@ const residences = [{
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
+    autoCompleteResult: [],
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -73,8 +75,21 @@ class RegistrationForm extends React.Component {
     }
     callback();
   }
+
+  handleWebsiteChange = (value) => {
+    let autoCompleteResult;
+    if (!value) {
+      autoCompleteResult = [];
+    } else {
+      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
+    }
+    this.setState({ autoCompleteResult });
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { autoCompleteResult } = this.state;
+
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -104,6 +119,11 @@ class RegistrationForm extends React.Component {
         <Option value="86">+86</Option>
       </Select>
     );
+
+    const websiteOptions = autoCompleteResult.map((website) => {
+      return <AutoCompleteOption key={website}>{website}</AutoCompleteOption>;
+    });
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <FormItem
@@ -188,6 +208,22 @@ class RegistrationForm extends React.Component {
             rules: [{ required: true, message: 'Please input your phone number!' }],
           })(
             <Input addonBefore={prefixSelector} />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Website"
+        >
+          {getFieldDecorator('website', {
+            rules: [{ required: true, message: 'Please input website!' }],
+          })(
+            <AutoComplete
+              dataSource={websiteOptions}
+              onChange={this.handleWebsiteChange}
+              placeholder="website"
+            >
+              <Input />
+            </AutoComplete>
           )}
         </FormItem>
         <FormItem
