@@ -59,6 +59,11 @@
 @border-radius-base     : 4px;
 @border-radius-sm       : 2px;
 
+// The background colors for active and hover states for things like
+// list items or table cells.
+@item-active-bg         : @primary-1;
+@item-hover-bg          : @primary-1;
+
 // ICONFONT
 @iconfont-css-prefix    : anticon;
 @icon-url               : "https://at.alicdn.com/t/font_0qcp222wvwijm7vi";
@@ -97,6 +102,7 @@
 // Default background color for disabled states, Collapse wrappers,
 // and several active and hover states.
 @background-color-base  : #f7f7f7;
+@background-color-active: #eee;
 
 // Disabled states
 @disabled-color         : fade(#000, 25%);
@@ -319,10 +325,6 @@
 @card-head-height: 48px;
 @card-head-color: @heading-color;
 @card-head-background: @component-background;
-
-// Cascader
-// ---
-@cascader-active-color: @background-color-base;
 
 // Tabs
 // ---
