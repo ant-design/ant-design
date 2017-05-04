@@ -16,12 +16,12 @@ Display global messages as feedbacks to user operations.
 
 This components provides some static methods, with usage and arguments as following:
 
-- `message.success(content, duration, onClose, className, style)`
-- `message.error(content, duration, onClose, className, style)`
-- `message.info(content, duration, onClose, className, style)`
-- `message.warning(content, duration, onClose, className, style)`
-- `message.warn(content, duration, onClose, className, style)` // alias of warning
-- `message.loading(content, duration, onClose, className, style)`
+- `message.success(content, duration, onClose)`
+- `message.error(content, duration, onClose)`
+- `message.info(content, duration, onClose)`
+- `message.warning(content, duration, onClose)`
+- `message.warn(content, duration, onClose)` // alias of warning
+- `message.loading(content, duration, onClose)`
 
 | Argument   | Description                        | Type                     | Default      |
 |------------|------------------------------------|--------------------------|--------------|

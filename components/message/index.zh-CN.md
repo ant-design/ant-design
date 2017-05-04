@@ -17,12 +17,12 @@ title: Message
 
 组件提供了一些静态方法，使用方式和参数如下：
 
-- `message.success(content, duration, onClose, className, style)`
-- `message.error(content, duration, onClose, className, style)`
-- `message.info(content, duration, onClose, className, style)`
-- `message.warning(content, duration, onClose, className, style)`
-- `message.warn(content, duration, onClose, className, style)` // alias of warning
-- `message.loading(content, duration, onClose, className, style)`
+- `message.success(content, duration, onClose)`
+- `message.error(content, duration, onClose)`
+- `message.info(content, duration, onClose)`
+- `message.warning(content, duration, onClose)`
+- `message.warn(content, duration, onClose)` // alias of warning
+- `message.loading(content, duration, onClose)`
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|--------------------------|--------------|
