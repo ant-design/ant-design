@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
+import assign from 'object-assign';
 
 let defaultDuration = 1.5;
 let defaultTop;
@@ -26,6 +27,8 @@ function notice(
   duration: number = defaultDuration,
   type: NoticeType,
   onClose?: () => void,
+  className?: string,
+  style?: React.CSSProperties,
 ) {
   let iconType = ({
     info: 'info-circle',
@@ -39,7 +42,7 @@ function notice(
   instance.notice({
     key,
     duration,
-    style: {},
+    style: assign({}, style),
     content: (
       <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
         <Icon type={iconType} />
@@ -47,6 +50,7 @@ function notice(
       </div>
     ),
     onClose,
+    className,
   });
   return (function () {
     let target = key++;
@@ -68,24 +72,30 @@ export interface ConfigOptions {
 }
 
 export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'info', onClose);
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+       className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'info', onClose, className, style);
   },
-  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'success', onClose);
+  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+          className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'success', onClose, className, style);
   },
-  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'error', onClose);
+  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+        className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'error', onClose, className, style);
   },
   // Departed usage, please use warning()
-  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'warning', onClose);
+  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+       className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'warning', onClose, className, style);
   },
-  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'warning', onClose);
+  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+          className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'warning', onClose, className, style);
   },
-  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
-    return notice(content, duration, 'loading', onClose);
+  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose,
+          className?: string, style?: React.CSSProperties) {
+    return notice(content, duration, 'loading', onClose, className, style);
   },
   config(options: ConfigOptions) {
     if (options.top !== undefined) {
