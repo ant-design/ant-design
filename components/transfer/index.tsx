@@ -92,14 +92,6 @@ abstract class Transfer extends React.Component<TransferProps, any> {
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
-    if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys;
-      this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
-      });
-    }
-
     if (nextProps.targetKeys !== this.props.targetKeys ||
       nextProps.dataSource !== this.props.dataSource) {
       // clear cached splited dataSource
@@ -125,6 +117,14 @@ abstract class Transfer extends React.Component<TransferProps, any> {
           targetSelectedKeys: newTargetSelectedKeys,
         });
       }
+    }
+
+    if (nextProps.selectedKeys) {
+      const targetKeys = nextProps.targetKeys;
+      this.setState({
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
+      });
     }
   }
 
