@@ -1216,6 +1216,80 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     >
       <label
         class="ant-form-item-required"
+        for="website"
+        title="Website"
+      >
+        Website
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                website
+              </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      class="ant-input ant-input ant-select-search__field"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
         for="captcha"
         title="Captcha"
       >

@@ -22,6 +22,17 @@ exports[`renders ./components/notification/demo/custom-icon.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/notification/demo/custom-style.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
 exports[`renders ./components/notification/demo/duration.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
