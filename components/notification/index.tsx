@@ -54,6 +54,8 @@ export interface ArgsProps {
   icon?: React.ReactNode;
   placement?: notificationPlacement;
   getContainer?: () => HTMLElement;
+  style?: string;
+  className?: string;
 }
 
 export interface ConfigProps {
@@ -124,6 +126,7 @@ function notice(args) {
     ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
     : null;
 
+  const { style, className } = args;
   getNotificationInstance(outerPrefixCls).notice({
     content: (
       <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
@@ -140,7 +143,8 @@ function notice(args) {
     closable: true,
     onClose: args.onClose,
     key: args.key,
-    style: {},
+    style: assign({}, style),
+    className,
   });
 }
 

@@ -11,11 +11,11 @@ let getContainer;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls,
-    transitionName: 'move-up',
-    style: { top: defaultTop }, // 覆盖原来的样式
-    getContainer,
-  });
+      prefixCls,
+      transitionName: 'move-up',
+      style: { top: defaultTop }, // 覆盖原来的样式
+      getContainer,
+    });
   return messageInstance;
 }
 
