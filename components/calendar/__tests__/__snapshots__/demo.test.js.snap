@@ -609,7 +609,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             role="row"
           >
             <td
-              class="ant-fullcalendar-cell"
+              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
               role="gridcell"
               title="2016-11-21"
             >
@@ -627,7 +627,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               </div>
             </td>
             <td
-              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
+              class="ant-fullcalendar-cell"
               role="gridcell"
               title="2016-11-22"
             >
@@ -1616,7 +1616,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               role="row"
             >
               <td
-                class="ant-fullcalendar-cell"
+                class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
                 role="gridcell"
                 title="2016-11-21"
               >
@@ -1634,7 +1634,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
+                class="ant-fullcalendar-cell"
                 role="gridcell"
                 title="2016-11-22"
               >
@@ -2796,7 +2796,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             role="row"
           >
             <td
-              class="ant-fullcalendar-cell"
+              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
               role="gridcell"
               title="2016-11-21"
             >
@@ -2818,7 +2818,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
               </div>
             </td>
             <td
-              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
+              class="ant-fullcalendar-cell"
               role="gridcell"
               title="2016-11-22"
             >
