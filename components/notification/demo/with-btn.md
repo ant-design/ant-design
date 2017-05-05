@@ -28,12 +28,12 @@ const openNotification = () => {
   };
   const btn = (
     <Button type="primary" size="small" onClick={btnClick}>
-      Confirm
-    </Button>
+      我知道了
+    </Button>
   );
   notification.open({
-    message: 'Notification Title',
-    description: 'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
+    message: '上传成功',
+    description: '共 86 条有效数据，其中 0 条重复数据已自动合并。',
     btn,
     key,
     onClose: close,
