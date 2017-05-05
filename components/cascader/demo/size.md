@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 title:
   zh-CN: 大小
   en-US: Size
@@ -18,24 +18,24 @@ import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: 'West Lake',
     }],
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: 'Zhong Hua Men',
     }],
   }],
 }];

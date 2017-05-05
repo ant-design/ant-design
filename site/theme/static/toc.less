@@ -1,16 +1,23 @@
 .toc {
   font-size: 14px;
-  margin: 36px 0 24px;
+  margin: 24px 0;
+  border-left: 1px solid #e9e9e9;
+  list-style: none;
+}
+
+.markdown .toc {
   background: #fbfbfb;
   border-left: 2px solid #eee;
 }
 
 .toc > ul {
   padding: 8px 0;
+  list-style: none;
 }
 
 .toc > ul li {
   list-style: none;
+  margin: 0;
 }
 
 .toc li > ul {
@@ -21,22 +28,20 @@
 
 .toc a {
   padding-left: 16px;
-  border-left: 2px solid #eee;
-  margin-left: -2px;
   display: block;
   transition: all 0.3s ease;
   white-space: nowrap;
   overflow: hidden;
-  color: #666;
+  color: @text-color;
 }
 
 .toc a:hover {
-  color: #2db7f5;
+  color: @primary-color;
 }
 
 .toc a.current {
-  border-color: #2db7f5;
-  color: #2db7f5;
+  border-color: @primary-color;
+  color: @primary-color;
 }
 
 .toc-affix {
@@ -47,15 +52,14 @@
 
 .demos-anchor {
   color: #aaa;
-  background: #fff;
   font-size: 12px;
-  margin-top: 0;
+  margin-top: -4px;
   a {
     padding-left: 8px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 90px;
+    width: 110px;
   }
 }

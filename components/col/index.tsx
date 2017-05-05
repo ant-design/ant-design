@@ -1,2 +1,2 @@
-import { Col } from '../layout';
+import { Col } from '../grid';
 export default Col;

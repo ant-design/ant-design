@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   zh-CN: 菜单隐藏方式
   en-US: The way of hiding menu.
@@ -16,26 +16,24 @@ The default is to close the menu when you click on menu items, this feature can 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
-const OverlayVisible = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  handleMenuClick(e) {
+class OverlayVisible extends React.Component {
+  state = {
+    visible: false,
+  };
+  handleMenuClick = (e) => {
     if (e.key === '3') {
       this.setState({ visible: false });
     }
-  },
-  handleVisibleChange(flag) {
+  }
+  handleVisibleChange = (flag) => {
     this.setState({ visible: flag });
-  },
+  }
   render() {
     const menu = (
       <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">点我不会关闭菜单</Menu.Item>
-        <Menu.Item key="2">点我还是不会关闭菜单</Menu.Item>
-        <Menu.Item key="3">点我才会关闭菜单</Menu.Item>
+        <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
+        <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
+        <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
       </Menu>
     );
     return (
@@ -44,12 +42,12 @@ const OverlayVisible = React.createClass({
         visible={this.state.visible}
       >
         <a className="ant-dropdown-link" href="#">
-          鼠标移入 <Icon type="down" />
+          Hover me <Icon type="down" />
         </a>
       </Dropdown>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<OverlayVisible />, mountNode);
 ````

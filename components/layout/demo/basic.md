@@ -1,43 +1,87 @@
 ---
 order: 0
 title:
-  zh-CN: 基础布局
-  en-US: Basic Layout
+  zh-CN: 基本结构
+  en-US: Basic Structure
 ---
 
 ## zh-CN
 
-从堆叠到水平排列。
-
-使用单一的一组 `Row` 和 `Col` 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 `Row` 内。
+典型的页面布局。
 
 ## en-US
 
-From the stack to the horizontal arrangement.
-
-You can create a basic grid system by using a single set of `Row` and` Col` grid assembly, ,all of the columns (Col) must be placed in `Row`.
+Classic page layouts.
 
 ````jsx
-import { Row, Col } from 'antd';
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
   <div>
-    <Row>
-      <Col span={12}>.ant-col-12</Col>
-      <Col span={12}>.ant-col-12</Col>
-    </Row>
-    <Row>
-      <Col span={8}>.ant-col-8</Col>
-      <Col span={8}>.ant-col-8</Col>
-      <Col span={8}>.ant-col-8</Col>
-    </Row>
-    <Row>
-      <Col span={6}>.ant-col-6</Col>
-      <Col span={6}>.ant-col-6</Col>
-      <Col span={6}>.ant-col-6</Col>
-      <Col span={6}>.ant-col-6</Col>
-    </Row>
-  </div>,
-  mountNode
-);
+    <Layout>
+      <Header>Header</Header>
+      <Content>Content</Content>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Header>Header</Header>
+      <Layout>
+        <Sider>Sider</Sider>
+        <Content>Content</Content>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Header>Header</Header>
+      <Layout>
+        <Content>Content</Content>
+        <Sider>Sider</Sider>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
+
+    <Layout>
+      <Sider>Sider</Sider>
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
+      </Layout>
+    </Layout>
+  </div>
+, mountNode);
 ````
+
+<style>
+#components-layout-demo-basic .code-box-demo {
+  text-align: center;
+}
+#components-layout-demo-basic .ant-layout-header,
+#components-layout-demo-basic .ant-layout-footer {
+  background: #7dbcea;
+  color: #fff;
+}
+#components-layout-demo-basic .ant-layout-footer {
+  line-height: 1.5;
+}
+#components-layout-demo-basic .ant-layout-sider {
+  background: #3ba0e9;
+  color: #fff;
+  line-height: 120px;
+}
+#components-layout-demo-basic .ant-layout-content {
+  background: rgba(16, 142, 233, 1);
+  color: #fff;
+  min-height: 120px;
+  line-height: 120px;
+}
+#components-layout-demo-basic > .code-box-demo > div > .ant-layout {
+  margin-bottom: 48px;
+}
+#components-layout-demo-basic > .code-box-demo > div > .ant-layout:last-child {
+  margin: 0;
+}
+</style>

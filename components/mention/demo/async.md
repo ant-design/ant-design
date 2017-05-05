@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 异步加载
+title:
+  zh-CN: 异步加载
+  en-US: Asynchronous loading
 ---
 
 ## zh-CN
@@ -9,25 +11,24 @@ title: 异步加载
 
 ## en-US
 
-asnyc
+async
 
 ````jsx
 import { Mention } from 'antd';
 
 const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];
-const AsyncMention = React.createClass({
-  getInitialState() {
-    return {
-      suggestions: [],
-      loading: false,
-    };
-  },
-  fetchSuggestions(value, callback) {
+
+class AsyncMention extends React.Component {
+  state = {
+    suggestions: [],
+    loading: false,
+  }
+  fetchSuggestions = (value, callback) => {
     setTimeout(() => {
       callback(users.filter(item => item.indexOf(value) !== -1));
     }, 500);
-  },
-  onSearchChange(value) {
+  }
+  onSearchChange = (value) => {
     this.fetchSuggestions(value, (suggestions) => {
       this.setState({
         suggestions,
@@ -37,22 +38,19 @@ const AsyncMention = React.createClass({
     this.setState({
       loading: true,
     });
-  },
+  }
   render() {
     const { suggestions, loading } = this.state;
     return (
       <Mention
-        style={{ width: 500, height: 100 }}
+        style={{ width: '100%', height: 100 }}
         loading={loading}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
       />
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(
-  <AsyncMention />,
-  mountNode
-);
+ReactDOM.render(<AsyncMention />, mountNode);
 ````

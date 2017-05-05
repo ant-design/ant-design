@@ -21,46 +21,46 @@ ReactDOM.render(
   <div>
     <div style={{ marginLeft: 60 }}>
       <Tooltip placement="topLeft" title={text}>
-        <a href="#">topLeft</a>
+        <a href="#">TL</a>
       </Tooltip>
       <Tooltip placement="top" title={text}>
-        <a href="#">top</a>
+        <a href="#">Top</a>
       </Tooltip>
       <Tooltip placement="topRight" title={text}>
-        <a href="#">topRight</a>
+        <a href="#">TR</a>
       </Tooltip>
     </div>
     <div style={{ width: 60, float: 'left' }}>
       <Tooltip placement="leftTop" title={text}>
-        <a href="#">leftTop</a>
+        <a href="#">LT</a>
       </Tooltip>
       <Tooltip placement="left" title={text}>
-        <a href="#">left</a>
+        <a href="#">Left</a>
       </Tooltip>
       <Tooltip placement="leftBottom" title={text}>
-        <a href="#">leftBottom</a>
+        <a href="#">LB</a>
       </Tooltip>
     </div>
     <div style={{ width: 60, marginLeft: 270 }}>
       <Tooltip placement="rightTop" title={text}>
-        <a href="#">rightTop</a>
+        <a href="#">RT</a>
       </Tooltip>
       <Tooltip placement="right" title={text}>
-        <a href="#">right</a>
+        <a href="#">Right</a>
       </Tooltip>
       <Tooltip placement="rightBottom" title={text}>
-        <a href="#">rightBottom</a>
+        <a href="#">RB</a>
       </Tooltip>
     </div>
     <div style={{ marginLeft: 60, clear: 'both' }}>
       <Tooltip placement="bottomLeft" title={text}>
-        <a href="#">bottomLeft</a>
+        <a href="#">BL</a>
       </Tooltip>
       <Tooltip placement="bottom" title={text}>
-        <a href="#">bottom</a>
+        <a href="#">Bottom</a>
       </Tooltip>
       <Tooltip placement="bottomRight" title={text}>
-        <a href="#">bottomRight</a>
+        <a href="#">BR</a>
       </Tooltip>
     </div>
   </div>
@@ -68,7 +68,7 @@ ReactDOM.render(
 ````
 
 <style>
-#components-tooltip-demo-placement a {
+#components-tooltip-demo-placement .code-box-demo a {
   display: inline-block;
   line-height: 32px;
   height: 32px;

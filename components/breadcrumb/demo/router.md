@@ -1,6 +1,6 @@
 ---
 order: 2
-iframe: true
+iframe: 200
 title:
   zh-CN: 路由
   en-US: React Router Integration
@@ -8,15 +8,15 @@ title:
 
 ## zh-CN
 
-和 `react-router@2.x` 进行结合使用。
+和 `react-router@2+` 进行结合使用。
 
 ## en-US
 
-Used together with `react-router@2.x`.
+Used together with `react-router@2+`.
 
 ````jsx
 import { Router, Route, Link, hashHistory } from 'react-router';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
   <ul className="app-list">
@@ -29,24 +29,15 @@ const Apps = () => (
   </ul>
 );
 
-const Home = (props) => (
-  <div>
+const Home = ({ routes, params, children }) => (
+  <div className="demo">
     <div className="demo-nav">
       <Link to="/">Home</Link>
       <Link to="/apps">Application List</Link>
     </div>
-    {props.children || 'Home'}
-    <div
-      style={{
-        marginBottom: 15,
-        marginTop: 15,
-        paddingBottom: 15,
-        borderBottom: '1px dashed #ccc',
-      }}
-    >
-      Click the navigation above to switch:
-    </div>
-    <Breadcrumb {...props} />
+    {children || 'Home Page'}
+    <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
+    <Breadcrumb routes={routes} params={params} />
   </div>
 );
 
@@ -64,20 +55,20 @@ ReactDOM.render(
 ````
 
 ````css
-#components-breadcrumb-demo-router iframe {
-  height: 180px;
+.demo {
+  margin: 16px;
 }
 .demo-nav {
   height: 30px;
   line-height: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   background: #f8f8f8;
 }
 .demo-nav a {
   line-height: 30px;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 .app-list {
-  margin-top: 15px;
+  margin-top: 16px;
 }
 ````

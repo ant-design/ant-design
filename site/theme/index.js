@@ -1,32 +1,63 @@
+const path = require('path');
+
+const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
 
+function pickerGenerator(module) {
+  const tester = new RegExp(`^docs/${module}`);
+  return (markdownData) => {
+    const filename = markdownData.meta.filename;
+    if (tester.test(filename) &&
+        !/\/demo$/.test(path.dirname(filename))) {
+      return {
+        meta: markdownData.meta,
+      };
+    }
+  };
+}
+
 module.exports = {
-  categoryOrder: {
-    组件: 0,
-    十大原则: 0,
-    设计基础: 1,
-    动画: 2,
+  lazyLoad(nodePath, nodeValue) {
+    if (typeof nodeValue === 'string') {
+      return true;
+    }
+    return nodePath.endsWith('/demo');
   },
-  typeOrder: {
-    Basic: 0,
-    'Form Controls': 1,
-    Views: 2,
-    Navigation: 3,
-    Other: 4,
+  pick: {
+    components(markdownData) {
+      const filename = markdownData.meta.filename;
+      if (!/^components/.test(filename) ||
+          /[/\\]demo$/.test(path.dirname(filename))) return;
+
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    changelog(markdownData) {
+      if (/CHANGELOG/.test(markdownData.meta.filename)) {
+        return {
+          meta: markdownData.meta,
+        };
+      }
+    },
+    'docs/pattern': pickerGenerator('pattern'),
+    'docs/react': pickerGenerator('react'),
+    'docs/resource': pickerGenerator('resource'),
+    'docs/spec': pickerGenerator('spec'),
   },
-  docVersions: {
-    '0.9.x': 'http://09x.ant.design/',
-    '0.10.x': 'http://010x.ant.design/',
-    '0.11.x': 'http://011x.ant.design/',
-    '0.12.x': 'http://012x.ant.design/',
-  },
+  plugins: [
+    'bisheng-plugin-description',
+    'bisheng-plugin-toc?maxDepth=2&keepElem',
+    'bisheng-plugin-antd',
+    'bisheng-plugin-react?lang=__react',
+  ],
   routes: {
     path: '/',
     component: './template/Layout/index',
-    indexRoute: { component: './template/Home/index' },
+    indexRoute: { component: homeTmpl },
     childRoutes: [{
-      path: 'docs/practice/:children',
-      component: contentTmpl,
+      path: 'index-cn',
+      component: homeTmpl,
     }, {
       path: 'docs/pattern/:children',
       component: contentTmpl,
@@ -35,6 +66,9 @@ module.exports = {
       component: contentTmpl,
     }, {
       path: 'changelog',
+      component: contentTmpl,
+    }, {
+      path: 'changelog-cn',
       component: contentTmpl,
     }, {
       path: 'components/:children/',

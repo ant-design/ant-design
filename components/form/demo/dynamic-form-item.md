@@ -1,8 +1,8 @@
 ---
-order: 15
-title: 
+order: 5
+title:
   zh-CN: 动态增减表单项
-  en-US: Dynamic form item
+  en-US: Dynamic Form Item
 ---
 
 ## zh-CN
@@ -14,82 +14,129 @@ title:
 Add or remove form items dynamically.
 
 ````jsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Icon, Button } from 'antd';
+const FormItem = Form.Item;
 
 let uuid = 0;
-let Demo = React.createClass({
-  remove(k) {
+class DynamicFieldSet extends React.Component {
+  remove = (k) => {
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.filter((key) => {
-      return key !== k;
-    });
+    const keys = form.getFieldValue('keys');
+    // We need at least one passenger
+    if (keys.length === 1) {
+      return;
+    }
+
     // can use data-binding to set
     form.setFieldsValue({
-      keys,
+      keys: keys.filter(key => key !== k),
     });
-  },
-  add() {
+  }
+
+  add = () => {
     uuid++;
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.concat(uuid);
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.concat(uuid);
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
-  },
-  submit(e) {
+  }
+
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
-      if (errors) {
-        console.log(errors);
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-      console.log(values);
     });
-  },
+  }
+
   render() {
-    const { getFieldProps, getFieldValue } = this.props.form;
-    getFieldProps('keys', {
-      initialValue: [0],
-    });
-
+    const { getFieldDecorator, getFieldValue } = this.props.form;
     const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 18 },
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 4 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 20 },
+      },
     };
-
-    const formItems = getFieldValue('keys').map((k) => {
+    const formItemLayoutWithOutLabel = {
+      wrapperCol: {
+        xs: { span: 24, offset: 0 },
+        sm: { span: 20, offset: 4 },
+      },
+    };
+    getFieldDecorator('keys', { initialValue: [] });
+    const keys = getFieldValue('keys');
+    const formItems = keys.map((k, index) => {
       return (
-        <Form.Item {...formItemLayout} label={`good friend${k}：`} key={k}>
-          <Input {...getFieldProps(`name${k}`, {
+        <FormItem
+          {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
+          label={index === 0 ? 'Passengers' : ''}
+          required={false}
+          key={k}
+        >
+          {getFieldDecorator(`names-${k}`, {
+            validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
               whitespace: true,
-              message: "Your good friend's name",
+              message: "Please input passenger's name or delete this field.",
             }],
-          })} style={{ width: '80%', marginRight: 8 }}
+          })(
+            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
+          )}
+          <Icon
+            className="dynamic-delete-button"
+            type="minus-circle-o"
+            disabled={keys.length === 1}
+            onClick={() => this.remove(k)}
           />
-          <Button onClick={() => this.remove(k)}>remove</Button>
-        </Form.Item>
+        </FormItem>
       );
     });
     return (
-      <Form horizontal form={this.props.form}>
+      <Form onSubmit={this.handleSubmit}>
         {formItems}
-        <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
-          <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
-          <Button type="primary" onClick={this.submit}>submit</Button>
-        </Form.Item>
+        <FormItem {...formItemLayoutWithOutLabel}>
+          <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
+            <Icon type="plus" /> Add field
+          </Button>
+        </FormItem>
+        <FormItem {...formItemLayoutWithOutLabel}>
+          <Button type="primary" htmlType="submit" size="large">Submit</Button>
+        </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
-Demo = Form.create()(Demo);
+const WrappedDynamicFieldSet = Form.create()(DynamicFieldSet);
+ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
+````
 
-ReactDOM.render(<Demo />, mountNode);
+````css
+.dynamic-delete-button {
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 24px;
+  color: #999;
+  transition: all .3s;
+}
+.dynamic-delete-button:hover {
+  color: #777;
+}
+.dynamic-delete-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 ````

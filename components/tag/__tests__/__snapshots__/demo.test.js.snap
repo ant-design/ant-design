@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Tag 1
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      <a
+        href="https://github.com/ant-design/ant-design/issues/1862"
+      >
+        Link
+      </a>
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Tag 2
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Prevent Default
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+  >
+    Tag1
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+  >
+    Tag2
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+  >
+    Tag3
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
+<div>
+  <h4
+    style="margin-bottom:16px;"
+  >
+    Presets:
+  </h4>
+  <div>
+    <div
+      class="ant-tag ant-tag-pink"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        pink
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-red"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        red
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-orange"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        orange
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-green"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        green
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-cyan"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        cyan
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-blue"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        blue
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-purple"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        purple
+      </span>
+    </div>
+  </div>
+  <h4
+    style="margin:16px 0;"
+  >
+    Custom:
+  </h4>
+  <div>
+    <div
+      class="ant-tag ant-tag-has-color"
+      data-show="true"
+      style="background-color:#f50;"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        #f50
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-has-color"
+      data-show="true"
+      style="background-color:#2db7f5;"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        #2db7f5
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-has-color"
+      data-show="true"
+      style="background-color:#87d068;"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        #87d068
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-has-color"
+      data-show="true"
+      style="background-color:#108ee9;"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        #108ee9
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/control.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Unremovable
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Tag 2
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      Tag 3
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-sm"
+    type="button"
+  >
+    <span>
+      + New Tag
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
+<div>
+  <strong>
+    Hots: 
+  </strong>
+  <div
+    class="ant-tag ant-tag-checkable"
+  >
+    Movie
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable"
+  >
+    Books
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable"
+  >
+    Music
+  </div>
+</div>
+`;

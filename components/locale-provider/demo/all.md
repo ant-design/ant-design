@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。
+此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。涉及时间的组件请注意时区设置 [DatePicker](/components/date-picker/#components-date-picker-demo-locale)。
 
 ## en-US
 
@@ -17,6 +17,10 @@ Components which need localization support are listed here, you can toggle the l
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('en');
+
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
 
@@ -32,18 +36,16 @@ const columns = [{
   dataIndex: 'age',
 }];
 
-const Page = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  showModal() {
+class Page extends React.Component {
+  state = {
+    visible: false,
+  }
+  showModal = () => {
     this.setState({ visible: true });
-  },
-  hideModal() {
+  }
+  hideModal = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     const info = () => {
       Modal.info({
@@ -83,13 +85,12 @@ const Page = React.createClass({
           <Transfer
             dataSource={[]}
             showSearch
-            titles={['', '']}
             targetKeys={[]}
             render={item => item.title}
           />
         </div>
-        <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
-          <Calendar fullscreen={false} />
+        <div style={{ width: 319, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+          <Calendar fullscreen={false} value={moment()} />
         </div>
         <div className="example">
           <Table dataSource={[]} columns={columns} />
@@ -99,18 +100,25 @@ const Page = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       locale: enUS,
     };
-  },
-  changeLocale(e) {
-    this.setState({ locale: e.target.value });
-  },
+  }
+  changeLocale = (e) => {
+    const localeValue = e.target.value;
+    this.setState({ locale: localeValue });
+    if (!localeValue) {
+      moment.locale('zh-cn');
+    } else {
+      moment.locale('en');
+    }
+  }
   render() {
     return (
       <div>
@@ -124,8 +132,8 @@ const App = React.createClass({
         <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

@@ -1,7 +1,8 @@
 ---
 order: 5
-chinese: 表格：复杂数据
-english: Complex Table
+title:
+  zh-CN: 表格：复杂数据
+  en-US: Complex Table
 ---
 
 表格也用于展示复杂和高度结构化数据。

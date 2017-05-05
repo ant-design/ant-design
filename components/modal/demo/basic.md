@@ -1,42 +1,40 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
 
-## en-US
+## zh-CN
 
 第一个对话框。
 
-## zh-CN
+## en-US
 
 Basic modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return { visible: false };
-  },
-  showModal() {
+class App extends React.Component {
+  state = { visible: false }
+  showModal = () => {
     this.setState({
       visible: true,
     });
-  },
-  handleOk() {
-    console.log('Clicked OK');
-    this.setState({
-      visible: false,
-    });
-  },
-  handleCancel(e) {
+  }
+  handleOk = (e) => {
     console.log(e);
     this.setState({
       visible: false,
     });
-  },
+  }
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
   render() {
     return (
       <div>
@@ -50,8 +48,8 @@ const App = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

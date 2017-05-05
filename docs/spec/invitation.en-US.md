@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 8
 title: Provide an Invitation
 ---
@@ -52,14 +52,14 @@ Dynamic Invitations engage users at the point of the interaction and guide them 
 
 <img class="preview-img" align="right" alt="example 1 of Hover Invitation" description="During mouse hover on the whole card, the clickable parts turn to blue hypertext." src="https://os.alipayobjects.com/rmsportal/gzfDJLcETyTOfFg.png">
 
-<img class="preview-img" align="right" alt="example 2 of Hover Invitation" description="During mouse hover, the button of ""Select this Template"" appears." src="https://os.alipayobjects.com/rmsportal/tdJWZFIDWYuMVIe.png">
+<img class="preview-img" align="right" alt="example 2 of Hover Invitation" description="During mouse hover, the button of &quot;Select this Template&quot; appears." src="https://os.alipayobjects.com/rmsportal/tdJWZFIDWYuMVIe.png">
 
 Hover Invitation: Provide an invitation during mouse hover.
 
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Inference Invitation" description="The system predicts that the user's interest in an article extends to a type of articles, and it provides an invitation after the user click ""like""." src="https://os.alipayobjects.com/rmsportal/SyurwytfcvpbNLG.png">
+<img class="preview-img" align="right" alt="example of Inference Invitation" description="The system predicts that the user's interest in an article extends to a type of articles, and it provides an invitation after the user click &quot;like&quot;." src="https://os.alipayobjects.com/rmsportal/SyurwytfcvpbNLG.png">
 
 Inference Invitation: Use visual inferences during interaction to cue users as to what the system has inferred about their intent.
 

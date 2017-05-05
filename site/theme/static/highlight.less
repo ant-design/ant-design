@@ -7,14 +7,14 @@
 pre code {
  display: block;
  background: white;
- color: #666;
+ color: @text-color;
  line-height: 1.7;
  border: 1px solid #e9e9e9;
  padding: 10px 15px;
- border-radius: 6px;
+ border-radius: @border-radius-base;
  font-size: 13px;
  white-space: pre;
- font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+ font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 code[class*="language-"],
@@ -22,7 +22,7 @@ pre[class*="language-"] {
   color: black;
   background: none;
   text-shadow: 0 1px white;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -40,8 +40,6 @@ pre[class*="language-"] {
   -ms-hyphens: none;
   hyphens: none;
 }
-
-
 
 pre[class*="language-"]::-moz-selection,
 pre[class*="language-"] ::-moz-selection,
@@ -69,7 +67,7 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
-  margin: .5em 0;
+  margin: 1.2em 0;
   overflow: auto;
 }
 
@@ -107,7 +105,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #BB0606;
+  color: #bb0606;
 }
 
 .token.selector,
@@ -125,7 +123,6 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #690;
-  background: hsla(0, 0%, 100%, .5);
 }
 
 .token.atrule,
@@ -135,7 +132,7 @@ pre[class*="language-"] {
 }
 
 .token.function {
-  color: #DD4A68;
+  color: #dd4a68;
 }
 
 .token.regex,

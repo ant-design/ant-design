@@ -1,100 +1,108 @@
 ---
-order: 6
-title: 
-  zh-CN: 校验提示
-  en-US: Validation message
+order: 10
+title:
+  zh-CN: 自定义校验
+  en-US: Customized Validation
 ---
 
 ## zh-CN
 
-我们为表单控件定义了三种校验状态，为 `<FormItem>` 定义 `validateStatus` 属性即可。
+我们提供了 `validateStatus` `help` `hasFeedback` 等属性，你可以不需要使用 `Form.create` 和 `getFieldDecorator`，自己定义校验的时机和内容。
 
-validateStatus: 'success', 'warning', 'error', 'validating'。
-
-另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。
-
-**注意**: 反馈图标只对 `<Input />` 有效。
+1. `validateStatus`: 校验状态，可选 'success', 'warning', 'error', 'validating'。
+2. `hasFeedback`：用于给输入框添加反馈图标。
+3. `help`：设置校验文案。
 
 ## en-US
 
-We provide three kinds of validation status for form. You can use it just define `validateStatus` property on `<FormItem>`.
+We provide properties like `validateStatus` `help` `hasFeedback` to customize your own validate status and message, without using `Form.create` and `getFieldDecorator`.
 
-validateStatus: 'success', 'warning', 'error', 'validating'。
-
-To set `hasFeedback` property to `true` enable to display feed icon of input control.
-
-**PS**: Feed icon is just available for `<Input />`.
+1. `validateStatus`: validate status of form components which could be 'success', 'warning', 'error', 'validating'.
+2. `hasFeedback`: display feed icon of input control
+3. `help`: display validate message.
 
 ````jsx
 import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 5 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 12 },
+  },
+};
+
 ReactDOM.render(
-  <Form horizontal>
+  <Form>
     <FormItem
+      {...formItemLayout}
       label="Fail"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       validateStatus="error"
-      help="Please enter a combination of numbers and alphabets"
+      help="Should be combination of numbers & alphabets"
     >
-      <Input defaultValue="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Warning"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       validateStatus="warning"
     >
-      <Input defaultValue="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Validating"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="validating"
       help="The information is being validated..."
     >
-      <Input defaultValue="I'm the content is being validated" id="validating" />
+      <Input placeholder="I'm the content is being validated" id="validating" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Success"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="success"
     >
-      <Input defaultValue="I'm the content" id="success" />
+      <Input placeholder="I'm the content" id="success" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Warning"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="warning"
     >
-      <Input defaultValue="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning" />
     </FormItem>
 
     <FormItem
+      {...formItemLayout}
       label="Fail"
-      labelCol={{ span: 5 }}
-      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
-      help="Please enter a combination of numbers and alphabets"
+      help="Should be combination of numbers & alphabets"
     >
-      <Input defaultValue="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
       label="inline"
-      labelCol={{ span: 5 }}
+      labelCol={{
+        xs: { span: 24 },
+        sm: { span: 5 },
+      }}
+      wrapperCol={{
+        xs: { span: 24 },
+        sm: { span: 19 },
+      }}
       help
     >
       <Col span="6">

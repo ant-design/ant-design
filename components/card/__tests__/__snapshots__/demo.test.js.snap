@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/card/demo/basic.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width:300px;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <h3
+      class="ant-card-head-title"
+    >
+      Card title
+    </h3>
+  </div>
+  <div
+    class="ant-card-extra"
+  >
+    <a
+      href="#"
+    >
+      More
+    </a>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
+<div
+  style="background:#ECECEC;padding:30px;"
+>
+  <div
+    class="ant-card"
+    style="width:300px;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <h3
+        class="ant-card-head-title"
+      >
+        Card title
+      </h3>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/grid.md correctly 1`] = `
+<div
+  style="background:#ECECEC;padding:30px;"
+>
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col-8"
+    >
+      <div
+        class="ant-card"
+      >
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
+          >
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-8"
+    >
+      <div
+        class="ant-card"
+      >
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
+          >
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-8"
+    >
+      <div
+        class="ant-card"
+      >
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
+          >
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/loading.md correctly 1`] = `
+<div
+  class="ant-card ant-card-loading ant-card-bordered"
+  style="width:34%;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <h3
+      class="ant-card-head-title"
+    >
+      Card title
+    </h3>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <div>
+      <p
+        class="ant-card-loading-block"
+        style="width:94%;"
+      />
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:28%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:62%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:22%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:66%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:56%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:39%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:21%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:15%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:40%;"
+        />
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/no-padding.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width:240px;"
+>
+  <div
+    class="ant-card-body"
+    style="padding:0;"
+  >
+    <div
+      class="custom-image"
+    >
+      <img
+        alt="example"
+        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+        width="100%"
+      />
+    </div>
+    <div
+      class="custom-card"
+    >
+      <h3>
+        Europe Street beat
+      </h3>
+      <p>
+        www.instagram.com
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/simple.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width:300px;"
+>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;

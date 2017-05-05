@@ -1,18 +1,21 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
-import RcSlider from 'rc-slider';
-import splitObject from '../_util/splitObject';
+import React from 'react';
+import RcSlider from 'rc-slider/lib/Slider';
+import RcRange from 'rc-slider/lib/Range';
+import RcHandle from 'rc-slider/lib/Handle';
+import Tooltip from '../tooltip';
 
-interface SliderMarks {
+export interface SliderMarks {
   [key: number]: React.ReactNode | {
     style: React.CSSProperties,
     label: React.ReactNode,
   };
 }
 
-type SliderValue = number | [number, number];
+export type SliderValue = number | [number, number];
 
 export interface SliderProps {
+  prefixCls?: string;
+  tooltipPrefixCls?: string;
   range?: boolean;
   min?: number;
   max?: number;
@@ -23,54 +26,62 @@ export interface SliderProps {
   defaultValue?: SliderValue;
   included?: boolean;
   disabled?: boolean;
-  onChange?: (value: SliderValue) => any;
-  onAfterChange?: (value: SliderValue) => any;
+  vertical?: boolean;
+  onChange?: (value: SliderValue) => void;
+  onAfterChange?: (value: SliderValue) => void;
   tipFormatter?: void | ((value: number) => React.ReactNode);
 }
 
 export default class Slider extends React.Component<SliderProps, any> {
   static defaultProps = {
     prefixCls: 'ant-slider',
-    tipTransitionName: 'zoom-down',
+    tooltipPrefixCls: 'ant-tooltip',
+    tipFormatter(value) {
+      return value.toString();
+    },
   };
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    tipTransitionName: PropTypes.string,
-    included: PropTypes.bool,
-    marks: PropTypes.object,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibles: {},
+    };
+  }
+
+  toggleTooltipVisible = (index, visible) => {
+    this.setState(({ visibles }) => ({
+      visibles: {
+        ...visibles,
+        [index]: visible,
+      },
+    }));
+  }
+  handleWithTooltip = ({ value, dragging, index, ...restProps }) => {
+    const { tooltipPrefixCls, tipFormatter } = this.props;
+    const { visibles } = this.state;
+    return (
+      <Tooltip
+        prefixCls={tooltipPrefixCls}
+        title={tipFormatter ? tipFormatter(value) : ''}
+        visible={tipFormatter && (visibles[index] || dragging)}
+        placement="top"
+        transitionName="zoom-down"
+        key={index}
+      >
+        <RcHandle
+          {...restProps}
+          onMouseEnter={() => this.toggleTooltipVisible(index, true)}
+          onMouseLeave={() => this.toggleTooltipVisible(index, false)}
+        />
+      </Tooltip>
+    );
+  }
 
   render() {
-    const [{isIncluded, marks, index, defaultIndex}, others] = splitObject(this.props,
-      ['isIncluded', 'marks', 'index', 'defaultIndex']);
-
-    if (isIncluded !== undefined) {
-      // 兼容 `isIncluded`
-      others.included = isIncluded;
+    const { range, ...restProps } = this.props;
+    if (range) {
+      return <RcRange {...restProps} handle={this.handleWithTooltip} />;
     }
-
-    if (Array.isArray(marks)) {
-      // 兼容当 marks 为数组的情况
-      others.min = 0;
-      others.max = marks.length - 1;
-      others.step = 1;
-
-      if (index !== undefined) {
-        others.value = index;
-      }
-      if (defaultIndex !== undefined) {
-        others.defaultValue = defaultIndex;
-      }
-
-      others.marks = {};
-      marks.forEach((val, idx) => {
-        others.marks[idx] = val;
-      });
-    } else {
-      others.marks = marks;
-    }
-
-    return <RcSlider {...others} />;
+    return <RcSlider {...restProps} handle={this.handleWithTooltip} />;
   }
 }

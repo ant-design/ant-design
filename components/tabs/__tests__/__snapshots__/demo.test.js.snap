@@ -1,0 +1,1054 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              Tab 1
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 2
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:0%;"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Content of Tab Pane 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-card"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              Tab 1
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 2
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-no-animated"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Content of Tab Pane 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
+<div
+  class="card-container"
+>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-card"
+  >
+    <div
+      class="ant-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-scroll"
+          >
+            <div
+              class="ant-tabs-nav ant-tabs-nav-animated"
+            >
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-no-animated"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        Content of Tab Pane 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:16px;"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        ADD
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card"
+  >
+    <div
+      class="ant-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-scroll"
+          >
+            <div
+              class="ant-tabs-nav ant-tabs-nav-animated"
+            >
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                <div>
+                  Tab 1
+                  <i
+                    class="anticon anticon-close"
+                  />
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                <div>
+                  Tab 2
+                  <i
+                    class="anticon anticon-close"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-no-animated"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        Content of Tab Pane 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              Tab 1
+            </div>
+            <div
+              aria-disabled="true"
+              aria-selected="false"
+              class=" ant-tabs-tab ant-tabs-tab-disabled"
+              role="tab"
+            >
+              Tab 2
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:0%;"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Tab 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      style="float:right;"
+    >
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <span>
+          <i
+            class="anticon anticon-plus ant-tabs-new-tab"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              <div
+                class="ant-tabs-tab-unclosable"
+              >
+                Tab 1
+              </div>
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              <div>
+                Tab 2
+                <i
+                  class="anticon anticon-close"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-no-animated"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Content of Tab 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      style="float:right;"
+    >
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Extra Action
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              Tab 1
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 2
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:0%;"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Content of tab 1
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              <span>
+                <i
+                  class="anticon anticon-apple"
+                />
+                Tab 1
+              </span>
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              <span>
+                <i
+                  class="anticon anticon-android"
+                />
+                Tab 2
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:-100%;"
+  >
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Tab 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:16px;"
+  >
+    Tab position：
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="top"
+          >
+            top
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-line"
+  >
+    <div
+      class="ant-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-scroll"
+          >
+            <div
+              class="ant-tabs-nav ant-tabs-nav-animated"
+            >
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-animated"
+      style="margin-left:0%;"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        Content of Tab 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-mini ant-tabs-line"
+>
+  <div
+    class="ant-tabs-bar"
+    role="tablist"
+    tabindex="0"
+  >
+    <div
+      class="ant-tabs-nav-container"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-scroll"
+        >
+          <div
+            class="ant-tabs-nav ant-tabs-nav-animated"
+          >
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 1
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-active ant-tabs-tab"
+              role="tab"
+            >
+              Tab 2
+            </div>
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class=" ant-tabs-tab"
+              role="tab"
+            >
+              Tab 3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:-100%;"
+  >
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      Content of tab 2
+    </div>
+    <div
+      aria-hidden="true"
+      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group"
+    style="margin-bottom:8px;"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Horizontal
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Vertical
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-line"
+    style="height:220px;"
+  >
+    <div
+      class="ant-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-scroll"
+          >
+            <div
+              class="ant-tabs-nav ant-tabs-nav-animated"
+            >
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 4
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 5
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 6
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 7
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 8
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 9
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-animated"
+      style="margin-left:0%;"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        Content of tab 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;

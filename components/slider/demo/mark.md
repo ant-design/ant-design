@@ -1,7 +1,7 @@
 ---
-order: 3
-title: 
-  zh-CN: 分段式滑块
+order: 5
+title:
+  zh-CN: 带标签的滑块
   en-US: Graduated slider
 ---
 
@@ -25,7 +25,7 @@ const marks = {
   37: '37°C',
   100: {
     style: {
-      color: 'red',
+      color: '#f50',
     },
     label: <strong>100°C</strong>,
   },
@@ -33,15 +33,27 @@ const marks = {
 
 ReactDOM.render(
   <div>
-    <p>包含关系</p>
+    <h4>included=true</h4>
     <Slider marks={marks} defaultValue={37} />
     <Slider range marks={marks} defaultValue={[26, 37]} />
-    <p>并列关系</p>
+
+    <h4>included=false</h4>
     <Slider marks={marks} included={false} defaultValue={37} />
-    <p>结合 step</p>
+
+    <h4>marks & step</h4>
     <Slider marks={marks} step={10} defaultValue={37} />
-    <p>`step=null`</p>
+
+    <h4>step=null</h4>
     <Slider marks={marks} step={null} defaultValue={37} />
   </div>
 , mountNode);
 ````
+
+<style>
+#components-slider-demo-mark h4 {
+  margin: 0 0 16px;
+}
+#components-slider-demo-mark .ant-slider-with-marks {
+  margin-bottom: 44px;
+}
+</style>

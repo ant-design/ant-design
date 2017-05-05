@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import RcCascader from 'rc-cascader';
-import Input from '../input';
-import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-import omit from 'object.omit';
+import omit from 'omit.js';
+import KeyCode from 'rc-util/lib/KeyCode';
+import Input from '../input';
+import Icon from '../icon';
 
 export interface CascaderOptionType {
   value: string;
@@ -14,18 +14,26 @@ export interface CascaderOptionType {
   children?: Array<CascaderOptionType>;
 }
 
-export type CascaderExpandTrigger = 'click' | 'hover'
+export type CascaderExpandTrigger = 'click' | 'hover';
+
+export interface ShowSearchType {
+  filter?: (inputValue: string, path: CascaderOptionType[]) => boolean;
+  render?: (inputValue: string, path: CascaderOptionType[], prefixCls: string) => React.ReactNode;
+  sort?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string) => number;
+  matchInputWidth?: boolean;
+}
+
 export interface CascaderProps {
   /** 可选项数据源 */
-  options: Array<CascaderOptionType>;
+  options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: Array<CascaderOptionType>;
+  defaultValue?: CascaderOptionType[];
   /** 指定选中项 */
-  value?: Array<CascaderOptionType>;
+  value?: CascaderOptionType[];
   /** 选择完成后的回调 */
-  onChange?: (value: string, selectedOptions?: Array<CascaderOptionType>) => void;
+  onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
-  displayRender?: (label: Array<string>, selectedOptions?: Array<CascaderOptionType>) => React.ReactNode;
+  displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
   /** 自定义样式 */
   style?: React.CSSProperties;
   /** 自定义类名 */
@@ -42,39 +50,78 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 是否支持清除*/
   allowClear?: boolean;
+  showSearch?: boolean | ShowSearchType;
+  notFoundContent?: React.ReactNode;
+  loadData?: (selectedOptions?: CascaderOptionType[]) => void;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
   changeOnSelect?: boolean;
   /** 浮层可见变化时回调 */
   onPopupVisibleChange?: (popupVisible: boolean) => void;
+  prefixCls?: string;
+  inputPrefixCls?: string;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
 }
+
+function highlightKeyword(str: string, keyword: string, prefixCls: string) {
+  return str.split(keyword)
+    .map((node: string, index: number) => index === 0 ? node : [
+      <span className={`${prefixCls}-menu-item-keyword`} key="seperator">{keyword}</span>,
+      node,
+    ]);
+}
+
+function defaultFilterOption(inputValue, path) {
+  return path.some(option => option.label.indexOf(inputValue) > -1);
+}
+
+function defaultRenderFilteredOption(inputValue, path, prefixCls) {
+  return path.map(({ label }, index) => {
+    const node = label.indexOf(inputValue) > -1 ? highlightKeyword(label, inputValue, prefixCls) : label;
+    return index === 0 ? node : [' / ', node];
+  });
+}
+
+function defaultSortFilteredOption(a, b, inputValue) {
+  function callback(elem) {
+    return elem.label.indexOf(inputValue) > -1;
+  }
+
+  return a.findIndex(callback) - b.findIndex(callback);
+}
+
+const defaultDisplayRender = label => label.join(' / ');
 
 export default class Cascader extends React.Component<CascaderProps, any> {
   static defaultProps = {
     prefixCls: 'ant-cascader',
+    inputPrefixCls: 'ant-input',
     placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
-    onChange() {},
     options: [],
-    displayRender: label => label.join(' / '),
     disabled: false,
     allowClear: true,
-    onPopupVisibleChange() {},
+    notFoundContent: 'Not Found',
+  };
+
+  cachedOptions: CascaderOptionType[];
+  refs: {
+    [key: string]: any;
+    input: {
+      refs: { input: HTMLElement },
+    };
   };
 
   constructor(props) {
     super(props);
-    let value;
-    if ('value' in props) {
-      value = props.value;
-    } else if ('defaultValue' in props) {
-      value = props.defaultValue;
-    }
     this.state = {
-      value: value || [],
+      value: props.value || props.defaultValue || [],
+      inputValue: '',
+      inputFocused: false,
       popupVisible: false,
+      flattenOptions: props.showSearch && this.flattenTree(props.options, props.changeOnSelect),
     };
   }
 
@@ -82,27 +129,76 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value || [] });
     }
+    if (nextProps.showSearch && this.props.options !== nextProps.options) {
+      this.setState({ flattenOptions: this.flattenTree(nextProps.options, nextProps.changeOnSelect) });
+    }
   }
 
   handleChange = (value, selectedOptions) => {
+    this.setState({ inputValue: '' });
+    if (selectedOptions[0].__IS_FILTERED_OPTION) {
+      const unwrappedValue = value[0];
+      const unwrappedSelectedOptions = selectedOptions[0].path;
+      this.setValue(unwrappedValue, unwrappedSelectedOptions);
+      return;
+    }
     this.setValue(value, selectedOptions);
   }
 
   handlePopupVisibleChange = (popupVisible) => {
-    this.setState({ popupVisible });
-    this.props.onPopupVisibleChange(popupVisible);
+    this.setState({
+      popupVisible,
+      inputFocused: popupVisible,
+      inputValue: popupVisible ? this.state.inputValue : '',
+     });
+
+    const onPopupVisibleChange = this.props.onPopupVisibleChange;
+    if (onPopupVisibleChange) {
+      onPopupVisibleChange(popupVisible);
+    }
+  }
+
+  handleInputBlur = () => {
+    this.setState({
+      inputFocused: false,
+    });
+  }
+
+  handleInputClick = (e) => {
+    const { inputFocused, popupVisible } = this.state;
+    // Prevent `Trigger` behaviour.
+    if (inputFocused || popupVisible) {
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
+    }
+  }
+
+  handleKeyDown = (e) => {
+    if (e.keyCode === KeyCode.BACKSPACE) {
+      e.stopPropagation();
+    }
+  }
+
+  handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    this.setState({ inputValue });
   }
 
   setValue = (value, selectedOptions = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value, selectedOptions);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(value, selectedOptions);
+    }
   }
 
   getLabel() {
-    const { options, displayRender } = this.props;
-    const selectedOptions = arrayTreeFilter(options, (o, level) => o.value === this.state.value[level]);
+    const { options, displayRender = defaultDisplayRender as Function } = this.props;
+    const value = this.state.value;
+    const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
+    const selectedOptions = arrayTreeFilter(options, (o, level) => o.value === unwrappedValue[level]);
     const label = selectedOptions.map(o => o.label);
     return displayRender(label, selectedOptions);
   }
@@ -110,32 +206,79 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   clearSelection = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    this.setValue([]);
-    this.setState({ popupVisible: false });
+    if (!this.state.inputValue) {
+      this.setValue([]);
+      this.setState({ popupVisible: false });
+    } else {
+      this.setState({ inputValue: '' });
+    }
+  }
+
+  flattenTree(options, changeOnSelect, ancestor = []) {
+    let flattenOptions: any = [];
+    options.forEach((option) => {
+      const path = ancestor.concat(option);
+      if (changeOnSelect || !option.children) {
+        flattenOptions.push(path);
+      }
+      if (option.children) {
+        flattenOptions = flattenOptions.concat(this.flattenTree(option.children, changeOnSelect, path));
+      }
+    });
+    return flattenOptions;
+  }
+
+  generateFilteredOptions(prefixCls) {
+    const { showSearch, notFoundContent } = this.props;
+    const {
+      filter = defaultFilterOption,
+      render = defaultRenderFilteredOption,
+      sort = defaultSortFilteredOption,
+    } = showSearch as ShowSearchType;
+    const { flattenOptions, inputValue } = this.state;
+    const filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path))
+      .sort((a, b) => sort(a, b, inputValue));
+
+    if (filtered.length > 0) {
+      return filtered.map((path) => {
+        return {
+          __IS_FILTERED_OPTION: true,
+          path,
+          label: render(inputValue, path, prefixCls),
+          value: path.map(o => o.value),
+          disabled: path.some(o => o.disabled),
+        };
+      });
+    }
+    return [{ label: notFoundContent, value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
   }
 
   render() {
-    const props = this.props;
-    const [{ prefixCls, children, placeholder, size, disabled,
-      className, style, allowClear }, otherProps] = splitObject(props,
-      ['prefixCls', 'children', 'placeholder', 'size', 'disabled', 'className', 'style', 'allowClear']);
+    const { props, state } = this;
+    const {
+      prefixCls, inputPrefixCls, children, placeholder, size, disabled,
+      className, style, allowClear, showSearch = false, ...otherProps,
+    } = props;
+    const value = state.value;
 
     const sizeCls = classNames({
-      'ant-input-lg': size === 'large',
-      'ant-input-sm': size === 'small',
+      [`${inputPrefixCls}-lg`]: size === 'large',
+      [`${inputPrefixCls}-sm`]: size === 'small',
     });
-    const clearIcon = (allowClear && !disabled && this.state.value.length > 0) ?
-      <Icon type="cross-circle"
+    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ? (
+      <Icon
+        type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
-      /> : null;
+      />
+    ) : null;
     const arrowCls = classNames({
       [`${prefixCls}-picker-arrow`]: true,
-      [`${prefixCls}-picker-arrow-expand`]: this.state.popupVisible,
+      [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
     });
-    const pickerCls = classNames({
-      [className]: !!className,
+    const pickerCls = classNames(className, {
       [`${prefixCls}-picker`]: true,
+      [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
     });
 
@@ -154,32 +297,72 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'getPopupContainer',
       'loadData',
       'popupClassName',
+      'filterOption',
+      'renderFilteredOption',
+      'sortFilteredOption',
+      'notFoundContent',
     ]);
 
+    let options = props.options;
+    if (state.inputValue) {
+      options = this.generateFilteredOptions(prefixCls);
+    }
+    // Dropdown menu should keep previous status until it is fully closed.
+    if (!state.popupVisible) {
+      options = this.cachedOptions;
+    } else {
+      this.cachedOptions = options;
+    }
+
+    const dropdownMenuColumnStyle: { width?: number, height?: string } = {};
+    const isNotFound = (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
+    if (isNotFound) {
+      dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
+    }
+    // The default value of `matchInputWidth` is `true`
+    const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth === false ? false : true;
+    if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
+      dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
+    }
+
+    const input = children || (
+      <span
+        style={style}
+        className={pickerCls}
+      >
+        <Input
+          {...inputProps}
+          ref="input"
+          placeholder={value && value.length > 0 ? undefined : placeholder}
+          className={`${prefixCls}-input ${sizeCls}`}
+          value={state.inputValue}
+          disabled={disabled}
+          readOnly={!showSearch}
+          autoComplete="off"
+          onClick={showSearch ? this.handleInputClick : undefined}
+          onBlur={showSearch ? this.handleInputBlur : undefined}
+          onKeyDown={this.handleKeyDown}
+          onChange={showSearch ? this.handleInputChange : undefined}
+        />
+        <span className={`${prefixCls}-picker-label`}>
+          {this.getLabel()}
+        </span>
+        {clearIcon}
+        <Icon type="down" className={arrowCls} />
+      </span>
+    );
+
     return (
-      <RcCascader {...props}
-        value={this.state.value}
-        popupVisible={this.state.popupVisible}
+      <RcCascader
+        {...props}
+        options={options}
+        value={value}
+        popupVisible={state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
+        dropdownMenuColumnStyle={dropdownMenuColumnStyle}
       >
-        {children ||
-          <span
-            style={style}
-            className={pickerCls}
-          >
-            <Input {...inputProps}
-              placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
-              className={`${prefixCls}-input ${sizeCls}`}
-              value=""
-              disabled={disabled}
-              readOnly
-            />
-            <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
-            {clearIcon}
-            <Icon type="down" className={arrowCls} />
-          </span>
-        }
+        {input}
       </RcCascader>
     );
   }

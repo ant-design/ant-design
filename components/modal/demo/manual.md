@@ -1,6 +1,7 @@
 ---
 order: 7
-title: 
+debug: true
+title:
   zh-CN: 手动移除
   en-US: Manual to destroy
 ---

@@ -17,10 +17,10 @@ When the timeline is incomplete and ongoing, put a ghost node at last. set `pend
 import { Timeline } from 'antd';
 
 ReactDOM.render(
-  <Timeline pending={<a href="#">查看更多</a>}>
-    <Timeline.Item>创建服务现场 2015-09-01</Timeline.Item>
-    <Timeline.Item>初步排除网络异常 2015-09-01</Timeline.Item>
-    <Timeline.Item>技术测试异常 2015-09-01</Timeline.Item>
+  <Timeline pending={<a href="#">See more</a>}>
+    <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+    <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+    <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
   </Timeline>
 , mountNode);
 ````

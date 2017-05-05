@@ -1,16 +1,30 @@
 @import "../../style/mixins/index";
 
-.antTreeSwitcherIcon() {
-  position: relative;
+@tree-default-open-icon: "\e606";
+@tree-showline-open-icon: "\e621";
+@tree-showline-close-icon: "\e645";
+@tree-doc-icon: "\e664";
+@tree-showline-icon-color: @text-color-secondary;
+
+.antTreeSwitcherIcon(@type: "tree-default-open-icon") {
   &:after {
-    .iconfont-size-under-12px(6px);
+    .iconfont-size-under-12px(7px);
     display: inline-block;
-    .iconfont-font("\e611");
+    .iconfont-font(@@type);
     font-weight: bold;
-    position: absolute;
-    top: 1px;
-    right: 4px;
-    color: #666;
+    color: @text-color;
+    transition: transform .3s ease;
+  }
+}
+
+.antTreeShowLineIcon(@type) {
+  &:after {
+    .iconfont-size-under-12px(12px);
+    display: inline-block;
+    .iconfont-font(@@type);
+    vertical-align: baseline;
+    font-weight: normal;
+    color: @tree-showline-icon-color;
     transition: transform .3s ease;
   }
 }

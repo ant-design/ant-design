@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -14,21 +14,32 @@ title:
 Basic slider. When `range` is `true`, display as dual thumb mode. When `disable` is `true`, the slider will not be interactable.
 
 ````jsx
-import { Slider } from 'antd';
+import { Slider, Switch } from 'antd';
 
-ReactDOM.render(<div>
-  <Slider defaultValue={30} />
-  <Slider range defaultValue={[20, 50]} />
-  <Slider range defaultValue={[20, 50]} disabled />
-</div>
-, mountNode);
+class Demo extends React.Component {
+  state = {
+    disabled: false,
+  };
+  handleDisabledChange = (disabled) => {
+    this.setState({ disabled });
+  }
+  render() {
+    const { disabled } = this.state;
+    return (
+      <div>
+        <Slider defaultValue={30} disabled={disabled} />
+        <Slider range defaultValue={[20, 50]} disabled={disabled} />
+        Disabled: <Switch size="small" checked={disabled} onChange={this.handleDisabledChange} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
 ````
 
 <style>
 .code-box-demo .ant-slider {
-  margin-bottom: 50px;
-}
-.code-box-demo .ant-slider:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 </style>

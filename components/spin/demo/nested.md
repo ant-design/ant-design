@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 卡片加载中
   en-US: Embedded mode
 ---
@@ -16,28 +16,27 @@ Embedding content into `Spin` will alter it into loading state.
 ````jsx
 import { Spin, Switch, Alert } from 'antd';
 
-const Card = React.createClass({
-  getInitialState() {
-    return { loading: false };
-  },
-  toggle(value) {
+class Card extends React.Component {
+  state = { loading: false }
+  toggle = (value) => {
     this.setState({ loading: value });
-  },
+  }
   render() {
     const container = (
-      <Alert message="消息提示的文案"
-        description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
+      <Alert
+        message="Alert message title"
+        description="Further details about the context of this alert."
         type="info"
       />
     );
     return (
       <div>
         <Spin spinning={this.state.loading}>{container}</Spin>
-        切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
+        Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Card />, mountNode);
 ````

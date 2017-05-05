@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 1
 title:
   zh-CN: 固定状态改变的回调
   en-US: Callback
@@ -19,6 +19,7 @@ import { Affix, Button } from 'antd';
 ReactDOM.render(
   <Affix offsetTop={120} onChange={affixed => console.log(affixed)}>
     <Button>120px to affix top</Button>
-  </Affix>
-, mountNode);
+  </Affix>,
+  mountNode
+);
 ````

@@ -1,14 +1,16 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 带搜索框
   en-US: Select with search field
 ---
 
 ## zh-CN
+
 展开后可对选项进行搜索。
 
 ## en-US
+
 Search the options while expanded.
 
 ````jsx
@@ -20,16 +22,17 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select showSearch
+  <Select
+    showSearch
     style={{ width: 200 }}
-    placeholder="请选择人员"
+    placeholder="Select a person"
     optionFilterProp="children"
-    notFoundContent="无法找到"
     onChange={handleChange}
+    filterOption={(input, option) => option.props.value.toLowerCase().indexOf(input.toLowerCase()) >= 0}
   >
-    <Option value="jack">杰克</Option>
-    <Option value="lucy">露西</Option>
-    <Option value="tom">汤姆</Option>
+    <Option value="jack">Jack</Option>
+    <Option value="lucy">Lucy</Option>
+    <Option value="tom">Tom</Option>
   </Select>
 , mountNode);
 ````

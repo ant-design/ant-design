@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 10
 title: React Immediately
 ---
@@ -8,7 +8,7 @@ Invitations are powerful because they directly address discoverability and provi
 
 While we can’t literally extend Newton’s law to the world of user interfaces, we certainly can apply this principle to the way we should interact with users. When users click on a button, they expect the button to depress. When they type in a field, they expect to see characters show up in the text box. When they make a mistake, they want the application to tell them where they goofed.
 
-While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded. 
+While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded.
 
 > ** Newton’s Third Law of Motion **: For every action, there is an equal and opposite reaction, from Wikipedia.
 
@@ -16,12 +16,11 @@ While there is a possibility of too much feedback (or, more accurately, too much
 
 ## Lookup Patterns
 
-
 <img class="preview-img" align="right" alt="example of Certain Category" description="The keyword of the user query is only displayed in three categories, Topics, Questions and Articles." src="https://os.alipayobjects.com/rmsportal/fgQfkNakHrUiAun.png">
 
 <img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncetain." src="https://os.alipayobjects.com/rmsportal/hUfCsXwnOsVlskl.png">
 
-Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed. 
+Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed.
 Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
 
 <br>
@@ -37,6 +36,7 @@ Refining Search: Refining Search provides a set of live filters that allow the s
 <br>
 
 ---
+
 ## Live Suggest
 
 <img class="preview-img" align="right" alt="example of Live Preview" description="Depending on the type of the input from the user, the system provides instant feedback on password strength and validation." src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
@@ -60,7 +60,7 @@ Progressive Disclosure: When users are faced with a series of steps, it is often
 <img class="preview-img" align="right" alt="example of Loading Page" src="https://os.alipayobjects.com/rmsportal/qPWjexSmFfCiLVJ.png">
 
 
-Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed repectively according to the frequency and importance of operaction.
+Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed respectively according to the frequency and importance of operation.
 
 <br>
 

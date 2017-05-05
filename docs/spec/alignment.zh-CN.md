@@ -1,8 +1,7 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 2
-subtitle: Alignment
-english: 对齐
+title: 对齐
 ---
 
 正如『格式塔学派』中的连续律（Law of Continuity）所描述的，在知觉过程中人们往往倾向于使知觉对象的直线继续成为直线，使曲线继续成为曲线。在界面设计中，将元素进行对齐，既符合用户的认知特性，也能引导视觉流向，让用户更流畅地接收信息。
@@ -22,7 +21,7 @@ english: 对齐
 
 ## 表单类对齐
 
-<img class="preview-img no-padding" align="right" alt="冒号对齐示例" src="https://os.alipayobjects.com/rmsportal/DmEbaUsrpJkRyUh.png">
+<img class="preview-img" align="right" alt="冒号对齐示例" src="https://os.alipayobjects.com/rmsportal/DmEbaUsrpJkRyUh.png">
 
 冒号对齐（右对齐）能让内容锁定在一定范围内，让用户眼球顺着冒号的视觉流，就能找到所有填写项，从而提高填写效率。
 

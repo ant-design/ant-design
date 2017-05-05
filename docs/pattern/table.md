@@ -1,7 +1,8 @@
 ---
 order: 4
-chinese: 表格
-english: Table
+title:
+  zh-CN: 表格
+  en-US: Table
 ---
 
 表格可被视为一种列表。它经常和其他界面元素一起协同，用于展示和操作结构化数据，并经常用于详情信息的入口。
@@ -153,6 +154,3 @@ english: Table
 <img class="preview-img" align="right" alt="对齐示例" src="https://os.alipayobjects.com/rmsportal/RWCMGdnGSZXYULc.png">
 
 数值右对齐（带小数则按小数点对齐），其余左对齐。
-
-
-<h2><span class="waiting">案例（敬请期待）</span></h2>

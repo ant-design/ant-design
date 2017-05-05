@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 时间轴
-type: Views
-english: Timeline
+subtitle: 时间轴
+type: Data Display
+title: Timeline
 ---
 
 垂直展示的时间流信息。
@@ -29,7 +29,7 @@ english: Timeline
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|----------------------------------------|------------|-------|
-| pending  | 指定最后一个幽灵节点是否存在或内容 | boolean or React.Element | false  |
+| pending  | 指定最后一个幽灵节点是否存在或内容 | boolean\|string\|ReactNode | false  |
 
 ### Timeline.Item
 
@@ -38,4 +38,4 @@ english: Timeline
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|------------------------------------------|------------|-------|
 | color   | 指定圆圈颜色 `blue, red, green`，或自定义的色值 | string | blue  |
-| dot   | 自定义时间轴点 | React.Element | -  |
+| dot   | 自定义时间轴点 | string\|ReactNode | -  |

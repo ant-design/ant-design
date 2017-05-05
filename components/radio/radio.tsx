@@ -1,49 +1,65 @@
+import React, { PropTypes } from 'react';
 import RcRadio from 'rc-radio';
-import * as React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import shallowEqual from 'shallowequal';
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
+import RadioGroup from './group';
+import RadioButton from './radioButton';
 
-export interface RadioProps {
-  /** 指定当前是否选中*/
-  checked?: boolean;
-  /** 初始是否选中*/
-  defaultChecked?: boolean;
-  /** 根据 value 进行比较，判断是否选中  */
-  value?: string | number;
-  style?: React.CSSProperties;
-  prefixCls?: string;
-  disabled?: boolean;
-  className?: string;
-  onChange?: (e: any) => any;
-}
+export interface RadioProps extends AbstractCheckboxProps {}
 
 export default class Radio extends React.Component<RadioProps, any> {
-  static Group: any;
-  static Button: any;
+  static Group: typeof RadioGroup;
+  static Button: typeof RadioButton;
 
   static defaultProps = {
     prefixCls: 'ant-radio',
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  static contextTypes = {
+    radioGroup: PropTypes.any,
+  };
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
   }
+
   render() {
-    const { prefixCls, children, checked, disabled, className, style } = this.props;
-    const wrapperClassString = classNames({
+    const { props, context } = this;
+    const {
+      prefixCls,
+      className,
+      children,
+      style,
+      ...restProps,
+    } = props;
+    const { radioGroup } = context;
+    let radioProps: RadioProps = { ...restProps };
+    if (radioGroup) {
+      radioProps.onChange = radioGroup.onChange;
+      radioProps.checked = props.value === radioGroup.value;
+      radioProps.disabled = props.disabled || radioGroup.disabled;
+    }
+    const wrapperClassString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-checked`]: checked,
-      [`${prefixCls}-wrapper-disabled`]: disabled,
-      [className]: !!className,
+      [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
     });
-    const classString = classNames({
-      [`${prefixCls}`]: true,
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-disabled`]: disabled,
-    });
+
     return (
-      <label className={wrapperClassString} style={style}>
-        <RcRadio {...this.props} className={classString} style={null} children={null} />
-        {children ? <span>{children}</span> : null}
+      <label
+        className={wrapperClassString}
+        style={style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      >
+        <RcRadio
+          {...radioProps}
+          prefixCls={prefixCls}
+        />
+        {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
   }

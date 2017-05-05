@@ -1,23 +1,27 @@
 ---
 category: Components
-type: Form Controls
+type: Data Entry
 title: Rate
 ---
 
 Rate component.
 
-## When to use
+## When To Use
 
-- Show evalutate.
+- Show evaluation.
 - A quick rating operation on something.
 
 ## API
 
 | Property        | Description           | type               | Default       |
 |------------|----------------|-------------------|-------------|
-| count    | star count | Number | 5 |
-| value | current value | Number | - |
-| defaultValue | default value | Number | 0 |
-| onChange(value: Number) | callback   | Function | - |
-| allowHalf | weather to allow semi selection   | Boolean | false |
-| disabled | read only, unable to interact | Boolean | false |
+| count    | star count | number | 5 |
+| value | current value | number | - |
+| defaultValue | default value | number | 0 |
+| onChange | callback when select value | Function(value: number) | - |
+| onHoverChange | callback when hover item | Function(value: number) | - |
+| allowHalf | whether to allow semi selection   | boolean | false |
+| disabled | read only, unable to interact | boolean | false |
+| character | custom character of rate | ReactNode | `<Icon type="star" />` |
+| className | custom class name of rate | string | - |
+| style | custom style object of rate | object | - |

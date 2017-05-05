@@ -1,50 +1,54 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 自定义选项
   en-US: Customized
 ---
 
 ## zh-CN
 
-Datasource 的每一项是一个 `AutoComplete.Option`。通过 `AutoComplete.Option` 自定义下拉菜单。
+也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `dataSource`。
 
 ## en-US
 
-Items in dataSource could be an `AutoComplete.Option`.
-
+You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `dataSource`。
 
 ````jsx
 import { AutoComplete } from 'antd';
+
 const Option = AutoComplete.Option;
 
-const Complete = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: [],
-    };
-  },
-  handleChange(value) {
-    let dataSource;
+class Complete extends React.Component {
+  state = {
+    result: [],
+  }
+
+  handleSearch = (value) => {
+    let result;
     if (!value || value.indexOf('@') >= 0) {
-      dataSource = [];
+      result = [];
     } else {
-      dataSource = ['gmail.com', '163.com', 'qq.com'].map((domain) => {
-        const email = `${value}@${domain}`;
-        return <Option key={email}>{email}</Option>;
-      });
+      result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
     }
-    this.setState({ dataSource });
-  },
+    this.setState({ result });
+  }
+
   render() {
-    const { dataSource } = this.state;
-    return (<AutoComplete
-      style={{ width: 200 }}
-      dataSource={dataSource}
-      onChange={this.handleChange}
-    />);
-  },
-});
+    const { result } = this.state;
+    const children = result.map((email) => {
+      return <Option key={email}>{email}</Option>;
+    });
+    return (
+      <AutoComplete
+        style={{ width: 200 }}
+        onSearch={this.handleSearch}
+        placeholder="input here"
+      >
+        {children}
+      </AutoComplete>
+    );
+  }
+}
 
 ReactDOM.render(<Complete />, mountNode);
 ````

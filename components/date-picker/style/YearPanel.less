@@ -1,13 +1,17 @@
 .@{calendar-prefix-cls}-year-panel {
-  left: 0;
-  top: 34px;
-  bottom: 0;
-  right: 0;
-  background: #fff;
-  z-index: 10;
   position: absolute;
-  outline: none;
+  top: 1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
   border-radius: @border-radius-base;
+  background: @component-background;
+  outline: none;
+
+  > div { // TODO: this is a useless wrapper, and we need to remove it in rc-calendar
+    height: 100%;
+  }
 }
 
 .@{calendar-prefix-cls}-year-panel-hidden {
@@ -18,10 +22,14 @@
   .calendarPanelHeader(~"@{calendar-prefix-cls}-year-panel");
 }
 
+.@{calendar-prefix-cls}-year-panel-body {
+  height: ~"calc(100% - 34px)";
+}
+
 .@{calendar-prefix-cls}-year-panel-table {
   table-layout: fixed;
   width: 100%;
-  height: 248px;
+  height: 100%;
   border-collapse: separate;
 }
 
@@ -32,7 +40,7 @@
 .@{calendar-prefix-cls}-year-panel-year {
   display: inline-block;
   margin: 0 auto;
-  color: #666;
+  color: @text-color;
   background: transparent;
   text-align: center;
   height: 24px;
@@ -42,7 +50,7 @@
   transition: background 0.3s ease;
 
   &:hover {
-    background: tint(@primary-color, 90%);
+    background: @item-hover-bg;
     cursor: pointer;
   }
 }
@@ -61,15 +69,6 @@
 .@{calendar-prefix-cls}-year-panel-next-decade-cell {
   .@{calendar-prefix-cls}-year-panel-year {
     user-select: none;
-  }
-  .@{calendar-prefix-cls}-year-panel-year:before {
-    content: "\e600";
-    font-family: "anticon" !important;
-  }
-}
-
-.@{calendar-prefix-cls}-year-panel-last-decade-cell {
-  .@{calendar-prefix-cls}-year-panel-year:before {
-    content: "\e601";
+    color: @disabled-color;
   }
 }

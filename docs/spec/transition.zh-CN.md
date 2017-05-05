@@ -1,8 +1,7 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 9
-subtitle: Use Transition
-english: 巧用过渡
+title: 巧用过渡
 ---
 
 人脑灰质（Gray Matter）会对动态的事物（eg：移动、形变、色变等）保持敏感。在界面中，适当的加入一些过渡效果，能让界面保持生动，同时也能增强用户和界面的沟通。
@@ -30,10 +29,6 @@ english: 巧用过渡
 <video class="transition-video-player" alt="折叠窗口示例" src="https://os.alipayobjects.com/rmsportal/ERKhqHlcHiCDSQu.mp4" />
 
 折叠窗口：在视图切换时，有助于保持上下文，同时也能拓展虚拟空间。
-
-<br>
-
-<p><span class="waiting">视图定位 (敬请期待)</span></p>
 
 <br>
 
@@ -70,8 +65,6 @@ english: 巧用过渡
 当无法有效提升『实际性能』时，可以考虑适当转移用户的注意力，来缩短某项操作的感知时间，改善感知性能。
 
 <br>
-
-<p><span class="waiting">图片（敬请期待）</span></p>
 
 ---
 

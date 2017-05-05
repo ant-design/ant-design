@@ -1,8 +1,7 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 10
-subtitle: React Immediately
-english: 即时反应
+title: 即时反应
 ---
 
 『提供邀请』的强大体现在`交互之前`给出反馈，解决易发现性问题；『巧用过渡』的有用体现在它能够在`交互期间`为用户提供视觉反馈；『即时反应』的重要性体现在`交互之后`立即给出反馈。
@@ -16,7 +15,6 @@ english: 即时反应
 ---
 
 ## 查询模式
-
 
 <img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/fgQfkNakHrUiAun.png">
 
@@ -38,6 +36,7 @@ english: 即时反应
 <br>
 
 ---
+
 ## 反馈模式
 
 <img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">

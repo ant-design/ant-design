@@ -1,8 +1,8 @@
 ---
-order: 4
+order: 3
 title:
   zh-CN: 日期时间选择
-  en-US: To choose time
+  en-US: Choose Time
 ---
 
 ## zh-CN
@@ -11,16 +11,38 @@ title:
 
 ## en-US
 
-This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to `TimePicker`, witch is a built-in function.
+This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
 ````jsx
 import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
 
-function onChange(value) {
-  console.log('选择了时间：', value);
+function onChange(value, dateString) {
+  console.log('Selected Time: ', value);
+  console.log('Formatted Selected Time: ', dateString);
+}
+
+function onOk(value) {
+  console.log('onOk: ', value);
 }
 
 ReactDOM.render(
-  <DatePicker showTime format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间" onChange={onChange} />
+  <div>
+    <DatePicker
+      showTime
+      format="YYYY-MM-DD HH:mm:ss"
+      placeholder="Select Time"
+      onChange={onChange}
+      onOk={onOk}
+    />
+    <br />
+    <RangePicker
+      showTime
+      format="YYYY-MM-DD HH:mm:ss"
+      placeholder={['Start Time', 'End Time']}
+      onChange={onChange}
+      onOk={onOk}
+    />
+  </div>
 , mountNode);
 ````

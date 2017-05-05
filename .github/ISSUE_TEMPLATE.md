@@ -1,27 +1,15 @@
-<!-- Issue Template For Chinese Users -->
+<!--
+IMPORTANT: Please use the following link to create a new issue:
 
-<!-- 请按照下列格式报告问题，务必提供复现步骤，否则恕难解决，感谢您的支持。-->
+  http://new-issue.ant.design
 
-#### 本地环境
+If your issue was not created using the app above, it will be closed immediately.
+-->
 
-<!-- 务必提供 -->
+<!--
+注意：请使用下面的链接来新建 issue：
 
-- antd 版本:
-- 操作系统及其版本：
-- 浏览器及其版本:
+  http://new-issue.ant.design
 
-#### 你做了什么？
-
-<!-- 引入 antd 了 Button -->
-
-#### 你期待的结果是：
-
-<!-- 像官网一样正常显示 -->
-
-#### 实际上的结果：
-
-<!-- 缺少样式 -->
-
-#### 可重现的在线演示
-
-<!-- 请修改并 Fork http://codepen.io/anon/pen/wGOWGW?editors=001 -->
+不是用上面的链接创建的 issue 会被立即关闭。
+-->

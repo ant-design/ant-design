@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 1
 title: Proximity
 ---
@@ -18,7 +18,7 @@ Divide the hierarchy of information through three formats:『small spacing』, �
 
 <img class="preview-img" align="right" alt="Example of added element" description="To make the hierarchy more apparent through adding 『guides』." src="https://os.alipayobjects.com/rmsportal/EWpTfSlQzueWlbp.png">
 
-In the case that the three formats are not inapplicable, the hierarchy of information can be separated clearly through adding or cutting down the multiple of 『basic spacing』, or adding elements. 
+In the case that the three formats are applicable, the hierarchy of information can be separated clearly through adding or cutting down the multiple of 『basic spacing』, or adding elements. 
 
 > Note: in Ant Design, y=8+8*n, among which，n>=0，y stands for the vertical spacing and 8 represents 『basic spacing』.
 
