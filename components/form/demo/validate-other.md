@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 14
 title:
   zh-CN: 校验其他组件
   en-US: Other Form Controls

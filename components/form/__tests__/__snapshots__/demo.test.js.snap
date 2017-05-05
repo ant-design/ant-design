@@ -523,6 +523,123 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
+<div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="username"
+        title="姓名"
+      >
+        姓名
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="username"
+          placeholder="请输入姓名"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="nickname"
+        title="昵称"
+      >
+        昵称
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="nickname"
+          placeholder="请输入昵称"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+          <span>
+            昵称必填
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="button"
+        >
+          <span>
+            Check
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
 <div>
   <button
