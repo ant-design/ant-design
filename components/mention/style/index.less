@@ -18,8 +18,11 @@
       height: auto;
     }
   }
-  &.@{mention-prefix-cls}-active .@{mention-prefix-cls}-editor {
+  &.@{mention-prefix-cls}-active:not(.disabled) .@{mention-prefix-cls}-editor {
     .active;
+  }
+  &.disabled .@{mention-prefix-cls}-editor {
+    .disabled();
   }
   .public-DraftEditorPlaceholder-root {
     position: absolute;
@@ -76,10 +79,13 @@
     overflow: hidden;
     transition: background 0.3s;
 
-    &:hover,
+    &:hover {
+      background-color: @item-hover-bg;
+    }
+
     &.focus,
     &-active {
-      background-color: @primary-1;
+      background-color: @item-active-bg;
     }
 
     &-disabled {
