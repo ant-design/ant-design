@@ -42,6 +42,11 @@ describe('Notification.placement', () => {
     expect(style.left).toBe('0px');
     expect(style.bottom).toBe('');
 
+    open({
+      placement: 'topLeft',
+    });
+    expect($$('.ant-notification-topLeft').length).toBe(1);
+
 
     // topRight
     open({
@@ -52,6 +57,12 @@ describe('Notification.placement', () => {
     expect(style.right).toBe('0px');
     expect(style.bottom).toBe('');
 
+    open({
+      placement: 'topRight',
+    });
+    expect($$('.ant-notification-topRight').length).toBe(1);
+
+
     // bottomRight
     open({
       placement: 'bottomRight',
@@ -61,6 +72,12 @@ describe('Notification.placement', () => {
     expect(style.right).toBe('0px');
     expect(style.bottom).toBe(defaultBottom);
 
+    open({
+      placement: 'bottomRight',
+    });
+    expect($$('.ant-notification-bottomRight').length).toBe(1);
+
+
     // bottomLeft
     open({
       placement: 'bottomLeft',
@@ -69,6 +86,11 @@ describe('Notification.placement', () => {
     expect(style.top).toBe('');
     expect(style.left).toBe('0px');
     expect(style.bottom).toBe(defaultBottom);
+
+    open({
+      placement: 'bottomLeft',
+    });
+    expect($$('.ant-notification-bottomLeft').length).toBe(1);
   });
 
   it('change notification placement by `config` method', () => {
