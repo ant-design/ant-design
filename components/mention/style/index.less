@@ -18,8 +18,11 @@
       height: auto;
     }
   }
-  &.@{mention-prefix-cls}-active .@{mention-prefix-cls}-editor {
+  &.@{mention-prefix-cls}-active:not(.disabled) .@{mention-prefix-cls}-editor {
     .active;
+  }
+  &.disabled .@{mention-prefix-cls}-editor {
+    .disabled();
   }
   .public-DraftEditorPlaceholder-root {
     position: absolute;
