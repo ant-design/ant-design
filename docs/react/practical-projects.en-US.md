@@ -108,7 +108,8 @@ Let's create a `ProductList` component that we can use in multiple places to sho
 Create `components/ProductList.js` and typing:
 
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
