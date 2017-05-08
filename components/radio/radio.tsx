@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import RcRadio from 'rc-radio';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';

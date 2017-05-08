@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
 
