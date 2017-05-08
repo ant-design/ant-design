@@ -2,7 +2,7 @@ import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 import assign from 'object-assign';
-let notificationInstance;
+const notificationInstance = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
@@ -66,15 +66,15 @@ export interface ConfigProps {
 }
 
 function getNotificationInstance(prefixCls) {
-  if (notificationInstance) {
-    return notificationInstance;
+  if (notificationInstance[defaultPlacement]) {
+    return notificationInstance[defaultPlacement];
   }
-  notificationInstance = (Notification as any).newInstance({
+  notificationInstance[defaultPlacement] = (Notification as any).newInstance({
     prefixCls: prefixCls,
     className: `${prefixCls}-${defaultPlacement}`,
     style: getPlacementStyle(defaultPlacement),
   });
-  return notificationInstance;
+  return notificationInstance[defaultPlacement];
 }
 
 function notice(args) {
@@ -83,7 +83,6 @@ function notice(args) {
 
   if (args.placement !== undefined) {
     defaultPlacement = args.placement;
-    notificationInstance = null; // delete notificationInstance for new defaultPlacement
   }
 
   let duration;
@@ -164,8 +163,8 @@ const api: {
     notice(args);
   },
   close(key) {
-    if (notificationInstance) {
-      notificationInstance.removeNotice(key);
+    if (notificationInstance[defaultPlacement]) {
+      notificationInstance[defaultPlacement].removeNotice(key);
     }
   },
   config(options: ConfigProps) {
@@ -181,17 +180,21 @@ const api: {
     }
     // delete notificationInstance
     if (placement !== undefined || bottom !== undefined || top !== undefined) {
-      notificationInstance = null;
+      const notify = notificationInstance[defaultPlacement];
+      if (notify) {
+        notify.destroy();
+      }
+      notificationInstance[defaultPlacement] = null;
     }
     if (duration !== undefined) {
       defaultDuration = duration;
     }
   },
   destroy() {
-    if (notificationInstance) {
-      notificationInstance.destroy();
-      notificationInstance = null;
-    }
+    Object.keys(notificationInstance).forEach(key => {
+      notificationInstance[key].destroy();
+      delete notificationInstance[key];
+    });
   },
 };
 
