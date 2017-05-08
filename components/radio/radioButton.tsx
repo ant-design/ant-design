@@ -1,13 +1,8 @@
 import React, { PropTypes } from 'react';
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
 
-export interface RadioButtonProps {
-  value: string | number;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  checked?: boolean;
-  onChange?: (e: any) => any;
-}
+export interface RadioButtonProps extends AbstractCheckboxProps {}
 
 export default class RadioButton extends React.Component<RadioButtonProps, any> {
   static defaultProps = {
