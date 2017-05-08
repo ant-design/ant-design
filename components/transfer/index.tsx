@@ -91,24 +91,34 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
+
     if (nextProps.targetKeys !== this.props.targetKeys ||
-        nextProps.dataSource !== this.props.dataSource) {
+      nextProps.dataSource !== this.props.dataSource) {
       // clear cached splited dataSource
       this.splitedDataSource = null;
 
-      const { dataSource, targetKeys = [] } = nextProps;
-      function existInDateSourcekey(key) {
-        return dataSource.some(item => item.key === key);
+      if (!nextProps.selectedKeys) {
+        // clear key nolonger existed
+        // clear checkedKeys according to targetKeys
+        const { dataSource, targetKeys = [] } = nextProps;
+        const newSourceSelectedKeys: String[] = [];
+        const newTargetSelectedKeys: String[] = [];
+
+        dataSource.forEach(record => {
+          if (sourceSelectedKeys.includes(record.key) && !targetKeys.includes(record.key)) {
+            newSourceSelectedKeys.push(record.key);
+          }
+          if (targetSelectedKeys.includes(record.key) && targetKeys.includes(record.key)) {
+            newTargetSelectedKeys.push(record.key);
+          }
+        });
+        this.setState({
+          sourceSelectedKeys: newSourceSelectedKeys,
+          targetSelectedKeys: newTargetSelectedKeys,
+        });
       }
-      // clear key nolonger existed
-      // clear checkedKeys according to targetKeys
-      this.setState({
-        sourceSelectedKeys: sourceSelectedKeys.filter(existInDateSourcekey)
-          .filter(data => targetKeys.filter(key => key === data).length === 0),
-        targetSelectedKeys: targetSelectedKeys.filter(existInDateSourcekey)
-          .filter(data => targetKeys.filter(key => key === data).length > 0),
-      });
     }
+
     if (nextProps.selectedKeys) {
       const targetKeys = nextProps.targetKeys;
       this.setState({
@@ -117,24 +127,25 @@ abstract class Transfer extends React.Component<TransferProps, any> {
       });
     }
   }
+
   splitDataSource(props: TransferProps) {
     if (this.splitedDataSource) {
       return this.splitedDataSource;
     }
 
     const { rowKey, dataSource, targetKeys = [] } = props;
-    if (rowKey) {
-      dataSource.forEach(record => {
-        record.key = rowKey(record);
-      });
-    }
 
-    const leftDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) === -1);
+    const leftDataSource: TransferItem[] = [];
     const rightDataSource: TransferItem[] = [];
-    targetKeys.forEach((targetKey) => {
-      const targetItem = dataSource.filter(record => record.key === targetKey)[0];
-      if (targetItem) {
-        rightDataSource.push(targetItem);
+
+    dataSource.forEach(record => {
+      if (rowKey) {
+        record.key = rowKey(record);
+      }
+      if (targetKeys.includes(record.key)) {
+        rightDataSource.push(record);
+      } else {
+        leftDataSource.push(record);
       }
     });
 
