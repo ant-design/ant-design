@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
