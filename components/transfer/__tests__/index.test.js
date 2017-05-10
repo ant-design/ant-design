@@ -230,7 +230,7 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
   });
 
-  it.only('should show sorted targetkey', () => {
+  it('should show sorted targetkey', () => {
     const sortedTargetKeyProps = {
       dataSource: [{
         key: 'a',
