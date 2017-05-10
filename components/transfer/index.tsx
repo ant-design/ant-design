@@ -138,15 +138,27 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
     const leftDataSource: TransferItem[] = [];
     const rightDataSource: TransferItem[] = [];
+    const tempRightDataSource: TransferItem[] = [];
 
     dataSource.forEach(record => {
       if (rowKey) {
         record.key = rowKey(record);
       }
       if (targetKeys.includes(record.key)) {
-        rightDataSource.push(record);
+        tempRightDataSource.push(record);
       } else {
         leftDataSource.push(record);
+      }
+    });
+
+    const itemMap = {};
+    tempRightDataSource.forEach((item) => {
+      itemMap[item.key] = item;
+    });
+
+    targetKeys.forEach((targetKey) => {
+      if (itemMap[targetKey]) {
+        rightDataSource.push(itemMap[targetKey]);
       }
     });
 
