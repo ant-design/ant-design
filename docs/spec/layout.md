@@ -98,7 +98,7 @@ title:
 
 ![](https://os.alipayobjects.com/rmsportal/JmrNLpHxwcLebVpBIGqD.png)
 
-> 注：图中灰色部分为栅格的列，定义为『Colume』，白色部分为栅格的间隔，定义为『Gutter』。
+> 注：图中灰色部分为栅格的列，定义为『Column』，白色部分为栅格的间隔，定义为『Gutter』。
 
 ### 栅格公式
 
