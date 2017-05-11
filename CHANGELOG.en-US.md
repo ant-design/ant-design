@@ -26,7 +26,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Support Finnish. [#5699](https://github.com/ant-design/ant-design/pull/5699) [@kirbo](https://github.com/kirbo)
   - Support Vietnamese. [#5927](https://github.com/ant-design/ant-design/pull/5927) [@pnghai](https://github.com/pnghai)
   - Update Spanish. [#5932](https://github.com/ant-design/ant-design/pull/5932) [@ginodeise](https://github.com/ginodeis)
-- AutoComplete supports to listen to search events by `onSearch`. [#5888](https://github.com/ant-design/ant-design/issues/5888)
+- AutoComplete supports to listen to search events by `onSearch`.
 - Checkbox.Group can support more flexible layout with nested Checkbox. [demo](http://ant.design/components/checkbox-cn/#components-checkbox-demo-layout)
 - Notification's inline style and className can be customized now. [#5893](https://github.com/ant-design/ant-design/issues/5893) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
 - TimePicker's open status can be controlled by `open` property. [#5913](https://github.com/ant-design/ant-design/pull/5913)

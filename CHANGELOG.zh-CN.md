@@ -26,7 +26,7 @@ timeline: true
   - 新增芬兰语。[#5699](https://github.com/ant-design/ant-design/pull/5699) [@kirbo](https://github.com/kirbo)
   - 新增越南语。[#5927](https://github.com/ant-design/ant-design/pull/5927) [@pnghai](https://github.com/pnghai)
   - 更新西班牙语。[#5932](https://github.com/ant-design/ant-design/pull/5932) [@ginodeise](https://github.com/ginodeis)
-- AutoComplete 新增 `onSearch` 以监听搜索事件。[#5888](https://github.com/ant-design/ant-design/issues/5888)
+- AutoComplete 新增 `onSearch` 以监听搜索事件。
 - Checkbox.Group 可以内嵌 Checkbox，以支持更灵活的布局。[demo](http://ant.design/components/checkbox-cn/#components-checkbox-demo-layout)
 - Notification 现在可以自定义弹出框的样式和 className。[#5893](https://github.com/ant-design/ant-design/issues/5893) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
 - TimePicker 的展开状态可以通过受控属性 `open` 控制。[#5913](https://github.com/ant-design/ant-design/pull/5913)
