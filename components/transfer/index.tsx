@@ -74,7 +74,10 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
-  splitedDataSource: any;
+  splitedDataSource: {
+    leftDataSource: TransferItem[],
+    rightDataSource: TransferItem[],
+  } | null;
 
   constructor(props: TransferProps) {
     super(props);
@@ -102,15 +105,15 @@ abstract class Transfer extends React.Component<TransferProps, any> {
         // clear key nolonger existed
         // clear checkedKeys according to targetKeys
         const { dataSource, targetKeys = [] } = nextProps;
+
         const newSourceSelectedKeys: String[] = [];
         const newTargetSelectedKeys: String[] = [];
-
-        dataSource.forEach(record => {
-          if (sourceSelectedKeys.includes(record.key) && !targetKeys.includes(record.key)) {
-            newSourceSelectedKeys.push(record.key);
+        dataSource.forEach(({ key }) => {
+          if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
+            newSourceSelectedKeys.push(key);
           }
-          if (targetSelectedKeys.includes(record.key) && targetKeys.includes(record.key)) {
-            newTargetSelectedKeys.push(record.key);
+          if (targetSelectedKeys.includes(key) && targetKeys.includes(key)) {
+            newTargetSelectedKeys.push(key);
           }
         });
         this.setState({
@@ -123,8 +126,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     if (nextProps.selectedKeys) {
       const targetKeys = nextProps.targetKeys;
       this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
       });
     }
   }
@@ -134,31 +137,22 @@ abstract class Transfer extends React.Component<TransferProps, any> {
       return this.splitedDataSource;
     }
 
-    const { rowKey, dataSource, targetKeys = [] } = props;
+    const { dataSource, rowKey, targetKeys = [] } = props;
 
     const leftDataSource: TransferItem[] = [];
-    const rightDataSource: TransferItem[] = [];
-    const tempRightDataSource: TransferItem[] = [];
-
+    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
     dataSource.forEach(record => {
       if (rowKey) {
         record.key = rowKey(record);
       }
-      if (targetKeys.includes(record.key)) {
-        tempRightDataSource.push(record);
+
+      // rightDataSource should be ordered by targetKeys
+      // leftDataSource should be ordered by dataSource
+      const indexOfKey = targetKeys.indexOf(record.key);
+      if (indexOfKey !== -1) {
+        rightDataSource[indexOfKey] = record;
       } else {
         leftDataSource.push(record);
-      }
-    });
-
-    const itemMap = {};
-    tempRightDataSource.forEach((item) => {
-      itemMap[item.key] = item;
-    });
-
-    targetKeys.forEach((targetKey) => {
-      if (itemMap[targetKey]) {
-        rightDataSource.push(itemMap[targetKey]);
       }
     });
 
