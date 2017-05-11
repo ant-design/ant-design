@@ -229,4 +229,23 @@ describe('Transfer', () => {
     wrapper.find(TransferList).at(0).find('.ant-transfer-list-header input[type="checkbox"]').simulate('change');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
   });
+
+  it('should show sorted targetkey', () => {
+    const sortedTargetKeyProps = {
+      dataSource: [{
+        key: 'a',
+        title: 'a',
+      }, {
+        key: 'b',
+        title: 'b',
+      }, {
+        key: 'c',
+        title: 'c',
+      }],
+      targetKeys: ['c', 'b'],
+      lazy: false,
+    };
+    const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
