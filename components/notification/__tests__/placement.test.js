@@ -140,4 +140,17 @@ describe('Notification.placement', () => {
     expect(style.left).toBe('0px');
     expect(style.bottom).toBe('50px');
   });
+  it('change notification mountNode by `config` method', () => {
+    const $container = document.createElement('div');
+    document.body.appendChild($container);
+    config({
+      top: 50,
+      bottom: 100,
+      getContainer() {
+        return $container;
+      },
+    });
+    expect($container.querySelector('.ant-notification')).not.toBe(null);
+    $container.remove();
+  });
 });

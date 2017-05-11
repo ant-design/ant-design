@@ -7,7 +7,7 @@ let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement = 'topRight';
-
+let defaultGetContainer;
 export type notificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 function getPlacementStyle(placement) {
@@ -53,7 +53,6 @@ export interface ArgsProps {
   duration?: number;
   icon?: React.ReactNode;
   placement?: notificationPlacement;
-  getContainer?: () => HTMLElement;
   style?: string;
   className?: string;
 }
@@ -63,6 +62,7 @@ export interface ConfigProps {
   bottom?: number;
   duration?: number;
   placement?: notificationPlacement;
+  getContainer?: () => HTMLElement;
 }
 
 function getNotificationInstance(prefixCls) {
@@ -73,6 +73,7 @@ function getNotificationInstance(prefixCls) {
     prefixCls: prefixCls,
     className: `${prefixCls}-${defaultPlacement}`,
     style: getPlacementStyle(defaultPlacement),
+    getContainer: defaultGetContainer,
   });
   return notificationInstance[defaultPlacement];
 }
@@ -168,7 +169,7 @@ const api: {
     }
   },
   config(options: ConfigProps) {
-    const { duration, placement, bottom, top } = options;
+    const { duration, placement, bottom, top, getContainer } = options;
     if (placement !== undefined) {
       defaultPlacement = placement;
     }
@@ -177,6 +178,9 @@ const api: {
     }
     if (top !== undefined) {
       defaultTop = top;
+    }
+    if (getContainer !== undefined) {
+      defaultGetContainer = getContainer;
     }
     // delete notificationInstance
     if (placement !== undefined || bottom !== undefined || top !== undefined) {
