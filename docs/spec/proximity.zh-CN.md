@@ -34,4 +34,4 @@ title: 亲密性
 
 <img class="preview-img" align="right" alt="复选框内示例" src="https://os.alipayobjects.com/rmsportal/DxzQXtIEnFcFxGY.png">
 
-在一个组件内部，元素的横向间距也应该有所不同。
+在一个组件内部，元素的横向间距也应该有所不同。照亮大哥也是挺不容易的，带着一个菜鸟产品做rdm
