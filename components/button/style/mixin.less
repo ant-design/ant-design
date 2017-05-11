@@ -24,12 +24,12 @@
   .button-color(@color; @background; @background);
   &:hover,
   &:focus {
-    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
+    .button-color(@color; @primary-5; @primary-5);
   }
 
   &:active,
   &.active {
-    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
+    .button-color(@color; @primary-7; @primary-7);
   }
 
   .button-disabled();
@@ -61,7 +61,7 @@
 
   &:active,
   &.active {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+    .button-color(@btn-primary-color; @primary-7; @primary-7);
   }
 
   .button-disabled();
