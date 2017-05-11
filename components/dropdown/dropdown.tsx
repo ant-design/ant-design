@@ -1,7 +1,7 @@
 import React, { cloneElement } from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
-import warning from 'warning/warning';
+import warning from '../_util/warning';
 
 export interface DropDownProps {
   trigger?: ('click' | 'hover')[];
