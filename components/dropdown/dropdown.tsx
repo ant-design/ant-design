@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import warning from 'warning/warning';
 
 export interface DropDownProps {
   trigger?: ('click' | 'hover')[];
@@ -31,13 +32,29 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     return 'slide-up';
   }
 
+  componentDidMount() {
+    const { overlay } = this.props;
+    const overlayProps = (overlay as any).props as any;
+    warning(
+      !overlayProps.mode || overlayProps.mode === 'vertical',
+      `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+    );
+  }
+
   render() {
-    const { children, prefixCls } = this.props;
+    const { children, prefixCls, overlay } = this.props;
     const dropdownTrigger = cloneElement(children as any, {
       className: classNames((children as any).props.className, `${prefixCls}-trigger`),
     });
+    const fixedModeOverlay = cloneElement(overlay as any, {
+      mode: 'vertical',
+    });
     return (
-      <RcDropdown transitionName={this.getTransitionName()} {...this.props}>
+      <RcDropdown
+        transitionName={this.getTransitionName()}
+        {...this.props}
+        overlay={fixedModeOverlay}
+      >
         {dropdownTrigger}
       </RcDropdown>
     );

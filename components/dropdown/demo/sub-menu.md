@@ -18,7 +18,7 @@ import { Menu, Dropdown, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 const menu = (
-  <Menu>
+  <Menu mode="inline">
     <Menu.Item>1st menu item</Menu.Item>
     <Menu.Item>2nd menu item</Menu.Item>
     <SubMenu title="sub menu">
