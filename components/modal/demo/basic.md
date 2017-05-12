@@ -40,6 +40,8 @@ class App extends React.Component {
       <div>
         <Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>
         <Modal title="Basic Modal" visible={this.state.visible}
+          okText="Ok"
+          cancelText="Cancel"
           onOk={this.handleOk} onCancel={this.handleCancel}
         >
           <p>some contents...</p>

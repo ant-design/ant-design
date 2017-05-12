@@ -50,6 +50,8 @@ class App extends React.Component {
         <Modal
           visible={this.state.visible}
           title="Title"
+          okText="OK"
+          cancelText="Cancel"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[

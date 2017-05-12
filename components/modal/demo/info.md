@@ -25,6 +25,7 @@ function info() {
         <p>some messages...some messages...</p>
       </div>
     ),
+    okText: 'I know',
     onOk() {},
   });
 }
@@ -33,6 +34,7 @@ function success() {
   Modal.success({
     title: 'This is a success message',
     content: 'some messages...some messages...',
+    okText: 'I know',
   });
 }
 
@@ -40,6 +42,7 @@ function error() {
   Modal.error({
     title: 'This is an error message',
     content: 'some messages...some messages...',
+    okText: 'I know',
   });
 }
 
@@ -47,6 +50,7 @@ function warning() {
   Modal.warning({
     title: 'This is a warning message',
     content: 'some messages...some messages...',
+    okText: 'I know',
   });
 }
 
