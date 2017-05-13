@@ -39,7 +39,7 @@ $ npm install antd-init -g
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [更多](https://github.com/ant-design/ant-design/issues/129)
+>   - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
 
 ### 2. 创建一个项目
 

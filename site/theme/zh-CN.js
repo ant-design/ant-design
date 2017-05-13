@@ -33,6 +33,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.customize-theme': '定制主题',
     'app.footer.scaffold': '脚手架',
+    'app.footer.scaffolds': '脚手架市场',
     'app.footer.dev-tools': '开发工具',
     'app.footer.dva': '应用框架',
     'app.footer.links': '相关站点',

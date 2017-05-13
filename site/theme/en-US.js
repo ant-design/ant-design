@@ -33,6 +33,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.customize-theme': 'Customize Theme',
     'app.footer.scaffold': 'Scaffold',
+    'app.footer.scaffolds': 'Scaffold Market',
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.dva': 'Framework',
     'app.footer.links': 'Links',

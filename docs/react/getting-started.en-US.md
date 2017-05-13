@@ -40,7 +40,7 @@ Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [more](https://github.com/ant-design/ant-design/issues/129)
+>   - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ### 2. Create a New Project
 
