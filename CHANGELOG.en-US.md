@@ -17,6 +17,23 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.10.1
+
+`2017-05-14`
+
+- Upgrade normalize.css to 7.0.0.
+- Fix AutoComplete style issue when use with Input.Group. [#6058](https://github.com/ant-design/ant-design/issues/6058)
+- Fix Tabs cann't set `animated` when use `card` or `editable-card` type. [#6070](https://github.com/ant-design/ant-design/issues/6070)
+- Fix Form style issue when zoom out scrren. [#6097](https://github.com/ant-design/ant-design/issues/6097)
+- Fix RangePicker style issue in Safari. [#6061](https://github.com/ant-design/ant-design/issues/6061)
+- Notification
+  - Fix `getContainer` not working. [#6099](https://github.com/ant-design/ant-design/pull/6099) [@hardfist](https://github.com/hardfist)
+  - Fix overlaping issue. [#5895](https://github.com/ant-design/ant-design/issues/5895) [@ystarlongzi](https://github.com/ystarlongzi)
+- Add new `fork` icon.
+- Add some less variables. [#6039](https://github.com/ant-design/ant-design/pull/6039) [#6038](https://github.com/ant-design/ant-design/pull/6038) [#6105](https://github.com/ant-design/ant-design/issues/6105) [#6040](https://github.com/ant-design/ant-design/pull/6040)
+
+
+
 ## 2.10.0
 
 `2017-05-02`
@@ -67,7 +84,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - **Alert** Fix props of banner mode can't be overrided. [#5800](https://github.com/ant-design/ant-design/issues/5800)
 - **AutoComplete** Fix can't add `onKeyDown` event listener with customized input component. [#5487](https://github.com/ant-design/ant-design/issues/5487)
 - **Button** New style for danger Button. [#5815](https://github.com/ant-design/ant-design/pull/5815)
-- **DatePicker** 
+- **DatePicker**
   - Improve user experience of RangePicker, rc-calendar upgrade to `~8.0.0`. [#4985](https://github.com/ant-design/ant-design/issues/4985)
   - Fix RangePicker not aligned after customizing the size of input. [pull/5718](https://github.com/ant-design/ant-design/pull/5718) [@leadream](https://github.com/leadream)
 - **Form** Add a less variable to opt out of form item colons. [pull/5855](https://github.com/ant-design/ant-design/pull/5855) [@megawac](https://github.com/megawac)
@@ -91,7 +108,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - **Tabs** Fix the position of the scrolling arrow in `vertical` mode. [#5765](https://github.com/ant-design/ant-design/issues/5765) [@dicklwm](https://github.com/dicklwm)
 - **TreeSelect** Fix arrow rotate bug. [#5693](https://github.com/ant-design/ant-design/issues/5693)
 - **TypeScript**
-  - Add missing props in InputNumber. [#5717](https://github.com/ant-design/ant-design/issues/5717)  [@whtang906](https://github.com/whtang906) 
+  - Add missing props in InputNumber. [#5717](https://github.com/ant-design/ant-design/issues/5717)  [@whtang906](https://github.com/whtang906)
 - **Global Optimization**
   - Fix deprecation warning of `React.PropTypes` due to React upgrading to v15.5.0. [pull/5723](https://github.com/ant-design/ant-design/pull/5723)  [@manjitkumar](https://github.com/manjitkumar)
 - **Site**
