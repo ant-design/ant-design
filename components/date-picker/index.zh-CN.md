@@ -60,6 +60,7 @@ moment.locale('zh-cn');
 | showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showToday    | 是否展示“今天”按钮 | boolean | true |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
+| onOk | 点击确定按钮的回调 | function() | - |
 
 ### MonthPicker
 
@@ -81,7 +82,8 @@ moment.locale('zh-cn');
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
 | showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
-| ranges       | 预设事件范围快捷选择 | { [range: string]: [moment](http://momentjs.com/)[] } | 无 |
+| ranges       | 预设时间范围快捷选择 | { [range: string]: [moment](http://momentjs.com/)[] } | 无 |
+| onOk | 点击确定按钮的回调 | function() | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {

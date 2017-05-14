@@ -1,15 +1,39 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
+import warning from '../_util/warning';
+
+function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
+  const [ start, end ] = value;
+  // value could be an empty array, then we should not reset showDate
+  if (!start && !end) {
+    return;
+  }
+  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
+  return [start, newEnd];
+}
+
+function formatValue(value: moment.Moment | undefined, format: string): string {
+  return (value && value.format(format)) || '';
+}
+
+function pickerValueAdapter(value?: moment.Moment | moment.Moment[]): moment.Moment[] | undefined {
+  if (!value) { return; }
+  if (Array.isArray(value)) {
+    return value;
+  }
+  return [value, value.clone().add(1, 'month')];
+}
 
 export default class RangePicker extends React.Component<any, any> {
   static contextTypes = {
-      antLocale: React.PropTypes.object,
+      antLocale: PropTypes.object,
   };
   static defaultProps = {
     prefixCls: 'ant-calendar',
@@ -26,7 +50,7 @@ export default class RangePicker extends React.Component<any, any> {
     ) {
       throw new Error(
         'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
-        'see: http://u.ant.design/date-picker-value'
+        'see: http://u.ant.design/date-picker-value',
       );
     }
     this.state = {
@@ -38,8 +62,7 @@ export default class RangePicker extends React.Component<any, any> {
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       const value = nextProps.value || [];
-      const showDate = value[0];
-      this.setState({ value, showDate });
+      this.setState({ value, showDate: getShowDateFromValue(value) });
     }
     if ('open' in nextProps) {
       this.setState({
@@ -55,14 +78,14 @@ export default class RangePicker extends React.Component<any, any> {
     this.handleChange([]);
   }
 
-  handleChange = (value) => {
+  handleChange = (value: moment.Moment[]) => {
     const props = this.props;
     if (!('value' in props)) {
-      this.setState({ value, showDate: value[0] });
+      this.setState({ value, showDate: getShowDateFromValue(value) });
     }
     props.onChange(value, [
-      (value[0] && value[0].format(props.format)) || '',
-      (value[1] && value[1].format(props.format)) || '',
+      formatValue(value[0], props.format),
+      formatValue(value[1], props.format),
     ]);
   }
 
@@ -75,7 +98,7 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  handleShowDateChange = showDate => this.setState({ showDate })
+  handleShowDateChange = showDate => this.setState({ showDate });
 
   setValue(value) {
     this.handleChange(value);
@@ -119,6 +142,7 @@ export default class RangePicker extends React.Component<any, any> {
       ranges, prefixCls, popupStyle,
       style, onOk, locale, format,
     } = props;
+    warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
@@ -156,7 +180,7 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        value={showDate || props.defaultPickerValue || moment()}
+        value={showDate || pickerValueAdapter(props.defaultPickerValue) || pickerValueAdapter(moment())}
         onValueChange={this.handleShowDateChange}
         showToday={showToday}
       />
@@ -165,15 +189,16 @@ export default class RangePicker extends React.Component<any, any> {
     // default width for showTime
     const pickerStyle = {} as any;
     if (props.showTime) {
-      pickerStyle.minWidth = 300;
+      pickerStyle.width = (style && style.width) || 300;
     }
 
-    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1]))
-      ? <Icon
+    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
+      <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
-      /> : null;
+      />
+    ) : null;
 
     const input = ({ value: inputValue }) => {
       const start = inputValue[0];

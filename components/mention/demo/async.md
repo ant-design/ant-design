@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 异步加载
   en-US: Asynchronous loading
 ---
@@ -17,19 +17,18 @@ async
 import { Mention } from 'antd';
 
 const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];
-const AsyncMention = React.createClass({
-  getInitialState() {
-    return {
-      suggestions: [],
-      loading: false,
-    };
-  },
-  fetchSuggestions(value, callback) {
+
+class AsyncMention extends React.Component {
+  state = {
+    suggestions: [],
+    loading: false,
+  }
+  fetchSuggestions = (value, callback) => {
     setTimeout(() => {
       callback(users.filter(item => item.indexOf(value) !== -1));
     }, 500);
-  },
-  onSearchChange(value) {
+  }
+  onSearchChange = (value) => {
     this.fetchSuggestions(value, (suggestions) => {
       this.setState({
         suggestions,
@@ -39,7 +38,7 @@ const AsyncMention = React.createClass({
     this.setState({
       loading: true,
     });
-  },
+  }
   render() {
     const { suggestions, loading } = this.state;
     return (
@@ -50,11 +49,8 @@ const AsyncMention = React.createClass({
         onSearchChange={this.onSearchChange}
       />
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(
-  <AsyncMention />,
-  mountNode
-);
+ReactDOM.render(<AsyncMention />, mountNode);
 ````

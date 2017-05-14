@@ -21,19 +21,19 @@ function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 
-const HorizontalLoginForm = Form.create()(React.createClass({
+class HorizontalLoginForm extends React.Component {
   componentDidMount() {
     // To disabled submit button at the beginning.
     this.props.form.validateFields();
-  },
-  handleSubmit(e) {
+  }
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
-  },
+  }
   render() {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
 
@@ -41,7 +41,7 @@ const HorizontalLoginForm = Form.create()(React.createClass({
     const userNameError = isFieldTouched('userName') && getFieldError('userName');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
-      <Form inline onSubmit={this.handleSubmit}>
+      <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem
           validateStatus={userNameError ? 'error' : ''}
           help={userNameError || ''}
@@ -49,7 +49,7 @@ const HorizontalLoginForm = Form.create()(React.createClass({
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
           )}
         </FormItem>
         <FormItem
@@ -59,7 +59,7 @@ const HorizontalLoginForm = Form.create()(React.createClass({
           {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }],
           })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
           )}
         </FormItem>
         <FormItem>
@@ -73,8 +73,10 @@ const HorizontalLoginForm = Form.create()(React.createClass({
         </FormItem>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<HorizontalLoginForm />, mountNode);
+const WrappedHorizontalLoginForm = Form.create()(HorizontalLoginForm);
+
+ReactDOM.render(<WrappedHorizontalLoginForm />, mountNode);
 ````

@@ -10,6 +10,17 @@
     <title>Ant Design - A UI Design Language</title>
     <script>
     (function() {
+      function isLocalStorageNameSupported() {
+        var testKey = 'test';
+        var storage = window.localStorage;
+        try {
+          storage.setItem(testKey, '1');
+          storage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
       // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
       var pathname = location.pathname;
 
@@ -32,23 +43,26 @@
       var queryString = location.search;
       if (queryString) {
         var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
-        if (isZhCNConfig !== isZhCN(pathname)) {
+        if (isZhCNConfig && !isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
         }
       }
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (pathname === '/' || pathname === '/index-cn') {
-        var lang = (window.localStorage && localStorage.getItem('locale')) || navigator.language;
+      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+        var lang = (window.localStorage && localStorage.getItem('locale')) || (navigator.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : 'en-US');
+        // safari is 'zh-cn', while other browser is 'zh-CN';
         if ((lang === 'zh-CN') !== isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
         }
       }
+      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })()
     </script>
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.cnpmjs.org/css?family=Lato:400,700|Raleway"/>
-    <link rel="stylesheet" type="text/css" href="{{ root }}index.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
     <style id="nprogress-style">
       #nprogress { display: none }
     </style>
@@ -63,8 +77,6 @@
     if (!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
-    </script>
-    <script>
     // Enable Google Analytics
     if (!location.port) {
       /* eslint-disable */
@@ -83,6 +95,17 @@
       ga('send', 'pageview');
       /* eslint-enable */
     }
+    </script>
+    <!-- Hotjar Tracking Code for ant.design -->
+    <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:473408,hjsv:5};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
   </head>
   <body>

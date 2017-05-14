@@ -6,7 +6,7 @@ export interface ColumnProps<T> {
   key?: string;
   dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
-  filters?: { text: string; value: string }[];
+  filters?: { text: string; value: string, children?: any[] }[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;
@@ -15,8 +15,10 @@ export interface ColumnProps<T> {
   width?: string | number;
   className?: string;
   fixed?: boolean | ('left' | 'right');
+  filterIcon?: React.ReactNode;
   filteredValue?: any[];
   sortOrder?: boolean | ('ascend' | 'descend');
+  children?: ColumnProps<T>[];
 }
 
 export default class Column<T> extends (RcTable.Column as React.ComponentClass<ColumnProps<T>>) {}

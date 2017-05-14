@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed'
+export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;
@@ -31,6 +31,13 @@ export interface ShowUploadListInterface {
   showPreviewIcon?: boolean;
 }
 
+export interface UploadLocale {
+  uploading?: string;
+  removeFile?: string;
+  uploadError?: string;
+  previewFile?: string;
+}
+
 export interface UploadProps {
   type?: 'drag' | 'select';
   name?: string;
@@ -42,7 +49,7 @@ export interface UploadProps {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: File) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: File, FileList: File[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: 'text' | 'picture' | 'picture-card';
   className?: string;
@@ -52,6 +59,9 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
+  customRequest?: (option: any) => void;
+  withCredentials?: boolean;
+  locale?: UploadLocale;
 }
 
 export interface UploadListProps {
@@ -63,4 +73,5 @@ export interface UploadListProps {
   prefixCls?: string;
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
+  locale: UploadLocale;
 }

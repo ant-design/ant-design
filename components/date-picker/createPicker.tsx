@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
@@ -7,92 +8,63 @@ import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
+import warning from '../_util/warning';
 
 export interface PickerProps {
   value?: moment.Moment;
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar) {
-  // use class typescript error
-  const CalenderWrapper = React.createClass<any, any>({
-    contextTypes: {
-      antLocale: React.PropTypes.object,
-    },
-    getDefaultProps() {
-      return {
-        prefixCls: 'ant-calendar',
-        allowClear: true,
-        showToday: true,
-      };
-    },
+export default function createPicker(TheCalendar): any {
+  return class CalenderWrapper extends React.Component<any, any> {
+    static contextTypes = {
+      antLocale: PropTypes.object,
+    };
 
-    getInitialState() {
-      const props = this.props;
+    static defaultProps = {
+      prefixCls: 'ant-calendar',
+      allowClear: true,
+      showToday: true,
+    };
+
+    constructor(props) {
+      super(props);
       const value = props.value || props.defaultValue;
       if (value && !moment.isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value'
+          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value',
         );
       }
-      return {
+      this.state = {
         value,
-        tempValue: undefined,
       };
-    },
+    }
 
     componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.value,
-          tempValue: nextProps.value,
         });
       }
-    },
+    }
 
-    clearSelection(e) {
+    clearSelection = (e) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
-    },
+    }
 
-    handleChange(value) {
+    handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-    },
-
-    handleTempChange(tempValue) {
-      this.setState({ tempValue });
-    },
-
-    // Clear temp value and trigger onChange when hide DatePicker[showTime] panel
-    handleOpenChange(open) {
-      const { showTime, onOpenChange, onChange, format } = this.props;
-      if (!open) {
-        // tricky code to avoid triggering onChange multiple times
-        // when click `Now` button
-        let tempValue;
-        this.setState(prevState => {
-          tempValue = prevState.tempValue;
-          const nextState = { tempValue: undefined } as any;
-          if (showTime && tempValue) {
-            nextState.value = tempValue;
-            onChange(tempValue, (tempValue && tempValue.format(format)) || '');
-          }
-          return nextState;
-        });
-      }
-      if (onOpenChange) {
-        onOpenChange(open);
-      }
-    },
+    }
 
     render() {
-      const { value, tempValue } = this.state;
+      const { value } = this.state;
       const props = omit(this.props, ['onChange']);
       const { prefixCls, locale } = props;
 
@@ -106,15 +78,12 @@ export default function createPicker(TheCalendar) {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
-      // 需要选择时间时，点击 ok 时才触发 onChange
       let pickerChangeHandler: Object = {};
       let calendarHandler: Object = {};
       if (props.showTime) {
         calendarHandler = {
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (selectedValue) => {
-            this.handleTempChange(selectedValue);
-          },
+          onSelect: this.handleChange,
         };
       } else {
         pickerChangeHandler = {
@@ -122,6 +91,7 @@ export default function createPicker(TheCalendar) {
         };
       }
 
+      warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
       const calendar = (
         <TheCalendar
           {...calendarHandler}
@@ -143,15 +113,16 @@ export default function createPicker(TheCalendar) {
       // default width for showTime
       const pickerStyle = {} as any;
       if (props.showTime) {
-        pickerStyle.minWidth = 154;
+        pickerStyle.width = (props.style && props.style.width) || 154;
       }
 
-      const clearIcon = (!props.disabled && props.allowClear && value) ?
+      const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
           type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
-        /> : null;
+        />
+      ) : null;
 
       const input = ({ value: inputValue }) => (
         <span>
@@ -167,7 +138,7 @@ export default function createPicker(TheCalendar) {
         </span>
       );
 
-      const pickerValue = tempValue || value;
+      const pickerValue = value;
       const localeCode = getLocaleCode(this.context);
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
@@ -177,7 +148,6 @@ export default function createPicker(TheCalendar) {
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
-            onOpenChange={this.handleOpenChange}
             calendar={calendar}
             value={pickerValue}
             prefixCls={`${prefixCls}-picker-container`}
@@ -187,8 +157,6 @@ export default function createPicker(TheCalendar) {
           </RcDatePicker>
         </span>
       );
-    },
-  });
-
-  return CalenderWrapper;
+    }
+  };
 }

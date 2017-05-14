@@ -23,7 +23,7 @@ $ dva -v
 
 ## Create New App
 
-After installed dva-cli, you can have access to the `dva` command in terminal. Now, create a new application with `dva new`.
+After installed dva-cli, you can have access to the `dva` command in terminal ([can't access?](http://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found)). Now, create a new application with `dva new`.
 
 ```bash
 $ dva new dva-quickstart
@@ -108,7 +108,8 @@ Let's create a `ProductList` component that we can use in multiple places to sho
 Create `components/ProductList.js` and typing:
 
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {

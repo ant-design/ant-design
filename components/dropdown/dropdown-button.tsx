@@ -18,19 +18,12 @@ export interface DropdownButtonProps {
   onVisibleChange?: (visible: boolean) => void;
   style?: React.CSSProperties;
   children?: any;
+  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
-    align: {
-      points: ['tr', 'br'],
-      overlay: {
-        adjustX: 1,
-        adjustY: 1,
-      },
-      offset: [0, 4],
-      targetOffset: [0, 0],
-    },
+    placement: 'bottomRight',
     type: 'default',
     prefixCls: 'ant-dropdown-button',
   };
@@ -38,7 +31,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   render() {
     const {
       type, overlay, trigger, align, children, className, onClick, prefixCls,
-      disabled, visible, onVisibleChange, ...restProps,
+      disabled, visible, onVisibleChange, placement, ...restProps,
     } = this.props;
     const cls = classNames(prefixCls, className);
 
@@ -47,6 +40,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       overlay,
       trigger: disabled ? [] : trigger,
       onVisibleChange,
+      placement,
     };
 
     if ('visible' in this.props) {

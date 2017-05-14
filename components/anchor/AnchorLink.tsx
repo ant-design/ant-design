@@ -1,23 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AnchorHelper, { scrollTo } from './anchorHelper';
 
 export interface AnchorLinkProps {
   href: string;
-  onClick: (href: string, component: Element) => void;
+  onClick?: (href: string, component: Element) => void;
   active?: boolean;
   prefixCls?: string;
   children?: any;
-  title?: React.ReactNode;
-  offsetTop: number;
-  bounds: number;
+  title: React.ReactNode;
+  offsetTop?: number;
+  bounds?: number;
   target?: () => HTMLElement | Window;
   affix?: boolean;
 }
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
+  static __ANT_ANCHOR_LINK = true;
   static contextTypes = {
-    anchorHelper: React.PropTypes.any,
+    anchorHelper: PropTypes.any,
   };
 
   static defaultProps = {
@@ -29,7 +31,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     anchorHelper: AnchorHelper;
   };
 
-  private _component: Element;
+  private _component: HTMLAnchorElement;
 
   setActiveAnchor() {
     const { bounds, offsetTop, href, affix } = this.props;
@@ -48,32 +50,34 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.setActiveAnchor();
   }
 
-  renderAnchorLink = (child) => {
-    const { href } = child.props;
-    if (href) {
-      this.context.anchorHelper.addLink(href);
-      return React.cloneElement(child, {
-        onClick: this.props.onClick,
-        prefixCls: this.props.prefixCls,
-        affix: this.props.affix,
-        offsetTop: this.props.offsetTop,
-      });
+  renderAnchorLink = (child: React.ReactChild) => {
+    // Here child is a ReactChild type
+    if (typeof child !== 'string' && typeof child !== 'number') {
+      const { href } = child.props;
+      if (href) {
+        this.context.anchorHelper.addLink(href);
+        return React.cloneElement(child, {
+          onClick: this.props.onClick,
+          prefixCls: this.props.prefixCls,
+          affix: this.props.affix,
+          offsetTop: this.props.offsetTop,
+        });
+      }
     }
     return child;
   }
 
-  refsTo = (component) => {
+  refsTo = (component: HTMLAnchorElement) => {
     this._component = component;
   }
 
-  scrollTo = (e) => {
+  scrollTo = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const { onClick, href } = this.props;
     const { anchorHelper } = this.context;
     if (onClick) {
       onClick(href, this._component);
     } else {
-      e.stopPreventDefault();
       const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
       scrollToFn(href, this.props.offsetTop);
     }

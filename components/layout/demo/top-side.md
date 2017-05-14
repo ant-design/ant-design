@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-多用在同时拥有顶部导航及侧边栏的页面。
+拥有顶部导航及侧边栏的页面，多用于展示类网站。
 
 ## en-US
 
-Be used in the page which has both the top navigation and the sidebar.
+Both the top navigation and the sidebar, commonly used in documentation site.
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';

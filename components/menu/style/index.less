@@ -35,12 +35,12 @@
   &-submenu,
   &-submenu-title {
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all .3s;
   }
 
   &-item:active,
   &-submenu-title:active {
-    background: @primary-1;
+    background: @item-active-bg;
   }
 
   &-submenu &-sub {
@@ -52,6 +52,9 @@
     color: @text-color;
     &:hover {
       color: @primary-color;
+    }
+    &:focus {
+      text-decoration: none;
     }
     &:before {
       position: absolute;
@@ -75,10 +78,14 @@
 
   &-item:hover,
   &-item-active,
-  &-submenu-open,
+  &:not(&-inline) &-submenu-open,
   &-submenu-active,
   &-submenu-title:hover {
     color: @primary-color;
+  }
+
+  &:not(&-inline) &-submenu-open {
+    z-index: @zindex-dropdown;
   }
 
   &-horizontal &-item,
@@ -94,8 +101,6 @@
 
   &-item-selected {
     color: @primary-color;
-    // fix chrome render bug
-    transform: translateZ(0);
     > a,
     > a:hover {
       color: @primary-color;
@@ -103,7 +108,7 @@
   }
 
   &:not(&-horizontal) &-item-selected {
-    background-color: @primary-1;
+    background-color: @item-active-bg;
   }
 
   &-horizontal,
@@ -116,11 +121,20 @@
   &-vertical {
     border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: 3px @border-style-base transparent;
       margin-left: -1px;
       left: 1px;
       position: relative;
       z-index: 1;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 3px solid @primary-color;
+        transform: scaleY(.0001);
+        transition: all .2s;
+      }
     }
   }
 
@@ -130,6 +144,9 @@
       border-right: 0;
       margin-left: 0;
       left: 0;
+      &:after {
+        border-right: 0;
+      }
     }
     > .@{menu-prefix-cls}-item:first-child {
       border-radius: @border-radius-base @border-radius-base 0 0;
@@ -143,8 +160,9 @@
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right-color: @primary-color;
-      transform: translateZ(0);
+      &:after {
+        transform: scaleY(1);
+      }
     }
   }
 
@@ -181,7 +199,6 @@
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
-      transition: all .3s;
     }
   }
 
@@ -191,7 +208,7 @@
     overflow: hidden;
     padding: 0;
     line-height: 0;
-    background-color: #e5e5e5;
+    background-color: @border-color-split;
   }
 
   &-submenu {
@@ -199,7 +216,7 @@
 
     > .@{menu-prefix-cls} {
       background-color: @component-background;
-      border-radius: 4px;
+      border-radius: @border-radius-base;
     }
 
     &-vertical > .@{menu-prefix-cls}-submenu-title:after {
@@ -210,7 +227,7 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s ease;
+      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       .ie-rotate(3);
@@ -225,7 +242,7 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s ease;
+      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       top: 0;
@@ -390,12 +407,15 @@
     border-right: 0;
     margin-left: 0;
     left: 0;
+    &:after {
+      border-right: 0;
+    }
   }
 
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
-  &-dark &-submenu-open,
+  &-dark:not(&-inline) &-submenu-open,
   &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
@@ -409,6 +429,9 @@
   &-dark &-item-selected {
     border-right: 0;
     color: #fff;
+    &:after {
+      border-right: 0;
+    }
     > a,
     > a:hover {
       color: #fff;

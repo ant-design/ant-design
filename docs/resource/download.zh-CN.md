@@ -13,8 +13,8 @@ title: 资源下载
     <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Template.v1.1.sketch" class="resource-card">
-  <img src="https://www.sketchapp.com/images/app-icon@2x.png">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Template.sketch" class="resource-card">
+  <img src="https://zos.alipayobjects.com/rmsportal/vfxJzCLqZxehgquvQNqX.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Sketch Template</span>
     <span class="resource-card-description">精心整理的组件设计素材</span>
@@ -27,7 +27,7 @@ title: 资源下载
     <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-2.x.zip" class="resource-card">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-2.10.x.zip" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/UEpOFKUQTZaUfnW.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Web Font</span>

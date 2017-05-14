@@ -22,10 +22,10 @@ and so on.
 | confirmLoading | Determine whether to apply loading visual effect for OK button or not  | boolean    | no           |
 | title      | The modal dialog's title          | string\|ReactNode | no           |
 | closable   | Determine whether a close (x) button is visible on top right of the modal dialog or not | boolean    | true        |
-| onOk       | Specify a function that will be called when a user clicked OK button | function | no |
+| onOk       | Specify a function that will be called when a user clicked OK button | function(e) | no |
 | onCancel   | Specify a function that will be called when a user clicked mask, close button on top right or cancel button | function(e)  | no         |
 | width      | Width of a modal dialog           | string\|number | 520           |
-| footer     | Footer content       | string\|ReactNode | OK and cancel button |
+| footer     | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and cancel button |
 | okText     | Text of the OK button    | string           | OK       |
 | cancelText | Text of the Cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | boolean   | true       |
@@ -36,10 +36,10 @@ and so on.
 #### Destroy on close
 
 > The state of Modal will be preserved at it's component lifecircle.
-> If you wish to open it with brand new state everytime, you need to reset state manually. Or simply [give a new random key](https://github.com/ant-design/ant-design/issues/4165) to Modal when visible is changed to `true`, React will treat it as a new component.
+> If you wish to open it with brand new state everytime, you need to reset state manually. Or simply [give a new key](https://github.com/ant-design/ant-design/issues/4165) to Modal when visible is changed to `true`, React will treat it as a new component.
 
 > ```
-> <Modal key={this.state.newRandomKey} visible={this.state.visible} />
+> <Modal key={this.state.newKey} visible={this.state.visible} />
 > ```
 
 ### Modal.xxx()

@@ -20,13 +20,12 @@ function onSelect(value) {
   console.log('onSelect', value);
 }
 
-const Complete = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: [],
-    };
-  },
-  handleChange(value) {
+class Complete extends React.Component {
+  state = {
+    dataSource: [],
+  }
+
+  handleSearch = (value) => {
     this.setState({
       dataSource: !value ? [] : [
         value,
@@ -34,25 +33,27 @@ const Complete = React.createClass({
         value + value + value,
       ],
     });
-  },
-  handleKeyPress(ev) {
+  }
+
+  handleKeyPress = (ev) => {
     console.log('handleKeyPress', ev);
-  },
+  }
+
   render() {
     const { dataSource } = this.state;
     return (
       <AutoComplete
         dataSource={dataSource}
-        style={{ width: 200 }}
+        style={{ width: 200, height: 50 }}
         onSelect={onSelect}
-        onChange={this.handleChange}
+        onSearch={this.handleSearch}
         placeholder="input here"
       >
         <textarea onKeyPress={this.handleKeyPress} style={{ height: 50 }} />
       </AutoComplete>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Complete />, mountNode);
 ````

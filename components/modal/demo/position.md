@@ -17,19 +17,17 @@ set position of modal dialog.
 ````jsx
 import { Modal, Button } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      modal1Visible: false,
-      modal2Visible: false,
-    };
-  },
+class App extends React.Component {
+  state = {
+    modal1Visible: false,
+    modal2Visible: false,
+  }
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
-  },
+  }
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
-  },
+  }
   render() {
     return (
       <div>
@@ -60,8 +58,8 @@ const App = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

@@ -6,22 +6,24 @@ import Icon from '../icon';
 
 export interface MentionProps {
   prefixCls: string;
-  suggestionStyle?: Object;
+  suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;
   onChange?: Function;
   notFoundContent?: any;
   loading?: Boolean;
-  style?: Object;
+  style?: React.CSSProperties;
   defaultValue?: any;
   value?: any;
   className?: string;
   multiLines?: Boolean;
   prefix?: string;
   placeholder?: string;
-  getSuggestionContainer?: Function;
+  getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: Function;
   onBlur?: Function;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
 export interface MentionState {
@@ -30,9 +32,6 @@ export interface MentionState {
 }
 
 export default class Mention extends React.Component<MentionProps, MentionState> {
-  static Nav = Nav;
-  static toString = toString;
-  static toEditorState = toEditorState;
   static getMentions = getMentions;
   static defaultProps = {
     prefixCls: 'ant-mention',
@@ -40,6 +39,13 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     loading: false,
     multiLines: false,
   };
+  static Nav = Nav;
+  static toString = toString;
+  static toContentState = toEditorState;
+  static toEditorState = text => {
+    console.warn('Mention.toEditorState is deprecated. Use toContentState instead.');
+    return toEditorState(text);
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -56,9 +62,9 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     }
   }
 
-  onSearchChange = (value) => {
+  onSearchChange = (value, prefix) => {
     if (this.props.onSearchChange) {
-      return this.props.onSearchChange(value);
+      return this.props.onSearchChange(value, prefix);
     }
     return this.defaultSearchChange(value);
   }
@@ -72,7 +78,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   defaultSearchChange(value: String): void {
     const searchValue = value.toLowerCase();
     const filteredSuggestions = (this.props.suggestions || []).filter(
-      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1
+      suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1,
     );
     this.setState({
       suggestions: filteredSuggestions,

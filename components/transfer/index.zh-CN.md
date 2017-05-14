@@ -25,6 +25,7 @@ title: Transfer
 | selectedKeys | 设置哪些项应该被选中 | string[] | [] |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void | |
+| onScroll | 选项列表滚动时的回调函数 | (direction, event): void | |
 | listStyle | 两个穿梭框的自定义样式 | object |  |
 | className | 自定义类 | string |  |
 | titles | 标题集合,顺序从左至右 | string[] | ['', ''] |
@@ -35,11 +36,11 @@ title: Transfer
 | notFoundContent | 当列表为空时显示的内容 | string\|ReactNode | '列表为空'  |
 | footer | 底部渲染函数 | (props): ReactNode |  |
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数 | object | `{ height: 32, offset: 32 }` |
-| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left' | 'right', event: Event): void | - |
+| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', event: Event): void | - |
 
 ## 注意
 
-按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
+按照 React 的[规范](http://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。
 

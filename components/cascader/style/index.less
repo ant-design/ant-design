@@ -8,10 +8,13 @@
   font-size: @font-size-base;
 
   &-input.@{ant-prefix}-input {
-    background-color: transparent;
+    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
+    // because input.less will compile after cascader.less
+    background-color: transparent!important;
     cursor: pointer;
     width: 100%;
     z-index: 1;
+    display: block;
   }
 
   &-picker {
@@ -19,7 +22,7 @@
     display: inline-block;
     cursor: pointer;
     font-size: @font-size-base;
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
 
@@ -59,7 +62,7 @@
       position: absolute;
       right: 8px;
       z-index: 2;
-      background: #fff;
+      background: @component-background;
       top: 50%;
       font-size: @font-size-base;
       color: @disabled-color;
@@ -103,7 +106,7 @@
   }
   &-menus {
     font-size: @font-size-base;
-    background: #fff;
+    background: @component-background;
     position: absolute;
     z-index: @zindex-dropdown;
     border-radius: @border-radius-base;
@@ -154,12 +157,12 @@
     }
   }
   &-menu-item {
-    padding: 7px 26px 7px 16px;
+    padding: 7px 8px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     &:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
     }
     &-disabled {
       cursor: not-allowed;
@@ -171,7 +174,7 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        background-color: @background-color-base;
+        background: @background-color-base;
         font-weight: bold;
       }
     }
@@ -182,7 +185,7 @@
         .iconfont-size-under-12px(8px);
         color: @text-color-secondary;
         position: absolute;
-        right: 15px;
+        right: 8px;
       }
     }
     &-loading:after {

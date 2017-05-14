@@ -1,11 +1,15 @@
-exports[`test renders ./components/affix/demo/basic.md correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
 <div>
   <div>
     <div
-      class="">
+      class=""
+    >
       <button
         class="ant-btn ant-btn-primary"
-        type="button">
+        type="button"
+      >
         <span>
           Affix top
         </span>
@@ -15,10 +19,12 @@ exports[`test renders ./components/affix/demo/basic.md correctly 1`] = `
   <br />
   <div>
     <div
-      class="">
+      class=""
+    >
       <button
         class="ant-btn ant-btn-primary"
-        type="button">
+        type="button"
+      >
         <span>
           Affix bottom
         </span>
@@ -28,13 +34,15 @@ exports[`test renders ./components/affix/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/affix/demo/on-change.md correctly 1`] = `
+exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
 <div>
   <div
-    class="">
+    class=""
+  >
     <button
       class="ant-btn"
-      type="button">
+      type="button"
+    >
       <span>
         120px to affix top
       </span>
@@ -43,17 +51,21 @@ exports[`test renders ./components/affix/demo/on-change.md correctly 1`] = `
 </div>
 `;
 
-exports[`test renders ./components/affix/demo/target.md correctly 1`] = `
+exports[`renders ./components/affix/demo/target.md correctly 1`] = `
 <div
-  class="scrollable-container">
+  class="scrollable-container"
+>
   <div
-    class="background">
+    class="background"
+  >
     <div>
       <div
-        class="">
+        class=""
+      >
         <button
           class="ant-btn ant-btn-primary"
-          type="button">
+          type="button"
+        >
           <span>
             Fixed at the top of container
           </span>

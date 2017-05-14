@@ -9,10 +9,6 @@ import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
 const reqAnimFrame = getRequestAnimationFrame();
 
-const currentScrollTop = () => {
-  return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
-};
-
 const easeInOutCubic = (t, b, c, d) => {
   const cc = c - b;
   t /= d / 2;
@@ -53,8 +49,16 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     };
   }
 
+  getCurrentScrollTop = () => {
+    const targetNode = (this.props.target || getDefaultTarget)();
+    if (targetNode === window) {
+      return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+    }
+    return (targetNode as HTMLElement).scrollTop;
+  }
+
   scrollToTop = (e) => {
-    const scrollTop = currentScrollTop();
+    const scrollTop = this.getCurrentScrollTop();
     const startTime = Date.now();
     const frameFunc = () => {
       const timestamp = Date.now();
@@ -82,7 +86,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     const { visibilityHeight, target = getDefaultTarget } = this.props;
     const scrollTop = getScroll(target(), true);
     this.setState({
-      visible: scrollTop > visibilityHeight,
+      visible: scrollTop > (visibilityHeight as number),
     });
   }
 

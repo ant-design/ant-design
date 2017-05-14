@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import RadioButton from './radioButton';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import assign from 'object-assign';
+import { AbstractCheckboxGroupProps } from '../checkbox/Group';
 
 function getCheckedValue(children) {
   let value = null;
@@ -17,19 +17,11 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export interface RadioGroupProps {
-  prefixCls?: string;
-  className?: string;
-  /** 选项变化时的回调函数*/
-  onChange?: React.FormEventHandler<any>;
-  /** 用于设置当前选中的值*/
-  value?: string | number;
-  /** 默认选中的值*/
+export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: string | number;
-  /**  大小，只对按钮样式生效*/
+  value?: string | number;
+  onChange?: React.FormEventHandler<any>;
   size?: 'large' | 'default' | 'small';
-  style?: React.CSSProperties;
-  disabled?: boolean;
   onMouseEnter?: React.FormEventHandler<any>;
   onMouseLeave?: React.FormEventHandler<any>;
 }
@@ -38,6 +30,11 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   static defaultProps = {
     disabled: false,
   };
+
+  static childContextTypes = {
+    radioGroup: PropTypes.any,
+  };
+
   constructor(props) {
     super(props);
     let value;
@@ -53,6 +50,17 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       value,
     };
   }
+
+  getChildContext() {
+    return {
+      radioGroup: {
+        onChange: this.onRadioChange,
+        value: this.state.value,
+        disabled: this.props.disabled,
+      },
+    };
+  }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
@@ -67,9 +75,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
     }
   }
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !shallowEqual(this.props, nextProps) ||
+      !shallowEqual(this.state, nextState);
   }
+
   onRadioChange = (ev) => {
     const lastValue = this.state.value;
     const { value } = ev.target;
@@ -86,21 +97,44 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
-      if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
-        return React.cloneElement(radio, assign({}, radio.props, {
-          onChange: this.onRadioChange,
-          checked: this.state.value === radio.props.value,
-          disabled: radio.props.disabled || this.props.disabled,
-        }));
-      }
-      return radio;
-    });
-
     const { prefixCls = 'ant-radio-group', className = '' } = props;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${props.size}`]: props.size,
     }, className);
+
+    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
+
+    // 如果存在 options, 优先使用
+    if (props.options && props.options.length > 0) {
+      children = props.options.map((option, index) => {
+        if (typeof option === 'string') { // 此处类型自动推导为 string
+          return (
+            <Radio
+              key={index}
+              disabled={this.props.disabled}
+              value={option}
+              onChange={this.onRadioChange}
+              checked={this.state.value === option}
+            >
+              {option}
+            </Radio>
+          );
+        } else { // 此处类型自动推导为 { label: string value: string }
+          return (
+            <Radio
+              key={index}
+              disabled={option.disabled || this.props.disabled}
+              value={option.value}
+              onChange={this.onRadioChange}
+              checked={this.state.value === option.value}
+            >
+              {option.label}
+            </Radio>
+          );
+        }
+      });
+    }
+
     return (
       <div
         className={classString}

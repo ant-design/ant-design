@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过使用 `onFieldsChange` 与 `mapPropsToFields`，可以把表单的数据存储到上层组件或者 [Redux](https://github.com/reactjs/redux)、[dva](https://github.com/dvajs/dva) 中。
+通过使用 `onFieldsChange` 与 `mapPropsToFields`，可以把表单的数据存储到上层组件或者 [Redux](https://github.com/reactjs/redux)、[dva](https://github.com/dvajs/dva) 中，更多可参考 [rc-form 示例](http://react-component.github.io/form/examples/redux.html)。
 
 ## en-US
 
-We can store form data into upper component or [Redux](https://github.com/reactjs/redux) or [dva](https://github.com/dvajs/dva) by using `onFieldsChange` and `mapPropsToFields`.
+We can store form data into upper component or [Redux](https://github.com/reactjs/redux) or [dva](https://github.com/dvajs/dva) by using `onFieldsChange` and `mapPropsToFields`, see more at this [rc-form demo](http://react-component.github.io/form/examples/redux.html).
 
 ````jsx
 import { Form, Input } from 'antd';
@@ -35,7 +35,7 @@ const CustomizedForm = Form.create({
 })((props) => {
   const { getFieldDecorator } = props.form;
   return (
-    <Form inline>
+    <Form layout="inline">
       <FormItem label="Username">
         {getFieldDecorator('username', {
           rules: [{ required: true, message: 'Username is required!' }],
@@ -45,21 +45,19 @@ const CustomizedForm = Form.create({
   );
 });
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      fields: {
-        username: {
-          value: 'benjycui',
-        },
+class Demo extends React.Component {
+  state = {
+    fields: {
+      username: {
+        value: 'benjycui',
       },
-    };
-  },
-  handleFormChange(changedFields) {
+    },
+  };
+  handleFormChange = (changedFields) => {
     this.setState({
       fields: { ...this.state.fields, ...changedFields },
     });
-  },
+  }
   render() {
     const fields = this.state.fields;
     return (
@@ -70,8 +68,8 @@ const Demo = React.createClass({
         </pre>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

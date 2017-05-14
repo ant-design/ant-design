@@ -34,7 +34,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onChange   | A callback function, can be executed when uploading state is changing. See [onChange](#onChange)                | Function    | -   |
 | listType   | Built-in stylesheets, support for two types: `text` or `picture`     | string      | 'text'|
 | onPreview  | A callback function, will be executed when file link or preview icon is clicked.  | Function(file) | -  |
-| onRemove   | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` | Function(file): boolean | -   |
+| onRemove   | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject. | Function(file): `boolean | Promise` | -   |
 | supportServerRender | Need to be turned on while the server side is rendering.| boolean | false    |
 | disabled | disable upload button | boolean | false    |
 | withCredentials | ajax upload with cookie sent | boolean | false |

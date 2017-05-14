@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { cloneElement } from 'react';
 import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
@@ -21,7 +22,7 @@ function getBreadcrumbName(route, params) {
   const paramsKeys = Object.keys(params).join('|');
   const name = route.breadcrumbName.replace(
     new RegExp(`:(${paramsKeys})`, 'g'),
-    (replacement, key) => params[key] || replacement
+    (replacement, key) => params[key] || replacement,
   );
   return name;
 }
@@ -43,12 +44,12 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    separator: React.PropTypes.node,
-    routes: React.PropTypes.array,
-    params: React.PropTypes.object,
-    linkRender: React.PropTypes.func,
-    nameRender: React.PropTypes.func,
+    prefixCls: PropTypes.string,
+    separator: PropTypes.node,
+    routes: PropTypes.array,
+    params: PropTypes.object,
+    linkRender: PropTypes.func,
+    nameRender: PropTypes.func,
   };
 
   componentDidMount() {
@@ -56,7 +57,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     warning(
       !('linkRender' in props || 'nameRender' in props),
       '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
-      'see: http://u.ant.design/item-render.'
+      'see: http://u.ant.design/item-render.',
     );
   }
 
@@ -77,20 +78,20 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         if (path) {
           paths.push(path);
         }
-        if (route.breadcrumbName) {
-          return (
-            <BreadcrumbItem separator={separator} key={route.breadcrumbName}>
-              {itemRender(route, params, routes, paths)}
-            </BreadcrumbItem>
-          );
-        }
-        return null;
+        return (
+          <BreadcrumbItem separator={separator} key={route.breadcrumbName || path}>
+            {itemRender(route, params, routes, paths)}
+          </BreadcrumbItem>
+        );
       });
     } else if (children) {
       crumbs = React.Children.map(children, (element: any, index) => {
+        if (!element) {
+          return element;
+        }
         warning(
-          element && element.type.__ANT_BREADCRUMB_ITEM,
-          'Breadcrumb only accetps Breadcrumb.Item as it\'s children'
+          element.type && element.type.__ANT_BREADCRUMB_ITEM,
+          'Breadcrumb only accepts Breadcrumb.Item as it\'s children',
         );
         return cloneElement(element, {
           separator,

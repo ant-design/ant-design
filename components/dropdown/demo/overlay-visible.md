@@ -16,20 +16,18 @@ The default is to close the menu when you click on menu items, this feature can 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
-const OverlayVisible = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  handleMenuClick(e) {
+class OverlayVisible extends React.Component {
+  state = {
+    visible: false,
+  };
+  handleMenuClick = (e) => {
     if (e.key === '3') {
       this.setState({ visible: false });
     }
-  },
-  handleVisibleChange(flag) {
+  }
+  handleVisibleChange = (flag) => {
     this.setState({ visible: flag });
-  },
+  }
   render() {
     const menu = (
       <Menu onClick={this.handleMenuClick}>
@@ -48,8 +46,8 @@ const OverlayVisible = React.createClass({
         </a>
       </Dropdown>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<OverlayVisible />, mountNode);
 ````

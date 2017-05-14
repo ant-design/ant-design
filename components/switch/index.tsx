@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 
@@ -18,12 +18,13 @@ export interface SwitchProps {
 export default class Switch extends React.Component<SwitchProps, any> {
   static defaultProps = {
     prefixCls: 'ant-switch',
-    size: 'default',
   };
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'default']),
+    // HACK: https://github.com/ant-design/ant-design/issues/5368
+    // size=default and size=large are the same
+    size: PropTypes.oneOf(['small', 'default', 'large']),
     className: PropTypes.string,
   };
 

@@ -17,8 +17,8 @@ title: TreeSelect
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| value    | 指定当前选中的条目 | 通常: string/string[]. 设置 labelInValue: { value: string, label: ReactNode }/Array<{ value: string, label: ReactNode }>. 设置 treeCheckStrictly(halfChecked 默认为 false): { value: string, label: ReactNode, halfChecked: string[] }/Array<{ value: string, label: ReactNode, halfChecked: string[] }>. |  -  |
-| labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | boolean | false |
+| value    | 指定当前选中的条目 | string/string[] |  -  |
+| labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 `{key: string, label: ReactNode, halfChecked(treeCheckStrictly 时有效): string[] }` 的格式 | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/string[]   |  -  |
 | multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
 | onSelect | 被选中时调用 | function(value, node, extra) | -   |
@@ -29,7 +29,7 @@ title: TreeSelect
 | searchPlaceholder | 搜索框默认文字 | string | - |
 | dropdownStyle | 下拉菜单的样式 | object | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| size    | 选择框大小，可选 `large` `small`  | string      |      default      |
+| size    | 选择框大小，可选 `large` `small`  | string      | 'default' |
 | showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | showCheckedStrategy | `TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |

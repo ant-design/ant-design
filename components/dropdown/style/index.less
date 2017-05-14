@@ -50,7 +50,7 @@
 
     &-item,
     &-submenu-title {
-      padding: 7px 16px;
+      padding: 7px 8px;
       margin: 0;
       clear: both;
       font-size: @font-size-base;
@@ -58,23 +58,32 @@
       color: @text-color;
       white-space: nowrap;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all .3s;
 
       > a {
         color: @text-color;
         display: block;
-        padding: 7px 16px;
-        margin: -7px -16px;
+        padding: 7px 8px;
+        margin: -7px -8px;
+        transition: all .3s;
+        &:focus {
+          text-decoration: none;
+        }
+      }
+
+      &-selected,
+      &-selected > a {
+        color: @primary-color;
+        background-color: @item-active-bg;
       }
 
       &:hover {
-        background-color: @primary-1;
+        background-color: @item-hover-bg;
       }
 
       &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
-        pointer-events: none;
 
         &:hover {
           color: @disabled-color;
@@ -83,15 +92,18 @@
         }
       }
 
-      &:first-child {
+      &:first-child,
+      &:first-child > a {
         border-radius: @border-radius-base @border-radius-base 0 0;
       }
 
-      &:last-child {
+      &:last-child,
+      &:last-child > a {
         border-radius: 0 0 @border-radius-base @border-radius-base;
       }
 
-      &:only-child {
+      &:only-child,
+      &:only-child > a {
         border-radius: @border-radius-base;
       }
 
@@ -107,7 +119,7 @@
       font-family: "anticon" !important;
       position: absolute;
       content: "\e61f";
-      right: 12px;
+      right: 8px;
       color: @text-color-secondary;
       .iconfont-size-under-12px(10px);
     }
@@ -176,9 +188,37 @@
   white-space: nowrap;
 
   &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
-    padding-right: 7px;
+    padding-right: 8px;
   }
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
+  }
+}
+
+// https://github.com/ant-design/ant-design/issues/4903
+.@{dropdown-prefix-cls}-menu-dark {
+  &,
+  .@{dropdown-prefix-cls}-menu {
+    background: @menu-dark-bg;
+  }
+  .@{dropdown-prefix-cls}-menu-item,
+  .@{dropdown-prefix-cls}-menu-submenu-title,
+  .@{dropdown-prefix-cls}-menu-item > a {
+    color: @text-color-secondary-dark;
+    &:after {
+      color: @text-color-secondary-dark;
+    }
+    &:hover {
+      color: #fff;
+      background: transparent;
+    }
+  }
+  .@{dropdown-prefix-cls}-menu-item-selected {
+    &,
+    &:hover,
+    > a {
+      background: @primary-color;
+      color: #fff;
+    }
   }
 }

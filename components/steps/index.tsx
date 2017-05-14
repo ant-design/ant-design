@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import RcSteps from 'rc-steps';
 
 export interface StepsProps {

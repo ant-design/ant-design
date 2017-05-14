@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 查询模式 - 不确定类目
   en-US: Lookup-Patterns - Uncertain Category
@@ -47,24 +47,22 @@ function renderOption(item) {
         {item.category}
       </a>
       区块中
-      <span style={{ float: 'right' }}>约 {item.count} 个结果</span>
+      <span className="global-search-item-count">约 {item.count} 个结果</span>
     </Option>
   );
 }
 
-const Complete = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: [],
-    };
-  },
-  handleChange(value) {
-    if (value) {
-      this.setState({
-        dataSource: searchResult(value),
-      });
-    }
-  },
+class Complete extends React.Component {
+  state = {
+    dataSource: [],
+  }
+
+  handleSearch = (value) => {
+    this.setState({
+      dataSource: value ? searchResult(value) : [],
+    });
+  }
+
   render() {
     const { dataSource } = this.state;
     return (
@@ -75,7 +73,7 @@ const Complete = React.createClass({
           style={{ width: '100%' }}
           dataSource={dataSource.map(renderOption)}
           onSelect={onSelect}
-          onChange={this.handleChange}
+          onSearch={this.handleSearch}
           placeholder="input here"
           optionLabelProp="text"
         >
@@ -89,8 +87,8 @@ const Complete = React.createClass({
         </AutoComplete>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Complete />, mountNode);
 ````
@@ -104,35 +102,25 @@ ReactDOM.render(<Complete />, mountNode);
   width: 100%;
 }
 
-.global-search.ant-select-auto-complete .ant-input {
-  height: 40px;
-  padding: 11px 12px;
-}
-
-.global-search.ant-select-auto-complete .ant-select-selection__placeholder {
-  top: 20px;
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
-.global-search .search-btn {
-  font-size: 18px;
-}
-
 .global-search.ant-select-auto-complete .ant-select-selection--single {
-  margin-right: -50px;
+  margin-right: -46px;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input:not(:last-child) {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
   padding-right: 62px;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
   right: 0;
 }
 
-.global-search.ant-select-auto-complete .ant-input-preSuffix-wrapper .ant-input-suffix button {
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.global-search-item-count {
+  position: absolute;
+  right: 16px;
 }
 ````

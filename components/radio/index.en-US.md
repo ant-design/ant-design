@@ -31,3 +31,4 @@ radio group，wrap a group of `Radio`。
 | value | Used for setting the currently selected value. | any            | none     | none     |
 | defaultValue   | Default selected value                     | any            | none     | none     |
 | size           | Size, only on radio style           | string            | `large` `default` `small` | `default` |
+| options        | set children optional               | string[] \| Array<{ label: string value: string disabled?: boolean }>            | 无     | 无     |

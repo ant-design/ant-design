@@ -59,6 +59,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
+| onOk | callback when click ok button | function() | - |
 
 ### MonthPicker
 
@@ -81,6 +82,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
+| onOk | callback when click ok button | function() | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {

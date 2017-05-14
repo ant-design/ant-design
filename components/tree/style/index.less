@@ -11,40 +11,40 @@
   padding: 5px;
   font-size: @font-size-base;
   li {
-    padding: 1.5px 0;
+    padding: 4px 0;
     margin: 0;
     list-style: none;
     white-space: nowrap;
     outline: 0;
-    a[draggable],
-    a[draggable="true"] {
+    span[draggable],
+    span[draggable="true"] {
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
-
+      margin-top: -2px;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
     }
     &.drag-over {
-      > a[draggable] {
+      > span[draggable] {
         background-color: @primary-color;
         color: white;
         opacity: 0.8;
       }
     }
     &.drag-over-gap-top {
-      > a[draggable] {
+      > span[draggable] {
         border-top-color: @primary-color;
       }
     }
     &.drag-over-gap-bottom {
-      > a[draggable] {
+      > span[draggable] {
         border-bottom-color: @primary-color;
       }
     }
     &.filter-node {
-      > a {
+      > span {
         color: @highlight-color!important;
         font-weight: bold!important;
       }
@@ -53,7 +53,7 @@
       margin: 0;
       padding: 0 0 0 18px;
     }
-    a {
+    .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
       padding: 1px 5px;
       border-radius: 2px;
@@ -64,7 +64,7 @@
       color: @text-color;
       transition: all 0.3s ease;
       &:hover {
-        background-color: @primary-1;
+        background-color: @item-hover-bg;
       }
       &.@{tree-prefix-cls}-node-selected {
         background-color: @primary-2;
@@ -72,7 +72,8 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 2px 4px 0 0;
+        margin: 0 4px 0 2px;
+        vertical-align: middle;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
@@ -96,7 +97,7 @@
       }
       &.@{tree-prefix-cls}-switcher {
         &.@{tree-prefix-cls}-switcher-noop {
-          cursor: auto;
+          cursor: default;
         }
         &.@{tree-prefix-cls}-roots_open,
         &.@{tree-prefix-cls}-center_open,
@@ -111,8 +112,16 @@
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {
-            transform: rotate(270deg) scale(0.6);
+            transform: rotate(270deg) scale(0.59);
           }
+        }
+      }
+    }
+    &:last-child > span {
+      &.@{tree-prefix-cls}-switcher,
+      &.@{tree-prefix-cls}-iconEle {
+        &:before {
+          display: none;
         }
       }
     }
@@ -132,9 +141,9 @@
     }
   }
   &-treenode-disabled {
-    >span,
-    >a,
-    >a span {
+    > span,
+    > .@{tree-prefix-cls}-node-content-wrapper,
+    > .@{tree-prefix-cls}-node-content-wrapper span {
       color: @disabled-color;
       cursor: not-allowed;
     }
@@ -146,5 +155,40 @@
   &-icon__close {
     margin-right: 2px;
     vertical-align: top;
+  }
+  // Tree with line
+  &&-show-line {
+    li {
+      position: relative;
+      span {
+        &.@{tree-prefix-cls}-switcher {
+          background: @component-background;
+          &.@{tree-prefix-cls}-switcher-noop {
+            .antTreeShowLineIcon("tree-doc-icon");
+          }
+          &.@{tree-prefix-cls}-roots_open,
+          &.@{tree-prefix-cls}-center_open,
+          &.@{tree-prefix-cls}-bottom_open,
+          &.@{tree-prefix-cls}-noline_open {
+            .antTreeShowLineIcon("tree-showline-open-icon");
+          }
+          &.@{tree-prefix-cls}-roots_close,
+          &.@{tree-prefix-cls}-center_close,
+          &.@{tree-prefix-cls}-bottom_close,
+          &.@{tree-prefix-cls}-noline_close {
+            .antTreeShowLineIcon("tree-showline-close-icon");
+          }
+        }
+      }
+    }
+    li:not(:last-child):before {
+      content: ' ';
+      width: 1px;
+      border-left: 1px solid @border-color-base;
+      height: 100%;
+      position: absolute;
+      left: 6px;
+      margin: 18px 0;
+    }
   }
 }

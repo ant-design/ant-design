@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
@@ -29,6 +30,8 @@ function getOffset(element: HTMLElement, target) {
       scrollTop - clientTop,
     left: elemRect.left - targetRect.left +
       scrollLeft - clientLeft,
+    width: elemRect.width,
+    height: elemRect.height,
   };
 }
 
@@ -58,9 +61,9 @@ export interface AffixProps {
 
 export default class Affix extends React.Component<AffixProps, any> {
   static propTypes = {
-    offsetTop: React.PropTypes.number,
-    offsetBottom: React.PropTypes.number,
-    target: React.PropTypes.func,
+    offsetTop: PropTypes.number,
+    offsetBottom: PropTypes.number,
+    target: PropTypes.func,
   };
 
   scrollEvent: any;
@@ -136,38 +139,40 @@ export default class Affix extends React.Component<AffixProps, any> {
     const targetRect = getTargetRect(targetNode);
     const targetInnerHeight =
       (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
-    if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
+    if (scrollTop > elemOffset.top - (offsetTop as number) && offsetMode.top) {
       // Fixed Top
+      const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
-        top: targetRect.top + offsetTop,
+        top: targetRect.top + (offsetTop as number),
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
       this.setPlaceholderStyle({
-        width: affixNode.offsetWidth,
+        width,
         height: affixNode.offsetHeight,
       });
     } else if (
-      scrollTop < elemOffset.top + elemSize.height + offsetBottom - targetInnerHeight &&
+      scrollTop < elemOffset.top + elemSize.height + (offsetBottom as number) - targetInnerHeight &&
         offsetMode.bottom
     ) {
       // Fixed Bottom
       const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
+      const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
-        bottom: targetBottomOffet + offsetBottom,
+        bottom: targetBottomOffet + (offsetBottom as number),
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
       this.setPlaceholderStyle({
-        width: affixNode.offsetWidth,
+        width,
         height: affixNode.offsetHeight,
       });
     } else {
       const { affixStyle } = this.state;
       if (e.type === 'resize' && affixStyle && affixStyle.position === 'fixed' && affixNode.offsetWidth) {
-        this.setAffixStyle(e, {...affixStyle, width: affixNode.offsetWidth });
+        this.setAffixStyle(e, { ...affixStyle, width: affixNode.offsetWidth });
       } else {
         this.setAffixStyle(e, null);
       }
@@ -222,7 +227,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
     });
 
-    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
+    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
     const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
       <div {...props} style={placeholderStyle}>

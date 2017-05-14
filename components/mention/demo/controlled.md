@@ -7,28 +7,26 @@ title:
 
 ## zh-CN
 
-受控模式，例如配合 Form 使用
+受控模式，例如配合 Form 使用。
 
 ## en-US
 
-Controlled mode, for example, to work with `Form` .
+Controlled mode, for example, to work with `Form`.
 
 ````jsx
 import { Mention, Form, Button } from 'antd';
-const { toEditorState, getMentions } = Mention;
+const { toContentState, getMentions } = Mention;
 const FormItem = Form.Item;
 
-let App = React.createClass({
-  getInitialState() {
-    return {
-      initValue: toEditorState('@afc163'),
-    };
-  },
-  handleReset(e) {
+class App extends React.Component {
+  state = {
+    initValue: toContentState('@afc163'),
+  }
+  handleReset = (e) => {
     e.preventDefault();
     this.props.form.resetFields();
-  },
-  handleSubmit(e) {
+  }
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
@@ -38,8 +36,8 @@ let App = React.createClass({
       console.log('Submit!!!');
       console.log(values);
     });
-  },
-  checkMention(rule, value, callback) {
+  }
+  checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
     const mentions = getMentions(getFieldValue('mention'));
     if (mentions.length < 2) {
@@ -47,17 +45,17 @@ let App = React.createClass({
     } else {
       callback();
     }
-  },
+  }
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
     return (
-      <Form horizontal>
+      <Form layout="horizontal">
         <FormItem
           id="control-mention"
           label="Top coders"
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}
+          wrapperCol={{ span: 16 }}
         >
           {getFieldDecorator('mention', {
             rules: [
@@ -67,6 +65,7 @@ let App = React.createClass({
           })(
             <Mention
               suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+              style={{ height: 60 }}
             />
           )}
         </FormItem>
@@ -77,10 +76,10 @@ let App = React.createClass({
         </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
-App = Form.create()(App);
+const FormDemo = Form.create()(App);
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<FormDemo />, mountNode);
 ````

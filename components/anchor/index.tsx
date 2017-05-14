@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import AnchorLink from './AnchorLink';
@@ -6,14 +7,15 @@ import Affix from '../affix';
 import AnchorHelper, { getDefaultTarget } from './anchorHelper';
 
 export interface AnchorProps {
-  target: () => HTMLElement | Window;
-  children: React.ReactNode;
+  target?: () => HTMLElement | Window;
+  children?: React.ReactNode;
   prefixCls?: string;
   offsetTop?: number;
   bounds?: number;
   className?: string;
   style?: React.CSSProperties;
   affix?: boolean;
+  showInkInFixed?: boolean;
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
@@ -22,10 +24,11 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   static defaultProps = {
     prefixCls: 'ant-anchor',
     affix: true,
+    showInkInFixed: false,
   };
 
   static childContextTypes = {
-    anchorHelper: React.PropTypes.any,
+    anchorHelper: PropTypes.any,
   };
 
   refs: {
@@ -36,7 +39,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   private anchorHelper: AnchorHelper;
   private _avoidInk: boolean;
 
-  constructor(props) {
+  constructor(props: AnchorProps) {
     super(props);
     this.state = {
       activeAnchor: null,
@@ -82,7 +85,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }
   }
 
-  clickAnchorLink = (href, component) => {
+  clickAnchorLink = (href: string, component: HTMLElement) => {
     this._avoidInk = true;
     this.refs.ink.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
     this.anchorHelper.scrollTo(href, this.props.offsetTop, getDefaultTarget, () => {
@@ -90,15 +93,16 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
   }
 
-  renderAnchorLink = (child) => {
+  renderAnchorLink = (child: React.ReactElement<any>) => {
     const { href } = child.props;
-    if (href) {
+    const { type } = child as any;
+    if (type.__ANT_ANCHOR_LINK && href) {
       this.anchorHelper.addLink(href);
       return React.cloneElement(child, {
         onClick: this.clickAnchorLink,
         prefixCls: this.props.prefixCls,
         bounds: this.props.bounds,
-        affix: this.props.affix,
+        affix: this.props.affix || this.props.showInkInFixed,
         offsetTop: this.props.offsetTop,
       });
     }
@@ -106,7 +110,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   render() {
-    const { prefixCls, offsetTop, style, className = '', affix } = this.props;
+    const { prefixCls, offsetTop, style, className = '', affix, showInkInFixed } = this.props;
     const { activeAnchor, animated } = this.state;
     const inkClass = classNames({
       [`${prefixCls}-ink-ball`]: true,
@@ -119,7 +123,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }, className);
 
     const anchorClass = classNames(prefixCls, {
-      'fixed': !affix,
+      'fixed': !affix && !showInkInFixed,
     });
 
     const anchorContent = (
@@ -128,7 +132,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
           <div className={`${prefixCls}-ink`} >
             <span className={inkClass} ref="ink" />
           </div>
-          {React.Children.map(this.props.children, this.renderAnchorLink)}
+          {React.Children.toArray(this.props.children).map(this.renderAnchorLink)}
         </div>
       </div>
     );

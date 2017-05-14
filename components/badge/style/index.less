@@ -123,19 +123,10 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: transform .3s @ease-in-out;
+    transition: all .3s @ease-in-out;
     height: @badge-height;
     > p {
       height: @badge-height;
-    }
-  }
-  // for IE8/9 display
-  &.not-support-css-animation &-only {
-    > p {
-      display: none;
-      &.current {
-        display: block;
-      }
     }
   }
 }

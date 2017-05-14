@@ -17,7 +17,7 @@ Ant Design which is specially created for internal desktop applications, is comm
 
 We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
 
-- [Principles](/docs/spec/principle)
+- [Principles](/docs/spec/proximity)
 - [Patterns](/docs/pattern/navigation)
 - [Resource Download](/docs/resource/download)
 
@@ -29,7 +29,7 @@ We supply a series of design principles, practical patterns and high quality des
 - <div class="outside-link internal"><a href="http://zorro.alibaba.net" target="_blank">Ant Design of Angular 2</a></div>
 - <div class="outside-link"><a href="https://github.com/iview/iview/" target="_blank">iView (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty</a></div>
-- <div class="outside-link"><a href="http://aliqin.github.io/" target="_blank">ATUI (vue)</a></div>
+- <div class="outside-link"><a href="https://github.com/aliqin/atui" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
 ## Who's using Ant Design

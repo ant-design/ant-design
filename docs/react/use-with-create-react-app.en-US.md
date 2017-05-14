@@ -96,8 +96,8 @@ Ok, you now see a blue primary button displaying in page now, next you can choos
 
 ## Advanced Guides
 
-We are successd to run antd components now, but in the real world, there are still lots of problems about antd-demo.
-For instance, we actully import all components in the project which will be a serious network perfermance issue.
+We are successfully running antd components now; but in the real world, there are still lots of problems about antd-demo.
+For instance, we actually import all components in the project which will cause a serious network perfermance issue.
 
 > You will see a warning in your browser console.
 > ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
@@ -188,8 +188,14 @@ loaders: [
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
 
----
+> Note, we only modified `webpack.config.dev.js` now, if you wish this config working on production environment, you need to update `webpack.config.prod.js` as well.
+
+## Source code and other boilerplates
 
 Finally, we use antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack config in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
 
-Source code about this article：https://github.com/ant-design/create-react-app-antd
+There are a lot of great boilerplates like create-react-app in React community. There are some source code samples of importing antd in them if you encounter some problems.
+
+- [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
+- [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
+- [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)

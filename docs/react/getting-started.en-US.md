@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers.
+Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v4.x) correctly.
 
 ---
 
@@ -23,7 +23,7 @@ Such features, together with packaging the production version are covered in thi
 
 ### 1. Installation
 
-> Please make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) before using `antd-init`.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) is our recommendation.
 
 ```bash
 $ npm install antd-init -g
@@ -33,13 +33,14 @@ Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/
 
 > Also, you can use scaffold/demo which is provided by community:
 >
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
 >   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [more](https://github.com/ant-design/ant-design/issues/129)
+>   - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ### 2. Create a New Project
 
@@ -160,15 +161,19 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If you see a log like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
+If you see logs like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
 
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
 
-But, we can import individual components on demand:
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+
+However, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
-import Button from 'antd/lib/button/style/css'; // import style
+import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
 ```
 
 We strongly recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:

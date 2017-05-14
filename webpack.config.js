@@ -18,12 +18,22 @@ function es3ify(webpackConfig) {
   });
 }
 
+function addLocales(webpackConfig) {
+  let packageName = 'antd-with-locales';
+  if (webpackConfig.entry['antd.min']) {
+    packageName += '.min';
+  }
+  webpackConfig.entry[packageName] = './index-with-locales.js';
+  webpackConfig.output.filename = '[name].js';
+}
+
 module.exports = function (webpackConfig) {
   webpackConfig = getWebpackConfig(webpackConfig);
   if (process.env.RUN_ENV === 'PRODUCTION') {
     webpackConfig.forEach((config) => {
       es3ify(config);
       ignoreMomentLocale(config);
+      addLocales(config);
     });
   }
   return webpackConfig;

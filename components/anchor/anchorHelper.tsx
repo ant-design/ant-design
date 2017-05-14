@@ -3,7 +3,7 @@ import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
 export const reqAnimFrame = getRequestAnimationFrame();
 
-export const easeInOutCubic = (t, b, c, d) => {
+export const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   const cc = c - b;
   t /= d / 2;
   if (t < 1) {
@@ -17,7 +17,7 @@ export function getDefaultTarget() {
     window : null;
 }
 
-export function getOffsetTop(element): number {
+export function getOffsetTop(element: HTMLElement): number {
   if (!element) {
     return 0;
   }
@@ -28,10 +28,10 @@ export function getOffsetTop(element): number {
 
   const rect = element.getBoundingClientRect();
 
-  if ( rect.width || rect.height ) {
+  if (rect.width || rect.height) {
     const doc = element.ownerDocument;
     const docElem = doc.documentElement;
-    return  rect.top - docElem.clientTop;
+    return rect.top - docElem.clientTop;
   }
 
   return rect.top;
@@ -43,7 +43,7 @@ export type Section = {
   section: any;
 };
 
-export function scrollTo(href, offsetTop = 0, target = getDefaultTarget, callback = () => {}) {
+export function scrollTo(href: string, offsetTop = 0, target = getDefaultTarget, callback = () => { }) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
@@ -68,7 +68,7 @@ export function scrollTo(href, offsetTop = 0, target = getDefaultTarget, callbac
 
 class AnchorHelper {
   private links: Array<string>;
-  private currentAnchor: HTMLElement | null;
+  private currentAnchor: HTMLAnchorElement | null;
   private _activeAnchor: string;
 
   constructor() {
@@ -77,17 +77,17 @@ class AnchorHelper {
     this._activeAnchor = '';
   }
 
-  addLink(link) {
+  addLink(link: string) {
     if (this.links.indexOf(link) === -1) {
       this.links.push(link);
     }
   }
 
-  getCurrentActiveAnchor(): HTMLElement | null {
+  getCurrentActiveAnchor(): HTMLAnchorElement | null {
     return this.currentAnchor;
   }
 
-  setActiveAnchor(component) {
+  setActiveAnchor(component: HTMLAnchorElement) {
     this.currentAnchor = component;
   }
 
@@ -98,21 +98,21 @@ class AnchorHelper {
     }
 
     const linksPositions = (this.links
-    .map(section => {
-      const target = document.getElementById(section.substring(1));
-      if (target && getOffsetTop(target) < offsetTop + bounds) {
-        const top = getOffsetTop(target);
-        if (top <= offsetTop + bounds) {
-          return {
-            section,
-            top,
-            bottom: top + target.clientHeight,
-          };
+      .map(section => {
+        const target = document.getElementById(section.substring(1));
+        if (target && getOffsetTop(target) < offsetTop + bounds) {
+          const top = getOffsetTop(target);
+          if (top <= offsetTop + bounds) {
+            return {
+              section,
+              top,
+              bottom: top + target.clientHeight,
+            };
+          }
         }
-      }
-      return null;
-    })
-    .filter(section => section !== null) as Array<Section>);
+        return null;
+      })
+      .filter(section => section !== null) as Array<Section>);
 
     if (linksPositions.length) {
       const maxSection = linksPositions.reduce((prev, curr) => curr.top > prev.top ? curr : prev);
@@ -121,7 +121,7 @@ class AnchorHelper {
     return '';
   }
 
-  scrollTo(href, offsetTop, target = getDefaultTarget, callback = () => {}) {
+  scrollTo(href: string, offsetTop: number | undefined, target = getDefaultTarget, callback = () => { }) {
     scrollTo(href, offsetTop, target, callback);
   }
 }

@@ -18,15 +18,14 @@ import { Tabs, Select } from 'antd';
 const TabPane = Tabs.TabPane;
 const Option = Select.Option;
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      tabPosition: 'top',
-    };
-  },
-  changeTabPosition(tabPosition) {
+
+class Demo extends React.Component {
+  state = {
+    tabPosition: 'top',
+  }
+  changeTabPosition = (tabPosition) => {
     this.setState({ tabPosition });
-  },
+  }
   render() {
     return (
       <div>
@@ -48,8 +47,8 @@ const Demo = React.createClass({
         </Tabs>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

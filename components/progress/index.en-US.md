@@ -17,7 +17,7 @@ If it will take a long time to complete the operation, you can use `Progress` to
 
 Property | Description | Type | Default
 -----|-----|-----|------
-type | to set the type, options: `line` `circle` | string | line
+type | to set the type, options: `line` `circle` `dashboard`| string | line
 percent | to set the completion percentage | number | 0
 format | template function of the content | function(percent) | `percent => percent + '%'`
 status | to set the status of the progress, options: `success` `exception` `active` | string | -

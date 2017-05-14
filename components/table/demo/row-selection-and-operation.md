@@ -38,14 +38,12 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      selectedRowKeys: [],  // Check here to configure the default column
-      loading: false,
-    };
-  },
-  start() {
+class App extends React.Component {
+  state = {
+    selectedRowKeys: [],  // Check here to configure the default column
+    loading: false,
+  };
+  start = () => {
     this.setState({ loading: true });
     // ajax request after empty completing
     setTimeout(() => {
@@ -54,11 +52,11 @@ const App = React.createClass({
         loading: false,
       });
     }, 1000);
-  },
-  onSelectChange(selectedRowKeys) {
+  }
+  onSelectChange = (selectedRowKeys) => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
-  },
+  }
   render() {
     const { loading, selectedRowKeys } = this.state;
     const rowSelection = {
@@ -77,8 +75,8 @@ const App = React.createClass({
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

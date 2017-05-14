@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 5
 title: 直截了当
 ---
@@ -53,13 +53,3 @@ title: 直截了当
 拖放图片/文件
 
 <br>
-
-<p><span class="waiting">拖放对象（敬请期待）</span></p>
-
-<p><span class="waiting">拖放多个对象（敬请期待）</span></p>
-
-<br>
-
----
-
-<h2><span class="waiting">直接选择（敬请期待）</span></h2>

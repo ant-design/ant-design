@@ -99,5 +99,3 @@ title:
 <img class="preview-img" align="right" alt="两层折叠面板表格" src="https://os.alipayobjects.com/rmsportal/XaJeuLfHeSSXCJq.png">
 
 <br />
-
-<h2><span class="waiting">案例（敬请期待）</span></h2>

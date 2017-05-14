@@ -27,6 +27,7 @@ Badge normally appears in proximity to notification or head picture with eye-cat
 |----------------|-------------------------|------------|---------|
 | count          | Number to show in badge | number     |         |
 | overflowCount  | Max count to show       | number     | 99      |
+| showZero       | Whether to show badge when `count` is zero   | boolean | false |
 | dot            | Whether to show red dot without number | boolean | false  |
 | status         | Set Badge as a status dot | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
 | text           | If `status` is set, `text` is to set the text of status dot | string | '' |

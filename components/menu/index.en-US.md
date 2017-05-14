@@ -30,6 +30,7 @@ More layout and samples: [layout](/docs/spec/layout).
 |----------|---------------|----------|--------------|
 | theme    | color of the theme | string: `light` `dark` | `light` |
 | mode | type of the menu; vertical, horizontal, and inline modes are supported | string: vertical horizontal inline | vertical |
+| selectable | allow selecting menu items | boolean | true |
 | selectedKeys | array with the keys of currently selected menu items | string[] |      |
 | defaultSelectedKeys | array with the keys of default selected menu items | string[] |      |
 | openKeys | array with the keys of currently opened sub menus | string[] |  |
@@ -40,6 +41,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | onClick | callback of the clicked menu item, params: {item, key, keyPath} | function | - |
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
+| multiple | Allow select multiple item | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
@@ -57,7 +59,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | disabled    | disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
-| children | sub menus or sub menu items | Arrat<MenuItem\|SubMenu> |  |
+| children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
 | onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |
 
 ### Menu.ItemGroup props

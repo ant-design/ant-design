@@ -58,7 +58,8 @@ ReactDOM.render(
 ````
 
 ````css
-.column-money {
-  text-align: right;
+th.column-money,
+td.column-money {
+  text-align: right!important;
 }
 ````

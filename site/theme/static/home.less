@@ -10,7 +10,7 @@
   top: 53%;
   color: #fff;
   text-align: right;
-  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  font-family: Lato, @font-family;
 }
 .banner-text-wrapper h2 {
   font-size: 40px;
@@ -19,7 +19,7 @@
   white-space: nowrap;
 }
 .banner-text-wrapper h2 p {
-  color: #FF3171;
+  color: #ff3171;
   display: inline-block;
 }
 .banner-text-wrapper .line {
@@ -81,6 +81,7 @@
   color: rgba(255, 255, 255, .75);
   left: 50%;
   margin-left: -7px;
+  animation: upDownMove 1.2s ease-in-out infinite alternate;
 }
 
 .page {
@@ -107,7 +108,7 @@
     position: relative;
     top: 20%;
     left: -30px;
-    font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+    font-family: Lato, @font-family;
     z-index: 1;
   }
   .text-wrapper h2,
@@ -121,7 +122,7 @@
     margin: 10px 0 20px;
     font-size: 16px;
     line-height: 28px;
-    color: #999999;
+    color: #999;
   }
   .left-text {
     padding-left: 10%;
@@ -163,4 +164,10 @@
   font-size: 16px;
   line-height: 28px;
   color: #999;
+}
+
+@keyframes upDownMove {
+  to {
+    transform: translateY(10px);
+  }
 }

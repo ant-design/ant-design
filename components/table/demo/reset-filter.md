@@ -46,37 +46,35 @@ const data = [{
   address: 'London No. 2 Lake Park',
 }];
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      filteredInfo: null,
-      sortedInfo: null,
-    };
-  },
-  handleChange(pagination, filters, sorter) {
+class App extends React.Component {
+  state = {
+    filteredInfo: null,
+    sortedInfo: null,
+  };
+  handleChange = (pagination, filters, sorter) => {
     console.log('Various parameters', pagination, filters, sorter);
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
     });
-  },
-  clearFilters() {
+  }
+  clearFilters = () => {
     this.setState({ filteredInfo: null });
-  },
-  clearAll() {
+  }
+  clearAll = () => {
     this.setState({
       filteredInfo: null,
       sortedInfo: null,
     });
-  },
-  setAgeSort() {
+  }
+  setAgeSort = () => {
     this.setState({
       sortedInfo: {
         order: 'descend',
         columnKey: 'age',
       },
     });
-  },
+  }
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
@@ -122,8 +120,8 @@ const App = React.createClass({
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

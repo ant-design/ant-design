@@ -41,6 +41,7 @@ subtitle: 导航菜单
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key, keyPath} | function | - |
 | style | 根节点样式 | object | |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
+| multiple | 是否允许多选 | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

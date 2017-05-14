@@ -27,7 +27,6 @@ export default function getRequestAnimationFrame() {
 }
 
 export function cancelRequestAnimationFrame(id) {
-
   if (typeof window === 'undefined') {
     return null;
   }
@@ -35,7 +34,7 @@ export function cancelRequestAnimationFrame(id) {
     return window.cancelAnimationFrame(id);
   }
   const prefix = availablePrefixs.filter(key =>
-    `${key}CancelAnimationFrame` in window || `${key}CancelRequestAnimationFrame` in window
+    `${key}CancelAnimationFrame` in window || `${key}CancelRequestAnimationFrame` in window,
   )[0];
 
   return prefix ?

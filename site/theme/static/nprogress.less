@@ -18,12 +18,12 @@
 #nprogress .peg {
   display: block;
   position: absolute;
-  right: 0px;
+  right: 0;
   width: 100px;
   height: 100%;
   box-shadow: 0 0 10px @primary-color, 0 0 5px @primary-color;
   opacity: 1;
-  transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0, -4px);
 }
 
 /* Remove these to get rid of the spinner */
@@ -57,6 +57,6 @@
 }
 
 @keyframes nprogress-spinner {
-  0%   { transform: rotate(0deg); }
+  0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }

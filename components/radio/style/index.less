@@ -27,7 +27,7 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -57,14 +57,14 @@
     position: relative;
     top: 0;
     left: 0;
-    display: inline-block;
+    display: block;
     width: 14px;
     height: 14px;
     border-width: 1px;
     border-style: solid;
     border-radius: 14px;
     border-color: @border-color-base;
-    background-color: @component-background;
+    background-color: @radio-button-bg;
     transition: all @radio-duration;
   }
 
@@ -95,10 +95,14 @@
 .@{radio-prefix-cls}-disabled {
   .@{radio-inner-prefix-cls} {
     border-color: @border-color-base!important;
-    background-color: #f3f3f3;
+    background-color: @input-disabled-bg;
     &:after {
       background-color: #ccc;
     }
+  }
+
+  .@{radio-prefix-cls}-input {
+    cursor: not-allowed;
   }
 
   & + span {
@@ -116,17 +120,17 @@ span.@{radio-prefix-cls} + * {
   margin: 0;
   height: @input-height-base;
   line-height: @input-height-base - 2;
-  color: @btn-default-color;
+  color: @radio-button-color;
   display: inline-block;
   transition: all 0.3s ease;
   cursor: pointer;
   border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
-  background: @component-background;
+  background: @radio-button-bg;
   padding: 0 16px;
 
   a {
-    color: @btn-default-color;
+    color: @radio-button-color;
   }
 
   > .@{radio-prefix-cls}-button {
@@ -181,7 +185,7 @@ span.@{radio-prefix-cls} + * {
   }
 
   &-checked {
-    background: @component-background;
+    background: @radio-button-bg;
     border-color: @primary-color;
     color: @primary-color;
     box-shadow: -1px 0 0 0 @primary-color;
@@ -193,27 +197,27 @@ span.@{radio-prefix-cls} + * {
 
     &:hover {
       border-color: @primary-5;
-      box-shadow: -1px 0 0 0@primary-5;
+      box-shadow: -1px 0 0 0 @primary-5;
       color: @primary-5;
     }
 
     &:active {
       border-color: @primary-7;
-      box-shadow: -1px 0 0 0@primary-7;
+      box-shadow: -1px 0 0 0 @primary-7;
       color: @primary-7;
     }
   }
 
   &-disabled {
     border-color: @border-color-base;
-    background-color: @background-color-base;
+    background-color: @input-disabled-bg;
     cursor: not-allowed;
     color: @disabled-color;
 
     &:first-child,
     &:hover {
       border-color: @border-color-base;
-      background-color: @background-color-base;
+      background-color: @input-disabled-bg;
       color: @disabled-color;
     }
     &:first-child {

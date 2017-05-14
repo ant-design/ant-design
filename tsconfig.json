@@ -5,7 +5,11 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "target": "es6"
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es7"
+    ]
   },
   "exclude": [
     "node_modules"

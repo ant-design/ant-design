@@ -94,7 +94,9 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
-| sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function\|boolean | - |
+| filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
+| filterIcon | 自定义 fiter 图标。| ReactNode | false |
+| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
 | className  | 列的 className             | string          |  -      |
@@ -120,6 +122,16 @@ const columns = [{
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true | - |
+
+### selection
+
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|---------|
+| key | React 需要的 key，建议设置 | string | -  |
+| text | 选择项显示的文字 | string\|React.ReactNode | -  |
+| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
 ## 在 TypeScript 中使用
 
@@ -156,7 +168,7 @@ class NameColumn extends Table.Column<IUser> {}
 
 ## 注意
 
-按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
+按照 [React 的规范](https://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 

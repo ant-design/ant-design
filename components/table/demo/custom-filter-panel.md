@@ -14,7 +14,7 @@ title:
 Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
 
 ````jsx
-import { Table, Input, Button } from 'antd';
+import { Table, Input, Button, Icon } from 'antd';
 
 const data = [{
   key: '1',
@@ -23,12 +23,12 @@ const data = [{
   address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: 'Jim Green',
+  name: 'Joe Black',
   age: 42,
   address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: 'Joe Black',
+  name: 'Jim Green',
   age: 32,
   address: 'Sidney No. 1 Lake Park',
 }, {
@@ -38,22 +38,22 @@ const data = [{
   address: 'London No. 2 Lake Park',
 }];
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      filterDropdownVisible: false,
-      data,
-      searchText: '',
-    };
-  },
-  onInputChange(e) {
+class App extends React.Component {
+  state = {
+    filterDropdownVisible: false,
+    data,
+    searchText: '',
+    filtered: false,
+  };
+  onInputChange = (e) => {
     this.setState({ searchText: e.target.value });
-  },
-  onSearch() {
+  }
+  onSearch = () => {
     const { searchText } = this.state;
     const reg = new RegExp(searchText, 'gi');
     this.setState({
       filterDropdownVisible: false,
+      filtered: !!searchText,
       data: data.map((record) => {
         const match = record.name.match(reg);
         if (!match) {
@@ -71,7 +71,7 @@ const App = React.createClass({
         };
       }).filter(record => !!record),
     });
-  },
+  }
   render() {
     const columns = [{
       title: 'Name',
@@ -80,6 +80,7 @@ const App = React.createClass({
       filterDropdown: (
         <div className="custom-filter-dropdown">
           <Input
+            ref={ele => this.searchInput = ele}
             placeholder="Search name"
             value={this.state.searchText}
             onChange={this.onInputChange}
@@ -88,8 +89,9 @@ const App = React.createClass({
           <Button type="primary" onClick={this.onSearch}>Search</Button>
         </div>
       ),
+      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
       filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }),
+      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus()),
     }, {
       title: 'Age',
       dataIndex: 'age',
@@ -98,10 +100,18 @@ const App = React.createClass({
       title: 'Address',
       dataIndex: 'address',
       key: 'address',
+      filters: [{
+        text: 'London',
+        value: 'London',
+      }, {
+        text: 'New York',
+        value: 'New York',
+      }],
+      onFilter: (value, record) => record.address.indexOf(value) === 0,
     }];
     return <Table columns={columns} dataSource={this.state.data} />;
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

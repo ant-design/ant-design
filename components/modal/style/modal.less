@@ -23,7 +23,8 @@
     margin: 0;
     font-size: @font-size-lg;
     line-height: 21px;
-    font-weight: bold;
+    font-weight: 500;
+    color: @heading-color;
   }
 
   &-content {
@@ -40,8 +41,8 @@
     border: 0;
     background: transparent;
     position: absolute;
-    right: 16px;
-    top: 16px;
+    right: 0;
+    top: 0;
     z-index: 10;
     font-weight: 700;
     line-height: 1;
@@ -57,10 +58,10 @@
       text-align: center;
       text-transform: none;
       text-rendering: auto;
-      width: 14px;
-      height: 14px;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
       font-size: @font-size-lg;
-      line-height: 1;
 
       &:before {
         content: "\e633";
@@ -77,7 +78,7 @@
   }
 
   &-header {
-    padding: 14px 16px;
+    padding: 13px 16px;
     border-radius: @border-radius-base @border-radius-base 0 0;
     background: @component-background;
     color: @text-color;
@@ -115,7 +116,7 @@
     left: 0;
     bottom: 0;
     background-color: #373737;
-    background-color: rgba(55, 55, 55, 0.6); // lesshint duplicateProperty: false
+    background-color: @modal-mask-bg; // lesshint duplicateProperty: false
     height: 100%;
     z-index: @zindex-modal-mask;
     filter: ~"alpha(opacity=50)";

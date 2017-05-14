@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.pagination', () => {
@@ -35,7 +34,7 @@ describe('Table.pagination', () => {
 
   it('renders pagination correctly', () => {
     const wrapper = render(createTable());
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('paginate data', () => {
@@ -56,9 +55,10 @@ describe('Table.pagination', () => {
 
   it('fires change event', () => {
     const handleChange = jest.fn();
+    const handlePaginationChange = jest.fn();
     const noop = () => {};
     const wrapper = mount(createTable({
-      pagination: { ...pagination, onChange: noop, onShowSizeChange: noop },
+      pagination: { ...pagination, onChange: handlePaginationChange, onShowSizeChange: noop },
       onChange: handleChange,
     }));
 
@@ -67,13 +67,13 @@ describe('Table.pagination', () => {
     expect(handleChange).toBeCalledWith(
       {
         current: 2,
-        onChange: noop,
-        onShowSizeChange: noop,
         pageSize: 2,
       },
       {},
       {}
     );
+
+    expect(handlePaginationChange).toBeCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
@@ -105,5 +105,13 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(1); // pageSize will be 10
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/5259
+  it('change to correct page when data source changes', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 1 } }));
+    wrapper.find('.ant-pagination-item-3').simulate('click');
+    wrapper.setProps({ dataSource: [data[0]] });
+    expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(true);
   });
 });

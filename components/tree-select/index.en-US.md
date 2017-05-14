@@ -18,8 +18,8 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 Property | Description | Type | Default
 -----|-----|-----|------
-value | To set the current selected treeNode(s). | __Default:__ string\|string[]. __With `labelInValue` set:__ { value: string, label: ReactNode }/Array<{ value: string, label: ReactNode }>. __With `treeCheckStrictly` set(`halfChecked` is set to `false`):__ { value: string, label: ReactNode, halfChecked: string[] }/Array<{ value: string, label: ReactNode, halfChecked: string[] }>. | -
-labelInValue | Determine whether to put `label` into `value`, the type of `value` as specified in the above | boolean | false
+value | To set the current selected treeNode(s). | string\|string[] | -
+labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode, halfChecked: string[]} | boolean | false
 defaultValue | To set the initial selected treeNode(s).  | string\|string[] | -
 multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | boolean | false
 onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | -
@@ -29,8 +29,8 @@ onSearch | A callback function, can be executed when the search input changes. |
 placeholder | Placeholder of the select input | string | -
 searchPlaceholder | Placeholder of the search input  | string | -
 dropdownStyle | To set the style of the dropdown menu  | object | -
-dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width  | boolean | -
-size | To set the size of the select input, options: `large` `small`  | string | default
+dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width  | boolean | true
+size | To set the size of the select input, options: `large` `small`  | string | 'default'
 showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false
 disabled | Disabled or not  | boolean | false
 showCheckedStrategy | __Default:__ just show child nodes. __`TreeSelect.SHOW_ALL`:__ show all checked treeNodes (include parent treeNode). __`TreeSelect.SHOW_PARENT`:__ show checked treeNodes (just show parent treeNode). | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD

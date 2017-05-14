@@ -16,13 +16,11 @@ Embedding content into `Spin` will alter it into loading state.
 ````jsx
 import { Spin, Switch, Alert } from 'antd';
 
-const Card = React.createClass({
-  getInitialState() {
-    return { loading: false };
-  },
-  toggle(value) {
+class Card extends React.Component {
+  state = { loading: false }
+  toggle = (value) => {
     this.setState({ loading: value });
-  },
+  }
   render() {
     const container = (
       <Alert
@@ -37,8 +35,8 @@ const Card = React.createClass({
         Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Card />, mountNode);
 ````

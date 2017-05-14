@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import List from '../list';
 import Checkbox from '../../checkbox';
 
@@ -18,13 +17,14 @@ const listCommonProps = {
     disabled: true,
   }],
   checkedKeys: ['a'],
+  notFoundContent: 'Not Found',
   lazy: false,
 };
 
 describe('List', () => {
   it('should render correctly', () => {
     const wrapper = render(<List {...listCommonProps} />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {

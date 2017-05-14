@@ -28,7 +28,7 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select
-    tags
+    mode="tags"
     style={{ width: '100%' }}
     onChange={handleChange}
     tokenSeparators={[',']}
