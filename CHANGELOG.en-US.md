@@ -32,8 +32,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Add new `fork` icon.
 - Add some less variables. [#6039](https://github.com/ant-design/ant-design/pull/6039) [#6038](https://github.com/ant-design/ant-design/pull/6038) [#6105](https://github.com/ant-design/ant-design/issues/6105) [#6040](https://github.com/ant-design/ant-design/pull/6040)
 
-
-
 ## 2.10.0
 
 `2017-05-02`
