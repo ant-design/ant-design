@@ -534,9 +534,9 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       <label
         class="ant-form-item-required"
         for="username"
-        title="姓名"
+        title="Name"
       >
-        姓名
+        Name
       </label>
     </div>
     <div
@@ -549,7 +549,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-input ant-input-lg"
           data-__meta="[object Object]"
           id="username"
-          placeholder="请输入姓名"
+          placeholder="Please input your name"
           type="text"
           value=""
         />
@@ -565,9 +565,9 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       <label
         class=""
         for="nickname"
-        title="昵称"
+        title="Nickname"
       >
-        昵称
+        Nickname
       </label>
     </div>
     <div
@@ -580,7 +580,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-input ant-input-lg"
           data-__meta="[object Object]"
           id="nickname"
-          placeholder="请输入昵称"
+          placeholder="Please input your nickname"
           type="text"
           value=""
         />
@@ -611,7 +611,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             />
           </span>
           <span>
-            昵称必填
+            Nickname is required
           </span>
         </label>
       </div>

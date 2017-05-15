@@ -49,24 +49,24 @@ class DynamicRule extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
-        <FormItem {...formItemLayout} label="姓名">
+        <FormItem {...formItemLayout} label="Name">
           {getFieldDecorator('username', {
             rules: [{
               required: true,
-              message: '请输入姓名',
+              message: 'Please input your name',
             }],
           })(
-            <Input placeholder="请输入姓名" />
+            <Input placeholder="Please input your name" />
           )}
         </FormItem>
-        <FormItem {...formItemLayout} label="昵称">
+        <FormItem {...formItemLayout} label="Nickname">
           {getFieldDecorator('nickname', {
             rules: [{
               required: this.state.checkNick,
-              message: '请输入昵称',
+              message: 'Please input your nickname',
             }],
           })(
-            <Input placeholder="请输入昵称" />
+            <Input placeholder="Please input your nickname" />
           )}
         </FormItem>
         <FormItem {...formTailLayout}>
@@ -74,7 +74,7 @@ class DynamicRule extends React.Component {
             value={this.state.checkNick}
             onChange={this.handleChange}
           >
-            昵称必填
+            Nickname is required
           </Checkbox>
         </FormItem>
         <FormItem {...formTailLayout}>
