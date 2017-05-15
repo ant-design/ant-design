@@ -22,6 +22,7 @@ function onChange(dates, dateStrings) {
   console.log('From: ', dates[0], ', to: ', dates[1]);
   console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
+
 ReactDOM.render(
   <div>
     <RangePicker

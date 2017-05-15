@@ -26,7 +26,8 @@ class App extends React.Component {
     return (
       <div>
         <p style={{ marginBottom: '20px' }}>
-          <Checkbox checked={this.state.checked}
+          <Checkbox
+            checked={this.state.checked}
             disabled={this.state.disabled}
             onChange={this.onChange}
           >
