@@ -47,20 +47,18 @@ export interface InputProps {
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   onPressEnter?: React.FormEventHandler<any>;
-  onKeyDown?: React.FormEventHandler<any>;
-  onChange?: React.FormEventHandler<any>;
   onClick?: React.FormEventHandler<any>;
   onFocus?: React.FormEventHandler<any>;
   onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
-  autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  spellCheck?: boolean;
 }
 
-export default class Input extends Component<InputProps, any> {
+export type HTMLInputProps = React.HTMLProps<HTMLInputElement>;
+
+export default class Input extends Component<InputProps & HTMLInputProps, any> {
   static Group: any;
   static Search: any;
   static defaultProps = {
