@@ -156,6 +156,22 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
   <br />
   <span
     class="ant-calendar-picker"
+  >
+    <span>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
     style="width:300px;"
   >
     <span
