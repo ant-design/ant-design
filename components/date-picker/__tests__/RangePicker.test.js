@@ -10,7 +10,8 @@ describe('RangePicker', () => {
       <RangePicker
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
-        showTime open
+        showTime
+        open
       />
     );
 
@@ -28,7 +29,8 @@ describe('RangePicker', () => {
         }}
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
-        showTime open
+        showTime
+        open
       />
     );
 
