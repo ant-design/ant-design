@@ -49,12 +49,12 @@ function dateCellRender(value) {
   return (
     <ul className="events">
       {
-        listData.map(item =>
+        listData.map(item => (
           <li key={item.content}>
             <span className={`event-${item.type}`}>●</span>
             {item.content}
           </li>
-        )
+        ))
       }
     </ul>
   );

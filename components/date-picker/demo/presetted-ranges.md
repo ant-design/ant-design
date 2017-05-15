@@ -31,7 +31,9 @@ ReactDOM.render(
     <br />
     <RangePicker
       ranges={{ Today: [moment(), moment()], 'This Month': [moment(), moment().endOf('month')] }}
-      showTime format="YYYY/MM/DD HH:mm:ss" onChange={onChange}
+      showTime
+      format="YYYY/MM/DD HH:mm:ss"
+      onChange={onChange}
     />
   </div>,
   mountNode

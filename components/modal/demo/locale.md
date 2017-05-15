@@ -37,9 +37,13 @@ class LocalizedModal extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>Show Modal</Button>
-        <Modal title="Modal" visible={this.state.visible}
-          onOk={this.handleOk} onCancel={this.handleCancel}
-          okText="OK" cancelText="Cancel"
+        <Modal
+          title="Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          okText="OK"
+          cancelText="Cancel"
         >
           <p>Bla bla ...</p>
           <p>Bla bla ...</p>

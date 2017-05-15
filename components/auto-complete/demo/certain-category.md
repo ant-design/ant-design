@@ -60,26 +60,29 @@ function renderTitle(title) {
   );
 }
 
-const options = dataSource.map(group =>
+const options = dataSource.map(group => (
   <OptGroup
     key={group.title}
     label={renderTitle(group.title)}
   >
-    {group.children.map(opt =>
+    {group.children.map(opt => (
       <Option key={opt.title} value={opt.title}>
         {opt.title}
         <span className="certain-search-item-count">{opt.count} 人 关注</span>
-      </Option>)
-    }
-  </OptGroup>).concat([
-    <Option disabled key="all" className="show-all">
-      <a
-        href="https://www.google.com/search?q=antd"
-        target="_blank"
-        rel="noopener noreferrer"
-      >查看所有结果</a>
-    </Option>,
-  ]);
+      </Option>
+    ))}
+  </OptGroup>
+)).concat([
+  <Option disabled key="all" className="show-all">
+    <a
+      href="https://www.google.com/search?q=antd"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      查看所有结果
+    </a>
+  </Option>,
+]);
 
 function Complete() {
   return (

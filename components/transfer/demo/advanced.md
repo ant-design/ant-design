@@ -48,7 +48,9 @@ class App extends React.Component {
   }
   renderFooter = () => {
     return (
-      <Button size="small" style={{ float: 'right', margin: 5 }}
+      <Button
+        size="small"
+        style={{ float: 'right', margin: 5 }}
         onClick={this.getMock}
       >
         reload
