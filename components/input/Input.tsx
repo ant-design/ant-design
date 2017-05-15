@@ -205,8 +205,13 @@ export default class Input extends Component<InputProps & HTMLInputProps, any> {
       </span>
     ) : null;
 
+    // https://github.com/ant-design/ant-design/issues/6144
+    const affixWrapperClassName = classNames(`${props.prefixCls}-affix-wrapper`, {
+      [`${props.prefixCls}-affix-wrapper-has-height`]: (props.style && 'height' in props.style),
+    });
+
     return (
-      <span className={`${props.prefixCls}-affix-wrapper`} style={props.style}>
+      <span className={affixWrapperClassName} style={props.style}>
         {prefix}
         {cloneElement(children, { style: null })}
         {suffix}
