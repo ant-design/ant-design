@@ -15,7 +15,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 
 ````jsx
 import { DatePicker } from 'antd';
-const RangePicker = DatePicker.RangePicker;
+const { MonthPicker, RangePicker } = DatePicker;
 
 function range(start, end) {
   const result = [];
@@ -61,6 +61,8 @@ ReactDOM.render(
       disabledTime={disabledDateTime}
       showTime
     />
+    <br />
+    <MonthPicker disabledDate={disabledDate} placeholder="Select month" />
     <br />
     <RangePicker
       disabledDate={disabledDate}
