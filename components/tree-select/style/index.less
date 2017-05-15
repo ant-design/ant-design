@@ -19,7 +19,7 @@
     white-space: nowrap;
     outline: 0;
     &.filter-node {
-      > a {
+      > span {
         font-weight: bold !important;
       }
     }
@@ -27,7 +27,7 @@
       margin: 0;
       padding: 0 0 0 18px;
     }
-    a {
+    > span {
       display: inline-block;
       padding: 1px 5px;
       border-radius: 2px;
@@ -43,8 +43,6 @@
       &.@{select-tree-prefix-cls}-node-selected {
         background-color: @item-active-bg;
       }
-    }
-    span {
       &.@{select-tree-prefix-cls}-checkbox {
         margin: 2px 4px 0 0;
       }
