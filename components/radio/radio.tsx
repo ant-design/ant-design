@@ -7,7 +7,7 @@ import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
 
-export interface RadioProps extends AbstractCheckboxProps {}
+export type RadioProps = AbstractCheckboxProps;
 
 export default class Radio extends React.Component<RadioProps, any> {
   static Group: typeof RadioGroup;

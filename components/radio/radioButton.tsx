@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import Radio from './radio';
 
-export interface RadioButtonProps extends AbstractCheckboxProps {}
+export type RadioButtonProps = AbstractCheckboxProps;
 
 export default class RadioButton extends React.Component<RadioButtonProps, any> {
   static defaultProps = {
