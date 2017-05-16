@@ -188,7 +188,7 @@ const api: {
       if (notify) {
         notify.destroy();
       }
-      notificationInstance[defaultPlacement] = null;
+      delete notificationInstance[defaultPlacement];
     }
     if (duration !== undefined) {
       defaultDuration = duration;
