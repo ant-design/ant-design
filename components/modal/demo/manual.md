@@ -26,7 +26,8 @@ function success() {
 }
 
 
-ReactDOM.render(<div>
-  <Button onClick={success}>Success</Button>
-</div>, mountNode);
+ReactDOM.render(
+  <Button onClick={success}>Success</Button>,
+  mountNode
+);
 ````

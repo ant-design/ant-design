@@ -11,7 +11,7 @@ Modal dialogs.
 When requiring users to interact with application, but without jumping to a new page to interrupt
 the user's workflow, you can use `Modal` to create a new floating layer over the current page for user
 getting feedback or information purposes.
-Additionally, if you need show a simple confirmation dialog, you can use `ant.Modal.confirm()`,
+Additionally, if you need show a simple confirmation dialog, you can use `antd.Modal.confirm()`,
 and so on.
 
 ## API
@@ -38,11 +38,11 @@ and so on.
 > The state of Modal will be preserved at it's component lifecircle.
 > If you wish to open it with brand new state everytime, you need to reset state manually. Or simply [give a new key](https://github.com/ant-design/ant-design/issues/4165) to Modal when visible is changed to `true`, React will treat it as a new component.
 
-> ```
+> ```jsx
 > <Modal key={this.state.newKey} visible={this.state.visible} />
 > ```
 
-### Modal.xxx()
+### Modal.method()
 
 There are five ways to display the information based on the content's nature:
 
@@ -66,6 +66,13 @@ The properties of the object are follows:
 | okText     | Text of OK button    | string           | OK       |
 | cancelText | Text of cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `false`       |
+
+All the `Modal.method`s will return a reference, and then we can close the popup by the reference.
+
+```jsx
+const ref = Modal.info();
+ref.destroy();
+```
 
 <style>
 .code-box-demo .ant-btn {

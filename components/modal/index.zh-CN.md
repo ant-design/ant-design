@@ -11,7 +11,7 @@ title: Modal
 
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
 
-另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `ant.Modal.confirm()` 等方法。
+另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `antd.Modal.confirm()` 等方法。
 
 ## API
 
@@ -37,11 +37,11 @@ title: Modal
 > `<Modal />` 组件有标准的 React 生命周期，关闭后状态不会自动清空。
 > 如果希望每次打开都是新内容，需要自行手动清空旧的状态。或者打开时给 Modal 设置一个[全新的 key](https://github.com/ant-design/ant-design/issues/4165)， React 会渲染出一个全新的对话框。
 
-> ```
+> ```jsx
 > <Modal key={this.state.newKey} visible={this.state.visible} />
 > ```
 
-### Modal.xxx()
+### Modal.method()
 
 包括：
 
@@ -64,6 +64,13 @@ title: Modal
 | okText     | 确认按钮文字    | string           | 确定       |
 | cancelText | 取消按钮文字    | string           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
+
+以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。
+
+```jsx
+const ref = Modal.info();
+ref.destroy();
+```
 
 <style>
 .code-box-demo .ant-btn {
