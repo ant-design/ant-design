@@ -44,7 +44,7 @@
     "omit.js": "^0.1.0",
     "prop-types": "^15.5.7",
     "rc-animate": "~2.3.0",
-    "rc-calendar": "~8.1.0",
+    "rc-calendar": "~8.2.0",
     "rc-cascader": "~0.11.0",
     "rc-checkbox": "~1.5.0",
     "rc-collapse": "~1.7.0",
