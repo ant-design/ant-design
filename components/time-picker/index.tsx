@@ -120,15 +120,15 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
 
     return (
       <RcTimePicker
+        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
+        showMinute={format.indexOf('mm') > -1}
+        showSecond={format.indexOf('ss') > -1}
         {...props}
         ref={this.saveTimePicker}
         format={format}
         className={className}
         value={this.state.value}
         placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
-        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
-        showMinute={format.indexOf('mm') > -1}
-        showSecond={format.indexOf('ss') > -1}
         onChange={this.handleChange}
         onOpen={this.handleOpenClose}
         onClose={this.handleOpenClose}
