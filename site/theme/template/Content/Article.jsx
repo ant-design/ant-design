@@ -82,7 +82,7 @@ export default class Article extends React.Component {
               message={(
                 <span>
                   This article has not been translated, hope that your can PR to translated it.
-                  <a href="https://github.com/ant-design/ant-design/issues/1471"> more</a>
+                  <a href="https://github.com/ant-design/ant-design/issues/1471"> Help us!</a>
                 </span>
               )}
             />
