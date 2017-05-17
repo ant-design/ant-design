@@ -2,7 +2,7 @@ import React, { PropTypes, Children, cloneElement } from 'react';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { Timeline } from 'antd';
+import { Timeline, Alert } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
 import * as utils from '../utils';
@@ -72,9 +72,21 @@ export default class Article extends React.Component {
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
     const locale = this.context.intl.locale;
+    const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         <article className="markdown" ref={(node) => { this.node = node; }}>
+          {isNotTranslated && (
+            <Alert
+              type="warning"
+              message={(
+                <span>
+                  This article has not been translated, hope that your can PR to translated it.
+                  <a href="https://github.com/ant-design/ant-design/issues/1471"> more</a>
+                </span>
+              )}
+            />
+          )}
           <h1>
             {title[locale] || title}
             {
