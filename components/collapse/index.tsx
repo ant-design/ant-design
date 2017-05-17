@@ -18,8 +18,9 @@ export interface CollapseProps {
 export interface CollapsePanelProps {
   key: string;
   header: React.ReactNode;
-  style?: React.CSSProperties;
+  disabled?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
