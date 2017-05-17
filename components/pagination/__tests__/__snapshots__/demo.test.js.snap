@@ -6,6 +6,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   unselectable="unselectable"
 >
   <li
+    aria-disabled="true"
     class="ant-pagination-disabled ant-pagination-prev"
     title="上一页"
   >
@@ -52,6 +53,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     </a>
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -66,6 +68,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
   unselectable="unselectable"
 >
   <li
+    aria-disabled="false"
     class=" ant-pagination-prev"
     title="上一页"
   >
@@ -126,6 +129,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     </a>
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -176,6 +180,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
   unselectable="unselectable"
 >
   <li
+    aria-disabled="false"
     class=" ant-pagination-prev"
     title="上一页"
   >
@@ -222,6 +227,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     </a>
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -236,6 +242,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
   unselectable="unselectable"
 >
   <li
+    aria-disabled="false"
     class=" ant-pagination-prev"
     title="上一页"
   >
@@ -296,6 +303,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     </a>
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -325,6 +333,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     unselectable="unselectable"
   >
     <li
+      aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
       title="上一页"
     >
@@ -371,6 +380,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       </a>
     </li>
     <li
+      aria-disabled="false"
       class=" ant-pagination-next"
       title="下一页"
     >
@@ -382,6 +392,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     unselectable="unselectable"
   >
     <li
+      aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
       title="上一页"
     >
@@ -428,6 +439,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       </a>
     </li>
     <li
+      aria-disabled="false"
       class=" ant-pagination-next"
       title="下一页"
     >
@@ -490,6 +502,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       Total 50 items
     </span>
     <li
+      aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
       title="上一页"
     >
@@ -536,6 +549,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       </a>
     </li>
     <li
+      aria-disabled="false"
       class=" ant-pagination-next"
       title="下一页"
     >
@@ -551,6 +565,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
   unselectable="unselectable"
 >
   <li
+    aria-disabled="false"
     class=" ant-pagination-prev"
     title="上一页"
   >
@@ -625,6 +640,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     </a>
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -638,6 +654,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
   class="ant-pagination ant-pagination-simple "
 >
   <li
+    aria-disabled="false"
     class=" ant-pagination-prev"
     title="上一页"
   >
@@ -659,6 +676,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     5
   </li>
   <li
+    aria-disabled="false"
     class=" ant-pagination-next"
     title="下一页"
   >
@@ -679,6 +697,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       Total 85 items
     </span>
     <li
+      aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
       title="上一页"
     >
@@ -725,6 +744,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       </a>
     </li>
     <li
+      aria-disabled="false"
       class=" ant-pagination-next"
       title="下一页"
     >
@@ -742,6 +762,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       1-20 of 85 items
     </span>
     <li
+      aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
       title="上一页"
     >
@@ -788,6 +809,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       </a>
     </li>
     <li
+      aria-disabled="false"
       class=" ant-pagination-next"
       title="下一页"
     >
