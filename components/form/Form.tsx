@@ -5,6 +5,7 @@ import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
 import assign from 'object-assign';
+import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP } from './constants';
@@ -120,7 +121,7 @@ export default class Form extends React.Component<FormProps, any> {
     }));
 
     /* eslint-disable react/prefer-es6-class */
-    return (Component) => formWrapper(React.createClass({
+    return (Component) => formWrapper(createReactClass({
       propTypes: {
         form: PropTypes.object.isRequired,
       },
