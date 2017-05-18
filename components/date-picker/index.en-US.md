@@ -57,6 +57,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
+| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | onOk | callback when click ok button | function() | - |
@@ -80,6 +81,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | format       | to set the date format  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
+| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
 | onOk | callback when click ok button | function() | - |

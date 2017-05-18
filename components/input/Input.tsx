@@ -1,5 +1,6 @@
 import React from 'react';
-import { Component, PropTypes, cloneElement } from 'react';
+import { Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
 import assign from 'object-assign';
