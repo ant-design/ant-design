@@ -27,9 +27,9 @@
       margin: 0;
       padding: 0 0 0 18px;
     }
-    > span {
+    .@{select-tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 1px 5px;
+      padding: 3px 5px;
       border-radius: 2px;
       margin: 0;
       cursor: pointer;
@@ -41,22 +41,25 @@
         background-color: @item-hover-bg;
       }
       &.@{select-tree-prefix-cls}-node-selected {
-        background-color: @item-active-bg;
+        background-color: @primary-2;
       }
+    }
+    > span {
       &.@{select-tree-prefix-cls}-checkbox {
         margin: 2px 4px 0 0;
       }
       &.@{select-tree-prefix-cls}-switcher,
       &.@{select-tree-prefix-cls}-iconEle {
         margin: 0;
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
         cursor: pointer;
         outline: none;
+        text-align: center;
       }
       &.@{select-tree-prefix-cls}-icon_loading {
         &:after {
