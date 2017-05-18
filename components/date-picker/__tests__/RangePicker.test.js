@@ -41,6 +41,25 @@ describe('RangePicker', () => {
       .toMatchSnapshot();
   });
 
+  it.skip('highlight range when hover presetted range', () => {
+    const wrapper = mount(
+      <RangePicker
+        ranges={{
+          'This Month': [moment(), moment().endOf('month')],
+        }}
+        getCalendarContainer={trigger => trigger}
+        format="YYYY/MM/DD"
+        open
+      />
+    );
+
+    const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+      .simulate('mouseEnter');
+    expect(render(wrapper.find('Trigger').node.getComponent()))
+      .toMatchSnapshot();
+  });
+
   // issue: https://github.com/ant-design/ant-design/issues/5872
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD');
