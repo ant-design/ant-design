@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Color from 'color-standalone';
-import { ChromePicker } from 'react-color-standalone';
+import { ChromePicker } from 'react-color';
 import BezierEasing from 'bezier-easing/dist/bezier-easing';
 import ColorBlock from './ColorBlock';
 
