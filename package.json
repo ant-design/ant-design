@@ -121,7 +121,7 @@
     "moment-timezone": "^0.5.5",
     "pre-commit": "^1.2.2",
     "querystring": "^0.2.0",
-    "rc-queue-anim": "^0.13.2",
+    "rc-queue-anim": "^1.0.1",
     "rc-scroll-anim": "^1.0.3",
     "rc-tween-one": "^1.1.2",
     "react": "^15.0.0",
