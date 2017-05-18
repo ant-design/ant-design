@@ -1042,6 +1042,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             <input
               checked=""
               class="ant-checkbox-input"
+              data-__meta="[object Object]"
               type="checkbox"
             />
             <span
@@ -1475,6 +1476,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <input
               class="ant-checkbox-input"
+              data-__meta="[object Object]"
               type="checkbox"
             />
             <span
