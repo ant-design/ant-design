@@ -124,7 +124,7 @@ $ yarn add babel-plugin-import --save-dev
   loader: 'babel',
   query: {
 +   plugins: [
-+     ['import', [{ libraryName: "antd", style: 'css' }]],
++     ['import', { libraryName: 'antd', style: 'css' }],
 +   ],
     // This is a feature of `babel-loader` for webpack (not Babel itself).
     // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -171,8 +171,8 @@ loaders: [
     loader: 'babel',
     query: {
       plugins: [
--       ['import', [{ libraryName: "antd", style: 'css' }]],
-+       ['import', [{ libraryName: "antd", style: true }]],  // import less
+-       ['import', [{ libraryName: 'antd', style: 'css' }]],
++       ['import', [{ libraryName: 'antd', style: true }]],  // import less
       ],
    },
 
@@ -181,9 +181,36 @@ loaders: [
 + // Parse less files and modify variables
 + {
 +   test: /\.less$/,
-+   loader: 'style!css!postcss!less?{modifyVars:{"@primary-color":"#1DA57A"}}'
++   use: [
++     require.resolve('style-loader'),
++     require.resolve('css-loader'),
++     {
++       loader: require.resolve('postcss-loader'),
++       options: {
++         ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
++         plugins: () => [
++           require('postcss-flexbugs-fixes'),
++           autoprefixer({
++             browsers: [
++               '>1%',
++               'last 4 versions',
++               'Firefox ESR',
++               'not ie < 9', // React doesn't support IE8 anyway
++             ],
++             flexbox: 'no-2009',
++           }),
++         ],
++       },
++     },
++     {
++       loader: require.resolve('less-loader'),
++       options: {
++         modifyVars: { "@primary-color": "#1DA57A" },
++       },
++     },
++   ],
 + },
-]
+],
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.

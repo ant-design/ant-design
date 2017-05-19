@@ -121,7 +121,7 @@ $ yarn add babel-plugin-import --save-dev
   loader: 'babel',
   query: {
 +   plugins: [
-+     ['import', [{ libraryName: "antd", style: 'css' }]],
++     ['import', { libraryName: 'antd', style: 'css' }],
 +   ],
     // This is a feature of `babel-loader` for webpack (not Babel itself).
     // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -168,8 +168,8 @@ loaders: [
     loader: 'babel',
     query: {
       plugins: [
--       ['import', [{ libraryName: "antd", style: 'css' }]],
-+       ['import', [{ libraryName: "antd", style: true }]],  // 加载 less 文件
+-       ['import', [{ libraryName: 'antd', style: 'css' }]],
++       ['import', [{ libraryName: 'antd', style: true }]],  // 加载 less 文件
       ],
    },
 
@@ -178,9 +178,36 @@ loaders: [
 + // 解析 less 文件，并加入变量覆盖配置
 + {
 +   test: /\.less$/,
-+   loader: 'style!css!postcss!less?{modifyVars:{"@primary-color":"#1DA57A"}}'
++   use: [
++     require.resolve('style-loader'),
++     require.resolve('css-loader'),
++     {
++       loader: require.resolve('postcss-loader'),
++       options: {
++         ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
++         plugins: () => [
++           require('postcss-flexbugs-fixes'),
++           autoprefixer({
++             browsers: [
++               '>1%',
++               'last 4 versions',
++               'Firefox ESR',
++               'not ie < 9', // React doesn't support IE8 anyway
++             ],
++             flexbox: 'no-2009',
++           }),
++         ],
++       },
++     },
++     {
++       loader: require.resolve('less-loader'),
++       options: {
++         modifyVars: { "@primary-color": "#1DA57A" },
++       },
++     },
++   ],
 + },
-]
+],
 ```
 
 这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
