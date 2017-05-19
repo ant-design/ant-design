@@ -41,7 +41,7 @@ describe('RangePicker', () => {
       .toMatchSnapshot();
   });
 
-  it.skip('highlight range when hover presetted range', () => {
+  it('highlight range when hover presetted range', () => {
     const wrapper = mount(
       <RangePicker
         ranges={{
@@ -53,11 +53,11 @@ describe('RangePicker', () => {
       />
     );
 
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    let rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
     rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
       .simulate('mouseEnter');
-    expect(render(wrapper.find('Trigger').node.getComponent()))
-      .toMatchSnapshot();
+    rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
   });
 
   // issue: https://github.com/ant-design/ant-design/issues/5872
