@@ -228,6 +228,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
         overlay={menus}
         visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
+        getPopupContainer={triggerNode => triggerNode.parentNode as HTMLElement}
       >
         {this.renderFilterIcon()}
       </Dropdown>
