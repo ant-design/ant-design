@@ -615,6 +615,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       style="width:70%;"
       tabindex="0"
     >
+      <span
+        class="ant-cascader-picker-label"
+      />
       <input
         autocomplete="off"
         class="ant-input ant-cascader-input "
@@ -622,9 +625,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         readonly=""
         type="text"
         value=""
-      />
-      <span
-        class="ant-cascader-picker-label"
       />
       <i
         class="anticon anticon-down ant-cascader-picker-arrow"
