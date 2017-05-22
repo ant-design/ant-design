@@ -1,15 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
-import Input from './Input';
+import Input, { AbstractInputProps } from './Input';
 import Icon from '../icon';
 
-export interface SearchProps {
-  className?: string;
+export interface SearchProps extends AbstractInputProps {
   placeholder?: string;
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  defaultValue?: any;
-  value?: any;
   onSearch?: (value: string) => any;
   onChange?: React.FormEventHandler<any>;
   size?: 'large' | 'default' | 'small';
@@ -21,7 +16,6 @@ export interface SearchProps {
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     prefixCls: 'ant-input-search',
-    onSearch() {},
   };
   input: any;
   onSearch = () => {
@@ -29,7 +23,7 @@ export default class Search extends React.Component<SearchProps, any> {
     if (onSearch) {
       onSearch(this.input.refs.input.value);
     }
-    this.input.refs.input.focus();
+    this.input.focus();
   }
   render() {
     const { className, prefixCls, ...others } = this.props;
@@ -45,8 +39,8 @@ export default class Search extends React.Component<SearchProps, any> {
       <Input
         onPressEnter={this.onSearch}
         {...others}
-        suffix={searchSuffix}
         className={classNames(prefixCls, className)}
+        suffix={searchSuffix}
         ref={node => this.input = node}
       />
     );
