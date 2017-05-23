@@ -21,6 +21,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-05-23`
 
+- Fix `prop-types` warnings which due to upgrading React. [#5678](https://github.com/ant-design/ant-design/issues/5678)
 - Fix style issue of TreeSelect. [#6137](https://github.com/ant-design/ant-design/issues/6137)
 - Fix style issue of Input with prefix and addon. [#6144](https://github.com/ant-design/ant-design/issues/6144)
 - Fix some bugs of `notification.destroy`. [#6161](https://github.com/ant-design/ant-design/issues/6161)

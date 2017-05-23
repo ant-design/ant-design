@@ -21,6 +21,7 @@ timeline: true
 
 `2017-05-23`
 
+- 修复了 React 升级引起的 `prop-types` 相关的 warning 问题。[#5678](https://github.com/ant-design/ant-design/issues/5678)
 - 修复 TreeSelect 的样式问题。[#6137](https://github.com/ant-design/ant-design/issues/6137)
 - 修复 包含 prefix 和 addon 的 Input 的样式问题。[#6144](https://github.com/ant-design/ant-design/issues/6144)
 - 修复 `notification.destroy` 的 Bug。[#6161](https://github.com/ant-design/ant-design/issues/6161)
