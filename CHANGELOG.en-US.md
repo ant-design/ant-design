@@ -17,6 +17,17 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.10.2
+
+`2017-05-23`
+
+- Fix style issue of TreeSelect. [#6137](https://github.com/ant-design/ant-design/issues/6137)
+- Fix style issue of Input with prefix and addon. [#6144](https://github.com/ant-design/ant-design/issues/6144)
+- Fix some bugs of `notification.destroy`. [#6161](https://github.com/ant-design/ant-design/issues/6161)
+- Fix missing translations of Upload and Table. [#6218](https://github.com/ant-design/ant-design/issues/6218)
+- Fix style issue of Cascader inside Input.Group. [#6208](https://github.com/ant-design/ant-design/issues/6208)
+- Increase click area of Tree icons. [#6120](https://github.com/ant-design/ant-design/issues/6120)
+
 ## 2.10.1
 
 `2017-05-14`

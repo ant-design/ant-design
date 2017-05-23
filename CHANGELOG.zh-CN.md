@@ -17,6 +17,17 @@ timeline: true
 
 ---
 
+## 2.10.2
+
+`2017-05-23`
+
+- 修复 TreeSelect 的样式问题。[#6137](https://github.com/ant-design/ant-design/issues/6137)
+- 修复 包含 prefix 和 addon 的 Input 的样式问题。[#6144](https://github.com/ant-design/ant-design/issues/6144)
+- 修复 `notification.destroy` 的 Bug。[#6161](https://github.com/ant-design/ant-design/issues/6161)
+- 修复了 Upload 和 Table 组件中缺失的翻译。
+- 修复了在 Input.Group 中的 Cascader 的样式问题。[#6208](https://github.com/ant-design/ant-design/issues/6208)
+- 增大了 Tree 图标的可点击区域面积。
+
 ## 2.10.1
 
 `2017-05-14`
