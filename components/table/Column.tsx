@@ -10,6 +10,8 @@ export interface ColumnProps<T> {
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;
+  filterDropdownVisible?: boolean;
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | ((a: any, b: any) => number);
   colSpan?: number;
   width?: string | number;
