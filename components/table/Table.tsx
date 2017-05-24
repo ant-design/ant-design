@@ -144,6 +144,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   CheckboxPropsCache: Object;
   store: Store;
   columns: ColumnProps<T>[];
+  tableWrapperNode: HTMLElement;
 
   constructor(props) {
     super(props);
@@ -617,7 +618,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getPopupContainer = () => {
+<<<<<<< HEAD
     return findDOMNode(this) as HTMLElement;
+=======
+    return this.tableWrapperNode as HTMLElement;
+>>>>>>> 54c6b63... Fix table filter menu overflow issue, close #6245
   }
 
   renderRowSelection() {
@@ -949,6 +954,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       <div
         className={classNames(`${prefixCls}-wrapper`, className)}
         style={style}
+<<<<<<< HEAD
+=======
+        ref={node => { this.tableWrapperNode = node; }}
+>>>>>>> 54c6b63... Fix table filter menu overflow issue, close #6245
       >
         <Spin
           {...loading}
