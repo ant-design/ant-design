@@ -14,7 +14,7 @@ title:
 Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
 
 ````jsx
-import { Table, Input, Button, Icon } from 'antd';
+import { Table, Input, Button, Icon, Popover } from 'antd';
 
 const data = [{
   key: '1',
@@ -74,24 +74,33 @@ class App extends React.Component {
   }
   render() {
     const columns = [{
-      title: 'Name',
+      title: (
+        <span>
+          Name
+          <Popover
+            trigger="click"
+            placement="bottomLeft"
+            content={(
+              <div className="custom-filter-dropdown">
+                <Input
+                  ref={ele => this.searchInput = ele}
+                  placeholder="Search name"
+                  value={this.state.searchText}
+                  onChange={this.onInputChange}
+                  onPressEnter={this.onSearch}
+                />
+                <Button type="primary" onClick={this.onSearch}>Search</Button>
+              </div>
+            )}
+            visible={this.state.filterDropdownVisible}
+            onVisibleChange={visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus())}
+          >
+            <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa', marginLeft: 8 }} />
+          </Popover>
+        </span>
+      ),
       dataIndex: 'name',
       key: 'name',
-      filterDropdown: (
-        <div className="custom-filter-dropdown">
-          <Input
-            ref={ele => this.searchInput = ele}
-            placeholder="Search name"
-            value={this.state.searchText}
-            onChange={this.onInputChange}
-            onPressEnter={this.onSearch}
-          />
-          <Button type="primary" onClick={this.onSearch}>Search</Button>
-        </div>
-      ),
-      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
-      filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => this.searchInput.focus()),
     }, {
       title: 'Age',
       dataIndex: 'age',
@@ -117,13 +126,6 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 ````css
-.custom-filter-dropdown {
-  padding: 8px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-}
-
 .custom-filter-dropdown input {
   width: 130px;
   margin-right: 8px;
