@@ -31,6 +31,7 @@ title: Modal
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
 | wrapClassName | 对话框外层容器的类名 | string   | - |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
+| getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
 
 #### 清空旧数据
 
