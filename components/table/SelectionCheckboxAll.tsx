@@ -22,6 +22,7 @@ export interface SelectionCheckboxAllProps {
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
   selections?: SelectionDecorator[] | boolean;
+  getPopupContainer: (triggerNode?: Element) => HTMLElement;
 }
 
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
@@ -152,7 +153,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
   }
 
   render() {
-    const { disabled, prefixCls, selections } = this.props;
+    const { disabled, prefixCls, selections, getPopupContainer } = this.props;
     const { checked, indeterminate } = this.state;
 
     let selectionPrefixCls = `${prefixCls}-selection`;
@@ -175,7 +176,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
       customSelections =  (
         <Dropdown
           overlay={menu}
-          getPopupContainer={(trigger: HTMLElement) => trigger.parentNode as HTMLElement}
+          getPopupContainer={getPopupContainer}
         >
           <div className={`${selectionPrefixCls}-down`}>
             <Icon type="down" />
