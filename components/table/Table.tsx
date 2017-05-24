@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -143,7 +144,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   CheckboxPropsCache: Object;
   store: Store;
   columns: ColumnProps<T>[];
-  tableWrapperNode: HTMLElement;
 
   constructor(props) {
     super(props);
@@ -617,7 +617,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getPopupContainer = () => {
-    return this.tableWrapperNode as HTMLElement;
+    return findDOMNode(this) as HTMLElement;
   }
 
   renderRowSelection() {
@@ -949,7 +949,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       <div
         className={classNames(`${prefixCls}-wrapper`, className)}
         style={style}
-        ref={node => { this.tableWrapperNode = node; }}
       >
         <Spin
           {...loading}
