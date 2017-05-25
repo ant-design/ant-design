@@ -8,7 +8,7 @@ export interface BasicProps {
 }
 
 function generator(props) {
-  return (Basic) : any => {
+  return (Basic): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;

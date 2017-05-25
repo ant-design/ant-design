@@ -20,7 +20,7 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
     dropdownClassName: 'ant-select-tree-dropdown',
   };
 
-  abstract getLocale()
+  abstract getLocale();
 
   render() {
     const locale = this.getLocale();

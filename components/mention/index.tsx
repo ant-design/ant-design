@@ -54,7 +54,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     };
   }
 
-  componentWillReceiveProps({ suggestions }) {
+  componentWillReceiveProps(nextProps: MentionProps) {
+    const { suggestions } = nextProps;
     if (!shallowequal(suggestions, this.props.suggestions)) {
       this.setState({
         suggestions,

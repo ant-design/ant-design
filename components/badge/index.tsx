@@ -110,7 +110,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
           component=""
           showProp="data-show"
           transitionName={children ? `${prefixCls}-zoom` : ''}
-          transitionAppear
+          transitionAppear={true}
         >
           {scrollNumber}
         </Animate>

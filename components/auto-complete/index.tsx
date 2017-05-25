@@ -5,7 +5,7 @@ import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } 
 import Input from '../input';
 import InputElement from './InputElement';
 
-export interface DataSourceItemObject { value: string; text: string; };
+export interface DataSourceItemObject { value: string; text: string; }
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface InputProps {

@@ -13,7 +13,7 @@ export interface BreadcrumbProps {
   itemRender?: (route: any, params: any, routes: Array<any>, paths: Array<string>) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
-};
+}
 
 function getBreadcrumbName(route, params) {
   if (!route.breadcrumbName) {

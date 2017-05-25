@@ -80,7 +80,7 @@
     "@types/react": "^15.0.8",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.0.5",
-    "antd-tools": "~0.19.1",
+    "antd-tools": "^1.2.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
