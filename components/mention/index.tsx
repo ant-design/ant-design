@@ -5,7 +5,7 @@ import shallowequal from 'shallowequal';
 import Icon from '../icon';
 
 export interface MentionProps {
-  prefixCls: string;
+  prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;

@@ -52,7 +52,7 @@ export type ValidationRule = {
   /** transform a value before validation */
   transform?: (value: any) => any;
   /** custom validate function (Note: callback must be called) */
-  validator?: (rule: any, value: any, callback: any) => any;
+  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 
 export type ValidateCallback = (erros: any, values: any) => void;
