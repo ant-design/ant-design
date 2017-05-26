@@ -20,8 +20,9 @@ import jaJP from '../ja_JP';
 import trTR from '../tr_TR';
 import zhTW from '../zh_TW';
 import fiFI from '../fi_FI';
+import plPL from '../pl_PL';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI];
+const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
