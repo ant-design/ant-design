@@ -26,9 +26,11 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "es"
   ],
   "typings": "lib/index.d.ts",
   "license": "MIT",
