@@ -198,8 +198,8 @@
       "/_site/"
     ],
     "testPathIgnorePatterns": [
-      "dekko",
       "/node_modules/",
+      "dekko",
       "node"
     ],
     "transform": {
@@ -210,11 +210,13 @@
     "testRegex": ".*\\.test\\.js$",
     "collectCoverageFrom": [
       "components/**/*.{ts,tsx}",
-      "!components/*/style/index.tsx"
+      "!components/*/style/index.tsx",
+      "!components/style/index.tsx",
+      "!components/*/locale/index.tsx"
     ],
     "transformIgnorePatterns": [
       "/node_modules/",
-      "/dist/antd.js"
+      "/dist/"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
