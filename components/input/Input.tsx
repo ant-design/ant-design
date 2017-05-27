@@ -31,7 +31,7 @@ function clearNextFrameAction(nextFrameId) {
 export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
-};
+}
 
 export interface InputProps {
   prefixCls?: string;

@@ -28,7 +28,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     };
   }
 
-  abstract getLocale()
+  abstract getLocale();
 
   componentWillReceiveProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {

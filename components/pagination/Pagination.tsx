@@ -33,7 +33,7 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
     selectPrefixCls: 'ant-select',
   };
 
-  abstract getLocale()
+  abstract getLocale();
 
   render() {
     const { className, size, ...restProps } = this.props;

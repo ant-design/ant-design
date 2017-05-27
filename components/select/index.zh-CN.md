@@ -44,7 +44,7 @@ title: Select
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | size    | 选择框大小，可选 `large` `small`  | string      |      default      |
-| showSearch | 在选择框中显示搜索框 | boolean | false |
+| showSearch | 使单选模式可搜索 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |
