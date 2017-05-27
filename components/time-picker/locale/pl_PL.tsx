@@ -1,5 +1,5 @@
 const locale = {
-  placeholder: 'Wskaż czas',
+  placeholder: 'Wybierz godzinę',
 };
 
 export default locale;

@@ -1,0 +1,38 @@
+{
+  "lang": {
+    "placeholder": "Wybierz datę",
+    "rangePlaceholder": [
+      "Data początkowa",
+      "Data końcowa"
+    ],
+    "today": "Dziś",
+    "now": "Teraz",
+    "backToToday": "Powrót do bieżącej daty",
+    "ok": "OK",
+    "clear": "Wyczyść",
+    "month": "Miesiąc",
+    "year": "Rok",
+    "timeSelect": "Wybierz godzinę",
+    "dateSelect": "Wybierz datę",
+    "monthSelect": "Wybierz miesiąc",
+    "yearSelect": "Wybierz rok",
+    "decadeSelect": "Wybierz dekadę",
+    "yearFormat": "RRRR",
+    "dateFormat": "M/D/RRRR",
+    "dayFormat": "D",
+    "dateTimeFormat": "M/D/RRRR GG:mm:ss",
+    "monthFormat": "MMMM",
+    "monthBeforeYear": true,
+    "previousMonth": "Poprzedni miesiąc (PageUp)",
+    "nextMonth": "Następny miesiąc (PageDown)",
+    "previousYear": "Ubiegły rok (Control + left)",
+    "nextYear": "Następny rok (Control + right)",
+    "previousDecade": "Ubiegła dekada",
+    "nextDecade": "Następna dekada",
+    "previousCentury": "Ubiegły wiek",
+    "nextCentury": "Następny wiek"
+  },
+  "timePickerLocale": {
+    "placeholder": "Wybierz godzinę"
+  }
+}
