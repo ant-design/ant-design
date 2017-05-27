@@ -1,7 +1,11 @@
 import moment from 'moment';
 moment.locale('pl');
 
+<<<<<<< HEAD
 import Pagination from 'rc-pagination/lib/locale/en_US';
+=======
+import Pagination from 'rc-pagination/lib/locale/pl_PL';
+>>>>>>> 9e2a414... Add Polish translation
 import DatePicker from '../date-picker/locale/pl_PL';
 import TimePicker from '../time-picker/locale/pl_PL';
 import Calendar from '../calendar/locale/pl_PL';

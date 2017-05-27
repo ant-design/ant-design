@@ -5,8 +5,13 @@ import assign from 'object-assign';
 // Merge into a locale object
 const locale = {
   lang: assign({
+<<<<<<< HEAD
+    placeholder: 'Wybierz datę',
+    rangePlaceholder: ['Data początkowa', 'Data końcowa'],
+=======
     placeholder: 'Select date',
     rangePlaceholder: ['Start date', 'End date'],
+>>>>>>> 9e2a414... Add Polish translation
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };
