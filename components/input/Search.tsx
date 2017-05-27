@@ -15,6 +15,7 @@ export interface SearchProps {
   size?: 'large' | 'default' | 'small';
   disabled?: boolean;
   readOnly?: boolean;
+  name?: string;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
