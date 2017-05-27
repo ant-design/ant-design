@@ -20,7 +20,7 @@ function addLocales(webpackConfig) {
 }
 
 module.exports = function (webpackConfig) {
-  webpackConfig = getWebpackConfig(webpackConfig);
+  webpackConfig = getWebpackConfig(webpackConfig, true);
   if (process.env.RUN_ENV === 'PRODUCTION') {
     webpackConfig.forEach((config) => {
       ignoreMomentLocale(config);
