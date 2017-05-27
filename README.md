@@ -29,7 +29,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Environment Support
 
-* Browser: Modern browsers and Internet Explorer 9+
+* Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 * Server-side Rendering
 * [Electron](http://electron.atom.io/)
 
