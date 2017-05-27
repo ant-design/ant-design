@@ -59,6 +59,7 @@ export interface InputProps {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   spellCheck?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Input extends Component<InputProps, any> {
