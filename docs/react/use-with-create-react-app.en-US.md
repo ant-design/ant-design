@@ -56,7 +56,7 @@ It is the default directory structure below.
 Now we install `antd` from yarn or npm.
 
 ```bash
-$ yarn add antd --save
+$ yarn add antd
 ```
 
 Modify `src/App.js`, import Button component from `antd`.
@@ -113,7 +113,7 @@ $ yarn run eject
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
 ```bash
-$ yarn add babel-plugin-import --save-dev
+$ yarn add babel-plugin-import --dev
 ```
 
 ```diff
@@ -121,8 +121,8 @@ $ yarn add babel-plugin-import --save-dev
 {
   test: /\.(js|jsx)$/,
   include: paths.appSrc,
-  loader: 'babel',
-  query: {
+  loader: require.resolve('babel-loader'),
+  options: {
 +   plugins: [
 +     ['import', { libraryName: 'antd', style: 'css' }],
 +   ],
@@ -145,22 +145,27 @@ Then reboot `yarn start` and visit demo page, you should find that the above war
 According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader), so we add it.
 
 ```bash
-$ yarn add less less-loader --save-dev
+$ yarn add less less-loader --dev
 ```
 
 ```diff
-loaders: [
   {
     exclude: [
       /\.html$/,
       /\.(js|jsx)$/,
-+     /\.less$/,
       /\.css$/,
++     /\.less$/,
       /\.json$/,
-      /\.svg$/
+      /\.bmp$/,
+      /\.gif$/,
+      /\.jpe?g$/,
+      /\.png$/,
     ],
-    loader: 'url',
-  },
+    loader: require.resolve('file-loader'),
+    options: {
+      name: 'static/media/[name].[hash:8].[ext]',
+    },
+  }
 
 ...
 
@@ -169,7 +174,7 @@ loaders: [
     test: /\.(js|jsx)$/,
     include: paths.appSrc,
     loader: 'babel',
-    query: {
+    options: {
       plugins: [
 -       ['import', [{ libraryName: 'antd', style: 'css' }]],
 +       ['import', [{ libraryName: 'antd', style: true }]],  // import less
@@ -178,38 +183,38 @@ loaders: [
 
 ...
 
-+ // Parse less files and modify variables
-+ {
-+   test: /\.less$/,
-+   use: [
-+     require.resolve('style-loader'),
-+     require.resolve('css-loader'),
-+     {
-+       loader: require.resolve('postcss-loader'),
-+       options: {
-+         ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-+         plugins: () => [
-+           require('postcss-flexbugs-fixes'),
-+           autoprefixer({
-+             browsers: [
-+               '>1%',
-+               'last 4 versions',
-+               'Firefox ESR',
-+               'not ie < 9', // React doesn't support IE8 anyway
-+             ],
-+             flexbox: 'no-2009',
-+           }),
-+         ],
-+       },
-+     },
-+     {
-+       loader: require.resolve('less-loader'),
-+       options: {
-+         modifyVars: { "@primary-color": "#1DA57A" },
-+       },
-+     },
-+   ],
-+ },
++  // Parse less files and modify variables
++  {
++    test: /\.less$/,
++    use: [
++      require.resolve('style-loader'),
++      require.resolve('css-loader'),
++      {
++        loader: require.resolve('postcss-loader'),
++        options: {
++          ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
++          plugins: () => [
++            require('postcss-flexbugs-fixes'),
++            autoprefixer({
++              browsers: [
++                '>1%',
++                'last 4 versions',
++                'Firefox ESR',
++                'not ie < 9', // React doesn't support IE8 anyway
++              ],
++              flexbox: 'no-2009',
++            }),
++          ],
++        },
++      },
++      {
++        loader: require.resolve('less-loader'),
++        options: {
++          modifyVars: { "@primary-color": "#1DA57A" },
++        },
++      },
++    ],
++  },
 ],
 ```
 
