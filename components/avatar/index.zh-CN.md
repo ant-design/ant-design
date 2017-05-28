@@ -1,0 +1,19 @@
+---
+category: Components
+subtitle: 头像
+type: Data Display
+title: Avatar
+---
+
+用来代表用户或事物，支持图片、Icon(antd-Icon)或字符展示。
+
+## API
+
+| 参数        | 说明                                                      | 类型        | 默认值 |
+|----------- |--------------------------------------------------------- | ----------  | ------- |
+| shape       | 指定头像的形状                          | Enum{ 'circle', 'square' }     | `circle`  |
+| size       | 设置头像的大小                           | Enum{ 'large', 'small', 'default' }       | `default` |
+| src  | 图片类头像的资源地址                                     | string   | -    |
+| icon    | 设置头像的图标类型，参考 `Icon` 组件                                       | string   | -    |
+| color | 设置头像颜色，仅支持 Icon、字符类头像                            | string   | -    |
+| backgroundColor     | 设置头像背景色，仅支持 Icon、字符类头像            | string   | -    |
