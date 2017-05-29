@@ -7,7 +7,7 @@ import warning from '../_util/warning';
 
 export interface BadgeProps {
   /** Number to show in badge */
-  count: number | string;
+  count?: number | string;
   showZero?: boolean;
   /** Max count to show */
   overflowCount?: number;
