@@ -72,7 +72,7 @@ describe('RangePicker', () => {
     );
     wrapper.setProps({ value: [] });
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
-    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').simulate('click').simulate('click'))
+    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').at(0).simulate('click').simulate('click'))
       .not.toThrow();
   });
 });
