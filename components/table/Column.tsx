@@ -21,6 +21,7 @@ export interface ColumnProps<T> {
   filteredValue?: any[];
   sortOrder?: boolean | ('ascend' | 'descend');
   children?: ColumnProps<T>[];
+  onCellClick?: (record: T, event: any) => void;
 }
 
 export default class Column<T> extends (RcTable.Column as React.ComponentClass<ColumnProps<T>>) {}
