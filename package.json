@@ -140,7 +140,7 @@
     "rimraf": "^2.5.4",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
-    "typescript": "~2.2.1",
+    "typescript": "~2.3.0",
     "typescript-babel-jest": "^1.0.2",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
