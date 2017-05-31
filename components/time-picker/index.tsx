@@ -58,7 +58,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     };
   }
 
-  abstract getLocale()
+  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TimePickerProps) {
     if ('value' in nextProps) {

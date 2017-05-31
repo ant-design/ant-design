@@ -1232,6 +1232,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-cascader-picker"
           tabindex="0"
         >
+          <span
+            class="ant-cascader-picker-label"
+          >
+            Zhejiang / Hangzhou / West Lake
+          </span>
           <input
             autocomplete="off"
             class="ant-input ant-cascader-input ant-input-lg"
@@ -1241,11 +1246,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             type="text"
             value=""
           />
-          <span
-            class="ant-cascader-picker-label"
-          >
-            Zhejiang / Hangzhou / West Lake
-          </span>
           <i
             class="anticon anticon-cross-circle ant-cascader-picker-clear"
           />
@@ -1277,51 +1277,55 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <span
-          class="ant-input-wrapper ant-input-group"
+          class="ant-input-group-wrapper"
         >
           <span
-            class="ant-input-group-addon"
+            class="ant-input-wrapper ant-input-group"
           >
-            <div
-              class="icp-selector ant-select ant-select-enabled"
+            <span
+              class="ant-input-group-addon"
             >
               <div
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-select-selection
-                          ant-select-selection--single"
-                role="combobox"
-                tabindex="0"
+                class="icp-selector ant-select ant-select-enabled"
               >
                 <div
-                  class="ant-select-selection__rendered"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-select-selection
+                            ant-select-selection--single"
+                  role="combobox"
+                  tabindex="0"
                 >
                   <div
-                    class="ant-select-selection-selected-value"
-                    style="display:block;opacity:1;"
-                    title="+86"
+                    class="ant-select-selection__rendered"
                   >
-                    +86
+                    <div
+                      class="ant-select-selection-selected-value"
+                      style="display:block;opacity:1;"
+                      title="+86"
+                    >
+                      +86
+                    </div>
                   </div>
+                  <span
+                    class="ant-select-arrow"
+                    style="user-select:none;-webkit-user-select:none;"
+                    unselectable="unselectable"
+                  >
+                    <b />
+                  </span>
                 </div>
-                <span
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  <b />
-                </span>
               </div>
-            </div>
+            </span>
+            <input
+              class="ant-input ant-input-lg"
+              data-__meta="[object Object]"
+              id="phone"
+              type="text"
+              value=""
+            />
           </span>
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="phone"
-            type="text"
-            value=""
-          />
         </span>
       </div>
     </div>

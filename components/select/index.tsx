@@ -16,6 +16,11 @@ export interface AbstractSelectProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   placeholder?: string;
+  dropdownClassName?: string;
+  dropdownStyle?: React.CSSProperties;
+  dropdownMenuStyle?: React.CSSProperties;
+  onSearch?: (value: string) => any;
+  filterOption?: boolean | ((inputValue: string, option: Object) => any);
 }
 
 export interface LabeledValue {
@@ -33,18 +38,14 @@ export interface SelectProps extends AbstractSelectProps {
   tags?: boolean;
   combobox?: boolean;
   optionLabelProp?: string;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
   onDeselect?: (value: SelectValue) => any;
-  onSearch?: (value: string) => any;
   dropdownMatchSelectWidth?: boolean;
   optionFilterProp?: string;
   defaultActiveFirstOption?: boolean;
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
-  dropdownStyle?: React.CSSProperties;
-  dropdownMenuStyle?: React.CSSProperties;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
 }

@@ -31,7 +31,7 @@ function clearNextFrameAction(nextFrameId) {
 export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
-};
+}
 
 export interface InputProps {
   prefixCls?: string;
@@ -59,6 +59,7 @@ export interface InputProps {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   spellCheck?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Input extends Component<InputProps, any> {
@@ -175,18 +176,23 @@ export default class Input extends Component<InputProps, any> {
       </span>
     ) : null;
 
-    const className = classNames({
-      [`${props.prefixCls}-wrapper`]: true,
+    const className = classNames(`${props.prefixCls}-wrapper`, {
       [wrapperClassName]: (addonBefore || addonAfter),
     });
 
-    return (
+    const node = (
       <span className={className}>
         {addonBefore}
         {children}
         {addonAfter}
       </span>
     );
+
+    // Need another wrapper for changing display:table to display:inline-block
+    if (addonBefore || addonAfter) {
+      return <span className={`${props.prefixCls}-group-wrapper`}>{node}</span>;
+    }
+    return node;
   }
 
   renderLabeledIcon(children) {

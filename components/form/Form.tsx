@@ -30,6 +30,31 @@ export interface FormProps {
   hideRequiredMark?: boolean;
 }
 
+export type ValidationRule = {
+  /** validation error message */
+  message?: string;
+  /** built-in validation type, available options: https://github.com/yiminghe/async-validator#type */
+  type?: string;
+  /** indicates whether field is required */
+  required?: boolean;
+  /** treat required fields that only contain whitespace as errors */
+  whitespace?: boolean;
+  /** validate the exact length of a field */
+  len?: number;
+  /** validate the min length of a field */
+  min?: number;
+  /** validate the max length of a field */
+  max?: number;
+  /** validate the value from a list of possible values */
+  enum?: string | string[];
+  /** validate from a regular expression */
+  pattern?: RegExp;
+  /** transform a value before validation */
+  transform?: (value: any) => any;
+  /** custom validate function (Note: callback must be called) */
+  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
+};
+
 export type ValidateCallback = (erros: any, values: any) => void;
 
 // function create
@@ -74,7 +99,7 @@ export type WrappedFormUtils = {
     /** 校验子节点值的时机 */
     validateTrigger?: string | string[];
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
-    rules?: Array<any>;
+    rules?: ValidationRule[];
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
     exclusive?: boolean;
   }): (node: React.ReactNode) => React.ReactNode;

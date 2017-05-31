@@ -113,6 +113,7 @@
     opacity: 0;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
+    z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
   }
 
   &-handler-wrap:hover &-handler {

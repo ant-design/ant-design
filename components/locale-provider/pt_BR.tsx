@@ -18,6 +18,8 @@ export default {
     filterConfirm: 'OK',
     filterReset: 'Resetar',
     emptyText: 'Não há dados',
+    selectAll: 'Selecionar página atual',
+    selectInvert: 'Inverter seleção',
   },
   Modal: {
     okText: 'OK',
@@ -36,5 +38,11 @@ export default {
   },
   Select: {
     notFoundContent: 'Não encontrado',
+  },
+  Upload: {
+    uploading: 'Enviando...',
+    removeFile: 'Remover arquivo',
+    uploadError: 'Erro no envio',
+    previewFile: 'Visualizar arquivo',
   },
 };

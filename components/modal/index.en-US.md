@@ -32,6 +32,7 @@ and so on.
 | style | Style of floating layer, typically used at least for adjusting the position. | object   | - |
 | wrapClassName | The class name of the container of the modal dialog | string   | - |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
+| getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 
 #### Destroy on close
 

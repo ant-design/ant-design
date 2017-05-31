@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "2.10.1",
+  "version": "2.10.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -26,9 +26,11 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "es"
   ],
   "typings": "lib/index.d.ts",
   "license": "MIT",
@@ -45,7 +47,7 @@
     "omit.js": "^0.1.0",
     "prop-types": "^15.5.7",
     "rc-animate": "~2.3.0",
-    "rc-calendar": "~8.2.0",
+    "rc-calendar": "~8.4.0",
     "rc-cascader": "~0.11.0",
     "rc-checkbox": "~2.0.0",
     "rc-collapse": "~1.7.0",
@@ -80,7 +82,7 @@
     "@types/react": "^15.0.8",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.0.5",
-    "antd-tools": "~0.19.1",
+    "antd-tools": "^1.4.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
@@ -138,7 +140,7 @@
     "rimraf": "^2.5.4",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0",
-    "typescript": "~2.2.1",
+    "typescript": "~2.3.0",
     "typescript-babel-jest": "^1.0.2",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
@@ -198,8 +200,8 @@
       "/_site/"
     ],
     "testPathIgnorePatterns": [
-      "dekko",
       "/node_modules/",
+      "dekko",
       "node"
     ],
     "transform": {
@@ -210,11 +212,13 @@
     "testRegex": ".*\\.test\\.js$",
     "collectCoverageFrom": [
       "components/**/*.{ts,tsx}",
-      "!components/*/style/index.tsx"
+      "!components/*/style/index.tsx",
+      "!components/style/index.tsx",
+      "!components/*/locale/index.tsx"
     ],
     "transformIgnorePatterns": [
       "/node_modules/",
-      "/dist/antd.js"
+      "/dist/"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

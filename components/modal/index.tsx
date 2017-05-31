@@ -2,7 +2,7 @@ import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
 import assign from 'object-assign';
 
-export { ModalFuncProps }
+export { ModalFuncProps };
 
 Modal.info = function (props: ModalFuncProps) {
   const config = assign({}, {

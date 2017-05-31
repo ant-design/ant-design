@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -615,6 +616,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return recordKey === undefined ? index : recordKey;
   }
 
+  getPopupContainer = () => {
+    return findDOMNode(this) as HTMLElement;
+  }
+
   renderRowSelection() {
     const { prefixCls, rowSelection } = this.props;
     const columns = this.columns.concat();
@@ -646,6 +651,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
+            getPopupContainer={this.getPopupContainer}
           />
         );
       }
@@ -700,6 +706,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
+            getPopupContainer={this.getPopupContainer}
           />
         );
       }
@@ -939,7 +946,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
 
     return (
-      <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
+      <div
+        className={classNames(`${prefixCls}-wrapper`, className)}
+        style={style}
+      >
         <Spin
           {...loading}
           className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
