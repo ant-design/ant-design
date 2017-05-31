@@ -65,13 +65,11 @@ describe('RangePicker with showTime', () => {
       <RangePicker showTime open onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    let calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
     expect(calendarWrapper.find('.ant-calendar-time-picker-btn').hasClass('ant-calendar-time-picker-btn-disabled')).toBe(true);
     expect(calendarWrapper.find('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled')).toBe(true);
     calendarWrapper.find('.ant-calendar-date').at(10).simulate('click');
-    calendarWrapper = mount(wrapper.find('Trigger').node.getComponent()); // !!! TODO: calendarWrapper cannot get the latest state from wrapper
     calendarWrapper.find('.ant-calendar-date').at(11).simulate('click');
-    calendarWrapper = mount(wrapper.find('Trigger').node.getComponent()); // !!!
     expect(calendarWrapper.find('.ant-calendar-time-picker-btn').hasClass('ant-calendar-time-picker-btn-disabled')).toBe(false);
     expect(calendarWrapper.find('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled')).toBe(false);
     expect(onChangeFn).toHaveBeenCalled();
@@ -86,11 +84,9 @@ describe('RangePicker with showTime', () => {
       <RangePicker showTime open onOk={onOkFn} onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    let calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
     calendarWrapper.find('.ant-calendar-date').at(10).simulate('click');
-    calendarWrapper = mount(wrapper.find('Trigger').node.getComponent()); // !!!
     calendarWrapper.find('.ant-calendar-date').at(11).simulate('click');
-    calendarWrapper = mount(wrapper.find('Trigger').node.getComponent()); // !!!
     onChangeFn.mockClear();
     calendarWrapper.find('.ant-calendar-ok-btn').simulate('click');
     expect(onOkFn).toHaveBeenCalled();

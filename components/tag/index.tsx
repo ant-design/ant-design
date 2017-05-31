@@ -104,7 +104,7 @@ export default class Tag extends React.Component<TagProps, any> {
         component=""
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
-        transitionAppear={true}
+        transitionAppear
         onEnd={this.animationEnd}
       >
         {tag}

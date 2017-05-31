@@ -5,6 +5,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "target": "es6",
     "lib": [
       "dom",
