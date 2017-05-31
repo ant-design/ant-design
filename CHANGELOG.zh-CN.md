@@ -17,6 +17,25 @@ timeline: true
 
 ---
 
+## 2.10.3
+
+`2017-05-31`
+
+- **Calendar** 
+  - 修复了样式问题以支持 disabledDate，补充了 Type 定义及文档。[#6074](https://github.com/ant-design/ant-design/issues/6074)
+  - rc-calendar 依赖升级至 8.4.0，支持保加利亚语，支持首先选择结束日期。[commit/a4a6db](https://github.com/ant-design/ant-design/commit/a4a6db76de57ac2559a2be80208121ab5e168fbf)
+- **Alert** 去掉了默认的下边距。[commit/5ef482](https://github.com/ant-design/ant-design/commit/5ef48289747409b6d962f75627ddb11e2765f965)
+- **Tabs** 修复了隐藏标签下内容的表现问题。[#6237](https://github.com/ant-design/ant-design/issues/6237)
+- **Layout** 修复了折叠侧边栏中的内容不能自动隐藏的问题。[#6131](https://github.com/ant-design/ant-design/issues/6131)
+- **Table** 修复了 filter 被 Table 截断的问题。[#6245](https://github.com/ant-design/ant-design/issues/6245)
+- **InputNumber** 修复了配置 hasFeedback 时校验结果图标位置有误的问题。[#6289](https://github.com/ant-design/ant-design/issues/6289)
+- **Typescript**
+  - typescript 升级至 2.3.x。[#6263](https://github.com/ant-design/ant-design/issues/6263) 
+  - 补充了 Table 的 type 定义. [commit/acdc56](https://github.com/ant-design/ant-design/commit/acdc563a547c49960521b2b48cd5c707ac1e4cf2) [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)
+  - 修复了 Mention、Form 组件中错误的 type 定义. [pull/6268](https://github.com/ant-design/ant-design/pull/6268) [@jch254](https://github.com/jch254)
+  - 修复了 Badge 组件中错误的 type 定义. [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)
+  - 补充了 Input 相关组件的 type 定义。[pull/6276](https://github.com/ant-design/ant-design/pull/6276/commits/94901de2e8c0a2ed6f62f5aa50c98994aad71844) [@panjiesw](https://github.com/panjiesw)  [commit/220264](https://github.com/ant-design/ant-design/commit/2202648d6e1c53409ade2141955232922b0040d6#diff-26cb6da96d10397e18e7dbd6c5d8f7a1L265) [@clinyong](https://github.com/clinyong)
+
 ## 2.10.2
 
 `2017-05-23`
