@@ -179,7 +179,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={renderTabBar}
-        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin={true} />}
+        renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
         {childrenWithClose || children}

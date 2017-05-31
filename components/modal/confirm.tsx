@@ -57,7 +57,7 @@ export default function confirm(config) {
         <ActionButton actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus={true}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -65,7 +65,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus={true}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -80,7 +80,7 @@ export default function confirm(config) {
     <Dialog
       className={classString}
       onCancel={close.bind(this, { triggerCancel: true })}
-      visible={true}
+      visible
       title=""
       transitionName="zoom"
       footer=""
