@@ -2123,7 +2123,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
           </div>
           <div
+            aria-disabled="false"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
             class="ant-slider-handle"
+            role="slider"
             style="left:0%;"
           />
           <div
