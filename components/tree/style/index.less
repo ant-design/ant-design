@@ -4,6 +4,8 @@
 @import "./mixin";
 
 @tree-prefix-cls: ~"@{ant-prefix}-tree";
+@tree-showline-icon-color: @text-color-secondary;
+
 .antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-tree-checkbox");
 
 .@{tree-prefix-cls} {
@@ -141,12 +143,16 @@
       display: block;
     }
   }
-  &-treenode-disabled {
+  li&-treenode-disabled {
     > span,
     > .@{tree-prefix-cls}-node-content-wrapper,
-    > .@{tree-prefix-cls}-node-content-wrapper span {
+    > .@{tree-prefix-cls}-node-content-wrapper span,
+    > span.@{tree-prefix-cls}-switcher {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+    > .@{tree-prefix-cls}-node-content-wrapper:hover {
+      background: transparent;
     }
   }
   &-icon__open {
@@ -164,6 +170,7 @@
       span {
         &.@{tree-prefix-cls}-switcher {
           background: @component-background;
+          color: @text-color;
           &.@{tree-prefix-cls}-switcher-noop {
             .antTreeShowLineIcon("tree-doc-icon");
           }
@@ -171,12 +178,14 @@
           &.@{tree-prefix-cls}-center_open,
           &.@{tree-prefix-cls}-bottom_open,
           &.@{tree-prefix-cls}-noline_open {
+            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-open-icon");
           }
           &.@{tree-prefix-cls}-roots_close,
           &.@{tree-prefix-cls}-center_close,
           &.@{tree-prefix-cls}-bottom_close,
           &.@{tree-prefix-cls}-noline_close {
+            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-close-icon");
           }
         }

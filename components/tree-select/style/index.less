@@ -99,12 +99,16 @@
       display: block;
     }
   }
-  &-treenode-disabled {
+  li&-treenode-disabled {
     > span,
-    > a,
-    > a span {
+    > .@{select-tree-prefix-cls}-node-content-wrapper,
+    > .@{select-tree-prefix-cls}-node-content-wrapper span,
+    > span.@{select-tree-prefix-cls}-switcher {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+    > .@{select-tree-prefix-cls}-node-content-wrapper:hover {
+      background: transparent;
     }
   }
   &-icon__open {

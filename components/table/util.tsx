@@ -1,6 +1,5 @@
 import React from 'react';
 import assign from 'object-assign';
-import ColumnGroup from './ColumnGroup';
 
 export function flatArray(data: Object[] = [], childrenName = 'children') {
   const result: Object[] = [];
@@ -43,7 +42,7 @@ export function flatFilter(tree: any[], callback: Function) {
 
 export function normalizeColumns(elements) {
   const columns: any[] = [];
-  React.Children.forEach(elements, (element: React.ReactElement<any>) => {
+  React.Children.forEach(elements, (element) => {
     if (!React.isValidElement(element)) {
       return;
     }
@@ -51,7 +50,7 @@ export function normalizeColumns(elements) {
     if (element.key) {
       column.key = element.key;
     }
-    if (element.type as any === ColumnGroup) {
+    if (element.type && (element.type as any).__ANT_TABLE_COLUMN_GROUP) {
       column.children = normalizeColumns(column.children);
     }
     columns.push(column);
