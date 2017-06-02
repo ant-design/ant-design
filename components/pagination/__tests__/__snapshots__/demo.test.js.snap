@@ -730,6 +730,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     title="2/5"
   >
     <input
+      size="3"
       type="text"
       value="2"
     />
