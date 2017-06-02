@@ -359,7 +359,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     <span
       class="ant-calendar-picker"
     >
-      <span>
+      <div>
         <input
           class="ant-calendar-picker-input ant-input"
           placeholder="请选择日期"
@@ -369,7 +369,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-calendar-picker-icon"
         />
-      </span>
+      </div>
     </span>
   </span>
   <br />

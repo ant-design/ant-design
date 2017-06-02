@@ -1693,7 +1693,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1703,7 +1703,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -1732,7 +1732,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-calendar-picker"
           style="width:154px;"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1742,7 +1742,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -1770,7 +1770,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1780,7 +1780,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -2801,7 +2801,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <span>
+                  <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
@@ -2811,7 +2811,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     <span
                       class="ant-calendar-picker-icon"
                     />
-                  </span>
+                  </div>
                 </span>
                 <div
                   class="ant-form-explain"
@@ -2846,7 +2846,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <span>
+                  <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
@@ -2856,7 +2856,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     <span
                       class="ant-calendar-picker-icon"
                     />
-                  </span>
+                  </div>
                 </span>
               </div>
             </div>

@@ -211,7 +211,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <span
         class="ant-calendar-picker"
       >
-        <span>
+        <div>
           <input
             class="ant-calendar-picker-input ant-input"
             placeholder="Select date"
@@ -221,7 +221,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           <span
             class="ant-calendar-picker-icon"
           />
-        </span>
+        </div>
       </span>
       <span
         class="ant-time-picker "
