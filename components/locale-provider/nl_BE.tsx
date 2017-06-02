@@ -8,6 +8,7 @@ import Calendar from '../calendar/locale/nl_BE';
 
 export default {
   locale: 'nl-be',
+  Pagination,
   DatePicker,
   TimePicker,
   Calendar,
