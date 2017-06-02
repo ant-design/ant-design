@@ -180,19 +180,29 @@ export default class Input extends Component<InputProps, any> {
       [wrapperClassName]: (addonBefore || addonAfter),
     });
 
-    const node = (
+    // Need another wrapper for changing display:table to display:inline-block
+    // and put style prop in wrapper
+    if (addonBefore || addonAfter) {
+      return (
+        <span
+          className={`${props.prefixCls}-group-wrapper`}
+          style={props.style}
+        >
+          <span className={className}>
+            {addonBefore}
+            {cloneElement(children, { style: null })}
+            {addonAfter}
+          </span>
+        </span>
+      );
+    }
+    return (
       <span className={className}>
         {addonBefore}
         {children}
         {addonAfter}
       </span>
     );
-
-    // Need another wrapper for changing display:table to display:inline-block
-    if (addonBefore || addonAfter) {
-      return <span className={`${props.prefixCls}-group-wrapper`}>{node}</span>;
-    }
-    return node;
   }
 
   renderLabeledIcon(children) {
