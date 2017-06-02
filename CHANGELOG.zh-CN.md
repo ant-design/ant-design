@@ -21,7 +21,8 @@ timeline: true
 
 `2017-06-01`
 
-- 修复可能安装到 `rc-util@<4.0.4` 版本导致 `Can't resolve 'rc-util/es/KeyCode'` 的问题。
+- 修正 `rc-util`  依赖。[#6310](https://github.com/ant-design/ant-design/pull/6311) [@bkniffler](https://github.com/bkniffler)
+- 修正 `es` 版本的语法错误。[#6310](https://github.com/ant-design/ant-design/issues/6310#issuecomment-305176273)
 
 ## 2.10.3
 

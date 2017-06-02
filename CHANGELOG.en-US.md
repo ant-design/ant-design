@@ -21,7 +21,8 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-06-01`
 
-- Fix `rc-util@<4.0.4` issue.
+- Fix `rc-util` dependency. [#6310](https://github.com/ant-design/ant-design/pull/6311) [@bkniffler](https://github.com/bkniffler)
+- Fix syntax error in es build. [#6310](https://github.com/ant-design/ant-design/issues/6310#issuecomment-305176273)
 
 ## 2.10.3
 
