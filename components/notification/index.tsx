@@ -149,11 +149,11 @@ function notice(args) {
 }
 
 const api: {
-  success?(args: ArgsProps): void;
-  error?(args: ArgsProps): void;
-  info?(args: ArgsProps): void;
-  warn?(args: ArgsProps): void;
-  warning?(args: ArgsProps): void;
+  success(args: ArgsProps): void;
+  error(args: ArgsProps): void;
+  info(args: ArgsProps): void;
+  warn(args: ArgsProps): void;
+  warning(args: ArgsProps): void;
 
   open(args: ArgsProps): void;
   close(key: string): void;
