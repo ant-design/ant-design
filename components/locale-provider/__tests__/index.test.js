@@ -3,6 +3,10 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Select, Transfer } from '../../';
+import enGB from '../en_GB';
+import frFR from '../fr_FR';
+import nlBE from '../nl_BE';
+import itIT from '../it_IT';
 import enUS from '../en_US';
 import ptBR from '../pt_BR';
 import ruRU from '../ru_RU';
@@ -22,7 +26,7 @@ import zhTW from '../zh_TW';
 import fiFI from '../fi_FI';
 import bgBG from '../bg_BG';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, bgBG];
+const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, bgBG, enGB, frFR, nlBE, itIT];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
