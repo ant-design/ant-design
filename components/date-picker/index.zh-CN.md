@@ -62,6 +62,7 @@ moment.locale('zh-cn');
 | showToday    | 是否展示“今天”按钮 | boolean | true |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
 | onOk | 点击确定按钮的回调 | function() | - |
+| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 
 ### MonthPicker
 
@@ -85,6 +86,7 @@ moment.locale('zh-cn');
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
 | ranges       | 预设时间范围快捷选择 | { [range: string]: [moment](http://momentjs.com/)[] } | 无 |
+| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | onOk | 点击确定按钮的回调 | function() | - |
 
 <style>

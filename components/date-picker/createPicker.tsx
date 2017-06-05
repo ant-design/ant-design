@@ -49,6 +49,15 @@ export default function createPicker(TheCalendar): any {
       }
     }
 
+    renderFooter = (...args) => {
+      const { prefixCls, renderExtraFooter } = this.props;
+      return renderExtraFooter ? (
+        <div className={`${prefixCls}-footer-extra`}>
+          {renderExtraFooter(...args)}
+        </div>
+      ) : null;
+    }
+
     clearSelection = (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -107,6 +116,7 @@ export default function createPicker(TheCalendar): any {
           format={props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
+          renderFooter={this.renderFooter}
         />
       );
 

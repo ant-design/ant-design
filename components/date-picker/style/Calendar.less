@@ -240,15 +240,19 @@
     border-bottom-right-radius: 4px;
   }
 
-  &-footer-btn {
+  &-footer {
     border-top: @border-width-base @border-style-base @border-color-split;
-    text-align: center;
-    display: block;
     line-height: 38px;
-  }
-
-  &-footer > div {
-    display: inline-block;
+    padding: 0 12px;
+    &-btn {
+      text-align: center;
+      display: block;
+    }
+    &-extra + &-btn {
+      border-top: @border-width-base @border-style-base @border-color-split;
+      margin: 0 -12px;
+      padding: 0 12px;
+    }
   }
 
   .@{calendar-prefix-cls}-today-btn,
@@ -259,6 +263,9 @@
     &-disabled {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+    &:only-child {
+      margin: 0;
     }
   }
 
@@ -295,9 +302,6 @@
     .btn;
     .btn-primary;
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @border-radius-base);
-    position: absolute;
-    bottom: 8px;
-    right: 9px;
 
     &-disabled {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);

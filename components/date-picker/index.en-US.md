@@ -61,6 +61,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | onOk | callback when click ok button | function() | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 
 ### MonthPicker
 
@@ -84,6 +85,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | onOk | callback when click ok button | function() | - |
 
 <style>

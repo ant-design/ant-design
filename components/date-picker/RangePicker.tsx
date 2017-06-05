@@ -112,13 +112,17 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  renderFooter = () => {
-    const { prefixCls, ranges } = this.props;
-    if (!ranges) {
+  renderFooter = (...args) => {
+    const { prefixCls, ranges, renderExtraFooter } = this.props;
+    if (!ranges && !renderExtraFooter) {
       return null;
     }
-
-    const operations = Object.keys(ranges).map((range) => {
+    const customFooter = renderExtraFooter ? (
+      <div className={`${prefixCls}-footer-extra`} key="extra">
+        {renderExtraFooter(...args)}
+      </div>
+    ) : null;
+    const operations = Object.keys(ranges || {}).map((range) => {
       const value = ranges[range];
       return (
         <a
@@ -131,11 +135,12 @@ export default class RangePicker extends React.Component<any, any> {
         </a>
       );
     });
-    return (
-      <div className={`${prefixCls}-range-quick-selector`}>
+    const rangeNode = (
+      <div className={`${prefixCls}-footer-extra ${prefixCls}-range-quick-selector`} key="range">
         {operations}
       </div>
     );
+    return [rangeNode, customFooter];
   }
 
   render() {
