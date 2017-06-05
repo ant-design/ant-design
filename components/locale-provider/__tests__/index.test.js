@@ -21,8 +21,9 @@ import trTR from '../tr_TR';
 import zhTW from '../zh_TW';
 import fiFI from '../fi_FI';
 import bgBG from '../bg_BG';
+import plPL from '../pl_PL';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, bgBG];
+const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, bgBG, plPL];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
