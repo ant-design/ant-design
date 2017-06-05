@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import TimelineItem from './TimelineItem';
+import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -11,7 +11,7 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item: React.ReactNode;
+  static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
   static defaultProps = {
     prefixCls: 'ant-timeline',
   };
