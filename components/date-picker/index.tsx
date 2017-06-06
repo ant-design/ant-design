@@ -23,6 +23,7 @@ export interface PickerProps {
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment) => boolean;
+  onOk: () => void;
 }
 
 export interface SinglePickerProps {
