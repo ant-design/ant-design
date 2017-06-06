@@ -17,6 +17,13 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.10.4
+
+`2017-06-01`
+
+- Fix `rc-util` dependency. [#6310](https://github.com/ant-design/ant-design/pull/6311) [@bkniffler](https://github.com/bkniffler)
+- Fix syntax error in es build. [#6310](https://github.com/ant-design/ant-design/issues/6310#issuecomment-305176273)
+
 ## 2.10.3
 
 `2017-05-31`
@@ -30,7 +37,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - **Table** Fix table filter menu overflow issue. [#6245](https://github.com/ant-design/ant-design/issues/6245)
 - **InputNumber** Fix hasFeedback misplaced validated icon. [#6289](https://github.com/ant-design/ant-design/issues/6289)
 - **Typescript**
-  - Upgrade TypeScript to 2.3.x. [#6263](https://github.com/ant-design/ant-design/issues/6263) 
+  - Upgrade TypeScript to 2.3.x. [#6263](https://github.com/ant-design/ant-design/issues/6263)
   - Add missing props in Table. [commit/acdc56](https://github.com/ant-design/ant-design/commit/acdc563a547c49960521b2b48cd5c707ac1e4cf2) [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)
   - Fix wrong type in Mention and Form. [pull/6268](https://github.com/ant-design/ant-design/pull/6268) [@jch254](https://github.com/jch254)
   - Fix wrong type in Badge. [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)

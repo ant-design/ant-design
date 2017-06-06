@@ -62,7 +62,7 @@ $ yarn add antd
 
 ```jsx
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import Button from 'antd/lib/button';
 import './App.css';
 
 class App extends Component {
@@ -94,18 +94,15 @@ export default App;
 
 ## 高级配置
 
-我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的代码（对前端性能是个隐患）。
+我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。
 
-> 你会在控制台看到如下警告。
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
-
-我们需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
+此时我们可能需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
 
 ```bash
 $ yarn run eject
 ```
 
-### 按需加载
+### 使用 babel-plugin-import
 
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
 
@@ -133,9 +130,30 @@ $ yarn add babel-plugin-import --dev
 
 > 注意，由于 create-react-app eject 之后的配置中没有 `.babelrc` 文件，所以需要把配置放到 `webpack.config.js` 或 `package.json` 的 `babel` 属性中。
 
-然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，现在 babel-plugin-import 会按需加载样式。
 
-最后重启 `yarn start` 访问页面，此时上面的警告信息应该没了，antd 组件的 js 和 css 代码都会按需加载。
+然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，并且按下面的格式引入模块。
+
+```diff
+  // scr/App.js
+  import React, { Component } from 'react';
+- import Button from 'antd/lib/button';
++ import { Button } from 'antd';
+  import './App.css';
+
+  class App extends Component {
+    render() {
+      return (
+        <div className="App">
+          <Button type="primary">Button</Button>
+        </div>
+      );
+    }
+  }
+
+  export default App;
+```
+
+最后重启 `yarn start` 访问页面，antd 组件的 js 和 css 代码都会按需加载，你在控制台也不会看到这样的[警告信息](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)。关于按需加载的原理和其他方式可以阅读[这里](/docs/react/getting-started#Import-on-Demand).
 
 ### 自定义主题
 

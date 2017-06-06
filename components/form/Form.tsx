@@ -111,7 +111,7 @@ export interface FormComponentProps {
 
 // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/9951
 export interface ComponentDecorator<TOwnProps> {
-  (component: React.ComponentClass<FormComponentProps & TOwnProps>): any;
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {

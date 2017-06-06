@@ -63,7 +63,7 @@ Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import Button from 'antd/lib/button';
 import './App.css';
 
 class App extends Component {
@@ -96,19 +96,16 @@ Ok, you now see a blue primary button displaying in page now, next you can choos
 
 ## Advanced Guides
 
-We are successfully running antd components now; but in the real world, there are still lots of problems about antd-demo.
-For instance, we actually import all components in the project which will cause a serious network perfermance issue.
+We are successfully running antd components now. But in the real world, there are still lots of problems about antd-demo.
+For instance, we actually import all styles of components in the project which maybe a network perfermance issue.
 
-> You will see a warning in your browser console.
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
-
-So it is necessary to customize the default webpack config. We can achieve that by using `eject` script command.
+Sometimes it could be necessary to customize the default webpack config. We can achieve that by using `eject` script command.
 
 ```bash
 $ yarn run eject
 ```
 
-### Import on demand
+### Use babel-plugin-import
 
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
@@ -136,9 +133,29 @@ $ yarn add babel-plugin-import --dev
 
 > Note: because there is no `.babelrc` file after config eject, so we have to put the babel option into `webpack.config.js` or `babel` field of `package.json`.
 
-Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles.
+Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
 
-Then reboot `yarn start` and visit demo page, you should find that the above warning message would be gone which prove the `import on demand` config is effective now.
+```diff
+  // scr/App.js
+  import React, { Component } from 'react';
+- import Button from 'antd/lib/button';
++ import { Button } from 'antd';
+  import './App.css';
+
+  class App extends Component {
+    render() {
+      return (
+        <div className="App">
+          <Button type="primary">Button</Button>
+        </div>
+      );
+    }
+  }
+
+  export default App;
+```
+
+Then reboot `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in console which prove the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
 
 ### Customize Theme
 

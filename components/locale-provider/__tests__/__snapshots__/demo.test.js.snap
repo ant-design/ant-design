@@ -65,12 +65,14 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         <li
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
+          tabindex="0"
           title="Previous Page"
         >
           <a />
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
           title="1"
         >
           <a>
@@ -79,6 +81,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-2"
+          tabindex="0"
           title="2"
         >
           <a>
@@ -87,6 +90,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-3"
+          tabindex="0"
           title="3"
         >
           <a>
@@ -95,6 +99,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-4"
+          tabindex="0"
           title="4"
         >
           <a>
@@ -103,6 +108,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-5"
+          tabindex="0"
           title="5"
         >
           <a>
@@ -112,6 +118,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         <li
           aria-disabled="false"
           class=" ant-pagination-next"
+          tabindex="0"
           title="Next Page"
         >
           <a />
@@ -204,7 +211,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <span
         class="ant-calendar-picker"
       >
-        <span>
+        <div>
           <input
             class="ant-calendar-picker-input ant-input"
             placeholder="Select date"
@@ -214,7 +221,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           <span
             class="ant-calendar-picker-icon"
           />
-        </span>
+        </div>
       </span>
       <span
         class="ant-time-picker "
@@ -1541,12 +1548,14 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
+      tabindex="0"
       title="Previous Page"
     >
       <a />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
       title="1"
     >
       <a>
@@ -1555,6 +1564,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
       title="2"
     >
       <a>
@@ -1563,6 +1573,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
       title="3"
     >
       <a>
@@ -1571,6 +1582,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
       title="4"
     >
       <a>
@@ -1579,6 +1591,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
       title="5"
     >
       <a>
@@ -1588,6 +1601,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     <li
       aria-disabled="false"
       class=" ant-pagination-next"
+      tabindex="0"
       title="Next Page"
     >
       <a />

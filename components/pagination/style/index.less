@@ -18,9 +18,10 @@
 
   &-total-text {
     display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    margin-right: 10px;
+    vertical-align: middle;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
   }
 
   &-item {
@@ -33,10 +34,12 @@
     text-align: center;
     list-style: none;
     display: inline-block;
+    vertical-align: middle;
     border: @border-width-base @border-style-base @border-color-base;
     background-color: @component-background;
     margin-right: 8px;
     font-family: Arial;
+    outline: 0;
 
     a {
       text-decoration: none;
@@ -45,8 +48,9 @@
       margin: 0 6px;
     }
 
+    &:focus,
     &:hover {
-      transition: all 0.3s ease;
+      transition: all .3s;
       border-color: @primary-color;
       a {
         color: @primary-color;
@@ -57,7 +61,14 @@
       background-color: @primary-color;
       border-color: @primary-color;
 
+      &:focus,
+      &:hover {
+        background-color: @primary-5;
+        border-color: @primary-5;
+      }
+
       a,
+      &:focus a,
       &:hover a {
         color: #fff;
       }
@@ -66,6 +77,8 @@
 
   &-jump-prev,
   &-jump-next {
+    outline: 0;
+
     &:after {
       content: "•••";
       display: block;
@@ -74,6 +87,7 @@
       text-align: center;
     }
 
+    &:focus,
     &:hover {
       &:after {
         color: @primary-color;
@@ -85,6 +99,7 @@
   }
 
   &-jump-prev {
+    &:focus,
     &:hover {
       &:after {
         content: "\e620\e620";
@@ -93,6 +108,7 @@
   }
 
   &-jump-next {
+    &:focus,
     &:hover {
       &:after {
         content: "\e61f\e61f";
@@ -118,31 +134,34 @@
     height: 28px;
     line-height: 28px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all .3s;
     display: inline-block;
+    vertical-align: middle;
   }
 
   &-prev,
   &-next {
     border: @border-width-base @border-style-base @border-color-base;
     background-color: @component-background;
+    outline: 0;
 
     a {
       color: @text-color;
+      outline: none;
 
       &:after {
         .iconfont-size-under-12px(8px);
         display: block;
         height: 26px;
-        line-height: 27px;
+        line-height: 26px;
         font-family: "anticon";
         text-align: center;
       }
     }
 
+    &:focus,
     &:hover {
       border-color: @primary-color;
-
       a {
         color: @primary-color;
       }
@@ -187,10 +206,12 @@
 
   &-options {
     display: inline-block;
-    margin-left: 15px;
+    vertical-align: middle;
+    margin-left: 16px;
+
     &-size-changer {
       display: inline-block;
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     &-quick-jumper {
@@ -217,6 +238,7 @@
 
   &-simple &-simple-pager {
     display: inline-block;
+    vertical-align: middle;
     margin-right: 8px;
 
     input {
@@ -227,10 +249,9 @@
       border: @border-width-base @border-style-base @border-color-base;
       outline: none;
       padding: 5px 8px;
-      width: 30px;
       height: 24px;
       text-align: center;
-      transition: border-color 0.3s ease;
+      transition: border-color .3s;
 
       &:hover {
         border-color: @primary-color;

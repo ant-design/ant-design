@@ -23,6 +23,7 @@ import moment from 'moment';
 |---------------------|-----|-----|-------|
 | defaultValue        | to set default time | [moment](http://momentjs.com/) | - |
 | value               | to set time | [moment](http://momentjs.com/) | - |
+| defaultOpenValue    | to highlight values in panel when there is no selected value | [moment](http://momentjs.com/) | moment() |
 | open                | whether to popup panel | boolean | false |
 | onOpenChange        | a callback function which will be called while panel opening/closing | (open: boolean): void | - |
 | placeholder         | display when there's no value | string | "Select a time" |
