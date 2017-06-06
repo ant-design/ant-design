@@ -207,7 +207,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
   <span
     class="ant-calendar-picker"
   >
-    <span>
+    <div>
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="请选择日期"
@@ -217,13 +217,13 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       <span
         class="ant-calendar-picker-icon"
       />
-    </span>
+    </div>
   </span>
   <span
     class="ant-calendar-picker"
     style="width:154px;"
   >
-    <span>
+    <div>
       <input
         class="ant-calendar-picker-input ant-input"
         placeholder="请选择日期"
@@ -233,7 +233,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       <span
         class="ant-calendar-picker-icon"
       />
-    </span>
+    </div>
   </span>
   <span
     class="ant-calendar-picker"
