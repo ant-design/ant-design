@@ -102,13 +102,47 @@ For instance, we actually import all components in the project which will cause 
 > You will see a warning in your browser console.
 > ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
 
-So it is necessary to customize the default webpack config. We can achieve that by using `eject` script command.
+You have 2 different ways to solve this issue:
+* Importing on demand from lib folder (recommended)
+* Importing on demand ejecting `create-react-app`
+
+### Import on demand
+
+#### Importing on-demand from lib folder
+You have to `import` all component-styles in your `App.js`, and then import the proper component inside each place that it will be used.
+Let's follow this example where we'll use `Button`, `Progress` and `Checkbox` component:
+
+In your `App.js`:
+```js
+import React from 'react';
+// ...
+// Importing antd-Component styles
+import 'antd/lib/button/style'; // or antd/lib/button/style/css'
+import 'antd/lib/progress/style'; // or antd/lib/progress/style/css'
+import 'antd/lib/checkbox/style'; // or antd/lib/checkbox/style/css'
+// ...
+```
+
+In your `MyContainer.js`:
+```js
+import React from 'react';
+// ...
+// Importing antd-Component
+import Button from 'antd/lib/button';
+// ...
+```
+
+You will found more info about it in [this](/docs/react/getting-started#Import-on-Demand) guide.
+
+
+#### Importing on demand ejecting `create-react-app`
+We do not recommend to eject `create-react-app` from your project, because you'll lose all its benefits, but, if you don't want to import on-demand from `lib` folder, you have to follow these steps:
+
+First step: It's necessary to customize the default webpack config. We can achieve that by using `eject` script command.
 
 ```bash
 $ yarn run eject
 ```
-
-### Import on demand
 
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
