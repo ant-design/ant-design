@@ -4,7 +4,7 @@ type: Data Display
 title: Avatar
 ---
 
-Avatars can be used to represent people or object, which supports image, antd-Icon, or letter. 
+Avatars can be used to represent people or object, which supports image, antd-Icon, or letter.
 
 ## API
 
@@ -14,6 +14,3 @@ Avatars can be used to represent people or object, which supports image, antd-Ic
 | size   | to set the size of avatar | Enum{ 'large', 'small', 'default' } | `default` |
 | src  | the address of a image avatar | string | - |
 | icon    | the icon type of a icon avatar, see `Icon` Component | string | - |
-| color | to set the color of the icon or letter in avatar | string | - |
-| backgroundColor    | to set the background color of the icon or letter in avatar  | string | - |
-

@@ -15,5 +15,3 @@ title: Avatar
 | size       | 设置头像的大小                           | Enum{ 'large', 'small', 'default' }       | `default` |
 | src  | 图片类头像的资源地址                                     | string   | -    |
 | icon    | 设置头像的图标类型，参考 `Icon` 组件                                       | string   | -    |
-| color | 设置头像颜色，仅支持 Icon、字符类头像                            | string   | -    |
-| backgroundColor     | 设置头像背景色，仅支持 Icon、字符类头像            | string   | -    |
