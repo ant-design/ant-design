@@ -30,3 +30,4 @@ cols: 1
 |------|------------------|-------------------------|--------|
 | key  | 对应 activeKey   | string                  | 无     |
 | header | 面板头内容 | string\|ReactNode | 无     |
+| disabled | 禁用后的面板展开与否将无法通过用户交互改变 | boolean | false |
