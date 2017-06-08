@@ -44,7 +44,7 @@ class SiderDemo extends React.Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" />
+          <div className="logo"><div>
           <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['6']}>
             <SubMenu
               key="sub1"
