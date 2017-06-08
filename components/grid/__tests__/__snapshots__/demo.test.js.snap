@@ -511,13 +511,9 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           />
         </div>
         <div
-          aria-disabled="false"
-          aria-valuemax="5"
-          aria-valuemin="0"
-          aria-valuenow="1"
           class="ant-slider-handle"
-          role="slider"
           style="left:20%;"
+          value="1"
         />
         <div
           class="ant-slider-mark"
@@ -608,13 +604,9 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           />
         </div>
         <div
-          aria-disabled="false"
-          aria-valuemax="5"
-          aria-valuemin="0"
-          aria-valuenow="2"
           class="ant-slider-handle"
-          role="slider"
           style="left:40%;"
+          value="2"
         />
         <div
           class="ant-slider-mark"

@@ -24,9 +24,8 @@ export default class Avatar extends React.Component<AvatarProps, any> {
     shape: 'circle',
     size: 'default',
   };
-  refs: {
-    avatarChildren: HTMLElement;
-  };
+
+  private avatarChildren: any;
 
   constructor(props) {
     super(props);
@@ -36,7 +35,18 @@ export default class Avatar extends React.Component<AvatarProps, any> {
   }
 
   componentDidMount() {
-    const childrenNode = this.refs.avatarChildren;
+    this.setScale();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.children !== this.props.children
+        || (prevState.scale !== this.state.scale && this.state.scale === 1)) {
+      this.setScale();
+    }
+  }
+
+  setScale = () => {
+    const childrenNode = this.avatarChildren;
     if (childrenNode) {
       const childrenWidth = childrenNode.offsetWidth;
       const avatarWidth = ReactDOM.findDOMNode(this).getBoundingClientRect().width;
@@ -44,6 +54,10 @@ export default class Avatar extends React.Component<AvatarProps, any> {
       if (avatarWidth - 8 < childrenWidth) {
         this.setState({
           scale: (avatarWidth - 8) / childrenWidth,
+        });
+      } else {
+        this.setState({
+          scale: 1,
         });
       }
     }
@@ -54,21 +68,12 @@ export default class Avatar extends React.Component<AvatarProps, any> {
       prefixCls, shape, size, src, icon, className, ...others,
     } = this.props;
 
-    let sizeCls = '';
-    switch (size) {
-      case 'large':
-        sizeCls = 'lg';
-        break;
-      case 'small':
-        sizeCls = 'sm';
-        break;
-      default:
-        sizeCls = '';
-        break;
-    }
+    const sizeCls = classNames({
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
+    });
 
-    const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+    const classString = classNames(prefixCls, className, sizeCls, {
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-image`]: src,
       [`${prefixCls}-icon`]: icon,
@@ -80,17 +85,30 @@ export default class Avatar extends React.Component<AvatarProps, any> {
     } else if (icon) {
       children = <Icon type={icon} />;
     } else {
-      const childrenNode = this.refs.avatarChildren;
-      if (childrenNode && this.state.scale !== 1) {
+      const childrenNode = this.avatarChildren;
+      if (childrenNode || this.state.scale !== 1) {
         const childrenStyle: React.CSSProperties = {
+          msTransform: `scale(${this.state.scale})`,
+          WebkitTransform: `scale(${this.state.scale})`,
           transform: `scale(${this.state.scale})`,
           position: 'absolute',
           display: 'inline-block',
-          left: `calc(50% - ${childrenNode.offsetWidth / 2}px)`,
+          left: `calc(50% - ${Math.round(childrenNode.offsetWidth / 2)}px)`,
         };
-        children = <span className={`${prefixCls}-string`} ref="avatarChildren" style={childrenStyle}>{children}</span>;
+        children = <span
+          className={`${prefixCls}-string`}
+          ref={span => this.avatarChildren = span}
+          style={childrenStyle}
+        >
+          {children}
+        </span>;
       } else {
-        children = <span className={`${prefixCls}-string`} ref="avatarChildren">{children}</span>;
+        children = <span
+          className={`${prefixCls}-string`}
+          ref={span => this.avatarChildren = span}
+        >
+          {children}
+        </span>;
       }
     }
     return (

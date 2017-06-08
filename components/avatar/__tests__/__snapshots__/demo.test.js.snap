@@ -79,6 +79,30 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
+<div>
+  <span
+    class="ant-avatar ant-avatar-lg ant-avatar-circle"
+    style="background-color:#f56a00;"
+  >
+    <span
+      class="ant-avatar-string"
+    >
+      U
+    </span>
+  </span>
+  <button
+    class="ant-btn ant-btn-sm"
+    style="margin-left:16px;"
+    type="button"
+  >
+    <span>
+      Change
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
 <div>
   <div
