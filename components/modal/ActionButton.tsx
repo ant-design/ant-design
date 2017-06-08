@@ -38,6 +38,9 @@ export default class ActionButton extends React.Component<ActionButtonProps, any
         }
       }
       if (ret && ret.then) {
+        ret.catch(() => {
+          closeModal();
+        });
         this.setState({ loading: true });
         ret.then((...args) => {
           // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
