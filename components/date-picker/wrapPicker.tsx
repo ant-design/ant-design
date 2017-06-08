@@ -40,9 +40,6 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       onOpenChange() {
       },
       locale: {},
-      align: {
-        offset: [0, -9],
-      },
       prefixCls: 'ant-calendar',
       inputPrefixCls: 'ant-input',
     };
