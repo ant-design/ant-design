@@ -16,9 +16,13 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
       class="ant-slider-handle"
+      role="slider"
       style="left:30%;"
-      value="30"
     />
     <div
       class="ant-slider-mark"
@@ -38,14 +42,22 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
+      role="slider"
       style="left:20%;"
-      value="20"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
+      role="slider"
       style="left:50%;"
-      value="50"
     />
     <div
       class="ant-slider-mark"
@@ -79,9 +91,13 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
       class="ant-slider-handle"
+      role="slider"
       style="left:30%;"
-      value="30"
     />
     <div
       class="ant-slider-mark"
@@ -101,14 +117,22 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
+      role="slider"
       style="left:20%;"
-      value="20"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
+      role="slider"
       style="left:50%;"
-      value="50"
     />
     <div
       class="ant-slider-mark"
@@ -138,9 +162,13 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="20"
+      aria-valuemin="0"
+      aria-valuenow="0"
       class="ant-slider-handle"
+      role="slider"
       style="left:0%;"
-      value="0"
     />
     <div
       class="ant-slider-mark"
@@ -174,9 +202,13 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="1"
+          aria-valuenow="1"
           class="ant-slider-handle"
+          role="slider"
           style="left:0%;"
-          value="1"
         />
         <div
           class="ant-slider-mark"
@@ -256,9 +288,13 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="1"
+          aria-valuemin="0"
+          aria-valuenow="0"
           class="ant-slider-handle"
+          role="slider"
           style="left:0%;"
-          value="0"
         />
         <div
           class="ant-slider-mark"
@@ -357,9 +393,13 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       />
     </div>
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
       class="ant-slider-handle"
+      role="slider"
       style="left:37%;"
-      value="37"
     />
     <div
       class="ant-slider-mark"
@@ -423,14 +463,22 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       />
     </div>
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="26"
       class="ant-slider-handle ant-slider-handle-1"
+      role="slider"
       style="left:26%;"
-      value="26"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
       class="ant-slider-handle ant-slider-handle-2"
+      role="slider"
       style="left:37%;"
-      value="37"
     />
     <div
       class="ant-slider-mark"
@@ -497,9 +545,13 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       />
     </div>
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
       class="ant-slider-handle"
+      role="slider"
       style="left:37%;"
-      value="37"
     />
     <div
       class="ant-slider-mark"
@@ -566,9 +618,13 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       />
     </div>
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
       class="ant-slider-handle"
+      role="slider"
       style="left:37%;"
-      value="37"
     />
     <div
       class="ant-slider-mark"
@@ -635,9 +691,13 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       />
     </div>
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
       class="ant-slider-handle"
+      role="slider"
       style="left:37%;"
-      value="37"
     />
     <div
       class="ant-slider-mark"
@@ -689,9 +749,13 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
       class="ant-slider-handle"
+      role="slider"
       style="left:0%;"
-      value="0"
     />
     <div
       class="ant-slider-mark"
@@ -711,9 +775,13 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       class="ant-slider-step"
     />
     <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
       class="ant-slider-handle"
+      role="slider"
       style="left:0%;"
-      value="0"
     />
     <div
       class="ant-slider-mark"
@@ -743,9 +811,13 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-step"
       />
       <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="30"
         class="ant-slider-handle"
+        role="slider"
         style="bottom:30%;"
-        value="30"
       />
       <div
         class="ant-slider-mark"
@@ -769,14 +841,22 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-step"
       />
       <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
         class="ant-slider-handle ant-slider-handle-1"
+        role="slider"
         style="bottom:20%;"
-        value="20"
       />
       <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
         class="ant-slider-handle ant-slider-handle-2"
+        role="slider"
         style="bottom:50%;"
-        value="50"
       />
       <div
         class="ant-slider-mark"
@@ -817,14 +897,22 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         />
       </div>
       <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="26"
         class="ant-slider-handle ant-slider-handle-1"
+        role="slider"
         style="bottom:26%;"
-        value="26"
       />
       <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="37"
         class="ant-slider-handle ant-slider-handle-2"
+        role="slider"
         style="bottom:37%;"
-        value="37"
       />
       <div
         class="ant-slider-mark"
