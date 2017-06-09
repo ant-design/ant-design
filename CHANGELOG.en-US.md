@@ -54,7 +54,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Fix that timers of Spin should be removed correctly. [#6383](https://github.com/ant-design/ant-design/issues/6383)
 - Fix onClick support of Switch. [#6373](https://github.com/ant-design/ant-design/issues/6373)
 - Fix wrong TypeScript definition of Table.Column which will cause `error TS2304: Cannot find name 'T'`. [#6313](https://github.com/ant-design/ant-design/issues/6313)
-- Fix missing TypeScript definition of Timeline.Item. [#6356](https://github.com/ant-design/ant-design/issues/6356)
+- Fix error TypeScript definition of Timeline.Item and Dropdown.Button. [#6356](https://github.com/ant-design/ant-design/issues/6356)
 - Fix broken style of disabled Tree and TreeSelect. [#6320](https://github.com/ant-design/ant-design/issues/6320)
 
 ## 2.10.4

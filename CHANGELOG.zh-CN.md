@@ -54,7 +54,7 @@ timeline: true
 - 修复 Spin 定时器没有被正确移除的问题。[#6383](https://github.com/ant-design/ant-design/issues/6383)
 - 修复 Switch 对 onClick 的支持。[#6373](https://github.com/ant-design/ant-design/issues/6373)
 - 修复 Table.Column TypeScript definition 导致 `error TS2304: Cannot find name 'T'` 的问题。[#6313](https://github.com/ant-design/ant-design/issues/6313)
-- 修复 Timeline.Item TypeScript definition 丢失的问题。[#6356](https://github.com/ant-design/ant-design/issues/6356)
+- 修复 Timeline.Item 和 Dropdown.Button 在 TypeScript 报 `does not have any construct or call signatures` 错中的问题。[#6356](https://github.com/ant-design/ant-design/issues/6356)
 - 修复 Tree、TreeSelect disabled 样式问题。[#6320](https://github.com/ant-design/ant-design/issues/6320)
 
 ## 2.10.4
