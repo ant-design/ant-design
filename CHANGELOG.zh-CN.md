@@ -21,7 +21,7 @@ timeline: true
 
 `2017-06-07`
 
-- 新增头像组件 [Avatar](https://ant.design/components/avatar/)。:full_moon_with_face:
+- 新增头像组件 [Avatar](https://ant.design/components/avatar/)。🌝
 - LocaleProvider
   - 新增保加利亚语支持。[#6297](https://github.com/ant-design/ant-design/pull/6297) [@dimitrov-adrian](https://github.com/dimitrov-adrian)
   - 新增波兰语支持。[#6326](https://github.com/ant-design/ant-design/pull/6326) [@longersson](https://github.com/longersson)

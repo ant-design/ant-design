@@ -21,7 +21,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-06-07`
 
-- New component [Avatar](https://ant.design/components/avatar/). :full_moon_with_face:
+- New component [Avatar](https://ant.design/components/avatar/). 🌝
 - LocaleProvider
   - Supporting Bulgarian. [#6297](https://github.com/ant-design/ant-design/pull/6297) [@dimitrov-adrian](https://github.com/dimitrov-adrian)
   - Supporting Polish. [#6326](https://github.com/ant-design/ant-design/pull/6326) [@longersson](https://github.com/longersson)
