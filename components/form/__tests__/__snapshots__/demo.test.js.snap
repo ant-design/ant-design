@@ -1422,6 +1422,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <span
           class="ant-input-group-wrapper"
+          style="width:100%;"
         >
           <span
             class="ant-input-wrapper ant-input-group"
@@ -1430,7 +1431,8 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input-group-addon"
             >
               <div
-                class="icp-selector ant-select ant-select-enabled"
+                class="ant-select ant-select-enabled"
+                style="width:60px;"
               >
                 <div
                   aria-autocomplete="list"
