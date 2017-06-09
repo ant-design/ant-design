@@ -111,6 +111,13 @@ export default class Article extends React.Component {
               ['section', { className: 'markdown' }].concat(getChildren(content.content))
             ))
           }
+          {
+            props.utils.toReactComponent(
+              ['section', {
+                className: 'markdown api-container',
+              }].concat(getChildren(content.api || ['placeholder']))
+            )
+          }
         </article>
       </DocumentTitle>
     );

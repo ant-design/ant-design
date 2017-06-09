@@ -30,7 +30,7 @@ title: Upload
 | showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | boolean     | false |
 | accept     | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | string      | 无    |
-| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 或者 Promise 则停止上传。**注意：该方法不支持老 IE**。 | (file, fileList) => `boolean | Promise`    | 无    |
+| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传。**注意：该方法不支持老 IE**。 | (file, fileList) => `boolean | Promise`    | 无    |
 | customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |
 | onChange   | 上传文件改变时的状态，详见 onChange                | Function    | 无    |
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | string      | 'text'|

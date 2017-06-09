@@ -682,7 +682,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                     role="gridcell"
-                    title="2016-10-30"
+                    title="10/30/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -700,7 +700,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                     role="gridcell"
-                    title="2016-10-31"
+                    title="10/31/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -718,7 +718,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-1"
+                    title="11/01/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -736,7 +736,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-2"
+                    title="11/02/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -754,7 +754,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-3"
+                    title="11/03/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -772,7 +772,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-4"
+                    title="11/04/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -790,7 +790,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-5"
+                    title="11/05/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -813,7 +813,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-6"
+                    title="11/06/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -831,7 +831,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-7"
+                    title="11/07/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -849,7 +849,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-8"
+                    title="11/08/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -867,7 +867,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-9"
+                    title="11/09/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -885,7 +885,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-10"
+                    title="11/10/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -903,7 +903,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-11"
+                    title="11/11/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -921,7 +921,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-12"
+                    title="11/12/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -944,7 +944,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-13"
+                    title="11/13/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -962,7 +962,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-14"
+                    title="11/14/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -980,7 +980,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-15"
+                    title="11/15/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -998,7 +998,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-16"
+                    title="11/16/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1016,7 +1016,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-17"
+                    title="11/17/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1034,7 +1034,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-18"
+                    title="11/18/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1052,7 +1052,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-19"
+                    title="11/19/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1075,7 +1075,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-20"
+                    title="11/20/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1093,7 +1093,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-21"
+                    title="11/21/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1111,7 +1111,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
                     role="gridcell"
-                    title="2016-11-22"
+                    title="11/22/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1129,7 +1129,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-23"
+                    title="11/23/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1147,7 +1147,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-24"
+                    title="11/24/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1165,7 +1165,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-25"
+                    title="11/25/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1183,7 +1183,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-26"
+                    title="11/26/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1206,7 +1206,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-27"
+                    title="11/27/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1224,7 +1224,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-28"
+                    title="11/28/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1242,7 +1242,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-29"
+                    title="11/29/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1260,7 +1260,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell"
                     role="gridcell"
-                    title="2016-11-30"
+                    title="11/30/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1278,7 +1278,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-1"
+                    title="12/01/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1296,7 +1296,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-2"
+                    title="12/02/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1314,7 +1314,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-3"
+                    title="12/03/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1337,7 +1337,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-4"
+                    title="12/04/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1355,7 +1355,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-5"
+                    title="12/05/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1373,7 +1373,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-6"
+                    title="12/06/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1391,7 +1391,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-7"
+                    title="12/07/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1409,7 +1409,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-8"
+                    title="12/08/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1427,7 +1427,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-9"
+                    title="12/09/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
@@ -1445,7 +1445,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   <td
                     class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                     role="gridcell"
-                    title="2016-12-10"
+                    title="12/10/2016"
                   >
                     <div
                       class="ant-fullcalendar-date"
