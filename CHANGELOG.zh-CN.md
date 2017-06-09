@@ -21,6 +21,7 @@ timeline: true
 
 `2017-06-07`
 
+- 新增头像组件 [Avatar](https://ant.design/components/avatar/)。:full_moon_with_face:
 - LocaleProvider
   - 新增保加利亚语支持。[#6297](https://github.com/ant-design/ant-design/pull/6297) [@dimitrov-adrian](https://github.com/dimitrov-adrian)
   - 新增波兰语支持。[#6326](https://github.com/ant-design/ant-design/pull/6326) [@longersson](https://github.com/longersson)
@@ -28,24 +29,25 @@ timeline: true
   - 新增意大利语支持。[#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
   - 新增法语支持。[#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
   - 新增比利时语支持。[#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
-- 新增头像组件 [Avatar](https://ant.design/components/avatar/)。
-- Collapse.Panel 现在可以被禁用，意味着无法通过用户交互改变面板打开/关闭状态。[#6119](https://github.com/ant-design/ant-design/issues/6119) [demo](https://ant.design/components/collapse/#components-collapse-demo-basic)
+- Collapse.Panel 现在可以被禁用，禁用时无法通过用户交互改变面板打开/关闭状态。[#6119](https://github.com/ant-design/ant-design/issues/6119) [demo](https://ant.design/components/collapse/#components-collapse-demo-basic)
 - DatePicker 与 RangePicker 现在支持在弹层中渲染自定义 footer。[#6122](https://github.com/ant-design/ant-design/issues/6122) [#5188](https://github.com/ant-design/ant-design/issues/5188) [demo](https://ant.design/components/date-picker/#components-date-picker-demo-extra-footer)
 - InputNumber 现在可以通过 `precision` 单独设置精度，即精度与 `step` 可以不再绑定。[#5998](https://github.com/ant-design/ant-design/issues/5998)
 - TreeSelect 多选模式支持 `allowClear` 展示清除按钮。
 
 - 优化 Pagination 对键盘操作的支持。[rc-pagination#83](https://github.com/react-component/pagination/pull/83) [@geramirez](https://github.com/geramirez)
 - 优化 Progress 样式。[#6354](https://github.com/ant-design/ant-design/issues/6354)
-- 优化 Slider 对 ARIA 的支持。[#6301](https://github.com/ant-design/ant-design/pull/6301)
+- 优化 Slider 的可访问性支持。[#6301](https://github.com/ant-design/ant-design/pull/6301)
 
 - 修复正在执行动画的元素可点击的问题。[#6314](https://github.com/ant-design/ant-design/issues/6314)
-- 修复 antd 对 ES2015 module 的支持。[#6334](https://github.com/ant-design/ant-design/issues/6334)
+- 修复时间类组件的 `Cannot read property '0' of undefined` 报错问题。[#6334](https://github.com/ant-design/ant-design/issues/6334)
 - DatePicker
   - 修复弹层错位的问题。[#6347](https://github.com/ant-design/ant-design/issues/6347)
-  - 修复日期面板 tips 内容格式问题。[#5724](https://github.com/ant-design/ant-design/issues/5724) [@zefj](https://github.com/zefj)
+  - 修复日期单元格 tooltip 的内容格式问题。[#5724](https://github.com/ant-design/ant-design/issues/5724) [@zefj](https://github.com/zefj)
   - 修复能通过键盘操作选择 disabled 日期的问题。[#6345](https://github.com/ant-design/ant-design/issues/6345)
 - 修复 Form `validateFieldsAndScroll` 不支持 nested fields 的问题。[#5410](https://github.com/ant-design/ant-design/issues/5410)
-- 修复带 addon 的 Input style 属性失效的问题。[#6379](https://github.com/ant-design/ant-design/issues/6379)
+- Input[addon]
+  - 修复 style 属性失效的问题。[#6379](https://github.com/ant-design/ant-design/issues/6379)
+  - 修复垂直对齐的问题。[#6403](https://github.com/ant-design/ant-design/issues/6403)
 - 修复 Modal.confirm onOk 返回的 Promise rejected 后用户无法重试的问题。[#6183](https://github.com/ant-design/ant-design/issues/6183)
 - 修复 Pagination 简单模式下输入框过小的问题。[#6339](https://github.com/ant-design/ant-design/issues/6339)
 - 修复 Select 在搜索模式下用户输入的内容被截断的问题。[#6382](https://github.com/ant-design/ant-design/issues/6382)
