@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import DropdownButton from './dropdown-button';
 import warning from '../_util/warning';
 
 export interface DropDownProps {
@@ -16,7 +17,7 @@ export interface DropDownProps {
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
-  static Button: React.ReactNode;
+  static Button: typeof DropdownButton;
   static defaultProps = {
     prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
