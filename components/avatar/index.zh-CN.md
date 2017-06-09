@@ -5,7 +5,7 @@ type: Data Display
 title: Avatar
 ---
 
-用来代表用户或事物，支持图片、Icon(antd-Icon)或字符展示。
+用来代表用户或事物，支持图片、图标或字符展示。
 
 ## API
 
