@@ -62,7 +62,7 @@
     "rc-progress": "~2.1.2",
     "rc-rate": "~2.1.1",
     "rc-select": "~6.8.6",
-    "rc-slider": "~8.0.2",
+    "rc-slider": "~8.1.2",
     "rc-steps": "~2.5.1",
     "rc-switch": "~1.5.1",
     "rc-table": "~5.3.3",
@@ -75,7 +75,7 @@
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.10",
     "react-slick": "~0.14.2",
-    "shallowequal": "^0.2.2",
+    "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },
   "devDependencies": {
