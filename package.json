@@ -92,7 +92,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "bezier-easing": "^2.0.3",
-    "bisheng": "^0.24.0",
+    "bisheng": "^0.23.0",
     "bisheng-plugin-antd": "^0.13.2",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.5.0",
