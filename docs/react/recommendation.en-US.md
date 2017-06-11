@@ -8,7 +8,7 @@ title: Third-Party Libraries
 Category | Recommended Components
 ---------|-----------------------
 Router | [react-router](https://github.com/ReactTraining/react-router)
-Layout | [react-blocks](http://whoisandie.github.io/react-blocks/)
+Layout | [react-blocks](http://whoisandy.github.io/react-blocks/)
 Drag and drop | [react-dnd](https://github.com/gaearon/react-dnd)  [react-draggable](https://github.com/mzabriskie/react-draggable)
 Code Editor | [react-codemirror](https://github.com/JedWatson/react-codemirror)
 Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill)  [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg) [react-lz-editor](https://github.com/leejaen/react-lz-editor)(Ant Design style)
