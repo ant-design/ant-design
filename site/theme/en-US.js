@@ -11,6 +11,7 @@ module.exports = {
     'app.header.menu.components': 'Components',
     'app.header.menu.spec': 'Guidelines',
     'app.header.menu.resource': 'Resources',
+    'app.header.menu.mobile': 'Mobile',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',

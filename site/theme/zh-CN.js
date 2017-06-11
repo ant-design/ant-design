@@ -11,6 +11,7 @@ module.exports = {
     'app.header.menu.components': '组件',
     'app.header.menu.spec': '指引',
     'app.header.menu.resource': '资源',
+    'app.header.menu.mobile': '移动版',
     'app.header.lang': 'EN',
     'app.content.edit-page': '在 Github 上编辑此页！',
     'app.content.edit-demo': '在 Github 上编辑此示例！',
