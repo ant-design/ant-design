@@ -148,7 +148,7 @@ function notice(args) {
   });
 }
 
-interface Api {
+export interface NotificationApi {
   success(args: ArgsProps): void;
   error(args: ArgsProps): void;
   info(args: ArgsProps): void;
@@ -209,4 +209,4 @@ const api = {
 
 (api as any).warn = (api as any).warning;
 
-export default api as Api;
+export default api as NotificationApi;
