@@ -83,7 +83,7 @@ One of Property `columns` for descriping column, Column has the same API.
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | string\|ReactNode | - |
-| key        | key of this column | string          | - |
+| key        | key of this column, you can ignore thie prop if you've set a unique `dataIndex` | string          | - |
 | dataIndex  | display field of the data record, could be set like `a.b.c` | string | - |
 | render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | object[]       | - |
