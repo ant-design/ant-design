@@ -781,7 +781,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       <Pagination
         key="pagination"
         {...pagination}
-        className={`${this.props.prefixCls}-pagination`}
+        className={classNames(pagination.className, `${this.props.prefixCls}-pagination`)}
         onChange={this.handlePageChange}
         total={total}
         size={size}
