@@ -154,6 +154,7 @@ const data: IUser[] = [{
   name: 'Jack',
 }];
 
+// Do not declare class inside render function
 class UserTable extends Table<IUser> {}
 
 <UserTable columns={columns} dataSource={data} />
