@@ -22,6 +22,8 @@ Charts | [g2-react](https://github.com/antvis/g2-react) [recharts](https://githu
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
 i18n | [react-intl](https://github.com/yahoo/react-intl)
 Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
+Markdown renderer | [react-markdown](http://rexxars.github.io/react-markdown/)
+Infinite Scroll | [react-virtualized](https://github.com/bvaughn/react-virtualized)
 
 <style>
 .markdown table td:first-child {
