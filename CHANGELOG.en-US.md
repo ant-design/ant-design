@@ -165,7 +165,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Improve user experience of RangePicker, rc-calendar upgrade to `~8.0.0`. [#4985](https://github.com/ant-design/ant-design/issues/4985)
   - Fix RangePicker not aligned after customizing the size of input. [pull/5718](https://github.com/ant-design/ant-design/pull/5718) [@leadream](https://github.com/leadream)
 - **Form** Add a less variable to opt out of form item colons. [pull/5855](https://github.com/ant-design/ant-design/pull/5855) [@megawac](https://github.com/megawac)
-- **Icon** Add displayName. [pull/5643](https://github.com/ant-design/ant-design/pull/5643) [@handycode](https://github.com/handycode)
 - **Input**
   - Fix Input.Search style issue when be used in Input.Group. [#5743](https://github.com/ant-design/ant-design/issues/5743)
   - Fix AutoComplete style issue when be used in Input.Group. [#5832](https://github.com/ant-design/ant-design/issues/5832)

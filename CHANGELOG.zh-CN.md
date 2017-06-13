@@ -165,7 +165,6 @@ timeline: true
   - 优化了 RangePicker 的体验，rc-calendar 升级至 `~8.0.0`。[#4985](https://github.com/ant-design/ant-design/issues/4985)
   - 修复了 RangePicker 自定义高度后文字不能上下居中的问题。[pull/5718](https://github.com/ant-design/ant-design/pull/5718) [@leadream](https://github.com/leadream)
 - **Form** 增加样式变量来控制表单项标题冒号的展示。[pull/5855](https://github.com/ant-design/ant-design/pull/5855) [@megawac](https://github.com/megawac)
-- **Icon** 增加 displayName 属性。[pull/5643](https://github.com/ant-design/ant-design/pull/5643) [@handycode](https://github.com/handycode)
 - **Input**
   - 修复了 Input.Search 在 Input.Group 下的样式问题。[#5743](https://github.com/ant-design/ant-design/issues/5743)
   - 修复了 AutoComplete 在 Input.Group 下的样式问题。[#5832](https://github.com/ant-design/ant-design/issues/5832)
