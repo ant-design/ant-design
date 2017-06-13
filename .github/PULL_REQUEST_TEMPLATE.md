@@ -10,11 +10,11 @@ Please makes sure that these checkboxes are checked before submitting your PR, t
 
 Extra checklist:
 
-**if** *isBugFix***:**
+**if** *isBugFix* **:**
 
   * [ ] Make sure that you add at least one unit test for the bug which you had fixed.
 
-**elif** *isNewFeature***:**
+**elif** *isNewFeature* **:**
 
   * [ ] Update API docs for the component.
   * [ ] Update/Add demo to demonstrate new feature.
