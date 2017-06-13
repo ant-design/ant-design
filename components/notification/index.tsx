@@ -148,18 +148,19 @@ function notice(args) {
   });
 }
 
-const api: {
-  success?(args: ArgsProps): void;
-  error?(args: ArgsProps): void;
-  info?(args: ArgsProps): void;
-  warn?(args: ArgsProps): void;
-  warning?(args: ArgsProps): void;
-
+export interface NotificationApi {
+  success(args: ArgsProps): void;
+  error(args: ArgsProps): void;
+  info(args: ArgsProps): void;
+  warn(args: ArgsProps): void;
+  warning(args: ArgsProps): void;
   open(args: ArgsProps): void;
   close(key: string): void;
   config(options: ConfigProps): void;
   destroy(): void;
-} = {
+}
+
+const api = {
   open(args: ArgsProps) {
     notice(args);
   },
@@ -208,4 +209,4 @@ const api: {
 
 (api as any).warn = (api as any).warning;
 
-export default api;
+export default api as NotificationApi;
