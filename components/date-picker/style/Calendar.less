@@ -244,6 +244,9 @@
     border-top: @border-width-base @border-style-base @border-color-split;
     line-height: 38px;
     padding: 0 12px;
+    &:empty {
+      border-top: 0;
+    }
     &-btn {
       text-align: center;
       display: block;
