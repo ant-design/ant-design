@@ -21,7 +21,7 @@ class Card extends React.Component {
   toggle = (value) => {
     this.setState({ loading: value });
   }
-  render() {  
+  render() {
     return (
       <div>
         <Spin spinning={this.state.loading}>
