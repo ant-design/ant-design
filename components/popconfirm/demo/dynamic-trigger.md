@@ -48,9 +48,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Popconfirm title="Are you sure delete this task?"
-          visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
-          onConfirm={this.confirm} onCancel={this.cancel}
+        <Popconfirm
+          title="Are you sure delete this task?"
+          visible={this.state.visible}
+          onVisibleChange={this.handleVisibleChange}
+          onConfirm={this.confirm}
+          onCancel={this.cancel}
           okText="Yes"
           cancelText="No"
         >

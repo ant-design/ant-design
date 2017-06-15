@@ -67,10 +67,17 @@ class App extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <Button type="primary" onClick={this.start}
-            disabled={!hasSelected} loading={loading}
-          >Reload</Button>
-          <span style={{ marginLeft: 8 }}>{hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}</span>
+          <Button
+            type="primary"
+            onClick={this.start}
+            disabled={!hasSelected}
+            loading={loading}
+          >
+            Reload
+          </Button>
+          <span style={{ marginLeft: 8 }}>
+            {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
+          </span>
         </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>

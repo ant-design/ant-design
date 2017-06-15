@@ -365,6 +365,10 @@
       color: @disabled-color !important;
       pointer-events: none;
     }
+    > .@{menu-prefix-cls}-submenu-title {
+      color: @disabled-color !important;
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -452,6 +456,9 @@
     &,
     > a {
       opacity: 0.8;
+      color: @disabled-color-dark !important;
+    }
+    > .@{menu-prefix-cls}-submenu-title {
       color: @disabled-color-dark !important;
     }
   }

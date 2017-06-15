@@ -39,6 +39,7 @@ export interface CalendarProps {
   style?: React.CSSProperties;
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
+  disabledDate?: (current: moment.Moment) => boolean;
 }
 
 export interface CalendarState {

@@ -91,7 +91,7 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  abstract getLocale()
+  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -227,10 +227,10 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
   handleLeftSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('left', filteredDataSource, checkAll)
-  );
+  )
   handleRightSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('right', filteredDataSource, checkAll)
-  );
+  )
 
   handleFilter = (direction, e) => {
     this.setState({

@@ -227,6 +227,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
   }
 
   &-search__field__placeholder {
@@ -236,6 +237,7 @@
   &-search--inline {
     position: absolute;
     height: 100%;
+    width: 100%;
 
     .@{select-prefix-cls}-selection--multiple & {
       float: left;
@@ -298,7 +300,8 @@
     }
 
     .@{select-prefix-cls}-selection__choice {
-      background-color: #f3f3f3;
+      color: @tag-default-color;
+      background-color: @tag-default-bg;
       border-radius: 4px;
       cursor: default;
       float: left;
@@ -482,7 +485,7 @@
       &-selected {
         &,
         &:hover {
-          background-color: @background-color-active;
+          background-color: @background-color-base;
           font-weight: bold;
           color: @text-color;
         }

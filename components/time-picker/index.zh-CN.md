@@ -24,6 +24,7 @@ import moment from 'moment';
 |---------------------|-----|-----|-------|
 | defaultValue        | 默认时间 | [moment](http://momentjs.com/) | 无 |
 | value               | 当前时间 | [moment](http://momentjs.com/) | 无 |
+| defaultOpenValue    | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
 | open                | 面板是否打开 | boolean | false |
 | onOpenChange        | 面板打开/关闭时的回调 | (open: boolean): void | 无 |
 | placeholder         | 没有值的时候显示的内容 | string | "请选择时间" |

@@ -5,7 +5,7 @@ import shallowequal from 'shallowequal';
 import Icon from '../icon';
 
 export interface MentionProps {
-  prefixCls: string;
+  prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;
@@ -54,7 +54,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     };
   }
 
-  componentWillReceiveProps({ suggestions }) {
+  componentWillReceiveProps(nextProps: MentionProps) {
+    const { suggestions } = nextProps;
     if (!shallowequal(suggestions, this.props.suggestions)) {
       this.setState({
         suggestions,

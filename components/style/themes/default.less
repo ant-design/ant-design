@@ -1,12 +1,5 @@
 @import "../color/colors";
 
-// http://stackoverflow.com/a/13611748/3040605
-@font-face {
-  font-family: "Helvetica Neue For Number";
-  src: local("Helvetica Neue");
-  unicode-range: U+30-39;
-}
-
 // The prefix to use on all css classes from ant.
 @ant-prefix             : ant;
 
@@ -301,6 +294,11 @@
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 8px;
 
+// Tag
+// --
+@tag-default-bg: #f3f3f3;
+@tag-default-color: @text-color;
+
 // TimePicker
 // ---
 @time-picker-panel-column-width: 56px;
@@ -337,3 +335,14 @@
 @back-top-color: #fff;
 @back-top-bg: rgba(64, 64, 64, 0.4);
 @back-top-hover-bg: rgba(64, 64, 64, 0.6);
+
+// Avatar
+@avatar-size-base: 32px;
+@avatar-size-lg: 40px;
+@avatar-size-sm: 24px;
+@avatar-font-size-base: 18px;
+@avatar-font-size-lg: 24px;
+@avatar-font-size-sm: 14px;
+@avatar-bg: #ccc;
+@avatar-color: #fff;
+@avatar-border-radius: @border-radius-base;

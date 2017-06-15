@@ -43,6 +43,13 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
   });
 
+  it('should be able to destroy after config', () => {
+    notification.config({
+      bottom: 100,
+    });
+    notification.destroy();
+  });
+
   it('should be able to open with icon', () => {
     const openNotificationWithIcon = (type) => {
       const iconPrefix = '.ant-notification-notice-icon';

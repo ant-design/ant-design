@@ -10,7 +10,8 @@ describe('RangePicker', () => {
       <RangePicker
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
-        showTime open
+        showTime
+        open
       />
     );
 
@@ -28,7 +29,8 @@ describe('RangePicker', () => {
         }}
         getCalendarContainer={trigger => trigger}
         format="YYYY/MM/DD"
-        showTime open
+        showTime
+        open
       />
     );
 
@@ -37,6 +39,25 @@ describe('RangePicker', () => {
       .simulate('click');
     expect(render(wrapper.find('Trigger').node.getComponent()))
       .toMatchSnapshot();
+  });
+
+  it('highlight range when hover presetted range', () => {
+    const wrapper = mount(
+      <RangePicker
+        ranges={{
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+        }}
+        getCalendarContainer={trigger => trigger}
+        format="YYYY/MM/DD"
+        open
+      />
+    );
+
+    let rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+      .simulate('mouseEnter');
+    rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
   });
 
   // issue: https://github.com/ant-design/ant-design/issues/5872
@@ -51,7 +72,7 @@ describe('RangePicker', () => {
     );
     wrapper.setProps({ value: [] });
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
-    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').simulate('click').simulate('click'))
+    expect(() => rangeCalendarWrapper.find('.ant-calendar-today').at(0).simulate('click').simulate('click'))
       .not.toThrow();
   });
 });

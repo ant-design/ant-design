@@ -1,8 +1,6 @@
 ---
 order: 6
-title:
-  zh-CN: 高级搜索
-  en-US: Advanced Search
+title: 高级搜索
 ---
 
 借助『高级搜索』，用户可以缩小复杂列表／表格等的展示范围。

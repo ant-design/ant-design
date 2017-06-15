@@ -125,18 +125,6 @@
     color: #fff;
   }
 
-  &-disabled-cell &-value {
-    cursor: not-allowed;
-    color: @disabled-color;
-    background: @disabled-bg;
-    border-radius: 0;
-    width: auto;
-
-    &:hover {
-      background: @disabled-bg;
-    }
-  }
-
   &-disabled-cell-first-of-row &-value {
     border-top-left-radius: @border-radius-base;
     border-bottom-left-radius: @border-radius-base;
@@ -253,5 +241,26 @@
     width: auto;
     left: auto;
     bottom: auto;
+  }
+
+  &-disabled-cell &-date {
+    &,
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &-disabled-cell:not(&-today) &-date {
+    &,
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &-disabled-cell &-value {
+    color: @disabled-color;
+    border-radius: 0;
+    width: auto;
+    cursor: not-allowed;
   }
 }

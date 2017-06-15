@@ -5,7 +5,7 @@ import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } 
 import Input from '../input';
 import InputElement from './InputElement';
 
-export interface DataSourceItemObject { value: string; text: string; };
+export interface DataSourceItemObject { value: string; text: string; }
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface InputProps {
@@ -23,7 +23,6 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   dataSource: DataSourceItemType[];
   optionLabelProp?: string;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
   children?: ValidInputElement |

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcRadio from 'rc-radio';
+import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
 
-export interface RadioProps extends AbstractCheckboxProps {}
+export type RadioProps = AbstractCheckboxProps;
 
 export default class Radio extends React.Component<RadioProps, any> {
   static Group: typeof RadioGroup;
@@ -15,6 +15,7 @@ export default class Radio extends React.Component<RadioProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-radio',
+    type: 'radio',
   };
 
   static contextTypes = {
@@ -56,7 +57,7 @@ export default class Radio extends React.Component<RadioProps, any> {
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
       >
-        <RcRadio
+        <RcCheckbox
           {...radioProps}
           prefixCls={prefixCls}
         />

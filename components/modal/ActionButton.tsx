@@ -43,6 +43,9 @@ export default class ActionButton extends React.Component<ActionButtonProps, any
           // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
           // this.setState({ loading: false });
           closeModal(...args);
+        }, () => {
+          // See: https://github.com/ant-design/ant-design/issues/6183
+          this.setState({ loading: false });
         });
       }
     } else {

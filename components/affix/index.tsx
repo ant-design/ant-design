@@ -40,7 +40,7 @@ function noop() {}
 function getDefaultTarget() {
   return typeof window !== 'undefined' ?
     window : null;
-};
+}
 
 // Affix
 export interface AffixProps {

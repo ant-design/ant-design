@@ -109,4 +109,13 @@
       background-color: @collapse-header-bg;
     }
   }
+
+  & &-item-disabled > &-header {
+    &,
+    & > .arrow {
+      cursor: not-allowed;
+      color: @disabled-color;
+      background-color: @disabled-bg;
+    }
+  }
 }

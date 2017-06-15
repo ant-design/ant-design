@@ -24,4 +24,3 @@ title: Alert
 | onClose     | 关闭时触发的回调函数                                | Function   | 无    |
 | showIcon   | 是否显示辅助图标                                 | boolean   | false，`banner` 模式下默认值为 true    |
 | banner   | 是否用作顶部公告                                 | boolean   | false    |
-

@@ -21,6 +21,7 @@ title: InputNumber
 | max     | 最大值       | number      | Infinity           |
 | value     | 当前值       | number      |            |
 | step     | 每次改变步数，可以为小数  | number\|string      |  1      |
+| precision | 数值精度 | number | - |
 | defaultValue     | 初始值       | number      |            |
 | onChange     | 变化回调       | Function(value: number \| string) |            |
 | disabled     | 禁用       | boolean      |      false      |

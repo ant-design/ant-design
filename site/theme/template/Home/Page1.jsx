@@ -10,7 +10,9 @@ import * as utils from '../utils';
 export default function Page1({ location }) {
   return (
     <ScrollOverPack id="page1" className="content-wrapper page">
-      <TweenOne key="image" className="image1 image-wrapper"
+      <TweenOne
+        key="image"
+        className="image1 image-wrapper"
         animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />

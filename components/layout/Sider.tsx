@@ -168,7 +168,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     });
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
-        {this.props.children}
+        <div className={`${prefixCls}-children`}>{this.props.children}</div>
         {collapsible || (this.state.below && zeroWidthTrigger) ? triggerDom : null}
       </div>
     );

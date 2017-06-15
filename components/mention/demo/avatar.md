@@ -35,13 +35,18 @@ class CustomNavMention extends React.Component {
     const filtered = webFrameworks.filter(item =>
       item.name.toLowerCase().indexOf(searchValue) !== -1
     );
-    const suggestions = filtered.map(suggestion =>
-      <Nav value={suggestion.name} data={suggestion} disabled={suggestion.disabled}>
+    const suggestions = filtered.map(suggestion => (
+      <Nav
+        value={suggestion.name}
+        data={suggestion}
+        disabled={suggestion.disabled}
+      >
         <span>
           <img alt={suggestion.name} style={{ height: 16, width: 16, marginRight: 5, float: 'left' }} src={suggestion.icon} />
           {suggestion.name} - {suggestion.type}
         </span>
-      </Nav>);
+      </Nav>
+    ));
     this.setState({ suggestions });
   }
   render() {

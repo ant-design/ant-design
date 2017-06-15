@@ -230,7 +230,8 @@ export default class MainContent extends React.Component {
           <Col
             lg={{ span: 20, offset: 4 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}
+            sm={24}
+            xs={24}
           >
             <section className="prev-next-nav">
               {

@@ -98,7 +98,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item"
+    class="ant-collapse-item ant-collapse-item-disabled"
   >
     <div
       aria-expanded="false"

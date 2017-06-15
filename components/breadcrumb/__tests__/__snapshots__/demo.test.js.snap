@@ -117,6 +117,45 @@ exports[`renders ./components/breadcrumb/demo/router.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/breadcrumb/demo/router-4.md correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    class="demo-nav"
+  >
+    <a
+      href="#/"
+    >
+      Home
+    </a>
+    <a
+      href="#/apps"
+    >
+      Application List
+    </a>
+  </div>
+  Home Page
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    style="margin:16px 0;"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Click the navigation above to switch:
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-breadcrumb"
+  />
+</div>
+`;
+
 exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
 <div
   class="ant-breadcrumb"

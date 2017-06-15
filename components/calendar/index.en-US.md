@@ -43,3 +43,4 @@ moment.locale('zh-cn');
 | locale       | set locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| callback when panel change | function(date: moment, mode: string) | - |
 | onSelect     | callback when select date  | function(date: moment）              | - |
+| disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | 无           |

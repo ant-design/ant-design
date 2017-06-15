@@ -17,6 +17,7 @@ export interface InputNumberProps {
   placeholder?: string;
   style?: React.CSSProperties;
   className?: string;
+  name?: string;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {

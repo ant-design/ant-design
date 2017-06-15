@@ -1,5 +1,4 @@
 import React from 'react';
-import RcTable from 'rc-table';
 
 export interface ColumnProps<T> {
   title?: React.ReactNode;
@@ -10,6 +9,8 @@ export interface ColumnProps<T> {
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;
+  filterDropdownVisible?: boolean;
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | ((a: any, b: any) => number);
   colSpan?: number;
   width?: string | number;
@@ -19,6 +20,7 @@ export interface ColumnProps<T> {
   filteredValue?: any[];
   sortOrder?: boolean | ('ascend' | 'descend');
   children?: ColumnProps<T>[];
+  onCellClick?: (record: T, event: any) => void;
 }
 
-export default class Column<T> extends (RcTable.Column as React.ComponentClass<ColumnProps<T>>) {}
+export default class Column<T> extends React.Component<ColumnProps<T>, React.ComponentState> {}

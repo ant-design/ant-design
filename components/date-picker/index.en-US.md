@@ -42,7 +42,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | popupStyle   | to customize the style of the popup calendar   | object     | {}   |
 | size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | string   | -  |
 | locale       | localization configuration | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
-| disabledDate | to specify the date that cannot be selected | function | -           |
+| disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | -           |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | open | open state of picker | boolean | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
@@ -57,9 +57,11 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
+| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | onOk | callback when click ok button | function() | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 
 ### MonthPicker
 
@@ -80,8 +82,10 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | format       | to set the date format  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
+| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | onOk | callback when click ok button | function() | - |
 
 <style>

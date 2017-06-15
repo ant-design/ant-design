@@ -22,6 +22,8 @@ title: 社区精选组件
 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress)
 应用国际化 | [react-intl](https://github.com/yahoo/react-intl)
 代码高亮 | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
+Markdown 渲染 | [react-markdown](http://rexxars.github.io/react-markdown/)
+无限滚动 | [react-virtualized](https://devarchy.com/react/react-virtualized)
 
 <style>
 .markdown table td:first-child {

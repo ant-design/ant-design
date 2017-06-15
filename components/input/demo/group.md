@@ -63,10 +63,10 @@ class CompactDemo extends React.Component {
     return (
       <div>
         <InputGroup size="large">
-          <Col span="4">
+          <Col span={4}>
             <Input defaultValue="0571" />
           </Col>
-          <Col span="8">
+          <Col span={8}>
             <Input defaultValue="26888888" />
           </Col>
         </InputGroup>

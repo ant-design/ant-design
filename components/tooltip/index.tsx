@@ -27,7 +27,7 @@ export interface AbstractTooltipProps {
   // getTooltipContainer had been rename to getPopupContainer
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
-  children?: React.ReactElement<any>;
+  children?: React.ReactNode;
 }
 
 export interface TooltipProps extends AbstractTooltipProps {
