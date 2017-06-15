@@ -5,7 +5,7 @@ import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } 
 import Input from '../input';
 import InputElement from './InputElement';
 
-export interface DataSourceItemObject { value: string; text: string; };
+export interface DataSourceItemObject { value: string; text: string; }
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface InputProps {
@@ -23,7 +23,6 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   dataSource: DataSourceItemType[];
   optionLabelProp?: string;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
   children?: ValidInputElement |
@@ -45,6 +44,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
     showSearch: false,
+    filterOption: false,
   };
 
   getInputElement = () => {
@@ -52,7 +52,14 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     const element = children && React.isValidElement(children) && children.type !== Option ?
       React.Children.only(this.props.children) :
       <Input/>;
-    return <InputElement className="ant-input">{element}</InputElement>;
+    return (
+      <InputElement
+        {...element.props}
+        className={classNames('ant-input', element.props.className)}
+      >
+        {element}
+      </InputElement>
+    );
   }
 
   render() {

@@ -11,7 +11,7 @@ title: 色彩
 
 ---
 
-## Ant Design Colors
+## 色板
 
 Ant Design PC 端的色板由 10 个由浅至深的色彩单元格组成，我们为部分色彩格定义了默认使用场景，用户在进行色彩配色时只需根据关键词选择一条色板即可得到一套完整的系统配色方案。在理论上，在 UI 设计中的色彩都应取自这份色板。
 
@@ -27,7 +27,7 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
-为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色](/docs/spec/font-cn#字体颜色)。
+为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色](/docs/spec/font#字体颜色)。
 
 ### 色板生成工具
 

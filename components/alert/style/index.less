@@ -2,14 +2,16 @@
 
 @alert-prefix-cls: ~"@{ant-prefix}-alert";
 
+@alert-message-color: @heading-color;
+@alert-text-color: @text-color;
+
 .@{alert-prefix-cls} {
   position: relative;
   padding: 8px 48px 8px 38px;
   border-radius: @border-radius-base;
-  color: @text-color;
+  color: @alert-text-color;
   font-size: @font-size-base;
   line-height: 16px;
-  margin-bottom: 10px;
 
   &&-no-icon {
     padding: 8px 48px 8px 16px;
@@ -88,7 +90,6 @@
     padding: 16px 16px 16px 60px;
     position: relative;
     border-radius: @border-radius-base;
-    margin-bottom: 10px;
     color: @text-color;
     line-height: 1.5;
   }
@@ -114,7 +115,7 @@
 
   &-with-description &-message {
     font-size: @font-size-lg;
-    color: @heading-color;
+    color: @alert-message-color;
     display: block;
     margin-bottom: 4px;
   }

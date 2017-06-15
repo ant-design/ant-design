@@ -1,5 +1,6 @@
 import React from 'react';
-import { Component, PropTypes, cloneElement } from 'react';
+import { Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
 import assign from 'object-assign';
@@ -30,7 +31,7 @@ function clearNextFrameAction(nextFrameId) {
 export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
-};
+}
 
 export interface InputProps {
   prefixCls?: string;
@@ -46,9 +47,9 @@ export interface InputProps {
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  onPressEnter?: React.FormEventHandler<any>;
   onKeyDown?: React.FormEventHandler<any>;
   onChange?: React.FormEventHandler<any>;
+  onPressEnter?: React.FormEventHandler<any>;
   onClick?: React.FormEventHandler<any>;
   onFocus?: React.FormEventHandler<any>;
   onBlur?: React.FormEventHandler<any>;
@@ -57,6 +58,8 @@ export interface InputProps {
   style?: React.CSSProperties;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  spellCheck?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Input extends Component<InputProps, any> {
@@ -173,11 +176,26 @@ export default class Input extends Component<InputProps, any> {
       </span>
     ) : null;
 
-    const className = classNames({
-      [`${props.prefixCls}-wrapper`]: true,
+    const className = classNames(`${props.prefixCls}-wrapper`, {
       [wrapperClassName]: (addonBefore || addonAfter),
     });
 
+    // Need another wrapper for changing display:table to display:inline-block
+    // and put style prop in wrapper
+    if (addonBefore || addonAfter) {
+      return (
+        <span
+          className={`${props.prefixCls}-group-wrapper`}
+          style={props.style}
+        >
+          <span className={className}>
+            {addonBefore}
+            {cloneElement(children, { style: null })}
+            {addonAfter}
+          </span>
+        </span>
+      );
+    }
     return (
       <span className={className}>
         {addonBefore}

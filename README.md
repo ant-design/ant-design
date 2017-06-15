@@ -13,7 +13,8 @@
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design.svg)](http://isitmaintained.com/project/ant-design/ant-design "Percentage of issues still open")
-[![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
+[![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
 
 An enterprise-class UI design language and React-based implementation.
 
@@ -28,7 +29,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Environment Support
 
-* Browser: Modern browsers and Internet Explorer 9+
+* Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
 * Server-side Rendering
 * [Electron](http://electron.atom.io/)
 
@@ -109,14 +110,14 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Home page](http://ant.design/)
 - [UI library](http://ant.design/docs/react/introduce)
 - [Change Log](CHANGELOG.en-US.md)
-- [Scaffold tool](https://github.com/dvajs/dva-cli/)
-- [Development tool](http://ant-tool.github.io/)
+- [Offcial Scaffold Tool](https://github.com/dvajs/dva-cli/)
+- [Development Tool](http://ant-tool.github.io/)
+- [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
 - [Motion](https://motion.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [Boilerplates](https://github.com/ant-design/ant-design/issues/129)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)

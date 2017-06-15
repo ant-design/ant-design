@@ -25,10 +25,10 @@ A Selector similar to Select2.
 |----------|----------------|----------|--------------|
 | value    | Current selected option. | string\|string[]   |  -  |
 | defaultValue | Initial selected option. | string\|string[]   |  -  |
-| mode | Set mode of Select(Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
-| multiple   | Allow multiple select(Deprecated after 2.9) | boolean | false |
-| tags | When tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far.(Deprecated after 2.9) | boolean |false |
-| combobox | Enable combobox mode(can not set multiple at the same time).(Deprecated after 2.9) | boolean | false |
+| mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
+| multiple   | Allow multiple select (Deprecated after 2.9, use `mode` instead) | boolean | false |
+| tags | When tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far. (Deprecated after 2.9, use `mode` instead) | boolean |false |
+| combobox | Enable combobox mode (can not set multiple at the same time). (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | allowClear   | Show clear button. | boolean | false |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true     |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option) | -   |

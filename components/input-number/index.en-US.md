@@ -18,6 +18,7 @@ When a numeric value needs to be provided.
 | max     | max vale       | number      | Infinity           |
 | value     | current value       | number      |            |
 | step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | number\|string      |  1      |
+| precision | precision of input value | number | - |
 | defaultValue     | initial value       | number      |            |
 | onChange     | The callback triggered when the value is changed.     | function(value: number \| string) |            |
 | disabled     | disable the input       | boolean      |      false      |

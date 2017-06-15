@@ -100,7 +100,7 @@
     transition: all .3s;
 
     &:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
       cursor: pointer;
     }
 
@@ -123,18 +123,6 @@
   &-month-panel-selected-cell &-value {
     background: @primary-color;
     color: #fff;
-  }
-
-  &-disabled-cell &-value {
-    cursor: not-allowed;
-    color: @disabled-color;
-    background: @background-color-base;
-    border-radius: 0;
-    width: auto;
-
-    &:hover {
-      background: @background-color-base;
-    }
   }
 
   &-disabled-cell-first-of-row &-value {
@@ -195,7 +183,7 @@
     transition: background .3s;
 
     &:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
       cursor: pointer;
     }
 
@@ -253,5 +241,26 @@
     width: auto;
     left: auto;
     bottom: auto;
+  }
+
+  &-disabled-cell &-date {
+    &,
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &-disabled-cell:not(&-today) &-date {
+    &,
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &-disabled-cell &-value {
+    color: @disabled-color;
+    border-radius: 0;
+    width: auto;
+    cursor: not-allowed;
   }
 }

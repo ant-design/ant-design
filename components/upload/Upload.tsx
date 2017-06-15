@@ -1,5 +1,6 @@
 import React from 'react';
 import RcUpload from 'rc-upload';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Dragger from './Dragger';
@@ -41,7 +42,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: UploadContext;
@@ -166,18 +167,21 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   handleRemove(file) {
     const { onRemove } = this.props;
-    // Prevent removing file
-    const onRemoveReturnValue = onRemove && onRemove(file);
-    if (onRemoveReturnValue === false) {
-      return;
-    }
-    const removedFileList = removeFileItem(file, this.state.fileList);
-    if (removedFileList) {
-      this.onChange({
-        file,
-        fileList: removedFileList,
-      });
-    }
+
+    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
+      // Prevent removing file
+      if (ret === false) {
+        return;
+      }
+
+      const removedFileList = removeFileItem(file, this.state.fileList);
+      if (removedFileList) {
+        this.onChange({
+          file,
+          fileList: removedFileList,
+        });
+      }
+    });
   }
 
   handleManualRemove = (file) => {

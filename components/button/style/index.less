@@ -78,12 +78,12 @@
     display: none;
   }
 
-  &&-loading:before {
-    display: block;
+  .@{iconfont-css-prefix} {
+    transition: margin-left .3s @ease-in-out;
   }
 
-  .@{iconfont-css-prefix} {
-    transition: all .3s @ease-in-out;
+  &&-loading:before {
+    display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline) {
@@ -138,7 +138,7 @@
   }
 
   &-danger&-clicked:after {
-    border-color: @btn-danger-bg;
+    border-color: @btn-danger-color;
   }
 
   &-background-ghost {
@@ -152,7 +152,7 @@
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-bg);
+    .button-variant-ghost(@btn-danger-color);
   }
 }
 

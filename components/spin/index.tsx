@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
@@ -78,6 +78,9 @@ export default class Spin extends React.Component<SpinProps, any> {
       }
     } else {
       if (spinning && delay && !isNaN(Number(delay))) {
+        if (this.delayTimeout) {
+          clearTimeout(this.delayTimeout);
+        }
         this.delayTimeout = setTimeout(() => this.setState({ spinning }), delay);
       } else {
         this.setState({ spinning });

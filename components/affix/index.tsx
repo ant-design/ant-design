@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
@@ -39,7 +40,7 @@ function noop() {}
 function getDefaultTarget() {
   return typeof window !== 'undefined' ?
     window : null;
-};
+}
 
 // Affix
 export interface AffixProps {
@@ -60,9 +61,9 @@ export interface AffixProps {
 
 export default class Affix extends React.Component<AffixProps, any> {
   static propTypes = {
-    offsetTop: React.PropTypes.number,
-    offsetBottom: React.PropTypes.number,
-    target: React.PropTypes.func,
+    offsetTop: PropTypes.number,
+    offsetBottom: PropTypes.number,
+    target: PropTypes.func,
   };
 
   scrollEvent: any;

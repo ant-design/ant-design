@@ -75,6 +75,7 @@
     height: @input-height-base - 2px;
     transition: all 0.3s linear;
     color: @input-color;
+    background-color: @input-bg;
     border: 0;
     border-radius: @border-radius-base;
     padding: 0 7px;
@@ -112,6 +113,7 @@
     opacity: 0;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
+    z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
   }
 
   &-handler-wrap:hover &-handler {
@@ -167,7 +169,7 @@
     .@{input-number-prefix-cls}-input {
       opacity: 0.72;
       cursor: not-allowed;
-      background-color: #f3f3f3;
+      background-color: @disabled-bg;
     }
     .@{input-number-prefix-cls}-handler-wrap {
       display: none;

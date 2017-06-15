@@ -26,10 +26,10 @@ title: Select
 |----------|----------------|----------|--------------|
 | value    | 指定当前选中的条目 | string\|string[] |  -  |
 | defaultValue | 指定默认选中的条目 | string\|string[] |  -  |
-| mode | 设置 Select 的模式(2.9 之后支持) | 'multiple' \| 'tags' \| 'combobox' | - |
-| multiple   | 支持多选(2.9 之后废弃) | boolean | false |
-| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配(2.9 之后废弃) | boolean |false |
-| combobox | 输入框自动提示模式(2.9 之后废弃) | boolean | false |
+| mode | 设置 Select 的模式（2.9 之后支持） | 'multiple' \| 'tags' \| 'combobox' | - |
+| multiple   | 支持多选（2.9 之后废弃，请使用 `mode`） | boolean | false |
+| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配（2.9 之后废弃，请使用 `mode`） | boolean | false |
+| combobox | 输入框自动提示模式（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | allowClear   | 支持清除 | boolean | false |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | -   |
@@ -44,7 +44,7 @@ title: Select
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | size    | 选择框大小，可选 `large` `small`  | string      |      default      |
-| showSearch | 在选择框中显示搜索框 | boolean | false |
+| showSearch | 使单选模式可搜索 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |

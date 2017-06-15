@@ -15,11 +15,12 @@
         &__rendered {
           margin-left: 0;
           margin-right: 0;
+          height: 100%;
+          line-height: @input-height-base;
         }
         &__placeholder {
-          margin-left: 8px;
-          margin-right: 8px;
-          top: @input-height-base / 2;
+          margin-left: (@input-padding-horizontal + 1);
+          margin-right: (@input-padding-horizontal + 1);
         }
       }
     }
@@ -31,13 +32,12 @@
     }
 
     .@{input-prefix-cls} {
-      .input();
       background: transparent;
     }
 
     &-lg {
-      .@{select-prefix-cls}-selection__placeholder {
-        top: @input-height-lg / 2;
+      .@{select-prefix-cls}-selection__rendered {
+        line-height: @input-height-lg;
       }
       .@{input-prefix-cls} {
         .input-lg();
@@ -45,8 +45,8 @@
     }
 
     &-sm {
-      .@{select-prefix-cls}-selection__placeholder {
-        top: @input-height-sm / 2;
+      .@{select-prefix-cls}-selection__rendered {
+        line-height: @input-height-sm;
       }
       .@{input-prefix-cls} {
         .input-sm();
@@ -54,7 +54,7 @@
     }
 
     .@{input-prefix-cls} {
-      border: @border-width-base @border-style-base @border-color-base;
+      border-width: @border-width-base;
       &:focus,
       &:hover {
         .hover;

@@ -17,6 +17,195 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.11.0
+
+`2017-06-07`
+
+- New component [Avatar](https://ant.design/components/avatar/). 🌝
+- LocaleProvider
+  - Supporting Bulgarian. [#6297](https://github.com/ant-design/ant-design/pull/6297) [@dimitrov-adrian](https://github.com/dimitrov-adrian)
+  - Supporting Polish. [#6326](https://github.com/ant-design/ant-design/pull/6326) [@longersson](https://github.com/longersson)
+  - Supporting Britain English. [#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
+  - Supporting Italian. [#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
+  - Supporting French. [#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
+  - Supporting Belgian. [#6344](https://github.com/ant-design/ant-design/pull/6344) [@damiangreen](https://github.com/damiangreen)
+- Collapse.Panel can be disabled now, which makes users cannot toggle panel with mouse/keyboard. [#6119](https://github.com/ant-design/ant-design/issues/6119) [demo](https://ant.design/components/collapse/#components-collapse-demo-basic)
+- DatePicker and RangePicker support customized footer. [#6122](https://github.com/ant-design/ant-design/issues/6122) [#5188](https://github.com/ant-design/ant-design/issues/5188) [demo](https://ant.design/components/date-picker/#components-date-picker-demo-extra-footer)
+- InputNumber can set precision with property `precision`, this means that precision need not to follow `step`. [#5998](https://github.com/ant-design/ant-design/issues/5998)
+- TreeSelect supports `allowClear` in multiple mode.
+
+- Improve keyboard support of Pagination. [rc-pagination#83](https://github.com/react-component/pagination/pull/83) [@geramirez](https://github.com/geramirez)
+- Improve style of Progress. [#6354](https://github.com/ant-design/ant-design/issues/6354)
+- Improve ARIA support of Slider. [#6301](https://github.com/ant-design/ant-design/pull/6301)
+
+- Fix that animating elements should not be clickable. [#6314](https://github.com/ant-design/ant-design/issues/6314)
+- Fix `Cannot read property '0' of undefined` issue of DatePicker, TimePicker, and RangePicker. [#6334](https://github.com/ant-design/ant-design/issues/6334)
+- DatePicker
+  - Fix misplaced popup. [#6347](https://github.com/ant-design/ant-design/issues/6347)
+  - Fix wrong format of tooltip of date cell. [#5724](https://github.com/ant-design/ant-design/issues/5724) [@zefj](https://github.com/zefj)
+  - Fix that disabled date is selectable while using keyboard. [#6345](https://github.com/ant-design/ant-design/issues/6345)
+- Fix nested fields support of Form `validateFieldsAndScroll`. [#5410](https://github.com/ant-design/ant-design/issues/5410)
+- Input[addon]
+  - Fix that style doesn't work. [#6379](https://github.com/ant-design/ant-design/issues/6379)
+  - Fix vertical align issue. [#6403](https://github.com/ant-design/ant-design/issues/6403)
+- Fix that confirm button not clickable when the returned promise of Modal.confirm is rejected. [#6183](https://github.com/ant-design/ant-design/issues/6183)
+- Fix style of input of Pagination. [#6339](https://github.com/ant-design/ant-design/issues/6339)
+- Fix that user input of Select should not be trimed in search mode. [#6382](https://github.com/ant-design/ant-design/issues/6382)
+- Fix that timers of Spin should be removed correctly. [#6383](https://github.com/ant-design/ant-design/issues/6383)
+- Fix onClick support of Switch. [#6373](https://github.com/ant-design/ant-design/issues/6373)
+- Fix wrong TypeScript definition of Table.Column which will cause `error TS2304: Cannot find name 'T'`. [#6313](https://github.com/ant-design/ant-design/issues/6313)
+- Fix error TypeScript definition of Timeline.Item and Dropdown.Button. [#6356](https://github.com/ant-design/ant-design/issues/6356)
+- Fix broken style of disabled Tree and TreeSelect. [#6320](https://github.com/ant-design/ant-design/issues/6320)
+
+## 2.10.4
+
+`2017-06-01`
+
+- Fix `rc-util` dependency. [#6310](https://github.com/ant-design/ant-design/pull/6311) [@bkniffler](https://github.com/bkniffler)
+- Fix syntax error in es build. [#6310](https://github.com/ant-design/ant-design/issues/6310#issuecomment-305176273)
+
+## 2.10.3
+
+`2017-05-31`
+
+- **Calendar**
+  - Fix disabledDate not be supported, and make supplement for the types and documentation. [#6074](https://github.com/ant-design/ant-design/issues/6074)
+  - Upgrade rc-calendar to 8.4.0, support Bulgarian, and user can select end date first. [commit/a4a6db](https://github.com/ant-design/ant-design/commit/a4a6db76de57ac2559a2be80208121ab5e168fbf)
+- **Alert** Remove default margin-bottom. [commit/5ef482](https://github.com/ant-design/ant-design/commit/5ef48289747409b6d962f75627ddb11e2765f965)
+- **Tabs** Fix inactive tab panel behavious. [#6237](https://github.com/ant-design/ant-design/issues/6237)
+- **Layout** Fix children in the collapsed Sider not be hidden. [#6131](https://github.com/ant-design/ant-design/issues/6131)
+- **Table** Fix table filter menu overflow issue. [#6245](https://github.com/ant-design/ant-design/issues/6245)
+- **InputNumber** Fix hasFeedback misplaced validated icon. [#6289](https://github.com/ant-design/ant-design/issues/6289)
+- **Typescript**
+  - Upgrade TypeScript to 2.3.x. [#6263](https://github.com/ant-design/ant-design/issues/6263)
+  - Add missing props in Table. [commit/acdc56](https://github.com/ant-design/ant-design/commit/acdc563a547c49960521b2b48cd5c707ac1e4cf2) [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)
+  - Fix wrong type in Mention and Form. [pull/6268](https://github.com/ant-design/ant-design/pull/6268) [@jch254](https://github.com/jch254)
+  - Fix wrong type in Badge. [pull/6291](https://github.com/ant-design/ant-design/pull/6291) [@jch254](https://github.com/jch254)
+  - Add missing props in Input related Components. [pull/6276](https://github.com/ant-design/ant-design/pull/6276/commits/94901de2e8c0a2ed6f62f5aa50c98994aad71844) [@panjiesw](https://github.com/panjiesw)  [commit/220264](https://github.com/ant-design/ant-design/commit/2202648d6e1c53409ade2141955232922b0040d6#diff-26cb6da96d10397e18e7dbd6c5d8f7a1L265) [@clinyong](https://github.com/clinyong)
+
+## 2.10.2
+
+`2017-05-23`
+
+- Fix `prop-types` warnings which due to upgrading React. [#5678](https://github.com/ant-design/ant-design/issues/5678)
+- Fix `defaultValue` issue of DatePicker and RangePicker in showTime mode. [#6160](https://github.com/ant-design/ant-design/pull/6160)
+- Fix style issue of TreeSelect. [#6137](https://github.com/ant-design/ant-design/issues/6137)
+- Fix style issue of Input with prefix and addon. [#6144](https://github.com/ant-design/ant-design/issues/6144)
+- Fix some bugs of `notification.destroy`. [#6161](https://github.com/ant-design/ant-design/issues/6161)
+- Fix missing translations of Upload and Table. [#6218](https://github.com/ant-design/ant-design/issues/6218)
+- Fix style issue of Cascader inside Input.Group. [#6208](https://github.com/ant-design/ant-design/issues/6208)
+- Increase click area of Tree icons. [#6120](https://github.com/ant-design/ant-design/issues/6120)
+
+## 2.10.1
+
+`2017-05-14`
+
+- Upgrade normalize.css to 7.0.0.
+- Fix AutoComplete style issue when use with Input.Group. [#6058](https://github.com/ant-design/ant-design/issues/6058)
+- Fix Tabs cann't set `animated` when use `card` or `editable-card` type. [#6070](https://github.com/ant-design/ant-design/issues/6070)
+- Fix Form style issue when zoom out scrren. [#6097](https://github.com/ant-design/ant-design/issues/6097)
+- Fix RangePicker style issue in Safari. [#6061](https://github.com/ant-design/ant-design/issues/6061)
+- Notification
+  - Fix `getContainer` not working. [#6099](https://github.com/ant-design/ant-design/pull/6099) [@hardfist](https://github.com/hardfist)
+  - Fix overlaping issue. [#5895](https://github.com/ant-design/ant-design/issues/5895) [@ystarlongzi](https://github.com/ystarlongzi)
+- Add new `fork` icon.
+- Add some less variables. [#6039](https://github.com/ant-design/ant-design/pull/6039) [#6038](https://github.com/ant-design/ant-design/pull/6038) [#6105](https://github.com/ant-design/ant-design/issues/6105) [#6040](https://github.com/ant-design/ant-design/pull/6040)
+
+## 2.10.0
+
+`2017-05-02`
+
+- LocaleProvider
+  - Support Traditional Chinese. [#5665](https://github.com/ant-design/ant-design/pull/5665) [@GeorgioWan](https://github.com/GeorgioWan)
+  - Support Finnish. [#5699](https://github.com/ant-design/ant-design/pull/5699) [@kirbo](https://github.com/kirbo)
+  - Support Vietnamese. [#5927](https://github.com/ant-design/ant-design/pull/5927) [@pnghai](https://github.com/pnghai)
+  - Update Spanish. [#5932](https://github.com/ant-design/ant-design/pull/5932) [@ginodeise](https://github.com/ginodeis)
+- AutoComplete supports to listen to search events by `onSearch`.
+- Checkbox.Group can support more flexible layout with nested Checkbox. [demo](http://ant.design/components/checkbox-cn/#components-checkbox-demo-layout)
+- Notification's inline style and className can be customized now. [#5893](https://github.com/ant-design/ant-design/issues/5893) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+- TimePicker's open status can be controlled by `open` property. [#5913](https://github.com/ant-design/ant-design/pull/5913)
+- The returned value of Upload `onRemove` could be a Promise to control remove logic asynchronously. [#5973](https://github.com/ant-design/ant-design/issues/5973) [@shlice](https://github.com/shlice)
+- Adjust padding of popup of Dropdown. [#5088](https://github.com/ant-design/ant-design/issues/5088)
+- AutoComplete
+  - Fix inconsistent behavior between `dataSource: Object[]` and `dataSource: String[]`. [#5860](https://github.com/ant-design/ant-design/issues/5860)
+  - Fix broken style of error style in Form. [#5834](https://github.com/ant-design/ant-design/issues/5834) [@kossel](https://github.com/kossel)
+- Fix that Button should not insert space in Chinese characters while using Icon. [#5977](https://github.com/ant-design/ant-design/issues/5977)
+- Fix broken style while using Cascader in Card[title]. [#5952](https://github.com/ant-design/ant-design/issues/5952)
+- Fix broken disabled style of Checkbox Radio. [#5935](https://github.com/ant-design/ant-design/issues/5935)
+- Fix broken style of DatePicker with nested TimePicker while using `use12Hours`. [#5959](https://github.com/ant-design/ant-design/issues/5959)
+- Fix broken style while using AutoComplete, Cascader, Mention, TimePicker in Input.Group. [#5832](https://github.com/ant-design/ant-design/issues/5832)
+- Fix missing TypeScript definition of `inlineIndent` Menu. [#5903](https://github.com/ant-design/ant-design/pull/5903) [@brookshi](https://github.com/brooksh)
+- Mention
+  - Fix missing properties, readOnly and disabled. [#5175](https://github.com/ant-design/ant-design/issues/5175)
+  - Fix controlled mode. [#5788](https://github.com/ant-design/ant-design/issues/5788)
+- Fix errors while using RangePicker with Form. [#5872](https://github.com/ant-design/ant-design/issues/5872)
+- Fix that pagination is clickable when Table with loading status. [#5937](https://github.com/ant-design/ant-design/issues/5937)
+- Tabs
+  - Fix broken style while using Table or Form in Tabs. [#5953](https://github.com/ant-design/ant-design/issues/5953)
+  - Fix broken style of vertical layout. [#5877](https://github.com/ant-design/ant-design/issues/5877)
+- Transfer
+  - Fix invisible search result list. [#5631](https://github.com/ant-design/ant-design/issues/5631)
+  - Fix select all and unselect all logic in searching mode. [#5993](https://github.com/ant-design/ant-design/issues/5993)
+
+## 2.9.3
+
+`2017-04-24`
+
+- **notification** Fix can't close itself after 4.5s. [#5869](https://github.com/ant-design/ant-design/issues/5869)
+- **Tabs** Add transition for `ink-bar` width. [#5858](https://github.com/ant-design/ant-design/pull/5858) [@hlehmann](https://github.com/hlehmann)
+
+## 2.9.2
+
+`2017-04-22`
+
+- **Alert** Fix props of banner mode can't be overrided. [#5800](https://github.com/ant-design/ant-design/issues/5800)
+- **AutoComplete** Fix can't add `onKeyDown` event listener with customized input component. [#5487](https://github.com/ant-design/ant-design/issues/5487)
+- **Button** New style for danger Button. [#5815](https://github.com/ant-design/ant-design/pull/5815)
+- **DatePicker**
+  - Improve user experience of RangePicker, rc-calendar upgrade to `~8.0.0`. [#4985](https://github.com/ant-design/ant-design/issues/4985)
+  - Fix RangePicker not aligned after customizing the size of input. [pull/5718](https://github.com/ant-design/ant-design/pull/5718) [@leadream](https://github.com/leadream)
+- **Form** Add a less variable to opt out of form item colons. [pull/5855](https://github.com/ant-design/ant-design/pull/5855) [@megawac](https://github.com/megawac)
+- **Input**
+  - Fix Input.Search style issue when be used in Input.Group. [#5743](https://github.com/ant-design/ant-design/issues/5743)
+  - Fix AutoComplete style issue when be used in Input.Group. [#5832](https://github.com/ant-design/ant-design/issues/5832)
+  - Fix Select size when be used in Input.Group. [#5754](https://github.com/ant-design/ant-design/issues/5754)
+  - Change suffix color. [pull/5820](https://github.com/ant-design/ant-design/pull/5820) [@megawac](https://github.com/megawac)
+- **InputNumber** Update docs and demos for how to use `parser` to work with `formatter`. [#5683](https://github.com/ant-design/ant-design/issues/5683)
+- **Layout**
+  - Add [Fixed-Sider](https://ant.design/components/layout/#components-layout-demo-fixed-sider) demo.
+  - Fix style issue of responsive sider in firefox. [#5613](https://github.com/ant-design/ant-design/issues/5613)
+- **LocaleProvider** Allow for seamless access to less variables. [#5712](https://github.com/ant-design/ant-design/issues/5712) [@lionkeng](https://github.com/lionkeng)
+- **Menu** Override the default `a:focus` style when it nested in Menu component. [#5707](https://github.com/ant-design/ant-design/issues/5707)
+- **Notification**  Auto adjust style for singleline message. [#5846](https://github.com/ant-design/ant-design/issues/5846)
+- **Radio** Add less variables for setting color and background color of Radio.Button. [pull/5791](https://github.com/ant-design/ant-design/pull/5791) [@megawac](https://github.com/megawac)
+- **Table**
+  - Add less variables for setting head background color and row background hover color. [#5706](https://github.com/ant-design/ant-design/issues/5706) [@kappa-gooner](https://github.com/kappa-gooner)
+  - Improve the `Grouping table head` demo style. [#5697](https://github.com/ant-design/ant-design/issues/5697)
+- **Tabs** Fix the position of the scrolling arrow in `vertical` mode. [#5765](https://github.com/ant-design/ant-design/issues/5765) [@dicklwm](https://github.com/dicklwm)
+- **TreeSelect** Fix arrow rotate bug. [#5693](https://github.com/ant-design/ant-design/issues/5693)
+- **TypeScript**
+  - Add missing props in InputNumber. [#5717](https://github.com/ant-design/ant-design/issues/5717)  [@whtang906](https://github.com/whtang906)
+- **Global Optimization**
+  - Fix deprecation warning of `React.PropTypes` due to React upgrading to v15.5.0. [pull/5723](https://github.com/ant-design/ant-design/pull/5723)  [@manjitkumar](https://github.com/manjitkumar)
+- **Site**
+  - Add native English translation for [icons spec](https://ant.design/docs/spec/icon). [@kenaniah](https://github.com/kenaniah)
+  - Add [English gitter chat room](https://gitter.im/ant-design/ant-design-english).
+
+## 2.9.1
+
+`2017-04-09`
+
+- Step
+  - Add more less variables. [#5624](https://github.com/ant-design/ant-design/pull/5624) [@megawac](https://github.com/megawac)
+  - Fix style issue. [#5623](https://github.com/ant-design/ant-design/issues/5623)
+- Button won't lose focus after click. [#5597](https://github.com/ant-design/ant-design/pull/5597) [@kenaniah](https://github.com/kenaniah)
+- Add underline to focused link.  [#5587](https://github.com/ant-design/ant-design/pull/5597) [@kenaniah](https://github.com/kenaniah)
+- Fix Dropdown.Button can't use `placement` issue. [#5594](https://github.com/ant-design/ant-design/issues/5594)
+- Fix Pagination alignment issue. [#5632](https://github.com/ant-design/ant-design/issues/5632)
+- Fix AutoComplete style issue when use `allowClear`. [#5634](https://github.com/ant-design/ant-design/issues/5634)
+- Fix DatePicker style issue when  set `showToday` to `false`. [#5620](https://github.com/ant-design/ant-design/issues/5620)
+- Fix Select shows Chinese defaultly. [#5661](https://github.com/ant-design/ant-design/pull/5661) [@LeeHarlan](https://github.com/LeeHarlan)
+
 ## 2.9.0
 
 `2017-04-01` 👻
@@ -148,7 +337,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Added a new `Fixed Header` demo. [demo](https://ant.design/components/layout-cn/#components-layout-demo-fixed)
   - Added `Sider[breakpoint]` to allow config responsive breakpoint. [#4931](https://github.com/ant-design/ant-design/pull/4931)
 - Form
-  - Added `layout` to replace the original `horizontal`、`vertical`、`inline`. [#5056](https://github.com/ant-design/ant-design/issues/5056)
+  - Added `layout` to replace the original `horizontal`, `vertical`, `inline`. [#5056](https://github.com/ant-design/ant-design/issues/5056)
 - Calendar
   - Added `dateFullCellRender` and `monthFullCellRender` to allow override the content of cell. [#5138](https://github.com/ant-design/ant-design/pull/5138) [@wonyun](https://github.com/wonyun)
   - Added  `onSelect` for date selection. [demo](https://ant.design/components/calendar-cn/#components-calendar-demo-select)
@@ -272,7 +461,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - **Tabs** Fix content missing problem since the second tab pane under IE9. [#4795](https://github.com/ant-design/ant-design/issues/4795)
 - **rc-pagination** Upgrade to ~1.7.0, add pageSize as onChange's second argument.
 - **Global optimization**
-  - Make some bugfixes and optimizations about documentation、link and style.
+  - Make some bugfixes and optimizations about documentation, link and style.
   - Use stylelint instead of lesslint, and fix some lint issues. [#2179](https://github.com/ant-design/ant-design/issues/2179)
   - Unify border radius to 4px. [#4772](https://github.com/ant-design/ant-design/issues/4772)
   - Support `import { version } from 'antd'`. [#4751](https://github.com/ant-design/ant-design/pull/4751)
@@ -330,7 +519,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Table
   * Improve Table fixed header's scrollbar style.[#4637](https://github.com/ant-design/ant-design/issues/4637)
   * Fix issue resulting in Table's header flashes when `loading` is true in Safari.[#4622](https://github.com/ant-design/ant-design/issues/4622)
-  * Fix multiple border issues. [#4647](https://github.com/ant-design/ant-design/issues/4647)、[#4635](https://github.com/ant-design/ant-design/issues/4635)
+  * Fix multiple border issues. [#4647](https://github.com/ant-design/ant-design/issues/4647), [#4635](https://github.com/ant-design/ant-design/issues/4635)
   * Fix `showHeader`'s default value.[#4658](https://github.com/ant-design/ant-design/issues/4658)
   * Fix missing `TableColumnConfig` type.[#4660](https://github.com/ant-design/ant-design/issues/4660)
 
@@ -463,6 +652,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * RangePicker can set presetted ranges. [demo](https://ant.design/components/date-picker/#components-date-picker-demo-presetted-ranges)
   * Fix "Now" button doesn't work while `DatePicker[showTime]` is set. [#3748](https://github.com/ant-design/ant-design/issues/3748)
   * Fix `RangePicker[format]` should work. [#3808](https://github.com/ant-design/ant-design/issues/3808)
+  * Fix issue that RangePicker `placeholder=['xx', 'xx']` not working.
 * Add and update some icons. [#3977](https://github.com/ant-design/ant-design/pull/3977)
 * New component `Input.Search`. [demo](https://ant.design/components/input/#components-input-demo-search-input)
 * Mention onSelect event will get complete record. [#3867](https://github.com/ant-design/ant-design/issues/3867)

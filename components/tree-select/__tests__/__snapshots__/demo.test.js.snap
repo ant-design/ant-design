@@ -2,7 +2,7 @@
 
 exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 <span
-  class="ant-select ant-select-enabled"
+  class="ant-select ant-select-enabled ant-select-allow-clear"
   style="width:300px;"
 >
   <span

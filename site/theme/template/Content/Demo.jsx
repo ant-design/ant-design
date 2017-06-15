@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
@@ -9,7 +10,7 @@ import BrowserFrame from '../BrowserFrame';
 
 export default class Demo extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object,
+    intl: PropTypes.object,
   }
 
   constructor(props) {
@@ -84,7 +85,7 @@ export default class Demo extends React.Component {
     } = props;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe
-        ? <BrowserFrame><iframe src={src} height={meta.iframe} /></BrowserFrame>
+        ? <BrowserFrame><iframe src={src} height={meta.iframe} title="demo" /></BrowserFrame>
         : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;

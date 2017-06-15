@@ -96,6 +96,8 @@
   }
 
   .@{checkbox-prefix-cls}-disabled {
+    cursor: not-allowed;
+
     &.@{checkbox-prefix-cls}-checked {
       .@{checkbox-inner-prefix-cls}:after {
         animation-name: none;
@@ -103,12 +105,16 @@
       }
     }
 
+    .@{checkbox-prefix-cls}-input {
+      cursor: not-allowed;
+    }
+
     .@{checkbox-inner-prefix-cls} {
       border-color: @border-color-base!important;
-      background-color: #f3f3f3;
+      background-color: @input-disabled-bg;
       &:after {
         animation-name: none;
-        border-color: #f3f3f3;
+        border-color: @input-disabled-bg;
       }
     }
 

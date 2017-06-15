@@ -1,10 +1,11 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
 import assign from 'object-assign';
+import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP } from './constants';
@@ -28,6 +29,31 @@ export interface FormProps {
   prefixCls?: string;
   hideRequiredMark?: boolean;
 }
+
+export type ValidationRule = {
+  /** validation error message */
+  message?: string;
+  /** built-in validation type, available options: https://github.com/yiminghe/async-validator#type */
+  type?: string;
+  /** indicates whether field is required */
+  required?: boolean;
+  /** treat required fields that only contain whitespace as errors */
+  whitespace?: boolean;
+  /** validate the exact length of a field */
+  len?: number;
+  /** validate the min length of a field */
+  min?: number;
+  /** validate the max length of a field */
+  max?: number;
+  /** validate the value from a list of possible values */
+  enum?: string | string[];
+  /** validate from a regular expression */
+  pattern?: RegExp;
+  /** transform a value before validation */
+  transform?: (value: any) => any;
+  /** custom validate function (Note: callback must be called) */
+  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
+};
 
 export type ValidateCallback = (erros: any, values: any) => void;
 
@@ -73,7 +99,7 @@ export type WrappedFormUtils = {
     /** 校验子节点值的时机 */
     validateTrigger?: string | string[];
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
-    rules?: Array<any>;
+    rules?: ValidationRule[];
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
     exclusive?: boolean;
   }): (node: React.ReactNode) => React.ReactNode;
@@ -85,7 +111,7 @@ export interface FormComponentProps {
 
 // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/9951
 export interface ComponentDecorator<TOwnProps> {
-  (component: React.ComponentClass<FormComponentProps & TOwnProps>): any;
+  (component: React.ComponentClass<FormComponentProps & TOwnProps>): React.ComponentClass<TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -120,7 +146,7 @@ export default class Form extends React.Component<FormProps, any> {
     }));
 
     /* eslint-disable react/prefer-es6-class */
-    return (Component) => formWrapper(React.createClass({
+    return (Component) => formWrapper(createReactClass({
       propTypes: {
         form: PropTypes.object.isRequired,
       },

@@ -36,7 +36,11 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         class="ant-layout-sider"
         style="flex:0 0 200px;width:200px;"
       >
-        Sider
+        <div
+          class="ant-layout-sider-children"
+        >
+          Sider
+        </div>
       </div>
       <div
         class="ant-layout-content"
@@ -70,7 +74,11 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         class="ant-layout-sider"
         style="flex:0 0 200px;width:200px;"
       >
-        Sider
+        <div
+          class="ant-layout-sider-children"
+        >
+          Sider
+        </div>
       </div>
     </div>
     <div
@@ -86,7 +94,11 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       class="ant-layout-sider"
       style="flex:0 0 200px;width:200px;"
     >
-      Sider
+      <div
+        class="ant-layout-sider-children"
+      >
+        Sider
+      </div>
     </div>
     <div
       class="ant-layout"
@@ -120,60 +132,64 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     style="flex:0 0 200px;width:200px;"
   >
     <div
-      class="logo"
-    />
-    <ul
-      aria-activedescendant=""
-      class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
-      role="menu"
-      tabindex="0"
+      class="ant-layout-sider-children"
     >
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
+      <div
+        class="logo"
+      />
+      <ul
+        aria-activedescendant=""
+        class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+        role="menu"
+        tabindex="0"
       >
-        <i
-          class="anticon anticon-user"
-        />
-        <span
-          class="nav-text"
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 1
-        </span>
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <i
-          class="anticon anticon-video-camera"
-        />
-        <span
-          class="nav-text"
+          <i
+            class="anticon anticon-user"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 1
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 2
-        </span>
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <i
-          class="anticon anticon-upload"
-        />
-        <span
-          class="nav-text"
+          <i
+            class="anticon anticon-video-camera"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 2
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 3
-        </span>
-      </li>
-    </ul>
+          <i
+            class="anticon anticon-upload"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 3
+          </span>
+        </li>
+      </ul>
+    </div>
   </div>
   <div
     class="ant-layout"
@@ -297,6 +313,271 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
+<div
+  class="ant-layout ant-layout-has-sider"
+  style="height:100vh;"
+>
+  <div
+    class="ant-layout-sider"
+    style="overflow:auto;flex:0 0 200px;width:200px;"
+  >
+    <div
+      class="ant-layout-sider-children"
+    >
+      <div
+        class="logo"
+      />
+      <ul
+        aria-activedescendant=""
+        class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-user"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 1
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-video-camera"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 2
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-upload"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 3
+          </span>
+        </li>
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-bar-chart"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 4
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-cloud-o"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 5
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-appstore-o"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 6
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-team"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 7
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <i
+            class="anticon anticon-shop"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 8
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-layout"
+  >
+    <div
+      class="ant-layout-header"
+      style="background:#fff;padding:0;"
+    />
+    <div
+      class="ant-layout-content"
+      style="margin:24px 16px 0;overflow:initial;"
+    >
+      <div
+        style="padding:24px;background:#fff;text-align:center;"
+      >
+        ...
+        <br />
+        Really
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        long
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        ...
+        <br />
+        content
+      </div>
+    </div>
+    <div
+      class="ant-layout-footer"
+      style="text-align:center;"
+    >
+      Ant Design ©2016 Created by Ant UED
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 <div
   class="ant-layout ant-layout-has-sider"
@@ -306,75 +587,79 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     style="flex:0 0 200px;width:200px;"
   >
     <div
-      class="logo"
-    />
-    <ul
-      aria-activedescendant=""
-      class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
-      role="menu"
-      tabindex="0"
+      class="ant-layout-sider-children"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
+      <div
+        class="logo"
+      />
+      <ul
+        aria-activedescendant=""
+        class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+        role="menu"
+        tabindex="0"
       >
-        <i
-          class="anticon anticon-user"
-        />
-        <span
-          class="nav-text"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 1
-        </span>
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <i
-          class="anticon anticon-video-camera"
-        />
-        <span
-          class="nav-text"
+          <i
+            class="anticon anticon-user"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 1
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 2
-        </span>
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <i
-          class="anticon anticon-upload"
-        />
-        <span
-          class="nav-text"
+          <i
+            class="anticon anticon-video-camera"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 2
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 3
-        </span>
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <i
-          class="anticon anticon-user"
-        />
-        <span
-          class="nav-text"
+          <i
+            class="anticon anticon-upload"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 3
+          </span>
+        </li>
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
         >
-          nav 4
-        </span>
-      </li>
-    </ul>
+          <i
+            class="anticon anticon-user"
+          />
+          <span
+            class="nav-text"
+          >
+            nav 4
+          </span>
+        </li>
+      </ul>
+    </div>
   </div>
   <div
     class="ant-layout"
@@ -412,76 +697,80 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     style="flex:0 0 200px;width:200px;"
   >
     <div
-      class="logo"
-    />
-    <ul
-      aria-activedescendant=""
-      class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
-      role="menu"
-      tabindex="0"
+      class="ant-layout-sider-children"
     >
-      <li
-        class="ant-menu-submenu-inline ant-menu-submenu"
+      <div
+        class="logo"
+      />
+      <ul
+        aria-activedescendant=""
+        class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+        role="menu"
+        tabindex="0"
       >
-        <div
-          aria-expanded="false"
-          aria-haspopup="true"
-          aria-owns="sub1$Menu"
-          class="ant-menu-submenu-title"
-          style="padding-left:24px;"
+        <li
+          class="ant-menu-submenu-inline ant-menu-submenu"
         >
-          <span>
-            <i
-              class="anticon anticon-user"
-            />
-            <span
-              class="nav-text"
-            >
-              User
-            </span>
-          </span>
-        </div>
-      </li>
-      <li
-        class="ant-menu-submenu-inline ant-menu-submenu"
-      >
-        <div
-          aria-expanded="false"
-          aria-haspopup="true"
-          aria-owns="sub2$Menu"
-          class="ant-menu-submenu-title"
-          style="padding-left:24px;"
-        >
-          <span>
-            <i
-              class="anticon anticon-team"
-            />
-            <span
-              class="nav-text"
-            >
-              Team
-            </span>
-          </span>
-        </div>
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
-        style="padding-left:24px;"
-      >
-        <span>
-          <i
-            class="anticon anticon-file"
-          />
-          <span
-            class="nav-text"
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="sub1$Menu"
+            class="ant-menu-submenu-title"
+            style="padding-left:24px;"
           >
-            File
+            <span>
+              <i
+                class="anticon anticon-user"
+              />
+              <span
+                class="nav-text"
+              >
+                User
+              </span>
+            </span>
+          </div>
+        </li>
+        <li
+          class="ant-menu-submenu-inline ant-menu-submenu"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="sub2$Menu"
+            class="ant-menu-submenu-title"
+            style="padding-left:24px;"
+          >
+            <span>
+              <i
+                class="anticon anticon-team"
+              />
+              <span
+                class="nav-text"
+              >
+                Team
+              </span>
+            </span>
+          </div>
+        </li>
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px;"
+        >
+          <span>
+            <i
+              class="anticon anticon-file"
+            />
+            <span
+              class="nav-text"
+            >
+              File
+            </span>
           </span>
-        </span>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
     <div
       class="ant-layout-sider-trigger"
     >
@@ -739,6 +1028,179 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         class="ant-layout-sider"
         style="background:#fff;flex:0 0 200px;width:200px;"
       >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <ul
+            aria-activedescendant=""
+            class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
+            role="menu"
+            style="height:100%;"
+            tabindex="0"
+          >
+            <li
+              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
+            >
+              <div
+                aria-expanded="true"
+                aria-haspopup="true"
+                aria-owns="sub1$Menu"
+                class="ant-menu-submenu-title"
+                style="padding-left:24px;"
+              >
+                <span>
+                  <i
+                    class="anticon anticon-user"
+                  />
+                  subnav 1
+                </span>
+              </div>
+              <ul
+                aria-activedescendant=""
+                class="ant-menu ant-menu-inline  ant-menu-sub"
+                id="sub1$Menu"
+                role="menu"
+              >
+                <li
+                  aria-selected="true"
+                  class="ant-menu-item-selected ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option1
+                </li>
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option2
+                </li>
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option3
+                </li>
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option4
+                </li>
+              </ul>
+            </li>
+            <li
+              class="ant-menu-submenu-inline ant-menu-submenu"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-owns="sub2$Menu"
+                class="ant-menu-submenu-title"
+                style="padding-left:24px;"
+              >
+                <span>
+                  <i
+                    class="anticon anticon-laptop"
+                  />
+                  subnav 2
+                </span>
+              </div>
+            </li>
+            <li
+              class="ant-menu-submenu-inline ant-menu-submenu"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-owns="sub3$Menu"
+                class="ant-menu-submenu-title"
+                style="padding-left:24px;"
+              >
+                <span>
+                  <i
+                    class="anticon anticon-notification"
+                  />
+                  subnav 3
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ant-layout-content"
+        style="padding:0 24px;min-height:280px;"
+      >
+        Content
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-layout-footer"
+    style="text-align:center;"
+  >
+    Ant Design ©2016 Created by Ant UED
+  </div>
+</div>
+`;
+
+exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
+<div
+  class="ant-layout"
+>
+  <div
+    class="header ant-layout-header"
+  >
+    <div
+      class="logo"
+    />
+    <ul
+      aria-activedescendant=""
+      class="ant-menu ant-menu-horizontal  ant-menu-dark ant-menu-root"
+      role="menu"
+      style="line-height:64px;"
+      tabindex="0"
+    >
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+      >
+        nav 1
+      </li>
+      <li
+        aria-selected="true"
+        class="ant-menu-item-selected ant-menu-item"
+        role="menuitem"
+      >
+        nav 2
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+      >
+        nav 3
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-layout ant-layout-has-sider"
+  >
+    <div
+      class="ant-layout-sider"
+      style="background:#fff;flex:0 0 200px;width:200px;"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
         <ul
           aria-activedescendant=""
           class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
@@ -841,171 +1303,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           </li>
         </ul>
       </div>
-      <div
-        class="ant-layout-content"
-        style="padding:0 24px;min-height:280px;"
-      >
-        Content
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-layout-footer"
-    style="text-align:center;"
-  >
-    Ant Design ©2016 Created by Ant UED
-  </div>
-</div>
-`;
-
-exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
-<div
-  class="ant-layout"
->
-  <div
-    class="header ant-layout-header"
-  >
-    <div
-      class="logo"
-    />
-    <ul
-      aria-activedescendant=""
-      class="ant-menu ant-menu-horizontal  ant-menu-dark ant-menu-root"
-      role="menu"
-      style="line-height:64px;"
-      tabindex="0"
-    >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-      >
-        nav 1
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
-      >
-        nav 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-      >
-        nav 3
-      </li>
-    </ul>
-  </div>
-  <div
-    class="ant-layout ant-layout-has-sider"
-  >
-    <div
-      class="ant-layout-sider"
-      style="background:#fff;flex:0 0 200px;width:200px;"
-    >
-      <ul
-        aria-activedescendant=""
-        class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
-        role="menu"
-        style="height:100%;"
-        tabindex="0"
-      >
-        <li
-          class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
-        >
-          <div
-            aria-expanded="true"
-            aria-haspopup="true"
-            aria-owns="sub1$Menu"
-            class="ant-menu-submenu-title"
-            style="padding-left:24px;"
-          >
-            <span>
-              <i
-                class="anticon anticon-user"
-              />
-              subnav 1
-            </span>
-          </div>
-          <ul
-            aria-activedescendant=""
-            class="ant-menu ant-menu-inline  ant-menu-sub"
-            id="sub1$Menu"
-            role="menu"
-          >
-            <li
-              aria-selected="true"
-              class="ant-menu-item-selected ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              option1
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              option2
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              option3
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              option4
-            </li>
-          </ul>
-        </li>
-        <li
-          class="ant-menu-submenu-inline ant-menu-submenu"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-owns="sub2$Menu"
-            class="ant-menu-submenu-title"
-            style="padding-left:24px;"
-          >
-            <span>
-              <i
-                class="anticon anticon-laptop"
-              />
-              subnav 2
-            </span>
-          </div>
-        </li>
-        <li
-          class="ant-menu-submenu-inline ant-menu-submenu"
-        >
-          <div
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-owns="sub3$Menu"
-            class="ant-menu-submenu-title"
-            style="padding-left:24px;"
-          >
-            <span>
-              <i
-                class="anticon anticon-notification"
-              />
-              subnav 3
-            </span>
-          </div>
-        </li>
-      </ul>
     </div>
     <div
       class="ant-layout"

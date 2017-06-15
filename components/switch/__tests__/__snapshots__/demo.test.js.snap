@@ -15,7 +15,7 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
 <div>
   <span
     class="ant-switch ant-switch-disabled"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="ant-switch-inner"

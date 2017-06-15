@@ -39,7 +39,7 @@ $ npm install antd-init -g
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [更多](https://github.com/ant-design/ant-design/issues/129)
+>   - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
 
 ### 2. 创建一个项目
 
@@ -128,9 +128,7 @@ Ant Design React 支持所有的现代浏览器和 IE9+。
     <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
-    <!--[if lte IE 11]>
     <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
-    <![endif]-->
   </head>
   <body>
   </body>
@@ -159,9 +157,13 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 
 ## 按需加载
 
-如果你在控制台看到下面的提示，则你可能使用了 `import { Button } from 'antd';` 的写法引入了 antd 下所有的模块，这会影响应用的网络性能。
+如果你在开发环境的控制台看到下面的提示，那么你可能使用了 `import { Button } from 'antd';` 的写法引入了 antd 下所有的模块，这会影响应用的网络性能。
 
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
+
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
 可以通过以下的写法来按需加载组件。
 

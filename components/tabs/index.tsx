@@ -47,7 +47,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tabs',
     hideAdd: false,
-    animated: true,
   };
 
   createNewTab = (targetKey) => {
@@ -98,7 +97,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       onTabClick,
       onPrevClick,
       onNextClick,
-      animated,
+      animated = true,
     } = this.props;
 
     let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
@@ -106,6 +105,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
     } : {
       inkBarAnimated: animated, tabPaneAnimated: animated,
     };
+
+    // card tabs should not have animation
+    if (type !== 'line') {
+      tabPaneAnimated = 'animated' in this.props ? tabPaneAnimated : false;
+    }
 
     warning(
       !(type.indexOf('card') >= 0 && size === 'small'),

@@ -19,9 +19,6 @@
     height: 2px;
     background-color: @primary-color;
     transform-origin: 0 0;
-    &-animated {
-      transition: transform 0.3s @ease-in-out;
-    }
   }
 
   &-bar {
@@ -195,13 +192,15 @@
       > .@{tab-prefix-cls}-tabpane {
         flex-shrink: 0;
         width: 100%;
-        transition: opacity 0.3s;
+        transition: opacity .45s;
         opacity: 1;
       }
 
       > .@{tab-prefix-cls}-tabpane-inactive {
         opacity: 0;
         height: 0;
+        padding: 0!important;
+        pointer-events: none;
       }
     }
     > .@{tab-prefix-cls}-content-animated {
@@ -215,6 +214,7 @@
   &-vertical {
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
+      height: 100%;
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -232,8 +232,17 @@
         width: auto;
       }
 
+      .@{tab-prefix-cls}-nav-container,
+      .@{tab-prefix-cls}-nav-wrap {
+        height: 100%;
+      }
+
       .@{tab-prefix-cls}-nav-container {
         margin-bottom: 0;
+
+        &.@{tab-prefix-cls}-nav-container-scrolling {
+          padding: 32px 0;
+        }
       }
 
       .@{tab-prefix-cls}-nav-wrap {
@@ -252,6 +261,24 @@
       overflow: hidden;
       width: auto;
       margin-top: 0!important;
+    }
+
+    > .@{tab-prefix-cls}-tab-next {
+      width: 100%;
+      bottom: 0;
+      height: 32px;
+      &-icon:before {
+        content: "\e61d";
+      }
+    }
+
+    > .@{tab-prefix-cls}-tab-prev {
+      top: 0;
+      width: 100%;
+      height: 32px;
+      &-icon:before {
+        content: "\e61e";
+      }
     }
   }
 
@@ -306,6 +333,16 @@
     margin-bottom: 0;
     margin-top: 16px;
   }
+}
+
+.@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+}
+
+.@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
 }
 
 .no-flex,

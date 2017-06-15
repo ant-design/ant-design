@@ -109,6 +109,7 @@
     outline: 0;
     height: 22px;
     color: @input-color;
+    background: @input-bg;
   }
 
   &-week-number {
@@ -185,7 +186,7 @@
     }
 
     &:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
       cursor: pointer;
     }
 
@@ -219,13 +220,13 @@
   &-disabled-cell &-date {
     cursor: not-allowed;
     color: #bcbcbc;
-    background: #f3f3f3;
+    background: @disabled-bg;
     border-radius: 0;
     width: auto;
     border: @border-width-base @border-style-base transparent;
 
     &:hover {
-      background: #f3f3f3;
+      background: @disabled-bg;
     }
   }
 
@@ -239,15 +240,22 @@
     border-bottom-right-radius: 4px;
   }
 
-  &-footer-btn {
+  &-footer {
     border-top: @border-width-base @border-style-base @border-color-split;
-    text-align: center;
-    display: block;
     line-height: 38px;
-  }
-
-  &-footer > div {
-    display: inline-block;
+    padding: 0 12px;
+    &:empty {
+      border-top: 0;
+    }
+    &-btn {
+      text-align: center;
+      display: block;
+    }
+    &-extra + &-btn {
+      border-top: @border-width-base @border-style-base @border-color-split;
+      margin: 0 -12px;
+      padding: 0 12px;
+    }
   }
 
   .@{calendar-prefix-cls}-today-btn,
@@ -258,6 +266,9 @@
     &-disabled {
       color: @disabled-color;
       cursor: not-allowed;
+    }
+    &:only-child {
+      margin: 0;
     }
   }
 
@@ -293,10 +304,7 @@
   .@{calendar-prefix-cls}-ok-btn {
     .btn;
     .btn-primary;
-    .button-size(@btn-padding-sm; @font-size-base; @border-radius-base);
-    position: absolute;
-    bottom: 8px;
-    right: 9px;
+    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @border-radius-base);
 
     &-disabled {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);

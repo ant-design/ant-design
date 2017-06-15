@@ -6,129 +6,141 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
     style="margin-bottom:16px;"
   >
     <span
-      class="ant-input-wrapper ant-input-group"
+      class="ant-input-group-wrapper"
     >
       <span
-        class="ant-input-group-addon"
+        class="ant-input-wrapper ant-input-group"
       >
-        Http://
-      </span>
-      <input
-        class="ant-input"
-        type="text"
-        value="mysite"
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        .com
-      </span>
-    </span>
-  </div>
-  <div
-    style="margin-bottom:16px;"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <span
-        class="ant-input-group-addon"
-      >
-        <div
-          class="ant-select ant-select-enabled"
-          style="width:80px;"
+        <span
+          class="ant-input-group-addon"
         >
-          <div
-            aria-autocomplete="list"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-select-selection
-                      ant-select-selection--single"
-            role="combobox"
-            tabindex="0"
-          >
-            <div
-              class="ant-select-selection__rendered"
-            >
-              <div
-                class="ant-select-selection-selected-value"
-                style="display:block;opacity:1;"
-                title="Http://"
-              >
-                Http://
-              </div>
-            </div>
-            <span
-              class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable"
-            >
-              <b />
-            </span>
-          </div>
-        </div>
-      </span>
-      <input
-        class="ant-input"
-        type="text"
-        value="mysite"
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <div
-          class="ant-select ant-select-enabled"
-          style="width:70px;"
-        >
-          <div
-            aria-autocomplete="list"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-select-selection
-                      ant-select-selection--single"
-            role="combobox"
-            tabindex="0"
-          >
-            <div
-              class="ant-select-selection__rendered"
-            >
-              <div
-                class="ant-select-selection-selected-value"
-                style="display:block;opacity:1;"
-                title=".com"
-              >
-                .com
-              </div>
-            </div>
-            <span
-              class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable"
-            >
-              <b />
-            </span>
-          </div>
-        </div>
-      </span>
-    </span>
-  </div>
-  <div
-    style="margin-bottom:16px;"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input"
-        type="text"
-        value="mysite"
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <i
-          class="anticon anticon-setting"
+          Http://
+        </span>
+        <input
+          class="ant-input"
+          type="text"
+          value="mysite"
         />
+        <span
+          class="ant-input-group-addon"
+        >
+          .com
+        </span>
+      </span>
+    </span>
+  </div>
+  <div
+    style="margin-bottom:16px;"
+  >
+    <span
+      class="ant-input-group-wrapper"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <span
+          class="ant-input-group-addon"
+        >
+          <div
+            class="ant-select ant-select-enabled"
+            style="width:80px;"
+          >
+            <div
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
+            >
+              <div
+                class="ant-select-selection__rendered"
+              >
+                <div
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title="Http://"
+                >
+                  Http://
+                </div>
+              </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
+            </div>
+          </div>
+        </span>
+        <input
+          class="ant-input"
+          type="text"
+          value="mysite"
+        />
+        <span
+          class="ant-input-group-addon"
+        >
+          <div
+            class="ant-select ant-select-enabled"
+            style="width:70px;"
+          >
+            <div
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
+            >
+              <div
+                class="ant-select-selection__rendered"
+              >
+                <div
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title=".com"
+                >
+                  .com
+                </div>
+              </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
+            </div>
+          </div>
+        </span>
+      </span>
+    </span>
+  </div>
+  <div
+    style="margin-bottom:16px;"
+  >
+    <span
+      class="ant-input-group-wrapper"
+    >
+      <span
+        class="ant-input-wrapper ant-input-group"
+      >
+        <input
+          class="ant-input"
+          type="text"
+          value="mysite"
+        />
+        <span
+          class="ant-input-group-addon"
+        >
+          <i
+            class="anticon anticon-setting"
+          />
+        </span>
       </span>
     </span>
   </div>
@@ -294,7 +306,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
+          aria-disabled="false"
+          aria-label="Increase Value"
           class="ant-input-number-handler ant-input-number-handler-up "
+          role="button"
           unselectable="unselectable"
         >
           <span
@@ -303,7 +318,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           />
         </span>
         <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
           class="ant-input-number-handler ant-input-number-handler-down "
+          role="button"
           unselectable="unselectable"
         >
           <span
@@ -313,7 +331,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </div>
       <div
+        aria-valuemax="Infinity"
+        aria-valuemin="-Infinity"
         class="ant-input-number-input-wrap"
+        role="spinbutton"
       >
         <input
           autocomplete="off"
@@ -338,7 +359,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     <span
       class="ant-calendar-picker"
     >
-      <span>
+      <div>
         <input
           class="ant-calendar-picker-input ant-input"
           placeholder="请选择日期"
@@ -348,7 +369,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-calendar-picker-icon"
         />
-      </span>
+      </div>
     </span>
   </span>
   <br />
@@ -421,6 +442,207 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
   </span>
   <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Between"
+          >
+            Between
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input"
+      placeholder="Minimum"
+      style="width:100px;text-align:center;"
+      type="text"
+    />
+    <input
+      class="ant-input"
+      placeholder="~"
+      style="width:24px;border-left:0;pointer-events:none;"
+      type="text"
+    />
+    <input
+      class="ant-input"
+      placeholder="Maximum"
+      style="width:100px;text-align:center;border-left:0;"
+      type="text"
+    />
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Sign Up"
+          >
+            Sign Up
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+      style="width:200px;"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection__placeholder"
+            style="display:block;user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            Email
+          </div>
+          <ul>
+            <li
+              class="ant-select-search ant-select-search--inline"
+            >
+              <div
+                class="ant-select-search__field__wrap"
+              >
+                <input
+                  class="ant-input ant-input ant-select-search__field"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-select-search__field__mirror"
+                >
+                   
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-enabled"
+      style="width:30%;"
+    >
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
+      >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Home"
+          >
+            Home
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
+    </div>
+    <span
+      class="ant-cascader-picker"
+      style="width:70%;"
+      tabindex="0"
+    >
+      <span
+        class="ant-cascader-picker-label"
+      />
+      <input
+        autocomplete="off"
+        class="ant-input ant-cascader-input "
+        placeholder="Select Address"
+        readonly=""
+        type="text"
+        value=""
+      />
+      <i
+        class="anticon anticon-down ant-cascader-picker-arrow"
+      />
+    </span>
+  </span>
 </div>
 `;
 

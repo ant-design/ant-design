@@ -80,6 +80,11 @@ class Footer extends React.Component {
               <FormattedMessage id="app.footer.mobile" />
             </div>
             <div>
+              <a href="http://scaffold.ant.design">Scaffolds</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.scaffolds" />
+            </div>
+            <div>
               <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
             </div>
             <div>
@@ -126,7 +131,12 @@ class Footer extends React.Component {
             </div>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
-                <FormattedMessage id="app.footer.discuss" />
+                <FormattedMessage id="app.footer.discuss-cn" />
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-english">
+                <FormattedMessage id="app.footer.discuss-en" />
               </a>
             </div>
             <div>

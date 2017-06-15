@@ -5,7 +5,7 @@ import shallowequal from 'shallowequal';
 import Icon from '../icon';
 
 export interface MentionProps {
-  prefixCls: string;
+  prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
   suggestions?: Array<any>;
   onSearchChange?: Function;
@@ -22,6 +22,8 @@ export interface MentionProps {
   getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: Function;
   onBlur?: Function;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
 export interface MentionState {
@@ -30,9 +32,6 @@ export interface MentionState {
 }
 
 export default class Mention extends React.Component<MentionProps, MentionState> {
-  static Nav = Nav;
-  static toString = toString;
-  static toEditorState = toEditorState;
   static getMentions = getMentions;
   static defaultProps = {
     prefixCls: 'ant-mention',
@@ -40,6 +39,13 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     loading: false,
     multiLines: false,
   };
+  static Nav = Nav;
+  static toString = toString;
+  static toContentState = toEditorState;
+  static toEditorState = text => {
+    console.warn('Mention.toEditorState is deprecated. Use toContentState instead.');
+    return toEditorState(text);
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +54,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     };
   }
 
-  componentWillReceiveProps({ suggestions }) {
+  componentWillReceiveProps(nextProps: MentionProps) {
+    const { suggestions } = nextProps;
     if (!shallowequal(suggestions, this.props.suggestions)) {
       this.setState({
         suggestions,

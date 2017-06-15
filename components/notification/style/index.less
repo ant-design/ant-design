@@ -38,6 +38,21 @@
       color: @heading-color;
       margin-bottom: 4px;
       line-height: 20px;
+      display: inline-block;
+
+      // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
+      &-single-line-auto-margin {
+        width: ~"calc(@{notification-width} - @{notification-padding} * 2 - 24px - 48px - 100%)";
+        background-color: transparent;
+        pointer-events: none;
+        display: block;
+        max-width: 4px;
+        &:before {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+        }
+      }
     }
 
     &-description {
@@ -60,7 +75,7 @@
     }
 
     &-icon {
-      float: left;
+      position: absolute;
       font-size: 32px;
       line-height: 32px;
 
@@ -91,6 +106,7 @@
       top: 10px;
       color: @text-color-secondary;
       outline: none;
+      text-decoration: none;
       &:hover {
         color: #404040;
       }

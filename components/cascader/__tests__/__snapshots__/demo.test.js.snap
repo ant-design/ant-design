@@ -5,6 +5,9 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -12,9 +15,6 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
     readonly=""
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -27,6 +27,9 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -34,9 +37,6 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
     readonly=""
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -50,13 +50,6 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
   style="width:270px;"
   tabindex="0"
 >
-  <input
-    autocomplete="off"
-    class="ant-input ant-cascader-input "
-    readonly=""
-    type="text"
-    value=""
-  />
   <span
     class="ant-cascader-picker-label"
   >
@@ -74,6 +67,13 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
       )
     </span>
   </span>
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    readonly=""
+    type="text"
+    value=""
+  />
   <i
     class="anticon anticon-cross-circle ant-cascader-picker-clear"
   />
@@ -100,6 +100,11 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  >
+    Zhejiang / Hangzhou / West Lake
+  </span>
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -107,11 +112,6 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     type="text"
     value=""
   />
-  <span
-    class="ant-cascader-picker-label"
-  >
-    Zhejiang / Hangzhou / West Lake
-  </span>
   <i
     class="anticon anticon-cross-circle ant-cascader-picker-clear"
   />
@@ -126,6 +126,9 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -133,9 +136,6 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
     readonly=""
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -148,6 +148,9 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -155,9 +158,6 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
     readonly=""
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -170,6 +170,9 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -177,9 +180,6 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
     readonly=""
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -192,15 +192,15 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
   class="ant-cascader-picker"
   tabindex="0"
 >
+  <span
+    class="ant-cascader-picker-label"
+  />
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
     placeholder="Please select"
     type="text"
     value=""
-  />
-  <span
-    class="ant-cascader-picker-label"
   />
   <i
     class="anticon anticon-down ant-cascader-picker-arrow"
@@ -214,6 +214,9 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
     class="ant-cascader-picker"
     tabindex="0"
   >
+    <span
+      class="ant-cascader-picker-label"
+    />
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input ant-input-lg"
@@ -222,9 +225,6 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-    <span
-      class="ant-cascader-picker-label"
-    />
     <i
       class="anticon anticon-down ant-cascader-picker-arrow"
     />
@@ -235,6 +235,9 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
     class="ant-cascader-picker"
     tabindex="0"
   >
+    <span
+      class="ant-cascader-picker-label"
+    />
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input "
@@ -243,9 +246,6 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       type="text"
       value=""
     />
-    <span
-      class="ant-cascader-picker-label"
-    />
     <i
       class="anticon anticon-down ant-cascader-picker-arrow"
     />
@@ -256,6 +256,9 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
     class="ant-cascader-picker"
     tabindex="0"
   >
+    <span
+      class="ant-cascader-picker-label"
+    />
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input ant-input-sm"
@@ -263,9 +266,6 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       readonly=""
       type="text"
       value=""
-    />
-    <span
-      class="ant-cascader-picker-label"
     />
     <i
       class="anticon anticon-down ant-cascader-picker-arrow"

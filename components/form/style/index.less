@@ -98,7 +98,12 @@ input[type="checkbox"] {
       color: @label-color;
 
       &:after {
-        content: ":";
+        & when (@form-item-trailing-colon=true) {
+          content: ":";
+        }
+        & when not (@form-item-trailing-colon=true) {
+          content: " ";
+        }
         margin: 0 8px 0 2px;
         position: relative;
         top: -0.5px;
@@ -217,6 +222,9 @@ form {
   .@{ant-prefix}-select,
   .@{ant-prefix}-cascader-picker {
     width: 100%;
+    &:only-child {
+      display: block;
+    }
   }
 }
 

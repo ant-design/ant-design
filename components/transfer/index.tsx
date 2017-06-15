@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
@@ -73,7 +74,10 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
-  splitedDataSource: any;
+  splitedDataSource: {
+    leftDataSource: TransferItem[],
+    rightDataSource: TransferItem[],
+  } | null;
 
   constructor(props: TransferProps) {
     super(props);
@@ -87,54 +91,68 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  abstract getLocale()
+  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
+
     if (nextProps.targetKeys !== this.props.targetKeys ||
-        nextProps.dataSource !== this.props.dataSource) {
+      nextProps.dataSource !== this.props.dataSource) {
       // clear cached splited dataSource
       this.splitedDataSource = null;
 
-      const { dataSource, targetKeys = [] } = nextProps;
-      function existInDateSourcekey(key) {
-        return dataSource.some(item => item.key === key);
+      if (!nextProps.selectedKeys) {
+        // clear key nolonger existed
+        // clear checkedKeys according to targetKeys
+        const { dataSource, targetKeys = [] } = nextProps;
+
+        const newSourceSelectedKeys: String[] = [];
+        const newTargetSelectedKeys: String[] = [];
+        dataSource.forEach(({ key }) => {
+          if (sourceSelectedKeys.includes(key) && !targetKeys.includes(key)) {
+            newSourceSelectedKeys.push(key);
+          }
+          if (targetSelectedKeys.includes(key) && targetKeys.includes(key)) {
+            newTargetSelectedKeys.push(key);
+          }
+        });
+        this.setState({
+          sourceSelectedKeys: newSourceSelectedKeys,
+          targetSelectedKeys: newTargetSelectedKeys,
+        });
       }
-      // clear key nolonger existed
-      // clear checkedKeys according to targetKeys
-      this.setState({
-        sourceSelectedKeys: sourceSelectedKeys.filter(existInDateSourcekey)
-          .filter(data => targetKeys.filter(key => key === data).length === 0),
-        targetSelectedKeys: targetSelectedKeys.filter(existInDateSourcekey)
-          .filter(data => targetKeys.filter(key => key === data).length > 0),
-      });
     }
+
     if (nextProps.selectedKeys) {
       const targetKeys = nextProps.targetKeys;
       this.setState({
-        sourceSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
+        sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
+        targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
       });
     }
   }
+
   splitDataSource(props: TransferProps) {
     if (this.splitedDataSource) {
       return this.splitedDataSource;
     }
 
-    const { rowKey, dataSource, targetKeys = [] } = props;
-    if (rowKey) {
-      dataSource.forEach(record => {
-        record.key = rowKey(record);
-      });
-    }
+    const { dataSource, rowKey, targetKeys = [] } = props;
 
-    const leftDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) === -1);
-    const rightDataSource: TransferItem[] = [];
-    targetKeys.forEach((targetKey) => {
-      const targetItem = dataSource.filter(record => record.key === targetKey)[0];
-      if (targetItem) {
-        rightDataSource.push(targetItem);
+    const leftDataSource: TransferItem[] = [];
+    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
+    dataSource.forEach(record => {
+      if (rowKey) {
+        record.key = rowKey(record);
+      }
+
+      // rightDataSource should be ordered by targetKeys
+      // leftDataSource should be ordered by dataSource
+      const indexOfKey = targetKeys.indexOf(record.key);
+      if (indexOfKey !== -1) {
+        rightDataSource[indexOfKey] = record;
+      } else {
+        leftDataSource.push(record);
       }
     });
 
@@ -187,7 +205,17 @@ abstract class Transfer extends React.Component<TransferProps, any> {
   }
 
   handleSelectAll = (direction, filteredDataSource, checkAll) => {
-    const holder = checkAll ? [] : filteredDataSource.map(item => item.key);
+    const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
+    const currentKeys = filteredDataSource.map(item => item.key);
+    // Only operate current keys from original selected keys
+    const newKeys1 = originalSelectedKeys.filter(key => currentKeys.indexOf(key) === -1);
+    const newKeys2 = [...originalSelectedKeys];
+    currentKeys.forEach((key) => {
+      if (newKeys2.indexOf(key) === -1) {
+        newKeys2.push(key);
+      }
+    });
+    const holder = checkAll ? newKeys1 : newKeys2;
     this.handleSelectChange(direction, holder);
 
     if (!this.props.selectedKeys) {
@@ -199,10 +227,10 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
   handleLeftSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('left', filteredDataSource, checkAll)
-  );
+  )
   handleRightSelectAll = (filteredDataSource, checkAll) => (
     this.handleSelectAll('right', filteredDataSource, checkAll)
-  );
+  )
 
   handleFilter = (direction, e) => {
     this.setState({

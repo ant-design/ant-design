@@ -115,23 +115,26 @@
       list-style: none;
       box-sizing: content-box;
       margin: 0;
-      padding: 0 0 0 16px;
+      padding: 0 0 0 8px;
       width: 100%;
       height: 24px;
       line-height: 24px;
       text-align: left;
       cursor: pointer;
       user-select: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
 
     li:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
     }
 
     li&-option-selected {
-      background: @background-color-base;
+      background: @time-picker-selected-bg;
       font-weight: bold;
+      &:hover {
+        background: @time-picker-selected-bg;
+      }
     }
 
     li&-option-disabled {

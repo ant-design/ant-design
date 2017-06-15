@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
@@ -179,6 +180,11 @@ export default class Header extends React.Component {
           <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
+        </Menu.Item>
+        <Menu.Item key="mobile">
+          <a href="//mobile.ant.design">
+            <FormattedMessage id="app.header.menu.mobile" />
+          </a>
         </Menu.Item>
       </Menu>,
     ];

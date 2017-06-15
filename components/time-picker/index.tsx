@@ -11,8 +11,10 @@ export interface TimePickerProps {
   size?: 'large' | 'default' | 'small';
   value?: moment.Moment;
   defaultValue?: moment.Moment;
+  open?: boolean;
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
+  onOpenChange?: (open: boolean) => void;
   disabled?: boolean;
   placeholder?: string;
   hideDisabledOptions?: boolean;
@@ -56,7 +58,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     };
   }
 
-  abstract getLocale()
+  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TimePickerProps) {
     if ('value' in nextProps) {
@@ -71,6 +73,13 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     const { onChange, format = 'HH:mm:ss' } = this.props;
     if (onChange) {
       onChange(value, (value && value.format(format)) || '');
+    }
+  }
+
+  handleOpenClose = ({ open }) => {
+    const { onOpenChange } = this.props;
+    if (onOpenChange) {
+      onOpenChange(open);
     }
   }
 
@@ -111,16 +120,18 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
 
     return (
       <RcTimePicker
+        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
+        showMinute={format.indexOf('mm') > -1}
+        showSecond={format.indexOf('ss') > -1}
         {...props}
         ref={this.saveTimePicker}
         format={format}
         className={className}
         value={this.state.value}
         placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
-        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
-        showMinute={format.indexOf('mm') > -1}
-        showSecond={format.indexOf('ss') > -1}
         onChange={this.handleChange}
+        onOpen={this.handleOpenClose}
+        onClose={this.handleOpenClose}
         addon={addon}
       />
     );

@@ -42,19 +42,20 @@ class App extends React.Component {
     this.setState({ visible: false });
   }
   render() {
+    const { visible, loading } = this.state;
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>
-          Open modal dialog
+          Open
         </Button>
         <Modal
-          visible={this.state.visible}
+          visible={visible}
           title="Title"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
             <Button key="back" size="large" onClick={this.handleCancel}>Return</Button>,
-            <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>
+            <Button key="submit" type="primary" size="large" loading={loading} onClick={this.handleOk}>
               Submit
             </Button>,
           ]}

@@ -52,6 +52,14 @@ class App extends React.Component {
       selectedRowKeys,
       onChange: this.onSelectChange,
       selections: [{
+        key: 'all-data',
+        text: 'Select All Data',
+        onSelect: () => {
+          this.setState({
+            selectedRowKeys: [...Array(46).keys()],  // 0...45
+          });
+        },
+      }, {
         key: 'odd',
         text: 'Select Odd Row',
         onSelect: (changableRowKeys) => {

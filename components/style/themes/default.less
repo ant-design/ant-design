@@ -1,16 +1,9 @@
 @import "../color/colors";
 
-// http://stackoverflow.com/a/13611748/3040605
-@font-face {
-  font-family: "Helvetica Neue For Number";
-  src: local("Helvetica Neue");
-  unicode-range: U+30-39;
-}
-
-// Prefix
+// The prefix to use on all css classes from ant.
 @ant-prefix             : ant;
 
-// Color
+// -------- Colors -----------
 @primary-color          : @blue-6;
 @info-color             : @blue-6;
 @success-color          : @green-6;
@@ -19,39 +12,54 @@
 @warning-color          : @yellow-6;
 @normal-color           : #d9d9d9;
 
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
 @primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
 @primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+// unused
 @primary-3: color(~`colorPalette("@{primary-color}", 3)`);
 @primary-4: color(~`colorPalette("@{primary-color}", 4)`);
+// Color used to control the text color in many active and hover states.
 @primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
 @primary-6: @primary-color;                                 // don't use, use @primary-color
+// Color used to control the text color of active buttons.
 @primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+// unused
 @primary-8: color(~`colorPalette("@{primary-color}", 8)`);
+// unused
 @primary-9: color(~`colorPalette("@{primary-color}", 9)`);
+// unused
 @primary-10: color(~`colorPalette("@{primary-color}", 10)`);
 
-// ------ Base & Require ------
+// Base Scaffolding Variables
+// ---
+
+// Background color for `<body>`
 @body-background        : #fff;
+// Base background color for most components
 @component-background   : #fff;
 @font-family            : "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
 @text-color-secondary   : fade(#000, 43%);
-@disabled-color         : fade(#000, 25%);
 @heading-color-dark     : fade(#fff, 97%);
 @text-color-dark        : fade(#fff, 91%);
 @text-color-secondary-dark: fade(#fff, 67%);
-@disabled-color-dark    : fade(#fff, 35%);
 @font-size-base         : 12px;
 @font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
 @border-radius-base     : 4px;
 @border-radius-sm       : 2px;
 
+// The background colors for active and hover states for things like
+// list items or table cells.
+@item-active-bg         : @primary-1;
+@item-hover-bg          : @primary-1;
+
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_0qcp222wvwijm7vi";
+@icon-url               : "https://at.alicdn.com/t/font_zck90zmlh7hf47vi";
 
 // LINK
 @link-color             : @primary-color;
@@ -84,8 +92,15 @@
 @outline-width          : 2px;
 @outline-color          : @primary-color;
 
-// Background color
-@background-color-base  : #f7f7f7;        // basic gray background
+// Default background color for disabled states, Collapse wrappers,
+// and several active and hover states.
+@background-color-base  : #f7f7f7;
+@background-color-active: #eee;
+
+// Disabled states
+@disabled-color         : fade(#000, 25%);
+@disabled-bg            : @background-color-base;
+@disabled-color-dark    : fade(#fff, 35%);
 
 // Shadow
 @shadow-color           : rgba(0, 0, 0, .2);
@@ -108,23 +123,32 @@
 @btn-default-bg         : #fff;
 @btn-default-border     : @border-color-base;
 
-@btn-danger-color      : #fff;
-@btn-danger-bg         : @red-6;
+@btn-danger-color       : @error-color;
+@btn-danger-bg          : @background-color-base;
+@btn-danger-border      : @border-color-base;
 
 @btn-disable-color      : @disabled-color;
-@btn-disable-bg         : @background-color-base;
+@btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 4px 15px;
+@btn-padding-base       : 0 15px;
 @btn-font-size-lg       : @font-size-lg;
-@btn-padding-lg         : 4px 15px 5px 15px;
-@btn-padding-sm         : 1px 7px;
+@btn-padding-lg         : @btn-padding-base;
+@btn-padding-sm         : 0 7px;
 
-@btn-circle-size        : 28px;
-@btn-circle-size-lg     : 32px;
-@btn-circle-size-sm     : 22px;
+@btn-height-base        : 28px;
+@btn-height-lg          : 32px;
+@btn-height-sm          : 22px;
+
+@btn-circle-size        : @btn-height-base;
+@btn-circle-size-lg     : @btn-height-lg;
+@btn-circle-size-sm     : @btn-height-sm;
 
 @btn-group-border       : @primary-7;
+
+// Radio buttons
+@radio-button-bg           : @btn-default-bg;
+@radio-button-color        : @btn-default-color;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -190,6 +214,7 @@
 @label-required-color        : @highlight-color;
 @label-color                 : @text-color;
 @form-item-margin-bottom     : 24px;
+@form-item-trailing-colon    : true;
 
 // Input
 // ---
@@ -204,8 +229,9 @@
 @input-color                 : @text-color;
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
+@input-addon-bg              : #eee;
 @input-hover-border-color    : @primary-color;
-@input-disabled-bg           : @background-color-base;
+@input-disabled-bg           : @disabled-bg;
 
 // Tooltip
 // ---
@@ -226,6 +252,8 @@
 // ---
 //** Popover body background color
 @popover-bg: #fff;
+//** Popover text color
+@popover-color: @text-color;
 //** Popover maximum width
 @popover-min-width: 177px;
 //** Popover arrow width
@@ -236,10 +264,17 @@
 @popover-arrow-outer-width: (@popover-arrow-width + 1);
 //** Popover outer arrow color
 @popover-arrow-outer-color: fadeout(@border-color-base, 30%);
+//** Popover distance with trigger
+@popover-distance: @popover-arrow-width + 4;
+
+// Modal
+// --
+@modal-mask-bg: rgba(55, 55, 55, 0.6);
 
 // Progress
 // --
 @process-default-color: @primary-color;
+@progress-remaining-color: @background-color-base;
 
 // Menu
 // ---
@@ -252,10 +287,23 @@
 @spin-dot-size: 20px;
 @spin-dot-size-lg: 32px;
 
+// Table
+// --
+@table-header-bg: @background-color-base;
+@table-row-hover-bg: @primary-1;
+@table-padding-vertical: 16px;
+@table-padding-horizontal: 8px;
+
+// Tag
+// --
+@tag-default-bg: #f3f3f3;
+@tag-default-color: @text-color;
+
 // TimePicker
 // ---
 @time-picker-panel-column-width: 56px;
 @time-picker-panel-width: @time-picker-panel-column-width * 3;
+@time-picker-selected-bg: @background-color-base;
 
 // Carousel
 // ---
@@ -278,3 +326,23 @@
 @card-head-height: 48px;
 @card-head-color: @heading-color;
 @card-head-background: @component-background;
+
+// Tabs
+// ---
+@tabs-card-head-background: #f9f9f9;
+
+// BackTop
+@back-top-color: #fff;
+@back-top-bg: rgba(64, 64, 64, 0.4);
+@back-top-hover-bg: rgba(64, 64, 64, 0.6);
+
+// Avatar
+@avatar-size-base: 32px;
+@avatar-size-lg: 40px;
+@avatar-size-sm: 24px;
+@avatar-font-size-base: 18px;
+@avatar-font-size-lg: 24px;
+@avatar-font-size-sm: 14px;
+@avatar-bg: #ccc;
+@avatar-color: #fff;
+@avatar-border-radius: @border-radius-base;

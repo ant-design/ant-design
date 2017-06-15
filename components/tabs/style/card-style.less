@@ -16,7 +16,7 @@
     border-bottom: 0;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
-    background: #f9f9f9;
+    background: @tabs-card-head-background;
     margin-right: 2px;
   }
   &&-card > &-bar &-tab {
@@ -28,10 +28,10 @@
     transform: translateZ(0);
     border-color: @border-color-base;
     color: @primary-color;
-  }
-  &&-card > &-bar &-tab-active {
     padding-bottom: 5px;
-    transform: translateZ(0);
+  }
+  &&-card > &-bar &-tab-inactive {
+    padding: 0;
   }
   &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
@@ -49,6 +49,14 @@
     &:hover {
       color: #404040;
       font-weight: bold;
+    }
+  }
+
+  &&-card &-content > &-tabpane,
+  &&-editable-card &-content > &-tabpane {
+    transition: none!important;
+    &-inactive {
+      overflow: hidden;
     }
   }
 

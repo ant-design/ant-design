@@ -45,7 +45,6 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 - 样式必须加载 less 格式。
   - 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
   - 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
-- 样式必须加载 less 格式。如果您使用了 `babel-plugin-import`，请将 style 属性配置为 `true`。
 - `dva-cli@0.7.0+` 的 `theme` 属性需要写在 [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) 文件里。
 - 如果要覆盖 `@icon-url` 变量，内容需要包括引号 `"@icon-url": "'your-icon-font-path'"`（[修正示例](https://github.com/visvadw/dvajs-user-dashboard/pull/2)）。
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
@@ -6,7 +7,7 @@ import warning from '../_util/warning';
 
 export interface BadgeProps {
   /** Number to show in badge */
-  count: number | string;
+  count?: number | string;
   showZero?: boolean;
   /** Max count to show */
   overflowCount?: number;
@@ -53,7 +54,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       ...restProps,
     } = this.props;
     const isDot = dot || status;
-    let displayCount = count > (overflowCount as number) ? `${overflowCount}+` : count;
+    let displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
     // dot mode don't need count
     if (isDot) {
       displayCount = '';

@@ -1,5 +1,7 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import RcTable from 'rc-table';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Pagination, { PaginationProps } from '../pagination';
@@ -29,8 +31,8 @@ const defaultLocale = {
   filterConfirm: '确定',
   filterReset: '重置',
   emptyText: <span><Icon type="frown-o" />暂无数据</span>,
-  selectAll: '全选',
-  selectInvert: '反选',
+  selectAll: '全选当页',
+  selectInvert: '反选当页',
 };
 
 const defaultPagination = {
@@ -48,8 +50,8 @@ export type TableColumnConfig<T> = ColumnProps<T>;
 
 export interface TableRowSelection<T> {
   type?: 'checkbox' | 'radio';
-  selectedRowKeys?: string[];
-  onChange?: (selectedRowKeys: string[], selectedRows: Object[]) => any;
+  selectedRowKeys?: string[] | number[];
+  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => any;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: (record: T, selected: boolean, selectedRows: Object[]) => any;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
@@ -68,11 +70,11 @@ export interface TableProps<T> {
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
   expandedRowRender?: any;
-  defaultExpandedRowKeys?: string[];
-  expandedRowKeys?: string[];
+  defaultExpandedRowKeys?: string[] | number[];
+  expandedRowKeys?: string[] | number[];
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
-  onExpandedRowsChange?: (expandedRowKeys: string[]) => void;
+  onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
   loading?: boolean | SpinProps;
@@ -102,21 +104,21 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   static ColumnGroup = ColumnGroup;
 
   static propTypes = {
-    dataSource: React.PropTypes.array,
-    columns: React.PropTypes.array,
-    prefixCls: React.PropTypes.string,
-    useFixedHeader: React.PropTypes.bool,
-    rowSelection: React.PropTypes.object,
-    className: React.PropTypes.string,
-    size: React.PropTypes.string,
-    loading: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.object,
+    dataSource: PropTypes.array,
+    columns: PropTypes.array,
+    prefixCls: PropTypes.string,
+    useFixedHeader: PropTypes.bool,
+    rowSelection: PropTypes.object,
+    className: PropTypes.string,
+    size: PropTypes.string,
+    loading: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
     ]),
-    bordered: React.PropTypes.bool,
-    onChange: React.PropTypes.func,
-    locale: React.PropTypes.object,
-    dropdownPrefixCls: React.PropTypes.string,
+    bordered: PropTypes.bool,
+    onChange: PropTypes.func,
+    locale: PropTypes.object,
+    dropdownPrefixCls: PropTypes.string,
   };
 
   static defaultProps = {
@@ -135,7 +137,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: TableContext;
@@ -614,6 +616,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return recordKey === undefined ? index : recordKey;
   }
 
+  getPopupContainer = () => {
+    return findDOMNode(this) as HTMLElement;
+  }
+
   renderRowSelection() {
     const { prefixCls, rowSelection } = this.props;
     const columns = this.columns.concat();
@@ -645,6 +651,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
+            getPopupContainer={this.getPopupContainer}
           />
         );
       }
@@ -699,6 +706,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
+            getPopupContainer={this.getPopupContainer}
           />
         );
       }
@@ -773,7 +781,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       <Pagination
         key="pagination"
         {...pagination}
-        className={`${this.props.prefixCls}-pagination`}
+        className={classNames(pagination.className, `${this.props.prefixCls}-pagination`)}
         onChange={this.handlePageChange}
         total={total}
         size={size}
@@ -938,7 +946,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
 
     return (
-      <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
+      <div
+        className={classNames(`${prefixCls}-wrapper`, className)}
+        style={style}
+      >
         <Spin
           {...loading}
           className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}

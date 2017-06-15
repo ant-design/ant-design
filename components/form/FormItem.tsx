@@ -1,23 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import Row from '../row';
-import Col from '../col';
+import Row from '../grid/row';
+import Col, { ColProps } from '../grid/col';
 import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
 import warning from '../_util/warning';
 
-export interface FormItemLabelColOption {
+export interface FormItemColOption extends ColProps {
   span: number;
-  offset?: number;
 }
 
 export interface FormItemProps {
   prefixCls?: string;
   id?: string;
   label?: React.ReactNode;
-  labelCol?: FormItemLabelColOption;
-  wrapperCol?: FormItemLabelColOption;
+  labelCol?: FormItemColOption;
+  wrapperCol?: FormItemColOption;
   help?: React.ReactNode;
   extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
@@ -41,22 +41,22 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
-    labelCol: React.PropTypes.object,
-    help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
-    validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
-    hasFeedback: React.PropTypes.bool,
-    wrapperCol: React.PropTypes.object,
-    className: React.PropTypes.string,
-    id: React.PropTypes.string,
-    children: React.PropTypes.node,
-    colon: React.PropTypes.bool,
+    prefixCls: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    labelCol: PropTypes.object,
+    help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+    validateStatus: PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+    hasFeedback: PropTypes.bool,
+    wrapperCol: PropTypes.object,
+    className: PropTypes.string,
+    id: PropTypes.string,
+    children: PropTypes.node,
+    colon: PropTypes.bool,
   };
 
   static contextTypes = {
-    form: React.PropTypes.object,
-    vertical: React.PropTypes.bool,
+    form: PropTypes.object,
+    vertical: PropTypes.bool,
   };
 
   context: FormItemContext;
@@ -188,9 +188,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderWrapper(children) {
-    const wrapperCol = this.props.wrapperCol;
+    const { prefixCls, wrapperCol } = this.props;
+    const className = classNames(
+      `${prefixCls}-item-control-wrapper`,
+      wrapperCol && wrapperCol.className,
+    );
     return (
-      <Col className={`${this.props.prefixCls}-item-control-wrapper`} {...wrapperCol} key="wrapper">
+      <Col {...wrapperCol} className={className} key="wrapper">
         {children}
       </Col>
     );
@@ -213,11 +217,15 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderLabel() {
-    const { label, labelCol, prefixCls, colon, id } = this.props;
+    const { prefixCls, label, labelCol, colon, id } = this.props;
     const context = this.context;
     const required = this.isRequired();
 
-    const className = classNames({
+    const labelColClassName = classNames(
+      `${prefixCls}-item-label`,
+      labelCol && labelCol.className,
+    );
+    const labelClassName = classNames({
       [`${prefixCls}-item-required`]: required,
     });
 
@@ -230,10 +238,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     }
 
     return label ? (
-      <Col {...labelCol} key="label" className={`${prefixCls}-item-label`}>
+      <Col {...labelCol} className={labelColClassName} key="label">
         <label
           htmlFor={id || this.getId()}
-          className={className}
+          className={labelClassName}
           title={typeof label === 'string' ? label : ''}
         >
           {labelChildren}

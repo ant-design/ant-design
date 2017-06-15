@@ -1,6 +1,6 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import Dialog from 'rc-dialog';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 
@@ -36,6 +36,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
+  getContainer?: (instance: React.ReactInstance) => HTMLElement;
 }
 
 export interface ModalContext {
@@ -93,7 +94,7 @@ export default class Modal extends React.Component<ModalProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: ModalContext;

@@ -5,9 +5,17 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "target": "es6"
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es7"
+    ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib",
+    "es"
   ]
 }

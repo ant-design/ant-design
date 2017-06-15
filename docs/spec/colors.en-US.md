@@ -11,7 +11,7 @@ Not only is color an effective way to create brand recognition, but it also play
 
 ---
 
-## Ant Design's Color Palettes
+## Color Palettes
 
 Ant Design's color palettes consist of 10 shallow-to-deep color swatches, and default palettes are defined for certain hues. Users can select a swatch from the color scheme using keywords. In theory, all colors used in the design should be taken from a color palette.
 

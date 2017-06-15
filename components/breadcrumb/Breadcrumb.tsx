@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { cloneElement } from 'react';
 import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
@@ -12,7 +13,7 @@ export interface BreadcrumbProps {
   itemRender?: (route: any, params: any, routes: Array<any>, paths: Array<string>) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
-};
+}
 
 function getBreadcrumbName(route, params) {
   if (!route.breadcrumbName) {
@@ -43,12 +44,12 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    separator: React.PropTypes.node,
-    routes: React.PropTypes.array,
-    params: React.PropTypes.object,
-    linkRender: React.PropTypes.func,
-    nameRender: React.PropTypes.func,
+    prefixCls: PropTypes.string,
+    separator: PropTypes.node,
+    routes: PropTypes.array,
+    params: PropTypes.object,
+    linkRender: PropTypes.func,
+    nameRender: PropTypes.func,
   };
 
   componentDidMount() {

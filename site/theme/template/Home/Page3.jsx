@@ -10,12 +10,17 @@ import * as utils from '../utils';
 export default function Page3({ location }) {
   return (
     <ScrollOverPack id="page3" className="content-wrapper page">
-      <TweenOne key="image" className="image3 image-wrapper"
+      <TweenOne
+        key="image"
+        className="image3 image-wrapper"
         animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />
-      <QueueAnim className="text-wrapper" key="text"
-        leaveReverse style={{ top: '40%' }}
+      <QueueAnim
+        className="text-wrapper"
+        key="text"
+        leaveReverse
+        style={{ top: '40%' }}
       >
         <h2 key="h2"><FormattedMessage id="app.home.reusable-components" /></h2>
         <p key="p" style={{ maxWidth: 280 }}><FormattedMessage id="app.home.components-intro" /></p>

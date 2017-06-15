@@ -2,6 +2,7 @@ import React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import PropTypes from 'prop-types';
 
 export interface RowProps {
   className?: string;
@@ -19,13 +20,13 @@ export default class Row extends React.Component<RowProps, any> {
   };
 
   static propTypes = {
-    type: React.PropTypes.string,
-    align: React.PropTypes.string,
-    justify: React.PropTypes.string,
-    className: React.PropTypes.string,
-    children: React.PropTypes.node,
-    gutter: React.PropTypes.number,
-    prefixCls: React.PropTypes.string,
+    type: PropTypes.string,
+    align: PropTypes.string,
+    justify: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
+    gutter: PropTypes.number,
+    prefixCls: PropTypes.string,
   };
   render() {
     const { type, justify, align, className, gutter, style, children,
