@@ -127,7 +127,6 @@
     "rc-scroll-anim": "^1.0.3",
     "rc-tween-one": "^1.1.2",
     "react": "^15.0.0",
-    "react-addons-test-utils": "^15.5.1",
     "react-color": "^2.11.7",
     "react-copy-to-clipboard": "^4.0.1",
     "react-document-title": "^2.0.1",
