@@ -5,6 +5,8 @@ import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
 
+export type DropdownButtonSize = 'small' | 'large';
+
 export interface DropdownButtonProps {
   prefixCls?: string;
   className?: string;
@@ -16,6 +18,7 @@ export interface DropdownButtonProps {
   visible?: boolean;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
+  size?: DropdownButtonSize;
   style?: React.CSSProperties;
   children?: any;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
