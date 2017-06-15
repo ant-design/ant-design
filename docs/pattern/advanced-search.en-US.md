@@ -1,8 +1,6 @@
 ---
 Order: 6
-Title:
-  En: Advanced Search
-  En-US: Advanced Search
+Title: Advanced Search
 ---
 
 With Advanced Search, users can narrow down the range of complex lists / tables.
