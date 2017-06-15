@@ -60,7 +60,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
-| onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |
+| onTitleClick | callback of the clicked sub menu title | Function({ key, domEvent }) |  |
 
 ### Menu.ItemGroup props
 

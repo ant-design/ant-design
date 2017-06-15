@@ -60,7 +60,7 @@ subtitle: 导航菜单
 | key | 唯一标志 |  string |  |
 | title    | 子菜单项值 | string\|ReactNode |    |
 | children | 子菜单的菜单项 | Array<MenuItem\|SubMenu> |  |
-| onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |
+| onTitleClick | 点击子菜单标题 | Function({ key, domEvent }) |  |
 
 ### Menu.ItemGroup props
 
