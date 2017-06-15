@@ -25,7 +25,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   getYearSelectElement(year) {
-    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
+    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen, dropdownClassName } = this.props;
     const start = year - (yearSelectOffset as number);
     const end = start + (yearSelectTotal as number);
     const suffix = locale.year === '年' ? '年' : '';
@@ -41,6 +41,7 @@ export default class Header extends React.Component<HeaderProps, any> {
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
         value={String(year)}
+        dropdownClassName={dropdownClassName}
       >
         {options}
       </Select>
@@ -60,7 +61,7 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   getMonthSelectElement(month, months) {
     const props = this.props;
-    const { prefixCls, fullscreen } = props;
+    const { prefixCls, fullscreen, dropdownClassName} = props;
     const options: React.ReactElement<any>[] = [];
 
     for (let index = 0; index < 12; index++) {
@@ -74,6 +75,7 @@ export default class Header extends React.Component<HeaderProps, any> {
         className={`${prefixCls}-month-select`}
         value={String(month)}
         onChange={this.onMonthChange}
+        dropdownClassName={dropdownClassName}
       >
         {options}
       </Select>
