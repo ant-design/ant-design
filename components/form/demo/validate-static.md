@@ -105,15 +105,15 @@ ReactDOM.render(
       }}
       help
     >
-      <Col span="6">
+      <Col span={6}>
         <FormItem validateStatus="error" help="Please select the correct date">
           <DatePicker />
         </FormItem>
       </Col>
-      <Col span="1">
+      <Col span={1}>
         <p className="ant-form-split">-</p>
       </Col>
-      <Col span="6">
+      <Col span={6}>
         <FormItem>
           <DatePicker />
         </FormItem>
