@@ -29,7 +29,7 @@ title: Mention
 | toEditorState(兼容)    | 把字符串转成 ContentState | Function(value: string): ContentState |
 | getMentions    | 获取当前 contentState 中提到的人的列表 | Function(contentState: ContentState): string[] |
 
-### Mention props
+### Mention
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
@@ -51,7 +51,7 @@ title: Mention
 | readOnly | 是否只读. | boolean | false |
 | disabled | 是否禁用状态. | boolean | false |
 
-### Nav props
+### Nav
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|

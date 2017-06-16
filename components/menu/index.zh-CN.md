@@ -25,7 +25,7 @@ subtitle: 导航菜单
 
 ## API
 
-### Menu props
+### Menu
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
@@ -45,14 +45,14 @@ subtitle: 导航菜单
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item props
+### Menu.Item
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | boolean   |  false  |
 | key   | item 的唯一标志 |  string |  |
 
-### Menu.SubMenu props
+### Menu.SubMenu
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
@@ -62,7 +62,7 @@ subtitle: 导航菜单
 | children | 子菜单的菜单项 | Array<MenuItem\|SubMenu> |  |
 | onTitleClick | 点击子菜单标题 | Function({ key, domEvent }) |  |
 
-### Menu.ItemGroup props
+### Menu.ItemGroup
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|

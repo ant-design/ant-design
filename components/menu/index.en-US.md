@@ -24,7 +24,7 @@ More layout and samples: [layout](/docs/spec/layout).
 
 ## API
 
-### Menu props
+### Menu
 
 | Param    | Description   | Type     | Default value       |
 |----------|---------------|----------|--------------|
@@ -45,14 +45,14 @@ More layout and samples: [layout](/docs/spec/layout).
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item props
+### Menu.Item
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
 | disabled    | disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 
-### Menu.SubMenu props
+### Menu.SubMenu
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
@@ -62,7 +62,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
 | onTitleClick | callback of the clicked sub menu title | Function({ key, domEvent }) |  |
 
-### Menu.ItemGroup props
+### Menu.ItemGroup
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
