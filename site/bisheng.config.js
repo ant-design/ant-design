@@ -60,6 +60,10 @@ module.exports = {
       'react-router': 'react-router/umd/ReactRouter',
     };
 
+    config.externals = {
+      'react-router-dom': 'ReactRouterDOM',
+    };
+
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),
       {
