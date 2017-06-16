@@ -39,13 +39,25 @@
     }
 
     .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
+      position: relative;
       margin-left: 4px;
       font-size: @font-size-base;
       cursor: pointer;
       color: #aaa;
       transition: all .3s;
+      width: 14px;
+
       &:hover {
         color: @text-color;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 50px;
+        left: 0;
+        top: -19px;
       }
     }
 
@@ -199,6 +211,26 @@
     .@{table-prefix-cls}-footer {
       padding: 10px 8px;
     }
+
+    .@{table-prefix-cls}-column-sorter-up:after {
+      top: -13px;
+      height: 13px;
+    }
+
+    .@{table-prefix-cls}-column-sorter-down:after {
+      bottom: -11px;
+      height: 13px;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th {
+      .@{iconfont-css-prefix}-filter,
+      .@{table-prefix-cls}-filter-icon {
+        &:after {
+          height: 38px;
+          top: -13px;
+        }
+      }
+    }
   }
 
   &-small {
@@ -242,21 +274,42 @@
     .@{table-prefix-cls}-row:last-child td {
       border-bottom: 0;
     }
+
+    .@{table-prefix-cls}-column-sorter-up:after {
+      top: -14px;
+      height: 13px;
+    }
+
+    .@{table-prefix-cls}-column-sorter-down:after {
+      bottom: -11px;
+      height: 13px;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th {
+      .@{iconfont-css-prefix}-filter,
+      .@{table-prefix-cls}-filter-icon {
+        &:after {
+          height: 39px;
+          top: -14px;
+        }
+      }
+    }
   }
 
   &-column-sorter {
+    position: relative;
     margin-left: 4px;
     display: inline-block;
-    width: 12px;
+    width: 14px;
     height: 14px;
     vertical-align: middle;
     text-align: center;
+
     &-up,
     &-down {
       line-height: 4px;
-      height: 5px;
       display: block;
-      width: 12px;
+      width: 14px;
       cursor: pointer;
       &:hover .@{iconfont-css-prefix} {
         color: @text-color;
@@ -267,10 +320,27 @@
           color: @primary-color;
         }
       }
+
+      &:after {
+        position: absolute;
+        content: '';
+        height: 20px;
+        width: 14px;
+        left: 0;
+      }
     }
+
+    &-up:after {
+      top: -19px;
+    }
+
+    &-down:after {
+      bottom: -17px;
+    }
+
     .@{iconfont-css-prefix}-caret-up,
     .@{iconfont-css-prefix}-caret-down {
-      .iconfont-size-under-12px(7px);
+      .iconfont-size-under-12px(8px);
       line-height: 6px;
       height: 6px;
       color: #aaa;
