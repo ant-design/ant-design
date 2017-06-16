@@ -102,6 +102,8 @@ export type WrappedFormUtils = {
     rules?: ValidationRule[];
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
     exclusive?: boolean;
+    /** 当该字段变化时会回调此函数，可以用于表单联动 */
+    onChange?: (value:any)=>void;
   }): (node: React.ReactNode) => React.ReactNode;
 };
 
