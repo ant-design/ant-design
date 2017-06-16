@@ -3,20 +3,20 @@ order: 3
 iframe: 200
 reactRouter: react-router-dom
 title:
-  zh-CN: 路由
-  en-US: React Router Integration
+  zh-CN: 其它路由
+  en-US: Other Router Integration
 ---
 
 ## zh-CN
 
-和 `react-router@4` 进行结合使用。
+和 `react-router@4`，或其他路由进行结合使用。
 
 ## en-US
 
-Used together with `react-router@4`.
+Used together with `react-router@4` or other router.
 
 ````jsx
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
@@ -30,27 +30,52 @@ const Apps = () => (
   </ul>
 );
 
-const Home = ({ routes, params, children }) => (
-  <div className="demo">
-    <div className="demo-nav">
+const breadcrumbNameMap = {
+  '/apps': 'Application List',
+  '/apps/1': 'Application1',
+  '/apps/2': 'Application2',
+  '/apps/1/detail': 'Detail',
+  '/apps/2/detail': 'Detail',
+};
+const Home = withRouter((props) => {
+  const { location } = props;
+  const pathSnippets = location.pathname.split('/').filter(i => i);
+  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    return (
+      <Breadcrumb.Item key={url}>
+        <Link to={url}>
+          {breadcrumbNameMap[url]}
+        </Link>
+      </Breadcrumb.Item>
+    );
+  });
+  const breadcrumbItems = [(
+    <Breadcrumb.Item key="home">
       <Link to="/">Home</Link>
-      <Link to="/apps">Application List</Link>
+    </Breadcrumb.Item>
+  )].concat(extraBreadcrumbItems);
+  return (
+    <div className="demo">
+      <div className="demo-nav">
+        <Link to="/">Home</Link>
+        <Link to="/apps">Application List</Link>
+      </div>
+      <Switch>
+        <Route path="/apps" component={Apps} />
+        <Route render={() => <span>Home Page</span>} />
+      </Switch>
+      <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
+      <Breadcrumb>
+        {breadcrumbItems}
+      </Breadcrumb>
     </div>
-    {children || 'Home Page'}
-    <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
-    <Breadcrumb routes={routes} params={params} />
-  </div>
-);
+  );
+});
 
 ReactDOM.render(
   <Router>
-    <Route name="home" breadcrumbName="Home" path="/" component={Home}>
-      <Route name="apps" breadcrumbName="Application List" path="apps" component={Apps}>
-        <Route name="app" breadcrumbName="Application:id" path=":id">
-          <Route name="detail" breadcrumbName="Detail" path="detail" />
-        </Route>
-      </Route>
-    </Route>
+    <Home />
   </Router>
 , mountNode);
 ````

@@ -3,7 +3,7 @@ order: 2
 iframe: 200
 reactRouter: react-router
 title:
-  zh-CN: 路由
+  zh-CN: react-router
   en-US: React Router Integration
 ---
 
