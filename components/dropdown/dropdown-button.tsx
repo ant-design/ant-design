@@ -1,13 +1,12 @@
 import React from 'react';
 import Button from '../button';
+import { ButtonGroupProps } from '../button/button-group';
 import Icon from '../icon';
 import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
 
-export interface DropdownButtonProps {
-  prefixCls?: string;
-  className?: string;
+export interface DropdownButtonProps extends ButtonGroupProps {
   type?: 'primary' | 'ghost' | 'dashed';
   onClick?: React.MouseEventHandler<any>;
   trigger?: ('click' | 'hover')[];
@@ -16,7 +15,6 @@ export interface DropdownButtonProps {
   visible?: boolean;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
-  style?: React.CSSProperties;
   children?: any;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
