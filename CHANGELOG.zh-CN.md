@@ -17,6 +17,14 @@ timeline: true
 
 ---
 
+## 2.11.1
+
+`2017-06-18`
+
+- 修复 Table 的分页设置 `className` 无效的问题。[#6416](https://github.com/ant-design/ant-design/issues/6416)
+- 修复 Tabs 嵌套使用时的样式问题。[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
+- 修复 RadioButton 在小屏幕下会没有左侧边框的问题。[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+
 ## 2.11.0
 
 `2017-06-07`

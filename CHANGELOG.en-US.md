@@ -17,6 +17,14 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.11.1
+
+`2017-06-18`
+
+- Fix setting `className` of Table's pagination not working issue. [#6416](https://github.com/ant-design/ant-design/issues/6416)
+- Fix nested Tabs style issue.[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
+- Fix RadioButton wrapping leaves off the left border on small screen.[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+
 ## 2.11.0
 
 `2017-06-07`
