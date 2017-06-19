@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签页
-type: Navigation
+type: Data Display
 title: Tabs
 ---
 

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+type: Other
 subtitle: 回到顶部
 title: BackTop
 ---

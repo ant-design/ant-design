@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+type: Data Display
 title: Tabs
 ---
 
