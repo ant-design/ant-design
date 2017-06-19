@@ -24,6 +24,8 @@ timeline: true
 - 修复 Table 的分页设置 `className` 无效的问题。[#6416](https://github.com/ant-design/ant-design/issues/6416)
 - 修复 Tabs 嵌套使用时的样式问题。[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
 - 修复 RadioButton 在小屏幕下会没有左侧边框的问题。[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+- 修复 RangePicker 底部会多一条边框的问题。
+- 完善 Dropdown.Button 类型定义。[#6482](https://github.com/ant-design/ant-design/pull/6482) [@newraina](https://github.com/newraina)
 
 ## 2.11.0
 

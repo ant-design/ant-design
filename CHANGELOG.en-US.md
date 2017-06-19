@@ -24,6 +24,9 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Fix setting `className` of Table's pagination not working issue. [#6416](https://github.com/ant-design/ant-design/issues/6416)
 - Fix nested Tabs style issue.[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
 - Fix RadioButton wrapping leaves off the left border on small screen.[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+- Fix RangePicker footer border.
+- Improve Dropdown.Button's type definitions. [#6482](https://github.com/ant-design/ant-design/pull/6482) [@newraina](https://github.com/newraina)
+
 
 ## 2.11.0
 
