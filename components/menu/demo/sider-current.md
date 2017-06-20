@@ -24,7 +24,7 @@ const SubMenu = Menu.SubMenu;
 class Sider extends React.Component {
   state = {
     current: '1',
-    openKeys: [],
+    openKeys: []
   }
   handleClick = (e) => {
     console.log('Clicked: ', e);
