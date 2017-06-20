@@ -69,7 +69,7 @@ const columns = [{
 | loading       | loading status of table | boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | index pixel size of tree data | number   | 15 |
-| onRowClick    | callback that is called when click a row | Function(record, index)   | - |
+| onRowClick    | callback that is called when click a row | Function(record, index, event)   | - |
 | bordered  | whether to show table border completely | boolean | false      |
 | showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |
@@ -78,12 +78,12 @@ const columns = [{
 
 ### Column
 
-One of Property `columns` for descriping column, Column has the same API.
+One of Property `columns` for describing column, Column has the same API.
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | string\|ReactNode | - |
-| key        | key of this column, you can ignore thie prop if you've set a unique `dataIndex` | string          | - |
+| key        | key of this column, you can ignore this prop if you've set a unique `dataIndex` | string          | - |
 | dataIndex  | display field of the data record, could be set like `a.b.c` | string | - |
 | render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | object[]       | - |
@@ -93,7 +93,7 @@ One of Property `columns` for descriping column, Column has the same API.
 | filterDropdownVisible | whether filterDropdown is visible | boolean | - |
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value, filter icon will highlight. | string[] | - |
-| filtered | whether the dataSource is filterd | boolean | false |
+| filtered | whether the dataSource is filtered | boolean | false |
 | filterIcon | customized filter icon | ReactNode | false |
 | sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set it `true` | Function\|boolean | - |
 | colSpan    | span of this column's title | number |         |
@@ -168,7 +168,7 @@ class NameColumn extends Table.Column<IUser> {}
 
 ## Note
 
-According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value defaultly for `dataSource`.
+According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value default for `dataSource`.
 
 If `dataSource[i].key` is not existed, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
 
