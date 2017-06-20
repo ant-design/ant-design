@@ -25,6 +25,8 @@ function insertSpace(child) {
 }
 
 export default class Button extends React.Component {
+  static ANT_BUTTON = true;
+
   static defaultProps = {
     prefixCls: 'ant-btn',
     onClick() {},
