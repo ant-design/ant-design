@@ -11,6 +11,7 @@ export interface DropdownButtonProps extends ButtonGroupProps {
   onClick?: React.MouseEventHandler<any>;
   trigger?: ('click' | 'hover')[];
   align?: any;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   overlay: React.ReactNode;
   visible?: boolean;
   disabled?: boolean;
@@ -29,7 +30,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   render() {
     const {
       type, overlay, trigger, align, children, className, onClick, prefixCls,
-      disabled, visible, onVisibleChange, placement, ...restProps,
+      disabled, visible, onVisibleChange, placement, getPopupContainer, ...restProps,
     } = this.props;
     const cls = classNames(prefixCls, className);
 
@@ -39,6 +40,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       trigger: disabled ? [] : trigger,
       onVisibleChange,
       placement,
+      getPopupContainer,
     };
 
     if ('visible' in this.props) {
