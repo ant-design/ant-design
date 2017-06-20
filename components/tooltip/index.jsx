@@ -2,6 +2,18 @@ import React, { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 
+const splitObject = (obj, keys) => {
+  const picked = {};
+  const omited = { ...obj };
+  keys.forEach(key => {
+    if (obj && key in obj) {
+      picked[key] = obj[key];
+      delete omited[key];
+    }
+  });
+  return { picked, omited };
+};
+
 export default class Tooltip extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
@@ -69,6 +81,40 @@ export default class Tooltip extends React.Component {
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   }
 
+  // Fix Tooltip won't hide at disabled button
+  // mouse events don't trigger at disabled button in Chrome
+  // https://github.com/react-component/tooltip/issues/18
+  getDisabledCompatibleChildren(element) {
+    if ((element.type.ANT_BUTTON || element.type === 'button') &&
+        element.props.disabled) {
+      // Pick some layout related style properties up to span
+      // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
+      const { picked, omited } = splitObject(
+        element.props.style,
+        ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
+      );
+      const spanStyle = {
+        display: 'inline-block',  // default inline-block is important
+        ...picked,
+        cursor: 'not-allowed',
+      };
+      const buttonStyle = {
+        ...omited,
+        pointerEvents: 'none',
+      };
+      const child = cloneElement(element, {
+        style: buttonStyle,
+        className: null,
+      });
+      return (
+        <span style={spanStyle} className={element.props.className}>
+          {child}
+        </span>
+      );
+    }
+    return element;
+  }
+
   render() {
     const { prefixCls, title, overlay, children } = this.props;
     // Hide tooltip when there is no title
@@ -79,6 +125,9 @@ export default class Tooltip extends React.Component {
     if ('visible' in this.props) {
       visible = this.props.visible;
     }
+    const child = this.getDisabledCompatibleChildren(
+      React.isValidElement(children) ? children : <span>{children}</span>,
+    );
     const openClassName = this.props.openClassName || `${prefixCls}-open`;
     const childrenCls = (children && children.props && children.props.className)
       ? `${children.props.className} ${openClassName}` : openClassName;
@@ -93,7 +142,7 @@ export default class Tooltip extends React.Component {
         builtinPlacements={this.getPlacements()}
         onVisibleChange={this.onVisibleChange}
       >
-        {visible ? cloneElement(children, { className: childrenCls }) : children}
+        {visible ? cloneElement(child, { className: childrenCls }) : child}
       </RcTooltip>
     );
   }
