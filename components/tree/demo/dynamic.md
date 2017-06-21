@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 异步数据加载
   en-US: load data asynchronously
 ---
@@ -61,12 +61,10 @@ function getNewTreeData(treeData, curKey, child, level) {
   setLeaf(treeData, curKey, level);
 }
 
-const Demo = React.createClass({
-  getInitialState() {
-    return {
-      treeData: [],
-    };
-  },
+class Demo extends React.Component {
+  state = {
+    treeData: [],
+  }
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -77,11 +75,11 @@ const Demo = React.createClass({
         ],
       });
     }, 100);
-  },
-  onSelect(info) {
+  }
+  onSelect = (info) => {
     console.log('selected', info);
-  },
-  onLoadData(treeNode) {
+  }
+  onLoadData = (treeNode) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const treeData = [...this.state.treeData];
@@ -90,7 +88,7 @@ const Demo = React.createClass({
         resolve();
       }, 1000);
     });
-  },
+  }
   render() {
     const loop = data => data.map((item) => {
       if (item.children) {
@@ -104,8 +102,8 @@ const Demo = React.createClass({
         {treeNodes}
       </Tree>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

@@ -80,7 +80,7 @@ Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图�
 
 ##  Process Flows
 
-It has long been common practice on the Web to turn each step into a sepa- rate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process. 
+It has long been common practice on the Web to turn each step into a separate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process.
 
 <br>
 

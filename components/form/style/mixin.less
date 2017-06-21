@@ -8,9 +8,11 @@
   // 输入框的不同校验状态
   .@{ant-prefix}-input {
     &,
-    &:hover,
-    &:focus {
+    &:hover {
       border-color: @border-color;
+    }
+
+    &:focus {
       .active(@border-color);
     }
 
@@ -21,6 +23,10 @@
 
   .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
     .active(@border-color);
+  }
+
+  .@{ant-prefix}-input-prefix {
+    color: @text-color;
   }
 
   .@{ant-prefix}-input-group-addon {
@@ -38,23 +44,16 @@
 // -----------------------------
 // Based on Bootstrap framework
 .reset-form() {
-  fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    min-width: 0;
-  }
-
   legend {
     display: block;
     width: 100%;
     padding: 0;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: @font-size-lg;
     line-height: inherit;
-    color: @legend-color;
+    color: @text-color-secondary;
     border: 0;
-    border-bottom: 1px solid @legend-border-color;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
   }
 
   label {
@@ -92,7 +91,7 @@
   input[type="radio"]:focus,
   input[type="checkbox"]:focus {
     outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color; // lesshint spaceAroundOperator: false
+    outline: 5px auto -webkit-focus-ring-color; // lesshint duplicateProperty: false
     outline-offset: -2px;
   }
 

@@ -1,0 +1,646 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
+<ul
+  class="ant-rate"
+>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/rate/demo/character.md correctly 1`] = `
+<div>
+  <ul
+    class="ant-rate"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-heart"
+        />
+      </div>
+    </li>
+  </ul>
+  <br />
+  <ul
+    class="ant-rate"
+    style="font-size:36px;"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        A
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        A
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        A
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        A
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        A
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        A
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        A
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        A
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        A
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        A
+      </div>
+    </li>
+  </ul>
+  <br />
+  <ul
+    class="ant-rate"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        好
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        好
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        好
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        好
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        好
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        好
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        好
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        好
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        好
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        好
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
+<ul
+  class="ant-rate ant-rate-disabled"
+>
+  <li
+    class="ant-rate-star ant-rate-star-full"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-full"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/rate/demo/half.md correctly 1`] = `
+<ul
+  class="ant-rate"
+>
+  <li
+    class="ant-rate-star ant-rate-star-full"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-full"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-half ant-rate-star-active"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-rate-star ant-rate-star-zero"
+  >
+    <div
+      class="ant-rate-star-first"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+    <div
+      class="ant-rate-star-second"
+    >
+      <i
+        class="anticon anticon-star"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/rate/demo/text.md correctly 1`] = `
+<span>
+  <ul
+    class="ant-rate"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+  </ul>
+  <span
+    class="ant-rate-text"
+  >
+    3 stars
+  </span>
+</span>
+`;

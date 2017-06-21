@@ -25,8 +25,8 @@ ReactDOM.render(
 ````
 
 <style>
-.ant-progress-circle,
-.ant-progress-line {
+div.ant-progress-circle,
+div.ant-progress-line {
   margin-right: 8px;
   margin-bottom: 8px;
 }

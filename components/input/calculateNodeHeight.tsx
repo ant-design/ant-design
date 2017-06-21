@@ -87,8 +87,8 @@ function calculateNodeStyling(node, useCache = false) {
 export default function calculateNodeHeight(
   uiTextNode,
   useCache = false,
-  minRows = null,
-  maxRows = null
+  minRows: number | null = null,
+  maxRows: number | null = null,
 ) {
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea');

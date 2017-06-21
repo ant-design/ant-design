@@ -19,6 +19,7 @@ import { Switch } from 'antd';
 ReactDOM.render(
   <div>
     <Switch />
+    <br />
     <Switch size="small" />
   </div>
 , mountNode);

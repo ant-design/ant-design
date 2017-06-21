@@ -1,0 +1,66 @@
+ul.anticons-list {
+  margin: 40px 0;
+  list-style: none;
+  overflow: hidden;
+  li {
+    float: left;
+    width: 16.66%;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    height: 100px;
+    color: #555;
+    transition: all .3s;
+    position: relative;
+    margin: 3px 0;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 10px 0 0;
+
+    .anticon {
+      font-size: 24px;
+      margin: 12px 0 16px;
+      transition: all .3s;
+    }
+
+    .anticon-class {
+      display: block;
+      text-align: center;
+      transform: scale(0.83);
+      font-family: "Lucida Console", Consolas;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      background-color: @primary-color;
+      color: #fff;
+      .anticon {
+        transform: scale(1.4);
+      }
+    }
+
+    &.copied:hover {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      content: "Copied!";
+      text-align: center;
+      line-height: 110px;
+      color: #fff;
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      opacity: 0;
+    }
+
+    &.copied:after {
+      opacity: 1;
+      top: -10px;
+    }
+  }
+}

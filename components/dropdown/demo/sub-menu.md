@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 多级菜单
   en-US: Cascading menu

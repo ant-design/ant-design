@@ -1,41 +1,53 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
+import warning from '../_util/warning';
 
-export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
- Array<{ key: string, label: React.ReactNode }>;
-
-export interface SelectProps {
+export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
-  value?: SelectValue;
-  defaultValue?: SelectValue;
   size?: 'default' | 'large' | 'small';
-  combobox?: boolean;
-  notFoundContent?: React.ReactNode | string;
-  showSearch?: boolean;
+  notFoundContent?: React.ReactNode | null;
   transitionName?: string;
   choiceTransitionName?: string;
-  multiple?: boolean;
+  showSearch?: boolean;
   allowClear?: boolean;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
-  tags?: boolean;
-  onSelect?: (value: SelectValue, option: Object) => any;
-  onDeselect?: (value: SelectValue) => any;
-  onSearch?: (value: string) => any;
-  placeholder?: string;
-  dropdownMatchSelectWidth?: boolean;
-  optionFilterProp?: string;
-  optionLabelProp?: string;
   disabled?: boolean;
-  defaultActiveFirstOption?: boolean;
-  labelInValue?: boolean;
-  getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode | HTMLElement;
   style?: React.CSSProperties;
+  placeholder?: string;
+  dropdownClassName?: string;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
+  onSearch?: (value: string) => any;
+  filterOption?: boolean | ((inputValue: string, option: Object) => any);
+}
+
+export interface LabeledValue {
+  key: string;
+  label: React.ReactNode;
+}
+
+export type SelectValue = string | any[] | LabeledValue | LabeledValue[];
+
+export interface SelectProps extends AbstractSelectProps {
+  value?: SelectValue;
+  defaultValue?: SelectValue;
+  mode?: 'default' | 'multiple' | 'tags' | 'combobox';
+  multiple?: boolean;
+  tags?: boolean;
+  combobox?: boolean;
+  optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;
+  onSelect?: (value: SelectValue, option: Object) => any;
+  onDeselect?: (value: SelectValue) => any;
+  dropdownMatchSelectWidth?: boolean;
+  optionFilterProp?: string;
+  defaultActiveFirstOption?: boolean;
+  labelInValue?: boolean;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  tokenSeparators?: string[];
+  getInputElement?: () => React.ReactElement<any>;
 }
 
 export interface OptionProps {
@@ -79,41 +91,64 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: PropTypes.string,
   };
 
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
   context: SelectContext;
+
+  getLocale() {
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      return antLocale.Select;
+    }
+    return {
+      notFoundContent: '无匹配结果',
+    };
+  }
 
   render() {
     const {
       prefixCls,
-      className,
+      className = '',
       size,
+      mode,
+      // @deprecated
+      multiple,
+      tags,
       combobox,
-      showSearch,
+      ...restProps,
     } = this.props;
-
-    let { notFoundContent = 'Not Found', optionLabelProp } = this.props;
+    warning(
+      !multiple && !tags && !combobox,
+      '`Select[multiple|tags|combobox]` is deprecated, please use `Select[mode]` instead.',
+    );
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [`${prefixCls}-show-search`]: showSearch,
-      [className]: !!className,
-    });
+    }, className);
 
-    const { antLocale } = this.context;
-    if (antLocale && antLocale.Select) {
-      notFoundContent = ('notFoundContent' in this.props)
-        ? notFoundContent : antLocale.Select.notFoundContent;
-    }
-
-    if (combobox) {
+    const locale = this.getLocale();
+    let { notFoundContent = locale.notFoundContent, optionLabelProp } = this.props;
+    const isCombobox = mode === 'combobox' || combobox;
+    if (isCombobox) {
       notFoundContent = null;
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
 
+    const modeConfig = {
+      multiple: mode === 'multiple' || multiple,
+      tags: mode === 'tags' || tags,
+      combobox: isCombobox,
+    };
+
     return (
       <RcSelect
-        {...this.props}
+        {...restProps}
+        {...modeConfig}
+        prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContent}

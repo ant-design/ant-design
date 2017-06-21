@@ -1,10 +1,8 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import Dialog from 'rc-dialog';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
-
-function noop() {}
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -19,9 +17,10 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: () => void;
+  onOk?: (e: React.MouseEvent<any>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
+  afterClose?: () => void;
   /** 宽度*/
   width?: string | number;
   /** 底部内容*/
@@ -37,6 +36,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
+  getContainer?: (instance: React.ReactInstance) => HTMLElement;
 }
 
 export interface ModalContext {
@@ -45,18 +45,32 @@ export interface ModalContext {
   };
 }
 
+export interface ModalFuncProps {
+  visible?: boolean;
+  title?: React.ReactNode | string;
+  content?: React.ReactNode | string;
+  onOk?: (func: Function) => any;
+  onCancel?: (func: Function) => any;
+  width?: string | number;
+  iconClassName?: string;
+  okText?: string;
+  cancelText?: string;
+  iconType?: string;
+}
+export type ModalFunc = (props: ModalFuncProps) => {
+  destroy: () => void,
+};
+
 export default class Modal extends React.Component<ModalProps, any> {
-  static info: any;
-  static success: any;
-  static error: any;
-  static warn: any;
-  static warning: any;
-  static confirm: any;
+  static info: ModalFunc;
+  static success: ModalFunc;
+  static error: ModalFunc;
+  static warn: ModalFunc;
+  static warning: ModalFunc;
+  static confirm: ModalFunc;
 
   static defaultProps = {
     prefixCls: 'ant-modal',
-    onOk: noop,
-    onCancel: noop,
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
@@ -80,17 +94,23 @@ export default class Modal extends React.Component<ModalProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: ModalContext;
 
   handleCancel = (e) => {
-    this.props.onCancel(e);
+    const onCancel = this.props.onCancel;
+    if (onCancel) {
+      onCancel(e);
+    }
   }
 
-  handleOk = () => {
-    this.props.onOk();
+  handleOk = (e) => {
+    const onOk = this.props.onOk;
+    if (onOk) {
+      onOk(e);
+    }
   }
 
   componentDidMount() {
@@ -119,15 +139,15 @@ export default class Modal extends React.Component<ModalProps, any> {
       cancelText = cancelText || this.context.antLocale.Modal.cancelText;
     }
 
-    const defaultFooter = [
+    const defaultFooter = [(
       <Button
         key="cancel"
-        type="ghost"
         size="large"
         onClick={this.handleCancel}
       >
         {cancelText || '取消'}
-      </Button>,
+      </Button>
+    ), (
       <Button
         key="confirm"
         type="primary"
@@ -136,13 +156,13 @@ export default class Modal extends React.Component<ModalProps, any> {
         onClick={this.handleOk}
       >
         {okText || '确定'}
-      </Button>,
-    ];
+      </Button>
+    )];
 
     return (
       <Dialog
         onClose={this.handleCancel}
-        footer={footer || defaultFooter}
+        footer={footer === undefined ? defaultFooter : footer}
         {...this.props}
         visible={visible}
         mousePosition={mousePosition}

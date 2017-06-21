@@ -2,22 +2,24 @@
 
 @alert-prefix-cls: ~"@{ant-prefix}-alert";
 
+@alert-message-color: @heading-color;
+@alert-text-color: @text-color;
+
 .@{alert-prefix-cls} {
   position: relative;
   padding: 8px 48px 8px 38px;
   border-radius: @border-radius-base;
-  color: @text-color;
+  color: @alert-text-color;
   font-size: @font-size-base;
   line-height: 16px;
-  margin-bottom: 10px;
 
   &&-no-icon {
     padding: 8px 48px 8px 16px;
   }
 
   &-icon {
-    font-size: 14px;
-    top: 9px;
+    font-size: @font-size-lg;
+    top: 9.5px;
     left: 16px;
     position: absolute;
   }
@@ -29,32 +31,32 @@
   }
 
   &-success {
-    border: 1px solid tint(@success-color, 80%);
-    background-color: tint(@success-color, 90%);
+    border: @border-width-base @border-style-base @green-2;
+    background-color: @green-1;
     .@{alert-prefix-cls}-icon {
       color: @success-color;
     }
   }
 
   &-info {
-    border: 1px solid tint(@primary-color, 80%);
-    background-color: tint(@primary-color, 90%);
+    border: @border-width-base @border-style-base @primary-2;
+    background-color: @primary-1;
     .@{alert-prefix-cls}-icon {
-      color: @primary-color;
+      color: @info-color;
     }
   }
 
   &-warning {
-    border: 1px solid tint(@warning-color, 80%);
-    background-color: tint(@warning-color, 90%);
+    border: @border-width-base @border-style-base @yellow-2;
+    background-color: @yellow-1;
     .@{alert-prefix-cls}-icon {
       color: @warning-color;
     }
   }
 
   &-error {
-    border: 1px solid tint(@error-color, 80%);
-    background-color: tint(@error-color, 90%);
+    border: @border-width-base @border-style-base @red-2;
+    background-color: @red-1;
     .@{alert-prefix-cls}-icon {
       color: @error-color;
     }
@@ -71,7 +73,7 @@
     cursor: pointer;
 
     .@{iconfont-css-prefix}-cross {
-      color: @legend-color;
+      color: @text-color-secondary;
       transition: color .3s ease;
       &:hover {
         color: #404040;
@@ -88,7 +90,6 @@
     padding: 16px 16px 16px 60px;
     position: relative;
     border-radius: @border-radius-base;
-    margin-bottom: 10px;
     color: @text-color;
     line-height: 1.5;
   }
@@ -113,8 +114,8 @@
   }
 
   &-with-description &-message {
-    font-size: 14px;
-    color: @heading-color;
+    font-size: @font-size-lg;
+    color: @alert-message-color;
     display: block;
     margin-bottom: 4px;
   }

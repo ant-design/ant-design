@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 按钮组合
   en-US: Button Group
@@ -36,7 +36,7 @@ ReactDOM.render(
     <ButtonGroup>
       <Button type="primary">L</Button>
       <Button>M</Button>
-      <Button type="ghost">M</Button>
+      <Button>M</Button>
       <Button type="dashed">R</Button>
     </ButtonGroup>
 
@@ -52,20 +52,6 @@ ReactDOM.render(
     <ButtonGroup>
       <Button type="primary" icon="cloud" />
       <Button type="primary" icon="cloud-download" />
-    </ButtonGroup>
-
-    <h4>Size</h4>
-    <ButtonGroup size="large">
-      <Button type="ghost">Large</Button>
-      <Button type="ghost">Large</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button type="ghost">Default</Button>
-      <Button type="ghost">Default</Button>
-    </ButtonGroup>
-    <ButtonGroup size="small">
-      <Button type="ghost">Small</Button>
-      <Button type="ghost">Small</Button>
     </ButtonGroup>
   </div>,
   mountNode
@@ -84,9 +70,5 @@ ReactDOM.render(
 }
 #components-button-demo-button-group .ant-btn-group {
   margin-right: 8px;
-}
-#components-button-demo-button-group .ant-btn {
-  margin-bottom: 12px;
-  margin-right: 0;
 }
 </style>

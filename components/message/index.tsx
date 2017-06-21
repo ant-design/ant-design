@@ -7,13 +7,15 @@ let defaultTop;
 let messageInstance;
 let key = 1;
 let prefixCls = 'ant-message';
+let getContainer;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls,
-    transitionName: 'move-up',
-    style: { top: defaultTop }, // 覆盖原来的样式
-  });
+      prefixCls,
+      transitionName: 'move-up',
+      style: { top: defaultTop }, // 覆盖原来的样式
+      getContainer,
+    });
   return messageInstance;
 }
 
@@ -23,7 +25,8 @@ function notice(
   content: React.ReactNode,
   duration: number = defaultDuration,
   type: NoticeType,
-  onClose: () => void) {
+  onClose?: () => void,
+) {
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -61,10 +64,11 @@ export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;
+  getContainer?: () => HTMLElement;
 }
 
 export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: () => ConfigOnClose) {
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'info', onClose);
   },
   success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
@@ -83,16 +87,19 @@ export default {
   loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'loading', onClose);
   },
-
   config(options: ConfigOptions) {
-    if ('top' in options) {
+    if (options.top !== undefined) {
       defaultTop = options.top;
+      messageInstance = null; // delete messageInstance for new defaultTop
     }
-    if ('duration' in options) {
+    if (options.duration !== undefined) {
       defaultDuration = options.duration;
     }
-    if ('prefixCls' in options) {
+    if (options.prefixCls !== undefined) {
       prefixCls = options.prefixCls;
+    }
+    if (options.getContainer !== undefined) {
+      getContainer = options.getContainer;
     }
   },
   destroy() {

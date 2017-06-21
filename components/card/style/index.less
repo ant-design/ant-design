@@ -3,8 +3,8 @@
 @card-prefix-cls: ~"@{ant-prefix}-card";
 
 .@{card-prefix-cls} {
-  background: #fff;
-  border-radius: @border-radius-sm;
+  background: @component-background;
+  border-radius: @border-radius-base;
   font-size: @font-size-base;
   position: relative;
   overflow: hidden;
@@ -12,26 +12,29 @@
 
   &:hover {
     box-shadow: @box-shadow-base;
-    border-color: #eee;
+    border-color: transparent;
   }
 
   &-bordered {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
   }
 
   &-head {
-    height: 48px;
-    line-height: 48px;
-    border-bottom: 1px solid @border-color-split;
+    height: @card-head-height;
+    line-height: @card-head-height;
+    background: @card-head-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 24px;
 
     &-title {
-      font-size: 14px;
+      font-size: @font-size-lg;
       display: inline-block;
       text-overflow: ellipsis;
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
+      color: @card-head-color;
+      font-weight: 500;
     }
   }
 
@@ -46,20 +49,26 @@
   }
 
   &-loading &-body {
-    letter-spacing: -2px;
-    color: #eee;
-    font-size: 0.75rem;
+    user-select: none;
   }
 
-  &-loading &-body p {
-    word-break: break-all;
-    line-height: 10px;
-    margin: 5px 0 0;
-    height: 10px;
-    border-radius: @border-radius-base;
-    overflow: hidden;
+  &-loading-block {
     display: inline-block;
-    user-select: none;
-    color: #f3f5f8;
+    margin: 5px 1% 0;
+    height: 14px;
+    border-radius: @border-radius-sm;
+    background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
+	  animation: card-loading 1.4s ease infinite;
+    background-size: 600% 600%;
   }
+}
+
+@keyframes card-loading {
+  0%,
+  100% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
 }

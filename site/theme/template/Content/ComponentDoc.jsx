@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
@@ -9,7 +10,7 @@ import EditButton from './EditButton';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object,
+    intl: PropTypes.object,
   }
 
   constructor(props) {
@@ -38,23 +39,22 @@ export default class ComponentDoc extends React.Component {
     const leftChildren = [];
     const rightChildren = [];
     const showedDemo = demos.some(demo => demo.meta.only) ?
-            demos.filter(demo => demo.meta.only) : demos.filter(demo => !demo.meta.hidden);
+            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
+        const demoElem = (
+          <Demo
+            {...demoData}
+            key={demoData.meta.filename}
+            utils={props.utils}
+            expand={expand}
+            location={location}
+          />
+        );
         if (index % 2 === 0 || isSingleCol) {
-          leftChildren.push(
-            <Demo {...demoData}
-              key={meta.filename + index} utils={props.utils}
-              expand={expand} pathname={location.pathname}
-            />
-          );
+          leftChildren.push(demoElem);
         } else {
-          rightChildren.push(
-            <Demo {...demoData}
-              key={meta.filename + index} utils={props.utils}
-              expand={expand} pathname={location.pathname}
-            />
-          );
+          rightChildren.push(demoElem);
         }
       });
     const expandTriggerClass = classNames({
@@ -62,7 +62,7 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
-    const jumper = demos.map((demo) => {
+    const jumper = showedDemo.map((demo) => {
       const title = demo.meta.title;
       const localizeTitle = title[locale] || title;
       return (
@@ -87,8 +87,7 @@ export default class ComponentDoc extends React.Component {
             <h1>
               {title[locale] || title}
               {
-                !subtitle ? null :
-                  <span className="subtitle">{subtitle}</span>
+                !subtitle ? null : <span className="subtitle">{subtitle}</span>
               }
               <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
             </h1>
@@ -100,8 +99,11 @@ export default class ComponentDoc extends React.Component {
             }
             <h2>
               <FormattedMessage id="app.component.examples" />
-              <Icon type="appstore" className={expandTriggerClass}
-                title="展开全部代码" onClick={this.handleExpandToggle}
+              <Icon
+                type="appstore"
+                className={expandTriggerClass}
+                title="展开全部代码"
+                onClick={this.handleExpandToggle}
               />
             </h2>
           </section>
@@ -115,8 +117,7 @@ export default class ComponentDoc extends React.Component {
               {leftChildren}
             </Col>
             {
-              isSingleCol ? null :
-                <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
+              isSingleCol ? null : <Col className="code-boxes-col-2-1" span={12}>{rightChildren}</Col>
             }
           </Row>
           {

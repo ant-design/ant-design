@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 9
 title:
   en-US: Ajax
   zh-CN: 远程加载数据
@@ -42,16 +42,14 @@ const columns = [{
   dataIndex: 'email',
 }];
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      data: [],
-      pagination: {},
-      loading: false,
-    };
-  },
-  handleTableChange(pagination, filters, sorter) {
-    const pager = this.state.pagination;
+class App extends React.Component {
+  state = {
+    data: [],
+    pagination: {},
+    loading: false,
+  };
+  handleTableChange = (pagination, filters, sorter) => {
+    const pager = { ...this.state.pagination };
     pager.current = pagination.current;
     this.setState({
       pagination: pager,
@@ -63,8 +61,8 @@ const Test = React.createClass({
       sortOrder: sorter.order,
       ...filters,
     });
-  },
-  fetch(params = {}) {
+  }
+  fetch = (params = {}) => {
     console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
@@ -76,7 +74,7 @@ const Test = React.createClass({
       },
       type: 'json',
     }).then((data) => {
-      const pagination = this.state.pagination;
+      const pagination = { ...this.state.pagination };
       // Read total count from server
       // pagination.total = data.totalCount;
       pagination.total = 200;
@@ -86,10 +84,10 @@ const Test = React.createClass({
         pagination,
       });
     });
-  },
+  }
   componentDidMount() {
     this.fetch();
-  },
+  }
   render() {
     return (
       <Table columns={columns}
@@ -100,8 +98,8 @@ const Test = React.createClass({
         onChange={this.handleTableChange}
       />
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

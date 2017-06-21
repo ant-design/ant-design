@@ -2,7 +2,6 @@
 @import "../../style/mixins/index";
 
 @rate-prefix-cls: ~"@{ant-prefix}-rate";
-@rate-star-color: #f5a623;
 
 .@{rate-prefix-cls} {
   margin: 0;
@@ -11,15 +10,9 @@
   font-size: 20px;
   display: inline-block;
   vertical-align: middle;
-  font-family: 'anticon';
-  font-weight: normal;
-  font-style: normal;
 
   &-disabled &-star {
-    &:before,
-    &-content:before {
-      cursor: default;
-    }
+    cursor: not-allowed;
     &:hover {
       transform: scale(1);
     }
@@ -31,40 +24,42 @@
     display: inline-block;
     margin-right: 8px;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all .3s;
+    color: @rate-star-bg;
+    cursor: pointer;
+
+    &-first,
+    &-second {
+      user-select: none;
+      transition: all .3s;
+    }
 
     &:hover {
       transform: scale(1.1);
     }
 
-    &:before,
-    &-content:before {
-      color: #e9e9e9;
-      cursor: pointer;
-      content: "\e660";
-      transition: all 0.3s ease;
-      display: block;
-    }
-
-    &-content {
+    &-first {
       position: absolute;
       left: 0;
       top: 0;
       width: 50%;
       height: 100%;
       overflow: hidden;
-      &:before {
-        color: transparent;
-      }
+      opacity: 0;
     }
 
-    &-half &-content:before,
-    &-full:before {
+    &-half &-first,
+    &-half &-second {
+      opacity: 1;
+    }
+
+    &-half &-first,
+    &-full &-second {
       color: @rate-star-color;
     }
 
-    &-half:hover &-content:before,
-    &-full:hover:before {
+    &-half:hover &-first,
+    &-full:hover &-second {
       color: tint(@rate-star-color, 20%);
     }
   }

@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/notification/demo/basic.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/notification/demo/custom-icon.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/notification/demo/custom-style.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/notification/demo/duration.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
+<div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:120px;margin-right:10px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="topRight"
+        >
+          topRight
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open the notification box
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/notification/demo/with-btn.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Error
+    </span>
+  </button>
+</div>
+`;

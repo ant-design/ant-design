@@ -1,6 +1,8 @@
+import React from 'react';
 import assign from 'object-assign';
-export function flatArray(data = [], childrenName = 'children') {
-  const result = [];
+
+export function flatArray(data: Object[] = [], childrenName = 'children') {
+  const result: Object[] = [];
   const loop = (array) => {
     array.forEach(item => {
       const newItem = assign({}, item);
@@ -23,4 +25,35 @@ export function treeMap(tree: Object[], mapper: Function, childrenName = 'childr
     }
     return assign({}, mapper(node, index), extra);
   });
+}
+
+export function flatFilter(tree: any[], callback: Function) {
+  return tree.reduce((acc, node) => {
+    if (callback(node)) {
+      acc.push(node);
+    }
+    if (node.children) {
+      const children = flatFilter(node.children, callback);
+      acc.push(...children);
+    }
+    return acc;
+  }, []);
+}
+
+export function normalizeColumns(elements) {
+  const columns: any[] = [];
+  React.Children.forEach(elements, (element) => {
+    if (!React.isValidElement(element)) {
+      return;
+    }
+    const column = assign({}, element.props);
+    if (element.key) {
+      column.key = element.key;
+    }
+    if (element.type && (element.type as any).__ANT_TABLE_COLUMN_GROUP) {
+      column.children = normalizeColumns(column.children);
+    }
+    columns.push(column);
+  });
+  return columns;
 }

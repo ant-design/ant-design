@@ -1,0 +1,2956 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
+<div>
+  <form
+    class="ant-form ant-form-horizontal ant-advanced-search-form"
+  >
+    <div
+      class="ant-row"
+      style="margin-left:-20px;margin-right:-20px;"
+    >
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-0"
+              title="Field 0"
+            >
+              Field 0
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-0"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-1"
+              title="Field 1"
+            >
+              Field 1
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-1"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-2"
+              title="Field 2"
+            >
+              Field 2
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-2"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-3"
+              title="Field 3"
+            >
+              Field 3
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-3"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-4"
+              title="Field 4"
+            >
+              Field 4
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-4"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:block;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-5"
+              title="Field 5"
+            >
+              Field 5
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-5"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-6"
+              title="Field 6"
+            >
+              Field 6
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-6"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-7"
+              title="Field 7"
+            >
+              Field 7
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-7"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-8"
+              title="Field 8"
+            >
+              Field 8
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-8"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-9"
+              title="Field 9"
+            >
+              Field 9
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-9"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row"
+    >
+      <div
+        class="ant-col-24"
+        style="text-align:right;"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="submit"
+        >
+          <span>
+            Search
+          </span>
+        </button>
+        <button
+          class="ant-btn"
+          style="margin-left:8px;"
+          type="button"
+        >
+          <span>
+            Clear
+          </span>
+        </button>
+        <a
+          style="margin-left:8px;font-size:12px;"
+        >
+          Collapse 
+          <i
+            class="anticon anticon-down"
+          />
+        </a>
+      </div>
+    </div>
+  </form>
+  <div
+    class="search-result-list"
+  >
+    Search Result List
+  </div>
+</div>
+`;
+
+exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="note"
+        title="Note"
+      >
+        Note
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="note"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="gender"
+        title="Gender"
+      >
+        Gender
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                Select a option and change input text above
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`] = `
+<form
+  class="ant-form ant-form-inline"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        for="price"
+        title="Price"
+      >
+        Price
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <span>
+          <input
+            class="ant-input ant-input-lg"
+            style="width:65%;margin-right:3%;"
+            type="text"
+            value="0"
+          />
+          <div
+            class="ant-select-lg ant-select ant-select-enabled"
+            style="width:32%;"
+          >
+            <div
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
+            >
+              <div
+                class="ant-select-selection__rendered"
+              >
+                <div
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title="RMB"
+                >
+                  RMB
+                </div>
+              </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-dashed ant-btn-lg"
+          style="width:60%;"
+          type="button"
+        >
+          <i
+            class="anticon anticon-plus"
+          />
+          <span>
+             Add field
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
+<div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="username"
+        title="Name"
+      >
+        Name
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="username"
+          placeholder="Please input your name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="nickname"
+        title="Nickname"
+      >
+        Nickname
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="nickname"
+          placeholder="Please input your nickname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+          <span>
+            Nickname is required
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="button"
+        >
+          <span>
+            Check
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      New Collection
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
+<div>
+  <form
+    class="ant-form ant-form-inline"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="username"
+          title="Username"
+        >
+          Username
+        </label>
+      </div>
+      <div
+        class="ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control has-success"
+        >
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="username"
+            type="text"
+            value="BENJYCUI"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+  <pre
+    class="language-bash"
+  >
+    {
+      "username": {
+        "value": "benjycui"
+      }
+    }
+  </pre>
+</div>
+`;
+
+exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
+<form
+  class="ant-form ant-form-inline"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <span
+            class="ant-input-prefix"
+          >
+            <i
+              class="anticon anticon-user"
+              style="font-size:13px;"
+            />
+          </span>
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="userName"
+            placeholder="Username"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <span
+            class="ant-input-prefix"
+          >
+            <i
+              class="anticon anticon-lock"
+              style="font-size:13px;"
+            />
+          </span>
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="password"
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Log in
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/layout.md correctly 1`] = `
+<div>
+  <form
+    class="ant-form ant-form-horizontal"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Form Layout"
+        >
+          Form Layout
+        </label>
+      </div>
+      <div
+        class="ant-col-14 ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control "
+        >
+          <div
+            class="ant-radio-group ant-radio-group-large"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Horizontal
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Vertical
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                Inline
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Field A"
+        >
+          Field A
+        </label>
+      </div>
+      <div
+        class="ant-col-14 ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control "
+        >
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input placeholder"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Field B"
+        >
+          Field B
+        </label>
+      </div>
+      <div
+        class="ant-col-14 ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control "
+        >
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input placeholder"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control "
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-lg"
+            type="button"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal login-form"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <span
+            class="ant-input-prefix"
+          >
+            <i
+              class="anticon anticon-user"
+              style="font-size:13px;"
+            />
+          </span>
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="userName"
+            placeholder="Username"
+            type="text"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-input-affix-wrapper"
+        >
+          <span
+            class="ant-input-prefix"
+          >
+            <i
+              class="anticon anticon-lock"
+              style="font-size:13px;"
+            />
+          </span>
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="password"
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox ant-checkbox-checked"
+          >
+            <input
+              checked=""
+              class="ant-checkbox-input"
+              data-__meta="[object Object]"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+          <span>
+            Remember me
+          </span>
+        </label>
+        <a
+          class="login-form-forgot"
+          href=""
+        >
+          Forgot password
+        </a>
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg login-form-button"
+          type="submit"
+        >
+          <span>
+            Log in
+          </span>
+        </button>
+        Or 
+        <a
+          href=""
+        >
+          register now!
+        </a>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/register.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="email"
+        title="E-mail"
+      >
+        E-mail
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="email"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="password"
+        title="Password"
+      >
+        Password
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="password"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="confirm"
+        title="Confirm Password"
+      >
+        Confirm Password
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="confirm"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="nickname"
+        title=""
+      >
+        <span>
+          Nickname 
+          <i
+            class="anticon anticon-question-circle-o"
+          />
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="nickname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="residence"
+        title="Habitual Residence"
+      >
+        Habitual Residence
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <span
+          class="ant-cascader-picker"
+          tabindex="0"
+        >
+          <span
+            class="ant-cascader-picker-label"
+          >
+            Zhejiang / Hangzhou / West Lake
+          </span>
+          <input
+            autocomplete="off"
+            class="ant-input ant-cascader-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="residence"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <i
+            class="anticon anticon-cross-circle ant-cascader-picker-clear"
+          />
+          <i
+            class="anticon anticon-down ant-cascader-picker-arrow"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="phone"
+        title="Phone Number"
+      >
+        Phone Number
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-input-group-wrapper"
+          style="width:100%;"
+        >
+          <span
+            class="ant-input-wrapper ant-input-group"
+          >
+            <span
+              class="ant-input-group-addon"
+            >
+              <div
+                class="ant-select ant-select-enabled"
+                style="width:60px;"
+              >
+                <div
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-select-selection
+                            ant-select-selection--single"
+                  role="combobox"
+                  tabindex="0"
+                >
+                  <div
+                    class="ant-select-selection__rendered"
+                  >
+                    <div
+                      class="ant-select-selection-selected-value"
+                      style="display:block;opacity:1;"
+                      title="+86"
+                    >
+                      +86
+                    </div>
+                  </div>
+                  <span
+                    class="ant-select-arrow"
+                    style="user-select:none;-webkit-user-select:none;"
+                    unselectable="unselectable"
+                  >
+                    <b />
+                  </span>
+                </div>
+              </div>
+            </span>
+            <input
+              class="ant-input ant-input-lg"
+              data-__meta="[object Object]"
+              id="phone"
+              type="text"
+              value=""
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="website"
+        title="Website"
+      >
+        Website
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                website
+              </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      class="ant-input ant-input ant-select-search__field"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="captcha"
+        title="Captcha"
+      >
+        Captcha
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-4px;margin-right:-4px;"
+        >
+          <div
+            class="ant-col-12"
+            style="padding-left:4px;padding-right:4px;"
+          >
+            <input
+              class="ant-input ant-input-lg"
+              data-__meta="[object Object]"
+              id="captcha"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="ant-col-12"
+            style="padding-left:4px;padding-right:4px;"
+          >
+            <button
+              class="ant-btn ant-btn-lg"
+              type="button"
+            >
+              <span>
+                Get captcha
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-form-extra"
+        >
+          We must make sure that your are a human.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+    style="margin-bottom:8px;"
+  >
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-14 ant-col-sm-offset-6"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              data-__meta="[object Object]"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+          <span>
+            I have read the 
+            <a
+              href=""
+            >
+              agreement
+            </a>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-14 ant-col-sm-offset-6"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Register
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="date-picker"
+        title="DatePicker"
+      >
+        DatePicker
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-calendar-picker"
+        >
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="date-time-picker"
+        title="DatePicker[showTime]"
+      >
+        DatePicker[showTime]
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-calendar-picker"
+          style="width:154px;"
+        >
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="month-picker"
+        title="MonthPicker"
+      >
+        MonthPicker
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-calendar-picker"
+        >
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="range-picker"
+        title="RangePicker"
+      >
+        RangePicker
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-calendar-picker"
+        >
+          <span
+            class="ant-calendar-picker-input ant-input ant-input-lg"
+          >
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="开始日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-range-picker-separator"
+            >
+               ~ 
+            </span>
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="结束日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="range-time-picker"
+        title="RangePicker[showTime]"
+      >
+        RangePicker[showTime]
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-calendar-picker"
+          style="width:300px;"
+        >
+          <span
+            class="ant-calendar-picker-input ant-input ant-input-lg"
+          >
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="开始日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-range-picker-separator"
+            >
+               ~ 
+            </span>
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="结束日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+    >
+      <label
+        class="ant-form-item-required"
+        for="time-picker"
+        title="TimePicker"
+      >
+        TimePicker
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-time-picker ant-time-picker-large"
+        >
+          <input
+            class="ant-time-picker-input"
+            placeholder="请选择时间"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-time-picker-icon"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Plain Text"
+      >
+        Plain Text
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-form-text"
+        >
+          China
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="select"
+        title="Select"
+      >
+        Select
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                Please select a country
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="select-multiple"
+        title="Select[multiple]"
+      >
+        Select[multiple]
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--multiple"
+            role="combobox"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                Please select favourite colors
+              </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      class="ant-select-search__field"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="input-number"
+        title="InputNumber"
+      >
+        InputNumber
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <div
+          class="ant-input-number ant-input-number-lg"
+        >
+          <div
+            class="ant-input-number-handler-wrap"
+          >
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-up-inner"
+                unselectable="unselectable"
+              />
+            </span>
+            <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-down-inner"
+                unselectable="unselectable"
+              />
+            </span>
+          </div>
+          <div
+            aria-valuemax="10"
+            aria-valuemin="1"
+            aria-valuenow="3"
+            class="ant-input-number-input-wrap"
+            role="spinbutton"
+          >
+            <input
+              autocomplete="off"
+              class="ant-input-number-input"
+              id="input-number"
+              max="10"
+              min="1"
+              value="3"
+            />
+          </div>
+        </div>
+        <span
+          class="ant-form-text"
+        >
+           machines
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="switch"
+        title="Switch"
+      >
+        Switch
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class="ant-switch"
+          data-__meta="[object Object]"
+          id="switch"
+          tabindex="0"
+        >
+          <span
+            class="ant-switch-inner"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="slider"
+        title="Slider"
+      >
+        Slider
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-slider ant-slider-with-marks"
+        >
+          <div
+            class="ant-slider-rail"
+          />
+          <div
+            class="ant-slider-track"
+            style="visibility:visible;left:0%;width:0%;"
+          />
+          <div
+            class="ant-slider-step"
+          >
+            <span
+              class="ant-slider-dot ant-slider-dot-active"
+              style="left:0%;"
+            />
+            <span
+              class="ant-slider-dot"
+              style="left:20%;"
+            />
+            <span
+              class="ant-slider-dot"
+              style="left:40%;"
+            />
+            <span
+              class="ant-slider-dot"
+              style="left:60%;"
+            />
+            <span
+              class="ant-slider-dot"
+              style="left:80%;"
+            />
+            <span
+              class="ant-slider-dot"
+              style="left:100%;"
+            />
+          </div>
+          <div
+            aria-disabled="false"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;"
+          />
+          <div
+            class="ant-slider-mark"
+          >
+            <span
+              class="ant-slider-mark-text ant-slider-mark-text-active"
+              style="width:18%;margin-left:-9%;left:0%;"
+            >
+              A
+            </span>
+            <span
+              class="ant-slider-mark-text"
+              style="width:18%;margin-left:-9%;left:20%;"
+            >
+              B
+            </span>
+            <span
+              class="ant-slider-mark-text"
+              style="width:18%;margin-left:-9%;left:40%;"
+            >
+              C
+            </span>
+            <span
+              class="ant-slider-mark-text"
+              style="width:18%;margin-left:-9%;left:60%;"
+            >
+              D
+            </span>
+            <span
+              class="ant-slider-mark-text"
+              style="width:18%;margin-left:-9%;left:80%;"
+            >
+              E
+            </span>
+            <span
+              class="ant-slider-mark-text"
+              style="width:18%;margin-left:-9%;left:100%;"
+            >
+              F
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="radio-group"
+        title="Radio.Group"
+      >
+        Radio.Group
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-radio-group ant-radio-group-large"
+        >
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+            <span>
+              item 1
+            </span>
+          </label>
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+            <span>
+              item 2
+            </span>
+          </label>
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+            <span>
+              item 3
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="radio-button"
+        title="Radio.Button"
+      >
+        Radio.Button
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-radio-group ant-radio-group-large"
+        >
+          <label
+            class="ant-radio-button-wrapper"
+          >
+            <span
+              class="ant-radio-button"
+            >
+              <input
+                class="ant-radio-button-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span>
+              item 1
+            </span>
+          </label>
+          <label
+            class="ant-radio-button-wrapper"
+          >
+            <span
+              class="ant-radio-button"
+            >
+              <input
+                class="ant-radio-button-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span>
+              item 2
+            </span>
+          </label>
+          <label
+            class="ant-radio-button-wrapper"
+          >
+            <span
+              class="ant-radio-button"
+            >
+              <input
+                class="ant-radio-button-input"
+                type="radio"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span>
+              item 3
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="upload"
+        title="Upload"
+      >
+        Upload
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <span
+          class=""
+        >
+          <div
+            class="ant-upload ant-upload-select ant-upload-select-picture"
+            style="display:;"
+          />
+          <div
+            class="ant-upload-list ant-upload-list-picture"
+          />
+        </span>
+        <div
+          class="ant-form-extra"
+        >
+          longgggggggggggggggggggggggggggggggggg
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="dragger"
+        title="Dragger"
+      >
+        Dragger
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="dropbox"
+        >
+          <span
+            class=""
+          >
+            <div
+              class="ant-upload ant-upload-drag"
+            />
+            <div
+              class="ant-upload-list ant-upload-list-text"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Fail"
+      >
+        Fail
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-error"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="error"
+          placeholder="unavailable choice"
+          type="text"
+        />
+        <div
+          class="ant-form-explain"
+        >
+          Should be combination of numbers & alphabets
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Warning"
+      >
+        Warning
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-warning"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="warning"
+          placeholder="Warning"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Validating"
+      >
+        Validating
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback is-validating"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="validating"
+          placeholder="I'm the content is being validated"
+          type="text"
+        />
+        <div
+          class="ant-form-explain"
+        >
+          The information is being validated...
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Success"
+      >
+        Success
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-success"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="success"
+          placeholder="I'm the content"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Warning"
+      >
+        Warning
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-warning"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="warning"
+          placeholder="Warning"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Fail"
+      >
+        Fail
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-error"
+      >
+        <input
+          class="ant-input ant-input-lg"
+          id="error"
+          placeholder="unavailable choice"
+          type="text"
+        />
+        <div
+          class="ant-form-explain"
+        >
+          Should be combination of numbers & alphabets
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="inline"
+      >
+        inline
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-19"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-col-6"
+        >
+          <div
+            class="ant-row ant-form-item ant-form-item-with-help"
+          >
+            <div
+              class="ant-form-item-control-wrapper"
+            >
+              <div
+                class="ant-form-item-control has-error"
+              >
+                <span
+                  class="ant-calendar-picker"
+                >
+                  <div>
+                    <input
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      placeholder="请选择日期"
+                      readonly=""
+                      value=""
+                    />
+                    <span
+                      class="ant-calendar-picker-icon"
+                    />
+                  </div>
+                </span>
+                <div
+                  class="ant-form-explain"
+                >
+                  Please select the correct date
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-col-1"
+        >
+          <p
+            class="ant-form-split"
+          >
+            -
+          </p>
+        </div>
+        <div
+          class="ant-col-6"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-form-item-control-wrapper"
+            >
+              <div
+                class="ant-form-item-control "
+              >
+                <span
+                  class="ant-calendar-picker"
+                >
+                  <div>
+                    <input
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      placeholder="请选择日期"
+                      readonly=""
+                      value=""
+                    />
+                    <span
+                      class="ant-calendar-picker-icon"
+                    />
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-explain"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-col-7 ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Prime between 8 & 12"
+      >
+        Prime between 8 & 12
+      </label>
+    </div>
+    <div
+      class="ant-col-12 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-input-number ant-input-number-lg"
+        >
+          <div
+            class="ant-input-number-handler-wrap"
+          >
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-up-inner"
+                unselectable="unselectable"
+              />
+            </span>
+            <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-down-inner"
+                unselectable="unselectable"
+              />
+            </span>
+          </div>
+          <div
+            aria-valuemax="12"
+            aria-valuemin="8"
+            aria-valuenow="11"
+            class="ant-input-number-input-wrap"
+            role="spinbutton"
+          >
+            <input
+              autocomplete="off"
+              class="ant-input-number-input"
+              max="12"
+              min="8"
+              value="11"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-form-explain"
+        >
+          A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;

@@ -1,0 +1,873 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:120px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="Lucy"
+        >
+          Lucy
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-disabled ant-select-allow-clear"
+    style="width:120px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="Lucy"
+        >
+          Lucy
+        </div>
+      </div>
+      <span
+        class="ant-select-selection__clear"
+        style="user-select:none;-webkit-user-select:none;display:block;"
+        unselectable="unselectable"
+      />
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
+<div
+  class="ant-select ant-select-combobox ant-select-enabled"
+  style="width:200px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        Enter the account name
+      </div>
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none;"
+      unselectable="unselectable"
+    >
+      <b />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
+<div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:90px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:90px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="Hangzhou"
+        >
+          Hangzhou
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:120px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection-selected-value"
+        style="display:block;opacity:1;"
+        title="Lucy (101)"
+      >
+        Lucy (101)
+      </div>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none;"
+      unselectable="unselectable"
+    >
+      <b />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:none;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        Please select
+      </div>
+      <ul>
+        <li
+          class="ant-select-selection__choice"
+          style="user-select:none;-webkit-user-select:none;"
+          title="a10"
+          unselectable="unselectable"
+        >
+          <div
+            class="ant-select-selection__choice__content"
+          >
+            a10
+          </div>
+          <span
+            class="ant-select-selection__choice__remove"
+          />
+        </li>
+        <li
+          class="ant-select-selection__choice"
+          style="user-select:none;-webkit-user-select:none;"
+          title="c12"
+          unselectable="unselectable"
+        >
+          <div
+            class="ant-select-selection__choice__content"
+          >
+            c12
+          </div>
+          <span
+            class="ant-select-selection__choice__remove"
+          />
+        </li>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:200px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection-selected-value"
+        style="display:block;opacity:1;"
+        title="Lucy"
+      >
+        Lucy
+      </div>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none;"
+      unselectable="unselectable"
+    >
+      <b />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/search.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:200px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+    tabindex="0"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        Select a person
+      </div>
+      <div
+        class="ant-select-search ant-select-search--inline"
+        style="display:none;"
+      >
+        <div
+          class="ant-select-search__field__wrap"
+        >
+          <input
+            class="ant-select-search__field"
+            value=""
+          />
+          <span
+            class="ant-select-search__field__mirror"
+          >
+             
+          </span>
+        </div>
+      </div>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none;"
+      unselectable="unselectable"
+    >
+      <b />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
+<div
+  class="ant-select ant-select-combobox ant-select-enabled"
+  style="width:200px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        input search text
+      </div>
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        Select users
+      </div>
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group"
+  >
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+  </div>
+  <br />
+  <br />
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:200px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="a1"
+        >
+          a1
+        </div>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-select ant-select-combobox ant-select-enabled"
+    style="width:200px;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <ul>
+          <li
+            class="ant-select-search ant-select-search--inline"
+          >
+            <div
+              class="ant-select-search__field__wrap"
+            >
+              <input
+                class="ant-select-search__field"
+                value="a1"
+              />
+              <span
+                class="ant-select-search__field__mirror"
+              >
+                a1 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:100%;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--multiple"
+      role="combobox"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection__placeholder"
+          style="display:none;user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          Please select
+        </div>
+        <ul>
+          <li
+            class="ant-select-selection__choice"
+            style="user-select:none;-webkit-user-select:none;"
+            title="a10"
+            unselectable="unselectable"
+          >
+            <div
+              class="ant-select-selection__choice__content"
+            >
+              a10
+            </div>
+            <span
+              class="ant-select-selection__choice__remove"
+            />
+          </li>
+          <li
+            class="ant-select-selection__choice"
+            style="user-select:none;-webkit-user-select:none;"
+            title="c12"
+            unselectable="unselectable"
+          >
+            <div
+              class="ant-select-selection__choice__content"
+            >
+              c12
+            </div>
+            <span
+              class="ant-select-selection__choice__remove"
+            />
+          </li>
+          <li
+            class="ant-select-search ant-select-search--inline"
+          >
+            <div
+              class="ant-select-search__field__wrap"
+            >
+              <input
+                class="ant-select-search__field"
+                value=""
+              />
+              <span
+                class="ant-select-search__field__mirror"
+              >
+                 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-select ant-select-enabled"
+    style="width:100%;"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--multiple"
+      role="combobox"
+    >
+      <div
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection__placeholder"
+          style="display:none;user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          Please select
+        </div>
+        <ul>
+          <li
+            class="ant-select-selection__choice"
+            style="user-select:none;-webkit-user-select:none;"
+            title="a10"
+            unselectable="unselectable"
+          >
+            <div
+              class="ant-select-selection__choice__content"
+            >
+              a10
+            </div>
+            <span
+              class="ant-select-selection__choice__remove"
+            />
+          </li>
+          <li
+            class="ant-select-selection__choice"
+            style="user-select:none;-webkit-user-select:none;"
+            title="c12"
+            unselectable="unselectable"
+          >
+            <div
+              class="ant-select-selection__choice__content"
+            >
+              c12
+            </div>
+            <span
+              class="ant-select-selection__choice__remove"
+            />
+          </li>
+          <li
+            class="ant-select-search ant-select-search--inline"
+          >
+            <div
+              class="ant-select-search__field__wrap"
+            >
+              <input
+                class="ant-select-search__field"
+                value=""
+              />
+              <span
+                class="ant-select-search__field__mirror"
+              >
+                 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/select/demo/tags.md correctly 1`] = `
+<div
+  class="ant-select ant-select-enabled"
+  style="width:100%;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              class="ant-select-search__field"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

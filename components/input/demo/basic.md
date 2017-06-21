@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic usage example
+Basic usage example.
 
 ````jsx
 import { Input } from 'antd';

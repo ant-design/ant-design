@@ -1,2 +1,2 @@
-import { Row } from '../layout';
+import { Row } from '../grid';
 export default Row;

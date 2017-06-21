@@ -5,10 +5,10 @@
 .resource-card {
   max-width: 350px;
   width: 40%;
-  min-width: 300px;;
+  min-width: 300px;
   height: 130px;
   border: 1px solid #e9e9e9;
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   font-size: 12px;
   color: #777;
   display: inline-block;
@@ -25,7 +25,7 @@
 }
 
 .resource-card:hover .resource-card-title {
-  color: #2db7f5;
+  color: @primary-color;
 }
 
 .resource-card.disabled {
@@ -55,7 +55,7 @@
 .resource-card-title {
   display: block;
   font-size: 16px;
-  color: #666;
+  color: @text-color;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
