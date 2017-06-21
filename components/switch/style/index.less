@@ -8,35 +8,37 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  width: 44px;
   height: 22px;
+  min-width: 44px;
   line-height: 20px;
   vertical-align: middle;
   border-radius: 20px;
   border: 1px solid #ccc;
-  background-color: #ccc;
+  background-color: @disabled-color;
   cursor: pointer;
-  transition: all @switch-duration @ease-in-out-circ;
+  transition: all @switch-duration;
   user-select: none;
 
   &-inner {
     color: #fff;
-    font-size: 12px;
-    position: absolute;
-    left: 24px;
+    font-size: @font-size-base;
+    margin-left: 24px;
+    margin-right: 6px;
+    display: block;
   }
 
   &:after {
     position: absolute;
     width: 18px;
     height: 18px;
-    left: 2px;
+    left: 1px;
     top: 1px;
+
     border-radius: 18px;
-    background-color: #fff;
+    background-color: @component-background;
     content: " ";
     cursor: pointer;
-    transition: left @switch-duration @ease-in-out-circ, width @switch-duration @ease-in-out-circ;
+    transition: all @switch-duration, width @switch-duration;
   }
 
   &:active:after {
@@ -54,25 +56,40 @@
 
   &-small {
     height: 14px;
+    min-width: 28px;
     line-height: 12px;
-    width: 28px;
+
+    .@{switch-prefix-cls}-inner {
+      margin-left: 18px;
+      margin-right: 3px;
+    }
+
     &:after {
       width: 12px;
       height: 12px;
       top: 0;
-      left: 0;
+      left: 0.5px;
     }
+
     &:active:after {
       width: 16px;
     }
   }
 
-  &-small&-checked:after {
-    left: 14px;
+  &-small&-checked {
+    &:after {
+      left: 100%;
+      margin-left: -12.5px;
+    }
+
+    .@{switch-prefix-cls}-inner {
+      margin-left: 3px;
+      margin-right: 18px;
+    }
   }
 
   &-small:active&-checked:after {
-    left: 10px;
+    margin-left: -16.5px;
   }
 
   &-checked {
@@ -80,15 +97,17 @@
     background-color: @primary-color;
 
     .@{switch-prefix-cls}-inner {
-      left: 6px;
+      margin-left: 6px;
+      margin-right: 24px;
     }
 
     &:after {
-      left: 22px;
+      left: 100%;
+      margin-left: -19px;
     }
 
     &:active:after {
-      left: 16px;
+      margin-left: -25px;
     }
   }
 
@@ -103,7 +122,7 @@
     }
 
     .@{switch-prefix-cls}-inner {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 }

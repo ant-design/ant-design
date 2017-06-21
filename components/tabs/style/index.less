@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-
 @tab-prefix-cls: ~"@{ant-prefix}-tabs";
+@import "./card-style";
 
 .@{tab-prefix-cls} {
   box-sizing: border-box;
@@ -9,10 +9,6 @@
   overflow: hidden;
   .clearfix;
   color: @text-color;
-
-  &-bar {
-    outline: none;
-  }
 
   &-ink-bar {
     z-index: 1;
@@ -22,29 +18,29 @@
     box-sizing: border-box;
     height: 2px;
     background-color: @primary-color;
-    transition: transform 0.3s @ease-in-out;
     transform-origin: 0 0;
   }
 
   &-bar {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
+    outline: none;
   }
 
   &-nav-container {
     overflow: hidden;
-    font-size: 14px;
+    font-size: @font-size-lg;
     line-height: @line-height-base;
     box-sizing: border-box;
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
     .clearfix;
-  }
 
-  &-nav-container-scrolling {
-    padding-left: 32px;
-    padding-right: 32px;
+    &-scrolling {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   &-tab-prev,
@@ -61,11 +57,11 @@
     background-color: transparent;
     position: absolute;
     text-align: center;
-    color: #999;
+    color: @text-color-secondary;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #666;
+      color: @text-color;
     }
 
     &-icon {
@@ -92,7 +88,7 @@
     cursor: not-allowed;
     &,
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -146,7 +142,7 @@
     .@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
-      color: #ccc;
+      color: @disabled-color;
     }
 
     .@{tab-prefix-cls}-tab {
@@ -162,11 +158,11 @@
       text-decoration: none;
 
       &:hover {
-        color: tint(@primary-color, 20%);
+        color: @primary-5;
       }
 
       &:active {
-        color: shade(@primary-color, 5%);
+        color: @primary-7;
       }
       .@{iconfont-css-prefix} {
         width: 14px;
@@ -181,7 +177,7 @@
   }
 
   &-mini &-nav-container {
-    font-size: 12px;
+    font-size: @font-size-base;
   }
 
   &-mini &-tab {
@@ -190,26 +186,35 @@
   }
 
   &:not(&-vertical) {
-    .@{tab-prefix-cls}-content-animated {
+    > .@{tab-prefix-cls}-content {
+      width: 100%;
+
+      > .@{tab-prefix-cls}-tabpane {
+        flex-shrink: 0;
+        width: 100%;
+        transition: opacity .45s;
+        opacity: 1;
+      }
+
+      > .@{tab-prefix-cls}-tabpane-inactive {
+        opacity: 0;
+        height: 0;
+        padding: 0!important;
+        pointer-events: none;
+      }
+    }
+    > .@{tab-prefix-cls}-content-animated {
       display: flex;
       flex-direction: row;
-      will-change: transform;
-      transition: transform 0.3s @ease-in-out;
-    }
-
-    .@{tab-prefix-cls}-tabpane {
-      flex-shrink: 0;
-      width: 100%;
-    }
-
-    .@{tab-prefix-cls}-tabpane-inactive {
-      height: 0;
+      will-change: margin-left;
+      transition: margin-left 0.3s @ease-in-out;
     }
   }
 
   &-vertical {
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
+      height: 100%;
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -227,8 +232,17 @@
         width: auto;
       }
 
+      .@{tab-prefix-cls}-nav-container,
+      .@{tab-prefix-cls}-nav-wrap {
+        height: 100%;
+      }
+
       .@{tab-prefix-cls}-nav-container {
         margin-bottom: 0;
+
+        &.@{tab-prefix-cls}-nav-container-scrolling {
+          padding: 32px 0;
+        }
       }
 
       .@{tab-prefix-cls}-nav-wrap {
@@ -246,13 +260,32 @@
     > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
+      margin-top: 0!important;
+    }
+
+    > .@{tab-prefix-cls}-tab-next {
+      width: 100%;
+      bottom: 0;
+      height: 32px;
+      &-icon:before {
+        content: "\e61d";
+      }
+    }
+
+    > .@{tab-prefix-cls}-tab-prev {
+      top: 0;
+      width: 100%;
+      height: 32px;
+      &-icon:before {
+        content: "\e61e";
+      }
     }
   }
 
   &-vertical&-left {
     > .@{tab-prefix-cls}-bar {
       float: left;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
       margin-right: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-tab {
@@ -270,14 +303,14 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-left: 24px;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-vertical&-right {
     > .@{tab-prefix-cls}-bar {
       float: right;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-nav-container {
@@ -292,7 +325,7 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-right: 24px;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
     }
   }
 
@@ -300,98 +333,26 @@
     margin-bottom: 0;
     margin-top: 16px;
   }
+}
 
-  // card style
-  &&-card > &-bar &-nav-container {
-    height: 36px;
-  }
-  &&-card > &-bar &-ink-bar {
-    visibility: hidden;
-  }
-  &&-card > &-bar &-tab {
-    margin: 0;
-    border: 1px solid @border-color-base;
-    border-bottom: 0;
-    border-radius: 6px 6px 0 0;
-    transition: all 0.3s @ease-in-out;
-    background: #f9f9f9;
-    margin-right: 2px;
-  }
-  &&-card > &-bar &-tab {
-    padding: 7px 16px 6px;
-    transition: all 0.3s @ease-in-out;
-  }
-  &&-card > &-bar &-tab-active {
-    background: #fff;
-    transform: translateZ(0);
-    border-color: @border-color-base;
-    color: @primary-color;
-  }
-  &&-card > &-bar &-tab-active {
-    padding-bottom: 7px;
-    transform: translateZ(0);
-  }
-  &&-card > &-bar &-nav-wrap {
-    margin-bottom: 0;
-  }
-  &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
-    margin-right: 0;
-    color: #999;
-    transition: all 0.3s @ease-in-out;
-    .iconfont-size-under-12px(9px);
-    transform-origin: 100% 50%;
-    width: 0;
-    text-align: right;
-    vertical-align: middle;
-    overflow: hidden;
-    &:hover {
-      color: #404040;
-      font-weight: bold;
-    }
-  }
+.@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+}
 
-  &&-editable-card > &-bar &-tab:not(&-tab-active):hover {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-close,
-  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-close {
-    width: 16px;
-    transform: translateZ(0);
-  }
-
-  &-extra-content {
-    float: right;
-    line-height: 32px;
-
-    .@{tab-prefix-cls}-new-tab {
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 3px;
-      border: 1px solid @border-color-base;
-      font-size: 12px;
-      .iconfont-size-under-12px(10px);
-      color: #999;
-      transition: color 0.3s ease;
-      &:hover {
-        color: #404040;
-      }
-    }
-  }
+.@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
 }
 
 .no-flex,
 .@{tab-prefix-cls}-no-animation,
 .@{tab-prefix-cls}-vertical {
-  .@{tab-prefix-cls}-content {
+  > .@{tab-prefix-cls}-content {
     &-animated {
-      transform: none!important;
+      transform: none !important;
+      margin-left: 0 !important;
     }
-
     > .@{tab-prefix-cls}-tabpane-inactive {
       display: none;
     }

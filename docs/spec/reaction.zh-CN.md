@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 10
 title: 即时反应
 ---
@@ -15,7 +15,6 @@ title: 即时反应
 ---
 
 ## 查询模式
-
 
 <img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/fgQfkNakHrUiAun.png">
 
@@ -37,6 +36,7 @@ title: 即时反应
 <br>
 
 ---
+
 ## 反馈模式
 
 <img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">

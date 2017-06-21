@@ -20,7 +20,7 @@ const confirm = Modal.confirm;
 
 function showConfirm() {
   confirm({
-    title: 'Want to delete these items?',
+    title: 'Do you want to delete these items?',
     content: 'When clicked the OK button, this dialog will be closed after 1 second',
     onOk() {
       return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ function showConfirm() {
 
 ReactDOM.render(
   <Button onClick={showConfirm}>
-    Confirmation modal dialog
+    Confirm
   </Button>
 , mountNode);
 ````

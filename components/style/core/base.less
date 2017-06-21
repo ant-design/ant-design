@@ -1,5 +1,12 @@
 @import "./normalize.less";
 
+// http://stackoverflow.com/a/13611748/3040605
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //  remove tap highlight color for mobile safari
@@ -52,6 +59,11 @@ input::-ms-clear, input::-ms-reveal {
   color: #fff;
 }
 
+// Headers
+h1, h2, h3, h4, h5, h6 {
+  color: @heading-color;
+}
+
 // Links
 a {
   color: @link-color;
@@ -60,6 +72,11 @@ a {
   outline: none;
   cursor: pointer;
   transition: color .3s ease;
+
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
 
   &:hover {
     color: @link-hover-color;
@@ -76,15 +93,14 @@ a {
   }
 
   &[disabled] {
-    color: #ccc;
+    color: @disabled-color;
     cursor: not-allowed;
     pointer-events: none;
   }
 }
 
 .@{ant-prefix}-divider {
-  margin: 0 4px;
-  color: #999;
+  margin: 0 6px;
   display: inline-block;
   height: 8px;
   width: 1px;

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 3
 title:
   zh-CN: 自定义提示
   en-US: Customerize tooltip
@@ -20,8 +20,11 @@ function formatter(value) {
   return `${value}%`;
 }
 
-ReactDOM.render(<div>
-  <Slider tipFormatter={formatter} />
-  <Slider tipFormatter={null} />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Slider tipFormatter={formatter} />
+    <Slider tipFormatter={null} />
+  </div>,
+  mountNode
+);
 ````

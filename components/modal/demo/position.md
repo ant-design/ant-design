@@ -1,6 +1,6 @@
 ---
 order: 7
-title: 
+title:
   zh-CN: 自定义位置
   en-US: To customize the position of modal
 ---
@@ -17,19 +17,17 @@ set position of modal dialog.
 ````jsx
 import { Modal, Button } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      modal1Visible: false,
-      modal2Visible: false,
-    };
-  },
+class App extends React.Component {
+  state = {
+    modal1Visible: false,
+    modal2Visible: false,
+  }
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
-  },
+  }
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
-  },
+  }
   render() {
     return (
       <div>
@@ -60,14 +58,36 @@ const App = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````
 
 ````css
 /* use css to set position of modal */
+.vertical-center-modal {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.vertical-center-modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 0;
+}
+
+.vertical-center-modal .ant-modal {
+  display: inline-block;
+  vertical-align: middle;
+  top: 0;
+  text-align: left;
+}
+
+/*
+// Use flex which not working in IE
 .vertical-center-modal {
   display: flex;
   align-items: center;
@@ -77,4 +97,5 @@ ReactDOM.render(<App />, mountNode);
 .vertical-center-modal .ant-modal {
   top: 0;
 }
+*/
 ````

@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 移入展开
   en-US: Hover
@@ -50,8 +50,11 @@ function displayRender(label) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} expandTrigger="hover"
-    displayRender={displayRender} onChange={onChange}
+  <Cascader
+    options={options}
+    expandTrigger="hover"
+    displayRender={displayRender}
+    onChange={onChange}
   />
 , mountNode);
 ````

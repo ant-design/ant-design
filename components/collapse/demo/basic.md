@@ -35,7 +35,7 @@ ReactDOM.render(
     <Panel header="This is panel header 2" key="2">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3">
+    <Panel header="This is panel header 3" key="3" disabled>
       <p>{text}</p>
     </Panel>
   </Collapse>

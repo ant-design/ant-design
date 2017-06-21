@@ -25,4 +25,3 @@ ReactDOM.render(
   </Tabs>
 , mountNode);
 ````
-

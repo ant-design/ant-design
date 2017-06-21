@@ -12,20 +12,18 @@
   &-count {
     position: absolute;
     transform: translateX(-50%);
-    top: -10px;
-    height: 20px;
-    border-radius: 10px;
-    min-width: 20px;
-    background: @error-color;
-    border: 1px solid transparent;
+    top: -@badge-height / 2;
+    height: @badge-height;
+    border-radius: @badge-height / 2;
+    min-width: @badge-height;
+    background: @highlight-color;
     color: #fff;
-    line-height: 18px;
+    line-height: @badge-height;
     text-align: center;
     padding: 0 6px;
-    font-size: 12px;
+    font-size: @font-size-base;
     white-space: nowrap;
     transform-origin: -10% center;
-    z-index: 10;
     font-family: tahoma;
     box-shadow: 0 0 0 1px #fff;
     a,
@@ -37,12 +35,12 @@
   &-dot {
     position: absolute;
     transform: translateX(-50%);
-    transform-origin: 0px center;
-    top: -4px;
-    height: 8px;
-    width: 8px;
+    transform-origin: 0 center;
+    top: -@badge-dot-size / 2;
+    height: @badge-dot-size;
+    width: @badge-dot-size;
     border-radius: 100%;
-    background: @error-color;
+    background: @highlight-color;
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
   }
@@ -62,7 +60,18 @@
     }
     &-processing {
       background-color: @primary-color;
-      animation: antStatusProcessing 1.2s infinite ease-in-out;
+      position: relative;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid @primary-color;
+        content: '';
+        animation: antStatusProcessing 1.2s infinite ease-in-out;
+      }
     }
     &-default {
       background-color: @normal-color;
@@ -95,26 +104,18 @@
     top: auto;
     display: block;
     position: relative;
-    transform: translateX(0);
+    transform: none!important;
   }
 }
 
 @keyframes antStatusProcessing {
-  0%,
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
   100% {
-    opacity: 1;
-  }
-  50% {
+    transform: scale(2.4);
     opacity: 0;
-  }
-}
-
-a & {
-  &-count:hover {
-    background: tint(@error-color, 20%);
-  }
-  &-count:active {
-    background: shade(@error-color, 5%);
   }
 }
 
@@ -122,15 +123,10 @@ a & {
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: transform .3s @ease-in-out;
-  }
-  // for IE8/9 display
-  &.not-support-css-animation &-only {
+    transition: all .3s @ease-in-out;
+    height: @badge-height;
     > p {
-      display: none;
-      &.current {
-        display: block;
-      }
+      height: @badge-height;
     }
   }
 }

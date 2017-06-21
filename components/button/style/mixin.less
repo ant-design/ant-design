@@ -1,9 +1,10 @@
 // mixins for button
 // ------------------------
-.button-size(@padding; @font-size; @border-radius) {
+.button-size(@height; @padding; @font-size; @border-radius) {
   padding: @padding;
   font-size: @font-size;
   border-radius: @border-radius;
+  height: @height;
 }
 
 .button-disabled() {
@@ -21,15 +22,14 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-
   &:hover,
   &:focus {
-    .button-color(@color; tint(@background, 20%); tint(@background, 20%));
+    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@color; shade(@background, 5%); shade(@background, 5%));
+    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
   }
 
   .button-disabled();
@@ -40,12 +40,44 @@
 
   &:hover,
   &:focus {
-    .button-color(tint(@primary-color, 20%); @background; tint(@primary-color, 20%));
+    .button-color(@primary-color; @background; @primary-color);
   }
 
   &:active,
   &.active {
-    .button-color(shade(@primary-color, 5%); @background; shade(@primary-color, 5%));
+    .button-color(@primary-7; @background; @primary-7);
+  }
+
+  .button-disabled();
+}
+
+.button-variant-danger(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &:hover,
+  &:focus {
+    .button-color(@btn-primary-color; @color; @color;);
+  }
+
+  &:active,
+  &.active {
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+  }
+
+  .button-disabled();
+}
+
+.button-variant-ghost(@color) {
+  .button-color(@color; transparent; @color);
+
+  &:hover,
+  &:focus {
+    .button-color(~`colorPalette("@{color}", 5)`; transparent; ~`colorPalette("@{color}", 5)`);
+  }
+
+  &:active,
+  &.active {
+    .button-color(~`colorPalette("@{color}", 7)`; transparent; ~`colorPalette("@{color}", 7)`);
   }
 
   .button-disabled();
@@ -74,25 +106,29 @@
 .button-group-base(@btnClassName) {
   position: relative;
   display: inline-block;
-  vertical-align: middle;
   > .@{btnClassName} {
     position: relative;
-    float: left;
+    z-index: 1;
+
     &:hover,
     &:focus,
     &:active,
     &.active {
       z-index: 2;
     }
+
+    &:disabled {
+      z-index: 0;
+    }
   }
 
   // size
   &-lg > .@{btnClassName} {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
+    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
   }
 
   &-sm > .@{btnClassName} {
-    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -106,14 +142,13 @@
   margin-bottom: 0;
   font-weight: @btn-font-weight;
   text-align: center;
-  vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
-  border: 1px solid transparent;
+  border: @border-width-base @border-style-base transparent;
   white-space: nowrap;
   line-height: @line-height-base;
-  .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
+  .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
   user-select: none;
   transition: all .3s @ease-in-out;
   position: relative;
@@ -139,18 +174,18 @@
 
   &.disabled,
   &[disabled] {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     > * {
       pointer-events: none;
     }
   }
 
   &-lg {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
+    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
   }
 
   &-sm {
-    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
   }
 }
 
@@ -175,25 +210,30 @@
   .button-variant-other(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 }
 
-// ghost button style
+// dashed button style
 .btn-dashed() {
-  .button-variant-other(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+  .button-variant-other(@btn-default-color, @btn-default-bg, @btn-default-border);
   border-style: dashed;
+}
+
+// danger button style
+.btn-danger() {
+  .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
 }
 
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {
   .square(@btn-circle-size);
-  .button-size(0; @font-size-base + 2; 50%);
+  .button-size(@btn-circle-size; 0; @font-size-base + 2; 50%);
 
   &.@{btnClassName}-lg {
     .square(@btn-circle-size-lg);
-    .button-size(0; @btn-font-size-lg + 2; 50%);
+    .button-size(@btn-circle-size-lg; 0; @btn-font-size-lg + 2; 50%);
   }
 
   &.@{btnClassName}-sm {
     .square(@btn-circle-size-sm);
-    .button-size(0; @font-size-base; 50%);
+    .button-size(@btn-circle-size-sm; 0; @font-size-base; 50%);
   }
 }
 

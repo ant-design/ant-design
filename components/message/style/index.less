@@ -3,28 +3,29 @@
 @message-prefix-cls: ~"@{ant-prefix}-message";
 
 .@{message-prefix-cls} {
-  font-size: 12px;
+  font-size: @font-size-base;
   position: fixed;
   z-index: @zindex-message;
   width: 100%;
   top: 16px;
   left: 0;
+  pointer-events: none;
 
   &-notice {
-    width: auto;
-    vertical-align: middle;
-    position: absolute;
-    left: 50%;
+    padding: 8px;
+    text-align: center;
+    &:first-child {
+      margin-top: -8px;
+    }
   }
 
   &-notice-content {
-    position: relative;
-    right: 50%;
     padding: 8px 16px;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
-    background: #fff;
-    display: block;
+    background: @component-background;
+    display: inline-block;
+    pointer-events: all;
   }
 
   &-success .@{iconfont-css-prefix} {
@@ -41,13 +42,32 @@
 
   &-info .@{iconfont-css-prefix},
   &-loading .@{iconfont-css-prefix} {
-    color: @primary-color;
+    color: @info-color;
   }
 
   .@{iconfont-css-prefix} {
     margin-right: 8px;
-    font-size: 14px;
+    font-size: @font-size-lg;
     top: 1px;
     position: relative;
+  }
+
+  &-notice.move-up-leave.move-up-leave-active {
+    animation-name: MessageMoveOut;
+    overflow: hidden;
+    animation-duration: .3s;
+  }
+}
+
+@keyframes MessageMoveOut {
+  0% {
+    opacity: 1;
+    max-height: 150px;
+    padding: 8px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
   }
 }

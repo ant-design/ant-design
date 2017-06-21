@@ -1,5 +1,6 @@
 import React from 'react';
-import { Component, PropTypes } from 'react';
+import { Component, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
 import assign from 'object-assign';
@@ -30,13 +31,14 @@ function clearNextFrameAction(nextFrameId) {
 export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
-};
+}
 
 export interface InputProps {
   prefixCls?: string;
   className?: string;
   type?: string;
   id?: number | string;
+  name?: string;
   value?: any;
   defaultValue?: any;
   placeholder?: string;
@@ -45,25 +47,28 @@ export interface InputProps {
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  onPressEnter?: React.FormEventHandler<any>;
   onKeyDown?: React.FormEventHandler<any>;
   onChange?: React.FormEventHandler<any>;
+  onPressEnter?: React.FormEventHandler<any>;
   onClick?: React.FormEventHandler<any>;
+  onFocus?: React.FormEventHandler<any>;
   onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  spellCheck?: boolean;
+  autoFocus?: boolean;
 }
 
 export default class Input extends Component<InputProps, any> {
   static Group: any;
+  static Search: any;
   static defaultProps = {
     disabled: false,
     prefixCls: 'ant-input',
     type: 'text',
-    onPressEnter() {},
-    onKeyDown() {},
-    onChange() {},
     autosize: false,
   };
 
@@ -84,20 +89,21 @@ export default class Input extends Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    prefix: PropTypes.node,
+    suffix: PropTypes.node,
   };
 
   nextFrameActionId: number;
   refs: {
-    [key: string]: any;
     input: any;
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      textareaStyles: null,
-    };
-  }
+  state = {
+    textareaStyles: null,
+    isFocus: false,
+  };
 
   componentDidMount() {
     this.resizeTextarea();
@@ -114,17 +120,23 @@ export default class Input extends Component<InputProps, any> {
   }
 
   handleKeyDown = (e) => {
-    if (e.keyCode === 13) {
-      this.props.onPressEnter(e);
+    const { onPressEnter, onKeyDown } = this.props;
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e);
     }
-    this.props.onKeyDown(e);
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
   }
 
   handleTextareaChange = (e) => {
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
-    this.props.onChange(e);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   resizeTextarea = () => {
@@ -138,8 +150,18 @@ export default class Input extends Component<InputProps, any> {
     this.setState({ textareaStyles });
   }
 
-  renderLabledInput(children) {
+  focus() {
+    this.refs.input.focus();
+  }
+
+  renderLabeledInput(children) {
     const props = this.props;
+
+    // Not wrap when there is not addons
+    if (props.type === 'textarea' || (!props.addonBefore && !props.addonAfter)) {
+      return children;
+    }
+
     const wrapperClassName = `${props.prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
     const addonBefore = props.addonBefore ? (
@@ -154,11 +176,26 @@ export default class Input extends Component<InputProps, any> {
       </span>
     ) : null;
 
-    const className = classNames({
-      [`${props.prefixCls}-wrapper`]: true,
+    const className = classNames(`${props.prefixCls}-wrapper`, {
       [wrapperClassName]: (addonBefore || addonAfter),
     });
 
+    // Need another wrapper for changing display:table to display:inline-block
+    // and put style prop in wrapper
+    if (addonBefore || addonAfter) {
+      return (
+        <span
+          className={`${props.prefixCls}-group-wrapper`}
+          style={props.style}
+        >
+          <span className={className}>
+            {addonBefore}
+            {cloneElement(children, { style: null })}
+            {addonAfter}
+          </span>
+        </span>
+      );
+    }
     return (
       <span className={className}>
         {addonBefore}
@@ -168,9 +205,36 @@ export default class Input extends Component<InputProps, any> {
     );
   }
 
+  renderLabeledIcon(children) {
+    const { props } = this;
+
+    if (props.type === 'textarea' || !('prefix' in props || 'suffix' in props)) {
+      return children;
+    }
+
+    const prefix = props.prefix ? (
+      <span className={`${props.prefixCls}-prefix`}>
+        {props.prefix}
+      </span>
+    ) : null;
+
+    const suffix = props.suffix ? (
+      <span className={`${props.prefixCls}-suffix`}>
+        {props.suffix}
+      </span>
+    ) : null;
+
+    return (
+      <span className={`${props.prefixCls}-affix-wrapper`} style={props.style}>
+        {prefix}
+        {cloneElement(children, { style: null })}
+        {suffix}
+      </span>
+    );
+  }
+
   renderInput() {
     const props = assign({}, this.props);
-
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -178,6 +242,8 @@ export default class Input extends Component<InputProps, any> {
       'autosize',
       'addonBefore',
       'addonAfter',
+      'prefix',
+      'suffix',
     ]);
 
     const prefixCls = props.prefixCls;
@@ -185,12 +251,10 @@ export default class Input extends Component<InputProps, any> {
       return props.children;
     }
 
-    const inputClassName = classNames({
-      [prefixCls]: true,
+    const inputClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: props.size === 'small',
       [`${prefixCls}-lg`]: props.size === 'large',
-      [props.className]: !!props.className,
-    });
+    }, props.className);
 
     if ('value' in props) {
       otherProps.value = fixControlledValue(props.value);
@@ -212,18 +276,18 @@ export default class Input extends Component<InputProps, any> {
           />
         );
       default:
-        return (
+        return this.renderLabeledIcon(
           <input
             {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
             ref="input"
-          />
+          />,
         );
     }
   }
 
   render() {
-    return this.renderLabledInput(this.renderInput());
+    return this.renderLabeledInput(this.renderInput());
   }
 }

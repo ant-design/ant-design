@@ -3,6 +3,18 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
+.@{ant-prefix}-input-search-icon {
+  cursor: pointer;
+  transition: all .3s;
+  font-size: 14px;
+  &:hover {
+    color: @input-hover-border-color;
+  }
+}
+
+// code blow is keeped for compatibility
+// for this demo: http://1x.ant.design/components/select/#components-select-demo-search-box
+// do not delete until 3.x
 .@{ant-prefix}-search-input-wrapper {
   display: inline-block;
   vertical-align: middle;
@@ -33,10 +45,6 @@
     &:hover {
       border-color: @border-color-base;
     }
-    form & {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
   }
   &&-focus .@{ant-prefix}-search-btn-noempty,
   &:hover .@{ant-prefix}-search-btn-noempty {
@@ -44,7 +52,7 @@
   }
   .@{ant-prefix}-select-combobox {
     .@{ant-prefix}-select-selection__rendered {
-      right: 29px;
+      margin-right: 29px;
     }
   }
 }

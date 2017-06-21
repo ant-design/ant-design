@@ -19,19 +19,20 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
-export function isZhCN() {
-  if (location.search.indexOf('locale=zh-CN') > -1) {
-    return true;
-  }
-  if (location.search.indexOf('locale=en-US') > -1) {
-    return false;
-  }
+export function isZhCN(pathname) {
+  return /-cn\/?$/.test(pathname);
+}
 
-  const language = (
-    typeof localStorage === 'undefined' ||
-      !localStorage.getItem('locale')
-  ) ? navigator.language : localStorage.getItem('locale');
-  return language === 'zh-CN';
+export function getLocalizedPathname(path, zhCN) {
+  const pathname = path.startsWith('/') ? path : `/${path}`;
+  if (!zhCN) { // to enUS
+    return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+  } else if (pathname === '/') {
+    return '/index-cn';
+  } else if (pathname.endsWith('/')) {
+    return pathname.replace(/\/$/, '-cn/');
+  }
+  return `${pathname}-cn`;
 }
 
 export function ping(url, callback) {
@@ -48,4 +49,16 @@ export function ping(url, callback) {
   img.onerror = () => finish('error');
   img.src = url;
   return setTimeout(() => finish('timeout'), 1500);
+}
+
+export function isLocalStorageNameSupported() {
+  const testKey = 'test';
+  const storage = window.localStorage;
+  try {
+    storage.setItem(testKey, '1');
+    storage.removeItem(testKey);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }

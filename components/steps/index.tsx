@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import RcSteps from 'rc-steps';
 
 export interface StepsProps {
@@ -9,6 +9,7 @@ export interface StepsProps {
   status?: 'wait' | 'process' | 'finish' | 'error';
   size?: 'default' | 'small';
   direction?: 'horizontal' | 'vertical';
+  progressDot?: boolean | Function;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {

@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cascader can be selected 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Jiangsu"
+        >
+          Jiangsu
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Hangzhou"
+        >
+          Hangzhou
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader can be selected 2`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Jiangsu"
+        >
+          Jiangsu
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Hangzhou"
+        >
+          Hangzhou
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader can be selected 3`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Jiangsu"
+        >
+          Jiangsu
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Hangzhou"
+        >
+          Hangzhou
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-active"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly when panel is hidden 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-empty ant-cascader-menus-placement-bottomLeft  ant-cascader-menus-hidden"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly when panel is open 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Jiangsu"
+        >
+          Jiangsu
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader popup correctly with defaultValue 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          title="Jiangsu"
+        >
+          Jiangsu
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          title="Hangzhou"
+        >
+          Hangzhou
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -12,24 +12,47 @@
   width: @notification-width;
   margin-right: 24px;
 
+  &-topLeft,
+  &-bottomLeft {
+    margin-left: 24px;
+    margin-right: 0;
+
+    .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
+    .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
+      animation-name: NotificationLeftFadeIn;
+    }
+  }
+
   &-notice {
     padding: @notification-padding;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
-    background: #fff;
+    background: @component-background;
     line-height: 1.5;
     position: relative;
     margin-bottom: @notification-margin-bottom;
     overflow: hidden;
 
     &-message {
-      font-size: 14px;
+      font-size: @font-size-lg;
       color: @heading-color;
       margin-bottom: 4px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
       line-height: 20px;
+      display: inline-block;
+
+      // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
+      &-single-line-auto-margin {
+        width: ~"calc(@{notification-width} - @{notification-padding} * 2 - 24px - 48px - 100%)";
+        background-color: transparent;
+        pointer-events: none;
+        display: block;
+        max-width: 4px;
+        &:before {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+        }
+      }
     }
 
     &-description {
@@ -41,7 +64,7 @@
     }
 
     &-with-icon &-message {
-      font-size: 14px;
+      font-size: @font-size-lg;
       margin-left: 48px;
       margin-bottom: 4px;
     }
@@ -53,8 +76,6 @@
 
     &-icon {
       position: absolute;
-      left: 16px;
-      top: 17px;
       font-size: 32px;
       line-height: 32px;
 
@@ -62,7 +83,7 @@
         color: @success-color;
       }
       &-info {
-        color: @primary-color;
+        color: @info-color;
       }
       &-warning {
         color: @warning-color;
@@ -83,8 +104,9 @@
       position: absolute;
       right: 16px;
       top: 10px;
-      color: @legend-color;
+      color: @text-color-secondary;
       outline: none;
+      text-decoration: none;
       &:hover {
         color: #404040;
       }
@@ -134,6 +156,17 @@
   }
   100% {
     left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes NotificationLeftFadeIn {
+  0% {
+    opacity: 0;
+    right: @notification-width;
+  }
+  100% {
+    right: 0;
     opacity: 1;
   }
 }

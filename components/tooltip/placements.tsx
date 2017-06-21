@@ -7,14 +7,14 @@ const autoAdjustOverflow = {
 
 const targetOffset = [0, 0];
 
-export interface GetPlacementsProps {
+export interface PlacementsConfig {
   arrowWidth?: number;
   horizontalArrowShift?: number;
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
 }
 
-export default function getPlacements(config: GetPlacementsProps = {}) {
+export default function getPlacements(config: PlacementsConfig = {}) {
   if (!config.arrowPointAtCenter) {
     return placements;
   }

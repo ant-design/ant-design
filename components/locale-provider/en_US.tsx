@@ -7,15 +7,18 @@ import TimePicker from '../time-picker/locale/en_US';
 import Calendar from '../calendar/locale/en_US';
 
 export default {
+  locale: 'en',
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Filter Menu',
+    filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'No Data',
+    emptyText: 'No data',
+    selectAll: 'Select current page',
+    selectInvert: 'Invert current page',
   },
   Modal: {
     okText: 'OK',
@@ -27,7 +30,6 @@ export default {
     cancelText: 'Cancel',
   },
   Transfer: {
-    titles: ['Source', 'Target'],
     notFoundContent: 'Not Found',
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
@@ -35,5 +37,11 @@ export default {
   },
   Select: {
     notFoundContent: 'Not Found',
+  },
+  Upload: {
+    uploading: 'Uploading...',
+    removeFile: 'Remove file',
+    uploadError: 'Upload error',
+    previewFile: 'Preview file',
   },
 };

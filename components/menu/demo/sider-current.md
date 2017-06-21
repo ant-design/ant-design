@@ -21,30 +21,35 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
-const Sider = React.createClass({
-  getInitialState() {
-    return {
-      current: '1',
-      openKeys: [],
-    };
-  },
-  handleClick(e) {
-    console.log('click ', e);
+class Sider extends React.Component {
+  state = {
+    current: '1',
+    openKeys: [],
+  }
+  handleClick = (e) => {
+    console.log('Clicked: ', e);
     this.setState({ current: e.key });
-  },
-  onOpenChange(openKeys) {
-    const latestOpenKey = openKeys.find(key => !(this.state.openKeys.indexOf(key) > -1));
-    this.setState({ openKeys: this.getKeyPath(latestOpenKey) });
-  },
-  getKeyPath(key) {
+  }
+  onOpenChange = (openKeys) => {
+    const state = this.state;
+    const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
+    const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
+
+    let nextOpenKeys = [];
+    if (latestOpenKey) {
+      nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+    }
+    if (latestCloseKey) {
+      nextOpenKeys = this.getAncestorKeys(latestCloseKey);
+    }
+    this.setState({ openKeys: nextOpenKeys });
+  }
+  getAncestorKeys = (key) => {
     const map = {
-      sub1: ['sub1'],
-      sub2: ['sub2'],
-      sub3: ['sub2', 'sub3'],
-      sub4: ['sub4'],
+      sub3: ['sub2'],
     };
     return map[key] || [];
-  },
+  }
   render() {
     return (
       <Menu
@@ -77,7 +82,8 @@ const Sider = React.createClass({
         </SubMenu>
       </Menu>
     );
-  },
-});
+  }
+}
+
 ReactDOM.render(<Sider />, mountNode);
 ````

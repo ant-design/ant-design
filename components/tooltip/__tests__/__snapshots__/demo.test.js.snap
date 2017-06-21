@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Align edge / 边缘对齐
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Arrow points to center / 箭头指向中心
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
+<span>
+  Tooltip will show when mouse enter.
+</span>
+`;
+
+exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
+<div>
+  <div
+    style="margin-left:60px;"
+  >
+    <a
+      href="#"
+    >
+      TL
+    </a>
+    <a
+      href="#"
+    >
+      Top
+    </a>
+    <a
+      href="#"
+    >
+      TR
+    </a>
+  </div>
+  <div
+    style="width:60px;float:left;"
+  >
+    <a
+      href="#"
+    >
+      LT
+    </a>
+    <a
+      href="#"
+    >
+      Left
+    </a>
+    <a
+      href="#"
+    >
+      LB
+    </a>
+  </div>
+  <div
+    style="width:60px;margin-left:270px;"
+  >
+    <a
+      href="#"
+    >
+      RT
+    </a>
+    <a
+      href="#"
+    >
+      Right
+    </a>
+    <a
+      href="#"
+    >
+      RB
+    </a>
+  </div>
+  <div
+    style="margin-left:60px;clear:both;"
+  >
+    <a
+      href="#"
+    >
+      BL
+    </a>
+    <a
+      href="#"
+    >
+      Bottom
+    </a>
+    <a
+      href="#"
+    >
+      BR
+    </a>
+  </div>
+</div>
+`;
