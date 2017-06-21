@@ -80,7 +80,7 @@ export interface TableProps<T> {
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
-  onRowClick?: (record: T, index: number) => any;
+  onRowClick?: (record: T, index: number, event: Event) => any;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
