@@ -20,6 +20,7 @@ import { Table } from 'antd';
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
+  true
 }, {
   title: 'Age',
   dataIndex: 'age',
