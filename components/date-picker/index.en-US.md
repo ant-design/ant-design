@@ -62,6 +62,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | onOk | callback when click ok button | function() | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
+| className | picker className | string | '' |
 
 ### MonthPicker
 

@@ -135,7 +135,7 @@ export default function createPicker(TheCalendar): any {
       ) : null;
 
       const input = ({ value: inputValue }) => (
-        <div>
+        <div className={props.className}>
           <input
             disabled={props.disabled}
             readOnly
