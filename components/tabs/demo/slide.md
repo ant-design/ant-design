@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以左右滑动，容纳更多标签。
+可以左右、上下滑动，容纳更多标签。
 
 ## en-US
 
-Tab can be slide to left or right, which is used for a lot of tabs.
+Tab can be slide to left or right(up or down), which is used for a lot of tabs.
 
 ````jsx
 import { Tabs, Radio } from 'antd';
