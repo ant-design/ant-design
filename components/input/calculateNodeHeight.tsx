@@ -95,6 +95,14 @@ export default function calculateNodeHeight(
     document.body.appendChild(hiddenTextarea);
   }
 
+  // Fix wrap="off" issue
+  // https://github.com/ant-design/ant-design/issues/6577
+  if (uiTextNode.getAttribute('wrap')) {
+    hiddenTextarea.setAttribute('wrap', uiTextNode.getAttribute('wrap'));
+  } else {
+    uiTextNode.removeAttribute('wrap');
+  }
+
   // Copy all CSS properties that have an impact on the height of the content in
   // the textbox
   let {
