@@ -17,6 +17,10 @@ timeline: true
 
 ---
 
+## Next
+
+- 增大了 Table 的排序和过滤图标的可点击区域。[#6528](https://github.com/ant-design/ant-design/pull/6528)
+
 ## 2.11.1
 
 `2017-06-18`

@@ -17,6 +17,10 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## Next
+
+- Increase click area of Table's sort and filter icon.[#6528](https://github.com/ant-design/ant-design/pull/6528)
+
 ## 2.11.1
 
 `2017-06-18`
