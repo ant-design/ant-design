@@ -222,11 +222,13 @@ export default class RangePicker extends React.Component<any, any> {
       />
     ) : null;
 
+    const className = classNames(props.className, props.pickerInputClass);
+
     const input = ({ value: inputValue }) => {
       const start = inputValue[0];
       const end = inputValue[1];
       return (
-        <span className={props.pickerInputClass} disabled={props.disabled}>
+        <span className={className} disabled={props.disabled}>
           <input
             disabled={props.disabled}
             readOnly
