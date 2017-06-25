@@ -17,9 +17,18 @@ timeline: true
 
 ---
 
-## Next
+## 2.11.2
 
+`2017-06-25`
+
+- Dropdown.Button 现在也支持 getPopupContainer 方法。[#6527](https://github.com/ant-design/ant-design/pull/6527)
+- 修复 Dropdown 子菜单 disabled 时的样式错误问题。 [#6548](https://github.com/ant-design/ant-design/issues/6548)
+- 修复 Calendar 的背景颜色问题。 [#aaf2a](https://github.com/ant-design/ant-design/commit/aaf2a508bef96f81faf556036649b2a2fe5b635b)
+- Calender 的下拉菜单现在在 header 中显示。[#6479](https://github.com/ant-design/ant-design/pull/6479)
+- 修复 Input 和 Textarea 横向滚动的问题。[#6577](https://github.com/ant-design/ant-design/issues/6577)
+- 补充了 Checkbox 和 Radio 的 `disabled` 属性文档。[#6597](https://github.com/ant-design/ant-design/pull/6597)
 - 增大了 Table 的排序和过滤图标的可点击区域。[#6528](https://github.com/ant-design/ant-design/pull/6528)
+- 为 Table.props.onRowClick 函数增加了 event: Event 参数。[#e2a99f5](https://github.com/ant-design/ant-design/commit/e2a99f53f7a27bd7de4adf99d0e1ee755b537c72)
 
 ## 2.11.1
 
