@@ -222,8 +222,17 @@ form {
   .@{ant-prefix}-select,
   .@{ant-prefix}-cascader-picker {
     width: 100%;
+    // Fix https://github.com/ant-design/ant-design/issues/6097
     &:only-child {
       display: block;
+    }
+  }
+
+  // Don't impact select inside input group addon
+  .@{ant-prefix}-input-group-addon .@{ant-prefix}-select,
+  .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
+    &:only-child {
+      display: inline-block;
     }
   }
 }
