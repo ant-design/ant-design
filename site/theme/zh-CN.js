@@ -41,6 +41,7 @@ module.exports = {
     'app.footer.mobile': '移动版',
     'app.footer.data-vis': '数据可视化',
     'app.footer.eggjs': '企业级 Node 开发框架',
+    'app.footer.encloseio': 'Node.js 编译器',
     'app.footer.motion': '设计动效',
     'app.footer.antd-library': 'Axure 部件库',
     'app.footer.design-platform': '蚂蚁金服设计平台',
