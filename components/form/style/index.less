@@ -228,6 +228,12 @@ form {
     }
   }
 
+  // Don't impact select inside input group
+  .@{ant-prefix}-input-group .@{ant-prefix}-select,
+  .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
+    width: auto;
+  }
+
   // Don't impact select inside input group addon
   .@{ant-prefix}-input-group-addon .@{ant-prefix}-select,
   .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
