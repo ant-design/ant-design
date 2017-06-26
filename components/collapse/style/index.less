@@ -30,10 +30,6 @@
       position: relative;
       transition: all .3s;
 
-      &:active {
-        background-color: @collapse-active-bg !important;
-      }
-
       .arrow {
         .collapse-close();
         .iconfont-mixin();
@@ -117,5 +113,9 @@
       color: @disabled-color;
       background-color: @disabled-bg;
     }
+  }
+
+  & > &-item > .@{collapse-prefix-cls}-header:active {
+    background-color: @collapse-active-bg;
   }
 }
