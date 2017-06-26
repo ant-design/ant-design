@@ -8,16 +8,12 @@ import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
 import warning from '../_util/warning';
 
-export interface FormItemColOption extends ColProps {
-  span: number;
-}
-
 export interface FormItemProps {
   prefixCls?: string;
   id?: string;
   label?: React.ReactNode;
-  labelCol?: FormItemColOption;
-  wrapperCol?: FormItemColOption;
+  labelCol?: ColProps;
+  wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
