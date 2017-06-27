@@ -34,6 +34,7 @@ export interface SinglePickerProps {
 }
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
+  className?: string;
   showTime?: TimePickerProps | boolean;
   showToday?: boolean;
   open?: boolean;
@@ -50,11 +51,13 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
+  className?: string;
   placeholder?: string;
 }
 const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 
 export interface RangePickerProps extends PickerProps {
+  className?: string;
   value?: [moment.Moment, moment.Moment];
   defaultValue?: [moment.Moment, moment.Moment];
   defaultPickerValue?: [moment.Moment, moment.Moment];

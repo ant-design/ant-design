@@ -62,6 +62,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 | onOk | callback when click ok button | function() | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
+| className | picker className | string | '' |
 
 ### MonthPicker
 
@@ -72,6 +73,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
+| className | picker className | string | '' |
 
 ### RangePicker
 
@@ -87,6 +89,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | onOk | callback when click ok button | function() | - |
+| className | picker className | string | '' |
 
 <style>
 .code-box-demo .ant-calendar-picker {
