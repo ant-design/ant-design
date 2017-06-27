@@ -100,7 +100,7 @@ export default function calculateNodeHeight(
   if (uiTextNode.getAttribute('wrap')) {
     hiddenTextarea.setAttribute('wrap', uiTextNode.getAttribute('wrap'));
   } else {
-    uiTextNode.removeAttribute('wrap');
+    hiddenTextarea.removeAttribute('wrap');
   }
 
   // Copy all CSS properties that have an impact on the height of the content in
