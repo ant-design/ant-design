@@ -101,7 +101,7 @@ interface ButtonProps {
   /** 设置按钮大小，可选值为 `small` `large` 或者不设*/
   size?:ButtonSize,
   /** `click` 事件的 handler*/
-  onClick?:React.FormEventHandler,
+  onClick?:React.FormEventHandler<React.FormEvent<HTMLButtonElement>>,
   /** 设置按钮载入状态*/
   loading?:boolean,
 
@@ -318,7 +318,7 @@ interface CheckboxProps {
   /** 初始是否选中*/
   defaultChecked?:boolean,
   /** 变化时回调函数*/
-  onChange?:React.FormEventHandler,
+  onChange?:React.FormEventHandler<React.FormEvent<HTMLInputElement>>,
 
   style?:React.CSSProperties
 }
@@ -488,7 +488,7 @@ interface DropdownButtonProps {
   /**  按钮类型*/
     type?:'primary' | 'ghost' | 'dash',
   /** 点击左侧按钮的回调*/
-  onClick?:React.FormEventHandler,
+  onClick?:React.FormEventHandler<React.FormEvent<HTMLButtonElement>>,
   /** 触发下拉的行为*/
   trigger?:'click' | 'hover',
   /** 菜单节点*/
@@ -610,7 +610,7 @@ interface FormProps {
   /** 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置*/
   form?:Object,
   /** 数据验证成功后回调事件*/
-  onSubmit?:React.FormEventHandler,
+  onSubmit?:React.FormEventHandler<React.FormEvent<HTMLFormElement>>
 
   style?:React.CSSProperties
 }
@@ -695,7 +695,7 @@ interface InputProps {
   addonAfter?:React.ReactNode,
   prefixCls?:string,
   placeholder?:string,
-  onChange?:React.FormEventHandler,
+  onChange?:React.FormEventHandler<React.FormEvent<HTMLInputElement>>,
   style:React.CSSProperties
 }
 export class Input extends React.Component<InputProps, {}> {
@@ -714,7 +714,7 @@ interface InputNumberProps {
   /** 初始值*/
   defaultValue?:number,
   /** 变化回调*/
-  onChange?:React.FormEventHandler,
+  onChange?:React.FormEventHandler<React.FormEvent<HTMLInputElement>>,
   /** 禁用*/
   disabled?:boolean,
   /** 输入框大小*/
@@ -1171,7 +1171,7 @@ type RadioGroupSize = 'large' | 'default' | 'small'
 
 interface RadioGroupProps {
   /** 选项变化时的回调函数*/
-  onChange?:React.FormEventHandler,
+  onChange?:React.FormEventHandler<React.FormEvent<HTMLInputElement>>,
   /** 用于设置当前选中的值*/
   value?:string,
   /** 默认选中的值*/
@@ -1771,7 +1771,7 @@ interface TreeNodeEvent {
 
 interface TreeNodeMouseEvent {
   node:TreeNode,
-  event:React.MouseEventHandler,
+  event:React.MouseEventHandler<React.MouseEvent<HTMLElement>>,
 }
 
 interface TreeProps {
