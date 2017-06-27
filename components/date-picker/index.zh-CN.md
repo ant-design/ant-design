@@ -39,6 +39,7 @@ moment.locale('zh-cn');
 |--------------|----------------|----------|--------------|
 | allowClear   | 是否显示清除按钮 | boolean     | true         |
 | disabled     | 禁用           | boolean     | false        |
+| className    | 选择器 className | string | '' |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |

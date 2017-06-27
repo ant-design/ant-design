@@ -15,6 +15,7 @@ export interface PickerProps {
   format?: string;
   disabled?: boolean;
   allowClear?: boolean;
+  className?: string;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
   locale?: any;

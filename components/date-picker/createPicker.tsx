@@ -135,7 +135,7 @@ export default function createPicker(TheCalendar): any {
       ) : null;
 
       const input = ({ value: inputValue }) => (
-        <div className={props.className}>
+        <div>
           <input
             disabled={props.disabled}
             readOnly
@@ -154,7 +154,7 @@ export default function createPicker(TheCalendar): any {
         pickerValue.locale(localeCode);
       }
       return (
-        <span className={props.pickerClass} style={assign({}, props.style, pickerStyle)}>
+        <span className={classNames(props.className, props.pickerClass)} style={assign({}, props.style, pickerStyle)}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
