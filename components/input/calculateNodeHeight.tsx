@@ -119,6 +119,7 @@ export default function calculateNodeHeight(
   let minHeight = -Infinity;
   let maxHeight = Infinity;
   let height = hiddenTextarea.scrollHeight;
+  let overflowY;
 
   if (boxSizing === 'border-box') {
     // border-box: add border, since height = content + padding + border
@@ -144,8 +145,9 @@ export default function calculateNodeHeight(
       if (boxSizing === 'border-box') {
         maxHeight = maxHeight + paddingSize + borderSize;
       }
+      overflowY = height > maxHeight ? '' : 'hidden';
       height = Math.min(maxHeight, height);
     }
   }
-  return { height, minHeight, maxHeight };
+  return { height, minHeight, maxHeight, overflowY };
 }
