@@ -57,7 +57,7 @@ const columns = [{
 | size          | size of table: `default`, `middle` or `small`  | string | `default` |
 | dataSource    | data record array to be rendered | any[] |            |
 | columns       | columns of table | [ColumnProps](https://git.io/vMMXC)[] | - |
-| rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |
+| rowKey        | get row's key, could be a string or function | string\|Function(record, index):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | string[] | - |
