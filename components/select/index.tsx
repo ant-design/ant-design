@@ -148,6 +148,7 @@ export default class Select extends React.Component<SelectProps, any> {
       <RcSelect
         {...restProps}
         {...modeConfig}
+        ref="select"
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
