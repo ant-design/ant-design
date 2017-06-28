@@ -135,7 +135,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
       props.style.boxShadow = `0 0 0 1px ${props.style.borderColor} inset`;
     }
     return createElement(
-      this.props.component || 'sup',
+      (this.props.component || 'sup') as any,
       props,
       this.renderNumberElement(),
     );
