@@ -73,7 +73,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination"
+        class="ant-pagination my-page ant-table-pagination"
         unselectable="unselectable"
       >
         <li

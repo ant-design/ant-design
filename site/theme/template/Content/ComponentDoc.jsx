@@ -117,7 +117,7 @@ export default class ComponentDoc extends React.Component {
               {leftChildren}
             </Col>
             {
-              isSingleCol ? null : <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
+              isSingleCol ? null : <Col className="code-boxes-col-2-1" span={12}>{rightChildren}</Col>
             }
           </Row>
           {

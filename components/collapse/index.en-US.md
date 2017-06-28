@@ -28,3 +28,4 @@ A content area which can be collapsed and expanded.
 |----------|----------------|----------|--------------|
 | key    | corresponds to the `activeKey` | string   |  -  |
 | header    | title of the panel | string\|ReactNode   | - |
+| disabled | users cannot change opening status of a disabled panel | boolean | false |

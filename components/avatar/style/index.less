@@ -1,0 +1,47 @@
+@import "../../style/themes/default";
+
+@avatar-prefix-cls: ~"@{ant-prefix}-avatar";
+
+.@{avatar-prefix-cls} {
+  display: inline-block;
+  text-align: center;
+  background: @avatar-bg;
+  color: @avatar-color;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+
+  .avatar-size(@avatar-size-base, @avatar-font-size-base);
+
+  &-lg {
+    .avatar-size(@avatar-size-lg, @avatar-font-size-lg);
+  }
+
+  &-sm {
+    .avatar-size(@avatar-size-sm, @avatar-font-size-sm);
+  }
+
+  &-square {
+    border-radius: @avatar-border-radius;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.avatar-size(@size, @font-size) {
+  width: @size;
+  height: @size;
+  line-height: @size;
+  border-radius: @size / 2;
+
+  & > * {
+    line-height: @size;
+  }
+
+  &.@{avatar-prefix-cls}-icon {
+    font-size: @font-size;
+  }
+}

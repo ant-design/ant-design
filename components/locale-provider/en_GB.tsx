@@ -13,12 +13,12 @@ export default {
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Filter Menu',
+    filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
-    emptyText: 'No Data',
-    selectAll: 'Select Current Page',
-    selectInvert: 'Select Invert',
+    emptyText: 'No data',
+    selectAll: 'Select current page',
+    selectInvert: 'Invert current page',
   },
   Modal: {
     okText: 'OK',

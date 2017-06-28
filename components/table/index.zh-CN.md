@@ -70,7 +70,7 @@ const columns = [{
 | loading       | 页面是否加载中 | boolean | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
-| onRowClick    | 处理行点击事件 | Function(record, index)   | - |
+| onRowClick    | 处理行点击事件 | Function(record, index, event)   | - |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
@@ -84,7 +84,7 @@ const columns = [{
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string\|ReactNode | - |
-| key        | React 需要的 key，建议设置 | string          | - |
+| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
 | render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | 表头的筛选菜单项           | object[]           | - |

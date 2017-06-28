@@ -137,6 +137,12 @@
       transform-origin: 0 0;
     }
 
+    &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
+      &,
+      &:after {
+        color: @disabled-color;
+      }
+    }
     &-submenu:first-child &-submenu-title {
       border-radius: @border-radius-base @border-radius-base 0 0;
     }

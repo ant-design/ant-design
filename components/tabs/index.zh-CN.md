@@ -1,8 +1,9 @@
 ---
 category: Components
 subtitle: 标签页
-type: Navigation
+type: Data Display
 title: Tabs
+cols: 1
 ---
 
 选项卡切换组件。

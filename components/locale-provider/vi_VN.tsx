@@ -1,7 +1,7 @@
 import moment from 'moment';
 moment.locale('vi');
 
-import Pagination from 'rc-pagination/lib/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/vi_VN';
 import DatePicker from '../date-picker/locale/vi_VN';
 import TimePicker from '../time-picker/locale/vi_VN';
 import Calendar from '../calendar/locale/vi_VN';

@@ -1205,7 +1205,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-activedescendant=""
           class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
           role="menu"
-          style="height:100%;"
+          style="height:100%;border-right:0;"
           tabindex="0"
         >
           <li

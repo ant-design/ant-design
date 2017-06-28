@@ -95,6 +95,14 @@ export default function calculateNodeHeight(
     document.body.appendChild(hiddenTextarea);
   }
 
+  // Fix wrap="off" issue
+  // https://github.com/ant-design/ant-design/issues/6577
+  if (uiTextNode.getAttribute('wrap')) {
+    hiddenTextarea.setAttribute('wrap', uiTextNode.getAttribute('wrap'));
+  } else {
+    hiddenTextarea.removeAttribute('wrap');
+  }
+
   // Copy all CSS properties that have an impact on the height of the content in
   // the textbox
   let {
@@ -111,6 +119,7 @@ export default function calculateNodeHeight(
   let minHeight = -Infinity;
   let maxHeight = Infinity;
   let height = hiddenTextarea.scrollHeight;
+  let overflowY;
 
   if (boxSizing === 'border-box') {
     // border-box: add border, since height = content + padding + border
@@ -136,8 +145,9 @@ export default function calculateNodeHeight(
       if (boxSizing === 'border-box') {
         maxHeight = maxHeight + paddingSize + borderSize;
       }
+      overflowY = height > maxHeight ? '' : 'hidden';
       height = Math.min(maxHeight, height);
     }
   }
-  return { height, minHeight, maxHeight };
+  return { height, minHeight, maxHeight, overflowY };
 }

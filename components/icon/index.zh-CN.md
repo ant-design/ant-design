@@ -75,3 +75,4 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 |----------|------------------|----------|--------|
 | type | 图标类型 | string | - |
 | spin | 是否有旋转动画 | boolean | false |
+| style | 设置图标的样式，例如 fontSize 和 color | object | - |

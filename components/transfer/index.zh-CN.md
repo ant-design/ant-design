@@ -28,8 +28,8 @@ title: Transfer
 | onScroll | 选项列表滚动时的回调函数 | (direction, event): void | |
 | listStyle | 两个穿梭框的自定义样式 | object |  |
 | className | 自定义类 | string |  |
-| titles | 标题集合,顺序从左至右 | string[] | ['', ''] |
-| operations | 操作文案集合,顺序从上至下 | string[] | [] |
+| titles | 标题集合，顺序从左至右 | string[] | ['', ''] |
+| operations | 操作文案集合，顺序从下至上 | string[] | ['>', '<'] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。| (inputValue, option): boolean | |
 | searchPlaceholder | 搜索框的默认值 | string | '请输入搜索内容' |

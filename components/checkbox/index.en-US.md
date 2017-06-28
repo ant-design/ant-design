@@ -20,6 +20,7 @@ Checkbox.
 | checked | Specifies whether the checkbox is selected. | boolean | false |
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | boolean | false |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | - |
+| disabled | Disable checkbox | boolean | | false| 
 
 ### Checkbox Group
 
@@ -29,3 +30,4 @@ Checkbox.
 | value | Used for setting the currently selected value. | string[] | [] |
 | options  | Specifies options | string[] | [] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |
+| disabled | Disable all checkboxes | boolean | | false |

@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以左右滑动，容纳更多标签。
+可以左右、上下滑动，容纳更多标签。
 
 ## en-US
 
-Tab can be slide to left or right, which is used for a lot of tabs.
+Tab can be slide to left or right(up or down), which is used for a lot of tabs.
 
 ````jsx
 import { Tabs, Radio } from 'antd';
@@ -50,6 +50,8 @@ class SlidingTabsDemo extends React.Component {
           <TabPane tab="Tab 7" key="7">Content of tab 7</TabPane>
           <TabPane tab="Tab 8" key="8">Content of tab 8</TabPane>
           <TabPane tab="Tab 9" key="9">Content of tab 9</TabPane>
+          <TabPane tab="Tab 10" key="10">Content of tab 10</TabPane>
+          <TabPane tab="Tab 11" key="11">Content of tab 11</TabPane>
         </Tabs>
       </div>
     );
