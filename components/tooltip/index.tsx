@@ -2,7 +2,7 @@ import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
-import getPlacements from './placements';
+import getPlacements, { AdjustOverflow } from './placements';
 
 export type TooltipPlacement =
   'top' | 'left' | 'right' | 'bottom' |
@@ -24,6 +24,7 @@ export interface AbstractTooltipProps {
   trigger?: 'hover' | 'focus' | 'click';
   openClassName?: string;
   arrowPointAtCenter?: boolean;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
   // getTooltipContainer had been rename to getPopupContainer
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
@@ -55,6 +56,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     arrowPointAtCenter: false,
+    autoAdjustOverflow: true,
   };
 
   refs: {
@@ -90,10 +92,11 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   getPlacements() {
-    const { builtinPlacements, arrowPointAtCenter } = this.props;
+    const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = this.props;
     return builtinPlacements || getPlacements({
       arrowPointAtCenter,
       verticalArrowShift: 8,
+      autoAdjustOverflow,
     });
   }
 
