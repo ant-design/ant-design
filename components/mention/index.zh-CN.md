@@ -51,6 +51,12 @@ title: Mention
 | readOnly | 是否只读. | boolean | false |
 | disabled | 是否禁用状态. | boolean | false |
 
+### Mention methods
+
+| Property     | Description          | Type     | Default       |
+|----------|---------------|----------|--------------|
+| focus | 强制获得焦点. |  - | - |
+
 ### Nav
 
 | 参数     | 说明           | 类型     | 默认值       |

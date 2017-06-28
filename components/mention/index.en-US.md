@@ -51,6 +51,12 @@ When need to mention someone or something.
 | readOnly | Tell if the input is readonly. | boolean | false |
 | disabled | Tell if the input is disabled. | boolean | false |
 
+### Mention methods
+
+| Property     | Description          | Type     | Default       |
+|----------|---------------|----------|--------------|
+| focus | Force focus back onto the editor node. |  - | - |
+
 ### Nav
 
 | Property     | Description           | Type     | Default       |
