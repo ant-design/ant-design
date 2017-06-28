@@ -46,7 +46,7 @@
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
     "prop-types": "^15.5.7",
-    "rc-animate": "~2.3.6",
+    "rc-animate": "^2.3.6",
     "rc-calendar": "~8.4.1",
     "rc-cascader": "~0.11.3",
     "rc-checkbox": "~2.0.3",
