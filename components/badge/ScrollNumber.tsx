@@ -1,7 +1,7 @@
 import React from 'react';
 import { createElement, Component } from 'react';
+import assign from 'object-assign';
 import omit from 'omit.js';
-import classNames from 'classnames';
 
 function getNumberArray(num) {
   return num ?
@@ -119,30 +119,24 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
   }
 
   render() {
-    const { prefixCls, className, style, component = 'sup' } = this.props;
     // fix https://fb.me/react-unknown-prop
-    const restProps = omit(this.props, [
+    const props = assign({}, omit(this.props, [
       'count',
       'onAnimated',
       'component',
       'prefixCls',
-    ]);
-    const newProps = {
-      ...restProps,
-      className: classNames({
-        [`${prefixCls}`]: !!prefixCls,
-        [`${className}`]: !!className,
-      }),
-    };
+    ]), {
+      className: `${this.props.prefixCls} ${this.props.className}`,
+    });
     // allow specify the border
     // mock border-color by box-shadow for compatible with old usage:
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-    if (style && style.borderColor) {
-      newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
+    if (props.style && props.style.borderColor) {
+      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor} inset`;
     }
     return createElement(
-      component as any,
-      newProps,
+      (this.props.component || 'sup') as any,
+      props,
       this.renderNumberElement(),
     );
   }
