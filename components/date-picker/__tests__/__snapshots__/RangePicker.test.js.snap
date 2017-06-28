@@ -65,7 +65,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="button"
                       title="选择月份"
                     >
-                      一月
+                      1月
                     </a>
                   </span>
                 </div>
@@ -790,7 +790,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="button"
                       title="选择月份"
                     >
-                      二月
+                      2月
                     </a>
                   </span>
                   <a
@@ -1570,7 +1570,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="button"
                       title="选择月份"
                     >
-                      一月
+                      1月
                     </a>
                   </span>
                 </div>
@@ -2295,7 +2295,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="button"
                       title="选择月份"
                     >
-                      二月
+                      2月
                     </a>
                   </span>
                   <a

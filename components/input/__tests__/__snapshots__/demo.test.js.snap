@@ -331,16 +331,16 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </div>
       <div
-        aria-valuemax="Infinity"
-        aria-valuemin="-Infinity"
+        aria-valuemax="9007199254740991"
+        aria-valuemin="-9007199254740991"
         class="ant-input-number-input-wrap"
         role="spinbutton"
       >
         <input
           autocomplete="off"
           class="ant-input-number-input"
-          max="Infinity"
-          min="-Infinity"
+          max="9007199254740991"
+          min="-9007199254740991"
           value=""
         />
       </div>
