@@ -37,8 +37,8 @@ ReactDOM.render(
     />
     <br />
     <RangePicker
-      showTime
-      format="YYYY-MM-DD HH:mm:ss"
+      showTime={{ format: 'HH:mm' }}
+      format="YYYY-MM-DD HH:mm"
       placeholder={['Start Time', 'End Time']}
       onChange={onChange}
       onOk={onOk}
