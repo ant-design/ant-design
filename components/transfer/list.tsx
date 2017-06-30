@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import assign from 'object-assign';
 import Checkbox from '../checkbox';
 import { TransferItem } from './index';
 import Search from './search';
@@ -139,8 +138,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer(assign({}, this.props));
-    const bodyDom = body(assign({}, this.props));
+    const footerDom = footer({ ...this.props });
+    const bodyDom = body({ ...this.props });
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,

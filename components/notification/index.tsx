@@ -1,7 +1,6 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
-import assign from 'object-assign';
 const notificationInstance = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
@@ -143,7 +142,7 @@ function notice(args) {
     closable: true,
     onClose: args.onClose,
     key: args.key,
-    style: assign({}, style),
+    style: { ...style },
     className,
   });
 }
@@ -204,7 +203,10 @@ const api = {
 };
 
 ['success', 'info', 'warning', 'error'].forEach((type) => {
-  api[type] = (args: ArgsProps) => api.open(assign({}, args, { type }));
+  api[type] = (args: ArgsProps) => api.open({
+    ...args,
+    type,
+  });
 });
 
 (api as any).warn = (api as any).warning;

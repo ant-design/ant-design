@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
@@ -156,11 +155,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     this.columns = props.columns || normalizeColumns(props.children);
 
-    this.state = assign({}, this.getSortStateFromColumns(), {
+    this.state = {
+      ...this.getSortStateFromColumns(),
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
-    });
+    };
 
     this.CheckboxPropsCache = {};
 
@@ -196,10 +196,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   getDefaultPagination(props) {
     const pagination = props.pagination || {};
     return this.hasPagination(props) ?
-      assign({},  defaultPagination, pagination, {
+      {
+        ...defaultPagination,
+        ...pagination,
         current: pagination.defaultCurrent || pagination.current || 1,
         pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
-      }) : {};
+      } : {};
   }
 
   getLocale() {
@@ -207,14 +209,22 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     if (this.context.antLocale && this.context.antLocale.Table) {
       locale = this.context.antLocale.Table;
     }
-    return assign({}, defaultLocale, locale, this.props.locale);
+    return {
+      ...defaultLocale,
+      ...locale,
+      ...this.props.locale,
+    };
   }
 
   componentWillReceiveProps(nextProps) {
     this.columns = nextProps.columns || normalizeColumns(nextProps.children);
     if ('pagination' in nextProps || 'pagination' in this.props) {
       this.setState(previousState => {
-        const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
+        const newPagination = {
+          ...defaultPagination,
+          ...previousState.pagination,
+          ...nextProps.pagination,
+        };
         newPagination.current = newPagination.current || 1;
         newPagination.pageSize = newPagination.pageSize || 10;
         return { pagination: nextProps.pagination !== false ? newPagination : emptyObject };
@@ -251,7 +261,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const filteredValueColumns = this.getFilteredValueColumns(this.columns);
     if (filteredValueColumns.length > 0) {
       const filtersFromColumns = this.getFiltersFromColumns(this.columns);
-      const newFilters = assign({}, this.state.filters);
+      const newFilters = { ...this.state.filters };
       Object.keys(filtersFromColumns).forEach(key => {
         newFilters[key] = filtersFromColumns[key];
       });
@@ -380,16 +390,20 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, newState)));
+      onChange.apply(null, this.prepareParamsArguments({
+        ...this.state,
+        ...newState,
+      }));
     }
   }
 
   handleFilter = (column, nextFilters) => {
     const props = this.props;
-    let pagination = assign({}, this.state.pagination);
-    const filters = assign({}, this.state.filters, {
+    let pagination = { ...this.state.pagination };
+    const filters = {
+      ...this.state.filters,
       [this.getColumnKey(column)]: nextFilters,
-    });
+    };
     // Remove filters not in current columns
     const currentColumnKeys: string[] = [];
     treeMap(this.columns, c => {
@@ -413,7 +427,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       pagination,
       filters: {},
     };
-    const filtersToSetState = assign({}, filters);
+    const filtersToSetState = { ...filters };
     // Remove filters which is controlled
     this.getFilteredValueColumns().forEach(col => {
       const columnKey = this.getColumnKey(col);
@@ -427,9 +441,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     // Controlled current prop will not respond user interaction
     if (typeof props.pagination === 'object' && 'current' in (props.pagination as Object)) {
-      newState.pagination = assign({}, pagination, {
+      newState.pagination = {
+        ...pagination,
         current: this.state.pagination.current,
-      });
+      };
     }
 
     this.setState(newState, () => {
@@ -438,11 +453,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       });
       const onChange = this.props.onChange;
       if (onChange) {
-        onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+        onChange.apply(null, this.prepareParamsArguments({
+          ...this.state,
           selectionDirty: false,
           filters,
           pagination,
-        })));
+        }));
       }
     });
   }
@@ -547,7 +563,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   handlePageChange = (current, ...otherArguments) => {
     const props = this.props;
-    let pagination = assign({}, this.state.pagination);
+    let pagination = { ...this.state.pagination };
     if (current) {
       pagination.current = current;
     } else {
@@ -562,9 +578,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     if (props.pagination &&
         typeof props.pagination === 'object' &&
         'current' in (props.pagination as Object)) {
-      newState.pagination = assign({}, pagination, {
+      newState.pagination = {
+        ...pagination,
         current: this.state.pagination.current,
-      });
+      };
     }
     this.setState(newState);
 
@@ -574,10 +591,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+      onChange.apply(null, this.prepareParamsArguments({
+        ...this.state,
         selectionDirty: false,
         pagination,
-      })));
+      }));
     }
   }
 
@@ -692,7 +710,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const { sortOrder } = this.state;
     const locale = this.getLocale();
     return treeMap(columns, (originColumn, i) => {
-      let column = assign({}, originColumn);
+      let column = { ...originColumn };
       let key = this.getColumnKey(column, i);
       let filterDropdown;
       let sortButton;
@@ -753,14 +771,19 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   handleShowSizeChange = (current, pageSize) => {
     const pagination = this.state.pagination;
     pagination.onShowSizeChange(current, pageSize);
-    const nextPagination = assign({}, pagination, { pageSize, current });
+    const nextPagination = {
+      ...pagination,
+      pageSize,
+      current,
+    };
     this.setState({ pagination: nextPagination });
 
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+      onChange.apply(null, this.prepareParamsArguments({
+        ...this.state,
         pagination: nextPagination,
-      })));
+      }));
     }
   }
 
@@ -854,12 +877,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   recursiveSort(data, sorterFn) {
     const { childrenColumnName = 'children' } = this.props;
-    return data.sort(sorterFn).map(item => (item[childrenColumnName] ? assign(
-      {},
-      item, {
+    return data.sort(sorterFn).map(item => (item[childrenColumnName] ? {
+      ...item,
         [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
-      },
-    ) : item));
+      } : item));
   }
 
   getLocalData() {
@@ -908,7 +929,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
-      const newColumn = assign({}, column);
+      const newColumn = { ...column };
       newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });

@@ -1,9 +1,9 @@
+/* tslint:disable jsx-no-multiline-js */
 import React from 'react';
 import { Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
-import assign from 'object-assign';
 import omit from 'omit.js';
 
 function fixControlledValue(value) {
@@ -234,7 +234,9 @@ export default class Input extends Component<InputProps, any> {
   }
 
   renderInput() {
-    const props = assign({}, this.props);
+    const props = {
+      ...this.props,
+    };
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -268,7 +270,10 @@ export default class Input extends Component<InputProps, any> {
         return (
           <textarea
             {...otherProps}
-            style={assign({}, props.style, this.state.textareaStyles)}
+            style={{
+              ...props.style,
+              ...this.state.textareaStyles,
+              }}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
             onChange={this.handleTextareaChange}

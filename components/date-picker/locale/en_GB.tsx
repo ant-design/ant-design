@@ -1,14 +1,16 @@
 import CalendarLocale from 'rc-calendar/lib/locale/en_GB';
 import TimePickerLocale from '../../time-picker/locale/en_GB';
-import assign from 'object-assign';
 
 // Merge into a locale object
 const locale = {
-  lang: assign({
+  lang: {
     placeholder: 'Select date',
     rangePlaceholder: ['Start date', 'End date'],
-  }, CalendarLocale),
-  timePickerLocale: assign({}, TimePickerLocale),
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 // All settings at:

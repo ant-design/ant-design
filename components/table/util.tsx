@@ -1,11 +1,10 @@
 import React from 'react';
-import assign from 'object-assign';
 
 export function flatArray(data: Object[] = [], childrenName = 'children') {
   const result: Object[] = [];
   const loop = (array) => {
     array.forEach(item => {
-      const newItem = assign({}, item);
+      const newItem = { ...item };
       delete newItem[childrenName];
       result.push(newItem);
       if (item[childrenName] && item[childrenName].length > 0) {
@@ -23,7 +22,10 @@ export function treeMap(tree: Object[], mapper: Function, childrenName = 'childr
     if (node[childrenName]) {
       extra[childrenName] = treeMap(node[childrenName], mapper, childrenName);
     }
-    return assign({}, mapper(node, index), extra);
+    return {
+      ...mapper(node, index),
+      ...extra,
+    };
   });
 }
 
@@ -46,7 +48,9 @@ export function normalizeColumns(elements) {
     if (!React.isValidElement(element)) {
       return;
     }
-    const column = assign({}, element.props);
+    const column: any = {
+      ...element.props,
+    };
     if (element.key) {
       column.key = element.key;
     }

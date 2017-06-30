@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import injectLocale from '../locale-provider/injectLocale';
 import defaultLocale from './locale/zh_CN';
 
@@ -30,6 +29,7 @@ export interface TimePickerProps {
   onOpenChange?: (open: boolean) => void;
   disabled?: boolean;
   placeholder?: string;
+  prefixCls?: string;
   hideDisabledOptions?: boolean;
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
@@ -115,7 +115,9 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
   }
 
   render() {
-    const props = assign({}, this.props);
+    const props = {
+      ...this.props,
+    };
     delete props.defaultValue;
 
     const format = this.getDefaultFormat();

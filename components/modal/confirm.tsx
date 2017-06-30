@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Icon from '../icon';
 import Dialog from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 
 export default function confirm(config) {
-  const props = assign({ iconType: 'question-circle' }, config);
+  const props = {
+    iconType: 'question-circle',
+    ...config,
+  };
   const prefixCls = props.prefixCls || 'ant-confirm';
   let div = document.createElement('div');
   document.body.appendChild(div);

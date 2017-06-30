@@ -1,5 +1,4 @@
 import React from 'react';
-import assign from 'object-assign';
 import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';
 import warning from '../_util/warning';
@@ -46,7 +45,7 @@ export default class Popover extends React.Component<PopoverProps, any> {
   }
 
   render() {
-    const props = assign({}, this.props);
+    const props = { ...this.props };
     delete props.title;
     return (
       <Tooltip

@@ -1,6 +1,5 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-import assign from 'object-assign';
 import debounce from 'lodash.debounce';
 
 if (typeof window !== 'undefined') {
@@ -108,7 +107,9 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   render() {
-    let props = assign({}, this.props);
+    let props = {
+      ...this.props,
+    };
 
     if (props.effect === 'fade') {
       props.fade = true;
