@@ -1,8 +1,10 @@
 import React from 'react';
-import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
+import RcMenu, { Divider, SubMenu, ItemGroup } from 'rc-menu';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
+import Item from './MenuItem';
 
 export interface SelectParam {
   key: string;
@@ -53,6 +55,9 @@ export default class Menu extends React.Component<MenuProps, any> {
     className: '',
     theme: 'light',  // or dark
   };
+  static childContextTypes = {
+    inlineCollapsed: PropTypes.bool,
+  };
   switchModeFromInline: boolean;
   inlineOpenKeys = [];
   constructor(props) {
@@ -79,6 +84,11 @@ export default class Menu extends React.Component<MenuProps, any> {
 
     this.state = {
       openKeys: openKeys || [],
+    };
+  }
+  getChildContext() {
+    return {
+      inlineCollapsed: this.props.inlineCollapsed,
     };
   }
   componentWillReceiveProps(nextProps) {

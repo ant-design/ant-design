@@ -159,10 +159,7 @@
 
   &-inline {
     width: 100%;
-    &,
-    .@{iconfont-css-prefix} {
-      transition: all .1s;
-    }
+    transition: width .24s;
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       &:after {
@@ -173,10 +170,10 @@
 
   &-inline-collapsed {
     width: 64px;
+    transition: all .3s;
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       text-align: center;
-      margin-left: 0;
       left: 0;
       &:after {
         display: none;
@@ -190,8 +187,14 @@
         line-height: 42px;
         margin: 0;
         + span {
-          display: none;
+          max-width: 0;
+          visibility: hidden;
         }
+      }
+    }
+    &-tooltip {
+      .@{iconfont-css-prefix} {
+        display: none;
       }
     }
   }
@@ -229,6 +232,15 @@
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
+      transition: all .3s;
+      vertical-align: middle;
+      + span {
+        max-width: 100%;
+        display: inline-block;
+        overflow: hidden;
+        transition: all .3s;
+        vertical-align: middle;
+      }
     }
   }
 
