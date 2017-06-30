@@ -58,6 +58,9 @@ export default class Menu extends React.Component<MenuProps, any> {
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,
   };
+  static contextTypes = {
+    siderCollapsed: PropTypes.bool,
+  };
   switchModeFromInline: boolean;
   inlineOpenKeys = [];
   constructor(props) {
@@ -88,7 +91,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   getChildContext() {
     return {
-      inlineCollapsed: this.props.inlineCollapsed,
+      inlineCollapsed: this.getInlineCollapsed(),
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -131,8 +134,15 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
   getRealMenuMode() {
-    const { mode, inlineCollapsed } = this.props;
-    return inlineCollapsed ? 'vertical' : mode;
+    const { mode } = this.props;
+    return this.getInlineCollapsed() ? 'vertical' : mode;
+  }
+  getInlineCollapsed() {
+    const { inlineCollapsed } = this.props;
+    if ('siderCollapsed' in this.context) {
+      return this.context.siderCollapsed;
+    }
+    return inlineCollapsed;
   }
   getMenuOpenAnimation() {
     const { openAnimation, openTransitionName } = this.props;
@@ -162,12 +172,12 @@ export default class Menu extends React.Component<MenuProps, any> {
     return menuOpenAnimation;
   }
   render() {
-    const { inlineCollapsed, prefixCls, className, theme } = this.props;
+    const { prefixCls, className, theme } = this.props;
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation();
 
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
-      [`${prefixCls}-inline-collapsed`]: inlineCollapsed,
+      [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
     });
 
     const menuProps: MenuProps = {
