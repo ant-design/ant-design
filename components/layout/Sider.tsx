@@ -17,6 +17,7 @@ if (typeof window !== 'undefined') {
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import PropTypes from 'prop-types';
 import Icon from '../icon';
 
 const dimensionMap = {
@@ -55,6 +56,10 @@ export default class Sider extends React.Component<SiderProps, any> {
     style: {},
   };
 
+  static childContextTypes = {
+    siderCollapsed: PropTypes.bool,
+  };
+
   private mql: any;
 
   constructor(props) {
@@ -75,6 +80,12 @@ export default class Sider extends React.Component<SiderProps, any> {
     this.state = {
       collapsed,
       below: false,
+    };
+  }
+
+  getChildContext() {
+    return {
+      siderCollapsed: this.props.collapsed,
     };
   }
 
