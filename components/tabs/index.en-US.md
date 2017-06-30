@@ -1,7 +1,8 @@
 ---
 category: Components
-type: Navigation
+type: Data Display
 title: Tabs
+cols: 1
 ---
 
 Tabs make it easy to switch between different views.

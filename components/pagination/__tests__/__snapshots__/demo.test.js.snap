@@ -350,7 +350,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       跳至
       <input
         type="text"
-        value="2"
+        value=""
       />
       页
     </div>
@@ -532,7 +532,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
         跳至
         <input
           type="text"
-          value="1"
+          value=""
         />
         页
       </div>
@@ -542,11 +542,11 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     class="ant-pagination mini"
     unselectable="unselectable"
   >
-    <span
+    <li
       class="ant-pagination-total-text"
     >
       Total 50 items
-    </span>
+    </li>
     <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
@@ -758,11 +758,11 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     class="ant-pagination "
     unselectable="unselectable"
   >
-    <span
+    <li
       class="ant-pagination-total-text"
     >
       Total 85 items
-    </span>
+    </li>
     <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
@@ -830,11 +830,11 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     class="ant-pagination "
     unselectable="unselectable"
   >
-    <span
+    <li
       class="ant-pagination-total-text"
     >
       1-20 of 85 items
-    </span>
+    </li>
     <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"

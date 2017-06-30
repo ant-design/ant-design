@@ -6,6 +6,19 @@ import assign from 'object-assign';
 import injectLocale from '../locale-provider/injectLocale';
 import defaultLocale from './locale/zh_CN';
 
+export function generateShowHourMinuteSecond(format: string) {
+  // Ref: http://momentjs.com/docs/#/parsing/string-format/
+  return {
+    showHour: (
+      format.indexOf('H') > -1 ||
+        format.indexOf('h') > -1 ||
+        format.indexOf('k') > -1
+    ),
+    showMinute: format.indexOf('m') > -1,
+    showSecond: format.indexOf('s') > -1,
+  };
+}
+
 export interface TimePickerProps {
   className?: string;
   size?: 'large' | 'default' | 'small';
@@ -120,9 +133,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
 
     return (
       <RcTimePicker
-        showHour={format.indexOf('HH') > -1 || format.indexOf('h') > -1}
-        showMinute={format.indexOf('mm') > -1}
-        showSecond={format.indexOf('ss') > -1}
+        {...generateShowHourMinuteSecond(format)}
         {...props}
         ref={this.saveTimePicker}
         format={format}

@@ -38,6 +38,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 |--------------|----------------|----------|--------------|
 | allowClear   | Whether to show clear button | boolean | true |
 | disabled     | determine whether the DatePicker is disabled           | boolean     | false        |
+| className | picker className | string | '' |
 | style        | to customize the style of the input box     | object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | object     | {}   |
 | size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | string   | -  |

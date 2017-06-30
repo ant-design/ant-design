@@ -116,6 +116,11 @@ class Footer extends React.Component {
               <span> - </span>
               <FormattedMessage id="app.footer.antux" />
             </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="http://enclose.io/">Enclose.IO</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.encloseio" />
+            </div>
           </li>
           <li>
             <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.community" /></h2>

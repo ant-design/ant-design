@@ -249,7 +249,7 @@ export default class RangePicker extends React.Component<any, any> {
     };
 
     return (
-      <span className={props.pickerClass} style={assign({}, style, pickerStyle)}>
+      <span className={classNames(props.className, props.pickerClass)} style={assign({}, style, pickerStyle)}>
         <RcDatePicker
           {...props}
           {...pickerChangeHandler}

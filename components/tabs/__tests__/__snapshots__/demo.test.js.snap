@@ -188,7 +188,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
                 class="ant-tabs-tab-active ant-tabs-tab"
                 role="tab"
               >
-                Tab 1
+                Tab Title 1
               </div>
               <div
                 aria-disabled="false"
@@ -196,7 +196,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
                 class=" ant-tabs-tab"
                 role="tab"
               >
-                Tab 2
+                Tab Title 2
               </div>
               <div
                 aria-disabled="false"
@@ -204,7 +204,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
                 class=" ant-tabs-tab"
                 role="tab"
               >
-                Tab 3
+                Tab Title 3
               </div>
             </div>
           </div>
@@ -219,7 +219,15 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
         role="tabpanel"
       >
-        Content of Tab Pane 1
+        <p>
+          Content of Tab Pane 1
+        </p>
+        <p>
+          Content of Tab Pane 1
+        </p>
+        <p>
+          Content of Tab Pane 1
+        </p>
       </div>
       <div
         aria-hidden="true"
@@ -992,6 +1000,22 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
               >
                 Tab 9
               </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 10
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 11
+              </div>
             </div>
           </div>
         </div>
@@ -1008,6 +1032,16 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       >
         Content of tab 1
       </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane ant-tabs-tabpane-inactive"

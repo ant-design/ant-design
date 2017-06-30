@@ -14,13 +14,9 @@
 .@{slider-prefix-cls} {
   position: relative;
   margin: 10px 6px;
+  padding: 4px 0;
   height: 12px;
-  border-radius: 5px;
-  background-color: @border-color-split;
   cursor: pointer;
-  border-top: 4px solid #fff;
-  border-bottom: 4px solid #fff;
-  transition: background-color 0.3s ease;
 
   .vertical();
 
@@ -28,25 +24,21 @@
     margin-bottom: 28px;
   }
 
-  &-track {
+  &-rail {
     position: absolute;
-    left: 0;
+    width: 100%;
     height: 4px;
-    border-radius: @border-radius-base;
-    background-color: tint(@primary-color, 60%);
-    z-index: 1;
+    border-radius: 2px;
+    background-color: @border-color-split;
     transition: background-color 0.3s ease;
   }
 
-  &:hover {
-    background-color: #e1e1e1;
-    .@{slider-prefix-cls}-handle {
-      border-color: @primary-5;
-    }
-  }
-
-  &:hover &-track {
-    background-color: tint(@primary-color, 40%);
+  &-track {
+    position: absolute;
+    height: 4px;
+    border-radius: @border-radius-base;
+    background-color: tint(@primary-color, 60%);
+    transition: background-color 0.3s ease;
   }
 
   &-handle {
@@ -59,7 +51,6 @@
     border-radius: 50%;
     border: solid 2px tint(@primary-color, 50%);
     background-color: @component-background;
-    z-index: 2;
     transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:hover {
@@ -73,13 +64,24 @@
     }
   }
 
+  &:hover {
+    .@{slider-prefix-cls}-rail {
+      background-color: #e1e1e1;
+    }
+    .@{slider-prefix-cls}-track {
+      background-color: tint(@primary-color, 40%);
+    }
+    .@{slider-prefix-cls}-handle {
+      border-color: @primary-5;
+    }
+  }
+
   &-mark {
     position: absolute;
-    top: 10px;
+    top: 14px;
     left: 0;
     width: 100%;
     font-size: @font-size-base;
-    z-index: 3;
   }
 
   &-mark-text {
@@ -100,7 +102,6 @@
     width: 100%;
     height: 4px;
     background: transparent;
-    z-index: 1;
   }
 
   &-dot {
@@ -152,9 +153,12 @@
     width: 12px;
     height: 100%;
     margin: 6px 10px;
-    border: 4px solid #fff;
-    border-top: 0 none;
-    border-bottom: 0 none;
+    padding: 0 4px;
+
+    .@{slider-prefix-cls}-rail {
+      height: 100%;
+      width: 4px;
+    }
 
     .@{slider-prefix-cls}-track {
       width: 4px;
@@ -167,7 +171,7 @@
 
     .@{slider-prefix-cls}-mark {
       top: 0;
-      left: 8px;
+      left: 12px;
       width: 18px;
       height: 100%;
     }

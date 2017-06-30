@@ -7,6 +7,7 @@
   outline: 0;
   width: 43%;
   text-align: center;
+  vertical-align: top;
   .placeholder();
 
   &[disabled] {
@@ -16,6 +17,9 @@
 
 .@{calendar-prefix-cls}-range-picker-separator {
   color: @text-color-secondary;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
 }
 
 .@{calendar-prefix-cls}-range {

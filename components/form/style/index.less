@@ -120,13 +120,14 @@ input[type="checkbox"] {
   }
 }
 
-.@{form-prefix-cls}-explain {
-  line-height: 1.5;
-}
-
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
+  line-height: 1.5;
+}
+
+.@{form-prefix-cls}-extra {
+  padding-top: 4px;
 }
 
 .@{form-prefix-cls}-text {
@@ -222,8 +223,23 @@ form {
   .@{ant-prefix}-select,
   .@{ant-prefix}-cascader-picker {
     width: 100%;
+    // Fix https://github.com/ant-design/ant-design/issues/6097
     &:only-child {
       display: block;
+    }
+  }
+
+  // Don't impact select inside input group
+  .@{ant-prefix}-input-group .@{ant-prefix}-select,
+  .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
+    width: auto;
+  }
+
+  // Don't impact select inside input group addon
+  .@{ant-prefix}-input-group-addon .@{ant-prefix}-select,
+  .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
+    &:only-child {
+      display: inline-block;
     }
   }
 }
@@ -261,9 +277,10 @@ form {
   padding: 0 0 8px;
   display: block;
   text-align: left;
+  line-height: @line-height-base;
 
   label:after {
-    content: '';
+    display: none;
   }
 }
 .@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
@@ -301,7 +318,7 @@ form {
 .@{form-prefix-cls}-inline {
   .@{form-prefix-cls}-item {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 16px;
     margin-bottom: 0;
 
     &-with-help {

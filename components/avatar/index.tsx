@@ -95,20 +95,24 @@ export default class Avatar extends React.Component<AvatarProps, any> {
           display: 'inline-block',
           left: `calc(50% - ${Math.round(childrenNode.offsetWidth / 2)}px)`,
         };
-        children = <span
-          className={`${prefixCls}-string`}
-          ref={span => this.avatarChildren = span}
-          style={childrenStyle}
-        >
-          {children}
-        </span>;
+        children = (
+          <span
+            className={`${prefixCls}-string`}
+            ref={span => this.avatarChildren = span}
+            style={childrenStyle}
+          >
+            {children}
+          </span>
+        );
       } else {
-        children = <span
-          className={`${prefixCls}-string`}
-          ref={span => this.avatarChildren = span}
-        >
-          {children}
-        </span>;
+        children = (
+          <span
+            className={`${prefixCls}-string`}
+            ref={span => this.avatarChildren = span}
+          >
+            {children}
+          </span>
+        );
       }
     }
     return (

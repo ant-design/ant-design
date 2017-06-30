@@ -198,8 +198,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="Infinity"
-      aria-valuemin="-Infinity"
+      aria-valuemax="9007199254740991"
+      aria-valuemin="-9007199254740991"
       aria-valuenow="1000"
       class="ant-input-number-input-wrap"
       role="spinbutton"
@@ -207,8 +207,8 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        max="Infinity"
-        min="-Infinity"
+        max="9007199254740991"
+        min="-9007199254740991"
         value="$ 1,000"
       />
     </div>

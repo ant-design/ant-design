@@ -17,6 +17,34 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## Next
+
+- Increase click area of Table's sort and filter icon.[#6528](https://github.com/ant-design/ant-design/pull/6528)
+
+## 2.11.2
+
+`2017-06-25`
+
+- Dropdown.Button now support getPopupContainer function.[#6527](https://github.com/ant-design/ant-design/pull/6527)
+- Fix disabled dropdown submenu style error. [#6548](https://github.com/ant-design/ant-design/issues/6548)
+- Fix background color error of Calendar. [#aaf2a](https://github.com/ant-design/ant-design/commit/aaf2a508bef96f81faf556036649b2a2fe5b635b)
+- Select of Calendar now take place in header. [#6479](https://github.com/ant-design/ant-design/pull/6479)
+- Fix horia horizontal scroll error of Input and Textarea. [#6577](https://github.com/ant-design/ant-design/issues/6577)
+- Improve document of `disabled` attribute of Checkbox and Radio. [#6597](https://github.com/ant-design/ant-design/pull/6597)
+- Increase click area of Table's sort and filter icon.[#6528](https://github.com/ant-design/ant-design/pull/6528)
+- Add `event:Event` parameter of Table.props.onRowClick. [#e2a99f5](https://github.com/ant-design/ant-design/commit/e2a99f53f7a27bd7de4adf99d0e1ee755b537c72)
+
+## 2.11.1
+
+`2017-06-18`
+
+- Fix setting `className` of Table's pagination not working issue. [#6416](https://github.com/ant-design/ant-design/issues/6416)
+- Fix nested Tabs style issue.[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
+- Fix RadioButton wrapping leaves off the left border on small screen.[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+- Fix RangePicker footer border.
+- Improve Dropdown.Button's type definitions. [#6482](https://github.com/ant-design/ant-design/pull/6482) [@newraina](https://github.com/newraina)
+
+
 ## 2.11.0
 
 `2017-06-07`
@@ -259,7 +287,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Fixed missing locales of Russian. [#5406](https://github.com/ant-design/ant-design/pull/5406) [@plandem](https://github.com/plandem)
   - Fixed it doesn't work with Upload. [#5388](https://github.com/ant-design/ant-design/pull/5388) [@natergj](https://github.com/natergj)
 - Fixed inconsistet animation of Menu Icon and text. [#5495](https://github.com/ant-design/ant-design/issues/5495)
-- Fixed `Modale[footer]` cannot be set to `null`. [#5462](https://github.com/ant-design/ant-design/issues/5462)
+- Fixed `Modal[footer]` cannot be set to `null`. [#5462](https://github.com/ant-design/ant-design/issues/5462)
 - Fixed Pagination will lost styles in `IE<=10` which is introduced in `2.8.2`. [#5484](https://github.com/ant-design/ant-design/issues/5484)
 - Fixed Popover will be closed by mistake while using Table in it. [#5407](https://github.com/ant-design/ant-design/issues/5407)
 - Remove restriction that Radio can only be direct chidlren of Radio.Group. [#5443](https://github.com/ant-design/ant-design/issues/5443)
@@ -274,16 +302,16 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 `2017-03-11`
 
 - New [design specification documentation](https://ant.design/docs/spec/colors).
-- Fix error of Modal.confirm [#5269](https://github.com/ant-design/ant-design/issues/5269).
-- Fix mask style of Upload [#5275](https://github.com/ant-design/ant-design/issues/5275).
-- Fix progress not showing of Upload [#5323](https://github.com/ant-design/ant-design/issues/5323).
-- Fix a pagination showTotal wrong data issue of Table [#5259](https://github.com/ant-design/ant-design/issues/5259).
-- Fix a style issue while using Popconfirm and Button together [5301](https://github.com/ant-design/ant-design/issues/5301).
-- Fix a style issue of Radio [#5336](https://github.com/ant-design/ant-design/pull/5336).
-- Fix a issue that `getContainer` of Message didn't work [#5380](https://github.com/ant-design/ant-design/issues/5380).
-- Fix text alignment of Checkbox and Radio [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec).
-- Tweak animation and blur style of Spin [fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232).
-- Tweak some styles of Mention  [240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773).
+- Fix error of Modal.confirm. [#5269](https://github.com/ant-design/ant-design/issues/5269)
+- Fix mask style of Upload. [#5275](https://github.com/ant-design/ant-design/issues/5275)
+- Fix progress not showing of Upload. [#5323](https://github.com/ant-design/ant-design/issues/5323)
+- Fix a pagination showTotal wrong data issue of Table. [#5259](https://github.com/ant-design/ant-design/issues/5259)
+- Fix a style issue while using Popconfirm and Button together. [#5301](https://github.com/ant-design/ant-design/issues/5301)
+- Fix a style issue of Radio. [#5336](https://github.com/ant-design/ant-design/pull/5336)
+- Fix a issue that `getContainer` of Message didn't work. [#5380](https://github.com/ant-design/ant-design/issues/5380)
+- Fix text alignment of Checkbox and Radio.  [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec)
+- Tweak animation and blur style of Spin.  [fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232)
+- Tweak some styles of Mention.  [240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773)
 
 ## 2.8.1
 

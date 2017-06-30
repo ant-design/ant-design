@@ -1,6 +1,6 @@
 ---
-Order: 6
-Title: Advanced Search
+order: 6
+title: Advanced Search
 ---
 
 With Advanced Search, users can narrow down the range of complex lists / tables.

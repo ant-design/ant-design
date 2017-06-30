@@ -1506,7 +1506,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                             Name
                             <i
                               class="anticon anticon-filter ant-dropdown-trigger"
-                              title="Filter Menu"
+                              title="Filter menu"
                             />
                           </span>
                         </th>
@@ -1527,7 +1527,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 <div
                   class="ant-table-placeholder"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>

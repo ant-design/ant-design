@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+type: Other
 title: BackTop
 ---
 

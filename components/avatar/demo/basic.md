@@ -14,20 +14,27 @@ title:
 Three sizes and two shapes are available.
 
 ````jsx
-import { Avatar, Row, Col } from 'antd';
+import { Avatar } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Row>
-      <Col span={4}><Avatar size="large" icon="user" /></Col>
-      <Col span={4}><Avatar icon="user" /></Col>
-      <Col span={4}><Avatar size="small" icon="user" /></Col>
-    </Row>
-    <Row>
-      <Col span={4}><Avatar shape="square" size="large" icon="user" /></Col>
-      <Col span={4}><Avatar shape="square" icon="user" /></Col>
-      <Col span={4}><Avatar shape="square" size="small" icon="user" /></Col>
-    </Row>
+    <div>
+      <Avatar size="large" icon="user" />
+      <Avatar icon="user" />
+      <Avatar size="small" icon="user" />
+    </div>
+    <div>
+      <Avatar shape="square" size="large" icon="user" />
+      <Avatar shape="square" icon="user" />
+      <Avatar shape="square" size="small" icon="user" />
+    </div>
   </div>
 , mountNode);
 ````
+
+<style>
+#components-avatar-demo-basic .ant-avatar {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+</style>

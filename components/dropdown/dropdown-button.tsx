@@ -1,24 +1,16 @@
 import React from 'react';
 import Button from '../button';
+import { ButtonGroupProps } from '../button/button-group';
 import Icon from '../icon';
-import Dropdown from './dropdown';
-const ButtonGroup = Button.Group;
+import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
+const ButtonGroup = Button.Group;
 
-export interface DropdownButtonProps {
-  prefixCls?: string;
-  className?: string;
+export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: 'primary' | 'ghost' | 'dashed';
-  onClick?: React.MouseEventHandler<any>;
-  trigger?: ('click' | 'hover')[];
-  align?: any;
-  overlay: React.ReactNode;
-  visible?: boolean;
   disabled?: boolean;
-  onVisibleChange?: (visible: boolean) => void;
-  style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<any>;
   children?: any;
-  placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -30,10 +22,11 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
   render() {
     const {
-      type, overlay, trigger, align, children, className, onClick, prefixCls,
-      disabled, visible, onVisibleChange, placement, ...restProps,
+      type, disabled, onClick, children,
+      prefixCls, className, overlay, trigger, align,
+      visible, onVisibleChange, placement, getPopupContainer,
+      ...restProps,
     } = this.props;
-    const cls = classNames(prefixCls, className);
 
     const dropdownProps = {
       align,
@@ -41,15 +34,24 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       trigger: disabled ? [] : trigger,
       onVisibleChange,
       placement,
+      getPopupContainer,
     };
-
     if ('visible' in this.props) {
       (dropdownProps as any).visible = visible;
     }
 
     return (
-      <ButtonGroup {...restProps} className={cls}>
-        <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
+      <ButtonGroup
+        {...restProps}
+        className={classNames(prefixCls, className)}
+      >
+        <Button
+          type={type}
+          disabled={disabled}
+          onClick={onClick}
+        >
+          {children}
+        </Button>
         <Dropdown {...dropdownProps}>
           <Button type={type} disabled={disabled}>
             <Icon type="down" />

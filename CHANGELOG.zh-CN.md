@@ -17,6 +17,29 @@ timeline: true
 
 ---
 
+## 2.11.2
+
+`2017-06-25`
+
+- Dropdown.Button 现在也支持 getPopupContainer 方法。[#6527](https://github.com/ant-design/ant-design/pull/6527)
+- 修复 Dropdown 子菜单 disabled 时的样式错误问题。 [#6548](https://github.com/ant-design/ant-design/issues/6548)
+- 修复 Calendar 的背景颜色问题。 [#aaf2a](https://github.com/ant-design/ant-design/commit/aaf2a508bef96f81faf556036649b2a2fe5b635b)
+- Calender 的下拉菜单现在在 header 中显示。[#6479](https://github.com/ant-design/ant-design/pull/6479)
+- 修复 Input 和 Textarea 横向滚动的问题。[#6577](https://github.com/ant-design/ant-design/issues/6577)
+- 补充了 Checkbox 和 Radio 的 `disabled` 属性文档。[#6597](https://github.com/ant-design/ant-design/pull/6597)
+- 增大了 Table 的排序和过滤图标的可点击区域。[#6528](https://github.com/ant-design/ant-design/pull/6528)
+- 为 Table.props.onRowClick 函数增加了 event: Event 参数。[#e2a99f5](https://github.com/ant-design/ant-design/commit/e2a99f53f7a27bd7de4adf99d0e1ee755b537c72)
+
+## 2.11.1
+
+`2017-06-18`
+
+- 修复 Table 的分页设置 `className` 无效的问题。[#6416](https://github.com/ant-design/ant-design/issues/6416)
+- 修复 Tabs 嵌套使用时的样式问题。[#6431](https://github.com/ant-design/ant-design/issues/6431) [@sadmark](https://github.com/sadmark)
+- 修复 RadioButton 在小屏幕下会没有左侧边框的问题。[#6492](https://github.com/ant-design/ant-design/issues/6492) [@pierreneter](https://github.com/pierreneter)
+- 修复 RangePicker 底部会多一条边框的问题。
+- 完善 Dropdown.Button 类型定义。[#6482](https://github.com/ant-design/ant-design/pull/6482) [@newraina](https://github.com/newraina)
+
 ## 2.11.0
 
 `2017-06-07`
@@ -259,7 +282,7 @@ timeline: true
   - 修复对俄语支持不完善的问题。[#5406](https://github.com/ant-design/ant-design/pull/5406) [@plandem](https://github.com/plandem)
   - 修复不支持 Upload 的问题。[#5388](https://github.com/ant-design/ant-design/pull/5388) [@natergj](https://github.com/natergj)
 - 修复 Menu 内 Icon 动画效果与文字不一致的问题。[#5495](https://github.com/ant-design/ant-design/issues/5495)
-- 修复 `Modale[footer]` 无法置空的问题。[#5462](https://github.com/ant-design/ant-design/issues/5462)
+- 修复 `Modal[footer]` 无法置空的问题。[#5462](https://github.com/ant-design/ant-design/issues/5462)
 - 修复 `2.8.2` 引入的 Pagination 在 `IE<=10` 下样式丢失的问题。[#5484](https://github.com/ant-design/ant-design/issues/5484)
 - 修复 Popover 内使用 Table 时会意外关闭的问题。[#5407](https://github.com/ant-design/ant-design/issues/5407)
 - 去掉 Radio 只能作为 Radio.Group 的直接后代的限制。[#5443](https://github.com/ant-design/ant-design/issues/5443)
@@ -274,16 +297,16 @@ timeline: true
 `2017-03-19`
 
 - 发布了新的 [设计基础文档](https://ant.design/docs/spec/colors-cn)。
-- 修复使用 Modal.confirm 时报错的问题。[#5269](https://github.com/ant-design/ant-design/issues/5269)。
-- 修复 Upload 的蒙层样式 [#5275](https://github.com/ant-design/ant-design/issues/5275)。
-- 修复 Upload 上传进度条不显示的问题 [#5323](https://github.com/ant-design/ant-design/issues/5323)。
-- 修复 Table 的分页的 showTotal 数据错误的问题 [#5259](https://github.com/ant-design/ant-design/issues/5259)。
-- 修复了 Popconfirm 与 Button 同时使用时的样式问题 [5301](https://github.com/ant-design/ant-design/issues/5301)。
-- 修复 Radio 的一个样式问题 [#5336](https://github.com/ant-design/ant-design/pull/5336)。
-- 修复 Message 的 getContainer 无法使用的问题 [#5380](https://github.com/ant-design/ant-design/issues/5380)。
-- 修复 Checkbox 和 Radio 标签的文字对齐 [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec)。
-- 调整了 Spin 的动画 [fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232)。
-- 调整了 Mention 的一些样式 [240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773)。
+- 修复使用 Modal.confirm 时报错的问题。[#5269](https://github.com/ant-design/ant-design/issues/5269)
+- 修复 Upload 的蒙层样式。[#5275](https://github.com/ant-design/ant-design/issues/5275)
+- 修复 Upload 上传进度条不显示的问题。[#5323](https://github.com/ant-design/ant-design/issues/5323)
+- 修复 Table 的分页的 showTotal 数据错误的问题。[#5259](https://github.com/ant-design/ant-design/issues/5259)
+- 修复了 Popconfirm 与 Button 同时使用时的样式问题。[#5301](https://github.com/ant-design/ant-design/issues/5301)
+- 修复 Radio 的一个样式问题。[#5336](https://github.com/ant-design/ant-design/pull/5336)
+- 修复 Message 的 getContainer 无法使用的问题。[#5380](https://github.com/ant-design/ant-design/issues/5380)
+- 修复 Checkbox 和 Radio 标签的文字对齐。 [696a3c0](https://github.com/ant-design/ant-design/commit/696a3c0e34156d78e87d629a3f0f8703af1f03ec)
+- 调整了 Spin 的动画。[fa1e031](https://github.com/ant-design/ant-design/commit/fa1e031a7396c61fa9709a0c46fe63200c35d232)
+- 调整了 Mention 的一些样式。[240a93c](https://github.com/ant-design/ant-design/commit/240a93cee25bc8c6ad4520cd907a14a7b22ed773)
 
 ## 2.8.1
 

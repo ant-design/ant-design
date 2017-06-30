@@ -48,7 +48,7 @@
     user-select: none;
     z-index: 2;
     margin-right: -2px;
-    margin-top: 3px;
+    margin-top: 2px;
     width: 32px;
     height: 100%;
     line-height: 32px;
@@ -65,13 +65,14 @@
     }
 
     &-icon {
-      position: relative;
-      display: inline-block;
       font-style: normal;
       font-weight: bold;
       font-variant: normal;
       line-height: inherit;
       vertical-align: baseline;
+      position: absolute;
+      top: 50%;
+      margin-top: -50%;
       text-align: center;
       text-transform: none;
       font-family: sans-serif;
@@ -263,21 +264,23 @@
       margin-top: 0!important;
     }
 
-    > .@{tab-prefix-cls}-tab-next {
-      width: 100%;
-      bottom: 0;
-      height: 32px;
-      &-icon:before {
-        content: "\e61d";
+    > .@{tab-prefix-cls}-bar {
+      .@{tab-prefix-cls}-tab-next {
+        width: 100%;
+        bottom: 0;
+        height: 32px;
+        &-icon:before {
+          content: "\e61d";
+        }
       }
-    }
 
-    > .@{tab-prefix-cls}-tab-prev {
-      top: 0;
-      width: 100%;
-      height: 32px;
-      &-icon:before {
-        content: "\e61e";
+      .@{tab-prefix-cls}-tab-prev {
+        top: 0;
+        width: 100%;
+        height: 32px;
+        &-icon:before {
+          content: "\e61e";
+        }
       }
     }
   }

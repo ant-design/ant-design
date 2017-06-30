@@ -59,4 +59,8 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
    @import "your-theme-file.less";   // 用于覆盖上面定义的变量
    ```
 
-注意：这种方式会载入所有组件的样式，无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
+注意：这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
+
+## 社区教程
+
+- [How to Customize Ant Design with React & Webpack… the Missing Guide](https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-missing-guide-c6430f2db10f)

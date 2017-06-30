@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
+import { generateShowHourMinuteSecond } from '../time-picker';
 import warning from '../_util/warning';
 import { getComponentLocale } from '../_util/getLocale';
 declare const require: Function;
@@ -78,10 +79,8 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
 
       const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';
       const rcTimePickerProps = {
+        ...generateShowHourMinuteSecond(timeFormat),
         format: timeFormat,
-        showSecond: timeFormat.indexOf('ss') >= 0,
-        showMinute: timeFormat.indexOf('mm') >= 0,
-        showHour: timeFormat.indexOf('HH') >= 0,
         use12Hours: (props.showTime && props.showTime.use12Hours),
       };
       const columns = getColumns(rcTimePickerProps);

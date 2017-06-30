@@ -29,7 +29,7 @@ When need to mention someone or something.
 | getMentions    | get mentioned people in current contentState | Function(ContentState: contentState): string[] |
 
 
-### Mention props
+### Mention
 
 | Property     | Description          | Type     | Default       |
 |----------|---------------|----------|--------------|
@@ -51,7 +51,7 @@ When need to mention someone or something.
 | readOnly | Tell if the input is readonly. | boolean | false |
 | disabled | Tell if the input is disabled. | boolean | false |
 
-### Nav props
+### Nav
 
 | Property     | Description           | Type     | Default       |
 |----------|---------------|----------|--------------|

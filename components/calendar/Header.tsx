@@ -24,6 +24,8 @@ export default class Header extends React.Component<HeaderProps, any> {
     yearSelectTotal: 20,
   };
 
+  calenderHeaderNode: any;
+
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - (yearSelectOffset as number);
@@ -41,6 +43,7 @@ export default class Header extends React.Component<HeaderProps, any> {
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
         value={String(year)}
+        getPopupContainer={() => this.calenderHeaderNode}
       >
         {options}
       </Select>
@@ -74,6 +77,7 @@ export default class Header extends React.Component<HeaderProps, any> {
         className={`${prefixCls}-month-select`}
         value={String(month)}
         onChange={this.onMonthChange}
+        getPopupContainer={() => this.calenderHeaderNode}
       >
         {options}
       </Select>
@@ -106,6 +110,10 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
+  getCalenderHeaderNode = (node) => {
+    this.calenderHeaderNode = node;
+  }
+
   render() {
     const { type, value, prefixCls, locale, fullscreen } = this.props;
     const yearSelect = this.getYearSelectElement(value.year());
@@ -120,7 +128,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     );
 
     return (
-      <div className={`${prefixCls}-header`}>
+      <div className={`${prefixCls}-header`} ref={this.getCalenderHeaderNode}>
         {yearSelect}
         {monthSelect}
         {typeSwitch}
