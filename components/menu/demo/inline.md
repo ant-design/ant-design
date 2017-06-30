@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 内嵌菜单
-  en-US: Vertical menu with inline children
+  en-US: Inline menu
 ---
 
 ## zh-CN
