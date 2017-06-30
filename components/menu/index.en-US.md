@@ -42,6 +42,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 | multiple | Allow select multiple item | boolean | false |
+| inlineCollapsed | specified the collapsed status when menu is inline mode | boolean | - |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
