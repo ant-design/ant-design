@@ -64,6 +64,12 @@ export default class Menu extends React.Component<MenuProps, any> {
       'see: http://u.ant.design/menu-on-open-change.',
     );
 
+    warning(
+      !('inlineCollapsed' in props && props.mode !== 'inline'),
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
+      'see: http://u.ant.design/menu-on-open-change.',
+    );
+
     let openKeys;
     if ('defaultOpenKeys' in props) {
       openKeys = props.defaultOpenKeys;
@@ -83,10 +89,10 @@ export default class Menu extends React.Component<MenuProps, any> {
     if (nextProps.inlineCollapsed && !this.props.inlineCollapsed) {
       this.switchModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
-      this.setState({ openKeys: [] });
+      this.setOpenKeys([]);
     }
     if (!nextProps.inlineCollapsed && this.props.inlineCollapsed) {
-      this.setState({ openKeys: this.inlineOpenKeys });
+      this.setOpenKeys(this.inlineOpenKeys);
       this.inlineOpenKeys = [];
     }
     if ('openKeys' in nextProps) {
@@ -156,7 +162,6 @@ export default class Menu extends React.Component<MenuProps, any> {
 
     const menuProps: MenuProps = {
       openKeys: this.state.openKeys,
-      onClick: this.handleClick,
       onOpenChange: this.handleOpenChange,
       className: menuClassName,
       mode: menuMode,
