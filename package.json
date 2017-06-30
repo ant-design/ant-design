@@ -81,7 +81,7 @@
   "devDependencies": {
     "@types/react": "^15.0.8",
     "@types/react-dom": "~0.14.18",
-    "antd-demo-jest": "^1.0.5",
+    "antd-demo-jest": "^1.3.0",
     "antd-tools": "~1.5.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
@@ -116,7 +116,7 @@
     "eslint-tinker": "^0.4.0",
     "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",
-    "jest": "^19.0.2",
+    "jest": "^20.0.4",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^3.3.1",
     "mockdate": "^2.0.1",
@@ -145,7 +145,8 @@
     "xhr2": "^0.1.3"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --config .jest.js",
+    "test-node": "jest --config .jest.node.js",
     "test-all": "./scripts/test-all.sh",
     "lint": "npm run lint:ts && npm run lint:es && npm run lint:demo && npm run lint:style",
     "lint:ts": "npm run tsc && antd-tools run ts-lint",
@@ -181,46 +182,6 @@
     "{site,components}/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [
       "lint-staged:demo"
-    ]
-  },
-  "jest": {
-    "setupFiles": [
-      "./tests/setup.js"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "md"
-    ],
-    "modulePathIgnorePatterns": [
-      "/_site/"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "dekko",
-      "node"
-    ],
-    "transform": {
-      "\\.tsx?$": "./node_modules/typescript-babel-jest",
-      "\\.js$": "./node_modules/babel-jest",
-      "\\.md$": "./node_modules/antd-demo-jest"
-    },
-    "testRegex": ".*\\.test\\.js$",
-    "collectCoverageFrom": [
-      "components/**/*.{ts,tsx}",
-      "!components/*/style/index.tsx",
-      "!components/style/index.tsx",
-      "!components/*/locale/index.tsx"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
     ]
   },
   "pre-commit": [
