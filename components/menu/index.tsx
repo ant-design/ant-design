@@ -140,7 +140,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   getInlineCollapsed() {
     const { inlineCollapsed } = this.props;
-    if ('siderCollapsed' in this.context) {
+    if (this.context.siderCollapsed !== undefined) {
       return this.context.siderCollapsed;
     }
     return inlineCollapsed;
