@@ -11,7 +11,9 @@ Menu list of Navigation.
 
 Navigation menu is important for a website, it helps users jump from one site section to another quickly. Mostly, it includes top navigation and side navigation. Top navigation provides all the category and functions of the website. Side navigation provides the Multi-level structure of the website.
 
-More layout and samples: [layout](/docs/spec/layout).
+More layouts with navigation: [layout](/components/layout).
+
+## API
 
 ```html
 <Menu>
@@ -21,8 +23,6 @@ More layout and samples: [layout](/docs/spec/layout).
   </SubMenu>
 </Menu>
 ```
-
-## API
 
 ### Menu
 
