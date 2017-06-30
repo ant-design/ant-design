@@ -158,10 +158,40 @@
   }
 
   &-inline {
+    width: 100%;
+    &,
+    .@{iconfont-css-prefix} {
+      transition: all .1s;
+    }
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       &:after {
         transform: scaleY(1);
+      }
+    }
+  }
+
+  &-inline-collapsed {
+    width: 64px;
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      text-align: center;
+      margin-left: 0;
+      left: 0;
+      &:after {
+        display: none;
+      }
+    }
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0;
+      .@{iconfont-css-prefix} {
+        font-size: 16px;
+        line-height: 42px;
+        margin: 0;
+        + span {
+          display: none;
+        }
       }
     }
   }
