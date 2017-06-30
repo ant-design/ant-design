@@ -94,17 +94,19 @@ export default class Menu extends React.Component<MenuProps, any> {
       inlineCollapsed: this.getInlineCollapsed(),
     };
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextContext) {
     if (this.props.mode === 'inline' &&
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
     }
-    if (nextProps.inlineCollapsed && !this.props.inlineCollapsed) {
+    if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
+        (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
       this.switchModeFromInline = true;
       this.inlineOpenKeys = this.state.openKeys;
       this.setOpenKeys([]);
     }
-    if (!nextProps.inlineCollapsed && this.props.inlineCollapsed) {
+    if ((!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
+        (!nextContext.siderCollapsed && this.context.siderCollapsed)) {
       this.setOpenKeys(this.inlineOpenKeys);
       this.inlineOpenKeys = [];
     }
