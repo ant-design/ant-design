@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Menu from '..';
-import Icon from '../../Icon';
+import Icon from '../../icon';
 
 const SubMenu = Menu.SubMenu;
 
