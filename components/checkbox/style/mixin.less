@@ -18,6 +18,25 @@
       border-color: @primary-color;
     }
 
+    &-checked:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: @border-radius-sm;
+      border: 1px solid @primary-color;
+      content: '';
+      animation: antCheckboxEffect 0.36s ease-in-out;
+      animation-fill-mode: both;
+      visibility: hidden;
+    }
+
+    &:hover:after,
+    .@{checkbox-prefix-cls}-wrapper:hover &:after {
+      visibility: visible;
+    }
+
     &-inner {
       position: relative;
       top: 0;
@@ -161,5 +180,16 @@
       top: 3px;
       position: absolute;
     }
+  }
+}
+
+@keyframes antCheckboxEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }
