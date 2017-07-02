@@ -46,6 +46,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     console.warn('Mention.toEditorState is deprecated. Use toContentState instead.');
     return toEditorState(text);
   }
+  private mentionEle: any;
   constructor(props) {
     super(props);
     this.state = {
@@ -102,6 +103,12 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       this.props.onBlur(ev);
     }
   }
+  focus = () => {
+    this.mentionEle._editor.focus();
+  }
+  mentionRef = ele => {
+    this.mentionEle = ele;
+  }
   render() {
     const { className = '', prefixCls, loading } = this.props;
     const { suggestions, focus } = this.state;
@@ -117,6 +124,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       <RcMention
         {...this.props}
         className={cls}
+        ref={this.mentionRef}
         onSearchChange={this.onSearchChange}
         onChange={this.onChange}
         onFocus={this.onFocus}
