@@ -54,7 +54,7 @@ ReactDOM.render(
   </div>
 , mountNode);
 ````
-
+```css
 <style>
 #components-layout-demo-basic .code-box-demo {
   text-align: center;
@@ -85,3 +85,4 @@ ReactDOM.render(
   margin: 0;
 }
 </style>
+```
