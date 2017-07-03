@@ -34,7 +34,7 @@ module.exports = {
     '\\.js$': './node_modules/babel-jest',
     '\\.md$': './node_modules/antd-demo-jest',
   },
-  testRegex: libDir ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
+  testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
   collectCoverageFrom: [
     'components/**/*.{ts,tsx}',
     '!components/*/style/index.tsx',
