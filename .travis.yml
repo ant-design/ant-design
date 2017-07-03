@@ -22,6 +22,7 @@ script:
       node ./tests/dekko/dist.test.js && \
       LIB_DIR=dist npm test -- --coverage -w 2
     elif [ "$TEST_TYPE" = compile ]; then
+      npm run dist && \
       npm run compile && \
       node ./tests/dekko/lib.test.js && \
       LIB_DIR=es npm test -- --coverage -w 2 && \
