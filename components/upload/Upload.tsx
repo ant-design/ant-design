@@ -2,7 +2,6 @@ import React from 'react';
 import RcUpload from 'rc-upload';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
@@ -71,7 +70,11 @@ export default class Upload extends React.Component<UploadProps, any> {
     if (this.context.antLocale && this.context.antLocale.Upload) {
       locale = this.context.antLocale.Upload;
     }
-    return assign({}, defaultLocale, locale, this.props.locale);
+    return {
+      ...defaultLocale,
+      ...locale,
+      ...this.props.locale,
+    };
   }
 
   onStart = (file) => {
@@ -225,12 +228,13 @@ export default class Upload extends React.Component<UploadProps, any> {
       type, disabled, children, className,
     } = this.props;
 
-    const rcUploadProps = assign({}, {
+    const rcUploadProps = {
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
-    }, this.props);
+      ...this.props,
+    };
 
     delete rcUploadProps.className;
 

@@ -1,5 +1,3 @@
-import assign from 'object-assign';
-
 export interface Store {
   setState: (partial: Object) => void;
   getState: () => any;
@@ -11,7 +9,10 @@ export default function createStore(initialState): Store {
   const listeners: any[] = [];
 
   function setState(partial) {
-    state = assign({}, state, partial);
+    state = {
+      ...state,
+      ...partial,
+    };
     for (let i = 0; i < listeners.length; i++) {
       listeners[i]();
     }

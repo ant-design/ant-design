@@ -1,14 +1,16 @@
 import CalendarLocale from 'rc-calendar/lib/locale/sk_SK';
 import TimePickerLocale from '../../time-picker/locale/sk_SK';
-import assign from 'object-assign';
 
 // 统一合并为完整的 Locale
 const locale = {
-  lang: assign({
+  lang: {
     placeholder: 'Vybrať dátum',
     rangePlaceholder: ['Od', 'Do'],
-  }, CalendarLocale),
-  timePickerLocale: assign({}, TimePickerLocale),
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 // All settings at:
