@@ -15,6 +15,7 @@ For multi-line user input cases, an input whose `type` prop has the value of `"t
 
 ````jsx
 import { Input } from 'antd';
+const { TextArea } = Input;
 
-ReactDOM.render(<Input type="textarea" rows={4} />, mountNode);
+ReactDOM.render(<TextArea rows={4} />, mountNode);
 ````
