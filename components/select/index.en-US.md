@@ -37,7 +37,7 @@ A Selector similar to Select2.
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onBlur | Called when blur | function | - |
 | onFocus | Called when focus | function | - |
-| placeholder | Placeholder of select | string | - |
+| placeholder | Placeholder of select | string\|ReactNode | - |
 | notFoundContent | Specify content to show when no result matches..| string | 'Not Found' |
 | dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
