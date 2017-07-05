@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import omit from 'omit.js';
 import Icon from '../icon';
 import Dialog from './Modal';
 import ActionButton from './ActionButton';
@@ -12,12 +13,6 @@ export default function confirm(config) {
   const prefixCls = props.prefixCls || 'ant-confirm';
   let div = document.createElement('div');
   document.body.appendChild(div);
-
-  let width = props.width || 416;
-  let style = props.style || {};
-
-  // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
   // 默认为 true，保持向下兼容
   if (!('okCancel' in props)) {
@@ -76,18 +71,34 @@ export default function confirm(config) {
     [`${prefixCls}-${props.type}`]: true,
   }, props.className);
 
+  const dialogProps = assign({
+    visible: true,
+    title: '',
+    footer: '',
+    transitionName: 'zoom',
+    maskTransitionName: 'fade',
+    maskClosable: false, // 默认为 false，保持旧版默认行为
+    style: {},
+    width: 416,
+  }, omit(props, [
+    'type',
+    'prefixCls',
+    'className',
+    'iconType',
+    'title',
+    'content',
+    'okCancel',
+    'okText',
+    'cancelText',
+    'onOk',
+    'onCancel',
+  ]));
+
   ReactDOM.render(
     <Dialog
+      {...dialogProps}
       className={classString}
       onCancel={close.bind(this, { triggerCancel: true })}
-      visible
-      title=""
-      transitionName="zoom"
-      footer=""
-      maskTransitionName="fade"
-      maskClosable={maskClosable}
-      style={style}
-      width={width}
     >
       <div className={`${prefixCls}-body-wrapper`}>
         {body} {footer}
