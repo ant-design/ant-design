@@ -4,10 +4,9 @@
 
 .@{card-prefix-cls} {
   background: @component-background;
-  border-radius: @border-radius-base;
+  border-radius: @border-radius-sm;
   font-size: @font-size-base;
   position: relative;
-  overflow: hidden;
   transition: all .3s;
 
   &:hover {
@@ -25,6 +24,7 @@
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 24px;
+    border-radius: @border-radius-sm @border-radius-sm 0 0;
 
     &-title {
       font-size: @font-size-lg;
