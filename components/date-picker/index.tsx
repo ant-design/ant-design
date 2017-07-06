@@ -76,7 +76,7 @@ export interface RangePickerProps extends PickerProps {
 }
 
 Object.assign(DatePicker, {
-   RangePicker: wrapPicker(RangePicker),
+  RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,
 });
