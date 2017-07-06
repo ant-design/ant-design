@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Grid from './Grid';
 
 export interface CardProps {
   prefixCls?: string;
@@ -15,7 +16,7 @@ export interface CardProps {
   className?: string;
 }
 
-export default (props: CardProps) => {
+const Card = (props: CardProps) => {
   const {
     prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
     title, loading, bordered = true, ...others,
@@ -75,3 +76,7 @@ export default (props: CardProps) => {
     </div>
   );
 };
+
+(Card as any).Grid = Grid;
+
+export default Card;

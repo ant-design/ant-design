@@ -18,6 +18,8 @@ cols: 1
 <Card title="卡片标题">卡片内容</Card>
 ```
 
+### Card
+
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | title    | 卡片标题 | string\|ReactNode   |  -  |
@@ -26,3 +28,10 @@ cols: 1
 | bodyStyle | 内容区域自定义样式 | object   |  -  |
 | noHovering | 鼠标移过时是否浮起 | boolean | true |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
+
+### Card.Grid
+
+Property | Description | Type | Default
+---------|-------------|------|---------
+className | 网格容器类名 | string | -
+style | 定义网格容器类名的样式 | object | -

@@ -2,7 +2,7 @@
 order: 4
 title:
   zh-CN: 栅格卡片
-  en-US: Grid card
+  en-US: Card in column
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Cards usually cooperate with grid layout in overview page.
+Cards usually cooperate with grid column layout in overview page.
 
 ````jsx
 import { Card, Col, Row } from 'antd';
