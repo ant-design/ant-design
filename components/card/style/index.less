@@ -9,7 +9,7 @@
   position: relative;
   transition: all .3s;
 
-  &:hover {
+  &:not(&-no-hovering):hover {
     box-shadow: @box-shadow-base;
     border-color: transparent;
   }

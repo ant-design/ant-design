@@ -9,6 +9,7 @@ export interface CardProps {
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
+  noHovering?: boolean;
   children?: any;
   id?: string;
   className?: string;
@@ -16,13 +17,14 @@ export interface CardProps {
 
 export default (props: CardProps) => {
   const {
-    prefixCls = 'ant-card', className, extra, bodyStyle,
+    prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
     title, loading, bordered = true, ...others,
   } = props;
   let children = props.children;
   const classString = classNames(prefixCls, className, {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-no-hovering`]: noHovering,
   });
 
   if (loading) {
