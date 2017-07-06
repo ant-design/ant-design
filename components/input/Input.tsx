@@ -95,7 +95,7 @@ export default class Input extends Component<InputProps, any> {
     suffix: PropTypes.node,
   };
 
-  nextFrameActionId: number;
+  nextFrameActionId?: number;
   refs: {
     input: any;
   };
@@ -148,6 +148,7 @@ export default class Input extends Component<InputProps, any> {
     const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
     const textareaStyles = calculateNodeHeight(this.refs.input, false, minRows, maxRows);
     this.setState({ textareaStyles });
+    this.nextFrameActionId = undefined;
   }
 
   focus() {
