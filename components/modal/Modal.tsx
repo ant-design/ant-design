@@ -37,6 +37,7 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  zIndex?: number;
 }
 
 export interface ModalContext {
