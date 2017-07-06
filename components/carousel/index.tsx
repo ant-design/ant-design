@@ -3,7 +3,7 @@
 import debounce from 'lodash.debounce';
 
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
+  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
     return {
       media: mediaQuery,
       matches: false,
