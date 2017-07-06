@@ -10,7 +10,7 @@ Avatars can be used to represent people or object, which supports image, antd-Ic
 
 | Property   | Description                                               | Type       | Default |
 |----------- |---------------------------------------------------------  | ---------- |-------|
-| type       | to set the shape of avatar | Enum{ 'circle', 'square' } | `circle` |
+| shape       | to set the shape of avatar | Enum{ 'circle', 'square' } | `circle` |
 | size   | to set the size of avatar | Enum{ 'large', 'small', 'default' } | `default` |
 | src  | the address of a image avatar | string | - |
 | icon    | the icon type of a icon avatar, see `Icon` Component | string | - |

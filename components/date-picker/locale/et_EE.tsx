@@ -1,14 +1,16 @@
 import CalendarLocale from 'rc-calendar/lib/locale/et_EE';
 import TimePickerLocale from '../../time-picker/locale/et_EE';
-import assign from 'object-assign';
 
 // 统一合并为完整的 Locale
 const locale = {
-  lang: assign({
+  lang: {
     placeholder: 'Vali kuupäev',
     rangePlaceholder: ['Algus kuupäev', 'Lõpu kuupäev'],
-  }, CalendarLocale),
-  timePickerLocale: assign({}, TimePickerLocale),
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 // All settings at:

@@ -36,18 +36,23 @@
     margin-bottom: 0;
   }
   &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
-    margin-right: 0;
     color: @text-color-secondary;
-    transition: all 0.3s @ease-in-out;
-    .iconfont-size-under-12px(9px);
-    transform-origin: 100% 50%;
-    width: 0;
-    text-align: right;
-    vertical-align: middle;
+    transition: all .3s;
+    .iconfont-size-under-12px(10px);
+    margin-right: 0;
+    opacity: 0;
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    margin-top: -5px;
     overflow: hidden;
+    text-align: center;
+    border-radius: 2px;
+    width: 14px;
+    height: 14px;
+    line-height: 1;
     &:hover {
-      color: #404040;
-      font-weight: bold;
+      color: @heading-color;
     }
   }
 
@@ -59,18 +64,8 @@
     }
   }
 
-  &&-editable-card > &-bar &-tab > div {
-    transition: all 0.3s @ease-in-out;
-  }
-  &&-editable-card > &-bar &-tab:not(&-tab-active):hover > div:not(&-tab-unclosable) {
-    margin-left: -8px;
-    margin-right: -8px;
-  }
-
-  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-close,
   &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-close {
-    width: 16px;
-    transform: translateZ(0);
+    opacity: 1;
   }
 
   &-extra-content {

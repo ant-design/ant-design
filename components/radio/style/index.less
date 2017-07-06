@@ -36,6 +36,23 @@
       border-color: @primary-color;
     }
   }
+  &-checked:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid @primary-color;
+    content: '';
+    animation: antRadioEffect 0.36s ease-in-out;
+    animation-fill-mode: both;
+    visibility: hidden;
+  }
+  &:hover:after,
+  .@{radio-prefix-cls}-wrapper:hover &:after {
+    visibility: visible;
+  }
   &-inner {
     &:after {
       position: absolute;
@@ -247,5 +264,16 @@ span.@{radio-prefix-cls} + * {
     background-color: #e6e6e6;
     border-color: @border-color-base;
     box-shadow: none;
+  }
+}
+
+@keyframes antRadioEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
   }
 }

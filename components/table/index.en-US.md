@@ -70,6 +70,7 @@ const columns = [{
 | locale        | i18n text include filter, sort, empty text...etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | index pixel size of tree data | number   | 15 |
 | onRowClick    | callback that is called when click a row | Function(record, index, event)   | - |
+| onRowDoubleClick| callback that is called when double click a row | Function(record, index, event)   | - |
 | bordered  | whether to show table border completely | boolean | false      |
 | showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |
