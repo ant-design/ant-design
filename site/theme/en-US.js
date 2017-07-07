@@ -18,6 +18,7 @@ module.exports = {
     'app.component.examples': 'Examples',
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',
+    'app.demo.codepen': 'Open in codepen',
     'app.home.slogan': 'A UI Design Language',
     'app.home.introduce': 'Introduce',
     'app.home.start': 'Get Started',

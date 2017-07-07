@@ -18,6 +18,7 @@ module.exports = {
     'app.component.examples': '代码演示',
     'app.demo.copy': '复制代码',
     'app.demo.copied': '复制成功',
+    'app.demo.codepen': '在 codepen 中打开',
     'app.home.slogan': '一个 UI 设计语言',
     'app.home.introduce': '设计规范',
     'app.home.start': '开发指引',

@@ -185,8 +185,27 @@
     }
   }
 
+  &-codepen {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
   .highlight-wrapper:hover &-code-copy {
     opacity: 1;
+  }
+
+  .highlight-wrapper:hover &-codepen {
+    opacity: .66;
   }
 
   pre {
