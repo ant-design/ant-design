@@ -156,7 +156,7 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
-  
+
   it('should open submenu when click submenu title (inline)', async () => {
     const wrapper = mount(
       <Menu mode="inline">
