@@ -5,7 +5,6 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
@@ -153,8 +152,12 @@ export default function createPicker(TheCalendar): any {
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
       }
+      const style = {
+        ...props.style,
+        ...pickerStyle,
+      };
       return (
-        <span className={classNames(props.className, props.pickerClass)} style={assign({}, props.style, pickerStyle)}>
+        <span className={classNames(props.className, props.pickerClass)} style={style}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}

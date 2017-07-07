@@ -3,7 +3,7 @@ order: 4
 title: Use in create-react-app
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) is one of best React application development tool, we are going to use `antd` within it and modify the webpack config for some customized needs.
+[create-react-app](https://github.com/facebookincubator/create-react-app) is one of the best React application development tools. We are going to use `antd` within it and modify the webpack config for some customized needs.
 
 ---
 
@@ -31,11 +31,11 @@ $ cd antd-demo
 $ yarn start
 ```
 
-Open browser at http://localhost:3000/, it renders a header saying "Welcome to React" on the page.
+Open the browser at http://localhost:3000/. It renders a header saying "Welcome to React" on the page.
 
 ## Import antd
 
-It is the default directory structure below.
+Below is the default directory structure.
 
 ```
 ├── README.md
@@ -91,12 +91,12 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, you now see a blue primary button displaying in page now, next you can choose any components of `antd` to develop your application. Visit other workflow of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, you now see a blue primary button displaying on the page. Next you can choose any components of `antd` to develop your application. Visit other workflow of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
 ## Advanced Guides
 
-We are successfully running antd components now. But in the real world, there are still lots of problems about antd-demo.
+We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo.
 For instance, we actually import all styles of components in the project which maybe a network perfermance issue.
 
 Sometimes it could be necessary to customize the default webpack config. We can achieve that by using `eject` script command.
@@ -107,7 +107,7 @@ $ yarn run eject
 
 ### Use babel-plugin-import
 
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After ejecting all config files of antd-demo, we are now allowed to install it and modify `config/webpack.config.dev.js`.
 
 ```bash
 $ yarn add babel-plugin-import --dev
@@ -131,7 +131,7 @@ $ yarn add babel-plugin-import --dev
 },
 ```
 
-> Note: because there is no `.babelrc` file after config eject, so we have to put the babel option into `webpack.config.js` or `babel` field of `package.json`.
+> Note: Because there is no `.babelrc` file after the config eject, we have to put the babel option into `webpack.config.js` or `babel` field of `package.json`.
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
 
@@ -155,7 +155,7 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
   export default App;
 ```
 
-Then reboot `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in console which prove the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
+Then reboot `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
 
 ### Customize Theme
 
@@ -241,7 +241,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 ## Source code and other boilerplates
 
-Finally, we use antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack config in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
+Finally, we used antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack configs in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
 
 There are a lot of great boilerplates like create-react-app in React community. There are some source code samples of importing antd in them if you encounter some problems.
 

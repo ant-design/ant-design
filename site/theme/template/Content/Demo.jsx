@@ -104,6 +104,25 @@ export default class Demo extends React.Component {
       'highlight-wrapper': true,
       'highlight-wrapper-expand': codeExpand,
     });
+
+    const codepenPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      html: `<div id="container" style="padding: 24px"></div>
+<script>
+  var mountNode = document.getElementById('container');
+</script>`,
+      js: state.sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;'),
+      css: style,
+      editors: '001',
+      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      js_external: [
+        'react/dist/react.js',
+        'react-dom/dist/react-dom.js',
+        'moment/min/moment-with-locales.js',
+        'antd/dist/antd-with-locales.js',
+      ].map(url => `https://unpkg.com/${url}`).join(';'),
+      js_pre_processor: 'typescript',
+    };
     return (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
@@ -147,6 +166,12 @@ export default class Demo extends React.Component {
                 />
               </Tooltip>
             </CopyToClipboard>
+            <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <input type="submit" value="Create New Pen with Prefilled Data" className="code-box-codepen" />
+              </Tooltip>
+            </form>
             {props.utils.toReactComponent(highlightedCode)}
           </div>
           {

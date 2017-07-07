@@ -17,22 +17,18 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
-## Next
-
-- Increase click area of Table's sort and filter icon.[#6528](https://github.com/ant-design/ant-design/pull/6528)
-
 ## 2.11.2
 
 `2017-06-25`
 
-- Dropdown.Button now support getPopupContainer function.[#6527](https://github.com/ant-design/ant-design/pull/6527)
+- Dropdown.Button now support `getPopupContainer` function. [#6527](https://github.com/ant-design/ant-design/pull/6527)
 - Fix disabled dropdown submenu style error. [#6548](https://github.com/ant-design/ant-design/issues/6548)
-- Fix background color error of Calendar. [#aaf2a](https://github.com/ant-design/ant-design/commit/aaf2a508bef96f81faf556036649b2a2fe5b635b)
+- Fix background color error of Calendar.  [aaf2a50](https://github.com/ant-design/ant-design/commit/aaf2a508bef96f81faf556036649b2a2fe5b635b)
 - Select of Calendar now take place in header. [#6479](https://github.com/ant-design/ant-design/pull/6479)
 - Fix horia horizontal scroll error of Input and Textarea. [#6577](https://github.com/ant-design/ant-design/issues/6577)
 - Improve document of `disabled` attribute of Checkbox and Radio. [#6597](https://github.com/ant-design/ant-design/pull/6597)
-- Increase click area of Table's sort and filter icon.[#6528](https://github.com/ant-design/ant-design/pull/6528)
-- Add `event:Event` parameter of Table.props.onRowClick. [#e2a99f5](https://github.com/ant-design/ant-design/commit/e2a99f53f7a27bd7de4adf99d0e1ee755b537c72)
+- Increase click area of Table's sort and filter icon. [#6528](https://github.com/ant-design/ant-design/pull/6528)
+- Add `event:Event` parameter of Table.props.onRowClick.  [e2a99f5](https://github.com/ant-design/ant-design/commit/e2a99f53f7a27bd7de4adf99d0e1ee755b537c72)
 
 ## 2.11.1
 

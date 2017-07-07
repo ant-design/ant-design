@@ -1,18 +1,23 @@
-import assign from 'object-assign';
-
 const defaultLocale = {
   okText: '确定',
   cancelText: '取消',
   justOkText: '知道了',
 };
 
-let runtimeLocale = assign({}, defaultLocale);
+let runtimeLocale = {
+  ...defaultLocale,
+};
 
 export function changeConfirmLocale(newLocale?: Object) {
   if (newLocale) {
-    runtimeLocale = assign({}, runtimeLocale, newLocale);
+    runtimeLocale = {
+      ...runtimeLocale,
+      ...newLocale,
+    };
   } else {
-    runtimeLocale = assign({}, defaultLocale);
+    runtimeLocale = {
+      ...defaultLocale,
+    };
   }
 }
 

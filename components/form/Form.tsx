@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
@@ -139,11 +138,11 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
-    const formWrapper = createDOMForm(assign({
+    const formWrapper = createDOMForm({
       fieldNameProp: 'id',
-    }, options, {
+      ...options,
       fieldMetaProp: FIELD_META_PROP,
-    }));
+    });
 
     /* eslint-disable react/prefer-es6-class */
     return (Component) => formWrapper(createReactClass({

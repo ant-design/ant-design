@@ -9,7 +9,7 @@ export interface BasicProps {
 }
 
 function generator(props) {
-  return (Basic): any => {
+  return (BacicComponent): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
@@ -17,7 +17,7 @@ function generator(props) {
       static Sider: any;
       render() {
         const { prefixCls } = props;
-        return <Basic prefixCls={prefixCls} {...this.props}/>;
+        return <BacicComponent prefixCls={prefixCls} {...this.props} />;
       }
     };
   };

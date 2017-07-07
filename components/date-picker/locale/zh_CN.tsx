@@ -1,6 +1,5 @@
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import TimePickerLocale from '../../time-picker/locale/zh_CN';
-import assign from 'object-assign';
 
 // 备注：以下代码无法完全按最初设计运行，但为了保证兼容性，需要保留，直至 antd 默认语言改为英文
 //  1. 如果用户不给时间类组件传入 value defaultValue，则运行符合预期
@@ -12,11 +11,14 @@ moment.locale('zh-cn');
 
 // Merge into a locale object
 const locale = {
-  lang: assign({
+  lang: {
     placeholder: '请选择日期',
     rangePlaceholder: ['开始日期', '结束日期'],
-  }, CalendarLocale),
-  timePickerLocale: assign({}, TimePickerLocale),
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 // should add whitespace between char in Button

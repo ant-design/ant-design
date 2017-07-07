@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import assign from 'object-assign';
 import Lazyload from 'react-lazy-load';
 import Checkbox from '../checkbox';
 
@@ -29,12 +28,13 @@ export default class Item extends React.Component<any, any> {
     );
     let children: JSX.Element | null = null;
     if (lazy) {
-      const lazyProps = assign({
+      const lazyProps = {
         height: 32,
         offset: 500,
         throttle: 0,
         debounce: false,
-      }, lazy);
+        ...lazy,
+      };
       children = <Lazyload {...lazyProps}>{listItem}</Lazyload>;
     } else {
       children = listItem;

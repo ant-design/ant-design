@@ -110,7 +110,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Home page](http://ant.design/)
 - [UI library](http://ant.design/docs/react/introduce)
 - [Change Log](CHANGELOG.en-US.md)
-- [Offcial Scaffold Tool](https://github.com/dvajs/dva-cli/)
+- [Official Scaffold Tool](https://github.com/dvajs/dva-cli/)
 - [Development Tool](http://ant-tool.github.io/)
 - [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)

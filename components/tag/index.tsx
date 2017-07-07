@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 
@@ -85,9 +84,10 @@ export default class Tag extends React.Component<TagProps, any> {
       'onClose',
       'afterClose',
     ]);
-    const tagStyle = assign({
+    const tagStyle = {
       backgroundColor: (color && !isPresetColor) ? color : null,
-    }, style);
+      ...style,
+    };
     const tag = this.state.closed ? null : (
       <div
         data-show={!this.state.closing}

@@ -178,7 +178,9 @@ export default class Input extends Component<InputProps, any> {
   }
 
   renderInput() {
-    const props = this.props;
+    const props = {
+      ...this.props,
+    };
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(props, [
       'prefixCls',

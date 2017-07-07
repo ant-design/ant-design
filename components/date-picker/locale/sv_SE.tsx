@@ -1,13 +1,15 @@
 import CalendarLocale from 'rc-calendar/lib/locale/sv_SE';
 import TimePickerLocale from '../../time-picker/locale/sv_SE';
-import assign from 'object-assign';
 
 const locale = {
-  lang: assign({
+  lang: {
     placeholder: 'Välj datum',
     rangePlaceholder: ['Startdatum', 'Slutdatum'],
-  }, CalendarLocale),
-  timePickerLocale: assign({}, TimePickerLocale),
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
 };
 
 // All settings at:

@@ -1,10 +1,10 @@
+/* tslint:disable jsx-no-multiline-js */
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
@@ -249,7 +249,13 @@ export default class RangePicker extends React.Component<any, any> {
     };
 
     return (
-      <span className={classNames(props.className, props.pickerClass)} style={assign({}, style, pickerStyle)}>
+      <span
+        className={classNames(props.className, props.pickerClass)}
+        style={{
+          ...style,
+          ...pickerStyle,
+        }}
+      >
         <RcDatePicker
           {...props}
           {...pickerChangeHandler}

@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import assign from 'object-assign';
 import RcCalendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import createPicker from './createPicker';
@@ -76,7 +75,7 @@ export interface RangePickerProps extends PickerProps {
   };
 }
 
-assign(DatePicker, {
+Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,
