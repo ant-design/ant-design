@@ -1,4 +1,5 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @card-prefix-cls: ~"@{ant-prefix}-card";
 
@@ -9,7 +10,7 @@
   position: relative;
   transition: all .3s;
 
-  &:hover {
+  &:not(&-no-hovering):hover {
     box-shadow: @box-shadow-base;
     border-color: transparent;
   }
@@ -45,7 +46,9 @@
   }
 
   &-body {
-    padding: 24px;
+    padding: 24.5px;
+    margin: -0.5px;
+    .clearfix;
   }
 
   &-loading &-body {
@@ -60,6 +63,21 @@
     background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
 	  animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
+  }
+
+  &-grid {
+    border-radius: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.5px @border-color-split, 0 0 0 0.5px @border-color-split inset;
+    width: 33.33%;
+    float: left;
+    padding: 24px;
+    transition: all .3s;
+    &:hover {
+      position: relative;
+      z-index: 1;
+      box-shadow: @box-shadow-base;
+    }
   }
 }
 

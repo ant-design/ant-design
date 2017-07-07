@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Grid from './Grid';
 
 export interface CardProps {
   prefixCls?: string;
@@ -9,20 +10,22 @@ export interface CardProps {
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
+  noHovering?: boolean;
   children?: any;
   id?: string;
   className?: string;
 }
 
-export default (props: CardProps) => {
+const Card = (props: CardProps) => {
   const {
-    prefixCls = 'ant-card', className, extra, bodyStyle,
+    prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
     title, loading, bordered = true, ...others,
   } = props;
   let children = props.children;
   const classString = classNames(prefixCls, className, {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-no-hovering`]: noHovering,
   });
 
   if (loading) {
@@ -73,3 +76,7 @@ export default (props: CardProps) => {
     </div>
   );
 };
+
+(Card as any).Grid = Grid;
+
+export default Card;

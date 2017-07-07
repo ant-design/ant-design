@@ -73,7 +73,70 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/grid.md correctly 1`] = `
+exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-no-hovering"
+>
+  <div
+    class="ant-card-head"
+  >
+    <h3
+      class="ant-card-head-title"
+    >
+      卡片标题
+    </h3>
+  </div>
+  <div
+    class="ant-card-body"
+    style="padding:0;"
+  >
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+    <div
+      class="ant-card-grid"
+      style="width:25%;text-align:center;"
+    >
+      卡片内容
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 <div
   style="background:#ECECEC;padding:30px;"
 >
