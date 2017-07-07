@@ -67,7 +67,7 @@ const columns = [{
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| loading       | 页面是否加载中 | boolean | false |
+| loading       | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
