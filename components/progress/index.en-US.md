@@ -25,4 +25,6 @@ showInfo | determine whether to display the progress value and the status icon |
 strokeWidth `(type=line)` | to set the width of the progress bar, unit: `px` | number | 10
 strokeWidth `(type=circle)` | to set the width of the circular progress bar, unit: percentage of the canvas width | number | 6
 width `(type=circle)` | to set the canvas width of the circular progress bar, unit: `px` | number | 132
+gapDegree `(type=circle)` | the gap degree of half circle, 0 ~ 360 | number | 0
+gapPosition `(type=circle)` | the gap position | Enum{ 'top', 'bottom', 'left', 'right' } | `top`
 
