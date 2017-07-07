@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Menu from '..';
+import Icon from '../../icon';
 
 const SubMenu = Menu.SubMenu;
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
@@ -129,6 +130,33 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
+  it('should always follow openKeys when mode is switched', () => {
+    const wrapper = mount(
+      <Menu defaultOpenKeys={['1']} mode="inline">
+        <Menu.Item key="menu1">
+          <Icon type="inbox" />
+          <span>Option</span>
+        </Menu.Item>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="submenu1">
+            Option
+          </Menu.Item>
+          <Menu.Item key="submenu2">
+            Option
+          </Menu.Item>
+        </SubMenu>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    wrapper.setProps({ inlineCollapsed: true });
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.setProps({ inlineCollapsed: false });
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+  });
+  
   it('should open submenu when click submenu title (inline)', async () => {
     const wrapper = mount(
       <Menu mode="inline">

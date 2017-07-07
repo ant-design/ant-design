@@ -18,7 +18,7 @@ title: Input
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|-----------------------------------------|------------|-------|--------|
-| type | 声明 input 类型，同原生 input 标签的 type 属性。另外提供 `type="textarea"`。 | string  | `text` |
+| type | 声明 input 类型，同原生 input 标签的 type 属性。另外提供 `type="textarea"`(该 type `2.12` 后废弃，请直接使用 `Input.TextArea`)。 | string  | `text` |
 | id | 输入框的 id | string | |
 | value | 输入框内容 | string | |
 | defaultValue | 输入框默认内容 | string | |
@@ -29,11 +29,23 @@ title: Input
 | prefix | 带有前缀图标的 input | string\|ReactNode | |
 | suffix | 带有后缀图标的 input | string\|ReactNode | |
 | onPressEnter | 按下回车的回调 | function(e) | |
-| autosize | 自适应内容高度，只对 `type="textarea"` 有效，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean\|object | false |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
 Input 的其他属性和 React 自带的 [input](https://facebook.github.io/react/docs/events.html#supported-events) 一致。
+
+### Input.TextArea
+
+> `2.12` 后新增的组件，旧版请使用 `Input[type=textarea]`。
+
+| 参数      | 说明                                     | 类型       | 默认值 |
+|-----------|-----------------------------------------|------------|-------|--------|
+| defaultValue | 输入框默认内容 | string | |
+| value | 输入框内容 | string | |
+| onPressEnter | 按下回车的回调 | function(e) | |
+| autosize | 自适应内容高度，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean\|object | false |
+
+`Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
 #### Input.Search
 

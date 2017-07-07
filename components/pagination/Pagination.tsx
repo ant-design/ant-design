@@ -25,6 +25,7 @@ export interface PaginationProps {
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
+  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
 }
 
 abstract class Pagination extends React.Component<PaginationProps, any> {
