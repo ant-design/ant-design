@@ -127,4 +127,52 @@ describe('Menu', () => {
     wrapper.setProps({ mode: 'inline' });
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
+
+  it('should open submenu when click submenu title (inline)', () => {
+    const wrapper = mount(
+      <Menu mode="inline">
+        <SubMenu key="1" title={<div id="submenu">submenu1</div>}>
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    wrapper.find('#submenu').simulate('click');
+    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+  });
+
+  it('should open submenu when hover submenu title (vertical)', async () => {
+    const wrapper = mount(
+      <Menu mode="vertical">
+        <SubMenu key="1" title={<div id="submenu">submenu1</div>}>
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    wrapper.find('.ant-menu-submenu-title').simulate('mouseenter');
+    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+  });
+
+  it('should open submenu when hover submenu title (horizontal)', async () => {
+    const wrapper = mount(
+      <Menu mode="horizontal">
+        <SubMenu key="1" title={<div id="submenu">submenu1</div>}>
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    wrapper.find('.ant-menu-submenu-title').simulate('mouseenter');
+    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+  });
 });
