@@ -20,6 +20,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     trigger: 'click',
   };
 
+  refs: {
+    tooltip: Tooltip,
+  };
+
   constructor(props: PopconfirmProps) {
     super(props);
 
@@ -34,6 +38,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     if ('visible' in nextProps) {
       this.setState({ visible: nextProps.visible });
     }
+  }
+
+  getPopupDomNode() {
+    return this.refs.tooltip.getPopupDomNode();
   }
 
   onConfirm = (e) => {
@@ -101,6 +109,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         onVisibleChange={this.onVisibleChange}
         visible={this.state.visible}
         overlay={overlay}
+        ref="tooltip"
       />
     );
   }

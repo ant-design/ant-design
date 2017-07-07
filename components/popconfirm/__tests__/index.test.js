@@ -27,4 +27,22 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     expect(onVisibleChange).toBeCalledWith(false);
   });
+
+  it('should show overlay when trigger is clicked', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code">
+        <span>show me your code</span>
+      </Popconfirm>
+    );
+
+    expect(popconfirm.node.getPopupDomNode()).toBe(null);
+
+    popconfirm.find('span').simulate('click');
+
+    const popup = popconfirm.node.getPopupDomNode();
+    expect(popup).not.toBe(null);
+    expect(popup.className).toContain('ant-popover-placement-top');
+    expect(popup.innerHTML).toMatchSnapshot();
+    expect(popup.innerHTML).toMatchSnapshot();
+  });
 });
