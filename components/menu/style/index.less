@@ -175,13 +175,10 @@
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       text-align: center;
       left: 0;
+      padding: 0;
       &:after {
         display: none;
       }
-    }
-    .@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-submenu-title {
-      padding: 0;
       .@{iconfont-css-prefix} {
         font-size: 16px;
         line-height: 42px;
@@ -193,8 +190,12 @@
       }
     }
     &-tooltip {
+      pointer-events: none;
       .@{iconfont-css-prefix} {
         display: none;
+      }
+      a {
+        color: @text-color-dark;
       }
     }
   }
