@@ -17,25 +17,25 @@ Specifies default value by an array.
 import { Cascader } from 'antd';
 
 const options = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
+  value: '路网',
+  label: '路网',
   children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
+    value: '普通路网',
+    label: '普通路网',
     children: [{
-      value: 'xihu',
-      label: 'West Lake',
+      value: '路网提取',
+      label: '路网提取',
     }],
   }],
 }, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
+  value: '属性',
+  label: '属性',
   children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
+    value: '常规属性',
+    label: '常规属性',
     children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
+      value: '属性标记',
+      label: '属性标记',
     }],
   }],
 }];
@@ -45,6 +45,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={onChange} />
+  <Cascader defaultValue={['路网', '普通路网', '路网提取']} options={options} onChange={onChange} />
 , mountNode);
 ````
