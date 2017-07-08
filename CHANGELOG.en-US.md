@@ -17,6 +17,42 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.0
+
+`2017-07-08`
+
+- Add Card `noHovering` and Card.Grid. [pull/6748](https://github.com/ant-design/ant-design/pull/6748)
+- DatePicker, MonthPicker, RangePicker now support `className` prop. [pull/6584](https://github.com/ant-design/ant-design/pull/6584) [@EnrikoLabriko](https://github.com/EnrikoLabriko)
+- Add Input.Textarea, Input[type='textArea'] will be deprecated. [pull/6138](https://github.com/ant-design/ant-design/pull/6138)
+- LocaleProvider supporting Thai. [pull/6721](https://github.com/ant-design/ant-design/pull/6721) [@koobitor](https://github.com/koobitor)
+- Mention support `focus` function. [#6135](https://github.com/ant-design/ant-design/issues/6135)
+- Menu[mode='inline'] could be collapsed, and use `context` to pass `collapsed` prop from Layout.Sider to Menu, don't need customized css code anymore. [pull/6686](https://github.com/ant-design/ant-design/pull/6686)
+- Add Pagination `itemRender`, now you can customize the structure of page number. [25a603](https://github.com/ant-design/ant-design/commit/25a60322e5c6649522fb9f0d34919eba0ccb1f65)
+- Add Tooltip `autoAdjustOverflow` prop, now the auto adjust feature can be disabled. [pull/6661](https://github.com/ant-design/ant-design/pull/6661) [@jdz321](https://github.com/jdz321)
+- Fix errors in docs of Avatar. [pull/6711](https://github.com/ant-design/ant-design/pull/6711) [@llaski](https://github.com/llaski)
+- DatePicker
+  - Fix `onOk` type definitions. [pull/6619](https://github.com/ant-design/ant-design/pull/6619) [@newraina](https://github.com/newraina)
+  - Improve icon style. [pull/6655](https://github.com/ant-design/ant-design/pull/6655) [@megawac](https://github.com/megawac)
+- Form
+  - Fix formItem `extra` content line height. [#6618](https://github.com/ant-design/ant-design/issues/6618)
+  - Fix FormItem `labelCol` `wrapperCol` type definitions. [pull/6611](https://github.com/ant-design/ant-design/pull/6611) [@newraina](https://github.com/newraina)
+- Fix autosize Input.Textarea scrollbar style issue. [#6609](https://github.com/ant-design/ant-design/issues/6609)
+- Add missing TypeScript definition of `precision` in InputNumber. [#6715](https://github.com/ant-design/ant-design/issues/6715)
+- Fix Select overflow issue. [#6621](https://github.com/ant-design/ant-design/issues/6621)
+- Slider
+  - Improve styles. [#6665](https://github.com/ant-design/ant-design/issues/6665)
+  - Upgrade rc-slider to 8.2.0, add `dotStyle`，`activeDotStyle` props. [rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
+- Fix Spin z-index issue. [#6759](https://github.com/ant-design/ant-design/issues/6759)
+- Fix nested Steps style issue. [#6754](https://github.com/ant-design/ant-design/issues/6754)
+- Table
+  - Fix expanded area background of fixed header Table. [#6657](https://github.com/ant-design/ant-design/issues/6657)
+  - Add `onRowDoubleClick` prop for docs. [pull/6667](https://github.com/ant-design/ant-design/pull/6667) [@yurtaev](https://github.com/yurtaev)
+  - Make supplement for `loading` docs. [pull/6763](https://github.com/ant-design/ant-design/pull/6763) [@hansnow](https://github.com/hansnow)
+  - Upgrade rc-table to 5.4.0, support `onRowMouseEnter` and `onRowMouseLeave`. [rc-table/0db582](https://github.com/react-component/table/commit/0db582a75dfa119715eb4db8a59eacfca744c5a0)
+- Improve TimePicker format support. [950c32](https://github.com/ant-design/ant-design/commit/950c321b25091ef31b130b83674478974590d7f3)
+- Make style improvement or tweaking for many components, includes [Checkbox](https://ant.design/components/checkbox/)，[Radio](https://ant.design/components/radio/)，[Tabs](https://ant.design/components/tabs/)，[Card](https://ant.design/components/card/) and etc.
+- Now you can open demo in codepen. [#5140](https://github.com/ant-design/ant-design/issues/5140)
+
 ## 2.11.2
 
 `2017-06-25`
