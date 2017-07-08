@@ -17,25 +17,25 @@ Cascade selection box for selecting province/city/district.
 import { Cascader } from 'antd';
 
 const options = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
+  value: 'shuing',
+  label: '属性',
   children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
+    value: 'changguishuxing',
+    label: '常规属性',
     children: [{
-      value: 'xihu',
-      label: 'West Lake',
+      value: 'shuxingbiaoji',
+      label: '属性标记',
     }],
   }],
 }, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
+  value: 'luwang',
+  label: '路网',
   children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
+    value: 'putongluwang',
+    label: '普通路网',
     children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
+      value: 'luwangronhe',
+      label: '路网融合',
     }],
   }],
 }];
