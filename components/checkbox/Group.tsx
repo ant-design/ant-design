@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Checkbox from './Checkbox';
-export type CheckboxValueType = string | number
+
+export type CheckboxValueType = string | number;
 
 export interface CheckboxOptionType {
   label: string;
