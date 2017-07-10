@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { Icon, Tooltip } from 'antd';
 import EditButton from './EditButton';
 import BrowserFrame from '../BrowserFrame';
+import { ping } from '../utils';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -21,6 +22,7 @@ export default class Demo extends React.Component {
       sourceCode: '',
       copied: false,
       copyTooltipVisible: false,
+      showRiddleButton: false,
     };
   }
 
@@ -43,6 +45,14 @@ export default class Demo extends React.Component {
       this.anchor.click();
     }
     this.componentWillReceiveProps(this.props);
+
+    this.pingTimer = ping((status) => {
+      if (status !== 'timeout' && status !== 'error') {
+        this.setState({
+          showRiddleButton: true,
+        });
+      }
+    });
   }
 
   handleCodeExapnd = () => {
@@ -105,6 +115,8 @@ export default class Demo extends React.Component {
       'highlight-wrapper-expand': codeExpand,
     });
 
+    const prefillStyle = `@import 'antd/dist/antd.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
       html: `<div id="container" style="padding: 24px"></div>
@@ -112,7 +124,7 @@ export default class Demo extends React.Component {
   var mountNode = document.getElementById('container');
 </script>`,
       js: state.sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;'),
-      css: style,
+      css: prefillStyle,
       editors: '001',
       css_external: 'https://unpkg.com/antd/dist/antd.css',
       js_external: [
@@ -122,6 +134,11 @@ export default class Demo extends React.Component {
         'antd/dist/antd-with-locales.js',
       ].map(url => `https://unpkg.com/${url}`).join(';'),
       js_pre_processor: 'typescript',
+    };
+    const riddlePrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      js: state.sourceCode,
+      css: prefillStyle,
     };
     return (
       <section className={codeBoxClass} id={meta.id}>
@@ -147,31 +164,41 @@ export default class Demo extends React.Component {
           key="code"
         >
           <div className="highlight">
-            <CopyToClipboard
-              text={state.sourceCode}
-              onCopy={this.handleCodeCopied}
-            >
-              <Tooltip
-                visible={state.copyTooltipVisible}
-                onVisibleChange={this.onCopyTooltipVisibleChange}
-                title={
-                  <FormattedMessage
-                    id={`app.demo.${state.copied ? 'copied' : 'copy'}`}
-                  />
-                }
+            <div className="code-box-actions">
+              {this.state.showRiddleButton ? (
+                <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
+                  <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+                  <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                    <input type="submit" value="Create New Riddle with Prefilled Data" className="code-box-riddle" />
+                  </Tooltip>
+                </form>
+              ) : null}
+              <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <input type="submit" value="Create New Pen with Prefilled Data" className="code-box-codepen" />
+                </Tooltip>
+              </form>
+              <CopyToClipboard
+                text={state.sourceCode}
+                onCopy={this.handleCodeCopied}
               >
-                <Icon
-                  type={(state.copied && state.copyTooltipVisible) ? 'check' : 'copy'}
-                  className="code-box-code-copy"
-                />
-              </Tooltip>
-            </CopyToClipboard>
-            <form action="https://codepen.io/pen/define" method="POST" target="_blank">
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input type="submit" value="Create New Pen with Prefilled Data" className="code-box-codepen" />
-              </Tooltip>
-            </form>
+                <Tooltip
+                  visible={state.copyTooltipVisible}
+                  onVisibleChange={this.onCopyTooltipVisibleChange}
+                  title={
+                    <FormattedMessage
+                      id={`app.demo.${state.copied ? 'copied' : 'copy'}`}
+                    />
+                  }
+                >
+                  <Icon
+                    type={(state.copied && state.copyTooltipVisible) ? 'check' : 'copy'}
+                    className="code-box-code-copy"
+                  />
+                </Tooltip>
+              </CopyToClipboard>
+            </div>
             {props.utils.toReactComponent(highlightedCode)}
           </div>
           {

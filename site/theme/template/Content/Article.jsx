@@ -6,7 +6,7 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
-import * as utils from '../utils';
+import { ping } from '../utils';
 
 export default class Article extends React.Component {
   static contextTypes = {
@@ -26,9 +26,7 @@ export default class Article extends React.Component {
     if (links.length === 0) {
       return;
     }
-    // eslint-disable-next-line
-    const checkImgUrl = 'https://private.alipay' + 'objects.com/alip' + 'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
-    this.pingTimer = utils.ping(checkImgUrl, (status) => {
+    this.pingTimer = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
         links.forEach(link => (link.style.display = 'block'));
       } else {

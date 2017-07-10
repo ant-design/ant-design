@@ -35,7 +35,9 @@ export function getLocalizedPathname(path, zhCN) {
   return `${pathname}-cn`;
 }
 
-export function ping(url, callback) {
+export function ping(callback) {
+  // eslint-disable-next-line
+  const url = 'https://private.alipay' + 'objects.com/alip' + 'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
   const img = new Image();
   let done;
   const finish = (status) => {
