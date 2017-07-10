@@ -21,12 +21,12 @@ export default {
     selectInvert: 'Обръщане',
   },
   Modal: {
-    okText: 'Дибре',
+    okText: 'Добре',
     cancelText: 'Отказ',
-    justOkText: 'Дибре',
+    justOkText: 'Добре',
   },
   Popconfirm: {
-    okText: 'Дибре',
+    okText: 'Добре',
     cancelText: 'Отказ',
   },
   Transfer: {
