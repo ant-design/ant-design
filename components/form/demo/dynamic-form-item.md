@@ -94,12 +94,14 @@ class DynamicFieldSet extends React.Component {
           })(
             <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
           )}
-          <Icon
-            className="dynamic-delete-button"
-            type="minus-circle-o"
-            disabled={keys.length === 1}
-            onClick={() => this.remove(k)}
-          />
+          {keys.length > 1 ? (
+            <Icon
+              className="dynamic-delete-button"
+              type="minus-circle-o"
+              disabled={keys.length === 1}
+              onClick={() => this.remove(k)}
+            />
+          ) : null}
         </FormItem>
       );
     });
