@@ -200,7 +200,7 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        value={showDate || pickerValueAdapter(props.defaultPickerValue) || pickerValueAdapter(moment())}
+        value={showDate || pickerValueAdapter(props.defaultPickerValue || value || moment())}
         onValueChange={this.handleShowDateChange}
         hoverValue={hoverValue}
         onHoverChange={this.handleHoverChange}
