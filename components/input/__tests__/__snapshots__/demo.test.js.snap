@@ -560,7 +560,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
                 class="ant-select-search__field__wrap"
               >
                 <input
-                  class="ant-input ant-input ant-select-search__field"
+                  class="ant-input ant-select-search__field"
                   type="text"
                   value=""
                 />
@@ -666,11 +666,11 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
 
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 <span
-  class="ant-input-affix-wrapper"
+  class="ant-input-search ant-input-affix-wrapper"
   style="width:200px;"
 >
   <input
-    class="ant-input ant-input-search"
+    class="ant-input"
     placeholder="input search text"
     type="text"
   />

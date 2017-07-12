@@ -1525,7 +1525,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     class="ant-select-search__field__wrap"
                   >
                     <input
-                      class="ant-input ant-input ant-select-search__field"
+                      class="ant-input ant-select-search__field"
                       type="text"
                       value=""
                     />

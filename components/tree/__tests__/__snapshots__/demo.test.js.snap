@@ -987,11 +987,11 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
 exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 <div>
   <span
-    class="ant-input-affix-wrapper"
+    class="ant-input-search ant-input-affix-wrapper"
     style="width:300px;"
   >
     <input
-      class="ant-input ant-input-search"
+      class="ant-input"
       placeholder="Search"
       type="text"
     />
