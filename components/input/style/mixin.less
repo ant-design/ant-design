@@ -63,7 +63,7 @@
     .active();
   }
 
-  &[disabled] {
+  &-disabled {
     .disabled();
   }
 
@@ -307,7 +307,7 @@
     z-index: 1;
   }
 
-  &:hover .@{inputClass} {
+  &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
   }
 

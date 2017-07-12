@@ -192,10 +192,11 @@ export default class Input extends Component<InputProps, any> {
     ]);
 
     const prefixCls = props.prefixCls;
-    const inputClassName = classNames(prefixCls, {
+    const inputClassName = classNames(prefixCls, props.className, {
       [`${prefixCls}-sm`]: props.size === 'small',
       [`${prefixCls}-lg`]: props.size === 'large',
-    }, props.className);
+      [`${prefixCls}-disabled`]: props.disabled,
+    });
 
     if ('value' in props) {
       otherProps.value = fixControlledValue(props.value);

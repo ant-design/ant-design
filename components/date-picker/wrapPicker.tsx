@@ -65,11 +65,10 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       const pickerClass = classNames({
         [`${prefixCls}-picker`]: true,
       });
-      const pickerInputClass = classNames({
-        [`${prefixCls}-picker-input`]: true,
-        [inputPrefixCls]: true,
+      const pickerInputClass = classNames(`${prefixCls}-picker-input`, inputPrefixCls, {
         [`${inputPrefixCls}-lg`]: props.size === 'large',
         [`${inputPrefixCls}-sm`]: props.size === 'small',
+        [`${inputPrefixCls}-disabled`]: props.disabled,
       });
 
       const locale = getComponentLocale(
