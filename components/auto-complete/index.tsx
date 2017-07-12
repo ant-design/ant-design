@@ -50,15 +50,9 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
   getInputElement = () => {
     const { children } = this.props;
     const element = children && React.isValidElement(children) && children.type !== Option ?
-      React.Children.only(this.props.children) :
-      <Input/>;
+      React.Children.only(this.props.children) : <Input />;
     return (
-      <InputElement
-        {...element.props}
-        className={classNames('ant-input', element.props.className)}
-      >
-        {element}
-      </InputElement>
+      <InputElement {...element.props}>{element}</InputElement>
     );
   }
 

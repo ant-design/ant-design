@@ -100,6 +100,15 @@ export default class Input extends Component<InputProps, any> {
     this.refs.input.blur();
   }
 
+  getInputClassName() {
+    const { prefixCls, size, disabled } = this.props;
+    return classNames(prefixCls, {
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-disabled`]: disabled,
+    });
+  }
+
   renderLabeledInput(children) {
     const props = this.props;
     // Not wrap when there is not addons
@@ -169,20 +178,21 @@ export default class Input extends Component<InputProps, any> {
     ) : null;
 
     return (
-      <span className={`${props.prefixCls}-affix-wrapper`} style={props.style}>
+      <span
+        className={classNames(props.className, `${props.prefixCls}-affix-wrapper`)}
+        style={props.style}
+      >
         {prefix}
-        {cloneElement(children, { style: null })}
+        {cloneElement(children, { style: null, className: this.getInputClassName() })}
         {suffix}
       </span>
     );
   }
 
   renderInput() {
-    const props = {
-      ...this.props,
-    };
+    const { value, className } = this.props;
     // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(props, [
+    const otherProps = omit(this.props, [
       'prefixCls',
       'onPressEnter',
       'addonBefore',
@@ -191,15 +201,8 @@ export default class Input extends Component<InputProps, any> {
       'suffix',
     ]);
 
-    const prefixCls = props.prefixCls;
-    const inputClassName = classNames(prefixCls, props.className, {
-      [`${prefixCls}-sm`]: props.size === 'small',
-      [`${prefixCls}-lg`]: props.size === 'large',
-      [`${prefixCls}-disabled`]: props.disabled,
-    });
-
-    if ('value' in props) {
-      otherProps.value = fixControlledValue(props.value);
+    if ('value' in this.props) {
+      otherProps.value = fixControlledValue(value);
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
       delete otherProps.defaultValue;
@@ -207,7 +210,7 @@ export default class Input extends Component<InputProps, any> {
     return this.renderLabeledIcon(
       <input
         {...otherProps}
-        className={inputClassName}
+        className={classNames(this.getInputClassName(), className)}
         onKeyDown={this.handleKeyDown}
         ref="input"
       />,
