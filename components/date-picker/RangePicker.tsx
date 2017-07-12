@@ -31,6 +31,13 @@ function pickerValueAdapter(value?: moment.Moment | moment.Moment[]): moment.Mom
   return [value, value.clone().add(1, 'month')];
 }
 
+function isEmptyArray(arr) {
+  if (Array.isArray(arr)) {
+    return arr.length === 0 || arr.every(i => !i);
+  }
+  return false;
+}
+
 export default class RangePicker extends React.Component<any, any> {
   static contextTypes = {
     antLocale: PropTypes.object,
@@ -53,8 +60,10 @@ export default class RangePicker extends React.Component<any, any> {
         'see: http://u.ant.design/date-picker-value',
       );
     }
+    const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;
     this.state = {
       value,
+      showDate: pickerValueAdapter(pickerValue || moment()),
       open: props.open,
       hoverValue: [],
     };
@@ -62,8 +71,12 @@ export default class RangePicker extends React.Component<any, any> {
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
+      const state = this.state;
       const value = nextProps.value || [];
-      this.setState({ value, showDate: getShowDateFromValue(value) });
+      this.setState({
+        value,
+        showDate: getShowDateFromValue(value) || state.showDate,
+      });
     }
     if ('open' in nextProps) {
       this.setState({
@@ -200,7 +213,7 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        value={showDate || pickerValueAdapter(props.defaultPickerValue || value || moment())}
+        value={showDate}
         onValueChange={this.handleShowDateChange}
         hoverValue={hoverValue}
         onHoverChange={this.handleHoverChange}
