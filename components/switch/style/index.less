@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 
 @switch-prefix-cls: ~"@{ant-prefix}-switch";
-@switch-duration: .3s;
+@switch-duration: .36s;
 
 .@{switch-prefix-cls} {
   position: relative;
@@ -13,7 +13,7 @@
   line-height: 20px;
   vertical-align: middle;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid transparent;
   background-color: @disabled-color;
   cursor: pointer;
   transition: all @switch-duration;
@@ -38,7 +38,7 @@
     background-color: @component-background;
     content: " ";
     cursor: pointer;
-    transition: all @switch-duration, width @switch-duration;
+    transition: all @switch-duration @ease-in-out-circ;
   }
 
   &:active:after {
@@ -93,7 +93,6 @@
   }
 
   &-checked {
-    border-color: @primary-color;
     background-color: @primary-color;
 
     .@{switch-prefix-cls}-inner {
@@ -114,7 +113,6 @@
   &-disabled {
     cursor: not-allowed;
     background: #f4f4f4;
-    border-color: #f4f4f4;
 
     &:after {
       background: #ccc;
