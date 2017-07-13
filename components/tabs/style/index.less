@@ -128,7 +128,7 @@
     position: relative;
     margin: 0;
     list-style: none;
-    float: left;
+    display: inline-block;
 
     &:before,
     &:after {
@@ -152,6 +152,10 @@
       margin-right: 24px;
       box-sizing: border-box;
       position: relative;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       padding: 8px 20px;
       transition: color 0.3s @ease-in-out;
