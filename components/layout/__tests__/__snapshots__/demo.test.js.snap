@@ -310,11 +310,10 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 <div
   class="ant-layout ant-layout-has-sider"
-  style="height:100vh;"
 >
   <div
     class="ant-layout-sider"
-    style="overflow:auto;flex:0 0 200px;width:200px;"
+    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;width:200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -453,6 +452,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
   </div>
   <div
     class="ant-layout"
+    style="margin-left:200px;"
   >
     <div
       class="ant-layout-header"
