@@ -92,7 +92,10 @@ export default function getPlacements(config: PlacementsConfig = {}) {
       ...placementMap[key],
       overflow: getOverflowOptions(autoAdjustOverflow),
       targetOffset,
-    } : rcPlacements[key];
+    } : {
+      ...rcPlacements[key],
+      overflow: getOverflowOptions(autoAdjustOverflow),
+    };
   });
   return placementMap;
 }
