@@ -421,7 +421,7 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
     />
   </span>
   <button
-    class="ant-btn ant-btn-primary upload-demo-start"
+    class="ant-btn upload-demo-start ant-btn-primary"
     disabled=""
     type="button"
   >

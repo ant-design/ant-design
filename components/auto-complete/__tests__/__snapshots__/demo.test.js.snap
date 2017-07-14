@@ -336,7 +336,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                   class="ant-input-suffix"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-lg search-btn"
+                    class="ant-btn search-btn ant-btn-primary ant-btn-lg"
                     type="button"
                   >
                     <i

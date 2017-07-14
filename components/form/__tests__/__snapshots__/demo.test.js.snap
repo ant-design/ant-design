@@ -1204,7 +1204,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           Forgot password
         </a>
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg login-form-button"
+          class="ant-btn login-form-button ant-btn-primary ant-btn-lg"
           type="submit"
         >
           <span>
