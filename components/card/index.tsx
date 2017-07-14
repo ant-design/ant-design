@@ -22,6 +22,7 @@ export default class Card extends Component<CardProps, any> {
   static Grid: typeof Grid = Grid;
   container: any;
   resizeEvent: any;
+  updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
   };
@@ -37,12 +38,16 @@ export default class Card extends Component<CardProps, any> {
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
     // 936 is a magic card width pixer number indicated by designer
-    const BOUDARY_PX = 936;
-    if (this.container.offsetWidth >= BOUDARY_PX && !this.state.widerPadding) {
-      this.setState({ widerPadding: true });
+    const WIDTH_BOUDARY_PX = 936;
+    if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
+      this.setState({ widerPadding: true }, () => {
+        this.updateWiderPaddingCalled = true; // first render without css transition
+      });
     }
-    if (this.container.offsetWidth < BOUDARY_PX && this.state.widerPadding) {
-      this.setState({ widerPadding: false });
+    if (this.container.offsetWidth < WIDTH_BOUDARY_PX && this.state.widerPadding) {
+      this.setState({ widerPadding: false }, () => {
+        this.updateWiderPaddingCalled = true; // first render without css transition
+      });
     }
   }
   saveRef = (node) => {
@@ -59,6 +64,7 @@ export default class Card extends Component<CardProps, any> {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-no-hovering`]: noHovering,
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
+      [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
     });
 
     if (loading) {
