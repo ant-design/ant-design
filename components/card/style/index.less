@@ -26,6 +26,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 24px;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
+    transition: padding .3s;
 
     &-title {
       font-size: @font-size-lg;
@@ -49,6 +50,7 @@
     padding: 24.5px;
     margin: -0.5px;
     .clearfix;
+    transition: padding .3s;
   }
 
   &-loading &-body {
@@ -78,6 +80,14 @@
       z-index: 1;
       box-shadow: @box-shadow-base;
     }
+  }
+
+  &-wider-padding &-head {
+    padding: 0 32px;
+  }
+
+  &-wider-padding &-body {
+    padding: 24px 32.5px;
   }
 }
 
