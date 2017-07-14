@@ -3,6 +3,7 @@ order: 3
 title:
   zh-CN: 自动调整位置
   en-US: Adjust placement automatically
+debug: true
 ---
 
 ## zh-CN
