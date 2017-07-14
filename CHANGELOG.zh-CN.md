@@ -17,6 +17,28 @@ timeline: true
 
 ---
 
+## 2.12.1
+
+`2017-07-14`
+
+- 修复保加利亚语中的拼写错误。[#6788](https://github.com/ant-design/ant-design/pull/6788) [@NoHomey](https://github.com/NoHomey)
+- 修复 `<Avatar src="..." />` 无法加载图片时的样式问题。[#6804](https://github.com/ant-design/ant-design/issues/6804)
+- 修复 `Button.Group` 内使用 loading 状态的图标按钮时的样式问题。[#6822](https://github.com/ant-design/ant-design/issues/6822)
+- 修复 Checkbox TypeScript 定义问题。[#6768](https://github.com/ant-design/ant-design/issues/6768)
+- 修复 `Collapse.Panel[header]` 内容过长时的样式问题。[#6832](https://github.com/ant-design/ant-design/issues/6832)
+- Input
+  - 修复 `className` 没有添加到 wrapper 上的问题。[#6809](https://github.com/ant-design/ant-design/issues/6809)
+  - 修复 `Input.Group` 内使用 Select 组件时的 error 样式问题。
+
+    <img src="https://user-images.githubusercontent.com/507615/27983847-551ffe0a-63f9-11e7-81ba-8c3336ddafd0.png" />
+
+- 修复 Layout 实现影响 Anchor、BackTop 的功能的问题。[#6817](https://github.com/ant-design/ant-design/issues/6817)
+- Menu
+  - 修复折叠动画失效问题。
+  - 修复 `Menu.Item` 边框样式问题。[46ffda9](https://github.com/ant-design/ant-design/commit/46ffda9c9385ec54e0c78594ed6c280d40ef035d)
+- 修复 RangePicker 设置了 `value|defaultValue` 后，浮层中的月份展示不对的问题。[#6764 point 3](https://github.com/ant-design/ant-design/issues/6764)
+- 修复 Tooltip 对齐问题。[#6830](https://github.com/ant-design/ant-design/issues/6830)
+
 ## 2.12.0
 
 `2017-07-08`
