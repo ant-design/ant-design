@@ -19,7 +19,7 @@ export interface CardProps {
 }
 
 export default class Card extends Component<CardProps, any> {
-  static Grid = Grid;
+  static Grid: typeof Grid = Grid;
   container: any;
   resizeEvent: any;
   state = {
