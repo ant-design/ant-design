@@ -88,12 +88,11 @@ export default function getPlacements(config: PlacementsConfig = {}) {
     },
   };
   Object.keys(placementMap).forEach(key => {
-    placementMap[key] = {
+    placementMap[key] = config.arrowPointAtCenter ? {
       ...placementMap[key],
       overflow: getOverflowOptions(autoAdjustOverflow),
-      offset: (config.arrowPointAtCenter ? rcPlacements[key] : placementMap[key]).offset,
       targetOffset,
-    };
+    } : rcPlacements[key];
   });
   return placementMap;
 }
