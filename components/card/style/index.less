@@ -46,8 +46,7 @@
   }
 
   &-body {
-    padding: 24.5px;
-    margin: -0.5px;
+    padding: 24px;
     .clearfix;
   }
 
@@ -63,6 +62,10 @@
     background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
 	  animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
+  }
+
+  &-contain-grid &-body {
+    margin: -0.5px;
   }
 
   &-grid {
@@ -85,7 +88,7 @@
   }
 
   &-wider-padding &-body {
-    padding: 24.5px 32.5px;
+    padding: 24px 32px;
   }
 
   &-wider-padding &-extra {

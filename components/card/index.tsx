@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Children } from 'react';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
@@ -53,18 +53,29 @@ export default class Card extends Component<CardProps, any> {
   saveRef = (node) => {
     this.container = node;
   }
+  isContainGrid() {
+    let containGrid;
+    Children.forEach(this.props.children, (element: any) => {
+      if (element && element.type && element.type === Grid) {
+        containGrid = true;
+      }
+    });
+    return containGrid;
+  }
   render() {
     const {
       prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
       title, loading, bordered = true, ...others,
     } = this.props;
     let children = this.props.children;
+
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-no-hovering`]: noHovering,
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
+      [`${prefixCls}-contain-grid`]: this.isContainGrid(),
     });
 
     if (loading) {
