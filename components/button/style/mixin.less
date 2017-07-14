@@ -237,6 +237,13 @@
   }
 }
 
+// button group loading space
+.group-loading(@btnClassName: btn) {
+  &.@{btnClassName}-loading {
+    padding-left: 29px;
+  }
+}
+
 // Horizontal button groups styl
 // --------------------------------------------------
 .btn-group(@btnClassName: btn) {
@@ -250,6 +257,7 @@
   }
 
   .@{btnClassName}:not(:first-child):not(:last-child) {
+    .group-loading(@btnClassName);
     border-radius: 0;
     padding-left: 8px;
     padding-right: 8px;
@@ -265,6 +273,7 @@
   }
 
   > .@{btnClassName}:last-child:not(:first-child) {
+    .group-loading(@btnClassName);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     padding-left: 8px;
