@@ -97,6 +97,18 @@ breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg'
 style | to custom the styles | object | -
 className | container className | string | -
 
+#### breakpoint width
+
+```js
+{
+  xs: '480px',
+  sm: '768px',
+  md: '992px',
+  lg: '1200px',
+  xl: '1600px',
+}
+```
+
 > Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
 
 ```jsx

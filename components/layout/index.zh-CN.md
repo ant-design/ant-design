@@ -98,6 +98,18 @@ title: Layout
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
+#### breakpoint width
+
+```js
+{
+  xs: '480px',
+  sm: '768px',
+  md: '992px',
+  lg: '1200px',
+  xl: '1600px',
+}
+```
+
 > 注意：如果你想在 `Sider` 基础上进行包装，需要给自定义组件加上 `__ANT_LAYOUT_SIDER = true` 设置，例如：
 
 ```jsx
