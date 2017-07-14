@@ -1,16 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
-import Input, { AbstractInputProps } from './Input';
+import Input, { InputProps } from './Input';
 import Icon from '../icon';
 
-export interface SearchProps extends AbstractInputProps {
-  placeholder?: string;
+export interface SearchProps extends InputProps {
   onSearch?: (value: string) => any;
-  onChange?: React.FormEventHandler<any>;
-  size?: 'large' | 'default' | 'small';
-  disabled?: boolean;
-  readOnly?: boolean;
-  name?: string;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
