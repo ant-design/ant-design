@@ -75,7 +75,7 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-no-hovering"
+  class="ant-card ant-card-bordered ant-card-no-hovering ant-card-contain-grid"
 >
   <div
     class="ant-card-head"
