@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import Button from '../button';
+import Button, { ButtonType } from '../button';
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -27,8 +27,12 @@ export interface ModalProps {
   footer?: React.ReactNode;
   /** 确认按钮文字*/
   okText?: string;
+  /** 确认按钮类型*/
+  okType?: ButtonType;
   /** 取消按钮文字*/
   cancelText?: string;
+  /** 取消按钮类型*/
+  cancelType?: ButtonType;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
   style?: React.CSSProperties;
@@ -54,7 +58,9 @@ export interface ModalFuncProps {
   width?: string | number;
   iconClassName?: string;
   okText?: string;
+  okType?: ButtonType;
   cancelText?: string;
+  cancelType?: ButtonType;
   iconType?: string;
   maskClosable?: boolean;
 }
@@ -77,6 +83,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
+    okType: 'primary'
   };
 
   static propTypes = {
@@ -133,7 +140,7 @@ export default class Modal extends React.Component<ModalProps, any> {
   }
 
   render() {
-    let { okText, cancelText, confirmLoading, footer, visible } = this.props;
+    let { okText, okType, cancelText, cancelType, confirmLoading, footer, visible } = this.props;
 
     if (this.context.antLocale && this.context.antLocale.Modal) {
       okText = okText || this.context.antLocale.Modal.okText;
@@ -143,6 +150,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     const defaultFooter = [(
       <Button
         key="cancel"
+        type={cancelType}
         size="large"
         onClick={this.handleCancel}
       >
@@ -151,7 +159,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     ), (
       <Button
         key="confirm"
-        type="primary"
+        type={okType}
         size="large"
         loading={confirmLoading}
         onClick={this.handleOk}
