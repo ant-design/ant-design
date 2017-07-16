@@ -26,13 +26,35 @@ function showConfirm() {
     },
     onCancel() {
       console.log('Cancel');
+    }
+  });
+}
+
+function showDeleteConfirm() {
+  confirm({
+    title: 'Are you sure delete this task?',
+    content: 'Some descriptions',
+    okText: 'Yes',
+    okType: 'danger',
+    cancelText: 'No',
+    cancelType: 'dashed',
+    onOk() {
+      console.log('OK');
     },
+    onCancel() {
+      console.log('Cancel');
+    }
   });
 }
 
 ReactDOM.render(
-  <Button onClick={showConfirm}>
-    Confirm
-  </Button>
+  <div>
+    <Button onClick={showConfirm}>
+      Confirm
+    </Button>
+    <Button onClick={showDeleteConfirm} type="dashed">
+      Delete
+    </Button>
+  </div>
 , mountNode);
 ````
