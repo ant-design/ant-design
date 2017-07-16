@@ -103,10 +103,13 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 | options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
 | options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internaly, we recommend to use vairable as `initialValue`, instead of literal) | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
-| options.getValueFromEvent | To convert parameters of onChange to the value of control | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.validateTrigger | When to validate the value of children node. | string\|string[] | 'onChange' |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object[] | n/a |
 | options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
+| options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+
+More option at [rc-form option](https://github.com/react-component/form#option-object)。
 
 ### Form.Item
 

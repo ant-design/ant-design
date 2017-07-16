@@ -104,10 +104,13 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
-| options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.getValueFromEvent | 可以把 onChange 的参数（如 event）转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
 | options.rules | 校验规则，参考下方文档 | object[] | |
 | options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
+| options.normalize | 转换默认的 value 给控件，[一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+
+更多参数请查看 [rc-form option](https://github.com/react-component/form#option-object)。
 
 ### Form.Item
 
