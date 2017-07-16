@@ -26,7 +26,9 @@ title: Modal
 | width      | 宽度           | string\|number | 520           |
 | footer     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | okText     | 确认按钮文字    | string           | 确定       |
+| okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
+| cancelType | 取消按钮类型    | string           | 无         |
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
 | wrapClassName | 对话框外层容器的类名 | string   | - |
@@ -69,7 +71,9 @@ title: Modal
 | width      | 宽度           | string\|number | 416           |
 | iconType   | 图标 Icon 类型    | string | question-circle |
 | okText     | 确认按钮文字    | string           | 确定       |
+| okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
+| cancelType | 取消按钮类型    | string           | 无         |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
 
 以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。
