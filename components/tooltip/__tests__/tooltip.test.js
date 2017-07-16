@@ -128,4 +128,44 @@ describe('Tooltip', () => {
 
     expect(wrapper.find('span')).toHaveLength(0);
   });
+
+  it('should works for arrowPointAtCenter', () => {
+    const arrowWidth = 5;
+    const horizontalArrowShift = 16;
+    const triggerWidth = 200;
+
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+      >
+        <button style={{ width: triggerWidth }}>
+          Hello world!
+        </button>
+      </Tooltip>
+    );
+    wrapper.find('button').at(0).simulate('click');
+    const popupLeftDefault = parseInt(wrapper.node.getPopupDomNode().style.left, 10);
+
+    const wrapper2 = mount(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrowPointAtCenter
+      >
+        <button style={{ width: triggerWidth }}>
+          Hello world!
+        </button>
+      </Tooltip>
+    );
+    wrapper2.find('button').at(0).simulate('click');
+    const popupLeftArrowPointAtCenter = parseInt(wrapper2.node.getPopupDomNode().style.left, 10);
+    expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
+  });
 });
