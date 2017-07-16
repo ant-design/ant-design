@@ -7,8 +7,8 @@ title:
 
 Layout is the prerequisite for a webpage. It's also the foundation of follow-up interactive and visual design. In order to guarantee consistency among similar products, Ant Design provides some common layout templates. Before choosing one of these templates, you need to have a clear mind about:
 
-- the main tasks that a user needs to accomplish and all necessary information for making such decisions.
-- the priorities and features of those tasks and information, so as to select a reasonable layout
+- The main tasks that a user needs to accomplish and all necessary information for making such decisions.
+- The priorities and features of those tasks and information, so as to select a reasonable layout
 
 ---
 
@@ -25,8 +25,8 @@ Through a large number of practices, Ant Design summarized six commonly used lay
 
 Home page is usually the first step for a user to understand a website or the products. Generally, home page consists of product drawings, brief product introductions, and user login interfaces. In the design, we recommend you to:
 
-- keep the copywriting clear and simply, which helps you better express the ideas.
-- use intuitive pictures for a product, which helps to deepen a user's understanding and impression.
+- Keep the copywriting clear and simply, which helps you better express the ideas.
+- Use intuitive pictures for a product, which helps to deepen a user's understanding and impression.
 
 ### Dashboard
 
@@ -36,9 +36,9 @@ Home page is usually the first step for a user to understand a website or the pr
 
 Dashboard collects a variety of information, such as digitals, graphics, copywriting, etc. Key information should be clearly represented and easily understood. Thus, displaying the complex information in a clear way is important in the design. For this propose, we recommend you to:
 
-- organize the page layout according to the importance of information, so as to highlight key points.
-- visualize the data, which allows users to understand key information as well as the overall situation in an intuitive way.
-- use color and grid layout logically, which helps to reduce a user's visual fatigue.
+- Organize the page layout according to the importance of information, so as to highlight key points.
+- Visualize the data, which allows users to understand key information as well as the overall situation in an intuitive way.
+- Use color and grid layout logically, which helps to reduce a user's visual fatigue.
 
 
 ### List page
@@ -49,8 +49,8 @@ Dashboard collects a variety of information, such as digitals, graphics, copywri
 
 List is a way to display information in parallel. A well designed list can be helpful for users to read basic information and perform corresponding operations quickly. Therefore, the "readability" and "operability" of a list are the keys to the design. For this propose, we recommend you to:
 
-- identify the importance of information accordingly and show nothing but key information as well as the corresponding operations.
-- fold secondary information or put it into the details page. It allows a user to access information in a progressive way when the content is too complex.
+- Identify the importance of information accordingly and show nothing but key information as well as the corresponding operations.
+- Fold secondary information or put it into the details page. It allows a user to access information in a progressive way when the content is too complex.
 
 ### Table page
 
@@ -60,9 +60,9 @@ List is a way to display information in parallel. A well designed list can be he
 
 Table is a carrier for multi-dimensional information. It can make complex information to be read and understood easily. Its readability, convenience and operability play an essential role in the user experience. Therefore, we should pay attention to the following points in the design:
 
-- construct a clear table layout. It can be helpful for a user to receive and understand information.
-- highlight key information through some visual adjustments.
-- use the horizontal or vertical zebra strip smartly when there is a large multi-row table or there are multiple columns in each row. By doing so, information is more distinguishable and easier to be understood.
+- Construct a clear table layout. It can be helpful for a user to receive and understand information.
+- Highlight key information through some visual adjustments.
+- Use the horizontal or vertical zebra strip smartly when there is a large multi-row table or there are multiple columns in each row. By doing so, information is more distinguishable and easier to be understood.
 
 ### Details page
 
@@ -72,8 +72,8 @@ Table is a carrier for multi-dimensional information. It can make complex inform
 
 Details page usually carries a large amount of basic information, extended information as well as status information. It's important to identify priorities of the information. A clear layout can be helpful for a user to get key information at a glance and make decisions efficiently. In the design, it's worth noting that:
 
-- layout format, text size and text spacing, are the key factors that affect a user's efficiency to access information.
-- text with graphic can be better understood than pure text.
+- Layout format, text size and text spacing, are the key factors that affect a user's efficiency to access information.
+- Text with graphic can be better understood than pure text.
 
 ### Form page
 
@@ -83,10 +83,10 @@ Details page usually carries a large amount of basic information, extended infor
 
 Form page is often used for tasks such as login, register, booking, comment, etc. Form page is indispensable when you need to record the user information. Therefore, a well designed form page can guide the user to complete the data recording workflow behind the form efficiently. We recommended you to:
 
-- provide a clear user's view path, in consideration of how a user will browse the information;
-- simplify the content of a form (try to avoid redundant inputs)
-- name the tags that can be easy to read and understand. Avoid confusions caused by ambiguous descriptions;
-- place eye-catching submit buttons on the end of a user's view path, which makes it more conducive for a user to complete all the operations.
+- Provide a clear user's view path, in consideration of how a user will browse the information;
+- Simplify the content of a form (try to avoid redundant inputs)
+- Name the tags that can be easy to read and understand. Avoid confusions caused by ambiguous descriptions;
+- Place eye-catching submit buttons on the end of a user's view path, which makes it more conducive for a user to complete all the operations.
 
 ---
 
