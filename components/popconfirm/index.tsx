@@ -1,7 +1,7 @@
 import React from 'react';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
-import Button from '../button';
+import Button, { ButtonType } from '../button';
 import injectLocale from '../locale-provider/injectLocale';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
@@ -9,7 +9,9 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   onConfirm?: (e: React.MouseEvent<any>) => void;
   onCancel?: (e: React.MouseEvent<any>) => void;
   okText?: React.ReactNode;
+  okType?: ButtonType;
   cancelText?: React.ReactNode;
+  cancelType?: ButtonType;
 }
 
 abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
@@ -18,6 +20,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
+    okType: 'primary'
   };
 
   refs: {
@@ -79,7 +82,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   render() {
-    const { prefixCls, title, placement, okText, cancelText, ...restProps } = this.props;
+    const { prefixCls, title, placement, okText, okType, cancelText, cancelType, ...restProps } = this.props;
     const popconfirmLocale = this.getLocale();
 
     const overlay = (
@@ -90,10 +93,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.onCancel} size="small">
+            <Button onClick={this.onCancel} type={cancelType} size="small">
               {cancelText || popconfirmLocale.cancelText}
             </Button>
-            <Button onClick={this.onConfirm} type="primary" size="small">
+            <Button onClick={this.onConfirm} type={okType} size="small">
               {okText || popconfirmLocale.okText}
             </Button>
           </div>
