@@ -26,7 +26,7 @@ function showConfirm() {
     },
     onCancel() {
       console.log('Cancel');
-    }
+    },
   });
 }
 
@@ -43,7 +43,7 @@ function showDeleteConfirm() {
     },
     onCancel() {
       console.log('Cancel');
-    }
+    },
   });
 }
 
