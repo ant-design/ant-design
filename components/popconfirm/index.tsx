@@ -21,7 +21,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
-    okType: 'primary'
+    okType: 'primary',
   };
 
   refs: {
