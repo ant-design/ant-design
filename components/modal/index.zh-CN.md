@@ -28,7 +28,6 @@ title: Modal
 | okText     | 确认按钮文字    | string           | 确定       |
 | okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
-| cancelType | 取消按钮类型    | string           | 无         |
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
 | wrapClassName | 对话框外层容器的类名 | string   | - |

@@ -23,7 +23,6 @@ title: Popconfirm
 | okText    | 确认按钮文字                              | string        | 确定   |
 | okType    | 确认按钮类型                              | string        | primary   |
 | cancelText| 取消按钮文字                              | string        | 取消   |
-| cancelType| 取消按钮类型                              | string        | 无   |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 
