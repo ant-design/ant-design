@@ -37,7 +37,6 @@ function showDeleteConfirm() {
     okText: 'Yes',
     okType: 'danger',
     cancelText: 'No',
-    cancelType: 'dashed',
     onOk() {
       console.log('OK');
     },

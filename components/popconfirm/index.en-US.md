@@ -22,7 +22,6 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 | okText    | text of the confirmation button                              | string        | Confirm   |
 | okType    | type of the confirmation button                              | string        | primary   |
 | cancelText| text of the cancel button                              | string        | Cancel   |
-| cancelType| type of the confirmation button                              | string        | none   |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
 

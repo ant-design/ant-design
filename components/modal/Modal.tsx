@@ -32,8 +32,6 @@ export interface ModalProps {
   okType?: ButtonType;
   /** 取消按钮文字*/
   cancelText?: string;
-  /** 取消按钮类型*/
-  cancelType?: ButtonType;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
   style?: React.CSSProperties;
@@ -61,7 +59,6 @@ export interface ModalFuncProps {
   okText?: string;
   okType?: ButtonType;
   cancelText?: string;
-  cancelType?: ButtonType;
   iconType?: string;
   maskClosable?: boolean;
 }
@@ -141,7 +138,7 @@ export default class Modal extends React.Component<ModalProps, any> {
   }
 
   render() {
-    let { okText, okType, cancelText, cancelType, confirmLoading, footer, visible } = this.props;
+    let { okText, okType, cancelText, confirmLoading, footer, visible } = this.props;
 
     if (this.context.antLocale && this.context.antLocale.Modal) {
       okText = okText || this.context.antLocale.Modal.okText;
@@ -151,7 +148,6 @@ export default class Modal extends React.Component<ModalProps, any> {
     const defaultFooter = [(
       <Button
         key="cancel"
-        type={cancelType}
         size="large"
         onClick={this.handleCancel}
       >
