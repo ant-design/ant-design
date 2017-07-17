@@ -19,7 +19,7 @@ timeline: true
 
 ## 2.12.1
 
-`2017-07-14`
+`2017-07-17`
 
 - 修复保加利亚语中的拼写错误。[#6788](https://github.com/ant-design/ant-design/pull/6788) [@NoHomey](https://github.com/NoHomey)
 - 修复 `<Avatar src="..." />` 无法加载图片时的样式问题。[#6804](https://github.com/ant-design/ant-design/issues/6804)
@@ -28,6 +28,8 @@ timeline: true
 - 修复 `Collapse.Panel[header]` 内容过长时的样式问题。[#6832](https://github.com/ant-design/ant-design/issues/6832)
 - Input
   - 修复 `className` 没有添加到 wrapper 上的问题。[#6809](https://github.com/ant-design/ant-design/issues/6809)
+  - 修复 `Input.Search` 的 TypeScript 定义。[#6837](https://github.com/ant-design/ant-design/pull/6837) [@newraina](https://github.com/newraina)
+  - 修复 `Input.TextArea` 的 value 无法被重置的问题。[#6776](https://github.com/ant-design/ant-design/issues/6776)
   - 修复 `Input.Group` 内使用 Select 组件时的 error 样式问题。
 
     <img src="https://user-images.githubusercontent.com/507615/27983847-551ffe0a-63f9-11e7-81ba-8c3336ddafd0.png" />

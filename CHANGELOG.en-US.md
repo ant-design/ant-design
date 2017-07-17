@@ -17,6 +17,30 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.1
+
+`2017-07-17`
+
+- Fix typo in Bulgarian locales. [#6788](https://github.com/ant-design/ant-design/pull/6788) [@NoHomey](https://github.com/NoHomey)
+- Fix broken style of `<Avatar src="..." />` when image cannot be loaded. [#6804](https://github.com/ant-design/ant-design/issues/6804)
+- Fix broken style of loading icon button in `Button.Group`. [#6822](https://github.com/ant-design/ant-design/issues/6822)
+- Fix TypeScript's definition of Checkbox. [#6768](https://github.com/ant-design/ant-design/issues/6768)
+- Fix broken style of `Collapse.Panel[header]` when content is too long. [#6832](https://github.com/ant-design/ant-design/issues/6832)
+- Input
+  - Fix that `className` should be added to wrapper. [#6809](https://github.com/ant-design/ant-design/issues/6809)
+  - Fix TypeScript's definition of `Input.Search`. [#6837](https://github.com/ant-design/ant-design/pull/6837) [@newraina](https://github.com/newraina)
+  - Fix that value of `Input.TextArea` cannot be reset. [#6776](https://github.com/ant-design/ant-design/issues/6776)
+  - Fix broken style of error status of Select in `Input.Group`.
+
+    <img src="https://user-images.githubusercontent.com/507615/27983847-551ffe0a-63f9-11e7-81ba-8c3336ddafd0.png" />
+
+- Fix that the implementation of Layout should not affect Anchor and BackTop. [#6817](https://github.com/ant-design/ant-design/issues/6817)
+- Menu
+  - Fix animation of inline menu.
+  - Fix style of border of `Menu.Item`. [46ffda9](https://github.com/ant-design/ant-design/commit/46ffda9c9385ec54e0c78594ed6c280d40ef035d)
+- Fix that RangePicker should show correct months in panels when `value|defaultValue` is set. [#6764 point 3](https://github.com/ant-design/ant-design/issues/6764)
+- Fix alignment of Tooltip. [#6830](https://github.com/ant-design/ant-design/issues/6830)
+
 ## 2.12.0
 
 `2017-07-08`
