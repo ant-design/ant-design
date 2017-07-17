@@ -1,5 +1,5 @@
-import CalendarLocale from 'rc-calendar/lib/locale/en_US';
-import TimePickerLocale from '../../time-picker/locale/en_US';
+import CalendarLocale from 'rc-calendar/lib/locale/pl_PL';
+import TimePickerLocale from '../../time-picker/locale/pl_PL';
 
 // Merge into a locale object
 const locale = {
