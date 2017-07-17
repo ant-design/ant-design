@@ -75,6 +75,13 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     this.setState({ textareaStyles });
   }
 
+  getTextAreaClassName() {
+    const { prefixCls, disabled } = this.props;
+    return classNames(prefixCls, {
+      [`${prefixCls}-disabled`]: disabled,
+    });
+  }
+
   handleTextareaChange = (e) => {
     if (!('value' in this.props)) {
       this.resizeTextarea();
@@ -118,7 +125,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     return (
       <textarea
         {...otherProps}
-        className={classNames(props.prefixCls, props.className)}
+        className={classNames(this.getTextAreaClassName(), props.className)}
         style={style}
         onKeyDown={this.handleKeyDown}
         onChange={this.handleTextareaChange}
