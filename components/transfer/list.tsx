@@ -22,7 +22,7 @@ export interface TransferListProps {
   titleText: string;
   dataSource: TransferItem[];
   filter: string;
-  filterOption: (filterText: any, item: any) => boolean;
+  filterOption?: (filterText: any, item: any) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: any) => void;

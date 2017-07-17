@@ -30,7 +30,7 @@ export interface TransferProps {
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption: (inputValue: any, item: any) => boolean;
+  filterOption?: (inputValue: any, item: any) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
   footer?: (props: TransferListProps) => React.ReactNode;
