@@ -172,10 +172,10 @@
 @screen-xl-min          : @screen-xl;
 
 // provide a maximum
-@screen-xs-max          : (@screen-sm-min - 1);
-@screen-sm-max          : (@screen-md-min - 1);
-@screen-md-max          : (@screen-lg-min - 1);
-@screen-lg-max          : (@screen-xl-min - 1);
+@screen-xs-max          : (@screen-sm-min - 1px);
+@screen-sm-max          : (@screen-md-min - 1px);
+@screen-md-max          : (@screen-lg-min - 1px);
+@screen-lg-max          : (@screen-xl-min - 1px);
 
 // Grid system
 @grid-columns           : 24;
@@ -244,7 +244,7 @@
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
-@tooltip-distance: @tooltip-arrow-width - 1 + 4;
+@tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 //** Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
 
@@ -261,11 +261,11 @@
 //** Popover arrow color
 @popover-arrow-color: @popover-bg;
 //** Popover outer arrow width
-@popover-arrow-outer-width: (@popover-arrow-width + 1);
+@popover-arrow-outer-width: (@popover-arrow-width + 1px);
 //** Popover outer arrow color
 @popover-arrow-outer-color: fadeout(@border-color-base, 30%);
 //** Popover distance with trigger
-@popover-distance: @popover-arrow-width + 4;
+@popover-distance: @popover-arrow-width + 4px;
 
 // Modal
 // --
