@@ -72,7 +72,6 @@ title: Modal
 | okText     | 确认按钮文字    | string           | 确定       |
 | okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
-| cancelType | 取消按钮类型    | string           | 无         |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
 
 以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。

@@ -74,7 +74,6 @@ The properties of the object are follows:
 | okText     | Text of OK button    | string           | OK       |
 | okType    | type of the confirmation button                              | string        | primary   |
 | cancelText | Text of cancel button    | string           | Cancel       |
-| cancelType| type of the confirmation button                              | string        | none   |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `false`       |
 
 All the `Modal.method`s will return a reference, and then we can close the popup by the reference.
