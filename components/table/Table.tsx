@@ -345,7 +345,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       let columnTitle = this.props.defaultSortOrder.columnTitle;
       return {
         sortColumn: flatFilter(columns || this.columns || [], column => column.title === columnTitle)[0],
-        sortOrder: this.props.defaultSortOrder.sortOrder
+        sortOrder: this.props.defaultSortOrder.sortOrder,
       };
     }
 
@@ -753,10 +753,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
-          column.className = column.className || '';
-          if (sortOrder) {
-            column.className += ` ${prefixCls}-column-sort`;
-          }
+          column.className = classNames(column.className, {
+            [`${prefixCls}-column-sort`]: sortOrder,
+          });
         }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
