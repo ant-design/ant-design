@@ -1,7 +1,8 @@
 import React from 'react';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
-import Button, { ButtonType } from '../button';
+import Button from '../button';
+import { ButtonType } from '../button/button';
 import injectLocale from '../locale-provider/injectLocale';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
