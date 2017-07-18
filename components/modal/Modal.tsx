@@ -61,6 +61,7 @@ export interface ModalFuncProps {
   okType?: ButtonType;
   cancelText?: string;
   iconType?: string;
+  zIndex?: boolean;
 }
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void,
