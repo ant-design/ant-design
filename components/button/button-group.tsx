@@ -10,7 +10,7 @@ export interface ButtonGroupProps {
   prefixCls?: string;
 }
 
-export default function ButtonGroup(props: ButtonGroupProps) {
+const ButtonGroup: React.SFC<ButtonGroupProps> = (props) => {
   const { prefixCls = 'ant-btn-group', size = '', className, ...others } = props;
 
   // large => lg
@@ -31,4 +31,6 @@ export default function ButtonGroup(props: ButtonGroupProps) {
   }, className);
 
   return <div {...others} className={classes} />;
-}
+};
+
+export default ButtonGroup;
