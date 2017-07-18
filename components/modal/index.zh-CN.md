@@ -26,6 +26,7 @@ title: Modal
 | width      | 宽度           | string\|number | 520           |
 | footer     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | okText     | 确认按钮文字    | string           | 确定       |
+| okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
@@ -63,6 +64,7 @@ title: Modal
 | width      | 宽度           | string\|number | 416           |
 | iconType   | 图标 Icon 类型    | string | question-circle |
 | okText     | 确认按钮文字    | string           | 确定       |
+| okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
 

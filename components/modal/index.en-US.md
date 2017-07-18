@@ -27,6 +27,7 @@ and so on.
 | width      | Width of a modal dialog           | string\|number | 520           |
 | footer     | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and cancel button |
 | okText     | Text of the OK button    | string           | OK       |
+| okType    | type of the confirmation button                              | string        | primary   |
 | cancelText | Text of the Cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | boolean   | true       |
 | style | Style of floating layer, typically used at least for adjusting the position. | object   | - |
@@ -65,6 +66,7 @@ The properties of the object are follows:
 | width      | Width of dialog           | string\|number | 416           |
 | iconType   | Type of Icon component    | string | question-circle |
 | okText     | Text of OK button    | string           | OK       |
+| okType    | type of the confirmation button                              | string        | primary   |
 | cancelText | Text of cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `false`       |
 
