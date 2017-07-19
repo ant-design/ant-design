@@ -206,7 +206,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         getTooltipContainer={getPopupContainer || getTooltipContainer}
         ref="tooltip"
         builtinPlacements={this.getPlacements()}
-        overlay={overlay || title}
+        overlay={overlay || title || ''}
         visible={visible}
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
