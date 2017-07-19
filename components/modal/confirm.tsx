@@ -91,6 +91,7 @@ export default function confirm(config) {
       maskClosable={maskClosable}
       style={style}
       width={width}
+      zIndex={props.zIndex}
     >
       <div className={`${prefixCls}-body-wrapper`}>
         {body} {footer}
