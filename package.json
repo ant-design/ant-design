@@ -78,7 +78,7 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.8",
+    "@types/react": "^15.0.38",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.3.0",
     "antd-tools": "~1.6.0",
