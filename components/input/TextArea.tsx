@@ -29,7 +29,7 @@ export interface TextAreaProps extends AbstractInputProps {
   onPressEnter?: React.FormEventHandler<any>;
 }
 
-export type HTMLTextareaProps = React.HTMLProps<HTMLTextAreaElement>;
+export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, any> {
   static defaultProps = {
