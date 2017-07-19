@@ -150,7 +150,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
-      'fixed columns instead, see: http://u.ant.design/fixed-columns.',
+      'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
     this.columns = props.columns || normalizeColumns(props.children);
@@ -629,7 +629,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       rowKey(record, index) :  record[rowKey as string];
     warning(recordKey !== undefined,
       'Each record in dataSource of table should have a unique `key` prop, or set `rowKey` to an unique primary key,' +
-      'see http://u.ant.design/table-row-key',
+      'see https://u.ant.design/table-row-key',
     );
     return recordKey === undefined ? index : recordKey;
   }

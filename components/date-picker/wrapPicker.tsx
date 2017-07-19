@@ -53,7 +53,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
         warning(
           false,
           '`toggleOpen` is deprecated and will be removed in the future, ' +
-          'please use `onOpenChange` instead, see: http://u.ant.design/date-picker-on-open-change',
+          'please use `onOpenChange` instead, see: https://u.ant.design/date-picker-on-open-change',
         );
         toggleOpen({ open });
       }

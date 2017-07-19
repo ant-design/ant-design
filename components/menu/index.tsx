@@ -69,7 +69,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     warning(
       !('onOpen' in props || 'onClose' in props),
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
-      'see: http://u.ant.design/menu-on-open-change.',
+      'see: https://u.ant.design/menu-on-open-change.',
     );
 
     warning(
