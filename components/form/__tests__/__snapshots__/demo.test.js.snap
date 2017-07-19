@@ -2086,6 +2086,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   >
                     <input
                       class="ant-select-search__field"
+                      id="select-multiple"
                       value=""
                     />
                     <span
