@@ -40,6 +40,7 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  zIndex?: boolean;
 }
 
 export interface ModalContext {
@@ -60,6 +61,7 @@ export interface ModalFuncProps {
   okType?: ButtonType;
   cancelText?: string;
   iconType?: string;
+  zIndex?: boolean;
 }
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void,
