@@ -18,8 +18,8 @@ function getCheckedValue(children) {
 }
 
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
-  defaultValue?: string | number;
-  value?: string | number;
+  defaultValue?: any;
+  value?: any;
   onChange?: React.FormEventHandler<any>;
   size?: 'large' | 'default' | 'small';
   onMouseEnter?: React.FormEventHandler<any>;
