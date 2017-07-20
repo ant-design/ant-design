@@ -10,7 +10,8 @@
 
 .@{select-tree-prefix-cls} {
   margin: 0;
-  padding: 8px;
+  padding: 0 4px;
+  margin-top: -4px;
   font-size: @font-size-base;
   li {
     padding: 0;
@@ -36,6 +37,7 @@
       text-decoration: none;
       color: @text-color;
       transition: all .3s;
+      width: ~"calc(100% - 24px)";
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -46,13 +48,16 @@
     > span {
       &.@{select-tree-prefix-cls}-checkbox {
         margin: 0 4px 0 0;
+        + .@{select-tree-prefix-cls}-node-content-wrapper {
+          width: ~"calc(100% - 46px)";
+        }
       }
       &.@{select-tree-prefix-cls}-switcher,
       &.@{select-tree-prefix-cls}-iconEle {
         margin: 0;
         width: 24px;
         height: 24px;
-        line-height: 24px;
+        line-height: 22px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
