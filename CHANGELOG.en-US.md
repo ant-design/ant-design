@@ -17,6 +17,24 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.2
+
+`2017-07-21`
+
+- Longer message duration (1.5s to 3s).
+- Fix Anchor links not highlighted. [#6473](https://github.com/ant-design/ant-design/issues/6473)
+- Fix disabled style of Input.TextArea. [#6858](https://github.com/ant-design/ant-design/pull/6858) [@lyz810](https://github.com/lyz810)
+- Fix disabled style of TimePicker. [#6918](https://github.com/ant-design/ant-design/issues/6918)
+- Fix overlaped issue of form feedback icon and select arrow which is introduced in `2.12.1` again. [#4431](https://github.com/ant-design/ant-design/issues/4431)
+- Fix vertical Tabs arrow style. [255eac9](https://github.com/ant-design/ant-design/commit/255eac907949ded5b79f216a29831dcf4afa9362)
+- Update Polish locale. [#6869](https://github.com/ant-design/ant-design/pull/6869) [#6870](https://github.com/ant-design/ant-design/pull/6870) [#6871](https://github.com/ant-design/ant-design/pull/6871) [@imosapatryk](https://github.com/imosapatryk)
+- Fix that `http` url incluced in source code. [#6893](https://github.com/ant-design/ant-design/issues/6893)
+- Adjust vertical align of Menu icon and text.
+- Fix `overlay is marked as required` warning of Tooltip. [#6897](https://github.com/ant-design/ant-design/issues/6897)
+- Fix disabled style of Slider under colored background. [#6665](https://github.com/ant-design/ant-design/issues/6665)
+- Adjust click area of TreeSelect item.
+- Fix some issues of TypeScript definitions.
+
 ## 2.12.1
 
 `2017-07-17`
