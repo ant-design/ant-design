@@ -15,7 +15,7 @@ exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
           class="ant-anchor-ink"
         >
           <span
-            class="ant-anchor-ink-ball animated"
+            class="ant-anchor-ink-ball"
           />
         </div>
         <div
@@ -90,7 +90,7 @@ exports[`renders ./components/anchor/demo/fixed.md correctly 1`] = `
       class="ant-anchor-ink"
     >
       <span
-        class="ant-anchor-ink-ball animated"
+        class="ant-anchor-ink-ball"
       />
     </div>
     <div
