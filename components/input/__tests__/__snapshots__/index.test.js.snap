@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea should support disabled 1`] = `
+<TextArea
+  disabled={true}
+  prefixCls="ant-input"
+>
+  <textarea
+    className="ant-input ant-input-disabled"
+    disabled={true}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    style={Object {}}
+  />
+</TextArea>
+`;
