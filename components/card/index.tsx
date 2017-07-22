@@ -13,15 +13,19 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   noHovering?: boolean;
-  children?: any;
+  children?: React.ReactChild;
   id?: string;
   className?: string;
 }
 
-export default class Card extends Component<CardProps, any> {
+export interface RcUtilEventListener extends EventListener {
+  remove: () => undefined; // `EventTarget.removeEventListener()` will return undefined
+}
+
+export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
-  container: any;
-  resizeEvent: any;
+  container: HTMLDivElement;
+  resizeEvent: RcUtilEventListener;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
@@ -50,12 +54,12 @@ export default class Card extends Component<CardProps, any> {
       });
     }
   }
-  saveRef = (node) => {
+  saveRef = (node: HTMLDivElement) => {
     this.container = node;
   }
   isContainGrid() {
     let containGrid;
-    Children.forEach(this.props.children, (element: any) => {
+    Children.forEach(this.props.children, (element: JSX.Element) => {
       if (element && element.type && element.type === Grid) {
         containGrid = true;
       }
