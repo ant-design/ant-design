@@ -19,7 +19,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ## 2.12.2
 
-`2017-07-21`
+`2017-07-22`
 
 - Longer message duration (1.5s to 3s).
 - Fix Anchor links not highlighted. [#6473](https://github.com/ant-design/ant-design/issues/6473)

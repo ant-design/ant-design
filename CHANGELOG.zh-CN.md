@@ -19,7 +19,7 @@ timeline: true
 
 ## 2.12.2
 
-`2017-07-21`
+`2017-07-22`
 
 - 将 message 默认出现的时长从 1.5s 调整为 3s。
 - 重构了 Anchor，修复未滚动时链接没有高亮的问题。[#6473](https://github.com/ant-design/ant-design/issues/6473)
