@@ -56,6 +56,23 @@ export type ValidationRule = {
 
 export type ValidateCallback = (erros: any, values: any) => void;
 
+export type GetFieldDecoratorOptions = {
+  /** 子节点的值的属性，如 Checkbox 的是 'checked' */
+  valuePropName?: string;
+  /** 子节点的初始值，类型、可选值均由子节点决定 */
+  initialValue?: any;
+  /** 收集子节点的值的时机 */
+  trigger?: string;
+  /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
+  getValueFromEvent?: (...args: any[]) => any;
+  /** 校验子节点值的时机 */
+  validateTrigger?: string | string[];
+  /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
+  rules?: ValidationRule[];
+  /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
+  exclusive?: boolean;
+}
+
 // function create
 export type WrappedFormUtils = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
@@ -86,22 +103,7 @@ export type WrappedFormUtils = {
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
 
-  getFieldDecorator(id: string, options?: {
-    /** 子节点的值的属性，如 Checkbox 的是 'checked' */
-    valuePropName?: string;
-    /** 子节点的初始值，类型、可选值均由子节点决定 */
-    initialValue?: any;
-    /** 收集子节点的值的时机 */
-    trigger?: string;
-    /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-    getValueFromEvent?: (...args: any[]) => any;
-    /** 校验子节点值的时机 */
-    validateTrigger?: string | string[];
-    /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
-    rules?: ValidationRule[];
-    /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
-    exclusive?: boolean;
-  }): (node: React.ReactNode) => React.ReactNode;
+  getFieldDecorator(id: string, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
 };
 
 export interface FormComponentProps {
