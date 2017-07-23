@@ -71,11 +71,3 @@ More Content Invitation: Indicate that there is more content on the page.
 
 
 <br>
-
-<br>
-
-<p><span class="waiting">Affordance Invitation (coming soon)</span></p>
-
-<br>
-
-<p><span class="waiting">Drag and Drop Invitation (coming soon)</span></p>
