@@ -9,7 +9,7 @@ import getScroll from '../_util/getScroll';
 import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
 function getDefaultTarget() {
-  return typeof window !== 'undefined' ? window : null;
+  return window;
 }
 
 function getOffsetTop(element: HTMLElement): number {
