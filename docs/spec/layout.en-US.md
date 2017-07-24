@@ -1,8 +1,6 @@
 ---
 order: 7
-title:
-  zh-CN: 布局
-  en-US: Layout
+title: Layout
 ---
 
 Layout is the prerequisite for a webpage. It's also the foundation of follow-up interactive and visual design. In order to guarantee consistency among similar products, Ant Design provides some common layout templates. Before choosing one of these templates, you need to have a clear mind about:
@@ -113,4 +111,4 @@ There are two `Gutter`s in Ant Design
 - 24px width `Gutter`, which is used in home page and Dashboard
 - 16px width `Gutter`, which is used in list Page, table page, details page and form page.
 
-> [tips for setting the grid ](https://zos.alipayobjects.com/rmsportal/cbxeMLaFnqQEvFgmhSTS.png)。
+> [tips for setting the grid ](https://zos.alipayobjects.com/rmsportal/cbxeMLaFnqQEvFgmhSTS.png).
