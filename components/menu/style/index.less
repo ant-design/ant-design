@@ -189,6 +189,8 @@
         + span {
           max-width: 0;
           visibility: hidden;
+          display: inline-block;
+          opacity: 0;
         }
       }
     }
@@ -237,14 +239,9 @@
       min-width: 14px;
       margin-right: 8px;
       transition: all .3s;
-      overflow: hidden;
       + span {
-        max-width: 100%;
-        display: inline-block;
-        overflow: hidden;
         transition: all .3s;
-        line-height: 1;
-        text-overflow: ellipsis;
+        opacity: 1;
       }
     }
   }
