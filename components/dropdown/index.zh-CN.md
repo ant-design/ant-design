@@ -24,9 +24,11 @@ title: Dropdown
 | onVisibleChange  | 菜单显示状态改变时调用，参数为 visible | Function(visible) | - |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
-菜单可由 `antd.Menu` 取得，可设置 `onSelect` 回调，菜单还包括菜单项 `antd.Menu.Item`，分割线 `antd.Menu.Divider`。
+菜单可由 `antd.Menu` 取得，可设置 `onSelect` 回调，菜单还包括菜单项 `Menu.Item`，分割线 `Menu.Divider`。
 
 > 注意： Menu.Item 必须设置唯一的 key 属性。
+
+> 如果希望去掉菜单选中的背景效果，可以指定 `<Menu selectedKey={[]}>`.
 
 ### Dropdown.Button
 
