@@ -1,25 +1,24 @@
 ---
 order: 2
 title:
-  zh-CN: 表单
   en-US: Form
 ---
 
-A form is an important human machine interface to obtain user information. It's necessary to consider what questions should be asked according to the expected answers.
+As an important interface to obtain user input, form plays a role of matching answers to questions.
 
 In the design of a form, it's recommended to:
 
-1. Let a user knows exactly what information is required and why he needs to provide this information.
+1. Make sure users know what is required to enter and why.
 
-  Use sample language as `label` for ordinary user and use professional terms for experts. If sensitive information (for example ID card number, mobile phone number) is required, explain to a user why the system needs it.
+  Use sample language as `label` for ordinary users and professional terms for experts. If sensitive information (for example ID card number, mobile phone number) is required, explain why.
 
-2. Provide more information about the context, which can be helpful for a user to complete the form.
+2. Provide rich context to help users complete the form.
 
   Using "proper default value", "structured format", "tooltip" and "reminder" are practical for describing such context.
 
-3. Be sensitive to errors and be tolerant to user input.
+3. Be error-sensitive and fault-tolerant.
 
-  Be sensitive to errors means giving feedbacks to a user quickly through a variety of validation rules of user input. If the validation starts only after a form is submitted, it would be too late. Be tolerant to user input means it should be allowed to use different kinds of formats as well as syntax for the user input. For example, if a user types in some spaces into a phone number input box, the system should delete those spaces automatically instead of telling the user to correct them.
+  Be error-sensitive means giving feedbacks to users quickly through a variety of validation rules of user input. If the validation starts only after a form is submitted, it would be too late. Be fault-tolerant means it should be allowed to use different kinds of formats as well as syntax. For example, if a user types in some spaces into a phone number input box, the system should delete those spaces automatically instead of telling the user to correct them.
 
 4. Don't ask unnecessary questions.
 
@@ -29,7 +28,7 @@ In the design of a form, it's recommended to:
 
 <img class="preview-img" align="right" alt="Example of a form" src="https://os.alipayobjects.com/rmsportal/mLkQbODgVsdGUTe.png">
 
-A form usually consists of 4 parts, which are
+A form usually consists of 4 parts:
 
 1. Label
 2. Input box
@@ -45,7 +44,7 @@ A form usually consists of 4 parts, which are
 
 <img class="preview-img" align="right" alt="Example of gap filling input" src="https://os.alipayobjects.com/rmsportal/SdzCTaevNMvJFBR.png">
 
-Gap filling input usually appears in a descriptive context, which can be helpful for a user to understand the current situation and to provide information correctly.
+Gap filling input usually appears in a descriptive context to help users understand the current situation and provide information correctly.
 
 ### Combined input
 
@@ -70,19 +69,19 @@ When there are just a few (less than 3) input boxes in a form, "submit" button o
 
 <img class="preview-img" align="right" alt="main button is enabled when there are enough characters" src="https://os.alipayobjects.com/rmsportal/usdFxJmWDawqUuq.png">
 
-When there are just a few input boxes, a user can see the feedbacks once he types in something and thus it will be easy to figure out when the main button will be disabled.
+When there are just a few input boxes, users can see feedbacks once they type in something and thus the rule is easy to understand.
 
 <br>
 
 <img class="preview-img" align="right" alt="Don't use disabled main button" src="https://os.alipayobjects.com/rmsportal/GwZhvOuXmwqUIUW.png">
 
-When there are a lot of input boxes (especially when the required input boxes are altogether with the optional ones), the logic of feedbacks can be very complicated. And thus using disabled main buttons may cause a lot of confusion.
+When there are many input boxes (especially when required input boxes are altogether with optional ones), the logic of feedbacks can be very complicated. Thus, disabling main buttons may cause confusion.
 
 ### Structured format
 
 <img class="preview-img" align="right" alt="Example of structured format" src="https://os.alipayobjects.com/rmsportal/SQgGfreRAqPZPsm.png">
 
-The structured format can be used if a user is familiar with the input content and the system doesn't accept any deviation from the desired format.
+The structured format can be used if users are familiar with the input content and the system doesn't accept any deviation from the desired format.
 
 ### Tooltip & reminder
 
@@ -91,7 +90,7 @@ The structured format can be used if a user is familiar with the input content a
 
 Use tooltip if a brief input label may cause confusion while you still want to keep the label text to be short.
 
-Use reminder if you want a user to pay attention to the format or purpose of an input box. A reminder will disappear once there is something typed in the input box, so it should be used only when a user is familiar with the content.
+Use reminder if you want users to pay attention to the format or purpose of an input box. A reminder will disappear once there is something typed in the input box, so it should be used only when users are familiar with the content.
 
 ### Password input box
 
@@ -104,17 +103,15 @@ Password input box provides real time feedbacks on password strength and validit
 <img class="preview-img inline" align="right" description="Validation in real time" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
 <img class="preview-img inline" align="right" description="Validation after losing focus" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
-<img class="preview-img" align="right" description="When a "submit" button is clicked, a system will deal with inputs and  display feedbacks (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
+<img class="preview-img" align="right" description="When a "submit" button is clicked, the system will deal with user inputs and display feedbacks (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 
-Use different validation rules and a variety of feedbacks to help a user correct errors before he clicks on the "submit" button.
+Use different validation rules and a variety of feedbacks to help users correct errors before they click on a "submit" button.
 
 ### Character counting box
 
 <img class="preview-img" align="right" alt="Example of word counting" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
-A character counting box is an input box that shows the current number of characters and checks if this number exceeds the limit.
-
-
+A character counting box can show the current number of characters and checks if this number exceeds the limit.
 
 ## Format
 
@@ -129,7 +126,7 @@ A typical example of using margin between inputs.
 <img class="preview-img good" align="right" alt="Good" src="https://os.alipayobjects.com/rmsportal/vypllNQZsEHRszB.png">
 <img class="preview-img bad" align="right" alt="Bad" src="https://os.alipayobjects.com/rmsportal/XSLwnrlLbKFjiNj.png">
 
-If the maximum length of an input content is known, it's recommended to define the input width according to this maximum length.
+If the maximum length of an input content is known, it's recommended to define the input width according to the maximum length.
 
 <br>
 
@@ -145,7 +142,7 @@ Right alignment (recommended)
 
 - Advantage: saves vertical space.
 - Disadvantages: reduces readability; reduces flexibility of the input length
-- When to use: you want to save more vertical space and speed up a user for filling a form.
+- When to use: you want to save more vertical space and speed up users for filling a form.
 
 <br>
 
@@ -155,9 +152,9 @@ https://www.expedia.co.uk/FlightCheckout?tripid=89e54540-dcf4-4c27-be3f-c9efaae6
 
 Top alignment
 
-- Advantages: High readability; High flexibility of the label length.
+- Advantages: high readability; high flexibility of the label length.
 - Disadvantage: takes a lot of vertical space.
-- When to use: you want a user to finish filling in the form quickly.
+- When to use: you want users to finish filling the form quickly.
 
 <br>
 
@@ -165,6 +162,6 @@ Top alignment
 
 Left alignment
 
-- Advantages: Easy to read and saves vertical space.
-- Disadvantages: Slows down a user and reduces flexibility for the input length.
-- When to use: you want to slow down a user so that he can take more considerations when filling a form.
+- Advantages: easy to read and saves vertical space.
+- Disadvantages: slows down users and reduces flexibility for the input length.
+- When to use: you want to slow down users so that they can take more considerations when filling a form.
