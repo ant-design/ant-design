@@ -87,6 +87,12 @@ export default class Menu extends React.Component<MenuProps, any> {
       openKeys = props.openKeys;
     }
 
+    animation.leave = (node, done) => (
+      leave(node, () => {
+        done();
+        this.endCallBack();
+      }));
+
     this.state = {
       openKeys: openKeys || [],
     };
@@ -172,11 +178,6 @@ export default class Menu extends React.Component<MenuProps, any> {
           }
           break;
         case 'inline':
-          animation.leave = (node, done) => (
-            leave(node, () => {
-              done();
-              this.endCallBack();
-            }));
           menuOpenAnimation = animation;
           break;
         default:
@@ -187,9 +188,9 @@ export default class Menu extends React.Component<MenuProps, any> {
 
   render() {
     const { prefixCls, className, theme, inlineCollapsed } = this.props;
-    let menuMode = this.getRealMenuMode();
-    menuMode = menuMode === 'vertical' && inlineCollapsed  ? this.menuMode || menuMode : menuMode;
-    this.menuMode = this.getRealMenuMode();
+    const mode = this.getRealMenuMode();
+    const menuMode = mode === 'vertical' && inlineCollapsed  ? this.menuMode || mode : mode;
+    this.menuMode = mode;
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode);
 
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
