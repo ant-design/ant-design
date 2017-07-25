@@ -6,6 +6,8 @@ import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import Item from './MenuItem';
 
+const leave: any = animation.leave;
+
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
@@ -63,6 +65,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   };
   switchModeFromInline: boolean;
   inlineOpenKeys = [];
+  menuMode: any;
   constructor(props) {
     super(props);
 
@@ -145,9 +148,13 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
     return inlineCollapsed;
   }
-  getMenuOpenAnimation() {
+
+  endCallBack() {
+    this.setState({});
+  }
+
+  getMenuOpenAnimation(menuMode) {
     const { openAnimation, openTransitionName } = this.props;
-    const menuMode = this.getRealMenuMode();
     let menuOpenAnimation = openAnimation || openTransitionName;
     if (openAnimation === undefined && openTransitionName === undefined) {
       switch (menuMode) {
@@ -165,6 +172,11 @@ export default class Menu extends React.Component<MenuProps, any> {
           }
           break;
         case 'inline':
+          animation.leave = (node, done) => (
+            leave(node, () => {
+              done();
+              this.endCallBack();
+            }));
           menuOpenAnimation = animation;
           break;
         default:
@@ -172,10 +184,13 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
     return menuOpenAnimation;
   }
+
   render() {
-    const { prefixCls, className, theme } = this.props;
-    const menuMode = this.getRealMenuMode();
-    const menuOpenAnimation = this.getMenuOpenAnimation();
+    const { prefixCls, className, theme, inlineCollapsed } = this.props;
+    let menuMode = this.getRealMenuMode();
+    menuMode = menuMode === 'vertical' && inlineCollapsed  ? this.menuMode || menuMode : menuMode;
+    this.menuMode = this.getRealMenuMode();
+    const menuOpenAnimation = this.getMenuOpenAnimation(menuMode);
 
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
       [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
