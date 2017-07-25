@@ -47,8 +47,6 @@
   &-tab-next {
     user-select: none;
     z-index: 2;
-    margin-right: -2px;
-    margin-top: 2px;
     width: 32px;
     height: 100%;
     line-height: 32px;
@@ -72,15 +70,15 @@
       vertical-align: baseline;
       position: absolute;
       top: 50%;
-      margin-top: -50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       text-transform: none;
-      font-family: sans-serif;
-      .iconfont-size-under-12px(10px);
 
       &:before {
         display: block;
         font-family: "anticon" !important;
+        .iconfont-size-under-12px(10px);
       }
     }
   }

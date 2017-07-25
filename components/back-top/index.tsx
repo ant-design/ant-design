@@ -22,8 +22,7 @@ const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
 function noop() { }
 
 function getDefaultTarget() {
-  return typeof window !== 'undefined' ?
-    window : null;
+  return window;
 }
 
 export interface BackTopProps {
@@ -50,7 +49,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   getCurrentScrollTop = () => {
-    const targetNode = (this.props.target || getDefaultTarget)();
+    const getTarget = this.props.target || getDefaultTarget;
+    const targetNode = getTarget();
     if (targetNode === window) {
       return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
     }
@@ -73,7 +73,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   setScrollTop(value: number) {
-    const targetNode = (this.props.target || getDefaultTarget)();
+    const getTarget = this.props.target || getDefaultTarget;
+    const targetNode = getTarget();
     if (targetNode === window) {
       document.body.scrollTop = value;
       document.documentElement.scrollTop = value;
@@ -91,8 +92,9 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   componentDidMount() {
+    const getTarget = this.props.target || getDefaultTarget;
+    this.scrollEvent = addEventListener(getTarget(), 'scroll', this.handleScroll);
     this.handleScroll();
-    this.scrollEvent = addEventListener((this.props.target || getDefaultTarget)(), 'scroll', this.handleScroll);
   }
 
   componentWillUnmount() {

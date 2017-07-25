@@ -88,6 +88,7 @@ Property | Description | Type | Default
 -----|-----|-----|------
 collapsible | whether can be collapsed | boolean | false
 defaultCollapsed | to set the initial status | boolean | false  |
+reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false  |
 collapsed | to set the current status | boolean | -
 onCollapse | the callback function, can be executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |

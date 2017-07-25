@@ -89,6 +89,7 @@ title: Layout
 |----------|-----------------------------------------|------------|-------|
 | collapsible | 是否可收起 | boolean | false  |
 | defaultCollapsed | 是否默认收起 | boolean | false  |
+| reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false  |
 | collapsed | 当前收起状态 | boolean | - |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |

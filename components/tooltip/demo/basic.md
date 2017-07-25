@@ -17,7 +17,7 @@ The simplest usage.
 import { Tooltip } from 'antd';
 
 ReactDOM.render(
-  <Tooltip title="prompt text">
+  <Tooltip title={undefined}>
     <span>Tooltip will show when mouse enter.</span>
   </Tooltip>
 , mountNode);

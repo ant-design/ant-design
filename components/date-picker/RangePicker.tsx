@@ -57,7 +57,7 @@ export default class RangePicker extends React.Component<any, any> {
     ) {
       throw new Error(
         'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
-        'see: http://u.ant.design/date-picker-value',
+        'see: https://u.ant.design/date-picker-value',
       );
     }
     const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;

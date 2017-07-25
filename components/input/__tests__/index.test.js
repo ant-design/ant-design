@@ -20,6 +20,13 @@ describe('TextArea', () => {
     await delay(0);
     expect(mockFunc).toHaveBeenCalledTimes(2);
   });
+
+  it('should support disabled', async () => {
+    const wrapper = mount(
+      <TextArea disabled />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 describe('As Form Control', () => {

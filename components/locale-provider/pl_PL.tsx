@@ -1,7 +1,7 @@
 import moment from 'moment';
 moment.locale('pl');
 
-import Pagination from 'rc-pagination/lib/locale/en_US';
+import Pagination from 'rc-pagination/lib/locale/pl_PL';
 import DatePicker from '../date-picker/locale/pl_PL';
 import TimePicker from '../time-picker/locale/pl_PL';
 import Calendar from '../calendar/locale/pl_PL';
@@ -31,7 +31,7 @@ export default {
   },
   Transfer: {
     notFoundContent: 'Nie znaleziono',
-    searchPlaceholder: 'Wyszukaj tutaj',
+    searchPlaceholder: 'Szukaj',
     itemUnit: 'obiekt',
     itemsUnit: 'obiekty',
   },

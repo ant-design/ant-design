@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "2.12.0",
+  "version": "2.12.2",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -38,7 +38,7 @@
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
-    "create-react-class": "^15.5.3",
+    "create-react-class": "^15.6.0",
     "css-animation": "^1.2.5",
     "dom-closest": "^0.2.0",
     "lodash.debounce": "^4.0.8",
@@ -78,7 +78,7 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.8",
+    "@types/react": "^15.0.38",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.3.0",
     "antd-tools": "~1.6.0",

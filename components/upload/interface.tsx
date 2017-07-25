@@ -43,7 +43,7 @@ export interface UploadProps {
   name?: string;
   defaultFileList?: Array<File>;
   fileList?: Array<File>;
-  action: string;
+  action?: string;
   data?: Object | ((file: File) => any);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
