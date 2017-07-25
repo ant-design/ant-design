@@ -180,6 +180,7 @@
     }
   }
 
+  &-vertical&-inline-collapsed,
   &-inline-collapsed {
     width: 64px;
     > .@{menu-prefix-cls}-item,
@@ -244,7 +245,7 @@
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
-      transition: font-size .3s @ease-in-out, margin .3s @ease-in-out;
+      transition: font-size .3s @ease-out, margin .3s @ease-in-out;
       + span {
         transition: opacity .3s @ease-in-out, width .3s @ease-in-out;
         opacity: 1;
