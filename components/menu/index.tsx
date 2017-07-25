@@ -189,7 +189,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   render() {
     const { prefixCls, className, theme, inlineCollapsed } = this.props;
     const mode = this.getRealMenuMode();
-    const menuMode = mode === 'vertical' && inlineCollapsed  ? this.menuMode || mode : mode;
+    const menuMode = mode === 'vertical' && inlineCollapsed ? this.menuMode || mode : mode;
     this.menuMode = mode;
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode);
 
