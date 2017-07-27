@@ -2,6 +2,8 @@
 @import "../../style/mixins/index";
 
 @card-prefix-cls: ~"@{ant-prefix}-card";
+@card-padding-base: 24px;
+@card-padding-wider: 32px;
 
 .@{card-prefix-cls} {
   background: @component-background;
@@ -24,7 +26,7 @@
     line-height: @card-head-height;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    padding: 0 24px;
+    padding: 0 @card-padding-base;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
 
     &-title {
@@ -41,12 +43,12 @@
 
   &-extra {
     position: absolute;
-    right: 24px;
+    right: @card-padding-base;
     top: 14px;
   }
 
   &-body {
-    padding: 24px;
+    padding: @card-padding-base;
     .clearfix;
   }
 
@@ -74,7 +76,7 @@
     box-shadow: 0 0 0 0.5px @border-color-split, 0 0 0 0.5px @border-color-split inset;
     width: 33.33%;
     float: left;
-    padding: 24px;
+    padding: @card-padding-base;
     transition: all .3s;
     &:hover {
       position: relative;
@@ -84,15 +86,15 @@
   }
 
   &-wider-padding &-head {
-    padding: 0 32px;
+    padding: 0 @card-padding-wider;
   }
 
   &-wider-padding &-body {
-    padding: 24px 32px;
+    padding: @card-padding-base @card-padding-wider;
   }
 
   &-wider-padding &-extra {
-    right: 32px;
+    right: @card-padding-wider;
   }
 
   &-padding-transition &-head,
