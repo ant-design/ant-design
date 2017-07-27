@@ -38,10 +38,10 @@
   &-submenu-title {
     cursor: pointer;
   }
-  &-submenu, &-submenu-title {
+  &-submenu, &-submenu-inline {
     transition: border-color .3s @ease-in-out, background .3s @ease-in-out, padding .3s @ease-in-out;
   }
-  &-item, &-submenu-inline {
+  &-item, &-submenu-title {
     transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .3s @ease-in-out;
   }
 
@@ -90,7 +90,6 @@
   &-submenu-active,
   &-submenu-title:hover {
     color: @primary-color;
-    transition: color .3s @ease-in-out;
   }
 
   &:not(&-inline) &-submenu-open {
