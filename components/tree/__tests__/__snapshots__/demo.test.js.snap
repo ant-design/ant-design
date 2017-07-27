@@ -486,7 +486,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 <ul
-  class="ant-tree-show-line ant-tree"
+  class="ant-tree ant-tree-show-line"
   role="tree-node"
   unselectable="true"
 >
@@ -650,7 +650,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <ul
-  class="draggable-tree ant-tree"
+  class="ant-tree draggable-tree"
   role="tree-node"
   unselectable="true"
 >
@@ -848,7 +848,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/line.md correctly 1`] = `
 <ul
-  class="ant-tree-show-line ant-tree"
+  class="ant-tree ant-tree-show-line"
   role="tree-node"
   unselectable="true"
 >
