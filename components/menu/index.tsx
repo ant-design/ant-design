@@ -6,8 +6,6 @@ import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import Item from './MenuItem';
 
-const leave: any = animation.leave;
-
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
@@ -65,7 +63,6 @@ export default class Menu extends React.Component<MenuProps, any> {
   };
   switchModeFromInline: boolean;
   inlineOpenKeys = [];
-  menuMode: any;
   constructor(props) {
     super(props);
 
@@ -138,8 +135,12 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
   getRealMenuMode() {
+    const inlineCollapsed = this.getInlineCollapsed();
+    if (this.switchModeFromInline && inlineCollapsed) {
+      return 'inline';
+    }
     const { mode } = this.props;
-    return this.getInlineCollapsed() ? 'vertical' : mode;
+    return inlineCollapsed ? 'vertical' : mode;
   }
   getInlineCollapsed() {
     const { inlineCollapsed } = this.props;
@@ -148,7 +149,6 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
     return inlineCollapsed;
   }
-
   getMenuOpenAnimation(menuMode) {
     const { openAnimation, openTransitionName } = this.props;
     let menuOpenAnimation = openAnimation || openTransitionName;
@@ -168,12 +168,15 @@ export default class Menu extends React.Component<MenuProps, any> {
           }
           break;
         case 'inline':
-          animation.leave = (node, done) => (
-            leave(node, () => {
-              done();
+          menuOpenAnimation = {
+            ...animation,
+            leave: (node, done) => animation.leave(node, () => {
+              // Make sure inline menu leave animation finished before mode is switched
+              this.switchModeFromInline = false;
               this.setState({});
-            }));
-          menuOpenAnimation = animation;
+              done();
+            }),
+          };
           break;
         default:
       }
@@ -182,10 +185,8 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
 
   render() {
-    const { prefixCls, className, theme, inlineCollapsed } = this.props;
-    const mode = this.getRealMenuMode();
-    const menuMode = mode === 'vertical' && inlineCollapsed ? this.menuMode || mode : mode;
-    this.menuMode = mode;
+    const { prefixCls, className, theme } = this.props;
+    const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode);
 
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {

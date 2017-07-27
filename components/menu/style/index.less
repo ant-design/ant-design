@@ -2,6 +2,7 @@
 @import "../../style/mixins/index";
 
 @menu-prefix-cls: ~"@{ant-prefix}-menu";
+@menu-collapsed-width: 64px;
 
 // default theme
 .@{menu-prefix-cls} {
@@ -15,6 +16,7 @@
   background: @component-background;
   line-height: 46px;
   transition: background .3s @ease-in-out, width .3s @ease-in-out;
+
   &-hidden {
     display: none;
   }
@@ -182,12 +184,12 @@
 
   &-vertical&-inline-collapsed,
   &-inline-collapsed {
-    width: 64px;
+    width: @menu-collapsed-width;
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;
-      padding: 0 24px;
+      padding: 0 (@menu-collapsed-width - 16px) / 2;
       &:after {
         display: none;
       }
