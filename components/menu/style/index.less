@@ -2,6 +2,7 @@
 @import "../../style/mixins/index";
 
 @menu-prefix-cls: ~"@{ant-prefix}-menu";
+@menu-collapsed-width: 64px;
 
 // default theme
 .@{menu-prefix-cls} {
@@ -14,6 +15,7 @@
   color: @text-color;
   background: @component-background;
   line-height: 46px;
+  transition: background .3s @ease-in-out, width .15s @ease-in-out;
 
   &-hidden {
     display: none;
@@ -35,7 +37,12 @@
   &-submenu,
   &-submenu-title {
     cursor: pointer;
-    transition: all .3s;
+  }
+  &-submenu, &-submenu-inline {
+    transition: border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
+  }
+  &-item, &-submenu-title {
+    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
   }
 
   &-item:active,
@@ -45,6 +52,7 @@
 
   &-submenu &-sub {
     cursor: initial;
+    transition: background .3s @ease-in-out, padding .3s @ease-in-out;
   }
 
   &-item > a {
@@ -133,7 +141,8 @@
         bottom: 0;
         border-right: 3px solid @primary-color;
         transform: scaleY(.0001);
-        transition: all .2s;
+        opacity: 0;
+        transition: transform .15s @ease-out, opacity .15s @ease-out;
       }
     }
   }
@@ -162,23 +171,24 @@
 
   &-inline {
     width: 100%;
-    transition: width .24s;
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       &:after {
+        transition: transform .15s @ease-in-out, opacity .15s @ease-in-out;
+        opacity: 1;
         transform: scaleY(1);
       }
     }
   }
 
+  &-vertical&-inline-collapsed,
   &-inline-collapsed {
-    width: 64px;
-    transition: all .3s;
+    width: @menu-collapsed-width;
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      text-align: center;
       left: 0;
       text-overflow: clip;
+      padding: 0 (@menu-collapsed-width - 16px) / 2;
       &:after {
         display: none;
       }
@@ -188,7 +198,6 @@
         margin: 0;
         + span {
           max-width: 0;
-          visibility: hidden;
           display: inline-block;
           opacity: 0;
         }
@@ -234,13 +243,12 @@
     position: relative;
     display: block;
     white-space: nowrap;
-
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
-      transition: all .3s;
+      transition: font-size .15s @ease-out, margin .3s @ease-in-out;
       + span {
-        transition: all .3s;
+        transition: opacity .3s @ease-in-out, width .3s @ease-in-out;
         opacity: 1;
       }
     }
@@ -261,6 +269,9 @@
     > .@{menu-prefix-cls} {
       background-color: @component-background;
       border-radius: @border-radius-base;
+      &-submenu-title:after {
+        transition: transform .3s @ease-in-out;
+      }
     }
 
     &-vertical > .@{menu-prefix-cls}-submenu-title:after {
@@ -271,7 +282,6 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       .ie-rotate(3);
@@ -286,7 +296,6 @@
       text-transform: none;
       text-rendering: auto;
       position: absolute;
-      transition: transform .3s;
       content: "\e61d";
       right: 16px;
       top: 0;

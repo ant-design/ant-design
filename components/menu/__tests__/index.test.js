@@ -150,11 +150,14 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ inlineCollapsed: true });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
-    wrapper.setProps({ inlineCollapsed: false });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    setTimeout(() => {
+      // 动画结束后套样式;
+      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+      wrapper.setProps({ inlineCollapsed: false });
+      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    }, 300);
   });
 
   it('should open submenu when click submenu title (inline)', async () => {
