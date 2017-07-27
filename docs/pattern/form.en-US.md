@@ -1,7 +1,6 @@
 ---
 order: 2
-title:
-  en-US: Form
+title: Form
 ---
 
 As an important interface to obtain user input, form plays a role of matching answers to questions.
