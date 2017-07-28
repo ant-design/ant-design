@@ -102,16 +102,10 @@
         &.@{tree-prefix-cls}-switcher-noop {
           cursor: default;
         }
-        &.@{tree-prefix-cls}-roots_open,
-        &.@{tree-prefix-cls}-center_open,
-        &.@{tree-prefix-cls}-bottom_open,
-        &.@{tree-prefix-cls}-noline_open {
+        &.@{tree-prefix-cls}-switcher_open {
           .antTreeSwitcherIcon();
         }
-        &.@{tree-prefix-cls}-roots_close,
-        &.@{tree-prefix-cls}-center_close,
-        &.@{tree-prefix-cls}-bottom_close,
-        &.@{tree-prefix-cls}-noline_close {
+        &.@{tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {
@@ -174,17 +168,11 @@
           &.@{tree-prefix-cls}-switcher-noop {
             .antTreeShowLineIcon("tree-doc-icon");
           }
-          &.@{tree-prefix-cls}-roots_open,
-          &.@{tree-prefix-cls}-center_open,
-          &.@{tree-prefix-cls}-bottom_open,
-          &.@{tree-prefix-cls}-noline_open {
+          &.@{tree-prefix-cls}-switcher_open {
             color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-open-icon");
           }
-          &.@{tree-prefix-cls}-roots_close,
-          &.@{tree-prefix-cls}-center_close,
-          &.@{tree-prefix-cls}-bottom_close,
-          &.@{tree-prefix-cls}-noline_close {
+          &.@{tree-prefix-cls}-switcher_close {
             color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-close-icon");
           }
