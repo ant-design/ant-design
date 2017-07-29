@@ -3,6 +3,7 @@ import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tr
 import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
 import injectLocale from '../locale-provider/injectLocale';
+import warning from '../_util/warning';
 
 export { TreeSelectProps };
 
@@ -21,6 +22,15 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
   };
 
   abstract getLocale();
+
+  constructor(props) {
+    super(props);
+
+    warning(
+      props.multiple !== false || !props.treeCheckable,
+      '`multiple` will alway be `true` when `treeCheckable` is true',
+    );
+  }
 
   render() {
     const locale = this.getLocale();
