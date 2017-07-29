@@ -41,17 +41,19 @@ export default class Card extends Component<CardProps> {
   }
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
-    // 936 is a magic card width pixer number indicated by designer
-    const WIDTH_BOUDARY_PX = 936;
-    if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
-      this.setState({ widerPadding: true }, () => {
-        this.updateWiderPaddingCalled = true; // first render without css transition
-      });
-    }
-    if (this.container.offsetWidth < WIDTH_BOUDARY_PX && this.state.widerPadding) {
-      this.setState({ widerPadding: false }, () => {
-        this.updateWiderPaddingCalled = true; // first render without css transition
-      });
+    if (this.container) {
+      // 936 is a magic card width pixer number indicated by designer
+      const WIDTH_BOUDARY_PX = 936;
+      if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
+        this.setState({ widerPadding: true }, () => {
+          this.updateWiderPaddingCalled = true; // first render without css transition
+        });
+      }
+      if (this.container.offsetWidth < WIDTH_BOUDARY_PX && this.state.widerPadding) {
+        this.setState({ widerPadding: false }, () => {
+          this.updateWiderPaddingCalled = true; // first render without css transition
+        });
+      }
     }
   }
   saveRef = (node: HTMLDivElement) => {
