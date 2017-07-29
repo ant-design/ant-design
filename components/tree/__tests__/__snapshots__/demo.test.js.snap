@@ -67,7 +67,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
+              class="ant-tree-checkbox ant-tree-checkbox-disabled"
             >
               <span
                 class="ant-tree-checkbox-inner"
