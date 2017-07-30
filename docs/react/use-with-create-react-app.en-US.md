@@ -110,7 +110,7 @@ $ yarn run eject
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started#Import-on-Demand)). After ejecting all config files of antd-demo, we are now allowed to install it and modify `config/webpack.config.dev.js`.
 
 ```bash
-$ yarn add babel-plugin-import --dev
+$ yarn add babel-plugin-import --save-dev
 ```
 
 ```diff
@@ -162,7 +162,7 @@ Then reboot `yarn start` and visit demo page, you should not find any [warning m
 According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader), so we add it.
 
 ```bash
-$ yarn add less less-loader --dev
+$ yarn add less less-loader --save-dev
 ```
 
 ```diff
