@@ -17,6 +17,23 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.3
+
+`2017-07-30`
+
+- Fix indeterminate Checkbox style when it's disabled.
+- Fix Card `this.container` may not exists issue. [#6976](https://github.com/ant-design/ant-design/pull/6976) [@neekey](https://github.com/neekey)
+- Fix Button align issue when set base font to `14px`. [#7001](https://github.com/ant-design/ant-design/issues/7001)
+- Dropdown
+  - Fix Menu can be multiple cicked. [#6314](https://github.com/ant-design/ant-design/issues/6314)
+  - Fix Menu dispears if it's hovered before it's shown. [#6949](https://github.com/ant-design/ant-design/issues/6949)
+  - Fix align issue.
+- Fix Grid Card padding.
+- Improve Menu animation.[#6955](https://github.com/ant-design/ant-design/pull/6955)
+- Twrak DatePicker icon position.
+- Add new less variables.[e1a46cc](https://github.com/ant-design/ant-design/commit/e1a46cc419fb4975ae1782ba793b378c8e584057)
+- Fix some issues of TypeScript definitions.
+
 ## 2.12.2
 
 `2017-07-22`

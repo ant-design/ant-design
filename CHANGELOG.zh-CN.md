@@ -17,6 +17,23 @@ timeline: true
 
 ---
 
+## 2.12.3
+
+`2017-07-30`
+
+- 修复 Checkbox 半选状态禁用时的样式。
+- 修复 Card 会出现 `this.container` 不存在的问题。[#6976](https://github.com/ant-design/ant-design/pull/6976) [@neekey](https://github.com/neekey)
+- 修复基础字体改为 `14px` 时 Button 的对齐问题。[#7001](https://github.com/ant-design/ant-design/issues/7001)
+- 修复 Grid Card 的内边距。
+- Dropdown
+  - 修复菜单可能被多次点击的问题。[#6314](https://github.com/ant-design/ant-design/issues/6314)
+  - 修复在菜单显示前 hover 会导致菜单消失的问题。[#6949](https://github.com/ant-design/ant-design/issues/6949)
+  - 修复菜单的错位问题。
+- 改进了 Menu 的动画效果。[#6955](https://github.com/ant-design/ant-design/pull/6955)
+- 调整了 DatePicker 中图标的位置。
+- 新增 less 变量。[e1a46cc](https://github.com/ant-design/ant-design/commit/e1a46cc419fb4975ae1782ba793b378c8e584057)
+- 修复了一些 TypeScript 定义问题。
+
 ## 2.12.2
 
 `2017-07-22`
