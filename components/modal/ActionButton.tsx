@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../button';
+import { ButtonType } from '../button/button';
 
 export interface ActionButtonProps {
-  type?: 'primary' | 'dashed';
+  type?: ButtonType;
   actionFn: Function;
   closeModal: Function;
   autoFocus?: Boolean;
