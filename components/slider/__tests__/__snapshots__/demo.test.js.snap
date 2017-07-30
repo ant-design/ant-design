@@ -23,7 +23,6 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:30%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -50,7 +49,6 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
       style="left:20%;"
-      tabindex="0"
     />
     <div
       aria-disabled="false"
@@ -60,7 +58,6 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
       style="left:50%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -101,7 +98,6 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:30%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -128,7 +124,6 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
       style="left:20%;"
-      tabindex="0"
     />
     <div
       aria-disabled="false"
@@ -138,7 +133,6 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
       style="left:50%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -175,7 +169,6 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:0%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -216,7 +209,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-slider-handle"
           role="slider"
           style="left:0%;"
-          tabindex="0"
         />
         <div
           class="ant-slider-mark"
@@ -303,7 +295,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           class="ant-slider-handle"
           role="slider"
           style="left:0%;"
-          tabindex="0"
         />
         <div
           class="ant-slider-mark"
@@ -409,7 +400,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:37%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -480,7 +470,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
       style="left:26%;"
-      tabindex="0"
     />
     <div
       aria-disabled="false"
@@ -490,7 +479,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
       style="left:37%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -564,7 +552,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:37%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -638,7 +625,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:37%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -712,7 +698,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:37%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -771,7 +756,6 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:0%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -798,7 +782,6 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
       class="ant-slider-handle"
       role="slider"
       style="left:0%;"
-      tabindex="0"
     />
     <div
       class="ant-slider-mark"
@@ -835,7 +818,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-handle"
         role="slider"
         style="bottom:30%;"
-        tabindex="0"
       />
       <div
         class="ant-slider-mark"
@@ -866,7 +848,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
         style="bottom:20%;"
-        tabindex="0"
       />
       <div
         aria-disabled="false"
@@ -876,7 +857,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
         style="bottom:50%;"
-        tabindex="0"
       />
       <div
         class="ant-slider-mark"
@@ -924,7 +904,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
         style="bottom:26%;"
-        tabindex="0"
       />
       <div
         aria-disabled="false"
@@ -934,7 +913,6 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
         style="bottom:37%;"
-        tabindex="0"
       />
       <div
         class="ant-slider-mark"
