@@ -18,7 +18,12 @@ export interface AvatarProps {
   children?: any;
 }
 
-export default class Avatar extends React.Component<AvatarProps, any> {
+export interface AvatarState {
+  scale: number;
+  isImgExist: boolean;
+}
+
+export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   static defaultProps = {
     prefixCls: 'ant-avatar',
     shape: 'circle',
@@ -27,7 +32,7 @@ export default class Avatar extends React.Component<AvatarProps, any> {
 
   private avatarChildren: any;
 
-  constructor(props) {
+  constructor(props: AvatarProps) {
     super(props);
     this.state = {
       scale: 1,
@@ -39,7 +44,7 @@ export default class Avatar extends React.Component<AvatarProps, any> {
     this.setScale();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
     if (prevProps.children !== this.props.children
         || (prevState.scale !== this.state.scale && this.state.scale === 1)) {
       this.setScale();
