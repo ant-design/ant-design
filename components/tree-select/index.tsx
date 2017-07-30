@@ -21,8 +21,6 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
     dropdownClassName: 'ant-select-tree-dropdown',
   };
 
-  abstract getLocale();
-
   constructor(props) {
     super(props);
 
@@ -31,6 +29,8 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
       '`multiple` will alway be `true` when `treeCheckable` is true',
     );
   }
+
+  abstract getLocale();
 
   render() {
     const locale = this.getLocale();
