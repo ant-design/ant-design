@@ -518,7 +518,6 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           class="ant-slider-handle"
           role="slider"
           style="left:20%;"
-          tabindex="0"
         />
         <div
           class="ant-slider-mark"
@@ -616,7 +615,6 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           class="ant-slider-handle"
           role="slider"
           style="left:40%;"
-          tabindex="0"
         />
         <div
           class="ant-slider-mark"
