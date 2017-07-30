@@ -28,6 +28,7 @@ title: Radio
 
 | 参数           | 说明                             | 类型              | 可选值 | 默认值 |
 |----------------|----------------------------------|-------------------|--------|--------|
+| name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string |  | 无 |
 | onChange       | 选项变化时的回调函数             | Function(e:Event) | 无     | 无     |
 | value          | 用于设置当前选中的值             | any            | 无     | 无     |
 | defaultValue   | 默认选中的值                     | any            | 无     | 无     |

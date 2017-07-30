@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import addEventListener, { RcUtilEventHandler } from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -18,14 +18,10 @@ export interface CardProps {
   className?: string;
 }
 
-export interface RcUtilEventListener extends EventListener {
-  remove: () => undefined; // `EventTarget.removeEventListener()` will return undefined
-}
-
 export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
   container: HTMLDivElement;
-  resizeEvent: RcUtilEventListener;
+  resizeEvent: RcUtilEventHandler;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
@@ -38,9 +34,13 @@ export default class Card extends Component<CardProps> {
     if (this.resizeEvent) {
       this.resizeEvent.remove();
     }
+    (this.updateWiderPadding as any).cancel();
   }
   @throttleByAnimationFrameDecorator()
   updateWiderPadding() {
+    if (!this.container) {
+      return;
+    }
     // 936 is a magic card width pixer number indicated by designer
     const WIDTH_BOUDARY_PX = 936;
     if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {

@@ -90,6 +90,10 @@
     height: 1px;
   }
 
+  .@{checkbox-prefix-cls}-indeterminate.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}:after {
+    border-color: @disabled-color;
+  }
+
   // 选中状态
   .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}:after {
     transform: rotate(45deg) scale(1);
