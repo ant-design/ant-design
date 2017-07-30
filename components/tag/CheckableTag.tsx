@@ -8,7 +8,7 @@ export interface CheckableTagProps {
   onChange?: (checked: Boolean) => void;
 }
 
-export default class CheckableTag extends React.Component<CheckableTagProps, any> {
+export default class CheckableTag extends React.Component<CheckableTagProps> {
   handleClick = () => {
     const { checked, onChange } = this.props;
     if (onChange) {
