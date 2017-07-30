@@ -107,7 +107,7 @@ $ yarn run eject
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
-$ yarn add babel-plugin-import --dev
+$ yarn add babel-plugin-import --save-dev
 ```
 
 ```diff
@@ -160,7 +160,7 @@ $ yarn add babel-plugin-import --dev
 按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
-$ yarn add less less-loader --dev
+$ yarn add less less-loader --save-dev
 ```
 
 ```diff
