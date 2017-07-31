@@ -259,13 +259,15 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
-  <strong>
-    Hots: 
+  <strong
+    style="margin-right:8px;"
+  >
+    Categories:
   </strong>
   <div
     class="ant-tag ant-tag-checkable"
   >
-    Movie
+    Movies
   </div>
   <div
     class="ant-tag ant-tag-checkable"
@@ -276,6 +278,11 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
     class="ant-tag ant-tag-checkable"
   >
     Music
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable"
+  >
+    Sports
   </div>
 </div>
 `;

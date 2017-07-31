@@ -63,13 +63,12 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
-    &:hover,
+    &:not(&-checked):hover {
+      color: @primary-color;
+    }
     &:active,
     &-checked {
       color: #fff;
-    }
-    &:hover {
-      background-color: @primary-5;
     }
     &-checked {
       background-color: @primary-6;
