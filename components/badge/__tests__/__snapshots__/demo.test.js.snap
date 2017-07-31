@@ -399,7 +399,8 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       />
     </span>
     <span
-      class="ant-switch"
+      checked=""
+      class="ant-switch ant-switch-checked"
       tabindex="0"
     >
       <span
