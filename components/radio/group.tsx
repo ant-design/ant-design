@@ -24,6 +24,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   size?: 'large' | 'default' | 'small';
   onMouseEnter?: React.FormEventHandler<any>;
   onMouseLeave?: React.FormEventHandler<any>;
+  name?: string;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
@@ -57,6 +58,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         onChange: this.onRadioChange,
         value: this.state.value,
         disabled: this.props.disabled,
+        name: this.props.name,
       },
     };
   }
