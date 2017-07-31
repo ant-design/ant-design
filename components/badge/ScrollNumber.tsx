@@ -119,7 +119,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
   }
 
   render() {
-    const { prefixCls, className, style, component = 'sup' } = this.props;
+    const { prefixCls, className, style, count, component = 'sup' } = this.props;
     // fix https://fb.me/react-unknown-prop
     const restProps = omit(this.props, [
       'count',
@@ -133,6 +133,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
         [`${prefixCls}`]: !!prefixCls,
         [`${className}`]: !!className,
       }),
+      title: count as string,
     };
     // allow specify the border
     // mock border-color by box-shadow for compatible with old usage:
