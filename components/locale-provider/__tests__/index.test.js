@@ -29,8 +29,9 @@ import bgBG from '../bg_BG';
 import viVN from '../vi_VN';
 import thTH from '../th_TH';
 import faIR from '../fa_IR';
+import elGR from '../el_GR';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR];
+const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
