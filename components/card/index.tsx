@@ -13,7 +13,7 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   noHovering?: boolean;
-  children?: React.ReactChild;
+  children?: React.ReactNode;
   id?: string;
   className?: string;
 }
