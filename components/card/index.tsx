@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
-import addEventListener, { RcUtilEventHandler } from 'rc-util/lib/Dom/addEventListener';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -21,7 +21,7 @@ export interface CardProps {
 export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
   container: HTMLDivElement;
-  resizeEvent: RcUtilEventHandler;
+  resizeEvent: any;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
