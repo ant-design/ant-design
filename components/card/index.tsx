@@ -84,7 +84,7 @@ export default class Card extends Component<CardProps> {
 
     if (loading) {
       children = (
-        <div>
+        <div className={`${prefixCls}-loading-content`}>
           <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
           <p>
             <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />

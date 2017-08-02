@@ -233,7 +233,9 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
   <div
     class="ant-card-body"
   >
-    <div>
+    <div
+      class="ant-card-loading-content"
+    >
       <p
         class="ant-card-loading-block"
         style="width:94%;"
