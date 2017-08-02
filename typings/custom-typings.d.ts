@@ -12,17 +12,6 @@ declare module "omit.js";
 
 declare module 'rc-animate';
 
-declare module 'rc-util/lib/Dom/addEventListener' {
-  export interface RcUtilEventHandler {
-    remove(): void;
-  }
-  export interface RcUtilAddEventListenerFunc {
-    (target: EventTarget, eventType: string, callback: EventListener): RcUtilEventHandler;
-  }
-  const addEventListener: RcUtilAddEventListenerFunc;
-  export default addEventListener;
-}
-
 declare module 'rc-util*';
 
 declare module 'shallowequal';
