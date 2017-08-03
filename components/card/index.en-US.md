@@ -27,6 +27,7 @@ A card can be used to display content related to a single subject. The content c
 | bodyStyle | Inline style to apply to the card content | object   |  -  |
 | noHovering | Whether to be hovering when mouse over | boolean | true |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean   |  false  |
+| type | Card style type, can be set to `inner` or not set | string   |  -  |
 
 ### Card.Grid
 

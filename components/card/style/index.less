@@ -103,6 +103,21 @@
   &-padding-transition &-extra {
     transition: right .3s;
   }
+
+  &-type-inner &-head {
+    height: @card-inner-head-height;
+    line-height: @card-inner-head-height;
+    padding: 0 24px;
+    background: @background-color-base;
+  }
+
+  &-type-inner &-body {
+    padding: 16px 24px;
+  }
+
+  &-type-inner &-extra {
+    right: 24px;
+  }
 }
 
 @keyframes card-loading {
