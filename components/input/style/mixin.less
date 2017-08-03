@@ -20,7 +20,6 @@
   border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
   box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
-  z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
 }
 
 // == when hoverd
@@ -131,6 +130,9 @@
     float: left;
     width: 100%;
     margin-bottom: 0;
+    &:focus {
+      z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+    }
   }
 
   &-addon {
