@@ -9,7 +9,6 @@
   position: absolute;
 
   &-inner {
-    display: inline-block;
     position: relative;
     outline: none;
     list-style: none;
@@ -32,6 +31,8 @@
     cursor: auto;
     line-height: 1.5;
     outline: 0;
+
+    .placeholder;
 
     &-wrap {
       box-sizing: border-box;
@@ -223,9 +224,8 @@
       font-family: "anticon";
       font-size: @font-size-base;
       color: @text-color-secondary;
-      display: inline-block;
+      display: block;
       line-height: 1;
-      vertical-align: bottom;
     }
   }
 }
