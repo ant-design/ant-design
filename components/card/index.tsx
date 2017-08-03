@@ -4,6 +4,8 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
+export type CardType = 'inner';
+
 export interface CardProps {
   prefixCls?: string;
   title?: React.ReactNode;
@@ -16,6 +18,7 @@ export interface CardProps {
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  type?: CardType;
 }
 
 export default class Card extends Component<CardProps> {
@@ -69,7 +72,7 @@ export default class Card extends Component<CardProps> {
   render() {
     const {
       prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
-      title, loading, bordered = true, ...others,
+      title, loading, bordered = true, type, ...others,
     } = this.props;
     let children = this.props.children;
 
@@ -80,6 +83,7 @@ export default class Card extends Component<CardProps> {
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+      [`${prefixCls}-type-${type}`]: !!type,
     });
 
     if (loading) {
