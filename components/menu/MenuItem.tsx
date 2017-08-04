@@ -19,4 +19,6 @@ MenuItem.contextTypes = {
   inlineCollapsed: PropTypes.bool,
 };
 
+MenuItem.isMenuItem = 1;
+
 export default MenuItem;
