@@ -29,6 +29,13 @@ cols: 1
 | noHovering | 鼠标移过时是否浮起 | boolean | true |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string   |  -  |
+| cover | 卡片封面 | ReactNode   |  -  |
+| actions | 卡片操作组，位置在卡片底部 | Array<ReactNode>   |  -  |
+| avatar | 头像/图标，仅[内建模式](/components/card/#components-card-demo-built-in)下生效 | ReactNode |  -  |
+| description | 描述内容，仅[内建模式](/components/card/#components-card-demo-built-in)下生效 | ReactNode   |  -  |
+| extraContent | 补充内容，仅[内建模式](/components/card/#components-card-demo-built-in)下生效 | ReactNode   |  -  |
+
+> 注意：当卡片不包含任何子元素时，自动变为内建模式。
 
 ### Card.Grid
 
