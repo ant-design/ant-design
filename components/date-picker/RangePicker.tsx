@@ -246,7 +246,7 @@ export default class RangePicker extends React.Component<any, any> {
             disabled={props.disabled}
             readOnly
             value={(start && start.format(props.format)) || ''}
-            placeholder={startPlaceholder}
+            placeholder={start ? '' : startPlaceholder}
             className={`${prefixCls}-range-picker-input`}
           />
           <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
@@ -254,7 +254,7 @@ export default class RangePicker extends React.Component<any, any> {
             disabled={props.disabled}
             readOnly
             value={(end && end.format(props.format)) || ''}
-            placeholder={endPlaceholder}
+            placeholder={end ? '' : endPlaceholder}
             className={`${prefixCls}-range-picker-input`}
           />
           {clearIcon}
