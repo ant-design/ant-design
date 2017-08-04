@@ -4,6 +4,8 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
+export type CardType = 'inner';
+
 export interface CardProps {
   prefixCls?: string;
   title?: React.ReactNode;
@@ -16,6 +18,12 @@ export interface CardProps {
   children?: React.ReactChild;
   id?: string;
   className?: string;
+  type?: CardType;
+  cover?: React.ReactNode;
+  actions?: Array<React.ReactNode>;
+  avatar?: React.ReactNode;
+  description?: React.ReactNode;
+  extraContent?: React.ReactNode;
 }
 
 export interface RcUtilEventListener extends EventListener {
@@ -66,12 +74,25 @@ export default class Card extends Component<CardProps> {
     });
     return containGrid;
   }
+  getAction(actions) {
+    if (!actions || !actions.length) {
+      return null;
+    }
+    const actionList = actions.map((action, index) => (
+              <li style={{ flex: `1 1 ${100 / actions.length}%` }} key={`action-${index}`}>
+                <span>{action}</span>
+              </li>
+            ),
+          );
+    return actionList;
+  }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
-      title, loading, bordered = true, ...others,
+      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, title, loading,
+      bordered = true, type, cover, avatar, description, extraContent, actions, children, ...others,
     } = this.props;
-    let children = this.props.children;
+
+    const builtIn = !children;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
@@ -80,32 +101,32 @@ export default class Card extends Component<CardProps> {
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+      [`${prefixCls}-type-${type}`]: !!type,
+      [`${prefixCls}-built-in`]: builtIn,
     });
 
-    if (loading) {
-      children = (
-        <div>
-          <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
-          </p>
-        </div>
-      );
-    }
+    const loadingBlock = (
+      <div>
+        <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
+        </p>
+      </div>
+    );
 
     let head;
     if (!title) {
@@ -122,11 +143,55 @@ export default class Card extends Component<CardProps> {
       );
     }
 
+    const extraDom = extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
+    const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+    const avatarDom = avatar ? <div className={`${prefixCls}-built-in-avatar`}>{avatar}</div> : null;
+    const descriptionDom = description ?
+      <div className={`${prefixCls}-built-in-description`}>{description}</div> : null;
+    const extraContentDom = extraContent ?
+      <div className={`${prefixCls}-built-in-extra-content`}>{extraContent}</div> : null;
+
+    let mainContent;
+    const builtInContentDetail = head || descriptionDom ?
+            <div className={`${prefixCls}-built-in-detail`}>
+              {extraDom}
+              {head}
+              {descriptionDom}
+              {extraContentDom}
+            </div> : null;
+    const builtInContent = (
+      <div>
+        {coverDom}
+        <div className={`${prefixCls}-built-in-content`}>
+          {avatarDom}
+          {builtInContentDetail}
+        </div>
+      </div>
+    );
+    if (builtIn) {
+      mainContent = (
+        <div className={`${prefixCls}-body`} style={bodyStyle}>
+          {loading ? loadingBlock : builtInContent}
+        </div>
+      );
+    } else {
+      mainContent = (
+        <div>
+          {head}
+          {extraDom}
+          <div className={`${prefixCls}-body`} style={bodyStyle}>
+            {loading ? loadingBlock : <div>{coverDom}{children}</div>}
+          </div>
+        </div>
+      );
+    }
+    const actionDom = actions && actions.length ?
+      <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
+
     return (
       <div {...others} className={classString} ref={this.saveRef}>
-        {head}
-        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
-        <div className={`${prefixCls}-body`} style={bodyStyle}>{children}</div>
+        {mainContent}
+        {actionDom}
       </div>
     );
   }

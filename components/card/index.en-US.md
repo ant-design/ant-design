@@ -27,6 +27,14 @@ A card can be used to display content related to a single subject. The content c
 | bodyStyle | Inline style to apply to the card content | object   |  -  |
 | noHovering | Whether to be hovering when mouse over | boolean | true |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean   |  false  |
+| type | Card style type, can be set to `inner` or not set | string   |  -  |
+| cover | Card cover | ReactNode   |  -  |
+| actions | The action list, shows at the bottom of the Card. | Array<ReactNode>   |  -  |
+| avatar | Avatar or Icon, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode |  -  |
+| description | Description content, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode   |  -  |
+| extraContent | Extra content, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode   |  -  |
+
+> Note: When the Card component does not contain any child elements, it automatically turns into the built-in mode.
 
 ### Card.Grid
 
