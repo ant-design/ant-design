@@ -99,7 +99,10 @@ export default class RangePicker extends React.Component<any, any> {
   handleChange = (value: moment.Moment[]) => {
     const props = this.props;
     if (!('value' in props)) {
-      this.setState({ value, showDate: getShowDateFromValue(value) });
+      this.setState(({ showDate }) => ({
+        value,
+        showDate: getShowDateFromValue(value) || showDate,
+      }));
     }
     props.onChange(value, [
       formatValue(value[0], props.format),
