@@ -13,7 +13,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 <style>
 .pic-plus > * {
-  display: inline-block!important;
+  display: inline-block !important;
   vertical-align: middle;
 }
 .pic-plus span {
