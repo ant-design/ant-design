@@ -11,7 +11,7 @@
   border-radius: @border-radius-base;
   color: @alert-text-color;
   font-size: @font-size-base;
-  line-height: @font-size-base + 4px;
+  line-height: @line-height-base;
 
   &&-no-icon {
     padding: 8px 48px 8px 16px;
@@ -19,7 +19,7 @@
 
   &-icon {
     font-size: @font-size-lg;
-    top: 9.5px;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-lg / 2;
     left: 16px;
     position: absolute;
   }

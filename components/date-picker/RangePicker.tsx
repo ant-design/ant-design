@@ -10,7 +10,7 @@ import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
 
 function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
-  const [ start, end ] = value;
+  const [start, end] = value;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
     return;
@@ -24,7 +24,9 @@ function formatValue(value: moment.Moment | undefined, format: string): string {
 }
 
 function pickerValueAdapter(value?: moment.Moment | moment.Moment[]): moment.Moment[] | undefined {
-  if (!value) { return; }
+  if (!value) {
+    return;
+  }
   if (Array.isArray(value)) {
     return value;
   }

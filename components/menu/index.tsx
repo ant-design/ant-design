@@ -100,7 +100,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
-      this.switchModeFromInline = true;
+      this.switchModeFromInline = !!this.state.openKeys.length;
       this.inlineOpenKeys = this.state.openKeys;
       this.setOpenKeys([]);
     }

@@ -29,8 +29,7 @@
 
 .@{steps-prefix-cls} {
   font-size: 0;
-  width: 100%;
-  line-height: 1.5;
+  line-height: @line-height-base;
   .@{steps-prefix-cls}-item {
     position: relative;
     display: inline-block;
@@ -189,12 +188,9 @@
       }
     }
   }
-  .@{steps-prefix-cls}-main {
-    margin-top: 2.5px;
-  }
   .@{steps-prefix-cls}-title {
     font-size: @font-size-lg;
-    margin-bottom: 4px;
+    line-height: @steps-icon-size;
     color: @text-color;
     font-weight: bold;
     background-color: @steps-background;
@@ -263,7 +259,7 @@
     }
     .@{steps-prefix-cls}-title {
       font-size: @font-size-base;
-      margin-bottom: 4px;
+      line-height: @steps-small-icon-size;
       color: @text-color;
       font-weight: bold;
     }
