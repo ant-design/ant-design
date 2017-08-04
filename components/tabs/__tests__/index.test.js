@@ -28,4 +28,15 @@ describe('Tabs', () => {
       expect(handleEdit).toBeCalledWith('1', 'remove');
     });
   });
+
+  describe('tabPosition', () => {
+    it('remove card', () => {
+      const wrapper = mount(
+        <Tabs tabPosition="left" tabBarExtraContent="xxx">
+          <TabPane tab="foo" key="1">foo</TabPane>
+        </Tabs>
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });
