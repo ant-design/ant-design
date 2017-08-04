@@ -102,11 +102,11 @@ export default class Menu extends React.Component<MenuProps, any> {
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
       this.switchModeFromInline = !!this.state.openKeys.length;
       this.inlineOpenKeys = this.state.openKeys;
-      this.setOpenKeys([]);
+      this.handleOpenChange([]);
     }
     if ((!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
         (!nextContext.siderCollapsed && this.context.siderCollapsed)) {
-      this.setOpenKeys(this.inlineOpenKeys);
+      this.handleOpenChange(this.inlineOpenKeys);
       this.inlineOpenKeys = [];
     }
     if ('openKeys' in nextProps) {
@@ -114,7 +114,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
   handleClick = (e) => {
-    this.setOpenKeys([]);
+    this.handleOpenChange([]);
 
     const { onClick } = this.props;
     if (onClick) {
@@ -136,7 +136,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   getRealMenuMode() {
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.switchModeFromInline && inlineCollapsed) {
+    if (this.switchModeFromInline && inlineCollapsed && !('openKeys' in this.props)) {
       return 'inline';
     }
     const { mode } = this.props;
