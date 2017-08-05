@@ -26,6 +26,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
     outline: none;
+    transition: padding .45s;
   }
 
   &-nav-container {
@@ -36,6 +37,7 @@
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
+    transition: padding .45s;
     .clearfix;
 
     &-scrolling {
@@ -48,8 +50,8 @@
   &-tab-next {
     user-select: none;
     z-index: 2;
-    width: 32px;
-    height: 100%;
+    width: 0;
+    height: 0;
     line-height: 32px;
     cursor: pointer;
     border: 0;
@@ -57,7 +59,16 @@
     position: absolute;
     text-align: center;
     color: @text-color-secondary;
-    transition: color 0.3s ease;
+    transition: width .3s, height .3s, opacity .3s, color .3s;
+    opacity: 0;
+    pointer-events: none;
+
+    &.@{tab-prefix-cls}-tab-arrow-show {
+      opacity: 1;
+      width: 32px;
+      height: 100%;
+      pointer-events: auto;
+    }
 
     &:hover {
       color: @text-color;
@@ -220,6 +231,12 @@
       border-bottom: 0;
       height: 100%;
 
+      &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
+      &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
+        width: 100%;
+        height: 32px;
+      }
+
       .@{tab-prefix-cls}-tab {
         float: none;
         margin-right: 0;
@@ -230,6 +247,10 @@
         &:last-child {
           margin-bottom: 0;
         }
+      }
+
+      .@{tab-prefix-cls}-extra-content {
+        text-align: center;
       }
 
       .@{tab-prefix-cls}-nav-scroll {
@@ -251,6 +272,10 @@
 
       .@{tab-prefix-cls}-nav-wrap {
         margin-bottom: 0;
+      }
+
+      .@{tab-prefix-cls}-nav {
+        width: 100%;
       }
 
       .@{tab-prefix-cls}-ink-bar {
