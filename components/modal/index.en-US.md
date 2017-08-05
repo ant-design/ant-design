@@ -43,6 +43,12 @@ and so on.
 > <Modal key={this.state.newKey} visible={this.state.visible} />
 > ```
 
+> Another way is to conditionally mount modal
+
+> ```jsx
+> {this.state.visible && <Modal visible={true} />}
+> ```
+
 ### Modal.method()
 
 There are five ways to display the information based on the content's nature:
