@@ -1051,7 +1051,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
             >
               <div
                 aria-expanded="true"
@@ -1221,7 +1221,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           tabindex="0"
         >
           <li
-            class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+            class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
           >
             <div
               aria-expanded="true"

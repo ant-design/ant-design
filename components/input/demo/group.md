@@ -115,7 +115,7 @@ class CompactDemo extends React.Component {
             <Option value="2">Except</Option>
           </Select>
           <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
-          <Input style={{ width: 24, borderLeft: 0, pointerEvents: 'none' }} placeholder="~" />
+          <Input style={{ width: 24, borderLeft: 0, pointerEvents: 'none', backgroundColor: '#fff' }} placeholder="~" disabled />
           <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="Maximum" />
         </InputGroup>
         <br />

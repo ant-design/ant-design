@@ -17,6 +17,35 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.4
+
+`2017-08-06`
+
+- Fix Affix throw invalid calling object in IE. [#7060](https://github.com/ant-design/ant-design/issues/7060)
+- Make optimization for title display behavior of Badge. [#7024](https://github.com/ant-design/ant-design/issues/7024)
+- Card
+  - Fix `noHovering` API typo. [#7078](https://github.com/ant-design/ant-design/issues/7078)
+  - Fix `children` type definitions. [pull/7030](https://github.com/ant-design/ant-design/pull/7030) [@djyde](https://github.com/djyde)
+- Fix Collapse `onChange` parameter type definitions. [pull/7084](https://github.com/ant-design/ant-design/pull/7084) [@davidctj](https://github.com/davidctj)
+- Dropdown
+  - Fix Dropdown.Button align issue. [#7070](https://github.com/ant-design/ant-design/issues/7070)
+  - Add `size` prop for docs. [pull/7071](https://github.com/ant-design/ant-design/pull/7071) [@hansnow](https://github.com/hansnow)
+- Input
+  - Fix outline covered by addon. [commit/0f63c7](https://github.com/ant-design/ant-design/commit/0f63c7186ef3a5db36c01df9d9ebde9d5b3871ef)
+  - Fix InputGroup demo. [pull/7089](https://github.com/ant-design/ant-design/pull/7089) [@jdz321](https://github.com/jdz321)
+- Fix InputNumber Formatter demo issue. [pull/7098](https://github.com/ant-design/ant-design/pull/7098) [@tim-soft](https://github.com/tim-soft)
+- Menu
+  - Fix abnormal performance of inlineCollapsed Menu. [#7048](https://github.com/ant-design/ant-design/issues/7048) [#7063](https://github.com/ant-design/ant-design/issues/7063)
+  - Fix SubMenu can't be highlighted if its children are selected. [pull/7042](https://github.com/ant-design/ant-design/pull/7042) [@atomgao](https://github.com/atomgao)
+- Fix notification `type` type definitions. [#7073](https://github.com/ant-design/ant-design/issues/7073) [@marswong](https://github.com/marswong)
+- Fix Pagination `showTotal` type definitions. [#7054](https://github.com/ant-design/ant-design/issues/7054)
+- Fix RangePicker throw error after clear. [#7077](https://github.com/ant-design/ant-design/issues/7077)
+- Adds `onFocus` and `onBlur` type definitions for Select. [pull/7082](https://github.com/ant-design/ant-design/pull/7082) [@troynt](https://github.com/troynt)
+- Fix Tabs `tabBarExtraContent` style issue in vertical mode. Upgrade rc-tabs to 9.0.2, refactor the dom structure of TabBar `extraContent`. [#6578](https://github.com/ant-design/ant-design/issues/6578)
+- Fix missing icon issue for TreeSelect. [#7020](https://github.com/ant-design/ant-design/issues/7020)
+- Fix `error TS7016: Could not find a declaration file for module 'rc-util/lib/Dom/addEventListener'`. [#7033](https://github.com/ant-design/ant-design/issues/7033) [@djyde](https://github.com/djyde)
+- Translate patterns/list. [list](https://ant.design/docs/pattern/list) [@zachguo](https://github.com/zachguo)
+
 ## 2.12.3
 
 `2017-07-30`

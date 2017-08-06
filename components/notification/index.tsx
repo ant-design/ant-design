@@ -54,7 +54,7 @@ export interface ArgsProps {
   placement?: notificationPlacement;
   style?: string;
   className?: string;
-  type?: string;
+  readonly type?: string;
 }
 
 export interface ConfigProps {
