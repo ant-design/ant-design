@@ -675,6 +675,90 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] = `
+<div
+  class="ant-radio-group"
+>
+  <label
+    class="ant-radio-wrapper ant-radio-wrapper-checked"
+  >
+    <span
+      class="ant-radio ant-radio-checked"
+    >
+      <input
+        checked=""
+        class="ant-radio-input"
+        name="radiogroup"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      A
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio"
+    >
+      <input
+        class="ant-radio-input"
+        name="radiogroup"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      B
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio"
+    >
+      <input
+        class="ant-radio-input"
+        name="radiogroup"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      C
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper"
+  >
+    <span
+      class="ant-radio"
+    >
+      <input
+        class="ant-radio-input"
+        name="radiogroup"
+        type="radio"
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      D
+    </span>
+  </label>
+</div>
+`;
+
 exports[`renders ./components/radio/demo/size.md correctly 1`] = `
 <div>
   <div>

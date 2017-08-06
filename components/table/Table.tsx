@@ -58,6 +58,11 @@ export interface TableRowSelection<T> {
   selections?: SelectionDecorator[] | boolean;
 }
 
+export interface DefaultColumnSortOrder {
+  columnTitle: string;
+  sortOrder: 'ascend' | 'descend';
+}
+
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -70,6 +75,7 @@ export interface TableProps<T> {
   rowClassName?: (record: T, index: number) => string;
   expandedRowRender?: any;
   defaultExpandedRowKeys?: string[] | number[];
+  defaultSortOrder?: DefaultColumnSortOrder;
   expandedRowKeys?: string[] | number[];
   expandIconAsCell?: boolean;
   expandIconColumnIndex?: number;
@@ -156,7 +162,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     this.columns = props.columns || normalizeColumns(props.children);
 
     this.state = {
-      ...this.getSortStateFromColumns(),
+      ...this.getDefaultSortOrder(this.columns),
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
@@ -332,16 +338,32 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return filters;
   }
 
+  getDefaultSortOrder(columns?) {
+    const definedSortState = this.getSortStateFromColumns(columns);
+
+    if (this.props.defaultSortOrder && !definedSortState.sortColumn) {
+      let columnTitle = this.props.defaultSortOrder.columnTitle;
+      return {
+        sortColumn: flatFilter(columns || this.columns || [], column => column.title === columnTitle)[0],
+        sortOrder: this.props.defaultSortOrder.sortOrder,
+      };
+    }
+
+    return definedSortState;
+  }
+
   getSortStateFromColumns(columns?) {
-    // return fisrt column which sortOrder is not falsy
+    // return first column which sortOrder is not falsy
     const sortedColumn =
       this.getSortOrderColumns(columns).filter(col => col.sortOrder)[0];
+
     if (sortedColumn) {
       return {
         sortColumn: sortedColumn,
         sortOrder: sortedColumn.sortOrder,
       };
     }
+
     return {
       sortColumn: null,
       sortOrder: null,
@@ -731,10 +753,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
-          column.className = column.className || '';
-          if (sortOrder) {
-            column.className += ` ${prefixCls}-column-sort`;
-          }
+          column.className = classNames(column.className, {
+            [`${prefixCls}-column-sort`]: sortOrder,
+          });
         }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';

@@ -38,6 +38,28 @@ describe('Table.sorter', () => {
     expect(wrapper.find('thead')).toMatchSnapshot();
   });
 
+  it('default sort order ascend', () => {
+    const wrapper = mount(createTable({
+      defaultSortOrder: {
+        columnTitle: 'Name',
+        sortOrder: 'ascend',
+      },
+    }));
+
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
+  it('default sort order descend', () => {
+    const wrapper = mount(createTable({
+      defaultSortOrder: {
+        columnTitle: 'Name',
+        sortOrder: 'descend',
+      },
+    }));
+
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+  });
+
   it('sort records', () => {
     const wrapper = mount(createTable());
 

@@ -9,6 +9,7 @@ import { getConfirmLocale } from './locale';
 export default function confirm(config) {
   const props = {
     iconType: 'question-circle',
+    okType: 'primary',
     ...config,
   };
   const prefixCls = props.prefixCls || 'ant-confirm';
@@ -59,7 +60,7 @@ export default function confirm(config) {
         <ActionButton actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
+        <ActionButton type={props.okType} actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -67,7 +68,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
+        <ActionButton type={props.okType} actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -90,6 +91,7 @@ export default function confirm(config) {
       maskClosable={maskClosable}
       style={style}
       width={width}
+      zIndex={props.zIndex}
     >
       <div className={`${prefixCls}-body-wrapper`}>
         {body} {footer}
