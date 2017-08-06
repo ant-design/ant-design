@@ -42,6 +42,12 @@ title: Modal
 > <Modal key={this.state.newKey} visible={this.state.visible} />
 > ```
 
+> 另一种方式是根据条件加载 Modal。
+
+> ```jsx
+> {this.state.visible && <Modal visible={true} />}
+> ```
+
 ### Modal.method()
 
 包括：
