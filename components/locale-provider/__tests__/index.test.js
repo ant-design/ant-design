@@ -30,8 +30,9 @@ import viVN from '../vi_VN';
 import thTH from '../th_TH';
 import faIR from '../fa_IR';
 import elGR from '../el_GR';
+import srRS from '../sr_RS';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR];
+const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, srRS];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
