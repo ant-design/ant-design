@@ -142,7 +142,7 @@ exports[`renders ./components/card/demo/built-in.md correctly 1`] = `
     class="ant-card-actions"
   >
     <li
-      style="flex:1 1 33.333333333333336%;"
+      style="width:33.333333333333336%;"
     >
       <span>
         <i
@@ -151,7 +151,7 @@ exports[`renders ./components/card/demo/built-in.md correctly 1`] = `
       </span>
     </li>
     <li
-      style="flex:1 1 33.333333333333336%;"
+      style="width:33.333333333333336%;"
     >
       <span>
         <i
@@ -160,7 +160,7 @@ exports[`renders ./components/card/demo/built-in.md correctly 1`] = `
       </span>
     </li>
     <li
-      style="flex:1 1 33.333333333333336%;"
+      style="width:33.333333333333336%;"
     >
       <span>
         <i
@@ -188,7 +188,6 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
     </div>
     <div
       class="ant-card-body"
-      style="padding:0;"
     >
       <div>
         <div
@@ -433,61 +432,6 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
     <div
       class="ant-card-head"
     >
-<<<<<<< HEAD
-      Card title
-    </h3>
-  </div>
-  <div
-    class="ant-card-body"
-  >
-    <div
-      class="ant-card-loading-content"
-    >
-      <p
-        class="ant-card-loading-block"
-        style="width:94%;"
-      />
-      <p>
-        <span
-          class="ant-card-loading-block"
-          style="width:28%;"
-        />
-        <span
-          class="ant-card-loading-block"
-          style="width:62%;"
-        />
-      </p>
-      <p>
-        <span
-          class="ant-card-loading-block"
-          style="width:22%;"
-        />
-        <span
-          class="ant-card-loading-block"
-          style="width:66%;"
-        />
-      </p>
-      <p>
-        <span
-          class="ant-card-loading-block"
-          style="width:56%;"
-        />
-        <span
-          class="ant-card-loading-block"
-          style="width:39%;"
-        />
-      </p>
-      <p>
-        <span
-          class="ant-card-loading-block"
-          style="width:21%;"
-        />
-        <span
-          class="ant-card-loading-block"
-          style="width:15%;"
-        />
-        <span
-=======
       <h3
         class="ant-card-head-title"
       >
@@ -497,9 +441,10 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
     <div
       class="ant-card-body"
     >
-      <div>
+      <div
+        class="ant-card-loading-content"
+      >
         <p
->>>>>>> c4dc432... support `cover` `actions` `avatar` `description` and `extraContent`
           class="ant-card-loading-block"
           style="width:94%;"
         />

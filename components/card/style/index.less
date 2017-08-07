@@ -102,14 +102,14 @@
   &-actions {
     border-top: @border-width-base @border-style-base @border-color-split;
     background: @card-actions-background;
-    display: flex;
     align-items: center;
     height: 40px;
 
     & > li {
-      flex: auto;
+      float: left;
       text-align: center;
       height: 16px;
+      margin-top: 12px;
       color: @text-color-secondary;
 
       & > span {
@@ -193,14 +193,15 @@
 
   &-built-in &-built-in-content {
     margin: 20px 0 0;
-    display: flex;
+    .clearfix;
 
     .@{card-prefix-cls}-built-in-avatar {
       padding-right: 16px;
+      float: left;
     }
 
     .@{card-prefix-cls}-built-in-detail {
-      flex: auto;
+      float: left;
       position: relative;
 
       & > div:not(:last-child):not(.@{card-prefix-cls}-extra) {

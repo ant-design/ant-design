@@ -29,7 +29,6 @@ ReactDOM.render(
       Group title
     </p>
     <Card
-      noHovering
       type="inner"
       title="Inner Card title"
       extra={<a href="#">More</a>}
@@ -38,7 +37,6 @@ ReactDOM.render(
     </Card>
     <Card
       style={{ marginTop: 16 }}
-      noHovering
       type="inner"
       title="Inner Card title"
       extra={<a href="#">More</a>}

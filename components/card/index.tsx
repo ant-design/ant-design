@@ -79,11 +79,11 @@ export default class Card extends Component<CardProps> {
       return null;
     }
     const actionList = actions.map((action, index) => (
-              <li style={{ flex: `1 1 ${100 / actions.length}%` }} key={`action-${index}`}>
-                <span>{action}</span>
-              </li>
-            ),
-          );
+        <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+          <span>{action}</span>
+        </li>
+      ),
+    );
     return actionList;
   }
   render() {
@@ -97,7 +97,7 @@ export default class Card extends Component<CardProps> {
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-no-hovering`]: noHovering,
+      [`${prefixCls}-no-hovering`]: noHovering || (type === 'inner' && noHovering === undefined),
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
@@ -153,12 +153,12 @@ export default class Card extends Component<CardProps> {
 
     let mainContent;
     const builtInContentDetail = head || descriptionDom ?
-            <div className={`${prefixCls}-built-in-detail`}>
-              {extraDom}
-              {head}
-              {descriptionDom}
-              {extraContentDom}
-            </div> : null;
+      <div className={`${prefixCls}-built-in-detail`}>
+        {extraDom}
+        {head}
+        {descriptionDom}
+        {extraContentDom}
+      </div> : null;
     const builtInContent = (
       <div>
         {coverDom}
