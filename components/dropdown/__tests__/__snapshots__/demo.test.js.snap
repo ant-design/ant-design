@@ -5,7 +5,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   class="ant-dropdown-link ant-dropdown-trigger"
   href="#"
 >
-  Hover me
+  Hover me 
   <i
     class="anticon anticon-down"
   />
@@ -64,7 +64,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     type="button"
   >
     <span>
-      Button
+      Button 
     </span>
     <i
       class="anticon anticon-down"
@@ -78,7 +78,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   class="ant-dropdown-link ant-dropdown-trigger"
   href="#"
 >
-  Hover me, Click menu item
+  Hover me, Click menu item 
   <i
     class="anticon anticon-down"
   />
@@ -90,7 +90,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   class="ant-dropdown-link ant-dropdown-trigger"
   href="#"
 >
-  Hover me
+  Hover me 
   <i
     class="anticon anticon-down"
   />
@@ -102,7 +102,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
   class="ant-dropdown-link ant-dropdown-trigger"
   href="#"
 >
-  Hover me
+  Hover me 
   <i
     class="anticon anticon-down"
   />
@@ -168,7 +168,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   class="ant-dropdown-link ant-dropdown-trigger"
   href="#"
 >
-  Cascading menu
+  Cascading menu 
   <i
     class="anticon anticon-down"
   />
@@ -181,7 +181,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
     class="ant-dropdown-link ant-dropdown-trigger"
     href="#"
   >
-    Click me
+    Click me 
     <i
       class="anticon anticon-down"
     />
