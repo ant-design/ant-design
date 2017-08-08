@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
+import Spin from '../spin';
+import Icon from '../icon';
+import Pagination from '../pagination';
+import Button from '../button';
+
+import Item from './Item';
+
+export interface ListProps {
+  bordered?: boolean | string;
+  className?: string;
+  children?: React.ReactNode;
+  extra?: React.ReactNode;
+  id?: string;
+  layout: string;
+  loading?: boolean;
+  more?: boolean;
+  moreLoading?: boolean;
+  onMoreClick?: React.FormEventHandler<any>;
+  pagination?: any;
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  title?: React.ReactNode;
+}
+
+export default class List extends Component<ListProps> {
+  static Item: typeof Item = Item;
+
+  render() {
+    const {
+      bordered = true,
+      className,
+      children,
+      loading = false,
+      layout,
+      more = false,
+      moreLoading = false,
+      onMoreClick = (() => {
+      }),
+      pagination = false,
+      prefixCls = 'ant-list',
+      } = this.props;
+
+    const classString = classNames(prefixCls, className, {
+      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-bordered`]: bordered,
+      [`${prefixCls}-bordered-dashed`]: bordered === 'dashed',
+      [`${prefixCls}-loading`]: loading,
+    });
+
+    const moreButton = <Button onClick={onMoreClick}>
+      <Icon type="loading"/>
+      加载中...
+    </Button>;
+
+    const moreContent = <div className={`${prefixCls}-more`}>
+      {moreLoading ? moreButton : <Button onClick={onMoreClick}>加载更多...</Button>}
+    </div>;
+
+    const paginationContent = <div className={`${prefixCls}-pagination`}>
+      <Pagination {...pagination} />
+    </div>;
+
+    const loadingContent = <div className={`${prefixCls}-spin`}>
+      <Spin />
+    </div>;
+
+    return (
+      <div className={classString}>
+        {loading && loadingContent}
+        {!loading && children}
+        {more && moreContent}
+        {(!more && pagination) && paginationContent}
+      </div>
+    );
+  }
+}
