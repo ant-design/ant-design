@@ -83,7 +83,7 @@ moment.locale('zh-cn');
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)[]   | 无           |
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
-| showDateType | 当开始时间和结束时间是同一月份时，两块日历板的展示月份，只接受字符串“prevMonth”| string |无
+| showDateType | 当开始时间和结束时间是同一月份时，两块日历板的展示月份，只接受字符串“prevMonth”| string |无        |
 | showTime     | 增加时间选择功能  | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
