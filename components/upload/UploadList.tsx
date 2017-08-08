@@ -154,8 +154,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const actions = (listType === 'picture-card' && file.status !== 'uploading')
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
-
-      const message = file.response || (file.error && file.error.statusText) || locale.uploadError;
+      let message;
+      if (file.response && React.isValidElement(file.response)) {
+        message = file.response;
+      } else {
+        message = (file.error && file.error.statusText) || locale.uploadError;
+      }
       const iconAndPreview = (file.status === 'error')
         ? <Tooltip title={message}>{icon}{preview}</Tooltip>
         : <span>{icon}{preview}</span>;
