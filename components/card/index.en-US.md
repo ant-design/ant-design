@@ -30,11 +30,8 @@ A card can be used to display content related to a single subject. The content c
 | type | Card style type, can be set to `inner` or not set | string   |  -  |
 | cover | Card cover | ReactNode   |  -  |
 | actions | The action list, shows at the bottom of the Card. | Array<ReactNode>   |  -  |
-| avatar | Avatar or Icon, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode |  -  |
-| description | Description content, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode   |  -  |
-| extraContent | Extra content, available only in the [built-in mode](/components/card/#components-card-demo-built-in). | ReactNode   |  -  |
-
-> Note: When the Card component does not contain any child elements, it automatically turns into the built-in mode.
+| tabList | List of TabPane's head. | Array<{key: string, tab: ReactNode}>   |  -  |
+| onTabChange | Callback when tab is switched  | (key) => void   |  -  |
 
 ### Card.Grid
 
@@ -42,3 +39,13 @@ Property | Description | Type | Default
 ---------|-------------|------|---------
 className | className of container | string | -
 style | style object of container | object | -
+
+### Card.Meta
+
+Property | Description | Type | Default
+---------|-------------|------|---------
+className | className of container | string | -
+style | style object of container | object | -
+avatar | avatar or icon | ReactNode | -
+title | title content | ReactNode | -
+description | description content | ReactNode | -

@@ -1,10 +1,18 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import omit from 'omit.js';
 import Grid from './Grid';
+import Meta from './Meta';
+import Tabs from '../tabs';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 export type CardType = 'inner';
+
+export interface CardTabListType {
+  key: string;
+  tab: React.ReactNode;
+}
 
 export interface CardProps {
   prefixCls?: string;
@@ -21,13 +29,13 @@ export interface CardProps {
   type?: CardType;
   cover?: React.ReactNode;
   actions?: Array<React.ReactNode>;
-  avatar?: React.ReactNode;
-  description?: React.ReactNode;
-  extraContent?: React.ReactNode;
+  tabList?: CardTabListType[];
+  onTabChange?: (key: string) => void;
 }
 
 export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
+  static Meta: typeof Meta = Meta;
   container: HTMLDivElement;
   resizeEvent: any;
   updateWiderPaddingCalled: boolean;
@@ -62,6 +70,11 @@ export default class Card extends Component<CardProps> {
       });
     }
   }
+  onTabChange = (key) => {
+    if (this.props.onTabChange) {
+      this.props.onTabChange(key);
+    }
+  }
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
   }
@@ -89,10 +102,8 @@ export default class Card extends Component<CardProps> {
   render() {
     const {
       prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, title, loading,
-      bordered = true, type, cover, avatar, description, extraContent, actions, children, ...others,
+      bordered = true, type, cover, actions, tabList, children, ...others,
     } = this.props;
-
-    const builtIn = !children;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
@@ -102,7 +113,6 @@ export default class Card extends Component<CardProps> {
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-type-${type}`]: !!type,
-      [`${prefixCls}-built-in`]: builtIn,
     });
 
     const loadingBlock = (
@@ -129,67 +139,44 @@ export default class Card extends Component<CardProps> {
     );
 
     let head;
-    if (!title) {
+    const tabs = tabList && tabList.length ? (
+        <Tabs className={`${prefixCls}-head-tabs`} onChange={this.onTabChange}>
+          {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
+        </Tabs>
+      ) : null;
+    if (!title && !tabs) {
       head = null;
     } else {
       head = typeof title === 'string' ? (
         <div className={`${prefixCls}-head`}>
           <h3 className={`${prefixCls}-head-title`}>{title}</h3>
+          {tabs}
         </div>
       ) : (
         <div className={`${prefixCls}-head`}>
           <div className={`${prefixCls}-head-title`}>{title}</div>
+          {tabs}
         </div>
       );
     }
-
     const extraDom = extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
-    const avatarDom = avatar ? <div className={`${prefixCls}-built-in-avatar`}>{avatar}</div> : null;
-    const descriptionDom = description ?
-      <div className={`${prefixCls}-built-in-description`}>{description}</div> : null;
-    const extraContentDom = extraContent ?
-      <div className={`${prefixCls}-built-in-extra-content`}>{extraContent}</div> : null;
-
-    let mainContent;
-    const builtInContentDetail = head || descriptionDom ?
-      <div className={`${prefixCls}-built-in-detail`}>
-        {extraDom}
-        {head}
-        {descriptionDom}
-        {extraContentDom}
-      </div> : null;
-    const builtInContent = (
+    const mainContent = (
       <div>
-        {coverDom}
-        <div className={`${prefixCls}-built-in-content`}>
-          {avatarDom}
-          {builtInContentDetail}
+        {head}
+        {extraDom}
+        <div className={`${prefixCls}-body`} style={bodyStyle}>
+          {loading ? loadingBlock : <div>{coverDom}{children}</div>}
         </div>
       </div>
     );
-    if (builtIn) {
-      mainContent = (
-        <div className={`${prefixCls}-body`} style={bodyStyle}>
-          {loading ? loadingBlock : builtInContent}
-        </div>
-      );
-    } else {
-      mainContent = (
-        <div>
-          {head}
-          {extraDom}
-          <div className={`${prefixCls}-body`} style={bodyStyle}>
-            {loading ? loadingBlock : <div>{coverDom}{children}</div>}
-          </div>
-        </div>
-      );
-    }
     const actionDom = actions && actions.length ?
       <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
-
+    const divProps = omit(others, [
+      'onTabChange',
+    ]);
     return (
-      <div {...others} className={classString} ref={this.saveRef}>
+      <div {...divProps} className={classString} ref={this.saveRef}>
         {mainContent}
         {actionDom}
       </div>

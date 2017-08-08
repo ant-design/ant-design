@@ -22,8 +22,6 @@
   }
 
   &-head {
-    height: @card-head-height;
-    line-height: @card-head-height;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
@@ -31,13 +29,31 @@
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
+      height: @card-head-height;
+      line-height: @card-head-height;
       text-overflow: ellipsis;
-      width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+    }
+
+    .@{ant-prefix}-tabs {
+      margin-bottom: -17px;
+      margin-top: -8px;
+
+      // For align with extra
+      &:only-child {
+        margin-top: 0;
+
+        .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
+          padding: 12px 20px;
+        }
+      }
+
+      &-bar {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
     }
   }
 
@@ -103,13 +119,13 @@
     border-top: @border-width-base @border-style-base @border-color-split;
     background: @card-actions-background;
     align-items: center;
-    height: 40px;
+    .clearfix;
 
     & > li {
       float: left;
       text-align: center;
       height: 16px;
-      margin-top: 12px;
+      margin: 12px 0;
       color: @text-color-secondary;
 
       & > span {
@@ -124,7 +140,7 @@
 
         &:hover {
           color: @primary-color;
-          transition: color .3s ease;
+          transition: color .3s;
         }
 
         & > .anticon {
@@ -164,10 +180,13 @@
   }
 
   &-type-inner &-head {
-    height: @card-inner-head-height;
-    line-height: @card-inner-head-height;
     padding: 0 @card-padding-base;
     background: @background-color-base;
+
+    &-title {
+      height: @card-inner-head-height;
+      line-height: @card-inner-head-height;
+    }
   }
 
   &-type-inner &-body {
@@ -178,43 +197,39 @@
     right: @card-padding-base;
   }
 
-  &-built-in &-head {
-    height: auto;
-    line-height: initial;
-    border-bottom: 0;
-    padding: 0;
-    border-radius: 0;
-  }
+  &-meta {
+    &-content {
+      margin: 20px 0 0;
+      .clearfix;
+    }
 
-  &-built-in &-extra {
-    top: 0;
-    right: 0;
-  }
-
-  &-built-in &-built-in-content {
-    margin: 20px 0 0;
-    .clearfix;
-
-    .@{card-prefix-cls}-built-in-avatar {
+    &-avatar {
       padding-right: 16px;
       float: left;
     }
 
-    .@{card-prefix-cls}-built-in-detail {
+    &-detail {
       float: left;
       position: relative;
 
-      & > div:not(:last-child):not(.@{card-prefix-cls}-extra) {
-        margin-bottom: 16px;
+      & > div:not(:last-child) {
+        margin-bottom: 8px;
       }
+    }
 
-      .@{card-prefix-cls}-built-in-description {
-        color: @text-color-secondary;
-      }
+    &-title {
+      font-size: @font-size-lg;
+      display: inline-block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      color: @card-head-color;
+      font-weight: 500;
+    }
 
-      .@{card-prefix-cls}-built-in-extra-content {
-        color: @card-built-in-extra-content-color;
-      }
+    &-desscription {
+      color: @text-color-secondary;
     }
   }
 }
