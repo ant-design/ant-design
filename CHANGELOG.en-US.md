@@ -17,6 +17,14 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.5
+
+`2017-08-07`
+
+- Fix the `SelectPropTypes not found` issue under es mode. [#7123](https://github.com/ant-design/ant-design/issues/7123)
+- Fix Row no wrap issue. [4f73a23](https://github.com/ant-design/ant-design/commit/4f73a23a103733a3c148bb04013493a042f90a8f)
+- Fix broken style of InputNumber and RangePicker. [#7117](https://github.com/ant-design/ant-design/issues/7117) [#7126](https://github.com/ant-design/ant-design/issues/7126)
+
 ## 2.12.4
 
 `2017-08-06`

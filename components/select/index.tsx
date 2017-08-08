@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RcSelect, { Option, OptGroup, SelectPropTypes as RcSelectPropTypes } from 'rc-select';
+import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import warning from '../_util/warning';
 
@@ -68,7 +68,7 @@ export interface SelectContext {
 }
 
 export const SelectPropTypes = {
-  ...RcSelectPropTypes,
+  ...RcSelect.propTypes,
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['default', 'large', 'small']),
