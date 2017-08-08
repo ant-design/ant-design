@@ -9,26 +9,37 @@ import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
 
-function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
+function getShowDateFromValue(value: moment.Moment[],showDateType?: string): moment.Moment[] | undefined {
   const [start, end] = value;
+  let newStart = start;
+  let newEnd = end;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
     return;
   }
-  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
-  return [start, newEnd];
+  if(end && end.isSame(start, 'month')) {
+    if (showDateType === 'prevMonth') {
+      newStart = start.clone().subtract(1,'month');
+    } else {
+      newEnd = end.clone().add(1, 'month')
+    }
+  }
+  return [newStart, newEnd];
 }
 
 function formatValue(value: moment.Moment | undefined, format: string): string {
   return (value && value.format(format)) || '';
 }
 
-function pickerValueAdapter(value?: moment.Moment | moment.Moment[]): moment.Moment[] | undefined {
+function pickerValueAdapter(value?: moment.Moment | moment.Moment[],showDateType?: string): moment.Moment[] | undefined {
   if (!value) {
     return;
   }
   if (Array.isArray(value)) {
     return value;
+  }
+  if (showDateType==='prevMonth') {
+    return [value.clone().sub(1, 'month'),value];
   }
   return [value, value.clone().add(1, 'month')];
 }
@@ -65,7 +76,7 @@ export default class RangePicker extends React.Component<any, any> {
     const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;
     this.state = {
       value,
-      showDate: pickerValueAdapter(pickerValue || moment()),
+      showDate: pickerValueAdapter(pickerValue || moment(),props.showDateType),
       open: props.open,
       hoverValue: [],
     };
@@ -77,7 +88,7 @@ export default class RangePicker extends React.Component<any, any> {
       const value = nextProps.value || [];
       this.setState({
         value,
-        showDate: getShowDateFromValue(value) || state.showDate,
+        showDate: getShowDateFromValue(value,nextProps.showDateType) || state.showDate,
       });
     }
     if ('open' in nextProps) {
@@ -101,7 +112,7 @@ export default class RangePicker extends React.Component<any, any> {
     if (!('value' in props)) {
       this.setState(({ showDate }) => ({
         value,
-        showDate: getShowDateFromValue(value) || showDate,
+        showDate: getShowDateFromValue(value,props.showDateType) || showDate,
       }));
     }
     props.onChange(value, [
