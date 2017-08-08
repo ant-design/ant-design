@@ -155,7 +155,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
         : removeIconCross;
       let message;
-      if (file.response && React.isValidElement(file.response)) {
+      if (file.response && typeof file.response === 'string') {
         message = file.response;
       } else {
         message = (file.error && file.error.statusText) || locale.uploadError;
