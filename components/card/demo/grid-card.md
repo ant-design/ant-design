@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-一种常见的卡片内容区隔模式。
+一种常见的Content区隔模式。
 
 ## en-US
 
@@ -22,14 +22,14 @@ const gridStyle = {
 };
 
 ReactDOM.render(
-  <Card title="卡片标题" noHovering>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
+  <Card title="Card Title" noHovering>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
   </Card>
 , mountNode);
 ````
