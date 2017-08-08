@@ -39,7 +39,7 @@ function pickerValueAdapter(value?: moment.Moment | moment.Moment[],showDateType
     return value;
   }
   if (showDateType==='prevMonth') {
-    return [value.clone().sub(1, 'month'),value];
+    return [value.clone().subtract(1, 'month'),value];
   }
   return [value, value.clone().add(1, 'month')];
 }
