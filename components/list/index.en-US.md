@@ -1,0 +1,46 @@
+---
+category: Components
+type: Data Display
+title: List 
+cols: 1
+---
+
+Simple List
+
+## When To Use
+
+A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
+
+## API
+
+### List
+
+| Property     | Description           | Type     | Default       |
+|----------|----------------|----------|--------------|
+| bordered | - | string \| boolean   |  false  |
+| loading | -| boolean   |  false  |
+| layout | - | string |  -  |
+| more    | -| boolean   |  false  |
+| moreLoading  | - | boolean   |  false  |
+| onMoreClick    | -| function   | - |
+| pagination | - | boolean \| object   |  false  |
+| prefixCls | - | string  |  'ant-list'  |
+
+### List.Item
+
+| Property     | Description           | Type     | Default       |
+---------|-------------|------|---------
+| extra | - | string\|ReactNode |  -  |
+
+### List.Meta
+
+| Property     | Description           | Type     | Default       |
+---------|-------------|------|---------
+| avatar | - | ReactNode |  -  |
+| title | - | string\|ReactNode |  -  |
+| description | - | string\|ReactNode |  -  |
+
+### List.Action
+| Property     | Description           | Type     | Default       |
+---------|-------------|------|---------
+| actions | - | Array |  -  |
