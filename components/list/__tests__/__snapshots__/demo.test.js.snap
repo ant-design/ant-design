@@ -45,17 +45,23 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     >
       Content
     </div>
-    <div
+    <ul
       class="ant-list-item-action"
     >
-      <a>
-        edit
-      </a>
-       | 
-      <a>
-        more
-      </a>
-    </div>
+      <li>
+        <a>
+          编辑
+        </a>
+        <em
+          class="ant-list-item-action-split"
+        />
+      </li>
+      <li>
+        <a>
+          更多
+        </a>
+      </li>
+    </ul>
   </div>
   <div
     class="ant-list-item"
@@ -98,17 +104,23 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     >
       Content
     </div>
-    <div
+    <ul
       class="ant-list-item-action"
     >
-      <a>
-        edit
-      </a>
-       | 
-      <a>
-        more
-      </a>
-    </div>
+      <li>
+        <a>
+          编辑
+        </a>
+        <em
+          class="ant-list-item-action-split"
+        />
+      </li>
+      <li>
+        <a>
+          更多
+        </a>
+      </li>
+    </ul>
   </div>
   <div
     class="ant-list-item"
@@ -151,17 +163,23 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     >
       Content
     </div>
-    <div
+    <ul
       class="ant-list-item-action"
     >
-      <a>
-        edit
-      </a>
-       | 
-      <a>
-        more
-      </a>
-    </div>
+      <li>
+        <a>
+          编辑
+        </a>
+        <em
+          class="ant-list-item-action-split"
+        />
+      </li>
+      <li>
+        <a>
+          更多
+        </a>
+      </li>
+    </ul>
   </div>
   <div
     class="ant-list-item"
@@ -204,17 +222,23 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     >
       Content
     </div>
-    <div
+    <ul
       class="ant-list-item-action"
     >
-      <a>
-        edit
-      </a>
-       | 
-      <a>
-        more
-      </a>
-    </div>
+      <li>
+        <a>
+          编辑
+        </a>
+        <em
+          class="ant-list-item-action-split"
+        />
+      </li>
+      <li>
+        <a>
+          更多
+        </a>
+      </li>
+    </ul>
   </div>
   <div
     class="ant-list-more"
@@ -282,40 +306,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -375,40 +402,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -468,40 +498,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -561,40 +594,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -654,40 +690,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -747,40 +786,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -840,40 +882,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -933,40 +978,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -1026,40 +1074,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"
@@ -1119,40 +1170,43 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         >
           We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
         </div>
-        <div
+        <ul
           class="ant-list-item-action"
         >
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-star-o"
-            />
-            156
+          <li>
+            <span>
+              <i
+                class="anticon anticon-star-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-like-o"
-            />
-            156
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-like-o"
+                style="margin-right:8px;"
+              />
+              156
+            </span>
             <em
-              class="ant-list-item-action-item-split"
+              class="ant-list-item-action-split"
             />
-          </span>
-          <span
-            class="ant-list-item-action-item"
-          >
-            <i
-              class="anticon anticon-message"
-            />
-            2
-          </span>
-        </div>
+          </li>
+          <li>
+            <span>
+              <i
+                class="anticon anticon-message"
+                style="margin-right:8px;"
+              />
+              2
+            </span>
+          </li>
+        </ul>
       </div>
       <div
         class="ant-list-item-extra"

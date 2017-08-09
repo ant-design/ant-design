@@ -22,57 +22,37 @@ ReactDOM.render(
     showLoadMore
     onLoadMore={() => {}}
   >
-    <List.Item>
+    <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      <List.Item.Content>
-        Content
-      </List.Item.Content>
-      <List.Item.Action>
-        <a>edit</a> | <a>more</a>
-      </List.Item.Action>
+      Content
     </List.Item>
-    <List.Item>
+    <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      <List.Item.Content>
-        Content
-      </List.Item.Content>
-      <List.Item.Action>
-        <a>edit</a> | <a>more</a>
-      </List.Item.Action>
+      Content
     </List.Item>
-    <List.Item>
+    <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      <List.Item.Content>
-        Content
-      </List.Item.Content>
-      <List.Item.Action>
-        <a>edit</a> | <a>more</a>
-      </List.Item.Action>
+      Content
     </List.Item>
-    <List.Item>
+    <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      <List.Item.Content>
-        Content
-      </List.Item.Content>
-      <List.Item.Action>
-        <a>edit</a> | <a>more</a>
-      </List.Item.Action>
+      Content
     </List.Item>
   </List>
 , mountNode);

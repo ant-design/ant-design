@@ -1,17 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Icon from '../icon';
-
 export interface ListItemProps {
   className?: string;
   children?: React.ReactNode;
   prefixCls?: string;
   style?: React.CSSProperties;
   extra: React.ReactNode;
+  actions?: Array<React.ReactNode>;
   Meta: React.ReactNode;
   Content: React.ReactNode;
-  Action: React.ReactNode;
 }
 
 export interface ListItemMetaProps {
@@ -22,21 +20,6 @@ export interface ListItemMetaProps {
   prefixCls?: string;
   style?: React.CSSProperties;
   title: React.ReactNode;
-}
-
-export interface ListItemContentProps {
-  className?: string;
-  children?: React.ReactNode;
-  prefixCls?: string;
-  style?: React.CSSProperties;
-}
-
-export interface ListItemActionProps {
-  actions: any[];
-  className?: string;
-  children?: React.ReactNode;
-  prefixCls?: string;
-  style?: React.CSSProperties;
 }
 
 export const Meta = (props: ListItemMetaProps) => {
@@ -66,56 +49,62 @@ export const Meta = (props: ListItemMetaProps) => {
   );
 };
 
-export const Content = (props: ListItemContentProps) => {
-  const { prefixCls = 'ant-list', children, className, ...others } = props;
-  const classString = classNames(`${prefixCls}-item-content`, className);
-  return (
-    <div {...others} className={classString}>
-      {children}
-    </div>
-  );
-};
-
-export const Action = (props: ListItemActionProps) => {
-  const { prefixCls = 'ant-list', children, actions, className, ...others } = props;
-  const classString = classNames(`${prefixCls}-item-action`, className);
-
-  const actionsContent = actions && actions.map((action, i) => (
-      <span
-        key={`antd-list-item-action-${action.text}-${i}`}
-        className={`${prefixCls}-item-action-item`}
-        onClick={action.onClick || (() => {})}
-      >
-        {action.icon && <Icon type={action.icon}/>}
-        {action.text}
-        {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-item-split`}/>}
-      </span>
-    ));
-
-  return (
-    <div {...others} className={classString}>
-      {actions ? actionsContent : children}
-    </div>
-  );
-};
-
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
-  static Content: typeof Content = Content;
-  static Action: typeof Action = Action;
-
+  _id: number = new Date().getTime();
   render() {
-    const { prefixCls = 'ant-list', children, extra, className, ...others } = this.props;
+    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
     const classString = classNames(`${prefixCls}-item`, className);
 
-    const extraContent = <div className={`${prefixCls}-item-extra-wrap`}>
-      <div className={`${prefixCls}-item-main`}>{children}</div>
-      <div className={`${prefixCls}-item-extra`}>{extra}</div>
-    </div>;
+    const metaContent: React.ReactElement<any>[] = [];
+    const otherContent: React.ReactElement<any>[] = [];
+
+    React.Children.forEach(children, (element: React.ReactElement<any>) => {
+      if (element && element.type && element.type === Meta) {
+        metaContent.push(element);
+      } else {
+        otherContent.push(element);
+      }
+    });
+
+    const content = (
+      <div className={`${prefixCls}-item-content`}>
+        {otherContent}
+      </div>
+    );
+
+    let actionsContent;
+    if (actions && actions.length > 0) {
+      const actionsContentItem = (action, i) => (
+        <li key={`${prefixCls}-item-action-${this._id}-${i}`}>
+          {action}
+          {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`} />}
+        </li>
+      );
+      actionsContent = (
+        <ul className={`${prefixCls}-item-action`}>
+          {actions.map((action, i) => actionsContentItem(action, i))}
+        </ul>
+      );
+    }
+
+    const extraContent = (
+      <div className={`${prefixCls}-item-extra-wrap`}>
+        <div className={`${prefixCls}-item-main`}>
+          {metaContent}
+          {content}
+          {actionsContent}
+        </div>
+        <div className={`${prefixCls}-item-extra`}>{extra}</div>
+      </div>
+    );
 
     return (
       <div {...others} className={classString}>
-        {extra ? extraContent : children}
+        {extra && extraContent}
+        {!extra && metaContent}
+        {!extra && content}
+        {!extra && actionsContent}
       </div>
     );
   }

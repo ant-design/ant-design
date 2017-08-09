@@ -30,6 +30,7 @@ A list can be used to display content related to a single subject. The content c
 | Property     | Description           | Type     | Default       |
 ---------|-------------|------|---------
 | extra | - | string\|ReactNode |  -  |
+| actions | - | Array<ReactNode> |  -  |
 
 ### List.Item.Meta
 
@@ -39,7 +40,3 @@ A list can be used to display content related to a single subject. The content c
 | title | - | string\|ReactNode |  -  |
 | description | - | string\|ReactNode |  -  |
 
-### List.Item.Action
-| Property     | Description           | Type     | Default       |
----------|-------------|------|---------
-| actions | - | Array |  -  |

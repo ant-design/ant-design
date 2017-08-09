@@ -14,7 +14,7 @@ title:
 Basic List.
 
 ````jsx
-import { List, Avatar } from 'antd';
+import { List, Avatar, Icon } from 'antd';
 
 const listData = [];
 for (let i = 0; i < 10; i++) {
@@ -34,12 +34,20 @@ const pagination = {
   onChange: (() => {}),
 };
 
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8 }} />
+    {text}
+  </span>
+);
+
 ReactDOM.render(
   <List itemLayout="vertical" pagination={pagination}>
     {
       listData.map(item => (
         <List.Item
           key={item.title}
+          actions={[<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
           extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
         >
           <List.Item.Meta
@@ -47,25 +55,7 @@ ReactDOM.render(
             title={<a href={item.href}>{item.title}</a>}
             description={item.description}
           />
-          <List.Item.Content>
-            {item.content}
-          </List.Item.Content>
-          <List.Item.Action
-            actions={[
-              {
-                icon: 'star-o',
-                text: 156,
-              },
-              {
-                icon: 'like-o',
-                text: 156,
-              },
-              {
-                icon: 'message',
-                text: 2,
-              },
-            ]}
-          />
+          {item.content}
         </List.Item>
       ))
     }
