@@ -30,8 +30,8 @@ for (let i = 0; i < 10; i++) {
 ReactDOM.render(
   <div>
     <List
-      more
-      onMoreClick={() => {}}
+      showLoadMore
+      onLoadMore={() => {}}
     >
       {
         listData1.map(item => (

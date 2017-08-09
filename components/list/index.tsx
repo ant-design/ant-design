@@ -16,13 +16,12 @@ export interface ListProps {
   id?: string;
   layout: string;
   loading?: boolean;
-  more?: boolean;
-  moreLoading?: boolean;
-  onMoreClick?: React.FormEventHandler<any>;
+  showLoadMore?: boolean;
+  loadingMore?: boolean;
+  onLoadMore?: React.FormEventHandler<any>;
   pagination?: any;
   prefixCls?: string;
   style?: React.CSSProperties;
-  title?: React.ReactNode;
 }
 
 export default class List extends Component<ListProps> {
@@ -35,9 +34,9 @@ export default class List extends Component<ListProps> {
       children,
       loading = false,
       layout,
-      more = false,
-      moreLoading = false,
-      onMoreClick = (() => {
+      showLoadMore = false,
+      loadingMore = false,
+      onLoadMore = (() => {
       }),
       pagination = false,
       prefixCls = 'ant-list',
@@ -50,13 +49,13 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-loading`]: loading,
     });
 
-    const moreButton = <Button onClick={onMoreClick}>
+    const moreButton = <Button onClick={onLoadMore}>
       <Icon type="loading"/>
       加载中...
     </Button>;
 
     const moreContent = <div className={`${prefixCls}-more`}>
-      {moreLoading ? moreButton : <Button onClick={onMoreClick}>加载更多...</Button>}
+      {loadingMore ? moreButton : <Button onClick={onLoadMore}>加载更多...</Button>}
     </div>;
 
     const paginationContent = <div className={`${prefixCls}-pagination`}>
@@ -71,8 +70,8 @@ export default class List extends Component<ListProps> {
       <div className={classString}>
         {loading && loadingContent}
         {!loading && children}
-        {more && moreContent}
-        {(!more && pagination) && paginationContent}
+        {showLoadMore && moreContent}
+        {(!showLoadMore && pagination) && paginationContent}
       </div>
     );
   }

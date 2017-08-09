@@ -5,7 +5,7 @@ title: List
 cols: 1
 ---
 
-Simple List
+Simple List.
 
 ## When To Use
 
@@ -20,11 +20,10 @@ A list can be used to display content related to a single subject. The content c
 | bordered | - | string \| boolean   |  false  |
 | loading | -| boolean   |  false  |
 | layout | - | string |  -  |
-| more    | -| boolean   |  false  |
-| moreLoading  | - | boolean   |  false  |
+| showLoadMore    | -| boolean   |  false  |
+| loadingMore  | - | boolean   |  false  |
 | onMoreClick    | -| function   | - |
 | pagination | - | boolean \| object   |  false  |
-| prefixCls | - | string  |  'ant-list'  |
 
 ### List.Item
 

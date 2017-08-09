@@ -47,14 +47,16 @@ export const Meta = (props: ListItemMetaProps) => {
     title,
     description,
     ...others,
-    } = props;
+  } = props;
 
   const classString = classNames(`${prefixCls}-item-meta`, className);
 
-  const content = <div className={`${prefixCls}-item-meta-content`}>
-    {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-    {description && <p className={`${prefixCls}-item-meta-description`}>{description}</p>}
-  </div>;
+  const content = (
+    <div className={`${prefixCls}-item-meta-content`}>
+      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
+      {description && <p className={`${prefixCls}-item-meta-description`}>{description}</p>}
+    </div>
+  );
 
   return (
     <div {...others} className={classString}>
@@ -78,15 +80,17 @@ export const Action = (props: ListItemActionProps) => {
   const { prefixCls = 'ant-list', children, actions, className, ...others } = props;
   const classString = classNames(`${prefixCls}-item-action`, className);
 
-  const actionsContent = actions.map((action, i) => (<span
-    key={`antd-list-item-action-${action.text}-${i}`}
-    className={`${prefixCls}-item-action-item`}
-    onClick={action.onClick || (() => {})}
-  >
-    {action.icon && <Icon type={action.icon}/>}
-    {action.text}
-    {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-item-split`}/>}
-  </span>));
+  const actionsContent = actions && actions.map((action, i) => (
+      <span
+        key={`antd-list-item-action-${action.text}-${i}`}
+        className={`${prefixCls}-item-action-item`}
+        onClick={action.onClick || (() => {})}
+      >
+        {action.icon && <Icon type={action.icon}/>}
+        {action.text}
+        {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-item-split`}/>}
+      </span>
+    ));
 
   return (
     <div {...others} className={classString}>
@@ -96,9 +100,9 @@ export const Action = (props: ListItemActionProps) => {
 };
 
 export default class Item extends React.Component<ListItemProps, any> {
-  static Meta: typeof Meta;
-  static Content: typeof Content;
-  static Action: typeof Action;
+  static Meta: typeof Meta = Meta;
+  static Content: typeof Content = Content;
+  static Action: typeof Action = Action;
 
   render() {
     const { prefixCls = 'ant-list', children, extra, className, ...others } = this.props;
