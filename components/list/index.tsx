@@ -33,17 +33,17 @@ export default class List extends Component<ListProps> {
       className,
       children,
       loading = false,
-      layout,
+      layout = 'vertical',
       showLoadMore = false,
       loadingMore = false,
       onLoadMore = (() => {
       }),
       pagination = false,
       prefixCls = 'ant-list',
-      } = this.props;
+    } = this.props;
 
     const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-vertical`]: layout !== 'horizontal',
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-bordered-dashed`]: bordered === 'dashed',
       [`${prefixCls}-loading`]: loading,

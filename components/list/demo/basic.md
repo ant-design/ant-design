@@ -1,8 +1,8 @@
 ---
-order: 0
+order: 1
 title:
-  zh-CN: 基础列表 
-  en-US: Basic
+  zh-CN: 竖排列表样式
+  en-US: Layout Vertical 
 ---
 
 ## zh-CN
@@ -23,19 +23,26 @@ for (let i = 0; i < 10; i++) {
     title: `蚂蚁金服设计平台简介 ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     description: '一段假象的简介,这是一段比较长的简介,还有很多',
-    content: '没什么实际内容',
+    content: '段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。',
   });
 }
 
+const pagination = {
+  pageSize: 10,
+  current: 1,
+  total: listData1.length,
+  onChange: (() => {}),
+};
+
 ReactDOM.render(
   <div>
-    <List
-      showLoadMore
-      onLoadMore={() => {}}
-    >
+    <List bordered="dashed" pagination={pagination}>
       {
         listData1.map(item => (
-          <List.Item key={item.title} >
+          <List.Item
+            key={item.title}
+            extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
+          >
             <List.Item.Meta
               avatar={<Avatar src={item.avatar} />}
               title={<a href={item.href}>{item.title}</a>}
@@ -44,9 +51,22 @@ ReactDOM.render(
             <List.Item.Content>
               {item.content}
             </List.Item.Content>
-            <List.Item.Action>
-              <a>编辑</a> | <a>更多</a>
-            </List.Item.Action>
+            <List.Item.Action
+              actions={[
+                {
+                  icon: 'star-o',
+                  text: 156,
+                },
+                {
+                  icon: 'like-o',
+                  text: 156,
+                },
+                {
+                  icon: 'message',
+                  text: 2,
+                },
+              ]}
+            />
           </List.Item>
         ))
       }
