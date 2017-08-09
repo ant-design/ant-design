@@ -25,6 +25,7 @@ Array [
   "Input",
   "InputNumber",
   "Layout",
+  "List",
   "LocaleProvider",
   "message",
   "Menu",
