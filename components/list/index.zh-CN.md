@@ -31,6 +31,7 @@ cols: 1
 | 参数     | 说明           | 类型     | 默认值       |
 ---------|-------------|------|---------
 | extra | 额外内容, 通常用在 itemLayout 为 vertical 的情况下, 展示右侧内容; horizontal 展示在列表元素最右侧 | string\|ReactNode |  -  |
+| actions | 列表操作组，根据 itemLayout 的不同, 位置在卡片底部或者最右侧 | Array<ReactNode> |  -  |
 
 ### List.Item.Meta
 
@@ -39,16 +40,3 @@ cols: 1
 | avatar | 列表元素的图标 | ReactNode |  -  |
 | title | 列表元素的标题 | string\|ReactNode |  -  |
 | description | 列表元素的描述内容 | string\|ReactNode |  -  |
-
-### List.Item.Action
-| 参数     | 说明           | 类型     | 默认值       |
----------|-------------|------|---------
-| actions | 如果此参数存在, 那么会将其中的数据转换成符合标准 ant design 设计的 action 样式元素 | Array |  -  |
-
-### List.Item.Action actions props
-
-| 参数     | 说明           | 类型     | 默认值          |
-|----------|----------------|----------|-----------------|
-| icon    | icon 图标           | string| -  |
-| text      |  文案   |  string  | -               |
-| onClick      | 点击回掉  |  function  | -  |
