@@ -39,7 +39,7 @@ export interface ListItemActionProps {
   style?: React.CSSProperties;
 }
 
-const Meta = (props: ListItemMetaProps) => {
+export const Meta = (props: ListItemMetaProps) => {
   const {
     prefixCls = 'ant-list',
     className,
@@ -64,7 +64,7 @@ const Meta = (props: ListItemMetaProps) => {
   );
 };
 
-const Content = (props: ListItemContentProps) => {
+export const Content = (props: ListItemContentProps) => {
   const { prefixCls = 'ant-list', children, className, ...others } = props;
   const classString = classNames(`${prefixCls}-item-content`, className);
   return (
@@ -74,7 +74,7 @@ const Content = (props: ListItemContentProps) => {
   );
 };
 
-const Action = (props: ListItemActionProps) => {
+export const Action = (props: ListItemActionProps) => {
   const { prefixCls = 'ant-list', children, actions, className, ...others } = props;
   const classString = classNames(`${prefixCls}-item-action`, className);
 
