@@ -17,6 +17,14 @@ timeline: true
 
 ---
 
+## 2.12.5
+
+`2017-08-07`
+
+- 修复 ES 模式下报 `SelectPropTypes not found` 的问题。[#7123](https://github.com/ant-design/ant-design/issues/7123)
+- 修复 Row 在 flex 模式下元素不换行的问题。[4f73a23](https://github.com/ant-design/ant-design/commit/4f73a23a103733a3c148bb04013493a042f90a8f)
+- 修复 InputNumber 和 RangePicker 的样式问题。[#7117](https://github.com/ant-design/ant-design/issues/7117) [#7126](https://github.com/ant-design/ant-design/issues/7126)
+
 ## 2.12.4
 
 `2017-08-06`

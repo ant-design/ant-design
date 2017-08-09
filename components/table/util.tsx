@@ -4,11 +4,15 @@ export function flatArray(data: Object[] = [], childrenName = 'children') {
   const result: Object[] = [];
   const loop = (array) => {
     array.forEach(item => {
-      const newItem = { ...item };
-      delete newItem[childrenName];
-      result.push(newItem);
-      if (item[childrenName] && item[childrenName].length > 0) {
-        loop(item[childrenName]);
+      if (item[childrenName]) {
+        const newItem = { ...item };
+        delete newItem[childrenName];
+        result.push(newItem);
+        if (item[childrenName].length > 0) {
+          loop(item[childrenName]);
+        }
+      } else {
+        result.push(item);
       }
     });
   };
