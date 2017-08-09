@@ -18,9 +18,9 @@ cols: 1
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| bordered | 展示边框, 设置 dashed 可展示对应类型 | string \| boolean   |  false  |
+| bordered | 是否展示边框 | boolean   |  false  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
-| itemLayout | 设置 List.Item 布局 vertical, 设置 horizontal 则竖直样式显示 | string |vertical |
+| itemLayout | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排 | string | - |
 | showLoadMore    | 是否显示加载更多按钮 | boolean   |  false  |
 | loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
 | onMoreClick    | 点击 more 按钮的回掉 | function   | - |

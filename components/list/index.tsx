@@ -9,7 +9,7 @@ import Button from '../button';
 import Item from './Item';
 
 export interface ListProps {
-  bordered?: boolean | string;
+  bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
   extra?: React.ReactNode;
@@ -33,7 +33,7 @@ export default class List extends Component<ListProps> {
       className,
       children,
       loading = false,
-      itemLayout = 'vertical',
+      itemLayout,
       showLoadMore = false,
       loadingMore = false,
       onLoadMore = (() => {
@@ -43,9 +43,8 @@ export default class List extends Component<ListProps> {
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-vertical`]: itemLayout !== 'horizontal',
+      [`${prefixCls}-vertical`]: itemLayout === 'vertical',
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-bordered-dashed`]: bordered === 'dashed',
       [`${prefixCls}-loading`]: loading,
     });
 
