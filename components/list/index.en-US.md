@@ -19,7 +19,7 @@ A list can be used to display content related to a single subject. The content c
 |----------|----------------|----------|--------------|
 | bordered | - | string \| boolean   |  false  |
 | loading | -| boolean   |  false  |
-| layout | - | string |  -  |
+| itemLayout | - | string |  -  |
 | showLoadMore    | -| boolean   |  false  |
 | loadingMore  | - | boolean   |  false  |
 | onMoreClick    | -| function   | - |

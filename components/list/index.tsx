@@ -14,7 +14,7 @@ export interface ListProps {
   children?: React.ReactNode;
   extra?: React.ReactNode;
   id?: string;
-  layout: string;
+  itemLayout: string;
   loading?: boolean;
   showLoadMore?: boolean;
   loadingMore?: boolean;
@@ -33,7 +33,7 @@ export default class List extends Component<ListProps> {
       className,
       children,
       loading = false,
-      layout = 'vertical',
+      itemLayout = 'vertical',
       showLoadMore = false,
       loadingMore = false,
       onLoadMore = (() => {
@@ -43,7 +43,7 @@ export default class List extends Component<ListProps> {
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-vertical`]: layout !== 'horizontal',
+      [`${prefixCls}-vertical`]: itemLayout !== 'horizontal',
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-bordered-dashed`]: bordered === 'dashed',
       [`${prefixCls}-loading`]: loading,

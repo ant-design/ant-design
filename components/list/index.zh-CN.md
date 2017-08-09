@@ -20,7 +20,7 @@ cols: 1
 |----------|----------------|----------|--------------|
 | bordered | 展示边框, 设置 dashed 可展示对应类型 | string \| boolean   |  false  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
-| layout | 布局, 设置 vertical 则显示竖直类型展示列表, 默认为横向 | string |  -  |
+| itemLayout | 设置 List.Item 布局 vertical, 设置 horizontal 则竖直样式显示 | string |vertical |
 | showLoadMore    | 是否显示加载更多按钮 | boolean   |  false  |
 | loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
 | onMoreClick    | 点击 more 按钮的回掉 | function   | - |
@@ -30,7 +30,7 @@ cols: 1
 
 | 参数     | 说明           | 类型     | 默认值       |
 ---------|-------------|------|---------
-| extra | 额外内容, 通常用在 layout 为 vertical 的情况下, 展示右侧内容 | string\|ReactNode |  -  |
+| extra | 额外内容, 通常用在 itemLayout 为 vertical 的情况下, 展示右侧内容 | string\|ReactNode |  -  |
 
 ### List.Item.Meta
 
