@@ -11,6 +11,10 @@
 
   &&-has-sider {
     flex-direction: row;
+    > .@{layout-prefix-cls},
+    > .@{layout-prefix-cls}-content {
+      overflow-x: hidden;
+    }
   }
 
   &-header,

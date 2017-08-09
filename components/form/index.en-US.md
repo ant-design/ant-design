@@ -107,6 +107,7 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 | options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.validateTrigger | When to validate the value of children node. | string\|string[] | 'onChange' |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object[] | n/a |
+| options.validateFirst | Whether stop validate on first rule of error for this field. | boolean | false |
 | options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
 
