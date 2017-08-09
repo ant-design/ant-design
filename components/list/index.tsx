@@ -48,22 +48,30 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-loading`]: loading,
     });
 
-    const moreButton = <Button onClick={onLoadMore}>
-      <Icon type="loading"/>
-      加载中...
-    </Button>;
+    const moreButton = (
+      <Button onClick={onLoadMore}>
+        <Icon type="loading"/>
+        加载中...
+      </Button>
+    );
 
-    const moreContent = <div className={`${prefixCls}-more`}>
-      {loadingMore ? moreButton : <Button onClick={onLoadMore}>加载更多...</Button>}
-    </div>;
+    const moreContent = (
+      <div className={`${prefixCls}-more`}>
+        {loadingMore ? moreButton : <Button onClick={onLoadMore}>加载更多...</Button>}
+      </div>
+    );
 
-    const paginationContent = <div className={`${prefixCls}-pagination`}>
-      <Pagination {...pagination} />
-    </div>;
+    const paginationContent = (
+      <div className={`${prefixCls}-pagination`}>
+        <Pagination {...pagination} />
+      </div>
+    );
 
-    const loadingContent = <div className={`${prefixCls}-spin`}>
-      <Spin />
-    </div>;
+    const loadingContent = (
+      <div className={`${prefixCls}-spin`}>
+        <Spin />
+      </div>
+    );
 
     return (
       <div className={classString}>

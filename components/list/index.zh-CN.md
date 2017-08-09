@@ -23,14 +23,14 @@ cols: 1
 | itemLayout | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排 | string | - |
 | showLoadMore    | 是否显示加载更多按钮 | boolean   |  false  |
 | loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
-| onMoreClick    | 点击 more 按钮的回掉 | function   | - |
+| onMoreClick    | 点击 more 按钮的回调 | function   | - |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
 
 ### List.Item
 
 | 参数     | 说明           | 类型     | 默认值       |
 ---------|-------------|------|---------
-| extra | 额外内容, 通常用在 itemLayout 为 vertical 的情况下, 展示右侧内容 | string\|ReactNode |  -  |
+| extra | 额外内容, 通常用在 itemLayout 为 vertical 的情况下, 展示右侧内容; horizontal 展示在列表元素最右侧 | string\|ReactNode |  -  |
 
 ### List.Item.Meta
 
