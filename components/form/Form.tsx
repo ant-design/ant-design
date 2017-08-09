@@ -9,10 +9,10 @@ import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP } from './constants';
 
-export interface FormCreateOption {
-  onFieldsChange?: (props: any, fields: Array<any>) => void;
-  onValuesChange?: (props: any, values: any) => void;
-  mapPropsToFields?: (props: any) => void;
+export interface FormCreateOption<T> {
+  onFieldsChange?: (props: T, fields: Array<any>) => void;
+  onValuesChange?: (props: T, values: any) => void;
+  mapPropsToFields?: (props: T) => void;
   withRef?: boolean;
 }
 
@@ -139,7 +139,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
-  static create = function<TOwnProps>(options: FormCreateOption = {}): ComponentDecorator<TOwnProps> {
+  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
     const formWrapper = createDOMForm({
       fieldNameProp: 'id',
       ...options,
