@@ -88,14 +88,14 @@
   }
 
   &-contain-grid &-body {
-    margin: -0.5px;
+    margin: -1px 0 0 -1px;
     padding: 0;
   }
 
   &-grid {
     border-radius: 0;
     border: 0;
-    box-shadow: 0 0 0 0.5px @border-color-split, 0 0 0 0.5px @border-color-split inset;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
     width: 33.33%;
     float: left;
     padding: @card-padding-base;

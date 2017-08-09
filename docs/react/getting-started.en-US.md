@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v4.x) correctly.
+Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v6.5) correctly.
 
 ---
 

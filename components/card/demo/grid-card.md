@@ -22,14 +22,14 @@ const gridStyle = {
 };
 
 ReactDOM.render(
-  <Card title="卡片标题" noHovering>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
-    <Card.Grid style={gridStyle}>卡片内容</Card.Grid>
+  <Card title="Card Title" noHovering>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
+    <Card.Grid style={gridStyle}>Content</Card.Grid>
   </Card>
 , mountNode);
 ````
