@@ -22,8 +22,6 @@
   }
 
   &-head {
-    height: @card-head-height;
-    line-height: @card-head-height;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
@@ -31,13 +29,31 @@
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
+      height: @card-head-height;
+      line-height: @card-head-height;
       text-overflow: ellipsis;
-      width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+    }
+
+    .@{ant-prefix}-tabs {
+      margin-bottom: -17px;
+      margin-top: -8px;
+
+      // For align with extra
+      &:only-child {
+        margin-top: 0;
+
+        .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
+          padding: 12px 20px;
+        }
+      }
+
+      &-bar {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
     }
   }
 
@@ -91,6 +107,53 @@
     }
   }
 
+  &-cover {
+    margin: -@card-padding-base -@card-padding-base 20px -@card-padding-base;
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &-actions {
+    border-top: @border-width-base @border-style-base @border-color-split;
+    background: @card-actions-background;
+    align-items: center;
+    .clearfix;
+
+    & > li {
+      float: left;
+      text-align: center;
+      height: 16px;
+      margin: 12px 0;
+      color: @text-color-secondary;
+
+      & > span {
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        height: 32px;
+        line-height: 32px;
+        min-width: 32px;
+        position: relative;
+        top: -8px;
+
+        &:hover {
+          color: @primary-color;
+          transition: color .3s;
+        }
+
+        & > .anticon {
+          font-size: 16px;
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+
   &-wider-padding &-head {
     padding: 0 @card-padding-wider;
   }
@@ -103,6 +166,10 @@
     right: @card-padding-wider;
   }
 
+  &-wider-padding &-cover {
+    margin: -@card-padding-base -@card-padding-wider 20px -@card-padding-wider;
+  }
+
   &-padding-transition &-head,
   &-padding-transition &-body {
     transition: padding .3s;
@@ -110,6 +177,60 @@
 
   &-padding-transition &-extra {
     transition: right .3s;
+  }
+
+  &-type-inner &-head {
+    padding: 0 @card-padding-base;
+    background: @background-color-base;
+
+    &-title {
+      height: @card-inner-head-height;
+      line-height: @card-inner-head-height;
+    }
+  }
+
+  &-type-inner &-body {
+    padding: 16px @card-padding-base;
+  }
+
+  &-type-inner &-extra {
+    right: @card-padding-base;
+  }
+
+  &-meta {
+    &-content {
+      margin: 20px 0 0;
+      .clearfix;
+    }
+
+    &-avatar {
+      padding-right: 16px;
+      float: left;
+    }
+
+    &-detail {
+      float: left;
+      position: relative;
+
+      & > div:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-title {
+      font-size: @font-size-lg;
+      display: inline-block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      color: @card-head-color;
+      font-weight: 500;
+    }
+
+    &-desscription {
+      color: @text-color-secondary;
+    }
   }
 }
 

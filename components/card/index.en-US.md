@@ -25,8 +25,13 @@ A card can be used to display content related to a single subject. The content c
 | extra    | Content to render in the top-right corner of the card | string\|ReactNode   | - |
 | bordered | Toggles rendering of the border around the card | boolean   |  true  |
 | bodyStyle | Inline style to apply to the card content | object   |  -  |
-| noHovering | Whether to be disable hovering when mouse over | boolean | false |
+| noHovering | Whether to be disable hovering when mouse over | boolean | false, and is set to true when [type='inner'] |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean   |  false  |
+| type | Card style type, can be set to `inner` or not set | string   |  -  |
+| cover | Card cover | ReactNode   |  -  |
+| actions | The action list, shows at the bottom of the Card. | Array<ReactNode>   |  -  |
+| tabList | List of TabPane's head. | Array<{key: string, tab: ReactNode}>   |  -  |
+| onTabChange | Callback when tab is switched  | (key) => void   |  -  |
 
 ### Card.Grid
 
@@ -34,3 +39,13 @@ Property | Description | Type | Default
 ---------|-------------|------|---------
 className | className of container | string | -
 style | style object of container | object | -
+
+### Card.Meta
+
+Property | Description | Type | Default
+---------|-------------|------|---------
+className | className of container | string | -
+style | style object of container | object | -
+avatar | avatar or icon | ReactNode | -
+title | title content | ReactNode | -
+description | description content | ReactNode | -

@@ -1,8 +1,18 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import omit from 'omit.js';
 import Grid from './Grid';
+import Meta from './Meta';
+import Tabs from '../tabs';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
+
+export type CardType = 'inner';
+
+export interface CardTabListType {
+  key: string;
+  tab: React.ReactNode;
+}
 
 export interface CardProps {
   prefixCls?: string;
@@ -16,10 +26,16 @@ export interface CardProps {
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  type?: CardType;
+  cover?: React.ReactNode;
+  actions?: Array<React.ReactNode>;
+  tabList?: CardTabListType[];
+  onTabChange?: (key: string) => void;
 }
 
 export default class Card extends Component<CardProps> {
   static Grid: typeof Grid = Grid;
+  static Meta: typeof Meta = Meta;
   container: HTMLDivElement;
   resizeEvent: any;
   updateWiderPaddingCalled: boolean;
@@ -54,6 +70,11 @@ export default class Card extends Component<CardProps> {
       });
     }
   }
+  onTabChange = (key) => {
+    if (this.props.onTabChange) {
+      this.props.onTabChange(key);
+    }
+  }
   saveRef = (node: HTMLDivElement) => {
     this.container = node;
   }
@@ -66,67 +87,98 @@ export default class Card extends Component<CardProps> {
     });
     return containGrid;
   }
+  getAction(actions) {
+    if (!actions || !actions.length) {
+      return null;
+    }
+    const actionList = actions.map((action, index) => (
+        <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+          <span>{action}</span>
+        </li>
+      ),
+    );
+    return actionList;
+  }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering,
-      title, loading, bordered = true, ...others,
+      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, title, loading,
+      bordered = true, type, cover, actions, tabList, children, ...others,
     } = this.props;
-    let children = this.props.children;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-no-hovering`]: noHovering,
+      [`${prefixCls}-no-hovering`]: noHovering || (type === 'inner' && noHovering === undefined),
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+      [`${prefixCls}-type-${type}`]: !!type,
     });
 
-    if (loading) {
-      children = (
-        <div className={`${prefixCls}-loading-content`}>
-          <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
-          </p>
-          <p>
-            <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
-            <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
-          </p>
-        </div>
-      );
-    }
+    const loadingBlock = (
+      <div className={`${prefixCls}-loading-content`}>
+        <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
+        </p>
+      </div>
+    );
 
     let head;
-    if (!title) {
+    const tabs = tabList && tabList.length ? (
+        <Tabs className={`${prefixCls}-head-tabs`} onChange={this.onTabChange}>
+          {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
+        </Tabs>
+      ) : null;
+    if (!title && !tabs) {
       head = null;
     } else {
       head = typeof title === 'string' ? (
         <div className={`${prefixCls}-head`}>
           <h3 className={`${prefixCls}-head-title`}>{title}</h3>
+          {tabs}
         </div>
       ) : (
         <div className={`${prefixCls}-head`}>
           <div className={`${prefixCls}-head-title`}>{title}</div>
+          {tabs}
         </div>
       );
     }
-
-    return (
-      <div {...others} className={classString} ref={this.saveRef}>
+    const extraDom = extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
+    const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+    const mainContent = (
+      <div>
         {head}
-        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
-        <div className={`${prefixCls}-body`} style={bodyStyle}>{children}</div>
+        {extraDom}
+        <div className={`${prefixCls}-body`} style={bodyStyle}>
+          {loading ? loadingBlock : <div>{coverDom}{children}</div>}
+        </div>
+      </div>
+    );
+    const actionDom = actions && actions.length ?
+      <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
+    const divProps = omit(others, [
+      'onTabChange',
+    ]);
+    return (
+      <div {...divProps} className={classString} ref={this.saveRef}>
+        {mainContent}
+        {actionDom}
       </div>
     );
   }
