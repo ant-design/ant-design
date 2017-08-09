@@ -139,7 +139,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
-  static create = function<TOwnProps>(options?: FormCreateOption): ComponentDecorator<TOwnProps> {
+  static create = function<TOwnProps>(options: FormCreateOption = {}): ComponentDecorator<TOwnProps> {
     const formWrapper = createDOMForm({
       fieldNameProp: 'id',
       ...options,
@@ -174,8 +174,10 @@ export default class Form extends React.Component<FormProps, any> {
         this.props.form.getFieldProps = this.deprecatedGetFieldProps;
 
         const withRef: any = {};
-        if (options && options.withRef) {
+        if (options.withRef) {
           withRef.ref = 'formWrappedComponent';
+        } else if (this.props.wrappedComponentRef) {
+          withRef.ref = this.props.wrappedComponentRef;
         }
         return <Component {...this.props} {...withRef} />;
       },
