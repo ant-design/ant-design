@@ -9,7 +9,6 @@ export interface ListItemProps {
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
   Meta: React.ReactNode;
-  Content: React.ReactNode;
 }
 
 export interface ListItemMetaProps {
