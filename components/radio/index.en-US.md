@@ -27,6 +27,7 @@ radio group，wrap a group of `Radio`。
 
 | Property           | Description                             | Type              | optional | Default |
 |----------------|----------------------------------|-------------------|--------|--------|
+| name | The `name` property of all `input[type="radio"]` children | string |  | none |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | none     | none     |
 | value | Used for setting the currently selected value. | any            | none     | none     |
 | defaultValue   | Default selected value                     | any            | none     | none     |
