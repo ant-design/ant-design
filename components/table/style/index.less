@@ -627,6 +627,12 @@
     margin-bottom: -20px;
   }
 
+  // Ignore the scroll.x width
+  // https://github.com/ant-design/ant-design/issues/7142
+  &-empty &-scroll &-body &-fixed {
+    width: auto !important;
+  }
+
   &-fixed-left,
   &-fixed-right {
     position: absolute;
