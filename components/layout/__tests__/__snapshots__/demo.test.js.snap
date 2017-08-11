@@ -785,6 +785,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-sider-trigger"
+      style="width:200px;"
     >
       <i
         class="anticon anticon-left"
