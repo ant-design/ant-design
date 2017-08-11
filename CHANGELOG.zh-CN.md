@@ -21,7 +21,7 @@ timeline: true
 
 `2017-08-11`
 
-- 修复了在 IE9/10/11 下 Collapse 的箭头位置不正确的问题。[#af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
+- 修复了在 IE9/10/11 下 Collapse 的箭头位置不正确的问题。[af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
 - 修复了 Table 为空表格时滚动条展示位置不正确的问题。[#7142](https://github.com/ant-design/ant-design/issues/7142)
 - 修复了 RangePicker Input 的高度。[47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
 - Card
@@ -32,8 +32,7 @@ timeline: true
   - 修复了组件的拉伸展示问题。[500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
   - 修复了折叠箭头的位置。[f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
 - Upload
-  - 修复了默认的错误显示信息。[#6818](https://github.com/ant-design/ant-design/issues/6818)
-  - 修复了在 response 不是 string 的情况下没有处理错误提示信息的问题。[#6818](https://github.com/ant-design/ant-design/issues/6818)
+  - 修复了 response 在不是 string 的情况下没有处理错误提示信息的问题。[#6818](https://github.com/ant-design/ant-design/issues/6818)
   - 修复了 `listType` 的文档说明。[#7175](https://github.com/ant-design/ant-design/pull/7175) [@zheeeng](https://github.com/zheeeng)
   - 调整了文档 `onChange` 的说明。[#7180](https://github.com/ant-design/ant-design/pull/7180) [@hansnow](https://github.com/hansnow)
 - Form
