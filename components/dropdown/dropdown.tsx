@@ -10,6 +10,7 @@ export interface DropDownProps {
   style?: React.CSSProperties;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
+  disabled?: boolean;
   align?: Object;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   prefixCls?: string;
@@ -44,9 +45,10 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   }
 
   render() {
-    const { children, prefixCls, overlay } = this.props;
+    const { children, prefixCls, overlay, trigger, disabled } = this.props;
     const dropdownTrigger = cloneElement(children as any, {
       className: classNames((children as any).props.className, `${prefixCls}-trigger`),
+      disabled,
     });
     const fixedModeOverlay = cloneElement(overlay as any, {
       mode: 'vertical',
@@ -54,8 +56,9 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     return (
       <RcDropdown
         transitionName={this.getTransitionName()}
-        {...this.props}
+        trigger={disabled ? [] : trigger}
         overlay={fixedModeOverlay}
+        {...this.props}
       >
         {dropdownTrigger}
       </RcDropdown>
