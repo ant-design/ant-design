@@ -109,4 +109,4 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
 | xl       | `≥1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
 
-响应式栅格的断点遵循了 [BootStrap 3 的规则](http://getbootstrap.com/css/#grid-media-queries)（不包含链接里 `occasionally` 的部分)。
+响应式栅格的断点遵循了 [BootStrap 3 的规则](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)（不包含链接里 `occasionally` 的部分)。
