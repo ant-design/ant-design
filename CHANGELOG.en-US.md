@@ -22,9 +22,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 `2017-08-11`
 
 - Fix Collapse arrow position in IE9/10/11. [af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
-- Tag
-  - Fix font size to `@tag-font-size`. [d98d7a4](https://github.com/ant-design/ant-design/commit/d98d7a451c2666c7933f8c3c38a5d97d77aa540f)
-  - Fix typo. [#7170](https://github.com/ant-design/ant-design/pull/7170) [@zheeeng](https://github.com/zheeeng)
 - Fix empty Table scrollBar's position. [#7142](https://github.com/ant-design/ant-design/issues/7142)
 - Fix RangePicker Input's style of height. [47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
 - Card

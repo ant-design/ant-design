@@ -22,9 +22,6 @@ timeline: true
 `2017-08-11`
 
 - 修复了在 IE9/10/11 下 Collapse 的箭头位置不正确的问题。[#af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
-- Tag
-  - 调整了字体大小为 `@tag-font-size`。[d98d7a4](https://github.com/ant-design/ant-design/commit/d98d7a451c2666c7933f8c3c38a5d97d77aa540f)
-  - 修复了 `typo`。[#7170](https://github.com/ant-design/ant-design/pull/7170) [@zheeeng](https://github.com/zheeeng)
 - 修复了 Table 为空表格时滚动条展示位置不正确的问题。[#7142](https://github.com/ant-design/ant-design/issues/7142)
 - 修复了 RangePicker Input 的高度。[47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
 - Card
