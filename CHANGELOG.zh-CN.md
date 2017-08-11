@@ -21,29 +21,22 @@ timeline: true
 
 `2017-08-11`
 
-- 去掉了 Button 的 `handleMouseUp` 冗余代码。[#7176](https://github.com/ant-design/ant-design/pull/7176) [@fytriht](https://github.com/fytriht)
-- 调整了 Select 标签模式的 Demo。[c79592c](https://github.com/ant-design/ant-design/commit/c79592cf05d55563c1b0a88e73482b0bcea68e51)
-- 调整了 Grid 的文档，添加了 BootStrap 的链接。[711703b](https://github.com/ant-design/ant-design/commit/711703b91e94844c30cf9a672c4d682e4c88a7ae)
-- 修复了在 IE9/10/11 下 Collapse 的箭头位置。[#af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
+- 修复了在 IE9/10/11 下 Collapse 的箭头位置不正确的问题。[#af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
 - Tag
   - 调整了字体大小为 `@tag-font-size`。[d98d7a4](https://github.com/ant-design/ant-design/commit/d98d7a451c2666c7933f8c3c38a5d97d77aa540f)
   - 修复了 `typo`。[#7170](https://github.com/ant-design/ant-design/pull/7170) [@zheeeng](https://github.com/zheeeng)
-- Table
-  - 修复了 Table 为空表格时滚动条展示位置不正确的问题。[#7142](https://github.com/ant-design/ant-design/issues/7142)
-  - 调整了 Table.render 的文档。[#7180](https://github.com/ant-design/ant-design/pull/7180) [@hansnow](https://github.com/hansnow)
+- 修复了 Table 为空表格时滚动条展示位置不正确的问题。[#7142](https://github.com/ant-design/ant-design/issues/7142)
 - 修复了 RangePicker Input 的高度。[47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
 - Card
   - 优化了 Card.Grid 边框覆盖的样式。[807b573](https://github.com/ant-design/ant-design/commit/807b573bff43bc71115afeb086f565561807a32d)
-  - 升级了样例。[02c5616](https://github.com/ant-design/ant-design/commit/02c56162504f6ba096ed008eadd3fe2f94561574) [3001ca4](https://github.com/ant-design/ant-design/commit/3001ca41140453d9beae29618fff04266e6d3928)
-  - 修复了对应 `no-animation` 类型的 className 和文档。[#7185](https://github.com/ant-design/ant-design/issues/7185)
+  - 修复了对应 `no-animation` 类型的 className。[#7185](https://github.com/ant-design/ant-design/issues/7185)
 - 修复了 Input Safari 下文本对齐的问题。[#7135](https://github.com/ant-design/ant-design/issues/7135)
-- 调整了 Badge 文本的字体大小。[8892d85](https://github.com/ant-design/ant-design/commit/8892d85e331a19634a866fc67412ca43634f47a3)
 - Layout
   - 修复了组件的拉伸展示问题。[500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
   - 修复了折叠箭头的位置。[f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
 - Upload
   - 修复了默认的错误显示信息。[#6818](https://github.com/ant-design/ant-design/issues/6818)
-  - 修复了 `file.response type` 的判断方式。[#6818](https://github.com/ant-design/ant-design/issues/6818)
+  - 修复了在 response 不是 string 的情况下没有处理错误提示信息的问题。[#6818](https://github.com/ant-design/ant-design/issues/6818)
   - 修复了 `listType` 的文档说明。[#7175](https://github.com/ant-design/ant-design/pull/7175) [@zheeeng](https://github.com/zheeeng)
   - 调整了文档 `onChange` 的说明。[#7180](https://github.com/ant-design/ant-design/pull/7180) [@hansnow](https://github.com/hansnow)
 - Form
@@ -51,8 +44,6 @@ timeline: true
   - 修复了 `wrappedComponentRef`。[#6545](https://github.com/ant-design/ant-design/issues/6545)
   - 补充了 FormCreateOption 的 `generic type`。[#7119](https://github.com/ant-design/ant-design/pull/7119) [@djyde](https://github.com/djyde)
   - 修改了 `square` 的字体大小为 `@form-feedback-icon-size`。[9bcde59](https://github.com/ant-design/ant-design/commit/9bcde590015855a12fdee851cf4e4836d0195cd7)
-- 调整了文档中依赖 node 版本的说明。[a033e57](https://github.com/ant-design/ant-design/commit/a033e576fdeeac6f924509e07b4cbca352011330)
-- 调整了文档中的引用链接。[9f75694](https://github.com/ant-design/ant-design/commit/9f75694c757813a4aca5a2f8eeea9de78ee0b246)
 
 ## 2.12.5
 
