@@ -69,6 +69,7 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: @text-color;
   vertical-align: top;
+  transition: margin .15s steps(1);
 
   // nested FormItem
   & > &,
@@ -84,6 +85,7 @@ input[type="checkbox"] {
 
   &-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+    transition: none;
   }
 
   &-label {
@@ -125,6 +127,7 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
   line-height: 1.5;
+  transition: color .15s @ease-out;
 }
 
 .@{form-prefix-cls}-extra {
@@ -286,8 +289,9 @@ form {
     display: none;
   }
 }
+
 .@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
-// when labelCol is 24, it is a vertical form
+  // when labelCol is 24, it is a vertical form
 .@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
 .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
   .make-vertical-layout();
@@ -512,6 +516,38 @@ form {
   .@{ant-prefix}-input-group .@{ant-prefix}-input,
   .@{ant-prefix}-input-group .@{ant-prefix}-input-group-addon {
     height: @input-height-base;
+  }
+}
+
+.show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
+  .make-motion(@className, @keyframeName, @duration);
+  .@{className}-enter,
+  .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: @ease-in-out;
+  }
+  .@{className}-leave {
+    animation-timing-function: @ease-in-out;
+  }
+}
+
+.show-help-motion(show-help, antShowHelp, 0.15s);
+
+@keyframes antShowHelpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes antShowHelpOut {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
   }
 }
 
