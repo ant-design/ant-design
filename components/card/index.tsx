@@ -101,14 +101,14 @@ export default class Card extends Component<CardProps> {
   }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, title, loading,
+      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering = true, title, loading,
       bordered = true, type, cover, actions, tabList, children, ...others,
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-no-hovering`]: noHovering || (type === 'inner' && noHovering === undefined),
+      [`${prefixCls}-hovering`]: !noHovering,
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),

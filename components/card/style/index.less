@@ -12,9 +12,12 @@
   position: relative;
   transition: all .3s;
 
-  &:not(&-no-hovering):hover {
-    box-shadow: @box-shadow-base;
-    border-color: transparent;
+  &-hovering {
+    cursor: pointer;
+    &:hover {
+      box-shadow: @box-shadow-base;
+      border-color: transparent;
+    }
   }
 
   &-bordered {

@@ -26,7 +26,7 @@ cols: 1
 | extra    | 卡片右上角的操作区域 | string\|ReactNode   | - |
 | bordered | 是否有边框 | boolean   |  true  |
 | bodyStyle | 内容区域自定义样式 | object   |  -  |
-| noHovering | 取消鼠标移过浮起 | boolean | false，[type='inner'] 时默认为 true |
+| noHovering | 鼠标移过时不浮起，设为 `false` 可浮起 | boolean | true |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string   |  -  |
 | cover | 卡片封面 | ReactNode   |  -  |

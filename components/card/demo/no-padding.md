@@ -18,7 +18,7 @@ Customizing default width and margin.
 import { Card } from 'antd';
 
 ReactDOM.render(
-  <Card style={{ width: 240 }} bodyStyle={{ padding: 0 }}>
+  <Card style={{ width: 240 }} bodyStyle={{ padding: 0 }} noHovering={false}>
     <div className="custom-image">
       <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
     </div>
