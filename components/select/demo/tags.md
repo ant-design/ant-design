@@ -30,7 +30,7 @@ ReactDOM.render(
   <Select
     mode="tags"
     style={{ width: '100%' }}
-    searchPlaceholder="标签模式"
+    placeholder="标签模式"
     onChange={handleChange}
   >
     {children}
