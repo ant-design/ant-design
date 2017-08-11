@@ -40,7 +40,7 @@ timeline: true
 - 调整了 Badge 文本的字体大小。[8892d85](https://github.com/ant-design/ant-design/commit/8892d85e331a19634a866fc67412ca43634f47a3)
 - Layout
   - 修复了组件的拉伸展示问题。[500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
-  - 修复了折叠剪头的位置。[f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
+  - 修复了折叠箭头的位置。[f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
 - Upload
   - 修复了默认的错误显示信息。[#6818](https://github.com/ant-design/ant-design/issues/6818)
   - 修复了 `file.response type` 的判断方式。[#6818](https://github.com/ant-design/ant-design/issues/6818)
