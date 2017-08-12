@@ -31,10 +31,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Layout
   - Fix stretched layout by content. [500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
   - Fix the collapse trigger's position. [f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
-- Upload
-  - Fix doesn't handle some error scenarios which response is not a string. [#6818](https://github.com/ant-design/ant-design/issues/6818)
-  - Fix `listType` prop of docs. [#7175](https://github.com/ant-design/ant-design/pull/7175) [@zheeeng](https://github.com/zheeeng)
-  - Add `onChange` prop of docs. [#7180](https://github.com/ant-design/ant-design/pull/7180) [@hansnow](https://github.com/hansnow)
+- Fix Upload doesn't handle some error scenarios which response is not a string. [#6818](https://github.com/ant-design/ant-design/issues/6818)
 - Form
   - Add `validateFirst` prop of docs. [#6959](https://github.com/ant-design/ant-design/issues/6959)
   - Fix `wrappedComponentRef`. [#6545](https://github.com/ant-design/ant-design/issues/6545)
