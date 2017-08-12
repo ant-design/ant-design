@@ -26,6 +26,7 @@ subtitle: 级联选择
 | defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |
 | value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
+| onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
 | displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | style | 自定义样式 | string | - |
 | className | 自定义类名 | string | - |
