@@ -7,6 +7,7 @@
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
 @form-component-height: @input-height-lg;
+@form-feedback-icon-size: 14px;
 
 .reset-form();
 
@@ -361,7 +362,7 @@ form {
     .square(@input-height-lg);
     line-height: @input-height-lg;
     text-align: center;
-    font-size: @font-size-lg;
+    font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
     .iconfont-font("");
     z-index: 1;

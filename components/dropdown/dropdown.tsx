@@ -24,7 +24,6 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
     placement: 'bottomLeft',
-    minOverlayWidthMatchTrigger: false,
   };
 
   getTransitionName() {

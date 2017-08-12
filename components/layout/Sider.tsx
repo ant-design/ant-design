@@ -161,7 +161,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     const triggerDom = (
       trigger !== null ?
       zeroWidthTrigger || (
-        <div className={`${prefixCls}-trigger`} onClick={this.toggle}>
+        <div className={`${prefixCls}-trigger`} onClick={this.toggle} style={{ width: siderWidth }}>
           {trigger || defaultTrigger}
         </div>
       ) : null

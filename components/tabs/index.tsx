@@ -120,7 +120,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
-      [`${prefixCls}-no-animation`]: !animated,
+      [`${prefixCls}-no-animation`]: !tabPaneAnimated,
     });
     // only card type tabs can be added and closed
     let childrenWithClose;
