@@ -101,6 +101,19 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 > - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
 > - Don't use @types/antd, antd provide a built-in ts definition already.
 
+#### Use [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) with modularized antd
+
+  ```js
+  {
+    loader: "ts-loader", // or awesome-typescript-loader
+    options {
+      getCustomTransformers: () => ({
+        before: [ tsImportPluginFactory({ libraryName: "antd", style: "css" }) ]
+      })
+    }
+  }
+  ```
+
 ## Internationalization
 
 See [i18n](http://ant.design/docs/react/i18n).
