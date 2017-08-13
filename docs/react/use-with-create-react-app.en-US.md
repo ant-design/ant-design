@@ -246,5 +246,6 @@ Finally, we used antd with create-react-app successfully, you can learn these pr
 There are a lot of great boilerplates like create-react-app in React community. There are some source code samples of importing antd in them if you encounter some problems.
 
 - [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
+- [comerc/cra-ts-antd](https://github.com/comerc/cra-ts-antd)
 - [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
