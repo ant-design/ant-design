@@ -368,6 +368,56 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+    style="width:154px;"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="请选择日期"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
 exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
 <div>
   <span
