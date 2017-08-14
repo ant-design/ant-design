@@ -30,6 +30,7 @@ import viVN from '../vi_VN';
 import thTH from '../th_TH';
 import faIR from '../fa_IR';
 import elGR from '../el_GR';
+import srRS from '../sr_RS';
 import nbNO from '../nb_NO';
 import srRS from '../sr_RS';
 
