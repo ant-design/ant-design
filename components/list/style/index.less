@@ -24,6 +24,7 @@
     padding-top: 24px;
     padding-bottom: 24px;
     &:hover {
+      cursor: pointer;
       .@{list-prefix-cls}-item-meta-title {
         color: @primary-color;
         a {
@@ -147,6 +148,18 @@
       & > li:first-child {
         padding-left: 0;
       }
+    }
+  }
+}
+
+.@{list-prefix-cls}-grid {
+  .@{list-prefix-cls}-item {
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 24px;
+    &-content {
+      display: block;
     }
   }
 }

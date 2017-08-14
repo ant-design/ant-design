@@ -1,5 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Col } from '../grid';
+
+interface Grid {
+  gutter?: number;
+  column?: number;
+}
 
 export interface ListItemProps {
   className?: string;
@@ -8,6 +14,7 @@ export interface ListItemProps {
   style?: React.CSSProperties;
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
+  grid?: Grid;
   Meta: React.ReactNode;
 }
 
@@ -29,7 +36,7 @@ export const Meta = (props: ListItemMetaProps) => {
     title,
     description,
     ...others,
-  } = props;
+    } = props;
 
   const classString = classNames(`${prefixCls}-item-meta`, className);
 
@@ -51,8 +58,9 @@ export const Meta = (props: ListItemMetaProps) => {
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
   _id: number = new Date().getTime();
+
   render() {
-    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
+    const { prefixCls = 'ant-list', children, actions, extra, className, grid, ...others } = this.props;
     const classString = classNames(`${prefixCls}-item`, className);
 
     const metaContent: React.ReactElement<any>[] = [];
@@ -77,7 +85,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       const actionsContentItem = (action, i) => (
         <li key={`${prefixCls}-item-action-${this._id}-${i}`}>
           {action}
-          {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`} />}
+          {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
         </li>
       );
       actionsContent = (
@@ -98,7 +106,14 @@ export default class Item extends React.Component<ListItemProps, any> {
       </div>
     );
 
-    return (
+    const mainContent = grid ? (<Col span={grid.column && Math.floor(24 / grid.column)}>
+      <div {...others} className={classString}>
+        {extra && extraContent}
+        {!extra && metaContent}
+        {!extra && content}
+        {!extra && actionsContent}
+      </div>
+    </Col>) : (
       <div {...others} className={classString}>
         {extra && extraContent}
         {!extra && metaContent}
@@ -106,5 +121,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         {!extra && actionsContent}
       </div>
     );
+
+    return mainContent;
   }
 }

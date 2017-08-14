@@ -5,8 +5,14 @@ import Spin from '../spin';
 import Icon from '../icon';
 import Pagination from '../pagination';
 import Button from '../button';
+import { Row } from '../grid';
 
 import Item from './Item';
+
+interface Grid {
+  gutter?: number;
+  column?: number;
+}
 
 export interface ListProps {
   bordered?: boolean;
@@ -21,6 +27,7 @@ export interface ListProps {
   onLoadMore?: React.FormEventHandler<any>;
   pagination?: any;
   prefixCls?: string;
+  grid?: Grid;
   style?: React.CSSProperties;
 }
 
@@ -40,12 +47,14 @@ export default class List extends Component<ListProps> {
       }),
       pagination = false,
       prefixCls = 'ant-list',
-    } = this.props;
+      grid,
+      } = this.props;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-grid`]: grid,
     });
 
     const moreButton = (
@@ -73,10 +82,16 @@ export default class List extends Component<ListProps> {
       </div>
     );
 
+    const childrenContent = grid ? (
+      <Row gutter={grid.gutter}>
+        {React.Children.map(children, (element: React.ReactElement<any>) => React.cloneElement(element, { grid }))}
+      </Row>
+    ) : children;
+
     return (
       <div className={classString}>
         {loading && loadingContent}
-        {!loading && children}
+        {!loading && childrenContent}
         {showLoadMore && moreContent}
         {(!showLoadMore && pagination) && paginationContent}
       </div>
