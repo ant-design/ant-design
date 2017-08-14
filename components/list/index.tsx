@@ -9,7 +9,7 @@ import { Row } from '../grid';
 
 import Item from './Item';
 
-interface Grid {
+export interface ListGridType {
   gutter?: number;
   column?: number;
 }
@@ -27,7 +27,7 @@ export interface ListProps {
   onLoadMore?: React.FormEventHandler<any>;
   pagination?: any;
   prefixCls?: string;
-  grid?: Grid;
+  grid?: ListGridType;
   style?: React.CSSProperties;
 }
 

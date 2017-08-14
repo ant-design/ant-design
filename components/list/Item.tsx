@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Col } from '../grid';
 
-interface Grid {
+export interface ListItemGridType {
   gutter?: number;
   column?: number;
 }
@@ -14,7 +14,7 @@ export interface ListItemProps {
   style?: React.CSSProperties;
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
-  grid?: Grid;
+  grid?: ListItemGridType;
   Meta: React.ReactNode;
 }
 
