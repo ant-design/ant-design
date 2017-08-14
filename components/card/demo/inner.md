@@ -17,7 +17,7 @@ It can be placed inside the ordinary card to display the information of the mult
 import { Card } from 'antd';
 
 ReactDOM.render(
-  <Card noHovering title="Card title">
+  <Card title="Card title">
     <p
       style={{
         fontSize: 14,

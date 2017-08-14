@@ -83,7 +83,7 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-no-hovering ant-card-contain-grid"
+  class="ant-card ant-card-bordered ant-card-contain-grid"
 >
   <div>
     <div
@@ -242,7 +242,7 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/inner.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-no-hovering"
+  class="ant-card ant-card-bordered"
 >
   <div>
     <div
@@ -264,7 +264,7 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
           Group title
         </p>
         <div
-          class="ant-card ant-card-bordered ant-card-no-hovering ant-card-type-inner"
+          class="ant-card ant-card-bordered ant-card-type-inner"
         >
           <div>
             <div
@@ -295,7 +295,7 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-card ant-card-bordered ant-card-no-hovering ant-card-type-inner"
+          class="ant-card ant-card-bordered ant-card-type-inner"
           style="margin-top:16px;"
         >
           <div>
@@ -409,7 +409,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/meta.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered ant-card-hovering"
   style="width:300px;"
 >
   <div>
@@ -497,7 +497,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/no-padding.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered ant-card-hovering"
   style="width:240px;"
 >
   <div>
