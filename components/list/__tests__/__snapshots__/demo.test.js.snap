@@ -255,6 +255,228 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/list/demo/grid.md correctly 1`] = `
+<div
+  class="ant-list ant-list-bordered ant-list-grid"
+>
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;"
+  >
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-6"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <h3
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </h3>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-bordered"

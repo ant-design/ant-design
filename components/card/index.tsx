@@ -149,25 +149,29 @@ export default class Card extends Component<CardProps> {
     } else {
       head = typeof title === 'string' ? (
         <div className={`${prefixCls}-head`}>
-          <h3 className={`${prefixCls}-head-title`}>{title}</h3>
+          {title && <h3 className={`${prefixCls}-head-title`}>{title}</h3>}
           {tabs}
         </div>
       ) : (
         <div className={`${prefixCls}-head`}>
-          <div className={`${prefixCls}-head-title`}>{title}</div>
+          {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
           {tabs}
         </div>
       );
     }
     const extraDom = extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+    const body = (
+      <div className={`${prefixCls}-body`} style={bodyStyle}>
+        {loading ? loadingBlock : <div>{children}</div>}
+      </div>
+    );
     const mainContent = (
       <div>
         {head}
         {extraDom}
-        <div className={`${prefixCls}-body`} style={bodyStyle}>
-          {loading ? loadingBlock : <div>{coverDom}{children}</div>}
-        </div>
+        {coverDom}
+        {children ? body : null}
       </div>
     );
     const actionDom = actions && actions.length ?

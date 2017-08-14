@@ -29,24 +29,54 @@ const contentList = {
   tab2: <p>content2</p>,
 };
 
+const tabListNoTitle = [{
+  key: 'article',
+  tab: 'article',
+}, {
+  key: 'app',
+  tab: 'app',
+}, {
+  key: 'project',
+  tab: 'project',
+}];
+
+const contentListNoTitle = {
+  article: <p>article content</p>,
+  app: <p>app content</p>,
+  project: <p>project content</p>,
+};
+
 class TabsCard extends React.Component {
   state = {
     key: 'tab1',
+    noTitleKey: 'article',
   }
-  onTabChange = (key) => {
-    this.setState({ key });
+  onTabChange = (key, type) => {
+    console.log(key, type);
+    this.setState({ [type]: key });
   }
   render() {
     return (
-      <Card
-        style={{ width: 300 }}
-        title="Card title"
-        extra={<a href="#">More</a>}
-        tabList={tabList}
-        onTabChange={this.onTabChange}
-      >
-        {contentList[this.state.key]}
-      </Card>
+      <div>
+        <Card
+          style={{ width: '100%' }}
+          title="Card title"
+          extra={<a href="#">More</a>}
+          tabList={tabList}
+          onTabChange={(key) => { this.onTabChange(key, 'key'); }}
+        >
+          {contentList[this.state.key]}
+        </Card>
+        <br /><br />
+        <Card
+          style={{ width: '100%' }}
+          extra={<a href="#">More</a>}
+          tabList={tabListNoTitle}
+          onTabChange={(key) => { this.onTabChange(key, 'noTitleKey'); }}
+        >
+          {contentListNoTitle[this.state.noTitleKey]}
+        </Card>
+      </div>
     );
   }
 }
