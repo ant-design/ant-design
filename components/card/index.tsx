@@ -33,7 +33,7 @@ export interface CardProps {
   onTabChange?: (key: string) => void;
 }
 
-export default class Card extends Component<CardProps> {
+export default class Card extends Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   static Meta: typeof Meta = Meta;
   container: HTMLDivElement;

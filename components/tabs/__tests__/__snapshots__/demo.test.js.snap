@@ -96,7 +96,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-card"
+  class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar"
@@ -192,7 +192,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
   class="card-container"
 >
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-card"
+    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-no-animation"
   >
     <div
       class="ant-tabs-bar"
@@ -307,7 +307,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card"
+    class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
   >
     <div
       class="ant-tabs-bar"
@@ -492,7 +492,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card"
+  class="ant-tabs ant-tabs-top ant-tabs-card ant-tabs-editable-card ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar"

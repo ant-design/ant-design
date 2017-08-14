@@ -17,6 +17,27 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.6
+
+`2017-08-11`
+
+- Fix Collapse arrow position in IE9/10/11. [af9dc73](https://github.com/ant-design/ant-design/commit/af9dc73eef2aac3e68fdfc99f9231153437f5068)
+- Fix empty Table scrollBar's position. [#7142](https://github.com/ant-design/ant-design/issues/7142)
+- Fix RangePicker Input's style of height. [47c5de2](https://github.com/ant-design/ant-design/commit/47c5de29f370a77fc19a6a8eda8ac57476f312a6)
+- Card
+  - Improve Card.Grid style of collapse border. [807b573](https://github.com/ant-design/ant-design/commit/807b573bff43bc71115afeb086f565561807a32d)
+  - Fix the `no-animation` type's className. [#7185](https://github.com/ant-design/ant-design/issues/7185)
+- Fix Input Safari text align. [#7135](https://github.com/ant-design/ant-design/issues/7135)
+- Layout
+  - Fix stretched layout by content. [500b222](https://github.com/ant-design/ant-design/commit/500b2225567f03397d9faec5f4e60a8f35fc4d28)
+  - Fix the collapse trigger's position. [f689ede](https://github.com/ant-design/ant-design/commit/f689ede0fa836dd0d99f4e4d96e0c43d0ff19742)
+- Fix Upload doesn't handle some error scenarios which response is not a string. [#6818](https://github.com/ant-design/ant-design/issues/6818)
+- Form
+  - Add `validateFirst` prop of docs. [#6959](https://github.com/ant-design/ant-design/issues/6959)
+  - Fix `wrappedComponentRef`. [#6545](https://github.com/ant-design/ant-design/issues/6545)
+  - Add FormCreateOption's generic type. [#7119](https://github.com/ant-design/ant-design/pull/7119) [@djyde](https://github.com/djyde)
+  - Fix `square` font size to `@form-feedback-icon-size`. [9bcde59](https://github.com/ant-design/ant-design/commit/9bcde590015855a12fdee851cf4e4836d0195cd7)
+
 ## 2.12.5
 
 `2017-08-07`

@@ -4,10 +4,10 @@ import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
-import { UploadListProps } from './interface';
+import { UploadListProps, UploadFile } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = (file, callback) => {
+const previewFile = (file: File, callback: Function) => {
   const reader = new FileReader();
   reader.onloadend = () => callback(reader.result);
   reader.readAsDataURL(file);
@@ -25,14 +25,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     showPreviewIcon: true,
   };
 
-  handleClose = (file) => {
+  handleClose = (file: UploadFile) => {
     const onRemove = this.props.onRemove;
     if (onRemove) {
       onRemove(file);
     }
   }
 
-  handlePreview = (file, e) => {
+  handlePreview = (file: UploadFile, e) => {
     const { onPreview } = this.props;
     if (!onPreview) {
       return;

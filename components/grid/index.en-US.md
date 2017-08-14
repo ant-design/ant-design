@@ -110,4 +110,4 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 | lg       | `≥1200px`, could be a `span` value or a object contain above props | number\|object | - |
 | xl       | `≥1600px`, could be a `span` value or a object contain above props | number\|object | - |
 
-The breakpoints of responsive grid follow [BootStrap 3 media queries rules](http://getbootstrap.com/css/#grid-media-queries)(not contain `occasionally part`).
+The breakpoints of responsive grid follow [BootStrap 3 media queries rules](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)(not contain `occasionally part`).
