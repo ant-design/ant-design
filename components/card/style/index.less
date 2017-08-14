@@ -50,7 +50,7 @@
         margin-top: 0;
 
         .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-          padding: 12px 20px;
+          padding: 13px 20px 15px;
         }
       }
 
@@ -67,7 +67,7 @@
   }
 
   &-body {
-    padding: @card-padding-base;
+    padding: 20px @card-padding-base;
     .clearfix;
   }
 
@@ -110,18 +110,14 @@
     }
   }
 
-  &-cover {
-    margin: -@card-padding-base -@card-padding-base 20px -@card-padding-base;
-
-    & > * {
-      width: 100%;
-    }
+  &-cover > * {
+    width: 100%;
+    display: block;
   }
 
   &-actions {
     border-top: @border-width-base @border-style-base @border-color-split;
     background: @card-actions-background;
-    align-items: center;
     .clearfix;
 
     & > li {
@@ -149,6 +145,14 @@
         & > .anticon {
           font-size: 16px;
         }
+
+        a {
+          color: @text-color-secondary;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
       }
 
       &:not(:last-child) {
@@ -167,10 +171,6 @@
 
   &-wider-padding &-extra {
     right: @card-padding-wider;
-  }
-
-  &-wider-padding &-cover {
-    margin: -@card-padding-base -@card-padding-wider 20px -@card-padding-wider;
   }
 
   &-padding-transition &-head,
@@ -202,17 +202,17 @@
 
   &-meta {
     &-content {
-      margin: 20px 0 0;
-      .clearfix;
+      display: table-row;
     }
 
     &-avatar {
       padding-right: 16px;
-      float: left;
+      display: table-cell;
     }
 
     &-detail {
-      float: left;
+      display: table-cell;
+      vertical-align: top;
       position: relative;
 
       & > div:not(:last-child) {
@@ -222,7 +222,6 @@
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
       text-overflow: ellipsis;
       width: 100%;
       overflow: hidden;
