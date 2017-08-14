@@ -18,7 +18,7 @@ export interface CardProps {
   className?: string;
 }
 
-export default class Card extends Component<CardProps> {
+export default class Card extends Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   container: HTMLDivElement;
   resizeEvent: any;
