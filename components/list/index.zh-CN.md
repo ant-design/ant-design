@@ -25,7 +25,6 @@ cols: 1
 | loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
 | onMoreClick    | 点击 more 按钮的回调 | function   | - |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
-| noHovering | 取消鼠标移过高亮标题 | boolean  |  true  |
 
 ### List.Item
 

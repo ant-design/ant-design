@@ -28,7 +28,6 @@ export interface ListProps {
   pagination?: any;
   prefixCls?: string;
   grid?: ListGridType;
-  noHovering: boolean;
   style?: React.CSSProperties;
 }
 
@@ -44,7 +43,6 @@ export default class List extends Component<ListProps> {
       itemLayout,
       showLoadMore = false,
       loadingMore = false,
-      noHovering = true,
       onLoadMore = (() => {
       }),
       pagination = false,
@@ -57,7 +55,6 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-grid`]: grid,
-      [`${prefixCls}-hovering`]: !noHovering,
     });
 
     const moreButton = (

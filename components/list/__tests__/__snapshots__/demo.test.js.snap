@@ -479,7 +479,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-bordered ant-list-hovering"
+  class="ant-list ant-list-vertical ant-list-bordered"
 >
   <div
     class="ant-list-item"

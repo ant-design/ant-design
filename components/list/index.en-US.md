@@ -24,7 +24,6 @@ A list can be used to display content related to a single subject. The content c
 | loadingMore  | - | boolean   |  false  |
 | onMoreClick    | -| function   | - |
 | pagination | - | boolean \| object   |  false  |
-| noHovering | - | boolean  |  true  |
 
 ### List.Item
 
