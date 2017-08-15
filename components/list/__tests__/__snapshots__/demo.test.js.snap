@@ -280,11 +280,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
@@ -315,11 +315,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
@@ -350,11 +350,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
@@ -385,11 +385,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
@@ -420,11 +420,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
@@ -455,11 +455,11 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
               <div
                 class="ant-card-head"
               >
-                <h3
+                <div
                   class="ant-card-head-title"
                 >
                   Card title
-                </h3>
+                </div>
               </div>
               <div
                 class="ant-card-body"
