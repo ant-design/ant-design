@@ -23,15 +23,6 @@
     display: flex;
     padding-top: 24px;
     padding-bottom: 24px;
-    &:hover {
-      cursor: pointer;
-      .@{list-prefix-cls}-item-meta-title {
-        color: @primary-color;
-        a {
-          color: @primary-color;
-        }
-      }
-    }
     &-meta {
       align-items: center;
       display: flex;
@@ -50,6 +41,9 @@
         line-height: 22px;
         a {
           color: @text-color;
+          &:hover {
+            color: @primary-color;
+          }
         }
       }
       &-description {
@@ -160,6 +154,20 @@
     margin-bottom: 24px;
     &-content {
       display: block;
+    }
+  }
+}
+
+.@{list-prefix-cls}-hovering {
+  .@{list-prefix-cls}-item {
+    cursor: pointer;
+    &:hover {
+      .@{list-prefix-cls}-item-meta-title {
+        color: @primary-color;
+        a {
+          color: @primary-color;
+        }
+      }
     }
   }
 }

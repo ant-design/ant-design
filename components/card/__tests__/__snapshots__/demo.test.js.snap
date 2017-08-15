@@ -5,40 +5,36 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
   class="ant-card ant-card-bordered"
   style="width:300px;"
 >
-  <div>
-    <div
-      class="ant-card-head"
+  <div
+    class="ant-card-head"
+  >
+    <h3
+      class="ant-card-head-title"
     >
-      <h3
-        class="ant-card-head-title"
-      >
-        Card title
-      </h3>
-    </div>
-    <div
-      class="ant-card-extra"
+      Card title
+    </h3>
+  </div>
+  <div
+    class="ant-card-extra"
+  >
+    <a
+      href="#"
     >
-      <a
-        href="#"
-      >
-        More
-      </a>
-    </div>
-    <div
-      class="ant-card-body"
-    >
-      <div>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
-    </div>
+      More
+    </a>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
   </div>
 </div>
 `;
@@ -51,31 +47,27 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
     class="ant-card"
     style="width:300px;"
   >
-    <div>
-      <div
-        class="ant-card-head"
+    <div
+      class="ant-card-head"
+    >
+      <h3
+        class="ant-card-head-title"
       >
-        <h3
-          class="ant-card-head-title"
-        >
-          Card title
-        </h3>
-      </div>
-      <div
-        class="ant-card-body"
-      >
-        <div>
-          <p>
-            Card content
-          </p>
-          <p>
-            Card content
-          </p>
-          <p>
-            Card content
-          </p>
-        </div>
-      </div>
+        Card title
+      </h3>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
+      <p>
+        Card content
+      </p>
     </div>
   </div>
 </div>
@@ -208,23 +200,19 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
       <div
         class="ant-card"
       >
-        <div>
-          <div
-            class="ant-card-head"
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
           >
-            <h3
-              class="ant-card-head-title"
-            >
-              Card title
-            </h3>
-          </div>
-          <div
-            class="ant-card-body"
-          >
-            <div>
-              Card content
-            </div>
-          </div>
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
         </div>
       </div>
     </div>
@@ -235,23 +223,19 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
       <div
         class="ant-card"
       >
-        <div>
-          <div
-            class="ant-card-head"
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
           >
-            <h3
-              class="ant-card-head-title"
-            >
-              Card title
-            </h3>
-          </div>
-          <div
-            class="ant-card-body"
-          >
-            <div>
-              Card content
-            </div>
-          </div>
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
         </div>
       </div>
     </div>
@@ -262,23 +246,19 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
       <div
         class="ant-card"
       >
-        <div>
-          <div
-            class="ant-card-head"
+        <div
+          class="ant-card-head"
+        >
+          <h3
+            class="ant-card-head-title"
           >
-            <h3
-              class="ant-card-head-title"
-            >
-              Card title
-            </h3>
-          </div>
-          <div
-            class="ant-card-body"
-          >
-            <div>
-              Card content
-            </div>
-          </div>
+            Card title
+          </h3>
+        </div>
+        <div
+          class="ant-card-body"
+        >
+          Card content
         </div>
       </div>
     </div>
@@ -383,71 +363,69 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
   class="ant-card ant-card-loading ant-card-bordered"
   style="width:34%;"
 >
-  <div>
-    <div
-      class="ant-card-head"
+  <div
+    class="ant-card-head"
+  >
+    <h3
+      class="ant-card-head-title"
     >
-      <h3
-        class="ant-card-head-title"
-      >
-        Card title
-      </h3>
-    </div>
+      Card title
+    </h3>
+  </div>
+  <div
+    class="ant-card-body"
+  >
     <div
-      class="ant-card-body"
+      class="ant-card-loading-content"
     >
-      <div
-        class="ant-card-loading-content"
-      >
-        <p
+      <p
+        class="ant-card-loading-block"
+        style="width:94%;"
+      />
+      <p>
+        <span
           class="ant-card-loading-block"
-          style="width:94%;"
+          style="width:28%;"
         />
-        <p>
-          <span
-            class="ant-card-loading-block"
-            style="width:28%;"
-          />
-          <span
-            class="ant-card-loading-block"
-            style="width:62%;"
-          />
-        </p>
-        <p>
-          <span
-            class="ant-card-loading-block"
-            style="width:22%;"
-          />
-          <span
-            class="ant-card-loading-block"
-            style="width:66%;"
-          />
-        </p>
-        <p>
-          <span
-            class="ant-card-loading-block"
-            style="width:56%;"
-          />
-          <span
-            class="ant-card-loading-block"
-            style="width:39%;"
-          />
-        </p>
-        <p>
-          <span
-            class="ant-card-loading-block"
-            style="width:21%;"
-          />
-          <span
-            class="ant-card-loading-block"
-            style="width:15%;"
-          />
-          <span
-            class="ant-card-loading-block"
-            style="width:40%;"
-          />
-        </p>
-      </div>
+        <span
+          class="ant-card-loading-block"
+          style="width:62%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:22%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:66%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:56%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:39%;"
+        />
+      </p>
+      <p>
+        <span
+          class="ant-card-loading-block"
+          style="width:21%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:15%;"
+        />
+        <span
+          class="ant-card-loading-block"
+          style="width:40%;"
+        />
+      </p>
     </div>
   </div>
 </div>
@@ -546,22 +524,18 @@ exports[`renders ./components/card/demo/simple.md correctly 1`] = `
   class="ant-card ant-card-bordered"
   style="width:300px;"
 >
-  <div>
-    <div
-      class="ant-card-body"
-    >
-      <div>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
-    </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
+    <p>
+      Card content
+    </p>
   </div>
 </div>
 `;
