@@ -29,6 +29,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
+    .clearfix;
 
     &-title {
       font-size: @font-size-lg;
@@ -39,11 +40,13 @@
       white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+      float: left;
     }
 
     .@{ant-prefix}-tabs {
       margin-bottom: -17px;
       margin-top: -8px;
+      clear: both;
 
       // For align with extra
       &:only-child {
@@ -61,9 +64,8 @@
   }
 
   &-extra {
-    position: absolute;
-    right: @card-padding-base;
-    top: 14px;
+    float: right;
+    line-height: @card-head-height;
   }
 
   &-body {

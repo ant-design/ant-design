@@ -70,7 +70,6 @@ class TabsCard extends React.Component {
         <br /><br />
         <Card
           style={{ width: '100%' }}
-          extra={<a href="#">More</a>}
           tabList={tabListNoTitle}
           onTabChange={(key) => { this.onTabChange(key, 'noTitleKey'); }}
         >

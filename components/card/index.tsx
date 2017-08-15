@@ -140,26 +140,19 @@ export default class Card extends Component<CardProps, {}> {
 
     let head;
     const tabs = tabList && tabList.length ? (
-        <Tabs className={`${prefixCls}-head-tabs`} onChange={this.onTabChange}>
-          {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
-        </Tabs>
-      ) : null;
-    if (!title && !tabs) {
-      head = null;
-    } else {
-      head = typeof title === 'string' ? (
-        <div className={`${prefixCls}-head`}>
-          {title && <h3 className={`${prefixCls}-head-title`}>{title}</h3>}
-          {tabs}
-        </div>
-      ) : (
+      <Tabs className={`${prefixCls}-head-tabs`} onChange={this.onTabChange}>
+        {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
+      </Tabs>
+    ) : null;
+    if (title || extra || tabs) {
+      head = (
         <div className={`${prefixCls}-head`}>
           {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
           {tabs}
         </div>
       );
     }
-    const extraDom = extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
     const body = (
       <div className={`${prefixCls}-body`} style={bodyStyle}>
@@ -169,7 +162,6 @@ export default class Card extends Component<CardProps, {}> {
     const mainContent = (
       <div>
         {head}
-        {extraDom}
         {coverDom}
         {children ? body : null}
       </div>
