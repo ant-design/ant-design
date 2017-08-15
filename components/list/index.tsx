@@ -44,7 +44,7 @@ export default class List extends Component<ListProps> {
       itemLayout,
       showLoadMore = false,
       loadingMore = false,
-      noHovering = false,
+      noHovering = true,
       onLoadMore = (() => {
       }),
       pagination = false,

@@ -42,7 +42,7 @@ const IconText = ({ type, text }) => (
 );
 
 ReactDOM.render(
-  <List noHovering itemLayout="vertical" pagination={pagination}>
+  <List noHovering={false} itemLayout="vertical" pagination={pagination}>
     {
       listData.map(item => (
         <List.Item
