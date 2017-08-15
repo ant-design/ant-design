@@ -109,7 +109,7 @@
     border-bottom: 1px dashed @border-color-split;
   }
 
-  .collapse {
+  .code-expand-icon {
     position: absolute;
     right: 16px;
     bottom: 23px;
@@ -117,18 +117,29 @@
     width: 16px;
     height: 16px;
     line-height: 16px;
-    opacity: 0.55;
     text-align: center;
-    transition: all 0.3s;
-    user-select: none;
+  }
 
+  .code-expand-icon-show,
+  .code-expand-icon-hide {
+    transition: all 0.4s;
+    user-select: none;
+    position: absolute;
+    left: 0;
+    top: 0;
     &:hover {
       opacity: 1;
     }
   }
 
-  &.expand .collapse {
-    transform: rotate(90deg);
+  .code-expand-icon-show {
+    opacity: 0.55;
+    pointer-events: auto;
+  }
+
+  .code-expand-icon-hide {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .highlight-wrapper {

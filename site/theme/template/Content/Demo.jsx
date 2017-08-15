@@ -160,12 +160,20 @@ export default class Demo extends React.Component {
           </div>
           {introChildren}
           <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
-            <img
-              alt="expand code"
-              src="https://gw.alipayobjects.com/zos/rmsportal/NBjNKmzFsnATotIWoZmP.svg"
-              className="collapse"
-              onClick={this.handleCodeExpand}
-            />
+            <span className="code-expand-icon">
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                onClick={this.handleCodeExpand}
+              />
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                onClick={this.handleCodeExpand}
+              />
+            </span>
           </Tooltip>
         </section>
         <section className={highlightClass}
