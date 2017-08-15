@@ -1,3 +1,4 @@
+/* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
@@ -55,7 +56,7 @@ export default class Demo extends React.Component {
     });
   }
 
-  handleCodeExapnd = () => {
+  handleCodeExpand = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
@@ -158,7 +159,14 @@ export default class Demo extends React.Component {
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
           </div>
           {introChildren}
-          <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExapnd} />
+          <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
+            <img
+              alt="expand code"
+              src="https://gw.alipayobjects.com/zos/rmsportal/NBjNKmzFsnATotIWoZmP.svg"
+              className="collapse"
+              onClick={this.handleCodeExpand}
+            />
+          </Tooltip>
         </section>
         <section className={highlightClass}
           key="code"

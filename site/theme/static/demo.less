@@ -111,29 +111,24 @@
 
   .collapse {
     position: absolute;
-    right: 14px;
-    bottom: 22px;
+    right: 16px;
+    bottom: 23px;
     cursor: pointer;
     width: 16px;
     height: 16px;
-    font-size: 16px;
     line-height: 16px;
-    opacity: 0.5;
+    opacity: 0.55;
     text-align: center;
     transition: all 0.3s;
-    color: #999;
-    background: #fff;
     user-select: none;
-    border-radius: 100%;
-  }
-
-  &.expand .collapse {
-    color: shade(@primary-color, 20%);
-    transform: rotate(-180deg);
 
     &:hover {
       opacity: 1;
     }
+  }
+
+  &.expand .collapse {
+    transform: rotate(90deg);
   }
 
   .highlight-wrapper {
