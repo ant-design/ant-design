@@ -464,3 +464,29 @@
     box-shadow: 0 0 3px 3px transparent;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .@{steps-prefix-cls}-horizontal {
+    > .@{steps-prefix-cls}-item {
+      display: inline-block;
+      width: auto !important;
+      margin-right: unset !important;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-tail {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .@{steps-prefix-cls} {
+    > .@{steps-prefix-cls}-item {
+      display: block;
+    }
+  }
+}
