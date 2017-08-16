@@ -157,7 +157,7 @@ export default function createPicker(TheCalendar): any {
         ...pickerStyle,
       };
       return (
-        <span className={classNames(props.className, props.pickerClass)} style={style}>
+        <span className={classNames(props.pickerClass, props.className)} style={style}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}

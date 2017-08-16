@@ -100,7 +100,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     }
     return (
-      <div className={classNames(className, prefixCls)} style={style}>
+      <div className={classNames(prefixCls, className)} style={style}>
         {crumbs}
       </div>
     );

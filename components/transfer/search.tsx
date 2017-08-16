@@ -1,9 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
 import Icon from '../icon';
 import Input from '../input';
 
 export interface SearchProps {
   prefixCls?: string;
+  className?: string;
   placeholder?: string;
   onChange?: (e: React.FormEvent<any>) => void;
   handleClear?: (e: React.MouseEvent<any>) => void;
@@ -32,7 +34,7 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   render() {
-    const { placeholder, value, prefixCls } = this.props;
+    const { placeholder, value, prefixCls, className } = this.props;
     const icon = (value && value.length > 0) ? (
       <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
         <Icon type="cross-circle" />
@@ -45,7 +47,7 @@ export default class Search extends React.Component<SearchProps, any> {
       <div>
         <Input
           placeholder={placeholder}
-          className={prefixCls}
+          className={classNames(prefixCls, className)}
           value={value}
           ref="input"
           onChange={this.handleChange}

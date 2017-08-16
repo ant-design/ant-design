@@ -142,7 +142,7 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
-    const classes = classNames(prefixCls, className, {
+    const classes = classNames(prefixCls, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
@@ -150,7 +150,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
-    });
+    }, className);
 
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;

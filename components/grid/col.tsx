@@ -74,7 +74,7 @@ export default class Col extends React.Component<ColProps, any> {
       [`${prefixCls}-offset-${offset}`]: offset,
       [`${prefixCls}-push-${push}`]: push,
       [`${prefixCls}-pull-${pull}`]: pull,
-    }, className, sizeClassObj);
+    }, sizeClassObj, className);
 
     return <div {...others} className={classes}>{children}</div>;
   }

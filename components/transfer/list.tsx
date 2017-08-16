@@ -19,6 +19,7 @@ function isRenderResultPlainObject(result) {
 
 export interface TransferListProps {
   prefixCls: string;
+  className?: string;
   titleText: string;
   dataSource: TransferItem[];
   filter: string;
@@ -143,7 +144,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
-    });
+    }, this.props.className);
 
     const filteredDataSource: TransferItem[] = [];
     const totalDataSource: TransferItem[] = [];

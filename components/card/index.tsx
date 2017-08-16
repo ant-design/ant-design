@@ -73,14 +73,14 @@ export default class Card extends Component<CardProps, {}> {
     } = this.props;
     let children = this.props.children;
 
-    const classString = classNames(prefixCls, className, {
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-no-hovering`]: noHovering,
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
-    });
+    }, className);
 
     if (loading) {
       children = (

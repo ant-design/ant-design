@@ -321,7 +321,7 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     const leftActive = targetSelectedKeys.length > 0;
     const rightActive = sourceSelectedKeys.length > 0;
 
-    const cls = classNames(className, prefixCls);
+    const cls = classNames(prefixCls, className);
 
     const titles = this.getTitles();
     return (

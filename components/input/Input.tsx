@@ -179,7 +179,7 @@ export default class Input extends Component<InputProps, any> {
 
     return (
       <span
-        className={classNames(props.className, `${props.prefixCls}-affix-wrapper`)}
+        className={classNames(`${props.prefixCls}-affix-wrapper`, props.className)}
         style={props.style}
       >
         {prefix}

@@ -268,7 +268,7 @@ export default class RangePicker extends React.Component<any, any> {
 
     return (
       <span
-        className={classNames(props.className, props.pickerClass)}
+        className={classNames(props.pickerClass, props.className)}
         style={{
           ...style,
           ...pickerStyle,

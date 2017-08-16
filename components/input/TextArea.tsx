@@ -77,9 +77,9 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
 
   getTextAreaClassName() {
     const { prefixCls, className, disabled } = this.props;
-    return classNames(prefixCls, className, {
+    return classNames(prefixCls, {
       [`${prefixCls}-disabled`]: disabled,
-    });
+    }, className);
   }
 
   handleTextareaChange = (e) => {

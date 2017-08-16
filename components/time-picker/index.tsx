@@ -121,9 +121,9 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     delete props.defaultValue;
 
     const format = this.getDefaultFormat();
-    const className = classNames(props.className, {
+    const className = classNames({
       [`${props.prefixCls}-${props.size}`]: !!props.size,
-    });
+    }, props.className);
 
     const addon = (panel) => (
       props.addon ? (

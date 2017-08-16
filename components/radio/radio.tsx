@@ -44,11 +44,11 @@ export default class Radio extends React.Component<RadioProps, any> {
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
     }
-    const wrapperClassString = classNames(className, {
+    const wrapperClassString = classNames({
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
-    });
+    }, className);
 
     return (
       <label
