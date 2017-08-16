@@ -54,10 +54,10 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     });
     return (
       <RcDropdown
+        {...this.props}
         transitionName={this.getTransitionName()}
         trigger={disabled ? [] : trigger}
         overlay={fixedModeOverlay}
-        {...this.props}
       >
         {dropdownTrigger}
       </RcDropdown>
