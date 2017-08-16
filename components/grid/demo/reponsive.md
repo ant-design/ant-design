@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-参照 Bootstrap 的 [响应式设计](http://getbootstrap.com/css/#grid-media-queries)，预设五个响应尺寸：`xs` `sm` `md` `lg` `xl`。
+参照 Bootstrap 的 [响应式设计](http://getbootstrap.com/css/#grid-media-queries)，预设五个响应尺寸：`xs` `sm` `md` `lg` `xl`  `xxl`。
 
 ## en-US
 
