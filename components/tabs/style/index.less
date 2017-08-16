@@ -26,7 +26,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
     outline: none;
-    transition: padding .45s;
+    transition: padding .3s @ease-in-out;
   }
 
   &-nav-container {
@@ -37,7 +37,7 @@
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
-    transition: padding .45s;
+    transition: padding .3s @ease-in-out;
     .clearfix;
 
     &-scrolling {
@@ -51,7 +51,7 @@
     user-select: none;
     z-index: 2;
     width: 0;
-    height: 0;
+    height: 100%;
     line-height: 32px;
     cursor: pointer;
     border: 0;
@@ -59,7 +59,7 @@
     position: absolute;
     text-align: center;
     color: @text-color-secondary;
-    transition: width .3s, height .3s, opacity .3s, color .3s;
+    transition: width .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
     opacity: 0;
     pointer-events: none;
 
@@ -134,7 +134,7 @@
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: transform 0.5s @ease-in-out;
+    transition: transform 0.3s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
@@ -230,7 +230,11 @@
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
       height: 100%;
-
+      &-tab-prev, &-tab-next {
+        width: 32px;
+        height: 0;
+        transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+      }
       &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
       &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
         width: 100%;

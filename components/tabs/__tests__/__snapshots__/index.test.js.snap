@@ -22,6 +22,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   >
     <div
       className="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
+      onChange={[Function]}
       style={Object {}}
     >
       <ScrollableInkTabBar
@@ -59,11 +60,11 @@ exports[`Tabs tabPosition remove card 1`] = `
         >
           <div
             className="ant-tabs-nav-container"
-            onTransitionEnd={[Function]}
           >
             <span
               className="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
               onClick={null}
+              onTransitionEnd={[Function]}
               unselectable="unselectable"
             >
               <span
