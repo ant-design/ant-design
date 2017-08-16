@@ -127,14 +127,18 @@
     position: absolute;
     left: 0;
     top: 0;
-    &:hover {
-      opacity: 1;
-    }
   }
 
   .code-expand-icon-show {
     opacity: 0.55;
     pointer-events: auto;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .code-expand-icon.ant-tooltip-open .code-expand-icon-show {
+    opacity: 1;
   }
 
   .code-expand-icon-hide {
