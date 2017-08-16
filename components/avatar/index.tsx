@@ -81,11 +81,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       [`${prefixCls}-sm`]: size === 'small',
     });
 
-    const classString = classNames(prefixCls, className, sizeCls, {
+    const classString = classNames(prefixCls, sizeCls, {
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-image`]: src,
       [`${prefixCls}-icon`]: icon,
-    });
+    }, className);
 
     let children = this.props.children;
     if (src && this.state.isImgExist) {

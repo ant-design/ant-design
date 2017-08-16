@@ -5,6 +5,8 @@ import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
+import classNames from 'classnames';
+
 declare const require: Function;
 
 function noop() { return null; }
@@ -183,10 +185,9 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     const type = (mode === 'year') ? 'month' : 'date';
     const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
 
-    let cls = className || '';
-    if (fullscreen) {
-      cls += (` ${prefixCls}-fullscreen`);
-    }
+    const cls = classNames({
+      [`${prefixCls}-fullscreen`]: fullscreen,
+    }, className);
 
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;

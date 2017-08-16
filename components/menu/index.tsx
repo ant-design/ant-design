@@ -189,9 +189,9 @@ export default class Menu extends React.Component<MenuProps, any> {
     const menuMode = this.getRealMenuMode();
     const menuOpenAnimation = this.getMenuOpenAnimation(menuMode);
 
-    const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
+    const menuClassName = classNames(`${prefixCls}-${theme}`, {
       [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
-    });
+    }, className);
 
     const menuProps: MenuProps = {
       openKeys: this.state.openKeys,

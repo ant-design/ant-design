@@ -112,9 +112,9 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   render() {
     const { className = '', prefixCls, loading } = this.props;
     const { suggestions, focus } = this.state;
-    const cls = classNames(className, {
+    const cls = classNames({
       [`${prefixCls}-active`]: focus,
-    });
+    }, className);
 
     const notFoundContent = loading
       ? <Icon type="loading" />

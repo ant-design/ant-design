@@ -218,7 +218,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       visible: activeLink,
     });
 
-    const wrapperClass = classNames(className, `${prefixCls}-wrapper`);
+    const wrapperClass = classNames(`${prefixCls}-wrapper`, className);
 
     const anchorClass = classNames(prefixCls, {
       'fixed': !affix && !showInkInFixed,

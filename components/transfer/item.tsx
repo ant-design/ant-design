@@ -14,7 +14,7 @@ export default class Item extends React.Component<any, any> {
     const className = classNames({
       [`${prefixCls}-content-item`]: true,
       [`${prefixCls}-content-item-disabled`]: item.disabled,
-    });
+    }, this.props.className);
 
     const listItem = (
       <li

@@ -1,6 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 import debounce from 'lodash.debounce';
+import classNames from 'classnames';
 
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
@@ -112,7 +113,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   render() {
-    let props = {
+    const props = {
       ...this.props,
     };
 
@@ -120,13 +121,13 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       props.fade = true;
     }
 
-    let className = props.prefixCls;
-    if (props.vertical) {
-      className = `${className} ${className}-vertical`;
-    }
+    const { prefixCls, vertical, className } = props;
+    const classString = classNames(prefixCls, {
+      [`${prefixCls} ${prefixCls}-vertical`]: vertical,
+    }, className);
 
     return (
-      <div className={className}>
+      <div className={classString}>
         <SlickCarousel ref="slick" {...props} />
       </div>
     );

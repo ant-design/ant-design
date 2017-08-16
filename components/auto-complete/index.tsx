@@ -64,10 +64,9 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
       [`${prefixCls}-show-search`]: true,
       [`${prefixCls}-auto-complete`]: true,
-    });
+    }, className);
 
     let options;
     const childArray = React.Children.toArray(children);

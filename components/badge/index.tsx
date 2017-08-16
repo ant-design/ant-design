@@ -67,10 +67,10 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
     });
-    const badgeCls = classNames(className, prefixCls, {
+    const badgeCls = classNames(prefixCls, {
       [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
-    });
+    }, className);
 
     warning(
       !(children && status),

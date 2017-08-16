@@ -115,13 +115,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
       !(type.indexOf('card') >= 0 && size === 'small'),
       'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
     );
-    let cls = classNames(className, {
+    let cls = classNames({
       [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-no-animation`]: !tabPaneAnimated,
-    });
+    }, className);
     // only card type tabs can be added and closed
     let childrenWithClose;
     if (type === 'editable-card') {

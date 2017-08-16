@@ -43,7 +43,7 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
     return (
       <RcPagination
         {...restProps}
-        className={classNames(className, { mini: isSmall })}
+        className={classNames({ mini: isSmall }, className)}
         selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
       />

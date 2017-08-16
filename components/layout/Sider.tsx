@@ -171,12 +171,12 @@ export default class Sider extends React.Component<SiderProps, any> {
       flex: `0 0 ${siderWidth}px`,
       width: `${siderWidth}px`,
     };
-    const siderCls = classNames(className, prefixCls, {
+    const siderCls = classNames(prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: !!trigger,
       [`${prefixCls}-below`]: !!this.state.below,
       [`${prefixCls}-zero-width`]: siderWidth === 0 || siderWidth === '0',
-    });
+    }, className);
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
         <div className={`${prefixCls}-children`}>{this.props.children}</div>

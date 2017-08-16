@@ -60,9 +60,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
       checkboxProps.disabled = 'disabled' in props ? props.disabled : checkboxGroup.disabled;
     }
-    const classString = classNames(className, {
+    const classString = classNames({
       [`${prefixCls}-wrapper`]: true,
-    });
+    }, className);
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
     });

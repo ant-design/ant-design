@@ -32,9 +32,9 @@ class Basic extends React.Component<BasicProps, any> {
         hasSider = true;
       }
     });
-    const divCls = classNames(className, prefixCls, {
+    const divCls = classNames(prefixCls, {
       [`${prefixCls}-has-sider`]: hasSider,
-    });
+    }, className);
     return (
       <div className={divCls} {...others}>{children}</div>
     );
