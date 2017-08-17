@@ -40,6 +40,7 @@ module.exports = {
     '!components/*/style/index.tsx',
     '!components/style/index.tsx',
     '!components/*/locale/index.tsx',
+    '!components/*/__tests__/**/type.tsx',
   ],
   transformIgnorePatterns,
   snapshotSerializers: [
