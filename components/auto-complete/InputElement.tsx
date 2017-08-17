@@ -10,10 +10,17 @@ export default class InputElement extends React.Component<any, any> {
   blur = () => {
     this.ele.blur ? this.ele.blur() : (findDOMNode(this.ele) as HTMLInputElement).blur();
   }
+  saveRef = (ele: HTMLInputElement) => {
+    this.ele = ele;
+    const childRef = this.props.children.ref;
+    if (typeof childRef === 'function') {
+      childRef(ele);
+    }
+  }
   render() {
     return React.cloneElement(this.props.children, {
       ...this.props,
-      ref: ele => this.ele = (ele as HTMLInputElement),
+      ref: this.saveRef,
     }, null);
   }
 }
