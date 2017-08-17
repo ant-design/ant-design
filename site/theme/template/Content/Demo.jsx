@@ -36,8 +36,8 @@ export default class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand)
-     || this.state.copied !== nextState.copied
-     || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
+      || this.state.copied !== nextState.copied
+      || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
   }
 
   componentDidMount() {
@@ -176,7 +176,8 @@ export default class Demo extends React.Component {
             </span>
           </Tooltip>
         </section>
-        <section className={highlightClass}
+        <section
+          className={highlightClass}
           key="code"
         >
           <div className="highlight">

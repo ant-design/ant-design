@@ -67,8 +67,7 @@ export interface SelectContext {
   };
 }
 
-export const SelectPropTypes = {
-  ...RcSelect.propTypes,
+const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['default', 'large', 'small']),

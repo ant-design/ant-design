@@ -853,7 +853,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
         style="display:block;user-select:none;-webkit-user-select:none;"
         unselectable="unselectable"
       >
-        标签模式
+        Tags Mode
       </div>
       <ul>
         <li

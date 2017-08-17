@@ -141,7 +141,7 @@ import { Table } from 'antd';
 import { TableColumnConfig } from 'antd/lib/table/Table';
 
 interface IUser {
-  key: number,
+  key: number;
   name: string;
 }
 
