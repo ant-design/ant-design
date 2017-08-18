@@ -2167,6 +2167,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               id="input-number"
               max="10"
               min="1"
+              step="1"
               value="3"
             />
           </div>
@@ -2941,6 +2942,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               class="ant-input-number-input"
               max="12"
               min="8"
+              step="1"
               value="11"
             />
           </div>

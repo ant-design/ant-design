@@ -262,6 +262,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             class="ant-input-number-input"
             max="20"
             min="1"
+            step="1"
             value="1"
           />
         </div>
@@ -348,6 +349,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             class="ant-input-number-input"
             max="1"
             min="0"
+            step="0.01"
             value="0.00"
           />
         </div>
