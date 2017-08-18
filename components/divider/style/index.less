@@ -1,0 +1,51 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@divider-prefix-cls: ~"@{ant-prefix}-divider";
+
+.@{divider-prefix-cls} {
+  background: @border-color-split;
+
+  &,  // for compatiable
+  &-vertical {
+    margin: 0 8px;
+    display: inline-block;
+    height: 0.9em;
+    width: 1px;
+    vertical-align: middle;
+    position: relative;
+    top: -0.06em;
+  }
+  &-horizontal {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+  }
+  &-horizontal&-with-text {
+    display: table;
+    white-space: nowrap;
+    text-align: center;
+    background: transparent;
+    font-weight: 500;
+    color: @heading-color;
+    font-size: 16px;
+    margin: 16px 0;
+
+    &:before,
+    &:after {
+    content: '';
+      display: table-cell;
+      position: relative;
+      top: 50%;
+      width: 50%;
+      border-top: 1px solid @border-color-split;
+      transform: translateY(50%);
+    }
+  }
+
+  &-inner-text {
+    display: inline-block;
+    padding: 0 24px;
+  }
+}
