@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-默认为水平分割线，可在中间加入文字。
+Divider default type is `horizontal`. Support inner text inside Divider.
 
 ````jsx
 import { Divider } from 'antd';

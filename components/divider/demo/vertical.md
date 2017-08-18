@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-使用 `type="vertical"` 设置为行内的垂直分割线。
+Use `type="vertical"` make it vertical.
 
 ````jsx
 import { Divider } from 'antd';
