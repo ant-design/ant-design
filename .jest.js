@@ -2,12 +2,8 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [
   '/dist/',
-  '/node_modules/reqwest',
+  '/node_modules/',
 ];
-
-if (libDir !== 'es') {
-  transformIgnorePatterns.push('/node_modules/');
-}
 
 module.exports = {
   setupFiles: [
