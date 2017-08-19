@@ -28,23 +28,23 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
+    .clearfix;
+    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
       text-overflow: ellipsis;
-      width: 100%;
+      max-width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+      float: left;
     }
   }
 
   &-extra {
-    position: absolute;
-    right: @card-padding-base;
-    top: 14px;
+    float: right;
   }
 
   &-body {

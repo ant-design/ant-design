@@ -18,7 +18,7 @@ export interface CardProps {
   className?: string;
 }
 
-export default class Card extends Component<CardProps> {
+export default class Card extends Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   container: HTMLDivElement;
   resizeEvent: any;
@@ -108,16 +108,11 @@ export default class Card extends Component<CardProps> {
     }
 
     let head;
-    if (!title) {
-      head = null;
-    } else {
-      head = typeof title === 'string' ? (
+    if (title || extra) {
+      head = (
         <div className={`${prefixCls}-head`}>
-          <h3 className={`${prefixCls}-head-title`}>{title}</h3>
-        </div>
-      ) : (
-        <div className={`${prefixCls}-head`}>
-          <div className={`${prefixCls}-head-title`}>{title}</div>
+          {title ? <div className={`${prefixCls}-head-title`}>{title}</div> : null}
+          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
         </div>
       );
     }
@@ -125,7 +120,6 @@ export default class Card extends Component<CardProps> {
     return (
       <div {...others} className={classString} ref={this.saveRef}>
         {head}
-        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
         <div className={`${prefixCls}-body`} style={bodyStyle}>{children}</div>
       </div>
     );

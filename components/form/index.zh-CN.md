@@ -61,7 +61,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
-| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | 把父组件的属性映射到表单项上（可用于把 Redux store 中的值读出） | Function(props): Object{ fieldName: Object{ value } } |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, values) => void |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
@@ -88,9 +88,9 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
-1. 你不再需要用 `onChange` 来做同步，但还是可以继续监听 `onChange` 等事件。
+1. 你**不再需要也不应该**用 `onChange` 来做同步，但还是可以继续监听 `onChange` 等事件。
 2. 你不能用控件的 `value` `defaultValue` 等属性来设置表单域的值，默认值可以用 `getFieldDecorator` 里的 `initialValue`。
-3. 你不需要用 `setState`，可以使用 `this.props.form.setFieldsValue` 来动态改变表单值。
+3. 你不应该用 `setState`，可以使用 `this.props.form.setFieldsValue` 来动态改变表单值。
 
 #### 特别注意
 

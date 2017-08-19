@@ -1,6 +1,8 @@
 import notification from '..';
 
 describe('Notification.placement', () => {
+  afterEach(() => notification.destroy());
+
   function $$(className) {
     return document.body.querySelectorAll(className);
   }

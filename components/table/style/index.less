@@ -43,7 +43,7 @@
       margin-left: 4px;
       font-size: @font-size-base;
       cursor: pointer;
-      color: #aaa;
+      color: #999;
       transition: all .3s;
       width: 14px;
 
@@ -301,7 +301,7 @@
     margin-left: 4px;
     display: inline-block;
     width: 14px;
-    height: 14px;
+    height: 1em;
     vertical-align: middle;
     text-align: center;
 
@@ -341,12 +341,10 @@
     .@{iconfont-css-prefix}-caret-up,
     .@{iconfont-css-prefix}-caret-down {
       .iconfont-size-under-12px(8px);
-      line-height: 6px;
-      height: 6px;
-      color: #aaa;
-      &:before {
-        -moz-transform-origin: 53% 50%; /* fix firefox position */
-      }
+      line-height: 4px;
+      height: 4px;
+      color: #999;
+      transition: all .3s;
     }
   }
 
@@ -521,7 +519,7 @@
     }
 
     .@{iconfont-css-prefix}-down {
-      color: #aaa;
+      color: #999;
       transition: all .3s;
     }
 
@@ -534,7 +532,7 @@
       box-shadow: @box-shadow-base;
 
       .@{ant-prefix}-action-down {
-        color: #aaa;
+        color: #999;
       }
     }
 

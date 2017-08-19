@@ -70,14 +70,14 @@ class Footer extends React.Component {
           <li>
             <h2><Icon type="link" /> <FormattedMessage id="app.footer.links" /></h2>
             <div>
-              <a href="https://design.alipay.com/">
-                <FormattedMessage id="app.footer.design-platform" />
-              </a>
-            </div>
-            <div>
               <a href="http://mobile.ant.design">Ant Design Mobile</a>
               <span> - </span>
               <FormattedMessage id="app.footer.mobile" />
+            </div>
+            <div>
+              <a href="http://ng.ant.design">NG-ZORRO</a>
+              <span> - </span>
+              Ant Design of Angular
             </div>
             <div>
               <a href="http://scaffold.ant.design">Scaffolds</a>

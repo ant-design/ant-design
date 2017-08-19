@@ -152,6 +152,7 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
+        getPopupContainer={trigger => trigger.parentNode}
       >
         {versionOptions}
       </Select>,

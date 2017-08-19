@@ -24,7 +24,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     }, className);
     const items = React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
-        last: idx === (children as { length: number }).length - 1,
+        last: idx === (React.Children.count(children) - 1),
       }),
     );
     const pendingItem = (!!pending) ? (

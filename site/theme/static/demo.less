@@ -109,31 +109,41 @@
     border-bottom: 1px dashed @border-color-split;
   }
 
-  .collapse {
+  .code-expand-icon {
     position: absolute;
-    right: 14px;
-    bottom: 22px;
+    right: 16px;
+    bottom: 23px;
     cursor: pointer;
     width: 16px;
     height: 16px;
-    font-size: 16px;
     line-height: 16px;
-    opacity: 0.5;
     text-align: center;
-    transition: all 0.3s;
-    color: #999;
-    background: #fff;
-    user-select: none;
-    border-radius: 100%;
   }
 
-  &.expand .collapse {
-    color: shade(@primary-color, 20%);
-    transform: rotate(-180deg);
+  .code-expand-icon-show,
+  .code-expand-icon-hide {
+    transition: all 0.4s;
+    user-select: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
+  .code-expand-icon-show {
+    opacity: 0.55;
+    pointer-events: auto;
     &:hover {
       opacity: 1;
     }
+  }
+
+  .code-expand-icon.ant-tooltip-open .code-expand-icon-show {
+    opacity: 1;
+  }
+
+  .code-expand-icon-hide {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .highlight-wrapper {

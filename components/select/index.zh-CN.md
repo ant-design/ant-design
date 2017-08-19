@@ -53,6 +53,8 @@ title: Select
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{key: string, label: ReactNode}` 的格式 | boolean | false |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |
 
+> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
+
 ### Option props
 
 | 参数     | 说明           | 类型     | 默认值       |
