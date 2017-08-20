@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
+import { Select, Menu, Row, Col, Icon, Button, Popover, AutoComplete, Input } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
-const Option = Select.Option;
+const Option = AutoComplete.Option;
 const searchEngine = 'Google';
 const searchLink = 'https://www.google.com/#q=site:ant.design+';
 
@@ -26,19 +26,7 @@ export default class Header extends React.Component {
 
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
-    const searchInput = document.querySelector('#search-box .ant-select-search__field');
-    searchInput.addEventListener('blur', () => {
-      this.setState({
-        focused: false,
-        inputValue: '',
-      });
-    });
-    searchInput.addEventListener('focus', () => {
-      this.setState({
-        focused: false,
-        inputValue: '',
-      });
-    });
+    const searchInput = this.searchInput;
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 0) and (max-width: 992px)', {
@@ -70,7 +58,7 @@ export default class Header extends React.Component {
       focused: false,
     }, () => {
       router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
-      document.querySelector('#search-box .ant-select-search__field').blur();
+      this.searchInput.blur();
     });
   }
 
@@ -156,6 +144,12 @@ export default class Header extends React.Component {
         );
       });
 
+    options.push(
+      <Option value={searchEngine} data-label={searchEngine}>
+        <FormattedMessage id="app.header.search" />
+      </Option>
+    );
+
     const headerClassName = classNames({
       clearfix: true,
       'home-nav-white': !isFirstScreen,
@@ -237,8 +231,8 @@ export default class Header extends React.Component {
           </Col>
           <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
-              <Select
-                mode="combobox"
+              <AutoComplete
+                dataSource={options}
                 value={inputValue}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
@@ -248,11 +242,8 @@ export default class Header extends React.Component {
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
-                {options}
-                <Option value={searchEngine} data-label={searchEngine}>
-                  <FormattedMessage id="app.header.search" />
-                </Option>
-              </Select>
+                <Input ref={ref => this.searchInput = ref} />
+              </AutoComplete>
             </div>
             {menuMode === 'horizontal' ? menu : null}
           </Col>
