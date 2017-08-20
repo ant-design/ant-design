@@ -116,7 +116,7 @@ const columns = [{
 选择功能的配置。
 
 | 参数              | 说明                     | 类型             |  默认值   |
-|------------------|--------------------------|-----------------|---------------------|---------|
+|------------------|--------------------------|-----------------|---------------------|
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
@@ -124,12 +124,12 @@ const columns = [{
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时显示默认选择项 | object[] | true |
 
 ### selection
 
 | 参数              | 说明                     | 类型             |  默认值   |
-|------------------|--------------------------|-----------------|---------------------|---------|
+|------------------|--------------------------|-----------------|---------------------|
 | key | React 需要的 key，建议设置 | string | -  |
 | text | 选择项显示的文字 | string\|React.ReactNode | -  |
 | onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
