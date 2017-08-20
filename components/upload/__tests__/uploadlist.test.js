@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
 
+const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+
 const fileList = [{
   uid: -1,
   name: 'xxx.png',
@@ -30,5 +32,31 @@ describe('Upload List', () => {
       expect(linkNode.prop('href')).toBe(file.url);
       expect(imgNode.prop('src')).toBe(file.thumbUrl);
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/7269
+  it('should remove correct item when uid is 0', async () => {
+    const list = [{
+      uid: 0,
+      name: 'xxx.png',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+    }, {
+      uid: 1,
+      name: 'xxx.png',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+    }];
+    const wrapper = mount(
+      <Upload defaultFileList={list}>
+        <button>upload</button>
+      </Upload>
+    );
+    expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
+    await delay(400);
+    expect(wrapper.find('.ant-upload-list-item').length).toBe(1);
   });
 });
