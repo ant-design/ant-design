@@ -1,10 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "at-rule-empty-line-before": null,
-    "at-rule-name-space-after": null,
     "comment-empty-line-before": null,
-    "declaration-bang-space-before": null,
     "declaration-empty-line-before": null,
     "function-comma-newline-after": null,
     "function-name-case": null,

@@ -35,7 +35,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` is an open source project, improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute. And we are always happy to [offer collaborator permission](https://github.com/ant-design/ant-design/issues/3222) for some active contributors.
+`antd` is an open source project; improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute. And we are always happy to [offer collaborator permission](https://github.com/ant-design/ant-design/issues/3222) for some active contributors.
 
 ## Install
 
@@ -101,6 +101,19 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 > - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
 > - Don't use @types/antd, antd provide a built-in ts definition already.
 
+#### Use [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) with modularized antd
+
+  ```js
+  {
+    loader: "ts-loader", // or awesome-typescript-loader
+    options {
+      getCustomTransformers: () => ({
+        before: [ tsImportPluginFactory({ libraryName: "antd", style: "css" }) ]
+      })
+    }
+  }
+  ```
+
 ## Internationalization
 
 See [i18n](http://ant.design/docs/react/i18n).
@@ -135,4 +148,4 @@ Open your browser and visit http://127.0.0.1:8001 , see more at https://github.c
 
 ## Contributing
 
-We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)

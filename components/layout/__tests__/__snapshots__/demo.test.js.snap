@@ -34,7 +34,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     >
       <div
         class="ant-layout-sider"
-        style="flex:0 0 200px;width:200px;"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -72,7 +72,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-layout-sider"
-        style="flex:0 0 200px;width:200px;"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -92,7 +92,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
   >
     <div
       class="ant-layout-sider"
-      style="flex:0 0 200px;width:200px;"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -129,7 +129,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -313,7 +313,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;width:200px;"
+    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -578,7 +578,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -688,7 +688,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
   >
     <div
       class="ant-layout-sider-children"
@@ -785,6 +785,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-sider-trigger"
+      style="width:200px;"
     >
       <i
         class="anticon anticon-left"
@@ -1038,7 +1039,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     >
       <div
         class="ant-layout-sider"
-        style="background:#fff;flex:0 0 200px;width:200px;"
+        style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1051,7 +1052,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
             >
               <div
                 aria-expanded="true"
@@ -1208,7 +1209,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
   >
     <div
       class="ant-layout-sider"
-      style="background:#fff;flex:0 0 200px;width:200px;"
+      style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -1221,7 +1222,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           tabindex="0"
         >
           <li
-            class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+            class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
           >
             <div
               aria-expanded="true"

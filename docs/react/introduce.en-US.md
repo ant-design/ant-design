@@ -13,7 +13,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 <style>
 .pic-plus > * {
-  display: inline-block!important;
+  display: inline-block !important;
   vertical-align: middle;
 }
 .pic-plus span {
@@ -41,7 +41,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 ## Version
 
 - Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- Beta: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
+- Next: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=next&subject=npm)](https://www.npmjs.org/package/antd)
 
 You can subscribe to this feed for new version notifications: https://github.com/ant-design/ant-design/releases.atom
 
@@ -165,6 +165,6 @@ If you'd like to help us improve antd, just create a [Pull Request](https://gith
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [stackoverflow](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag. If you're not finding what you need on stackoverflow, you can find us on [gitter](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
+For questions on how to use antd, please post questions to [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag. If you're not finding what you need on stackoverflow, you can find us on [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
 
 As always, we encourage experienced users to help those who are not familiar with `antd`!

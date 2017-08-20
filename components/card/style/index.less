@@ -28,23 +28,23 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
+    .clearfix;
+    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
       text-overflow: ellipsis;
-      width: 100%;
+      max-width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;
       font-weight: 500;
+      float: left;
     }
   }
 
   &-extra {
-    position: absolute;
-    right: @card-padding-base;
-    top: 14px;
+    float: right;
   }
 
   &-body {
@@ -54,6 +54,11 @@
 
   &-loading &-body {
     user-select: none;
+    padding: 0;
+  }
+
+  &-loading-content {
+    padding: @card-padding-base;
   }
 
   &-loading-block {
@@ -67,14 +72,14 @@
   }
 
   &-contain-grid &-body {
-    margin: -0.5px;
+    margin: -1px 0 0 -1px;
     padding: 0;
   }
 
   &-grid {
     border-radius: 0;
     border: 0;
-    box-shadow: 0 0 0 0.5px @border-color-split, 0 0 0 0.5px @border-color-split inset;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
     width: 33.33%;
     float: left;
     padding: @card-padding-base;

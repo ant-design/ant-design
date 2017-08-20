@@ -70,7 +70,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+    class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
   >
     <div
       aria-expanded="true"
@@ -347,7 +347,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu"
+    class="ant-menu-submenu-inline ant-menu-submenu-selected ant-menu-submenu"
   >
     <div
       aria-expanded="false"
@@ -567,7 +567,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
     >
       <div
         aria-expanded="true"

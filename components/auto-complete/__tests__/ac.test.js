@@ -17,4 +17,14 @@ describe('AutoComplete with Custom Input Element Render', () => {
     // should not filter data source defaultly
     expect(dropdownWrapper.find('MenuItem').length).toBe(3);
   });
+
+  it('child.ref should work', () => {
+    const mockRef = jest.fn();
+    mount(
+      <AutoComplete dataSource={[]}>
+        <input ref={mockRef} />
+      </AutoComplete>
+    );
+    expect(mockRef).toHaveBeenCalled();
+  });
 });

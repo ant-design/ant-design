@@ -4,7 +4,6 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
 <div>
   <span
     class="ant-badge"
-    title="5"
   >
     <a
       class="head-example"
@@ -13,6 +12,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="5"
     >
       <span
         class="ant-scroll-number-only"
@@ -173,7 +173,6 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
   </span>
   <span
     class="ant-badge"
-    title="0"
   >
     <a
       class="head-example"
@@ -182,6 +181,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="0"
     >
       0
     </sup>
@@ -194,7 +194,6 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
   <div>
     <span
       class="ant-badge"
-      title="5"
     >
       <a
         class="head-example"
@@ -203,6 +202,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        title="5"
       >
         <span
           class="ant-scroll-number-only"
@@ -395,10 +395,12 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
+        title=""
       />
     </span>
     <span
-      class="ant-switch"
+      checked=""
+      class="ant-switch ant-switch-checked"
       tabindex="0"
     >
       <span
@@ -420,6 +422,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
+      title=""
     />
   </span>
   <span
@@ -433,6 +436,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
+      title=""
     />
   </span>
 </div>
@@ -444,7 +448,6 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
 >
   <span
     class="ant-badge"
-    title="5"
   >
     <span
       class="head-example"
@@ -452,6 +455,7 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="5"
     >
       <span
         class="ant-scroll-number-only"
@@ -617,11 +621,11 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
 <div>
   <span
     class="ant-badge ant-badge-not-a-wrapper"
-    title="25"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="25"
     >
       <span
         class="ant-scroll-number-only"
@@ -937,12 +941,12 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
   </span>
   <span
     class="ant-badge ant-badge-not-a-wrapper"
-    title="4"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
       style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset;"
+      title="4"
     >
       <span
         class="ant-scroll-number-only"
@@ -1103,12 +1107,12 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
   </span>
   <span
     class="ant-badge ant-badge-not-a-wrapper"
-    title="109"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
       style="background-color:#87d068;"
+      title="99+"
     >
       99+
     </sup>
@@ -1120,7 +1124,6 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
 <div>
   <span
     class="ant-badge"
-    title="99"
   >
     <a
       class="head-example"
@@ -1129,6 +1132,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="99"
     >
       <span
         class="ant-scroll-number-only"
@@ -1444,7 +1448,6 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
   </span>
   <span
     class="ant-badge"
-    title="100"
   >
     <a
       class="head-example"
@@ -1453,13 +1456,13 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="99+"
     >
       99+
     </sup>
   </span>
   <span
     class="ant-badge"
-    title="99"
   >
     <a
       class="head-example"
@@ -1468,13 +1471,13 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="10+"
     >
       10+
     </sup>
   </span>
   <span
     class="ant-badge"
-    title="1000"
   >
     <a
       class="head-example"
@@ -1483,6 +1486,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
+      title="999+"
     >
       999+
     </sup>

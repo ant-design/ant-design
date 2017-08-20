@@ -58,7 +58,7 @@
 
   &&-card &-content > &-tabpane,
   &&-editable-card &-content > &-tabpane {
-    transition: none!important;
+    transition: none !important;
     &-inactive {
       overflow: hidden;
     }
@@ -69,7 +69,6 @@
   }
 
   &-extra-content {
-    float: right;
     line-height: 32px;
 
     .@{tab-prefix-cls}-new-tab {
@@ -83,9 +82,10 @@
       font-size: @font-size-base;
       .iconfont-size-under-12px(10px);
       color: @text-color-secondary;
-      transition: color 0.3s ease;
+      transition: all .3s;
       &:hover {
-        color: #404040;
+        color: @primary-color;
+        border-color: @primary-color;
       }
     }
   }
@@ -104,6 +104,9 @@
       &:last-child {
         margin-bottom: 8px;
       }
+    }
+    .@{tab-prefix-cls}-new-tab {
+      width: 90%;
     }
   }
 

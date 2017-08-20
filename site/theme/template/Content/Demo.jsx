@@ -1,3 +1,4 @@
+/* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
@@ -35,8 +36,8 @@ export default class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand)
-     || this.state.copied !== nextState.copied
-     || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
+      || this.state.copied !== nextState.copied
+      || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
   }
 
   componentDidMount() {
@@ -55,7 +56,7 @@ export default class Demo extends React.Component {
     });
   }
 
-  handleCodeExapnd = () => {
+  handleCodeExpand = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
@@ -158,9 +159,25 @@ export default class Demo extends React.Component {
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
           </div>
           {introChildren}
-          <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExapnd} />
+          <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
+            <span className="code-expand-icon">
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                onClick={this.handleCodeExpand}
+              />
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                onClick={this.handleCodeExpand}
+              />
+            </span>
+          </Tooltip>
         </section>
-        <section className={highlightClass}
+        <section
+          className={highlightClass}
           key="code"
         >
           <div className="highlight">

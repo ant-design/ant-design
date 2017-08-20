@@ -172,6 +172,7 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
+        getPopupContainer={trigger => trigger.parentNode}
       >
         {versionOptions}
       </Select>,
@@ -247,10 +248,10 @@ export default class Header extends React.Component {
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
+                {options}
                 <Option value={searchEngine} data-label={searchEngine}>
                   <FormattedMessage id="app.header.search" />
                 </Option>
-                {options}
               </Select>
             </div>
             {menuMode === 'horizontal' ? menu : null}

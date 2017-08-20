@@ -35,10 +35,10 @@ More layouts with navigation: [layout](/components/layout).
 | defaultSelectedKeys | array with the keys of default selected menu items | string[] |      |
 | openKeys | array with the keys of currently opened sub menus | string[] |  |
 | defaultOpenKeys | array with the keys of default opened sub menus |  |      |
-| onOpenChange | called when open/close sub menu | Function(openKeys: string[]) | noop |
-| onSelect | callback of the selected item | Function({ item, key, selectedKeys }) | none   |
-| onDeselect | callback of the deselected item, only supported for multiple mode | Function({ item, key, selectedKeys }) | - |
-| onClick | callback of the clicked menu item, params: {item, key, keyPath} | function | - |
+| onOpenChange | called when open/close sub menu | function(openKeys: string[]) | noop |
+| onSelect | callback of the selected item | function({ item, key, selectedKeys }) | none   |
+| onDeselect | callback of the deselected item, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
+| onClick | callback when click menu item, params: {item, key, keyPath} | function({ item, key, keyPath }) | - |
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 | multiple | Allow select multiple item | boolean | false |
@@ -61,7 +61,7 @@ More layouts with navigation: [layout](/components/layout).
 | key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
-| onTitleClick | callback of the clicked sub menu title | Function({ key, domEvent }) |  |
+| onTitleClick | callback of the clicked sub menu title | function({ key, domEvent }) |  |
 
 ### Menu.ItemGroup
 

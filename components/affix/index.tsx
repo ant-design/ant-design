@@ -73,6 +73,18 @@ export default class Affix extends React.Component<AffixProps, any> {
     fixedNode: HTMLElement;
   };
 
+  events = [
+    'resize',
+    'scroll',
+    'touchstart',
+    'touchmove',
+    'touchend',
+    'pageshow',
+    'load',
+  ];
+
+  eventHandlers = {};
+
   constructor(props) {
     super(props);
     this.state = {
@@ -190,7 +202,7 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.target !== nextProps.target) {
-      this.clearScrollEventListeners();
+      this.clearEventListeners();
       this.setTargetEventListeners(nextProps.target);
 
       // Mock Event object.
@@ -199,7 +211,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   componentWillUnmount() {
-    this.clearScrollEventListeners();
+    this.clearEventListeners();
     clearTimeout(this.timeout);
     (this.updatePosition as any).cancel();
   }
@@ -209,15 +221,18 @@ export default class Affix extends React.Component<AffixProps, any> {
     if (!target) {
       return;
     }
-    this.clearScrollEventListeners();
-    this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
-    this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
+    this.clearEventListeners();
+
+    this.events.forEach(eventName => {
+      this.eventHandlers[eventName] = addEventListener(target, eventName, this.updatePosition);
+    });
   }
 
-  clearScrollEventListeners() {
-    ['scrollEvent', 'resizeEvent'].forEach((name) => {
-      if (this[name]) {
-        this[name].remove();
+  clearEventListeners() {
+    this.events.forEach(eventName => {
+      const handler = this.eventHandlers[eventName];
+      if (handler && handler.remove) {
+        handler.remove();
       }
     });
   }

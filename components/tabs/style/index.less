@@ -1,6 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 @tab-prefix-cls: ~"@{ant-prefix}-tabs";
+
 @import "./card-style";
 
 .@{tab-prefix-cls} {
@@ -25,6 +26,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
     outline: none;
+    transition: padding .3s @ease-in-out;
   }
 
   &-nav-container {
@@ -35,6 +37,7 @@
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
+    transition: padding .3s @ease-in-out;
     .clearfix;
 
     &-scrolling {
@@ -47,7 +50,7 @@
   &-tab-next {
     user-select: none;
     z-index: 2;
-    width: 32px;
+    width: 0;
     height: 100%;
     line-height: 32px;
     cursor: pointer;
@@ -56,7 +59,16 @@
     position: absolute;
     text-align: center;
     color: @text-color-secondary;
-    transition: color 0.3s ease;
+    transition: width .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+
+    &.@{tab-prefix-cls}-tab-arrow-show {
+      opacity: 1;
+      width: 32px;
+      height: 100%;
+      pointer-events: auto;
+    }
 
     &:hover {
       color: @text-color;
@@ -122,7 +134,7 @@
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: transform 0.5s @ease-in-out;
+    transition: transform 0.3s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
@@ -202,7 +214,7 @@
       > .@{tab-prefix-cls}-tabpane-inactive {
         opacity: 0;
         height: 0;
-        padding: 0!important;
+        padding: 0 !important;
         pointer-events: none;
       }
     }
@@ -218,6 +230,16 @@
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
       height: 100%;
+      &-tab-prev, &-tab-next {
+        width: 32px;
+        height: 0;
+        transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+      }
+      &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
+      &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
+        width: 100%;
+        height: 32px;
+      }
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -229,6 +251,10 @@
         &:last-child {
           margin-bottom: 0;
         }
+      }
+
+      .@{tab-prefix-cls}-extra-content {
+        text-align: center;
       }
 
       .@{tab-prefix-cls}-nav-scroll {
@@ -252,6 +278,10 @@
         margin-bottom: 0;
       }
 
+      .@{tab-prefix-cls}-nav {
+        width: 100%;
+      }
+
       .@{tab-prefix-cls}-ink-bar {
         width: 2px;
         left: auto;
@@ -263,7 +293,7 @@
     > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
-      margin-top: 0!important;
+      margin-top: 0 !important;
     }
 
     > .@{tab-prefix-cls}-bar {

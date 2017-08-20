@@ -75,4 +75,21 @@ describe('RangePicker', () => {
     expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
       .not.toThrow();
   });
+
+  // issue: https://github.com/ant-design/ant-design/issues/7077
+  it('should not throw error when select after clear', () => {
+    const wrapper = mount(
+      <RangePicker
+        getCalendarContainer={trigger => trigger}
+        open
+      />
+    );
+    let rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click');
+    wrapper.find('.ant-calendar-picker-clear').simulate('click');
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
+      .not.toThrow();
+  });
 });

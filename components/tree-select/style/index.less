@@ -21,7 +21,7 @@
     outline: 0;
     &.filter-node {
       > span {
-        font-weight: bold !important;
+        font-weight: 500;
       }
     }
     ul {
@@ -45,7 +45,7 @@
         background-color: @primary-2;
       }
     }
-    > span {
+    span {
       &.@{select-tree-prefix-cls}-checkbox {
         margin: 0 4px 0 0;
         + .@{select-tree-prefix-cls}-node-content-wrapper {
@@ -68,26 +68,19 @@
       &.@{select-tree-prefix-cls}-icon_loading {
         &:after {
           display: inline-block;
-          .iconfont-font("\e64d");
-          font-weight: bold;
+          .iconfont-font("\e6ae");
           animation: loadingCircle 1s infinite linear;
-          margin-top: 8px;
+          color: @primary-color;
         }
       }
       &.@{select-tree-prefix-cls}-switcher {
         &.@{select-tree-prefix-cls}-switcher-noop {
           cursor: auto;
         }
-        &.@{select-tree-prefix-cls}-roots_open,
-        &.@{select-tree-prefix-cls}-center_open,
-        &.@{select-tree-prefix-cls}-bottom_open,
-        &.@{select-tree-prefix-cls}-noline_open {
+        &.@{select-tree-prefix-cls}-switcher_open {
           .antTreeSwitcherIcon();
         }
-        &.@{select-tree-prefix-cls}-roots_close,
-        &.@{select-tree-prefix-cls}-center_close,
-        &.@{select-tree-prefix-cls}-bottom_close,
-        &.@{select-tree-prefix-cls}-noline_close {
+        &.@{select-tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {

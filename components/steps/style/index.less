@@ -29,8 +29,7 @@
 
 .@{steps-prefix-cls} {
   font-size: 0;
-  width: 100%;
-  line-height: 1.5;
+  line-height: @line-height-base;
   .@{steps-prefix-cls}-item {
     position: relative;
     display: inline-block;
@@ -175,6 +174,7 @@
     font-size: @font-size-lg;
     margin-right: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-family: @font-family-no-number;
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
@@ -189,12 +189,9 @@
       }
     }
   }
-  .@{steps-prefix-cls}-main {
-    margin-top: 2.5px;
-  }
   .@{steps-prefix-cls}-title {
     font-size: @font-size-lg;
-    margin-bottom: 4px;
+    line-height: @steps-icon-size;
     color: @text-color;
     font-weight: bold;
     background-color: @steps-background;
@@ -263,7 +260,7 @@
     }
     .@{steps-prefix-cls}-title {
       font-size: @font-size-base;
-      margin-bottom: 4px;
+      line-height: @steps-small-icon-size;
       color: @text-color;
       font-weight: bold;
     }
@@ -423,6 +420,7 @@
     margin-top: 10px;
     .@{steps-prefix-cls}-title {
       padding-right: 0;
+      background-color: transparent;
     }
   }
   .@{steps-prefix-cls}-status-process {

@@ -7,7 +7,6 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
   >
     <span
       class="ant-badge"
-      title="1"
     >
       <span
         class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -19,6 +18,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-count"
         data-show="true"
+        title="1"
       >
         <span
           class="ant-scroll-number-only"
@@ -192,6 +192,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
+        title=""
       />
     </span>
   </span>

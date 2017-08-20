@@ -161,7 +161,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     const triggerDom = (
       trigger !== null ?
       zeroWidthTrigger || (
-        <div className={`${prefixCls}-trigger`} onClick={this.toggle}>
+        <div className={`${prefixCls}-trigger`} onClick={this.toggle} style={{ width: siderWidth }}>
           {trigger || defaultTrigger}
         </div>
       ) : null
@@ -169,6 +169,8 @@ export default class Sider extends React.Component<SiderProps, any> {
     const divStyle = {
       ...style,
       flex: `0 0 ${siderWidth}px`,
+      maxWidth: `${siderWidth}px`, // Fix width transition bug in IE11
+      minWidth: `${siderWidth}px`, // https://github.com/ant-design/ant-design/issues/6349
       width: `${siderWidth}px`,
     };
     const siderCls = classNames(className, prefixCls, {

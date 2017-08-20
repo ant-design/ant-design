@@ -122,13 +122,6 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
   }
 
-  // Handle auto focus when click button in Chrome
-  handleMouseUp = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (this.props.onMouseUp) {
-      this.props.onMouseUp(e);
-    }
-  }
-
   render() {
     const {
       type, shape, size = '', className, htmlType, children, icon, prefixCls, ghost, ...others,
@@ -161,7 +154,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
-    const needInserted = React.Children.count(children) === 1 && !iconType;
+    const needInserted = React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
     const kids = React.Children.map(children, child => insertSpace(child, needInserted));
 
     return (
@@ -169,7 +162,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         {...omit(others, ['loading', 'clicked'])}
         type={htmlType || 'button'}
         className={classes}
-        onMouseUp={this.handleMouseUp}
         onClick={this.handleClick}
       >
         {iconNode}{kids}

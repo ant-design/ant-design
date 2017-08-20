@@ -27,13 +27,14 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 
 > Warning: You must set a unique `key` for `Menu.Item`.
 
-> Remove the highlighted style after click menu item via `<Menu selectedKey={[]}>`.
+> Remove the highlighted style after click menu item via `<Menu selectedKeys={[]}>`.
 
 ### Dropdown.Button
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
 | type        | type of the button, the same as [Button](/components/button)   | string   | 'default'           |
+| size        | size of the button, the same as [Button](/components/button)   | string   | 'default'           |
 | onClick | a callback function, the same as [Button](/components/button), which will be executed when you click the button on the left       | Function   | -           |
 | trigger       | the trigger mode which can execute the drop-down action | Array<'click'\|'hover'>   | ['hover'] |
 | overlay | the dropdown menu | [Menu](/components/menu) | -           |

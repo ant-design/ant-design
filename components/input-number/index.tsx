@@ -18,6 +18,7 @@ export interface InputNumberProps {
   style?: React.CSSProperties;
   className?: string;
   name?: string;
+  id?: string;
   precision?: number;
 }
 

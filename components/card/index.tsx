@@ -1,6 +1,6 @@
 import React, { Component, Children } from 'react';
 import classNames from 'classnames';
-import addEventListener, { RcUtilEventHandler } from 'rc-util/lib/Dom/addEventListener';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Grid from './Grid';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
@@ -13,15 +13,15 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   noHovering?: boolean;
-  children?: React.ReactChild;
+  children?: React.ReactNode;
   id?: string;
   className?: string;
 }
 
-export default class Card extends Component<CardProps> {
+export default class Card extends Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   container: HTMLDivElement;
-  resizeEvent: RcUtilEventHandler;
+  resizeEvent: any;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
@@ -84,7 +84,7 @@ export default class Card extends Component<CardProps> {
 
     if (loading) {
       children = (
-        <div>
+        <div className={`${prefixCls}-loading-content`}>
           <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
           <p>
             <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
@@ -108,16 +108,11 @@ export default class Card extends Component<CardProps> {
     }
 
     let head;
-    if (!title) {
-      head = null;
-    } else {
-      head = typeof title === 'string' ? (
+    if (title || extra) {
+      head = (
         <div className={`${prefixCls}-head`}>
-          <h3 className={`${prefixCls}-head-title`}>{title}</h3>
-        </div>
-      ) : (
-        <div className={`${prefixCls}-head`}>
-          <div className={`${prefixCls}-head-title`}>{title}</div>
+          {title ? <div className={`${prefixCls}-head-title`}>{title}</div> : null}
+          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
         </div>
       );
     }
@@ -125,7 +120,6 @@ export default class Card extends Component<CardProps> {
     return (
       <div {...others} className={classString} ref={this.saveRef}>
         {head}
-        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
         <div className={`${prefixCls}-body`} style={bodyStyle}>{children}</div>
       </div>
     );

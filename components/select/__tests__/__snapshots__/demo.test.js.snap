@@ -848,6 +848,13 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
     <div
       class="ant-select-selection__rendered"
     >
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        Tags Mode
+      </div>
       <ul>
         <li
           class="ant-select-search ant-select-search--inline"
