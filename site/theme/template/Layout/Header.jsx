@@ -21,11 +21,24 @@ export default class Header extends React.Component {
     inputValue: '',
     menuVisible: false,
     menuMode: 'horizontal',
+    focused: false,
   };
 
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
-
+    const searchInput = document.querySelector('#search-box .ant-select-search__field');
+    searchInput.addEventListener('blur', () => {
+      this.setState({
+        focused: false,
+        inputValue: '',
+      });
+    });
+    searchInput.addEventListener('focus', () => {
+      this.setState({
+        focused: false,
+        inputValue: '',
+      });
+    });
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 0) and (max-width: 992px)', {
@@ -36,6 +49,12 @@ export default class Header extends React.Component {
           this.setState({ menuMode: 'horizontal' });
         },
       });
+    document.addEventListener('keyup', (event) => {
+      const { focused } = this.state;
+      if (event.keyCode === 83 && !focused) {
+        searchInput.focus();
+      }
+    });
     /* eslint-enable global-require */
   }
 
@@ -48,6 +67,7 @@ export default class Header extends React.Component {
     const { intl, router } = this.context;
     this.setState({
       inputValue: '',
+      focused: false,
     }, () => {
       router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
       document.querySelector('#search-box .ant-select-search__field').blur();
