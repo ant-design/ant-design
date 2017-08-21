@@ -339,6 +339,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class="ant-input-number-input"
           max="9007199254740991"
           min="-9007199254740991"
+          step="1"
           value=""
         />
       </div>
