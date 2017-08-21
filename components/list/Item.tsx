@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Col } from '../grid';
 
 export interface ListItemGridType {
   gutter?: number;
   column?: number;
-  xs?: number;
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
+  xs?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  sm?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  md?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  lg?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  xl?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
 }
 
 export interface ListItemProps {
@@ -64,8 +65,20 @@ function getGrid(grid, t) {
   return grid[t] && Math.floor(24 / grid[t]);
 }
 
+const GridColumns = ['', 1, 2, 3, 4, 6, 8, 12, 24];
+
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
+
+  static propTypes = {
+    column: PropTypes.oneOf(GridColumns),
+    xs: PropTypes.oneOf(GridColumns),
+    sm: PropTypes.oneOf(GridColumns),
+    md: PropTypes.oneOf(GridColumns),
+    lg: PropTypes.oneOf(GridColumns),
+    xl: PropTypes.oneOf(GridColumns),
+  };
+
   _id: number = new Date().getTime();
 
   render() {
