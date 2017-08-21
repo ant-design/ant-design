@@ -96,40 +96,51 @@ export default App;
 
 我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。
 
-此时我们可能需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
+此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 
-```bash
-$ yarn run eject
+引入 react-app-rewired 并修改 package.json 里的启动配置。
+
+```
+$ yarn add react-app-rewired --dev
+```
+
+```diff
+/* package.json */
+"scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test --env=jsdom",
++   "test": "react-app-rewired test --env=jsdom",
+}
+```
+
+然后在项目根目录创建一个 `config-overrides.js` 用于修改默认配置。
+
+```js
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  return config;
+};
 ```
 
 ### 使用 babel-plugin-import
 
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
 
 ```bash
 $ yarn add babel-plugin-import --dev
 ```
 
 ```diff
-// Process JS with Babel.
-{
-  test: /\.(js|jsx)$/,
-  include: paths.appSrc,
-  loader: require.resolve('babel-loader'),
-  options: {
-+   plugins: [
-+     ['import', { libraryName: 'antd', style: 'css' }],
-+   ],
-    // This is a feature of `babel-loader` for webpack (not Babel itself).
-    // It enables caching results in ./node_modules/.cache/babel-loader/
-    // directory for faster rebuilds.
-    cacheDirectory: true
-  }
-},
++ const { injectBabelPlugin } = require('react-app-rewired');
+
+  module.exports = function override(config, env) {
++   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
+    return config;
+  };
 ```
-
-> 注意，由于 create-react-app eject 之后的配置中没有 `.babelrc` 文件，所以需要把配置放到 `webpack.config.js` 或 `package.json` 的 `babel` 属性中。
-
 
 然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，并且按下面的格式引入模块。
 
@@ -157,80 +168,24 @@ $ yarn add babel-plugin-import --dev
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `config/webpack.config.dev.js` 文件。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能。我们可以引入 react-app-rewire 的 less 插件 [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) 来帮助加载 less 样式，同时修改 `config-overrides.js` 文件。
 
 ```bash
-$ yarn add less less-loader --dev
+$ yarn add react-app-rewire-less --dev
 ```
 
 ```diff
-  {
-    exclude: [
-      /\.html$/,
-      /\.(js|jsx)$/,
-      /\.css$/,
-+     /\.less$/,
-      /\.json$/,
-      /\.bmp$/,
-      /\.gif$/,
-      /\.jpe?g$/,
-      /\.png$/,
-    ],
-    loader: require.resolve('file-loader'),
-    options: {
-      name: 'static/media/[name].[hash:8].[ext]',
-    },
-  }
+  const { injectBabelPlugin } = require('react-app-rewired');
++ const rewireLess = require('react-app-rewire-less');
 
-...
-
-  // Process JS with Babel.
-  {
-    test: /\.(js|jsx)$/,
-    include: paths.appSrc,
-    loader: 'babel',
-    options: {
-      plugins: [
--       ['import', [{ libraryName: 'antd', style: 'css' }]],
-+       ['import', [{ libraryName: 'antd', style: true }]],  // import less
-      ],
-   },
-
-...
-
-+  // Parse less files and modify variables
-+  {
-+    test: /\.less$/,
-+    use: [
-+      require.resolve('style-loader'),
-+      require.resolve('css-loader'),
-+      {
-+        loader: require.resolve('postcss-loader'),
-+        options: {
-+          ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-+          plugins: () => [
-+            require('postcss-flexbugs-fixes'),
-+            autoprefixer({
-+              browsers: [
-+                '>1%',
-+                'last 4 versions',
-+                'Firefox ESR',
-+                'not ie < 9', // React doesn't support IE8 anyway
-+              ],
-+              flexbox: 'no-2009',
-+            }),
-+          ],
-+        },
-+      },
-+      {
-+        loader: require.resolve('less-loader'),
-+        options: {
-+          modifyVars: { "@primary-color": "#1DA57A" },
-+        },
-+      },
-+    ],
-+  },
-],
+  module.exports = function override(config, env) {
+-   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
++   config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);
++   config = rewireLess(config, env, {
++     modifyVars: { "@primary-color": "#1DA57A" },
++   });
+    return config;
+  };
 ```
 
 这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
@@ -238,7 +193,9 @@ $ yarn add less less-loader --dev
 
 修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
-> 注意，上述示例只修改了 `webpack.config.dev.js`，如果需要在生产环境生效，你需要同步修改 `webpack.config.prod.js`。
+## eject
+
+你也可以使用 create-react-app 提供的 `[yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)` 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
 
 ## 源码和其他脚手架
 
@@ -249,3 +206,4 @@ React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd �
 - [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
 - [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
+- [cra-ts-antd](https://github.com/comerc/cra-ts-antd)
