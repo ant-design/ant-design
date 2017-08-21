@@ -2,16 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Col } from '../grid';
-
-export interface ListItemGridType {
-  gutter?: number;
-  column?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-  xs?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-  sm?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-  md?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-  lg?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-  xl?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
-}
+import { ListGridType } from './index';
 
 export interface ListItemProps {
   className?: string;
@@ -20,7 +11,7 @@ export interface ListItemProps {
   style?: React.CSSProperties;
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
-  grid?: ListItemGridType;
+  grid?: ListGridType;
   Meta: React.ReactNode;
 }
 
