@@ -60,6 +60,10 @@ export const Meta = (props: ListItemMetaProps) => {
   );
 };
 
+function getGrid(grid, t) {
+  return grid[t] && Math.floor(24 / grid[t]);
+}
+
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
   _id: number = new Date().getTime();
@@ -113,12 +117,12 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     const mainContent = grid ? (
       <Col
-        span={grid.column && Math.floor(24 / grid.column)}
-        xs={grid.xs && Math.floor(24 / grid.xs)}
-        sm={grid.sm && Math.floor(24 / grid.sm)}
-        md={grid.md && Math.floor(24 / grid.md)}
-        lg={grid.lg && Math.floor(24 / grid.lg)}
-        xl={grid.xl && Math.floor(24 / grid.xl)}
+        span={getGrid(grid, 'column')}
+        xs={getGrid(grid, 'xs')}
+        sm={getGrid(grid, 'sm')}
+        md={getGrid(grid, 'md')}
+        lg={getGrid(grid, 'lg')}
+        xl={getGrid(grid, 'xl')}
       >
         <div {...others} className={classString}>
           {extra && extraContent}
