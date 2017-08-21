@@ -17,6 +17,29 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.7
+
+`2017-08-21`
+
+- antd of Angular@4.0, [ng-zorro-antd](https://ng.ant.design) is open sourcing.
+- Affix supports more scenes. [01d4acb](https://github.com/ant-design/ant-design/commit/01d4acb7a9b030be3552b4ca19b4e899dc2bb7c7)
+- Fix that AutoComplete children ref doesn't work. [#6814](https://github.com/ant-design/ant-design/issues/6814)
+- Button
+  - Improve the logic to insert space in Chinese characters. [59b11f3](https://github.com/ant-design/ant-design/commit/59b11f3b480d43cb32fb24e351cb4c4dd569243c)
+  - Fix that `event.target` of click is not `button`. [#7034](https://github.com/ant-design/ant-design/issues/7034)
+- Fix that Carousel's `innerSlider` doesn't exist. [#7191](https://github.com/ant-design/ant-design/issues/7191)
+- Fix the style of button in DatePicker. [ad6dbcb](https://github.com/ant-design/ant-design/commit/ad6dbcb9c6dac407a38f2391d3e5fa1d8ae1cfab)
+- Fix TypeScript definition of Form.[#7245](https://github.com/ant-design/ant-design/pull/7245)
+- Fix TypeScript definition of InputNumber. [#7257](https://github.com/ant-design/ant-design/issues/7257)
+- Fix missing collapse animation of `Layout.Sider` in IE11. [#6349](https://github.com/ant-design/ant-design/issues/6349)
+- Fix typo of Spanish locale of LocaleProvider. [#7234](https://github.com/ant-design/ant-design/pull/7234) [@ramsesmoreno](https://github.com/ramsesmoreno)
+- Fix that notification's default placement should not be overrided. [#5895](https://github.com/ant-design/ant-design/issues/5895)
+- Fix disabled style of button in Pagination. [cf3c0aa](https://github.com/ant-design/ant-design/commit/cf3c0aac43e2825bfd85ca3b8abbf4742e504260)
+- Fix that wrong exports of Select which cause webpack build error. [#7222](https://github.com/ant-design/ant-design/issues/7222)
+- Fix that Tabs should show arrow buttons while resize its container. [#7231](https://github.com/ant-design/ant-design/issues/7231) [#7210](https://github.com/ant-design/ant-design/issues/7210)
+- Fix style of Timeline which has only one `Timeline.Item`. [#7214](https://github.com/ant-design/ant-design/issues/7214)
+- Fix wrong behavior of Upload when uid is 0. [#7269](https://github.com/ant-design/ant-design/issues/7269)
+
 ## 2.12.6
 
 `2017-08-11`
