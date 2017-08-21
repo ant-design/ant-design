@@ -5,7 +5,7 @@ import { Col } from '../grid';
 
 export interface ListItemGridType {
   gutter?: number;
-  column?: number;
+  column?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
   xs?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
   sm?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
   md?: 1 | 2 | 3 | 4 | 8 | 12 | 24;

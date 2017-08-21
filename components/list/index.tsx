@@ -11,12 +11,12 @@ import Item from './Item';
 
 export interface ListGridType {
   gutter?: number;
-  column?: number;
-  xs?: number;
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
+  column?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  xs?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  sm?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  md?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  lg?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
+  xl?: 1 | 2 | 3 | 4 | 8 | 12 | 24;
 }
 
 export interface ListProps {
