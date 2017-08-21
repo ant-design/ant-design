@@ -1,24 +1,24 @@
 ---
 order: 0
 title:
-  zh-CN: 栅格列表 
+  zh-CN: 响应式的栅格列表 
   en-US: Grid
 ---
 
 ## zh-CN
 
-栅格列表。
+响应式的栅格列表。
 
 ## en-US
 
-Grid List.
+Responsive Grid List.
 
 ````jsx
 import { List, Card } from 'antd';
 
 ReactDOM.render(
   <List
-    grid={{ gutter: 16, column: 4 }}
+    grid={{ gutter: 16, xs: 2, sm: 2, md: 4, lg: 4, xl: 6 }}
   >
     <List.Item>
       <Card title="Card title">Card content</Card>

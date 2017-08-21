@@ -5,6 +5,11 @@ import { Col } from '../grid';
 export interface ListItemGridType {
   gutter?: number;
   column?: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
 }
 
 export interface ListItemProps {
@@ -36,7 +41,7 @@ export const Meta = (props: ListItemMetaProps) => {
     title,
     description,
     ...others,
-    } = props;
+  } = props;
 
   const classString = classNames(`${prefixCls}-item-meta`, className);
 
@@ -106,14 +111,23 @@ export default class Item extends React.Component<ListItemProps, any> {
       </div>
     );
 
-    const mainContent = grid ? (<Col span={grid.column && Math.floor(24 / grid.column)}>
-      <div {...others} className={classString}>
-        {extra && extraContent}
-        {!extra && metaContent}
-        {!extra && content}
-        {!extra && actionsContent}
-      </div>
-    </Col>) : (
+    const mainContent = grid ? (
+      <Col
+        span={grid.column && Math.floor(24 / grid.column)}
+        xs={grid.xs && Math.floor(24 / grid.xs)}
+        sm={grid.sm && Math.floor(24 / grid.sm)}
+        md={grid.md && Math.floor(24 / grid.md)}
+        lg={grid.lg && Math.floor(24 / grid.lg)}
+        xl={grid.xl && Math.floor(24 / grid.xl)}
+      >
+        <div {...others} className={classString}>
+          {extra && extraContent}
+          {!extra && metaContent}
+          {!extra && content}
+          {!extra && actionsContent}
+        </div>
+      </Col>
+    ) : (
       <div {...others} className={classString}>
         {extra && extraContent}
         {!extra && metaContent}
