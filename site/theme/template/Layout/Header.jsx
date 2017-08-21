@@ -21,7 +21,6 @@ export default class Header extends React.Component {
     inputValue: '',
     menuVisible: false,
     menuMode: 'horizontal',
-    focused: false,
   };
 
   componentDidMount() {
@@ -38,8 +37,7 @@ export default class Header extends React.Component {
         },
       });
     document.addEventListener('keyup', (event) => {
-      const { focused } = this.state;
-      if (event.keyCode === 83 && !focused) {
+      if (event.keyCode === 83) {
         searchInput.focus();
       }
     });
@@ -55,7 +53,6 @@ export default class Header extends React.Component {
     const { intl, router } = this.context;
     this.setState({
       inputValue: '',
-      focused: false,
     }, () => {
       router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
       this.searchInput.blur();
