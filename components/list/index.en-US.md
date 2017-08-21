@@ -24,6 +24,18 @@ A list can be used to display content related to a single subject. The content c
 | loadingMore  | - | boolean   |  false  |
 | onMoreClick    | -| function   | - |
 | pagination | - | boolean \| object   |  false  |
+| grid | - | object   |  -  |
+| xs | `<768px` - | object   |  -  |
+| sm | `≥768px` - | object   |  -  |
+| md | `≥992px` - | object   |  -  |
+| lg | `≥1200px` - | object   |  -  |
+| xl | `≥1600px` - | object   |  -  |
+
+### List grid props
+| Property     | Description           | Type     | Default       |
+---------|-------------|------|---------
+| gutter | - | number | 0 |
+| column | - | number | - |
 
 ### List.Item
 

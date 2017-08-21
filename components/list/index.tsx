@@ -28,11 +28,63 @@ export interface ListProps {
   pagination?: any;
   prefixCls?: string;
   grid?: ListGridType;
-  style?: React.CSSProperties;
+  xs?: ListGridType;
+  sm?: ListGridType;
+  md?: ListGridType;
+  lg?: ListGridType;
+  xl?: ListGridType;
+}
+
+function gap(callback, time) {
+  let isNotRelease = false;
+  return function func() {
+    if (!isNotRelease) {
+      isNotRelease = true;
+      callback.apply(this, arguments);
+      setTimeout(function () {
+        isNotRelease = false;
+      }, time);
+    }
+  };
 }
 
 export default class List extends Component<ListProps> {
   static Item: typeof Item = Item;
+  state = {
+    grid: this.props.grid,
+  };
+
+  componentDidMount() {
+    this.responsive();
+
+    window.addEventListener('resize', gap(() => {
+      this.responsive();
+    }, 16.66));
+  }
+
+  responsive() {
+    const { grid, xs, sm, md, lg, xl } = this.props;
+    const width = document.documentElement.clientWidth;
+    let theGrid;
+
+    if (width >= 1600 && xl) {
+      theGrid = { ...xl };
+    } else if (width >= 1200 && lg) {
+      theGrid = { ...lg };
+    } else if (width >= 992 && md) {
+      theGrid = { ...md };
+    } else if (width >= 768 && sm) {
+      theGrid = { ...sm };
+    } else if (xs) {
+      theGrid = { ...xs };
+    } else {
+      theGrid = { ...grid };
+    }
+
+    this.setState({
+      grid: theGrid,
+    });
+  }
 
   render() {
     const {
@@ -47,8 +99,9 @@ export default class List extends Component<ListProps> {
       }),
       pagination = false,
       prefixCls = 'ant-list',
-      grid,
       } = this.props;
+
+    const { grid } = this.state;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',

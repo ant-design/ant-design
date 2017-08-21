@@ -25,6 +25,18 @@ cols: 1
 | loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
 | onMoreClick    | 点击 more 按钮的回调 | function   | - |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
+| grid | 列表栅格 | object   |  -  |
+| xs | `<768px` 响应式列表栅格，是一个含有列属性的对象 | object   |  -  |
+| sm | `≥768px` 响应式列表栅格，是一个含有列属性的对象 | object   |  -  |
+| md | `≥992px` 响应式列表栅格，是一个含有列属性的对象 | object   |  -  |
+| lg | `≥1200px` 响应式列表栅格，是一个含有列属性的对象 | object   |  -  |
+| xl | `≥1600px` 响应式列表栅格，是一个含有列属性的对象 | object   |  -  |
+
+### List grid props
+| 参数     | 说明           | 类型     | 默认值       |
+---------|-------------|------|---------
+| gutter | 栅格间隔 | number | 0 |
+| column | 列数 | number | - |
 
 ### List.Item
 

@@ -43,7 +43,7 @@ export const Meta = (props: ListItemMetaProps) => {
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
       {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <p className={`${prefixCls}-item-meta-description`}>{description}</p>}
+      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
     </div>
   );
 

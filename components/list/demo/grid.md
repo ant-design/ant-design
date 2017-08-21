@@ -19,6 +19,11 @@ import { List, Card } from 'antd';
 ReactDOM.render(
   <List
     grid={{ gutter: 16, column: 4 }}
+    xs={{ gutter: 16, column: 1 }}
+    sm={{ gutter: 16, column: 2 }}
+    md={{ gutter: 16, column: 4 }}
+    lg={{ gutter: 16, column: 6 }}
+    xl={{ gutter: 16, column: 8 }}
   >
     <List.Item>
       <Card title="Card title">Card content</Card>
