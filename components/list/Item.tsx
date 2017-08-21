@@ -1,11 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Col } from '../grid';
-
-export interface ListItemGridType {
-  gutter?: number;
-  column?: number;
-}
+import { ListGridType } from './index';
 
 export interface ListItemProps {
   className?: string;
@@ -14,7 +11,7 @@ export interface ListItemProps {
   style?: React.CSSProperties;
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
-  grid?: ListItemGridType;
+  grid?: ListGridType;
   Meta: React.ReactNode;
 }
 
@@ -36,14 +33,14 @@ export const Meta = (props: ListItemMetaProps) => {
     title,
     description,
     ...others,
-    } = props;
+  } = props;
 
   const classString = classNames(`${prefixCls}-item-meta`, className);
 
   const content = (
     <div className={`${prefixCls}-item-meta-content`}>
       {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <p className={`${prefixCls}-item-meta-description`}>{description}</p>}
+      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
     </div>
   );
 
@@ -55,8 +52,24 @@ export const Meta = (props: ListItemMetaProps) => {
   );
 };
 
+function getGrid(grid, t) {
+  return grid[t] && Math.floor(24 / grid[t]);
+}
+
+const GridColumns = ['', 1, 2, 3, 4, 6, 8, 12, 24];
+
 export default class Item extends React.Component<ListItemProps, any> {
   static Meta: typeof Meta = Meta;
+
+  static propTypes = {
+    column: PropTypes.oneOf(GridColumns),
+    xs: PropTypes.oneOf(GridColumns),
+    sm: PropTypes.oneOf(GridColumns),
+    md: PropTypes.oneOf(GridColumns),
+    lg: PropTypes.oneOf(GridColumns),
+    xl: PropTypes.oneOf(GridColumns),
+  };
+
   _id: number = new Date().getTime();
 
   render() {
@@ -106,14 +119,23 @@ export default class Item extends React.Component<ListItemProps, any> {
       </div>
     );
 
-    const mainContent = grid ? (<Col span={grid.column && Math.floor(24 / grid.column)}>
-      <div {...others} className={classString}>
-        {extra && extraContent}
-        {!extra && metaContent}
-        {!extra && content}
-        {!extra && actionsContent}
-      </div>
-    </Col>) : (
+    const mainContent = grid ? (
+      <Col
+        span={getGrid(grid, 'column')}
+        xs={getGrid(grid, 'xs')}
+        sm={getGrid(grid, 'sm')}
+        md={getGrid(grid, 'md')}
+        lg={getGrid(grid, 'lg')}
+        xl={getGrid(grid, 'xl')}
+      >
+        <div {...others} className={classString}>
+          {extra && extraContent}
+          {!extra && metaContent}
+          {!extra && content}
+          {!extra && actionsContent}
+        </div>
+      </Col>
+    ) : (
       <div {...others} className={classString}>
         {extra && extraContent}
         {!extra && metaContent}

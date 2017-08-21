@@ -33,17 +33,21 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             Ant design
           </a>
         </h4>
-        <p
+        <div
           class="ant-list-item-meta-description"
         >
           Ant Design, a design language for background applications, is refined by Ant UED Team
-        </p>
+        </div>
       </div>
     </div>
     <div
       class="ant-list-item-content"
     >
-      Content
+      <div
+        style="padding:24px;"
+      >
+        Content
+      </div>
     </div>
     <ul
       class="ant-list-item-action"
@@ -92,17 +96,21 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             Ant design
           </a>
         </h4>
-        <p
+        <div
           class="ant-list-item-meta-description"
         >
           Ant Design, a design language for background applications, is refined by Ant UED Team
-        </p>
+        </div>
       </div>
     </div>
     <div
       class="ant-list-item-content"
     >
-      Content
+      <div
+        style="padding:24px;"
+      >
+        Content
+      </div>
     </div>
     <ul
       class="ant-list-item-action"
@@ -151,17 +159,21 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             Ant design
           </a>
         </h4>
-        <p
+        <div
           class="ant-list-item-meta-description"
         >
           Ant Design, a design language for background applications, is refined by Ant UED Team
-        </p>
+        </div>
       </div>
     </div>
     <div
       class="ant-list-item-content"
     >
-      Content
+      <div
+        style="padding:24px;"
+      >
+        Content
+      </div>
     </div>
     <ul
       class="ant-list-item-action"
@@ -210,17 +222,21 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             Ant design
           </a>
         </h4>
-        <p
+        <div
           class="ant-list-item-meta-description"
         >
           Ant Design, a design language for background applications, is refined by Ant UED Team
-        </p>
+        </div>
       </div>
     </div>
     <div
       class="ant-list-item-content"
     >
-      Content
+      <div
+        style="padding:24px;"
+      >
+        Content
+      </div>
     </div>
     <ul
       class="ant-list-item-action"
@@ -477,6 +493,228 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
+<div
+  class="ant-list ant-list-bordered ant-list-grid"
+>
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;"
+  >
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+    >
+      <div
+        class="ant-list-item"
+        style="padding-left:8px;padding-right:8px;"
+      >
+        <div
+          class="ant-list-item-content"
+        >
+          <div
+            class="ant-card ant-card-bordered"
+          >
+            <div>
+              <div
+                class="ant-card-head"
+              >
+                <div
+                  class="ant-card-head-title"
+                >
+                  Card title
+                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                <div>
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-bordered"
@@ -516,11 +754,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 0
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -612,11 +850,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 1
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -708,11 +946,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 2
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -804,11 +1042,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 3
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -900,11 +1138,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 4
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -996,11 +1234,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 5
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -1092,11 +1330,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 6
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -1188,11 +1426,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 7
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -1284,11 +1522,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 8
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div
@@ -1380,11 +1618,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 ant design part 9
               </a>
             </h4>
-            <p
+            <div
               class="ant-list-item-meta-description"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team.
-            </p>
+            </div>
           </div>
         </div>
         <div

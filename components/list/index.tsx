@@ -11,7 +11,12 @@ import Item from './Item';
 
 export interface ListGridType {
   gutter?: number;
-  column?: number;
+  column?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  xs?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  sm?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  md?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  lg?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  xl?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 }
 
 export interface ListProps {
@@ -28,7 +33,6 @@ export interface ListProps {
   pagination?: any;
   prefixCls?: string;
   grid?: ListGridType;
-  style?: React.CSSProperties;
 }
 
 export default class List extends Component<ListProps> {
@@ -48,7 +52,7 @@ export default class List extends Component<ListProps> {
       pagination = false,
       prefixCls = 'ant-list',
       grid,
-      } = this.props;
+    } = this.props;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',

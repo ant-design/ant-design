@@ -28,7 +28,7 @@ ReactDOM.render(
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      Content
+      <div style={{ padding: 24 }}>Content</div>
     </List.Item>
     <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
@@ -36,7 +36,7 @@ ReactDOM.render(
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      Content
+      <div style={{ padding: 24 }}>Content</div>
     </List.Item>
     <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
@@ -44,7 +44,7 @@ ReactDOM.render(
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      Content
+      <div style={{ padding: 24 }}>Content</div>
     </List.Item>
     <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
       <List.Item.Meta
@@ -52,7 +52,7 @@ ReactDOM.render(
         title={<a href="https://ant.design">Ant design</a>}
         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
       />
-      Content
+      <div style={{ padding: 24 }}>Content</div>
     </List.Item>
   </List>
 , mountNode);
