@@ -17,6 +17,29 @@ timeline: true
 
 ---
 
+## 2.12.7
+
+`2017-08-21`
+
+- Angular@4.0 版 antd [ng-zorro-antd](https://ng.ant.design) 开源。
+- 优化 Affix 支持的场景。[01d4acb](https://github.com/ant-design/ant-design/commit/01d4acb7a9b030be3552b4ca19b4e899dc2bb7c7)
+- 修复 AutoComplete children ref 失效的问题。[#6814](https://github.com/ant-design/ant-design/issues/6814)
+- Button
+  - 优化自动在中文字符中间插入空格的逻辑。[59b11f3](https://github.com/ant-design/ant-design/commit/59b11f3b480d43cb32fb24e351cb4c4dd569243c)
+  - 修复点击事件的 `event.target` 不是 button 的问题。[#7034](https://github.com/ant-design/ant-design/issues/7034)
+- 修复 Carousel 的 `innerSlider` 引用问题。[#7191](https://github.com/ant-design/ant-design/issues/7191)
+- 修复 DatePicker 中的按钮样式。[ad6dbcb](https://github.com/ant-design/ant-design/commit/ad6dbcb9c6dac407a38f2391d3e5fa1d8ae1cfab)
+- 修复 Form TypeScript definition。[#7245](https://github.com/ant-design/ant-design/pull/7245)
+- 修复 InputNumber 的 TypeScript definition。[#7257](https://github.com/ant-design/ant-design/issues/7257)
+- 修复 `Layout.Sider` 在 IE11 下没有折叠动画的问题。[#6349](https://github.com/ant-design/ant-design/issues/6349)
+- 修复 LocaleProvider 西班牙语的拼写问题。[#7234](https://github.com/ant-design/ant-design/pull/7234) [@ramsesmoreno](https://github.com/ramsesmoreno)
+- 修复 notification 默认 placement 会被覆盖的问题。[#5895](https://github.com/ant-design/ant-design/issues/5895)
+- 修复 Pagination 按钮的 disabled 样式。[cf3c0aa](https://github.com/ant-design/ant-design/commit/cf3c0aac43e2825bfd85ca3b8abbf4742e504260)
+- 修复 Select exports 导致的 webpack 构建错误的问题。[#7222](https://github.com/ant-design/ant-design/issues/7222)
+- 修复 Tabs 在父容器宽度动态变化时切换按钮没有出现的问题。[#7231](https://github.com/ant-design/ant-design/issues/7231) [#7210](https://github.com/ant-design/ant-design/issues/7210)
+- 修复 Timeline 在只有一个 `Timeline.Item` 时的样式问题。[#7214](https://github.com/ant-design/ant-design/issues/7214)
+- 修复 Upload 在 uid 为 0 时的错误行为。[#7269](https://github.com/ant-design/ant-design/issues/7269)
+
 ## 2.12.6
 
 `2017-08-11`

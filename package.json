@@ -1,6 +1,10 @@
 {
   "name": "antd",
+<<<<<<< HEAD
   "version": "3.0.0-alpha.3",
+=======
+  "version": "2.12.7",
+>>>>>>> master
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -80,7 +84,7 @@
   "devDependencies": {
     "@types/react": "^15.0.38",
     "@types/react-dom": "~0.14.18",
-    "antd-tools": "~1.7.0",
+    "antd-tools": "~1.8.0",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-plugin-import": "^1.0.0",

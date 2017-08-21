@@ -28,7 +28,7 @@ title: Dropdown
 
 > 注意： Menu.Item 必须设置唯一的 key 属性。
 
-> 如果希望去掉菜单选中的背景效果，可以指定 `<Menu selectedKey={[]}>`.
+> 如果希望去掉菜单选中的背景效果，可以指定 `<Menu selectedKeys={[]}>`.
 
 ### Dropdown.Button
 

@@ -59,7 +59,7 @@ The following `options` are available:
 | Property      | Description                          | Type       |
 |-----------|------------------------------------------|------------|
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
-| mapPropsToFields | Convert props to corresponding field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | Convert props to field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
 | onValuesChange | A handler while value of any field is changed | (props, values) => void |
 
 If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
@@ -87,9 +87,9 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
 
-1. You don't need to use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
+1. You shouldn't to use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
 2. You can not set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
-3. You don't need to call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
+3. You shouldn't to call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention
 

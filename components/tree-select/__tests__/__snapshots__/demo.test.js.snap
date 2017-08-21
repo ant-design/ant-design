@@ -86,6 +86,45 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
+<span
+  class="ant-select ant-select-enabled ant-select-allow-clear"
+  style="width:300px;"
+>
+  <span
+    aria-autocomplete="list"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--multiple"
+    role="combobox"
+  >
+    <ul
+      class="ant-select-selection__rendered"
+    >
+      <li
+        class="ant-select-search ant-select-search--inline"
+      >
+        <span
+          class="ant-select-search__field__wrap"
+        >
+          <input
+            class="ant-select-search__field"
+            role="textbox"
+            value=""
+          />
+        </span>
+      </li>
+    </ul>
+    <span
+      class="ant-select-search__field__placeholder"
+      style="display:block;"
+    >
+      Please select
+    </span>
+  </span>
+</span>
+`;
+
 exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
 <span
   class="ant-select ant-select-enabled"
