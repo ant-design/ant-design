@@ -34,6 +34,7 @@
 
     &-title {
       font-size: @font-size-lg;
+      min-height: @card-head-height;
       padding: @card-head-padding 0;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -103,7 +104,11 @@
     }
   }
 
-  &-contain-tabs &-head-title,
+  &-contain-tabs &-head-title {
+    padding-bottom: 0;
+    min-height: @card-head-height - @card-head-padding;
+  }
+
   &-contain-tabs &-extra {
     padding-bottom: 0;
   }
@@ -181,6 +186,7 @@
     background: @background-color-base;
 
     &-title {
+      min-height: @card-inner-head-height;
       padding: @card-inner-head-padding 0;
     }
   }

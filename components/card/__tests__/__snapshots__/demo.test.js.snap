@@ -569,7 +569,7 @@ exports[`renders ./components/card/demo/simple.md correctly 1`] = `
 exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
 <div>
   <div
-    class="ant-card ant-card-bordered"
+    class="ant-card ant-card-bordered ant-card-contain-tabs"
     style="width:100%;"
   >
     <div>
@@ -681,7 +681,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
   <br />
   <br />
   <div
-    class="ant-card ant-card-bordered"
+    class="ant-card ant-card-bordered ant-card-contain-tabs"
     style="width:100%;"
   >
     <div>
