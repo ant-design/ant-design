@@ -83,7 +83,7 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 Ant Design 的布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
-- [react-blocks](http://whoisandie.github.io/react-blocks/)
+- [react-blocks](https://github.com/whoisandy/react-blocks/)
 
 ### Row
 

@@ -5,7 +5,7 @@ type: Data Entry
 title: Select
 ---
 
-类似 Select2 的选择器。
+下拉选择器。
 
 ## 何时使用
 
