@@ -68,7 +68,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
-| 参数      | 说明                                     | 类型       |
+| 方法      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |
 | getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
