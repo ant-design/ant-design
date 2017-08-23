@@ -114,7 +114,6 @@
     "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",
     "jest": "^20.0.4",
-    "jsdom": "^11.2.0",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^4.0.2",
     "mockdate": "^2.0.1",
