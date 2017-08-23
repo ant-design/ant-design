@@ -84,7 +84,7 @@ Flex layout is based on a grid 24 to define each "box" in width, but not rigidly
 Ant Design layout component if it can not meet your needs, you can use the excellent layout of the components of the community:
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
-- [react-blocks](http://whoisandie.github.io/react-blocks/)
+- [react-blocks](https://github.com/whoisandy/react-blocks/)
 
 ### Row
 
