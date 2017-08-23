@@ -112,6 +112,7 @@ export default class Card extends Component<CardProps, {}> {
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+      [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-type-${type}`]: !!type,
     });
 

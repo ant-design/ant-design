@@ -34,8 +34,8 @@
 
     &-title {
       font-size: @font-size-lg;
-      height: @card-head-height;
-      line-height: @card-head-height;
+      min-height: @card-head-height;
+      padding: @card-head-padding 0;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -46,17 +46,8 @@
 
     .@{ant-prefix}-tabs {
       margin-bottom: -17px;
-      margin-top: -8px;
+      margin-top: 4px;
       clear: both;
-
-      // For align with extra
-      &:only-child {
-        margin-top: 0;
-
-        .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-          padding: 13px 20px 15px;
-        }
-      }
 
       &-bar {
         border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -66,7 +57,7 @@
 
   &-extra {
     float: right;
-    line-height: @card-head-height;
+    padding: @card-head-padding + 1.5px 0;
   }
 
   &-body {
@@ -111,6 +102,15 @@
       z-index: 1;
       box-shadow: @box-shadow-base;
     }
+  }
+
+  &-contain-tabs &-head-title {
+    padding-bottom: 0;
+    min-height: @card-head-height - @card-head-padding;
+  }
+
+  &-contain-tabs &-extra {
+    padding-bottom: 0;
   }
 
   &-cover > * {
@@ -172,10 +172,6 @@
     padding: @card-padding-base @card-padding-wider;
   }
 
-  &-wider-padding &-extra {
-    right: @card-padding-wider;
-  }
-
   &-padding-transition &-head,
   &-padding-transition &-body {
     transition: padding .3s;
@@ -190,8 +186,8 @@
     background: @background-color-base;
 
     &-title {
-      height: @card-inner-head-height;
-      line-height: @card-inner-head-height;
+      min-height: @card-inner-head-height;
+      padding: @card-inner-head-padding 0;
     }
   }
 
@@ -200,7 +196,7 @@
   }
 
   &-type-inner &-extra {
-    right: @card-padding-base;
+    padding: @card-inner-head-padding + 1.5px 0;
   }
 
   &-meta {
