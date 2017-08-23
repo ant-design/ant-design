@@ -84,6 +84,15 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | resetFields | 重置一组输入控件的值（为 `initialValue`）与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 | |
 
+### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
+
+| 参数 | 说明 | 类型 | 默认值 |
+|-----|-----|------|-------|
+| options.first | 若为 true，则每一表单域的都会在碰到第一个失败了的校验规则后停止校验 | boolean | false |
+| options.firstFields | 指定表单域会在碰到第一个失败了的校验规则后停止校验 | String[] | [] |
+| options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
+| options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+
 ### this.props.form.getFieldDecorator(id, options)
 
 经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：

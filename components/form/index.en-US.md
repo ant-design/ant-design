@@ -83,6 +83,16 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
 | getFieldDecorator | Two-way binding for form, please read below for details. | |
 
+### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
+
+| 参数 | 说明 | 类型 | 默认值 |
+|-----|-----|------|-------|
+| options.first | If `true`, every field will stop validation at first failed rule | boolean | false |
+| options.firstFields | Those fields will stop validation at first failed rule | String[] | [] |
+| options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
+| options.scroll | Config scroll behavior of `validateFieldsAndScroll`, more: [dom-scroll-into-view's config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+
+
 ### this.props.form.getFieldDecorator(id, options)
 
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
