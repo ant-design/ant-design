@@ -363,10 +363,11 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
       class="ant-checkbox-group-item ant-checkbox-wrapper"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-checkbox-disabled"
       >
         <input
           class="ant-checkbox-input"
+          disabled=""
           type="checkbox"
         />
         <span
