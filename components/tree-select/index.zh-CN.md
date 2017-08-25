@@ -36,7 +36,7 @@ title: TreeSelect
 | treeDefaultExpandAll | 默认展开所有树节点 | boolean | false |
 | treeDefaultExpandedKeys | 默认展开的树节点 | string[] | - |
 | treeCheckable | 显示 checkbox | boolean | false |
-| treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联）| boolean | false |
+| treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |
 | filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | boolean\|Function(inputValue: string, treeNode: TreeNode) (函数需要返回bool值) | Function |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | 'value' |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | 'title' |

@@ -37,7 +37,7 @@ showCheckedStrategy | The way show selected item in box. __Default:__ just show 
 treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false
 treeDefaultExpandedKeys | Default expanded treeNodes | string[] | -
 treeCheckable | Whether to show checkbox on the treeNodes | boolean | false
-treeCheckStrictly | Whether to check nodes precisely(in the `checkable` mode), means parent and child nodes are not associated | boolean | false
+treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false
 filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function
 treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value'
 treeNodeLabelProp | Will render as content of select  | string | 'title'
