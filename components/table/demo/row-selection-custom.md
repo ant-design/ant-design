@@ -51,6 +51,7 @@ class App extends React.Component {
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
+      hideDefaultSelections: true,
       selections: [{
         key: 'all-data',
         text: 'Select All Data',

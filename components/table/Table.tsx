@@ -56,6 +56,7 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
   onSelectInvert?: (selectedRows: Object[]) => any;
   selections?: SelectionDecorator[] | boolean;
+  hideDefaultSelections?: boolean;
 }
 
 export interface DefaultColumnSortOrder {
@@ -691,6 +692,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             prefixCls={prefixCls}
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
+            hideDefaultSelections={rowSelection.hideDefaultSelections}
             getPopupContainer={this.getPopupContainer}
           />
         );
