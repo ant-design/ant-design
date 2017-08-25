@@ -4,7 +4,7 @@ type: Data Entry
 title: Select
 ---
 
-A Selector similar to Select2.
+Select component to select value from options.
 
 ## When To Use
 

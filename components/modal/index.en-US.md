@@ -39,17 +39,7 @@ and so on.
 #### Destroy on close
 
 > The state of Modal will be preserved at it's component lifecircle.
-> If you wish to open it with brand new state everytime, you need to reset state manually. Or simply [give a new key](https://github.com/ant-design/ant-design/issues/4165) to Modal when visible is changed to `true`, React will treat it as a new component.
-
-> ```jsx
-> <Modal key={this.state.newKey} visible={this.state.visible} />
-> ```
-
-> Another way is to conditionally mount modal.
-
-> ```jsx
-> {this.state.visible && <Modal visible={true} />}
-> ```
+> If you wish to open it with brand new state everytime, you need to reset state manually.
 
 ### Modal.method()
 

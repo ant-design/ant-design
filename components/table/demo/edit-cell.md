@@ -74,10 +74,10 @@ class EditableTable extends React.Component {
       title: 'name',
       dataIndex: 'name',
       width: '30%',
-      render: (text, record, index) => (
+      render: (text, record) => (
         <EditableCell
           value={text}
-          onChange={this.onCellChange(index, 'name')}
+          onChange={this.onCellChange(record.key, 'name')}
         />
       ),
     }, {
@@ -89,11 +89,11 @@ class EditableTable extends React.Component {
     }, {
       title: 'operation',
       dataIndex: 'operation',
-      render: (text, record, index) => {
+      render: (text, record) => {
         return (
           this.state.dataSource.length > 1 ?
           (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(index)}>
+            <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(record.key)}>
               <a href="#">Delete</a>
             </Popconfirm>
           ) : null
@@ -116,17 +116,19 @@ class EditableTable extends React.Component {
       count: 2,
     };
   }
-  onCellChange = (index, key) => {
+  onCellChange = (key, dataIndex) => {
     return (value) => {
       const dataSource = [...this.state.dataSource];
-      dataSource[index][key] = value;
-      this.setState({ dataSource });
+      const target = dataSource.find(item => item.key === key);
+      if (target) {
+        target[dataIndex] = value;
+        this.setState({ dataSource });
+      }
     };
   }
-  onDelete = (index) => {
+  onDelete = (key) => {
     const dataSource = [...this.state.dataSource];
-    dataSource.splice(index, 1);
-    this.setState({ dataSource });
+    this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   }
   handleAdd = () => {
     const { count, dataSource } = this.state;

@@ -68,7 +68,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
-| 参数      | 说明                                     | 类型       |
+| 方法      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |
 | getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
@@ -83,6 +83,15 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | isFieldsTouched | 判断是否任一输入控件经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (names?: string[]) => boolean |
 | resetFields | 重置一组输入控件的值（为 `initialValue`）与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 | |
+
+### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
+
+| 参数 | 说明 | 类型 | 默认值 |
+|-----|-----|------|-------|
+| options.first | 若为 true，则每一表单域的都会在碰到第一个失败了的校验规则后停止校验 | boolean | false |
+| options.firstFields | 指定表单域会在碰到第一个失败了的校验规则后停止校验 | String[] | [] |
+| options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
+| options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
 
 ### this.props.form.getFieldDecorator(id, options)
 

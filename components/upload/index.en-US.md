@@ -29,7 +29,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | multiple   | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true  | boolean     | false |
 | accept     | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | string      | -   |
-| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported by old IE**。 | (file, fileList) => `boolean | Promise`    | -    |
+| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise`    | -    |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
 | onChange   | A callback function, can be executed when uploading state is changing. See [onChange](#onChange)                | Function    | -   |
 | listType   | Built-in stylesheets, support for three types: `text`, `picture` or `picture-card`     | string      | 'text'|

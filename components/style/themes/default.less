@@ -17,20 +17,14 @@
 // alert info backgrounds.
 @primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
 @primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
-// unused
-@primary-3: color(~`colorPalette("@{primary-color}", 3)`);
-@primary-4: color(~`colorPalette("@{primary-color}", 4)`);
-// Color used to control the text color in many active and hover states.
-@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
-@primary-6: @primary-color;                                 // don't use, use @primary-color
-// Color used to control the text color of active buttons.
+@primary-3: color(~`colorPalette("@{primary-color}", 3)`);  // unused
+@primary-4: color(~`colorPalette("@{primary-color}", 4)`);  // unused
+@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+@primary-6: @primary-color;                                 // color used to control the text color of active buttons, don't use, use @primary-color
 @primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
-// unused
-@primary-8: color(~`colorPalette("@{primary-color}", 8)`);
-// unused
-@primary-9: color(~`colorPalette("@{primary-color}", 9)`);
-// unused
-@primary-10: color(~`colorPalette("@{primary-color}", 10)`);
+@primary-8: color(~`colorPalette("@{primary-color}", 8)`);  // unused
+@primary-9: color(~`colorPalette("@{primary-color}", 9)`);  // unused
+@primary-10: color(~`colorPalette("@{primary-color}", 10)`);  // unused
 
 // Base Scaffolding Variables
 // ---
@@ -244,7 +238,7 @@
 //** Tooltip text color
 @tooltip-color: #fff;
 //** Tooltip background color
-@tooltip-bg: rgba(64, 64, 64, .85);
+@tooltip-bg: rgba(0, 0, 0, .75);
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
