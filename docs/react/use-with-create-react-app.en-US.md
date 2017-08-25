@@ -99,39 +99,51 @@ Ok, you now see a blue primary button displaying on the page. Next you can choos
 We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo.
 For instance, we actually import all styles of components in the project which maybe a network perfermance issue.
 
-Sometimes it could be necessary to customize the default webpack config. We can achieve that by using `eject` script command.
+Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of custom create-react-app config solutions.
 
-```bash
-$ yarn run eject
+Import react-app-rewired and modify the `scripts` field in package.json.
+
+```
+$ yarn add react-app-rewired --dev
+```
+
+```diff
+/* package.json */
+"scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test --env=jsdom",
++   "test": "react-app-rewired test --env=jsdom",
+}
+```
+
+Then create a `config-overrides.js` at root directory of your project for futher overriding.
+
+```js
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  return config;
+};
 ```
 
 ### Use babel-plugin-import
 
-[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). After ejecting all config files of antd-demo, we are now allowed to install it and modify `config/webpack.config.dev.js`.
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
 $ yarn add babel-plugin-import --dev
 ```
 
 ```diff
-// Process JS with Babel.
-{
-  test: /\.(js|jsx)$/,
-  include: paths.appSrc,
-  loader: require.resolve('babel-loader'),
-  options: {
-+   plugins: [
-+     ['import', { libraryName: 'antd', style: 'css' }],
-+   ],
-    // This is a feature of `babel-loader` for webpack (not Babel itself).
-    // It enables caching results in ./node_modules/.cache/babel-loader/
-    // directory for faster rebuilds.
-    cacheDirectory: true
-  }
-},
-```
++ const { injectBabelPlugin } = require('react-app-rewired');
 
-> Note: Because there is no `.babelrc` file after the config eject, we have to put the babel option into `webpack.config.js` or `babel` field of `package.json`.
+  module.exports = function override(config, env) {
++   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
+    return config;
+  };
+```
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
 
@@ -155,89 +167,35 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
   export default App;
 ```
 
-Then reboot `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
+Then reboot with `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
 
 ### Customize Theme
 
-According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader), so we add it.
+According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader). We could use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve that, import it and modify `config-overrides.js` like below.
 
 ```bash
-$ yarn add less less-loader --dev
+$ yarn add react-app-rewire-less --dev
 ```
 
 ```diff
-  {
-    exclude: [
-      /\.html$/,
-      /\.(js|jsx)$/,
-      /\.css$/,
-+     /\.less$/,
-      /\.json$/,
-      /\.bmp$/,
-      /\.gif$/,
-      /\.jpe?g$/,
-      /\.png$/,
-    ],
-    loader: require.resolve('file-loader'),
-    options: {
-      name: 'static/media/[name].[hash:8].[ext]',
-    },
-  }
+  const { injectBabelPlugin } = require('react-app-rewired');
++ const rewireLess = require('react-app-rewire-less');
 
-...
-
-  // Process JS with Babel.
-  {
-    test: /\.(js|jsx)$/,
-    include: paths.appSrc,
-    loader: 'babel',
-    options: {
-      plugins: [
--       ['import', [{ libraryName: 'antd', style: 'css' }]],
-+       ['import', [{ libraryName: 'antd', style: true }]],  // import less
-      ],
-   },
-
-...
-
-+  // Parse less files and modify variables
-+  {
-+    test: /\.less$/,
-+    use: [
-+      require.resolve('style-loader'),
-+      require.resolve('css-loader'),
-+      {
-+        loader: require.resolve('postcss-loader'),
-+        options: {
-+          ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-+          plugins: () => [
-+            require('postcss-flexbugs-fixes'),
-+            autoprefixer({
-+              browsers: [
-+                '>1%',
-+                'last 4 versions',
-+                'Firefox ESR',
-+                'not ie < 9', // React doesn't support IE8 anyway
-+              ],
-+              flexbox: 'no-2009',
-+            }),
-+          ],
-+        },
-+      },
-+      {
-+        loader: require.resolve('less-loader'),
-+        options: {
-+          modifyVars: { "@primary-color": "#1DA57A" },
-+        },
-+      },
-+    ],
-+  },
-],
+  module.exports = function override(config, env) {
+-   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
++   config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);  // change importing css to less
++   config = rewireLess(config, env, {
++     modifyVars: { "@primary-color": "#1DA57A" },
++   });
+    return config;
+  };
 ```
 
 We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
 
-> Note, we only modified `webpack.config.dev.js` now, if you wish this config working on production environment, you need to update `webpack.config.prod.js` as well.
+## eject
+
+You can also could try `[yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)`  for custom setup of create-react-app, although you should dig into it by yourself.
 
 ## Source code and other boilerplates
 
