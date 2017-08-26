@@ -31,7 +31,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     const dropdownProps = {
       align,
       overlay,
-      disabled,
+      trigger: disabled ? [] : trigger,
       onVisibleChange,
       placement,
       getPopupContainer,
