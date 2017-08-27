@@ -1,11 +1,11 @@
-import CalendarLocale from 'rc-calendar/lib/locale/fa_IR';
-import TimePickerLocale from '../../time-picker/locale/fa_IR';
+import CalendarLocale from 'rc-calendar/lib/locale/sr_RS';
+import TimePickerLocale from '../../time-picker/locale/sr_RS';
 
 // Merge into a locale object
 const locale = {
   lang: {
-    placeholder: 'انتخاب تاریخ',
-    rangePlaceholder: ['تاریخ شروع', 'تاریخ پایان'],
+    placeholder: 'Izaberite datum',
+    rangePlaceholder: ['Početni datum', 'Krajnji datum'],
     ...CalendarLocale,
   },
   timePickerLocale: {
