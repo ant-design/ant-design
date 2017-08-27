@@ -26,7 +26,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
 - 🐞 Fix `disabled` logic of CheckboxGroup and Checkbox. [#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
 - 🐞 Fix errors of rendering Spin and Carousel in react-snapshot or other jsdom environment. [#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
-  ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
 - 🐞 Fix some details of Select, Tooltip and Menu.
 
 ## 2.12.7
