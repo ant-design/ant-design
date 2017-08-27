@@ -69,6 +69,11 @@
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
     transition: all .3s;
+    // height placeholder for empty cell
+    &:empty:after {
+      content: '.';
+      visibility: hidden;
+    }
   }
 
   &-thead > tr,
@@ -438,6 +443,14 @@
     .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
+
+    &-fixed-columns {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: transparent;
+      pointer-events: none;
+    }
   }
 
   &-pagination {
@@ -623,12 +636,6 @@
   &-fixed-header&-empty &-scroll &-body {
     padding-bottom: 20px;
     margin-bottom: -20px;
-  }
-
-  // Ignore the scroll.x width
-  // https://github.com/ant-design/ant-design/issues/7142
-  &-empty &-scroll &-body &-fixed {
-    width: auto !important;
   }
 
   &-fixed-left,
