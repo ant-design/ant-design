@@ -1,10 +1,6 @@
 {
   "name": "antd",
-<<<<<<< HEAD
   "version": "3.0.0-alpha.5",
-=======
-  "version": "2.12.8",
->>>>>>> master
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
