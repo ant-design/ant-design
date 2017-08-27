@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders empty table 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 1
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 2
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 3
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 4
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 5
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 6
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 7
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 8
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              />
+            </table>
+          </div>
+          <div
+            class="ant-table-placeholder"
+          >
+            <span>
+              <i
+                class="anticon anticon-frown-o"
+              />
+              暂无数据
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table renders empty table with custom emptyText 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 1
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 2
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 3
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 4
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 5
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 6
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 7
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Column 8
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              />
+            </table>
+          </div>
+          <div
+            class="ant-table-placeholder"
+          >
+            custom empty text 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table renders empty table with fixed columns 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-scroll"
+          >
+            <div
+              class="ant-table-body"
+            >
+              <table
+                class=""
+              >
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px;"
+                  />
+                  <col
+                    style="width:100px;min-width:100px;"
+                  />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col />
+                  <col
+                    style="width:100px;min-width:100px;"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Full Name
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Age
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 1
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 2
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 3
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 4
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 5
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 6
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 7
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Column 8
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span>
+                        Action
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row  ant-table-row-level-0"
+                  >
+                    <td
+                      class=""
+                    >
+                      <span
+                        class="ant-table-row-indent indent-level-0"
+                        style="padding-left:0px;"
+                      />
+                    </td>
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                    <td
+                      class=""
+                    />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="ant-table-placeholder ant-table-placeholder-fixed-columns"
+            >
+              <span>
+                <i
+                  class="anticon anticon-frown-o"
+                />
+                暂无数据
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-left"
+          >
+            <div
+              class="ant-table-body-outer"
+            >
+              <div
+                class="ant-table-body-inner"
+              >
+                <table
+                  class="ant-table-fixed"
+                >
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px;"
+                    />
+                    <col
+                      style="width:100px;min-width:100px;"
+                    />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class=""
+                      >
+                        <span>
+                          Full Name
+                        </span>
+                      </th>
+                      <th
+                        class=""
+                      >
+                        <span>
+                          Age
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0"
+                    >
+                      <td
+                        class=""
+                      >
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;"
+                        />
+                      </td>
+                      <td
+                        class=""
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-right"
+          >
+            <div
+              class="ant-table-body-outer"
+            >
+              <div
+                class="ant-table-body-inner"
+              >
+                <table
+                  class="ant-table-fixed"
+                >
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px;"
+                    />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class=""
+                      >
+                        <span>
+                          Action
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0"
+                    >
+                      <td
+                        class=""
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -32,7 +32,7 @@ title: 提供邀请
 
 <br>
 
-<img class="preview-img" align="right" alt="漫游探索邀请示例 1" description="在用户首次登陆时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
+<img class="preview-img" align="right" alt="漫游探索邀请示例 1" description="在用户首次登录时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
 
 <img class="preview-img" align="right" alt="漫游探索邀请示例 2" src="https://os.alipayobjects.com/rmsportal/KQabdaTbolVuMld.png">
 

@@ -17,6 +17,17 @@ timeline: true
 
 ---
 
+## 2.12.8
+
+`2017-08-27`
+
+- 📖 重写了 [《在 create-react-app 中使用》](/docs/react/use-with-create-react-app) 文档，现在不再需要 eject。[#7276](https://github.com/ant-design/ant-design/pull/7276)
+- 🌟 优化了固定列表格的空数据样式。[#7298](https://github.com/ant-design/ant-design/issues/7298)
+  ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
+- 🐞 修复了 CheckboxGroup 和 Checkbox 的 `disabled` 属性逻辑。[#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
+- 🐞 修复在 react-snapshot 或 jsdom 环境下测试 Spin 和 Carousel 时报错的问题。[#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
+- 🐞 修复 Select、Tooltip、Menu 的一些细节样式问题。
+
 ## 2.12.7
 
 `2017-08-21`

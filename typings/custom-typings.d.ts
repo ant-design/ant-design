@@ -91,3 +91,5 @@ declare module "*.json" {
 }
 
 declare module "prop-types"
+
+declare function require(name: string): any;

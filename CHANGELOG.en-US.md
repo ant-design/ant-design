@@ -17,6 +17,17 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.12.8
+
+`2017-08-27`
+
+- 📖 Rewrite the [Use in create-react-app](/docs/react/use-with-create-react-app) documentation without ejecting.  [#7276](https://github.com/ant-design/ant-design/pull/7276)
+- 🌟 Better empty data style for fixed-columns Table. [#7298](https://github.com/ant-design/ant-design/issues/7298)
+  ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
+- 🐞 Fix `disabled` logic of CheckboxGroup and Checkbox. [#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
+- 🐞 Fix errors of rendering Spin and Carousel in react-snapshot or other jsdom environment. [#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
+- 🐞 Fix some details of Select, Tooltip and Menu.
+
 ## 2.12.7
 
 `2017-08-21`
@@ -181,7 +192,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Fix Select overflow issue. [#6621](https://github.com/ant-design/ant-design/issues/6621)
 - Slider
   - Improve styles. [#6665](https://github.com/ant-design/ant-design/issues/6665)
-  - Upgrade rc-slider to 8.2.0, add `dotStyle`，`activeDotStyle` props. [rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
+  - Upgrade rc-slider to 8.2.0, add `dotStyle`, `activeDotStyle` props. [rc-slider/pull/292](https://github.com/react-component/slider/pull/292)
 - Fix Spin z-index issue. [#6759](https://github.com/ant-design/ant-design/issues/6759)
 - Fix nested Steps style issue. [#6754](https://github.com/ant-design/ant-design/issues/6754)
 - Table
@@ -190,7 +201,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Make supplement for `loading` docs. [pull/6763](https://github.com/ant-design/ant-design/pull/6763) [@hansnow](https://github.com/hansnow)
   - Upgrade rc-table to 5.4.0, support `onRowMouseEnter` and `onRowMouseLeave`. [rc-table/0db582](https://github.com/react-component/table/commit/0db582a75dfa119715eb4db8a59eacfca744c5a0)
 - Improve TimePicker format support. [950c32](https://github.com/ant-design/ant-design/commit/950c321b25091ef31b130b83674478974590d7f3)
-- Make style improvement or tweaking for many components, includes [Checkbox](https://ant.design/components/checkbox/)，[Radio](https://ant.design/components/radio/)，[Tabs](https://ant.design/components/tabs/)，[Card](https://ant.design/components/card/) and etc.
+- Make style improvement or tweaking for many components, includes [Checkbox](https://ant.design/components/checkbox/), [Radio](https://ant.design/components/radio/), [Tabs](https://ant.design/components/tabs/), [Card](https://ant.design/components/card/) and etc.
 - Now you can open demo in codepen. [#5140](https://github.com/ant-design/ant-design/issues/5140)
 
 ## 2.11.2
@@ -706,7 +717,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Fixed Badge misplace issue when browser zoom above 100%. [#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 * Fixed a mis-align issue of fixed header Table. [#4750](https://github.com/ant-design/ant-design/issues/4750)
 * Fixed Table scrolling lag issue in IE. [#4522](https://github.com/ant-design/ant-design/issues/4522)
-* Add icon aliases: `addfile` => `file-add`，`addfolder` => `folder-open`, and the old type names are still working. [#4758](https://github.com/ant-design/ant-design/issues/4758)
+* Add icon aliases: `addfile` => `file-add`, `addfolder` => `folder-open`, and the old type names are still working. [#4758](https://github.com/ant-design/ant-design/issues/4758)
 
 ## 2.6.4
 
