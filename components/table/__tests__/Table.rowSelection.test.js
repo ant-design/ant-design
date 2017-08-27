@@ -227,12 +227,29 @@ describe('Table.rowSelection', () => {
     const wrapper = mount(createTable({ rowSelection }));
 
     const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
     expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(3).simulate('click');
     expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+  });
+
+  it('could hide default selection options', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+      }, {
+        key: 'even',
+        text: '偶数项',
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4245
