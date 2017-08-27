@@ -61,7 +61,18 @@ export default class MainContent extends React.Component {
     if (!location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
+      return;
     }
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(() => {
+      location.hash = location.hash;
+    }, 10);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
 
   handleMenuOpenChange = (openKeys) => {
