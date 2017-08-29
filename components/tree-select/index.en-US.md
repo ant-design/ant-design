@@ -41,7 +41,7 @@ treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), 
 filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function
 treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value'
 treeNodeLabelProp | Will render as content of select  | string | 'title'
-treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array<{ value, label, children, [disabled, selectable] }> | []
+treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array<{ value, label, children, [disabled, disableCheckbox, selectable] }> | []
 treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', label:"test1",...},...], pId is parent node's id)  | false\|Array<{ id: string, pId: string, rootPId: null }> | false
 loadData | Load data asynchronously.  | function(node) | -
 getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body
@@ -53,6 +53,7 @@ getPopupContainer | To set the container of the dropdown menu. The default is to
 Property | Description | Type | Default
 -----|-----|-----|------
 disabled | Disabled or not | boolean | false
+disableCheckbox |  Disables the checkbox of the treeNode | boolean | false
 key | Required property, should be unique in the tree  | string | -
 value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | -
 title | Content showed on the treeNodes | string\|ReactNode | '---'
