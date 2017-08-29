@@ -37,7 +37,7 @@ export default class Header extends React.Component {
         },
       });
     document.addEventListener('keyup', (event) => {
-      if (event.keyCode === 83) {
+      if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
       }
     });
@@ -116,7 +116,7 @@ export default class Header extends React.Component {
     const { location, picked, isFirstScreen, themeConfig } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions)
-            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
+      .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
@@ -142,7 +142,7 @@ export default class Header extends React.Component {
       });
 
     options.push(
-      <Option value={searchEngine} data-label={searchEngine}>
+      <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
         <FormattedMessage id="app.header.search" />
       </Option>
     );
