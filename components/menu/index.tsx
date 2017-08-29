@@ -27,6 +27,7 @@ export interface MenuProps {
   theme?: 'light' | 'dark';
   /** enum: `vertical` `horizontal` `inline` */
   mode?: 'vertical' | 'horizontal' | 'inline';
+  selectable?: boolean;
   selectedKeys?: Array<string>;
   defaultSelectedKeys?: Array<string>;
   openKeys?: Array<string>;
@@ -54,6 +55,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     prefixCls: 'ant-menu',
     className: '',
     theme: 'light',  // or dark
+    selectable: true,
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,
