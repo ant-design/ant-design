@@ -359,6 +359,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
+                    style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
                   >
                     <td
                       class=""
@@ -458,6 +459,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   >
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
                     >
                       <td
                         class=""
@@ -511,6 +513,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   >
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
                     >
                       <td
                         class=""
