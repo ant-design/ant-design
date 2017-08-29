@@ -13,6 +13,7 @@ export interface DropDownProps {
   align?: Object;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   prefixCls?: string;
+  className?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
