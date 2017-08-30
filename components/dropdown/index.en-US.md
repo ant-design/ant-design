@@ -28,7 +28,7 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 
 > Warning: You must set a unique `key` for `Menu.Item`.
 
-> Remove the highlighted style after click menu item via `<Menu selectedKeys={[]}>`.
+> Menu of Dropdown is unselectable defaultly, you can make it selectable via `<Menu selectable>`.
 
 ### Dropdown.Button
 

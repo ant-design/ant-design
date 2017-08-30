@@ -55,6 +55,7 @@ export interface SelectProps extends AbstractSelectProps {
 export interface OptionProps {
   disabled?: boolean;
   value?: any;
+  title?: string;
 }
 
 export interface OptGroupProps {

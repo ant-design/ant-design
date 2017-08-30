@@ -43,6 +43,7 @@ More layouts with navigation: [layout](/components/layout).
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 | multiple | Allow select multiple item | boolean | false |
 | inlineCollapsed | specified the collapsed status when menu is inline mode | boolean | - |
+| selectable | Allow to be selected | boolean | true |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

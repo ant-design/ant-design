@@ -73,7 +73,7 @@ export default class Spin extends React.Component<SpinProps, any> {
       clearTimeout(this.debounceTimeout);
     }
     if (currentSpinning && !spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 200);
       if (this.delayTimeout) {
         clearTimeout(this.delayTimeout);
       }

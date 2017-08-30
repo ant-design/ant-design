@@ -43,6 +43,7 @@ subtitle: 导航菜单
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
 | multiple | 是否允许多选 | boolean | false |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |
+| selectable | 是否允许选中 | boolean | true |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
