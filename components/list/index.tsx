@@ -52,6 +52,7 @@ export default class List extends Component<ListProps> {
       pagination = false,
       prefixCls = 'ant-list',
       grid,
+      ...rest,
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
@@ -82,7 +83,7 @@ export default class List extends Component<ListProps> {
 
     const loadingContent = (
       <div className={`${prefixCls}-spin`}>
-        <Spin />
+        <Spin size="large"/>
       </div>
     );
 
@@ -93,7 +94,7 @@ export default class List extends Component<ListProps> {
     ) : children;
 
     return (
-      <div className={classString}>
+      <div className={classString} {...rest}>
         {loading && loadingContent}
         {!loading && childrenContent}
         {!loading && showLoadMore && moreContent}
