@@ -82,7 +82,7 @@ export default class List extends Component<ListProps> {
 
     const loadingContent = (
       <div className={`${prefixCls}-spin`}>
-        <Spin />
+        <Spin size="large" />
       </div>
     );
 
