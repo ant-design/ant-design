@@ -62,6 +62,22 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       />
     </span>
   </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <span>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select week"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
 </div>
 `;
 
@@ -596,6 +612,22 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       <input
         class="ant-calendar-range-picker-input"
         placeholder="结束日期"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <span>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="请选择日期"
         readonly=""
         value=""
       />
