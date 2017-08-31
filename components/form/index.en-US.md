@@ -166,7 +166,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 </style>
 
 
-## Use in TypeScript
+## Using in TypeScript
 
 ```jsx
 import { Form } from 'antd';
