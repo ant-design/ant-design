@@ -95,6 +95,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
+        title={count}
         style={style}
       />
     );

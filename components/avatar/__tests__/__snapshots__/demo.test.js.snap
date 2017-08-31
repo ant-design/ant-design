@@ -192,7 +192,6 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-        title=""
       />
     </span>
   </span>
