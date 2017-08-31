@@ -178,7 +178,5 @@ interface UserFormProps extends FormComponentProps {
 }
 
 class UserForm extends React.Component<UserFormProps, any> {
-  constructor(props: UserFormProps) { // constructor 的 props 需要指定下类型
-    super(props);
-  }
+
 }
