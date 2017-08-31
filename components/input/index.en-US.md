@@ -37,7 +37,7 @@ The rest props of Input is exactly same as original [input](https://facebook.git
 
 ### Input.TextArea
 
-> It you are using `antd@<2.12`, please use `Input[type=textarea]`.
+> If you are using `antd@<2.12`, please use `Input[type=textarea]`.
 
 | Property       | Description           | Type     | Default       |
 |----------------|-----------------------|----------|---------------|
