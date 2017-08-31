@@ -13,13 +13,14 @@ subtitle: 日期选择框
 
 ## API
 
-日期类组件包括以下三种形式。
+日期类组件包括以下四种形式。
 
 * DatePicker
 * MonthPicker
 * RangePicker
+* WeekPicker
 
-**注意：**DatePicker、MonthPicker、RangePicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
+**注意：**DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
 import moment from 'moment';
@@ -33,7 +34,7 @@ moment.locale('zh-cn');
 
 ### 共同的 API
 
-以下 API 为 DatePicker、MonthPicker、RangePicker 共享的 API。
+以下 API 为 DatePicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
 
 | 参数          | 说明            | 类型     | 默认值        |
 |--------------|----------------|----------|--------------|
@@ -74,6 +75,15 @@ moment.locale('zh-cn');
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | -           |
 | monthCellContentRender | 自定义的月份内容渲染方法 | function(date, locale): ReactNode | - |
+
+### WeekPicker
+
+| 参数         | 说明           | 类型     | 默认值       |
+|--------------|----------------|----------|--------------|
+| value        | 日期           | [moment](http://momentjs.com/)   | - |
+| defaultValue | 默认日期       | [moment](http://momentjs.com/)   | - |
+| format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-Wo" |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |
 
 ### RangePicker
 
