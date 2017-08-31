@@ -21,6 +21,7 @@ title: Popconfirm
 | onConfirm | 点击确认的回调                           | function(e)      | 无     |
 | onCancel  | 点击取消的回调                           | function(e)      | 无     |
 | okText    | 确认按钮文字                              | string        | 确定   |
+| okType    | 确认按钮类型                              | string        | primary   |
 | cancelText| 取消按钮文字                              | string        | 取消   |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。

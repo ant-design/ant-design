@@ -141,13 +141,24 @@
 
   &-prev,
   &-next {
-    border: @border-width-base @border-style-base @border-color-base;
-    background-color: @component-background;
     outline: 0;
 
     a {
       color: @text-color;
+      user-select: none;
+    }
+
+    &:hover a {
+      color: @primary-color;
+    }
+
+    .@{pagination-prefix-cls}-item-link {
+      border: @border-width-base @border-style-base @border-color-base;
+      background-color: @component-background;
+      border-radius: @border-radius-base;
       outline: none;
+      display: block;
+      transition: all .3s;
 
       &:after {
         .iconfont-size-under-12px(8px);
@@ -156,48 +167,42 @@
         line-height: 26px;
         font-family: "anticon";
         text-align: center;
+        font-weight: 500;
       }
     }
 
-    &:focus,
-    &:hover {
+    &:focus .@{pagination-prefix-cls}-item-link,
+    &:hover .@{pagination-prefix-cls}-item-link {
       border-color: @primary-color;
-      a {
-        color: @primary-color;
-      }
+      color: @primary-color;
     }
   }
 
   &-prev {
-    a {
-      &:after {
-        content: "\e620";
-        display: block;
-      }
+    .@{pagination-prefix-cls}-item-link:after {
+      content: "\e620";
+      display: block;
     }
   }
 
   &-next {
-    a {
-      &:after {
-        content: "\e61f";
-        display: block;
-      }
+    .@{pagination-prefix-cls}-item-link:after {
+      content: "\e61f";
+      display: block;
     }
   }
 
   &-disabled {
+    &,
     &:hover,
     &:focus {
-      border-color: @border-color-base;
-      a {
+      cursor: not-allowed;
+      a,
+      .@{pagination-prefix-cls}-item-link {
+        border-color: @border-color-base;
         color: @disabled-color;
         cursor: not-allowed;
       }
-    }
-    cursor: not-allowed;
-    a {
-      color: @disabled-color;
     }
   }
 
@@ -281,13 +286,15 @@
     min-width: 20px;
     height: 20px;
     line-height: 20px;
+  }
+
+  &.mini &-prev &-item-link,
+  &.mini &-next &-item-link {
     border: 0;
 
-    a {
-      &:after {
-        height: 20px;
-        line-height: 20px;
-      }
+    &:after {
+      height: 20px;
+      line-height: 20px;
     }
   }
 

@@ -60,7 +60,8 @@ const columns = [{
 | rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
-| defaultExpandedRowKeys | initial expanded row keys | string[] | - |
+| defaultSortOrder | default column sorting | Object({columnTitle, sortOrder}) | - |
+| defaultExpandedRowKeys | initial expanded row keys |  | - |
 | expandedRowKeys | current expanded rows keys | string[] | - |
 | defaultExpandAllRows | expand all rows initially | boolean | false |
 | onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
@@ -123,7 +124,8 @@ Properties for selection.
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
-| selections | custom selection [config](#rowSelection), show default selections via setting to `true` | object[] | - |
+| selections | custom selection [config](#rowSelection), only display default selections when set to `true` | object[]\|boolean | - |
+| hideDefaultSelections | remove the default `Select All` and `Select invert` selections | boolean | false |
 
 ### selection
 

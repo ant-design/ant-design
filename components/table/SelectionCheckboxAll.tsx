@@ -21,6 +21,7 @@ export interface SelectionCheckboxAllProps {
   data: any[];
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
+  hideDefaultSelections?: boolean;
   selections?: SelectionDecorator[] | boolean;
   getPopupContainer: (triggerNode?: Element) => HTMLElement;
 }
@@ -32,7 +33,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
   constructor(props) {
     super(props);
 
-    this.defaultSelections = [{
+    this.defaultSelections = props.hideDefaultSelections ? [] : [{
       key: 'all',
       text: props.locale.selectAll,
       onSelect: () => {},
@@ -164,7 +165,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
       let newSelections = Array.isArray(selections) ? this.defaultSelections.concat(selections)
       : this.defaultSelections;
 
-      let menu = (
+      const menu = (
         <Menu
           className={`${selectionPrefixCls}-menu`}
           selectedKeys={[]}
@@ -173,7 +174,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
         </Menu>
       );
 
-      customSelections =  (
+      customSelections = newSelections.length > 0 ? (
         <Dropdown
           overlay={menu}
           getPopupContainer={getPopupContainer}
@@ -182,7 +183,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
             <Icon type="down" />
           </div>
         </Dropdown>
-      );
+      ) : null;
     }
 
     return (

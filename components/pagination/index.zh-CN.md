@@ -34,4 +34,4 @@ cols: 1
 | size             | 当为「small」时，是小尺寸分页      | string        | ""                       |
 | simple           | 当添加该属性时，显示为简单分页     | boolean        | -                       |
 | showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) | -              |
-| itemRender       | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next') => React.ReactNode | - |
+| itemRender       | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |

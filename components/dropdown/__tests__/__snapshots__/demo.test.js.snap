@@ -49,7 +49,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-dropdown-trigger ant-btn-default"
-      disabled=""
       type="button"
     >
       <i
