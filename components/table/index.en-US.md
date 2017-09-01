@@ -60,8 +60,7 @@ const columns = [{
 | rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
-| defaultSortOrder | default column sorting | Object({columnTitle, sortOrder}) | - |
-| defaultExpandedRowKeys | initial expanded row keys |  | - |
+| defaultExpandedRowKeys | initial expanded row keys | string[] | - |
 | expandedRowKeys | current expanded rows keys | string[] | - |
 | defaultExpandAllRows | expand all rows initially | boolean | false |
 | onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
