@@ -173,7 +173,7 @@ import { Form } from 'antd';
 import { FormComponentProps } from 'antd/lib/form/Form';
 
 interface UserFormProps extends FormComponentProps {
-  key: number;
+  age: number;
   name: string;
 }
 
