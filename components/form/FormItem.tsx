@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
@@ -212,6 +213,23 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return false;
   }
 
+  // Resolve duplicated ids bug between different forms
+  // https://github.com/ant-design/ant-design/issues/7351
+  onLabelClick = (e) => {
+    const id = this.props.id || this.getId();
+    if (!id) {
+      return;
+    }
+    const controls = document.querySelectorAll(`#${id}`);
+    if (controls.length !== 1) {
+      e.preventDefault();
+      const control = findDOMNode(this).querySelector(`#${id}`) as HTMLElement;
+      if (control && control.focus) {
+        control.focus();
+      }
+    }
+  }
+
   renderLabel() {
     const { prefixCls, label, labelCol, colon, id } = this.props;
     const context = this.context;
@@ -239,6 +257,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           htmlFor={id || this.getId()}
           className={labelClassName}
           title={typeof label === 'string' ? label : ''}
+          onClick={this.onLabelClick}
         >
           {labelChildren}
         </label>
