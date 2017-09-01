@@ -85,7 +85,7 @@ export default class Sider extends React.Component<SiderProps, any> {
 
   getChildContext() {
     return {
-      siderCollapsed: this.props.collapsed,
+      siderCollapsed: this.state.collapsed,
     };
   }
 
