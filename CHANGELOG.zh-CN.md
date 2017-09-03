@@ -17,6 +17,31 @@ timeline: true
 
 ---
 
+## 2.13.0
+
+`2017-09-01`
+
+- 🌟 Popconfirm 和 Modal 及其相关方法新增 `okType` 和 `cancelType` 用以指定按钮类型。[#6848](https://github.com/ant-design/ant-design/pull/6848) [@yociduo](https://github.com/yociduo)
+- 🌟 Modal 及其相关方法新增 `zIndex`。[#6880](https://github.com/ant-design/ant-design/pull/6880) [@Alex1990](https://github.com/Alex1990)
+- 🌟 RadioGroup 新增 `name` 属性。[#7009](https://github.com/ant-design/ant-design/pull/7009) [@djyde](https://github.com/djyde)
+- 🌟 Table 新增 `hideDefaultSelections` 属性。[#7295](https://github.com/ant-design/ant-design/issues/7295)
+- Dropdown
+  - 🌟 新增 `disabled` 属性。[#7102](https://github.com/ant-design/ant-design/pull/7102) [@yociduo](https://github.com/yociduo)
+  - 🌟 Menu 默认调整为不能选中。
+- 🌟 Pagination 的 `itemRender` 新增第三个参数 `originalElement`。
+- 🌟 AutoComplete 新增 `backfill` 属性，键盘选择时能回填选中项到输入框中。[#5764](https://github.com/ant-design/ant-design/issues/5764)
+- LocaleProvider
+  - 🌟 新增波斯语。[#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
+  - 🌟 新增希腊语。[#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
+  - 🌟 新增挪威语。[#7122](https://github.com/ant-design/ant-design/pull/7122) [@santi](https://github.com/santi)
+  - 🌟 新增塞尔维亚语。[#7201](https://github.com/ant-design/ant-design/pull/7201) [@paunovic-stefan](https://github.com/paunovic-stefan)
+- 🐞 修复 Sider 隐藏时 Menu 的标题不会隐藏的问题。[#7409](https://github.com/ant-design/ant-design/issues/7409)
+- 🐞 修复 TypeScript 定义 [#7355](https://github.com/ant-design/ant-design/pull/7355) [#7378](https://github.com/ant-design/ant-design/pull/7378) [#7384](https://github.com/ant-design/ant-design/pull/7384)
+- 🐞 修复一些组件不能使用条件渲染的问题。[#6530](https://github.com/ant-design/ant-design/issues/6530)
+- 网站
+  - 🌟 新增快捷键 `s` 聚焦搜索框。
+  - 🌟 脚新增主色修改预览功能。
+
 ## 2.12.8
 
 `2017-08-27`
