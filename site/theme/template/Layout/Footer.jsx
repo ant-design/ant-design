@@ -1,9 +1,19 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Modal, Icon } from 'antd';
+import reqwest from 'reqwest';
 import { isLocalStorageNameSupported } from '../utils';
+import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      color: '#108ee9',
+    };
+  }
+
   componentDidMount() {
     // for some iOS
     // http://stackoverflow.com/a/14555361
@@ -19,6 +29,24 @@ class Footer extends React.Component {
     ) {
       this.infoNewVersion();
     }
+  }
+
+  handleColorChange = (color) => {
+    reqwest({
+      url: 'https://ant-design-theme.now.sh/compile',
+      method: 'post',
+      data: {
+        variables: {
+          '@primary-color': color,
+        },
+      },
+    }).then((data) => {
+      this.setState({ color });
+      const head = document.querySelector('head');
+      const style = document.createElement('style');
+      style.innerText = data;
+      head.appendChild(style);
+    });
   }
 
   infoNewVersion() {
@@ -65,6 +93,25 @@ class Footer extends React.Component {
               <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
                 <FormattedMessage id="app.footer.awesome" />
               </a>
+            </div>
+            <div>
+              <ColorPicker
+                type="sketch"
+                small
+                color={this.state.color}
+                presetColors={[
+                  '#f04134',
+                  '#00a854',
+                  '#108ee9',
+                  '#f5317f',
+                  '#f56a00',
+                  '#7265e6',
+                  '#ffbf00',
+                  '#00a2ae',
+                  '#bfbfbf',
+                ]}
+                onChangeComplete={this.handleColorChange}
+              />
             </div>
           </li>
           <li>
