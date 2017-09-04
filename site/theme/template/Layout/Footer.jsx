@@ -104,6 +104,7 @@ class Footer extends React.Component {
                 type="sketch"
                 small
                 color={this.state.color}
+                position="top"
                 presetColors={[
                   '#f04134',
                   '#00a854',

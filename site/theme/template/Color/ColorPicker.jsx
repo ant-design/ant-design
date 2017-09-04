@@ -12,6 +12,7 @@ export default class ColorPicker extends Component {
   static defaultProps = {
     onChange: noop,
     onChangeComplete: noop,
+    position: 'bottom',
   }
 
   constructor(props) {
@@ -39,7 +40,7 @@ export default class ColorPicker extends Component {
     this.props.onChangeComplete(color.hex);
   };
   render() {
-    const { small, type } = this.props;
+    const { small, type, position } = this.props;
 
     const Picker = pickers[type];
 
@@ -74,25 +75,34 @@ export default class ColorPicker extends Component {
         zIndex: '100',
       },
     };
-    return (
-      <div>
-        <div style={styles.swatch} onClick={this.handleClick}>
-          <div style={styles.color} />
-        </div>
-        {this.state.displayColorPicker ? (
-          <div style={styles.popover}>
-            <div style={styles.cover} onClick={this.handleClose} />
-            <div style={styles.wrapper}>
-              <Picker
-                {...this.props}
-                color={this.state.color}
-                onChange={this.handleChange}
-                onChangeComplete={this.handleChangeComplete}
-              />
-            </div>
-          </div>
-        ) : null}
+
+    if (position === 'top') {
+      styles.wrapper.transform = 'translateY(-100%)';
+      styles.wrapper.paddingBottom = 8;
+    }
+
+    const swatch = (
+      <div style={styles.swatch} onClick={this.handleClick}>
+        <div style={styles.color} />
       </div>
     );
+    const picker = this.state.displayColorPicker ? (
+      <div style={styles.popover}>
+        <div style={styles.cover} onClick={this.handleClose} />
+        <div style={styles.wrapper}>
+          <Picker
+            {...this.props}
+            color={this.state.color}
+            onChange={this.handleChange}
+            onChangeComplete={this.handleChangeComplete}
+          />
+        </div>
+      </div>
+    ) : null;
+
+    if (position === 'top') {
+      return <div>{picker}{swatch}</div>;
+    }
+    return <div>{swatch}{picker}</div>;
   }
 }
