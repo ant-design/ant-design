@@ -70,10 +70,15 @@ export default class Item extends React.Component<ListItemProps, any> {
     xl: PropTypes.oneOf(GridColumns),
   };
 
+  static contextTypes = {
+    grid: PropTypes.any,
+  };
+
   _id: number = new Date().getTime();
 
   render() {
-    const { prefixCls = 'ant-list', children, actions, extra, className, grid, ...others } = this.props;
+    const { grid } = this.context;
+    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
     const classString = classNames(`${prefixCls}-item`, className);
 
     const metaContent: React.ReactElement<any>[] = [];
