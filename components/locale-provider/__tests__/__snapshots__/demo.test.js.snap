@@ -68,9 +68,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           tabindex="0"
           title="Previous Page"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
+          <a />
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -123,9 +121,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           tabindex="0"
           title="Next Page"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
+          <a />
         </li>
         <div
           class="ant-pagination-options"
@@ -1555,9 +1551,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       tabindex="0"
       title="Previous Page"
     >
-      <a
-        class="ant-pagination-item-link"
-      />
+      <a />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1610,9 +1604,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       tabindex="0"
       title="Next Page"
     >
-      <a
-        class="ant-pagination-item-link"
-      />
+      <a />
     </li>
     <div
       class="ant-pagination-options"
