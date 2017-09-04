@@ -32,11 +32,11 @@ const locale = {
     previousDecade: 'Última década',
     nextDecade: 'Próxima década',
     previousCentury: 'Último século',
-    nextCentury: 'Próximo século'
+    nextCentury: 'Próximo século',
   },
   timePickerLocale: {
     ...TimePickerLocale,
-    placeholder: 'Hora'
+    placeholder: 'Hora',
   },
 };
 
