@@ -40,7 +40,7 @@ timeline: true
 - 🐞 修复一些组件不能使用条件渲染的问题。[#6530](https://github.com/ant-design/ant-design/issues/6530)
 - 网站
   - 🌟 新增快捷键 `s` 聚焦搜索框。
-  - 🌟 脚新增主色修改预览功能。
+  - 🌟 页脚新增主色修改预览功能。
 
 ## 2.12.8
 
