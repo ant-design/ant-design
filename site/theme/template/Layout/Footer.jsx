@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, Icon } from 'antd';
+import { Modal, Icon, message } from 'antd';
 import reqwest from 'reqwest';
 import { isLocalStorageNameSupported } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
@@ -32,6 +32,7 @@ class Footer extends React.Component {
   }
 
   handleColorChange = (color) => {
+    const { messages } = this.props.intl;
     reqwest({
       url: 'https://ant-design-theme.now.sh/compile',
       method: 'post',
@@ -41,6 +42,7 @@ class Footer extends React.Component {
         },
       },
     }).then((data) => {
+      message.success(messages['app.footer.primary-color-changed']);
       this.setState({ color });
       const head = document.querySelector('head');
       const style = document.createElement('style');
@@ -78,23 +80,26 @@ class Footer extends React.Component {
       <footer id="footer">
         <ul>
           <li>
-            <h2><Icon type="github" /> GitHub</h2>
+            <h2><Icon type="github" /> Ant Design</h2>
             <div>
               <a target="_blank " href="https://github.com/ant-design/ant-design">
-                <FormattedMessage id="app.footer.repo" />
+                GitHub
               </a>
             </div>
             <div>
-              <a target="_blank " href="https://ant.design/docs/react/customize-theme">
-                <FormattedMessage id="app.footer.customize-theme" />
-              </a>
+              <a href="http://mobile.ant.design">Ant Design Mobile</a>
+            </div>
+            <div>
+              <a href="http://ng.ant.design">NG-ZORRO</a>
+              <span> - </span>
+              Ant Design of Angular
             </div>
             <div>
               <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
                 <FormattedMessage id="app.footer.awesome" />
               </a>
             </div>
-            <div>
+            <div style={{ marginTop: 12 }}>
               <ColorPicker
                 type="sketch"
                 small
@@ -108,24 +113,13 @@ class Footer extends React.Component {
                   '#7265e6',
                   '#ffbf00',
                   '#00a2ae',
-                  '#bfbfbf',
                 ]}
                 onChangeComplete={this.handleColorChange}
               />
             </div>
           </li>
           <li>
-            <h2><Icon type="link" /> <FormattedMessage id="app.footer.links" /></h2>
-            <div>
-              <a href="http://mobile.ant.design">Ant Design Mobile</a>
-              <span> - </span>
-              <FormattedMessage id="app.footer.mobile" />
-            </div>
-            <div>
-              <a href="http://ng.ant.design">NG-ZORRO</a>
-              <span> - </span>
-              Ant Design of Angular
-            </div>
+            <h2><Icon type="link" /> <FormattedMessage id="app.footer.resources" /></h2>
             <div>
               <a href="http://scaffold.ant.design">Scaffolds</a>
               <span> - </span>

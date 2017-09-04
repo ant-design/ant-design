@@ -45,8 +45,8 @@ export default class ColorPicker extends Component {
 
     const styles = {
       color: {
-        width: small ? '80px' : '120px',
-        height: small ? '18px' : '24px',
+        width: small ? '60px' : '120px',
+        height: small ? '12px' : '24px',
         borderRadius: '2px',
         background: this.state.color,
       },
@@ -79,17 +79,19 @@ export default class ColorPicker extends Component {
         <div style={styles.swatch} onClick={this.handleClick}>
           <div style={styles.color} />
         </div>
-        {this.state.displayColorPicker ? <div style={styles.popover}>
-          <div style={styles.cover} onClick={this.handleClose} />
-          <div style={styles.wrapper}>
-            <Picker
-              {...this.props}
-              color={this.state.color}
-              onChange={this.handleChange}
-              onChangeComplete={this.handleChangeComplete}
-            />
+        {this.state.displayColorPicker ? (
+          <div style={styles.popover}>
+            <div style={styles.cover} onClick={this.handleClose} />
+            <div style={styles.wrapper}>
+              <Picker
+                {...this.props}
+                color={this.state.color}
+                onChange={this.handleChange}
+                onChangeComplete={this.handleChangeComplete}
+              />
+            </div>
           </div>
-        </div> : null}
+        ) : null}
       </div>
     );
   }
