@@ -23,17 +23,17 @@ Keyboard and mouse can be used for providing or changing data.
 | value | The input content value | string |   |
 | defaultValue | The initial input content | string |   |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |
-| disabled | Tell if the input is disabled. | boolean | false |
+| disabled | Whether the input is disabled. | boolean | false |
 | addonBefore | The label text displayed before (on the left side of) the input field. | string\|ReactNode |   |
 | addonAfter | The label text displayed after (on the right side of) the input field. | string\|ReactNode  |   |
-| prefix | The Input with prefix icon. | string\|ReactNode | |
-| suffix | The Input with suffix icon. | string\|ReactNode | |
-| onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |
+| prefix | The prefix icon for the Input. | string\|ReactNode | |
+| suffix | The suffix icon for the Input. | string\|ReactNode | |
+| onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |   |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
-then `value`, `defaultValue`, and `id` props are automatically set.
+then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
-The rest props of Input is exactly same as original [input](https://facebook.github.io/react/docs/events.html#supported-events).
+The rest of the props of Input are exactly the same as the original [input](https://facebook.github.io/react/docs/events.html#supported-events).
 
 ### Input.TextArea
 
@@ -43,10 +43,10 @@ The rest props of Input is exactly same as original [input](https://facebook.git
 |----------------|-----------------------|----------|---------------|
 | defaultValue | The initial input content | string |   |
 | value | The input content value | string |   |
-| onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |
-| autosize | Height autosize feature, can be set to `true|false` or a object `{ minRows: 2, maxRows: 6 }` | boolean\|object | false |
+| onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |   |
+| autosize | Height autosize feature, can be set to `true|false` or an object `{ minRows: 2, maxRows: 6 }` | boolean\|object | false |
 
-The rest props of `Input.TextArea` is the same as original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 #### Input.Search
 
@@ -56,14 +56,14 @@ The rest props of `Input.TextArea` is the same as original [textarea](https://de
 |-----------|--------------------------------------|------------|---------|
 | onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |
 
-Support all props of `Input`.
+Supports all props of `Input`.
 
 #### Input.Group
 
 | Property  | Description                      | Type   | Default   |
 |-----------|----------------------------------|--------|-----------|
 |  size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
-|  compact | whether use compact style | boolean | false |
+|  compact | Whether use compact style | boolean | false |
 
 
 ```html
