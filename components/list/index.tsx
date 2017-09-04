@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 
@@ -80,6 +81,10 @@ function getViewportHeight() {
 export default class List extends Component<ListProps> {
   static Item: typeof Item = Item;
 
+  static childContextTypes = {
+    grid: PropTypes.any,
+  };
+
   scrollEvent: any;
   resizeEvent: any;
   timeout: any;
@@ -96,6 +101,12 @@ export default class List extends Component<ListProps> {
   ];
   infiniteLoaded = false;
   eventHandlers = {};
+
+  getChildContext() {
+    return {
+      grid: this.props.grid,
+    };
+  }
 
   componentDidMount() {
     if (!this.isInfinite()) {
@@ -215,9 +226,7 @@ export default class List extends Component<ListProps> {
     );
 
     const childrenContent = grid ? (
-      <Row gutter={grid.gutter}>
-        {React.Children.map(children, (element: React.ReactElement<any>) => React.cloneElement(element, { grid }))}
-      </Row>
+      <Row gutter={grid.gutter}>{children}</Row>
     ) : children;
 
     const content = loading ? (
