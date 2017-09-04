@@ -26,6 +26,7 @@ cols: 1
 | onMoreClick    | 点击 more 按钮的回调 | function   | - |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
 | grid | 列表栅格 | object   |  -  |
+| infinite | 无限加载配置 | object   |  -  |
 
 ### List grid props
 | 参数     | 说明           | 类型     | 默认值       |
@@ -37,6 +38,13 @@ cols: 1
 | md | `≥992px` 展示的列数  | number   |  -  |
 | lg | `≥1200px` 展示的列数  | number   |  -  |
 | xl | `≥1600px` 展示的列数  | number   |  -  |
+
+### List infinite props
+| 参数     | 说明           | 类型     | 默认值       |
+---------|-------------|------|---------
+| onLoad | 无限加载的回调函数 | function | - |
+| offset | 触发加载位置的偏移量 | number | 0 |
+| loading | 显示无限加载时的 loading | boolean   |  -  |
 
 ### List.Item
 

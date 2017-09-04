@@ -87,8 +87,11 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     });
 
+    const contentClassString = classNames(`${prefixCls}-item-content`, {
+      [`${prefixCls}-item-content-single`]: (metaContent.length < 1),
+    });
     const content = (
-      <div className={`${prefixCls}-item-content`}>
+      <div className={contentClassString}>
         {otherContent}
       </div>
     );
