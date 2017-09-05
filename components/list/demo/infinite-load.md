@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 6
 title:
   zh-CN: 无限加载
   en-US: infinite load
