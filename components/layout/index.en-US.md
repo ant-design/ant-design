@@ -11,23 +11,23 @@ Handling the overall layout of a page.
 
 ### Size
 
-The first level of the navigation is placed near by a logo inclined left, and the secondary menu is placed inclined right.
+The first level navigation is inclined left near a logo, and the secondary menu is inclined right.
 
-- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level of navigation `48px`.
-- Top Navigation(contents page): the height of the first level navigation `80px`, the second level of navigation `56px`.
+- Top Navigation (almost systems): the height of the first level navigation `64px`, the second level navigation `48px`.
+- Top Navigation(contents page): the height of the first level navigation `80px`, the second level navigation `56px`.
 - Calculation formula of a top navigation: `48+8n`.
-- Calculation formula a aside navigation: `200+8n`.
+- Calculation formula of an aside navigation: `200+8n`.
 
 ### Interaction rules
 
 - The first level navigation and the last level navigation should be distincted by visualization;
 - The current item should have the highest priority of visualization;
-- When the current navigation item is collapsed, the stlye of the current navigation item will be applied to the parent level of it;
-- The left side navigation bar support for both the according and the expanding style, you can choose the one of it case by case.
+- When the current navigation item is collapsed, the stlye of the current navigation item will be applied to its parent level;
+- The left side navigation bar has support for both the accordion and expanding styles, you can choose the one that fits your case best.
 
 ## Visualization rules
 
- Style of a navigation should conform to the level of it.
+ Style of a navigation should conform to the its level.
 
 - **Emphasis by colorblock**
 
@@ -35,7 +35,7 @@ The first level of the navigation is placed near by a logo inclined left, and th
 
 - **The highlight match stick**
 
-  When background color is a light color, you can use this pattern for the current page navigation item, we recommed to use it for the last item of the navigation path.
+  When background color is a light color, you can use this pattern for the current page navigation item, we recommed using it for the last item of the navigation path.
 
 - **Hightlighted font**
 
@@ -43,7 +43,7 @@ The first level of the navigation is placed near by a logo inclined left, and th
 
 - **Enlarge the size of the font**
 
-  `12px`、`14px` is a standard font size of navigations，14 is used for the first and the second level of the navigation. You can choose a approprigate font size in terms of the level of your navigation.
+  `12px`、`14px` is a standard font size of navigations，`14px` is used for the first and the second level of the navigation. You can choose a approprigate font size in terms of the level of your navigation.
 
 ## Component Overview
 
@@ -53,7 +53,7 @@ The first level of the navigation is placed near by a logo inclined left, and th
 - `Content`: The content layout with default style, in which any element can be nested, and must be placed in `Layout`.
 - `Footer`: The bottom layout with default style, in which any element can be nested, and must be placed in `Layout`.
 
-> Base on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
+> Based on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
 
 ## API
 
@@ -75,10 +75,10 @@ The wrapper.
 
 Property | Description | Type | Default
 -----|-----|-----|------
-style | to custom the styles | object | -
+style | to customize the styles | object | -
 className | container className | string | -
 
-> API of `Layout.Header` `Layout.Footer` `Layout.Content` is the same with `Layout`.
+> APIs of `Layout.Header` `Layout.Footer` `Layout.Content` are the same as that of `Layout`.
 
 ### Layout.Sider
 
@@ -90,12 +90,12 @@ collapsible | whether can be collapsed | boolean | false
 defaultCollapsed | to set the initial status | boolean | false  |
 reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false  |
 collapsed | to set the current status | boolean | -
-onCollapse | the callback function, can be executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
+onCollapse | the callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
 collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
 breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
-style | to custom the styles | object | -
+style | to customize the styles | object | -
 className | container className | string | -
 
 #### breakpoint width
