@@ -1692,7 +1692,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="上一页"
       >
-        <a />
+        <a
+          class="ant-pagination-item-link"
+        />
       </li>
       <li
         class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -1709,7 +1711,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
         tabindex="0"
         title="下一页"
       >
-        <a />
+        <a
+          class="ant-pagination-item-link"
+        />
       </li>
     </ul>
   </div>

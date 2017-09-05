@@ -218,7 +218,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
           <div
             class="ant-table-placeholder"
           >
-            custom empty text
+            custom empty text 
           </div>
         </div>
       </div>
