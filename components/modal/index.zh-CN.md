@@ -63,7 +63,7 @@ title: Modal
 | okText     | 确认按钮文字    | string           | 确定       |
 | okType     | 确认按钮类型     | string           | primary   |
 | cancelText | 取消按钮文字    | string           | 取消       |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
+| maskClosable | 点击蒙层是否允许关闭 | Boolean   | `true`    |
 | zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
 
 以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。
