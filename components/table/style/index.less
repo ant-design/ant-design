@@ -445,8 +445,26 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: @component-background;
+      background: transparent;
       pointer-events: none;
+      // tricky code for https://github.com/ant-design/ant-design/issues/7457
+      overflow-x: scroll;
+      opacity: 0.4;
+      color: #000;
+    }
+  }
+
+  // not scrollable
+  &-scroll-position-left&-scroll-position-right &-placeholder-fixed-columns {
+    overflow-x: hidden;
+  }
+
+  &-row-empty-placeholder {
+    > td {
+      border-right-color: transparent !important;
+    }
+    > td > * {
+      color: transparent !important;
     }
   }
 
@@ -625,12 +643,6 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-  }
-
-  /* fix firefox scrollbar bug */
-  &-fixed-header&-empty &-scroll &-body {
     padding-bottom: 20px;
     margin-bottom: -20px;
   }
