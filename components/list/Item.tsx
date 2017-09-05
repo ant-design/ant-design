@@ -74,8 +74,6 @@ export default class Item extends React.Component<ListItemProps, any> {
     grid: PropTypes.any,
   };
 
-  _id: number = new Date().getTime();
-
   render() {
     const { grid } = this.context;
     const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
@@ -104,7 +102,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     let actionsContent;
     if (actions && actions.length > 0) {
       const actionsContentItem = (action, i) => (
-        <li key={`${prefixCls}-item-action-${this._id}-${i}`}>
+        <li key={`${prefixCls}-item-action-${i}`}>
           {action}
           {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
         </li>
