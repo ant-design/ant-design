@@ -1,0 +1,37 @@
+.@{steps-prefix-cls}-dot {
+  .@{steps-prefix-cls}-item {
+    &-tail {
+      width: 100%;
+      top: 1px;
+      margin: 0 0 0 @steps-desciption-max-width / 2;
+      padding: 0;
+
+      &:after {
+        height: 3px;
+      }
+    }
+    &-icon {
+      padding-right: 0;
+      width: @steps-dot-size;
+      height: @steps-dot-size;
+      line-height: @steps-dot-size;
+      border: 0;
+      margin-left: 58px;
+      .@{steps-prefix-cls}-icon-dot {
+        float: left;
+        width: 100%;
+        height: 100%;
+        border-radius: @steps-dot-size / 2;
+      }
+    }
+    &-process &-icon {
+      top: -1px;
+      width: @steps-current-dot-size;
+      height: @steps-current-dot-size;
+      line-height: @steps-current-dot-size;
+      .@{steps-prefix-cls}-icon-dot {
+        border-radius: @steps-current-dot-size / 2;
+      }
+    }
+  }
+}
