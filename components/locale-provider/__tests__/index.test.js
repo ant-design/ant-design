@@ -9,6 +9,7 @@ import nlBE from '../nl_BE';
 import itIT from '../it_IT';
 import enUS from '../en_US';
 import ptBR from '../pt_BR';
+import ptPT from '../pt_PT';
 import ruRU from '../ru_RU';
 import esES from '../es_ES';
 import svSE from '../sv_SE';
@@ -29,7 +30,7 @@ import bgBG from '../bg_BG';
 import viVN from '../vi_VN';
 import thTH from '../th_TH';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH];
+const locales = [enUS, ptPT, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
