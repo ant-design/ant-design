@@ -10,9 +10,11 @@ export interface DropDownProps {
   style?: React.CSSProperties;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
+  disabled?: boolean;
   align?: Object;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   prefixCls?: string;
+  className?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 }
 
@@ -43,17 +45,24 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   }
 
   render() {
-    const { children, prefixCls, overlay } = this.props;
+    const { children, prefixCls, overlay, trigger, disabled } = this.props;
     const dropdownTrigger = cloneElement(children as any, {
       className: classNames((children as any).props.className, `${prefixCls}-trigger`),
+      disabled,
     });
+    // menu cannot be selectable in dropdown defaultly
+    const overlayProps = overlay && (overlay as any).props;
+    const selectable = (overlayProps && 'selectable' in overlayProps)
+      ? overlayProps.selectable : false;
     const fixedModeOverlay = cloneElement(overlay as any, {
       mode: 'vertical',
+      selectable,
     });
     return (
       <RcDropdown
-        transitionName={this.getTransitionName()}
         {...this.props}
+        transitionName={this.getTransitionName()}
+        trigger={disabled ? [] : trigger}
         overlay={fixedModeOverlay}
       >
         {dropdownTrigger}

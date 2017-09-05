@@ -164,3 +164,19 @@ validator | 自定义校验（注意，[callback 必须被调用](https://github
   max-width: 540px;
 }
 </style>
+
+
+## 在 TypeScript 中使用
+
+```jsx
+import { Form } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form';
+
+interface UserFormProps extends FormComponentProps {
+  age: number;
+  name: string;
+}
+
+class UserForm extends React.Component<UserFormProps, any> {
+
+}

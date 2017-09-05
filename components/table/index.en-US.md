@@ -14,7 +14,7 @@ A table displays rows data.
 
 ## How To Use
 
-Specify `dataSource` of Table whose value is an array of data.
+Specify `dataSource` of Table as an array of data.
 
 ```jsx
 const dataSource = [{
@@ -53,15 +53,14 @@ const columns = [{
 | Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | object  | null  |
-| pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | object |  |
+| pagination    | pagination [config](/components/pagination/), hide it by setting it to `false` | object |  |
 | size          | size of table: `default`, `middle` or `small`  | string | `default` |
 | dataSource    | data record array to be rendered | any[] |            |
 | columns       | columns of table | [ColumnProps](https://git.io/vMMXC)[] | - |
-| rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |
+| rowKey        | get row's key, could be a string or function that returns a string | string\|Function(record):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
-| defaultSortOrder | default column sorting | Object({columnTitle, sortOrder}) | - |
-| defaultExpandedRowKeys | initial expanded row keys |  | - |
+| defaultExpandedRowKeys | initial expanded row keys | string[] | - |
 | expandedRowKeys | current expanded rows keys | string[] | - |
 | defaultExpandAllRows | expand all rows initially | boolean | false |
 | onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
@@ -69,14 +68,14 @@ const columns = [{
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale        | i18n text include filter, sort, empty text...etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
-| indentSize    | index pixel size of tree data | number   | 15 |
-| onRowClick    | callback that is called when click a row | Function(record, index, event)   | - |
-| onRowDoubleClick| callback that is called when double click a row | Function(record, index, event)   | - |
-| bordered  | whether to show table border completely | boolean | false      |
+| indentSize    | indent size in pixels of tree data | number   | 15 |
+| onRowClick    | callback that is called when a row is clicked | Function(record, index, event)   | - |
+| onRowDoubleClick| callback that is called when a row is double clicked | Function(record, index, event)   | - |
+| bordered  | whether to show all table borders | boolean | false      |
 | showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |
 | title  | table title renderer       | Function(currentPageData)   | |
-| scroll | whether table can be scroll in x/y direction, `x` or `y` can be a number that indicated the width and height of table body | object   | -  |
+| scroll | whether table can be scroll in x/y direction, `x` or `y` can be a number that indicates the width and height of table body | object   | -  |
 
 ### Column
 
@@ -87,9 +86,9 @@ One of Property `columns` for describing column, Column has the same API.
 | title      | title of this column        | string\|ReactNode | - |
 | key        | key of this column, you can ignore this prop if you've set a unique `dataIndex` | string          | - |
 | dataIndex  | display field of the data record, could be set like `a.b.c` | string | - |
-| render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
+| render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | object[]       | - |
-| onFilter   | callback that is called when when click confirm filter button | Function | - |
+| onFilter   | callback that is called when when confirm filter button is clicked | Function | - |
 | filterMultiple | whether to select multiple filtered item | boolean    | true    |
 | filterDropdown | customized filter overlay | ReactNode | - |
 | filterDropdownVisible | whether filterDropdown is visible | boolean | - |
@@ -97,12 +96,12 @@ One of Property `columns` for describing column, Column has the same API.
 | filteredValue | controlled filtered value, filter icon will highlight. | string[] | - |
 | filtered | whether the dataSource is filtered | boolean | false |
 | filterIcon | customized filter icon | ReactNode | false |
-| sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set it `true` | Function\|boolean | - |
+| sorter     | sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | colSpan    | span of this column's title | number |         |
 | width      | width of this column | string\|number | -  |
 | className  | className of this column            | string          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | false |
-| sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | boolean\|string | - |
+| sortOrder | order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
 | onCellClick | callback when click cell | Function(record, event) | - |
 
 ### ColumnGroup
@@ -124,15 +123,16 @@ Properties for selection.
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | callback that is called when select invert | Function(selectedRows) | - |
-| selections | custom selection [config](#rowSelection), show default selections via setting to `true` | object[] | - |
+| selections | custom selection [config](#rowSelection), only displays default selections when set to `true` | object[]\|boolean | - |
+| hideDefaultSelections | remove the default `Select All` and `Select invert` selections | boolean | false |
 
 ### selection
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | key | key of this selection | string | -  |
-| text | display text is this selection | string\|React.ReactNode | -  |
-| onSelect | callback when click this selection | Function(changeableRowKeys) | -   |
+| text | display text of this selection | string\|React.ReactNode | -  |
+| onSelect | callback when this selection is clicked | Function(changeableRowKeys) | -   |
 
 ## Using in TypeScript
 
@@ -170,9 +170,9 @@ class NameColumn extends Table.Column<IUser> {}
 
 ## Note
 
-According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value default for `dataSource`.
+According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The values inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value default for `dataSource`.
 
-If `dataSource[i].key` is not existed, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
+If `dataSource[i].key` is not provided, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
 
 ![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 

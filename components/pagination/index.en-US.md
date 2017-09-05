@@ -33,4 +33,4 @@ showQuickJumper | determine whether you can jump to a page directly | boolean | 
 size | specify the size of `Pagination`, can be set to `small` | string | ""
 simple | whether to use simple mode | boolean | -
 showTotal | to display the total number and range | Function(total, range) | -
-itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next') => React.ReactNode | - |
+itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |

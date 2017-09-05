@@ -259,7 +259,7 @@
 
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
-    .@{table-prefix-cls}-thead > tr > th:not(.@{table-prefix-cls}-selection-column) {
+    .@{table-prefix-cls}-thead > tr > th {
       padding: 10px 8px;
     }
 
@@ -270,9 +270,6 @@
 
     .@{table-prefix-cls}-header {
       background: @component-background;
-      table {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-      }
     }
 
     .@{table-prefix-cls}-placeholder,
@@ -450,6 +447,24 @@
       width: 100%;
       background: transparent;
       pointer-events: none;
+      // tricky code for https://github.com/ant-design/ant-design/issues/7457
+      overflow-x: scroll;
+      opacity: 0.4;
+      color: #000;
+    }
+  }
+
+  // not scrollable
+  &-scroll-position-left&-scroll-position-right &-placeholder-fixed-columns {
+    overflow-x: hidden;
+  }
+
+  &-row-empty-placeholder {
+    > td {
+      border-right-color: transparent !important;
+    }
+    > td > * {
+      color: transparent !important;
     }
   }
 
@@ -628,12 +643,6 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-  }
-
-  /* fix firefox scrollbar bug */
-  &-fixed-header&-empty &-scroll &-body {
     padding-bottom: 20px;
     margin-bottom: -20px;
   }

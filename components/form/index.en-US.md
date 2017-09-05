@@ -164,3 +164,20 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
   max-width: 540px;
 }
 </style>
+
+
+## Using in TypeScript
+
+```jsx
+import { Form } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form';
+
+interface UserFormProps extends FormComponentProps {
+  age: number;
+  name: string;
+}
+
+class UserForm extends React.Component<UserFormProps, any> {
+
+}
+

@@ -17,13 +17,38 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.0
+
+`2017-09-01`
+
+- 🌟 Add `okType` and `cancelType` prop to Popconfirm and Modal and it's related methods. [#6848](https://github.com/ant-design/ant-design/pull/6848) [@yociduo](https://github.com/yociduo)
+- 🌟 Add `zIndex` prop to Modal and it's relatedt methos. [#6880](https://github.com/ant-design/ant-design/pull/6880) [@Alex1990](https://github.com/Alex1990)
+- 🌟 Add `name` prop to RadioGroup. [#7009](https://github.com/ant-design/ant-design/pull/7009) [@djyde](https://github.com/djyde)
+- 🌟 Add `hideDefaultSelections` props to Table. [#7295](https://github.com/ant-design/ant-design/issues/7295)
+- Dropdown
+  - 🌟 Add `disabled` prop. [#7102](https://github.com/ant-design/ant-design/pull/7102) [@yociduo](https://github.com/yociduo)
+  - 🌟 Menu can not be selected defaultly now.
+- 🌟 Add a third parameter `originalElement` to Pagination's `itemRender`.
+- 🌟 Add `backfill` prop to AutoComplete, items are selected by keyborad will be backfilled to the search input. [#5764](https://github.com/ant-design/ant-design/issues/5764)
+- LocaleProvider
+  - 🌟 Add Persian. [#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
+  - 🌟 Add Greek. [#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
+  - 🌟 Add Norwegian. [#7122](https://github.com/ant-design/ant-design/pull/7122) [@santi](https://github.com/santi)
+  - 🌟 Add Serbian. [#7201](https://github.com/ant-design/ant-design/pull/7201) [@paunovic-stefan](https://github.com/paunovic-stefan)
+- 🐞 Fix Menu's title can not be hidden when collapsing  Sider. [#7409](https://github.com/ant-design/ant-design/issues/7409)
+- 🐞 Fix some TypeScript type definitions [#7355](https://github.com/ant-design/ant-design/pull/7355) [#7378](https://github.com/ant-design/ant-design/pull/7378) [#7384](https://github.com/ant-design/ant-design/pull/7384)
+- 🐞 Fix some components can not use conditional rendering. [#6530](https://github.com/ant-design/ant-design/issues/6530)
+- Website
+  - 🌟 Add a shortcut `s` to focus the search input.
+  - 🌟 Add a color picker to the footer to change primary color and preview lively.
+
 ## 2.12.8
 
 `2017-08-27`
 
 - 📖 Rewrite the [Use in create-react-app](/docs/react/use-with-create-react-app) documentation without ejecting.  [#7276](https://github.com/ant-design/ant-design/pull/7276)
 - 🌟 Better empty data style for fixed-columns Table. [#7298](https://github.com/ant-design/ant-design/issues/7298)
-  ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
+   ![](https://gw.alipayobjects.com/zos/rmsportal/kpxITHnXvsLlMTqEKgUm.gif)
 - 🐞 Fix `disabled` logic of CheckboxGroup and Checkbox. [#7266](https://github.com/ant-design/ant-design/issues/7266) [@dilidili](https://github.com/dilidili)
 - 🐞 Fix errors of rendering Spin and Carousel in react-snapshot or other jsdom environment. [#3308](https://github.com/ant-design/ant-design/issues/3308) [#7318](https://github.com/ant-design/ant-design/issues/7318)
 - 🐞 Fix some details of Select, Tooltip and Menu.

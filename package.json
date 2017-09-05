@@ -57,14 +57,18 @@
     "rc-input-number": "~3.6.0",
     "rc-menu": "~5.0.10",
     "rc-notification": "~2.0.0",
+<<<<<<< HEAD
     "rc-pagination": "~1.11.0",
+=======
+    "rc-pagination": "~1.12.0",
+>>>>>>> master
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.1.1",
-    "rc-select": "~6.8.6",
+    "rc-select": "~6.9.0",
     "rc-slider": "~8.2.0",
     "rc-steps": "~2.5.1",
     "rc-switch": "~1.5.1",
-    "rc-table": "~5.6.1",
+    "rc-table": "~5.6.7",
     "rc-tabs": "~9.1.2",
     "rc-time-picker": "~2.4.1",
     "rc-tooltip": "~3.4.6",
@@ -73,7 +77,7 @@
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.10",
-    "react-slick": "~0.14.2",
+    "react-slick": "~0.15.0",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },

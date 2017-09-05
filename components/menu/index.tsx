@@ -27,6 +27,7 @@ export interface MenuProps {
   theme?: 'light' | 'dark';
   /** enum: `vertical` `horizontal` `inline` */
   mode?: 'vertical' | 'horizontal' | 'inline';
+  selectable?: boolean;
   selectedKeys?: Array<string>;
   defaultSelectedKeys?: Array<string>;
   openKeys?: Array<string>;

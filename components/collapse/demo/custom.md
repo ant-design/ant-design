@@ -28,6 +28,7 @@ const customPanelStyle = {
   borderRadius: 4,
   marginBottom: 24,
   border: 0,
+  overflow: 'hidden',
 };
 
 ReactDOM.render(

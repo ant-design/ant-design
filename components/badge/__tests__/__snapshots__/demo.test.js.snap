@@ -395,7 +395,6 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       <sup
         class="ant-scroll-number ant-badge-dot"
         data-show="true"
-        title=""
       />
     </span>
     <span
@@ -422,7 +421,6 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
-      title=""
     />
   </span>
   <span
@@ -436,7 +434,6 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
-      title=""
     />
   </span>
 </div>
@@ -1112,7 +1109,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
       class="ant-scroll-number ant-badge-count"
       data-show="true"
       style="background-color:#87d068;"
-      title="99+"
+      title="109"
     >
       99+
     </sup>
@@ -1456,7 +1453,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      title="99+"
+      title="100"
     >
       99+
     </sup>
@@ -1471,7 +1468,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      title="10+"
+      title="99"
     >
       10+
     </sup>
@@ -1486,7 +1483,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      title="999+"
+      title="1000"
     >
       999+
     </sup>

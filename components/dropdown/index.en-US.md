@@ -20,6 +20,7 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 | overlay | the dropdown menu       | [Menu](/components/menu)   | -           |
 | getPopupContainer       | to set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001)   | Function(triggerNode)   | () => document.body |
 | visible | determine whether the dropdown menu is visible | boolean | -           |
+| disabled| determine whether the dropdown menu is disabled| boolean | -           |
 | onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function(visible) | - |
 | placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
@@ -27,7 +28,7 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 
 > Warning: You must set a unique `key` for `Menu.Item`.
 
-> Remove the highlighted style after click menu item via `<Menu selectedKeys={[]}>`.
+> Menu of Dropdown is unselectable defaultly, you can make it selectable via `<Menu selectable>`.
 
 ### Dropdown.Button
 
@@ -39,5 +40,6 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 | trigger       | the trigger mode which can execute the drop-down action | Array<'click'\|'hover'>   | ['hover'] |
 | overlay | the dropdown menu | [Menu](/components/menu) | -           |
 | visible     | determine whether the dropdown menu is visible | boolean | -           |
+| disabled    | determine whether the dropdown menu is disabled| boolean | -           |
 | onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function     | -        |
 | placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
