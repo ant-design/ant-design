@@ -65,7 +65,7 @@ The properties of the object are follows:
 | okText     | Text of OK button    | string           | OK       |
 | okType    | type of the confirmation button                              | string        | primary   |
 | cancelText | Text of cancel button    | string           | Cancel       |
-| maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `false`       |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `true`       |
 | zIndex | To set the `z-index` of Modal | Number | 1000 |
 
 All the `Modal.method`s will return a reference, and then we can close the popup by the reference.
