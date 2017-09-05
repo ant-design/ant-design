@@ -1,6 +1,8 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   port: 8001,
   source: {
@@ -61,6 +63,8 @@ module.exports = {
     };
 
     config.externals = {
+      react: 'React',
+      'react-dom': 'ReactDOM',
       'react-router-dom': 'ReactRouterDOM',
     };
 
@@ -75,5 +79,8 @@ module.exports = {
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
+  },
+  htmlTemplateExtraData: {
+    isDev,
   },
 };

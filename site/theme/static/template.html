@@ -110,6 +110,11 @@
   </head>
   <body>
     <div id="react-content">
+        {% if isDev %}
+          <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.js,react/15.6.1/react-dom.js"></script>
+        {% else %}
+          <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.min.js,react/15.6.1/react-dom.min.js"></script>
+        {% endif %}
       {{ content | safe }}
     </div>
     <script src="{{ root }}common.js"></script>
