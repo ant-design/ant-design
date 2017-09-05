@@ -9,6 +9,7 @@ import nlBE from '../nl_BE';
 import itIT from '../it_IT';
 import enUS from '../en_US';
 import ptBR from '../pt_BR';
+import ptPT from '../pt_PT';
 import ruRU from '../ru_RU';
 import esES from '../es_ES';
 import svSE from '../sv_SE';
