@@ -169,7 +169,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (validateStatus) {
       classes = classNames(
         {
-          'has-feedback': props.hasFeedback,
+          'has-feedback': props.hasFeedback || validateStatus === 'validating',
           'has-success': validateStatus === 'success',
           'has-warning': validateStatus === 'warning',
           'has-error': validateStatus === 'error',
