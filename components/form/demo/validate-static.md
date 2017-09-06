@@ -22,8 +22,9 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ````jsx
-import { Form, Input, DatePicker, Col } from 'antd';
+import { Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber } from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
 
 const formItemLayout = {
   labelCol: {
@@ -94,30 +95,74 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="inline"
-      labelCol={{
-        xs: { span: 24 },
-        sm: { span: 5 },
-      }}
-      wrapperCol={{
-        xs: { span: 24 },
-        sm: { span: 19 },
-      }}
-      help
+      {...formItemLayout}
+      label="Success"
+      hasFeedback
+      validateStatus="success"
     >
-      <Col span={6}>
+      <DatePicker style={{ width: '100%' }} />
+    </FormItem>
+
+    <FormItem
+      {...formItemLayout}
+      label="Warning"
+      hasFeedback
+      validateStatus="warning"
+    >
+      <TimePicker style={{ width: '100%' }} />
+    </FormItem>
+
+    <FormItem
+      {...formItemLayout}
+      label="Error"
+      hasFeedback
+      validateStatus="error"
+    >
+      <Select defaultValue="1">
+        <Option value="1">Option 1</Option>
+        <Option value="2">Option 2</Option>
+        <Option value="3">Option 3</Option>
+      </Select>
+    </FormItem>
+
+    <FormItem
+      {...formItemLayout}
+      label="Validating"
+      hasFeedback
+      validateStatus="validating"
+      help="The information is being validated..."
+    >
+      <Cascader defaultValue={['1']} options={[]} />
+    </FormItem>
+
+    <FormItem
+      label="inline"
+      {...formItemLayout}
+    >
+      <Col span={11}>
         <FormItem validateStatus="error" help="Please select the correct date">
           <DatePicker />
         </FormItem>
       </Col>
-      <Col span={1}>
-        <p className="ant-form-split">-</p>
+      <Col span={2}>
+        <span style={{ display: 'inline-block', width: '100%', textAlign: 'center' }}>
+          -
+        </span>
       </Col>
-      <Col span={6}>
+      <Col span={11}>
         <FormItem>
           <DatePicker />
         </FormItem>
       </Col>
+    </FormItem>
+
+    <FormItem
+      {...formItemLayout}
+      label="Success"
+      hasFeedback
+      validateStatus="success"
+    >
+      <InputNumber style={{ width: '100%' }} />
     </FormItem>
   </Form>
 , mountNode);
