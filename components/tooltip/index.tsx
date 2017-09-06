@@ -59,9 +59,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     autoAdjustOverflow: true,
   };
 
-  refs: {
-    tooltip: any;
-  };
+  tooltip: any;
 
   constructor(props: TooltipProps) {
     super(props);
@@ -88,7 +86,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
   getPlacements() {
@@ -182,6 +180,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   }
 
+  saveTooltip = (node) => {
+    this.tooltip = node;
+  }
+
   render() {
     const { props, state } = this;
     const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
@@ -204,7 +206,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       <RcTooltip
         {...this.props}
         getTooltipContainer={getPopupContainer || getTooltipContainer}
-        ref="tooltip"
+        ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
         overlay={overlay || title || ''}
         visible={visible}
