@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title:
   zh-CN: 带有头像和描述的列表
   en-US: List with avatar and description.

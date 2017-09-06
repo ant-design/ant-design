@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 title:
   zh-CN: 竖排列表样式
   en-US: Layout Vertical 

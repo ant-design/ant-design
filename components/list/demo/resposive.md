@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 5
 title:
   zh-CN: 响应式的栅格列表 
   en-US: Grid

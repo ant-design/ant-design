@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 6
 title:
   zh-CN: 无限加载
   en-US: infinite load
@@ -16,15 +16,18 @@ The example of infinite load.
 ````jsx
 import { List, Card, message } from 'antd';
 
+let countId = 1;
+
 function mockData() {
   const data = [];
   for (let i = 0; i < 5; i++) {
-    const id = Math.floor(Math.random() * 10000);
+    const id = countId;
     data.push({
       id: `id-${id}`,
       title: `List Item Title ${id}`,
       content: `List Item Content ${id}`,
     });
+    countId++;
   }
   return data;
 }
