@@ -69,9 +69,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   scrollEvent: any;
   resizeEvent: any;
   timeout: any;
-  refs: {
-    fixedNode: HTMLElement;
-  };
+  fixedNode: HTMLElement;
 
   events = [
     'resize',
@@ -131,8 +129,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
     const elemOffset = getOffset(affixNode, targetNode);
     const elemSize = {
-      width: this.refs.fixedNode.offsetWidth,
-      height: this.refs.fixedNode.offsetHeight,
+      width: this.fixedNode.offsetWidth,
+      height: this.fixedNode.offsetHeight,
     };
 
     const offsetMode = {
@@ -237,6 +235,10 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
   }
 
+  saveFixedNode = (node) => {
+    this.fixedNode = node;
+  }
+
   render() {
     const className = classNames({
       [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
@@ -246,7 +248,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
       <div {...props} style={placeholderStyle}>
-        <div className={className} ref="fixedNode" style={this.state.affixStyle}>
+        <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
           {this.props.children}
         </div>
       </div>
