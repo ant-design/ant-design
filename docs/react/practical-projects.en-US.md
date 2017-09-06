@@ -13,12 +13,12 @@ Include the following:
 
 ## Install dva-cli
 
-Install dva-cli with npm, and make sure the version is larger than `0.7.0`.
+Install dva-cli with npm, and make sure the version is larger than `0.8.1`.
 
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-0.7.0
+0.8.1
 ```
 
 ## Create New App
@@ -94,7 +94,7 @@ Add routing information to router, edit `router.js`:
 ```diff
 + import Products from './routes/Products';
 ...
-+ <Route path="/products" component={Products} />
++ <Route path="/products" exact component={Products} />
 ```
 
 Then open http://localhost:8000/#/products in your browser, you should be able to see the `<h2>` tag defined before.
