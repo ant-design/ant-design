@@ -127,7 +127,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             class="ant-pagination-item-link"
           />
         </li>
-        <div
+        <li
           class="ant-pagination-options"
         >
           <div
@@ -162,7 +162,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </span>
             </div>
           </div>
-        </div>
+        </li>
       </ul>
     </div>
     <div
@@ -1614,7 +1614,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
         class="ant-pagination-item-link"
       />
     </li>
-    <div
+    <li
       class="ant-pagination-options"
     >
       <div
@@ -1649,7 +1649,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
-    </div>
+    </li>
   </ul>
 </div>
 `;
