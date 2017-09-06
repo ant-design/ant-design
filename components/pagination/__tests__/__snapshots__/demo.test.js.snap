@@ -854,7 +854,9 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-simple-pager"
@@ -878,7 +880,9 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
 </ul>
 `;

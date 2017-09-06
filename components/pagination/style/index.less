@@ -235,20 +235,21 @@
 
   &-simple &-prev,
   &-simple &-next {
-    border: 0;
-    height: 24px;
-    line-height: 24px;
-    margin: 0;
-    font-size: 18px;
+    .@{pagination-prefix-cls}-item-link {
+      border: 0;
+      height: 24px;
+      line-height: 24px;
+      margin: 0;
+      font-size: 18px;
+    }
   }
 
   &-simple &-simple-pager {
     display: inline-block;
-    vertical-align: middle;
     margin-right: 8px;
 
     input {
-      margin: 0 8px;
+      margin-right: 8px;
       box-sizing: border-box;
       background-color: @component-background;
       border-radius: @border-radius-base;
