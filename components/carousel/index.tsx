@@ -74,9 +74,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     draggable: false,
   };
 
-  refs: {
-    slick: any,
-  };
+  slick: any;
 
   innerSlider: any;
 
@@ -92,9 +90,8 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     if (autoplay) {
       window.addEventListener('resize', this.onWindowResized);
     }
-    const { slick } = this.refs;
     // https://github.com/ant-design/ant-design/issues/7191
-    this.innerSlider = slick && slick.innerSlider;
+    this.innerSlider = this.slick && this.slick.innerSlider;
   }
 
   componentWillUnmount() {
@@ -107,11 +104,14 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
   onWindowResized = () => {
     // Fix https://github.com/ant-design/ant-design/issues/2550
-    const { slick } = this.refs;
     const { autoplay } = this.props;
-    if (autoplay && slick && slick.innerSlider && slick.innerSlider.autoPlay) {
-      slick.innerSlider.autoPlay();
+    if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
+      this.slick.innerSlider.autoPlay();
     }
+  }
+
+  saveSlick = (node) => {
+    this.slick = node;
   }
 
   render() {
@@ -130,7 +130,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
     return (
       <div className={className}>
-        <SlickCarousel ref="slick" {...props} />
+        <SlickCarousel ref={this.saveSlick} {...props} />
       </div>
     );
   }
