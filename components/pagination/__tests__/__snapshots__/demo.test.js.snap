@@ -11,7 +11,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -64,7 +66,9 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
 </ul>
 `;
@@ -80,7 +84,9 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -132,7 +138,9 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     tabindex="0"
     title="向后 5 页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -149,7 +157,9 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <div
     class="ant-pagination-options"
@@ -201,7 +211,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -254,7 +266,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
 </ul>
 `;
@@ -278,37 +292,65 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
     tabindex="0"
     title="1"
-  />
+  >
+    <a>
+      1
+    </a>
+  </li>
   <li
     class="ant-pagination-item ant-pagination-item-2"
     tabindex="0"
     title="2"
-  />
+  >
+    <a>
+      2
+    </a>
+  </li>
   <li
     class="ant-pagination-item ant-pagination-item-3"
     tabindex="0"
     title="3"
-  />
+  >
+    <a>
+      3
+    </a>
+  </li>
   <li
     class="ant-pagination-item ant-pagination-item-4"
     tabindex="0"
     title="4"
-  />
+  >
+    <a>
+      4
+    </a>
+  </li>
   <li
     class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
     tabindex="0"
     title="5"
-  />
+  >
+    <a>
+      5
+    </a>
+  </li>
   <li
     class="ant-pagination-jump-next"
     tabindex="0"
     title="向后 5 页"
-  />
+  >
+    <a
+      class="ant-pagination-item-link"
+    />
+  </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
     tabindex="0"
     title="50"
-  />
+  >
+    <a>
+      50
+    </a>
+  </li>
   <li
     aria-disabled="false"
     class=" ant-pagination-next"
@@ -333,7 +375,9 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -385,7 +429,9 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     tabindex="0"
     title="向后 5 页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -402,7 +448,9 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <div
     class="ant-pagination-options"
@@ -433,7 +481,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="上一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -486,7 +536,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="下一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
   </ul>
   <ul
@@ -499,7 +551,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="上一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -552,7 +606,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="下一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <div
       class="ant-pagination-options"
@@ -616,7 +672,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="上一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -669,7 +727,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       tabindex="0"
       title="下一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
   </ul>
 </div>
@@ -686,7 +746,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="上一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-1"
@@ -702,7 +764,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="向前 5 页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-4 ant-pagination-item-after-jump-prev"
@@ -754,7 +818,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="向后 5 页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
   <li
     class="ant-pagination-item ant-pagination-item-50"
@@ -771,7 +837,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     tabindex="0"
     title="下一页"
   >
-    <a />
+    <a
+      class="ant-pagination-item-link"
+    />
   </li>
 </ul>
 `;
@@ -832,7 +900,9 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       tabindex="0"
       title="上一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -885,7 +955,9 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       tabindex="0"
       title="下一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
   </ul>
   <br />
@@ -904,7 +976,9 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       tabindex="0"
       title="上一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
     <li
       class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -957,7 +1031,9 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
       tabindex="0"
       title="下一页"
     >
-      <a />
+      <a
+        class="ant-pagination-item-link"
+      />
     </li>
   </ul>
 </div>

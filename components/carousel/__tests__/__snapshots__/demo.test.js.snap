@@ -62,7 +62,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
           </h3>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned"
+          class="slick-slide slick-cloned"
           data-index="4"
         >
           <h3>
@@ -137,7 +137,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           </h3>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned"
+          class="slick-slide slick-cloned"
           data-index="4"
         >
           <h3>
@@ -271,7 +271,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
           </h3>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned"
+          class="slick-slide slick-cloned"
           data-index="4"
         >
           <h3>

@@ -526,14 +526,14 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   <div
                     class="ant-card-head-title"
                   >
-                    List Item Title 7399
+                    List Item Title 6917
                   </div>
                 </div>
                 <div
                   class="ant-card-body"
                 >
                   <div>
-                    List Item Content 7399
+                    List Item Content 6917
                   </div>
                 </div>
               </div>
@@ -561,14 +561,14 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   <div
                     class="ant-card-head-title"
                   >
-                    List Item Title 6135
+                    List Item Title 4676
                   </div>
                 </div>
                 <div
                   class="ant-card-body"
                 >
                   <div>
-                    List Item Content 6135
+                    List Item Content 4676
                   </div>
                 </div>
               </div>
@@ -596,14 +596,14 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   <div
                     class="ant-card-head-title"
                   >
-                    List Item Title 1699
+                    List Item Title 5975
                   </div>
                 </div>
                 <div
                   class="ant-card-body"
                 >
                   <div>
-                    List Item Content 1699
+                    List Item Content 5975
                   </div>
                 </div>
               </div>
@@ -631,14 +631,14 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   <div
                     class="ant-card-head-title"
                   >
-                    List Item Title 271
+                    List Item Title 166
                   </div>
                 </div>
                 <div
                   class="ant-card-body"
                 >
                   <div>
-                    List Item Content 271
+                    List Item Content 166
                   </div>
                 </div>
               </div>
@@ -666,14 +666,14 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   <div
                     class="ant-card-head-title"
                   >
-                    List Item Title 455
+                    List Item Title 2693
                   </div>
                 </div>
                 <div
                   class="ant-card-body"
                 >
                   <div>
-                    List Item Content 455
+                    List Item Content 2693
                   </div>
                 </div>
               </div>
@@ -2111,7 +2111,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           tabindex="0"
           title="上一页"
         >
-          <a />
+          <a
+            class="ant-pagination-item-link"
+          />
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -2128,7 +2130,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           tabindex="0"
           title="下一页"
         >
-          <a />
+          <a
+            class="ant-pagination-item-link"
+          />
         </li>
       </ul>
     </div>
