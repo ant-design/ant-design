@@ -35,7 +35,7 @@ More layouts with navigation: [layout](/components/layout).
 | defaultSelectedKeys | array with the keys of default selected menu items | string[] |      |
 | openKeys | array with the keys of currently opened sub menus | string[] |  |
 | defaultOpenKeys | array with the keys of default opened sub menus |  |      |
-| onOpenChange | called when open/close sub menu | function(openKeys: string[]) | none |
+| onOpenChange | called when open/close sub menu | function(openKeys: string[]) | noop |
 | onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none   |
 | onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
 | onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
