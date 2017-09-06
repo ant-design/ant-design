@@ -92,6 +92,15 @@
     width: 100%;
     top: 12px;
     padding: 0 10px;
+    &:after {
+      content: '';
+      display: inline-block;
+      background: @border-color-split;
+      height: 1px;
+      border-radius: 1px;
+      width: 100%;
+      transition: background .3s;
+    }
   }
   &-content {
     margin-top: 3px;
