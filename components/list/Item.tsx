@@ -70,10 +70,13 @@ export default class Item extends React.Component<ListItemProps, any> {
     xl: PropTypes.oneOf(GridColumns),
   };
 
-  _id: number = new Date().getTime();
+  static contextTypes = {
+    grid: PropTypes.any,
+  };
 
   render() {
-    const { prefixCls = 'ant-list', children, actions, extra, className, grid, ...others } = this.props;
+    const { grid } = this.context;
+    const { prefixCls = 'ant-list', children, actions, extra, className, ...others } = this.props;
     const classString = classNames(`${prefixCls}-item`, className);
 
     const metaContent: React.ReactElement<any>[] = [];
@@ -87,8 +90,11 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     });
 
+    const contentClassString = classNames(`${prefixCls}-item-content`, {
+      [`${prefixCls}-item-content-single`]: (metaContent.length < 1),
+    });
     const content = (
-      <div className={`${prefixCls}-item-content`}>
+      <div className={contentClassString}>
         {otherContent}
       </div>
     );
@@ -96,7 +102,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     let actionsContent;
     if (actions && actions.length > 0) {
       const actionsContentItem = (action, i) => (
-        <li key={`${prefixCls}-item-action-${this._id}-${i}`}>
+        <li key={`${prefixCls}-item-action-${i}`}>
           {action}
           {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
         </li>
