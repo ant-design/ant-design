@@ -9,56 +9,37 @@ title:
 
 点击菜单，收起其他展开的所有菜单，保持菜单聚焦简洁。
 
-> 该用法要求 antd@2.0+
-
 ## en-US
 
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
-
-> This demo is for antd@2.0+.
 
 ````jsx
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 class Sider extends React.Component {
+  // submenu keys of first level
+  rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
   state = {
-    current: '1',
-    openKeys: [],
-  }
-  handleClick = (e) => {
-    console.log('Clicked: ', e);
-    this.setState({ current: e.key });
-  }
+    openKeys: ['sub1'],
+  };
   onOpenChange = (openKeys) => {
-    const state = this.state;
-    const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
-    const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
-
-    let nextOpenKeys = [];
-    if (latestOpenKey) {
-      nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
     }
-    if (latestCloseKey) {
-      nextOpenKeys = this.getAncestorKeys(latestCloseKey);
-    }
-    this.setState({ openKeys: nextOpenKeys });
-  }
-  getAncestorKeys = (key) => {
-    const map = {
-      sub3: ['sub2'],
-    };
-    return map[key] || [];
   }
   render() {
     return (
       <Menu
         mode="inline"
         openKeys={this.state.openKeys}
-        selectedKeys={[this.state.current]}
-        style={{ width: 240 }}
         onOpenChange={this.onOpenChange}
-        onClick={this.handleClick}
+        style={{ width: 240 }}
       >
         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
           <Menu.Item key="1">Option 1</Menu.Item>

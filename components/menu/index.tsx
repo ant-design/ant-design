@@ -137,7 +137,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   getRealMenuMode() {
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.switchModeFromInline && inlineCollapsed && !('openKeys' in this.props)) {
+    if (this.switchModeFromInline && inlineCollapsed) {
       return 'inline';
     }
     const { mode } = this.props;
