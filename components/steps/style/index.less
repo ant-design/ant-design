@@ -102,17 +102,14 @@
       transition: background .3s;
     }
   }
-  &-content {
-    margin-top: 3px;
-  }
   &-title {
     font-size: @font-size-lg;
-    margin-bottom: 4px;
     color: #666;
     font-weight: bold;
     display: inline-block;
     padding-right: 10px;
     position: relative;
+    line-height: @steps-icon-size;
     &:after {
       content: '';
       height: 1px;
@@ -120,13 +117,14 @@
       background: @wait-tail-color;
       display: block;
       position: absolute;
-      top: 0.66em;
+      top: @steps-icon-size / 2;
       left: 100%;
     }
   }
   &-description {
     font-size: @font-size-base;
     color: @text-color-secondary;
+    margin-top: 4px;
   }
   .step-item-status(wait);
   .step-item-status(process);

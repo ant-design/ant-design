@@ -7,21 +7,13 @@
     border-radius: @steps-small-icon-size;
     font-size: @font-size-base;
     margin-right: 10px;
-    > .@{steps-prefix-cls}-icon {
-      font-size: @font-size-base;
-      font-size: ~"9px \9"; // ie8-9
-      transform: scale(.75);
-      top: -1px;
-    }
-  }
-  .@{steps-prefix-cls}-item-content {
-    margin-top: 0;
   }
   .@{steps-prefix-cls}-item-title {
     font-size: @font-size-base;
-    margin-bottom: 4px;
-    color: #666;
-    font-weight: bold;
+    line-height: @steps-small-icon-size;
+    &:after {
+      top: @steps-small-icon-size / 2;
+    }
   }
   .@{steps-prefix-cls}-item-description {
     font-size: @font-size-base;
@@ -30,13 +22,7 @@
   .@{steps-prefix-cls}-item-tail {
     top: 8px;
     padding: 0 8px;
-    &:after {
-      height: 1px;
-      border-radius: 1px;
-      width: 100%;
-    }
   }
-
   .@{steps-prefix-cls}-item-custom .@{steps-prefix-cls}-item-icon {
     width: inherit;
     height: inherit;
