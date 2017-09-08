@@ -13,12 +13,12 @@ title: 项目实战
 
 ## 安装 dva-cli
 
-通过 npm 安装 dva-cli 并确保版本是 `0.7.0` 或以上。
+通过 npm 安装 dva-cli 并确保版本是 `0.8.1` 或以上。
 
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-0.7.0
+0.8.1
 ```
 
 ## 创建新应用
@@ -94,7 +94,7 @@ export default Products;
 ```diff
 + import Products from './routes/Products';
 ...
-+ <Route path="/products" component={Products} />
++ <Route path="/products" exact component={Products} />
 ```
 
 然后在浏览器里打开 http://localhost:8000/#/products ，你应该能看到前面定义的 `<h2>` 标签。
