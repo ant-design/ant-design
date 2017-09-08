@@ -23,9 +23,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     okType: 'primary',
   };
 
-  refs: {
-    tooltip: Tooltip,
-  };
+  tooltip: Tooltip;
 
   constructor(props: PopconfirmProps) {
     super(props);
@@ -44,7 +42,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
   onConfirm = (e) => {
@@ -81,6 +79,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
+  saveTooltip = (node) => {
+    this.tooltip = node;
+  }
+
   render() {
     const { prefixCls, title, placement, okText, okType, cancelText, ...restProps } = this.props;
     const popconfirmLocale = this.getLocale();
@@ -112,7 +114,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         onVisibleChange={this.onVisibleChange}
         visible={this.state.visible}
         overlay={overlay}
-        ref="tooltip"
+        ref={this.saveTooltip}
       />
     );
   }
