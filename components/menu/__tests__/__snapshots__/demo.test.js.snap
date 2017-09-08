@@ -764,8 +764,8 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       class="ant-menu-submenu-title"
     >
       <span>
-        <icon
-          type="setting"
+        <i
+          class="anticon anticon-setting"
         />
         <span>
           Navigation Three
