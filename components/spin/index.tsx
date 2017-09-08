@@ -48,7 +48,7 @@ export default class Spin extends React.Component<SpinProps, any> {
 
   componentDidMount() {
     if (!isCssAnimationSupported()) {
-      // Show text in IE8/9
+      // Show text in IE9
       this.setState({
         notCssAnimationSupported: true,
       });
