@@ -16,7 +16,7 @@ export interface UploadFile {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File;
-  response?: string;
+  response?: any;
   error?: any;
 }
 
