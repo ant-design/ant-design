@@ -11,14 +11,21 @@ export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     prefixCls: 'ant-input-search',
   };
-  input: any;
+
+  input: Input;
+
   onSearch = () => {
     const { onSearch } = this.props;
     if (onSearch) {
-      onSearch(this.input.refs.input.value);
+      onSearch(this.input.input.value);
     }
     this.input.focus();
   }
+
+  saveInput = (node) => {
+    this.input = node;
+  }
+
   render() {
     const { className, prefixCls, ...others } = this.props;
     delete (others as any).onSearch;
@@ -35,7 +42,7 @@ export default class Search extends React.Component<SearchProps, any> {
         {...others}
         className={classNames(prefixCls, className)}
         suffix={searchSuffix}
-        ref={node => this.input = node}
+        ref={this.saveInput}
       />
     );
   }
