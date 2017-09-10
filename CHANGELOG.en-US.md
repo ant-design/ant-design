@@ -17,6 +17,23 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.1
+
+`2017-09-10`
+
+- 🐞 Fix Card.Grid broken style. [commit/c7d6ce](https://github.com/ant-design/ant-design/commit/c7d6ce5d3f7bfae1f2252d702fb1bdf04fdc80cb)
+- 🐞 Fix Cascader overlaping text. [#7475](https://github.com/ant-design/ant-design/issues/7475)
+- 🐞 Fix simple mode Pagination prev and next button missing. [#7500](https://github.com/ant-design/ant-design/issues/7500)
+- 🐞 Fix Slider typings. [#7532](https://github.com/ant-design/ant-design/issues/7532)
+- Table
+  - 🐞 Fix empty data scroll style. [#7457](https://github.com/ant-design/ant-design/issues/7457) [#7468](https://github.com/ant-design/ant-design/issues/7468) [#7470](https://github.com/ant-design/ant-design/issues/7470) [#7509](https://github.com/ant-design/ant-design/issues/7509)
+  - 🌟 Make supplement for API docs. [#7525](https://github.com/ant-design/ant-design/pull/7525) [@hansnow](https://github.com/hansnow)
+- 🐞 Fix Upload typings. [#7507](https://github.com/ant-design/ant-design/pull/7507) [@WingGao](https://github.com/WingGao)
+- 🐞 Fix inlineCollapsed Menu when Submenu is opened. [#7514](https://github.com/ant-design/ant-design/issues/7514)
+- 🐞 Fix validateStatus styles of some Form Controls. [#7498](https://github.com/ant-design/ant-design/issues/7498)
+- 🐞 Fix @link-hover-decoration not working. [#7531](https://github.com/ant-design/ant-design/issues/7531)
+- 🌟 Optimize the English documentation of some components. [@khalibloo](https://github.com/khalibloo)
+
 ## 2.13.0
 
 `2017-09-01`
