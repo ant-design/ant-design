@@ -14,8 +14,8 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 Property | Description | Type | Default Value
 ---------|-------------|------|--------------
-size | size of spin, available in `small`, `default` and `large` | string | 'default'
+size | size of Spin, options: `small`, `default` and `large` | string | `default`
 spinning | whether Spin is spinning | boolean | true
-tip | customize description content when spin has children | string | -
-delay | specifies a delay millisecond for loading state (prevent flush) | number (millisecond) | -
+tip | customize description content when Spin has children | string | -
+delay | specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | -
 wrapperClassName | className of wrapper when Spin has children | string | -
