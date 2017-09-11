@@ -1,14 +1,12 @@
+import enUS from '../locale-provider/en_US';
+
 export interface ModalLocale {
   okText: string;
   cancelText: string;
   justOkText: string;
 }
 
-const defaultLocale: ModalLocale = {
-  okText: '确定',
-  cancelText: '取消',
-  justOkText: '知道了',
-};
+const defaultLocale: ModalLocale = enUS.Modal;
 
 let runtimeLocale: ModalLocale = {
   ...defaultLocale,

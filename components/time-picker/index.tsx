@@ -3,7 +3,7 @@ import moment from 'moment';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import injectLocale from '../locale-provider/injectLocale';
-import defaultLocale from './locale/zh_CN';
+import defaultLocale from './locale/en_US';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/

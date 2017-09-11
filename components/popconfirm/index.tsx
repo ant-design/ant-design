@@ -4,6 +4,7 @@ import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
 import injectLocale from '../locale-provider/injectLocale';
+import enUS from '../locale-provider/en_US';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -120,8 +121,5 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 }
 
-const injectPopconfirmLocale = injectLocale('Popconfirm', {
-  cancelText: '取消',
-  okText: '确定',
-});
+const injectPopconfirmLocale = injectLocale('Popconfirm', enUS.Popconfirm);
 export default injectPopconfirmLocale<PopconfirmProps>(Popconfirm as any);
