@@ -480,12 +480,13 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     class="ant-radio-group"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button"
+        class="ant-radio-button ant-radio-button-checked"
       >
         <input
+          checked=""
           class="ant-radio-button-input"
           type="radio"
         />
@@ -498,13 +499,12 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="ant-radio-button"
       >
         <input
-          checked=""
           class="ant-radio-button-input"
           type="radio"
         />
@@ -538,7 +538,40 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
   <br />
   <br />
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-primary ant-btn-lg"
+    type="button"
+  >
+    <span>
+      Primary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-lg"
+    type="button"
+  >
+    <span>
+      Normal
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-lg"
+    type="button"
+  >
+    <span>
+      Dashed
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-danger ant-btn-lg"
+    type="button"
+  >
+    <span>
+      Danger
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <i
@@ -546,7 +579,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     />
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-lg"
     type="button"
   >
     <i
@@ -556,17 +589,9 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       Download
     </span>
   </button>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Normal
-    </span>
-  </button>
   <br />
   <div
-    class="ant-btn-group"
+    class="ant-btn-group ant-btn-group-lg"
   >
     <button
       class="ant-btn ant-btn-primary"
