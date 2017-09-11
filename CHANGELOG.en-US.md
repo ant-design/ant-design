@@ -47,7 +47,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - 🌟 Menu can not be selected defaultly now.
 - 🌟 Add a third parameter `originalElement` to Pagination's `itemRender`.
 - 🌟 Add `backfill` prop to AutoComplete, items are selected by keyborad will be backfilled to the search input. [#5764](https://github.com/ant-design/ant-design/issues/5764)
-- 🌟 Add `firstActiveValue` prop to Select to allow specify active item when open select first time. [#6318] [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
+- 🌟 Add `firstActiveValue` prop to Select to allow specify active item when open select first time. [#6318](https://github.com/ant-design/ant-design/issues/6318) [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
 - LocaleProvider
   - 🌟 Add Persian. [#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
   - 🌟 Add Greek. [#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)

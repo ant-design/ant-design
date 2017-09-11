@@ -47,7 +47,7 @@ timeline: true
   - 🌟 Menu 默认调整为不能选中。
 - 🌟 Pagination 的 `itemRender` 新增第三个参数 `originalElement`。
 - 🌟 AutoComplete 新增 `backfill` 属性，键盘选择时能回填选中项到输入框中。[#5764](https://github.com/ant-design/ant-design/issues/5764)
-- 🌟 Select 新增 `firstActiveValue` 属性，允许指定首次打开时默认选中的项。[#6318] [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
+- 🌟 Select 新增 `firstActiveValue` 属性，允许指定首次打开时默认选中的项。[#6318](https://github.com/ant-design/ant-design/issues/6318) [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
 - LocaleProvider
   - 🌟 新增波斯语。[#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
   - 🌟 新增希腊语。[#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
