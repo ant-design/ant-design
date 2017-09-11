@@ -2,6 +2,13 @@ export function T() {
   return true;
 }
 
+export function update(key: string | number, value: any): ((object: object) => object) {
+  return (objectItem) => {
+    objectItem[key] = value;
+    return objectItem;
+  };
+}
+
 // Fix IE file.status problem
 // via coping a new Object
 export function fileToObject(file): any {

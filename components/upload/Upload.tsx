@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
-import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+import { T, update, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 
 export interface UploadContext {
   antLocale?: {
@@ -80,17 +80,12 @@ export default class Upload extends React.Component<UploadProps, any> {
   onStart = (file) => {
     let targetItem;
     let nextFileList = this.state.fileList.concat();
+    const updateStatusToUploading = update('status', 'uploading');
     if (file.length > 0) {
-      targetItem = file.map(f => {
-        const fileObject = fileToObject(f);
-        fileObject.status = 'uploading';
-        return fileObject;
-      });
+      targetItem = file.map(f => updateStatusToUploading(fileToObject(f)));
       nextFileList = nextFileList.concat(targetItem);
     } else {
-      targetItem = fileToObject(file);
-      targetItem.status = 'uploading';
-      nextFileList.push(targetItem);
+      nextFileList.push(updateStatusToUploading(fileToObject(file)));
     }
     this.onChange({
       file: targetItem,
