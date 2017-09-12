@@ -75,6 +75,7 @@
     "react-lazy-load": "^3.0.10",
     "react-slick": "~0.15.0",
     "shallowequal": "^1.0.1",
+    "styled-components": "^2.1.2",
     "warning": "~3.0.0"
   },
   "devDependencies": {

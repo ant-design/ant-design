@@ -15,12 +15,18 @@ Basic usage of checkbox.
 
 ````jsx
 import { Checkbox } from 'antd';
+import { ThemeProvider } from 'styled-components';
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
 ReactDOM.render(
-  <Checkbox onChange={onChange}>Checkbox</Checkbox>
+  <div>
+    <ThemeProvider theme={{ primaryColor: 'red' }}>
+      <Checkbox onChange={onChange}>Checkbox</Checkbox>
+    </ThemeProvider>
+    <Checkbox onChange={onChange}>Checkbox</Checkbox>
+  </div>
 , mountNode);
 ````
