@@ -340,7 +340,7 @@
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;
-      padding: 0 (@menu-collapsed-width - 16px) / 2;
+      padding: 0 (@menu-collapsed-width - 16px) / 2 !important;
       &:after {
         display: none;
       }
@@ -363,13 +363,6 @@
       a {
         color: @text-color-dark;
       }
-    }
-  }
-
-  &-vertical&-inline-collapsed {
-    > .@{menu-prefix-cls}-item,
-    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      text-align: center;
     }
   }
 
