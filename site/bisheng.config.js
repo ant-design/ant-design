@@ -63,10 +63,14 @@ module.exports = {
     };
 
     config.externals = {
-      react: 'React',
-      'react-dom': 'ReactDOM',
       'react-router-dom': 'ReactRouterDOM',
     };
+    if (isDev) {
+      Object.assign(config.externals, {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+      });
+    }
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),

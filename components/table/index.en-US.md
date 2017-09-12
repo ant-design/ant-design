@@ -71,6 +71,8 @@ const columns = [{
 | indentSize    | indent size in pixels of tree data | number   | 15 |
 | onRowClick    | callback that is called when a row is clicked | Function(record, index, event)   | - |
 | onRowDoubleClick| callback that is called when a row is double clicked | Function(record, index, event)   | - |
+| onRowMouseEnter | callback that is called when mouse enter a row | Function(record, index, event)   | - |
+| onRowMouseLeave | callback that is called when mouse leave a row | Function(record, index, event)   | - |
 | bordered  | whether to show all table borders | boolean | false      |
 | showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |

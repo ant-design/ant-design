@@ -99,19 +99,20 @@ export default class Menu extends React.Component<MenuProps, any> {
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
     }
+    if ('openKeys' in nextProps) {
+      this.setState({ openKeys: nextProps.openKeys });
+      return;
+    }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
       this.switchModeFromInline = !!this.state.openKeys.length;
       this.inlineOpenKeys = this.state.openKeys;
-      this.handleOpenChange([]);
+      this.setState({ openKeys: [] });
     }
     if ((!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
         (!nextContext.siderCollapsed && this.context.siderCollapsed)) {
-      this.handleOpenChange(this.inlineOpenKeys);
+      this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
-    }
-    if ('openKeys' in nextProps) {
-      this.setState({ openKeys: nextProps.openKeys });
     }
   }
   handleClick = (e) => {

@@ -72,6 +72,8 @@ const columns = [{
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
 | onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
+| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
+| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |

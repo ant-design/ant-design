@@ -37,7 +37,7 @@ export interface TransferProps {
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearchChange?: (direction: 'left' | 'right', e: Event) => void;
-  lazy?: {};
+  lazy?: {} | boolean;
   onScroll?: (direction: 'left' | 'right', e: Event) => void;
 }
 

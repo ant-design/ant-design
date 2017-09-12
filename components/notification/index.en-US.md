@@ -5,10 +5,10 @@ noinstant: true
 title: Notification
 ---
 
-To display a notification message globally.
+Display a notification message globally.
 
 ## When To Use
-To display a notification message at the four corner of the view port. Typically it can be
+To display a notification message at any of the four corners of the viewport. Typically it can be
 used in the following cases:
 
 - A notification with complex content.
@@ -35,14 +35,13 @@ The properties of config are as follows:
 | className   | Customized CSS class                     | string            | -        |
 | style       | Customized inline style                  | Object            | -        |
 | btn         | Customized close button                  | ReactNode         | -        |
-| icon        | Customized icon                          | ReactNode         | _        |
-| key         | The unique identifier of current notification | string            | -        |
-| onClose     | Specify a function that will be called after clicking the default close button | Function          | -        |
-| duration    | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | number            | 4.5      |
-| placement   | To set the position, which can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string            | topRight |
+| icon        | Customized icon                          | ReactNode         | -        |
+| key         | The unique identifier of the Notification | string            | -        |
+| onClose     | Specify a function that will be called when the close button is clicked | Function          | -        |
+| duration    | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number            | 4.5      |
+| placement   | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string            | `topRight` |
 
-`notification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
-will take into account these globally defined options before displaying.
+`notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
 - `notification.config(options)`
 ```js
@@ -55,8 +54,8 @@ notification.config({
 
 | Property     | Description                              | Type           | Default             |
 | ------------ | ---------------------------------------- | -------------- | ------------------- |
-| placement    | To set the position, which can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string         | topRight            |
-| top          | Offset to top, when message pop up from `topRight` or `topLeft` (unit: pixels). | number         | 24                  |
-| bottom       | Offset to bottom, when message pop up from `bottomRight` or `bottomLeft` (unit: pixels). | number         | 24                  |
-| duration     | A duration to close notification automatically by default (unit: second) | number         | 4.5                 |
-| getContainer | specify render container                 | () => HTMLNode | () => document.body |
+| placement    | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string         | `topRight`            |
+| top          | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number         | 24                  |
+| bottom       | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number         | 24                  |
+| duration     | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number         | 4.5                 |
+| getContainer | Return the mount node for Notification                 | () => HTMLNode | () => document.body |

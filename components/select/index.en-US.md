@@ -51,7 +51,7 @@ Select component to select value from options.
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | function(triggerNode) | () => document.body |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string[] |  |
-
+| firstActiveValue | Value of action option by default | string\|string[] |  -  |
 
 ### Option props
 

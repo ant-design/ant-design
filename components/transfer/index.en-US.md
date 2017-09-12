@@ -33,7 +33,7 @@ One or more elements can be selected from either column, one click on the proper
 | searchPlaceholder | The hint text of the search box. | string | 'Search here' |
 | notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty'  |
 | footer | A function used for rendering the footer. | (props): ReactNode |  |
-| lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items | object | `{ height: 32, offset: 32 }` |
+| lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |
 | onSearchChange | A callback function which is executed when search field are changed | (direction: 'left'\|'right', event: Event): void | - |
 
 ## Warning

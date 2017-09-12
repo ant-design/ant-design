@@ -17,6 +17,23 @@ timeline: true
 
 ---
 
+## 2.13.1
+
+`2017-09-10`
+
+- 🐞 修复了 Card.Grid 的样式问题。[commit/c7d6ce](https://github.com/ant-design/ant-design/commit/c7d6ce5d3f7bfae1f2252d702fb1bdf04fdc80cb)
+- 🐞 修复了 Cascader 指针图标与文字重叠的问题。[#7475](https://github.com/ant-design/ant-design/issues/7475)
+- 🐞 修复了 Pagination 在简洁模式下前后按钮未展示的问题。[#7500](https://github.com/ant-design/ant-design/issues/7500)
+- 🐞 修复了 Slider 的 type 定义。[#7532](https://github.com/ant-design/ant-design/issues/7532)
+- Table
+  - 🐞 修复了在空数据情况下包含固定列时的一些样式问题。[#7457](https://github.com/ant-design/ant-design/issues/7457) [#7468](https://github.com/ant-design/ant-design/issues/7468) [#7470](https://github.com/ant-design/ant-design/issues/7470) [#7509](https://github.com/ant-design/ant-design/issues/7509)
+  - 🌟 补充了 API 文档。[#7525](https://github.com/ant-design/ant-design/pull/7525) [@hansnow](https://github.com/hansnow)
+- 🐞 修复了 Upload 的 type 定义。 [#7507](https://github.com/ant-design/ant-design/pull/7507) [@WingGao](https://github.com/WingGao)
+- 🐞 修复了 Submenu 展开时 inlineCollapsed Menu 的样式问题。[#7514](https://github.com/ant-design/ant-design/issues/7514)
+- 🐞 修复了一些表单控件的校验样式问题。[#7498](https://github.com/ant-design/ant-design/issues/7498)
+- 🐞 修复了 @link-hover-decoration 无效的问题。[#7531](https://github.com/ant-design/ant-design/issues/7531)
+- 🌟 优化了部分组件的英文文档。[@khalibloo](https://github.com/khalibloo)
+
 ## 2.13.0
 
 `2017-09-01`
@@ -30,6 +47,7 @@ timeline: true
   - 🌟 Menu 默认调整为不能选中。
 - 🌟 Pagination 的 `itemRender` 新增第三个参数 `originalElement`。
 - 🌟 AutoComplete 新增 `backfill` 属性，键盘选择时能回填选中项到输入框中。[#5764](https://github.com/ant-design/ant-design/issues/5764)
+- 🌟 Select 新增 `firstActiveValue` 属性，允许指定首次打开时默认选中的项。[#6318](https://github.com/ant-design/ant-design/issues/6318) [@L-x-C](https://github.com/ant-design/ant-design/issues/6318)
 - LocaleProvider
   - 🌟 新增波斯语。[#6878](https://github.com/ant-design/ant-design/pull/6878) [@mkermani144](https://github.com/mkermani144)
   - 🌟 新增希腊语。[#6928](https://github.com/ant-design/ant-design/pull/6928) [@michmach](https://github.com/michmach)
