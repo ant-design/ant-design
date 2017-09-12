@@ -113,15 +113,17 @@
         background-color: @border-color-split;
         line-height: 0;
       }
-    }
-
-    &-submenu-title:after {
-      font-family: "anticon" !important;
-      position: absolute;
-      content: "\e61f";
-      right: 8px;
-      color: @text-color-secondary;
-      .iconfont-size-under-12px(10px);
+      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+        position: absolute;
+        right: 8px;
+        &:after {
+          font-family: "anticon" !important;
+          font-style: normal;
+          content: "\e61f";
+          color: @text-color-secondary;
+          .iconfont-size-under-12px(10px);
+        }
+      }
     }
 
     &-submenu-vertical {
@@ -139,7 +141,7 @@
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
-      &:after {
+      .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
         color: @disabled-color;
       }
     }
@@ -211,7 +213,7 @@
   .@{dropdown-prefix-cls}-menu-submenu-title,
   .@{dropdown-prefix-cls}-menu-item > a {
     color: @text-color-secondary-dark;
-    &:after {
+    .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
       color: @text-color-secondary-dark;
     }
     &:hover {
