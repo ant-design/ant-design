@@ -73,6 +73,8 @@ export type GetFieldDecoratorOptions = {
   exclusive?: boolean;
   /** Normalize value to form component */
   normalize?: (value: any, prevValue: any, allValues: any) => any;
+  /** Whether stop validate on first rule of error for this field.	 */
+  validateFirst?: boolean;
 };
 
 // function create
