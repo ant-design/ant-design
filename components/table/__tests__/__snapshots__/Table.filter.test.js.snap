@@ -52,7 +52,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                       Name
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
+                        title="Filter menu"
                       />
                     </span>
                   </th>
@@ -208,12 +208,12 @@ exports[`Table.filter renders menu correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>
@@ -306,12 +306,12 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>

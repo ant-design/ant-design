@@ -361,7 +361,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       <div>
         <input
           class="ant-calendar-picker-input ant-input"
-          placeholder="请选择日期"
+          placeholder="Select date"
           readonly=""
           value=""
         />

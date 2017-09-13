@@ -18,38 +18,38 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
           <a
             class="ant-calendar-prev-year-btn"
             role="button"
-            title="上一年 (Control键加左方向键)"
+            title="Last year (Control + left)"
           />
           <a
             class="ant-calendar-prev-month-btn"
             role="button"
-            title="上个月 (翻页上键)"
+            title="Previous month (PageUp)"
           />
           <span
-            class="ant-calendar-ym-select"
+            class="ant-calendar-my-select"
           >
-            <a
-              class="ant-calendar-year-select"
-              role="button"
-              title="选择年份"
-            >
-              2000年
-            </a>
             <a
               class="ant-calendar-month-select"
               role="button"
-              title="选择月份"
+              title="Choose a month"
             >
               1月
+            </a>
+            <a
+              class="ant-calendar-year-select"
+              role="button"
+              title="Choose a year"
+            >
+              2000
             </a>
           </span>
           <a
             class="ant-calendar-next-month-btn"
-            title="下个月 (翻页下键)"
+            title="Next month (PageDown)"
           />
           <a
             class="ant-calendar-next-year-btn"
-            title="下一年 (Control键加右方向键)"
+            title="Next year (Control + right)"
           />
         </div>
         <div
@@ -62,12 +62,12 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               <a
                 class="ant-calendar-month-panel-prev-year-btn"
                 role="button"
-                title="上一年 (Control键加左方向键)"
+                title="Last year (Control + left)"
               />
               <a
                 class="ant-calendar-month-panel-year-select"
                 role="button"
-                title="选择年份"
+                title="Choose a year"
               >
                 <span
                   class="ant-calendar-month-panel-year-select-content"
@@ -83,7 +83,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
               <a
                 class="ant-calendar-month-panel-next-year-btn"
                 role="button"
-                title="下一年 (Control键加右方向键)"
+                title="Next year (Control + right)"
               />
             </div>
             <div
@@ -280,38 +280,38 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
               <a
                 class="ant-calendar-prev-year-btn"
                 role="button"
-                title="上一年 (Control键加左方向键)"
+                title="Last year (Control + left)"
               />
               <a
                 class="ant-calendar-prev-month-btn"
                 role="button"
-                title="上个月 (翻页上键)"
+                title="Previous month (PageUp)"
               />
               <span
-                class="ant-calendar-ym-select"
+                class="ant-calendar-my-select"
               >
-                <a
-                  class="ant-calendar-year-select"
-                  role="button"
-                  title="选择年份"
-                >
-                  2000年
-                </a>
                 <a
                   class="ant-calendar-month-select"
                   role="button"
-                  title="选择月份"
+                  title="Choose a month"
                 >
                   1月
+                </a>
+                <a
+                  class="ant-calendar-year-select"
+                  role="button"
+                  title="Choose a year"
+                >
+                  2000
                 </a>
               </span>
               <a
                 class="ant-calendar-next-month-btn"
-                title="下个月 (翻页下键)"
+                title="Next month (PageDown)"
               />
               <a
                 class="ant-calendar-next-year-btn"
-                title="下一年 (Control键加右方向键)"
+                title="Next year (Control + right)"
               />
             </div>
           </div>

@@ -23,11 +23,10 @@ subtitle: 日期选择框
 **注意：**DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
-import moment from 'moment';
-
-// 推荐在入口文件全局设置 locale
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+// 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
+// import moment from 'moment';
+// import 'moment/locale/zh-cn';
+// moment.locale('zh-cn');
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```

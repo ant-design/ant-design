@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import MockDate from 'mockdate';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Select, Transfer } from '../../';
 import enGB from '../en_GB';
@@ -60,7 +61,7 @@ const App = () => (
       <Option value="lucy">lucy</Option>
     </Select>
     <DatePicker />
-    <TimePicker />
+    <TimePicker defaultOpenValue={moment()} />
     <RangePicker style={{ width: 200 }} />
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
@@ -81,15 +82,16 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
+    MockDate.set(moment('2017-09-18T03:30:07.795Z').valueOf());
     locales.forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
         </LocaleProvider>
       );
-      const DatePickerPlaceholder = wrapper.find('.ant-calendar-picker-input').at(0).node.getAttribute('placeholder');
-      expect(DatePickerPlaceholder).toBe(locale.DatePicker.lang.placeholder);
+      expect(wrapper).toMatchSnapshot();
     });
+    MockDate.reset();
   });
 
   it('should change locale of Modal.xxx', () => {

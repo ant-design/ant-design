@@ -2177,7 +2177,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
           tabindex="0"
-          title="上一页"
+          title="Previous Page"
         >
           <a
             class="ant-pagination-item-link"
@@ -2196,7 +2196,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-next"
           tabindex="0"
-          title="下一页"
+          title="Next Page"
         >
           <a
             class="ant-pagination-item-link"
