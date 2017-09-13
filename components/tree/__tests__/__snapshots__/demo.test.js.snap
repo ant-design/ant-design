@@ -843,7 +843,59 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
   class="ant-tree"
   role="tree-node"
   unselectable="true"
-/>
+>
+  <li
+    class=""
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_close"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+      title="Expand to load"
+    >
+      <span
+        class="ant-tree-title"
+      >
+        Expand to load
+      </span>
+    </span>
+  </li>
+  <li
+    class=""
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_close"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+      title="Expand to load"
+    >
+      <span
+        class="ant-tree-title"
+      >
+        Expand to load
+      </span>
+    </span>
+  </li>
+  <li
+    class=""
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher-noop"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+      title="Tree Node"
+    >
+      <span
+        class="ant-tree-title"
+      >
+        Tree Node
+      </span>
+    </span>
+  </li>
+</ul>
 `;
 
 exports[`renders ./components/tree/demo/line.md correctly 1`] = `
