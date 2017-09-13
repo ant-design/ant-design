@@ -69,11 +69,6 @@
   &-tbody > tr > td {
     border-bottom: @border-width-base @border-style-base @border-color-split;
     transition: all .3s;
-    // height placeholder for empty cell
-    &:empty:after {
-      content: '.';
-      visibility: hidden;
-    }
   }
 
   &-thead > tr,
@@ -437,44 +432,9 @@
     text-align: center;
     font-size: @font-size-base;
     color: @text-color-secondary;
+    z-index: 1;
     .@{iconfont-css-prefix} {
       margin-right: 4px;
-    }
-
-    &-fixed-columns {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: transparent;
-      pointer-events: none;
-      // tricky code for https://github.com/ant-design/ant-design/issues/7457
-      overflow-x: scroll;
-      opacity: 0.4;
-      color: #000;
-    }
-  }
-
-  // Fix https://github.com/ant-design/ant-design/issues/7509
-  &-middle &-placeholder {
-    padding: 10px 8px;
-  }
-  &-small &-placeholder {
-    padding: 6px 8px;
-  }
-
-  // not scrollable
-  &-scroll-position-left&-scroll-position-right &-placeholder-fixed-columns {
-    overflow-x: hidden;
-  }
-
-  &-row-empty-placeholder {
-    > td {
-      border-right-color: transparent !important;
-    }
-    > td > * {
-      color: transparent !important;
-      opacity: 0 !important;
-      height: 0 !important;
     }
   }
 

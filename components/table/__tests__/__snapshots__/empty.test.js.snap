@@ -356,55 +356,11 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 </thead>
                 <tbody
                   class="ant-table-tbody"
-                >
-                  <tr
-                    class="ant-table-row  ant-table-row-level-0 ant-table-row-empty-placeholder"
-                    style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
-                  >
-                    <td
-                      class=""
-                    >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px;"
-                      />
-                    </td>
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                    <td
-                      class=""
-                    />
-                  </tr>
-                </tbody>
+                />
               </table>
             </div>
             <div
-              class="ant-table-placeholder ant-table-placeholder-fixed-columns"
+              class="ant-table-placeholder"
             >
               <span>
                 <i
@@ -456,24 +412,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   </thead>
                   <tbody
                     class="ant-table-tbody"
-                  >
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0 ant-table-row-empty-placeholder"
-                      style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
-                    >
-                      <td
-                        class=""
-                      >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px;"
-                        />
-                      </td>
-                      <td
-                        class=""
-                      />
-                    </tr>
-                  </tbody>
+                  />
                 </table>
               </div>
             </div>
@@ -510,16 +449,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   </thead>
                   <tbody
                     class="ant-table-tbody"
-                  >
-                    <tr
-                      class="ant-table-row  ant-table-row-level-0 ant-table-row-empty-placeholder"
-                      style="color:transparent;background:transparent;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;"
-                    >
-                      <td
-                        class=""
-                      />
-                    </tr>
-                  </tbody>
+                  />
                 </table>
               </div>
             </div>
