@@ -125,7 +125,7 @@ class SearchTree extends React.Component {
     });
     return (
       <div>
-        <Search style={{ width: 300 }} placeholder="Search" onChange={this.onChange} />
+        <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
         <Tree
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}
