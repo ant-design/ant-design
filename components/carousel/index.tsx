@@ -74,9 +74,9 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     draggable: false,
   };
 
-  slick: any;
-
   innerSlider: any;
+
+  private slick: any;
 
   constructor() {
     super();

@@ -55,7 +55,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     transitionName: 'slide-up',
   };
 
-  timePickerRef: any;
+  private timePickerRef: any;
 
   constructor(props: TimePickerProps) {
     super(props);

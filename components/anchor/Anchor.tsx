@@ -95,7 +95,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     antAnchor: PropTypes.object,
   };
 
-  inkNode: HTMLElement;
+  private inkNode: HTMLElement;
 
   private links: String[];
   private scrollEvent: any;

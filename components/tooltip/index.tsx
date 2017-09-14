@@ -59,7 +59,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     autoAdjustOverflow: true,
   };
 
-  tooltip: any;
+  private tooltip: any;
 
   constructor(props: TooltipProps) {
     super(props);

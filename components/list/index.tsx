@@ -88,7 +88,6 @@ export default class List extends Component<ListProps> {
   scrollEvent: any;
   resizeEvent: any;
   timeout: any;
-  node: any;
 
   events = [
     'resize',
@@ -101,6 +100,8 @@ export default class List extends Component<ListProps> {
   ];
   infiniteLoaded = false;
   eventHandlers = {};
+
+  private node: any;
 
   getChildContext() {
     return {

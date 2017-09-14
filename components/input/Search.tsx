@@ -12,7 +12,7 @@ export default class Search extends React.Component<SearchProps, any> {
     prefixCls: 'ant-input-search',
   };
 
-  input: Input;
+  private input: Input;
 
   onSearch = () => {
     const { onSearch } = this.props;
