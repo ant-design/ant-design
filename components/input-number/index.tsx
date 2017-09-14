@@ -27,6 +27,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     prefixCls: 'ant-input-number',
     step: 1,
   };
+  
+  private inputNumberRef: any;
 
   render() {
     const { className, size, ...others } = this.props;
@@ -35,10 +37,10 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       [`${this.props.prefixCls}-sm`]: size === 'small',
     }, className);
 
-    return <RcInputNumber ref="inputnumber" className={inputNumberClass} {...others} />;
+    return <RcInputNumber ref={c => this.inputNumberRef = c} className={inputNumberClass} {...others} />;
   }
 
   focus() {
-    this.refs.inputnumber.focus();
+    this.inputNumberRef.focus();
   }
 }
