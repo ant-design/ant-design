@@ -2085,6 +2085,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class="ant-select-search__field__wrap"
                   >
                     <input
+                      autocomplete="off"
                       class="ant-select-search__field"
                       id="select-multiple"
                       value=""

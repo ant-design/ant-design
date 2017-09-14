@@ -192,6 +192,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 class="ant-select-search__field__wrap"
               >
                 <input
+                  autocomplete="off"
                   class="ant-select-search__field"
                   value=""
                 />

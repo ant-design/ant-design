@@ -73,6 +73,11 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
             role="textbox"
             value=""
           />
+          <span
+            class="ant-select-search__field__mirror"
+          >
+             
+          </span>
         </span>
       </li>
     </ul>
@@ -112,6 +117,11 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
             role="textbox"
             value=""
           />
+          <span
+            class="ant-select-search__field__mirror"
+          >
+             
+          </span>
         </span>
       </li>
     </ul>
