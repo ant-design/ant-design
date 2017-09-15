@@ -17,6 +17,14 @@ timeline: true
 
 ---
 
+## 2.13.2
+
+`2017-09-15`
+
+- 🐞 修复了 Form `getFieldDecoratorOptions` 缺失 `normalize` 以及 `validateFirst` 属性的问题。[#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
+- 🌟 优化了 Tree Node loading 的显示位置。[#7584](https://github.com/ant-design/ant-design/issues/7584)
+- 🌟 优化了 Progress、Modal、Notification、Popconfirm 的英文文档。(@khalibloo)[https://github.com/khalibloo]
+
 ## 2.13.1
 
 `2017-09-10`
