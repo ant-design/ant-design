@@ -8,67 +8,75 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
     class="ant-fullcalendar-header"
   >
     <div
-      class="ant-fullcalendar-year-select ant-select ant-select-enabled"
+      id="TriggerContainer"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-fullcalendar-year-select ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-selection__rendered"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="2016年"
+            class="ant-select-selection__rendered"
           >
-            2016年
+            <div
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="2016年"
+            >
+              2016年
+            </div>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
     </div>
     <div
-      class="ant-fullcalendar-month-select ant-select ant-select-enabled"
+      id="TriggerContainer"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-fullcalendar-month-select ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-selection__rendered"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="11月"
+            class="ant-select-selection__rendered"
           >
-            11月
+            <div
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="11月"
+            >
+              11月
+            </div>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
     </div>
     <div
@@ -1015,67 +1023,75 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
       class="ant-fullcalendar-header"
     >
       <div
-        class="ant-select-sm ant-fullcalendar-year-select ant-select ant-select-enabled"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-sm ant-fullcalendar-year-select ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="2016年"
+              class="ant-select-selection__rendered"
             >
-              2016年
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="2016年"
+              >
+                2016年
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
       <div
-        class="ant-select-sm ant-fullcalendar-month-select ant-select ant-select-enabled"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-sm ant-fullcalendar-month-select ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="11月"
+              class="ant-select-selection__rendered"
             >
-              11月
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="11月"
+              >
+                11月
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
       <div
@@ -2020,67 +2036,75 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
     class="ant-fullcalendar-header"
   >
     <div
-      class="ant-fullcalendar-year-select ant-select ant-select-enabled"
+      id="TriggerContainer"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-fullcalendar-year-select ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-selection__rendered"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="2016年"
+            class="ant-select-selection__rendered"
           >
-            2016年
+            <div
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="2016年"
+            >
+              2016年
+            </div>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
     </div>
     <div
-      class="ant-fullcalendar-month-select ant-select ant-select-enabled"
+      id="TriggerContainer"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-fullcalendar-month-select ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-selection__rendered"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="11月"
+            class="ant-select-selection__rendered"
           >
-            11月
+            <div
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="11月"
+            >
+              11月
+            </div>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
     </div>
     <div
@@ -3339,67 +3363,75 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
       class="ant-fullcalendar-header"
     >
       <div
-        class="ant-fullcalendar-year-select ant-select ant-select-enabled"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-fullcalendar-year-select ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="2017年"
+              class="ant-select-selection__rendered"
             >
-              2017年
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="2017年"
+              >
+                2017年
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
       <div
-        class="ant-fullcalendar-month-select ant-select ant-select-enabled"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-fullcalendar-month-select ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="1月"
+              class="ant-select-selection__rendered"
             >
-              1月
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="1月"
+              >
+                1月
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
       <div
