@@ -105,6 +105,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          title="Item 1"
         >
           Item 1
         </div>
@@ -134,6 +135,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          title="Item 2"
         >
           Item 2
         </div>
@@ -583,6 +585,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             aria-owns="sub2$Menu"
             class="ant-menu-submenu-title"
             style="padding-left:48px;"
+            title="Submenu"
           >
             Submenu
             <i
