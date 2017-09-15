@@ -193,6 +193,7 @@ exports[`Table.filter renders menu correctly 1`] = `
             aria-haspopup="true"
             aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
+            title="Title"
           >
             Title
           </div>
@@ -287,6 +288,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             aria-haspopup="true"
             aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
+            title="Title"
           >
             Title
           </div>
