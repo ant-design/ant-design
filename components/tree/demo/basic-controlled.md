@@ -17,33 +17,41 @@ basic controlled example
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 
-const x = 3;
-const y = 2;
-const z = 1;
-const gData = [];
-
-const generateData = (_level, _preKey, _tns) => {
-  const preKey = _preKey || '0';
-  const tns = _tns || gData;
-
-  const children = [];
-  for (let i = 0; i < x; i++) {
-    const key = `${preKey}-${i}`;
-    tns.push({ title: key, key });
-    if (i < y) {
-      children.push(key);
-    }
-  }
-  if (_level < 0) {
-    return tns;
-  }
-  const level = _level - 1;
-  children.forEach((key, index) => {
-    tns[index].children = [];
-    return generateData(level, key, tns[index].children);
-  });
-};
-generateData(z);
+const treeData = [{
+  "title": "0-0",
+  "key": "0-0",
+  "children": [{
+    "title": "0-0-0",
+    "key": "0-0-0",
+    "children": [
+      { "title": "0-0-0-0", "key": "0-0-0-0" },
+      { "title": "0-0-0-1", "key": "0-0-0-1" },
+      { "title": "0-0-0-2", "key": "0-0-0-2" },
+    ],
+  }, {
+    "title": "0-0-1",
+    "key": "0-0-1",
+    "children": [
+      { "title": "0-0-1-0", "key": "0-0-1-0" },
+      { "title": "0-0-1-1", "key": "0-0-1-1" },
+      { "title": "0-0-1-2", "key": "0-0-1-2" },
+    ],
+  }, {
+    "title": "0-0-2",
+    "key": "0-0-2",
+  }],
+}, {
+  "title": "0-1",
+  "key": "0-1",
+  "children": [
+    { "title": "0-1-0-0", "key": "0-1-0-0" },
+    { "title": "0-1-0-1", "key": "0-1-0-1" },
+    { "title": "0-1-0-2", "key": "0-1-0-2" },
+  ],
+}, {
+  "title": "0-2",
+  "key": "0-2",
+}];
 
 class Demo extends React.Component {
   state = {
@@ -62,26 +70,26 @@ class Demo extends React.Component {
     });
   }
   onCheck = (checkedKeys) => {
-    this.setState({
-      checkedKeys,
-      selectedKeys: ['0-3', '0-4'],
-    });
+    console.log('onCheck', checkedKeys);
+    this.setState({ checkedKeys });
   }
   onSelect = (selectedKeys, info) => {
     console.log('onSelect', info);
     this.setState({ selectedKeys });
   }
-  render() {
-    const loop = data => data.map((item) => {
+  renderTreeNodes = (data) => {
+    return data.map((item) => {
       if (item.children) {
         return (
-          <TreeNode key={item.key} title={item.key} disableCheckbox={item.key === '0-0-0'}>
-            {loop(item.children)}
+          <TreeNode title={item.title} key={item.key} dataRef={item}>
+            {this.renderTreeNodes(item.children)}
           </TreeNode>
         );
       }
-      return <TreeNode key={item.key} title={item.key} />;
+      return <TreeNode {...item} />;
     });
+  }
+  render() {
     return (
       <Tree
         checkable
@@ -93,7 +101,7 @@ class Demo extends React.Component {
         onSelect={this.onSelect}
         selectedKeys={this.state.selectedKeys}
       >
-        {loop(gData)}
+        {this.renderTreeNodes(treeData)}
       </Tree>
     );
   }
