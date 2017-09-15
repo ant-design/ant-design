@@ -62,7 +62,7 @@ export interface ModalFuncProps {
   cancelText?: string;
   iconType?: string;
   maskClosable?: boolean;
-  zIndex?: boolean;
+  zIndex?: number;
 }
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void,
