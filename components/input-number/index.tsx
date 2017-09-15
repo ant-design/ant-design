@@ -27,7 +27,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     prefixCls: 'ant-input-number',
     step: 1,
   };
-  
+
   private inputNumberRef: any;
 
   render() {
@@ -42,5 +42,9 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
   focus() {
     this.inputNumberRef.focus();
+  }
+
+  blur() {
+    this.inputNumberRef.blur();
   }
 }
