@@ -667,23 +667,71 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
-<span
-  class="ant-input-search ant-input-affix-wrapper"
-  style="width:200px;"
->
-  <input
-    class="ant-input"
-    placeholder="input search text"
-    type="text"
-  />
+<div>
   <span
-    class="ant-input-suffix"
+    class="ant-input-search ant-input-affix-wrapper"
+    style="width:200px;"
   >
-    <i
-      class="anticon anticon-search ant-input-search-icon"
+    <input
+      class="ant-input"
+      placeholder="input search text"
+      type="text"
     />
+    <span
+      class="ant-input-suffix"
+    >
+      <i
+        class="anticon anticon-search ant-input-search-icon"
+      />
+    </span>
   </span>
-</span>
+  <br />
+  <br />
+  <span
+    class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+  >
+    <input
+      class="ant-input"
+      placeholder="input search text"
+      type="text"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <button
+        class="ant-btn ant-input-search-button ant-btn-primary"
+        type="button"
+      >
+        <i
+          class="anticon anticon-search"
+        />
+      </button>
+    </span>
+  </span>
+  <br />
+  <br />
+  <span
+    class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+  >
+    <input
+      class="ant-input ant-input-lg"
+      placeholder="input search text"
+      type="text"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <button
+        class="ant-btn ant-input-search-button ant-btn-primary ant-btn-lg"
+        type="button"
+      >
+        <span>
+          Search
+        </span>
+      </button>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`renders ./components/input/demo/size.md correctly 1`] = `

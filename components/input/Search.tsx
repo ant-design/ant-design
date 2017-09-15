@@ -2,14 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 import Input, { InputProps } from './Input';
 import Icon from '../icon';
+import Button from '../button';
 
 export interface SearchProps extends InputProps {
   onSearch?: (value: string) => any;
+  enterButton?: boolean | React.ReactNode;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     prefixCls: 'ant-input-search',
+    enterButton: false,
   };
 
   input: Input;
@@ -27,20 +30,28 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   render() {
-    const { className, prefixCls, ...others } = this.props;
+    const { className, prefixCls, size, enterButton, ...others } = this.props;
     delete (others as any).onSearch;
-    const searchSuffix = (
-      <Icon
-        className={`${prefixCls}-icon`}
-        onClick={this.onSearch}
-        type="search"
-      />
-    );
+    const searchSuffix = enterButton
+      ? (
+        <Button
+          className={`${prefixCls}-button`}
+          type="primary"
+          size={size}
+          onClick={this.onSearch}
+        >
+          {enterButton === true ? <Icon type="search" /> : enterButton}
+        </Button>
+      ) : <Icon className={`${prefixCls}-icon`} type="search" />;
+    const inputClassName = classNames(prefixCls, className, {
+      [`${prefixCls}-enter-button`]: !!enterButton,
+    });
     return (
       <Input
         onPressEnter={this.onSearch}
         {...others}
-        className={classNames(prefixCls, className)}
+        size={size}
+        className={inputClassName}
         suffix={searchSuffix}
         ref={this.saveInput}
       />
