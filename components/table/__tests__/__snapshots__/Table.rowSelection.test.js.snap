@@ -11,32 +11,24 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       role="menu"
       tabindex="0"
     >
-      <div
-        id="TriggerContainer"
+      <li
+        aria-selected="false"
+        class="ant-dropdown-menu-item"
+        role="menuitem"
       >
-        <li
-          aria-selected="false"
-          class="ant-dropdown-menu-item"
-          role="menuitem"
-        >
-          <div>
-            全选当页
-          </div>
-        </li>
-      </div>
-      <div
-        id="TriggerContainer"
+        <div>
+          全选当页
+        </div>
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-dropdown-menu-item"
+        role="menuitem"
       >
-        <li
-          aria-selected="false"
-          class="ant-dropdown-menu-item"
-          role="menuitem"
-        >
-          <div>
-            反选当页
-          </div>
-        </li>
-      </div>
+        <div>
+          反选当页
+        </div>
+      </li>
     </ul>
   </div>
 </div>

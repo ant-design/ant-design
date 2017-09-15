@@ -2,61 +2,45 @@
 
 exports[`renders ./components/popover/demo/arrow-point-at-center.md correctly 1`] = `
 <div>
-  <div
-    id="TriggerContainer"
+  <button
+    class="ant-btn"
+    type="button"
   >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Align edge / 边缘对齐
-      </span>
-    </button>
-  </div>
-  <div
-    id="TriggerContainer"
+    <span>
+      Align edge / 边缘对齐
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
   >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Arrow points to center / 箭头指向中心
-      </span>
-    </button>
-  </div>
+    <span>
+      Arrow points to center / 箭头指向中心
+    </span>
+  </button>
 </div>
 `;
 
 exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
-<div
-  id="TriggerContainer"
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
 >
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Hover me
-    </span>
-  </button>
-</div>
+  <span>
+    Hover me
+  </span>
+</button>
 `;
 
 exports[`renders ./components/popover/demo/control.md correctly 1`] = `
-<div
-  id="TriggerContainer"
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
 >
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Click me
-    </span>
-  </button>
-</div>
+  <span>
+    Click me
+  </span>
+</button>
 `;
 
 exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
@@ -66,203 +50,143 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
   <div
     style="margin-left:70px;white-space:nowrap;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          TL
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        TL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Top
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Top
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          TR
-        </span>
-      </button>
-    </div>
+      <span>
+        TR
+      </span>
+    </button>
   </div>
   <div
     style="width:70px;float:left;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          LT
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        LT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Left
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Left
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          LB
-        </span>
-      </button>
-    </div>
+      <span>
+        LB
+      </span>
+    </button>
   </div>
   <div
     style="width:70px;margin-left:304px;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          RT
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        RT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Right
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Right
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          RB
-        </span>
-      </button>
-    </div>
+      <span>
+        RB
+      </span>
+    </button>
   </div>
   <div
     style="margin-left:70px;clear:both;white-space:nowrap;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          BL
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        BL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Bottom
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Bottom
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          BR
-        </span>
-      </button>
-    </div>
+      <span>
+        BR
+      </span>
+    </button>
   </div>
 </div>
 `;
 
 exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
 <div>
-  <div
-    id="TriggerContainer"
+  <button
+    class="ant-btn"
+    type="button"
   >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Hover me
-      </span>
-    </button>
-  </div>
-  <div
-    id="TriggerContainer"
+    <span>
+      Hover me
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
   >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Focus me
-      </span>
-    </button>
-  </div>
-  <div
-    id="TriggerContainer"
+    <span>
+      Focus me
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button"
   >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Click me
-      </span>
-    </button>
-  </div>
+    <span>
+      Click me
+    </span>
+  </button>
 </div>
 `;

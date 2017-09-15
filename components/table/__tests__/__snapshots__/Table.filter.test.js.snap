@@ -50,14 +50,10 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span>
                       Name
-                      <div
-                        id="TriggerContainer"
-                      >
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选"
-                        />
-                      </div>
+                      <i
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        title="筛选"
+                      />
                     </span>
                   </th>
                 </tr>

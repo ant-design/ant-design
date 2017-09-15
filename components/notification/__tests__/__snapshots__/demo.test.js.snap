@@ -47,40 +47,36 @@ exports[`renders ./components/notification/demo/duration.md correctly 1`] = `
 exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
 <div>
   <div
-    id="TriggerContainer"
+    class="ant-select ant-select-enabled"
+    style="width:120px;margin-right:10px;"
   >
     <div
-      class="ant-select ant-select-enabled"
-      style="width:120px;margin-right:10px;"
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+                ant-select-selection--single"
+      role="combobox"
+      tabindex="0"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selection__rendered"
       >
         <div
-          class="ant-select-selection__rendered"
+          class="ant-select-selection-selected-value"
+          style="display:block;opacity:1;"
+          title="topRight"
         >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="topRight"
-          >
-            topRight
-          </div>
+          topRight
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable"
+      >
+        <b />
+      </span>
     </div>
   </div>
   <button

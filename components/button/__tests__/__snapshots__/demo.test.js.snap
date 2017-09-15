@@ -460,21 +460,17 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
       secondary
     </span>
   </button>
-  <div
-    id="TriggerContainer"
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
   >
-    <button
-      class="ant-btn ant-dropdown-trigger"
-      type="button"
-    >
-      <span>
-        more 
-      </span>
-      <i
-        class="anticon anticon-down"
-      />
-    </button>
-  </div>
+    <span>
+      more 
+    </span>
+    <i
+      class="anticon anticon-down"
+    />
+  </button>
 </div>
 `;
 

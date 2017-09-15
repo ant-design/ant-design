@@ -42,40 +42,36 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            id="TriggerContainer"
+            class="ant-select ant-select-enabled"
+            style="width:80px;"
           >
             <div
-              class="ant-select ant-select-enabled"
-              style="width:80px;"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
             >
               <div
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-select-selection
-                          ant-select-selection--single"
-                role="combobox"
-                tabindex="0"
+                class="ant-select-selection__rendered"
               >
                 <div
-                  class="ant-select-selection__rendered"
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title="Http://"
                 >
-                  <div
-                    class="ant-select-selection-selected-value"
-                    style="display:block;opacity:1;"
-                    title="Http://"
-                  >
-                    Http://
-                  </div>
+                  Http://
                 </div>
-                <span
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  <b />
-                </span>
               </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
             </div>
           </div>
         </span>
@@ -88,40 +84,36 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            id="TriggerContainer"
+            class="ant-select ant-select-enabled"
+            style="width:70px;"
           >
             <div
-              class="ant-select ant-select-enabled"
-              style="width:70px;"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
             >
               <div
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-select-selection
-                          ant-select-selection--single"
-                role="combobox"
-                tabindex="0"
+                class="ant-select-selection__rendered"
               >
                 <div
-                  class="ant-select-selection__rendered"
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title=".com"
                 >
-                  <div
-                    class="ant-select-selection-selected-value"
-                    style="display:block;opacity:1;"
-                    title=".com"
-                  >
-                    .com
-                  </div>
+                  .com
                 </div>
-                <span
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  <b />
-                </span>
               </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
             </div>
           </div>
         </span>
@@ -225,39 +217,35 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Zhejiang"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Zhejiang"
-            >
-              Zhejiang
-            </div>
+            Zhejiang
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
     <input
@@ -272,39 +260,35 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option1"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Option1"
-            >
-              Option1
-            </div>
+            Option1
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
     <input
@@ -374,20 +358,16 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     <span
       class="ant-calendar-picker"
     >
-      <div
-        id="TriggerContainer"
-      >
-        <div>
-          <input
-            class="ant-calendar-picker-input ant-input"
-            placeholder="请选择日期"
-            readonly=""
-            value=""
-          />
-          <span
-            class="ant-calendar-picker-icon"
-          />
-        </div>
+      <div>
+        <input
+          class="ant-calendar-picker-input ant-input"
+          placeholder="请选择日期"
+          readonly=""
+          value=""
+        />
+        <span
+          class="ant-calendar-picker-icon"
+        />
       </div>
     </span>
   </span>
@@ -396,75 +376,67 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option1-1"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Option1-1"
-            >
-              Option1-1
-            </div>
+            Option1-1
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option2-2"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Option2-2"
-            >
-              Option2-2
-            </div>
+            Option2-2
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
   </span>
@@ -473,39 +445,35 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Between"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Between"
-            >
-              Between
-            </div>
+            Between
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
     <input
@@ -533,95 +501,87 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
     >
       <div
-        class="ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Sign Up"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Sign Up"
-            >
-              Sign Up
-            </div>
+            Sign Up
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
     <div
-      id="TriggerContainer"
+      class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+      style="width:200px;"
     >
       <div
-        class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-        style="width:200px;"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection__placeholder"
-              style="display:block;user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable"
-            >
-              Email
-            </div>
-            <ul>
-              <li
-                class="ant-select-search ant-select-search--inline"
-              >
-                <div
-                  class="ant-select-search__field__wrap"
-                >
-                  <input
-                    class="ant-input ant-select-search__field"
-                    type="text"
-                    value=""
-                  />
-                  <span
-                    class="ant-select-search__field__mirror"
-                  >
-                     
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            class="ant-select-selection__placeholder"
+            style="display:block;user-select:none;-webkit-user-select:none;"
             unselectable="unselectable"
           >
-            <b />
-          </span>
+            Email
+          </div>
+          <ul>
+            <li
+              class="ant-select-search ant-select-search--inline"
+            >
+              <div
+                class="ant-select-search__field__wrap"
+              >
+                <input
+                  class="ant-input ant-select-search__field"
+                  type="text"
+                  value=""
+                />
+                <span
+                  class="ant-select-search__field__mirror"
+                >
+                   
+                </span>
+              </div>
+            </li>
+          </ul>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
   </span>
@@ -630,66 +590,58 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      id="TriggerContainer"
+      class="ant-select ant-select-enabled"
+      style="width:30%;"
     >
       <div
-        class="ant-select ant-select-enabled"
-        style="width:30%;"
-      >
-        <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
-        >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="Home"
-            >
-              Home
-            </div>
-          </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      id="TriggerContainer"
-    >
-      <span
-        class="ant-cascader-picker"
-        style="width:70%;"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
         tabindex="0"
       >
+        <div
+          class="ant-select-selection__rendered"
+        >
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Home"
+          >
+            Home
+          </div>
+        </div>
         <span
-          class="ant-cascader-picker-label"
-        />
-        <input
-          autocomplete="off"
-          class="ant-input ant-cascader-input "
-          placeholder="Select Address"
-          readonly=""
-          type="text"
-          value=""
-        />
-        <i
-          class="anticon anticon-down ant-cascader-picker-arrow"
-        />
-      </span>
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
+      </div>
     </div>
+    <span
+      class="ant-cascader-picker"
+      style="width:70%;"
+      tabindex="0"
+    >
+      <span
+        class="ant-cascader-picker-label"
+      />
+      <input
+        autocomplete="off"
+        class="ant-input ant-cascader-input "
+        placeholder="Select Address"
+        readonly=""
+        type="text"
+        value=""
+      />
+      <i
+        class="anticon anticon-down ant-cascader-picker-arrow"
+      />
+    </span>
   </span>
 </div>
 `;
@@ -764,16 +716,12 @@ exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
-<div
-  id="TriggerContainer"
->
-  <input
-    class="ant-input"
-    maxlength="25"
-    placeholder="Input a number"
-    style="width:120px;"
-    type="text"
-    value=""
-  />
-</div>
+<input
+  class="ant-input"
+  maxlength="25"
+  placeholder="Input a number"
+  style="width:120px;"
+  type="text"
+  value=""
+/>
 `;

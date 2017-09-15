@@ -511,18 +511,14 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           />
         </div>
         <div
-          id="TriggerContainer"
-        >
-          <div
-            aria-disabled="false"
-            aria-valuemax="5"
-            aria-valuemin="0"
-            aria-valuenow="1"
-            class="ant-slider-handle"
-            role="slider"
-            style="left:20%;"
-          />
-        </div>
+          aria-disabled="false"
+          aria-valuemax="5"
+          aria-valuemin="0"
+          aria-valuenow="1"
+          class="ant-slider-handle"
+          role="slider"
+          style="left:20%;"
+        />
         <div
           class="ant-slider-mark"
         >
@@ -612,18 +608,14 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           />
         </div>
         <div
-          id="TriggerContainer"
-        >
-          <div
-            aria-disabled="false"
-            aria-valuemax="5"
-            aria-valuemin="0"
-            aria-valuenow="2"
-            class="ant-slider-handle"
-            role="slider"
-            style="left:40%;"
-          />
-        </div>
+          aria-disabled="false"
+          aria-valuemax="5"
+          aria-valuemin="0"
+          aria-valuenow="2"
+          class="ant-slider-handle"
+          role="slider"
+          style="left:40%;"
+        />
         <div
           class="ant-slider-mark"
         >

@@ -110,7 +110,7 @@ describe('Table.filter', () => {
       }],
     }));
 
-    wrapper.find('Icon').first().simulate('click');
+    wrapper.find('Dropdown').first().simulate('click');
 
     expect(handleChange).toBeCalledWith(true);
   });
