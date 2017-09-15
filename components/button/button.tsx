@@ -35,7 +35,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
 
 export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
-export type ButtonSize = 'small' | 'large';
+export type ButtonSize = 'small' | 'default' | 'large';
 
 export interface ButtonProps {
   type?: ButtonType;
