@@ -24,6 +24,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
@@ -147,6 +148,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
@@ -338,6 +340,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
@@ -422,6 +425,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
           class="ant-select-search__field__wrap"
         >
           <input
+            autocomplete="off"
             class="ant-select-search__field"
             value=""
           />
@@ -475,6 +479,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
@@ -522,6 +527,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
@@ -658,6 +664,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-search__field__wrap"
             >
               <input
+                autocomplete="off"
                 class="ant-select-search__field"
                 value="a1"
               />
@@ -740,6 +747,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-search__field__wrap"
             >
               <input
+                autocomplete="off"
                 class="ant-select-search__field"
                 value=""
               />
@@ -815,6 +823,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-search__field__wrap"
             >
               <input
+                autocomplete="off"
                 class="ant-select-search__field"
                 value=""
               />
@@ -863,6 +872,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
+              autocomplete="off"
               class="ant-select-search__field"
               value=""
             />
