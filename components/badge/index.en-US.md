@@ -29,5 +29,5 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | overflowCount  | Max count to show       | number     | 99      |
 | showZero       | Whether to show badge when `count` is zero   | boolean | `false` |
 | dot            | Whether to display a red dot instead of `count` | boolean | `false`  |
-| status         | Status of `dot`, indicating context | `success` \| `processing` \| `default` \| `error` \| `warning` | `default` |
+| status         | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |
 | text           | If `status` is set, `text` sets the display text of the status `dot` | string | `''` |
