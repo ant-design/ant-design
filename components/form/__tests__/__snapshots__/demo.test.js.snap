@@ -827,7 +827,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
             data-__meta="[object Object]"
             id="username"
             type="text"
-            value="BENJYCUI"
+            value="benjycui"
           />
         </div>
       </div>

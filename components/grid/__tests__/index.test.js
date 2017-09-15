@@ -1,20 +1,18 @@
 import React from 'react';
-import TestUtils from 'react-dom/test-utils';
+import { render } from 'enzyme';
 import { Col, Row } from '..';
 
 describe('Grid', () => {
   it('should render Col', () => {
-    const col = TestUtils.renderIntoDocument(
+    const wrapper = render(
       <Col span="2" />
     );
-    const colNode = TestUtils.findRenderedDOMComponentWithTag(col, 'DIV');
-    expect(colNode.className).toBe('ant-col-2');
+    expect(wrapper).toMatchSnapshot();
   });
   it('should render Row', () => {
-    const row = TestUtils.renderIntoDocument(
+    const wrapper = render(
       <Row />
     );
-    const rowNode = TestUtils.findRenderedDOMComponentWithTag(row, 'DIV');
-    expect(rowNode.className).toBe('ant-row');
+    expect(wrapper).toMatchSnapshot();
   });
 });

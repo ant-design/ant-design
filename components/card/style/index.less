@@ -31,6 +31,7 @@
     border-radius: @border-radius-sm @border-radius-sm 0 0;
     .clearfix;
     margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
+    display: flex;
 
     &-title {
       font-size: @font-size-lg;
@@ -42,6 +43,7 @@
       color: @card-head-color;
       font-weight: 500;
       display: inline-block;
+      flex: 1;
     }
 
     .@{ant-prefix}-tabs {
@@ -58,6 +60,7 @@
   &-extra {
     float: right;
     padding: @card-head-padding + 1.5px 0;
+    text-align: right;
   }
 
   &-body {
