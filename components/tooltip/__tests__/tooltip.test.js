@@ -14,12 +14,12 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
       >
-        <div className="box">Hello world!</div>
+        <div>Hello world!</div>
       </Tooltip>
     );
 
     // `title` is empty.
-    const div = wrapper.find('.box');
+    const div = wrapper.find('div').at(0);
     div.simulate('mouseenter');
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
@@ -30,23 +30,23 @@ describe('Tooltip', () => {
 
     // update `title` value.
     wrapper.setProps({ title: 'Have a nice day!' });
-    div.simulate('mouseenter');
+    wrapper.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
 
-    div.simulate('mouseleave');
+    wrapper.simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
 
     // add `visible` props.
     wrapper.setProps({ visible: false });
-    div.simulate('mouseenter');
+    wrapper.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
 
     // always trigger onVisibleChange
-    div.simulate('mouseleave');
+    wrapper.simulate('mouseleave');
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
   });
@@ -88,7 +88,7 @@ describe('Tooltip', () => {
       </Tooltip>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getDOMNode().tagName).toBe('SPAN');
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     expect(onVisibleChange).toBeCalledWith(true);
@@ -110,8 +110,8 @@ describe('Tooltip', () => {
         <Button disabled style={{ display: 'block' }}>Hello world!</Button>
       </Tooltip>
     );
-    expect(wrapper1).toMatchSnapshot();
-    expect(wrapper2).toMatchSnapshot();
+    expect(wrapper1.getDOMNode().style.display).toBe('inline-block');
+    expect(wrapper2.getDOMNode().style.display).toBe('block');
   });
 
   it('should not wrap span when trigger is not hover', () => {
@@ -130,44 +130,42 @@ describe('Tooltip', () => {
   });
 
   it('should works for arrowPointAtCenter', () => {
-    jest.dontMock('rc-trigger', () => {
-      const arrowWidth = 5;
-      const horizontalArrowShift = 16;
-      const triggerWidth = 200;
+    const arrowWidth = 5;
+    const horizontalArrowShift = 16;
+    const triggerWidth = 200;
 
-      const wrapper = mount(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-        >
-          <button style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>
-      );
-      wrapper.find('button').at(0).simulate('click');
-      const popupLeftDefault = parseInt(wrapper.node.getPopupDomNode().style.left, 10);
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+      >
+        <button style={{ width: triggerWidth }}>
+          Hello world!
+        </button>
+      </Tooltip>
+    );
+    wrapper.find('button').at(0).simulate('click');
+    const popupLeftDefault = parseInt(wrapper.node.getPopupDomNode().style.left, 10);
 
-      const wrapper2 = mount(
-        <Tooltip
-          title="xxxxx"
-          trigger="click"
-          mouseEnterDelay={0}
-          mouseLeaveDelay={0}
-          placement="bottomLeft"
-          arrowPointAtCenter
-        >
-          <button style={{ width: triggerWidth }}>
-            Hello world!
-          </button>
-        </Tooltip>
-      );
-      wrapper2.find('button').at(0).simulate('click');
-      const popupLeftArrowPointAtCenter = parseInt(wrapper2.node.getPopupDomNode().style.left, 10);
-      expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
-    });
+    const wrapper2 = mount(
+      <Tooltip
+        title="xxxxx"
+        trigger="click"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        placement="bottomLeft"
+        arrowPointAtCenter
+      >
+        <button style={{ width: triggerWidth }}>
+          Hello world!
+        </button>
+      </Tooltip>
+    );
+    wrapper2.find('button').at(0).simulate('click');
+    const popupLeftArrowPointAtCenter = parseInt(wrapper2.node.getPopupDomNode().style.left, 10);
+    expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
   });
 });

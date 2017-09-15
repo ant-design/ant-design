@@ -468,39 +468,35 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          id="TriggerContainer"
+          class="ant-select-lg ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-lg ant-select ant-select-enabled"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-selection__rendered"
-              >
-                <div
-                  class="ant-select-selection__placeholder"
-                  style="display:block;user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  Select a option and change input text above
-                </div>
-              </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
                 unselectable="unselectable"
               >
-                <b />
-              </span>
+                Select a option and change input text above
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
         </div>
       </div>
@@ -561,40 +557,36 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             value="0"
           />
           <div
-            id="TriggerContainer"
+            class="ant-select-lg ant-select ant-select-enabled"
+            style="width:32%;"
           >
             <div
-              class="ant-select-lg ant-select ant-select-enabled"
-              style="width:32%;"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-select-selection
+                        ant-select-selection--single"
+              role="combobox"
+              tabindex="0"
             >
               <div
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-select-selection
-                          ant-select-selection--single"
-                role="combobox"
-                tabindex="0"
+                class="ant-select-selection__rendered"
               >
                 <div
-                  class="ant-select-selection__rendered"
+                  class="ant-select-selection-selected-value"
+                  style="display:block;opacity:1;"
+                  title="RMB"
                 >
-                  <div
-                    class="ant-select-selection-selected-value"
-                    style="display:block;opacity:1;"
-                    title="RMB"
-                  >
-                    RMB
-                  </div>
+                  RMB
                 </div>
-                <span
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  <b />
-                </span>
               </div>
+              <span
+                class="ant-select-arrow"
+                style="user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                <b />
+              </span>
             </div>
           </div>
         </span>
@@ -1338,13 +1330,9 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <span>
           Nickname 
-          <div
-            id="TriggerContainer"
-          >
-            <i
-              class="anticon anticon-question-circle-o"
-            />
-          </div>
+          <i
+            class="anticon anticon-question-circle-o"
+          />
         </span>
       </label>
     </div>
@@ -1384,35 +1372,31 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       <div
         class="ant-form-item-control has-success"
       >
-        <div
-          id="TriggerContainer"
+        <span
+          class="ant-cascader-picker"
+          tabindex="0"
         >
           <span
-            class="ant-cascader-picker"
-            tabindex="0"
+            class="ant-cascader-picker-label"
           >
-            <span
-              class="ant-cascader-picker-label"
-            >
-              Zhejiang / Hangzhou / West Lake
-            </span>
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input ant-input-lg"
-              data-__meta="[object Object]"
-              id="residence"
-              readonly=""
-              type="text"
-              value=""
-            />
-            <i
-              class="anticon anticon-cross-circle ant-cascader-picker-clear"
-            />
-            <i
-              class="anticon anticon-down ant-cascader-picker-arrow"
-            />
+            Zhejiang / Hangzhou / West Lake
           </span>
-        </div>
+          <input
+            autocomplete="off"
+            class="ant-input ant-cascader-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="residence"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <i
+            class="anticon anticon-cross-circle ant-cascader-picker-clear"
+          />
+          <i
+            class="anticon anticon-down ant-cascader-picker-arrow"
+          />
+        </span>
       </div>
     </div>
   </div>
@@ -1447,40 +1431,36 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input-group-addon"
             >
               <div
-                id="TriggerContainer"
+                class="ant-select ant-select-enabled"
+                style="width:60px;"
               >
                 <div
-                  class="ant-select ant-select-enabled"
-                  style="width:60px;"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-select-selection
+                            ant-select-selection--single"
+                  role="combobox"
+                  tabindex="0"
                 >
                   <div
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                    class="ant-select-selection
-                              ant-select-selection--single"
-                    role="combobox"
-                    tabindex="0"
+                    class="ant-select-selection__rendered"
                   >
                     <div
-                      class="ant-select-selection__rendered"
+                      class="ant-select-selection-selected-value"
+                      style="display:block;opacity:1;"
+                      title="+86"
                     >
-                      <div
-                        class="ant-select-selection-selected-value"
-                        style="display:block;opacity:1;"
-                        title="+86"
-                      >
-                        +86
-                      </div>
+                      +86
                     </div>
-                    <span
-                      class="ant-select-arrow"
-                      style="user-select:none;-webkit-user-select:none;"
-                      unselectable="unselectable"
-                    >
-                      <b />
-                    </span>
                   </div>
+                  <span
+                    class="ant-select-arrow"
+                    style="user-select:none;-webkit-user-select:none;"
+                    unselectable="unselectable"
+                  >
+                    <b />
+                  </span>
                 </div>
               </div>
             </span>
@@ -1517,58 +1497,54 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          id="TriggerContainer"
+          class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
         >
           <div
-            class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-selection__rendered"
-              >
-                <div
-                  class="ant-select-selection__placeholder"
-                  style="display:block;user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  website
-                </div>
-                <ul>
-                  <li
-                    class="ant-select-search ant-select-search--inline"
-                  >
-                    <div
-                      class="ant-select-search__field__wrap"
-                    >
-                      <input
-                        class="ant-input ant-select-search__field"
-                        type="text"
-                        value=""
-                      />
-                      <span
-                        class="ant-select-search__field__mirror"
-                      >
-                         
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
                 unselectable="unselectable"
               >
-                <b />
-              </span>
+                website
+              </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      class="ant-input ant-select-search__field"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
         </div>
       </div>
@@ -1719,20 +1695,16 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <div
-            id="TriggerContainer"
-          >
-            <div>
-              <input
-                class="ant-calendar-picker-input ant-input ant-input-lg"
-                placeholder="请选择日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
-            </div>
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
           </div>
         </span>
       </div>
@@ -1762,20 +1734,16 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-calendar-picker"
           style="width:154px;"
         >
-          <div
-            id="TriggerContainer"
-          >
-            <div>
-              <input
-                class="ant-calendar-picker-input ant-input ant-input-lg"
-                placeholder="请选择日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
-            </div>
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
           </div>
         </span>
       </div>
@@ -1804,20 +1772,16 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <div
-            id="TriggerContainer"
-          >
-            <div>
-              <input
-                class="ant-calendar-picker-input ant-input ant-input-lg"
-                placeholder="请选择日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
-            </div>
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
           </div>
         </span>
       </div>
@@ -1846,34 +1810,30 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <div
-            id="TriggerContainer"
+          <span
+            class="ant-calendar-picker-input ant-input ant-input-lg"
           >
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="开始日期"
+              readonly=""
+              value=""
+            />
             <span
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-range-picker-separator"
             >
-              <input
-                class="ant-calendar-range-picker-input"
-                placeholder="开始日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-range-picker-separator"
-              >
-                 ~ 
-              </span>
-              <input
-                class="ant-calendar-range-picker-input"
-                placeholder="结束日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+               ~ 
             </span>
-          </div>
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="结束日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -1902,34 +1862,30 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-calendar-picker"
           style="width:300px;"
         >
-          <div
-            id="TriggerContainer"
+          <span
+            class="ant-calendar-picker-input ant-input ant-input-lg"
           >
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="开始日期"
+              readonly=""
+              value=""
+            />
             <span
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-range-picker-separator"
             >
-              <input
-                class="ant-calendar-range-picker-input"
-                placeholder="开始日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-range-picker-separator"
-              >
-                 ~ 
-              </span>
-              <input
-                class="ant-calendar-range-picker-input"
-                placeholder="结束日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+               ~ 
             </span>
-          </div>
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="结束日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -1954,24 +1910,20 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       <div
         class="ant-form-item-control "
       >
-        <div
-          id="TriggerContainer"
+        <span
+          class="ant-time-picker ant-time-picker-large"
         >
+          <input
+            class="ant-time-picker-input"
+            placeholder="请选择时间"
+            readonly=""
+            type="text"
+            value=""
+          />
           <span
-            class="ant-time-picker ant-time-picker-large"
-          >
-            <input
-              class="ant-time-picker-input"
-              placeholder="请选择时间"
-              readonly=""
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-time-picker-icon"
-            />
-          </span>
-        </div>
+            class="ant-time-picker-icon"
+          />
+        </span>
       </div>
     </div>
   </div>
@@ -2050,39 +2002,35 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          id="TriggerContainer"
+          class="ant-select-lg ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-lg ant-select ant-select-enabled"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-selection__rendered"
-              >
-                <div
-                  class="ant-select-selection__placeholder"
-                  style="display:block;user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  Please select a country
-                </div>
-              </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
                 unselectable="unselectable"
               >
-                <b />
-              </span>
+                Please select a country
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
         </div>
       </div>
@@ -2109,51 +2057,47 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          id="TriggerContainer"
+          class="ant-select-lg ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-lg ant-select ant-select-enabled"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--multiple"
+            role="combobox"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--multiple"
-              role="combobox"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-selection__rendered"
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
               >
-                <div
-                  class="ant-select-selection__placeholder"
-                  style="display:block;user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  Please select favourite colors
-                </div>
-                <ul>
-                  <li
-                    class="ant-select-search ant-select-search--inline"
-                  >
-                    <div
-                      class="ant-select-search__field__wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-select-search__field"
-                        id="select-multiple"
-                        value=""
-                      />
-                      <span
-                        class="ant-select-search__field__mirror"
-                      >
-                         
-                      </span>
-                    </div>
-                  </li>
-                </ul>
+                Please select favourite colors
               </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="ant-select-search__field"
+                      id="select-multiple"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -2329,18 +2273,14 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
           </div>
           <div
-            id="TriggerContainer"
-          >
-            <div
-              aria-disabled="false"
-              aria-valuemax="100"
-              aria-valuemin="0"
-              aria-valuenow="0"
-              class="ant-slider-handle"
-              role="slider"
-              style="left:0%;"
-            />
-          </div>
+            aria-disabled="false"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="ant-slider-handle"
+            role="slider"
+            style="left:0%;"
+          />
           <div
             class="ant-slider-mark"
           >
@@ -2856,20 +2796,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-calendar-picker"
           style="width:100%;"
         >
-          <div
-            id="TriggerContainer"
-          >
-            <div>
-              <input
-                class="ant-calendar-picker-input ant-input ant-input-lg"
-                placeholder="请选择日期"
-                readonly=""
-                value=""
-              />
-              <span
-                class="ant-calendar-picker-icon"
-              />
-            </div>
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
           </div>
         </span>
       </div>
@@ -2894,25 +2830,21 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-control has-feedback has-warning"
       >
-        <div
-          id="TriggerContainer"
+        <span
+          class="ant-time-picker ant-time-picker-large"
+          style="width:100%;"
         >
+          <input
+            class="ant-time-picker-input"
+            placeholder="请选择时间"
+            readonly=""
+            type="text"
+            value=""
+          />
           <span
-            class="ant-time-picker ant-time-picker-large"
-            style="width:100%;"
-          >
-            <input
-              class="ant-time-picker-input"
-              placeholder="请选择时间"
-              readonly=""
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-time-picker-icon"
-            />
-          </span>
-        </div>
+            class="ant-time-picker-icon"
+          />
+        </span>
       </div>
     </div>
   </div>
@@ -2936,39 +2868,35 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-error"
       >
         <div
-          id="TriggerContainer"
+          class="ant-select-lg ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-lg ant-select ant-select-enabled"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-selection__rendered"
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="Option 1"
               >
-                <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
-                  title="Option 1"
-                >
-                  Option 1
-                </div>
+                Option 1
               </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
-                unselectable="unselectable"
-              >
-                <b />
-              </span>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
         </div>
       </div>
@@ -2993,31 +2921,27 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       <div
         class="ant-form-item-control has-feedback is-validating"
       >
-        <div
-          id="TriggerContainer"
+        <span
+          class="ant-cascader-picker"
+          tabindex="0"
         >
           <span
-            class="ant-cascader-picker"
-            tabindex="0"
-          >
-            <span
-              class="ant-cascader-picker-label"
-            />
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input ant-input-lg"
-              readonly=""
-              type="text"
-              value=""
-            />
-            <i
-              class="anticon anticon-cross-circle ant-cascader-picker-clear"
-            />
-            <i
-              class="anticon anticon-down ant-cascader-picker-arrow"
-            />
-          </span>
-        </div>
+            class="ant-cascader-picker-label"
+          />
+          <input
+            autocomplete="off"
+            class="ant-input ant-cascader-input ant-input-lg"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <i
+            class="anticon anticon-cross-circle ant-cascader-picker-clear"
+          />
+          <i
+            class="anticon anticon-down ant-cascader-picker-arrow"
+          />
+        </span>
         <div
           class="ant-form-explain"
         >
@@ -3060,20 +2984,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <div
-                    id="TriggerContainer"
-                  >
-                    <div>
-                      <input
-                        class="ant-calendar-picker-input ant-input ant-input-lg"
-                        placeholder="请选择日期"
-                        readonly=""
-                        value=""
-                      />
-                      <span
-                        class="ant-calendar-picker-icon"
-                      />
-                    </div>
+                  <div>
+                    <input
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      placeholder="请选择日期"
+                      readonly=""
+                      value=""
+                    />
+                    <span
+                      class="ant-calendar-picker-icon"
+                    />
                   </div>
                 </span>
                 <div
@@ -3109,20 +3029,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <div
-                    id="TriggerContainer"
-                  >
-                    <div>
-                      <input
-                        class="ant-calendar-picker-input ant-input ant-input-lg"
-                        placeholder="请选择日期"
-                        readonly=""
-                        value=""
-                      />
-                      <span
-                        class="ant-calendar-picker-icon"
-                      />
-                    </div>
+                  <div>
+                    <input
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      placeholder="请选择日期"
+                      readonly=""
+                      value=""
+                    />
+                    <span
+                      class="ant-calendar-picker-icon"
+                    />
                   </div>
                 </span>
               </div>

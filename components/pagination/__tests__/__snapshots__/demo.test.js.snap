@@ -165,39 +165,35 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     class="ant-pagination-options"
   >
     <div
-      id="TriggerContainer"
+      class="ant-pagination-options-size-changer ant-select ant-select-enabled"
     >
       <div
-        class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selection__rendered"
         >
           <div
-            class="ant-select-selection__rendered"
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="10 条/页"
           >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="10 条/页"
-            >
-              10 条/页
-            </div>
+            10 条/页
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable"
+        >
+          <b />
+        </span>
       </div>
     </div>
   </li>
@@ -618,39 +614,35 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       class="ant-pagination-options"
     >
       <div
-        id="TriggerContainer"
+        class="ant-select-sm ant-pagination-options-size-changer ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-sm ant-pagination-options-size-changer ant-select ant-select-enabled"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            aria-autocomplete="list"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="ant-select-selection
-                      ant-select-selection--single"
-            role="combobox"
-            tabindex="0"
+            class="ant-select-selection__rendered"
           >
             <div
-              class="ant-select-selection__rendered"
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="10 条/页"
             >
-              <div
-                class="ant-select-selection-selected-value"
-                style="display:block;opacity:1;"
-                title="10 条/页"
-              >
-                10 条/页
-              </div>
+              10 条/页
             </div>
-            <span
-              class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
-              unselectable="unselectable"
-            >
-              <b />
-            </span>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
       </div>
       <div

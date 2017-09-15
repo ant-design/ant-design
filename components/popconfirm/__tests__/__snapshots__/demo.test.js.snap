@@ -1,28 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/popconfirm/demo/basic.md correctly 1`] = `
-<div
-  id="TriggerContainer"
+<a
+  href="#"
 >
-  <a
-    href="#"
-  >
-    Delete
-  </a>
-</div>
+  Delete
+</a>
 `;
 
 exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] = `
 <div>
-  <div
-    id="TriggerContainer"
+  <a
+    href="#"
   >
-    <a
-      href="#"
-    >
-      Delete a task
-    </a>
-  </div>
+    Delete a task
+  </a>
   <br />
   <br />
   Whether directly execute：
@@ -38,15 +30,11 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
 `;
 
 exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `
-<div
-  id="TriggerContainer"
+<a
+  href="#"
 >
-  <a
-    href="#"
-  >
-    Delete
-  </a>
-</div>
+  Delete
+</a>
 `;
 
 exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
@@ -56,162 +44,114 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
   <div
     style="margin-left:70px;white-space:nowrap;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          TL
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        TL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Top
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Top
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          TR
-        </span>
-      </button>
-    </div>
+      <span>
+        TR
+      </span>
+    </button>
   </div>
   <div
     style="width:70px;float:left;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          LT
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        LT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Left
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Left
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          LB
-        </span>
-      </button>
-    </div>
+      <span>
+        LB
+      </span>
+    </button>
   </div>
   <div
     style="width:70px;margin-left:304px;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          RT
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        RT
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Right
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Right
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          RB
-        </span>
-      </button>
-    </div>
+      <span>
+        RB
+      </span>
+    </button>
   </div>
   <div
     style="margin-left:70px;clear:both;white-space:nowrap;"
   >
-    <div
-      id="TriggerContainer"
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          BL
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        BL
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Bottom
-        </span>
-      </button>
-    </div>
-    <div
-      id="TriggerContainer"
+      <span>
+        Bottom
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button"
     >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          BR
-        </span>
-      </button>
-    </div>
+      <span>
+        BR
+      </span>
+    </button>
   </div>
 </div>
 `;
