@@ -26,9 +26,13 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon-dot"
-            />
+            <div
+              id="TriggerContainer"
+            >
+              <span
+                class="ant-steps-icon-dot"
+              />
+            </div>
           </span>
         </div>
       </div>
@@ -70,9 +74,13 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon-dot"
-            />
+            <div
+              id="TriggerContainer"
+            >
+              <span
+                class="ant-steps-icon-dot"
+              />
+            </div>
           </span>
         </div>
       </div>
@@ -114,9 +122,13 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon-dot"
-            />
+            <div
+              id="TriggerContainer"
+            >
+              <span
+                class="ant-steps-icon-dot"
+              />
+            </div>
           </span>
         </div>
       </div>
@@ -157,9 +169,13 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
           <span
             class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon-dot"
-            />
+            <div
+              id="TriggerContainer"
+            >
+              <span
+                class="ant-steps-icon-dot"
+              />
+            </div>
           </span>
         </div>
       </div>

@@ -131,35 +131,39 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+            id="TriggerContainer"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-pagination-options-size-changer ant-select ant-select-enabled"
             >
               <div
-                class="ant-select-selection__rendered"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-select-selection
+                          ant-select-selection--single"
+                role="combobox"
+                tabindex="0"
               >
                 <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
-                  title="10 / page"
+                  class="ant-select-selection__rendered"
                 >
-                  10 / page
+                  <div
+                    class="ant-select-selection-selected-value"
+                    style="display:block;opacity:1;"
+                    title="10 / page"
+                  >
+                    10 / page
+                  </div>
                 </div>
+                <span
+                  class="ant-select-arrow"
+                  style="user-select:none;-webkit-user-select:none;"
+                  unselectable="unselectable"
+                >
+                  <b />
+                </span>
               </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
-                unselectable="unselectable"
-              >
-                <b />
-              </span>
             </div>
           </div>
         </li>
@@ -169,107 +173,123 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       class="example"
     >
       <div
-        class="ant-select ant-select-enabled"
-        style="width:200px;"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select ant-select-enabled"
+          style="width:200px;"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-search ant-select-search--inline"
-              style="display:none;"
+              class="ant-select-selection__rendered"
             >
               <div
-                class="ant-select-search__field__wrap"
+                class="ant-select-search ant-select-search--inline"
+                style="display:none;"
               >
-                <input
-                  autocomplete="off"
-                  class="ant-select-search__field"
-                  value=""
-                />
-                <span
-                  class="ant-select-search__field__mirror"
+                <div
+                  class="ant-select-search__field__wrap"
                 >
-                   
-                </span>
+                  <input
+                    autocomplete="off"
+                    class="ant-select-search__field"
+                    value=""
+                  />
+                  <span
+                    class="ant-select-search__field__mirror"
+                  >
+                     
+                  </span>
+                </div>
               </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
       <span
         class="ant-calendar-picker"
       >
-        <div>
+        <div
+          id="TriggerContainer"
+        >
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input"
+              placeholder="Select date"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </div>
+        </div>
+      </span>
+      <div
+        id="TriggerContainer"
+      >
+        <span
+          class="ant-time-picker "
+        >
           <input
-            class="ant-calendar-picker-input ant-input"
-            placeholder="Select date"
+            class="ant-time-picker-input"
+            placeholder="Select time"
             readonly=""
+            type="text"
             value=""
           />
           <span
-            class="ant-calendar-picker-icon"
+            class="ant-time-picker-icon"
           />
-        </div>
-      </span>
-      <span
-        class="ant-time-picker "
-      >
-        <input
-          class="ant-time-picker-input"
-          placeholder="Select time"
-          readonly=""
-          type="text"
-          value=""
-        />
-        <span
-          class="ant-time-picker-icon"
-        />
-      </span>
+        </span>
+      </div>
       <span
         class="ant-calendar-picker"
         style="width:200px;"
       >
-        <span
-          class="ant-calendar-picker-input ant-input"
+        <div
+          id="TriggerContainer"
         >
-          <input
-            class="ant-calendar-range-picker-input"
-            placeholder="Start date"
-            readonly=""
-            value=""
-          />
           <span
-            class="ant-calendar-range-picker-separator"
+            class="ant-calendar-picker-input ant-input"
           >
-             ~ 
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="Start date"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-range-picker-separator"
+            >
+               ~ 
+            </span>
+            <input
+              class="ant-calendar-range-picker-input"
+              placeholder="End date"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
           </span>
-          <input
-            class="ant-calendar-range-picker-input"
-            placeholder="End date"
-            readonly=""
-            value=""
-          />
-          <span
-            class="ant-calendar-picker-icon"
-          />
-        </span>
+        </div>
       </span>
     </div>
     <div
@@ -299,11 +319,15 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           Show confirm
         </span>
       </button>
-      <a
-        href="#"
+      <div
+        id="TriggerContainer"
       >
-        Click to confirm
-      </a>
+        <a
+          href="#"
+        >
+          Click to confirm
+        </a>
+      </div>
     </div>
     <div
       class="example"
@@ -477,67 +501,75 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           class="ant-fullcalendar-header"
         >
           <div
-            class="ant-select-sm ant-fullcalendar-year-select ant-select ant-select-enabled"
+            id="TriggerContainer"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-sm ant-fullcalendar-year-select ant-select ant-select-enabled"
             >
               <div
-                class="ant-select-selection__rendered"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-select-selection
+                          ant-select-selection--single"
+                role="combobox"
+                tabindex="0"
               >
                 <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
-                  title="2016"
+                  class="ant-select-selection__rendered"
                 >
-                  2016
+                  <div
+                    class="ant-select-selection-selected-value"
+                    style="display:block;opacity:1;"
+                    title="2016"
+                  >
+                    2016
+                  </div>
                 </div>
+                <span
+                  class="ant-select-arrow"
+                  style="user-select:none;-webkit-user-select:none;"
+                  unselectable="unselectable"
+                >
+                  <b />
+                </span>
               </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
-                unselectable="unselectable"
-              >
-                <b />
-              </span>
             </div>
           </div>
           <div
-            class="ant-select-sm ant-fullcalendar-month-select ant-select ant-select-enabled"
+            id="TriggerContainer"
           >
             <div
-              aria-autocomplete="list"
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-                        ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-sm ant-fullcalendar-month-select ant-select ant-select-enabled"
             >
               <div
-                class="ant-select-selection__rendered"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-select-selection
+                          ant-select-selection--single"
+                role="combobox"
+                tabindex="0"
               >
                 <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
-                  title="Nov"
+                  class="ant-select-selection__rendered"
                 >
-                  Nov
+                  <div
+                    class="ant-select-selection-selected-value"
+                    style="display:block;opacity:1;"
+                    title="Nov"
+                  >
+                    Nov
+                  </div>
                 </div>
+                <span
+                  class="ant-select-arrow"
+                  style="user-select:none;-webkit-user-select:none;"
+                  unselectable="unselectable"
+                >
+                  <b />
+                </span>
               </div>
-              <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
-                unselectable="unselectable"
-              >
-                <b />
-              </span>
             </div>
           </div>
           <div
@@ -1509,10 +1541,14 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                         >
                           <span>
                             Name
-                            <i
-                              class="anticon anticon-filter ant-dropdown-trigger"
-                              title="Filter menu"
-                            />
+                            <div
+                              id="TriggerContainer"
+                            >
+                              <i
+                                class="anticon anticon-filter ant-dropdown-trigger"
+                                title="Filter menu"
+                              />
+                            </div>
                           </span>
                         </th>
                         <th
@@ -1619,35 +1655,39 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+        id="TriggerContainer"
       >
         <div
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-                    ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-pagination-options-size-changer ant-select ant-select-enabled"
         >
           <div
-            class="ant-select-selection__rendered"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
           >
             <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
-              title="10 / page"
+              class="ant-select-selection__rendered"
             >
-              10 / page
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="10 / page"
+              >
+                10 / page
+              </div>
             </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
           </div>
-          <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable"
-          >
-            <b />
-          </span>
         </div>
       </div>
     </li>

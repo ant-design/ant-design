@@ -143,45 +143,57 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         role="menu"
         tabindex="0"
       >
-        <li
-          aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-user"
-          />
-          <span>
-            nav 1
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+          <li
+            aria-selected="true"
+            class="ant-menu-item-selected ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-user"
+            />
+            <span>
+              nav 1
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-video-camera"
-          />
-          <span>
-            nav 2
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-video-camera"
+            />
+            <span>
+              nav 2
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-upload"
-          />
-          <span>
-            nav 3
-          </span>
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-upload"
+            />
+            <span>
+              nav 3
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -224,27 +236,39 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       style="line-height:64px;"
       tabindex="0"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+      <div
+        id="TriggerContainer"
       >
-        nav 1
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 1
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+        >
+          nav 2
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 3
-      </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 3
+        </li>
+      </div>
     </ul>
   </div>
   <div
@@ -327,126 +351,158 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         role="menu"
         tabindex="0"
       >
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-user"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 1
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-user"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 1
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-video-camera"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 2
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-video-camera"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 2
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-upload"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 3
-          </span>
-        </li>
-        <li
-          aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-upload"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 3
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-bar-chart"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="true"
+            class="ant-menu-item-selected ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 4
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-bar-chart"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 4
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-cloud-o"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 5
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-cloud-o"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 5
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-appstore-o"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 6
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-appstore-o"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 6
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-team"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 7
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-team"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 7
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-shop"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 8
-          </span>
-        </li>
+            <i
+              class="anticon anticon-shop"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 8
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -592,66 +648,82 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         role="menu"
         tabindex="0"
       >
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-user"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 1
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-user"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 1
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-video-camera"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 2
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-video-camera"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 2
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-upload"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 3
-          </span>
-        </li>
-        <li
-          aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+            <i
+              class="anticon anticon-upload"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 3
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-user"
-          />
-          <span
-            class="nav-text"
+          <li
+            aria-selected="true"
+            class="ant-menu-item-selected ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
           >
-            nav 4
-          </span>
-        </li>
+            <i
+              class="anticon anticon-user"
+            />
+            <span
+              class="nav-text"
+            >
+              nav 4
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -703,32 +775,40 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         role="menu"
         tabindex="0"
       >
-        <li
-          aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-pie-chart"
-          />
-          <span>
-            Option 1
-          </span>
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+          <li
+            aria-selected="true"
+            class="ant-menu-item-selected ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-pie-chart"
+            />
+            <span>
+              Option 1
+            </span>
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-desktop"
-          />
-          <span>
-            Option 2
-          </span>
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-desktop"
+            />
+            <span>
+              Option 2
+            </span>
+          </li>
+        </div>
         <li
           class="ant-menu-submenu-inline ant-menu-submenu"
         >
@@ -769,19 +849,23 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             </span>
           </div>
         </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:24px;"
+        <div
+          id="TriggerContainer"
         >
-          <i
-            class="anticon anticon-file"
-          />
-          <span>
-            File
-          </span>
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:24px;"
+          >
+            <i
+              class="anticon anticon-file"
+            />
+            <span>
+              File
+            </span>
+          </li>
+        </div>
       </ul>
     </div>
     <div
@@ -866,27 +950,39 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       style="line-height:64px;"
       tabindex="0"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+      <div
+        id="TriggerContainer"
       >
-        nav 1
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 1
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+        >
+          nav 2
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 3
-      </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 3
+        </li>
+      </div>
     </ul>
   </div>
   <div
@@ -966,27 +1062,39 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="line-height:64px;"
       tabindex="0"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+      <div
+        id="TriggerContainer"
       >
-        nav 1
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 1
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+        >
+          nav 2
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 3
-      </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 3
+        </li>
+      </div>
     </ul>
   </div>
   <div
@@ -1075,38 +1183,54 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 id="sub1$Menu"
                 role="menu"
               >
-                <li
-                  aria-selected="true"
-                  class="ant-menu-item-selected ant-menu-item"
-                  role="menuitem"
-                  style="padding-left:48px;"
+                <div
+                  id="TriggerContainer"
                 >
-                  option1
-                </li>
-                <li
-                  aria-selected="false"
-                  class="ant-menu-item"
-                  role="menuitem"
-                  style="padding-left:48px;"
+                  <li
+                    aria-selected="true"
+                    class="ant-menu-item-selected ant-menu-item"
+                    role="menuitem"
+                    style="padding-left:48px;"
+                  >
+                    option1
+                  </li>
+                </div>
+                <div
+                  id="TriggerContainer"
                 >
-                  option2
-                </li>
-                <li
-                  aria-selected="false"
-                  class="ant-menu-item"
-                  role="menuitem"
-                  style="padding-left:48px;"
+                  <li
+                    aria-selected="false"
+                    class="ant-menu-item"
+                    role="menuitem"
+                    style="padding-left:48px;"
+                  >
+                    option2
+                  </li>
+                </div>
+                <div
+                  id="TriggerContainer"
                 >
-                  option3
-                </li>
-                <li
-                  aria-selected="false"
-                  class="ant-menu-item"
-                  role="menuitem"
-                  style="padding-left:48px;"
+                  <li
+                    aria-selected="false"
+                    class="ant-menu-item"
+                    role="menuitem"
+                    style="padding-left:48px;"
+                  >
+                    option3
+                  </li>
+                </div>
+                <div
+                  id="TriggerContainer"
                 >
-                  option4
-                </li>
+                  <li
+                    aria-selected="false"
+                    class="ant-menu-item"
+                    role="menuitem"
+                    style="padding-left:48px;"
+                  >
+                    option4
+                  </li>
+                </div>
               </ul>
             </li>
             <li
@@ -1182,27 +1306,39 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       style="line-height:64px;"
       tabindex="0"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+      <div
+        id="TriggerContainer"
       >
-        nav 1
-      </li>
-      <li
-        aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 1
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
+        <li
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
+          role="menuitem"
+        >
+          nav 2
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        nav 3
-      </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+        >
+          nav 3
+        </li>
+      </div>
     </ul>
   </div>
   <div
@@ -1245,38 +1381,54 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               id="sub1$Menu"
               role="menu"
             >
-              <li
-                aria-selected="true"
-                class="ant-menu-item-selected ant-menu-item"
-                role="menuitem"
-                style="padding-left:48px;"
+              <div
+                id="TriggerContainer"
               >
-                option1
-              </li>
-              <li
-                aria-selected="false"
-                class="ant-menu-item"
-                role="menuitem"
-                style="padding-left:48px;"
+                <li
+                  aria-selected="true"
+                  class="ant-menu-item-selected ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option1
+                </li>
+              </div>
+              <div
+                id="TriggerContainer"
               >
-                option2
-              </li>
-              <li
-                aria-selected="false"
-                class="ant-menu-item"
-                role="menuitem"
-                style="padding-left:48px;"
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option2
+                </li>
+              </div>
+              <div
+                id="TriggerContainer"
               >
-                option3
-              </li>
-              <li
-                aria-selected="false"
-                class="ant-menu-item"
-                role="menuitem"
-                style="padding-left:48px;"
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option3
+                </li>
+              </div>
+              <div
+                id="TriggerContainer"
               >
-                option4
-              </li>
+                <li
+                  aria-selected="false"
+                  class="ant-menu-item"
+                  role="menuitem"
+                  style="padding-left:48px;"
+                >
+                  option4
+                </li>
+              </div>
             </ul>
           </li>
           <li

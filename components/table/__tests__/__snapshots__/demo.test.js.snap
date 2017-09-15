@@ -67,10 +67,14 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <span>
                       Gender
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
-                      />
+                      <div
+                        id="TriggerContainer"
+                      >
+                        <i
+                          class="anticon anticon-filter ant-dropdown-trigger"
+                          title="筛选"
+                        />
+                      </div>
                     </span>
                   </th>
                   <th
@@ -888,11 +892,15 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   >
                     <span>
                       Name
-                      <i
-                        class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
-                        style="color:#aaa;"
-                        title="筛选"
-                      />
+                      <div
+                        id="TriggerContainer"
+                      >
+                        <i
+                          class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
+                          style="color:#aaa;"
+                          title="筛选"
+                        />
+                      </div>
                     </span>
                   </th>
                   <th
@@ -907,10 +915,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   >
                     <span>
                       Address
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
-                      />
+                      <div
+                        id="TriggerContainer"
+                      >
+                        <i
+                          class="anticon anticon-filter ant-dropdown-trigger"
+                          title="筛选"
+                        />
+                      </div>
                     </span>
                   </th>
                 </tr>
@@ -2512,11 +2524,15 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="#"
+                      <div
+                        id="TriggerContainer"
                       >
-                        Delete
-                      </a>
+                        <a
+                          href="#"
+                        >
+                          Delete
+                        </a>
+                      </div>
                     </td>
                   </tr>
                   <tr
@@ -2555,11 +2571,15 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="#"
+                      <div
+                        id="TriggerContainer"
                       >
-                        Delete
-                      </a>
+                        <a
+                          href="#"
+                        >
+                          Delete
+                        </a>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -6740,10 +6760,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <span>
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选"
-                        />
+                        <div
+                          id="TriggerContainer"
+                        >
+                          <i
+                            class="anticon anticon-filter ant-dropdown-trigger"
+                            title="筛选"
+                          />
+                        </div>
                       </span>
                     </th>
                     <th
@@ -7403,10 +7427,14 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <span>
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选"
-                        />
+                        <div
+                          id="TriggerContainer"
+                        >
+                          <i
+                            class="anticon anticon-filter ant-dropdown-trigger"
+                            title="筛选"
+                          />
+                        </div>
                       </span>
                     </th>
                   </tr>
@@ -7860,10 +7888,14 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           />
                         </span>
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
-                      />
+                      <div
+                        id="TriggerContainer"
+                      >
+                        <i
+                          class="anticon anticon-filter ant-dropdown-trigger"
+                          title="筛选"
+                        />
+                      </div>
                     </span>
                   </th>
                   <th
@@ -7918,10 +7950,14 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           />
                         </span>
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
-                      />
+                      <div
+                        id="TriggerContainer"
+                      >
+                        <i
+                          class="anticon anticon-filter ant-dropdown-trigger"
+                          title="筛选"
+                        />
+                      </div>
                     </span>
                   </th>
                 </tr>
@@ -8748,10 +8784,14 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             />
                           </span>
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选"
-                        />
+                        <div
+                          id="TriggerContainer"
+                        >
+                          <i
+                            class="anticon anticon-filter ant-dropdown-trigger"
+                            title="筛选"
+                          />
+                        </div>
                       </span>
                     </th>
                     <th
@@ -8806,10 +8846,14 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             />
                           </span>
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
-                          title="筛选"
-                        />
+                        <div
+                          id="TriggerContainer"
+                        >
+                          <i
+                            class="anticon anticon-filter ant-dropdown-trigger"
+                            title="筛选"
+                          />
+                        </div>
                       </span>
                     </th>
                   </tr>
@@ -9950,11 +9994,15 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           </span>
                         </label>
                         <div
-                          class="ant-table-selection-down ant-dropdown-trigger"
+                          id="TriggerContainer"
                         >
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <div
+                            class="ant-table-selection-down ant-dropdown-trigger"
+                          >
+                            <i
+                              class="anticon anticon-down"
+                            />
+                          </div>
                         </div>
                       </div>
                     </span>

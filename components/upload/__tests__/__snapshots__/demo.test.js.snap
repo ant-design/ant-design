@@ -94,20 +94,24 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       <div
         class="ant-upload-list-item-info"
       >
-        <span>
-          <i
-            class="anticon anticon-paper-clip"
-          />
-          <a
-            class="ant-upload-list-item-name"
-            href="http://www.baidu.com/zzz.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="zzz.png"
-          >
-            zzz.png
-          </a>
-        </span>
+        <div
+          id="TriggerContainer"
+        >
+          <span>
+            <i
+              class="anticon anticon-paper-clip"
+            />
+            <a
+              class="ant-upload-list-item-name"
+              href="http://www.baidu.com/zzz.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="zzz.png"
+            >
+              zzz.png
+            </a>
+          </span>
+        </div>
       </div>
       <i
         class="anticon anticon-cross"

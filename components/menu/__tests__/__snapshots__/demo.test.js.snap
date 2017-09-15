@@ -7,27 +7,35 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
   role="menu"
   tabindex="0"
 >
-  <li
-    aria-selected="true"
-    class="ant-menu-item-selected ant-menu-item"
-    role="menuitem"
+  <div
+    id="TriggerContainer"
   >
-    <i
-      class="anticon anticon-mail"
-    />
-    Navigation One
-  </li>
-  <li
-    aria-disabled="true"
-    aria-selected="false"
-    class="ant-menu-item-disabled ant-menu-item"
-    role="menuitem"
+    <li
+      aria-selected="true"
+      class="ant-menu-item-selected ant-menu-item"
+      role="menuitem"
+    >
+      <i
+        class="anticon anticon-mail"
+      />
+      Navigation One
+    </li>
+  </div>
+  <div
+    id="TriggerContainer"
   >
-    <i
-      class="anticon anticon-appstore"
-    />
-    Navigation Two
-  </li>
+    <li
+      aria-disabled="true"
+      aria-selected="false"
+      class="ant-menu-item-disabled ant-menu-item"
+      role="menuitem"
+    >
+      <i
+        class="anticon anticon-appstore"
+      />
+      Navigation Two
+    </li>
+  </div>
   <li
     class="ant-menu-submenu-horizontal ant-menu-submenu"
   >
@@ -45,19 +53,23 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       </span>
     </div>
   </li>
-  <li
-    aria-selected="false"
-    class="ant-menu-item"
-    role="menuitem"
+  <div
+    id="TriggerContainer"
   >
-    <a
-      href="https://ant.design"
-      rel="noopener noreferrer"
-      target="_blank"
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
     >
-      Navigation Four - Link
-    </a>
-  </li>
+      <a
+        href="https://ant.design"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Navigation Four - Link
+      </a>
+    </li>
+  </div>
 </ul>
 `;
 
@@ -105,22 +117,30 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         <ul
           class="ant-menu-item-group-list"
         >
-          <li
-            aria-selected="true"
-            class="ant-menu-item-selected ant-menu-item"
-            role="menuitem"
-            style="padding-left:48px;"
+          <div
+            id="TriggerContainer"
           >
-            Option 1
-          </li>
-          <li
-            aria-selected="false"
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left:48px;"
+            <li
+              aria-selected="true"
+              class="ant-menu-item-selected ant-menu-item"
+              role="menuitem"
+              style="padding-left:48px;"
+            >
+              Option 1
+            </li>
+          </div>
+          <div
+            id="TriggerContainer"
           >
-            Option 2
-          </li>
+            <li
+              aria-selected="false"
+              class="ant-menu-item"
+              role="menuitem"
+              style="padding-left:48px;"
+            >
+              Option 2
+            </li>
+          </div>
         </ul>
       </li>
       <li
@@ -134,22 +154,30 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         <ul
           class="ant-menu-item-group-list"
         >
-          <li
-            aria-selected="false"
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left:48px;"
+          <div
+            id="TriggerContainer"
           >
-            Option 3
-          </li>
-          <li
-            aria-selected="false"
-            class="ant-menu-item"
-            role="menuitem"
-            style="padding-left:48px;"
+            <li
+              aria-selected="false"
+              class="ant-menu-item"
+              role="menuitem"
+              style="padding-left:48px;"
+            >
+              Option 3
+            </li>
+          </div>
+          <div
+            id="TriggerContainer"
           >
-            Option 4
-          </li>
+            <li
+              aria-selected="false"
+              class="ant-menu-item"
+              role="menuitem"
+              style="padding-left:48px;"
+            >
+              Option 4
+            </li>
+          </div>
         </ul>
       </li>
     </ul>
@@ -216,45 +244,57 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     role="menu"
     tabindex="0"
   >
-    <li
-      aria-selected="true"
-      class="ant-menu-item-selected ant-menu-item"
-      role="menuitem"
-      style="padding-left:24px;"
+    <div
+      id="TriggerContainer"
     >
-      <i
-        class="anticon anticon-pie-chart"
-      />
-      <span>
-        Option 1
-      </span>
-    </li>
-    <li
-      aria-selected="false"
-      class="ant-menu-item"
-      role="menuitem"
-      style="padding-left:24px;"
+      <li
+        aria-selected="true"
+        class="ant-menu-item-selected ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-pie-chart"
+        />
+        <span>
+          Option 1
+        </span>
+      </li>
+    </div>
+    <div
+      id="TriggerContainer"
     >
-      <i
-        class="anticon anticon-desktop"
-      />
-      <span>
-        Option 2
-      </span>
-    </li>
-    <li
-      aria-selected="false"
-      class="ant-menu-item"
-      role="menuitem"
-      style="padding-left:24px;"
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-desktop"
+        />
+        <span>
+          Option 2
+        </span>
+      </li>
+    </div>
+    <div
+      id="TriggerContainer"
     >
-      <i
-        class="anticon anticon-inbox"
-      />
-      <span>
-        Option 3
-      </span>
-    </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-inbox"
+        />
+        <span>
+          Option 3
+        </span>
+      </li>
+    </div>
     <li
       class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
     >
@@ -280,38 +320,54 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         id="sub1$Menu"
         role="menu"
       >
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+        <div
+          id="TriggerContainer"
         >
-          Option 5
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 5
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 6
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 6
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 7
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 7
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 8
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 8
+          </li>
+        </div>
       </ul>
     </li>
     <li
@@ -371,38 +427,54 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       id="sub1$Menu"
       role="menu"
     >
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:48px;"
+      <div
+        id="TriggerContainer"
       >
-        Option 1
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:48px;"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 1
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        Option 2
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:48px;"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 2
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        Option 3
-      </li>
-      <li
-        aria-selected="false"
-        class="ant-menu-item"
-        role="menuitem"
-        style="padding-left:48px;"
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 3
+        </li>
+      </div>
+      <div
+        id="TriggerContainer"
       >
-        Option 4
-      </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 4
+        </li>
+      </div>
     </ul>
   </li>
   <li
@@ -481,28 +553,36 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
     style="width:240px;"
     tabindex="0"
   >
-    <li
-      aria-selected="true"
-      class="ant-menu-item-selected ant-menu-item"
-      role="menuitem"
-      style="padding-left:24px;"
+    <div
+      id="TriggerContainer"
     >
-      <i
-        class="anticon anticon-mail"
-      />
-      Navigation One
-    </li>
-    <li
-      aria-selected="false"
-      class="ant-menu-item"
-      role="menuitem"
-      style="padding-left:24px;"
+      <li
+        aria-selected="true"
+        class="ant-menu-item-selected ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-mail"
+        />
+        Navigation One
+      </li>
+    </div>
+    <div
+      id="TriggerContainer"
     >
-      <i
-        class="anticon anticon-calendar"
-      />
-      Navigation Two
-    </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:24px;"
+      >
+        <i
+          class="anticon anticon-calendar"
+        />
+        Navigation Two
+      </li>
+    </div>
     <li
       class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
     >
@@ -528,22 +608,30 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         id="sub1$Menu"
         role="menu"
       >
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+        <div
+          id="TriggerContainer"
         >
-          Option 3
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 3
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 4
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 4
+          </li>
+        </div>
         <li
           class="ant-menu-submenu-inline ant-menu-submenu"
         >
@@ -630,38 +718,54 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         id="sub1$Menu"
         role="menu"
       >
-        <li
-          aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+        <div
+          id="TriggerContainer"
         >
-          Option 1
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="true"
+            class="ant-menu-item-selected ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 1
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 2
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 2
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 3
-        </li>
-        <li
-          aria-selected="false"
-          class="ant-menu-item"
-          role="menuitem"
-          style="padding-left:48px;"
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 3
+          </li>
+        </div>
+        <div
+          id="TriggerContainer"
         >
-          Option 4
-        </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px;"
+          >
+            Option 4
+          </li>
+        </div>
       </ul>
     </li>
     <li

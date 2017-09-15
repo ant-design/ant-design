@@ -794,35 +794,39 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
   >
     Tab position：
     <div
-      class="ant-select ant-select-enabled"
+      id="TriggerContainer"
     >
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select ant-select-enabled"
       >
         <div
-          class="ant-select-selection__rendered"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-select-selection
+                    ant-select-selection--single"
+          role="combobox"
+          tabindex="0"
         >
           <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
-            title="top"
+            class="ant-select-selection__rendered"
           >
-            top
+            <div
+              class="ant-select-selection-selected-value"
+              style="display:block;opacity:1;"
+              title="top"
+            >
+              top
+            </div>
           </div>
+          <span
+            class="ant-select-arrow"
+            style="user-select:none;-webkit-user-select:none;"
+            unselectable="unselectable"
+          >
+            <b />
+          </span>
         </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
-          unselectable="unselectable"
-        >
-          <b />
-        </span>
       </div>
     </div>
   </div>
