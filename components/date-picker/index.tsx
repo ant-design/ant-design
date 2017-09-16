@@ -9,6 +9,11 @@ import WeekPicker from './WeekPicker';
 import Calendar from './Calendar';
 import { TimePickerProps } from '../time-picker';
 
+export * from './Calendar';
+export * from './RangePicker';
+export * from './wrapPicker';
+export * from './createPicker';
+
 export interface PickerProps {
   prefixCls?: string;
   inputPrefixCls?: string;
