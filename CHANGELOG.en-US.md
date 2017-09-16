@@ -17,6 +17,16 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.2
+
+`2017-09-15`
+
+- 🐞 Fixed Form `getFieldDecoratorOptions` missing property of `normalize` and `validateFirst`. [#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
+- 🐞 Fix title and extra content position of narrow Card. [#7604](https://github.com/ant-design/ant-design/issues/7604)
+- 🐞 Revert [#7142](https://github.com/ant-design/ant-design/issues/7142) to fixing empty style of Table.
+- 🌟 Improve tree node loading icon position. [#7584](https://github.com/ant-design/ant-design/issues/7584)
+- 🌟 Update a lot of components's English doc. [@khalibloo](https://github.com/khalibloo)
+
 ## 2.13.1
 
 `2017-09-10`
