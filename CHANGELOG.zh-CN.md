@@ -25,7 +25,7 @@ timeline: true
 - 🐞 修复了 Card Extra 内容过多样式错乱的问题。[#7604](https://github.com/ant-design/ant-design/issues/7604)
 - 🐞 回滚 [#7142](https://github.com/ant-design/ant-design/issues/7142)里对固定列表格空数据的样式优化，修复带来的一系列样式问题。
 - 🌟 优化了 Tree 加载中图标的显示位置。[#7584](https://github.com/ant-design/ant-design/issues/7584)
-- 🌟 优化了 Progress、Modal、Notification、Popconfirm 的英文文档。(@khalibloo)[https://github.com/khalibloo]
+- 🌟 优化了大量组件的英文文档。(@khalibloo)[https://github.com/khalibloo]
 
 ## 2.13.1
 
