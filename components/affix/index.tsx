@@ -69,7 +69,6 @@ export default class Affix extends React.Component<AffixProps, any> {
   scrollEvent: any;
   resizeEvent: any;
   timeout: any;
-  fixedNode: HTMLElement;
 
   events = [
     'resize',
@@ -82,6 +81,8 @@ export default class Affix extends React.Component<AffixProps, any> {
   ];
 
   eventHandlers = {};
+
+  private fixedNode: HTMLElement;
 
   constructor(props) {
     super(props);

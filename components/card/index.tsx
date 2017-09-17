@@ -36,12 +36,12 @@ export interface CardProps {
 export default class Card extends Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   static Meta: typeof Meta = Meta;
-  container: HTMLDivElement;
   resizeEvent: any;
   updateWiderPaddingCalled: boolean;
   state = {
     widerPadding: false,
   };
+  private container: HTMLDivElement;
   componentDidMount() {
     this.updateWiderPadding();
     this.resizeEvent = addEventListener(window, 'resize', this.updateWiderPadding);

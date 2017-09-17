@@ -108,7 +108,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
 
   cachedOptions: CascaderOptionType[];
 
-  input: Input;
+  private input: Input;
 
   constructor(props) {
     super(props);

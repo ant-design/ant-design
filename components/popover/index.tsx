@@ -19,7 +19,7 @@ export default class Popover extends React.Component<PopoverProps, any> {
     overlayStyle: {},
   };
 
-  tooltip: Tooltip;
+  private tooltip: Tooltip;
 
   getPopupDomNode() {
     return this.tooltip.getPopupDomNode();

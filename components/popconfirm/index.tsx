@@ -23,7 +23,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     okType: 'primary',
   };
 
-  tooltip: Tooltip;
+  private tooltip: Tooltip;
 
   constructor(props: PopconfirmProps) {
     super(props);
