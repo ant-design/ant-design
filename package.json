@@ -65,13 +65,8 @@
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.1.1",
     "rc-select": "~6.9.0",
-<<<<<<< HEAD
-    "rc-slider": "~8.2.0",
-    "rc-steps": "~3.0.0",
-=======
     "rc-slider": "~8.3.0",
     "rc-steps": "~2.5.1",
->>>>>>> 43d14f8517657e86ce431dc5caec4a4e7da28e8d
     "rc-switch": "~1.5.1",
     "rc-table": "~5.6.9",
     "rc-tabs": "~9.1.2",
