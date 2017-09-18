@@ -41,3 +41,4 @@ Ant Design has 3 types of Tabs for different situations.
 |--------------|-----------------------|----------|--------------|
 | key          | TabPane's key         | string   | - |
 | tab          | Show text in TabPane's head | string\|ReactNode | - |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
