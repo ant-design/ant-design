@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
 import CheckboxGroup from './Group';
+import Wrapper from './Wrapper';
 
 export interface AbstractCheckboxProps {
   prefixCls?: string;
@@ -66,9 +67,11 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
+
     return (
-      <label
-        className={classString}
+      <Wrapper
+        {...props}
+        wrapperClass={classString}
         style={style}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
@@ -79,7 +82,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
           className={checkboxClass}
         />
         {children !== undefined ? <span>{children}</span> : null}
-      </label>
+      </Wrapper>
     );
   }
 }
