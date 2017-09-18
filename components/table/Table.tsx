@@ -552,7 +552,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       selectionDirty: true,
     });
     // when select custom selection, callback selections[n].onSelect
-    if (index > 1 && typeof onSelectFunc === 'function') {
+    const { rowSelection } = this.props;
+    let customSelectionStartIndex = 2;
+    if (rowSelection && rowSelection.hideDefaultSelections) {
+      customSelectionStartIndex = 0;
+    }
+    if (index >= customSelectionStartIndex && typeof onSelectFunc === 'function') {
       return onSelectFunc(changeableRowKeys);
     }
     this.setSelectedRowKeys(selectedRowKeys, {
