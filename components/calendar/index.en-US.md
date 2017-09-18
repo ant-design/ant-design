@@ -9,11 +9,11 @@ Container for displaying data in calendar form.
 
 ## When To Use
 
-When data is in the form of date, such as schedule, timetable, prices calendar, Lunar calendar. This component also supports Year/Month switch.
+When data is in the form of dates, such as schedules, timetables, prices calendar, lunar calendar. This component also supports Year/Month switch.
 
 ## API
 
-**Note:** Part of locale of Calendar is read from value. So, please set the locale of moment correctly.
+**Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `moment` correctly.
 
 ```jsx
 import moment from 'moment';
@@ -32,15 +32,15 @@ moment.locale('zh-cn');
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
-| value        | set date | [moment](http://momentjs.com/) | current date     |
-| defaultValue | set default date | [moment](http://momentjs.com/) | default date     |
-| mode         | can be set to month or year | string | month  |
-| fullscreen   | to set whether full-screen display   | boolean     | true         |
-| dateCellRender      | to set the way of renderer the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
-| monthCellRender     | to set the way of renderer the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
-| dateFullCellRender  | to set the way of renderer the date cell,the returned content will override the cell | function(date: moment): ReactNode | - |
-| monthFullCellRender | to set the way of renderer the month cell,the returned content will override the cell | function(date: moment): ReactNode | - |
-| locale       | set locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
-| onPanelChange| callback when panel change | function(date: moment, mode: string) | - |
-| onSelect     | callback when select date  | function(date: moment）              | - |
-| disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | 无           |
+| value        | The current selected date | [moment](http://momentjs.com/) | current date     |
+| defaultValue | The date selected by default | [moment](http://momentjs.com/) | default date     |
+| mode         | The display mode of the calendar | `month` \| `year` | `month`  |
+| fullscreen   | Whether to display in full-screen   | boolean     | `true`         |
+| dateCellRender      | Customize the display of the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| monthCellRender     | Customize the display of the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| dateFullCellRender  | Customize the display of the date cell, the returned content will override the cell | function(date: moment): ReactNode | - |
+| monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: moment): ReactNode | - |
+| locale       | The calendar's locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
+| onPanelChange| Callback for when panel changes | function(date: moment, mode: string) | - |
+| onSelect     | Callback for when a date is selected | function(date: moment）              | - |
+| disabledDate | Function that specifies the dates that cannot be selected | (currentDate: moment) => boolean | - |

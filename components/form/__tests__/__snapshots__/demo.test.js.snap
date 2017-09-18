@@ -2280,6 +2280,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-slider-handle"
             role="slider"
             style="left:0%;"
+            tabindex="0"
           />
           <div
             class="ant-slider-mark"

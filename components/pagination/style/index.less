@@ -235,12 +235,15 @@
 
   &-simple &-prev,
   &-simple &-next {
+    height: 24px;
+    line-height: 24px;
+    vertical-align: top;
     .@{pagination-prefix-cls}-item-link {
       border: 0;
       height: 24px;
-      line-height: 24px;
-      margin: 0;
-      font-size: 18px;
+      &:after {
+        line-height: 24px;
+      }
     }
   }
 
@@ -255,7 +258,7 @@
       border-radius: @border-radius-base;
       border: @border-width-base @border-style-base @border-color-base;
       outline: none;
-      padding: 5px 8px;
+      padding: 0 6px;
       height: 24px;
       text-align: center;
       transition: border-color .3s;
@@ -267,7 +270,7 @@
   }
 }
 
-.@{pagination-prefix-cls} {
+.@{pagination-prefix-cls}:not(.@{pagination-prefix-cls}-simple) {
   &.mini &-total-text {
     height: 20px;
     line-height: 20px;
@@ -292,7 +295,6 @@
   &.mini &-prev &-item-link,
   &.mini &-next &-item-link {
     border: 0;
-
     &:after {
       height: 20px;
       line-height: 20px;
