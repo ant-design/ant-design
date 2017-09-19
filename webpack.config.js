@@ -21,6 +21,11 @@ function addLocales(webpackConfig) {
 
 module.exports = function (webpackConfig) {
   webpackConfig = getWebpackConfig(webpackConfig, true);
+  webpackConfig.resolve.alias = {
+    react: 'preact-compat',
+    'react-dom': 'preact-compat',
+    'create-react-class': 'preact-compat/lib/create-react-class',
+  };
   if (process.env.RUN_ENV === 'PRODUCTION') {
     webpackConfig.forEach((config) => {
       ignoreMomentLocale(config);

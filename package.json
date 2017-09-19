@@ -123,6 +123,8 @@
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
     "pre-commit": "^1.2.2",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.0.1",
     "rc-scroll-anim": "^1.0.3",
