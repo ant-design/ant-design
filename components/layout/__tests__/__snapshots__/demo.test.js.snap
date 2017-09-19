@@ -747,9 +747,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 User
               </span>
             </span>
-            <i
-              class="ant-menu-submenu-arrow"
-            />
           </div>
         </li>
         <li
@@ -770,9 +767,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 Team
               </span>
             </span>
-            <i
-              class="ant-menu-submenu-arrow"
-            />
           </div>
         </li>
         <li
@@ -1074,9 +1068,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 1
                 </span>
-                <i
-                  class="ant-menu-submenu-arrow"
-                />
               </div>
               <ul
                 aria-activedescendant=""
@@ -1134,9 +1125,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 2
                 </span>
-                <i
-                  class="ant-menu-submenu-arrow"
-                />
               </div>
             </li>
             <li
@@ -1155,9 +1143,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 3
                 </span>
-                <i
-                  class="ant-menu-submenu-arrow"
-                />
               </div>
             </li>
           </ul>
@@ -1253,9 +1238,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 1
               </span>
-              <i
-                class="ant-menu-submenu-arrow"
-              />
             </div>
             <ul
               aria-activedescendant=""
@@ -1313,9 +1295,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 2
               </span>
-              <i
-                class="ant-menu-submenu-arrow"
-              />
             </div>
           </li>
           <li
@@ -1334,9 +1313,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 3
               </span>
-              <i
-                class="ant-menu-submenu-arrow"
-              />
             </div>
           </li>
         </ul>

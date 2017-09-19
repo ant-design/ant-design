@@ -159,6 +159,21 @@
     }
   }
 }
+.@{list-prefix-cls}-infinite {
+  position: relative;
+  &-loading {
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+  }
+}
+
+.@{list-prefix-cls}-empty {
+  color: @text-color-secondary;
+  padding: 16px 0;
+  font-size: 12px;
+  text-align: center;
+}
 
 @media screen and (max-width: @screen-md) {
   .@{list-prefix-cls} {

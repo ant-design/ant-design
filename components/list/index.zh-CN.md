@@ -26,7 +26,6 @@ cols: 1
 | onMoreClick    | 点击 more 按钮的回调 | function   | - |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
 | grid | 列表栅格 | object   |  -  |
-| infinite | 无限加载配置 | object   |  -  |
 
 ### List grid props
 | 参数     | 说明           | 类型     | 默认值       |
@@ -38,13 +37,6 @@ cols: 1
 | md | `≥992px` 展示的列数  | number   |  -  |
 | lg | `≥1200px` 展示的列数  | number   |  -  |
 | xl | `≥1600px` 展示的列数  | number   |  -  |
-
-### List infinite props
-| 参数     | 说明           | 类型     | 默认值       |
----------|-------------|------|---------
-| onLoad | 无限加载的回调函数 | function | - |
-| offset | 触发加载位置的偏移量 | number | 0 |
-| loading | 显示无限加载时的 loading | boolean   |  -  |
 
 ### List.Item
 
@@ -60,3 +52,18 @@ cols: 1
 | avatar | 列表元素的图标 | ReactNode |  -  |
 | title | 列表元素的标题 | string\|ReactNode |  -  |
 | description | 列表元素的描述内容 | string\|ReactNode |  -  |
+
+### List.Infinite
+
+| 参数     | 说明           | 类型     | 默认值       |
+---------|-------------|------|---------
+| bordered | 是否展示边框 | boolean   |  false  |
+| loading | 列表内容是否在加载中 | boolean   |  false  |
+| dataSource | 列表数据 | array   |  []  |
+| hasMore | 是否还有更多数据需要加载 | boolean  |  true  |
+| width | 列表容器宽度 | string\/number  |  `100%`  |
+| height | 列表容器高度 | string\/number  |  -  |
+| itemHeight | 列表元素高度 | string\/number  |  -  |
+| onLoad | 加载的回调函数 | function  |  -  |
+| renderItem | 列表元素的渲染函数 | function  |  -  |
+
