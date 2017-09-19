@@ -523,204 +523,410 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered ant-list-grid ant-list-infinite"
+  class="ant-list ant-list-infinite ant-list-bordered"
 >
-  <div>
+  <div
+    style="overflow:auto;will-change:transform;-webkit-overflow-scrolling:touch;height:500px;width:100%;"
+  >
     <div
-      class="ant-row"
-      style="margin-left:-8px;margin-right:-8px;"
+      style="position:relative;overflow:hidden;width:100%;min-height:100%;height:1170px;"
     >
       <div
-        class="ant-col-6"
+        style="position:absolute;left:0;width:100%;height:117px;top:0;"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
         >
           <div
-            class="ant-list-item-content ant-list-item-content-single"
+            class="ant-list-item-meta"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item-meta-avatar"
             >
-              <div>
-                <div
-                  class="ant-card-head"
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
                 >
-                  <div
-                    class="ant-card-head-wrapper"
-                  >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      List Item Title 1
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-card-body"
-                >
-                  <div>
-                    List Item Content 1
-                  </div>
-                </div>
+                  List Item Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 1
               </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col-6"
+        style="position:absolute;left:0;width:100%;height:117px;top:117px;"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
         >
           <div
-            class="ant-list-item-content ant-list-item-content-single"
+            class="ant-list-item-meta"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item-meta-avatar"
             >
-              <div>
-                <div
-                  class="ant-card-head"
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
                 >
-                  <div
-                    class="ant-card-head-wrapper"
-                  >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      List Item Title 2
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-card-body"
-                >
-                  <div>
-                    List Item Content 2
-                  </div>
-                </div>
+                  List Item Title 2
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 2
               </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col-6"
+        style="position:absolute;left:0;width:100%;height:117px;top:234px;"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
         >
           <div
-            class="ant-list-item-content ant-list-item-content-single"
+            class="ant-list-item-meta"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item-meta-avatar"
             >
-              <div>
-                <div
-                  class="ant-card-head"
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
                 >
-                  <div
-                    class="ant-card-head-wrapper"
-                  >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      List Item Title 3
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-card-body"
-                >
-                  <div>
-                    List Item Content 3
-                  </div>
-                </div>
+                  List Item Title 3
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 3
               </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col-6"
+        style="position:absolute;left:0;width:100%;height:117px;top:351px;"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
         >
           <div
-            class="ant-list-item-content ant-list-item-content-single"
+            class="ant-list-item-meta"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item-meta-avatar"
             >
-              <div>
-                <div
-                  class="ant-card-head"
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
                 >
-                  <div
-                    class="ant-card-head-wrapper"
-                  >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      List Item Title 4
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-card-body"
-                >
-                  <div>
-                    List Item Content 4
-                  </div>
-                </div>
+                  List Item Title 4
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 4
               </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-col-6"
+        style="position:absolute;left:0;width:100%;height:117px;top:468px;"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
         >
           <div
-            class="ant-list-item-content ant-list-item-content-single"
+            class="ant-list-item-meta"
           >
             <div
-              class="ant-card ant-card-bordered"
+              class="ant-list-item-meta-avatar"
             >
-              <div>
-                <div
-                  class="ant-card-head"
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
                 >
-                  <div
-                    class="ant-card-head-wrapper"
-                  >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      List Item Title 5
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-card-body"
-                >
-                  <div>
-                    List Item Content 5
-                  </div>
-                </div>
+                  List Item Title 5
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 5
               </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="position:absolute;left:0;width:100%;height:117px;top:585px;"
+      >
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  List Item Title 6
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 6
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="position:absolute;left:0;width:100%;height:117px;top:702px;"
+      >
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  List Item Title 7
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 7
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="position:absolute;left:0;width:100%;height:117px;top:819px;"
+      >
+        <div
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  List Item Title 8
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                List Item Content 8
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-list-item-content"
+          >
+            <div
+              style="padding:24px;"
+            >
+              Content
             </div>
           </div>
         </div>
