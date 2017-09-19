@@ -9,7 +9,7 @@ Tabs make it easy to switch between different views.
 
 ### When To Use
 
-Ant Design has 3 types Tabs for different situation.
+Ant Design has 3 types of Tabs for different situations.
 
 - Card Tabs: for managing too many closeable views.
 - Normal Tabs: for functional aspects of a page.
@@ -21,23 +21,24 @@ Ant Design has 3 types Tabs for different situation.
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| activeKey    | Current TabPane's key| string   | _             |
-| defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | - |
-| onChange     | Callback when tab is switched | Function | - |
-| onTabClick   | Callback when tab is clicked | Function | - |
-| onPrevClick  | Callback when prev button is clicked | Function | 无 |
-| onNextClick  | Callback when next button is clicked | Function | 无 |
-| tabBarExtraContent | Extra element in tab bar | React.ReactNode | - |
-| tabBarStyle  | tar bar style object           | object   | -        |
-| type         | Basic style of tabs. Options: line, card & editable-card | string | line |
-| size         | Tab bar size. Options: default, small. Only works while `type="line"`. | string | default |
-| tabPosition  | Position of tabs. Options: top, right, bottom & left | string | top |
-| onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | (targetKey, action): void | - |
-| hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | boolean | false |
-| animated | Whether to change tabs with animation, this property only works with `tabPosition=top|bottom` | boolean \| {inkBar:boolean, tabPane:boolean} | true, false when type="card" |
+| activeKey    | Current TabPane's key| string   | - |
+| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set. | string | - |
+| onChange     | Callback executed when active tab is changed | Function | - |
+| onTabClick   | Callback executed when tab is clicked | Function | - |
+| onPrevClick  | Callback executed when prev button is clicked | Function | - |
+| onNextClick  | Callback executed when next button is clicked | Function | - |
+| tabBarExtraContent | Extra content in tab bar | React.ReactNode | - |
+| tabBarStyle  | Tab bar style object           | object   | - |
+| type         | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |
+| size         | Tab bar size. Only works while `type="line"`. | `default` \| `small` | `default` |
+| tabPosition  | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |
+| onEdit       | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (targetKey, action): void | - |
+| hideAdd      | Hide plus icon or not. Only works while `type="editable-card"` | boolean | `false` |
+| animated | Whether to change tabs with animation. Only works while `tabPosition="top"\|"bottom"` | boolean \| {inkBar:boolean, tabPane:boolean} | `true`, `false` when `type="card"` |
 
 ### Tabs.TabPane
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| key          | TabPane's key         | string   | _            |
-| tab          | Show text in TabPane's head | string\|ReactNode | _ |
+| key          | TabPane's key         | string   | - |
+| tab          | Show text in TabPane's head | string\|ReactNode | - |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |

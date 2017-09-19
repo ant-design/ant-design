@@ -24,6 +24,7 @@ i18n | [react-intl](https://github.com/yahoo/react-intl)
 Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
 Markdown renderer | [react-markdown](http://rexxars.github.io/react-markdown/)
 Infinite Scroll | [react-virtualized](https://github.com/bvaughn/react-virtualized)
+Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap)
 
 <style>
 .markdown table td:first-child {
