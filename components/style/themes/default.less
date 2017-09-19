@@ -42,7 +42,7 @@
 @heading-color-dark     : fade(#fff, 97%);
 @text-color-dark        : fade(#fff, 91%);
 @text-color-secondary-dark: fade(#fff, 67%);
-@font-size-base         : 12px;
+@font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
 @border-radius-base     : 4px;
@@ -55,7 +55,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_zck90zmlh7hf47vi";
+@icon-url               : "https://at.alicdn.com/t/font_148784_1vkh7de5j6ecdi";
 
 // LINK
 @link-color             : @primary-color;
@@ -152,26 +152,31 @@
 @screen-xs-min          : @screen-xs;
 
 // Small screen / tablet
-@screen-sm              : 768px;
+@screen-sm              : 576px;
 @screen-sm-min          : @screen-sm;
 
 // Medium screen / desktop
-@screen-md              : 992px;
+@screen-md              : 768px;
 @screen-md-min          : @screen-md;
 
 // Large screen / wide desktop
-@screen-lg              : 1200px;
+@screen-lg              : 992px;
 @screen-lg-min          : @screen-lg;
 
-// Extra Large screen / full hd
-@screen-xl              : 1600px;
+// Extra large screen / full hd
+@screen-xl              : 1200px;
 @screen-xl-min          : @screen-xl;
+
+// Extra extra large screen / large descktop
+@screen-xxl              : 1600px;
+@screen-xxl-min          : @screen-xxl;
 
 // provide a maximum
 @screen-xs-max          : (@screen-sm-min - 1px);
 @screen-sm-max          : (@screen-md-min - 1px);
 @screen-md-max          : (@screen-lg-min - 1px);
 @screen-lg-max          : (@screen-xl-min - 1px);
+@screen-xl-max          : (@screen-xxl-min - 1px);
 
 // Grid system
 @grid-columns           : 24;
@@ -327,8 +332,12 @@
 // Card
 // ---
 @card-head-height: 48px;
+@card-inner-head-height: 46px;
 @card-head-color: @heading-color;
 @card-head-background: @component-background;
+@card-head-padding: 16px;
+@card-inner-head-padding: 12px;
+@card-actions-background: @background-color-base;
 
 // Tabs
 // ---

@@ -6,6 +6,11 @@ import Operation from './operation';
 import Search from './search';
 import injectLocale from '../locale-provider/injectLocale';
 
+export * from './item';
+export * from './list';
+export * from './operation';
+export * from './search';
+
 function noop() {
 }
 

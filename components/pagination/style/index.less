@@ -321,11 +321,17 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: @screen-lg) {
   .@{pagination-prefix-cls}-item {
     &-after-jump-prev,
     &-before-jump-next {
       display: none;
     }
+  }
+}
+
+@media only screen and (max-width: @screen-sm) {
+  .@{pagination-prefix-cls}-options {
+    display: none;
   }
 }

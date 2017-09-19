@@ -196,6 +196,9 @@ exports[`Table.filter renders menu correctly 1`] = `
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -291,6 +294,9 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>

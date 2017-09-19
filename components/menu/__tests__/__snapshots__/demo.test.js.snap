@@ -43,6 +43,9 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         />
         Navigation Three - Submenu
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
   <li
@@ -87,6 +90,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           Navigation One
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
     <ul
       aria-activedescendant=""
@@ -174,6 +180,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           Navigation Two
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
   <li
@@ -194,6 +203,9 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           Navigation Three
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
 </ul>
@@ -275,6 +287,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Navigation One
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
       <ul
         aria-activedescendant=""
@@ -334,6 +349,9 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
             Navigation Two
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
     </li>
   </ul>
@@ -366,6 +384,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           Navigation One
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
     <ul
       aria-activedescendant=""
@@ -425,6 +446,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           Navigation Two
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
   <li
@@ -445,6 +469,9 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
           Navigation Three
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
 </ul>
@@ -523,6 +550,9 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             Navigation Three
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
       <ul
         aria-activedescendant=""
@@ -558,6 +588,9 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             title="Submenu"
           >
             Submenu
+            <i
+              class="ant-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -580,6 +613,9 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
             Navigation Four
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
     </li>
   </ul>
@@ -626,6 +662,9 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
             Navigation One
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
       <ul
         aria-activedescendant=""
@@ -685,6 +724,9 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
             Navigtion Two
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
     </li>
     <li
@@ -705,6 +747,9 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
             Navigation Three
           </span>
         </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
       </div>
     </li>
   </ul>
@@ -736,6 +781,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           Navigation One
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
   <li
@@ -755,6 +803,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           Navigation Two
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
   <li
@@ -774,6 +825,9 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
           Navigation Three
         </span>
       </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
     </div>
   </li>
 </ul>

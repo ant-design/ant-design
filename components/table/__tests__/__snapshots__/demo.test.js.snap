@@ -204,16 +204,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         Action 一 John Brown
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"
@@ -262,16 +262,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         Action 一 Jim Green
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"
@@ -320,16 +320,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         Action 一 Joe Black
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"
@@ -1589,16 +1589,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -1671,16 +1671,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -1753,16 +1753,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -1835,16 +1835,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -1917,16 +1917,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -1999,16 +1999,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2081,16 +2081,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2163,16 +2163,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2245,16 +2245,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2327,16 +2327,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           Action 一 John Brown
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           href="#"
                         >
                           Delete
                         </a>
-                        <span
-                          class="ant-divider"
+                        <div
+                          class="ant-divider ant-divider-vertical"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -8187,16 +8187,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         Action 一 
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"
@@ -8246,16 +8246,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         Action 一 
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"
@@ -8305,16 +8305,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         Action 一 
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         href="#"
                       >
                         Delete
                       </a>
-                      <span
-                        class="ant-divider"
+                      <div
+                        class="ant-divider ant-divider-vertical"
                       />
                       <a
                         class="ant-dropdown-link"

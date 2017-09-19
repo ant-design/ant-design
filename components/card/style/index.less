@@ -12,9 +12,12 @@
   position: relative;
   transition: all .3s;
 
-  &:not(&-no-hovering):hover {
-    box-shadow: @box-shadow-base;
-    border-color: transparent;
+  &-hovering {
+    cursor: pointer;
+    &:hover {
+      box-shadow: @box-shadow-base;
+      border-color: transparent;
+    }
   }
 
   &-bordered {
@@ -22,8 +25,6 @@
   }
 
   &-head {
-    height: @card-head-height;
-    line-height: @card-head-height;
     background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     padding: 0 @card-padding-base;
@@ -34,8 +35,9 @@
 
     &-title {
       font-size: @font-size-lg;
+      min-height: @card-head-height;
+      padding: @card-head-padding 0;
       text-overflow: ellipsis;
-      max-width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;
@@ -43,15 +45,26 @@
       display: inline-block;
       flex: 1;
     }
+
+    .@{ant-prefix}-tabs {
+      margin-bottom: -17px;
+      margin-top: 4px;
+      clear: both;
+
+      &-bar {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+    }
   }
 
   &-extra {
     float: right;
+    padding: @card-head-padding + 1.5px 0;
     text-align: right;
   }
 
   &-body {
-    padding: @card-padding-base;
+    padding: 20px @card-padding-base;
     .clearfix;
   }
 
@@ -94,16 +107,72 @@
     }
   }
 
+  &-contain-tabs &-head-title {
+    padding-bottom: 0;
+    min-height: @card-head-height - @card-head-padding;
+  }
+
+  &-contain-tabs &-extra {
+    padding-bottom: 0;
+  }
+
+  &-cover > * {
+    width: 100%;
+    display: block;
+  }
+
+  &-actions {
+    border-top: @border-width-base @border-style-base @border-color-split;
+    background: @card-actions-background;
+    .clearfix;
+
+    & > li {
+      float: left;
+      text-align: center;
+      height: 16px;
+      margin: 12px 0;
+      color: @text-color-secondary;
+
+      & > span {
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        height: 32px;
+        line-height: 32px;
+        min-width: 32px;
+        position: relative;
+        top: -8px;
+
+        &:hover {
+          color: @primary-color;
+          transition: color .3s;
+        }
+
+        & > .anticon {
+          font-size: 16px;
+        }
+
+        a {
+          color: @text-color-secondary;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+  }
+
   &-wider-padding &-head {
     padding: 0 @card-padding-wider;
   }
 
   &-wider-padding &-body {
     padding: @card-padding-base @card-padding-wider;
-  }
-
-  &-wider-padding &-extra {
-    right: @card-padding-wider;
   }
 
   &-padding-transition &-head,
@@ -113,6 +182,59 @@
 
   &-padding-transition &-extra {
     transition: right .3s;
+  }
+
+  &-type-inner &-head {
+    padding: 0 @card-padding-base;
+    background: @background-color-base;
+
+    &-title {
+      min-height: @card-inner-head-height;
+      padding: @card-inner-head-padding 0;
+    }
+  }
+
+  &-type-inner &-body {
+    padding: 16px @card-padding-base;
+  }
+
+  &-type-inner &-extra {
+    padding: @card-inner-head-padding + 1.5px 0;
+  }
+
+  &-meta {
+    &-content {
+      display: table-row;
+    }
+
+    &-avatar {
+      padding-right: 16px;
+      display: table-cell;
+    }
+
+    &-detail {
+      display: table-cell;
+      vertical-align: top;
+      position: relative;
+
+      & > div:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-title {
+      font-size: @font-size-lg;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      color: @card-head-color;
+      font-weight: 500;
+    }
+
+    &-desscription {
+      color: @text-color-secondary;
+    }
   }
 }
 

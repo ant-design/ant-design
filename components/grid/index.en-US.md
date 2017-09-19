@@ -104,10 +104,11 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | offset     | the number of cells to offset Col from the left  | number | 0        |
 | push     | the number of cells that raster is moved to the right | number | 0        |
 | pull     | the number of cells that raster is moved to the left   | number | 0        |
-| xs       | `<768px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |
-| sm       | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |
-| md       | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |
-| lg       | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |
-| xl       | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
+| xs       | `<576px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |
+| sm       | `≥576px`, could be a `span` value or an object containing above props | number\|object | - |
+| md       | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |
+| lg       | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |
+| xl       | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |
+| xxl      | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
 
 The breakpoints of responsive grid follow [BootStrap 3 media queries rules](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)(not including `occasionally part`).

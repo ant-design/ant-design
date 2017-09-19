@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Switch, Radio, Form } from 'antd';
+import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
 const FormItem = Form.Item;
 
 const columns = [{
@@ -39,9 +39,9 @@ const columns = [{
   render: (text, record) => (
     <span>
       <a href="#">Action 一 {record.name}</a>
-      <span className="ant-divider" />
+      <Divider type="vertical" />
       <a href="#">Delete</a>
-      <span className="ant-divider" />
+      <Divider type="vertical" />
       <a href="#" className="ant-dropdown-link">
         More actions <Icon type="down" />
       </a>

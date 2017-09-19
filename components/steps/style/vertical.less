@@ -1,0 +1,55 @@
+.@{steps-prefix-cls}-vertical {
+  display: block;
+  .@{steps-prefix-cls}-item {
+    display: block;
+    overflow: visible;
+    &-icon {
+      float: left;
+      &-inner {
+        margin-right: 16px;
+      }
+    }
+    &-content {
+      min-height: 48px;
+      overflow: hidden;
+      display: block;
+    }
+    &-title {
+      line-height: @steps-icon-size;
+    }
+    &-description {
+      padding-bottom: 12px;
+    }
+  }
+
+  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
+    position: absolute;
+    left: 13px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    padding: 30px 0 4px;
+    &:after {
+      height: 100%;
+      width: 1px;
+    }
+  }
+
+  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-content > .@{steps-prefix-cls}-item-title {
+    &:after {
+      display: none;
+    }
+  }
+
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-item-tail {
+      position: absolute;
+      left: 9px;
+      top: 0;
+      padding: 22px 0 4px;
+    }
+    .@{steps-prefix-cls}-item-title {
+      line-height: @steps-small-icon-size;
+    }
+  }
+}
