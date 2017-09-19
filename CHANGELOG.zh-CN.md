@@ -21,9 +21,11 @@ timeline: true
 
 `2017-09-15`
 
-- 🐞 修复了 Form `getFieldDecoratorOptions` 缺失 `normalize` 以及 `validateFirst` 属性定义的问题。[#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
 - 🐞 修复了 Card Extra 内容过多样式错乱的问题。[#7604](https://github.com/ant-design/ant-design/issues/7604)
+- 🐞 修复了分组 Menu 收缩时的错位问题。[#7109](https://github.com/ant-design/ant-design/issues/7109)
 - 🐞 回滚 [#7142](https://github.com/ant-design/ant-design/issues/7142) 里对固定列表格空数据的样式优化，修复带来的一系列样式问题。
+- 🐞 修复了 Form `getFieldDecoratorOptions` 缺失 `normalize` 以及 `validateFirst` 属性定义的问题。[#7552](https://github.com/ant-design/ant-design/issues/7552) [@meteor91](https://github.com/meteor91) [@mitchelldemler](https://github.com/mitchelldemler)
+- 🐞 修复了 Modal 的 `zIndex` 属性定义。[#7624](https://github.com/ant-design/ant-design/issues/7624)
 - 🌟 优化了 Tree 加载中图标的显示位置。[#7584](https://github.com/ant-design/ant-design/issues/7584)
 - 🌟 优化了大量组件的英文文档。[@khalibloo](https://github.com/khalibloo)
 
