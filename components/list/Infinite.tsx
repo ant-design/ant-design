@@ -4,7 +4,7 @@ import VirtualList from 'react-tiny-virtual-list';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 
 import Spin from '../spin';
-import Icon from '../Icon';
+import Icon from '../icon';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 export interface InfiniteProps {
