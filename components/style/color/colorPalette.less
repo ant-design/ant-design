@@ -7,36 +7,64 @@
 // We are using bezier-curve easing function and some color manipulations like tint/shade/darken/spin
 .colorPaletteMixin() {
 @functions: ~`(function() {
-  var warmDark = 0.5;     // warm color darken radio
-  var warmRotate = -26;  // warm color rotate degree
-  var coldDark = 0.55;     // cold color darken radio
-  var coldRotate = 10;   // cold color rotate degree
-  var getShadeColor = function(c) {
-    var shadeColor = tinycolor(c);
-    // warm and cold color will darken in different radio, and rotate in different degree
-    // warmer color
-    if (shadeColor.toRgb().r > shadeColor.toRgb().b) {
-      return shadeColor.darken(shadeColor.toHsl().l * warmDark * 100).spin(warmRotate).toHexString();
+  var hueStep = 2;
+  var saturationStep = 16;
+  var saturationStep2 = 5;
+  var brightnessStep1 = 5;
+  var brightnessStep2 = 15;
+  var lightColorCount = 5;
+  var darkColorCount = 4;
+
+  var getHue = function(hsv, i, isLight) {
+    var hue;
+    if (hsv.h >= 60 && hsv.h <= 240) {
+      hue = isLight ? hsv.h - hueStep * i : hsv.h + hueStep * i;
+    } else {
+      hue = isLight ? hsv.h + hueStep * i : hsv.h - hueStep * i;
     }
-    // colder color
-    return shadeColor.darken(shadeColor.toHsl().l * coldDark * 100).spin(coldRotate).toHexString();
-  }
-  var primaryEasing = colorEasing(0.6);
+    if (hue < 0) {
+      hue += 360;
+    } else if (hue >= 360) {
+      hue -= 360;
+    }
+    return Math.round(hue);
+  };
+  var getSaturation = function(hsv, i, isLight) {
+    var saturation;
+    if (isLight) {
+      saturation = Math.round(hsv.s * 100) - saturationStep * i;
+    } else if (i == darkColorCount) {
+      saturation = Math.round(hsv.s * 100) + saturationStep;
+    } else {
+      saturation = Math.round(hsv.s * 100) + saturationStep2 * i;
+    }
+    if (saturation > 100) {
+      saturation = 100;
+    }
+    if (isLight && i === lightColorCount && saturation > 10) {
+      saturation = 10;
+    }
+    if (saturation < 6) {
+      saturation = 6;
+    }
+    return Math.round(saturation);
+  };
+  var getValue = function(hsv, i, isLight) {
+    if (isLight) {
+      return Math.round(hsv.v * 100) + brightnessStep1 * i;
+    }
+    return Math.round(hsv.v * 100) - brightnessStep2 * i;
+  };
+
   this.colorPalette = function(color, index) {
-    var currentEasing = colorEasing(index * 0.1);
-    // return light colors after tint
-    if (index <= 6) {
-      return tinycolor.mix(
-        '#ffffff',
-        color,
-        currentEasing * 100 / primaryEasing
-      ).toHexString();
-    }
-    return tinycolor.mix(
-      getShadeColor(color),
-      color,
-      (1 - (currentEasing - primaryEasing) / (1 - primaryEasing)) * 100
-    ).toHexString();
+    var isLight = index <= 6;
+    var hsv = tinycolor(color).toHsv();
+    var i = isLight ? lightColorCount + 1 - index : index - lightColorCount - 1;
+    return tinycolor({
+      h: getHue(hsv, i, isLight),
+      s: getSaturation(hsv, i, isLight),
+      v: getValue(hsv, i, isLight),
+    }).toHexString();
   };
 })()`;
 }
