@@ -20,6 +20,7 @@ export interface InfiniteProps {
   bordered?: boolean;
   className?: string;
   prefixCls?: string;
+  rowKey?: any;
 }
 
 export default class Infinite extends Component<InfiniteProps> {
@@ -49,10 +50,19 @@ export default class Infinite extends Component<InfiniteProps> {
   }
 
   renderItem = ({ index, style }) => {
-    const { dataSource, renderItem } = this.props;
+    const { dataSource, renderItem, rowKey } = this.props;
+    let key;
+
+    if (typeof rowKey === 'function') {
+      key = rowKey(dataSource[index]);
+    } else if (typeof rowKey === 'string') {
+      key = dataSource[rowKey];
+    } else {
+      key = dataSource.key;
+    }
 
     return (
-      <div key={`list-infinite-${index}`} style={style}>
+      <div key={key} style={style}>
         {renderItem(dataSource[index])}
       </div>
     );
@@ -114,6 +124,7 @@ export default class Infinite extends Component<InfiniteProps> {
       hasMore,
       itemHeight,
       loading,
+      rowKey,
       onLoad,
       renderItem,
       ...rest,
@@ -125,7 +136,8 @@ export default class Infinite extends Component<InfiniteProps> {
     });
 
     const emptyContent = (<div className={`${prefixCls}-empty`}>
-      <Icon type="frown-o" /> 暂无数据
+      <Icon type="frown-o"/>
+      暂无数据
     </div>);
 
     const vContent = (
