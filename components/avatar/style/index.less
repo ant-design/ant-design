@@ -1,8 +1,10 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @avatar-prefix-cls: ~"@{ant-prefix}-avatar";
 
 .@{avatar-prefix-cls} {
+  .reset-component;
   display: inline-block;
   text-align: center;
   background: @avatar-bg;

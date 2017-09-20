@@ -4,11 +4,13 @@
 
 // Input styles
 .@{ant-prefix}-input {
+  .reset-component;
   .input;
 }
 
 //== Style for input-group: input with label, with button or dropdown...
 .@{ant-prefix}-input-group {
+  .reset-component;
   .input-group(~"@{ant-prefix}-input");
   &-wrapper {
     display: inline-block;
@@ -19,6 +21,7 @@
 
 // Input with affix: prefix or suffix
 .@{ant-prefix}-input-affix-wrapper {
+  .reset-component;
   .input-affix-wrapper(~"@{ant-prefix}-input");
 
   // https://github.com/ant-design/ant-design/issues/6144

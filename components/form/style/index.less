@@ -9,7 +9,10 @@
 @form-component-height: @input-height-lg;
 @form-feedback-icon-size: 14px;
 
-.reset-form();
+.@{form-prefix-cls} {
+  .reset-component;
+  .reset-form;
+}
 
 label {
   position: relative;
@@ -65,9 +68,8 @@ input[type="checkbox"] {
 // Form items
 // You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
 .@{form-prefix-cls}-item {
-  font-size: @font-size-base;
+  .reset-component;
   margin-bottom: @form-item-margin-bottom;
-  color: @text-color;
   vertical-align: top;
   transition: margin .15s steps(1);
 
@@ -81,6 +83,10 @@ input[type="checkbox"] {
     line-height: @form-component-height;
     position: relative;
     .clearfix;
+    font-size: 0;
+    * {
+      font-size: @font-size-base;
+    }
   }
 
   &-with-help {

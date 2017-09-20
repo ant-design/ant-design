@@ -5,10 +5,12 @@
 @mention-prefix-cls: ~"@{ant-prefix}-mention";
 
 .@{mention-prefix-cls}-wrapper {
+  .reset-component;
   position: relative;
   display: inline-block;
   width: 100%;
   vertical-align: middle;
+
   .@{mention-prefix-cls}-editor {
     .input;
     line-height: @line-height-base;
@@ -44,13 +46,13 @@
 }
 
 .@{mention-prefix-cls}-dropdown {
+  .reset-component;
   margin-top: 1.5em;
   max-height: 250px;
   min-width: 120px;
   background-color: @component-background;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
-  box-sizing: border-box;
   z-index: @zindex-dropdown;
   left: -9999px;
   top: -9999px;
@@ -58,7 +60,7 @@
   outline: none;
   overflow-x: hidden;
   overflow-y: auto;
-  font-size: @font-size-base;
+
   &-notfound&-item {
     color: @disabled-color;
 

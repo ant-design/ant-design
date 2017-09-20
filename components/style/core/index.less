@@ -1,4 +1,16 @@
 @import "../mixins/index";
-@import "base";
+@import "./normalize.less";
 @import "iconfont";
 @import "motion";
+
+// http://stackoverflow.com/a/13611748/3040605
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
+
+// Utility classes
+.clearfix {
+  .clearfix();
+}
