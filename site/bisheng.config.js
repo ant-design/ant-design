@@ -2,6 +2,7 @@ const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 const isDev = process.env.NODE_ENV === 'development';
+const usePreact = process.env.REACT_ENV === 'preact';
 
 module.exports = {
   port: 8001,
@@ -65,11 +66,21 @@ module.exports = {
     config.externals = {
       'react-router-dom': 'ReactRouterDOM',
     };
-    if (isDev) {
-      Object.assign(config.externals, {
+
+    if (usePreact) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        react: 'preact-compat',
+        'react-dom': 'preact-compat',
+        'create-react-class': 'preact-compat/lib/create-react-class',
+        'react-router': 'react-router',
+      };
+    } else {
+      config.externals = {
+        ...config.externals,
         react: 'React',
         'react-dom': 'ReactDOM',
-      });
+      };
     }
 
     config.babel.plugins.push([
@@ -84,7 +95,9 @@ module.exports = {
 
     return config;
   },
+
   htmlTemplateExtraData: {
     isDev,
+    usePreact,
   },
 };

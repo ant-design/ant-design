@@ -161,7 +161,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       });
       this.setPlaceholderStyle({
         width,
-        height: affixNode.offsetHeight,
+        height: elemSize.height,
       });
     } else if (
       scrollTop < elemOffset.top + elemSize.height + (offsetBottom as number) - targetInnerHeight &&
@@ -178,7 +178,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       });
       this.setPlaceholderStyle({
         width,
-        height: affixNode.offsetHeight,
+        height: elemOffset.height,
       });
     } else {
       const { affixStyle } = this.state;

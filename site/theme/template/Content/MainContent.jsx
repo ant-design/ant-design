@@ -170,22 +170,20 @@ export default class MainContent extends React.Component {
   }
 
   flattenMenu(menu) {
-    if (menu.type === Menu.Item) {
+    if (menu && menu.type && !menu.type.isSubMenu && !menu.type.isMenuItemGroup) {
       return menu;
     }
-
     if (Array.isArray(menu)) {
       return menu.reduce((acc, item) => acc.concat(this.flattenMenu(item)), []);
     }
-
-    return this.flattenMenu(menu.props.children);
+    return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
   getFooterNav(menuItems, activeMenuItem) {
     const menuItemsList = this.flattenMenu(menuItems);
     let activeMenuItemIndex = -1;
     menuItemsList.forEach((menuItem, i) => {
-      if (menuItem.key === activeMenuItem) {
+      if (menuItem && menuItem.key === activeMenuItem) {
         activeMenuItemIndex = i;
       }
     });
@@ -236,12 +234,12 @@ export default class MainContent extends React.Component {
             <section className="prev-next-nav">
               {
                 prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  React.cloneElement(prev.props.children || prev.children[0], { className: 'prev-page' }) :
                   null
               }
               {
                 next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  React.cloneElement(next.props.children || next.children[0], { className: 'next-page' }) :
                   null
               }
             </section>
