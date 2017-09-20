@@ -10,18 +10,22 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
       class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card title
-      </div>
-      <div
-        class="ant-card-extra"
-      >
-        <a
-          href="#"
+        <div
+          class="ant-card-head-title"
         >
-          More
-        </a>
+          Card title
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <a
+            href="#"
+          >
+            More
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -56,9 +60,13 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
         class="ant-card-head"
       >
         <div
-          class="ant-card-head-title"
+          class="ant-card-head-wrapper"
         >
-          Card title
+          <div
+            class="ant-card-head-title"
+          >
+            Card title
+          </div>
         </div>
       </div>
       <div
@@ -136,9 +144,13 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
       class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card Title
+        <div
+          class="ant-card-head-title"
+        >
+          Card Title
+        </div>
       </div>
     </div>
     <div
@@ -213,9 +225,13 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
             class="ant-card-head"
           >
             <div
-              class="ant-card-head-title"
+              class="ant-card-head-wrapper"
             >
-              Card title
+              <div
+                class="ant-card-head-title"
+              >
+                Card title
+              </div>
             </div>
           </div>
           <div
@@ -240,9 +256,13 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
             class="ant-card-head"
           >
             <div
-              class="ant-card-head-title"
+              class="ant-card-head-wrapper"
             >
-              Card title
+              <div
+                class="ant-card-head-title"
+              >
+                Card title
+              </div>
             </div>
           </div>
           <div
@@ -267,9 +287,13 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
             class="ant-card-head"
           >
             <div
-              class="ant-card-head-title"
+              class="ant-card-head-wrapper"
             >
-              Card title
+              <div
+                class="ant-card-head-title"
+              >
+                Card title
+              </div>
             </div>
           </div>
           <div
@@ -295,9 +319,13 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
       class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card title
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
       </div>
     </div>
     <div
@@ -317,18 +345,22 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
               class="ant-card-head"
             >
               <div
-                class="ant-card-head-title"
+                class="ant-card-head-wrapper"
               >
-                Inner Card title
-              </div>
-              <div
-                class="ant-card-extra"
-              >
-                <a
-                  href="#"
+                <div
+                  class="ant-card-head-title"
                 >
-                  More
-                </a>
+                  Inner Card title
+                </div>
+                <div
+                  class="ant-card-extra"
+                >
+                  <a
+                    href="#"
+                  >
+                    More
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -349,18 +381,22 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
               class="ant-card-head"
             >
               <div
-                class="ant-card-head-title"
+                class="ant-card-head-wrapper"
               >
-                Inner Card title
-              </div>
-              <div
-                class="ant-card-extra"
-              >
-                <a
-                  href="#"
+                <div
+                  class="ant-card-head-title"
                 >
-                  More
-                </a>
+                  Inner Card title
+                </div>
+                <div
+                  class="ant-card-extra"
+                >
+                  <a
+                    href="#"
+                  >
+                    More
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -388,9 +424,13 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
       class="ant-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="ant-card-head-wrapper"
       >
-        Card title
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
       </div>
     </div>
     <div
@@ -577,18 +617,22 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-card-head"
       >
         <div
-          class="ant-card-head-title"
+          class="ant-card-head-wrapper"
         >
-          Card title
-        </div>
-        <div
-          class="ant-card-extra"
-        >
-          <a
-            href="#"
+          <div
+            class="ant-card-head-title"
           >
-            More
-          </a>
+            Card title
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
         </div>
         <div
           class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-line"
@@ -688,6 +732,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
       <div
         class="ant-card-head"
       >
+        <div
+          class="ant-card-head-wrapper"
+        />
         <div
           class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-line"
         >

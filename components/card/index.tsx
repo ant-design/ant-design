@@ -148,8 +148,10 @@ export default class Card extends Component<CardProps, {}> {
     if (title || extra || tabs) {
       head = (
         <div className={`${prefixCls}-head`}>
-          {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
-          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          <div className={`${prefixCls}-head-wrapper`}>
+            {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
+            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          </div>
           {tabs}
         </div>
       );
