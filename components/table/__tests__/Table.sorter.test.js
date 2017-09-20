@@ -38,7 +38,7 @@ describe('Table.sorter', () => {
     expect(wrapper.find('thead')).toMatchSnapshot();
   });
 
-  it('sort records', () => {
+  it.only('sort records', () => {
     const wrapper = mount(createTable());
 
     wrapper.find('.ant-table-column-sorter-up').simulate('click');

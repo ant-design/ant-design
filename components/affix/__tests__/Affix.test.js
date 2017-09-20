@@ -54,7 +54,7 @@ describe('Affix Render', () => {
     const wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
     jest.runAllTimers();
 
-    wrapper.node.affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
+    wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
       return {
         bottom: 100, height: 28, left: 0, right: 0, top: -50, width: 195,
       };
@@ -65,6 +65,6 @@ describe('Affix Render', () => {
     });
 
     jest.runAllTimers();
-    expect(wrapper.node.affix.state.affixStyle).not.toBe(null);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
   });
 });

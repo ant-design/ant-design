@@ -48,7 +48,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:120px;margin-right:10px;"
+    style="width:120px;margin-right:10px"
   >
     <div
       aria-autocomplete="list"
@@ -64,7 +64,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="topRight"
         >
           topRight
@@ -72,7 +72,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />

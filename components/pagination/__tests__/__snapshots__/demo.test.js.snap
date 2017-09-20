@@ -181,7 +181,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
+            style="display:block;opacity:1"
             title="10 / page"
           >
             10 / page
@@ -189,7 +189,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         </div>
         <span
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           <b />
@@ -629,7 +629,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="10 / page"
             >
               10 / page
@@ -637,7 +637,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />

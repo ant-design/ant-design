@@ -234,7 +234,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
   <br />
   <span
     class="ant-calendar-picker"
-    style="width:300px;"
+    style="width:300px"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -326,7 +326,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
   </span>
   <span
     class="ant-calendar-picker"
-    style="width:300px;"
+    style="width:300px"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -512,7 +512,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
   <br />
   <span
     class="ant-calendar-picker"
-    style="width:300px;"
+    style="width:300px"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -739,7 +739,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
   <br />
   <span
     class="ant-calendar-picker"
-    style="width:300px;"
+    style="width:300px"
   >
     <span
       class="ant-calendar-picker-input ant-input"

@@ -16,7 +16,7 @@ describe('RangePicker', () => {
     );
 
     wrapper.setProps({ value: [birthday, birthday] });
-    expect(render(wrapper.find('Trigger').node.getComponent()))
+    expect(render(wrapper.find('Trigger').instance().getComponent()))
       .toMatchSnapshot();
   });
 
@@ -34,10 +34,10 @@ describe('RangePicker', () => {
       />
     );
 
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
       .simulate('click');
-    expect(render(wrapper.find('Trigger').node.getComponent()))
+    expect(render(wrapper.find('Trigger').instance().getComponent()))
       .toMatchSnapshot();
   });
 
@@ -53,10 +53,10 @@ describe('RangePicker', () => {
       />
     );
 
-    let rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
       .simulate('mouseEnter');
-    rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
   });
 
@@ -71,7 +71,7 @@ describe('RangePicker', () => {
       />
     );
     wrapper.setProps({ value: [] });
-    const rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
       .not.toThrow();
   });
@@ -84,11 +84,12 @@ describe('RangePicker', () => {
         open
       />
     );
-    let rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click');
-    wrapper.find('.ant-calendar-picker-clear').simulate('click');
+    wrapper.update();
+    wrapper.find('.ant-calendar-picker-clear').hostNodes().simulate('click');
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    rangeCalendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
       .not.toThrow();
   });

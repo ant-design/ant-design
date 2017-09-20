@@ -69,7 +69,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jack
                   </td>
@@ -82,7 +82,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Lucy
                   </td>
@@ -95,7 +95,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Tom
                   </td>
@@ -108,7 +108,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jerry
                   </td>

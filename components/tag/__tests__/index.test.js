@@ -15,6 +15,7 @@ describe('Tag', () => {
     wrapper.find('.anticon-cross').simulate('click');
     expect(onClose).toBeCalled();
     await delay(500);
+    wrapper.update();
     expect(wrapper.find('.ant-tag').length).toBe(0);
   });
 

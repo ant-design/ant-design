@@ -250,7 +250,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </ul>
     </div>
     <div
-      style="text-align:center;margin-top:8px;"
+      style="text-align:center;margin-top:8px"
     >
       <button
         class="ant-btn"
@@ -272,14 +272,14 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
   <div>
     <div
       class="ant-row"
-      style="margin-left:-8px;margin-right:-8px;"
+      style="margin-left:-8px;margin-right:-8px"
     >
       <div
         class="ant-col-6"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -318,7 +318,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -357,7 +357,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -396,7 +396,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -451,14 +451,14 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 >
   <div />
   <div
-    style="overflow:visible;width:0;"
+    style="overflow:visible;width:0"
   >
     <div
       aria-label="grid"
       aria-readonly="true"
       class="ReactVirtualized__Grid ReactVirtualized__List"
       role="grid"
-      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden;"
+      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden"
       tabindex="0"
     />
   </div>
@@ -641,14 +641,14 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
   <div>
     <div
       class="ant-row"
-      style="margin-left:-8px;margin-right:-8px;"
+      style="margin-left:-8px;margin-right:-8px"
     >
       <div
         class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -687,7 +687,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -726,7 +726,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -765,7 +765,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
       >
         <div
           class="ant-list-item"
-          style="padding-left:8px;padding-right:8px;"
+          style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item-content ant-list-item-content-single"
@@ -807,7 +807,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
 exports[`renders ./components/list/demo/simple.md correctly 1`] = `
 <div>
   <h3
-    style="margin-bottom:16px;"
+    style="margin-bottom:16px"
   >
     Default Size
   </h3>
@@ -877,7 +877,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
     </div>
   </div>
   <h3
-    style="margin:16px 0;"
+    style="margin:16px 0"
   >
     Small Size
   </h3>
@@ -947,7 +947,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
     </div>
   </div>
   <h3
-    style="margin:16px 0;"
+    style="margin:16px 0"
   >
     Large Size
   </h3>
@@ -1078,7 +1078,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1090,7 +1090,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1102,7 +1102,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1174,7 +1174,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1186,7 +1186,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1198,7 +1198,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1270,7 +1270,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1282,7 +1282,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1294,7 +1294,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1366,7 +1366,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1378,7 +1378,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1390,7 +1390,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1462,7 +1462,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1474,7 +1474,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1486,7 +1486,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1558,7 +1558,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1570,7 +1570,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1582,7 +1582,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1654,7 +1654,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1666,7 +1666,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1678,7 +1678,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1750,7 +1750,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1762,7 +1762,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1774,7 +1774,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1846,7 +1846,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1858,7 +1858,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1870,7 +1870,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>
@@ -1942,7 +1942,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-star-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1954,7 +1954,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-like-o"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 156
               </span>
@@ -1966,7 +1966,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <span>
                 <i
                   class="anticon anticon-message"
-                  style="margin-right:8px;"
+                  style="margin-right:8px"
                 />
                 2
               </span>

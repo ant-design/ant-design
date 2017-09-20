@@ -7,11 +7,11 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
   >
     <div
       class="ant-row"
-      style="margin-left:-20px;margin-right:-20px;"
+      style="margin-left:-20px;margin-right:-20px"
     >
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -47,7 +47,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -83,7 +83,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -119,7 +119,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -155,7 +155,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -191,7 +191,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block;"
+        style="padding-left:20px;padding-right:20px;display:block"
       >
         <div
           class="ant-row ant-form-item"
@@ -227,7 +227,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none;"
+        style="padding-left:20px;padding-right:20px;display:none"
       >
         <div
           class="ant-row ant-form-item"
@@ -263,7 +263,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none;"
+        style="padding-left:20px;padding-right:20px;display:none"
       >
         <div
           class="ant-row ant-form-item"
@@ -299,7 +299,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none;"
+        style="padding-left:20px;padding-right:20px;display:none"
       >
         <div
           class="ant-row ant-form-item"
@@ -335,7 +335,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none;"
+        style="padding-left:20px;padding-right:20px;display:none"
       >
         <div
           class="ant-row ant-form-item"
@@ -375,7 +375,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
     >
       <div
         class="ant-col-24"
-        style="text-align:right;"
+        style="text-align:right"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -387,7 +387,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </button>
         <button
           class="ant-btn"
-          style="margin-left:8px;"
+          style="margin-left:8px"
           type="button"
         >
           <span>
@@ -395,7 +395,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           </span>
         </button>
         <a
-          style="margin-left:8px;font-size:12px;"
+          style="margin-left:8px;font-size:12px"
         >
           Collapse 
           <i
@@ -484,7 +484,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
             >
               <div
                 class="ant-select-selection__placeholder"
-                style="display:block;user-select:none;-webkit-user-select:none;"
+                style="display:block;user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 Select a option and change input text above
@@ -492,7 +492,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
             </div>
             <span
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="unselectable"
             >
               <b />
@@ -552,13 +552,13 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         <span>
           <input
             class="ant-input"
-            style="width:65%;margin-right:3%;"
+            style="width:65%;margin-right:3%"
             type="text"
             value="0"
           />
           <div
             class="ant-select ant-select-enabled"
-            style="width:32%;"
+            style="width:32%"
           >
             <div
               aria-autocomplete="list"
@@ -574,7 +574,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               >
                 <div
                   class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
+                  style="display:block;opacity:1"
                   title="RMB"
                 >
                   RMB
@@ -582,7 +582,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               </div>
               <span
                 class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 <b />
@@ -631,7 +631,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
       >
         <button
           class="ant-btn ant-btn-dashed"
-          style="width:60%;"
+          style="width:60%"
           type="button"
         >
           <i
@@ -866,7 +866,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-user"
-              style="font-size:13px;"
+              style="font-size:13px"
             />
           </span>
           <input
@@ -898,7 +898,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-lock"
-              style="font-size:13px;"
+              style="font-size:13px"
             />
           </span>
           <input
@@ -1121,7 +1121,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-user"
-              style="font-size:13px;"
+              style="font-size:13px"
             />
           </span>
           <input
@@ -1153,7 +1153,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-lock"
-              style="font-size:13px;"
+              style="font-size:13px"
             />
           </span>
           <input
@@ -1422,7 +1422,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <span
           class="ant-input-group-wrapper"
-          style="width:100%;"
+          style="width:100%"
         >
           <span
             class="ant-input-wrapper ant-input-group"
@@ -1432,7 +1432,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <div
                 class="ant-select ant-select-enabled"
-                style="width:60px;"
+                style="width:60px"
               >
                 <div
                   aria-autocomplete="list"
@@ -1448,7 +1448,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   >
                     <div
                       class="ant-select-selection-selected-value"
-                      style="display:block;opacity:1;"
+                      style="display:block;opacity:1"
                       title="+86"
                     >
                       +86
@@ -1456,7 +1456,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   </div>
                   <span
                     class="ant-select-arrow"
-                    style="user-select:none;-webkit-user-select:none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="unselectable"
                   >
                     <b />
@@ -1512,7 +1512,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <div
                 class="ant-select-selection__placeholder"
-                style="display:block;user-select:none;-webkit-user-select:none;"
+                style="display:block;user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 website
@@ -1540,7 +1540,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
             <span
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="unselectable"
             >
               <b />
@@ -1572,11 +1572,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px;"
+          style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col-12"
-            style="padding-left:4px;padding-right:4px;"
+            style="padding-left:4px;padding-right:4px"
           >
             <input
               class="ant-input"
@@ -1588,7 +1588,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </div>
           <div
             class="ant-col-12"
-            style="padding-left:4px;padding-right:4px;"
+            style="padding-left:4px;padding-right:4px"
           >
             <button
               class="ant-btn"
@@ -1610,7 +1610,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    style="margin-bottom:8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -1859,7 +1859,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       >
         <span
           class="ant-calendar-picker"
-          style="width:300px;"
+          style="width:300px"
         >
           <span
             class="ant-calendar-picker-input ant-input"
@@ -2017,7 +2017,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <div
                 class="ant-select-selection__placeholder"
-                style="display:block;user-select:none;-webkit-user-select:none;"
+                style="display:block;user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 Please select a country
@@ -2025,7 +2025,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
             <span
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="unselectable"
             >
               <b />
@@ -2071,7 +2071,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <div
                 class="ant-select-selection__placeholder"
-                style="display:block;user-select:none;-webkit-user-select:none;"
+                style="display:block;user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 Please select favourite colors
@@ -2241,34 +2241,34 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           />
           <div
             class="ant-slider-track"
-            style="visibility:visible;left:0%;width:0%;"
+            style="visibility:visible;left:0%;width:0%"
           />
           <div
             class="ant-slider-step"
           >
             <span
               class="ant-slider-dot ant-slider-dot-active"
-              style="left:0%;"
+              style="left:0%"
             />
             <span
               class="ant-slider-dot"
-              style="left:20%;"
+              style="left:20%"
             />
             <span
               class="ant-slider-dot"
-              style="left:40%;"
+              style="left:40%"
             />
             <span
               class="ant-slider-dot"
-              style="left:60%;"
+              style="left:60%"
             />
             <span
               class="ant-slider-dot"
-              style="left:80%;"
+              style="left:80%"
             />
             <span
               class="ant-slider-dot"
-              style="left:100%;"
+              style="left:100%"
             />
           </div>
           <div
@@ -2278,7 +2278,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             aria-valuenow="0"
             class="ant-slider-handle"
             role="slider"
-            style="left:0%;"
+            style="left:0%"
             tabindex="0"
           />
           <div
@@ -2286,37 +2286,37 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <span
               class="ant-slider-mark-text ant-slider-mark-text-active"
-              style="width:18%;margin-left:-9%;left:0%;"
+              style="width:18%;margin-left:-9%;left:0%"
             >
               A
             </span>
             <span
               class="ant-slider-mark-text"
-              style="width:18%;margin-left:-9%;left:20%;"
+              style="width:18%;margin-left:-9%;left:20%"
             >
               B
             </span>
             <span
               class="ant-slider-mark-text"
-              style="width:18%;margin-left:-9%;left:40%;"
+              style="width:18%;margin-left:-9%;left:40%"
             >
               C
             </span>
             <span
               class="ant-slider-mark-text"
-              style="width:18%;margin-left:-9%;left:60%;"
+              style="width:18%;margin-left:-9%;left:60%"
             >
               D
             </span>
             <span
               class="ant-slider-mark-text"
-              style="width:18%;margin-left:-9%;left:80%;"
+              style="width:18%;margin-left:-9%;left:80%"
             >
               E
             </span>
             <span
               class="ant-slider-mark-text"
-              style="width:18%;margin-left:-9%;left:100%;"
+              style="width:18%;margin-left:-9%;left:100%"
             >
               F
             </span>
@@ -2512,7 +2512,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-upload ant-upload-select ant-upload-select-picture"
-            style="display:;"
+            style="display:"
           />
           <div
             class="ant-upload-list ant-upload-list-picture"
@@ -2794,7 +2794,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       >
         <span
           class="ant-calendar-picker"
-          style="width:100%;"
+          style="width:100%"
         >
           <div>
             <input
@@ -2832,7 +2832,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       >
         <span
           class="ant-time-picker "
-          style="width:100%;"
+          style="width:100%"
         >
           <input
             class="ant-time-picker-input"
@@ -2884,7 +2884,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <div
                 class="ant-select-selection-selected-value"
-                style="display:block;opacity:1;"
+                style="display:block;opacity:1"
                 title="Option 1"
               >
                 Option 1
@@ -2892,7 +2892,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
             <span
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="unselectable"
             >
               <b />
@@ -3009,7 +3009,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-col-2"
         >
           <span
-            style="display:inline-block;width:100%;text-align:center;"
+            style="display:inline-block;width:100%;text-align:center"
           >
             -
           </span>
@@ -3069,7 +3069,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       >
         <div
           class="ant-input-number"
-          style="width:100%;"
+          style="width:100%"
         >
           <div
             class="ant-input-number-handler-wrap"

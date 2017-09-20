@@ -24,7 +24,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
+            style="display:block;opacity:1"
             title="2016"
           >
             2016
@@ -32,7 +32,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         </div>
         <span
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           <b />
@@ -56,7 +56,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
+            style="display:block;opacity:1"
             title="Nov"
           >
             Nov
@@ -64,7 +64,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         </div>
         <span
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           <b />
@@ -1006,7 +1006,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 <div
-  style="width:300px;border:1px solid #d9d9d9;border-radius:4px;"
+  style="width:300px;border:1px solid #d9d9d9;border-radius:4px"
 >
   <div
     class=""
@@ -1031,7 +1031,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="2016"
             >
               2016
@@ -1039,7 +1039,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />
@@ -1063,7 +1063,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="Nov"
             >
               Nov
@@ -1071,7 +1071,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />
@@ -2036,7 +2036,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
+            style="display:block;opacity:1"
             title="2016"
           >
             2016
@@ -2044,7 +2044,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         </div>
         <span
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           <b />
@@ -2068,7 +2068,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-selected-value"
-            style="display:block;opacity:1;"
+            style="display:block;opacity:1"
             title="Nov"
           >
             Nov
@@ -2076,7 +2076,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         </div>
         <span
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           <b />
@@ -3355,7 +3355,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="2017"
             >
               2017
@@ -3363,7 +3363,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />
@@ -3387,7 +3387,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="Jan"
             >
               Jan
@@ -3395,7 +3395,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />

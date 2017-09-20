@@ -23,7 +23,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
+                <col>
+                  
+                </col>
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -49,8 +51,10 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
-                    />
+                      style="padding-left:0px"
+                    >
+                      
+                    </span>
                     Jack
                   </td>
                 </tr>
@@ -62,8 +66,10 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
-                    />
+                      style="padding-left:0px"
+                    >
+                      
+                    </span>
                     Lucy
                   </td>
                 </tr>
@@ -84,7 +90,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            
+          </a>
         </li>
         <li
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
@@ -112,7 +120,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
-          />
+          >
+            
+          </a>
         </li>
       </ul>
     </div>

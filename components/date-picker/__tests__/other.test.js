@@ -10,7 +10,7 @@ describe('MonthPicker and WeekPicker', () => {
       <MonthPicker open />
     );
     wrapper.setProps({ value: birthday });
-    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
@@ -19,6 +19,6 @@ describe('MonthPicker and WeekPicker', () => {
       <WeekPicker open />
     );
     wrapper.setProps({ value: birthday });
-    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 });

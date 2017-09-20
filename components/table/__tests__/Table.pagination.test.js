@@ -89,13 +89,14 @@ describe('Table.pagination', () => {
 
   // https://github.com/ant-design/ant-design/issues/4532
   // http://codepen.io/anon/pen/ZLbyjV?editors=001
-  it('should display pagination as prop pagination change between true and false', () => {
+  it.only('should display pagination as prop pagination change between true and false', () => {
     const wrapper = mount(createTable());
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
     wrapper.setProps({ pagination: false });
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination });
+    wrapper.update();
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
     wrapper.find('.ant-pagination-item-2').simulate('click');

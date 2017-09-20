@@ -57,6 +57,7 @@ describe('Upload List', () => {
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
     wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
     await delay(400);
-    expect(wrapper.find('.ant-upload-list-item').length).toBe(1);
+    wrapper.update();
+    expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
 });

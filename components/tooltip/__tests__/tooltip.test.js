@@ -148,7 +148,7 @@ describe('Tooltip', () => {
       </Tooltip>
     );
     wrapper.find('button').at(0).simulate('click');
-    const popupLeftDefault = parseInt(wrapper.node.getPopupDomNode().style.left, 10);
+    const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
     const wrapper2 = mount(
       <Tooltip
@@ -165,7 +165,7 @@ describe('Tooltip', () => {
       </Tooltip>
     );
     wrapper2.find('button').at(0).simulate('click');
-    const popupLeftArrowPointAtCenter = parseInt(wrapper2.node.getPopupDomNode().style.left, 10);
+    const popupLeftArrowPointAtCenter = parseInt(wrapper2.instance().getPopupDomNode().style.left, 10);
     expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
   });
 });

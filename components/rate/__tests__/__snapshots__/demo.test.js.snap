@@ -196,7 +196,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
-    style="font-size:36px;"
+    style="font-size:36px"
   >
     <li
       class="ant-rate-star ant-rate-star-zero"

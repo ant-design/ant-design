@@ -47,7 +47,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
 exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
 <span
   class="ant-cascader-picker"
-  style="width:100%;"
+  style="width:100%"
   tabindex="0"
 >
   <span

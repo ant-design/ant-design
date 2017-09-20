@@ -97,7 +97,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <span

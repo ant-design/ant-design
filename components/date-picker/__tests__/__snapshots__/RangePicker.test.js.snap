@@ -32,13 +32,13 @@ exports[`RangePicker show month panel according to value 1`] = `
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <a
                     class="ant-calendar-prev-year-btn"
@@ -767,13 +767,13 @@ exports[`RangePicker show month panel according to value 1`] = `
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <span
                     class="ant-calendar-my-select"
@@ -1537,13 +1537,13 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <a
                     class="ant-calendar-prev-year-btn"
@@ -2272,13 +2272,13 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <span
                     class="ant-calendar-my-select"

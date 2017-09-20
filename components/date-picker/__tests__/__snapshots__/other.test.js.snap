@@ -13,7 +13,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
         class="ant-calendar-header"
       >
         <div
-          style="position:relative;"
+          style="position:relative"
         >
           <a
             class="ant-calendar-prev-year-btn"
@@ -275,7 +275,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
             class="ant-calendar-header"
           >
             <div
-              style="position:relative;"
+              style="position:relative"
             >
               <a
                 class="ant-calendar-prev-year-btn"

@@ -34,6 +34,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           </div>
         }
         inkBarAnimated={true}
+        key="tabBar"
         onKeyDown={[Function]}
         onNextClick={[Function]}
         onPrevClick={[Function]}
@@ -48,6 +49,7 @@ exports[`Tabs tabPosition remove card 1`] = `
         }
         prefixCls="ant-tabs"
         scrollAnimated={true}
+        style={undefined}
         styles={Object {}}
         tabBarPosition="left"
       >
@@ -55,10 +57,12 @@ exports[`Tabs tabPosition remove card 1`] = `
           className="ant-tabs-bar"
           onKeyDown={[Function]}
           role="tablist"
+          style={undefined}
           tabIndex="0"
         >
           <div
             className="ant-tabs-nav-container"
+            key="content"
           >
             <span
               className="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
@@ -90,11 +94,14 @@ exports[`Tabs tabPosition remove card 1`] = `
                 >
                   <div
                     className="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                    key="inkBar"
+                    style={undefined}
                   />
                   <div
                     aria-disabled="false"
                     aria-selected="true"
                     className="ant-tabs-tab-active ant-tabs-tab"
+                    key="1"
                     onClick={[Function]}
                     role="tab"
                   >
@@ -106,6 +113,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           </div>
           <div
             className="ant-tabs-extra-content"
+            key="extra"
             style={Object {}}
           >
             xxx
@@ -117,6 +125,7 @@ exports[`Tabs tabPosition remove card 1`] = `
         animated={true}
         animatedWithMargin={true}
         destroyInactiveTabPane={false}
+        key="tabContent"
         onChange={[Function]}
         prefixCls="ant-tabs"
         tabBarPosition="left"
@@ -132,6 +141,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           <TabPane
             active={true}
             destroyInactiveTabPane={false}
+            key="1"
             placeholder={null}
             rootPrefixCls="ant-tabs"
             tab="foo"
@@ -140,6 +150,7 @@ exports[`Tabs tabPosition remove card 1`] = `
               aria-hidden="false"
               className="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
+              style={undefined}
             >
               foo
             </div>

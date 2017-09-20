@@ -195,7 +195,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
     >
       <i
         class="anticon anticon-clock-circle-o"
-        style="font-size:16px;"
+        style="font-size:16px"
       />
     </div>
     <div

@@ -6,7 +6,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
     class="change-locale"
   >
     <span
-      style="margin-right:16px;"
+      style="margin-right:16px"
     >
       Change locale of components: 
     </span>
@@ -147,7 +147,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               >
                 <div
                   class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
+                  style="display:block;opacity:1"
                   title="10 / page"
                 >
                   10 / page
@@ -155,7 +155,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </div>
               <span
                 class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 <b />
@@ -170,7 +170,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
     >
       <div
         class="ant-select ant-select-enabled"
-        style="width:200px;"
+        style="width:200px"
       >
         <div
           aria-autocomplete="list"
@@ -186,7 +186,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <div
               class="ant-select-search ant-select-search--inline"
-              style="display:none;"
+              style="display:none"
             >
               <div
                 class="ant-select-search__field__wrap"
@@ -206,7 +206,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />
@@ -244,7 +244,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       </span>
       <span
         class="ant-calendar-picker"
-        style="width:200px;"
+        style="width:200px"
       >
         <span
           class="ant-calendar-picker-input ant-input"
@@ -468,7 +468,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       </div>
     </div>
     <div
-      style="width:319px;border:1px solid #d9d9d9;border-radius:4px;"
+      style="width:319px;border:1px solid #d9d9d9;border-radius:4px"
     >
       <div
         class=""
@@ -493,7 +493,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               >
                 <div
                   class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
+                  style="display:block;opacity:1"
                   title="2016"
                 >
                   2016
@@ -501,7 +501,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </div>
               <span
                 class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 <b />
@@ -525,7 +525,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               >
                 <div
                   class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1;"
+                  style="display:block;opacity:1"
                   title="Nov"
                 >
                   Nov
@@ -533,7 +533,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </div>
               <span
                 class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="unselectable"
               >
                 <b />
@@ -1635,7 +1635,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           >
             <div
               class="ant-select-selection-selected-value"
-              style="display:block;opacity:1;"
+              style="display:block;opacity:1"
               title="10 / page"
             >
               10 / page
@@ -1643,7 +1643,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           </div>
           <span
             class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             unselectable="unselectable"
           >
             <b />
