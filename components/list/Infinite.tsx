@@ -61,6 +61,10 @@ export default class Infinite extends Component<InfiniteProps> {
       key = dataSource.key;
     }
 
+    if (!key) {
+      key = `list-infinite-${index}`;
+    }
+
     return (
       <div key={key} style={style}>
         {renderItem(dataSource[index])}
