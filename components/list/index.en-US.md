@@ -65,4 +65,5 @@ A list can be used to display content related to a single subject. The content c
 | itemHeight | - | string\/number  |  -  |
 | onLoad | - | function  |  -  |
 | renderItem | - | function  |  -  |
+| rowKey | - | string\|Function(record):string  |  -  |
 

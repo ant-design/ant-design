@@ -66,4 +66,5 @@ cols: 1
 | itemHeight | 列表元素高度 | string\/number  |  -  |
 | onLoad | 加载的回调函数 | function  |  -  |
 | renderItem | 列表元素的渲染函数 | function  |  -  |
+| rowKey | 列表元素 key 的取值，可以是字符串或一个函数 | string\|Function(record):string  |  -  |
 

@@ -63,6 +63,7 @@ class InfiniteListExample extends React.Component {
   render() {
     return (
       <InfiniteList
+        rowKey={item => item.id}
         hasMore={this.state.hasMore}
         loading={this.state.loading}
         onLoad={this.handleInfiniteOnLoad}
