@@ -34,7 +34,7 @@ import elGR from '../el_GR';
 import nbNO from '../nb_NO';
 import srRS from '../sr_RS';
 
-const locales = [enUS, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS];
+const locales = [enUS, ptPT, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS];
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
