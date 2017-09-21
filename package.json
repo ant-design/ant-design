@@ -76,9 +76,10 @@
     "rc-tree-select": "~1.10.2",
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
+    "react-infinite-scroller": "^1.0.15",
     "react-lazy-load": "^3.0.10",
     "react-slick": "~0.15.0",
-    "react-tiny-virtual-list": "^2.1.2",
+    "react-virtualized": "^9.10.1",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },

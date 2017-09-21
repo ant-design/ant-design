@@ -1,17 +1,17 @@
 ---
-order: 7
+order: 6
 title:
-  zh-CN: 无限加载
-  en-US: infinite load
+  zh-CN: Virtualized 无限加载
+  en-US: infinite VirtualizedExample load
 ---
 
 ## zh-CN
 
-无限加载样例。
+无限加载样例并且支持 Virtualized 样例。
 
 ## en-US
 
-The example of infinite load.
+The example of infinite & virtualized load.
 
 ````jsx
 import { List, message, Avatar } from 'antd';
@@ -32,13 +32,12 @@ function mockData() {
   return data;
 }
 
-class InfiniteListExample extends React.Component {
+class VirtualizedExample extends React.Component {
   state = {
     data: mockData(),
     loading: false,
-    hasMore: true,
   }
-  handleInfiniteOnLoad = () => {
+  handleInfiniteOnLoad = (done) => {
     let data = this.state.data;
     this.setState({
       loading: true,
@@ -46,7 +45,6 @@ class InfiniteListExample extends React.Component {
     if (data.length > 49) {
       message.warning('Loaded All');
       this.setState({
-        hasMore: false,
         loading: false,
       });
       return;
@@ -57,6 +55,7 @@ class InfiniteListExample extends React.Component {
         data,
         loading: false,
       });
+      done();
     }, 2000);
   }
   render() {
@@ -66,7 +65,9 @@ class InfiniteListExample extends React.Component {
         infinite={{
           onLoad: this.handleInfiniteOnLoad,
           loading: this.state.loading,
-          hasMore: this.state.hasMore,
+        }}
+        virtualized={{
+          itemHeight: 117,
         }}
         dataSource={this.state.data}
         renderItem={item => (
@@ -84,5 +85,5 @@ class InfiniteListExample extends React.Component {
   }
 }
 
-ReactDOM.render(<InfiniteListExample />, mountNode);
+ReactDOM.render(<VirtualizedExample />, mountNode);
 ````
