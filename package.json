@@ -78,6 +78,7 @@
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.10",
     "react-slick": "~0.15.0",
+    "react-tiny-virtual-list": "^2.1.2",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },

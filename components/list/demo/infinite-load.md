@@ -7,20 +7,22 @@ title:
 
 ## zh-CN
 
-无限加载样例。
+无限加载样例，默认支持 virtualized。
 
 ## en-US
 
 The example of infinite load.
 
 ````jsx
-import { List, Card, message } from 'antd';
+import { List, message, Avatar } from 'antd';
+
+const InfiniteList = List.Infinite;
 
 let countId = 1;
 
 function mockData() {
   const data = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     const id = countId;
     data.push({
       id: `id-${id}`,
@@ -32,52 +34,56 @@ function mockData() {
   return data;
 }
 
-class InfiniteList extends React.Component {
+class InfiniteListExample extends React.Component {
   state = {
     data: mockData(),
+    hasMore: true,
     loading: false,
   }
-  handleInfiniteOnLoad = (done) => {
+  handleInfiniteOnLoad = () => {
     let data = this.state.data;
-    if (data.length > 15) {
-      message.warning('Loaded All');
-      return;
-    }
     this.setState({
       loading: true,
     });
+    if (data.length > 49) {
+      this.setState({
+        hasMore: false,
+      });
+      message.warning('Loaded All');
+      return;
+    }
     setTimeout(() => {
       data = data.concat(mockData());
       this.setState({
         data,
         loading: false,
       });
-      // reset the infinite onLoad callback flag
-      // so can trigger onLoad callback again
-      done();
     }, 1000);
   }
   render() {
     return (
-      <List
-        infinite={{
-          loading: this.state.loading,
-          onLoad: this.handleInfiniteOnLoad,
-          offset: -20,
-        }}
-        grid={{ gutter: 16, column: 4 }}
-      >
-        {
-          this.state.data.map(item => (
-            <List.Item key={item.id}>
-              <Card title={item.title}>{item.content}</Card>
-            </List.Item>
-          ))
-        }
-      </List>
+      <InfiniteList
+        rowKey={item => item.id}
+        hasMore={this.state.hasMore}
+        loading={this.state.loading}
+        onLoad={this.handleInfiniteOnLoad}
+        dataSource={this.state.data}
+        height={500}
+        itemHeight={117}
+        renderItem={item => (
+          <List.Item>
+            <List.Item.Meta
+              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+              title={<a href="https://ant.design">{item.title}</a>}
+              description={item.content}
+            />
+            <div style={{ padding: 24 }}>Content</div>
+          </List.Item>
+        )}
+      />
     );
   }
 }
 
-ReactDOM.render(<InfiniteList />, mountNode);
+ReactDOM.render(<InfiniteListExample />, mountNode);
 ````

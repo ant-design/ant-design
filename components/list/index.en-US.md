@@ -25,7 +25,6 @@ A list can be used to display content related to a single subject. The content c
 | onMoreClick    | -| function   | - |
 | pagination | - | boolean \| object   |  false  |
 | grid | - | object   |  -  |
-| infinite | - | object   |  -  |
 
 ### List grid props
 | Property     | Description           | Type     | Default       |
@@ -37,13 +36,6 @@ A list can be used to display content related to a single subject. The content c
 | md | `≥992px` - | number   |  -  |
 | lg | `≥1200px` - | number   |  -  |
 | xl | `≥1600px` - | number   |  -  |
-
-### List infinite props
-| Property     | Description           | Type     | Default       |
----------|-------------|------|---------
-| onLoad | - | function | - |
-| offset | - | number | 0 |
-| loading | - | boolean   |  -  |
 
 ### List.Item
 
@@ -59,4 +51,19 @@ A list can be used to display content related to a single subject. The content c
 | avatar | - | ReactNode |  -  |
 | title | - | string\|ReactNode |  -  |
 | description | - | string\|ReactNode |  -  |
+
+### List.Infinite
+
+| 参数     | 说明           | 类型     | 默认值       |
+---------|-------------|------|---------
+| bordered | - | boolean   |  false  |
+| loading | - | boolean   |  false  |
+| dataSource | - | array   |  []  |
+| hasMore | - | boolean  |  true  |
+| width | - | string\/number  |  `100%`  |
+| height | - | string\/number  |  -  |
+| itemHeight | - | string\/number  |  -  |
+| onLoad | - | function  |  -  |
+| renderItem | - | function  |  -  |
+| rowKey | - | string\|Function(record):string  |  -  |
 
