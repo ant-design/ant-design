@@ -57,7 +57,7 @@
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 3px 5px;
+      padding: 0 5px;
       border-radius: @border-radius-sm;
       margin: 0;
       cursor: pointer;
@@ -66,6 +66,8 @@
       color: @text-color;
       transition: all .3s;
       position: relative;
+      height: 24px;
+      line-height: 24px;
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -76,7 +78,7 @@
     span {
       &.@{tree-prefix-cls}-checkbox {
         margin: 0 4px 0 2px;
-        vertical-align: middle;
+        top: 1px;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {

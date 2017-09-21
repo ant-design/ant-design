@@ -14,11 +14,12 @@
     padding: 0 0 12px;
     list-style: none;
     margin: 0;
+    font-size: @font-size-base;
 
     &-tail {
       position: absolute;
       left: 5px;
-      top: 0;
+      top: 0.75em;
       height: 100%;
       border-left: 2px solid @timeline-color;
     }
@@ -34,6 +35,9 @@
       background-color: @component-background;
       border-radius: 100px;
       border: 2px solid transparent;
+      margin-top: -6px;
+      top: 0.75em;
+
       &-blue {
         border-color: @primary-color;
         color: @primary-color;
@@ -65,9 +69,6 @@
 
     &-content {
       padding: 0 0 10px 24px;
-      font-size: @font-size-base;
-      position: relative;
-      top: -3px;
     }
 
     &-last {
