@@ -1,16 +1,10 @@
 @import "normalize";
-@import "../mixins/index";
 
 // http://stackoverflow.com/a/13611748/3040605
 @font-face {
   font-family: "Helvetica Neue For Number";
   src: local("Helvetica Neue");
   unicode-range: U+30-39;
-}
-
-// HTML & Body reset
-html, body {
-  .square(100%);
 }
 
 * {
@@ -21,6 +15,11 @@ html, body {
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+// HTML & Body reset
+html, body {
+  .square(100%);
 }
 
 body {
