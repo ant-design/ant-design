@@ -4,6 +4,7 @@
 @list-prefix-cls: ~"@{ant-prefix}-list";
 
 .@{list-prefix-cls} {
+  position: relative;
   &-more, &-pagination {
     margin-top: 24px;
     text-align: center;
@@ -95,6 +96,11 @@
       flex: 0;
     }
   }
+  .@{list-prefix-cls}-infinite-loading-spin {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+  }
 }
 
 .@{list-prefix-cls}-bordered {
@@ -159,14 +165,6 @@
     }
   }
 }
-.@{list-prefix-cls}-infinite {
-  position: relative;
-  &-loading {
-    position: absolute;
-    left: 50%;
-    bottom: 4px;
-  }
-}
 
 .@{list-prefix-cls}-empty {
   color: @text-color-secondary;
@@ -183,6 +181,7 @@
       }
     }
   }
+
   .@{list-prefix-cls}-vertical {
     .@{list-prefix-cls}-item {
       &-extra {
@@ -201,6 +200,7 @@
       }
     }
   }
+
   .@{list-prefix-cls}-vertical {
     .@{list-prefix-cls}-item {
       &-extra-wrap {
