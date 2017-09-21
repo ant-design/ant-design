@@ -1,4 +1,12 @@
+@import "normalize";
 @import "../mixins/index";
+
+// http://stackoverflow.com/a/13611748/3040605
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
 
 // HTML & Body reset
 html, body {
@@ -87,4 +95,9 @@ a {
     cursor: not-allowed;
     pointer-events: none;
   }
+}
+
+// Utility classes
+.clearfix {
+  .clearfix();
 }
