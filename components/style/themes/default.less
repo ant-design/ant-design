@@ -38,10 +38,10 @@
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
-@text-color-secondary   : fade(#000, 43%);
-@heading-color-dark     : fade(#fff, 97%);
-@text-color-dark        : fade(#fff, 91%);
-@text-color-secondary-dark: fade(#fff, 67%);
+@text-color-secondary   : fade(#000, 45%);
+@heading-color-dark     : fade(#fff, 100%);
+@text-color-dark        : fade(#fff,85%);
+@text-color-secondary-dark: fade(#fff, 65%);
 @font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
@@ -90,7 +90,7 @@
 
 // Default background color for disabled states, Collapse wrappers,
 // and several active and hover states.
-@background-color-base  : #f7f7f7;
+@background-color-base  : rgba(0, 0, 0, .02);
 @background-color-active: #eee;
 
 // Disabled states
@@ -183,8 +183,8 @@
 @grid-gutter-width      : 0;
 
 // Layout
-@layout-body-background      : #ececec;
-@layout-header-background    : #404040;
+@layout-body-background      : rgba(0, 0, 0, .04);
+@layout-header-background    : #00182e;
 @layout-header-height        : 64px;
 @layout-header-padding       : 0 50px;
 @layout-footer-padding       : 24px 50px;
@@ -282,8 +282,8 @@
 // Menu
 // ---
 @menu-dark-bg: @layout-header-background;
-@menu-dark-submenu-bg: #333;
-@menu-collapsed-width: 64px;
+@menu-dark-submenu-bg: #000b14;
+@menu-collapsed-width: 80px;
 
 // Spin
 // ---
