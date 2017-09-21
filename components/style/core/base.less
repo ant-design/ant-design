@@ -5,6 +5,16 @@ html, body {
   .square(100%);
 }
 
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //  remove tap highlight color for mobile safari
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: @font-family;
   font-size: @font-size-base;
@@ -21,22 +31,10 @@ button, input, select, textarea {
   color: inherit;
 }
 
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 // Headers
 h1, h2, h3, h4, h5, h6 {
   color: @heading-color;
   font-weight: 500;
-  margin: 0;
-}
-
-p {
-  margin: 0;
 }
 
 code,
@@ -46,4 +44,47 @@ samp {
   font-family: @code-family;
 }
 
-.reset();
+// Remove the clear button of a text input control in IE10+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
+::selection {
+  background: @primary-color;
+  color: #fff;
+}
+
+// Links
+a {
+  color: @link-color;
+  background: transparent;
+  text-decoration: @link-hover-decoration;
+  outline: none;
+  cursor: pointer;
+  transition: color .3s ease;
+
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
+
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active {
+    color: @link-active-color;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    color: @disabled-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
