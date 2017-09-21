@@ -14,15 +14,6 @@
   .reset-form;
 }
 
-label {
-  position: relative;
-
-  > .@{iconfont-css-prefix} {
-    vertical-align: top;
-    font-size: @font-size-base;
-  }
-}
-
 .@{form-prefix-cls}-item-required:before {
   display: inline-block;
   margin-right: 4px;
@@ -68,6 +59,15 @@ input[type="checkbox"] {
 // Form items
 // You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
 .@{form-prefix-cls}-item {
+  label {
+    position: relative;
+
+    > .@{iconfont-css-prefix} {
+      vertical-align: top;
+      font-size: @font-size-base;
+    }
+  }
+
   .reset-component;
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
