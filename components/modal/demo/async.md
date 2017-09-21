@@ -21,6 +21,7 @@ class App extends React.Component {
   state = {
     ModalText: 'Content of the modal',
     visible: false,
+    confirmLoading: false,
   }
   showModal = () => {
     this.setState({

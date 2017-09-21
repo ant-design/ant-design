@@ -31,7 +31,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onPrevClick      | prev 按钮被点击的回调                         | Function | 无            |
 | onNextClick      | next 按钮被点击的回调                         | Function | 无            |
 | tabBarExtraContent | tab bar 上额外的元素                       | React.ReactNode | 无          |
-| tabBarStyle      | tar bar 的样式对象                           | object   | -             |
+| tabBarStyle      | tab bar 的样式对象                           | object   | -             |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型   | string   | 'line'      |
 | size | 大小，提供 `default` 和 `small` 两种大小，仅当 `type="line"` 时生效。  | string   | 'default'      |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | string   | 'top'      |
