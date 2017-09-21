@@ -300,9 +300,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -335,9 +339,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -370,9 +378,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -405,9 +417,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -440,9 +456,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -475,9 +495,13 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -524,9 +548,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    List Item Title 1
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      List Item Title 1
+                    </div>
                   </div>
                 </div>
                 <div
@@ -559,9 +587,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    List Item Title 2
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      List Item Title 2
+                    </div>
                   </div>
                 </div>
                 <div
@@ -594,9 +626,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    List Item Title 3
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      List Item Title 3
+                    </div>
                   </div>
                 </div>
                 <div
@@ -629,9 +665,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    List Item Title 4
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      List Item Title 4
+                    </div>
                   </div>
                 </div>
                 <div
@@ -664,9 +704,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    List Item Title 5
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      List Item Title 5
+                    </div>
                   </div>
                 </div>
                 <div
@@ -882,9 +926,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -917,9 +965,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -952,9 +1004,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -987,9 +1043,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1022,9 +1082,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1057,9 +1121,13 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   class="ant-card-head"
                 >
                   <div
-                    class="ant-card-head-title"
+                    class="ant-card-head-wrapper"
                   >
-                    Card title
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Card title
+                    </div>
                   </div>
                 </div>
                 <div
