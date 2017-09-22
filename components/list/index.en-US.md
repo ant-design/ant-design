@@ -51,19 +51,3 @@ A list can be used to display content related to a single subject. The content c
 | avatar | - | ReactNode |  -  |
 | title | - | string\|ReactNode |  -  |
 | description | - | string\|ReactNode |  -  |
-
-### List.Infinite
-
-| 参数     | 说明           | 类型     | 默认值       |
----------|-------------|------|---------
-| bordered | - | boolean   |  false  |
-| loading | - | boolean   |  false  |
-| dataSource | - | array   |  []  |
-| hasMore | - | boolean  |  true  |
-| width | - | string\/number  |  `100%`  |
-| height | - | string\/number  |  -  |
-| itemHeight | - | string\/number  |  -  |
-| onLoad | - | function  |  -  |
-| renderItem | - | function  |  -  |
-| rowKey | - | string\|Function(record):string  |  -  |
-

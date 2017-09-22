@@ -7,21 +7,21 @@ title:
 
 ## zh-CN
 
-无限加载样例。
+结合 [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller) 实现无限加载。
 
 ## en-US
 
-The example of infinite load.
+The example of infinite load with [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller).
 
 ````jsx
-import { List, message, Avatar } from 'antd';
+import { List, message, Avatar, Spin } from 'antd';
 import InfiniteScroll from 'react-infinite-scroller';
 
 let countId = 1;
 
 function mockData() {
   const data = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 5; i++) {
     const id = countId;
     data.push({
       id: `id-${id}`,
@@ -44,7 +44,7 @@ class InfiniteListExample extends React.Component {
     this.setState({
       loading: true,
     });
-    if (data.length > 49) {
+    if (data.length > 19) {
       message.warning('Loaded All');
       this.setState({
         hasMore: false,
@@ -62,14 +62,15 @@ class InfiniteListExample extends React.Component {
   }
   render() {
     return (
-      <List>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.handleInfiniteOnLoad}
-          hasMore={this.state.hasMore}
-        >
-          {this.state.data.map(item => (
-            <List.Item>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={this.handleInfiniteOnLoad}
+        hasMore={!this.state.loading && this.state.hasMore}
+      >
+        <List
+          dataSource={this.state.data}
+          renderItem={item => (
+            <List.Item key={item.id}>
               <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<a href="https://ant.design">{item.title}</a>}
@@ -77,9 +78,11 @@ class InfiniteListExample extends React.Component {
               />
               <div style={{ padding: 24 }}>Content</div>
             </List.Item>
-          ))}
-        </InfiniteScroll>
-      </List>
+          )}
+        >
+          {this.state.loading && this.state.hasMore && <Spin style={{ position: 'absolute', bottom: 0, left: '50%' }} />}
+        </List>
+      </InfiniteScroll>
     );
   }
 }
