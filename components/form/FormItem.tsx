@@ -225,10 +225,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (!id) {
       return;
     }
-    const controls = document.querySelectorAll(`#${id}`);
+    const controls = document.querySelectorAll(`[id="${id}"]`);
     if (controls.length !== 1) {
       e.preventDefault();
-      const control = findDOMNode(this).querySelector(`#${id}`) as HTMLElement;
+      const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
       }
