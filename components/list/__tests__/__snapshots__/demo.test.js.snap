@@ -258,14 +258,14 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </ul>
     </div>
     <div
-      class="ant-list-more"
+      style="text-align:center;margin-top:8px;"
     >
       <button
         class="ant-btn"
         type="button"
       >
         <span>
-          加载更多...
+          加载更多
         </span>
       </button>
     </div>
@@ -443,247 +443,6 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
-<div>
-  <div
-    class="ant-list ant-list-bordered"
-  >
-    <div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
-        >
-          <div
-            class="ant-list-item-meta-avatar"
-          >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                List Item Title 1
-              </a>
-            </h4>
-            <div
-              class="ant-list-item-meta-description"
-            >
-              List Item Content 1
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item-content"
-        >
-          <div
-            style="padding:24px;"
-          >
-            Content
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
-        >
-          <div
-            class="ant-list-item-meta-avatar"
-          >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                List Item Title 2
-              </a>
-            </h4>
-            <div
-              class="ant-list-item-meta-description"
-            >
-              List Item Content 2
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item-content"
-        >
-          <div
-            style="padding:24px;"
-          >
-            Content
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
-        >
-          <div
-            class="ant-list-item-meta-avatar"
-          >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                List Item Title 3
-              </a>
-            </h4>
-            <div
-              class="ant-list-item-meta-description"
-            >
-              List Item Content 3
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item-content"
-        >
-          <div
-            style="padding:24px;"
-          >
-            Content
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
-        >
-          <div
-            class="ant-list-item-meta-avatar"
-          >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                List Item Title 4
-              </a>
-            </h4>
-            <div
-              class="ant-list-item-meta-description"
-            >
-              List Item Content 4
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item-content"
-        >
-          <div
-            style="padding:24px;"
-          >
-            Content
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
-        >
-          <div
-            class="ant-list-item-meta-avatar"
-          >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                List Item Title 5
-              </a>
-            </h4>
-            <div
-              class="ant-list-item-meta-description"
-            >
-              List Item Content 5
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item-content"
-        >
-          <div
-            style="padding:24px;"
-          >
-            Content
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1`] = `
 <div
   class="ant-list ant-list-bordered"
@@ -697,7 +456,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
       aria-readonly="true"
       class="ReactVirtualized__Grid ReactVirtualized__List"
       role="grid"
-      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:auto;"
+      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden;"
       tabindex="0"
     />
   </div>

@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Spin from '../spin';
-import Icon from '../icon';
 import Pagination from '../pagination';
-import Button from '../button';
 import { Row } from '../grid';
 
 import Item from './Item';
@@ -27,9 +25,7 @@ export interface ListProps {
   extra?: React.ReactNode;
   id?: string;
   loading?: boolean;
-  showLoadMore?: boolean;
-  loadingMore?: boolean;
-  onLoadMore?: React.FormEventHandler<any>;
+  loadMore?: React.ReactNode;
   pagination?: any;
   prefixCls?: string;
   grid?: ListGridType;
@@ -82,10 +78,7 @@ export default class List extends Component<ListProps> {
       children,
       loading = false,
       itemLayout,
-      showLoadMore = false,
-      loadingMore = false,
-      onLoadMore = (() => {
-      }),
+      loadMore,
       pagination = false,
       prefixCls = 'ant-list',
       grid,
@@ -101,19 +94,6 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-grid`]: grid,
     });
-
-    const moreButton = (
-      <Button onClick={onLoadMore}>
-        <Icon type="loading"/>
-        加载中...
-      </Button>
-    );
-
-    const moreContent = (
-      <div className={`${prefixCls}-more`}>
-        {loadingMore ? moreButton : <Button onClick={onLoadMore}>加载更多...</Button>}
-      </div>
-    );
 
     const paginationContent = (
       <div className={`${prefixCls}-pagination`}>
@@ -134,14 +114,14 @@ export default class List extends Component<ListProps> {
     const content = loading ? (
       <Spin>
         {childrenContent}
-        {showLoadMore && moreContent}
-        {(!showLoadMore && pagination) && paginationContent}
+        {loadMore}
+        {(!loadMore && pagination) && paginationContent}
       </Spin>
     ) : (
       <div>
         {childrenContent}
-        {showLoadMore && moreContent}
-        {(!showLoadMore && pagination) && paginationContent}
+        {loadMore}
+        {(!loadMore && pagination) && paginationContent}
       </div>
     );
 
