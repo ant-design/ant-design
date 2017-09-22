@@ -17,6 +17,25 @@ timeline: true
 
 ---
 
+## 2.13.3
+
+`2017-09-22`
+
+- 修复 Affix 在内容与视口高度差小于 children 高度时触发的滚动抖动问题。[#2349](https://github.com/ant-design/ant-design/issues/2349)
+- 修复 `Card[title]` 为空且设置 `Card[extra]` 时样式错乱的问题。[f46112d#commitcomment-24480417](https://github.com/ant-design/ant-design/commit/f46112d38561c89780eb44ecbba82347d2b912da#commitcomment-24480417)
+- 修复 `Checkbox[children]` TypeScript definition。[#7650](https://github.com/ant-design/ant-design/issues/7650) [@liaokaien](https://github.com/liaokaien)
+- 修复 `getFieldDecorator` 内使用嵌套 id 后点击 `Form.Item` label 报错的问题。[#7693](https://github.com/ant-design/ant-design/issues/7693)
+- Input
+  - 修复 `Input.Group[compat]` 内嵌 `Select` 等控件时的样式问题。[#7662](https://github.com/ant-design/ant-design/issues/7662)
+  - 优化 `Input[autoComplete]` TypeScript 定义。[#7699](https://github.com/ant-design/ant-design/pull/7699) [@delesseps](https://github.com/delesseps)
+- LocaleProvider
+  - 新增葡萄牙语。[#7449](https://github.com/ant-design/ant-design/pull/7449) [@taviroquai](https://github.com/taviroquai)
+  - 修复荷兰语 locale 缺少文案的问题。[#7694](https://github.com/ant-design/ant-design/pull/7694) [@kstiopin](https://github.com/kstiopin)
+- Table
+  - 修复 `rowSelection` 导致的表头高度问题。[#7663](https://github.com/ant-design/ant-design/issues/7663)
+  - 修复使用 `rowSelection.hideDefaultselections` 时导致自定义选项点击没反应的问题。[#7626](https://github.com/ant-design/ant-design/issues/7626) [@infeng](https://github.com/infeng)
+  - 优化 `Table[scroll]` TypeScript definition。[#7640](https://github.com/ant-design/ant-design/pull/7640) [@BlackGanglion](https://github.com/BlackGanglion)
+
 ## 2.13.2
 
 `2017-09-15`
