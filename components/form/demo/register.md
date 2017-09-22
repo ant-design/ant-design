@@ -237,11 +237,11 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator('captcha', {
                 rules: [{ required: true, message: 'Please input the captcha you got!' }],
               })(
-                <Input size="large" />
+                <Input />
               )}
             </Col>
             <Col span={12}>
-              <Button size="large">Get captcha</Button>
+              <Button>Get captcha</Button>
             </Col>
           </Row>
         </FormItem>
