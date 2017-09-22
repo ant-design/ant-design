@@ -697,7 +697,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
       aria-readonly="true"
       class="ReactVirtualized__Grid ReactVirtualized__List"
       role="grid"
-      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden;"
+      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:auto;"
       tabindex="0"
     />
   </div>
