@@ -9,6 +9,11 @@
   flex: auto;
   background: @layout-body-background;
 
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
   &&-has-sider {
     flex-direction: row;
     > .@{layout-prefix-cls},

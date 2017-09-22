@@ -2,13 +2,12 @@
 @import "../../style/mixins/index";
 
 @card-prefix-cls: ~"@{ant-prefix}-card";
-@card-padding-base: 24px;
-@card-padding-wider: 32px;
+@card-head-height: 48px;
 
 .@{card-prefix-cls} {
+  .reset-component;
   background: @component-background;
   border-radius: @border-radius-sm;
-  font-size: @font-size-base;
   position: relative;
   transition: all .3s;
 
@@ -31,6 +30,7 @@
     border-radius: @border-radius-sm @border-radius-sm 0 0;
     .clearfix;
     margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
+    min-height: @card-head-height;
 
     &-wrapper {
       display: flex;
@@ -38,7 +38,6 @@
 
     &-title {
       font-size: @font-size-lg;
-      min-height: @card-head-height;
       padding: @card-head-padding 0;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -64,6 +63,8 @@
     float: right;
     padding: @card-head-padding + 1.5px 0;
     text-align: right;
+    // https://stackoverflow.com/a/22429853/3040605
+    margin-left: auto;
   }
 
   &-body {
@@ -78,6 +79,9 @@
 
   &-loading-content {
     padding: @card-padding-base;
+    p {
+      margin: 0;
+    }
   }
 
   &-loading-block {
@@ -192,7 +196,6 @@
     background: @background-color-base;
 
     &-title {
-      min-height: @card-inner-head-height;
       padding: @card-inner-head-padding 0;
     }
   }

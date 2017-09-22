@@ -5,13 +5,13 @@
 @spin-dot-default: @text-color-secondary;
 
 .@{spin-prefix-cls} {
+  .reset-component;
   color: @primary-color;
   vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
   transition: transform 0.3s @ease-in-out-circ;
-  font-size: @font-size-base;
   display: none;
 
   &-spinning {

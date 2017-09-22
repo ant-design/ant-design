@@ -68,19 +68,17 @@ module.exports = {
     };
 
     if (usePreact) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
+      config.resolve.alias = Object.assign({}, config.resolve.alias, {
         react: 'preact-compat',
         'react-dom': 'preact-compat',
         'create-react-class': 'preact-compat/lib/create-react-class',
         'react-router': 'react-router',
-      };
+      });
     } else {
-      config.externals = {
-        ...config.externals,
+      config.externals = Object.assign({}, config.externals, {
         react: 'React',
         'react-dom': 'ReactDOM',
-      };
+      });
     }
 
     config.babel.plugins.push([

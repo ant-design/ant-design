@@ -2,7 +2,6 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
@@ -127,14 +126,15 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
     const children = help ? (
-        <div className={`${prefixCls}-explain`} key="help">
-          {help}
-        </div>
-      ) : null;
+      <div className={`${prefixCls}-explain`} key="help">
+        {help}
+      </div>
+    ) : null;
     return (
       <Animate transitionName="show-help" component="" transitionAppear key="help">
         {children}
-      </Animate>);
+      </Animate>
+    );
   }
 
   renderExtra() {
@@ -225,10 +225,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (!id) {
       return;
     }
-    const controls = document.querySelectorAll(`#${id}`);
+    const controls = document.querySelectorAll(`[id="${id}"]`);
     if (controls.length !== 1) {
       e.preventDefault();
-      const control = findDOMNode(this).querySelector(`#${id}`) as HTMLElement;
+      const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
       }

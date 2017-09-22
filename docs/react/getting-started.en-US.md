@@ -186,6 +186,8 @@ import { Button } from 'antd';
 
 And this plugin can load styles too, read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
 
+> FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
+
 ## Customization
 
 - [Customize Theme](/docs/react/customize-theme)

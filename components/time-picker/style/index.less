@@ -5,6 +5,7 @@
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
 
 .@{timepicker-prefix-cls}-panel {
+  .reset-component;
   z-index: @zindex-picker;
   position: absolute;
 
@@ -60,7 +61,7 @@
   }
 
   &-clear-btn:after {
-    font-size: @font-size-base;
+    font-size: @font-size-base - 2px;
     color: @disabled-color;
     display: inline-block;
     line-height: 1;
@@ -182,10 +183,10 @@
 }
 
 .@{timepicker-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   outline: none;
-  font-size: @font-size-base;
   transition: opacity 0.3s ease;
   width: 100px;
 
@@ -222,7 +223,7 @@
     &:after {
       content: "\e641";
       font-family: "anticon";
-      font-size: @font-size-base;
+      font-size: @font-size-base - 2px;
       color: @text-color-secondary;
       display: block;
       line-height: 1;
