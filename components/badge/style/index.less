@@ -1,9 +1,11 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @badge-prefix-cls: ~"@{ant-prefix}-badge";
 @number-prefix-cls: ~"@{ant-prefix}-scroll-number";
 
 .@{badge-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   line-height: 1;

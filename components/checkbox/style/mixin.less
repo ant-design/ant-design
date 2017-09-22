@@ -4,6 +4,7 @@
   @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
   // 一般状态
   .@{checkbox-prefix-cls} {
+    .reset-component;
     white-space: nowrap;
     cursor: pointer;
     outline: none;
@@ -149,8 +150,8 @@
   }
 
   .@{checkbox-prefix-cls}-wrapper {
+    .reset-component;
     cursor: pointer;
-    font-size: @font-size-base;
     display: inline-block;
     &:not(:last-child) {
       margin-right: 8px;
@@ -164,7 +165,7 @@
   }
 
   .@{checkbox-prefix-cls}-group {
-    font-size: @font-size-base;
+    .reset-component;
     &-item {
       display: inline-block;
     }

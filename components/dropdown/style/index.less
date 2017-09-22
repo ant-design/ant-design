@@ -4,14 +4,12 @@
 @dropdown-prefix-cls: ~"@{ant-prefix}-dropdown";
 
 .@{dropdown-prefix-cls} {
+  .reset-component;
   position: absolute;
   left: -9999px;
   top: -9999px;
   z-index: @zindex-dropdown;
   display: block;
-  font-size: @font-size-base;
-  font-weight: normal;
-  line-height: 1.5;
 
   &-wrap {
     position: relative;

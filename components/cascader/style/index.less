@@ -5,7 +5,7 @@
 @cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
 
   &-input.@{ant-prefix}-input {
     // Add important to fix https://github.com/ant-design/ant-design/issues/5078
@@ -17,10 +17,10 @@
   }
 
   &-picker {
+    .reset-component;
     position: relative;
     display: inline-block;
     cursor: pointer;
-    font-size: @font-size-base;
     background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
@@ -110,6 +110,14 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     white-space: nowrap;
+
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     &-empty,
     &-hidden {
       display: none;

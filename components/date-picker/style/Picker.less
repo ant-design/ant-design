@@ -1,4 +1,5 @@
 .@{calendar-prefix-cls}-picker-container {
+  .reset-component;
   position: absolute;
   z-index: @zindex-picker;
 
@@ -28,10 +29,10 @@
 }
 
 .@{calendar-prefix-cls}-picker {
+  .reset-component;
   position: relative;
   display: inline-block;
   outline: none;
-  font-size: @font-size-base;
   transition: opacity 0.3s;
 
   &-input {

@@ -5,7 +5,14 @@
 @pagination-prefix-cls: ~"@{ant-prefix}-pagination";
 
 .@{pagination-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   &:after {
     content: " ";

@@ -5,11 +5,10 @@
 @transfer-prefix-cls: ~"@{ant-prefix}-transfer";
 
 .@{transfer-prefix-cls} {
+  .reset-component;
   position: relative;
-  line-height: @line-height-base;
 
   &-list {
-    font-size: @font-size-base;
     border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;

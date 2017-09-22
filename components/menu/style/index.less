@@ -5,16 +5,23 @@
 
 // default theme
 .@{menu-prefix-cls} {
+  .reset-component;
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
   z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
-  color: @text-color;
   background: @component-background;
   line-height: 46px;
   transition: background .3s, width .2s;
+
+  ul,
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   &-hidden {
     display: none;

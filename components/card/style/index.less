@@ -6,9 +6,9 @@
 @card-padding-wider: 32px;
 
 .@{card-prefix-cls} {
+  .reset-component;
   background: @component-background;
   border-radius: @border-radius-sm;
-  font-size: @font-size-base;
   position: relative;
   transition: all .3s;
 
@@ -78,6 +78,9 @@
 
   &-loading-content {
     padding: @card-padding-base;
+    p {
+      margin: 0;
+    }
   }
 
   &-loading-block {

@@ -35,11 +35,16 @@
 }
 
 .@{select-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   display: inline-block;
   position: relative;
-  color: @text-color;
-  font-size: @font-size-base;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   > ul > li > a {
     padding: 0;
@@ -397,6 +402,8 @@
 }
 
 .@{select-prefix-cls}-dropdown {
+  .reset-component;
+
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
     animation-name: antSlideUpIn;
