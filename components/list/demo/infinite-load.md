@@ -15,6 +15,7 @@ The example of infinite load.
 
 ````jsx
 import { List, message, Avatar } from 'antd';
+import InfiniteScroll from 'react-infinite-scroller';
 
 let countId = 1;
 
@@ -61,25 +62,24 @@ class InfiniteListExample extends React.Component {
   }
   render() {
     return (
-      <List
-        rowKey={item => item.id}
-        infinite={{
-          onLoad: this.handleInfiniteOnLoad,
-          loading: this.state.loading,
-          hasMore: this.state.hasMore,
-        }}
-        dataSource={this.state.data}
-        renderItem={item => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description={item.content}
-            />
-            <div style={{ padding: 24 }}>Content</div>
-          </List.Item>
-        )}
-      />
+      <List>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.handleInfiniteOnLoad}
+          hasMore={this.state.hasMore}
+        >
+          {this.state.data.map(item => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                title={<a href="https://ant.design">{item.title}</a>}
+                description={item.content}
+              />
+              <div style={{ padding: 24 }}>Content</div>
+            </List.Item>
+          ))}
+        </InfiniteScroll>
+      </List>
     );
   }
 }
