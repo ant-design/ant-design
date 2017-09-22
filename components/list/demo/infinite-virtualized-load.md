@@ -2,7 +2,7 @@
 order: 6
 title:
   zh-CN: Virtualized 无限加载
-  en-US: infinite VirtualizedExample load
+  en-US: Infinite virtualized List
 ---
 
 ## zh-CN
@@ -16,33 +16,39 @@ The example of infinite & virtualized load with [react-virtualized](https://gith
 ````jsx
 import { List, message, Avatar, Spin } from 'antd';
 
+import reqwest from 'reqwest';
+
 import WindowScroller from 'react-virtualized/dist/commonjs/WindowScroller';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import VList from 'react-virtualized/dist/commonjs/List';
 import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
 
-let countId = 1;
-
-function mockData() {
-  const data = [];
-  for (let i = 0; i < 5; i++) {
-    const id = countId;
-    data.push({
-      id: `id-${id}`,
-      title: `List Item Title ${id}`,
-      content: `List Item Content ${id}`,
-    });
-    countId++;
-  }
-  return data;
-}
+const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
 
 class VirtualizedExample extends React.Component {
   state = {
-    data: mockData(),
+    data: [],
     loading: false,
   }
   loadedRowsMap = {}
+  getData = (callback) => {
+    reqwest({
+      url: fakeDataUrl,
+      type: 'json',
+      method: 'get',
+      contentType: 'application/json',
+      success: (res) => {
+        callback(res);
+      },
+    });
+  }
+  componentWillMount() {
+    this.getData((res) => {
+      this.setState({
+        data: res,
+      });
+    });
+  }
   handleInfiniteOnLoad = ({ startIndex, stopIndex }) => {
     let data = this.state.data;
     this.setState({
@@ -59,14 +65,13 @@ class VirtualizedExample extends React.Component {
       });
       return;
     }
-    // mock delay
-    setTimeout(() => {
-      data = data.concat(mockData());
+    this.getData((res) => {
+      data = data.concat(res);
       this.setState({
         data,
         loading: false,
       });
-    }, 2000);
+    });
   }
   isRowLoaded = ({ index }) => {
     return !!this.loadedRowsMap[index];
