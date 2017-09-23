@@ -250,7 +250,7 @@ timeline: true
 - 新增 Input.TextArea，原 Input[type='textArea'] 将被废弃。[pull/6138](https://github.com/ant-design/ant-design/pull/6138)
 - LocaleProvider 新增泰语支持。[pull/6721](https://github.com/ant-design/ant-design/pull/6721) [@koobitor](https://github.com/koobitor)
 - Mention 支持 `focus` 方法。[#6135](https://github.com/ant-design/ant-design/issues/6135)
-- Menu[mode='inline'] 支持缩起/展开，同时 Layout.Sider 使用 `context` 向 Menu 传递 `collapsed` 属性，无需再自己定制样式。[pull/6686](https://github.com/ant-design/ant-design/pull/6686)
+- Menu `inline` 模式下支持用 `inlineCollapsed` 属性缩起/展开，同时 Layout.Sider 使用 `context` 向 Menu 传递 `collapsed` 属性，无需再自己定制样式。[pull/6686](https://github.com/ant-design/ant-design/pull/6686)
 - 新增 Pagination `itemRender` 属性，用于自定义页码的结构。[25a603](https://github.com/ant-design/ant-design/commit/25a60322e5c6649522fb9f0d34919eba0ccb1f65)
 - 新增 Tooltip `autoAdjustOverflow` 属性，支持关闭自动调整位置的功能。[pull/6661](https://github.com/ant-design/ant-design/pull/6661) [@jdz321](https://github.com/jdz321)
 - 修复了 Avatar 错误的文档。[pull/6711](https://github.com/ant-design/ant-design/pull/6711) [@llaski](https://github.com/llaski)
@@ -665,7 +665,7 @@ timeline: true
   - 修复 `Cannot find module '../../package.json'` 的问题。[#4935](https://github.com/ant-design/ant-design/issues/4935)
   - 补充了 Table、RangePicker 和 Upload 的部分属性定义。
 - 修复了 Modal `onOk` `afterClose` 和 Popconfirm `onConfirm` `onCancel` 缺少点击 event 参数的问题。 [#4787](https://github.com/ant-design/ant-design/issues/4787)
-- 优化 Menu[inline] 和 Collapse 的折叠动画效果。
+- 优化 Menu inline 模式和 Collapse 的折叠动画效果。
 - 优化了 Checkbox 和 Radio 的垂直对齐样式。
 - Table
   - 修复固定列时列头样式错位的问题。[#4936](https://github.com/ant-design/ant-design/issues/4936)

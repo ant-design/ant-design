@@ -251,7 +251,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Add Input.Textarea, Input[type='textArea'] will be deprecated. [pull/6138](https://github.com/ant-design/ant-design/pull/6138)
 - LocaleProvider supporting Thai. [pull/6721](https://github.com/ant-design/ant-design/pull/6721) [@koobitor](https://github.com/koobitor)
 - Mention support `focus` function. [#6135](https://github.com/ant-design/ant-design/issues/6135)
-- Menu[mode='inline'] could be collapsed, and use `context` to pass `collapsed` prop from Layout.Sider to Menu, don't need customized css code anymore. [pull/6686](https://github.com/ant-design/ant-design/pull/6686)
+- Menu inline mode could be collapsed by `inlineCollapsed`, and use `context` to pass `collapsed` prop from Layout.Sider to Menu, don't need customized css code anymore. [pull/6686](https://github.com/ant-design/ant-design/pull/6686)
 - Add Pagination `itemRender`, now you can customize the structure of page number. [25a603](https://github.com/ant-design/ant-design/commit/25a60322e5c6649522fb9f0d34919eba0ccb1f65)
 - Add Tooltip `autoAdjustOverflow` prop, now the auto adjust feature can be disabled. [pull/6661](https://github.com/ant-design/ant-design/pull/6661) [@jdz321](https://github.com/jdz321)
 - Fix errors in docs of Avatar. [pull/6711](https://github.com/ant-design/ant-design/pull/6711) [@llaski](https://github.com/llaski)
@@ -667,7 +667,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Fix that `Cannot find module '../../package.json'` error. [#4935](https://github.com/ant-design/ant-design/issues/4935)
   - Fix definitions of Table, RangePicker and Upload.
 - Fix lack of event argument for Modal `onOk` `afterClose` and Popconfirm `onConfirm` `onCancel`. [#4787](https://github.com/ant-design/ant-design/issues/4787)
-- Improve animation of Menu[inline] and Collapse.
+- Improve animation of Menu inline mode and Collapse.
 - Improve Checkbox and Radio vertical align style.
 - Table
   - Fix misplace header when fix column. [#4936](https://github.com/ant-design/ant-design/issues/4936)
