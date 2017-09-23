@@ -1,8 +1,8 @@
 import Row from './row';
 import Col from './col';
 
-export * from './row';
-export * from './col';
+export { RowProps } from './row';
+export { ColProps, ColSize } from './col';
 
 export {
   Row,

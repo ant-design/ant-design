@@ -1,8 +1,8 @@
 import Anchor from './Anchor';
 import AnchorLink from './AnchorLink';
 
-export * from './Anchor';
-export * from './AnchorLink';
+export { AnchorProps } from './Anchor';
+export { AnchorLinkProps } from './AnchorLink';
 
 Anchor.Link = AnchorLink;
 export default Anchor;

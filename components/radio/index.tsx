@@ -2,9 +2,9 @@ import Radio from './radio';
 import Group from './group';
 import Button from './radioButton';
 
-export * from './radio';
-export * from './group';
-export * from './radioButton';
+export { RadioProps } from './radio';
+export { RadioGroupProps } from './group';
+export { RadioButtonProps } from './radioButton';
 
 Radio.Button = Button;
 Radio.Group = Group;

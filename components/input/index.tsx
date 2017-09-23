@@ -3,10 +3,10 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 
-export * from './Input';
-export * from './Group';
-export * from './Search';
-export * from './TextArea';
+export { InputProps } from './Input';
+export { GroupProps } from './Group';
+export { SearchProps } from './Search';
+export { TextAreaProps } from './TextArea';
 
 Input.Group = Group;
 Input.Search = Search;
