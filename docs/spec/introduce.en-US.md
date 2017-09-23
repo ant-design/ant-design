@@ -27,9 +27,7 @@ We supply a series of design principles, practical patterns and high quality des
 
 - [Ant Design of React](/docs/react/introduce) (official implementation)
 - <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
-- <div class="outside-link"><a href="https://github.com/iview/iview/" target="_blank">iView (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty</a></div>
-- <div class="outside-link"><a href="https://github.com/aliqin/atui" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
