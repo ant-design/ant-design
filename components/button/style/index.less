@@ -93,7 +93,7 @@
     display: block;
   }
 
-  &&-loading:not(&-circle):not(&-circle-outline) {
+  &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     padding-left: 29px;
     pointer-events: none;
     position: relative;
@@ -102,7 +102,7 @@
     }
   }
 
-  &-sm&-loading:not(&-circle):not(&-circle-outline) {
+  &-sm&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     padding-left: 24px;
     .@{iconfont-css-prefix} {
       margin-left: -17px;
