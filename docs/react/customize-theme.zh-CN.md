@@ -23,30 +23,83 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 可以在本地运行 [例子](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme) 查看定制效果。
 
 ### 1) theme 属性（推荐）
+###### 总共四步：
+1. 首先，你的项目里需要安装依赖 `babel-plugin-import less less-loder` 。(当然，`style-loader css-loader`这些最基础的样式依赖肯定也是要有的)
 
-配置在 `package.json` 或 `.roadhogrc` 下的 `theme` 字段。theme 可以为配置为一个对象或文件路径。
+    ```
+    npm install --save-dev babel-plugin-import less less-loder
+   ```
+1. 其次，在你项目中的`.bablrc`文件中需要有以下配置
 
-```js
-"theme": {
-  "primary-color": "#1DA57A",
-},
+    ```
+    {
+        ...
+        "plugins": [
+            ["import", {"libraryName": "antd-mobile", "style": true}],
+            ...
+        ]
+    }
+   ```
+1. 再次，在 `package.json` 文件中添加一个 theme 字段，（当然你也可以配置一个js文件 `"theme": "./theme.js"`，有兴趣的同学自行探索）里面将包含所有我们想要修改的主题样式。[全部主题样式参考这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
+    ```
+    {
+        ...
+        "theme": {
+            "brand-primary": "red",
+            "color-text-base":  "#333",
+            ...
+        },
+        ...
+    }
+   ```
+
+1. 最后，在你的 webpack （建议版本3.0+） 配置文件里，添加如下配置，之后运行你的 `npm start`，看到惊喜了吗？
+    ```
+    const pkg = require('./package.json')
+
+    module.exports = {
+        ...
+        module: {
+            ...
+            rules: [
+                ...
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                    ],
+                },
+                {
+                    test: /\.less$/,
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                        {loader: 'less-loader', options: {modifyVars: pkg.theme}},
+                    ],
+                    include: /node_modules/,
+                },
+                ...
+            ],
+        },
+        ...
+    }
+   ```
+---
+另外，**[高清方案](https://github.com/ant-design/ant-design-mobile/wiki/HD)在 2.0 中并不是必须的**，如果你想在2.0中使用高清方案，需要对其做下适配处理，操作很简单，在前面主题配置的第三步中，在 theme 字段中修改hd变量为 0.02rem 即可。
 ```
-
-或者 [一个 js 文件](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js)：
-
-```js
-"theme": "./theme.js",
-```
-
-定义 `theme` 属性时，需要配合使用（[antd-init](https://github.com/ant-design/antd-init) 或 [dva-cli](https://github.com/dvajs/dva-cli)。如果你使用的是其他脚手架，可以参考 [atool-build 中 less-loader 的 webpack 相关配置 ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138)，利用 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 配置来覆盖原来的样式变量。
-
-注意：
-
-- 样式必须加载 less 格式。
-  - 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
-  - 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
-- `dva-cli@0.7.0+` 的 `theme` 属性需要写在 [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) 文件里。
-- 如果要覆盖 `@icon-url` 变量，内容需要包括引号 `"@icon-url": "'your-icon-font-path'"`（[修正示例](https://github.com/visvadw/dvajs-user-dashboard/pull/2)）。
+  {
+      ...
+      "theme": {
+          "hd": "0.02rem",
+          "brand-primary": "red",
+          "color-text-base":  "#333",
+          ...
+      },
+      ...
+  }
+  ```
+后话：如果你对为什么要把hd 改为 0.02rem 感到好奇，可以查看[这篇博客](http://www.jianshu.com/p/985d26b40199)，此文中笔者对高清源码稍作修改，使该方案能灵活适用于百度地图这类特殊场景。
 
 ### 2) less
 
