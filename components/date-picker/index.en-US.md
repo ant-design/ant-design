@@ -49,6 +49,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | open | open state of picker | boolean | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | placeholder  | placeholder of date input | string\|RangePicker[] | - |
+| dateRender | custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |
 
 ### DatePicker
 

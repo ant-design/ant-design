@@ -25,6 +25,7 @@ export interface PickerProps {
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   renderExtraFooter?: () => React.ReactNode;
+  dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
 }
 
 export interface SinglePickerProps {
