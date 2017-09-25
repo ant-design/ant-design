@@ -93,7 +93,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
 $ npm start

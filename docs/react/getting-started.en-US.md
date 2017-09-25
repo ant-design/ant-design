@@ -94,7 +94,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. Development & Debugging
 
-Run your project and visit http://127.0.0.1:8000
+Run your project and visit http://127.0.0.1:8001
 
 ```bash
 $ npm start
