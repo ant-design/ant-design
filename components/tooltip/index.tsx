@@ -2,7 +2,9 @@ import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
-import getPlacements, { AdjustOverflow } from './placements';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
+
+export { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
   'top' | 'left' | 'right' | 'bottom' |

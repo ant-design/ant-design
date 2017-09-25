@@ -6,6 +6,10 @@ import Operation from './operation';
 import Search from './search';
 import injectLocale from '../locale-provider/injectLocale';
 
+export { TransferListProps } from './list';
+export { TransferOperationProps } from './operation';
+export { SearchProps } from './search';
+
 function noop() {
 }
 

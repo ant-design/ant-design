@@ -8,6 +8,8 @@ import { Row } from '../grid';
 
 import Item from './Item';
 
+export { ListItemProps, ListItemMetaProps } from './Item';
+
 export interface ListGridType {
   gutter?: number;
   column?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;

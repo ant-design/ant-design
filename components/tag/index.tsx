@@ -6,6 +6,8 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 
+export { CheckableTagProps } from './CheckableTag';
+
 export interface TagProps {
   prefixCls?: string;
   className?: string;
