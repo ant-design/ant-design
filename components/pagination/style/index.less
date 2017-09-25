@@ -250,6 +250,7 @@
   &-simple &-simple-pager {
     display: inline-block;
     margin-right: 8px;
+    height: 24px;
 
     input {
       margin-right: 8px;
@@ -259,7 +260,7 @@
       border: @border-width-base @border-style-base @border-color-base;
       outline: none;
       padding: 0 6px;
-      height: 24px;
+      height: 100%;
       text-align: center;
       transition: border-color .3s;
 
@@ -270,8 +271,9 @@
   }
 }
 
-.@{pagination-prefix-cls}:not(.@{pagination-prefix-cls}-simple) {
-  &.mini &-total-text {
+.@{pagination-prefix-cls} {
+  &.mini &-total-text,
+  &.mini &-simple-pager {
     height: 20px;
     line-height: 20px;
   }
