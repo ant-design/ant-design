@@ -65,7 +65,6 @@ class App extends React.Component {
           })(
             <Mention
               suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
-              style={{ height: 60 }}
             />
           )}
         </FormItem>

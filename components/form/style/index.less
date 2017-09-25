@@ -519,7 +519,7 @@ form {
         border-color: @error-color;
       }
     }
-    &.@{ant-prefix}-mention-active .@{ant-prefix}-mention-editor,
+    &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
     .@{ant-prefix}-mention-editor:not([disabled]):focus {
       .active(@error-color);
     }
