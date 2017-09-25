@@ -30,12 +30,10 @@
         right: 4px;
         bottom: 4px;
         width: 28px;
-        line-height: 26px;
+        line-height: @input-height-base - 2px;
         text-align: center;
-        font-size: @font-size-lg;
         .@{iconfont-css-prefix} {
           transition: all .3s;
-          font-size: @font-size-base;
           color: @disabled-color;
           &:hover {
             color: @text-color-secondary;
@@ -48,7 +46,7 @@
     }
 
     &-header {
-      padding: 7px 15px;
+      padding: 6px 12px;
       border-radius: @border-radius-base @border-radius-base 0 0;
       background: @component-background;
       color: @text-color;
@@ -61,7 +59,7 @@
 
       &-title {
         position: absolute;
-        right: 15px;
+        right: 12px;
       }
     }
 
@@ -86,6 +84,9 @@
     &-content {
       height: 100%;
       overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       > .LazyLoad {
         animation: transferHighlightIn 1s;
       }
@@ -94,7 +95,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 7px 15px;
+        padding: 6px 12px;
         min-height: 32px;
         transition: all .3s;
       }

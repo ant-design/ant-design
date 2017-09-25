@@ -3,14 +3,14 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
-@collapse-header-bg: @background-color-base;
-@collapse-active-bg: @background-color-active;
+@collapse-header-bg: @background-color-light;
+@collapse-active-bg: @background-color-base;
 
 .collapse-close() {
-  .iconfont-size-under-12px(9px, 0);
+  transform: rotate(0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(9px, 90deg);
+  transform: rotate(90deg);
 }
 
 .@{collapse-prefix-cls} {
@@ -32,20 +32,19 @@
 
     > .@{collapse-prefix-cls}-header {
       line-height: 22px;
-      padding: 8px 0 8px 32px;
+      padding: 12px 0 12px 40px;
       color: @heading-color;
       cursor: pointer;
       position: relative;
       transition: all .3s;
 
       .arrow {
-        .collapse-close();
         .iconfont-mixin();
+        .collapse-close();
+        font-size: @font-size-sm;
         position: absolute;
-        color: @text-color-secondary;
         display: inline-block;
-        font-weight: bold;
-        line-height: 40px;
+        line-height: 46px;
         vertical-align: top;
         transition: transform 0.24s;
         top: 0;

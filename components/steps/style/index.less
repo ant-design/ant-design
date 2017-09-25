@@ -21,11 +21,11 @@
 @error-tail-color: @wait-tail-color;
 @steps-background: @component-background;
 
-@steps-icon-size: 26px;
-@steps-small-icon-size: 18px;
+@steps-icon-size: 32px;
+@steps-small-icon-size: 24px;
 @steps-dot-size: 5px;
 @steps-current-dot-size: 7px;
-@steps-desciption-max-width: 120px;
+@steps-desciption-max-width: 140px;
 
 .@{steps-prefix-cls} {
   .reset-component;
@@ -73,12 +73,6 @@
       top: -1px;
       color: @primary-color;
       position: relative;
-
-      &.rcicon {
-        font-size: @font-size-base;
-        position: relative;
-        top: -2px;
-      }
     }
   }
   &-tail {
@@ -99,7 +93,7 @@
   }
   &-title {
     font-size: @font-size-lg;
-    color: #666;
+    color: @text-color;
     font-weight: bold;
     display: inline-block;
     padding-right: 10px;
@@ -119,7 +113,6 @@
   &-description {
     font-size: @font-size-base;
     color: @text-color-secondary;
-    margin-top: 4px;
   }
   .step-item-status(wait);
   .step-item-status(process);
@@ -139,7 +132,7 @@
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
-    margin-right: 10px;
+    margin-right: 8px;
     white-space: nowrap;
     &:last-child {
       margin-right: 0;

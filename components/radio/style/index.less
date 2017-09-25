@@ -60,8 +60,8 @@
   &-inner {
     &:after {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: @radio-size - 8px;
+      height: @radio-size - 8px;
       left: 3px;
       top: 3px;
       border-radius: @border-radius-base;
@@ -79,11 +79,11 @@
     top: 0;
     left: 0;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: @radio-size;
+    height: @radio-size;
     border-width: 1px;
     border-style: solid;
-    border-radius: 14px;
+    border-radius: 100px;
     border-color: @border-color-base;
     background-color: @radio-button-bg;
     transition: all @radio-duration;
@@ -170,6 +170,7 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-small & {
     height: @input-height-sm;
     line-height: @input-height-sm - 2px;
+    font-size: @font-size-sm;
     padding: 0 12px;
     &:first-child {
       border-radius: @border-radius-sm 0 0 @border-radius-sm;

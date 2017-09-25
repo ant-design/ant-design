@@ -89,10 +89,8 @@
 @outline-width          : 2px;
 @outline-color          : @primary-color;
 
-// Default background color for disabled states, Collapse wrappers,
-// and several active and hover states.
-@background-color-base  : hsv(0, 0, 98%);
-@background-color-active: #eee;
+@background-color-light : hsv(0, 0, 98%);  // background of header and selected item
+@background-color-base  : hsv(0, 0, 96%);  // Default grey background color
 
 // Disabled states
 @disabled-color         : fade(#000, 25%);
@@ -100,13 +98,13 @@
 @disabled-color-dark    : fade(#fff, 35%);
 
 // Shadow
-@shadow-color           : rgba(0, 0, 0, .2);
+@shadow-color           : rgba(0, 0, 0, .15);
 @box-shadow-base        : @shadow-1-down;
-@shadow-1-up            : 0 -1px 6px @shadow-color;
-@shadow-1-down          : 0 1px 6px @shadow-color;
-@shadow-1-left          : -1px 0 6px @shadow-color;
-@shadow-1-right         : 1px 0 6px @shadow-color;
-@shadow-2               : 0 2px 8px @shadow-color;
+@shadow-1-up            : 0 2px 8px @shadow-color;
+@shadow-1-down          : 0 2px 8px @shadow-color;
+@shadow-1-left          : -2px 0 8px @shadow-color;
+@shadow-1-right         : 2px 0 8px @shadow-color;
+@shadow-2               : 0 4px 12px @shadow-color;
 
 // Buttons
 @btn-font-weight        : 400;
@@ -145,7 +143,10 @@
 @btn-group-border       : @primary-7;
 
 // Checkbox
-@checkbox-size          : 14px;
+@checkbox-size          : 16px;
+
+// Radio
+@radio-size             : 16px;
 
 // Radio buttons
 @radio-button-bg        : @btn-default-bg;
@@ -188,7 +189,7 @@
 @grid-gutter-width      : 0;
 
 // Layout
-@layout-body-background      : hsv(0, 0, 96%);
+@layout-body-background      : @background-color-base;
 @layout-header-background    : #00182e;
 @layout-header-height        : 64px;
 @layout-header-padding       : 0 50px;
@@ -271,7 +272,7 @@
 //** Popover outer arrow width
 @popover-arrow-outer-width: (@popover-arrow-width + 1px);
 //** Popover outer arrow color
-@popover-arrow-outer-color: fadeout(@border-color-base, 30%);
+@popover-arrow-outer-color: fadeout(@border-color-base, 50%);
 //** Popover distance with trigger
 @popover-distance: @popover-arrow-width + 4px;
 
@@ -298,18 +299,17 @@
 
 // Table
 // --
-@table-header-bg: @background-color-base;
-@table-header-sort-bg: @background-color-active;
+@table-header-bg: @background-color-light;
+@table-header-sort-bg: @background-color-base;
 @table-row-hover-bg: @primary-1;
-@table-selected-row-bg: #fafafa;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 8px;
 
 // Tag
 // --
-@tag-default-bg: #f3f3f3;
+@tag-default-bg: @background-color-base;
 @tag-default-color: @text-color;
-@tag-font-size: @font-size-base;
+@tag-font-size: @font-size-sm;
 
 // TimePicker
 // ---
@@ -327,7 +327,7 @@
 // ---
 @badge-height: 20px;
 @badge-dot-size: 8px;
-@badge-font-size: @font-size-base;
+@badge-font-size: @font-size-sm;
 
 // Rate
 // ---
@@ -346,15 +346,17 @@
 
 // Tabs
 // ---
-@tabs-card-head-background: #f9f9f9;
-@tabs-title-font-size: @font-size-lg;
+@tabs-card-head-background: @background-color-base;
+@tabs-title-font-size: @font-size-base;
 
 // BackTop
+// ---
 @back-top-color: #fff;
 @back-top-bg: rgba(64, 64, 64, 0.4);
 @back-top-hover-bg: rgba(64, 64, 64, 0.6);
 
 // Avatar
+// ---
 @avatar-size-base: 32px;
 @avatar-size-lg: 40px;
 @avatar-size-sm: 24px;
@@ -364,3 +366,13 @@
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+
+// Switch
+// ---
+@switch-height: 22px;
+@switch-sm-height: 16px;
+
+// Pagination
+// ---
+@pagination-item-size: 32px;
+@pagination-item-size-sm: 24px;

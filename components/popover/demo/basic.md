@@ -29,3 +29,9 @@ ReactDOM.render(
   </Popover>
 , mountNode);
 ````
+
+<style>
+p {
+  margin: 0;
+}
+</style>

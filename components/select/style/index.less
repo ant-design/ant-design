@@ -134,7 +134,7 @@
   }
 
   &-disabled &-selection--multiple &-selection__choice {
-    background: @background-color-active;
+    background: @background-color-base;
     color: #aaa;
     padding-right: 10px;
     &__remove {
@@ -186,6 +186,7 @@
   }
 
   &-sm {
+    font-size: @font-size-sm;
     .@{select-prefix-cls}-selection--single {
       height: @input-height-sm;
     }
@@ -305,13 +306,14 @@
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
       margin-top: 3px;
       height: @input-height-base - 8px;
-      line-height: @input-height-base - 8px;
+      line-height: @input-height-base - 8px - 2px;
     }
 
     .@{select-prefix-cls}-selection__choice {
       color: @tag-default-color;
       background-color: @tag-default-bg;
-      border-radius: 4px;
+      border: 1px solid @border-color-split;
+      border-radius: @border-radius-base;
       cursor: default;
       float: left;
       margin-right: 4px;
@@ -341,11 +343,11 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      transition: all 0.3s @ease-in-out;
-      .iconfont-size-under-12px(8px);
+      transition: all .3s;
+      font-size: @font-size-sm;
+      .iconfont-size-under-12px(10px);
       position: absolute;
       right: 4px;
-      padding: 0 0 0 8px;
       &:hover {
         color: #404040;
       }
@@ -465,7 +467,7 @@
     &-item {
       position: relative;
       display: block;
-      padding: 7px 8px;
+      padding: 6px 8px;
       font-weight: normal;
       color: @text-color;
       white-space: nowrap;
@@ -491,7 +493,7 @@
       &-selected {
         &,
         &:hover {
-          background-color: @background-color-base;
+          background-color: @background-color-light;
           font-weight: 600;
           color: @text-color;
         }
@@ -505,7 +507,7 @@
         height: 1px;
         margin: 1px 0;
         overflow: hidden;
-        background-color: #e5e5e5;
+        background-color: @border-color-split;
         line-height: 0;
       }
     }

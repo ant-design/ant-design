@@ -42,7 +42,7 @@ subtitle: 日期选择框
 | className    | 选择器 className | string | '' |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
-| size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
+| size         | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | 无           |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
