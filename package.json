@@ -135,16 +135,17 @@
     "react-document-title": "^2.0.1",
     "react-dom": "^15.0.0",
     "react-github-button": "^0.1.1",
+    "react-infinite-scroller": "^1.0.15",
     "react-intl": "^2.0.1",
     "react-sublime-video": "^0.2.0",
     "react-test-renderer": "^15.5.4",
+    "react-virtualized": "^9.10.1",
     "reqwest": "^2.0.5",
     "rimraf": "^2.5.4",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "typescript": "~2.4.2",
     "values.js": "^1.0.3",
-    "react-virtualized": "^9.10.1",
     "xhr2": "^0.1.3"
   },
   "scripts": {
