@@ -1,4 +1,4 @@
-.@{steps-prefix-cls}-vertical {
+.steps-vertical() {
   display: block;
   .@{steps-prefix-cls}-item {
     display: block;
@@ -35,6 +35,10 @@
     }
   }
 
+  > .@{steps-prefix-cls}-item:not(:last-child) > .@{steps-prefix-cls}-item-tail {
+    display: block;
+  }
+
   > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-content > .@{steps-prefix-cls}-item-title {
     &:after {
       display: none;
@@ -51,5 +55,15 @@
     .@{steps-prefix-cls}-item-title {
       line-height: @steps-small-icon-size;
     }
+  }
+}
+
+.@{steps-prefix-cls}-vertical {
+  .steps-vertical;
+}
+
+@media (max-width: @screen-xs) {
+  .@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
+    .steps-vertical;
   }
 }
