@@ -53,7 +53,7 @@ class CustomNavMention extends React.Component {
     const { suggestions } = this.state;
     return (
       <Mention
-        style={{ width: '100%', height: 100 }}
+        style={{ width: '100%' }}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
       />
