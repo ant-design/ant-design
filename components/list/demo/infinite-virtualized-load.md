@@ -1,13 +1,13 @@
 ---
 order: 6
 title:
-  zh-CN: Virtualized 无限加载
+  zh-CN: 滚动加载无限长列表
   en-US: Infinite virtualized List
 ---
 
 ## zh-CN
 
-结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现 virtualized 和 infinite。
+结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现滚动加载无限长列表，带有虚拟化（[virtualization](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)）功能，能够提高数据量大时候长列表的性能。
 
 ## en-US
 
@@ -59,7 +59,7 @@ class VirtualizedExample extends React.Component {
       this.loadedRowsMap[i] = 1;
     }
     if (data.length > 19) {
-      message.warning('Loaded All');
+      message.warning('Virtualized List loaded all');
       this.setState({
         loading: false,
       });
