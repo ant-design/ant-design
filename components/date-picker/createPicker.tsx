@@ -115,7 +115,7 @@ export default function createPicker(TheCalendar): any {
           prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
-          dateRender={props.renderDate}
+          dateRender={props.dateRender}
           format={props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
