@@ -56,7 +56,7 @@
     "rc-collapse": "~1.7.5",
     "rc-dialog": "~6.5.10",
     "rc-dropdown": "~1.5.0",
-    "rc-editor-mention": "~0.6.12",
+    "rc-editor-mention": "^1.0.2",
     "rc-form": "~1.4.0",
     "rc-input-number": "~3.6.0",
     "rc-menu": "~5.1.0",
