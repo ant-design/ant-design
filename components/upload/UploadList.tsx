@@ -26,7 +26,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleClose = (file: UploadFile) => {
-    const onRemove = this.props.onRemove;
+    const { onRemove } = this.props;
     if (onRemove) {
       onRemove(file);
     }
