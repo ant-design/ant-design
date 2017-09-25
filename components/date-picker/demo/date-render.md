@@ -1,13 +1,13 @@
 ---
 order: 12
 title:
-  zh-CN: <Missing>
+  zh-CN: 定制日期单元格
   en-US: Customized Date Rendering
 ---
 
 ## zh-CN
 
-<Missing>
+使用 `dateRender` 可以自定义日期单元格的内容和样式。
 
 ## en-US
 
@@ -23,10 +23,9 @@ ReactDOM.render(
       dateRender={(current) => {
         const style = {};
         if (current.date() === 1) {
-          style.border = '1px solid';
+          style.border = '1px solid #08c';
           style.borderRadius = '50%';
         }
-
         return (
           <div className="ant-calendar-date" style={style}>
             {current.date()}
@@ -38,10 +37,9 @@ ReactDOM.render(
       dateRender={(current) => {
         const style = {};
         if (current.date() === 1) {
-          style.border = '1px solid';
+          style.border = '1px solid #08c';
           style.borderRadius = '50%';
         }
-
         return (
           <div className="ant-calendar-date" style={style}>
             {current.date()}
