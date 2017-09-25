@@ -5,7 +5,7 @@ import { TreeSelectProps } from './interface';
 import injectLocale from '../locale-provider/injectLocale';
 import warning from '../_util/warning';
 
-export { TreeSelectProps };
+export { TreeData, TreeSelectProps } from './interface';
 
 abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
   static TreeNode = TreeNode;

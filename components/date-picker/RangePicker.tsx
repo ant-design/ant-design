@@ -179,6 +179,7 @@ export default class RangePicker extends React.Component<any, any> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, format,
+      dateRender,
     } = props;
     warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
@@ -221,6 +222,7 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
+        dateRender={dateRender}
         value={showDate}
         onValueChange={this.handleShowDateChange}
         hoverValue={hoverValue}

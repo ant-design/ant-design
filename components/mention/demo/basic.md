@@ -27,7 +27,7 @@ function onSelect(suggestion) {
 
 ReactDOM.render(
   <Mention
-    style={{ width: '100%', height: 100 }}
+    style={{ width: '100%' }}
     onChange={onChange}
     defaultValue={toContentState('@afc163')}
     suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}

@@ -7,6 +7,8 @@ import Header from './Header';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
 declare const require: Function;
 
+export { HeaderProps } from './Header';
+
 function noop() { return null; }
 
 function zerofixed(v) {

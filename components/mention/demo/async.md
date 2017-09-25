@@ -43,7 +43,7 @@ class AsyncMention extends React.Component {
     const { suggestions, loading } = this.state;
     return (
       <Mention
-        style={{ width: '100%', height: 100 }}
+        style={{ width: '100%' }}
         loading={loading}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}

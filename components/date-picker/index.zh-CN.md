@@ -50,6 +50,7 @@ moment.locale('zh-cn');
 | open | 控制弹层是否展开 | boolean | - |
 | onOpenChange   | 弹出日历和关闭日历的回调 | function(status) | 无 |
 | placeholder  | 输入框提示文字 | string\|RangePicker[] | - |
+| dateRender | 自定义日期单元格的内容 | function(currentDate: moment, today: moment) => React.ReactNode | - |
 
 ### DatePicker
 

@@ -7,6 +7,9 @@ import Meta from './Meta';
 import Tabs from '../tabs';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
+export { CardGridProps } from './Grid';
+export { CardMetaProps } from './Meta';
+
 export type CardType = 'inner';
 
 export interface CardTabListType {
