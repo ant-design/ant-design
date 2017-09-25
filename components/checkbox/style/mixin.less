@@ -44,21 +44,23 @@
       top: 0;
       left: 0;
       display: block;
-      width: 14px;
-      height: 14px;
+      width: @checkbox-size;
+      height: @checkbox-size;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-sm;
       background-color: #fff;
       transition: all .3s;
 
       &:after {
+        @check-width: (@checkbox-size / 14) * 5px;
+        @check-height: (@checkbox-size / 14) * 8px;
         transform: rotate(45deg) scale(0);
         position: absolute;
-        left: 4px;
-        top: 1px;
+        left: (@checkbox-size - @check-width) / 2 - 0.5px * (@checkbox-size / 14);
+        top: (@checkbox-size - @check-height) / 2 - 2px * (@checkbox-size / 14);
         display: table;
-        width: 5px;
-        height: 8px;
+        width: @check-width;
+        height: @check-height;
         border: 2px solid #fff;
         border-top: 0;
         border-left: 0;
@@ -83,13 +85,15 @@
 
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate .@{checkbox-inner-prefix-cls}:after {
+    @indeterminate-width: (@checkbox-size / 14) * 8px;
+    @indeterminate-height: (@checkbox-size / 14) * 1px;
     content: ' ';
     transform: scale(1);
     position: absolute;
-    left: 2px;
-    top: 5px;
-    width: 8px;
-    height: 1px;
+    left: (@checkbox-size - 2 - @indeterminate-width) / 2;
+    top: (@checkbox-size - 3 - @indeterminate-height) / 2;
+    width: @indeterminate-width;
+    height: @indeterminate-height;
   }
 
   .@{checkbox-prefix-cls}-indeterminate.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}:after {
@@ -100,11 +104,7 @@
   .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}:after {
     transform: rotate(45deg) scale(1);
     position: absolute;
-    left: 4px;
-    top: 1px;
     display: table;
-    width: 5px;
-    height: 8px;
     border: 2px solid #fff;
     border-top: 0;
     border-left: 0;

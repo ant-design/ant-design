@@ -74,7 +74,7 @@ module.exports = {
         'create-react-class': 'preact-compat/lib/create-react-class',
         'react-router': 'react-router',
       });
-    } else {
+    } else if (isDev) {
       config.externals = Object.assign({}, config.externals, {
         react: 'React',
         'react-dom': 'ReactDOM',
