@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 
 import Spin from '../spin';
-import Icon from '../icon';
 import Pagination from '../pagination';
-import Button from '../button';
 import { Row } from '../grid';
-import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 import Item from './Item';
 
@@ -22,60 +18,21 @@ export interface ListGridType {
   xl?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 }
 
-export interface InfinitePropType {
-  onLoad?: any;
-  loading?: boolean;
-  offset?: number;
-}
-
 export interface ListProps {
   bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
   extra?: React.ReactNode;
   id?: string;
-  itemLayout: string;
   loading?: boolean;
-  showLoadMore?: boolean;
-  loadingMore?: boolean;
-  onLoadMore?: React.FormEventHandler<any>;
+  loadMore?: React.ReactNode;
   pagination?: any;
   prefixCls?: string;
   grid?: ListGridType;
-  infinite?: InfinitePropType;
-}
-
-function getDefaultTarget() {
-  return typeof window !== 'undefined' ?
-    window : null;
-}
-
-function getOffsetTop(element?: HTMLElement): number {
-  if (!element) {
-    return 0;
-  }
-
-  if (!element.getClientRects().length) {
-    return 0;
-  }
-
-  const rect = element.getBoundingClientRect();
-
-  if (rect.width || rect.height) {
-    const doc = element.ownerDocument;
-    const docElem = doc.documentElement;
-    return rect.top - docElem.clientTop;
-  }
-
-  return rect.top;
-}
-
-function getViewportHeight() {
-  const win = getDefaultTarget();
-  if (!win) {
-    return 0;
-  }
-  return Math.max(win.document.documentElement.clientHeight, win.innerHeight || 0);
+  itemLayout?: string;
+  rowKey?: any;
+  dataSource: any;
+  renderItem: any;
 }
 
 export default class List extends Component<ListProps> {
@@ -85,23 +42,7 @@ export default class List extends Component<ListProps> {
     grid: PropTypes.any,
   };
 
-  scrollEvent: any;
-  resizeEvent: any;
-  timeout: any;
-
-  events = [
-    'resize',
-    'scroll',
-    'touchstart',
-    'touchmove',
-    'touchend',
-    'pageshow',
-    'load',
-  ];
-  infiniteLoaded = false;
-  eventHandlers = {};
-
-  private node: any;
+  private keys = {};
 
   getChildContext() {
     return {
@@ -109,76 +50,25 @@ export default class List extends Component<ListProps> {
     };
   }
 
-  componentDidMount() {
-    if (!this.isInfinite()) {
-      return;
-    }
-    const target = getDefaultTarget;
+  renderItem = (item, index) => {
+    const { dataSource, renderItem, rowKey } = this.props;
+    let key;
 
-    // Wait for parent component ref has its value
-    this.timeout = setTimeout(() => {
-      this.setTargetEventListeners(target);
-    });
-  }
-
-  componentWillUnmount() {
-    if (!this.isInfinite()) {
-      return;
-    }
-    this.clearEventListeners();
-    clearTimeout(this.timeout);
-    (this.infiniteLoad as any).cancel();
-  }
-
-  getNode = (n) => {
-    this.node = n;
-  }
-
-  isInfinite() {
-    const { infinite } = this.props;
-    return infinite && (typeof infinite.onLoad === 'function');
-  }
-
-  setTargetEventListeners(getTarget) {
-    const target = getTarget();
-    if (!target) {
-      return;
-    }
-    this.clearEventListeners();
-
-    this.events.forEach(eventName => {
-      this.eventHandlers[eventName] = addEventListener(target, eventName, this.infiniteLoad);
-    });
-  }
-
-  clearEventListeners() {
-    this.events.forEach(eventName => {
-      const handler = this.eventHandlers[eventName];
-      if (handler && handler.remove) {
-        handler.remove();
-      }
-    });
-  }
-
-  @throttleByAnimationFrameDecorator()
-  infiniteLoad() {
-    const { infinite = {} } = this.props;
-    const targetElement = this.node;
-
-    if (this.infiniteLoaded || !targetElement) {
-      return;
+    if (typeof rowKey === 'function') {
+      key = rowKey(dataSource[index]);
+    } else if (typeof rowKey === 'string') {
+      key = dataSource[rowKey];
+    } else {
+      key = dataSource.key;
     }
 
-    const viewportHeight = getViewportHeight();
-    const eleOffsetTop = getOffsetTop(targetElement);
-    const bottomPositionY = eleOffsetTop + targetElement.offsetHeight - viewportHeight + (infinite.offset || 0);
-
-    if (bottomPositionY < 0) {
-      this.infiniteLoaded = true;
-      infinite.onLoad(() => {
-        this.infiniteLoaded = false;
-      });
+    if (!key) {
+      key = `list-item-${index}`;
     }
+
+    this.keys[index] = key;
+
+    return renderItem(item, index);
   }
 
   render() {
@@ -188,14 +78,13 @@ export default class List extends Component<ListProps> {
       children,
       loading = false,
       itemLayout,
-      showLoadMore = false,
-      loadingMore = false,
-      onLoadMore = (() => {
-      }),
+      loadMore,
       pagination = false,
       prefixCls = 'ant-list',
       grid,
-      infinite = {},
+      dataSource = [],
+      rowKey,
+      renderItem,
       ...rest,
     } = this.props;
 
@@ -204,21 +93,7 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-grid`]: grid,
-      [`${prefixCls}-infinite`]: infinite.onLoad,
     });
-
-    const moreButton = (
-      <Button onClick={onLoadMore}>
-        <Icon type="loading"/>
-        加载中...
-      </Button>
-    );
-
-    const moreContent = (
-      <div className={`${prefixCls}-more`}>
-        {loadingMore ? moreButton : <Button onClick={onLoadMore}>加载更多...</Button>}
-      </div>
-    );
 
     const paginationContent = (
       <div className={`${prefixCls}-pagination`}>
@@ -226,28 +101,34 @@ export default class List extends Component<ListProps> {
       </div>
     );
 
+    const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
+      (child: any, index) => React.cloneElement(child, {
+        key: this.keys[index],
+      }),
+    );
+
     const childrenContent = grid ? (
-      <Row gutter={grid.gutter}>{children}</Row>
-    ) : children;
+      <Row gutter={grid.gutter}>{childrenList}</Row>
+    ) : childrenList;
 
     const content = loading ? (
       <Spin>
         {childrenContent}
-        {showLoadMore && moreContent}
-        {(!showLoadMore && pagination) && paginationContent}
+        {loadMore}
+        {(!loadMore && pagination) && paginationContent}
       </Spin>
-      ) : (
+    ) : (
       <div>
         {childrenContent}
-        {showLoadMore && moreContent}
-        {(!showLoadMore && pagination) && paginationContent}
-        {infinite.loading && (<div className={`${prefixCls}-spin`}><Spin /></div>)}
+        {loadMore}
+        {(!loadMore && pagination) && paginationContent}
       </div>
     );
 
     return (
-      <div className={classString} {...rest} ref={this.getNode}>
+      <div className={classString} {...rest}>
         {content}
+        {children}
       </div>
     );
   }

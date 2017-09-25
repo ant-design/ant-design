@@ -12,7 +12,6 @@ export interface ListItemProps {
   extra: React.ReactNode;
   actions?: Array<React.ReactNode>;
   grid?: ListGridType;
-  Meta: React.ReactNode;
 }
 
 export interface ListItemMetaProps {

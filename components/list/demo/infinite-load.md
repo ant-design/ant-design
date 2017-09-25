@@ -1,83 +1,97 @@
 ---
-order: 6
+order: 7
 title:
-  zh-CN: 无限加载
-  en-US: infinite load
+  zh-CN: 滚动加载
+  en-US: Scrolling loaded List
 ---
 
 ## zh-CN
 
-无限加载样例。
+结合 [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller) 实现滚动自动加载列表。
 
 ## en-US
 
-The example of infinite load.
+The example of infinite load with [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller).
 
 ````jsx
-import { List, Card, message } from 'antd';
+import { List, message, Avatar, Spin } from 'antd';
+import reqwest from 'reqwest';
 
-let countId = 1;
+import InfiniteScroll from 'react-infinite-scroller';
 
-function mockData() {
-  const data = [];
-  for (let i = 0; i < 5; i++) {
-    const id = countId;
-    data.push({
-      id: `id-${id}`,
-      title: `List Item Title ${id}`,
-      content: `List Item Content ${id}`,
-    });
-    countId++;
-  }
-  return data;
-}
+const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
 
-class InfiniteList extends React.Component {
+class InfiniteListExample extends React.Component {
   state = {
-    data: mockData(),
+    data: [],
     loading: false,
+    hasMore: true,
   }
-  handleInfiniteOnLoad = (done) => {
+  getData = (callback) => {
+    reqwest({
+      url: fakeDataUrl,
+      type: 'json',
+      method: 'get',
+      contentType: 'application/json',
+      success: (res) => {
+        callback(res);
+      },
+    });
+  }
+  componentWillMount() {
+    this.getData((res) => {
+      this.setState({
+        data: res,
+      });
+    });
+  }
+  handleInfiniteOnLoad = () => {
     let data = this.state.data;
-    if (data.length > 15) {
-      message.warning('Loaded All');
-      return;
-    }
     this.setState({
       loading: true,
     });
-    setTimeout(() => {
-      data = data.concat(mockData());
+    if (data.length > 14) {
+      message.warning('Infinite List loaded all');
+      this.setState({
+        hasMore: false,
+        loading: false,
+      });
+      return;
+    }
+    this.getData((res) => {
+      data = data.concat(res);
       this.setState({
         data,
         loading: false,
       });
-      // reset the infinite onLoad callback flag
-      // so can trigger onLoad callback again
-      done();
-    }, 1000);
+    });
   }
   render() {
     return (
-      <List
-        infinite={{
-          loading: this.state.loading,
-          onLoad: this.handleInfiniteOnLoad,
-          offset: -20,
-        }}
-        grid={{ gutter: 16, column: 4 }}
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={this.handleInfiniteOnLoad}
+        hasMore={!this.state.loading && this.state.hasMore}
       >
-        {
-          this.state.data.map(item => (
+        <List
+          dataSource={this.state.data}
+          renderItem={item => (
             <List.Item key={item.id}>
-              <Card title={item.title}>{item.content}</Card>
+              <List.Item.Meta
+                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                title={<a href="https://ant.design">{item.title}</a>}
+                description={item.content}
+              />
+              <div style={{ padding: 24 }}>Content</div>
             </List.Item>
-          ))
-        }
-      </List>
+          )}
+        >
+          {this.state.loading && this.state.hasMore && <Spin style={{ position: 'absolute', bottom: 0, left: '50%' }} />}
+        </List>
+      </InfiniteScroll>
     );
   }
 }
 
-ReactDOM.render(<InfiniteList />, mountNode);
+ReactDOM.render(<InfiniteListExample />, mountNode);
 ````

@@ -16,15 +16,19 @@ Simple List.
 ````jsx
 import { List } from 'antd';
 
+const data = [
+  'Racing car sprays burning fuel into crowd.',
+  'Japanese princess to wed commoner.',
+  'Australian walks 100km after outback crash.',
+  'Man charged over missing wedding girl.',
+  'Los Angeles battles huge wildfires.',
+];
+
 ReactDOM.render(
   <List
     itemLayout="horizontal"
-  >
-    <List.Item>Racing car sprays burning fuel into crowd.</List.Item>
-    <List.Item>Japanese princess to wed commoner.</List.Item>
-    <List.Item>Australian walks 100km after outback crash.</List.Item>
-    <List.Item>Man charged over missing wedding girl.</List.Item>
-    <List.Item>Los Angeles battles huge wildfires.</List.Item>
-  </List>
+    dataSource={data}
+    renderItem={item => (<List.Item>{item}</List.Item>)}
+  />
 , mountNode);
 ````

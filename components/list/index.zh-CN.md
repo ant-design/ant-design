@@ -21,12 +21,9 @@ cols: 1
 | bordered | 是否展示边框 | boolean   |  false  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
 | itemLayout | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排 | string | - |
-| showLoadMore    | 是否显示加载更多按钮 | boolean   |  false  |
-| loadingMore  | 是否显示加载更多按钮的 loading 状态 | boolean   |  false  |
-| onMoreClick    | 点击 more 按钮的回调 | function   | - |
+| loadMore   | 加载更多 | string\|ReactNode   |  -  |
 | pagination | 对应的 pagination 配置, 设置 false 不显示 | boolean \| object   |  false  |
 | grid | 列表栅格 | object   |  -  |
-| infinite | 无限加载配置 | object   |  -  |
 
 ### List grid props
 | 参数     | 说明           | 类型     | 默认值       |
@@ -38,13 +35,6 @@ cols: 1
 | md | `≥992px` 展示的列数  | number   |  -  |
 | lg | `≥1200px` 展示的列数  | number   |  -  |
 | xl | `≥1600px` 展示的列数  | number   |  -  |
-
-### List infinite props
-| 参数     | 说明           | 类型     | 默认值       |
----------|-------------|------|---------
-| onLoad | 无限加载的回调函数 | function | - |
-| offset | 触发加载位置的偏移量 | number | 0 |
-| loading | 显示无限加载时的 loading | boolean   |  -  |
 
 ### List.Item
 

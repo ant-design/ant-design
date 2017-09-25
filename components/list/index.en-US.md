@@ -20,12 +20,9 @@ A list can be used to display content related to a single subject. The content c
 | bordered | - | string \| boolean   |  false  |
 | loading | -| boolean   |  false  |
 | itemLayout | - | string |  -  |
-| showLoadMore    | -| boolean   |  false  |
-| loadingMore  | - | boolean   |  false  |
-| onMoreClick    | -| function   | - |
+| loadMore    | -| string\|ReactNode   |  -  |
 | pagination | - | boolean \| object   |  false  |
 | grid | - | object   |  -  |
-| infinite | - | object   |  -  |
 
 ### List grid props
 | Property     | Description           | Type     | Default       |
@@ -37,13 +34,6 @@ A list can be used to display content related to a single subject. The content c
 | md | `≥992px` - | number   |  -  |
 | lg | `≥1200px` - | number   |  -  |
 | xl | `≥1600px` - | number   |  -  |
-
-### List infinite props
-| Property     | Description           | Type     | Default       |
----------|-------------|------|---------
-| onLoad | - | function | - |
-| offset | - | number | 0 |
-| loading | - | boolean   |  -  |
 
 ### List.Item
 
@@ -59,4 +49,3 @@ A list can be used to display content related to a single subject. The content c
 | avatar | - | ReactNode |  -  |
 | title | - | string\|ReactNode |  -  |
 | description | - | string\|ReactNode |  -  |
-

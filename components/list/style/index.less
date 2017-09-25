@@ -5,7 +5,10 @@
 
 .@{list-prefix-cls} {
   .reset-component;
-
+  position: relative;
+  * {
+    outline: none;
+  }
   &-more, &-pagination {
     margin-top: 24px;
     text-align: center;
@@ -162,6 +165,13 @@
   }
 }
 
+.@{list-prefix-cls}-empty {
+  color: @text-color-secondary;
+  padding: 16px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
 @media screen and (max-width: @screen-md) {
   .@{list-prefix-cls} {
     &-item {
@@ -170,6 +180,7 @@
       }
     }
   }
+
   .@{list-prefix-cls}-vertical {
     .@{list-prefix-cls}-item {
       &-extra {
@@ -188,6 +199,7 @@
       }
     }
   }
+
   .@{list-prefix-cls}-vertical {
     .@{list-prefix-cls}-item {
       &-extra-wrap {
