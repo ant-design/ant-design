@@ -1,32 +1,8 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-}
-
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
-
-const dimensionMap = {
-  xs: '480px',
-  sm: '768px',
-  md: '992px',
-  lg: '1200px',
-  xl: '1600px',
-};
 
 export interface SiderProps {
   style?: React.CSSProperties;
@@ -64,13 +40,6 @@ export default class Sider extends React.Component<SiderProps, any> {
 
   constructor(props) {
     super(props);
-    let matchMedia;
-    if (typeof window !== 'undefined') {
-      matchMedia = window.matchMedia;
-    }
-    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMap) {
-      this.mql = matchMedia(`(max-width: ${dimensionMap[props.breakpoint]})`);
-    }
     let collapsed;
     if ('collapsed' in props) {
       collapsed = props.collapsed;
