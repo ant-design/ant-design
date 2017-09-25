@@ -50,6 +50,7 @@ When need to mention someone or something.
 | onBlur | Callback function called when mention component blur | function(e) | null |
 | readOnly | Tell if the input is readonly. | boolean | false |
 | disabled | Tell if the input is disabled. | boolean | false |
+| placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
 
 ### Mention methods
 
