@@ -3,8 +3,8 @@
 
 @steps-prefix-cls: ~"@{ant-prefix}-steps";
 @process-icon-color: @primary-color;
-@process-title-color: @text-color;
-@process-description-color: @process-title-color;
+@process-title-color: @heading-color;
+@process-description-color: @text-color;
 @process-tail-color: @border-color-split;
 @process-icon-text-color: #fff;
 @wait-icon-color: @disabled-color;
@@ -12,9 +12,9 @@
 @wait-description-color: @wait-title-color;
 @wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
-@finish-title-color: @wait-title-color;
+@finish-title-color: @text-color;
 @finish-description-color: @finish-title-color;
-@finish-tail-color: @process-icon-color;
+@finish-tail-color: @primary-color;
 @error-icon-color: @error-color;
 @error-title-color: @error-color;
 @error-description-color: @error-color;
@@ -94,7 +94,7 @@
   &-title {
     font-size: @font-size-lg;
     color: @text-color;
-    font-weight: bold;
+    font-weight: 500;
     display: inline-block;
     padding-right: 10px;
     position: relative;
