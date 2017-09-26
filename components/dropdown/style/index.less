@@ -48,13 +48,13 @@
 
     &-item-group-title {
       color: @text-color-secondary;
-      padding: 5px @control-vertical-padding;
+      padding: 5px @control-padding-horizontal;
       transition: all .3s;
     }
 
     &-item,
     &-submenu-title {
-      padding: 5px @control-vertical-padding;
+      padding: 5px @control-padding-horizontal;
       margin: 0;
       clear: both;
       font-size: @font-size-base;
@@ -68,8 +68,8 @@
       > a {
         color: @text-color;
         display: block;
-        padding: 5px @control-vertical-padding;
-        margin: -5px -@control-vertical-padding;
+        padding: 5px @control-padding-horizontal;
+        margin: -5px -@control-padding-horizontal;
         transition: all .3s;
         &:focus {
           text-decoration: none;
@@ -120,7 +120,7 @@
       }
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
-        right: @vertical-padding-xs;
+        right: @padding-horizontal-xs;
         &:after {
           font-family: "anticon" !important;
           font-style: normal;
@@ -209,8 +209,8 @@
   white-space: nowrap;
 
   &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
-    padding-left: @vertical-padding-xs;
-    padding-right: @vertical-padding-xs;
+    padding-left: @padding-horizontal-xs;
+    padding-right: @padding-horizontal-xs;
   }
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);

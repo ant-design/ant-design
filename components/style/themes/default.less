@@ -50,13 +50,13 @@
 @border-radius-sm       : 2px;
 
 // vertical paddings
-@vertical-padding-lg    : 24px; // containers
-@vertical-padding-md    : 16px; // small containers and buttons
-@vertical-padding-sm    : 12px; // Form controls and items
-@vertical-padding-xs    : 8px;  // small items
+@padding-horizontal-lg    : 24px; // containers
+@padding-horizontal-md    : 16px; // small containers and buttons
+@padding-horizontal-sm    : 12px; // Form controls and items
+@padding-horizontal-xs    : 8px;  // small items
 
 // vertical padding for all form controls
-@control-vertical-padding: @vertical-padding-sm;
+@control-padding-horizontal: @padding-horizontal-sm;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -135,11 +135,11 @@
 @btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 0 @vertical-padding-md - 1px;
+@btn-padding-base       : 0 @padding-horizontal-md - 1px;
 @btn-font-size-lg       : @font-size-base;
 @btn-font-size-sm       : @font-size-sm;
 @btn-padding-lg         : @btn-padding-base;
-@btn-padding-sm         : 0 @vertical-padding-xs - 1px;
+@btn-padding-sm         : 0 @padding-horizontal-xs - 1px;
 
 @btn-height-base        : 32px;
 @btn-height-lg          : 40px;
