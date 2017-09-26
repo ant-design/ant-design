@@ -23,6 +23,7 @@
     }
 
     &-search {
+      padding: 0 @control-padding-horizontal-sm;
       &-action {
         color: @disabled-color;
         position: absolute;
@@ -30,7 +31,7 @@
         right: 4px;
         bottom: 4px;
         width: 28px;
-        line-height: @input-height-base - 2px;
+        line-height: @input-height-base;
         text-align: center;
         .@{iconfont-css-prefix} {
           transition: all .3s;
@@ -46,7 +47,7 @@
     }
 
     &-header {
-      padding: 6px 12px;
+      padding: 6px @control-padding-horizontal;
       border-radius: @border-radius-base @border-radius-base 0 0;
       background: @component-background;
       color: @text-color;
@@ -95,9 +96,12 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 6px 12px;
+        padding: 6px @control-padding-horizontal;
         min-height: 32px;
         transition: all .3s;
+        > span {
+          padding-right: 0;
+        }
       }
 
       &-item:not(&-item-disabled):hover {
