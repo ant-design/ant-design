@@ -16,7 +16,7 @@ Color Picker | [rc-color-picker](https://github.com/react-component/color-picker
 Media Query | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media)
 Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard)
 Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title)
-Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons)
+Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) [react-material-icon](https://github.com/vaeum/react-material-icon-svg)
 QR Code | [qrcode.react](https://github.com/zpao/qrcode.react)
 Charts | [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
