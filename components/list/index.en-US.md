@@ -18,11 +18,14 @@ A list can be used to display content related to a single subject. The content c
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
 | bordered | - | string \| boolean   |  false  |
+| split | - | string \| boolean   |  true  |
 | loading | -| boolean   |  false  |
 | itemLayout | - | string |  -  |
 | loadMore    | -| string\|ReactNode   |  -  |
 | pagination | - | boolean \| object   |  false  |
 | grid | - | object   |  -  |
+| header | - |  string\|ReactNode  |  -  |
+| footer | - |  string\|ReactNode  |  -  |
 
 ### List grid props
 | Property     | Description           | Type     | Default       |

@@ -1,15 +1,17 @@
 ---
 order: 0
 title:
-  zh-CN: 列表尺寸
+  zh-CN: 简单列表
   en-US: Simple
 ---
 
 ## zh-CN
 
-最简单的列表，拥有大、中、小三种尺寸。
+列表拥有大、中、小三种尺寸。
 
-通过设置 `size` 为 `large` `smal`l 分别把按钮设为大、小尺寸。若不设置 `size`，则尺寸为中。
+通过设置 `size` 为 `large` `small` 分别把按钮设为大、小尺寸。若不设置 `size`，则尺寸为中。
+
+可通过设置 `header` 和 `footer`，来自定义列表头部和尾部。
 
 ## en-US
 
