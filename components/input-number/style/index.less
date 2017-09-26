@@ -4,12 +4,6 @@
 
 @input-number-prefix-cls: ~"@{ant-prefix}-input-number";
 
-.handler-disabled() {
-  opacity: 0.72;
-  color: #ccc !important;
-  cursor: not-allowed;
-}
-
 .@{input-number-prefix-cls} {
   .reset-component;
   .input;
@@ -18,7 +12,7 @@
   display: inline-block;
   border: @border-width-base @border-style-base @border-color-base;
   border-radius: @border-radius-base;
-  width: 80px;
+  width: 90px;
 
   &-handler {
     text-align: center;
@@ -77,7 +71,7 @@
     background-color: @input-bg;
     border: 0;
     border-radius: @border-radius-base;
-    padding: 0 7px;
+    padding: 0 @control-padding-horizontal - 1px;
     display: block;
     .placeholder();
 
@@ -99,6 +93,7 @@
 
     input {
       height: @input-height-sm - 2px;
+      padding: 0 @control-padding-horizontal-sm - 1px;
     }
   }
 
@@ -156,26 +151,13 @@
     }
   }
 
-  &-handler-down-disabled,
-  &-handler-up-disabled,
-  &-disabled {
-    .@{input-number-prefix-cls}-handler-down-inner,
-    .@{input-number-prefix-cls}-handler-up-inner {
-      .handler-disabled();
-    }
-  }
-
   &-disabled {
     .@{input-number-prefix-cls}-input {
-      opacity: 0.72;
       cursor: not-allowed;
       background-color: @disabled-bg;
     }
     .@{input-number-prefix-cls}-handler-wrap {
       display: none;
-    }
-    .@{input-number-prefix-cls}-handler {
-      .handler-disabled();
     }
   }
 }

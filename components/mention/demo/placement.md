@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 向上展开
-  en-US: Expand up
+  en-US: Placement
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Expand the suggestions up.
+Change the suggestions placement.
 
 ````jsx
 import { Mention } from 'antd';
@@ -27,7 +27,7 @@ function onSelect(suggestion) {
 
 ReactDOM.render(
   <Mention
-    style={{ width: '100%', height: 100 }}
+    style={{ width: '100%' }}
     onChange={onChange}
     suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
     onSelect={onSelect}
