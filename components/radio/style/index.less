@@ -31,7 +31,7 @@
   position: relative;
   line-height: 1;
   vertical-align: middle;
-  top: -1px;
+  top: -1.2px;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -59,11 +59,12 @@
   }
   &-inner {
     &:after {
+      @radio-dot-size: @radio-size - 9px;
       position: absolute;
-      width: @radio-size - 8px;
-      height: @radio-size - 8px;
-      left: 3px;
-      top: 3px;
+      width: @radio-dot-size;
+      height: @radio-dot-size;
+      left: (@radio-size - @radio-dot-size) / 2 - 1px;
+      top: (@radio-size - @radio-dot-size) / 2 - 1px;
       border-radius: @border-radius-base;
       display: table;
       border-top: 0;
