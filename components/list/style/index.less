@@ -10,7 +10,7 @@
     outline: none;
   }
   &-more, &-pagination {
-    margin-top: 24px;
+    margin-top: 12px;
     text-align: center;
   }
   &-more {
@@ -21,13 +21,13 @@
   }
   &-spin {
     text-align: center;
-    min-height: 48px;
+    min-height: 40px;
   }
   &-item {
     align-items: center;
     display: flex;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     &-meta {
       align-items: center;
       display: flex;
@@ -102,10 +102,56 @@
   }
 }
 
-.@{list-prefix-cls}-bordered {
+.@{list-prefix-cls}-split {
   .@{list-prefix-cls}-item {
     border-bottom: 1px solid @border-color-split;
-    padding-bottom: 23px;
+  }
+}
+
+.@{list-prefix-cls}-bordered {
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-base;
+  .@{list-prefix-cls}-header {
+    border-bottom: 1px solid @border-color-split;
+    padding: 12px 24px;
+  }
+  .@{list-prefix-cls}-footer {
+    border-top: 1px solid @border-color-split;
+    padding: 12px 24px;
+  }
+  .@{list-prefix-cls}-item {
+    border-bottom: 1px solid @border-color-split;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .@{list-prefix-cls}-item:last-child {
+    border-bottom: none;
+  }
+}
+
+.@{list-prefix-cls}-bordered.@{list-prefix-cls}-lg {
+  .@{list-prefix-cls}-header, .@{list-prefix-cls}-footer {
+    padding: 16px 24px;
+  }
+}
+
+.@{list-prefix-cls}-bordered.@{list-prefix-cls}-sm {
+  .@{list-prefix-cls}-header, .@{list-prefix-cls}-footer {
+    padding: 8px 24px;
+  }
+}
+
+.@{list-prefix-cls}-lg {
+  .@{list-prefix-cls}-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.@{list-prefix-cls}-sm {
+  .@{list-prefix-cls}-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 

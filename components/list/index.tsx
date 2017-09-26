@@ -20,21 +20,27 @@ export interface ListGridType {
   xl?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 }
 
+export type ListSize = 'small' | 'default' | 'large';
+
 export interface ListProps {
   bordered?: boolean;
   className?: string;
   children?: React.ReactNode;
+  dataSource: any;
   extra?: React.ReactNode;
+  grid?: ListGridType;
   id?: string;
+  itemLayout?: string;
   loading?: boolean;
   loadMore?: React.ReactNode;
   pagination?: any;
   prefixCls?: string;
-  grid?: ListGridType;
-  itemLayout?: string;
   rowKey?: any;
-  dataSource: any;
   renderItem: any;
+  size?: ListSize;
+  split?: boolean;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 
 export default class List extends Component<ListProps> {
@@ -75,7 +81,8 @@ export default class List extends Component<ListProps> {
 
   render() {
     const {
-      bordered = true,
+      bordered = false,
+      split = true,
       className,
       children,
       loading = false,
@@ -85,13 +92,31 @@ export default class List extends Component<ListProps> {
       prefixCls = 'ant-list',
       grid,
       dataSource = [],
+      size,
       rowKey,
       renderItem,
+      header,
+      footer,
       ...rest,
     } = this.props;
 
+    // large => lg
+    // small => sm
+    let sizeCls = '';
+    switch (size) {
+      case 'large':
+        sizeCls = 'lg';
+        break;
+      case 'small':
+        sizeCls = 'sm';
+      default:
+        break;
+    }
+
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-split`]: split,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-grid`]: grid,
@@ -129,8 +154,10 @@ export default class List extends Component<ListProps> {
 
     return (
       <div className={classString} {...rest}>
+        {header && <div className={`${prefixCls}-header`}>{header}</div>}
         {content}
         {children}
+        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
       </div>
     );
   }

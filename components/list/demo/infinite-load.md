@@ -82,7 +82,7 @@ class InfiniteListExample extends React.Component {
                 title={<a href="https://ant.design">{item.title}</a>}
                 description={item.content}
               />
-              <div style={{ padding: 24 }}>Content</div>
+              <div>Content</div>
             </List.Item>
           )}
         >

@@ -2,7 +2,7 @@
 
 exports[`renders ./components/list/demo/basic.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered"
+  class="ant-list ant-list-split"
 >
   <div>
     <div
@@ -44,9 +44,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       <div
         class="ant-list-item-content"
       >
-        <div
-          style="padding:24px;"
-        >
+        <div>
           Content
         </div>
       </div>
@@ -107,9 +105,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       <div
         class="ant-list-item-content"
       >
-        <div
-          style="padding:24px;"
-        >
+        <div>
           Content
         </div>
       </div>
@@ -170,9 +166,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       <div
         class="ant-list-item-content"
       >
-        <div
-          style="padding:24px;"
-        >
+        <div>
           Content
         </div>
       </div>
@@ -233,9 +227,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       <div
         class="ant-list-item-content"
       >
-        <div
-          style="padding:24px;"
-        >
+        <div>
           Content
         </div>
       </div>
@@ -275,7 +267,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid"
 >
   <div>
     <div
@@ -446,7 +438,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 <div>
   <div
-    class="ant-list ant-list-bordered"
+    class="ant-list ant-list-split"
   >
     <div />
   </div>
@@ -455,7 +447,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered"
+  class="ant-list ant-list-split"
 >
   <div />
   <div
@@ -475,7 +467,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 
 exports[`renders ./components/list/demo/meta.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered"
+  class="ant-list ant-list-split"
 >
   <div>
     <div
@@ -644,7 +636,7 @@ exports[`renders ./components/list/demo/meta.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
 <div
-  class="ant-list ant-list-bordered ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid"
 >
   <div>
     <div
@@ -813,53 +805,186 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
 `;
 
 exports[`renders ./components/list/demo/simple.md correctly 1`] = `
-<div
-  class="ant-list ant-list-bordered"
->
-  <div>
-    <div
-      class="ant-list-item"
-    >
+<div>
+  <h3
+    style="margin:16px 0;"
+  >
+    Small Size
+  </h3>
+  <div
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered"
+  >
+    <div>
       <div
-        class="ant-list-item-content ant-list-item-content-single"
+        class="ant-list-item"
       >
-        Racing car sprays burning fuel into crowd.
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Racing car sprays burning fuel into crowd.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Japanese princess to wed commoner.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Australian walks 100km after outback crash.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Man charged over missing wedding girl.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Los Angeles battles huge wildfires.
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    style="margin:16px 0;"
+  >
+    Default Size
+  </h3>
+  <div
+    class="ant-list ant-list-split ant-list-bordered"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Racing car sprays burning fuel into crowd.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Japanese princess to wed commoner.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Australian walks 100km after outback crash.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Man charged over missing wedding girl.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Los Angeles battles huge wildfires.
+        </div>
       </div>
     </div>
     <div
-      class="ant-list-item"
+      class="ant-list-footer"
     >
-      <div
-        class="ant-list-item-content ant-list-item-content-single"
-      >
-        Japanese princess to wed commoner.
+      <div>
+        Footer
       </div>
     </div>
-    <div
-      class="ant-list-item"
-    >
+  </div>
+  <h3
+    style="margin:16px 0;"
+  >
+    Large Size
+  </h3>
+  <div
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered"
+  >
+    <div>
       <div
-        class="ant-list-item-content ant-list-item-content-single"
+        class="ant-list-item"
       >
-        Australian walks 100km after outback crash.
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Racing car sprays burning fuel into crowd.
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
       <div
-        class="ant-list-item-content ant-list-item-content-single"
+        class="ant-list-item"
       >
-        Man charged over missing wedding girl.
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Japanese princess to wed commoner.
+        </div>
       </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
       <div
-        class="ant-list-item-content ant-list-item-content-single"
+        class="ant-list-item"
       >
-        Los Angeles battles huge wildfires.
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Australian walks 100km after outback crash.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Man charged over missing wedding girl.
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Los Angeles battles huge wildfires.
+        </div>
       </div>
     </div>
   </div>
@@ -868,7 +993,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-bordered"
+  class="ant-list ant-list-vertical ant-list-split"
 >
   <div>
     <div
