@@ -49,6 +49,15 @@
 @border-radius-base     : 4px;
 @border-radius-sm       : 2px;
 
+// vertical paddings
+@vertical-padding-lg    : 24px; // containers
+@vertical-padding-md    : 16px; // small containers and buttons
+@vertical-padding-sm    : 12px; // Form controls and items
+@vertical-padding-xs    : 8px;  // small items
+
+// vertical padding for all form controls
+@controls-vertical-padding: @vertical-padding-sm;
+
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg         : @primary-1;
@@ -56,7 +65,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_148784_1vkh7de5j6ecdi";
+@icon-url               : "https://at.alicdn.com/t/font_148784_imrz4lshfwimgqfr";
 
 // LINK
 @link-color             : @primary-color;
@@ -126,11 +135,11 @@
 @btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 0 15px;
+@btn-padding-base       : 0 @vertical-padding-md - 1px;
 @btn-font-size-lg       : @font-size-base;
 @btn-font-size-sm       : @font-size-sm;
 @btn-padding-lg         : @btn-padding-base;
-@btn-padding-sm         : 0 7px;
+@btn-padding-sm         : 0 @vertical-padding-xs - 1px;
 
 @btn-height-base        : 32px;
 @btn-height-lg          : 40px;
