@@ -44,7 +44,7 @@
 @text-color-secondary-dark: fade(#fff, 65%);
 @font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
-@font-size-sm           : @font-size-base - 2px;
+@font-size-sm           : 12px;
 @line-height-base       : 1.5;
 @border-radius-base     : 4px;
 @border-radius-sm       : 2px;
@@ -57,6 +57,7 @@
 
 // vertical padding for all form controls
 @control-padding-horizontal: @padding-horizontal-sm;
+@control-padding-horizontal-sm: @padding-horizontal-xs;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -137,7 +138,7 @@
 
 @btn-padding-base       : 0 @padding-horizontal-md - 1px;
 @btn-font-size-lg       : @font-size-base;
-@btn-font-size-sm       : @font-size-sm;
+@btn-font-size-sm       : @font-size-base;
 @btn-padding-lg         : @btn-padding-base;
 @btn-padding-sm         : 0 @padding-horizontal-xs - 1px;
 
@@ -239,7 +240,8 @@
 @input-height-base           : 32px;
 @input-height-lg             : 40px;
 @input-height-sm             : 24px;
-@input-padding-horizontal    : 7px;
+@input-padding-horizontal    : @control-padding-horizontal - 1px;
+@input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
 @input-padding-vertical-base : 4px;
 @input-padding-vertical-sm   : 1px;
 @input-padding-vertical-lg   : 6px;

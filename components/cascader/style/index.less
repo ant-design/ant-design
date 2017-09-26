@@ -53,17 +53,17 @@
       text-overflow: ellipsis;
       overflow: hidden;
       width: 100%;
-      padding: 0 12px 0 8px;
+      padding: 0 @control-padding-horizontal;
     }
 
     &-clear {
       opacity: 0;
       position: absolute;
-      right: 8px;
+      right: @control-padding-horizontal;
       z-index: 2;
       background: @component-background;
       top: 50%;
-      font-size: @font-size-base;
+      font-size: @font-size-sm;
       color: @disabled-color;
       width: 12px;
       height: 12px;
@@ -85,7 +85,7 @@
       position: absolute;
       z-index: 1;
       top: 50%;
-      right: 8px;
+      right: @control-padding-horizontal;
       width: 12px;
       height: 12px;
       margin-top: -6px;
@@ -102,6 +102,12 @@
       }
     }
   }
+
+  &-picker-small &-picker-clear,
+  &-picker-small &-picker-arrow {
+    right: @control-padding-horizontal-sm;
+  }
+
   &-menus {
     font-size: @font-size-base;
     background: @component-background;
@@ -163,7 +169,8 @@
     }
   }
   &-menu-item {
-    padding: 7px 8px;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.3s;
@@ -192,7 +199,7 @@
         .iconfont-size-under-12px(8px);
         color: @text-color-secondary;
         position: absolute;
-        right: 8px;
+        right: @control-padding-horizontal;
       }
     }
     &-loading:after {
