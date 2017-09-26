@@ -30,7 +30,7 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1/2 
+          1/2 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -143,7 +143,7 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1 
+          1 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -216,7 +216,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1 
+          1 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -311,7 +311,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          2 
+          2 items
         </span>
         <span
           class="ant-transfer-list-header-title"

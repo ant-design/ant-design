@@ -30,6 +30,7 @@ export default {
     cancelText: 'Cancel',
   },
   Transfer: {
+    titles: ['', ''],
     notFoundContent: 'Not Found',
     searchPlaceholder: 'Search here',
     itemUnit: 'item',

@@ -13,6 +13,10 @@ env:
     - TEST_TYPE=test:dom
     - TEST_TYPE=test:node
 
+before_script:
+  - export TZ=China/Beijing
+  - date
+
 script:
   - |
     if [ "$TEST_TYPE" = lint ]; then

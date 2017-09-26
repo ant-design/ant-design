@@ -83,7 +83,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   constructor(props, context) {
     super(props, context);
     // Make sure that moment locale had be set correctly.
-    getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
+    getComponentLocale(props, context, 'Calendar', () => require('./locale/en_US'));
 
     const value = props.value || props.defaultValue || moment();
     if (!moment.isMoment(value)) {
@@ -183,7 +183,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     }
     const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
+    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/en_US'));
 
     let cls = className || '';
     if (fullscreen) {

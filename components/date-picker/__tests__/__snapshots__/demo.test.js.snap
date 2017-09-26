@@ -8,7 +8,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -42,7 +42,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -53,7 +53,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -138,7 +138,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       <input
         class="ant-calendar-picker-input ant-input ant-input-disabled"
         disabled=""
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value="2015-06-06"
       />
@@ -155,7 +155,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       <input
         class="ant-calendar-picker-input ant-input ant-input-disabled"
         disabled=""
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value="2015-06"
       />
@@ -174,7 +174,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       <input
         class="ant-calendar-range-picker-input"
         disabled=""
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value="2015-06-06"
       />
@@ -186,7 +186,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       <input
         class="ant-calendar-range-picker-input"
         disabled=""
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value="2015-06-06"
       />
@@ -207,7 +207,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -242,7 +242,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -253,7 +253,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -273,7 +273,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -289,7 +289,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -306,7 +306,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -317,7 +317,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -335,7 +335,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -346,7 +346,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -366,7 +366,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value="2015/01/01"
       />
@@ -385,7 +385,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value="2015/01"
       />
@@ -406,7 +406,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value="2015/01/01"
       />
@@ -417,7 +417,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value="2015/01/01"
       />
@@ -441,7 +441,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -492,7 +492,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -503,7 +503,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -522,7 +522,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -533,7 +533,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -614,7 +614,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -630,7 +630,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />
@@ -648,7 +648,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     >
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start date"
         readonly=""
         value=""
       />
@@ -659,7 +659,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End date"
         readonly=""
         value=""
       />
@@ -675,7 +675,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select date"
         readonly=""
         value=""
       />

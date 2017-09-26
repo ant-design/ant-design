@@ -41,7 +41,7 @@ exports[`Modal render correctly 1`] = `
                 type="button"
               >
                 <span>
-                  取 消
+                  Cancel
                 </span>
               </button>
               <button
@@ -49,7 +49,7 @@ exports[`Modal render correctly 1`] = `
                 type="button"
               >
                 <span>
-                  确 定
+                  OK
                 </span>
               </button>
             </div>

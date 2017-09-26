@@ -2,6 +2,7 @@ import React from 'react';
 import RcUpload from 'rc-upload';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import enUS from '../locale-provider/en_US';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
@@ -13,12 +14,7 @@ export interface UploadContext {
   };
 }
 
-const defaultLocale: UploadLocale = {
-  uploading: '文件上传中',
-  removeFile: '删除文件',
-  uploadError: '上传错误',
-  previewFile: '预览文件',
-};
+const defaultLocale: UploadLocale = enUS.Upload;
 
 export { UploadProps };
 

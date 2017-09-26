@@ -1698,7 +1698,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
-              placeholder="请选择日期"
+              placeholder="Select date"
               readonly=""
               value=""
             />
@@ -1737,7 +1737,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
-              placeholder="请选择日期"
+              placeholder="Select date"
               readonly=""
               value=""
             />
@@ -1775,7 +1775,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
-              placeholder="请选择日期"
+              placeholder="Select date"
               readonly=""
               value=""
             />
@@ -1815,7 +1815,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           >
             <input
               class="ant-calendar-range-picker-input"
-              placeholder="开始日期"
+              placeholder="Start date"
               readonly=""
               value=""
             />
@@ -1826,7 +1826,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </span>
             <input
               class="ant-calendar-range-picker-input"
-              placeholder="结束日期"
+              placeholder="End date"
               readonly=""
               value=""
             />
@@ -1867,7 +1867,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           >
             <input
               class="ant-calendar-range-picker-input"
-              placeholder="开始日期"
+              placeholder="Start date"
               readonly=""
               value=""
             />
@@ -1878,7 +1878,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </span>
             <input
               class="ant-calendar-range-picker-input"
-              placeholder="结束日期"
+              placeholder="End date"
               readonly=""
               value=""
             />
@@ -1915,7 +1915,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <input
             class="ant-time-picker-input"
-            placeholder="请选择时间"
+            placeholder="Select time"
             readonly=""
             type="text"
             value=""
@@ -2800,7 +2800,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
-              placeholder="请选择日期"
+              placeholder="Select date"
               readonly=""
               value=""
             />
@@ -2837,7 +2837,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             class="ant-time-picker-input"
-            placeholder="请选择时间"
+            placeholder="Select time"
             readonly=""
             type="text"
             value=""
@@ -2988,7 +2988,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
-                      placeholder="请选择日期"
+                      placeholder="Select date"
                       readonly=""
                       value=""
                     />
@@ -3033,7 +3033,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
-                      placeholder="请选择日期"
+                      placeholder="Select date"
                       readonly=""
                       value=""
                     />
