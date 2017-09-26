@@ -63,7 +63,7 @@ class BasicList extends React.Component {
               title={<a href="https://ant.design">{item.title}</a>}
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
-            <div style={{ padding: 24 }}>Content</div>
+            <div>Content</div>
           </List.Item>
         )}
       />

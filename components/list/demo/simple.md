@@ -1,13 +1,15 @@
 ---
 order: 0
 title:
-  zh-CN: 简单列表
+  zh-CN: 列表尺寸
   en-US: Simple
 ---
 
 ## zh-CN
 
-最简单的列表。
+最简单的列表，拥有大、中、小三种尺寸。
+
+通过设置 `size` 为 `large` `smal`l 分别把按钮设为大、小尺寸。若不设置 `size`，则尺寸为中。
 
 ## en-US
 
@@ -25,10 +27,29 @@ const data = [
 ];
 
 ReactDOM.render(
-  <List
-    itemLayout="horizontal"
-    dataSource={data}
-    renderItem={item => (<List.Item>{item}</List.Item>)}
-  />
+  <div>
+    <h3 style={{ margin: '16px 0' }}>Small Size</h3>
+    <List
+      bordered
+      dataSource={data}
+      size="small"
+      renderItem={item => (<List.Item>{item}</List.Item>)}
+    />
+    <h3 style={{ margin: '16px 0' }}>Default Size</h3>
+    <List
+      header={<div>Header</div>}
+      footer={<div>Footer</div>}
+      bordered
+      dataSource={data}
+      renderItem={item => (<List.Item>{item}</List.Item>)}
+    />
+    <h3 style={{ margin: '16px 0' }}>Large Size</h3>
+    <List
+      bordered
+      dataSource={data}
+      size="large"
+      renderItem={item => (<List.Item>{item}</List.Item>)}
+    />
+  </div>
 , mountNode);
 ````
