@@ -18,7 +18,7 @@ import { Card } from 'antd';
 
 ReactDOM.render(
   <div style={{ background: '#ECECEC', padding: '30px' }}>
-    <Card title="Card title" bordered={false} style={{ width: 300 }}>
+    <Card title="Card title" bordered={false} style={{ width: 300 }} noHovering={false}>
       <p>Card content</p>
       <p>Card content</p>
       <p>Card content</p>
