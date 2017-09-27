@@ -20,7 +20,7 @@ const { Meta } = Card;
 
 ReactDOM.render(
   <Card
-    noHovering={false}
+    hoverable
     style={{ width: 240 }}
     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
   >

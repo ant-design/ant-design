@@ -91,7 +91,7 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/flexible-content.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hovering"
+  class="ant-card ant-card-bordered ant-card-hoverable"
   style="width:240px;"
 >
   <div>
@@ -495,7 +495,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/meta.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hovering"
+  class="ant-card ant-card-bordered ant-card-hoverable"
   style="width:300px;"
 >
   <div>

@@ -6,6 +6,7 @@ import Grid from './Grid';
 import Meta from './Meta';
 import Tabs from '../tabs';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
+import warning from '../_util/warning';
 
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
@@ -26,6 +27,7 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   noHovering?: boolean;
+  hoverable?: boolean;
   children?: React.ReactNode;
   id?: string;
   className?: string;
@@ -48,6 +50,14 @@ export default class Card extends Component<CardProps, {}> {
   componentDidMount() {
     this.updateWiderPadding();
     this.resizeEvent = addEventListener(window, 'resize', this.updateWiderPadding);
+
+    if ('noHovering' in this.props) {
+      warning(
+        !this.props.noHovering,
+        '`noHovering` of Card is deperated, you can remove it safely or use `hoverable` instead.',
+      );
+      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deperated, use `hoverable` instead.');
+    }
   }
   componentWillUnmount() {
     if (this.resizeEvent) {
@@ -102,16 +112,24 @@ export default class Card extends Component<CardProps, {}> {
     );
     return actionList;
   }
+  // For 2.x compatible
+  getCompatibleHoverable() {
+    const { noHovering, hoverable } = this.props;
+    if ('noHovering' in this.props) {
+      return !noHovering || hoverable;
+    }
+    return !!hoverable;
+  }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering = true, title, loading,
+      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, hoverable, title, loading,
       bordered = true, type, cover, actions, tabList, children, ...others,
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-hovering`]: !noHovering,
+      [`${prefixCls}-hoverable`]: this.getCompatibleHoverable(),
       [`${prefixCls}-wider-padding`]: this.state.widerPadding,
       [`${prefixCls}-padding-transition`]: this.updateWiderPaddingCalled,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
