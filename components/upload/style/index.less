@@ -129,7 +129,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-left: 16px;
+      padding-left: @font-size-base + 4px;
       width: 100%;
       display: inline-block;
     }
@@ -139,13 +139,16 @@
       padding: 0 12px 0 4px;
       transition: background-color .3s;
 
+      > span {
+        display: block;
+      }
+
       .@{iconfont-css-prefix}-loading,
       .@{iconfont-css-prefix}-paper-clip {
-        margin-right: 4px;
         font-size: @font-size-base;
         color: @text-color-secondary;
         position: absolute;
-        top: 5.5px;
+        top: @font-size-base / 2 - 0.5px;
       }
     }
 
