@@ -62,7 +62,9 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
     render() {
       const props = this.props;
       const { prefixCls, inputPrefixCls } = props;
-      const pickerClass = classNames(`${prefixCls}-picker`, `${prefixCls}-picker-${props.size}`);
+      const pickerClass = classNames(`${prefixCls}-picker`, {
+        [`${prefixCls}-picker-${props.size}`]: !!props.size,
+      });
       const pickerInputClass = classNames(`${prefixCls}-picker-input`, inputPrefixCls, {
         [`${inputPrefixCls}-lg`]: props.size === 'large',
         [`${inputPrefixCls}-sm`]: props.size === 'small',
