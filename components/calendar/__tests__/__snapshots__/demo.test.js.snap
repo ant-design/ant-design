@@ -1006,7 +1006,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 <div
-  style="width:290px;border:1px solid #d9d9d9;border-radius:4px;"
+  style="width:300px;border:1px solid #d9d9d9;border-radius:4px;"
 >
   <div
     class=""

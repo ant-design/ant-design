@@ -3,11 +3,11 @@
 exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -43,11 +43,11 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -85,11 +85,11 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -132,11 +132,11 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
 exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -186,11 +186,11 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
 exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18.8px;"
+      style="width:80px;height:80px;font-size:18px;"
     >
       <svg
         class="ant-progress-circle "
@@ -226,11 +226,11 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18.8px;"
+      style="width:80px;height:80px;font-size:18px;"
     >
       <svg
         class="ant-progress-circle "
@@ -268,11 +268,11 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18.8px;"
+      style="width:80px;height:80px;font-size:18px;"
     >
       <svg
         class="ant-progress-circle "
@@ -314,11 +314,11 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
 
 exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
 <div
-  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
 >
   <div
     class="ant-progress-inner"
-    style="width:132px;height:132px;font-size:27.12px;"
+    style="width:120px;height:120px;font-size:24px;"
   >
     <svg
       class="ant-progress-circle "
@@ -358,7 +358,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
 exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
@@ -369,7 +369,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:0%;height:10px;"
+            style="width:0%;height:8px;"
           />
         </div>
       </div>
@@ -406,11 +406,11 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
 exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -446,11 +446,11 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"
-      style="width:132px;height:132px;font-size:27.12px;"
+      style="width:120px;height:120px;font-size:24px;"
     >
       <svg
         class="ant-progress-circle "
@@ -491,7 +491,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
@@ -502,7 +502,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:10px;"
+            style="width:30%;height:8px;"
           />
         </div>
       </div>
@@ -514,7 +514,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
@@ -525,7 +525,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:10px;"
+            style="width:50%;height:8px;"
           />
         </div>
       </div>
@@ -537,7 +537,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
@@ -548,7 +548,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:70%;height:10px;"
+            style="width:70%;height:8px;"
           />
         </div>
       </div>
@@ -562,7 +562,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
   >
     <div>
       <div
@@ -573,7 +573,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:100%;height:10px;"
+            style="width:100%;height:8px;"
           />
         </div>
       </div>
@@ -587,7 +587,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
   >
     <div>
       <div
@@ -598,7 +598,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:10px;"
+            style="width:50%;height:8px;"
           />
         </div>
       </div>
@@ -612,7 +612,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
   style="width:170px;"
 >
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
   >
     <div>
       <div
@@ -623,7 +623,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:5px;"
+            style="width:30%;height:8px;"
           />
         </div>
       </div>
@@ -635,7 +635,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
   >
     <div>
       <div
@@ -646,7 +646,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:5px;"
+            style="width:50%;height:8px;"
           />
         </div>
       </div>
@@ -658,7 +658,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
   >
     <div>
       <div
@@ -669,7 +669,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:70%;height:5px;"
+            style="width:70%;height:8px;"
           />
         </div>
       </div>
@@ -683,7 +683,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info"
+    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
   >
     <div>
       <div
@@ -694,7 +694,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:100%;height:5px;"
+            style="width:100%;height:8px;"
           />
         </div>
       </div>

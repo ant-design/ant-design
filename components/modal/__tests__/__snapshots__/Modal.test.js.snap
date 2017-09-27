@@ -37,7 +37,7 @@ exports[`Modal render correctly 1`] = `
               class="ant-modal-footer"
             >
               <button
-                class="ant-btn ant-btn-lg"
+                class="ant-btn"
                 type="button"
               >
                 <span>
@@ -45,7 +45,7 @@ exports[`Modal render correctly 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-lg"
+                class="ant-btn ant-btn-primary"
                 type="button"
               >
                 <span>
