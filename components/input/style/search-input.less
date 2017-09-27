@@ -11,6 +11,10 @@
     color: @text-color-secondary;
   }
 
+  &:not(&-small) > .@{ant-prefix}-input-suffix {
+    right: @control-padding-horizontal;
+  }
+
   > .@{ant-prefix}-input-suffix > .@{search-prefix}-button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
