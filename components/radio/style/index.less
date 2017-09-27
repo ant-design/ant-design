@@ -149,7 +149,7 @@ span.@{radio-prefix-cls} + * {
   border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
   background: @radio-button-bg;
-  padding: 0 16px;
+  padding: 0 @padding-md - 1px;
   position: relative;
 
   a {
@@ -171,14 +171,7 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-small & {
     height: @input-height-sm;
     line-height: @input-height-sm - 2px;
-    font-size: @font-size-sm;
-    padding: 0 12px;
-    &:first-child {
-      border-radius: @border-radius-sm 0 0 @border-radius-sm;
-    }
-    &:last-child {
-      border-radius: 0 @border-radius-sm @border-radius-sm 0;
-    }
+    padding: 0 @control-padding-horizontal-sm - 1px;
   }
 
   &:not(:first-child) {

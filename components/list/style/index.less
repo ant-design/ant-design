@@ -9,11 +9,13 @@
   * {
     outline: none;
   }
-  &-more, &-pagination {
+  &-pagination {
     margin-top: 12px;
-    text-align: center;
+    text-align: right;
   }
   &-more {
+    margin-top: 12px;
+    text-align: center;
     button {
       padding-left: 32px;
       padding-right: 32px;
@@ -69,6 +71,8 @@
       font-size: 0;
       flex: 0 0 auto;
       margin-left: 48px;
+      padding: 0;
+      list-style: none;
       & > li {
         display: inline-block;
         color: @text-color-secondary;
@@ -136,8 +140,12 @@
 }
 
 .@{list-prefix-cls}-bordered.@{list-prefix-cls}-sm {
+  .@{list-prefix-cls}-item {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   .@{list-prefix-cls}-header, .@{list-prefix-cls}-footer {
-    padding: 8px 24px;
+    padding: 8px 16px;
   }
 }
 
