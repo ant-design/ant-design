@@ -12,6 +12,13 @@
   .reset-component;
   margin: 0;
   padding: 0;
+
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   li {
     padding: 4px 0;
     margin: 0;
@@ -78,7 +85,6 @@
     span {
       &.@{tree-prefix-cls}-checkbox {
         margin: 0 4px 0 2px;
-        top: 1px;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
