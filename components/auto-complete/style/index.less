@@ -33,6 +33,12 @@
 
     .@{input-prefix-cls} {
       background: transparent;
+      border-width: @border-width-base;
+      line-height: @line-height-base;
+      &:focus,
+      &:hover {
+        .hover;
+      }
     }
 
     &-lg {
@@ -50,14 +56,6 @@
       }
       .@{input-prefix-cls} {
         .input-sm();
-      }
-    }
-
-    .@{input-prefix-cls} {
-      border-width: @border-width-base;
-      &:focus,
-      &:hover {
-        .hover;
       }
     }
   }
