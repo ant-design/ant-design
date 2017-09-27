@@ -4,7 +4,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
 <ul
   class="ant-tree"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -176,7 +176,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 <ul
   class="ant-tree"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -488,7 +488,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 <ul
   class="ant-tree ant-tree-show-line"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -652,7 +652,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <ul
   class="ant-tree draggable-tree"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -842,7 +842,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
 <ul
   class="ant-tree"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -902,7 +902,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
 <ul
   class="ant-tree ant-tree-show-line"
   role="tree-node"
-  unselectable="true"
+  unselectable="on"
 >
   <li
     class=""
@@ -1058,7 +1058,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
   <ul
     class="ant-tree"
     role="tree-node"
-    unselectable="true"
+    unselectable="on"
   >
     <li
       class=""
