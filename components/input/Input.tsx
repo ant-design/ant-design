@@ -27,6 +27,7 @@ export interface InputProps extends AbstractInputProps {
   id?: number | string;
   name?: string;
   size?: 'large' | 'default' | 'small';
+  maxLength?: string;
   disabled?: boolean;
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
@@ -62,6 +63,7 @@ export default class Input extends Component<InputProps, any> {
       PropTypes.number,
     ]),
     size: PropTypes.oneOf(['small', 'default', 'large']),
+    maxLength: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.any,
     defaultValue: PropTypes.any,
