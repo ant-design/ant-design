@@ -48,7 +48,7 @@
         vertical-align: top;
         transition: transform 0.24s;
         top: 0;
-        left: 16px;
+        left: @padding-md;
         &:before {
           content: "\E61F";
         }
@@ -63,12 +63,12 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: 0 16px;
+    padding: 0 @padding-md;
     background-color: @component-background;
 
     & > &-box {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: @padding-md;
+      padding-bottom: @padding-md;
     }
 
     &-inactive {
@@ -93,6 +93,10 @@
     border: 0;
   }
 
+  &-borderless > &-item {
+    border: 0;
+  }
+
   &-borderless > &-item:last-child,
   &-borderless > &-item:last-child &-header {
     border-radius: 0;
@@ -104,14 +108,10 @@
 
   &-borderless > &-item > &-content {
     background-color: transparent;
-    border-top: @border-width-base @border-style-base @border-color-base;
   }
 
-  &-borderless > &-item > &-header {
-    transition: all .3s;
-    &:hover {
-      background-color: @collapse-header-bg;
-    }
+  &-borderless > &-item > &-content > &-content-box {
+    padding-top: 4px;
   }
 
   & &-item-disabled > &-header {
@@ -121,9 +121,5 @@
       color: @disabled-color;
       background-color: @disabled-bg;
     }
-  }
-
-  & > &-item:not(&-item-disabled) > .@{collapse-prefix-cls}-header:active {
-    background-color: @collapse-active-bg;
   }
 }

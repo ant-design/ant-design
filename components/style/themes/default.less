@@ -50,14 +50,14 @@
 @border-radius-sm       : 2px;
 
 // vertical paddings
-@padding-horizontal-lg    : 24px; // containers
-@padding-horizontal-md    : 16px; // small containers and buttons
-@padding-horizontal-sm    : 12px; // Form controls and items
-@padding-horizontal-xs    : 8px;  // small items
+@padding-lg    : 24px; // containers
+@padding-md    : 16px; // small containers and buttons
+@padding-sm    : 12px; // Form controls and items
+@padding-xs    : 8px;  // small items
 
 // vertical padding for all form controls
-@control-padding-horizontal: @padding-horizontal-sm;
-@control-padding-horizontal-sm: @padding-horizontal-xs;
+@control-padding-horizontal: @padding-sm;
+@control-padding-horizontal-sm: @padding-xs;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -136,11 +136,11 @@
 @btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 0 @padding-horizontal-md - 1px;
+@btn-padding-base       : 0 @padding-md - 1px;
 @btn-font-size-lg       : @font-size-base;
 @btn-font-size-sm       : @font-size-base;
 @btn-padding-lg         : @btn-padding-base;
-@btn-padding-sm         : 0 @padding-horizontal-xs - 1px;
+@btn-padding-sm         : 0 @padding-xs - 1px;
 
 @btn-height-base        : 32px;
 @btn-height-lg          : 40px;
@@ -339,6 +339,7 @@
 @badge-height: 20px;
 @badge-dot-size: 8px;
 @badge-font-size: @font-size-sm;
+@badge-status-size: 6px;
 
 // Rate
 // ---
