@@ -246,14 +246,17 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
       class="anticon anticon-cross"
     />
   </div>
-  <button
-    class="ant-btn ant-btn-dashed ant-btn-sm"
-    type="button"
+  <div
+    class="ant-tag"
+    data-show="true"
+    style="background:#fff;border-style:dashed;"
   >
-    <span>
+    <span
+      class="ant-tag-text"
+    >
       + New Tag
     </span>
-  </button>
+  </div>
 </div>
 `;
 

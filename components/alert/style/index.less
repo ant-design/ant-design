@@ -9,11 +9,11 @@
 .@{alert-prefix-cls} {
   .reset-component;
   position: relative;
-  padding: 8px 48px 8px 38px;
+  padding: 8px 16px 8px 38px;
   border-radius: @border-radius-base;
 
   &&-no-icon {
-    padding: 8px 48px 8px 16px;
+    padding: 8px 16px;
   }
 
   &-icon {
@@ -30,7 +30,7 @@
   }
 
   &-success {
-    border: @border-width-base @border-style-base @green-2;
+    border: @border-width-base @border-style-base @green-3;
     background-color: @green-1;
     .@{alert-prefix-cls}-icon {
       color: @success-color;
@@ -38,7 +38,7 @@
   }
 
   &-info {
-    border: @border-width-base @border-style-base @primary-2;
+    border: @border-width-base @border-style-base @primary-3;
     background-color: @primary-1;
     .@{alert-prefix-cls}-icon {
       color: @info-color;
@@ -46,7 +46,7 @@
   }
 
   &-warning {
-    border: @border-width-base @border-style-base @yellow-2;
+    border: @border-width-base @border-style-base @yellow-3;
     background-color: @yellow-1;
     .@{alert-prefix-cls}-icon {
       color: @warning-color;
@@ -54,7 +54,7 @@
   }
 
   &-error {
-    border: @border-width-base @border-style-base @red-2;
+    border: @border-width-base @border-style-base @red-3;
     background-color: @red-1;
     .@{alert-prefix-cls}-icon {
       color: @error-color;
@@ -62,18 +62,17 @@
   }
 
   &-close-icon {
-    font-size: @font-size-base;
+    font-size: @font-size-sm;
     position: absolute;
     right: 16px;
-    top: 10px;
-    height: 12px;
-    line-height: 12px;
+    top: 8px;
+    line-height: 22px;
     overflow: hidden;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-cross {
       color: @text-color-secondary;
-      transition: color .3s ease;
+      transition: color .3s;
       &:hover {
         color: #404040;
       }

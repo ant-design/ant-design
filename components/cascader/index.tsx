@@ -276,10 +276,11 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       [`${prefixCls}-picker-arrow`]: true,
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
     });
-    const pickerCls = classNames(className, {
-      [`${prefixCls}-picker`]: true,
+    const pickerCls = classNames(
+      className, `${prefixCls}-picker`, {
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
+      [`${prefixCls}-picker-${size}`]: !!size,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004

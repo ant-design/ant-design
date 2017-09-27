@@ -49,11 +49,11 @@
     position: absolute;
     width: 14px;
     height: 14px;
-    right: 8px;
+    right: @control-padding-horizontal;
     top: 50%;
     margin-top: -7px;
     line-height: 14px;
-    font-size: @font-size-base;
+    font-size: @font-size-sm;
     transition: all .3s;
     user-select: none;
   }
@@ -85,5 +85,10 @@
       display: inline-block;
       line-height: 1;
     }
+  }
+
+  &-small &-clear,
+  &-small &-icon {
+    right: @control-padding-horizontal-sm;
   }
 }

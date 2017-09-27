@@ -19,7 +19,6 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    line-height: 1.5;
     overflow: hidden;
     left: -2px;
   }
@@ -30,7 +29,6 @@
     border: 0;
     width: 100%;
     cursor: auto;
-    line-height: 1.5;
     outline: 0;
 
     .placeholder;
@@ -38,8 +36,9 @@
     &-wrap {
       box-sizing: border-box;
       position: relative;
-      padding: 6px;
+      padding: 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
+      max-width: @time-picker-panel-column-width * 3;
     }
 
     &-invalid {
@@ -49,14 +48,14 @@
 
   &-clear-btn {
     position: absolute;
-    right: 5px;
+    right: 8px;
     cursor: pointer;
     overflow: hidden;
     width: 20px;
     height: 20px;
     text-align: center;
     line-height: 20px;
-    top: 5px;
+    top: 7px;
     margin: 0;
   }
 
@@ -86,7 +85,7 @@
     width: @time-picker-panel-column-width;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
-    max-height: 144px;
+    max-height: 32px * 6;
 
     &:hover {
       overflow-y: auto;
@@ -117,10 +116,10 @@
       list-style: none;
       box-sizing: content-box;
       margin: 0;
-      padding: 0 0 0 8px;
+      padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
-      height: 24px;
-      line-height: 24px;
+      height: 32px;
+      line-height: 32px;
       text-align: left;
       cursor: pointer;
       user-select: none;
@@ -187,22 +186,14 @@
   position: relative;
   display: inline-block;
   outline: none;
-  transition: opacity 0.3s ease;
-  width: 100px;
+  transition: opacity .3s;
+  width: 128px;
 
   &-input {
     .input;
     &[disabled] {
       .disabled;
     }
-  }
-
-  &-large &-input {
-    .input-lg;
-  }
-
-  &-small &-input {
-    .input-sm;
   }
 
   &-open {
@@ -214,19 +205,30 @@
     user-select: none;
     transition: all .3s @ease-in-out;
     width: 14px;
-    height: 12px;
-    line-height: 12px;
-    right: 8px;
+    height: 14px;
+    line-height: 14px;
+    right: @control-padding-horizontal - 1px;
     color: @text-color-secondary;
     top: 50%;
-    margin-top: -6px;
+    margin-top: -7px;
     &:after {
       content: "\e641";
       font-family: "anticon";
-      font-size: @font-size-base - 2px;
       color: @text-color-secondary;
       display: block;
       line-height: 1;
     }
+  }
+
+  &-large &-input {
+    .input-lg;
+  }
+
+  &-small &-input {
+    .input-sm;
+  }
+
+  &-small &-icon {
+    right: @control-padding-horizontal-sm - 1px;
   }
 }

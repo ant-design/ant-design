@@ -28,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Switch disabled={this.state.disabled} />
+        <Switch disabled={this.state.disabled} defaultChecked />
         <br />
         <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
       </div>

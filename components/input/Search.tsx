@@ -45,6 +45,7 @@ export default class Search extends React.Component<SearchProps, any> {
       ) : <Icon className={`${prefixCls}-icon`} type="search" />;
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-enter-button`]: !!enterButton,
+      [`${prefixCls}-${size}`]: !!size,
     });
     return (
       <Input

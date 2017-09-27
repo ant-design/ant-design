@@ -52,7 +52,7 @@ exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
   style="background:#ECECEC;padding:30px;"
 >
   <div
-    class="ant-card"
+    class="ant-card ant-card-hoverable"
     style="width:300px;"
   >
     <div>

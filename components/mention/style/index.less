@@ -36,12 +36,12 @@
       white-space: pre-wrap;
       word-wrap: break-word;
       height: auto;
-      padding: 4px 7px;
+      padding: 5px @control-padding-horizontal - 1px;
     }
   }
   .DraftEditor-editorContainer .public-DraftEditor-content {
     height: auto;
-    padding: 4px 7px;
+    padding: 5px @control-padding-horizontal - 1px;
   }
 }
 
@@ -77,7 +77,8 @@
   &-item {
     position: relative;
     display: block;
-    padding: 7px 8px;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
     font-weight: normal;
     color: @text-color;
     white-space: nowrap;

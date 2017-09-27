@@ -8,8 +8,9 @@
 @radio-duration: .3s;
 
 .@{radio-group-prefix-cls} {
-  display: inline-block;
   .reset-component;
+  display: inline-block;
+  line-height: unset;
 }
 
 // 一般状态
@@ -30,7 +31,7 @@
   position: relative;
   line-height: 1;
   vertical-align: middle;
-  top: -1px;
+  top: -1.2px;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -58,11 +59,12 @@
   }
   &-inner {
     &:after {
+      @radio-dot-size: @radio-size - 9px;
       position: absolute;
-      width: 6px;
-      height: 6px;
-      left: 3px;
-      top: 3px;
+      width: @radio-dot-size;
+      height: @radio-dot-size;
+      left: (@radio-size - @radio-dot-size) / 2 - 1px;
+      top: (@radio-size - @radio-dot-size) / 2 - 1px;
       border-radius: @border-radius-base;
       display: table;
       border-top: 0;
@@ -78,11 +80,11 @@
     top: 0;
     left: 0;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: @radio-size;
+    height: @radio-size;
     border-width: 1px;
     border-style: solid;
-    border-radius: 14px;
+    border-radius: 100px;
     border-color: @border-color-base;
     background-color: @radio-button-bg;
     transition: all @radio-duration;
@@ -147,7 +149,7 @@ span.@{radio-prefix-cls} + * {
   border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
   background: @radio-button-bg;
-  padding: 0 16px;
+  padding: 0 @padding-md - 1px;
   position: relative;
 
   a {
@@ -169,13 +171,7 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-small & {
     height: @input-height-sm;
     line-height: @input-height-sm - 2px;
-    padding: 0 12px;
-    &:first-child {
-      border-radius: @border-radius-sm 0 0 @border-radius-sm;
-    }
-    &:last-child {
-      border-radius: 0 @border-radius-sm @border-radius-sm 0;
-    }
+    padding: 0 @control-padding-horizontal-sm - 1px;
   }
 
   &:not(:first-child) {

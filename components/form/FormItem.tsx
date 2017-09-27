@@ -272,13 +272,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderChildren() {
-    const props = this.props;
-    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
-      if (child && typeof child.type === 'function' && !child.props.size) {
-        return React.cloneElement(child, { size: 'large' });
-      }
-      return child;
-    });
+    const { children } = this.props;
     return [
       this.renderLabel(),
       this.renderWrapper(

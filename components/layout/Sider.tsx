@@ -28,7 +28,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     defaultCollapsed: false,
     reverseArrow: false,
     width: 200,
-    collapsedWidth: 64,
+    collapsedWidth: 80,
     style: {},
   };
 

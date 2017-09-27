@@ -265,7 +265,7 @@
           background: #fff;
           background-image: linear-gradient(to right, @text-color, @text-color);
           width: 6px;
-          height: 2px;
+          height: 1.5px;
           border-radius: 2px;
           transition: background .3s @ease-in-out, transform .3s @ease-in-out, top .3s @ease-in-out;
         }
@@ -472,6 +472,7 @@
   &-dark &-sub {
     color: @text-color-secondary-dark;
     background: @menu-dark-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .45) inset;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       &:after,
       &:before {

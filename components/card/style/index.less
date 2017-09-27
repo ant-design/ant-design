@@ -14,7 +14,7 @@
   &-hoverable {
     cursor: pointer;
     &:hover {
-      box-shadow: @box-shadow-base;
+      box-shadow: @card-shadow;
       border-color: transparent;
     }
   }
@@ -132,6 +132,9 @@
     border-top: @border-width-base @border-style-base @border-color-split;
     background: @card-actions-background;
     .clearfix;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     & > li {
       float: left;

@@ -60,29 +60,29 @@
   &-title {
     min-width: @popover-min-width;
     margin: 0; // reset heading margin
-    padding: 8px 16px;
+    padding: 8px @padding-md;
     min-height: 32px;
     border-bottom: 1px solid @border-color-split;
-    color: @popover-color;
+    color: @heading-color;
     font-weight: 500;
   }
 
   &-inner-content {
-    padding: 8px 16px;
+    padding: 8px @padding-md;
     color: @popover-color;
   }
 
   &-message {
-    padding: 8px 0 16px;
+    padding: 8px 0 @padding-md;
     font-size: @font-size-base;
     color: @popover-color;
     > .@{iconfont-css-prefix} {
       color: @warning-color;
-      line-height: 17px;
+      line-height: @line-height-base;
       position: absolute;
     }
     &-title {
-      padding-left: 20px;
+      padding-left: @font-size-base + 8px;
     }
   }
 

@@ -1,6 +1,6 @@
 .calendarPanelHeader(@calendar-prefix-cls) {
-  height: 34px;
-  line-height: 34px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   user-select: none;
   border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -14,10 +14,10 @@
   .@{calendar-prefix-cls}-year-select,
   .@{calendar-prefix-cls}-month-select {
     padding: 0 2px;
-    font-weight: bold;
+    font-weight: 500;
     display: inline-block;
-    color: @text-color;
-    line-height: 34px;
+    color: @heading-color;
+    line-height: 40px;
   }
 
   .@{calendar-prefix-cls}-century-select-arrow,
@@ -42,7 +42,7 @@
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
-    line-height: 34px;
+    line-height: 40px;
   }
 
   .@{calendar-prefix-cls}-prev-century-btn,
@@ -85,7 +85,7 @@
 .@{calendar-prefix-cls} {
   position: relative;
   outline: none;
-  width: 231px;
+  width: 280px;
   border: @border-width-base @border-style-base #fff;
   list-style: none;
   font-size: @font-size-base;
@@ -98,7 +98,7 @@
 
   &-input-wrap {
     height: 34px;
-    padding: 6px;
+    padding: 6px @control-padding-horizontal - 2px;
     border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
@@ -126,7 +126,7 @@
   }
 
   &-body {
-    padding: 4px 8px;
+    padding: 8px 12px;
   }
 
   table {
@@ -140,6 +140,7 @@
   th,
   td {
     border: 0;
+    text-align: center;
   }
 
   &-calendar-table {
@@ -165,7 +166,8 @@
   }
 
   &-cell {
-    padding: 4px 0;
+    padding: 3px 0;
+    height: 30px;
   }
 
   &-date {
@@ -173,9 +175,9 @@
     margin: 0 auto;
     color: @text-color;
     border-radius: @border-radius-sm;
-    width: 20px;
-    height: 20px;
-    line-height: 18px;
+    width: 24px;
+    height: 24px;
+    line-height: 22px;
     border: @border-width-base @border-style-base transparent;
     padding: 0;
     background: transparent;
@@ -239,10 +241,10 @@
       position: absolute;
       top: -1px;
       left: 5px;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       border: @border-width-base @border-style-base #bcbcbc;
-      border-radius: @border-radius-base;
+      border-radius: @border-radius-sm;
     }
   }
 

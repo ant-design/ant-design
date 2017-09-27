@@ -51,7 +51,6 @@
     z-index: 2;
     width: 0;
     height: 100%;
-    line-height: 32px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
@@ -158,7 +157,7 @@
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin-right: 24px;
+      margin-right: 32px;
       box-sizing: border-box;
       position: relative;
 
@@ -178,9 +177,8 @@
       &:active {
         color: @primary-7;
       }
+
       .@{iconfont-css-prefix} {
-        width: 14px;
-        height: 14px;
         margin-right: 8px;
       }
     }
@@ -195,7 +193,6 @@
   }
 
   &-mini &-tab {
-    margin-right: 0;
     padding: 8px 16px;
   }
 

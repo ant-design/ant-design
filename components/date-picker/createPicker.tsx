@@ -124,12 +124,6 @@ export default function createPicker(TheCalendar): any {
         />
       );
 
-      // default width for showTime
-      const pickerStyle = {} as any;
-      if (props.showTime) {
-        pickerStyle.width = (props.style && props.style.width) || 154;
-      }
-
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
           type="cross-circle"
@@ -157,12 +151,8 @@ export default function createPicker(TheCalendar): any {
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
       }
-      const style = {
-        ...props.style,
-        ...pickerStyle,
-      };
       return (
-        <span className={classNames(props.className, props.pickerClass)} style={style}>
+        <span className={classNames(props.className, props.pickerClass)} style={props.style}>
           <RcDatePicker
             {...props}
             {...pickerProps}

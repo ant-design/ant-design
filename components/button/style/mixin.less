@@ -185,7 +185,7 @@
   }
 
   &-sm {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-height-sm; @btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm);
   }
 }
 
@@ -251,8 +251,6 @@
 
   .@{btnClassName}:not(:first-child):not(:last-child) {
     border-radius: 0;
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   > .@{btnClassName}:first-child {
@@ -260,14 +258,12 @@
     &:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
-      padding-right: 8px;
     }
   }
 
   > .@{btnClassName}:last-child:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    padding-left: 8px;
   }
 
   & > & {

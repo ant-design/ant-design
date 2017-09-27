@@ -151,7 +151,6 @@ export default class Modal extends React.Component<ModalProps, any> {
     const defaultFooter = [(
       <Button
         key="cancel"
-        size="large"
         onClick={this.handleCancel}
       >
         {cancelText || getConfirmLocale().cancelText}
@@ -160,7 +159,6 @@ export default class Modal extends React.Component<ModalProps, any> {
       <Button
         key="confirm"
         type={okType}
-        size="large"
         loading={confirmLoading}
         onClick={this.handleOk}
       >

@@ -27,6 +27,7 @@
     white-space: nowrap;
     transform-origin: -10% center;
     font-family: tahoma;
+    box-shadow: 0 0 0 1px #fff;
     a,
     a:hover {
       color: #fff;
@@ -51,10 +52,13 @@
     vertical-align: baseline;
 
     &-dot {
-      width: 8px;
-      height: 8px;
+      width: @badge-status-size;
+      height: @badge-status-size;
       display: inline-block;
       border-radius: 50%;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
     }
     &-success {
       background-color: @success-color;
@@ -128,6 +132,7 @@
     height: @badge-height;
     > p {
       height: @badge-height;
+      margin: 0;
     }
   }
 }

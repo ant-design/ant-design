@@ -34,7 +34,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-0"
                 placeholder="placeholder"
@@ -70,7 +70,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-1"
                 placeholder="placeholder"
@@ -106,7 +106,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-2"
                 placeholder="placeholder"
@@ -142,7 +142,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-3"
                 placeholder="placeholder"
@@ -178,7 +178,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-4"
                 placeholder="placeholder"
@@ -214,7 +214,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-5"
                 placeholder="placeholder"
@@ -250,7 +250,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-6"
                 placeholder="placeholder"
@@ -286,7 +286,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-7"
                 placeholder="placeholder"
@@ -322,7 +322,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-8"
                 placeholder="placeholder"
@@ -358,7 +358,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class="ant-form-item-control "
             >
               <input
-                class="ant-input ant-input-lg"
+                class="ant-input"
                 data-__meta="[object Object]"
                 id="field-9"
                 placeholder="placeholder"
@@ -438,7 +438,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="note"
           type="text"
@@ -468,7 +468,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-select-lg ant-select ant-select-enabled"
+          class="ant-select ant-select-enabled"
         >
           <div
             aria-autocomplete="list"
@@ -512,7 +512,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -551,13 +551,13 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
       >
         <span>
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             style="width:65%;margin-right:3%;"
             type="text"
             value="0"
           />
           <div
-            class="ant-select-lg ant-select ant-select-enabled"
+            class="ant-select ant-select-enabled"
             style="width:32%;"
           >
             <div
@@ -603,7 +603,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -630,7 +630,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-dashed ant-btn-lg"
+          class="ant-btn ant-btn-dashed"
           style="width:60%;"
           type="button"
         >
@@ -654,7 +654,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -690,7 +690,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="username"
           placeholder="Please input your name"
@@ -721,7 +721,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="nickname"
           placeholder="Please input your nickname"
@@ -771,7 +771,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
@@ -823,7 +823,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
           class="ant-form-item-control has-success"
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             data-__meta="[object Object]"
             id="username"
             type="text"
@@ -870,7 +870,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
             />
           </span>
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             data-__meta="[object Object]"
             id="userName"
             placeholder="Username"
@@ -902,7 +902,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
             />
           </span>
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             data-__meta="[object Object]"
             id="password"
             placeholder="Password"
@@ -923,7 +923,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -961,7 +961,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           class="ant-form-item-control "
         >
           <div
-            class="ant-radio-group ant-radio-group-large"
+            class="ant-radio-group"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1042,7 +1042,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           class="ant-form-item-control "
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input placeholder"
             type="text"
           />
@@ -1069,7 +1069,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           class="ant-form-item-control "
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input placeholder"
             type="text"
           />
@@ -1086,7 +1086,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
           class="ant-form-item-control "
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-lg"
+            class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
@@ -1125,7 +1125,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             />
           </span>
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             data-__meta="[object Object]"
             id="userName"
             placeholder="Username"
@@ -1157,7 +1157,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             />
           </span>
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             data-__meta="[object Object]"
             id="password"
             placeholder="Password"
@@ -1204,7 +1204,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           Forgot password
         </a>
         <button
-          class="ant-btn login-form-button ant-btn-primary ant-btn-lg"
+          class="ant-btn login-form-button ant-btn-primary"
           type="submit"
         >
           <span>
@@ -1248,7 +1248,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="email"
           type="text"
@@ -1278,7 +1278,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="password"
           type="password"
@@ -1308,7 +1308,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="confirm"
           type="password"
@@ -1343,7 +1343,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           data-__meta="[object Object]"
           id="nickname"
           type="text"
@@ -1383,7 +1383,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </span>
           <input
             autocomplete="off"
-            class="ant-input ant-cascader-input ant-input-lg"
+            class="ant-input ant-cascader-input "
             data-__meta="[object Object]"
             id="residence"
             readonly=""
@@ -1465,7 +1465,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               </div>
             </span>
             <input
-              class="ant-input ant-input-lg"
+              class="ant-input"
               data-__meta="[object Object]"
               id="phone"
               type="text"
@@ -1497,7 +1497,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+          class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
         >
           <div
             aria-autocomplete="list"
@@ -1579,7 +1579,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             style="padding-left:4px;padding-right:4px;"
           >
             <input
-              class="ant-input ant-input-lg"
+              class="ant-input"
               data-__meta="[object Object]"
               id="captcha"
               type="text"
@@ -1591,7 +1591,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             style="padding-left:4px;padding-right:4px;"
           >
             <button
-              class="ant-btn ant-btn-lg"
+              class="ant-btn"
               type="button"
             >
               <span>
@@ -1655,7 +1655,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -1697,7 +1697,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <div>
             <input
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input"
               placeholder="Select date"
               readonly=""
               value=""
@@ -1732,11 +1732,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       >
         <span
           class="ant-calendar-picker"
-          style="width:154px;"
         >
           <div>
             <input
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input"
               placeholder="Select date"
               readonly=""
               value=""
@@ -1774,7 +1773,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         >
           <div>
             <input
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input"
               placeholder="Select date"
               readonly=""
               value=""
@@ -1811,7 +1810,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-calendar-picker"
         >
           <span
-            class="ant-calendar-picker-input ant-input ant-input-lg"
+            class="ant-calendar-picker-input ant-input"
           >
             <input
               class="ant-calendar-range-picker-input"
@@ -1863,7 +1862,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           style="width:300px;"
         >
           <span
-            class="ant-calendar-picker-input ant-input ant-input-lg"
+            class="ant-calendar-picker-input ant-input"
           >
             <input
               class="ant-calendar-range-picker-input"
@@ -1911,7 +1910,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         class="ant-form-item-control "
       >
         <span
-          class="ant-time-picker ant-time-picker-large"
+          class="ant-time-picker "
         >
           <input
             class="ant-time-picker-input"
@@ -1937,7 +1936,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -2002,7 +2001,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-select-lg ant-select ant-select-enabled"
+          class="ant-select ant-select-enabled"
         >
           <div
             aria-autocomplete="list"
@@ -2057,7 +2056,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-select-lg ant-select ant-select-enabled"
+          class="ant-select ant-select-enabled"
         >
           <div
             aria-autocomplete="list"
@@ -2125,7 +2124,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control has-success"
       >
         <div
-          class="ant-input-number ant-input-number-lg"
+          class="ant-input-number"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -2347,7 +2346,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-radio-group ant-radio-group-large"
+          class="ant-radio-group"
         >
           <label
             class="ant-radio-wrapper"
@@ -2428,7 +2427,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-radio-group ant-radio-group-large"
+          class="ant-radio-group"
         >
           <label
             class="ant-radio-button-wrapper"
@@ -2574,7 +2573,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg"
+          class="ant-btn ant-btn-primary"
           type="submit"
         >
           <span>
@@ -2611,7 +2610,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-error"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="error"
           placeholder="unavailable choice"
           type="text"
@@ -2644,7 +2643,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-warning"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="warning"
           placeholder="Warning"
           type="text"
@@ -2672,7 +2671,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback is-validating"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="validating"
           placeholder="I'm the content is being validated"
           type="text"
@@ -2705,7 +2704,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-success"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="success"
           placeholder="I'm the content"
           type="text"
@@ -2733,7 +2732,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-warning"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="warning"
           placeholder="Warning"
           type="text"
@@ -2761,7 +2760,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-error"
       >
         <input
-          class="ant-input ant-input-lg"
+          class="ant-input"
           id="error"
           placeholder="unavailable choice"
           type="text"
@@ -2799,7 +2798,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <div>
             <input
-              class="ant-calendar-picker-input ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input"
               placeholder="Select date"
               readonly=""
               value=""
@@ -2832,7 +2831,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-warning"
       >
         <span
-          class="ant-time-picker ant-time-picker-large"
+          class="ant-time-picker "
           style="width:100%;"
         >
           <input
@@ -2869,7 +2868,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-error"
       >
         <div
-          class="ant-select-lg ant-select ant-select-enabled"
+          class="ant-select ant-select-enabled"
         >
           <div
             aria-autocomplete="list"
@@ -2931,7 +2930,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           />
           <input
             autocomplete="off"
-            class="ant-input ant-cascader-input ant-input-lg"
+            class="ant-input ant-cascader-input "
             readonly=""
             type="text"
             value=""
@@ -2987,7 +2986,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <div>
                     <input
-                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      class="ant-calendar-picker-input ant-input"
                       placeholder="Select date"
                       readonly=""
                       value=""
@@ -3032,7 +3031,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 >
                   <div>
                     <input
-                      class="ant-calendar-picker-input ant-input ant-input-lg"
+                      class="ant-calendar-picker-input ant-input"
                       placeholder="Select date"
                       readonly=""
                       value=""
@@ -3069,7 +3068,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control has-feedback has-success"
       >
         <div
-          class="ant-input-number ant-input-number-lg"
+          class="ant-input-number"
           style="width:100%;"
         >
           <div
@@ -3146,7 +3145,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <div
-          class="ant-input-number ant-input-number-lg"
+          class="ant-input-number"
         >
           <div
             class="ant-input-number-handler-wrap"

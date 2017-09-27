@@ -2,6 +2,7 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
+@table-header-icon-color: @text-color-secondary;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -14,7 +15,7 @@
   border-radius: @border-radius-base @border-radius-base 0 0;
 
   &-body {
-    transition: opacity 0.3s ease;
+    transition: opacity .3s;
   }
 
   table {
@@ -28,13 +29,15 @@
 
   &-thead > tr > th {
     background: @table-header-bg;
-    font-weight: 500;
     transition: background .3s ease;
     text-align: left;
     color: @heading-color;
+    font-weight: 500;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
 
     &[colspan] {
       text-align: center;
+      border-bottom: 0;
     }
 
     .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
@@ -42,9 +45,10 @@
       margin-left: 4px;
       font-size: @font-size-base;
       cursor: pointer;
-      color: #999;
+      color: @table-header-icon-color;
       transition: all .3s;
       width: 14px;
+      font-weight: normal;
 
       &:hover {
         color: @text-color;
@@ -90,6 +94,7 @@
     background: @table-header-bg;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     position: relative;
+    border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
       content: '';
       height: 1px;
@@ -134,10 +139,6 @@
   &-without-column-header &-title + &-content,
   &-without-column-header table {
     border-radius: 0;
-  }
-
-  &-tbody > tr.@{table-prefix-cls}-row-selected {
-    background: @table-selected-row-bg;
   }
 
   &-thead > tr > th.@{table-prefix-cls}-column-sort {
@@ -203,12 +204,12 @@
   &-middle {
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
-      padding: 10px 8px;
+      padding: 12px 8px;
     }
 
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer {
-      padding: 10px 8px;
+      padding: 12px 8px;
     }
 
     .@{table-prefix-cls}-column-sorter-up:after {
@@ -248,13 +249,13 @@
     }
 
     .@{table-prefix-cls}-tbody > tr > td {
-      padding: 6px 8px;
+      padding: 8px;
     }
 
     .@{table-prefix-cls}-title,
     .@{table-prefix-cls}-footer,
     .@{table-prefix-cls}-thead > tr > th {
-      padding: 10px 8px;
+      padding: 8px;
     }
 
     .@{table-prefix-cls}-title {
@@ -299,6 +300,8 @@
     width: 14px;
     vertical-align: middle;
     text-align: center;
+    font-weight: normal;
+    color: @table-header-icon-color;
 
     &-up,
     &-down {
@@ -339,7 +342,6 @@
       .iconfont-size-under-12px(8px);
       line-height: 4px;
       height: 4px;
-      color: #999;
       transition: all .3s;
     }
   }
@@ -516,7 +518,7 @@
     }
 
     .@{iconfont-css-prefix}-down {
-      color: #999;
+      color: @table-header-icon-color;
       transition: all .3s;
     }
 
@@ -529,7 +531,7 @@
       box-shadow: @box-shadow-base;
 
       .@{ant-prefix}-action-down {
-        color: #999;
+        color: @table-header-icon-color;
       }
     }
 
