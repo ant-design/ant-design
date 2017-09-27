@@ -7,6 +7,15 @@ const { TextArea } = Input;
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
+
+describe('Input', () => {
+  it('should support maxLength', async () => {
+    const wrapper = mount(
+      <Input maxLength="3" />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+});
 describe('TextArea', () => {
   it('should auto calculate height according to content length', async () => {
     const wrapper = mount(
@@ -24,6 +33,13 @@ describe('TextArea', () => {
   it('should support disabled', async () => {
     const wrapper = mount(
       <TextArea disabled />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support maxLength', async () => {
+    const wrapper = mount(
+      <TextArea maxLength="10" />
     );
     expect(wrapper).toMatchSnapshot();
   });
