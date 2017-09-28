@@ -21,7 +21,7 @@ A carousel component. Scales with its container.
 | vertical | Whether to use a vertical display                               | boolean   | `false` |
 | autoplay | Whether to scroll automatically                                 | boolean   | `false` |
 | easing | Transition interpolation function name                            | string   | `linear` |
-| beforeChange | Callback function called before the current index changes   | function(from, to) |
-| afterChange  | Callback function called after the current index changes    | function(current)  |
+| beforeChange | Callback function called before the current index changes   | function(from, to) | - |
+| afterChange  | Callback function called after the current index changes    | function(current)  | - |
 
 For more info on the parameters, refer to the https://github.com/akiran/react-slick
