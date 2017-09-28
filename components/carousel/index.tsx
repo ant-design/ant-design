@@ -114,6 +114,18 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     this.slick = node;
   }
 
+  next() {
+    this.slick.slickNext();
+  }
+
+  prev() {
+    this.slick.slickPrev();
+  }
+
+  goTo(slide) {
+    this.slick.slickGoTo(slide);
+  }
+
   render() {
     let props = {
       ...this.props,
