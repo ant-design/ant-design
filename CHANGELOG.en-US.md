@@ -41,20 +41,20 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-09-22`
 
-- Fix Affix scrolling bug when document's height minus viewport's height is smaller than the height of children of Affix. [#2349](https://github.com/ant-design/ant-design/issues/2349)
-- Fix broken style of header of Card when `Card[title]` is void and `Card[extra]` is set. [f46112d#commitcomment-24480417](https://github.com/ant-design/ant-design/commit/f46112d38561c89780eb44ecbba82347d2b912da#commitcomment-24480417)
-- Fix TypeScript definition of `Checkbox[children]`. [#7650](https://github.com/ant-design/ant-design/issues/7650) [@liaokaien](https://github.com/liaokaien)
-- Fix error when set nested name in `getFieldDecorator` and then click the label of `Form.Item`. [#7693](https://github.com/ant-design/ant-design/issues/7693)
+- 🐞 Fix Affix scrolling bug when document's height minus viewport's height is smaller than the height of children of Affix. [#2349](https://github.com/ant-design/ant-design/issues/2349)
+- 🐞 Fix broken style of header of Card when `Card[title]` is void and `Card[extra]` is set. [f46112d#commitcomment-24480417](https://github.com/ant-design/ant-design/commit/f46112d38561c89780eb44ecbba82347d2b912da#commitcomment-24480417)
+- 🐞 Fix TypeScript definition of `Checkbox[children]`. [#7650](https://github.com/ant-design/ant-design/issues/7650) [@liaokaien](https://github.com/liaokaien)
+- 🐞 Fix error when set nested name in `getFieldDecorator` and then click the label of `Form.Item`. [#7693](https://github.com/ant-design/ant-design/issues/7693)
 - Input
-  - Fix broken style of `Input.Group[compat]` when it has `Select` as its children. [#7662](https://github.com/ant-design/ant-design/issues/7662)
-  - Fix TypeScript definition of `Input[autoComplete]`. [#7699](https://github.com/ant-design/ant-design/pull/7699) [@delesseps](https://github.com/delesseps)
+  - 🐞 Fix broken style of `Input.Group[compat]` when it has `Select` as its children. [#7662](https://github.com/ant-design/ant-design/issues/7662)
+  - 🐞 Fix TypeScript definition of `Input[autoComplete]`. [#7699](https://github.com/ant-design/ant-design/pull/7699) [@delesseps](https://github.com/delesseps)
 - LocaleProvider
-  - Support Portuguese. [#7449](https://github.com/ant-design/ant-design/pull/7449) [@taviroquai](https://github.com/taviroquai)
-  - Fix missing translations in Dutch locale. [#7694](https://github.com/ant-design/ant-design/pull/7694) [@kstiopin](https://github.com/kstiopin)
+  - 🇵🇹 Support Portuguese. [#7449](https://github.com/ant-design/ant-design/pull/7449) [@taviroquai](https://github.com/taviroquai)
+  - 🐞 Fix missing translations in Dutch locale. [#7694](https://github.com/ant-design/ant-design/pull/7694) [@kstiopin](https://github.com/kstiopin)
 - Table
-  - Fix height of table header when `rowSelection` is set. [#7663](https://github.com/ant-design/ant-design/issues/7663)
-  - Fix bug that click on first two options will not trigger event when `rowSelection.hideDefaultselections` is set. [#7626](https://github.com/ant-design/ant-design/issues/7626) [@infeng](https://github.com/infeng)
-  - Fix TypeScript definition of `Table[scroll]`. [#7640](https://github.com/ant-design/ant-design/pull/7640) [@BlackGanglion](https://github.com/BlackGanglion)
+  - 🐞 Fix height of table header when `rowSelection` is set. [#7663](https://github.com/ant-design/ant-design/issues/7663)
+  - 🐞 Fix bug that click on first two options will not trigger event when `rowSelection.hideDefaultselections` is set. [#7626](https://github.com/ant-design/ant-design/issues/7626) [@infeng](https://github.com/infeng)
+  - 🐞 Fix TypeScript definition of `Table[scroll]`. [#7640](https://github.com/ant-design/ant-design/pull/7640) [@BlackGanglion](https://github.com/BlackGanglion)
 
 
 ## 2.13.2
