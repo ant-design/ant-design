@@ -17,6 +17,26 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.4
+
+`2017-09-29`
+
+- 🐞 Fix missing Pagination `size="small"` style.
+- 🐞 Fix Anchor missing padding. [#7712](https://github.com/ant-design/ant-design/issues/7712)
+- 🐞 Fix TreeSelect extra select below search input. [#7703](https://github.com/ant-design/ant-design/issues/7703)
+- 🐞 Fix the jumping problem of Form validate text. [#7730](https://github.com/ant-design/ant-design/issues/7730)
+- 🐞 Fix Button Group loading style. [#7709](https://github.com/ant-design/ant-design/issues/7709)
+- 🐞 Fix blur placeholder text color. [#7365](https://github.com/ant-design/ant-design/issues/7365)
+- 🐞 Fix Mention `suggestion.toLowerCase is not a function` error. [#7696](https://github.com/ant-design/ant-design/issues/7696) [@kappa-gooner](https://github.com/kappa-gooner)
+- 🐞 Fix a children height problem of Layout.Sider. [#7716](https://github.com/ant-design/ant-design/pull/7716) [@zheeeng](https://github.com/zheeeng)
+- 🐞 Fix Dropdown menu group style.
+- 🐞 Fix Table filter icon and dropdown style.
+- 🐞 Fix a AutoComplete circular reference bug in Inferno. [#7742](https://github.com/ant-design/ant-design/pull/7742) [@menberg](https://github.com/menberg)
+- 🐞 Fix Upload cannot upload file when using `beforeUpload`. [#7762](https://github.com/ant-design/ant-design/issues/7762) [#6983](https://github.com/ant-design/ant-design/issues/6983)
+- TypeScript
+  - 🐞 Fix Input `maxLength` definite. [#7744](https://github.com/ant-design/ant-design/pull/7744) [@delesseps](https://github.com/delesseps)
+  - 🐞 Fix `disabledTime` definite of DatePicker. [#7740](https://github.com/ant-design/ant-design/pull/7740) [@778758944](https://github.com/778758944)
+
 ## 2.13.3
 
 `2017-09-22`
