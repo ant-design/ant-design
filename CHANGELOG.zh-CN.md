@@ -17,6 +17,26 @@ timeline: true
 
 ---
 
+## 2.13.4
+
+`2017-09-29`
+
+- 修复 Pagination 小号样式失效的问题。
+- 修复 Anchor 的样式错位。[#7712](https://github.com/ant-design/ant-design/issues/7712)
+- 修复 TreeSelect 搜索框下多余文字的问题。[#7703](https://github.com/ant-design/ant-design/issues/7703)
+- 修复 Form 校验文字跳动的问题。[#7730](https://github.com/ant-design/ant-design/issues/7730)
+- 修复各类型 Button 的 loading 样式。 [#7709](https://github.com/ant-design/ant-design/issues/7709)
+- 修复 placeholder 文本在某些情况下无法看清的问题。[#7365](https://github.com/ant-design/ant-design/issues/7365)
+- 修复一个 Mention 的 `suggestion.toLowerCase is not a function` 报错问题。 [#7696](https://github.com/ant-design/ant-design/issues/7696) [@kappa-gooner](https://github.com/kappa-gooner)
+- 修复一个 Layout.Sider 子元素的高度问题。[#7716](https://github.com/ant-design/ant-design/pull/7716) [@zheeeng](https://github.com/zheeeng)
+- 修复 Dropdown 菜单分组的样式。
+- 修复 Table 筛选图标和菜单样式错位。
+- 修复一个 AutoComplete 在 Inferno 下循环引用的问题。[#7742](https://github.com/ant-design/ant-design/pull/7742) [@menberg](https://github.com/menberg)
+- 修复 Upload 使用 `beforeUpload` 验证文件类型失败后无法再次上传的问题。[#7762](https://github.com/ant-design/ant-design/issues/7762) [#6983](https://github.com/ant-design/ant-design/issues/6983)
+- TypeScript
+  - 修复 Input 的 `maxLength` 定义。[#7744](https://github.com/ant-design/ant-design/pull/7744) [@delesseps](https://github.com/delesseps)
+  - 修复 DatePicker 等组件的 `disabledTime` 的返回值定义。[#7740](https://github.com/ant-design/ant-design/pull/7740) [@778758944](https://github.com/778758944)
+
 ## 2.13.3
 
 `2017-09-22`
