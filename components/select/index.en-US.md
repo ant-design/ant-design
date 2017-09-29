@@ -42,7 +42,7 @@ Select component to select value from options.
 | dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
-| size    | Size of Select input. `large` `small`  | string      |      default      |
+| size    | Size of Select input. `default` `large` `small`  | string      |      default      |
 | showSearch | Whether show search input in single mode.| boolean | false |
 | disabled | Whether disabled select | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
