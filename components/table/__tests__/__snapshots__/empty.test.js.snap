@@ -375,6 +375,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
           >
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -422,6 +423,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
           >
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
