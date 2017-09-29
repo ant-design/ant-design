@@ -30,8 +30,7 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: middle;
-  top: -1.2px;
+  vertical-align: text-bottom;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -59,7 +58,7 @@
   }
   &-inner {
     &:after {
-      @radio-dot-size: @radio-size - 9px;
+      @radio-dot-size: @radio-size - 8px;
       position: absolute;
       width: @radio-dot-size;
       height: @radio-dot-size;
@@ -107,7 +106,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @primary-color;
     &:after {
-      transform: scale(1);
+      transform: scale(.875);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
