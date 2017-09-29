@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.pagination', () => {
@@ -16,7 +15,7 @@ describe('Table.pagination', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  const pagination = { pageSize: 2 };
+  const pagination = { className: 'my-page', pageSize: 2 };
 
   function createTable(props) {
     return (
@@ -35,7 +34,7 @@ describe('Table.pagination', () => {
 
   it('renders pagination correctly', () => {
     const wrapper = render(createTable());
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('paginate data', () => {
@@ -67,6 +66,7 @@ describe('Table.pagination', () => {
 
     expect(handleChange).toBeCalledWith(
       {
+        className: 'my-page',
         current: 2,
         pageSize: 2,
       },

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { SiderProps } from './Sider';
 
 export interface BasicProps {
   style?: React.CSSProperties;
@@ -8,7 +9,7 @@ export interface BasicProps {
 }
 
 function generator(props) {
-  return (Basic) : any => {
+  return (BacicComponent): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
@@ -16,7 +17,7 @@ function generator(props) {
       static Sider: any;
       render() {
         const { prefixCls } = props;
-        return <Basic prefixCls={prefixCls} {...this.props}/>;
+        return <BacicComponent prefixCls={prefixCls} {...this.props} />;
       }
     };
   };
@@ -40,7 +41,12 @@ class Basic extends React.Component<BasicProps, any> {
   }
 }
 
-const Layout = generator({
+const Layout: React.ComponentClass<BasicProps> & {
+  Header: React.ComponentClass<BasicProps>;
+  Footer: React.ComponentClass<BasicProps>;
+  Content: React.ComponentClass<BasicProps>;
+  Sider: React.ComponentClass<SiderProps>;
+} = generator({
   prefixCls: 'ant-layout',
 })(Basic);
 

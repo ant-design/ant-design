@@ -50,4 +50,43 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-control-wrapper').length).toBe(2);
     expect(wrapper.find('.ant-form-item-control-wrapper.ant-col-14').length).toBe(1);
   });
+
+  // https://github.com/ant-design/ant-design/issues/7351
+  it('focus correct input when click label', () => {
+    const Form1 = Form.create()(({ form }) => (
+      <Form>
+        <Form.Item label="label 1">
+          {form.getFieldDecorator('test')(<input />)}
+        </Form.Item>
+      </Form>
+    ));
+    const Form2 = Form.create()(({ form }) => (
+      <Form>
+        <Form.Item label="label 2">
+          {form.getFieldDecorator('test2')(<input />)}
+        </Form.Item>
+      </Form>
+    ));
+    const wrapper = mount(<div><Form1 /><Form2 /></div>);
+    wrapper.find('Form label').at(0).simulate('click');
+    expect(wrapper.find('Form input').at(0).node).toBe(document.activeElement);
+    wrapper.find('Form label').at(1).simulate('click');
+    expect(wrapper.find('Form input').at(1).node).toBe(document.activeElement);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/7693
+  it('should not throw error when is not a valid id', () => {
+    const Form1 = Form.create()(({ form }) => (
+      <Form>
+        <Form.Item label="label 1">
+          {form.getFieldDecorator('member[0].name.firstname')(<input />)}
+        </Form.Item>
+      </Form>
+    ));
+    const wrapper = mount(<Form1 />);
+    expect(() => {
+      wrapper.find('Form label').at(0).simulate('click');
+    }).not.toThrow();
+    expect(wrapper.find('Form input').at(0).node).toBe(document.activeElement);
+  });
 });

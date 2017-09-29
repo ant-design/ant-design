@@ -1,9 +1,7 @@
 import React from 'react';
 import { createElement, Component } from 'react';
-import { findDOMNode } from 'react-dom';
-import isCssAnimationSupported from '../_util/isCssAnimationSupported';
-import assign from 'object-assign';
 import omit from 'omit.js';
+import classNames from 'classnames';
 
 function getNumberArray(num) {
   return num ?
@@ -20,6 +18,7 @@ export interface ScrollNumberProps {
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
+  title?: string | number;
 }
 
 export default class ScrollNumber extends Component<ScrollNumberProps, any> {
@@ -38,12 +37,6 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
       animateStarted: true,
       count: props.count,
     };
-  }
-
-  componentDidMount() {
-    if (!isCssAnimationSupported()) {
-      findDOMNode(this).className += ' not-support-css-animation';
-    }
   }
 
   getPositionByNum(num, i) {
@@ -109,6 +102,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
       className: `${this.props.prefixCls}-only`,
       style: {
         transition: removeTransition && 'none',
+        msTransform: `translateY(${-position * 100}%)`,
         WebkitTransform: `translateY(${-position * 100}%)`,
         transform: `translateY(${-position * 100}%)`,
       },
@@ -126,24 +120,28 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
   }
 
   render() {
+    const { prefixCls, className, style, title, component = 'sup' } = this.props;
     // fix https://fb.me/react-unknown-prop
-    const props = assign({}, omit(this.props, [
+    const restProps = omit(this.props, [
       'count',
       'onAnimated',
       'component',
       'prefixCls',
-    ]), {
-      className: `${this.props.prefixCls} ${this.props.className}`,
-    });
+    ]);
+    const newProps = {
+      ...restProps,
+      className: classNames(prefixCls, className),
+      title: title as string,
+    };
     // allow specify the border
     // mock border-color by box-shadow for compatible with old usage:
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-    if (props.style && props.style.borderColor) {
-      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor} inset`;
+    if (style && style.borderColor) {
+      newProps.style.boxShadow = `0 0 0 1px ${style.borderColor} inset`;
     }
     return createElement(
-      this.props.component || 'sup',
-      props,
+      component as any,
+      newProps,
       this.renderNumberElement(),
     );
   }

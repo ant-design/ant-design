@@ -17,7 +17,6 @@ As is described in the Law of Continuity of Gestalt psychology, in the perceptua
 
 If the paragraphs or the length of the words are too short or too loose, then a unified visual starting point is needed.
 
-
 ---
 
 ## Form Alignment

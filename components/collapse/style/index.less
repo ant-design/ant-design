@@ -3,6 +3,9 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
+@collapse-header-bg: @background-color-base;
+@collapse-active-bg: @background-color-active;
+
 .collapse-close() {
   .iconfont-size-under-12px(9px, 0);
 }
@@ -11,25 +14,28 @@
 }
 
 .@{collapse-prefix-cls} {
-  background-color: @background-color-base;
+  background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
+
+    &:last-child {
+      &,
+      & > .@{collapse-prefix-cls}-header {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
+    }
+
     > .@{collapse-prefix-cls}-header {
-      height: 38px;
-      line-height: 38px;
-      padding-left: 32px;
+      line-height: 22px;
+      padding: 8px 0 8px 32px;
       color: @heading-color;
       cursor: pointer;
       position: relative;
       transition: all .3s;
-
-      &:active {
-        background-color: #eee!important;
-      }
 
       .arrow {
         .collapse-close();
@@ -39,14 +45,10 @@
         display: inline-block;
         font-weight: bold;
         line-height: 40px;
-        vertical-align: middle;
+        vertical-align: top;
         transition: transform 0.24s;
         top: 0;
         left: 16px;
-        /* stylelint-disable declaration-block-no-duplicate-properties */
-        top: ~"16px \9";
-        left: ~"0 \9";
-        /* stylelint-enable declaration-block-no-duplicate-properties */
         &:before {
           content: "\E61F";
         }
@@ -91,6 +93,11 @@
     border: 0;
   }
 
+  &-borderless > &-item:last-child,
+  &-borderless > &-item:last-child &-header {
+    border-radius: 0;
+  }
+
   &-borderless > &-item-active {
     border: 0;
   }
@@ -103,7 +110,20 @@
   &-borderless > &-item > &-header {
     transition: all .3s;
     &:hover {
-      background-color: @background-color-base;
+      background-color: @collapse-header-bg;
     }
+  }
+
+  & &-item-disabled > &-header {
+    &,
+    & > .arrow {
+      cursor: not-allowed;
+      color: @disabled-color;
+      background-color: @disabled-bg;
+    }
+  }
+
+  & > &-item:not(&-item-disabled) > .@{collapse-prefix-cls}-header:active {
+    background-color: @collapse-active-bg;
   }
 }

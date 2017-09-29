@@ -45,7 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <Mention
-        style={{ width: '100%', height: 100 }}
+        style={{ width: '100%' }}
         onChange={onChange}
         placeholder="input @ to mention people, # to mention tag"
         prefix={['@', '#']}

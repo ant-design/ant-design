@@ -3,7 +3,6 @@
  */
 
 import moment from 'moment';
-import 'moment/locale/ru';
 moment.locale('ru');
 
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
@@ -47,6 +46,6 @@ export default {
     uploading: 'Закачиваю...',
     removeFile: 'Удалить файл',
     uploadError: 'Ошибка при закачке',
-    previewFile: 'Предпросмотр файл',
+    previewFile: 'Предпросмотр файла',
   },
 };

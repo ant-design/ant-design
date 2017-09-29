@@ -41,7 +41,8 @@ class App extends React.Component {
   render() {
     // filterOption needs to be false，as the value is dynamically generated
     return (
-      <Select combobox
+      <Select
+        mode="combobox"
         style={{ width: 200 }}
         onChange={this.handleChange}
         filterOption={false}

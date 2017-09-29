@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
@@ -39,7 +40,7 @@ function noop() {}
 function getDefaultTarget() {
   return typeof window !== 'undefined' ?
     window : null;
-};
+}
 
 // Affix
 export interface AffixProps {
@@ -60,9 +61,9 @@ export interface AffixProps {
 
 export default class Affix extends React.Component<AffixProps, any> {
   static propTypes = {
-    offsetTop: React.PropTypes.number,
-    offsetBottom: React.PropTypes.number,
-    target: React.PropTypes.func,
+    offsetTop: PropTypes.number,
+    offsetBottom: PropTypes.number,
+    target: PropTypes.func,
   };
 
   scrollEvent: any;
@@ -71,6 +72,18 @@ export default class Affix extends React.Component<AffixProps, any> {
   refs: {
     fixedNode: HTMLElement;
   };
+
+  events = [
+    'resize',
+    'scroll',
+    'touchstart',
+    'touchmove',
+    'touchend',
+    'pageshow',
+    'load',
+  ];
+
+  eventHandlers = {};
 
   constructor(props) {
     super(props);
@@ -149,7 +162,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       });
       this.setPlaceholderStyle({
         width,
-        height: affixNode.offsetHeight,
+        height: elemSize.height,
       });
     } else if (
       scrollTop < elemOffset.top + elemSize.height + (offsetBottom as number) - targetInnerHeight &&
@@ -166,7 +179,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       });
       this.setPlaceholderStyle({
         width,
-        height: affixNode.offsetHeight,
+        height: elemOffset.height,
       });
     } else {
       const { affixStyle } = this.state;
@@ -189,7 +202,7 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.target !== nextProps.target) {
-      this.clearScrollEventListeners();
+      this.clearEventListeners();
       this.setTargetEventListeners(nextProps.target);
 
       // Mock Event object.
@@ -198,7 +211,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   componentWillUnmount() {
-    this.clearScrollEventListeners();
+    this.clearEventListeners();
     clearTimeout(this.timeout);
     (this.updatePosition as any).cancel();
   }
@@ -208,15 +221,18 @@ export default class Affix extends React.Component<AffixProps, any> {
     if (!target) {
       return;
     }
-    this.clearScrollEventListeners();
-    this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
-    this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
+    this.clearEventListeners();
+
+    this.events.forEach(eventName => {
+      this.eventHandlers[eventName] = addEventListener(target, eventName, this.updatePosition);
+    });
   }
 
-  clearScrollEventListeners() {
-    ['scrollEvent', 'resizeEvent'].forEach((name) => {
-      if (this[name]) {
-        this[name].remove();
+  clearEventListeners() {
+    this.events.forEach(eventName => {
+      const handler = this.eventHandlers[eventName];
+      if (handler && handler.remove) {
+        handler.remove();
       }
     });
   }

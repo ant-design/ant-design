@@ -85,7 +85,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -144,10 +144,10 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-affix-wrapper"
+                class="ant-select-search__field ant-input-affix-wrapper"
               >
                 <input
-                  class="ant-input ant-input ant-select-search__field"
+                  class="ant-input"
                   type="text"
                   value=""
                 />
@@ -211,7 +211,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -266,7 +266,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <input
-              class="ant-input ant-input ant-select-search__field"
+              class="ant-input ant-select-search__field"
               type="text"
               value=""
             />
@@ -325,10 +325,10 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
               class="ant-select-search__field__wrap"
             >
               <span
-                class="ant-input-affix-wrapper"
+                class="ant-select-search__field ant-input-affix-wrapper"
               >
                 <input
-                  class="ant-input ant-input ant-select-search__field"
+                  class="ant-input"
                   type="text"
                   value=""
                 />
@@ -336,7 +336,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                   class="ant-input-suffix"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-lg search-btn"
+                    class="ant-btn search-btn ant-btn-primary ant-btn-lg"
                     type="button"
                   >
                     <i

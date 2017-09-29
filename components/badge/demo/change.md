@@ -60,7 +60,7 @@ class Demo extends React.Component {
           <Badge dot={this.state.show}>
             <a href="#" className="head-example" />
           </Badge>
-          <Switch onChange={this.onChange} />
+          <Switch onChange={this.onChange} checked={this.state.show} />
         </div>
       </div>
     );

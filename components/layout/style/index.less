@@ -7,11 +7,14 @@
   display: flex;
   flex-direction: column;
   flex: auto;
-  overflow: auto;
   background: @layout-body-background;
 
   &&-has-sider {
     flex-direction: row;
+    > .@{layout-prefix-cls},
+    > .@{layout-prefix-cls}-content {
+      overflow-x: hidden;
+    }
   }
 
   &-header,
@@ -37,9 +40,16 @@
   }
 
   &-sider {
-    transition: all .3s @ease-out;
+    transition: all .2s;
     position: relative;
     background: @layout-sider-background;
+
+    /* fix firefox can't set width smaller than content on flex item */
+    min-width: 0;
+
+    &-children {
+      height: 100%;
+    }
 
     &-has-trigger {
       padding-bottom: @layout-trigger-height;
@@ -50,15 +60,16 @@
     }
 
     &-trigger {
-      position: absolute;
+      position: fixed;
       text-align: center;
-      width: 100%;
       bottom: 0;
       cursor: pointer;
       height: @layout-trigger-height;
       line-height: @layout-trigger-height;
-      background: tint(@heading-color, 20%);
-      color: #fff;
+      color: @layout-trigger-color;
+      background: fade(@layout-trigger-background, 100);
+      z-index: 1;
+      transition: all .15s @ease-in-out;
     }
 
     &-zero-width {

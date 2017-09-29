@@ -406,3 +406,28 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   </span>
 </div>
 `;
+
+exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
+<div>
+  <span
+    class=""
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-text"
+      style="display:;"
+    />
+    <div
+      class="ant-upload-list ant-upload-list-text"
+    />
+  </span>
+  <button
+    class="ant-btn upload-demo-start ant-btn-primary"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Start Upload
+    </span>
+  </button>
+</div>
+`;

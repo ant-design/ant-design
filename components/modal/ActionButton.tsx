@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../button';
+import { ButtonType } from '../button/button';
 
 export interface ActionButtonProps {
-  type?: 'primary' | 'dashed';
+  type?: ButtonType;
   actionFn: Function;
   closeModal: Function;
   autoFocus?: Boolean;
@@ -43,6 +44,9 @@ export default class ActionButton extends React.Component<ActionButtonProps, any
           // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
           // this.setState({ loading: false });
           closeModal(...args);
+        }, () => {
+          // See: https://github.com/ant-design/ant-design/issues/6183
+          this.setState({ loading: false });
         });
       }
     } else {

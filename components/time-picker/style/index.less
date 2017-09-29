@@ -5,12 +5,10 @@
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
 
 .@{timepicker-prefix-cls}-panel {
-  max-width: @time-picker-panel-width;
   z-index: @zindex-picker;
   position: absolute;
 
   &-inner {
-    display: inline-block;
     position: relative;
     outline: none;
     list-style: none;
@@ -33,6 +31,8 @@
     cursor: auto;
     line-height: 1.5;
     outline: 0;
+
+    .placeholder;
 
     &-wrap {
       box-sizing: border-box;
@@ -116,23 +116,26 @@
       list-style: none;
       box-sizing: content-box;
       margin: 0;
-      padding: 0 0 0 16px;
+      padding: 0 0 0 8px;
       width: 100%;
       height: 24px;
       line-height: 24px;
       text-align: left;
       cursor: pointer;
       user-select: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
 
     li:hover {
-      background: @primary-1;
+      background: @item-hover-bg;
     }
 
     li&-option-selected {
-      background: @background-color-base;
+      background: @time-picker-selected-bg;
       font-weight: bold;
+      &:hover {
+        background: @time-picker-selected-bg;
+      }
     }
 
     li&-option-disabled {
@@ -188,6 +191,9 @@
 
   &-input {
     .input;
+    &[disabled] {
+      .disabled;
+    }
   }
 
   &-large &-input {
@@ -206,7 +212,7 @@
     position: absolute;
     user-select: none;
     transition: all .3s @ease-in-out;
-    width: 12px;
+    width: 14px;
     height: 12px;
     line-height: 12px;
     right: 8px;
@@ -218,9 +224,8 @@
       font-family: "anticon";
       font-size: @font-size-base;
       color: @text-color-secondary;
-      display: inline-block;
+      display: block;
       line-height: 1;
-      vertical-align: bottom;
     }
   }
 }

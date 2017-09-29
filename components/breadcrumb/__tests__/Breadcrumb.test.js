@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -14,6 +13,7 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
+  // https://github.com/airbnb/enzyme/issues/875
   it('warns on non-Breadcrumb.Item children', () => {
     const MyCom = () => <div>foo</div>;
     mount(
@@ -37,6 +37,18 @@ describe('Breadcrumb', () => {
       </Breadcrumb>
     );
     expect(errorSpy).not.toHaveBeenCalled();
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/5542
+  it('should not display Breadcrumb Item when its children is falsy', () => {
+    const wrapper = render(
+      <Breadcrumb>
+        <Breadcrumb.Item />
+        <Breadcrumb.Item>xxx</Breadcrumb.Item>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

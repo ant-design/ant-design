@@ -19,10 +19,12 @@ export interface FilterMenuProps {
     filterDropdownVisible?: boolean,
     onFilterDropdownVisibleChange?: (visible: boolean) => any,
     fixed?: boolean | string,
+    filterIcon?: React.ReactNode;
   };
   confirmFilter: (column: Object, selectedKeys: string[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
+  getPopupContainer: (triggerNode?: Element) => HTMLElement;
 }
 
 export default class FilterMenu extends React.Component<FilterMenuProps, any> {
@@ -168,8 +170,20 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     this.setState({ keyPathOfSelectedItem });
   }
 
+  renderFilterIcon = () => {
+    const { column, locale, prefixCls } = this.props;
+    const filterIcon = column.filterIcon as any;
+    const dropdownSelectedClass = this.props.selectedKeys.length > 0 ? `${prefixCls}-selected` : '';
+
+    return filterIcon ? React.cloneElement(filterIcon as any, {
+      title: locale.filterTitle,
+      className: classNames(filterIcon.className, {
+        [`${prefixCls}-icon`]: true,
+      }),
+    }) : <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />;
+  }
   render() {
-    const { column, locale, prefixCls, dropdownPrefixCls } = this.props;
+    const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
     const dropdownMenuClass = classNames({
@@ -209,17 +223,15 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       </FilterDropdownMenuWrapper>
     );
 
-    const dropdownSelectedClass = (this.props.selectedKeys.length > 0)
-      ? `${prefixCls}-selected` : '';
-
     return (
       <Dropdown
         trigger={['click']}
         overlay={menus}
         visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
+        getPopupContainer={getPopupContainer}
       >
-        <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
+        {this.renderFilterIcon()}
       </Dropdown>
     );
   }

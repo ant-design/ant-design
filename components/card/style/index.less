@@ -1,16 +1,18 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @card-prefix-cls: ~"@{ant-prefix}-card";
+@card-padding-base: 24px;
+@card-padding-wider: 32px;
 
 .@{card-prefix-cls} {
   background: @component-background;
-  border-radius: @border-radius-base;
+  border-radius: @border-radius-sm;
   font-size: @font-size-base;
   position: relative;
-  overflow: hidden;
   transition: all .3s;
 
-  &:hover {
+  &:not(&-no-hovering):hover {
     box-shadow: @box-shadow-base;
     border-color: transparent;
   }
@@ -20,35 +22,48 @@
   }
 
   &-head {
-    height: 48px;
-    line-height: 48px;
+    height: @card-head-height;
+    line-height: @card-head-height;
+    background: @card-head-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
-    padding: 0 24px;
+    padding: 0 @card-padding-base;
+    border-radius: @border-radius-sm @border-radius-sm 0 0;
+    .clearfix;
+    margin-bottom: -1px; // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
+    display: flex;
 
     &-title {
       font-size: @font-size-lg;
-      display: inline-block;
       text-overflow: ellipsis;
-      width: 100%;
+      max-width: 100%;
       overflow: hidden;
       white-space: nowrap;
-      color: @heading-color;
+      color: @card-head-color;
       font-weight: 500;
+      display: inline-block;
+      flex: 1;
     }
   }
 
   &-extra {
-    position: absolute;
-    right: 24px;
-    top: 14px;
+    float: right;
+    text-align: right;
+    // https://stackoverflow.com/a/22429853/3040605
+    margin-left: auto;
   }
 
   &-body {
-    padding: 24px;
+    padding: @card-padding-base;
+    .clearfix;
   }
 
   &-loading &-body {
     user-select: none;
+    padding: 0;
+  }
+
+  &-loading-content {
+    padding: @card-padding-base;
   }
 
   &-loading-block {
@@ -59,6 +74,47 @@
     background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
 	  animation: card-loading 1.4s ease infinite;
     background-size: 600% 600%;
+  }
+
+  &-contain-grid &-body {
+    margin: -1px 0 0 -1px;
+    padding: 0;
+  }
+
+  &-grid {
+    border-radius: 0;
+    border: 0;
+    box-shadow: 1px 0 0 0 @border-color-split, 0 1px 0 0 @border-color-split, 1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset, 0 1px 0 0 @border-color-split inset;
+    width: 33.33%;
+    float: left;
+    padding: @card-padding-base;
+    transition: all .3s;
+    &:hover {
+      position: relative;
+      z-index: 1;
+      box-shadow: @box-shadow-base;
+    }
+  }
+
+  &-wider-padding &-head {
+    padding: 0 @card-padding-wider;
+  }
+
+  &-wider-padding &-body {
+    padding: @card-padding-base @card-padding-wider;
+  }
+
+  &-wider-padding &-extra {
+    right: @card-padding-wider;
+  }
+
+  &-padding-transition &-head,
+  &-padding-transition &-body {
+    transition: padding .3s;
+  }
+
+  &-padding-transition &-extra {
+    transition: right .3s;
   }
 }
 

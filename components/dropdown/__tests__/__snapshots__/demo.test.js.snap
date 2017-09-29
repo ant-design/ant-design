@@ -26,7 +26,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-dropdown-trigger"
+      class="ant-btn ant-dropdown-trigger ant-btn-default"
       type="button"
     >
       <i
@@ -48,8 +48,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-dropdown-trigger"
-      disabled=""
+      class="ant-btn ant-dropdown-trigger ant-btn-default"
       type="button"
     >
       <i

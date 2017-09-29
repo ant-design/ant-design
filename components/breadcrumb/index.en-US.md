@@ -18,15 +18,15 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | Property      | Description                              | Type              |  Optional | Default |
 |-----------|-----------------------------------|-----------------|---------|--------|
 | routes    | The routing stack information of router | object[]             |         | -      |
-| params    | Routing parameter                        | object            |         | -      |
-| separator | Custom separator                      | string\|ReactNode |         | '/'    |
+| params    | Routing parameters                        | object            |         | -      |
+| separator | Custom separator                      | string\|ReactNode |         | `/`    |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | | - |
 
 > `linkRender` and `nameRender` were removed after `antd@2.0`, please use `itemRender` instead.
 
 ### Use with browserHistory
 
-The link of Breadcrumb item contain `#` defaultly, you can use `itemRender` to make `browserHistory` Link.
+The link of Breadcrumb item targets `#` by default, you can use `itemRender` to make a `browserHistory` Link.
 
 ```jsx
 import { Link } from 'react-router';

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
@@ -60,14 +61,14 @@ export default class MainContent extends React.Component {
     if (!location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-    } else {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = setTimeout(() => {
-        document.getElementById(decodeURI(location.hash.replace('#', ''))).scrollIntoView();
-      }, 10);
+      return;
     }
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(() => {
+      location.hash = location.hash;
+    }, 10);
   }
 
   componentWillUnmount() {
@@ -153,7 +154,7 @@ export default class MainContent extends React.Component {
     const result = [...topLevel];
     result.forEach((item, i) => {
       const insertCategory = categories.filter(
-        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] < i : i === result.length - 1)
+        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] <= i : i === result.length - 1)
       )[0];
       if (insertCategory) {
         const target = (
@@ -161,7 +162,7 @@ export default class MainContent extends React.Component {
             {this.generateSubMenuItems(menuItems[insertCategory])}
           </SubMenu>
         );
-        result.splice(i, 0, target);
+        result.splice(i + 1, 0, target);
         categories.splice(categories.indexOf(insertCategory), 1);
       }
     });
@@ -169,22 +170,20 @@ export default class MainContent extends React.Component {
   }
 
   flattenMenu(menu) {
-    if (menu.type === Menu.Item) {
+    if (menu && menu.type && !menu.type.isSubMenu && !menu.type.isMenuItemGroup) {
       return menu;
     }
-
     if (Array.isArray(menu)) {
       return menu.reduce((acc, item) => acc.concat(this.flattenMenu(item)), []);
     }
-
-    return this.flattenMenu(menu.props.children);
+    return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
   getFooterNav(menuItems, activeMenuItem) {
     const menuItemsList = this.flattenMenu(menuItems);
     let activeMenuItemIndex = -1;
     menuItemsList.forEach((menuItem, i) => {
-      if (menuItem.key === activeMenuItem) {
+      if (menuItem && menuItem.key === activeMenuItem) {
         activeMenuItemIndex = i;
       }
     });
@@ -229,17 +228,18 @@ export default class MainContent extends React.Component {
           <Col
             lg={{ span: 20, offset: 4 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}
+            sm={24}
+            xs={24}
           >
             <section className="prev-next-nav">
               {
                 prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  React.cloneElement(prev.props.children || prev.children[0], { className: 'prev-page' }) :
                   null
               }
               {
                 next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  React.cloneElement(next.props.children || next.children[0], { className: 'next-page' }) :
                   null
               }
             </section>

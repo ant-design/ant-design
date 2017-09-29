@@ -50,10 +50,6 @@ List Inlay: Works as an effective way to hide detail until needed — while at t
 
 <br>
 
-<p><span class="waiting">Detail Inlay (coming soon)</span></p>
-
-<br>
-
 <img class="preview-img" align="right" alt="example of Tabs" src="https://os.alipayobjects.com/rmsportal/MsVyvEIJtlxZWBL.png">
 
 Tabs: Provides additional panels of information accessible by tab controls.
@@ -69,10 +65,6 @@ In the process of interaction design, Overlays allow you to bring additional int
 Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](/docs/pattern/list#显示长列表)
 
 Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图片)
-
-<br>
-
-<p><span class="waiting">Flexible User Interface (coming soon)</span></p>
 
 <br>
 

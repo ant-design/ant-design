@@ -57,3 +57,7 @@ Create a standalone less file like the one below, and import it in your project.
    ```
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
+
+## Related Articles
+
+- [How to Customize Ant Design with React & Webpack… the Missing Guide](https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-missing-guide-c6430f2db10f)

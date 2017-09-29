@@ -1,7 +1,7 @@
 import React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
+import PropTypes from 'prop-types';
 
 export interface RowProps {
   className?: string;
@@ -19,13 +19,13 @@ export default class Row extends React.Component<RowProps, any> {
   };
 
   static propTypes = {
-    type: React.PropTypes.string,
-    align: React.PropTypes.string,
-    justify: React.PropTypes.string,
-    className: React.PropTypes.string,
-    children: React.PropTypes.node,
-    gutter: React.PropTypes.number,
-    prefixCls: React.PropTypes.string,
+    type: PropTypes.string,
+    align: PropTypes.string,
+    justify: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
+    gutter: PropTypes.number,
+    prefixCls: PropTypes.string,
   };
   render() {
     const { type, justify, align, className, gutter, style, children,
@@ -36,20 +36,22 @@ export default class Row extends React.Component<RowProps, any> {
       [`${prefixCls}-${type}-${justify}`]: type && justify,
       [`${prefixCls}-${type}-${align}`]: type && align,
     }, className);
-    const rowStyle = (gutter as number) > 0 ? assign({}, {
+    const rowStyle = (gutter as number) > 0 ? {
       marginLeft: (gutter as number) / -2,
       marginRight: (gutter as number) / -2,
-    }, style) : style;
+      ...style,
+     } : style;
     const cols = Children.map(children, (col: React.ReactElement<any>) => {
       if (!col) {
         return null;
       }
       if (col.props && (gutter as number) > 0) {
         return cloneElement(col, {
-          style: assign({}, {
+          style: {
             paddingLeft: (gutter as number) / 2,
             paddingRight: (gutter as number) / 2,
-          }, col.props.style),
+            ...col.props.style,
+          },
         });
       }
       return col;

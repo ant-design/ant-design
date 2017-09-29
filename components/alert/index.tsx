@@ -4,7 +4,7 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-function noop() {}
+function noop() { }
 
 export interface AlertProps {
   /**
@@ -20,7 +20,7 @@ export interface AlertProps {
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
-  onClose?: React.MouseEventHandler<any>;
+  onClose?: React.MouseEventHandler<HTMLAnchorElement>;
   /** Whether to show icon */
   showIcon?: boolean;
   style?: React.CSSProperties;
@@ -30,17 +30,14 @@ export interface AlertProps {
 }
 
 export default class Alert extends React.Component<AlertProps, any> {
-  static defaultProps = {
-    type: 'info',
-  };
-  constructor(props) {
+  constructor(props: AlertProps) {
     super(props);
     this.state = {
       closing: true,
       closed: false,
     };
   }
-  handleClose = (e) => {
+  handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     let dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
@@ -66,9 +63,9 @@ export default class Alert extends React.Component<AlertProps, any> {
     } = this.props;
 
     // banner模式默认有 Icon
-    showIcon = showIcon || banner;
+    showIcon = banner && showIcon === undefined ? true : showIcon;
     // banner模式默认为警告
-    type = banner ? 'warning' : type;
+    type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconType = '';
     switch (type) {

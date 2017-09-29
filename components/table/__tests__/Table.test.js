@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, shallow, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 const { Column, ColumnGroup } = Table;
@@ -41,7 +40,7 @@ describe('Table', () => {
       </Table>
     );
 
-    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('updates columns when receiving props', () => {

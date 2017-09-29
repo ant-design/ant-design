@@ -20,21 +20,27 @@ const TabPane = Tabs.TabPane;
 ReactDOM.render(
   <div className="card-container">
     <Tabs type="card">
-      <TabPane tab="Tab 1" key="1">Content of Tab Pane 1</TabPane>
-      <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
-      <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+      <TabPane tab="Tab Title 1" key="1">
+        <p>Content of Tab Pane 1</p>
+        <p>Content of Tab Pane 1</p>
+        <p>Content of Tab Pane 1</p>
+      </TabPane>
+      <TabPane tab="Tab Title 2" key="2">
+        <p>Content of Tab Pane 2</p>
+        <p>Content of Tab Pane 2</p>
+        <p>Content of Tab Pane 2</p>
+      </TabPane>
+      <TabPane tab="Tab Title 3" key="3">
+        <p>Content of Tab Pane 3</p>
+        <p>Content of Tab Pane 3</p>
+        <p>Content of Tab Pane 3</p>
+      </TabPane>
     </Tabs>
   </div>
 , mountNode);
 ````
 
 ````css
-#components-tabs-demo-card-top .code-box-demo {
-  background: #ececec;
-  overflow: hidden;
-  padding: 24px;
-}
-
 .card-container > .ant-tabs-card > .ant-tabs-content {
   height: 120px;
   margin-top: -16px;
@@ -45,11 +51,25 @@ ReactDOM.render(
   padding: 16px;
 }
 
+.card-container > .ant-tabs-card > .ant-tabs-bar {
+  border-color: #fff;
+}
+
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
   border-color: transparent;
+  background: transparent;
 }
 
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
   border-color: #fff;
+  background: #fff;
 }
 ````
+
+<style>
+#components-tabs-demo-card-top .code-box-demo {
+  background: #F5F5F5;
+  overflow: hidden;
+  padding: 24px;
+}
+</style>

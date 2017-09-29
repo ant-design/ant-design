@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 14
 title:
   zh-CN: 校验其他组件
   en-US: Other Form Controls
@@ -79,7 +79,7 @@ class Demo extends React.Component {
               { required: true, message: 'Please select your favourite colors!', type: 'array' },
             ],
           })(
-            <Select multiple placeholder="Please select favourite colors">
+            <Select mode="multiple" placeholder="Please select favourite colors">
               <Option value="red">Red</Option>
               <Option value="green">Green</Option>
               <Option value="blue">Blue</Option>

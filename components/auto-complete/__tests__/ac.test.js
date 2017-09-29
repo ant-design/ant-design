@@ -14,7 +14,17 @@ describe('AutoComplete with Custom Input Element Render', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '123' } });
     const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
 
-    expect(dropdownWrapper.find('MenuItem').length).toBe(1);
-    expect(dropdownWrapper.find('MenuItem').props().value).toBe('12345');
+    // should not filter data source defaultly
+    expect(dropdownWrapper.find('MenuItem').length).toBe(3);
+  });
+
+  it('child.ref should work', () => {
+    const mockRef = jest.fn();
+    mount(
+      <AutoComplete dataSource={[]}>
+        <input ref={mockRef} />
+      </AutoComplete>
+    );
+    expect(mockRef).toHaveBeenCalled();
   });
 });

@@ -1,6 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 @tab-prefix-cls: ~"@{ant-prefix}-tabs";
+
 @import "./card-style";
 
 .@{tab-prefix-cls} {
@@ -18,7 +19,6 @@
     box-sizing: border-box;
     height: 2px;
     background-color: @primary-color;
-    transition: transform 0.3s @ease-in-out;
     transform-origin: 0 0;
   }
 
@@ -26,16 +26,18 @@
     border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
     outline: none;
+    transition: padding .3s @ease-in-out;
   }
 
   &-nav-container {
     overflow: hidden;
-    font-size: @font-size-lg;
+    font-size: @tabs-title-font-size;
     line-height: @line-height-base;
     box-sizing: border-box;
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
+    transition: padding .3s @ease-in-out;
     .clearfix;
 
     &-scrolling {
@@ -48,9 +50,7 @@
   &-tab-next {
     user-select: none;
     z-index: 2;
-    margin-right: -2px;
-    margin-top: 3px;
-    width: 32px;
+    width: 0;
     height: 100%;
     line-height: 32px;
     cursor: pointer;
@@ -59,28 +59,38 @@
     position: absolute;
     text-align: center;
     color: @text-color-secondary;
-    transition: color 0.3s ease;
+    transition: width .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+
+    &.@{tab-prefix-cls}-tab-arrow-show {
+      opacity: 1;
+      width: 32px;
+      height: 100%;
+      pointer-events: auto;
+    }
 
     &:hover {
       color: @text-color;
     }
 
     &-icon {
-      position: relative;
-      display: inline-block;
       font-style: normal;
       font-weight: bold;
       font-variant: normal;
       line-height: inherit;
       vertical-align: baseline;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       text-transform: none;
-      font-family: sans-serif;
-      .iconfont-size-under-12px(10px);
 
       &:before {
         display: block;
         font-family: "anticon" !important;
+        .iconfont-size-under-12px(10px);
       }
     }
   }
@@ -124,11 +134,11 @@
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: transform 0.5s @ease-in-out;
+    transition: transform 0.3s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
-    float: left;
+    display: inline-block;
 
     &:before,
     &:after {
@@ -152,6 +162,10 @@
       margin-right: 24px;
       box-sizing: border-box;
       position: relative;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       padding: 8px 20px;
       transition: color 0.3s @ease-in-out;
@@ -193,13 +207,15 @@
       > .@{tab-prefix-cls}-tabpane {
         flex-shrink: 0;
         width: 100%;
-        transition: opacity 0.3s;
+        transition: opacity .45s;
         opacity: 1;
       }
 
       > .@{tab-prefix-cls}-tabpane-inactive {
         opacity: 0;
         height: 0;
+        padding: 0 !important;
+        pointer-events: none;
       }
     }
     > .@{tab-prefix-cls}-content-animated {
@@ -213,6 +229,17 @@
   &-vertical {
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
+      height: 100%;
+      &-tab-prev, &-tab-next {
+        width: 32px;
+        height: 0;
+        transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+      }
+      &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
+      &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
+        width: 100%;
+        height: 32px;
+      }
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -226,16 +253,33 @@
         }
       }
 
+      .@{tab-prefix-cls}-extra-content {
+        text-align: center;
+      }
+
       .@{tab-prefix-cls}-nav-scroll {
         width: auto;
       }
 
+      .@{tab-prefix-cls}-nav-container,
+      .@{tab-prefix-cls}-nav-wrap {
+        height: 100%;
+      }
+
       .@{tab-prefix-cls}-nav-container {
         margin-bottom: 0;
+
+        &.@{tab-prefix-cls}-nav-container-scrolling {
+          padding: 32px 0;
+        }
       }
 
       .@{tab-prefix-cls}-nav-wrap {
         margin-bottom: 0;
+      }
+
+      .@{tab-prefix-cls}-nav {
+        width: 100%;
       }
 
       .@{tab-prefix-cls}-ink-bar {
@@ -249,7 +293,27 @@
     > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
-      margin-top: 0!important;
+      margin-top: 0 !important;
+    }
+
+    > .@{tab-prefix-cls}-bar {
+      .@{tab-prefix-cls}-tab-next {
+        width: 100%;
+        bottom: 0;
+        height: 32px;
+        &-icon:before {
+          content: "\e61d";
+        }
+      }
+
+      .@{tab-prefix-cls}-tab-prev {
+        top: 0;
+        width: 100%;
+        height: 32px;
+        &-icon:before {
+          content: "\e61e";
+        }
+      }
     }
   }
 
@@ -304,6 +368,16 @@
     margin-bottom: 0;
     margin-top: 16px;
   }
+}
+
+.@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+}
+
+.@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
 }
 
 .no-flex,

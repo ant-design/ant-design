@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 
 const options = [{
@@ -32,7 +32,7 @@ describe('Cascader', () => {
     const wrapper = mount(
       <Cascader options={options} />
     );
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
   });
 
   it('popup correctly when panel is open', () => {
@@ -40,7 +40,7 @@ describe('Cascader', () => {
       <Cascader options={options} />
     );
     wrapper.find('input').simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
   });
 
   it('popup correctly with defaultValue', () => {
@@ -48,9 +48,8 @@ describe('Cascader', () => {
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />
     );
     wrapper.find('input').simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
   });
-
 
   it('can be selected', () => {
     const wrapper = mount(<Cascader options={options} />);
@@ -58,14 +57,23 @@ describe('Cascader', () => {
     let popupWrapper = mount(wrapper.find('Trigger').node.getComponent());
     popupWrapper.find('.ant-cascader-menu').at(0).find('.ant-cascader-menu-item').at(0)
       .simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
     popupWrapper = mount(wrapper.find('Trigger').node.getComponent());
     popupWrapper.find('.ant-cascader-menu').at(1).find('.ant-cascader-menu-item').at(0)
       .simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
     popupWrapper = mount(wrapper.find('Trigger').node.getComponent());
     popupWrapper.find('.ant-cascader-menu').at(2).find('.ant-cascader-menu-item').at(0)
       .simulate('click');
-    expect(renderToJson(render(wrapper.find('Trigger').node.getComponent()))).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').node.getComponent())).toMatchSnapshot();
+  });
+
+  it('backspace should work with `Cascader[showSearch]`', () => {
+    const wrapper = mount(<Cascader options={options} showSearch />);
+    wrapper.find('input').simulate('change', { target: { value: '123' } });
+    expect(wrapper.state('inputValue')).toBe('123');
+    wrapper.find('input').simulate('keydown', { keyCode: KeyCode.BACKSPACE });
+    // Simulate onKeyDown will not trigger onChange by default, so the value is still '123'
+    expect(wrapper.state('inputValue')).toBe('123');
   });
 });

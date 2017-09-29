@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: 
   zh-CN: 分隔符
   en-US: Configuring the Separator

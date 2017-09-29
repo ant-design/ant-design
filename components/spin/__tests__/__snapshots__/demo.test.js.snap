@@ -96,15 +96,19 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
       </div>
     </div>
   </div>
-  Loading state：
-  <span
-    class="ant-switch"
-    tabindex="0"
+  <div
+    style="margin-top:16px;"
   >
+    Loading state：
     <span
-      class="ant-switch-inner"
-    />
-  </span>
+      class="ant-switch"
+      tabindex="0"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </span>
+  </div>
 </div>
 `;
 

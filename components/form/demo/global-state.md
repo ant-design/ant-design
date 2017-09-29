@@ -25,7 +25,7 @@ const CustomizedForm = Form.create({
     return {
       username: {
         ...props.username,
-        value: props.username.value.toUpperCase(),
+        value: props.username.value,
       },
     };
   },

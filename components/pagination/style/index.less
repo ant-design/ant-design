@@ -17,10 +17,11 @@
   }
 
   &-total-text {
-    float: left;
-    height: 30px;
-    line-height: 30px;
-    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
   }
 
   &-item {
@@ -32,11 +33,13 @@
     line-height: 28px;
     text-align: center;
     list-style: none;
-    float: left;
+    display: inline-block;
+    vertical-align: middle;
     border: @border-width-base @border-style-base @border-color-base;
     background-color: @component-background;
     margin-right: 8px;
     font-family: Arial;
+    outline: 0;
 
     a {
       text-decoration: none;
@@ -45,8 +48,9 @@
       margin: 0 6px;
     }
 
+    &:focus,
     &:hover {
-      transition: all 0.3s ease;
+      transition: all .3s;
       border-color: @primary-color;
       a {
         color: @primary-color;
@@ -57,7 +61,14 @@
       background-color: @primary-color;
       border-color: @primary-color;
 
+      &:focus,
+      &:hover {
+        background-color: @primary-5;
+        border-color: @primary-5;
+      }
+
       a,
+      &:focus a,
       &:hover a {
         color: #fff;
       }
@@ -66,6 +77,8 @@
 
   &-jump-prev,
   &-jump-next {
+    outline: 0;
+
     &:after {
       content: "•••";
       display: block;
@@ -74,6 +87,7 @@
       text-align: center;
     }
 
+    &:focus,
     &:hover {
       &:after {
         color: @primary-color;
@@ -85,6 +99,7 @@
   }
 
   &-jump-prev {
+    &:focus,
     &:hover {
       &:after {
         content: "\e620\e620";
@@ -93,6 +108,7 @@
   }
 
   &-jump-next {
+    &:focus,
     &:hover {
       &:after {
         content: "\e61f\e61f";
@@ -117,19 +133,32 @@
     min-width: 28px;
     height: 28px;
     line-height: 28px;
-    float: left;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all .3s;
     display: inline-block;
+    vertical-align: middle;
   }
 
   &-prev,
   &-next {
-    border: @border-width-base @border-style-base @border-color-base;
-    background-color: @component-background;
+    outline: 0;
 
     a {
       color: @text-color;
+      user-select: none;
+    }
+
+    &:hover a {
+      color: @primary-color;
+    }
+
+    .@{pagination-prefix-cls}-item-link {
+      border: @border-width-base @border-style-base @border-color-base;
+      background-color: @component-background;
+      border-radius: @border-radius-base;
+      outline: none;
+      display: block;
+      transition: all .3s;
 
       &:after {
         .iconfont-size-under-12px(8px);
@@ -138,48 +167,42 @@
         line-height: 26px;
         font-family: "anticon";
         text-align: center;
+        font-weight: 500;
       }
     }
 
-    &:hover {
+    &:focus .@{pagination-prefix-cls}-item-link,
+    &:hover .@{pagination-prefix-cls}-item-link {
       border-color: @primary-color;
-
-      a {
-        color: @primary-color;
-      }
+      color: @primary-color;
     }
   }
 
   &-prev {
-    a {
-      &:after {
-        margin-top: -.5px;
-        content: "\e620";
-        display: block;
-      }
+    .@{pagination-prefix-cls}-item-link:after {
+      content: "\e620";
+      display: block;
     }
   }
 
   &-next {
-    a {
-      &:after {
-        content: "\e61f";
-        display: block;
-      }
+    .@{pagination-prefix-cls}-item-link:after {
+      content: "\e61f";
+      display: block;
     }
   }
 
   &-disabled {
-    &:hover {
-      border-color: @border-color-base;
-      a {
+    &,
+    &:hover,
+    &:focus {
+      cursor: not-allowed;
+      a,
+      .@{pagination-prefix-cls}-item-link {
+        border-color: @border-color-base;
         color: @disabled-color;
         cursor: not-allowed;
       }
-    }
-    cursor: not-allowed;
-    a {
-      color: @disabled-color;
     }
   }
 
@@ -188,15 +211,17 @@
   }
 
   &-options {
-    float: left;
-    margin-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 16px;
+
     &-size-changer {
-      float: left;
-      margin-right: 10px;
+      display: inline-block;
+      margin-right: 8px;
     }
 
     &-quick-jumper {
-      float: left;
+      display: inline-block;
       height: @input-height-base;
       line-height: @input-height-base;
 
@@ -210,29 +235,34 @@
 
   &-simple &-prev,
   &-simple &-next {
-    border: 0;
     height: 24px;
     line-height: 24px;
-    margin: 0;
-    font-size: 18px;
+    vertical-align: top;
+    .@{pagination-prefix-cls}-item-link {
+      border: 0;
+      height: 24px;
+      &:after {
+        line-height: 24px;
+      }
+    }
   }
 
   &-simple &-simple-pager {
-    float: left;
+    display: inline-block;
     margin-right: 8px;
+    height: 24px;
 
     input {
-      margin: 0 8px;
+      margin-right: 8px;
       box-sizing: border-box;
       background-color: @component-background;
       border-radius: @border-radius-base;
       border: @border-width-base @border-style-base @border-color-base;
       outline: none;
-      padding: 5px 8px;
-      width: 30px;
-      height: 24px;
+      padding: 0 6px;
+      height: 100%;
       text-align: center;
-      transition: border-color 0.3s ease;
+      transition: border-color .3s;
 
       &:hover {
         border-color: @primary-color;
@@ -242,9 +272,10 @@
 }
 
 .@{pagination-prefix-cls} {
-  &.mini &-total-text {
-      height: 20px;
-      line-height: 20px;
+  &.mini &-total-text,
+  &.mini &-simple-pager {
+    height: 20px;
+    line-height: 20px;
   }
 
   &.mini &-item {
@@ -261,13 +292,14 @@
     min-width: 20px;
     height: 20px;
     line-height: 20px;
-    border: 0;
+  }
 
-    a {
-      &:after {
-        height: 20px;
-        line-height: 20px;
-      }
+  &.mini &-prev &-item-link,
+  &.mini &-next &-item-link {
+    border: 0;
+    &:after {
+      height: 20px;
+      line-height: 20px;
     }
   }
 

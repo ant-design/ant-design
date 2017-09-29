@@ -1,7 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
+  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
     return {
       media: mediaQuery,
       matches: false,
@@ -17,6 +17,7 @@ if (typeof window !== 'undefined') {
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import PropTypes from 'prop-types';
 import Icon from '../icon';
 
 const dimensionMap = {
@@ -55,6 +56,10 @@ export default class Sider extends React.Component<SiderProps, any> {
     style: {},
   };
 
+  static childContextTypes = {
+    siderCollapsed: PropTypes.bool,
+  };
+
   private mql: any;
 
   constructor(props) {
@@ -75,6 +80,12 @@ export default class Sider extends React.Component<SiderProps, any> {
     this.state = {
       collapsed,
       below: false,
+    };
+  }
+
+  getChildContext() {
+    return {
+      siderCollapsed: this.state.collapsed,
     };
   }
 
@@ -150,7 +161,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     const triggerDom = (
       trigger !== null ?
       zeroWidthTrigger || (
-        <div className={`${prefixCls}-trigger`} onClick={this.toggle}>
+        <div className={`${prefixCls}-trigger`} onClick={this.toggle} style={{ width: siderWidth }}>
           {trigger || defaultTrigger}
         </div>
       ) : null
@@ -158,6 +169,8 @@ export default class Sider extends React.Component<SiderProps, any> {
     const divStyle = {
       ...style,
       flex: `0 0 ${siderWidth}px`,
+      maxWidth: `${siderWidth}px`, // Fix width transition bug in IE11
+      minWidth: `${siderWidth}px`, // https://github.com/ant-design/ant-design/issues/6349
       width: `${siderWidth}px`,
     };
     const siderCls = classNames(className, prefixCls, {
@@ -168,7 +181,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     });
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
-        {this.props.children}
+        <div className={`${prefixCls}-children`}>{this.props.children}</div>
         {collapsible || (this.state.below && zeroWidthTrigger) ? triggerDom : null}
       </div>
     );

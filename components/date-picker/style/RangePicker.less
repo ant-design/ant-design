@@ -3,11 +3,12 @@
 .@{calendar-prefix-cls}-range-picker-input {
   background-color: transparent;
   border: 0;
-  height: 18px;
-  line-height: 18px;
+  height: 99%;
   outline: 0;
   width: 43%;
   text-align: center;
+  vertical-align: top;
+  .placeholder();
 
   &[disabled] {
     cursor: not-allowed;
@@ -16,6 +17,10 @@
 
 .@{calendar-prefix-cls}-range-picker-separator {
   color: @text-color-secondary;
+  width: 8px;
+  display: inline-block;
+  line-height: 18px;
+  vertical-align: top;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -129,7 +134,7 @@
     &:before {
       content: '';
       display: block;
-      background: @primary-1;
+      background: @item-active-bg;
       border-radius: 0;
       border: 0;
       position: absolute;
@@ -140,23 +145,12 @@
     }
   }
 
-  &-bottom {
-    text-align: right;
-
-    .@{calendar-prefix-cls}-footer-btn {
-      padding-right: 16px;
-    }
-  }
-
   // `div` for selector specificity
   div&-quick-selector {
-    display: block;
     text-align: left;
-    border-top: @border-width-base @border-style-base @border-color-split;
-    padding: 10.5px 10px;
 
     > a {
-      margin-right: 16px;
+      margin-right: 8px;
     }
   }
 
@@ -201,17 +195,8 @@
         }
       }
     }
-    .@{calendar-prefix-cls}-footer-btn {
-      padding: 9px 12px 9px 0;
-      display: block;
-      .clearfix;
-    }
-    .@{calendar-prefix-cls}-ok-btn {
-      position: static;
-      height: 22px;
-    }
     .@{calendar-prefix-cls}-footer .@{calendar-prefix-cls}-time-picker-btn {
-      margin-right: 12px;
+      margin-right: 8px;
     }
     .@{calendar-prefix-cls}-today-btn {
       margin: 8px 12px;

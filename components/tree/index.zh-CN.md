@@ -39,6 +39,8 @@ subtitle: 树形控件
 |onDragLeave | dragleave 触发时调用 | function({event, node}) | - |
 |onDragEnd | dragend 触发时调用 | function({event, node}) | - |
 |onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+|showLine | 是否展示连接线 | boolean | false |
+|showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
 
 ### TreeNode props
 
@@ -48,7 +50,7 @@ subtitle: 树形控件
 |disableCheckbox | 禁掉 checkbox | boolean | false |
 |title | 标题 | string\|ReactNode | '---' |
 |key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
-|isLeaf | 设置为叶子节点 | boolean | false |
+|isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
 
 ## 注意
 

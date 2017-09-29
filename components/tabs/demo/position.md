@@ -31,7 +31,9 @@ class Demo extends React.Component {
       <div>
         <div style={{ marginBottom: 16 }}>
           Tab position：
-          <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
+          <Select
+            value={this.state.tabPosition}
+            onChange={this.changeTabPosition}
             dropdownMatchSelectWidth={false}
           >
             <Option value="top">top</Option>

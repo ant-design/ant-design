@@ -11,7 +11,9 @@ Menu list of Navigation.
 
 Navigation menu is important for a website, it helps users jump from one site section to another quickly. Mostly, it includes top navigation and side navigation. Top navigation provides all the category and functions of the website. Side navigation provides the Multi-level structure of the website.
 
-More layout and samples: [layout](/docs/spec/layout).
+More layouts with navigation: [layout](/components/layout).
+
+## API
 
 ```html
 <Menu>
@@ -22,46 +24,47 @@ More layout and samples: [layout](/docs/spec/layout).
 </Menu>
 ```
 
-## API
-
-### Menu props
+### Menu
 
 | Param    | Description   | Type     | Default value       |
 |----------|---------------|----------|--------------|
-| theme    | color of the theme | string: `light` `dark` | `light` |
-| mode | type of the menu; vertical, horizontal, and inline modes are supported | string: vertical horizontal inline | vertical |
+| theme    | color theme of the menu | string: `light` `dark` | `light` |
+| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
+| selectable | allow selecting menu items | boolean | true |
 | selectedKeys | array with the keys of currently selected menu items | string[] |      |
 | defaultSelectedKeys | array with the keys of default selected menu items | string[] |      |
 | openKeys | array with the keys of currently opened sub menus | string[] |  |
 | defaultOpenKeys | array with the keys of default opened sub menus |  |      |
-| onOpenChange | called when open/close sub menu | Function(openKeys: string[]) | noop |
-| onSelect | callback of the selected item | Function({ item, key, selectedKeys }) | none   |
-| onDeselect | callback of the deselected item, only supported for multiple mode | Function({ item, key, selectedKeys }) | - |
-| onClick | callback of the clicked menu item, params: {item, key, keyPath} | function | - |
+| onOpenChange | called when open/close sub menu | function(openKeys: string[]) | noop |
+| onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none   |
+| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
+| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
 | style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
-| multiple | Allow select multiple item | boolean | false |
+| multiple | Allow selection of multiple items | boolean | false |
+| inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
+| selectable | Allow to be selected | boolean | true |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item props
+### Menu.Item
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
-| disabled    | disabled or not | boolean   |  false  |
+| disabled    | whether menu item is disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 
-### Menu.SubMenu props
+### Menu.SubMenu
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
-| disabled    | disabled or not | boolean   |  false  |
-| key   | unique id of the menu item |  string |  |
+| disabled    | whether sub menu is disabled or not | boolean   |  false  |
+| key   | unique id of the sub menu |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
-| children | sub menus or sub menu items | Arrat<MenuItem\|SubMenu> |  |
-| onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |
+| children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
+| onTitleClick | callback executed when the sub menu title is clicked | function({ key, domEvent }) |  |
 
-### Menu.ItemGroup props
+### Menu.ItemGroup
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
@@ -70,4 +73,4 @@ More layout and samples: [layout](/docs/spec/layout).
 
 ### Menu.Divider
 
-divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
+Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.

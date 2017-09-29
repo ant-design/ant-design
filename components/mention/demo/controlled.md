@@ -15,12 +15,12 @@ Controlled mode, for example, to work with `Form`.
 
 ````jsx
 import { Mention, Form, Button } from 'antd';
-const { toEditorState, getMentions } = Mention;
+const { toContentState, getMentions } = Mention;
 const FormItem = Form.Item;
 
 class App extends React.Component {
   state = {
-    initValue: toEditorState('@afc163'),
+    initValue: toContentState('@afc163'),
   }
   handleReset = (e) => {
     e.preventDefault();
@@ -65,7 +65,6 @@ class App extends React.Component {
           })(
             <Mention
               suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
-              style={{ height: 60 }}
             />
           )}
         </FormItem>

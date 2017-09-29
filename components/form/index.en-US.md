@@ -59,14 +59,14 @@ The following `options` are available:
 | Property      | Description                          | Type       |
 |-----------|------------------------------------------|------------|
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
-| mapPropsToFields | Convert props to corresponding field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | Convert props to field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
 | onValuesChange | A handler while value of any field is changed | (props, values) => void |
 
 If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
 
 > Note: Before using `getFieldsValue` `getFieldValue` `setFieldsValue` and so on, please make sure that corresponding field had been registered with `getFieldDecorator`.
 
-| Property      | Description                          | Type       |
+| Method    | Description                              | Type       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function([fieldNames: string[]]) |
 | getFieldValue | Get the value of a field. | Function(fieldName: string) |
@@ -83,17 +83,28 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
 | getFieldDecorator | Two-way binding for form, please read below for details. | |
 
+### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
+
+| 参数 | 说明 | 类型 | 默认值 |
+|-----|-----|------|-------|
+| options.first | If `true`, every field will stop validation at first failed rule | boolean | false |
+| options.firstFields | Those fields will stop validation at first failed rule | String[] | [] |
+| options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
+| options.scroll | Config scroll behavior of `validateFieldsAndScroll`, more: [dom-scroll-into-view's config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+
+
 ### this.props.form.getFieldDecorator(id, options)
 
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
 
-1. You don't need to use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
+1. You shouldn't to use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
 2. You can not set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
-3. You don't need to call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
+3. You shouldn't to call `setState` manually, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention
 
-If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: https://github.com/facebook/react/pull/6534
+1. `getFieldDecorator` can not be used to decorate stateless component.
+1. If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: https://github.com/facebook/react/pull/6534
 
 #### getFieldDecorator(id, options) parameters
 
@@ -103,10 +114,14 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 | options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
 | options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internaly, we recommend to use vairable as `initialValue`, instead of literal) | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
-| options.getValueFromEvent | To convert parameters of onChange to the value of control | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.validateTrigger | When to validate the value of children node. | string\|string[] | 'onChange' |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object[] | n/a |
+| options.validateFirst | Whether stop validate on first rule of error for this field. | boolean | false |
 | options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
+| options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+
+More option at [rc-form option](https://github.com/react-component/form#option-object)。
 
 ### Form.Item
 
@@ -117,8 +132,8 @@ Note:
 | Property      | Description                          | Type   | Default Value |
 |---------------|--------------------------------------|--------|---------------|
 | label | Label text | string\|ReactNode |   |
-| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | object |  |
-| wrapperCol | The layout for input controls, same as `labelCol` | object |  |
+| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  |
+| wrapperCol | The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
 | help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | string\|ReactNode |  |
 | extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time. | string\|ReactNode |  |
 | required | Whether provided or not, it will be generated by the validation rule. | boolean | false |
@@ -149,3 +164,20 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
   max-width: 540px;
 }
 </style>
+
+
+## Using in TypeScript
+
+```jsx
+import { Form } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form';
+
+interface UserFormProps extends FormComponentProps {
+  age: number;
+  name: string;
+}
+
+class UserForm extends React.Component<UserFormProps, any> {
+
+}
+

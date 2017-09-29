@@ -9,11 +9,7 @@ import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
 const reqAnimFrame = getRequestAnimationFrame();
 
-const currentScrollTop = () => {
-  return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
-};
-
-const easeInOutCubic = (t, b, c, d) => {
+const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   const cc = c - b;
   t /= d / 2;
   if (t < 1) {
@@ -23,11 +19,10 @@ const easeInOutCubic = (t, b, c, d) => {
   }
 };
 
-function noop() {}
+function noop() { }
 
 function getDefaultTarget() {
-  return typeof window !== 'undefined' ?
-    window : null;
+  return window;
 }
 
 export interface BackTopProps {
@@ -46,15 +41,24 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
   scrollEvent: any;
 
-  constructor(props) {
+  constructor(props: BackTopProps) {
     super(props);
     this.state = {
       visible: false,
     };
   }
 
-  scrollToTop = (e) => {
-    const scrollTop = currentScrollTop();
+  getCurrentScrollTop = () => {
+    const getTarget = this.props.target || getDefaultTarget;
+    const targetNode = getTarget();
+    if (targetNode === window) {
+      return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+    }
+    return (targetNode as HTMLElement).scrollTop;
+  }
+
+  scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
+    const scrollTop = this.getCurrentScrollTop();
     const startTime = Date.now();
     const frameFunc = () => {
       const timestamp = Date.now();
@@ -68,8 +72,9 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     (this.props.onClick || noop)(e);
   }
 
-  setScrollTop(value) {
-    const targetNode = (this.props.target || getDefaultTarget)();
+  setScrollTop(value: number) {
+    const getTarget = this.props.target || getDefaultTarget;
+    const targetNode = getTarget();
     if (targetNode === window) {
       document.body.scrollTop = value;
       document.documentElement.scrollTop = value;
@@ -87,8 +92,9 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   componentDidMount() {
+    const getTarget = this.props.target || getDefaultTarget;
+    this.scrollEvent = addEventListener(getTarget(), 'scroll', this.handleScroll);
     this.handleScroll();
-    this.scrollEvent = addEventListener((this.props.target || getDefaultTarget)(), 'scroll', this.handleScroll);
   }
 
   componentWillUnmount() {

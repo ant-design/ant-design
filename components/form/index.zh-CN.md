@@ -10,7 +10,7 @@ title: Form
 
 ## 表单
 
-我们为 `form` 提供了以下两种排列方式：
+我们为 `form` 提供了以下三种排列方式：
 
 - 水平排列：标签和表单控件水平排列；（默认）
 - 垂直排列：标签和表单控件上下垂直排列；
@@ -61,14 +61,14 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
-| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | 把父组件的属性映射到表单项上（可用于把 Redux store 中的值读出） | Function(props): Object{ fieldName: Object{ value } } |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, values) => void |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
-| 参数      | 说明                                     | 类型       |
+| 方法      | 说明                                     | 类型       |
 |-----------|------------------------------------------|------------|
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |
 | getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
@@ -84,17 +84,27 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | resetFields | 重置一组输入控件的值（为 `initialValue`）与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 | |
 
+### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
+
+| 参数 | 说明 | 类型 | 默认值 |
+|-----|-----|------|-------|
+| options.first | 若为 true，则每一表单域的都会在碰到第一个失败了的校验规则后停止校验 | boolean | false |
+| options.firstFields | 指定表单域会在碰到第一个失败了的校验规则后停止校验 | String[] | [] |
+| options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
+| options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
+
 ### this.props.form.getFieldDecorator(id, options)
 
 经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
-1. 你不再需要用 `onChange` 来做同步，但还是可以继续监听 `onChange` 等事件。
+1. 你**不再需要也不应该**用 `onChange` 来做同步，但还是可以继续监听 `onChange` 等事件。
 2. 你不能用控件的 `value` `defaultValue` 等属性来设置表单域的值，默认值可以用 `getFieldDecorator` 里的 `initialValue`。
-3. 你不需要用 `setState`，可以使用 `this.props.form.setFieldsValue` 来动态改变表单值。
+3. 你不应该用 `setState`，可以使用 `this.props.form.setFieldsValue` 来动态改变表单值。
 
 #### 特别注意
 
-如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
+1. `getFieldDecorator` 不能用于装饰纯函数组件。
+1. 如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
 
 #### getFieldDecorator(id, options) 参数
 
@@ -104,10 +114,14 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
-| options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.getValueFromEvent | 可以把 onChange 的参数（如 event）转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
 | options.rules | 校验规则，参考下方文档 | object[] | |
+| options.validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |
 | options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
+| options.normalize | 转换默认的 value 给控件，[一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
+
+更多参数请查看 [rc-form option](https://github.com/react-component/form#option-object)。
 
 ### Form.Item
 
@@ -118,14 +132,14 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|-----------------------------------------|-----------|--------|
 | label | label 标签的文本 | string\|ReactNode |  |
-| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | object | |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object | |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | |
 | extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | |
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |
-| colon | 配合 label 属性使用，表示是否显示 label 后面的分号 | boolean | true |
+| colon | 配合 label 属性使用，表示是否显示 label 后面的冒号 | boolean | true |
 
 ### 校验规则
 
@@ -150,3 +164,19 @@ validator | 自定义校验（注意，[callback 必须被调用](https://github
   max-width: 540px;
 }
 </style>
+
+
+## 在 TypeScript 中使用
+
+```jsx
+import { Form } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form';
+
+interface UserFormProps extends FormComponentProps {
+  age: number;
+  name: string;
+}
+
+class UserForm extends React.Component<UserFormProps, any> {
+
+}

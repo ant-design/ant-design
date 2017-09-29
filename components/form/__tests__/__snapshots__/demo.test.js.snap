@@ -11,7 +11,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
     >
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -47,7 +47,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -83,7 +83,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -119,7 +119,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -155,7 +155,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -191,7 +191,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;"
+        style="padding-left:20px;padding-right:20px;display:block;"
       >
         <div
           class="ant-row ant-form-item"
@@ -217,6 +217,150 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-input ant-input-lg"
                 data-__meta="[object Object]"
                 id="field-5"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-6"
+              title="Field 6"
+            >
+              Field 6
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-6"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-7"
+              title="Field 7"
+            >
+              Field 7
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-7"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-8"
+              title="Field 8"
+            >
+              Field 8
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-8"
+                placeholder="placeholder"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-8"
+        style="padding-left:20px;padding-right:20px;display:none;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col-5 ant-form-item-label"
+          >
+            <label
+              class=""
+              for="field-9"
+              title="Field 9"
+            >
+              Field 9
+            </label>
+          </div>
+          <div
+            class="ant-col-19 ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control "
+            >
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-9"
                 placeholder="placeholder"
                 type="text"
                 value=""
@@ -523,6 +667,123 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
+<div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="username"
+        title="Name"
+      >
+        Name
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="username"
+          placeholder="Please input your name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="nickname"
+        title="Nickname"
+      >
+        Nickname
+      </label>
+    </div>
+    <div
+      class="ant-col-8 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="nickname"
+          placeholder="Please input your nickname"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+          <span>
+            Nickname is required
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="button"
+        >
+          <span>
+            Check
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
 <div>
   <button
@@ -566,7 +827,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
             data-__meta="[object Object]"
             id="username"
             type="text"
-            value="BENJYCUI"
+            value="benjycui"
           />
         </div>
       </div>
@@ -925,6 +1186,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             <input
               checked=""
               class="ant-checkbox-input"
+              data-__meta="[object Object]"
               type="checkbox"
             />
             <span
@@ -937,11 +1199,12 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </label>
         <a
           class="login-form-forgot"
+          href=""
         >
           Forgot password
         </a>
         <button
-          class="ant-btn ant-btn-primary ant-btn-lg login-form-button"
+          class="ant-btn login-form-button ant-btn-primary ant-btn-lg"
           type="submit"
         >
           <span>
@@ -949,7 +1212,9 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
         </button>
         Or 
-        <a>
+        <a
+          href=""
+        >
           register now!
         </a>
       </div>
@@ -1111,6 +1376,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-cascader-picker"
           tabindex="0"
         >
+          <span
+            class="ant-cascader-picker-label"
+          >
+            Zhejiang / Hangzhou / West Lake
+          </span>
           <input
             autocomplete="off"
             class="ant-input ant-cascader-input ant-input-lg"
@@ -1120,11 +1390,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             type="text"
             value=""
           />
-          <span
-            class="ant-cascader-picker-label"
-          >
-            Zhejiang / Hangzhou / West Lake
-          </span>
           <i
             class="anticon anticon-cross-circle ant-cascader-picker-clear"
           />
@@ -1156,52 +1421,132 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <span
-          class="ant-input-wrapper ant-input-group"
+          class="ant-input-group-wrapper"
+          style="width:100%;"
         >
           <span
-            class="ant-input-group-addon"
+            class="ant-input-wrapper ant-input-group"
           >
-            <div
-              class="icp-selector ant-select ant-select-enabled"
+            <span
+              class="ant-input-group-addon"
             >
               <div
-                aria-autocomplete="list"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-select-selection
-                          ant-select-selection--single"
-                role="combobox"
-                tabindex="0"
+                class="ant-select ant-select-enabled"
+                style="width:60px;"
               >
                 <div
-                  class="ant-select-selection__rendered"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-select-selection
+                            ant-select-selection--single"
+                  role="combobox"
+                  tabindex="0"
                 >
                   <div
-                    class="ant-select-selection-selected-value"
-                    style="display:block;opacity:1;"
-                    title="+86"
+                    class="ant-select-selection__rendered"
                   >
-                    +86
+                    <div
+                      class="ant-select-selection-selected-value"
+                      style="display:block;opacity:1;"
+                      title="+86"
+                    >
+                      +86
+                    </div>
                   </div>
+                  <span
+                    class="ant-select-arrow"
+                    style="user-select:none;-webkit-user-select:none;"
+                    unselectable="unselectable"
+                  >
+                    <b />
+                  </span>
                 </div>
-                <span
-                  class="ant-select-arrow"
-                  style="user-select:none;-webkit-user-select:none;"
-                  unselectable="unselectable"
-                >
-                  <b />
-                </span>
               </div>
-            </div>
+            </span>
+            <input
+              class="ant-input ant-input-lg"
+              data-__meta="[object Object]"
+              id="phone"
+              type="text"
+              value=""
+            />
           </span>
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="phone"
-            type="text"
-            value=""
-          />
         </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-6"
+    >
+      <label
+        class="ant-form-item-required"
+        for="website"
+        title="Website"
+      >
+        Website
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-14"
+    >
+      <div
+        class="ant-form-item-control "
+      >
+        <div
+          class="ant-select-lg ant-select-lg ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable"
+              >
+                website
+              </div>
+              <ul>
+                <li
+                  class="ant-select-search ant-select-search--inline"
+                >
+                  <div
+                    class="ant-select-search__field__wrap"
+                  >
+                    <input
+                      class="ant-input ant-select-search__field"
+                      type="text"
+                      value=""
+                    />
+                    <span
+                      class="ant-select-search__field__mirror"
+                    >
+                       
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1281,6 +1626,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <input
               class="ant-checkbox-input"
+              data-__meta="[object Object]"
               type="checkbox"
             />
             <span
@@ -1289,7 +1635,9 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </span>
           <span>
             I have read the 
-            <a>
+            <a
+              href=""
+            >
               agreement
             </a>
           </span>
@@ -1347,7 +1695,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1357,7 +1705,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -1386,7 +1734,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-calendar-picker"
           style="width:154px;"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1396,7 +1744,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -1424,7 +1772,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
         >
-          <span>
+          <div>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
@@ -1434,7 +1782,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             <span
               class="ant-calendar-picker-icon"
             />
-          </span>
+          </div>
         </span>
       </div>
     </div>
@@ -1737,7 +2085,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class="ant-select-search__field__wrap"
                   >
                     <input
+                      autocomplete="off"
                       class="ant-select-search__field"
+                      id="select-multiple"
                       value=""
                     />
                     <span
@@ -1781,7 +2131,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class="ant-input-number-handler-wrap"
           >
             <span
+              aria-disabled="false"
+              aria-label="Increase Value"
               class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -1790,7 +2143,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               />
             </span>
             <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
               class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -1800,13 +2156,19 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-valuemax="10"
+            aria-valuemin="1"
+            aria-valuenow="3"
             class="ant-input-number-input-wrap"
+            role="spinbutton"
           >
             <input
               autocomplete="off"
               class="ant-input-number-input"
+              id="input-number"
               max="10"
               min="1"
+              step="1"
               value="3"
             />
           </div>
@@ -1911,8 +2273,14 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
           </div>
           <div
+            aria-disabled="false"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
             class="ant-slider-handle"
+            role="slider"
             style="left:0%;"
+            tabindex="0"
           />
           <div
             class="ant-slider-mark"
@@ -2407,7 +2775,184 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Success"
+      >
+        Success
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-success"
+      >
+        <span
+          class="ant-calendar-picker"
+          style="width:100%;"
+        >
+          <div>
+            <input
+              class="ant-calendar-picker-input ant-input ant-input-lg"
+              placeholder="请选择日期"
+              readonly=""
+              value=""
+            />
+            <span
+              class="ant-calendar-picker-icon"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Warning"
+      >
+        Warning
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-warning"
+      >
+        <span
+          class="ant-time-picker ant-time-picker-large"
+          style="width:100%;"
+        >
+          <input
+            class="ant-time-picker-input"
+            placeholder="请选择时间"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-time-picker-icon"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Error"
+      >
+        Error
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-error"
+      >
+        <div
+          class="ant-select-lg ant-select ant-select-enabled"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0"
+          >
+            <div
+              class="ant-select-selection__rendered"
+            >
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="Option 1"
+              >
+                Option 1
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable"
+            >
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Validating"
+      >
+        Validating
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback is-validating"
+      >
+        <span
+          class="ant-cascader-picker"
+          tabindex="0"
+        >
+          <span
+            class="ant-cascader-picker-label"
+          />
+          <input
+            autocomplete="off"
+            class="ant-input ant-cascader-input ant-input-lg"
+            readonly=""
+            type="text"
+            value=""
+          />
+          <i
+            class="anticon anticon-cross-circle ant-cascader-picker-clear"
+          />
+          <i
+            class="anticon anticon-down ant-cascader-picker-arrow"
+          />
+        </span>
+        <div
+          class="ant-form-explain"
+        >
+          The information is being validated...
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
@@ -2420,13 +2965,13 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-19"
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control "
       >
         <div
-          class="ant-col-6"
+          class="ant-col-11"
         >
           <div
             class="ant-row ant-form-item ant-form-item-with-help"
@@ -2440,7 +2985,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <span>
+                  <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
@@ -2450,7 +2995,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     <span
                       class="ant-calendar-picker-icon"
                     />
-                  </span>
+                  </div>
                 </span>
                 <div
                   class="ant-form-explain"
@@ -2462,16 +3007,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col-1"
+          class="ant-col-2"
         >
-          <p
-            class="ant-form-split"
+          <span
+            style="display:inline-block;width:100%;text-align:center;"
           >
             -
-          </p>
+          </span>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col-11"
         >
           <div
             class="ant-row ant-form-item"
@@ -2485,7 +3030,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 <span
                   class="ant-calendar-picker"
                 >
-                  <span>
+                  <div>
                     <input
                       class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
@@ -2495,15 +3040,82 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     <span
                       class="ant-calendar-picker-icon"
                     />
-                  </span>
+                  </div>
                 </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+    >
+      <label
+        class=""
+        title="Success"
+      >
+        Success
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+    >
+      <div
+        class="ant-form-item-control has-feedback has-success"
+      >
         <div
-          class="ant-form-explain"
-        />
+          class="ant-input-number ant-input-number-lg"
+          style="width:100%;"
+        >
+          <div
+            class="ant-input-number-handler-wrap"
+          >
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-up-inner"
+                unselectable="unselectable"
+              />
+            </span>
+            <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
+              class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
+              unselectable="unselectable"
+            >
+              <span
+                class="ant-input-number-handler-down-inner"
+                unselectable="unselectable"
+              />
+            </span>
+          </div>
+          <div
+            aria-valuemax="9007199254740991"
+            aria-valuemin="-9007199254740991"
+            class="ant-input-number-input-wrap"
+            role="spinbutton"
+          >
+            <input
+              autocomplete="off"
+              class="ant-input-number-input"
+              max="9007199254740991"
+              min="-9007199254740991"
+              step="1"
+              value=""
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2540,7 +3152,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
             class="ant-input-number-handler-wrap"
           >
             <span
+              aria-disabled="false"
+              aria-label="Increase Value"
               class="ant-input-number-handler ant-input-number-handler-up "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -2549,7 +3164,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               />
             </span>
             <span
+              aria-disabled="false"
+              aria-label="Decrease Value"
               class="ant-input-number-handler ant-input-number-handler-down "
+              role="button"
               unselectable="unselectable"
             >
               <span
@@ -2559,13 +3177,18 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-valuemax="12"
+            aria-valuemin="8"
+            aria-valuenow="11"
             class="ant-input-number-input-wrap"
+            role="spinbutton"
           >
             <input
               autocomplete="off"
               class="ant-input-number-input"
               max="12"
               min="8"
+              step="1"
               value="11"
             />
           </div>

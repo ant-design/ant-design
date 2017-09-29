@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.sorter', () => {
@@ -36,7 +35,7 @@ describe('Table.sorter', () => {
 
   it('renders sorter icon correctly', () => {
     const wrapper = render(createTable());
-    expect(renderToJson(wrapper.find('thead'))).toMatchSnapshot();
+    expect(wrapper.find('thead')).toMatchSnapshot();
   });
 
   it('sort records', () => {

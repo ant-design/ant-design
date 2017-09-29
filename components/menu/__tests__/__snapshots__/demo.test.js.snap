@@ -3,7 +3,7 @@
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-horizontal ant-menu-light ant-menu-root"
   role="menu"
   tabindex="0"
 >
@@ -61,10 +61,10 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/menu/demo/sider.md correctly 1`] = `
+exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
   role="menu"
   style="width:240px;"
   tabindex="0"
@@ -99,6 +99,7 @@ exports[`renders ./components/menu/demo/sider.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          title="Item 1"
         >
           Item 1
         </div>
@@ -128,6 +129,7 @@ exports[`renders ./components/menu/demo/sider.md correctly 1`] = `
       >
         <div
           class="ant-menu-item-group-title"
+          title="Item 2"
         >
           Item 2
         </div>
@@ -197,19 +199,160 @@ exports[`renders ./components/menu/demo/sider.md correctly 1`] = `
 </ul>
 `;
 
+exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
+<div
+  style="width:240px;"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-bottom:16px;"
+    type="button"
+  >
+    <i
+      class="anticon anticon-menu-fold"
+    />
+  </button>
+  <ul
+    aria-activedescendant=""
+    class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-selected="true"
+      class="ant-menu-item-selected ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px;"
+    >
+      <i
+        class="anticon anticon-pie-chart"
+      />
+      <span>
+        Option 1
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px;"
+    >
+      <i
+        class="anticon anticon-desktop"
+      />
+      <span>
+        Option 2
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px;"
+    >
+      <i
+        class="anticon anticon-inbox"
+      />
+      <span>
+        Option 3
+      </span>
+    </li>
+    <li
+      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        aria-owns="sub1$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px;"
+      >
+        <span>
+          <i
+            class="anticon anticon-mail"
+          />
+          <span>
+            Navigation One
+          </span>
+        </span>
+      </div>
+      <ul
+        aria-activedescendant=""
+        class="ant-menu ant-menu-inline  ant-menu-sub"
+        id="sub1$Menu"
+        role="menu"
+      >
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 5
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 6
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 7
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 8
+        </li>
+      </ul>
+    </li>
+    <li
+      class="ant-menu-submenu-inline ant-menu-submenu"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-owns="sub2$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px;"
+      >
+        <span>
+          <i
+            class="anticon anticon-appstore"
+          />
+          <span>
+            Navigation Two
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
   role="menu"
   style="width:240px;"
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu-selected ant-menu-submenu"
+    class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
   >
     <div
-      aria-expanded="false"
+      aria-expanded="true"
       aria-haspopup="true"
       aria-owns="sub1$Menu"
       class="ant-menu-submenu-title"
@@ -224,6 +367,45 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         </span>
       </span>
     </div>
+    <ul
+      aria-activedescendant=""
+      class="ant-menu ant-menu-inline  ant-menu-sub"
+      id="sub1$Menu"
+      role="menu"
+    >
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px;"
+      >
+        Option 1
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px;"
+      >
+        Option 2
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px;"
+      >
+        Option 3
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px;"
+      >
+        Option 4
+      </li>
+    </ul>
   </li>
   <li
     class="ant-menu-submenu-inline ant-menu-submenu"
@@ -278,15 +460,51 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       class="ant-switch-inner"
     />
   </span>
+   Change Mode
+  <span
+    class="ant-divider"
+    style="margin:0 1em;"
+  />
+  <span
+    class="ant-switch"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+   Change Theme
   <br />
   <br />
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
+    class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
     role="menu"
     style="width:240px;"
     tabindex="0"
   >
+    <li
+      aria-selected="true"
+      class="ant-menu-item-selected ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px;"
+    >
+      <i
+        class="anticon anticon-mail"
+      />
+      Navigation One
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px;"
+    >
+      <i
+        class="anticon anticon-calendar"
+      />
+      Navigation Two
+    </li>
     <li
       class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
     >
@@ -299,10 +517,10 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon anticon-mail"
+            class="anticon anticon-appstore"
           />
           <span>
-            Navigation One
+            Navigation Three
           </span>
         </span>
       </div>
@@ -313,62 +531,34 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         role="menu"
       >
         <li
-          class=" ant-menu-item-group"
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
         >
-          <div
-            class="ant-menu-item-group-title"
-          >
-            Item 1
-          </div>
-          <ul
-            class="ant-menu-item-group-list"
-          >
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              Option 1
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              Option 2
-            </li>
-          </ul>
+          Option 3
         </li>
         <li
-          class=" ant-menu-item-group"
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px;"
+        >
+          Option 4
+        </li>
+        <li
+          class="ant-menu-submenu-inline ant-menu-submenu"
         >
           <div
-            class="ant-menu-item-group-title"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="sub2$Menu"
+            class="ant-menu-submenu-title"
+            style="padding-left:48px;"
+            title="Submenu"
           >
-            Item 2
+            Submenu
           </div>
-          <ul
-            class="ant-menu-item-group-list"
-          >
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              Option 3
-            </li>
-            <li
-              aria-selected="false"
-              class="ant-menu-item"
-              role="menuitem"
-              style="padding-left:48px;"
-            >
-              Option 4
-            </li>
-          </ul>
         </li>
       </ul>
     </li>
@@ -384,30 +574,10 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon anticon-appstore"
-          />
-          <span>
-            Navigation Two
-          </span>
-        </span>
-      </div>
-    </li>
-    <li
-      class="ant-menu-submenu-inline ant-menu-submenu"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="true"
-        aria-owns="sub4$Menu"
-        class="ant-menu-submenu-title"
-        style="padding-left:24px;"
-      >
-        <span>
-          <i
             class="anticon anticon-setting"
           />
           <span>
-            Navigation Three
+            Navigation Four
           </span>
         </span>
       </div>
@@ -433,7 +603,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
   <br />
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
+    class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
     role="menu"
     style="width:240px;"
     tabindex="0"
@@ -544,7 +714,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-vertical  ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-vertical ant-menu-light ant-menu-root"
   role="menu"
   style="width:240px;"
   tabindex="0"
@@ -597,8 +767,8 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
       class="ant-menu-submenu-title"
     >
       <span>
-        <icon
-          type="setting"
+        <i
+          class="anticon anticon-setting"
         />
         <span>
           Navigation Three

@@ -10,9 +10,9 @@
   padding: 0 8px;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-split;
-  background: @background-color-base;
-  font-size: @font-size-base;
-  transition: all 0.3s @ease-in-out-circ;
+  background: @tag-default-bg;
+  font-size: @tag-font-size;
+  transition: all 0.3s @ease-out;
   opacity: 1;
   margin-right: 8px;
   cursor: pointer;
@@ -25,7 +25,7 @@
   &,
   a,
   a:hover {
-    color: @text-color;
+    color: @tag-default-color;
   }
 
   &-text {
@@ -41,7 +41,7 @@
     cursor: pointer;
     font-weight: bold;
     margin-left: 3px;
-    transition: all 0.3s ease;
+    transition: all 0.3s @ease-out;
     opacity: 0.66;
 
     &:hover {
@@ -63,13 +63,12 @@
   &-checkable {
     background-color: transparent;
     border-color: transparent;
-    &:hover,
+    &:not(&-checked):hover {
+      color: @primary-color;
+    }
     &:active,
     &-checked {
       color: #fff;
-    }
-    &:hover {
-      background-color: @primary-5;
     }
     &-checked {
       background-color: @primary-6;

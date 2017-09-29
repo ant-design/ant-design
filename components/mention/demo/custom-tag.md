@@ -40,10 +40,14 @@ class CustomNavMention extends React.Component {
     const filtered = webFrameworks.filter(item =>
       item.name.toLowerCase().indexOf(searchValue) !== -1
     );
-    const suggestions = filtered.map(suggestion =>
-      <Nav value={suggestion.name} data={suggestion}>
+    const suggestions = filtered.map(suggestion => (
+      <Nav
+        value={suggestion.name}
+        data={suggestion}
+      >
         <span>{suggestion.name} - {suggestion.type}</span>
-      </Nav>);
+      </Nav>
+    ));
     this.setState({ suggestions });
   }
   render() {
@@ -51,7 +55,7 @@ class CustomNavMention extends React.Component {
     return (
       <Mention
         placeholder="@someone"
-        style={{ width: '100%', height: 100 }}
+        style={{ width: '100%' }}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
         onSelect={onSelect}

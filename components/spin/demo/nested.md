@@ -22,17 +22,18 @@ class Card extends React.Component {
     this.setState({ loading: value });
   }
   render() {
-    const container = (
-      <Alert
-        message="Alert message title"
-        description="Further details about the context of this alert."
-        type="info"
-      />
-    );
     return (
       <div>
-        <Spin spinning={this.state.loading}>{container}</Spin>
-        Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
+        <Spin spinning={this.state.loading}>
+          <Alert
+            message="Alert message title"
+            description="Further details about the context of this alert."
+            type="info"
+          />
+        </Spin>
+        <div style={{ marginTop: 16 }}>
+          Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
+        </div>
       </div>
     );
   }

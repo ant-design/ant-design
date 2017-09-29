@@ -13,7 +13,7 @@ title: Ant Design of React
 
 <style>
 .pic-plus > * {
-  display: inline-block!important;
+  display: inline-block !important;
   vertical-align: middle;
 }
 .pic-plus span {
@@ -34,14 +34,14 @@ title: Ant Design of React
 
 ## 支持环境
 
-* 现代浏览器和 IE9 及以上。
+* 现代浏览器和 IE9 及以上（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
 * 支持服务端渲染。
 * [Electron](http://electron.atom.io/)
 
 ## 版本
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- 开发版：[![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
+- 预览版：[![](https://cnpmjs.org/badge/v/antd.svg?&tag=next&subject=npm)](https://www.npmjs.org/package/antd)
 
 你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
 
@@ -118,11 +118,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```js
 // tsconfig.json
 {
- "compilerOptions": {
-   "moduleResolution": "node",
-   "jsx": "preserve",
-   "allowSyntheticDefaultImports": true
- }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  }
 }
 ```
 
@@ -135,15 +135,15 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [首页](http://ant.design/)
 - [UI 组件库](/docs/react/introduce)
 - [更新日志](/changelog)
-- [开发脚手架](https://github.com/dvajs/dva-cli/)
+- [官方脚手架](https://github.com/dvajs/dva-cli/)
 - [开发工具文档](http://ant-tool.github.io/)
+- [脚手架市场](http://scaffold.ant.design)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
 - [动效](https://motion.ant.design)
 - [设计规范速查手册](https://github.com/ant-design/ant-design/wiki/Ant-Design-%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%AE%80%E7%89%88)
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
@@ -161,9 +161,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](https://github.com/ant-design/ant-design/issues/new)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](http://new-issue.ant.design/)。
 
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
+> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
 
 ## 社区互助
 
@@ -171,6 +171,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
-2. [Segment Fault](https://segmentfault.com/t/antd)（中文）
-3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+1. [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd)（English）
+2. [<img alt="Segment Fault" src="http://static.segmentfault.com/global/img/logo.svg" width="100" />](https://segmentfault.com/t/antd)（中文）
+3. [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
+4. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）

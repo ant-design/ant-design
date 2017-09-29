@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Children } from 'react';
 import classNames from 'classnames';
-import TimelineItem from './TimelineItem';
+import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -11,7 +11,7 @@ export interface TimelineProps {
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item: React.ReactNode;
+  static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
   static defaultProps = {
     prefixCls: 'ant-timeline',
   };
@@ -22,9 +22,11 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
     }, className);
-    const items = React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
+    // Remove falsy items
+    const falsylessItems = Children.toArray(children).filter(item => !!item);
+    const items = Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
-        last: idx === (children as { length: number }).length - 1,
+        last: idx === (Children.count(falsylessItems) - 1),
       }),
     );
     const pendingItem = (!!pending) ? (

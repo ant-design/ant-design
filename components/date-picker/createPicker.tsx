@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import assign from 'object-assign';
 import Icon from '../icon';
 import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
@@ -14,33 +14,31 @@ export interface PickerProps {
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar) {
-  // use class typescript error
-  const CalenderWrapper = React.createClass<any, any>({
-    contextTypes: {
-      antLocale: React.PropTypes.object,
-    },
-    getDefaultProps() {
-      return {
-        prefixCls: 'ant-calendar',
-        allowClear: true,
-        showToday: true,
-      };
-    },
+export default function createPicker(TheCalendar): any {
+  return class CalenderWrapper extends React.Component<any, any> {
+    static contextTypes = {
+      antLocale: PropTypes.object,
+    };
 
-    getInitialState() {
-      const props = this.props;
+    static defaultProps = {
+      prefixCls: 'ant-calendar',
+      allowClear: true,
+      showToday: true,
+    };
+
+    constructor(props) {
+      super(props);
       const value = props.value || props.defaultValue;
       if (value && !moment.isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value',
+          'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
         );
       }
-      return {
+      this.state = {
         value,
       };
-    },
+    }
 
     componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
@@ -48,21 +46,30 @@ export default function createPicker(TheCalendar) {
           value: nextProps.value,
         });
       }
-    },
+    }
 
-    clearSelection(e) {
+    renderFooter = (...args) => {
+      const { prefixCls, renderExtraFooter } = this.props;
+      return renderExtraFooter ? (
+        <div className={`${prefixCls}-footer-extra`}>
+          {renderExtraFooter(...args)}
+        </div>
+      ) : null;
+    }
+
+    clearSelection = (e) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
-    },
+    }
 
-    handleChange(value) {
+    handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-    },
+    }
 
     render() {
       const { value } = this.state;
@@ -108,6 +115,7 @@ export default function createPicker(TheCalendar) {
           format={props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
+          renderFooter={this.renderFooter}
         />
       );
 
@@ -126,7 +134,7 @@ export default function createPicker(TheCalendar) {
       ) : null;
 
       const input = ({ value: inputValue }) => (
-        <span>
+        <div>
           <input
             disabled={props.disabled}
             readOnly
@@ -136,7 +144,7 @@ export default function createPicker(TheCalendar) {
           />
           {clearIcon}
           <span className={`${prefixCls}-picker-icon`} />
-        </span>
+        </div>
       );
 
       const pickerValue = value;
@@ -144,8 +152,12 @@ export default function createPicker(TheCalendar) {
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
       }
+      const style = {
+        ...props.style,
+        ...pickerStyle,
+      };
       return (
-        <span className={props.pickerClass} style={assign({}, props.style, pickerStyle)}>
+        <span className={classNames(props.className, props.pickerClass)} style={style}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
@@ -158,8 +170,6 @@ export default function createPicker(TheCalendar) {
           </RcDatePicker>
         </span>
       );
-    },
-  });
-
-  return CalenderWrapper;
+    }
+  };
 }

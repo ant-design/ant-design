@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.rowSelection', () => {
@@ -172,16 +171,20 @@ describe('Table.rowSelection', () => {
     expect(handleSelectAll).toBeCalledWith(false, [], data);
   });
 
-  it('render selection correctly', () => {
-    const wrapper = mount(createTable());
+  it('render with default selection correctly', () => {
+    const rowSelection = {
+      selections: true,
+    };
+    const wrapper = mount(createTable({ rowSelection }));
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
-    expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
+    expect(dropdownWrapper).toMatchSnapshot();
   });
 
   it('click select all selection', () => {
     const handleSelectAll = jest.fn();
     const rowSelection = {
       onSelectAll: handleSelectAll,
+      selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
 
@@ -195,6 +198,7 @@ describe('Table.rowSelection', () => {
     const handleSelectInvert = jest.fn();
     const rowSelection = {
       onSelectInvert: handleSelectInvert,
+      selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
     const checkboxes = wrapper.find('input');
@@ -223,11 +227,55 @@ describe('Table.rowSelection', () => {
     const wrapper = mount(createTable({ rowSelection }));
 
     const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
     expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(3).simulate('click');
+    expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
+  });
+
+  it('could hide default selection options', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+      }, {
+        key: 'even',
+        text: '偶数项',
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
+  });
+
+  it('handle custom selection onSelect correctly when hide default selection options', () => {
+    const handleSelectOdd = jest.fn();
+    const handleSelectEven = jest.fn();
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'odd',
+        text: '奇数项',
+        onSelect: handleSelectOdd,
+      }, {
+        key: 'even',
+        text: '偶数项',
+        onSelect: handleSelectEven,
+      }],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(0).simulate('click');
+    expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
+
+    dropdownWrapper.find('.ant-dropdown-menu-item > div').at(1).simulate('click');
     expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
   });
 

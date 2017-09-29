@@ -17,7 +17,7 @@ export interface PaginationProps {
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
   showQuickJumper?: boolean;
-  showTotal?: (total: number) => React.ReactNode;
+  showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: string;
   simple?: boolean;
   style?: React.CSSProperties;
@@ -25,6 +25,7 @@ export interface PaginationProps {
   className?: string;
   prefixCls?: string;
   selectPrefixCls?: string;
+  itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
 }
 
 abstract class Pagination extends React.Component<PaginationProps, any> {
@@ -33,7 +34,7 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
     selectPrefixCls: 'ant-select',
   };
 
-  abstract getLocale()
+  abstract getLocale();
 
   render() {
     const { className, size, ...restProps } = this.props;

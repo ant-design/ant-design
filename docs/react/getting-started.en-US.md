@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v4.x) correctly.
+Ant Design React is dedicated to providing a **good development experience** for programmers and make sure that you had installed [Node.js](https://nodejs.org/)(> v6.5) correctly.
 
 ---
 
@@ -40,7 +40,7 @@ Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [more](https://github.com/ant-design/ant-design/issues/129)
+>   - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ### 2. Create a New Project
 
@@ -94,7 +94,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. Development & Debugging
 
-Run your project and visit http://127.0.0.1:8000
+Run your project and visit http://127.0.0.1:8001
 
 ```bash
 $ npm start
@@ -115,7 +115,11 @@ Entry files will be built and generated in `dist` directory, then we can deploy 
 
 Ant Design React supports all the modern browsers and IE9+.
 
-You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers. If you are using babel, we strongly recommend to use [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/).
+You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers.
+
+If you are using babel, we strongly recommend to use [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/) instead of those two shims.
+
+> Please avoid using both the babel and shim way at the same time
 
 > If you run into problem about [startsWith ](https://github.com/ant-design/ant-design/issues/3400#issuecomment-253181445), you should import  [es6-shim](https://github.com/paulmillr/es6-shim) or [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) as workaround.
 
@@ -130,9 +134,7 @@ You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-sh
     <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
-    <!--[if lte IE 11]>
     <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
-    <![endif]-->
   </head>
   <body>
   </body>
@@ -161,11 +163,15 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If you see a log like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
+If you see logs like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
 
-> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
 
-But, we can import individual components on demand:
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+
+However, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
@@ -179,6 +185,8 @@ import { Button } from 'antd';
 ```
 
 And this plugin can load styles too, read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
+
+> FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
 
 ## Customization
 

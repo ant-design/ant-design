@@ -21,11 +21,10 @@
     line-height: @badge-height;
     text-align: center;
     padding: 0 6px;
-    font-size: @font-size-base;
+    font-size: @badge-font-size;
     white-space: nowrap;
     transform-origin: -10% center;
     font-family: tahoma;
-    box-shadow: 0 0 0 1px #fff;
     a,
     a:hover {
       color: #fff;
@@ -104,7 +103,7 @@
     top: auto;
     display: block;
     position: relative;
-    transform: none!important;
+    transform: none !important;
   }
 }
 
@@ -123,19 +122,10 @@
   overflow: hidden;
   &-only {
     display: inline-block;
-    transition: transform .3s @ease-in-out;
+    transition: all .3s @ease-in-out;
     height: @badge-height;
     > p {
       height: @badge-height;
-    }
-  }
-  // for IE8/9 display
-  &.not-support-css-animation &-only {
-    > p {
-      display: none;
-      &.current {
-        display: block;
-      }
     }
   }
 }

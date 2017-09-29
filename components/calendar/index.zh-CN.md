@@ -45,3 +45,4 @@ moment.locale('zh-cn');
 | locale       | 国际化配置     | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| 日期面板变化回调 | function(date: moment, mode: string) | 无 |
 | onSelect     | 点击选择日期回调 | function(date: moment）              | 无 |
+| disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | 无 |

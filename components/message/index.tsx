@@ -2,7 +2,7 @@ import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 
-let defaultDuration = 1.5;
+let defaultDuration = 3;
 let defaultTop;
 let messageInstance;
 let key = 1;
@@ -11,11 +11,11 @@ let getContainer;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls,
-    transitionName: 'move-up',
-    style: { top: defaultTop }, // 覆盖原来的样式
-    getContainer,
-  });
+      prefixCls,
+      transitionName: 'move-up',
+      style: { top: defaultTop }, // 覆盖原来的样式
+      getContainer,
+    });
   return messageInstance;
 }
 

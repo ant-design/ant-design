@@ -1,12 +1,13 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
-import assign from 'object-assign';
 import Checkbox from '../checkbox';
 import { TransferItem } from './index';
 import Search from './search';
 import Item from './item';
+import triggerEvent from '../_util/triggerEvent';
 
 function noop() {
 }
@@ -21,7 +22,7 @@ export interface TransferListProps {
   titleText: string;
   dataSource: TransferItem[];
   filter: string;
-  filterOption: (filterText: any, item: any) => boolean;
+  filterOption?: (filterText: any, item: any) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: any) => void;
@@ -50,6 +51,7 @@ export default class TransferList extends React.Component<TransferListProps, any
   };
 
   timer: number;
+  triggerScrollTimer: number;
 
   constructor(props) {
     super(props);
@@ -68,6 +70,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    clearTimeout(this.triggerScrollTimer);
   }
 
   shouldComponentUpdate(...args) {
@@ -92,6 +95,17 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   handleFilter = (e) => {
     this.props.handleFilter(e);
+    if (!e.target.value) {
+      return;
+    }
+    // Manually trigger scroll event for lazy search bug
+    // https://github.com/ant-design/ant-design/issues/5631
+    this.triggerScrollTimer = setTimeout(() => {
+      const listNode = findDOMNode(this).querySelectorAll('.ant-transfer-list-content')[0];
+      if (listNode) {
+        triggerEvent(listNode, 'scroll');
+      }
+    }, 0);
   }
 
   handleClear = () => {
@@ -124,8 +138,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     } = this.props;
 
     // Custom Layout
-    const footerDom = footer(assign({}, this.props));
-    const bodyDom = body(assign({}, this.props));
+    const footerDom = footer({ ...this.props });
+    const bodyDom = body({ ...this.props });
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,

@@ -29,6 +29,10 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 
 > 参考自：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 
+另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体设置为 `Helvetica Neue`，使其为等宽字体。
+
+> 技术方案：http://stackoverflow.com/questions/13611420/set-a-font-specifically-for-all-numbers-on-the-page
+
 ## 字号
 
 Ant Design 使用不同的字号和字重来传递视觉的信息层次。默认字体为 `12pt`，展示型页面可以设置为 `14pt`，其他字体字号相应升级。

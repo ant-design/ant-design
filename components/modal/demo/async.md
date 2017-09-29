@@ -19,8 +19,9 @@ import { Modal, Button } from 'antd';
 
 class App extends React.Component {
   state = {
-    ModalText: 'Content of the modal dialog',
+    ModalText: 'Content of the modal',
     visible: false,
+    confirmLoading: false,
   }
   showModal = () => {
     this.setState({
@@ -29,7 +30,7 @@ class App extends React.Component {
   }
   handleOk = () => {
     this.setState({
-      ModalText: 'The modal dialog will be closed after two seconds',
+      ModalText: 'The modal will be closed after two seconds',
       confirmLoading: true,
     });
     setTimeout(() => {
@@ -46,16 +47,17 @@ class App extends React.Component {
     });
   }
   render() {
+    const { visible, confirmLoading, ModalText } = this.state;
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>
-        <Modal title="Title of the modal dialog"
-          visible={this.state.visible}
+        <Button type="primary" onClick={this.showModal}>Open</Button>
+        <Modal title="Title"
+          visible={visible}
           onOk={this.handleOk}
-          confirmLoading={this.state.confirmLoading}
+          confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
         >
-          <p>{this.state.ModalText}</p>
+          <p>{ModalText}</p>
         </Modal>
       </div>
     );

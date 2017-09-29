@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
@@ -39,6 +39,7 @@ export interface CalendarProps {
   style?: React.CSSProperties;
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
+  disabledDate?: (current: moment.Moment) => boolean;
 }
 
 export interface CalendarState {
@@ -86,7 +87,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     if (!moment.isMoment(value)) {
       throw new Error(
         'The value/defaultValue of Calendar must be a moment object after `antd@2.0`, ' +
-        'see: http://u.ant.design/calendar-value',
+        'see: https://u.ant.design/calendar-value',
       );
     }
     this.state = {

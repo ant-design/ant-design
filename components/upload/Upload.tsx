@@ -1,7 +1,7 @@
 import React from 'react';
 import RcUpload from 'rc-upload';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
@@ -41,7 +41,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   context: UploadContext;
@@ -70,7 +70,11 @@ export default class Upload extends React.Component<UploadProps, any> {
     if (this.context.antLocale && this.context.antLocale.Upload) {
       locale = this.context.antLocale.Upload;
     }
-    return assign({}, defaultLocale, locale, this.props.locale);
+    return {
+      ...defaultLocale,
+      ...locale,
+      ...this.props.locale,
+    };
   }
 
   onStart = (file) => {
@@ -166,18 +170,21 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   handleRemove(file) {
     const { onRemove } = this.props;
-    // Prevent removing file
-    const onRemoveReturnValue = onRemove && onRemove(file);
-    if (onRemoveReturnValue === false) {
-      return;
-    }
-    const removedFileList = removeFileItem(file, this.state.fileList);
-    if (removedFileList) {
-      this.onChange({
-        file,
-        fileList: removedFileList,
-      });
-    }
+
+    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
+      // Prevent removing file
+      if (ret === false) {
+        return;
+      }
+
+      const removedFileList = removeFileItem(file, this.state.fileList);
+      if (removedFileList) {
+        this.onChange({
+          file,
+          fileList: removedFileList,
+        });
+      }
+    });
   }
 
   handleManualRemove = (file) => {
@@ -221,12 +228,13 @@ export default class Upload extends React.Component<UploadProps, any> {
       type, disabled, children, className,
     } = this.props;
 
-    const rcUploadProps = assign({}, {
+    const rcUploadProps = {
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
-    }, this.props);
+      ...this.props,
+    };
 
     delete rcUploadProps.className;
 

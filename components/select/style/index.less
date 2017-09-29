@@ -54,6 +54,7 @@
     right: 8px;
     line-height: 1;
     margin-top: -6px;
+    color: @text-color-secondary;
     .iconfont-size-under-12px(9px);
 
     * {
@@ -111,7 +112,7 @@
   }
 
   &-disabled &-selection {
-    background: @background-color-base;
+    background: @input-disabled-bg;
     cursor: not-allowed;
     &:hover,
     &:focus,
@@ -128,7 +129,7 @@
   }
 
   &-disabled &-selection--multiple &-selection__choice {
-    background: #e9e9e9;
+    background: @background-color-active;
     color: #aaa;
     padding-right: 10px;
     &__remove {
@@ -173,6 +174,9 @@
           line-height: @input-height-lg - 8px;
         }
       }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-lg / 2;
+      }
     }
   }
 
@@ -190,6 +194,9 @@
           height: @input-height-sm - 8px;
           line-height: @input-height-sm - 8px;
         }
+      }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-sm / 2;
       }
     }
   }
@@ -221,15 +228,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
   }
 
   &-search__field__placeholder {
     left: 8px;
   }
 
+  &-search__field__mirror {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    white-space: pre;
+    pointer-events: none;
+  }
+
   &-search--inline {
     position: absolute;
     height: 100%;
+    width: 100%;
 
     .@{select-prefix-cls}-selection--multiple & {
       float: left;
@@ -242,21 +259,14 @@
     }
 
     .@{select-prefix-cls}-search__field {
-      border: 0;
+      border-width: 0;
       font-size: 100%;
       height: 100%;
       width: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
-    }
-
-    .@{select-prefix-cls}-search__field__mirror {
-      position: absolute;
-      top: 0;
-      left: -9999px;
-      white-space: pre;
-      pointer-events: none;
+      line-height: 1;
     }
 
     > i {
@@ -273,7 +283,9 @@
     .@{select-prefix-cls}-search--inline {
       width: auto;
       padding: 0;
+      max-width: 100%;
       .@{select-prefix-cls}-search__field {
+        max-width: 100%;
         width: 0.75em;
       }
     }
@@ -292,7 +304,8 @@
     }
 
     .@{select-prefix-cls}-selection__choice {
-      background-color: #f3f3f3;
+      color: @tag-default-color;
+      background-color: @tag-default-bg;
       border-radius: 4px;
       cursor: default;
       float: left;
@@ -335,6 +348,14 @@
         content: "\e633";
       }
     }
+
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-base / 2;
+    }
+  }
+
+  &-allow-clear &-selection--multiple &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 
   &-open {
@@ -371,6 +392,9 @@
       transition: all .3s @ease-in-out;
       box-shadow: none;
     }
+  }
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 }
 
@@ -422,20 +446,20 @@
       padding: 0;
 
       > .@{select-prefix-cls}-dropdown-menu-item {
-        padding-left: 24px;
+        padding-left: 16px;
       }
     }
 
     &-item-group-title {
       color: @text-color-secondary;
       line-height: 1.5;
-      padding: 8px 16px;
+      padding: 8px;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 16px;
+      padding: 7px 8px;
       font-weight: normal;
       color: @text-color;
       white-space: nowrap;
@@ -443,9 +467,8 @@
       overflow: hidden;
       transition: background 0.3s ease;
 
-      &:hover,
-      &-active {
-        background-color: @primary-1;
+      &:hover {
+        background-color: @item-hover-bg;
       }
 
       &-disabled {
@@ -463,9 +486,13 @@
         &,
         &:hover {
           background-color: @background-color-base;
-          font-weight: bold;
+          font-weight: 600;
           color: @text-color;
         }
+      }
+
+      &-active {
+        background-color: @item-active-bg;
       }
 
       &-divider {
@@ -488,7 +515,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 16px;
+        right: 8px;
         font-weight: bold;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }

@@ -67,10 +67,13 @@ const columns = [{
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| loading       | 页面是否加载中 | boolean | false |
+| loading       | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
-| onRowClick    | 处理行点击事件 | Function(record, index)   | - |
+| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
+| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
+| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
+| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
@@ -84,9 +87,9 @@ const columns = [{
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string\|ReactNode | - |
-| key        | React 需要的 key，建议设置 | string          | - |
+| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
-| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
+| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | 表头的筛选菜单项           | object[]           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | filterMultiple | 是否多选 | boolean    | true    |
@@ -94,6 +97,8 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
+| filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
+| filterIcon | 自定义 fiter 图标。| ReactNode | false |
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
@@ -113,7 +118,7 @@ const columns = [{
 选择功能的配置。
 
 | 参数              | 说明                     | 类型             |  默认值   |
-|------------------|--------------------------|-----------------|---------------------|---------|
+|------------------|--------------------------|-----------------|---------------------|
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
@@ -121,12 +126,13 @@ const columns = [{
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
-| selections | 自定义选择项, [配置项](#selection) | object[] | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object[]\|boolean | true |
+| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 
 ### selection
 
 | 参数              | 说明                     | 类型             |  默认值   |
-|------------------|--------------------------|-----------------|---------------------|---------|
+|------------------|--------------------------|-----------------|---------------------|
 | key | React 需要的 key，建议设置 | string | -  |
 | text | 选择项显示的文字 | string\|React.ReactNode | -  |
 | onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
@@ -138,7 +144,7 @@ import { Table } from 'antd';
 import { TableColumnConfig } from 'antd/lib/table/Table';
 
 interface IUser {
-  key: number,
+  key: number;
   name: string;
 }
 

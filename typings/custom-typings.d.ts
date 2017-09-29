@@ -89,3 +89,7 @@ declare module "*.json" {
   export const version: string;
   export default value;
 }
+
+declare module "prop-types"
+
+declare function require(name: string): any;

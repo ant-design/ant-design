@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import assign from 'object-assign';
 import RcCalendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import createPicker from './createPicker';
@@ -15,14 +14,16 @@ export interface PickerProps {
   format?: string;
   disabled?: boolean;
   allowClear?: boolean;
+  className?: string;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
   locale?: any;
   size?: 'large' | 'small' | 'default';
-  getCalendarContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getCalendarContainer?: (triggerNode: Element) => HTMLElement;
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment) => boolean;
+  renderExtraFooter?: () => React.ReactNode;
 }
 
 export interface SinglePickerProps {
@@ -33,45 +34,48 @@ export interface SinglePickerProps {
 }
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
+  className?: string;
   showTime?: TimePickerProps | boolean;
   showToday?: boolean;
   open?: boolean;
   toggleOpen?: (e: {open: boolean}) => void;
   disabledTime?: (current: moment.Moment) => {
-    disabledHours?: () => [number, number],
-    disabledMinutes?: () => [number, number],
-    disabledSeconds?: () => [number, number],
+    disabledHours?: () => number[],
+    disabledMinutes?: () => number[],
+    disabledSeconds?: () => number[],
   };
   onOpenChange?: (status: boolean) => void;
-  onOk?: () => void;
+  onOk?: (selectedTime: moment.Moment) => void;
   placeholder?: string;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
+  className?: string;
   placeholder?: string;
 }
 const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 
 export interface RangePickerProps extends PickerProps {
+  className?: string;
   value?: [moment.Moment, moment.Moment];
   defaultValue?: [moment.Moment, moment.Moment];
   defaultPickerValue?: [moment.Moment, moment.Moment];
   onChange?: (dates: [moment.Moment, moment.Moment], dateStrings: [string, string]) => void;
-  onOk?: () => void;
+  onOk?: (selectedTime: moment.Moment) => void;
   showTime?: TimePickerProps | boolean;
   ranges?: {
     [range: string]: moment.Moment[],
   };
   placeholder?: [string, string];
   disabledTime?: (current: moment.Moment, type: string) => {
-    disabledHours?: () => [number, number],
-    disabledMinutes?: () => [number, number],
-    disabledSeconds?: () => [number, number],
+    disabledHours?: () => number[],
+    disabledMinutes?: () => number[],
+    disabledSeconds?: () => number[],
   };
 }
 
-assign(DatePicker, {
+Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,

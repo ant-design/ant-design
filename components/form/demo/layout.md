@@ -62,7 +62,7 @@ class FormLayoutDemo extends React.Component {
             <Input placeholder="input placeholder" />
           </FormItem>
           <FormItem {...buttonItemLayout}>
-            <Button type="primary" size="large">Submit</Button>
+            <Button type="primary">Submit</Button>
           </FormItem>
         </Form>
       </div>

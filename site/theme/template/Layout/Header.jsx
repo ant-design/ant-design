@@ -1,12 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
+import { Select, Menu, Row, Col, Icon, Button, Popover, AutoComplete, Input } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
-const Option = Select.Option;
+const Option = AutoComplete.Option;
 const searchEngine = 'Google';
 const searchLink = 'https://www.google.com/#q=site:ant.design+';
 
@@ -24,7 +25,7 @@ export default class Header extends React.Component {
 
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
-
+    const searchInput = this.searchInput;
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 0) and (max-width: 992px)', {
@@ -35,6 +36,11 @@ export default class Header extends React.Component {
           this.setState({ menuMode: 'horizontal' });
         },
       });
+    document.addEventListener('keyup', (event) => {
+      if (event.keyCode === 83 && event.target === document.body) {
+        searchInput.focus();
+      }
+    });
     /* eslint-enable global-require */
   }
 
@@ -49,7 +55,7 @@ export default class Header extends React.Component {
       inputValue: '',
     }, () => {
       router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
-      document.querySelector('#search-box .ant-select-search__field').blur();
+      this.searchInput.blur();
     });
   }
 
@@ -110,7 +116,7 @@ export default class Header extends React.Component {
     const { location, picked, isFirstScreen, themeConfig } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions)
-            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
+      .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
@@ -135,6 +141,12 @@ export default class Header extends React.Component {
         );
       });
 
+    options.push(
+      <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
+        <FormattedMessage id="app.header.search" />
+      </Option>
+    );
+
     const headerClassName = classNames({
       clearfix: true,
       'home-nav-white': !isFirstScreen,
@@ -151,6 +163,7 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
+        getPopupContainer={trigger => trigger.parentNode}
       >
         {versionOptions}
       </Select>,
@@ -179,6 +192,11 @@ export default class Header extends React.Component {
           <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
+        </Menu.Item>
+        <Menu.Item key="mobile">
+          <a href="//mobile.ant.design">
+            <FormattedMessage id="app.header.menu.mobile" />
+          </a>
         </Menu.Item>
       </Menu>,
     ];
@@ -210,8 +228,8 @@ export default class Header extends React.Component {
           </Col>
           <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
-              <Select
-                combobox
+              <AutoComplete
+                dataSource={options}
                 value={inputValue}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
@@ -221,11 +239,8 @@ export default class Header extends React.Component {
                 onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
-                <Option value={searchEngine} data-label={searchEngine}>
-                  <FormattedMessage id="app.header.search" />
-                </Option>
-                {options}
-              </Select>
+                <Input ref={ref => this.searchInput = ref} />
+              </AutoComplete>
             </div>
             {menuMode === 'horizontal' ? menu : null}
           </Col>

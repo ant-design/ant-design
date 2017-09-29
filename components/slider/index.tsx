@@ -30,6 +30,8 @@ export interface SliderProps {
   onChange?: (value: SliderValue) => void;
   onAfterChange?: (value: SliderValue) => void;
   tipFormatter?: void | ((value: number) => React.ReactNode);
+  className?: string;
+  id?: string;
 }
 
 export default class Slider extends React.Component<SliderProps, any> {
@@ -70,6 +72,7 @@ export default class Slider extends React.Component<SliderProps, any> {
       >
         <RcHandle
           {...restProps}
+          value={value}
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
         />

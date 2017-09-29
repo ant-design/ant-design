@@ -1,6 +1,5 @@
 ---
 order: 7
-debug: true
 title:
   zh-CN: 手动移除
   en-US: Manual to destroy
@@ -26,7 +25,8 @@ function success() {
 }
 
 
-ReactDOM.render(<div>
-  <Button onClick={success}>Success</Button>
-</div>, mountNode);
+ReactDOM.render(
+  <Button onClick={success}>Success</Button>,
+  mountNode
+);
 ````

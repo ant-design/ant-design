@@ -1,36 +1,79 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Input from '..';
+import Form from '../../form';
 
-jest.mock('../calculateNodeHeight');
-const calculateNodeHeight = require('../calculateNodeHeight');
+const { TextArea } = Input;
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
-describe('Input', () => {
-  it('should not auto calculate height when type is text', async () => {
-    const wrapper = mount(
-      <Input value="" readOnly />
-    );
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(0);
-    wrapper.setProps({ value: '1111\n2222\n3333' });
-    await delay(0);
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(0);
-    wrapper.setProps({ value: '1111' });
-    await delay(0);
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(0);
-  });
 
+describe('Input', () => {
+  it('should support maxLength', async () => {
+    const wrapper = mount(
+      <Input maxLength="3" />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+});
+describe('TextArea', () => {
   it('should auto calculate height according to content length', async () => {
     const wrapper = mount(
-      <Input value="" readOnly type="textarea" autosize />
+      <TextArea value="" readOnly autosize />
     );
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(1);
+    const mockFunc = jest.spyOn(wrapper.node, 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     await delay(0);
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(2);
+    expect(mockFunc).toHaveBeenCalledTimes(1);
     wrapper.setProps({ value: '1111' });
     await delay(0);
-    expect(calculateNodeHeight).toHaveBeenCalledTimes(3);
+    expect(mockFunc).toHaveBeenCalledTimes(2);
+  });
+
+  it('should support disabled', async () => {
+    const wrapper = mount(
+      <TextArea disabled />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support maxLength', async () => {
+    const wrapper = mount(
+      <TextArea maxLength="10" />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+});
+
+describe('As Form Control', () => {
+  it('should be reset when wrapped in form.getFieldDecorator without initialValue', async () => {
+    class Demo extends React.Component {
+      reset = () => {
+        this.props.form.resetFields();
+      }
+      render() {
+        const { getFieldDecorator } = this.props.form;
+        return (
+          <Form>
+            <Form.Item>
+              {getFieldDecorator('input')(<Input />)}
+            </Form.Item>
+            <Form.Item>
+              {getFieldDecorator('textarea')(<Input.TextArea />)}
+            </Form.Item>
+            <button onClick={this.reset}>reset</button>
+          </Form>
+        );
+      }
+    }
+    const DemoForm = Form.create()(Demo);
+    const wrapper = mount(<DemoForm />);
+    wrapper.find('input').simulate('change', { target: { value: '111' } });
+    wrapper.find('textarea').simulate('change', { target: { value: '222' } });
+    expect(wrapper.find('input').prop('value')).toBe('111');
+    expect(wrapper.find('textarea').prop('value')).toBe('222');
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('input').prop('value')).toBe('');
+    expect(wrapper.find('textarea').prop('value')).toBe('');
   });
 });

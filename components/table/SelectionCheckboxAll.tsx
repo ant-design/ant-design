@@ -4,6 +4,7 @@ import { Store } from './createStore';
 import Dropdown from '../dropdown';
 import Menu from '../menu';
 import Icon from '../icon';
+import classNames from 'classnames';
 
 export interface SelectionDecorator {
   key: string;
@@ -20,7 +21,9 @@ export interface SelectionCheckboxAllProps {
   data: any[];
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
-  selections: SelectionDecorator[];
+  hideDefaultSelections?: boolean;
+  selections?: SelectionDecorator[] | boolean;
+  getPopupContainer: (triggerNode?: Element) => HTMLElement;
 }
 
 export default class SelectionCheckboxAll extends React.Component<SelectionCheckboxAllProps, any> {
@@ -30,7 +33,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
   constructor(props) {
     super(props);
 
-    this.defaultSelections = [{
+    this.defaultSelections = props.hideDefaultSelections ? [] : [{
       key: 'all',
       text: props.locale.selectAll,
       onSelect: () => {},
@@ -151,39 +154,48 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
   }
 
   render() {
-    const { disabled, prefixCls } = this.props;
+    const { disabled, prefixCls, selections, getPopupContainer } = this.props;
     const { checked, indeterminate } = this.state;
 
     let selectionPrefixCls = `${prefixCls}-selection`;
 
-    let selections = this.defaultSelections.concat(this.props.selections || []);
+    let customSelections: React.ReactNode = null;
 
-    let menu = (
-      <Menu
-        className={`${selectionPrefixCls}-menu`}
-        selectedKeys={[]}
-      >
-        {this.renderMenus(selections)}
-      </Menu>
-    );
+    if (selections) {
+      let newSelections = Array.isArray(selections) ? this.defaultSelections.concat(selections)
+      : this.defaultSelections;
 
-    return (
-      <div className={selectionPrefixCls}>
-        <Checkbox
-          className={`${selectionPrefixCls}-select-all`}
-          checked={checked}
-          indeterminate={indeterminate}
-          disabled={disabled}
-          onChange={this.handleSelectAllChagne}
-        />
+      const menu = (
+        <Menu
+          className={`${selectionPrefixCls}-menu`}
+          selectedKeys={[]}
+        >
+          {this.renderMenus(newSelections)}
+        </Menu>
+      );
+
+      customSelections = newSelections.length > 0 ? (
         <Dropdown
           overlay={menu}
-          getPopupContainer={(trigger: HTMLElement) => trigger.parentNode as HTMLElement}
+          getPopupContainer={getPopupContainer}
         >
           <div className={`${selectionPrefixCls}-down`}>
             <Icon type="down" />
           </div>
         </Dropdown>
+      ) : null;
+    }
+
+    return (
+      <div className={selectionPrefixCls}>
+        <Checkbox
+          className={classNames({ [`${selectionPrefixCls}-select-all-custom`]: customSelections })}
+          checked={checked}
+          indeterminate={indeterminate}
+          disabled={disabled}
+          onChange={this.handleSelectAllChagne}
+        />
+        {customSelections}
       </div>
     );
   }

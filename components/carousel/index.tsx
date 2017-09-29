@@ -1,10 +1,10 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-import assign from 'object-assign';
+import React from 'react';
 import debounce from 'lodash.debounce';
 
+// matchMedia polyfill for
+// https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
+  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
     return {
       media: mediaQuery,
       matches: false,
@@ -16,30 +16,54 @@ if (typeof window !== 'undefined') {
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
 }
-
-import SlickCarousel from 'react-slick';
-import React from 'react';
+// Use require over import (will be lifted up)
+// make sure matchMedia polyfill run before require('react-slick')
+// Fix https://github.com/ant-design/ant-design/issues/6560
+// Fix https://github.com/ant-design/ant-design/issues/3308
+const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 // Carousel
 export interface CarouselProps {
-  /** 动画效果函数，可取 scrollx, fade */
   effect?: CarouselEffect;
-  /** 是否显示面板指示点 */
   dots?: boolean;
-  /** 垂直显示 */
   vertical?: boolean;
-  /** 是否自动切换 */
   autoplay?: boolean;
-  /** 动画效果 */
   easing?: string;
-  /** 切换面板的回调 */
   beforeChange?: (from: number, to: number) => void;
-  /** 切换面板的回调 */
   afterChange?: (current: number) => void;
-  /** 行内样式 */
   style?: React.CSSProperties;
   prefixCls?: string;
+  accessibility?: boolean;
+  nextArrow?: HTMLElement | any;
+  prevArrow?: HTMLElement | any;
+  pauseOnHover?: boolean;
+  className?: string;
+  adaptiveHeight?: boolean;
+  arrows?: boolean;
+  autoplaySpeed?: number;
+  centerMode?: boolean;
+  centerPadding?: string | any;
+  cssEase?: string | any;
+  dotsClass?: string;
+  draggable?: boolean;
+  fade?: boolean;
+  focusOnSelect?: boolean;
+  infinite?: boolean;
+  initialSlide?: number;
+  lazyLoad?: boolean;
+  rtl?: boolean;
+  slide?: string;
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  speed?: number;
+  swipe?: boolean;
+  swipeToSlide?: boolean;
+  touchMove?: boolean;
+  touchThreshold?: number;
+  variableWidth?: boolean;
+  useCSS?: boolean;
+  slickGoTo?: number;
 }
 
 export default class Carousel extends React.Component<CarouselProps, any> {
@@ -54,6 +78,8 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     slick: any,
   };
 
+  innerSlider: any;
+
   constructor() {
     super();
     this.onWindowResized = debounce(this.onWindowResized, 500, {
@@ -66,6 +92,9 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     if (autoplay) {
       window.addEventListener('resize', this.onWindowResized);
     }
+    const { slick } = this.refs;
+    // https://github.com/ant-design/ant-design/issues/7191
+    this.innerSlider = slick && slick.innerSlider;
   }
 
   componentWillUnmount() {
@@ -86,7 +115,9 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   render() {
-    let props = assign({}, this.props);
+    let props = {
+      ...this.props,
+    };
 
     if (props.effect === 'fade') {
       props.fade = true;
