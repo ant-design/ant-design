@@ -5,12 +5,14 @@ import Icon from '../icon';
 import Button from '../button';
 
 export interface SearchProps extends InputProps {
+  inputPrefixCls?: string;
   onSearch?: (value: string) => any;
   enterButton?: boolean | React.ReactNode;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
+    inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-search',
     enterButton: false,
   };
@@ -30,7 +32,7 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   render() {
-    const { className, prefixCls, size, enterButton, ...others } = this.props;
+    const { className, prefixCls, inputPrefixCls, size, enterButton, ...others } = this.props;
     delete (others as any).onSearch;
     const searchSuffix = enterButton
       ? (
@@ -53,6 +55,7 @@ export default class Search extends React.Component<SearchProps, any> {
         {...others}
         size={size}
         className={inputClassName}
+        prefixCls={inputPrefixCls}
         suffix={searchSuffix}
         ref={this.saveInput}
       />

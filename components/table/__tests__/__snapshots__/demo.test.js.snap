@@ -3569,7 +3569,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           >
             <div
               class="ant-table-body"
-              style="overflow-x:auto;"
+              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0);"
             >
               <table
                 class="ant-table-fixed"
@@ -3823,6 +3823,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           >
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -3907,6 +3908,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           >
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -4153,7 +4155,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             </div>
             <div
               class="ant-table-body"
-              style="overflow-x:auto;max-height:300px;overflow-y:scroll;"
+              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0);max-height:300px;overflow-y:scroll;"
             >
               <table
                 class="ant-table-fixed"
@@ -4910,6 +4912,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             </div>
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -5145,6 +5148,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             </div>
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -6859,7 +6863,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             </div>
             <div
               class="ant-table-body"
-              style="overflow-x:auto;max-height:240px;overflow-y:scroll;"
+              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0);max-height:240px;overflow-y:scroll;"
             >
               <table
                 class="ant-table-fixed"
@@ -7410,6 +7414,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             </div>
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"
@@ -7593,6 +7598,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             </div>
             <div
               class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0);"
             >
               <div
                 class="ant-table-body-inner"

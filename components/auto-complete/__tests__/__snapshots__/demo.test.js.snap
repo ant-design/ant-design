@@ -31,7 +31,7 @@ exports[`renders ./components/auto-complete/demo/antd.md correctly 1`] = `
             class="ant-select-search__field__wrap"
           >
             <textarea
-              class="ant-input ant-select-search__field"
+              class="ant-input custom ant-select-search__field"
               style="height:50px;"
             />
             <span

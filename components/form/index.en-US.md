@@ -85,7 +85,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 ### this.props.form.validateFields/validateFieldsAndScroll([fieldNames: string[]], [options: object], callback: Function(errors, values))
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Method | Description | Type | Default |
 |-----|-----|------|-------|
 | options.first | If `true`, every field will stop validation at first failed rule | boolean | false |
 | options.firstFields | Those fields will stop validation at first failed rule | String[] | [] |
