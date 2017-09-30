@@ -50,7 +50,7 @@ class Complete extends React.Component {
         onSearch={this.handleSearch}
         placeholder="input here"
       >
-        <TextArea onKeyPress={this.handleKeyPress} style={{ height: 50 }} />
+        <TextArea className="xxx" onKeyPress={this.handleKeyPress} style={{ height: 50 }} />
       </AutoComplete>
     );
   }
