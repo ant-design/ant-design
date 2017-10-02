@@ -28,7 +28,7 @@ loading | 设置按钮载入状态 | boolean \| { delay: number } | `false`
 onClick | `click` 事件的 handler | function | -
 ghost | 幽灵属性，使按钮背景透明，版本 2.7 中增加 | boolean | false
 
-`<Button>Hello world!</Button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
+`<Button>Hello world!</Button>` 最终会被渲染为 `<button><span>Hello world!</span></button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
 
 <style>
 [id^="components-button-demo-"] .ant-btn {
