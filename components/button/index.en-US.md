@@ -25,7 +25,7 @@ loading | set the loading status of button | boolean \| { delay: number } | fals
 onClick | set the handler to handle `click` event | function | -
 ghost | make background transparent and invert text and border colors, added in 2.7 | boolean | false
 
-`<Button>Hello world!</Button>` will be rendered into `<button>Hello world!</button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
+`<Button>Hello world!</Button>` will be rendered into `<button><span>Hello world!</span></button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
 
 <style>
 [id^=components-button-demo-] .ant-btn {
