@@ -163,7 +163,7 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If you see logs like below screenshot, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network perfermance.
+If you see logs like below screenshot, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network performance.
 
 ```
 You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
