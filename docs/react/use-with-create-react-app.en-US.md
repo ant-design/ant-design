@@ -21,8 +21,8 @@ Create a new project named `antd-demo`.
 $ create-react-app antd-demo
 ```
 
-The tool will create and initialize environment and dependencies automaticly,
-please try config your proxy setting or use other npm registry if any network errors happen during it.
+The tool will create and initialize environment and dependencies automatically,
+please try config your proxy setting or use another npm registry if any network errors happen during it.
 
 Then we go inside `antd-demo` and start it.
 
@@ -91,15 +91,15 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Ok, you now see a blue primary button displaying on the page. Next you can choose any components of `antd` to develop your application. Visit other workflow of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
 ## Advanced Guides
 
 We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo.
-For instance, we actually import all styles of components in the project which maybe a network perfermance issue.
+For instance, we actually import all styles of components in the project which may be a network performance issue.
 
-Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of custom create-react-app config solutions.
+Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 
 Import react-app-rewired and modify the `scripts` field in package.json.
 
@@ -167,11 +167,11 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
   export default App;
 ```
 
-Then reboot with `yarn start` and visit demo page, you should not find any [warning message](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
+Then reboot with `yarn start` and visit the demo page, you should not find any [warning messages](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png) in the console, which prove that the `import on demand` config is working now. You will find more info about it in [this guide](/docs/react/getting-started#Import-on-Demand).
 
 ### Customize Theme
 
-According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader). We could use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve that, import it and modify `config-overrides.js` like below.
+According to the [Customize Theme documentation](/docs/react/customize-theme), to customize the theme, we need to modify `less` variables with tools such as [less-loader](https://github.com/webpack/less-loader). We can also use [react-app-rewire-less](http://npmjs.com/react-app-rewire-less) to achieve this. Import it and modify `config-overrides.js` like below.
 
 ```bash
 $ yarn add react-app-rewire-less --dev
@@ -191,17 +191,17 @@ $ yarn add react-app-rewire-less --dev
   };
 ```
 
-We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
+We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after rebooting the start server.
 
 ## eject
 
-You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)  for custom setup of create-react-app, although you should dig into it by yourself.
+You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup)  for a custom setup of create-react-app, although you should dig into it by yourself.
 
 ## Source code and other boilerplates
 
-Finally, we used antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack configs in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files)
+Finally, we used antd with create-react-app successfully, you can learn these practices for your own webpack workflow too, and find more webpack configs in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js). (For instance, add [moment noParse](https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L90) to avoid loading all language files.)
 
-There are a lot of great boilerplates like create-react-app in React community. There are some source code samples of importing antd in them if you encounter some problems.
+There are a lot of great boilerplates like create-react-app in the React community. There are some source code samples of importing antd in them if you encounter some problems.
 
 - [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
 - [comerc/cra-ts-antd](https://github.com/comerc/cra-ts-antd)
