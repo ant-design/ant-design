@@ -49,7 +49,7 @@ You can subscribe to this feed for new version notifications: https://github.com
 
 ### Using npm or yarn
 
-**We recommend using npm or yarn to install**，it not only makes development easier，but also allow you to take advantage of the rich ecosystem of javascript packages and tooling.
+**We recommend using npm or yarn to install**，it not only makes development easier，but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
 
 ```bash
 $ npm install antd --save
@@ -67,7 +67,7 @@ Add `script` and `link` tags in your browser and use the global variable `antd`.
 
 We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd) or [unpkg](https://unpkg.com/).
 
-> **We strongly discourage loading these entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Ant is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
+> **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
 ## Usage
 
@@ -125,7 +125,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 > Note:
 > - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-> - Don't use @types/antd, antd provides a built-in ts definition already.
+> - Don't use @types/antd, as antd provides a built-in ts definition already.
 
 ## Links
 
