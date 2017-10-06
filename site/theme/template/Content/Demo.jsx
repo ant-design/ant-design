@@ -129,8 +129,8 @@ export default class Demo extends React.Component {
       editors: '001',
       css_external: 'https://unpkg.com/antd/dist/antd.css',
       js_external: [
-        'react/dist/react.js',
-        'react-dom/dist/react-dom.js',
+        'react@15.x/dist/react.js',
+        'react-dom@15.x/dist/react-dom.js',
         'moment/min/moment-with-locales.js',
         'antd/dist/antd-with-locales.js',
       ].map(url => `https://unpkg.com/${url}`).join(';'),
