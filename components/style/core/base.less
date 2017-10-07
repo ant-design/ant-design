@@ -201,7 +201,7 @@ sup { top: -.5em; }
 a {
   color: @link-color;
   background-color: transparent; // emove the gray background on active links in IE 10.
-  text-decoration: @link-hover-decoration;
+  text-decoration: @link-decoration;
   outline: none;
   cursor: pointer;
   transition: color .3s;
@@ -223,7 +223,7 @@ a {
   &:active,
   &:hover {
     outline: 0;
-    text-decoration: none;
+    text-decoration: @link-hover-decoration;
   }
 
   &[disabled] {

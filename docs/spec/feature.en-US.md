@@ -96,7 +96,7 @@ See more at [『Ant Design Principles』](/docs/spec/proximity).
 
 Beatuful looks, tide typography and smooth animation produce positive reaction at instinct level.
 
-Good functions, perfermance and usability produce positive reaction at behavious level.
+Good functions, performance and usability produce positive reaction at behavious level.
 
 Self-image, satisfaction, and good memories bring user a combining experience of thoughts and emotions at learning level.
 

@@ -90,7 +90,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       }
 
       const child = childrenArray[i] as React.ReactElement<any>;
-      if (child.type as any === FormItem) {
+      if (child.type &&
+          (child.type as any === FormItem || (child.type as any).displayName === 'FormItem')) {
         continue;
       }
       if (!child.props) {
