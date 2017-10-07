@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: @link-color;
   background: transparent;
-  text-decoration: @link-hover-decoration;
+  text-decoration: @link-decoration;
   outline: none;
   cursor: pointer;
   transition: color .3s ease;
@@ -90,7 +90,7 @@ a {
   &:active,
   &:hover {
     outline: 0;
-    text-decoration: none;
+    text-decoration: @link-hover-decoration;
   }
 
   &[disabled] {
