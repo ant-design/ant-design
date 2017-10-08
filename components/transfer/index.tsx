@@ -20,7 +20,7 @@ export interface TransferProps {
   prefixCls?: string;
   className?: string;
   dataSource: TransferItem[];
-  targetKeys: string[];
+  targetKeys?: string[];
   selectedKeys?: string[];
   render?: (record: TransferItem) => React.ReactNode;
   onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
@@ -124,7 +124,7 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     }
 
     if (nextProps.selectedKeys) {
-      const targetKeys = nextProps.targetKeys;
+      const targetKeys = nextProps.targetKeys || [];
       this.setState({
         sourceSelectedKeys: nextProps.selectedKeys.filter(key => !targetKeys.includes(key)),
         targetSelectedKeys: nextProps.selectedKeys.filter(key => targetKeys.includes(key)),
