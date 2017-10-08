@@ -89,7 +89,7 @@
     float: left;
     padding: @card-padding-base;
     transition: all .3s;
-    &:hover {
+    &:not(&-no-hovering):hover {
       position: relative;
       z-index: 1;
       box-shadow: @box-shadow-base;
