@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   zh-CN: 网卡没有盘旋
   en-US: Grid card no hovering
