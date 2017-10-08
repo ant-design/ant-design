@@ -22,7 +22,7 @@ const gridStyle = {
 };
 
 ReactDOM.render(
-  <Card title="Card Title">
+  <Card title="Card Title" noHovering>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
