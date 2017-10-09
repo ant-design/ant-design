@@ -1,10 +1,27 @@
 import moment from 'moment';
 moment.locale('ar');
 
-import Pagination from '../pagination/custom_local/ar_EG';
+//import Pagination from 'rc-pagination/lib/locale/bg_BG';
 import DatePicker from '../date-picker/locale/ar_EG';
 import TimePicker from '../time-picker/locale/ar_EG';
 import Calendar from '../calendar/locale/ar_EG';
+
+// Arabic version of Pagination until 'rc-pagination' accepts the pull-request
+const Pagination = {
+  // Options.jsx
+  items_per_page: '/ الصفحة',
+  jump_to: 'الذهاب إلى',
+  jump_to_confirm: 'تأكيد',
+  page: '',
+
+  // Pagination.jsx
+  prev_page: 'الصفحة السابقة',
+  next_page: 'الصفحة التالية',
+  prev_5: 'خمس صفحات سابقة',
+  next_5: 'خمس صفحات تالية',
+  prev_3: 'ثلاث صفحات سابقة',
+  next_3: 'ثلاث صفحات تالية',
+};
 
 export default {
   locale: 'ar',
