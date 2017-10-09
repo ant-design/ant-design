@@ -51,7 +51,7 @@ class LoadMoreList extends React.Component {
       loadingMore: true,
     });
     this.getData((res) => {
-      const data = this.state.data.concat(res);
+      const data = this.state.data.concat(res.results);
       this.setState({
         data,
         loadingMore: false,
