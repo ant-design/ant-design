@@ -98,7 +98,7 @@ const ColorPalettes = () => {
     },
     {
       name: 'lime',
-      english: 'Lime Green',
+      english: 'Lime',
       chinese: '青柠',
       description: '自然、生机',
     },
