@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 基础列表 
-  en-US: Basic.
+  en-US: Basic List
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-BasicList.
+Basic List.
 
 ````jsx
 import { List, Avatar } from 'antd';
