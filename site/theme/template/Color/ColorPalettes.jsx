@@ -94,6 +94,10 @@ const ColorPalettes = () => {
       description: '活力、提示',
     },
     {
+      name: 'lemon',
+      description: '活力、提示',
+    },
+    {
       name: 'cyan',
       description: '清新、冷静、结构化',
     },
