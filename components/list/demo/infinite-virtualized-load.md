@@ -27,7 +27,7 @@ import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import VList from 'react-virtualized/dist/commonjs/List';
 import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
 
-const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
+const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 class VirtualizedExample extends React.Component {
   state = {
@@ -49,7 +49,7 @@ class VirtualizedExample extends React.Component {
   componentWillMount() {
     this.getData((res) => {
       this.setState({
-        data: res,
+        data: res.results,
       });
     });
   }
@@ -70,7 +70,7 @@ class VirtualizedExample extends React.Component {
       return;
     }
     this.getData((res) => {
-      data = data.concat(res);
+      data = data.concat(res.results);
       this.setState({
         data,
         loading: false,
@@ -87,8 +87,8 @@ class VirtualizedExample extends React.Component {
       <List.Item key={key} style={style}>
         <List.Item.Meta
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title={<a href="https://ant.design">{item.title}</a>}
-          description={item.content}
+          title={<a href="https://ant.design">{item.name.last}</a>}
+          description={item.email}
         />
         <div>Content</div>
       </List.Item>

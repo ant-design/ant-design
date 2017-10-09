@@ -18,10 +18,11 @@ import { List, Avatar, Button, Spin } from 'antd';
 
 import reqwest from 'reqwest';
 
-const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
+const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
-class BasicList extends React.Component {
+class LoadMoreList extends React.Component {
   state = {
+    loading: true,
     loadingMore: false,
     showLoadingMore: true,
     data: [],
@@ -29,7 +30,8 @@ class BasicList extends React.Component {
   componentDidMount() {
     this.getData((res) => {
       this.setState({
-        data: res,
+        loading: false,
+        data: res.results,
       });
     });
   }
@@ -57,7 +59,7 @@ class BasicList extends React.Component {
     });
   }
   render() {
-    const { loadingMore, showLoadingMore, data } = this.state;
+    const { loading, loadingMore, showLoadingMore, data } = this.state;
     const loadMore = showLoadingMore ? (
       <div style={{ textAlign: 'center', marginTop: 8 }}>
         {loadingMore && <Spin />}
@@ -66,6 +68,8 @@ class BasicList extends React.Component {
     ) : null;
     return (
       <List
+        className="demo-loadmore-list"
+        loading={loading}
         itemLayout="horizontal"
         loadMore={loadMore}
         dataSource={data}
@@ -73,7 +77,7 @@ class BasicList extends React.Component {
           <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
             <List.Item.Meta
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-              title={<a href="https://ant.design">{item.title}</a>}
+              title={<a href="https://ant.design">{item.name.last}</a>}
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />
             <div>content</div>
@@ -84,5 +88,11 @@ class BasicList extends React.Component {
   }
 }
 
-ReactDOM.render(<BasicList />, mountNode);
+ReactDOM.render(<LoadMoreList />, mountNode);
+````
+
+````css
+.demo-loadmore-list {
+  min-height: 350px;  
+}
 ````
