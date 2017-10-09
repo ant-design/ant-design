@@ -8,6 +8,7 @@
 @form-prefix-cls: ~"@{ant-prefix}-form";
 @form-component-height: @input-height-base;
 @form-feedback-icon-size: 14px;
+@form-help-margin-top: 2px;
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -89,7 +90,7 @@ input[type="checkbox"] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
     transition: none;
   }
 
@@ -131,8 +132,9 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
-  line-height: 1.5;
+  line-height: @line-height-base;
   transition: color .15s @ease-out;
+  margin-top: @form-help-margin-top;
 }
 
 .@{form-prefix-cls}-extra {
