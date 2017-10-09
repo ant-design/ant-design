@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 手风琴
   en-US: Accordion
 ---
@@ -25,13 +25,13 @@ const text = `
 
 ReactDOM.render(
   <Collapse accordion>
-    <Panel header={'This is panel header 1'} key="1">
+    <Panel header="This is panel header 1" key="1">
       <p>{text}</p>
     </Panel>
-    <Panel header={'This is panel header 2'} key="2">
+    <Panel header="This is panel header 2" key="2">
       <p>{text}</p>
     </Panel>
-    <Panel header={'This is panel header 3'} key="3">
+    <Panel header="This is panel header 3" key="3">
       <p>{text}</p>
     </Panel>
   </Collapse>

@@ -55,7 +55,7 @@ const rowSelection = {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
   getCheckboxProps: record => ({
-    disabled: record.name === 'Disabled User',    // Column configuration not to be checked
+    disabled: record.name === 'Disabled User', // Column configuration not to be checked
   }),
 };
 

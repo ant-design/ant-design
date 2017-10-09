@@ -60,8 +60,8 @@ title: Upload
    {
       uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
       name: 'xx.png'   // 文件名
-      status: 'done',  // 状态有：uploading done error removed
-      response: '{"status": "success"}',  // 服务端响应内容
+      status: 'done', // 状态有：uploading done error removed
+      response: '{"status": "success"}', // 服务端响应内容
    }
    ```
    > `antd@1.9.0` 之前，multiple 模式下，此参数为一个对象数组 `[file, ...]`，`antd@1.9.0` 开始无论是否多选，均为一个对象。

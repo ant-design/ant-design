@@ -27,7 +27,7 @@ const props = {
     uid: 1,
     name: 'xxx.png',
     status: 'done',
-    reponse: 'Server Error 500',  // custom error message to show
+    reponse: 'Server Error 500', // custom error message to show
     url: 'http://www.baidu.com/xxx.png',
   }, {
     uid: 2,
@@ -38,7 +38,7 @@ const props = {
     uid: 3,
     name: 'zzz.png',
     status: 'error',
-    reponse: 'Server Error 500',  // custom error message to show
+    reponse: 'Server Error 500', // custom error message to show
     url: 'http://www.baidu.com/zzz.png',
   }],
 };

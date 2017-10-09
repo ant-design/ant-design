@@ -19,7 +19,7 @@ import { Popconfirm, Switch, message } from 'antd';
 class App extends React.Component {
   state = {
     visible: false,
-    condition: true,   // Whether meet the condition, if not show popconfirm.
+    condition: true, // Whether meet the condition, if not show popconfirm.
   }
   changeCondition = (value) => {
     this.setState({ condition: value });
@@ -40,9 +40,9 @@ class App extends React.Component {
     // Determining condition before show the popconfirm.
     console.log(this.state.condition);
     if (this.state.condition) {
-      this.confirm();  // next step
+      this.confirm(); // next step
     } else {
-      this.setState({ visible });  // show the popconfirm
+      this.setState({ visible }); // show the popconfirm
     }
   }
   render() {

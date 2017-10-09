@@ -5,10 +5,10 @@ import ColorBlock from './ColorBlock';
 import ColorPicker from './ColorPicker';
 
 const easing = BezierEasing.apply(null, [0.26, 0.09, 0.37, 0.18]); // 色彩分布曲线
-const warmDark = 0.5;    // 暖色深度
-const warmRotate = -26;  // 暖色角度
-const coldDark = 0.55;   // 冷色深度
-const coldRotate = 10;   // 冷色角度
+const warmDark = 0.5; // 暖色深度
+const warmRotate = -26; // 暖色角度
+const coldDark = 0.55; // 冷色深度
+const coldRotate = 10; // 冷色角度
 
 // eslint-disable-next-line
 export default class ColorPaletteTool extends Component {

@@ -68,10 +68,12 @@ function getMonthData(value) {
 
 function monthCellRender(value) {
   const num = getMonthData(value);
-  return num ? <div className="notes-month">
-    <section>{num}</section>
-    <span>Backlog number</span>
-  </div> : null;
+  return num ? (
+    <div className="notes-month">
+      <section>{num}</section>
+      <span>Backlog number</span>
+    </div>
+  ) : null;
 }
 
 ReactDOM.render(

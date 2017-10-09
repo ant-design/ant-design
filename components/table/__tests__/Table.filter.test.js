@@ -94,10 +94,12 @@ describe('Table.filter', () => {
     const dropdown = wrapper.find('Dropdown').first();
 
     expect(dropdown.props().visible).toBe(true);
-    wrapper.setProps({ columns: [{
-      ...column,
-      filterDropdownVisible: false,
-    }] });
+    wrapper.setProps({
+      columns: [{
+        ...column,
+        filterDropdownVisible: false,
+      }],
+    });
     expect(dropdown.props().visible).toBe(false);
   });
 
@@ -124,10 +126,12 @@ describe('Table.filter', () => {
     }));
 
     expect(wrapper.find('tbody tr').length).toBe(1);
-    wrapper.setProps({ columns: [{
-      ...column,
-      filteredValue: [],
-    }] });
+    wrapper.setProps({
+      columns: [{
+        ...column,
+        filteredValue: [],
+      }],
+    });
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
@@ -140,10 +144,12 @@ describe('Table.filter', () => {
     }));
 
     expect(wrapper.find('tbody tr').length).toBe(1);
-    wrapper.setProps({ columns: [{
-      ...column,
-      filteredValue: null,
-    }] });
+    wrapper.setProps({
+      columns: [{
+        ...column,
+        filteredValue: null,
+      }],
+    });
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 

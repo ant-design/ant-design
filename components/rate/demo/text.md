@@ -19,7 +19,6 @@ import { Rate } from 'antd';
 class Rater extends React.Component {
   state = {
     value: 3,
-    count: null,
   }
   handleChange = (value) => {
     this.setState({ value });

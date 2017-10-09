@@ -40,7 +40,7 @@ for (let i = 0; i < 46; i++) {
 
 class App extends React.Component {
   state = {
-    selectedRowKeys: [],  // Check here to configure the default column
+    selectedRowKeys: [], // Check here to configure the default column
     loading: false,
   };
   start = () => {

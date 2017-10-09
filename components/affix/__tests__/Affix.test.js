@@ -18,30 +18,32 @@ class AffixMounter extends React.Component {
     return this.container;
   }
   render() {
-    return (<div
-      style={{
-        height: 100,
-        overflowY: 'scroll',
-      }}
-      ref={(node) => { this.container = node; }}
-    >
+    return (
       <div
-        className="background"
         style={{
-          paddingTop: 60,
-          height: 300,
+          height: 100,
+          overflowY: 'scroll',
         }}
+        ref={(node) => { this.container = node; }}
       >
-        <Affix
-          target={() => this.container}
-          ref={ele => this.affix = ele}
+        <div
+          className="background"
+          style={{
+            paddingTop: 60,
+            height: 300,
+          }}
         >
-          <Button type="primary" >
-            Fixed at the top of container
-          </Button>
-        </Affix>
+          <Affix
+            target={() => this.container}
+            ref={ele => this.affix = ele}
+          >
+            <Button type="primary" >
+              Fixed at the top of container
+            </Button>
+          </Affix>
+        </div>
       </div>
-    </div>);
+    );
   }
 }
 

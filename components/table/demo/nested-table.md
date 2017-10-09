@@ -40,7 +40,7 @@ function NestedTable() {
         dataIndex: 'operation',
         key: 'operation',
         render: () => (
-          <span className={'table-operation'}>
+          <span className="table-operation">
             <a href="#">Pause</a>
             <a href="#">Stop</a>
             <Dropdown overlay={menu}>
