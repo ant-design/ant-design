@@ -2,9 +2,9 @@ import moment from 'moment';
 moment.locale('ar');
 
 import Pagination from '../pagination/custom_local/ar_EG';
-import DatePicker from '../date-picker/locale/en_US';
+import DatePicker from '../date-picker/locale/ar_EG';
 import TimePicker from '../time-picker/locale/ar_EG';
-import Calendar from '../calendar/locale/en_US';
+import Calendar from '../calendar/locale/ar_EG';
 
 export default {
   locale: 'ar',
