@@ -2,7 +2,7 @@
 import TimePickerLocale from '../../time-picker/locale/ar_EG';
 
 // Arabic version of CalendarLocale until 'rc-calendar' accepts the pull-request
-Const CalendarLocale = {
+const CalendarLocale = {
   today: 'اليوم',
   now: 'الأن',
   backToToday: 'العودة إلى اليوم',
