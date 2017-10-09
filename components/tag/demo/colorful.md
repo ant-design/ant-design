@@ -25,7 +25,7 @@ ReactDOM.render(
   <div>
     <h4 style={{ marginBottom: 16 }}>Presets:</h4>
     <div>
-      <Tag color="pink">pink</Tag>
+      <Tag color="magenta">magenta</Tag>
       <Tag color="red">red</Tag>
       <Tag color="orange">orange</Tag>
       <Tag color="green">green</Tag>

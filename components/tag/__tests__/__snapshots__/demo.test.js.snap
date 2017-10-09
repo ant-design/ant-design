@@ -84,13 +84,14 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
   </h4>
   <div>
     <div
-      class="ant-tag ant-tag-pink"
+      class="ant-tag ant-tag-has-color"
       data-show="true"
+      style="background-color:magenta;"
     >
       <span
         class="ant-tag-text"
       >
-        pink
+        magenta
       </span>
     </div>
     <div
