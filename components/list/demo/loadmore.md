@@ -63,7 +63,7 @@ class LoadMoreList extends React.Component {
     const loadMore = showLoadingMore ? (
       <div style={{ textAlign: 'center', marginTop: 8 }}>
         {loadingMore && <Spin />}
-        {!loadingMore && <Button onClick={this.onLoadMore}>加载更多</Button>}
+        {!loadingMore && <Button onClick={this.onLoadMore}>loading more</Button>}
       </div>
     ) : null;
     return (
@@ -74,7 +74,7 @@ class LoadMoreList extends React.Component {
         loadMore={loadMore}
         dataSource={data}
         renderItem={item => (
-          <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
+          <List.Item actions={[<a>edit</a>, <a>more</a>]}>
             <List.Item.Meta
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
               title={<a href="https://ant.design">{item.name.last}</a>}
