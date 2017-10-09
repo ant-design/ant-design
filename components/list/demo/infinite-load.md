@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 title:
   zh-CN: 滚动加载
   en-US: Scrolling loaded List
@@ -19,7 +19,7 @@ import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';
 
-const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
+const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 class InfiniteListExample extends React.Component {
   state = {
@@ -41,7 +41,7 @@ class InfiniteListExample extends React.Component {
   componentWillMount() {
     this.getData((res) => {
       this.setState({
-        data: res,
+        data: res.results,
       });
     });
   }
@@ -59,7 +59,7 @@ class InfiniteListExample extends React.Component {
       return;
     }
     this.getData((res) => {
-      data = data.concat(res);
+      data = data.concat(res.results);
       this.setState({
         data,
         loading: false,
@@ -68,30 +68,48 @@ class InfiniteListExample extends React.Component {
   }
   render() {
     return (
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={this.handleInfiniteOnLoad}
-        hasMore={!this.state.loading && this.state.hasMore}
-      >
-        <List
-          dataSource={this.state.data}
-          renderItem={item => (
-            <List.Item key={item.id}>
-              <List.Item.Meta
-                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={<a href="https://ant.design">{item.title}</a>}
-                description={item.content}
-              />
-              <div>Content</div>
-            </List.Item>
-          )}
+      <div className="demo-infinite-container">
+        <InfiniteScroll
+          initialLoad={false}
+          pageStart={0}
+          loadMore={this.handleInfiniteOnLoad}
+          hasMore={!this.state.loading && this.state.hasMore}
+          useWindow={false}
         >
-          {this.state.loading && this.state.hasMore && <Spin style={{ position: 'absolute', bottom: 0, left: '50%' }} />}
-        </List>
-      </InfiniteScroll>
+          <List
+            dataSource={this.state.data}
+            renderItem={item => (
+              <List.Item key={item.id}>
+                <List.Item.Meta
+                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  title={<a href="https://ant.design">{item.name.last}</a>}
+                  description={item.email}
+                />
+                <div>Content</div>
+              </List.Item>
+            )}
+          >
+            {this.state.loading && this.state.hasMore && <Spin className="demo-loading" />}
+          </List>
+        </InfiniteScroll>
+      </div>
     );
   }
 }
 
 ReactDOM.render(<InfiniteListExample />, mountNode);
+````
+
+````css
+.demo-infinite-container {
+  border: 1px solid #eee;
+  overflow: auto;
+  padding: 48px 16px;
+  height: 300px;
+}
+.demo-loading {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+}
 ````
