@@ -101,7 +101,7 @@ export interface ArgsProps {
   duration?: number;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
-  style?: string;
+  style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
   readonly type?: string;
