@@ -15,7 +15,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
-                  ant-select-selection--single"
+            ant-select-selection--single"
         role="combobox"
         tabindex="0"
       >
@@ -47,7 +47,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
-                  ant-select-selection--single"
+            ant-select-selection--single"
         role="combobox"
         tabindex="0"
       >
@@ -1022,7 +1022,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >
@@ -1054,7 +1054,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >
@@ -2027,7 +2027,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
-                  ant-select-selection--single"
+            ant-select-selection--single"
         role="combobox"
         tabindex="0"
       >
@@ -2059,7 +2059,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
-                  ant-select-selection--single"
+            ant-select-selection--single"
         role="combobox"
         tabindex="0"
       >
@@ -3346,7 +3346,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >
@@ -3378,7 +3378,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >

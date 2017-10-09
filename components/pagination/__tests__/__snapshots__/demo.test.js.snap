@@ -172,7 +172,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-select-selection
-                  ant-select-selection--single"
+            ant-select-selection--single"
         role="combobox"
         tabindex="0"
       >
@@ -621,7 +621,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >

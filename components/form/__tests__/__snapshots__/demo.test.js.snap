@@ -475,7 +475,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-select-selection
-                      ant-select-selection--single"
+            ant-select-selection--single"
             role="combobox"
             tabindex="0"
           >
@@ -565,7 +565,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
-                        ant-select-selection--single"
+            ant-select-selection--single"
               role="combobox"
               tabindex="0"
             >
@@ -837,10 +837,10 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
     class="language-bash"
   >
     {
-      "username": {
-        "value": "benjycui"
-      }
-    }
+  "username": {
+    "value": "benjycui"
+  }
+}
   </pre>
 </div>
 `;
@@ -1439,7 +1439,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-select-selection
-                            ant-select-selection--single"
+            ant-select-selection--single"
                   role="combobox"
                   tabindex="0"
                 >
@@ -1504,7 +1504,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-select-selection
-                      ant-select-selection--single"
+            ant-select-selection--single"
             role="combobox"
           >
             <div
@@ -2009,7 +2009,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-select-selection
-                      ant-select-selection--single"
+            ant-select-selection--single"
             role="combobox"
             tabindex="0"
           >
@@ -2064,7 +2064,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-select-selection
-                      ant-select-selection--multiple"
+            ant-select-selection--multiple"
             role="combobox"
           >
             <div
@@ -2876,7 +2876,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-select-selection
-                      ant-select-selection--single"
+            ant-select-selection--single"
             role="combobox"
             tabindex="0"
           >

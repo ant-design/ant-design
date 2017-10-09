@@ -10,7 +10,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <div
@@ -52,7 +52,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >
@@ -85,7 +85,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >
@@ -127,7 +127,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -183,7 +183,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >
@@ -216,7 +216,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >
@@ -253,7 +253,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
     tabindex="0"
   >
@@ -289,7 +289,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <div
@@ -367,7 +367,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
     tabindex="0"
   >
@@ -403,7 +403,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
     tabindex="0"
   >
@@ -458,7 +458,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -506,7 +506,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <div
@@ -616,7 +616,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >
@@ -650,7 +650,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
     >
       <div
@@ -696,7 +696,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--multiple"
+            ant-select-selection--multiple"
       role="combobox"
     >
       <div
@@ -772,7 +772,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--multiple"
+            ant-select-selection--multiple"
       role="combobox"
     >
       <div
@@ -851,7 +851,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <div
