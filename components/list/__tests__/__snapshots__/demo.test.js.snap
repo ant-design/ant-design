@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/list/demo/Basic.md correctly 1`] = `
+exports[`renders ./components/list/demo/basic.md correctly 1`] = `
 <div
   class="ant-list ant-list-split"
 >
@@ -375,9 +375,30 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list demo-loadmore-list ant-list-split ant-list-loading"
 >
   <div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div>
+        <div
+          class="ant-spin ant-spin-spinning"
+        >
+          <span
+            class="ant-spin-dot"
+          >
+            <i />
+            <i />
+            <i />
+            <i />
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-spin-container ant-spin-blur"
+      />
+    </div>
     <div
       style="text-align:center;margin-top:8px;"
     >
@@ -386,7 +407,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         type="button"
       >
         <span>
-          加载更多
+          loading more
         </span>
       </button>
     </div>
