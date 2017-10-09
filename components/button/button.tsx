@@ -95,7 +95,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
 
     if (typeof loading !== 'boolean' && loading && loading.delay) {
-      this.delayTimeout = setTimeout(() => this.setState({ loading }), loading.delay);
+      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
     } else {
       this.setState({ loading });
     }
@@ -114,7 +114,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     // Add click effect
     this.setState({ clicked: true });
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.setState({ clicked: false }), 500);
+    this.timeout = window.setTimeout(() => this.setState({ clicked: false }), 500);
 
     const onClick = this.props.onClick;
     if (onClick) {
