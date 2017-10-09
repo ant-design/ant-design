@@ -28,6 +28,7 @@
     text-align: center;
     padding-top: 28px;
     font-family: Consolas;
+    font-size: 13px;
     &:last-child {
       margin-right: 0;
     }
@@ -35,6 +36,11 @@
       margin-top: -10px;
       height: 90px;
     }
+  }
+  &-item &-text {
+    transition: all .3s;
+    font-weight: lighter;
+    opacity: 0.8;
   }
   &-item &-value {
     position: absolute;
@@ -58,7 +64,7 @@
 }
 
 .color-description {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: lighter;
   color: #777;
   display: block;
@@ -67,6 +73,9 @@
 .main-color:hover {
   .main-color-item {
     padding-top: 4px;
+  }
+  .main-color-text {
+    opacity: 1;
   }
   .main-color-value {
     opacity: 0.7;
@@ -98,10 +107,13 @@
   .make-palatte(purple);
   .make-palatte(cyan);
   .make-palatte(green);
-  .make-palatte(pink);
+  .make-palatte(magenta);
   .make-palatte(red);
+  .make-palatte(volcano);
   .make-palatte(orange);
-  .make-palatte(lemon);
+  .make-palatte(gold);
   .make-palatte(yellow);
+  .make-palatte(lime);
+  .make-palatte(geekblue);
   .make-palatte(grey);
 }

@@ -23,8 +23,9 @@ class Palette extends Component {
   }
   render() {
     this.colorNodes = this.colorNodes || {};
-    const { name, description } = this.props.color;
+    const { name, description, english, chinese } = this.props.color;
     const colors = [];
+    const colorName = `${english} / ${chinese}`;
     for (let i = 1; i <= 10; i += 1) {
       const colorText = `${name}-${i}`;
       colors.push(
@@ -43,7 +44,7 @@ class Palette extends Component {
             }}
             title="click to copy color"
           >
-            {colorText}
+            <span className="main-color-text">{colorText}</span>
             {this.hexColors
               ? <span className="main-color-value">{this.hexColors[colorText]}</span>
               : null}
@@ -54,7 +55,7 @@ class Palette extends Component {
     return (
       <div className="color-palette">
         <div className="color-title">
-          {name}
+          {colorName}
           <span className="color-description">{description}</span>
         </div>
         <div className="main-color">{colors}</div>
@@ -67,42 +68,80 @@ const ColorPalettes = () => {
   const colors = [
     {
       name: 'red',
-      description: '热情、警示',
+      english: 'Dust Red',
+      chinese: '薄暮',
+      description: '斗志、奔放',
     },
     {
-      name: 'green',
-      description: '成功、通过、安全',
-    },
-    {
-      name: 'blue',
-      description: '专业、科技',
-    },
-    {
-      name: 'pink',
-      description: '典雅、明快、女性',
+      name: 'volcano',
+      english: 'Volcano',
+      chinese: '火山',
+      description: '醒目、澎湃',
     },
     {
       name: 'orange',
-      description: '醒目、温暖',
+      english: 'Sunset Orange',
+      chinese: '日暮',
+      description: '温暖、欢快',
     },
     {
-      name: 'purple',
-      description: '高雅、浪漫',
+      name: 'gold',
+      english: 'Calendula Gold',
+      chinese: '金盏花',
+      description: '活力、积极',
     },
     {
       name: 'yellow',
-      description: '活力、提示',
+      english: 'Sunrise Yellow',
+      chinese: '日出',
+      description: '出生、阳光',
     },
     {
-      name: 'lemon',
-      description: '活力、提示',
+      name: 'lime',
+      english: 'Lime Green',
+      chinese: '青柠',
+      description: '自然、生机',
+    },
+    {
+      name: 'green',
+      english: 'Polar Green',
+      chinese: '极光绿',
+      description: '健康、创新',
     },
     {
       name: 'cyan',
-      description: '清新、冷静、结构化',
+      english: 'Cyan',
+      chinese: '明青',
+      description: '希望、坚强',
+    },
+    {
+      name: 'blue',
+      english: 'Daybreak Blue',
+      chinese: '拂晓蓝',
+      description: '包容、科技、普惠',
+    },
+    {
+      name: 'geekblue',
+      english: 'Geek Blue',
+      chinese: '极客蓝',
+      description: '探索、钻研',
+    },
+    {
+      name: 'purple',
+      english: 'Golden Purple',
+      chinese: '酱紫',
+      description: '优雅、浪漫',
+    },
+    {
+      name: 'magenta',
+      english: 'Magenta',
+      chinese: '法式洋红',
+      description: '明快、感性',
     },
     {
       name: 'grey',
+      english: 'Grey',
+      chinese: '灰',
       description: '平稳、中性',
     },
   ];
