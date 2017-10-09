@@ -435,6 +435,10 @@ form {
       border-color: @warning-color;
     }
   }
+
+  .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+    .active(@warning-color);
+  }
 }
 
 .has-error {
@@ -495,6 +499,10 @@ form {
     .@{ant-prefix}-mention-editor:not([disabled]):focus {
       .active(@error-color);
     }
+  }
+
+  .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+    .active(@error-color);
   }
 }
 
