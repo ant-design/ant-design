@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
   Popconfirm, Table, Modal, Select, Transfer } from '../../';
+import arEG from '../ar_EG';
 import enGB from '../en_GB';
 import frFR from '../fr_FR';
 import nlBE from '../nl_BE';
@@ -34,7 +35,7 @@ import elGR from '../el_GR';
 import nbNO from '../nb_NO';
 import srRS from '../sr_RS';
 
-const locales = [enUS, ptPT, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS];
+const locales = [arEG, enUS, ptPT, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
