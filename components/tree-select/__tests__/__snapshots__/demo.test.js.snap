@@ -9,7 +9,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
     aria-autocomplete="list"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
     tabindex="0"
   >
@@ -41,7 +41,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
     aria-autocomplete="list"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <ul
@@ -100,7 +100,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
     aria-autocomplete="list"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--multiple"
+            ant-select-selection--multiple"
     role="combobox"
   >
     <ul
@@ -144,7 +144,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
     aria-autocomplete="list"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
     tabindex="0"
   >

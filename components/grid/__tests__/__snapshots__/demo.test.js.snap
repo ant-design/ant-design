@@ -700,11 +700,11 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
   </div>
   <pre>
     &lt;Row gutter={16}&gt;
-      &lt;Col span={6} /&gt;
-      &lt;Col span={6} /&gt;
-      &lt;Col span={6} /&gt;
-      &lt;Col span={6} /&gt;
-    &lt;/Row&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+&lt;/Row&gt;
   </pre>
 </div>
 `;

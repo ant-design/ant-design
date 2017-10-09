@@ -29,11 +29,11 @@ const menu = (
   </Menu>
 );
 
-ReactDOM.render(<div>
+ReactDOM.render(
   <Dropdown overlay={menu} trigger={['click']}>
     <a className="ant-dropdown-link" href="#">
       Click me <Icon type="down" />
     </a>
   </Dropdown>
-</div>, mountNode);
+, mountNode);
 ````

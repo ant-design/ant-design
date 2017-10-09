@@ -40,7 +40,7 @@ for (let i = 0; i < 46; i++) {
 
 class App extends React.Component {
   state = {
-    selectedRowKeys: [],  // Check here to configure the default column
+    selectedRowKeys: [], // Check here to configure the default column
   };
   onSelectChange = (selectedRowKeys) => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -57,7 +57,7 @@ class App extends React.Component {
         text: 'Select All Data',
         onSelect: () => {
           this.setState({
-            selectedRowKeys: [...Array(46).keys()],  // 0...45
+            selectedRowKeys: [...Array(46).keys()], // 0...45
           });
         },
       }, {

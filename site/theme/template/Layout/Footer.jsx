@@ -59,7 +59,7 @@ class Footer extends React.Component {
   }
 
   infoNewVersion() {
-    const messages = this.props.intl.messages;
+    const { messages } = this.props.intl;
     Modal.info({
       title: messages['app.publish.title'],
       content: (

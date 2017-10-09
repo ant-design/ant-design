@@ -59,8 +59,8 @@ When uploading state change, it returns:
    {
       uid: 'uid',      // unique identifier，negative is recommend，to prevent interference with internal generated id
       name: 'xx.png'   // file name
-      status: 'done',  // options：uploading, done, error, removed
-      response: '{"status": "success"}',  // response from server
+      status: 'done', // options：uploading, done, error, removed
+      response: '{"status": "success"}', // response from server
    }
    ```
 

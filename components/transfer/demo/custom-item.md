@@ -53,8 +53,8 @@ class App extends React.Component {
     );
 
     return {
-      label: customLabel,  // for displayed item
-      value: item.title,   // for title and filter matching
+      label: customLabel, // for displayed item
+      value: item.title, // for title and filter matching
     };
   }
   render() {

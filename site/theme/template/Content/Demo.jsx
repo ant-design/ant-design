@@ -82,8 +82,8 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const state = this.state;
-    const props = this.props;
+    const { state } = this;
+    const { props } = this;
     const {
       meta,
       src,
@@ -105,7 +105,7 @@ export default class Demo extends React.Component {
       expand: codeExpand,
     });
 
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
     const introChildren = props.utils

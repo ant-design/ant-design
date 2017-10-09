@@ -19,7 +19,9 @@ export default function Page4() {
       <TweenOne
         key="image"
         className="image4 bottom-wrapper"
-        animation={{ y: 0, opacity: 1, duration: 550, delay: 150, ease: 'easeOutQuad' }}
+        animation={{
+          y: 0, opacity: 1, duration: 550, delay: 150, ease: 'easeOutQuad',
+        }}
         style={{ transform: 'translateY(50px)', opacity: 0 }}
       />
     </ScrollOverPack>

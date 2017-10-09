@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-         Popconfirm, Table, Modal, Select, Transfer } from '../../';
+  Popconfirm, Table, Modal, Select, Transfer } from '../../';
 import enGB from '../en_GB';
 import frFR from '../fr_FR';
 import nlBE from '../nl_BE';
@@ -38,8 +38,8 @@ import isIS from '../is_IS';
 
 const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, isIS];
 
-const Option = Select.Option;
-const RangePicker = DatePicker.RangePicker;
+const { Option } = Select;
+const { RangePicker } = DatePicker;
 
 const columns = [{
   title: 'Name',

@@ -55,7 +55,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
       tabindex="0"
     >

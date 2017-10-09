@@ -174,15 +174,13 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 `;
 
 exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
-<div>
-  <a
-    class="ant-dropdown-link ant-dropdown-trigger"
-    href="#"
-  >
-    Click me 
-    <i
-      class="anticon anticon-down"
-    />
-  </a>
-</div>
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Click me 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
 `;

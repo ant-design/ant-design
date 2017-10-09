@@ -1,6 +1,6 @@
 import Modal from '..';
 
-const confirm = Modal.confirm;
+const { confirm } = Modal;
 
 describe('Modal.confirm triggers callbacks correctly', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

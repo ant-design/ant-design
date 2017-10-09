@@ -138,7 +138,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
-                        ant-select-selection--single"
+            ant-select-selection--single"
               role="combobox"
               tabindex="0"
             >
@@ -177,7 +177,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >
@@ -484,7 +484,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
-                        ant-select-selection--single"
+            ant-select-selection--single"
               role="combobox"
               tabindex="0"
             >
@@ -516,7 +516,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-select-selection
-                        ant-select-selection--single"
+            ant-select-selection--single"
               role="combobox"
               tabindex="0"
             >
@@ -1626,7 +1626,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-select-selection
-                    ant-select-selection--single"
+            ant-select-selection--single"
           role="combobox"
           tabindex="0"
         >

@@ -1,59 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/auto-complete/demo/antd.md correctly 1`] = `
-<div
-  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;height:50px;"
->
-  <div
-    aria-autocomplete="list"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-              ant-select-selection--single"
-    role="combobox"
-  >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <div
-        class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
-        unselectable="unselectable"
-      >
-        input here
-      </div>
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <textarea
-              class="ant-input custom ant-select-search__field"
-              style="height:50px;"
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
-      unselectable="unselectable"
-    >
-      <b />
-    </span>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
@@ -64,7 +10,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -123,7 +69,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
     >
       <div
@@ -180,6 +126,54 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
 </div>
 `;
 
+exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
+<div
+  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+  style="width:200px;"
+>
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+            ant-select-selection--single"
+    role="combobox"
+  >
+    <div
+      class="ant-select-selection__rendered"
+    >
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <div
+            class="ant-select-search__field__wrap"
+          >
+            <textarea
+              class="ant-input custom ant-select-search__field"
+              placeholder="input here"
+              style="height:50px;"
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none;"
+      unselectable="unselectable"
+    >
+      <b />
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
@@ -190,7 +184,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -245,7 +239,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="true"
     class="ant-select-selection
-              ant-select-selection--single"
+            ant-select-selection--single"
     role="combobox"
   >
     <div
@@ -304,7 +298,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-select-selection
-                ant-select-selection--single"
+            ant-select-selection--single"
       role="combobox"
     >
       <div

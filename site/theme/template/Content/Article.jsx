@@ -65,12 +65,12 @@ export default class Article extends React.Component {
     });
   }
   render() {
-    const props = this.props;
-    const content = props.content;
+    const { props } = this;
+    const { content } = props;
 
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>

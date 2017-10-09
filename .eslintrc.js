@@ -30,6 +30,7 @@ const eslintrc = {
     'import/extensions': 0,
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
+    'prefer-destructuring': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
     'max-len': 0,
@@ -38,8 +39,13 @@ const eslintrc = {
     'react/require-extension': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-has-content': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/anchor-is-valid': 0,
     'react/no-danger': 0,
     'comma-dangle': ['error', 'always-multiline'],
+    'function-paren-newline': 0,
+    'object-curly-newline': 0,
+    'no-restricted-globals': 0,
   },
 };
 
@@ -51,6 +57,7 @@ if (process.env.RUN_ENV === 'DEMO') {
   };
 
   Object.assign(eslintrc.rules, {
+    indent: 0,
     'no-console': 0,
     'no-plusplus': 0,
     'eol-last': 0,

@@ -4,7 +4,7 @@ import Search from '../search';
 
 describe('Search', () => {
   it('should show cross icon when input value exists', () => {
-    const wrapper = mount(<Search value={''} />);
+    const wrapper = mount(<Search value="" />);
 
     expect(wrapper).toMatchSnapshot();
 

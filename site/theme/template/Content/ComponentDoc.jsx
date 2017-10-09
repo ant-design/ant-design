@@ -28,10 +28,10 @@ export default class ComponentDoc extends React.Component {
   }
 
   render() {
-    const props = this.props;
+    const { props } = this;
     const { doc, location } = props;
     const { content, meta } = doc;
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
     const expand = this.state.expandAll;
 
@@ -39,7 +39,7 @@ export default class ComponentDoc extends React.Component {
     const leftChildren = [];
     const rightChildren = [];
     const showedDemo = demos.some(demo => demo.meta.only) ?
-            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+      demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (
@@ -63,7 +63,7 @@ export default class ComponentDoc extends React.Component {
     });
 
     const jumper = showedDemo.map((demo) => {
-      const title = demo.meta.title;
+      const { title } = demo.meta;
       const localizeTitle = title[locale] || title;
       return (
         <li key={demo.meta.id} title={localizeTitle}>

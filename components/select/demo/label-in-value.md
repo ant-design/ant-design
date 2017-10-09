@@ -22,7 +22,7 @@ import { Select } from 'antd';
 const Option = Select.Option;
 
 function handleChange(value) {
-  console.log(value);  // { key: "lucy", label: "Lucy (101)" }
+  console.log(value); // { key: "lucy", label: "Lucy (101)" }
 }
 
 ReactDOM.render(

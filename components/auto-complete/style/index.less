@@ -24,7 +24,17 @@
           margin-left: (@input-padding-horizontal + 1px);
           margin-right: (@input-padding-horizontal + 1px);
         }
+
+        &--single {
+          height: auto;
+        }
       }
+    }
+
+    // Fix https://github.com/ant-design/ant-design/issues/7800
+    .@{select-prefix-cls}-search--inline {
+      position: static;
+      float: left;
     }
 
     &-allow-clear {

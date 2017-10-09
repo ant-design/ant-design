@@ -16,8 +16,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -26,8 +26,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#108ee9"
           stroke-linecap="round"
@@ -56,8 +56,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -66,8 +66,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#ff5500"
           stroke-linecap="round"
@@ -98,8 +98,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -108,8 +108,8 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#87d068"
           stroke-linecap="round"
@@ -145,8 +145,8 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -199,8 +199,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -209,8 +209,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#108ee9"
           stroke-linecap="round"
@@ -239,8 +239,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -249,8 +249,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#ff5500"
           stroke-linecap="round"
@@ -281,8 +281,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -291,8 +291,8 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#87d068"
           stroke-linecap="round"
@@ -327,8 +327,8 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
       <path
         class="ant-progress-circle-trail"
         d="M 50,50 m 0,47
-           a 47,47 0 1 1 0,-94
-           a 47,47 0 1 1 0,94"
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94"
         fill-opacity="0"
         stroke="#f3f3f3"
         stroke-width="6"
@@ -337,8 +337,8 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
       <path
         class="ant-progress-circle-path"
         d="M 50,50 m 0,47
-           a 47,47 0 1 1 0,-94
-           a 47,47 0 1 1 0,94"
+     a 47,47 0 1 1 0,-94
+     a 47,47 0 1 1 0,94"
         fill-opacity="0"
         stroke="#108ee9"
         stroke-linecap="round"
@@ -419,8 +419,8 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -429,8 +429,8 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#108ee9"
           stroke-linecap="round"
@@ -459,8 +459,8 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         <path
           class="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#f3f3f3"
           stroke-width="6"
@@ -469,8 +469,8 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
         <path
           class="ant-progress-circle-path"
           d="M 50,50 m 0,-47
-             a 47,47 0 1 1 0,94
-             a 47,47 0 1 1 0,-94"
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           stroke="#87d068"
           stroke-linecap="round"

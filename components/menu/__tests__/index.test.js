@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 
-const SubMenu = Menu.SubMenu;
+const { SubMenu } = Menu;
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Menu', () => {

@@ -13,7 +13,7 @@ export interface RowProps {
   prefixCls?: string;
 }
 
-export default class Row extends React.Component<RowProps, any> {
+export default class Row extends React.Component<RowProps, {}> {
   static defaultProps = {
     gutter: 0,
   };
@@ -40,8 +40,8 @@ export default class Row extends React.Component<RowProps, any> {
       marginLeft: (gutter as number) / -2,
       marginRight: (gutter as number) / -2,
       ...style,
-     } : style;
-    const cols = Children.map(children, (col: React.ReactElement<any>) => {
+    } : style;
+    const cols = Children.map(children, (col: React.ReactElement<HTMLDivElement>) => {
       if (!col) {
         return null;
       }

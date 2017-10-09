@@ -880,8 +880,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const { childrenColumnName = 'children' } = this.props;
     return data.sort(sorterFn).map(item => (item[childrenColumnName] ? {
       ...item,
-        [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
-      } : item));
+      [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
+    } : item));
   }
 
   getLocalData() {
