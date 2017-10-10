@@ -1,8 +1,8 @@
 ---
-order: 2
+order: 1
 title:
   zh-CN: 基础列表 
-  en-US: Basic
+  en-US: Basic List
 ---
 
 ## zh-CN
@@ -14,7 +14,7 @@ title:
 Basic List.
 
 ````jsx
-import { List, Avatar, Button, Icon } from 'antd';
+import { List, Avatar } from 'antd';
 
 const data = [
   {
@@ -31,45 +31,19 @@ const data = [
   },
 ];
 
-class BasicList extends React.Component {
-  state = {
-    loadingMore: false,
-    showLoadingMore: true,
-  }
-  onLoadMore = () => {
-    this.setState({
-      loadingMore: true,
-    });
-  }
-  render() {
-    const { loadingMore, showLoadingMore } = this.state;
-    const loadMore = showLoadingMore ? (
-      <div style={{ textAlign: 'center', marginTop: 8 }}>
-        <Button onClick={this.onLoadMore}>
-          {loadingMore && (<span><Icon type="loading" /> 加载中...</span>)}
-          {!loadingMore && (<span>加载更多</span>)}
-        </Button>
-      </div>
-    ) : null;
-    return (
-      <List
-        itemLayout="horizontal"
-        loadMore={loadMore}
-        dataSource={data}
-        renderItem={item => (
-          <List.Item actions={[<a>编辑</a>, <a>更多</a>]}>
-            <List.Item.Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-            />
-            <div>Content</div>
-          </List.Item>
-        )}
-      />
-    );
-  }
-}
-
-ReactDOM.render(<BasicList />, mountNode);
+ReactDOM.render(
+  <List
+    itemLayout="horizontal"
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <List.Item.Meta
+          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+          title={<a href="https://ant.design">{item.title}</a>}
+          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+        />
+      </List.Item>
+    )}
+  />
+, mountNode);
 ````

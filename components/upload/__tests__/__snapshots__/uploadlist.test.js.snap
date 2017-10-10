@@ -81,10 +81,12 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             onDrop={[Function]}
             onKeyDown={[Function]}
             role="button"
+            style={undefined}
             tabIndex="0"
           >
             <input
               accept=""
+              key="rc-upload-1507633212996-5"
               multiple={false}
               onChange={[Function]}
               style={
@@ -102,35 +104,17 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       </Upload>
     </div>
     <UploadList
-      items={
-        Array [
-          Object {
-            "error": undefined,
-            "lastModified": undefined,
-            "lastModifiedDate": undefined,
-            "name": "foo.png",
-            "originFileObj": Object {
-              "filename": "foo.png",
-              "uid": "rc-upload-1507622331497-4",
-            },
-            "percent": 0,
-            "response": undefined,
-            "size": undefined,
-            "status": "uploading",
-            "type": undefined,
-            "uid": "rc-upload-1507622331497-4",
-          },
-        ]
-      }
+      items={Array []}
       listType="text"
       locale={
         Object {
-          "previewFile": "预览文件",
-          "removeFile": "删除文件",
-          "uploadError": "上传错误",
-          "uploading": "文件上传中",
+          "previewFile": "Preview file",
+          "removeFile": "Remove file",
+          "uploadError": "Upload error",
+          "uploading": "Uploading...",
         }
       }
+      onPreview={undefined}
       onRemove={[Function]}
       prefixCls="ant-upload"
       progressAttr={
@@ -158,109 +142,8 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       >
         <div
           className="ant-upload-list ant-upload-list-text"
-        >
-          <AnimateChild
-            animation={Object {}}
-            transitionAppear={false}
-            transitionEnter={true}
-            transitionLeave={true}
-            transitionName="ant-upload-animate"
-          >
-            <div
-              className="ant-upload-list-item ant-upload-list-item-uploading"
-            >
-              <div
-                className="ant-upload-list-item-info"
-              >
-                <span>
-                  <Icon
-                    type="loading"
-                  >
-                    <i
-                      className="anticon anticon-spin anticon-loading"
-                    />
-                  </Icon>
-                  <span
-                    className="ant-upload-list-item-name"
-                    onClick={[Function]}
-                    title="foo.png"
-                  >
-                    foo.png
-                  </span>
-                </span>
-              </div>
-              <Icon
-                onClick={[Function]}
-                title="删除文件"
-                type="cross"
-              >
-                <i
-                  className="anticon anticon-cross"
-                  onClick={[Function]}
-                  title="删除文件"
-                />
-              </Icon>
-              <Animate
-                animation={Object {}}
-                component=""
-                componentProps={Object {}}
-                onAppear={[Function]}
-                onEnd={[Function]}
-                onEnter={[Function]}
-                onLeave={[Function]}
-                transitionAppear={false}
-                transitionEnter={true}
-                transitionLeave={true}
-                transitionName="fade"
-              >
-                <AnimateChild
-                  animation={Object {}}
-                  transitionAppear={false}
-                  transitionEnter={true}
-                  transitionLeave={true}
-                  transitionName="fade"
-                >
-                  <div
-                    className="ant-upload-list-item-progress"
-                  >
-                    <Progress
-                      percent={0}
-                      prefixCls="ant-progress"
-                      showInfo={false}
-                      strokeWidth={2}
-                      trailColor="#f3f3f3"
-                      type="line"
-                    >
-                      <div
-                        className="ant-progress ant-progress-line ant-progress-status-normal"
-                      >
-                        <div>
-                          <div
-                            className="ant-progress-outer"
-                          >
-                            <div
-                              className="ant-progress-inner"
-                            >
-                              <div
-                                className="ant-progress-bg"
-                                style={
-                                  Object {
-                                    "height": 2,
-                                    "width": "0%",
-                                  }
-                                }
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Progress>
-                  </div>
-                </AnimateChild>
-              </Animate>
-            </div>
-          </AnimateChild>
-        </div>
+          style={undefined}
+        />
       </Animate>
     </UploadList>
   </span>
