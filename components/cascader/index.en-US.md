@@ -53,6 +53,6 @@ Fields in `showSearch`:
 
 <style>
 .ant-cascader-picker {
-  width: 220px;
+  width: 300px;
 }
 </style>

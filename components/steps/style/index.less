@@ -94,7 +94,6 @@
   &-title {
     font-size: @font-size-lg;
     color: @text-color;
-    font-weight: 500;
     display: inline-block;
     padding-right: 10px;
     position: relative;
@@ -121,6 +120,9 @@
     > .@{steps-prefix-cls}-icon {
       color: @process-icon-text-color;
     }
+  }
+  &-process &-title {
+    font-weight: 500;
   }
   .step-item-status(finish);
   .step-item-status(error);

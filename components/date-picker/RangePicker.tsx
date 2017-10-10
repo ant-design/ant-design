@@ -235,7 +235,7 @@ export default class RangePicker extends React.Component<any, any> {
     // default width for showTime
     const pickerStyle = {} as any;
     if (props.showTime) {
-      pickerStyle.width = (style && style.width) || 300;
+      pickerStyle.width = (style && style.width) || 350;
     }
 
     const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (

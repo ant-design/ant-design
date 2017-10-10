@@ -5,13 +5,14 @@
 
 .@{breadcrumb-prefix-cls} {
   .reset-component;
+  color: @text-color-secondary;
 
   .@{iconfont-css-prefix} {
     font-size: @font-size-sm;
   }
 
   a {
-    color: @text-color;
+    color: @text-color-secondary;
     transition: color .3s;
     &:hover {
       color: @primary-5;
@@ -19,7 +20,6 @@
   }
 
   & > span:last-child {
-    font-weight: 500;
     color: @text-color;
   }
 

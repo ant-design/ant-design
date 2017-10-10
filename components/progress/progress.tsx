@@ -80,7 +80,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     if (type === 'line') {
       const percentStyle = {
         width: `${percent}%`,
-        height: strokeWidth || 8,
+        height: strokeWidth || (size === 'small' ? 6 : 8),
       };
       progress = (
         <div>

@@ -40,7 +40,7 @@
 
   &:hover,
   &:focus {
-    .button-color(@primary-color; @background; @primary-color);
+    .button-color(@primary-5; @background; @primary-5);
   }
 
   &:active,
@@ -56,12 +56,12 @@
 
   &:hover,
   &:focus {
-    .button-color(@btn-primary-color; @color; @color;);
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 5)`; ~`colorPalette("@{color}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`);
   }
 
   .button-disabled();

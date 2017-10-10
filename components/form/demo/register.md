@@ -115,7 +115,7 @@ class RegistrationForm extends React.Component {
     const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86',
     })(
-      <Select style={{ width: 60 }}>
+      <Select style={{ width: 64 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
       </Select>
