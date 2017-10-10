@@ -33,7 +33,7 @@ The properties of config are as follows:
 | message     | The title of notification box (required) | string\|ReactNode | -        |
 | description | The content of notification box (required) | string\|ReactNode | -        |
 | className   | Customized CSS class                     | string            | -        |
-| style       | Customized inline style                  | Object            | -        |
+| style       | Customized inline style                  | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | -        |
 | btn         | Customized close button                  | ReactNode         | -        |
 | icon        | Customized icon                          | ReactNode         | -        |
 | key         | The unique identifier of the Notification | string            | -        |

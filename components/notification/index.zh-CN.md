@@ -33,7 +33,7 @@ config 参数如下：
 | message     | 通知提醒标题，必选                                | string\|ReactNode | -        |
 | description | 通知提醒内容，必选                                | string\|ReactNode | -        |
 | className   | 自定义 CSS class                            | string            | -        |
-| style       | 自定义内联样式                                  | Object            | -        |
+| style       | 自定义内联样式                                  | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | -        |
 | btn         | 自定义关闭按钮                                  | ReactNode         | -        |
 | icon        | 自定义图标                                    | ReactNode         | -        |
 | key         | 当前通知唯一标志                                 | string            | -        |

@@ -49,7 +49,7 @@ title: Select
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{key: string, label: ReactNode}` 的格式 | boolean | false |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |
 | firstActiveValue | 默认高亮的选项 | string\|string[] |  -  |

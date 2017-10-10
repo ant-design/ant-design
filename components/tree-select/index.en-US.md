@@ -44,7 +44,7 @@ treeNodeLabelProp | Will render as content of select  | string | 'title'
 treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array<{ value, label, children, [disabled, disableCheckbox, selectable] }> | []
 treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', label:"test1",...},...], pId is parent node's id)  | false\|Array<{ id: string, pId: string, rootPId: null }> | false
 loadData | Load data asynchronously.  | function(node) | -
-getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body
+getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body
 
 ### TreeNode props
 
