@@ -1,6 +1,7 @@
 @dialog-prefix-cls: ~"@{ant-prefix}-modal";
 
 .@{dialog-prefix-cls} {
+  .reset-component;
   position: relative;
   width: auto;
   margin: 0 auto;
@@ -131,7 +132,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: @screen-md) {
   .@{dialog-prefix-cls} {
     width: auto !important;
     margin: 10px;

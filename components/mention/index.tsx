@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import Icon from '../icon';
 
+export type MentionPlacement = 'top' | 'bottom';
+
 export interface MentionProps {
   prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
@@ -24,6 +26,7 @@ export interface MentionProps {
   onBlur?: Function;
   readOnly?: boolean;
   disabled?: boolean;
+  placement?: MentionPlacement;
 }
 
 export interface MentionState {
@@ -38,6 +41,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     notFoundContent: '无匹配结果，轻敲空格完成输入',
     loading: false,
     multiLines: false,
+    placement: 'bottom',
   };
   static Nav = Nav;
   static toString = toString;
@@ -117,10 +121,11 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     this.mentionEle = ele;
   }
   render() {
-    const { className = '', prefixCls, loading } = this.props;
+    const { className = '', prefixCls, loading, placement } = this.props;
     const { suggestions, focus } = this.state;
     const cls = classNames(className, {
       [`${prefixCls}-active`]: focus,
+      [`${prefixCls}-placement-top`]: placement === 'top',
     });
 
     const notFoundContent = loading

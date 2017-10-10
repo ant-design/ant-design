@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
+import enUS from '../locale-provider/en_US';
 import warning from '../_util/warning';
 import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
@@ -25,14 +26,7 @@ function stopPropagation(e) {
   }
 }
 
-const defaultLocale = {
-  filterTitle: '筛选',
-  filterConfirm: '确定',
-  filterReset: '重置',
-  emptyText: <span><Icon type="frown-o" />暂无数据</span>,
-  selectAll: '全选当页',
-  selectInvert: '反选当页',
-};
+const defaultLocale = enUS.Table;
 
 const defaultPagination = {
   onChange: noop,

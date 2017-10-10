@@ -4,12 +4,18 @@
 @progress-prefix-cls: ~"@{ant-prefix}-progress";
 
 .@{progress-prefix-cls} {
+  .reset-component;
   display: inline-block;
 
   &-line {
     width: 100%;
     font-size: @font-size-base;
     position: relative;
+  }
+
+  &-small&-line,
+  &-small&-line &-text .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
   }
 
   &-outer {

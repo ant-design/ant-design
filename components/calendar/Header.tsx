@@ -24,7 +24,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     yearSelectTotal: 20,
   };
 
-  calenderHeaderNode: any;
+  private calenderHeaderNode: any;
 
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;

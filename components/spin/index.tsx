@@ -48,7 +48,7 @@ export default class Spin extends React.Component<SpinProps, any> {
 
   componentDidMount() {
     if (!isCssAnimationSupported()) {
-      // Show text in IE8/9
+      // Show text in IE9
       this.setState({
         notCssAnimationSupported: true,
       });
@@ -73,7 +73,7 @@ export default class Spin extends React.Component<SpinProps, any> {
       clearTimeout(this.debounceTimeout);
     }
     if (currentSpinning && !spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 200);
+      this.debounceTimeout = window.setTimeout(() => this.setState({ spinning }), 200);
       if (this.delayTimeout) {
         clearTimeout(this.delayTimeout);
       }
@@ -82,7 +82,7 @@ export default class Spin extends React.Component<SpinProps, any> {
         if (this.delayTimeout) {
           clearTimeout(this.delayTimeout);
         }
-        this.delayTimeout = setTimeout(() => this.setState({ spinning }), delay);
+        this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
       } else {
         this.setState({ spinning });
       }

@@ -7,6 +7,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
 >
   <div>
     <Input
+      className={undefined}
       disabled={false}
       onChange={[Function]}
       placeholder=""
@@ -46,6 +47,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
 >
   <div>
     <Input
+      className={undefined}
       disabled={false}
       onChange={[Function]}
       placeholder=""

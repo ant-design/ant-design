@@ -153,7 +153,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:20px;"
+    style="margin-top:20px"
   >
     <button
       class="ant-btn ant-btn-primary"

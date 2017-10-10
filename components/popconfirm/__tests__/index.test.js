@@ -35,11 +35,11 @@ describe('Popconfirm', () => {
       </Popconfirm>
     );
 
-    expect(popconfirm.node.getPopupDomNode()).toBe(null);
+    expect(popconfirm.instance().getPopupDomNode()).toBe(null);
 
     popconfirm.find('span').simulate('click');
 
-    const popup = popconfirm.node.getPopupDomNode();
+    const popup = popconfirm.instance().getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();

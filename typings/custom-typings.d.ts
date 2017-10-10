@@ -78,12 +78,6 @@ declare module 'rc-form*';
 
 declare module 'react-lazy-load';
 
-declare var process: {
-  env: {
-    NODE_ENV: string
-  }
-};
-
 declare module "*.json" {
   const value: any;
   export const version: string;
@@ -91,5 +85,3 @@ declare module "*.json" {
 }
 
 declare module "prop-types"
-
-declare function require(name: string): any;

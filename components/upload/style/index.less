@@ -6,8 +6,12 @@
 @upload-pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
   outline: 0;
+
+  p {
+    margin: 0;
+  }
 
   &-btn {
     display: block;
@@ -51,13 +55,14 @@
 
   &&-drag {
     border: @border-width-base dashed @border-color-base;
-    transition: border-color 0.3s ease;
+    transition: border-color .3s;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
     width: 100%;
     height: 100%;
     position: relative;
+    padding: 16px 0;
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
       border: 2px dashed @primary-5;
@@ -83,15 +88,15 @@
 
     p.@{upload-prefix-cls}-drag-icon {
       .@{iconfont-css-prefix} {
-        font-size: 80px;
-        margin-top: -5px;
+        font-size: 60px;
         color: @primary-5;
       }
-      height: 60px;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
     p.@{upload-prefix-cls}-text {
       font-size: @font-size-lg;
+      margin: 0 0 4px;
+      color: @heading-color;
     }
     p.@{upload-prefix-cls}-hint {
       font-size: @font-size-base;
@@ -99,7 +104,7 @@
     }
     .@{iconfont-css-prefix}-plus {
       font-size: 30px;
-      transition: all 0.3s ease;
+      transition: all .3s;
       color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
@@ -112,6 +117,7 @@
 }
 
 .@{upload-prefix-cls}-list {
+  .reset-component;
   overflow: hidden;
   &-item {
     overflow: hidden;
@@ -123,7 +129,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-left: 16px;
+      padding-left: @font-size-base + 4px;
       width: 100%;
       display: inline-block;
     }
@@ -133,13 +139,16 @@
       padding: 0 12px 0 4px;
       transition: background-color .3s;
 
+      > span {
+        display: block;
+      }
+
       .@{iconfont-css-prefix}-loading,
       .@{iconfont-css-prefix}-paper-clip {
-        margin-right: 4px;
         font-size: @font-size-base;
         color: @text-color-secondary;
         position: absolute;
-        top: 5.5px;
+        top: @font-size-base / 2 - 0.5px;
       }
     }
 
@@ -257,6 +266,8 @@
     .@{upload-item}-progress {
       padding-left: 56px;
       margin-top: 0;
+      bottom: 24px;
+      width: ~"calc(100% - 24px)";
     }
 
     .@{iconfont-css-prefix}-cross {
@@ -280,6 +291,7 @@
     .@{upload-item}-info {
       height: 100%;
       position: relative;
+      overflow: hidden;
 
       &:before {
         content: ' ';
@@ -361,6 +373,7 @@
 
     .@{upload-item}-progress {
       padding-left: 0;
+      bottom: 32px;
     }
   }
 

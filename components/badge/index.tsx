@@ -5,6 +5,8 @@ import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 import warning from '../_util/warning';
 
+export { ScrollNumberProps } from './ScrollNumber';
+
 export interface BadgeProps {
   /** Number to show in badge */
   count?: number | string;

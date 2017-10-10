@@ -9,7 +9,7 @@ describe('BackTop', () => {
     const wrapper = mount(<BackTop visibilityHeight={-1} />);
     document.documentElement.scrollTop = 400;
     // trigger scroll manually
-    wrapper.node.handleScroll();
+    wrapper.instance().handleScroll();
     await delay(500);
     wrapper.find('.ant-back-top').simulate('click');
     await delay(500);

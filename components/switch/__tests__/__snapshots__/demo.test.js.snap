@@ -14,7 +14,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch ant-switch-disabled"
+    class="ant-switch ant-switch-checked ant-switch-disabled"
     tabindex="-1"
   >
     <span

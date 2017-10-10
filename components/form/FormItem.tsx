@@ -2,6 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
@@ -126,11 +127,16 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
-    return help ? (
+    const children = help ? (
       <div className={`${prefixCls}-explain`} key="help">
         {help}
       </div>
     ) : null;
+    return (
+      <Animate transitionName="show-help" component="" transitionAppear key="help">
+        {children}
+      </Animate>
+    );
   }
 
   renderExtra() {
@@ -267,13 +273,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderChildren() {
-    const props = this.props;
-    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
-      if (child && typeof child.type === 'function' && !child.props.size) {
-        return React.cloneElement(child, { size: 'large' });
-      }
-      return child;
-    });
+    const { children } = this.props;
     return [
       this.renderLabel(),
       this.renderWrapper(

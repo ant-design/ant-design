@@ -6,7 +6,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
 >
   <div
     class="ant-transfer-list ant-transfer-list-with-footer"
-    style="width:250px;height:300px;"
+    style="width:250px;height:300px"
   >
     <div
       class="ant-transfer-list-header"
@@ -30,7 +30,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -46,7 +46,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         <div>
           <input
             class="ant-input ant-transfer-list-search"
-            placeholder="Search"
+            placeholder="Search here"
             type="text"
             value=""
           />
@@ -73,7 +73,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     >
       <button
         class="ant-btn ant-btn-sm"
-        style="float:right;margin:5px;"
+        style="float:right;margin:5px"
         type="button"
       >
         <span>
@@ -112,7 +112,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
   </div>
   <div
     class="ant-transfer-list ant-transfer-list-with-footer"
-    style="width:250px;height:300px;"
+    style="width:250px;height:300px"
   >
     <div
       class="ant-transfer-list-header"
@@ -136,7 +136,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -152,7 +152,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         <div>
           <input
             class="ant-input ant-transfer-list-search"
-            placeholder="Search"
+            placeholder="Search here"
             type="text"
             value=""
           />
@@ -179,7 +179,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     >
       <button
         class="ant-btn ant-btn-sm"
-        style="float:right;margin:5px;"
+        style="float:right;margin:5px"
         type="button"
       >
         <span>
@@ -220,7 +220,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          14 
+          14 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -237,59 +237,59 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
       </ul>
       <div
@@ -350,7 +350,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          6 
+          6 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -367,27 +367,27 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
         <div
           class="LazyLoad"
-          style="height:32px;"
+          style="height:32px"
         />
       </ul>
       <div
@@ -406,7 +406,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
 >
   <div
     class="ant-transfer-list"
-    style="width:300px;height:300px;"
+    style="width:300px;height:300px"
   >
     <div
       class="ant-transfer-list-header"
@@ -430,7 +430,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -478,7 +478,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
   </div>
   <div
     class="ant-transfer-list"
-    style="width:300px;height:300px;"
+    style="width:300px;height:300px"
   >
     <div
       class="ant-transfer-list-header"
@@ -502,7 +502,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -554,7 +554,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -625,7 +625,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -677,7 +677,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -693,7 +693,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         <div>
           <input
             class="ant-input ant-transfer-list-search"
-            placeholder="Search"
+            placeholder="Search here"
             type="text"
             value=""
           />
@@ -767,7 +767,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          0 
+          0 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -783,7 +783,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         <div>
           <input
             class="ant-input ant-transfer-list-search"
-            placeholder="Search"
+            placeholder="Search here"
             type="text"
             value=""
           />

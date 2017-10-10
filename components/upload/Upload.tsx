@@ -2,6 +2,7 @@ import React from 'react';
 import RcUpload from 'rc-upload';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import enUS from '../locale-provider/en_US';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import { UploadProps, UploadLocale } from './interface';
@@ -13,12 +14,7 @@ export interface UploadContext {
   };
 }
 
-const defaultLocale: UploadLocale = {
-  uploading: '文件上传中',
-  removeFile: '删除文件',
-  uploadError: '上传错误',
-  previewFile: '预览文件',
-};
+const defaultLocale: UploadLocale = enUS.Upload;
 
 export { UploadProps };
 
@@ -48,10 +44,8 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
-  refs: {
-    [key: string]: any;
-    upload: any;
-  };
+
+  private upload: any;
 
   constructor(props) {
     super(props);
@@ -188,7 +182,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   handleManualRemove = (file) => {
-    this.refs.upload.abort(file);
+    this.upload.abort(file);
     file.status = 'removed'; // eslint-disable-line
     this.handleRemove(file);
   }
@@ -239,6 +233,10 @@ export default class Upload extends React.Component<UploadProps, any> {
     clearInterval(this.progressTimer);
   }
 
+  saveUpload = (node) => {
+    this.upload = node;
+  }
+
   render() {
     const {
       prefixCls = '', showUploadList, listType, onPreview,
@@ -284,7 +282,7 @@ export default class Upload extends React.Component<UploadProps, any> {
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...rcUploadProps} ref="upload" className={`${prefixCls}-btn`}>
+            <RcUpload {...rcUploadProps} ref={this.saveUpload} className={`${prefixCls}-btn`}>
               <div className={`${prefixCls}-drag-container`}>
                 {children}
               </div>
@@ -303,7 +301,7 @@ export default class Upload extends React.Component<UploadProps, any> {
 
     const uploadButton = (
       <div className={uploadButtonCls} style={{ display: children ? '' : 'none' }}>
-        <RcUpload {...rcUploadProps} ref="upload" />
+        <RcUpload {...rcUploadProps} ref={this.saveUpload} />
       </div>
     );
 

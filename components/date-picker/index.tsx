@@ -5,6 +5,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import createPicker from './createPicker';
 import wrapPicker from './wrapPicker';
 import RangePicker from './RangePicker';
+import WeekPicker from './WeekPicker';
 import Calendar from './Calendar';
 import { TimePickerProps } from '../time-picker';
 
@@ -24,6 +25,7 @@ export interface PickerProps {
   onOpenChange?: (status: boolean) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   renderExtraFooter?: () => React.ReactNode;
+  dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
 }
 
 export interface SinglePickerProps {
@@ -75,15 +77,22 @@ export interface RangePickerProps extends PickerProps {
   };
 }
 
+export interface WeexPickerProps extends PickerProps, SinglePickerProps {
+  className?: string;
+  placeholder?: string;
+}
+
 Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,
+  WeekPicker: wrapPicker(WeekPicker, 'YYYY-Wo'),
 });
 
 export interface DatePickerDecorator extends React.ClassicComponentClass<DatePickerProps> {
   RangePicker: React.ClassicComponentClass<RangePickerProps>;
   MonthPicker: React.ClassicComponentClass<MonthPickerProps>;
+  WeekPicker: React.ClassicComponentClass<WeexPickerProps>;
 }
 
 export default DatePicker as DatePickerDecorator;

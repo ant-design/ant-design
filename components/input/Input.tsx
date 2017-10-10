@@ -80,9 +80,7 @@ export default class Input extends Component<InputProps, any> {
     suffix: PropTypes.node,
   };
 
-  refs: {
-    input: HTMLInputElement;
-  };
+  input: HTMLInputElement;
 
   handleKeyDown = (e) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -95,11 +93,11 @@ export default class Input extends Component<InputProps, any> {
   }
 
   focus() {
-    this.refs.input.focus();
+    this.input.focus();
   }
 
   blur() {
-    this.refs.input.blur();
+    this.input.blur();
   }
 
   getInputClassName() {
@@ -109,6 +107,10 @@ export default class Input extends Component<InputProps, any> {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-disabled`]: disabled,
     });
+  }
+
+  saveInput = (node) => {
+    this.input = node;
   }
 
   renderLabeledInput(children) {
@@ -214,14 +216,14 @@ export default class Input extends Component<InputProps, any> {
         {...otherProps}
         className={classNames(this.getInputClassName(), className)}
         onKeyDown={this.handleKeyDown}
-        ref="input"
+        ref={this.saveInput}
       />,
     );
   }
 
   render() {
     if (this.props.type === 'textarea') {
-      return <TextArea {...this.props as any} ref="input" />;
+      return <TextArea {...this.props as any} ref={this.saveInput} />;
     }
     return this.renderLabeledInput(this.renderInput());
   }

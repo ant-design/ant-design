@@ -179,6 +179,7 @@ export default class RangePicker extends React.Component<any, any> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, format,
+      dateRender,
     } = props;
     warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
@@ -191,13 +192,16 @@ export default class RangePicker extends React.Component<any, any> {
     let pickerChangeHandler = {
       onChange: this.handleChange,
     };
-    let calendarHandler: Object = {
+    let calendarProps: any = {
       onOk: this.handleChange,
     };
     if (props.timePicker) {
       pickerChangeHandler.onChange = changedValue => this.handleChange(changedValue);
     } else {
-      calendarHandler = {};
+      calendarProps = {};
+    }
+    if ('mode' in props) {
+      calendarProps.mode = props.mode;
     }
 
     const startPlaceholder = ('placeholder' in props)
@@ -207,7 +211,7 @@ export default class RangePicker extends React.Component<any, any> {
 
     const calendar = (
       <RangeCalendar
-        {...calendarHandler}
+        {...calendarProps}
         format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
@@ -218,10 +222,12 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
+        dateRender={dateRender}
         value={showDate}
         onValueChange={this.handleShowDateChange}
         hoverValue={hoverValue}
         onHoverChange={this.handleHoverChange}
+        onPanelChange={props.onPanelChange}
         showToday={showToday}
       />
     );

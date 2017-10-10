@@ -5,11 +5,10 @@
 @import "./card-style";
 
 .@{tab-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   position: relative;
   overflow: hidden;
   .clearfix;
-  color: @text-color;
 
   &-ink-bar {
     z-index: 1;
@@ -52,7 +51,6 @@
     z-index: 2;
     width: 0;
     height: 100%;
-    line-height: 32px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
@@ -159,7 +157,7 @@
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin-right: 24px;
+      margin-right: 32px;
       box-sizing: border-box;
       position: relative;
 
@@ -167,7 +165,7 @@
         margin-right: 0;
       }
 
-      padding: 8px 20px;
+      padding: 12px 20px;
       transition: color 0.3s @ease-in-out;
       cursor: pointer;
       text-decoration: none;
@@ -179,9 +177,8 @@
       &:active {
         color: @primary-7;
       }
+
       .@{iconfont-css-prefix} {
-        width: 14px;
-        height: 14px;
         margin-right: 8px;
       }
     }
@@ -196,7 +193,6 @@
   }
 
   &-mini &-tab {
-    margin-right: 0;
     padding: 8px 16px;
   }
 

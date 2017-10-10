@@ -62,8 +62,8 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
     render() {
       const props = this.props;
       const { prefixCls, inputPrefixCls } = props;
-      const pickerClass = classNames({
-        [`${prefixCls}-picker`]: true,
+      const pickerClass = classNames(`${prefixCls}-picker`, {
+        [`${prefixCls}-picker-${props.size}`]: !!props.size,
       });
       const pickerInputClass = classNames(`${prefixCls}-picker-input`, inputPrefixCls, {
         [`${inputPrefixCls}-lg`]: props.size === 'large',
@@ -73,7 +73,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
 
       const locale = getComponentLocale(
         props, this.context, 'DatePicker',
-        () => require('./locale/zh_CN'),
+        () => require('./locale/en_US'),
       );
 
       const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';

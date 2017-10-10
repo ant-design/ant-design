@@ -1,10 +1,14 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @breadcrumb-prefix-cls: ~"@{ant-prefix}-breadcrumb";
 
 .@{breadcrumb-prefix-cls} {
-  color: @text-color;
-  font-size: @font-size-base;
+  .reset-component;
+
+  .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
+  }
 
   a {
     color: @text-color;
@@ -24,8 +28,8 @@
   }
 
   &-separator {
-    margin: 0 8px;
-    color: rgba(0, 0, 0, 0.3);
+    margin: 0 @padding-xs;
+    color: @text-color-secondary;
   }
 
   &-link {

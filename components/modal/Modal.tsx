@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 import { ButtonType } from '../button/button';
+import { getConfirmLocale } from './locale';
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -150,20 +151,18 @@ export default class Modal extends React.Component<ModalProps, any> {
     const defaultFooter = [(
       <Button
         key="cancel"
-        size="large"
         onClick={this.handleCancel}
       >
-        {cancelText || '取消'}
+        {cancelText || getConfirmLocale().cancelText}
       </Button>
     ), (
       <Button
         key="confirm"
         type={okType}
-        size="large"
         loading={confirmLoading}
         onClick={this.handleOk}
       >
-        {okText || '确定'}
+        {okText || getConfirmLocale().okText}
       </Button>
     )];
 

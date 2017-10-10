@@ -25,4 +25,12 @@ subtitle: 走马灯
 | beforeChange      | 切换面板的回调                              | function(from, to) | 无 |
 | afterChange       | 切换面板的回调                              | function(current)  | 无 |
 
+## 方法
+
+| 名称 | 描述 |
+|------|-------------|
+| next() | 切换到下一面板 |
+| prev() | 切换到上一面板 |
+| goTo(slideNumber) | 切换到指定面板 |
+
 更多参数可参考：https://github.com/akiran/react-slick

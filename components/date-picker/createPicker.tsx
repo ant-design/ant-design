@@ -86,23 +86,26 @@ export default function createPicker(TheCalendar): any {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
-      let pickerChangeHandler: Object = {};
-      let calendarHandler: Object = {};
+      let pickerProps: Object = {};
+      let calendarProps: any = {};
       if (props.showTime) {
-        calendarHandler = {
+        calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
           onSelect: this.handleChange,
         };
       } else {
-        pickerChangeHandler = {
+        pickerProps = {
           onChange: this.handleChange,
         };
+      }
+      if ('mode' in props) {
+        calendarProps.mode = props.mode;
       }
 
       warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
       const calendar = (
         <TheCalendar
-          {...calendarHandler}
+          {...calendarProps}
           disabledDate={props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
@@ -112,18 +115,14 @@ export default function createPicker(TheCalendar): any {
           prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
+          dateRender={props.dateRender}
           format={props.format}
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
           renderFooter={this.renderFooter}
+          onPanelChange={props.onPanelChange}
         />
       );
-
-      // default width for showTime
-      const pickerStyle = {} as any;
-      if (props.showTime) {
-        pickerStyle.width = (props.style && props.style.width) || 154;
-      }
 
       const clearIcon = (!props.disabled && props.allowClear && value) ? (
         <Icon
@@ -152,15 +151,11 @@ export default function createPicker(TheCalendar): any {
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
       }
-      const style = {
-        ...props.style,
-        ...pickerStyle,
-      };
       return (
-        <span className={classNames(props.className, props.pickerClass)} style={style}>
+        <span className={classNames(props.className, props.pickerClass)} style={props.style}>
           <RcDatePicker
             {...props}
-            {...pickerChangeHandler}
+            {...pickerProps}
             calendar={calendar}
             value={pickerValue}
             prefixCls={`${prefixCls}-picker-container`}

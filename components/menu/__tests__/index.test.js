@@ -56,11 +56,12 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   it('should accept openKeys in mode inline', () => {
@@ -73,11 +74,12 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   it('should accept openKeys in mode vertical', () => {
@@ -90,11 +92,12 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.setProps({ openKeys: [] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/pulls/4677
@@ -172,11 +175,12 @@ describe('Menu', () => {
     );
     expect(wrapper.find('.ant-menu-sub').length).toBe(0);
     wrapper.find('.ant-menu-submenu-title').simulate('click');
-    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu-title').simulate('click');
     await delay(300);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 
   it('should open submenu when hover submenu title (vertical)', async () => {
@@ -191,11 +195,12 @@ describe('Menu', () => {
     );
     expect(wrapper.find('.ant-menu-sub').length).toBe(0);
     wrapper.find('.ant-menu-submenu-title').simulate('mouseenter');
-    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu').simulate('mouseleave');
     await delay(300);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 
   it('should open submenu when hover submenu title (horizontal)', async () => {
@@ -210,10 +215,11 @@ describe('Menu', () => {
     );
     expect(wrapper.find('.ant-menu-sub').length).toBe(0);
     wrapper.find('.ant-menu-submenu-title').simulate('mouseenter');
-    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().length).toBe(1);
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu').simulate('mouseleave');
     await delay(300);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 });

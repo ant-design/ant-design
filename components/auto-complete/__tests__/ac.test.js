@@ -12,7 +12,7 @@ describe('AutoComplete with Custom Input Element Render', () => {
 
     expect(wrapper.find('textarea').length).toBe(1);
     wrapper.find('textarea').simulate('change', { target: { value: '123' } });
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
 
     // should not filter data source defaultly
     expect(dropdownWrapper.find('MenuItem').length).toBe(3);

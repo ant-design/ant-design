@@ -93,11 +93,11 @@ class RegistrationForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 6 },
+        sm: { span: 8 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 14 },
+        sm: { span: 16 },
       },
     };
     const tailFormItemLayout = {
@@ -107,8 +107,8 @@ class RegistrationForm extends React.Component {
           offset: 0,
         },
         sm: {
-          span: 14,
-          offset: 6,
+          span: 16,
+          offset: 8,
         },
       },
     };
@@ -237,11 +237,11 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator('captcha', {
                 rules: [{ required: true, message: 'Please input the captcha you got!' }],
               })(
-                <Input size="large" />
+                <Input />
               )}
             </Col>
             <Col span={12}>
-              <Button size="large">Get captcha</Button>
+              <Button>Get captcha</Button>
             </Col>
           </Row>
         </FormItem>

@@ -22,33 +22,33 @@ describe('Tooltip', () => {
     const div = wrapper.find('div').at(0);
     div.simulate('mouseenter');
     expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
 
     div.simulate('mouseleave');
     expect(onVisibleChange).not.toHaveBeenCalled();
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
 
     // update `title` value.
     wrapper.setProps({ title: 'Have a nice day!' });
     wrapper.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     wrapper.simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
 
     // add `visible` props.
     wrapper.setProps({ visible: false });
     wrapper.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
 
     // always trigger onVisibleChange
     wrapper.simulate('mouseleave');
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
   it('should hide when mouse leave native disabled button', () => {
@@ -68,11 +68,11 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     expect(onVisibleChange).toBeCalledWith(true);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     button.simulate('mouseleave');
     expect(onVisibleChange).toBeCalledWith(false);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
   it('should hide when mouse leave antd disabled Button', () => {
@@ -92,11 +92,11 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     expect(onVisibleChange).toBeCalledWith(true);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     button.simulate('mouseleave');
     expect(onVisibleChange).toBeCalledWith(false);
-    expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
   it('should render disabled Button style properly', () => {
@@ -148,7 +148,7 @@ describe('Tooltip', () => {
       </Tooltip>
     );
     wrapper.find('button').at(0).simulate('click');
-    const popupLeftDefault = parseInt(wrapper.node.getPopupDomNode().style.left, 10);
+    const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
     const wrapper2 = mount(
       <Tooltip
@@ -165,7 +165,7 @@ describe('Tooltip', () => {
       </Tooltip>
     );
     wrapper2.find('button').at(0).simulate('click');
-    const popupLeftArrowPointAtCenter = parseInt(wrapper2.node.getPopupDomNode().style.left, 10);
+    const popupLeftArrowPointAtCenter = parseInt(wrapper2.instance().getPopupDomNode().style.left, 10);
     expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe((triggerWidth / 2) - horizontalArrowShift - arrowWidth);
   });
 });

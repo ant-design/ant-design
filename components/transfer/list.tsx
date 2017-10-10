@@ -61,7 +61,7 @@ export default class TransferList extends React.Component<TransferListProps, any
   }
 
   componentDidMount() {
-    this.timer = setTimeout(() => {
+    this.timer = window.setTimeout(() => {
       this.setState({
         mounted: true,
       });
@@ -100,7 +100,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     }
     // Manually trigger scroll event for lazy search bug
     // https://github.com/ant-design/ant-design/issues/5631
-    this.triggerScrollTimer = setTimeout(() => {
+    this.triggerScrollTimer = window.setTimeout(() => {
       const listNode = findDOMNode(this).querySelectorAll('.ant-transfer-list-content')[0];
       if (listNode) {
         triggerEvent(listNode, 'scroll');

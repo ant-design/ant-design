@@ -24,3 +24,9 @@ ReactDOM.render(
   </Card>
 , mountNode);
 ````
+
+<style>
+.code-box-demo p {
+  margin: 0;
+}
+</style>

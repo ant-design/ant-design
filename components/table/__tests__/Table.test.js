@@ -73,6 +73,7 @@ describe('Table', () => {
     expect(wrapper.find('.ant-spin')).toHaveLength(0);
 
     await new Promise(resolve => setTimeout(resolve, 500));
+    wrapper.update();
     expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
 });

@@ -58,7 +58,7 @@ export default class ActionButton extends React.Component<ActionButtonProps, any
     const { type, children } = this.props;
     const loading = this.state.loading;
     return (
-      <Button type={type} size="large" onClick={this.onClick} loading={loading}>
+      <Button type={type} onClick={this.onClick} loading={loading}>
         {children}
       </Button>
     );

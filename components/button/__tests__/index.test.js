@@ -52,7 +52,7 @@ describe('Button', () => {
       <DefaultButton />
     );
     wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(true);
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {

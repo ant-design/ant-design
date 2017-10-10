@@ -5,6 +5,11 @@ import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
 import injectLocale from '../locale-provider/injectLocale';
+import enUS from '../locale-provider/en_US';
+
+export { TransferListProps } from './list';
+export { TransferOperationProps } from './operation';
+export { SearchProps } from './search';
 
 function noop() {
 }
@@ -386,9 +391,5 @@ abstract class Transfer extends React.Component<TransferProps, any> {
   }
 }
 
-const injectTransferLocale = injectLocale('Transfer', {
-  titles: ['', ''],
-  searchPlaceholder: 'Search',
-  notFoundContent: 'Not Found',
-});
+const injectTransferLocale = injectLocale('Transfer', enUS.Transfer);
 export default injectTransferLocale<TransferProps>(Transfer as any);

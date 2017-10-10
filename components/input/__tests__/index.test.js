@@ -21,7 +21,7 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea value="" readOnly autosize />
     );
-    const mockFunc = jest.spyOn(wrapper.node, 'resizeTextarea');
+    const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     await delay(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);

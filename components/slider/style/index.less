@@ -12,6 +12,7 @@
 @slider-tooltip-arrow-color: @slider-tooltip-bg;
 
 .@{slider-prefix-cls} {
+  .reset-component;
   position: relative;
   margin: 10px 6px;
   padding: 4px 0;
@@ -29,8 +30,8 @@
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: @border-color-split;
-    transition: background-color 0.3s ease;
+    background-color: @background-color-base;
+    transition: background-color .3s;
   }
 
   &-track {

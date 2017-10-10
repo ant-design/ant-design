@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
+import enUS from '../locale-provider/en_US';
 import warning from '../_util/warning';
 
 export interface AbstractSelectProps {
@@ -107,9 +108,7 @@ export default class Select extends React.Component<SelectProps, any> {
     if (antLocale && antLocale.Select) {
       return antLocale.Select;
     }
-    return {
-      notFoundContent: '无匹配结果',
-    };
+    return enUS.Select;
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import RcPagination from 'rc-pagination';
-import zhCN from 'rc-pagination/lib/locale/zh_CN';
+import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import injectLocale from '../locale-provider/injectLocale';
 import Select from '../select';
@@ -51,5 +51,5 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
   }
 }
 
-const injectPaginationLocale = injectLocale('Pagination', zhCN);
+const injectPaginationLocale = injectLocale('Pagination', enUS);
 export default injectPaginationLocale<PaginationProps>(Pagination as any);

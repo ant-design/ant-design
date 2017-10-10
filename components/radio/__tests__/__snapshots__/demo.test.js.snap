@@ -64,7 +64,7 @@ exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
     </span>
   </label>
   <div
-    style="margin-top:20px;"
+    style="margin-top:20px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -160,7 +160,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     <div
       class="ant-radio-group"
@@ -242,7 +242,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     <div
       class="ant-radio-group"
@@ -415,7 +415,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked"
-    style="display:block;height:30px;line-height:30px;"
+    style="display:block;height:30px;line-height:30px"
   >
     <span
       class="ant-radio ant-radio-checked"
@@ -435,7 +435,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px;"
+    style="display:block;height:30px;line-height:30px"
   >
     <span
       class="ant-radio"
@@ -454,7 +454,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px;"
+    style="display:block;height:30px;line-height:30px"
   >
     <span
       class="ant-radio"
@@ -473,7 +473,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
-    style="display:block;height:30px;line-height:30px;"
+    style="display:block;height:30px;line-height:30px"
   >
     <span
       class="ant-radio"
@@ -841,7 +841,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     <div
       class="ant-radio-group"
@@ -922,7 +922,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     <div
       class="ant-radio-group ant-radio-group-small"

@@ -4,6 +4,7 @@ import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
 import injectLocale from '../locale-provider/injectLocale';
+import enUS from '../locale-provider/en_US';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -23,9 +24,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     okType: 'primary',
   };
 
-  refs: {
-    tooltip: Tooltip,
-  };
+  private tooltip: Tooltip;
 
   constructor(props: PopconfirmProps) {
     super(props);
@@ -44,7 +43,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
   onConfirm = (e) => {
@@ -81,6 +80,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
+  saveTooltip = (node) => {
+    this.tooltip = node;
+  }
+
   render() {
     const { prefixCls, title, placement, okText, okType, cancelText, ...restProps } = this.props;
     const popconfirmLocale = this.getLocale();
@@ -112,14 +115,11 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         onVisibleChange={this.onVisibleChange}
         visible={this.state.visible}
         overlay={overlay}
-        ref="tooltip"
+        ref={this.saveTooltip}
       />
     );
   }
 }
 
-const injectPopconfirmLocale = injectLocale('Popconfirm', {
-  cancelText: '取消',
-  okText: '确定',
-});
+const injectPopconfirmLocale = injectLocale('Popconfirm', enUS.Popconfirm);
 export default injectPopconfirmLocale<PopconfirmProps>(Popconfirm as any);

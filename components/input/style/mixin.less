@@ -10,7 +10,7 @@
 }
 
 .input-sm() {
-  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
   height: @input-height-sm;
 }
 
@@ -328,11 +328,11 @@
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal;
+    left: @padding-xs;
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal;
+    right: @padding-xs;
   }
 
   .@{inputClass}:not(:first-child) {

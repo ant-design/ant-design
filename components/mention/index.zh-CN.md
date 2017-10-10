@@ -50,6 +50,7 @@ title: Mention
 | onBlur | 失去焦点时回调 | function(e) | null |
 | readOnly | 是否只读. | boolean | false |
 | disabled | 是否禁用状态. | boolean | false |
+| placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
 
 ### Mention methods
 
