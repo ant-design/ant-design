@@ -74,6 +74,6 @@ describe('Upload List', () => {
       },
     });
     await delay(100);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
