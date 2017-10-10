@@ -15,7 +15,7 @@ Not only is color an effective way to create brand recognition, but it also play
 
 Ant Design's color palettes consist of 10 shallow-to-deep color swatches, and default palettes are defined for certain hues. Users can select a swatch from the color scheme using keywords. In theory, all colors used in the design should be taken from a color palette.
 
-After careful tuning by designers and programmers, our [palette generation algorithm](https://github.com/ant-design/ant-design/blob/734beb84ffc3f0469fbae1566aa8450f966cb261/components/style/color/colorPalette.less) uses a combination of color plus Bezier curves and different rotation angles for cold and warm colors to generate new palettes (replacing our original tint / shade color system). This algorithm can be used to generate new palettes based on an input color that you specify.
+After hard working of designers and programmers, we got a great [color palette generation algorithm](https://github.com/ant-design/ant-design/blob/244a2fd2da5561dc13a32ea894ba1bdbd13421aa/components/style/color/colorPalette.less) which can be used to generate a whole new palette based on an input color you specify, replacing our original tint / shade color system).
 
 Ant Design's default theme consists of eight basic colors, each of which is derived from the above algorithm.
 
