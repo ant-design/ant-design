@@ -72,17 +72,21 @@ function getPlacementStyle(placement: NotificationPlacement) {
   return style;
 }
 
-function getNotificationInstance(prefixCls, placement) {
+function getNotificationInstance(prefixCls, placement, callback) {
   const cacheKey = `${prefixCls}-${placement}`;
-  if (!notificationInstance[cacheKey]) {
-    notificationInstance[cacheKey] = (Notification as any).newInstance({
-      prefixCls,
-      className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement),
-      getContainer: defaultGetContainer,
-    });
+  if (notificationInstance[cacheKey]) {
+    callback(notificationInstance[cacheKey]);
+    return;
   }
-  return notificationInstance[cacheKey];
+  (Notification as any).newInstance({
+    prefixCls,
+    className: `${prefixCls}-${placement}`,
+    style: getPlacementStyle(placement),
+    getContainer: defaultGetContainer,
+  }, (notification) => {
+    notificationInstance[cacheKey] = notification;
+    callback(notification);
+  });
 }
 
 const typeToIcon = {
@@ -132,24 +136,26 @@ function notice(args: ArgsProps) {
     ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
     : null;
 
-  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement).notice({
-    content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
-        {iconNode}
-        <div className={`${prefixCls}-message`}>
-          {autoMarginTag}
-          {args.message}
+  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement, (notification) => {
+    notification.notice({
+      content: (
+        <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+          {iconNode}
+          <div className={`${prefixCls}-message`}>
+            {autoMarginTag}
+            {args.message}
+          </div>
+          <div className={`${prefixCls}-description`}>{args.description}</div>
+          {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
         </div>
-        <div className={`${prefixCls}-description`}>{args.description}</div>
-        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
-      </div>
-    ),
-    duration,
-    closable: true,
-    onClose: args.onClose,
-    key: args.key,
-    style: args.style || {},
-    className: args.className,
+      ),
+      duration,
+      closable: true,
+      onClose: args.onClose,
+      key: args.key,
+      style: args.style || {},
+      className: args.className,
+    });
   });
 }
 

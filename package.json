@@ -60,7 +60,7 @@
     "rc-form": "~1.4.0",
     "rc-input-number": "~3.6.0",
     "rc-menu": "~5.1.0",
-    "rc-notification": "~2.0.0",
+    "rc-notification": "~3.0.0",
     "rc-pagination": "~1.12.4",
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.1.1",

@@ -9,14 +9,20 @@ let key = 1;
 let prefixCls = 'ant-message';
 let getContainer;
 
-function getMessageInstance() {
-  messageInstance = messageInstance || Notification.newInstance({
-      prefixCls,
-      transitionName: 'move-up',
-      style: { top: defaultTop }, // 覆盖原来的样式
-      getContainer,
-    });
-  return messageInstance;
+function getMessageInstance(callback) {
+  if (messageInstance) {
+    callback(messageInstance);
+    return;
+  }
+  Notification.newInstance({
+    prefixCls,
+    transitionName: 'move-up',
+    style: { top: defaultTop }, // 覆盖原来的样式
+    getContainer,
+  }, (instance) => {
+    messageInstance = instance;
+    callback(instance);
+  });
 }
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
@@ -35,23 +41,26 @@ function notice(
     loading: 'loading',
   })[type];
 
-  let instance = getMessageInstance();
-  instance.notice({
-    key,
-    duration,
-    style: {},
-    content: (
-      <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
-        <Icon type={iconType} />
-        <span>{content}</span>
-      </div>
-    ),
-    onClose,
+  getMessageInstance((instance) => {
+    instance.notice({
+      key,
+      duration,
+      style: {},
+      content: (
+        <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
+          <Icon type={iconType} />
+          <span>{content}</span>
+        </div>
+      ),
+      onClose,
+    });
   });
   return (function () {
     let target = key++;
     return function () {
-      instance.removeNotice(target);
+      if (messageInstance) {
+        messageInstance.removeNotice(target);
+      }
     };
   }());
 }
