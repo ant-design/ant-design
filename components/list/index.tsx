@@ -10,14 +10,16 @@ import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
+export type ColumnType = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+
 export interface ListGridType {
   gutter?: number;
-  column?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
-  xs?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
-  sm?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
-  md?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
-  lg?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
-  xl?: 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+  column?: ColumnType;
+  xs?: ColumnType;
+  sm?: ColumnType;
+  md?: ColumnType;
+  lg?: ColumnType;
+  xl?: ColumnType;
 }
 
 export type ListSize = 'small' | 'default' | 'large';
