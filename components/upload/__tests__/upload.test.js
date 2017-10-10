@@ -22,4 +22,35 @@ describe('Upload', () => {
     mount(<App />);
     expect(ref).toBeDefined();
   });
+
+  it('return promise in beforeUpload', (done) => {
+    const data = jest.fn();
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload: () => new Promise(resolve =>
+        setTimeout(() => resolve('success'))
+      ),
+      data,
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
+          expect(data).toBeCalled();
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button>upload</button>
+      </Upload>
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+  });
 });

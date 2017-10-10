@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload List should be uploading when upload a file 1`] = `
+<Upload
+  accept=""
+  action="http://uploadcare.com/"
+  beforeUpload={[Function]}
+  className=""
+  data={Object {}}
+  disabled={false}
+  listType="text"
+  multiple={false}
+  prefixCls="ant-upload"
+  showUploadList={true}
+  supportServerRender={true}
+  type="select"
+>
+  <span
+    className=""
+  >
+    <div
+      className="ant-upload ant-upload-select ant-upload-select-text"
+      style={
+        Object {
+          "display": "",
+        }
+      }
+    >
+      <Upload
+        accept=""
+        action="http://uploadcare.com/"
+        beforeUpload={[Function]}
+        component="span"
+        customRequest={null}
+        data={Object {}}
+        disabled={false}
+        headers={Object {}}
+        listType="text"
+        multipart={false}
+        multiple={false}
+        name="file"
+        onError={[Function]}
+        onProgress={[Function]}
+        onReady={[Function]}
+        onStart={[Function]}
+        onSuccess={[Function]}
+        prefixCls="ant-upload"
+        showUploadList={true}
+        supportServerRender={true}
+        type="select"
+        withCredentials={false}
+      >
+        <AjaxUploader
+          accept=""
+          action="http://uploadcare.com/"
+          beforeUpload={[Function]}
+          component="span"
+          customRequest={null}
+          data={Object {}}
+          disabled={false}
+          headers={Object {}}
+          listType="text"
+          multipart={false}
+          multiple={false}
+          name="file"
+          onError={[Function]}
+          onProgress={[Function]}
+          onReady={[Function]}
+          onStart={[Function]}
+          onSuccess={[Function]}
+          prefixCls="ant-upload"
+          showUploadList={true}
+          supportServerRender={true}
+          type="select"
+          withCredentials={false}
+        >
+          <span
+            className="ant-upload"
+            onClick={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex="0"
+          >
+            <input
+              accept=""
+              multiple={false}
+              onChange={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              type="file"
+            />
+            <button>
+              upload
+            </button>
+          </span>
+        </AjaxUploader>
+      </Upload>
+    </div>
+    <UploadList
+      items={
+        Array [
+          Object {
+            "error": undefined,
+            "lastModified": undefined,
+            "lastModifiedDate": undefined,
+            "name": "foo.png",
+            "originFileObj": Object {
+              "filename": "foo.png",
+              "uid": "rc-upload-1507622331497-4",
+            },
+            "percent": 0,
+            "response": undefined,
+            "size": undefined,
+            "status": "uploading",
+            "type": undefined,
+            "uid": "rc-upload-1507622331497-4",
+          },
+        ]
+      }
+      listType="text"
+      locale={
+        Object {
+          "previewFile": "预览文件",
+          "removeFile": "删除文件",
+          "uploadError": "上传错误",
+          "uploading": "文件上传中",
+        }
+      }
+      onRemove={[Function]}
+      prefixCls="ant-upload"
+      progressAttr={
+        Object {
+          "showInfo": false,
+          "strokeWidth": 2,
+        }
+      }
+      showPreviewIcon={true}
+      showRemoveIcon={true}
+    >
+      <Animate
+        animation={Object {}}
+        className="ant-upload-list ant-upload-list-text"
+        component="div"
+        componentProps={Object {}}
+        onAppear={[Function]}
+        onEnd={[Function]}
+        onEnter={[Function]}
+        onLeave={[Function]}
+        transitionAppear={false}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName="ant-upload-animate"
+      >
+        <div
+          className="ant-upload-list ant-upload-list-text"
+        >
+          <AnimateChild
+            animation={Object {}}
+            transitionAppear={false}
+            transitionEnter={true}
+            transitionLeave={true}
+            transitionName="ant-upload-animate"
+          >
+            <div
+              className="ant-upload-list-item ant-upload-list-item-uploading"
+            >
+              <div
+                className="ant-upload-list-item-info"
+              >
+                <span>
+                  <Icon
+                    type="loading"
+                  >
+                    <i
+                      className="anticon anticon-spin anticon-loading"
+                    />
+                  </Icon>
+                  <span
+                    className="ant-upload-list-item-name"
+                    onClick={[Function]}
+                    title="foo.png"
+                  >
+                    foo.png
+                  </span>
+                </span>
+              </div>
+              <Icon
+                onClick={[Function]}
+                title="删除文件"
+                type="cross"
+              >
+                <i
+                  className="anticon anticon-cross"
+                  onClick={[Function]}
+                  title="删除文件"
+                />
+              </Icon>
+              <Animate
+                animation={Object {}}
+                component=""
+                componentProps={Object {}}
+                onAppear={[Function]}
+                onEnd={[Function]}
+                onEnter={[Function]}
+                onLeave={[Function]}
+                transitionAppear={false}
+                transitionEnter={true}
+                transitionLeave={true}
+                transitionName="fade"
+              >
+                <AnimateChild
+                  animation={Object {}}
+                  transitionAppear={false}
+                  transitionEnter={true}
+                  transitionLeave={true}
+                  transitionName="fade"
+                >
+                  <div
+                    className="ant-upload-list-item-progress"
+                  >
+                    <Progress
+                      percent={0}
+                      prefixCls="ant-progress"
+                      showInfo={false}
+                      strokeWidth={2}
+                      trailColor="#f3f3f3"
+                      type="line"
+                    >
+                      <div
+                        className="ant-progress ant-progress-line ant-progress-status-normal"
+                      >
+                        <div>
+                          <div
+                            className="ant-progress-outer"
+                          >
+                            <div
+                              className="ant-progress-inner"
+                            >
+                              <div
+                                className="ant-progress-bg"
+                                style={
+                                  Object {
+                                    "height": 2,
+                                    "width": "0%",
+                                  }
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Progress>
+                  </div>
+                </AnimateChild>
+              </Animate>
+            </div>
+          </AnimateChild>
+        </div>
+      </Animate>
+    </UploadList>
+  </span>
+</Upload>
+`;

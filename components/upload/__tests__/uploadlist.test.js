@@ -60,4 +60,21 @@ describe('Upload List', () => {
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
+
+  it('should be uploading when upload a file', async () => {
+    const wrapper = mount(
+      <Upload action="http://uploadcare.com/">
+        <button>upload</button>
+      </Upload>
+    );
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+    await delay(100);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
