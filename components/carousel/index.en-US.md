@@ -24,4 +24,12 @@ A carousel component. Scales with its container.
 | beforeChange | Callback function called before the current index changes   | function(from, to) | - |
 | afterChange  | Callback function called after the current index changes    | function(current)  | - |
 
+## Methods
+
+| Name | Description |
+|------|-------------|
+| next() | Change current slide to next slide |
+| prev() | Change current slide to previous slide |
+| goTo(slideNumber) | Change current slide to given slide number |
+
 For more info on the parameters, refer to the https://github.com/akiran/react-slick
