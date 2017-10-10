@@ -257,6 +257,8 @@
     .@{upload-item}-progress {
       padding-left: 56px;
       margin-top: 0;
+      bottom: 24px;
+      width: ~"calc(100% - 24px)";
     }
 
     .@{iconfont-css-prefix}-cross {
@@ -280,6 +282,7 @@
     .@{upload-item}-info {
       height: 100%;
       position: relative;
+      overflow: hidden;
 
       &:before {
         content: ' ';
@@ -361,6 +364,7 @@
 
     .@{upload-item}-progress {
       padding-left: 0;
+      bottom: 32px;
     }
   }
 
