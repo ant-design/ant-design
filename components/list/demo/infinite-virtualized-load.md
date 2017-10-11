@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   zh-CN: 滚动加载无限长列表
   en-US: Infinite virtualized List
@@ -9,9 +9,13 @@ title:
 
 结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现滚动加载无限长列表，带有虚拟化（[virtualization](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)）功能，能够提高数据量大时候长列表的性能。
 
+`virtualized` 是在大数据列表中应用的一种技术，主要是为了减少不可见区域不必要的渲染从而提高性能，特别是数据量在成千上万条效果尤为明显。[了解更多](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
+
 ## en-US
 
-The example of infinite & virtualized load with [react-virtualized](https://github.com/bvaughn/react-virtualized).
+The example of infinite & virtualized load with [react-virtualized](https://github.com/bvaughn/react-virtualized). [learn more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
+
+`virtualized` is a technology which use to mount big data, to reducing the render dom witch not visible.
 
 ````jsx
 import { List, message, Avatar, Spin } from 'antd';
@@ -23,7 +27,7 @@ import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import VList from 'react-virtualized/dist/commonjs/List';
 import InfiniteLoader from 'react-virtualized/dist/commonjs/InfiniteLoader';
 
-const fakeDataUrl = 'https://randomapi.com/api/dleyg4om?key=Z51U-D9OX-SXIO-SLJ9&fmt=raw&sole';
+const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 class VirtualizedExample extends React.Component {
   state = {
@@ -45,7 +49,7 @@ class VirtualizedExample extends React.Component {
   componentWillMount() {
     this.getData((res) => {
       this.setState({
-        data: res,
+        data: res.results,
       });
     });
   }
@@ -66,7 +70,7 @@ class VirtualizedExample extends React.Component {
       return;
     }
     this.getData((res) => {
-      data = data.concat(res);
+      data = data.concat(res.results);
       this.setState({
         data,
         loading: false,
@@ -83,8 +87,8 @@ class VirtualizedExample extends React.Component {
       <List.Item key={key} style={style}>
         <List.Item.Meta
           avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-          title={<a href="https://ant.design">{item.title}</a>}
-          description={item.content}
+          title={<a href="https://ant.design">{item.name.last}</a>}
+          description={item.email}
         />
         <div>Content</div>
       </List.Item>
@@ -100,7 +104,7 @@ class VirtualizedExample extends React.Component {
         onScroll={onChildScroll}
         overscanRowCount={2}
         rowCount={data.length}
-        rowHeight={117}
+        rowHeight={73}
         rowRenderer={this.renderItem}
         onRowsRendered={onRowsRendered}
         scrollTop={scrollTop}
@@ -123,14 +127,26 @@ class VirtualizedExample extends React.Component {
     );
     return (
       <List>
-        <WindowScroller scrollElement={null}>
-          {infiniteLoader}
-        </WindowScroller>
-        {this.state.loading && <Spin style={{ position: 'absolute', bottom: 0, left: '50%' }} />}
+        {
+          data.length > 0 && (
+            <WindowScroller scrollElement={null}>
+              {infiniteLoader}
+            </WindowScroller>
+          )
+        }
+        {this.state.loading && <Spin className="demo-loading" />}
       </List>
     );
   }
 }
 
 ReactDOM.render(<VirtualizedExample />, mountNode);
+````
+
+````css
+.demo-loading {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+}
 ````

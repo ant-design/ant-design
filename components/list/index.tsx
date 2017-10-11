@@ -141,11 +141,13 @@ export default class List extends Component<ListProps> {
     ) : childrenList;
 
     const content = loading ? (
-      <Spin>
-        {childrenContent}
+      <div>
+        <Spin>
+          {childrenContent}
+        </Spin>
         {loadMore}
         {(!loadMore && pagination) && paginationContent}
-      </Spin>
+     </div>
     ) : (
       <div>
         {childrenContent}

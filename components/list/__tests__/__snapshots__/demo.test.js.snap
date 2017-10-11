@@ -43,28 +43,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-list-item-content"
-      >
-        <div>
-          Content
-        </div>
-      </div>
-      <ul
-        class="ant-list-item-action"
-      >
-        <li>
-          <a>
-            编辑
-          </a>
-          <em
-            class="ant-list-item-action-split"
-          />
-        </li>
-        <li>
-          <a>
-            更多
-          </a>
-        </li>
-      </ul>
+      />
     </div>
     <div
       class="ant-list-item"
@@ -104,28 +83,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-list-item-content"
-      >
-        <div>
-          Content
-        </div>
-      </div>
-      <ul
-        class="ant-list-item-action"
-      >
-        <li>
-          <a>
-            编辑
-          </a>
-          <em
-            class="ant-list-item-action-split"
-          />
-        </li>
-        <li>
-          <a>
-            更多
-          </a>
-        </li>
-      </ul>
+      />
     </div>
     <div
       class="ant-list-item"
@@ -165,28 +123,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-list-item-content"
-      >
-        <div>
-          Content
-        </div>
-      </div>
-      <ul
-        class="ant-list-item-action"
-      >
-        <li>
-          <a>
-            编辑
-          </a>
-          <em
-            class="ant-list-item-action-split"
-          />
-        </li>
-        <li>
-          <a>
-            更多
-          </a>
-        </li>
-      </ul>
+      />
     </div>
     <div
       class="ant-list-item"
@@ -226,40 +163,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-list-item-content"
-      >
-        <div>
-          Content
-        </div>
-      </div>
-      <ul
-        class="ant-list-item-action"
-      >
-        <li>
-          <a>
-            编辑
-          </a>
-          <em
-            class="ant-list-item-action-split"
-          />
-        </li>
-        <li>
-          <a>
-            更多
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
-      style="text-align:center;margin-top:8px"
-    >
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          加载更多
-        </span>
-      </button>
+      />
     </div>
   </div>
 </div>
@@ -436,11 +340,15 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 `;
 
 exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
-<div>
-  <div
-    class="ant-list ant-list-split"
-  >
-    <div />
+<div
+  class="demo-infinite-container"
+>
+  <div>
+    <div
+      class="ant-list ant-list-split"
+    >
+      <div />
+    </div>
   </div>
 </div>
 `;
@@ -450,185 +358,46 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
   class="ant-list ant-list-split"
 >
   <div />
-  <div
-    style="overflow:visible;width:0"
-  >
-    <div
-      aria-label="grid"
-      aria-readonly="true"
-      class="ReactVirtualized__Grid ReactVirtualized__List"
-      role="grid"
-      style="box-sizing:border-box;direction:ltr;height:auto;position:relative;width:0;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden"
-      tabindex="0"
-    />
-  </div>
 </div>
 `;
 
-exports[`renders ./components/list/demo/meta.md correctly 1`] = `
+exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list demo-loadmore-list ant-list-split ant-list-loading"
 >
   <div>
     <div
-      class="ant-list-item"
+      class="ant-spin-nested-loading"
     >
-      <div
-        class="ant-list-item-meta"
-      >
+      <div>
         <div
-          class="ant-list-item-meta-avatar"
+          class="ant-spin ant-spin-spinning"
         >
           <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
+            class="ant-spin-dot"
           >
-            <img
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
+            <i />
+            <i />
+            <i />
+            <i />
           </span>
-        </div>
-        <div
-          class="ant-list-item-meta-content"
-        >
-          <h4
-            class="ant-list-item-meta-title"
-          >
-            <a
-              href="https://ant.design"
-            >
-              Ant Design Title 1
-            </a>
-          </h4>
-          <div
-            class="ant-list-item-meta-description"
-          >
-            Ant Design, a design language for background applications, is refined by Ant UED Team
-          </div>
         </div>
       </div>
       <div
-        class="ant-list-item-content"
+        class="ant-spin-container ant-spin-blur"
       />
     </div>
     <div
-      class="ant-list-item"
+      style="text-align:center;margin-top:8px"
     >
-      <div
-        class="ant-list-item-meta"
+      <button
+        class="ant-btn"
+        type="button"
       >
-        <div
-          class="ant-list-item-meta-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-        <div
-          class="ant-list-item-meta-content"
-        >
-          <h4
-            class="ant-list-item-meta-title"
-          >
-            <a
-              href="https://ant.design"
-            >
-              Ant Design Title 2
-            </a>
-          </h4>
-          <div
-            class="ant-list-item-meta-description"
-          >
-            Ant Design, a design language for background applications, is refined by Ant UED Team
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item-content"
-      />
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-meta"
-      >
-        <div
-          class="ant-list-item-meta-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-        <div
-          class="ant-list-item-meta-content"
-        >
-          <h4
-            class="ant-list-item-meta-title"
-          >
-            <a
-              href="https://ant.design"
-            >
-              Ant Design Title 3
-            </a>
-          </h4>
-          <div
-            class="ant-list-item-meta-description"
-          >
-            Ant Design, a design language for background applications, is refined by Ant UED Team
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item-content"
-      />
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-meta"
-      >
-        <div
-          class="ant-list-item-meta-avatar"
-        >
-          <span
-            class="ant-avatar ant-avatar-circle ant-avatar-image"
-          >
-            <img
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </span>
-        </div>
-        <div
-          class="ant-list-item-meta-content"
-        >
-          <h4
-            class="ant-list-item-meta-title"
-          >
-            <a
-              href="https://ant.design"
-            >
-              Ant Design Title 4
-            </a>
-          </h4>
-          <div
-            class="ant-list-item-meta-description"
-          >
-            Ant Design, a design language for background applications, is refined by Ant UED Team
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item-content"
-      />
+        <span>
+          loading more
+        </span>
+      </button>
     </div>
   </div>
 </div>
@@ -1441,486 +1210,6 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   href="http://ant.design"
                 >
                   ant design part 4
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-list-item-content"
-          >
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-star-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-like-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-message"
-                  style="margin-right:8px"
-                />
-                2
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item-extra"
-        >
-          <img
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            width="272"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-extra-wrap"
-      >
-        <div
-          class="ant-list-item-main"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="http://ant.design"
-                >
-                  ant design part 5
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-list-item-content"
-          >
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-star-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-like-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-message"
-                  style="margin-right:8px"
-                />
-                2
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item-extra"
-        >
-          <img
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            width="272"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-extra-wrap"
-      >
-        <div
-          class="ant-list-item-main"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="http://ant.design"
-                >
-                  ant design part 6
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-list-item-content"
-          >
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-star-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-like-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-message"
-                  style="margin-right:8px"
-                />
-                2
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item-extra"
-        >
-          <img
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            width="272"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-extra-wrap"
-      >
-        <div
-          class="ant-list-item-main"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="http://ant.design"
-                >
-                  ant design part 7
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-list-item-content"
-          >
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-star-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-like-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-message"
-                  style="margin-right:8px"
-                />
-                2
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item-extra"
-        >
-          <img
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            width="272"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-extra-wrap"
-      >
-        <div
-          class="ant-list-item-main"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="http://ant.design"
-                >
-                  ant design part 8
-                </a>
-              </h4>
-              <div
-                class="ant-list-item-meta-description"
-              >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-list-item-content"
-          >
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-star-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-like-o"
-                  style="margin-right:8px"
-                />
-                156
-              </span>
-              <em
-                class="ant-list-item-action-split"
-              />
-            </li>
-            <li>
-              <span>
-                <i
-                  class="anticon anticon-message"
-                  style="margin-right:8px"
-                />
-                2
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="ant-list-item-extra"
-        >
-          <img
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            width="272"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-list-item"
-    >
-      <div
-        class="ant-list-item-extra-wrap"
-      >
-        <div
-          class="ant-list-item-main"
-        >
-          <div
-            class="ant-list-item-meta"
-          >
-            <div
-              class="ant-list-item-meta-avatar"
-            >
-              <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
-              >
-                <img
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-              </span>
-            </div>
-            <div
-              class="ant-list-item-meta-content"
-            >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="http://ant.design"
-                >
-                  ant design part 9
                 </a>
               </h4>
               <div
