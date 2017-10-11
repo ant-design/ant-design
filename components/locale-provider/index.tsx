@@ -13,6 +13,7 @@ export interface LocaleProviderProps {
     Popconfirm?: Object,
     Transfer?: Object,
     Select?: Object,
+    Upload?: Object,
   };
   children?: React.ReactElement<any>;
 }
