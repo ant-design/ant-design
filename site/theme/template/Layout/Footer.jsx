@@ -113,14 +113,18 @@ class Footer extends React.Component {
                 color={this.state.color}
                 position="top"
                 presetColors={[
-                  '#f04134',
-                  '#00a854',
-                  '#108ee9',
-                  '#f5317f',
-                  '#f56a00',
-                  '#7265e6',
-                  '#ffbf00',
-                  '#00a2ae',
+                  '#F5222D',
+                  '#FA541C',
+                  '#FA8C16',
+                  '#FAAD14',
+                  '#FADB14',
+                  '#A0D911',
+                  '#52C41A',
+                  '#13C2C2',
+                  '#1890FF',
+                  '#2F54EB',
+                  '#722ED1',
+                  '#EB2F96',
                 ]}
                 onChangeComplete={this.handleColorChange}
               />
