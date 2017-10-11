@@ -1432,7 +1432,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <div
                 class="ant-select ant-select-enabled"
-                style="width:60px"
+                style="width:64px"
               >
                 <div
                   aria-autocomplete="list"
@@ -1859,7 +1859,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       >
         <span
           class="ant-calendar-picker"
-          style="width:300px"
+          style="width:350px"
         >
           <span
             class="ant-calendar-picker-input ant-input"
