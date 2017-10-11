@@ -63,7 +63,7 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', async () => {
     const wrapper = mount(
-      <Upload action="http://uploadcare.com/">
+      <Upload action="http://jsonplaceholder.typicode.com/posts/">
         <button>upload</button>
       </Upload>
     );
