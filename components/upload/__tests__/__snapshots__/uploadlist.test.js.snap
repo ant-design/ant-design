@@ -26,7 +26,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-animate-enter"
+      class="ant-upload-list-item ant-upload-list-item-uploading"
     >
       <div
         class="ant-upload-list-item-info"
