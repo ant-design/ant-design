@@ -24,7 +24,7 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 | onVisibleChange     | a callback function takes an argument: `visible`, is executed when the visible state is changed | Function(visible) | - |
 | placement | placement of pop menu: `bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
-You can get the menu list by `antd.Menu`, and set a callback function `onSelect` for it if you need. The menu items and the dividers are also available, by using `Menu.Item` and `Menu.Divider` respectively.
+You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
 > Warning: You must set a unique `key` for `Menu.Item`.
 
