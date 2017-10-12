@@ -102,7 +102,7 @@ Password input box provides real time feedbacks on password strength and validit
 <img class="preview-img inline" align="right" description="Validation in real time" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
 <img class="preview-img inline" align="right" description="Validation after losing focus" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
-<img class="preview-img" align="right" description="When a "submit" button is clicked, the system will deal with user inputs and display feedbacks (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
+<img class="preview-img" align="right" description='When a "submit" button is clicked, the system will deal with user inputs and display feedbacks (the number of errors and the types of errors) on the page.' src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 
 Use different validation rules and a variety of feedbacks to help users correct errors before they click on a "submit" button.
 
