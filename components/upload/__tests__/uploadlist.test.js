@@ -61,21 +61,27 @@ describe('Upload List', () => {
   });
 
   it('should be uploading when upload a file', (done) => {
-    let onChange = jest.fn();
-    const wrapper = mount(
-      <Upload action="http://jsonplaceholder.typicode.com/posts/" onChange={onChange}>
-        <button>upload</button>
-      </Upload>
-    );
-    onChange = ({ file }) => {
+    let wrapper;
+    let finished;
+    const onChange = ({ file }) => {
+      if (finished) {
+        done();
+        return;
+      }
       if (file.status === 'uploading') {
         expect(wrapper.render()).toMatchSnapshot();
       }
       if (file.status === 'error') {
         expect(wrapper.render()).toMatchSnapshot();
+        finished = true;
         done();
       }
     };
+    wrapper = mount(
+      <Upload action="http://jsonplaceholder.typicode.com/posts/" onChange={onChange}>
+        <button>upload</button>
+      </Upload>
+    );
     wrapper.find('input').simulate('change', {
       target: {
         files: [
