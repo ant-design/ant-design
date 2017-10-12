@@ -60,12 +60,22 @@ describe('Upload List', () => {
     expect(wrapper.find('.ant-upload-list-item').length).toBe(1);
   });
 
-  it('should be uploading when upload a file', async () => {
+  it('should be uploading when upload a file', (done) => {
+    let onChange = jest.fn();
     const wrapper = mount(
-      <Upload action="http://uploadcare.com/">
+      <Upload action="http://uploadcare.com/" onChange={onChange}>
         <button>upload</button>
       </Upload>
     );
+    onChange = ({ file }) => {
+      if (file.status === 'uploading') {
+        expect(wrapper.render()).toMatchSnapshot();
+      }
+      if (file.status === 'error') {
+        expect(wrapper.render()).toMatchSnapshot();
+        done();
+      }
+    };
     wrapper.find('input').simulate('change', {
       target: {
         files: [
@@ -73,7 +83,5 @@ describe('Upload List', () => {
         ],
       },
     });
-    await delay(20);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 });
