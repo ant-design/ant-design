@@ -92,11 +92,10 @@ export default class Item extends React.Component<ListItemProps, any> {
     const contentClassString = classNames(`${prefixCls}-item-content`, {
       [`${prefixCls}-item-content-single`]: (metaContent.length < 1),
     });
-    const content = (
+    const content = otherContent.length > 0 ? (
       <div className={contentClassString}>
         {otherContent}
-      </div>
-    );
+      </div>) : null;
 
     let actionsContent;
     if (actions && actions.length > 0) {

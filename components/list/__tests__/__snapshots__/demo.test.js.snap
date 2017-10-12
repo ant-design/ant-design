@@ -41,9 +41,6 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="ant-list-item-content"
-      />
     </div>
     <div
       class="ant-list-item"
@@ -81,9 +78,6 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="ant-list-item-content"
-      />
     </div>
     <div
       class="ant-list-item"
@@ -121,9 +115,6 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="ant-list-item-content"
-      />
     </div>
     <div
       class="ant-list-item"
@@ -161,9 +152,6 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="ant-list-item-content"
-      />
     </div>
   </div>
 </div>
