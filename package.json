@@ -86,7 +86,7 @@
     "@types/react-dom": "~0.14.18",
     "antd-tools": "~3.0.0",
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.1.0",
+    "babel-eslint": "^8.0.1",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.18.0",
@@ -145,7 +145,7 @@
     "rimraf": "^2.5.4",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
-    "typescript": "~2.4.2",
+    "typescript": "~2.5.3",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
   },

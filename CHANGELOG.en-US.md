@@ -17,6 +17,26 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.6
+
+`2017-10-12`
+
+- 🐞 Fix issue that `beforeUpload` will stop uploading when return undefined. [#7870](https://github.com/ant-design/ant-design/issues/7870)
+
+## 2.13.5
+
+`2017-10-11`
+
+- 🐞 Fix issue resulting in FormItem throws error when use with reac-hot-loader. [#7775](https://github.com/ant-design/ant-design/issues/7775)
+- 🐞 Fix not working less variable `@link-hover-decoration`. [#7821](https://github.com/ant-design/ant-design/issues/7821)
+- 🐞 Fix issue resulting in Upload's `beforeUpload` method not returning promise properly. [#7833](https://github.com/ant-design/ant-design/issues/7833)
+- 🐞 Fix issue resulting in Input.Search's search icon being covered with Form's feedback icon. [#7854](https://github.com/ant-design/ant-design/issues/7854)
+- AutoComplete
+  - 🐞 Fix circular reference with infinite children [#7742](https://github.com/ant-design/ant-design/pull/7742) [@menberg](https://github.com/ant-design/ant-design/pull/7742)
+  - 🐞 Fix style when use with TextArea. [#7801](https://github.com/ant-design/ant-design/issues/7800)
+- 🌟 Improve TypeScript definition. [cf788d7](https://github.com/ant-design/ant-design/commit/cf788d7b4dda58f61da91086ccfe0c67872fc709) [d4c75d43](https://github.com/ant-design/ant-design/commit/d4c75d43a1824d36583d9d8f9b209a4b9526a3af)
+- 🌟 Add new less variable. [2e2acb5](https://github.com/ant-design/ant-design/commit/2e2acb5be9a171f217f2a1a143b34b2624b49b06)
+
 ## 2.13.4
 
 `2017-09-29`

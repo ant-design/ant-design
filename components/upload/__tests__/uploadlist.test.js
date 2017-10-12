@@ -61,9 +61,25 @@ describe('Upload List', () => {
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
 
-  it('should be uploading when upload a file', async () => {
-    const wrapper = mount(
-      <Upload action="http://jsonplaceholder.typicode.com/posts/">
+  it('should be uploading when upload a file', (done) => {
+    let wrapper;
+    let finished;
+    const onChange = ({ file }) => {
+      if (finished) {
+        done();
+        return;
+      }
+      if (file.status === 'uploading') {
+        expect(wrapper.render()).toMatchSnapshot();
+      }
+      if (file.status === 'error') {
+        expect(wrapper.render()).toMatchSnapshot();
+        finished = true;
+        done();
+      }
+    };
+    wrapper = mount(
+      <Upload action="http://jsonplaceholder.typicode.com/posts/" onChange={onChange}>
         <button>upload</button>
       </Upload>
     );
@@ -74,8 +90,5 @@ describe('Upload List', () => {
         ],
       },
     });
-    await delay(100);
-    wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
   });
 });
