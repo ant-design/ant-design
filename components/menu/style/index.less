@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 
 @menu-prefix-cls: ~"@{ant-prefix}-menu";
-@menu-inline-toplevel-item-height: 54px;
+@menu-inline-toplevel-item-height: 40px;
 @menu-item-height: 40px;
 
 // default theme
@@ -15,8 +15,9 @@
   z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
   background: @component-background;
-  line-height: 46px;
+  line-height: 0; // Fix display inline-block gap
   transition: background .3s, width .2s;
+  .clearfix;
 
   ul,
   ol {
@@ -166,16 +167,6 @@
         border-right: 0;
       }
     }
-    > .@{menu-prefix-cls}-item:first-child {
-      border-radius: @border-radius-base @border-radius-base 0 0;
-    }
-    > .@{menu-prefix-cls}-item:last-child,
-    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
-    }
-    > .@{menu-prefix-cls}-item:only-child {
-      border-radius: @border-radius-base;
-    }
   }
 
   &-inline {
@@ -323,6 +314,7 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     z-index: 0;
+    line-height: 46px;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
@@ -364,6 +356,10 @@
       font-size: @font-size-base;
       line-height: @menu-item-height;
       height: @menu-item-height;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      display: inline-block;
+      width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
     }
