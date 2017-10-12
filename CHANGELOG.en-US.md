@@ -23,8 +23,8 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 - 🐞 Fix issue resulting in FormItem throws error when use with reac-hot-loader. [#7775](https://github.com/ant-design/ant-design/issues/7775)
 - 🐞 Fix not working less variable `@link-hover-decoration`. [#7821](https://github.com/ant-design/ant-design/issues/7821)
-- 🐞 Fix issue resulting in Uploade's `beforeUpload` doesn't return promise properly. [#7833](https://github.com/ant-design/ant-design/issues/7833)
-- 🐞 Fix issue resulting in Input.Search's search icon will coverd with Form's feedback icon. [#7854](https://github.com/ant-design/ant-design/issues/7854)
+- 🐞 Fix issue resulting in Upload's `beforeUpload` method not returning promise properly. [#7833](https://github.com/ant-design/ant-design/issues/7833)
+- 🐞 Fix issue resulting in Input.Search's search icon being covered with Form's feedback icon. [#7854](https://github.com/ant-design/ant-design/issues/7854)
 - AutoComplete
   - 🐞 Fix circular reference with infinite children [#7742](https://github.com/ant-design/ant-design/pull/7742) [@menberg](https://github.com/ant-design/ant-design/pull/7742)
   - 🐞 Fix style when use with TextArea. [#7801](https://github.com/ant-design/ant-design/issues/7800)
