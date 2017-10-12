@@ -63,7 +63,7 @@ describe('Upload List', () => {
   it('should be uploading when upload a file', (done) => {
     let onChange = jest.fn();
     const wrapper = mount(
-      <Upload action="http://uploadcare.com/" onChange={onChange}>
+      <Upload action="http://jsonplaceholder.typicode.com/posts/" onChange={onChange}>
         <button>upload</button>
       </Upload>
     );
