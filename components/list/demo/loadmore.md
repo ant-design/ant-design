@@ -55,6 +55,9 @@ class LoadMoreList extends React.Component {
       this.setState({
         data,
         loadingMore: false,
+      }, () => {
+        // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
+        window.dispatchEvent(new Event('resize'));
       });
     });
   }
