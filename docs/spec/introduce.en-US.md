@@ -35,9 +35,12 @@ We supply a series of design principles, practical patterns and high quality des
 
 - [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
+- [Tencent](http://www.tencent.com)
+- [Baidu](http://www.baidu.com)
 - [Koubei](http://www.koubei.com/)
 - [Meituan](http://www.meituan.com)
 - [Didi](http://www.xiaojukeji.com/)
+- [Eleme](https://www.ele.me/)
 
 > If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
 
