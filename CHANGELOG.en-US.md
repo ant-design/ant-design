@@ -17,6 +17,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.6
+
+`2017-10-12`
+
+- 🐞 Fix issue that `beforeUpload` will stop uploading when return undefined. [#7870](https://github.com/ant-design/ant-design/issues/7870)
+
 ## 2.13.5
 
 `2017-10-11`
