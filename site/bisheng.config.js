@@ -64,6 +64,8 @@ module.exports = {
     };
 
     config.externals = {
+      react: 'React',
+      'react-dom': 'ReactDOM',
       'react-router-dom': 'ReactRouterDOM',
     };
 
@@ -73,11 +75,6 @@ module.exports = {
         'react-dom': 'preact-compat',
         'create-react-class': 'preact-compat/lib/create-react-class',
         'react-router': 'react-router',
-      });
-    } else if (isDev) {
-      config.externals = Object.assign({}, config.externals, {
-        react: 'React',
-        'react-dom': 'ReactDOM',
       });
     }
 
