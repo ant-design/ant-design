@@ -15,6 +15,7 @@ export interface BadgeProps {
   dot?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  scrollNumberPrefixCls?: string;
   className?: string;
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   text?: string;
