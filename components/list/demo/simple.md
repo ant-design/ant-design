@@ -19,7 +19,7 @@ Ant Design supports a default list size as well as a large and small size.
 
 If a large or small list is desired, set the size property to either large or small respectively. Omit the size property for a list with the default size.
 
-Otherwise to setting `header` and `footer` property can custom header and footer of list.
+Customizing the header and footer of list by setting `header` and `footer` property.
 
 ````jsx
 import { List } from 'antd';
