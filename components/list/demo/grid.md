@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-To setting the `grid` property of `List` can realize grid list.
+Creating a grid list by setting the `grid` property of List
 
 ````jsx
 import { List, Card } from 'antd';
