@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 简单列表
-  en-US: Simple
+  en-US: Simple list
 ---
 
 ## zh-CN
@@ -15,7 +15,11 @@ title:
 
 ## en-US
 
-Simple List.
+Ant Design supports a default list size as well as a large and small size.
+
+If a large or small list is desired, set the size property to either large or small respectively. Omit the size property for a list with the default size.
+
+Otherwise to setting `header` and `footer` property can custom header and footer of list.
 
 ````jsx
 import { List } from 'antd';

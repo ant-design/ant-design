@@ -2,7 +2,7 @@
 order: 6
 title:
   zh-CN: 滚动加载
-  en-US: Scrolling loaded List
+  en-US: Scrolling loaded
 ---
 
 ## zh-CN
