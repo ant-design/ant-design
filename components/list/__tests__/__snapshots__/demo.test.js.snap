@@ -376,7 +376,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
       />
     </div>
     <div
-      style="text-align:center;margin-top:8px"
+      style="text-align:center;margin-top:8px;height:32px"
     >
       <button
         class="ant-btn"
@@ -401,7 +401,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
       style="margin-left:-8px;margin-right:-8px"
     >
       <div
-        class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
       >
         <div
           class="ant-list-item"
@@ -440,7 +440,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
       >
         <div
           class="ant-list-item"
@@ -479,7 +479,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
       >
         <div
           class="ant-list-item"
@@ -518,7 +518,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
       >
         <div
           class="ant-list-item"
@@ -541,6 +541,84 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                       class="ant-card-head-title"
                     >
                       Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  <div>
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+      >
+        <div
+          class="ant-list-item"
+          style="padding-left:8px;padding-right:8px"
+        >
+          <div
+            class="ant-list-item-content ant-list-item-content-single"
+          >
+            <div
+              class="ant-card ant-card-bordered"
+            >
+              <div>
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  <div>
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+      >
+        <div
+          class="ant-list-item"
+          style="padding-left:8px;padding-right:8px"
+        >
+          <div
+            class="ant-list-item-content ant-list-item-content-single"
+          >
+            <div
+              class="ant-card ant-card-bordered"
+            >
+              <div>
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 6
                     </div>
                   </div>
                 </div>

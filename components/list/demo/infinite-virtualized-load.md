@@ -2,7 +2,7 @@
 order: 7
 title:
   zh-CN: 滚动加载无限长列表
-  en-US: Infinite virtualized List
+  en-US: Infinite & virtualized
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 ## en-US
 
-The example of infinite & virtualized load with [react-virtualized](https://github.com/bvaughn/react-virtualized). [learn more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
+The example of infinite & virtualized load with [react-virtualized](https://github.com/bvaughn/react-virtualized). [Learned more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
 
 `virtualized` is a technology which use to mount big data, to reducing the render dom witch not visible.
 

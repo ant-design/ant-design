@@ -2,16 +2,16 @@
 order: 3
 title:
   zh-CN: 竖排列表样式
-  en-US: Layout Vertical 
+  en-US: Vertical
 ---
 
 ## zh-CN
 
-基础列表。
+通过设置 `itemLayout` 属性为 `vertical` 可实现竖排列表样式。
 
 ## en-US
 
-Basic List.
+Setting `itemLayout` property with `vertical` to create a vertical list.
 
 ````jsx
 import { List, Avatar, Icon } from 'antd';

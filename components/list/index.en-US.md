@@ -17,38 +17,39 @@ A list can be used to display content related to a single subject. The content c
 
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
-| bordered | - | string \| boolean   |  false  |
-| split | - | string \| boolean   |  true  |
-| loading | -| boolean   |  false  |
-| itemLayout | - | string |  -  |
-| loadMore    | -| string\|ReactNode   |  -  |
-| pagination | - | boolean \| object   |  false  |
-| grid | - | object   |  -  |
-| header | - |  string\|ReactNode  |  -  |
-| footer | - |  string\|ReactNode  |  -  |
+| bordered | Toggles rendering of the border around the list | boolean   |  false  |
+| split | Toggles rendering of the split under the list item | boolean   |  true  |
+| loading | Shows a loading indicator while the contents of the list are being fetched | boolean   |  false  |
+| itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string |  -  |
+| loadMore    | Shows a load more content | string\|ReactNode   |  -  |
+| pagination | Pagination [config](https://ant.design/components/pagination/), hide it by setting it to false | boolean \| object   |  false  |
+| grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | object   |  -  |
+| header | List header renderer |  string\|ReactNode  |  -  |
+| footer | List footer renderer |  string\|ReactNode  |  -  |
 
 ### List grid props
 | Property     | Description           | Type     | Default       |
 ---------|-------------|------|---------
-| gutter | - | number | 0 |
-| column | - | number | - |
-| xs | `<768px` - | number   |  -  |
-| sm | `≥768px` - | number   |  -  |
-| md | `≥992px` - | number   |  -  |
-| lg | `≥1200px` - | number   |  -  |
-| xl | `≥1600px` - | number   |  -  |
+| gutter | spacing between grid | number | 0 |
+| column | column of grid | number | - |
+| xs | `<576px` column of grid | number   |  -  |
+| sm | `≥576px` column of grid  | number   |  -  |
+| md | `≥768px` column of grid | number   |  -  |
+| lg | `≥992px` column of grid  | number   |  -  |
+| xl | `≥1200px` column of grid  | number   |  -  |
+| xxl | `≥1600px` column of grid  | number   |  -  |
 
 ### List.Item
 
 | Property     | Description           | Type     | Default       |
 ---------|-------------|------|---------
-| extra | - | string\|ReactNode |  -  |
-| actions | - | Array<ReactNode> |  -  |
+| extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right. | string\|ReactNode |  -  |
+| actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right. | Array<ReactNode> |  -  |
 
 ### List.Item.Meta
 
 | Property     | Description           | Type     | Default       |
 ---------|-------------|------|---------
-| avatar | - | ReactNode |  -  |
-| title | - | string\|ReactNode |  -  |
-| description | - | string\|ReactNode |  -  |
+| avatar | The avatar of list item | ReactNode |  -  |
+| title | The title of list item | string\|ReactNode |  -  |
+| description | The description of list item | string\|ReactNode |  -  |

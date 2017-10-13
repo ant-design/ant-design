@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 加载更多
-  en-US: loadmore 
+  en-US: Load more
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-To show how to realize a loading more list with `loadMore` prop.
+Load more list with `loadMore` property.
 
 ````jsx
 import { List, Avatar, Button, Spin } from 'antd';
@@ -57,6 +57,8 @@ class LoadMoreList extends React.Component {
         loadingMore: false,
       }, () => {
         // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
+        // In real scene, you can using public method of react-virtualized:
+        // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
         window.dispatchEvent(new Event('resize'));
       });
     });
@@ -64,7 +66,7 @@ class LoadMoreList extends React.Component {
   render() {
     const { loading, loadingMore, showLoadingMore, data } = this.state;
     const loadMore = showLoadingMore ? (
-      <div style={{ textAlign: 'center', marginTop: 8 }}>
+      <div style={{ textAlign: 'center', marginTop: 8, height: 32 }}>
         {loadingMore && <Spin />}
         {!loadingMore && <Button onClick={this.onLoadMore}>loading more</Button>}
       </div>
