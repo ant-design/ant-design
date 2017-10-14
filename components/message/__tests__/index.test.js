@@ -49,4 +49,19 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message').length).toBe(0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
+
+  it('should not need to use duration argument when using the onClose arguments', () => {
+    message.info('whatever', () => {});
+  });
+
+  it('should have the default duration when using the onClose arguments', (done) => {
+    const defaultDuration = 3;
+    const now = Date.now();
+    message.info('whatever', () => {
+      // calculate the approximately duration value
+      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      expect(aboutDuration).toBe(defaultDuration);
+      done();
+    });
+  });
 });

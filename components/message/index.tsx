@@ -29,7 +29,7 @@ type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 function notice(
   content: React.ReactNode,
-  duration: number = defaultDuration,
+  duration: (() => void) | number = defaultDuration,
   type: NoticeType,
   onClose?: () => void,
 ) {
@@ -40,6 +40,11 @@ function notice(
     warning: 'exclamation-circle',
     loading: 'loading',
   })[type];
+
+  if (typeof duration === 'function') {
+    onClose = duration;
+    duration = defaultDuration;
+  }
 
   getMessageInstance((instance) => {
     instance.notice({
@@ -66,7 +71,7 @@ function notice(
 }
 
 type ConfigContent = React.ReactNode | string;
-type ConfigDuration = number;
+type ConfigDuration = number | (() => void);
 export type ConfigOnClose = () => void;
 
 export interface ConfigOptions {
