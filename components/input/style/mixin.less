@@ -5,12 +5,12 @@
 
 // size mixins for input
 .input-lg() {
-  padding: @input-padding-vertical-lg @input-padding-horizontal;
+  padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   height: @input-height-lg;
 }
 
 .input-sm() {
-  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
   height: @input-height-sm;
 }
 
@@ -41,7 +41,7 @@
 .input() {
   position: relative;
   display: inline-block;
-  padding: @input-padding-vertical-base @input-padding-horizontal;
+  padding: @input-padding-vertical-base @input-padding-horizontal-base;
   width: 100%;
   height: @input-height-base;
   font-size: @font-size-base;
@@ -137,7 +137,7 @@
   }
 
   &-addon {
-    padding: @input-padding-vertical-base @input-padding-horizontal;
+    padding: @input-padding-vertical-base @input-padding-horizontal-base;
     font-size: @font-size-base;
     font-weight: normal;
     line-height: 1;
@@ -151,7 +151,7 @@
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);  // lesshint spaceAroundOperator: false
 
       .@{ant-prefix}-select-selection {
         background-color: inherit;
@@ -328,18 +328,18 @@
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal;
+    left: @input-padding-horizontal-base;
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal;
+    right: @input-padding-horizontal-base;
   }
 
   .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal + @input-affix-width;
+    padding-left: @input-padding-horizontal-base + @input-affix-width;
   }
 
   .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal + @input-affix-width;
+    padding-right: @input-padding-horizontal-base + @input-affix-width;
   }
 }
