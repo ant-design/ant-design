@@ -60,7 +60,7 @@ const columns = [{
 | columns       | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)[] | - |
 | rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
-| expandedRowRender  | 额外的展开行 | Function | - |
+| expandedRowRender  | 额外的展开行 | Function(record):ReactNode | - |
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |

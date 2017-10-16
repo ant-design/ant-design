@@ -59,7 +59,7 @@ const columns = [{
 | columns       | Columns of table | [ColumnProps](https://git.io/vMMXC)[] | - |
 | rowKey        | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
 | rowClassName  | Row's className | Function(record, index):string | - |
-| expandedRowRender  | Expanded container render for each row | Function | - |
+| expandedRowRender  | Expanded container render for each row | Function(record):ReactNode | - |
 | defaultExpandedRowKeys | Initial expanded row keys | string[] | - |
 | expandedRowKeys | Current expanded row keys | string[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
