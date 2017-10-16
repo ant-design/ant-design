@@ -1108,7 +1108,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background-color:#87d068"
+      style="background-color:#52c41a"
       title="109"
     >
       99+

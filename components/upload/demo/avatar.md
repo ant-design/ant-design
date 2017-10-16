@@ -84,6 +84,10 @@ ReactDOM.render(<Avatar />, mountNode);
   border: 1px dashed #d9d9d9;
   border-radius: 6px;
   cursor: pointer;
+  transition: all .3s;
+}
+.avatar-uploader:hover {
+  border: 1px dashed #1890ff;
 }
 .avatar-uploader-trigger {
   display: table-cell;

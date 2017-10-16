@@ -73,6 +73,9 @@ ReactDOM.render(
 ````
 
 <style>
+.code-box-demo .demo {
+  overflow: auto;
+}
 .code-box-demo .ant-popover-wrap > a {
   margin-right: 8px;
 }
@@ -82,5 +85,7 @@ ReactDOM.render(
 }
 #components-popconfirm-demo-placement .ant-btn {
   width: 70px;
+  text-align: center;
+  padding: 0;
 }
 </style>
