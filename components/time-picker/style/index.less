@@ -3,6 +3,7 @@
 @import "../../input/style/mixin";
 
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
+@timepicker-item-height: 32px;
 
 .@{timepicker-prefix-cls}-panel {
   .reset-component;
@@ -85,7 +86,7 @@
     width: @time-picker-panel-column-width;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
-    max-height: 32px * 6;
+    max-height: @timepicker-item-height * 6;
 
     &:hover {
       overflow-y: auto;
@@ -108,7 +109,7 @@
       list-style: none;
       box-sizing: border-box;
       margin: 0;
-      padding: 0 0 120px;
+      padding: 0 0 @timepicker-item-height * 5;
       width: 100%;
     }
 
@@ -118,8 +119,8 @@
       margin: 0;
       padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
-      height: 32px;
-      line-height: 32px;
+      height: @timepicker-item-height;
+      line-height: @timepicker-item-height;
       text-align: left;
       cursor: pointer;
       user-select: none;
