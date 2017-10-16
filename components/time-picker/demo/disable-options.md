@@ -43,13 +43,14 @@ ReactDOM.render(
     <TimePicker
       disabledHours={disabledHours}
       disabledMinutes={disabledMinutes}
-      placeholder="Just Disabled"
+      placeholder="Disabled"
     />
     <TimePicker
       disabledHours={disabledHours}
       disabledMinutes={disabledMinutes}
       hideDisabledOptions
-      placeholder="Hide Directly"
+      style={{ width: 150 }}
+      placeholder="Hide disabled"
     />
   </div>
 , mountNode);

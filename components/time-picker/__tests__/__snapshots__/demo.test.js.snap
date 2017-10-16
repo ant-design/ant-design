@@ -88,7 +88,7 @@ exports[`renders ./components/time-picker/demo/disable-options.md correctly 1`] 
   >
     <input
       class="ant-time-picker-input"
-      placeholder="Just Disabled"
+      placeholder="Disabled"
       readonly=""
       type="text"
       value=""
@@ -99,10 +99,11 @@ exports[`renders ./components/time-picker/demo/disable-options.md correctly 1`] 
   </span>
   <span
     class="ant-time-picker "
+    style="width:150px"
   >
     <input
       class="ant-time-picker-input"
-      placeholder="Hide Directly"
+      placeholder="Hide disabled"
       readonly=""
       type="text"
       value=""
