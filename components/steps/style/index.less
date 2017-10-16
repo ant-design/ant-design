@@ -13,7 +13,7 @@
 @wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
 @finish-title-color: @text-color;
-@finish-description-color: @finish-title-color;
+@finish-description-color: @text-color-secondary;
 @finish-tail-color: @primary-color;
 @error-icon-color: @error-color;
 @error-title-color: @error-color;
@@ -95,7 +95,7 @@
     font-size: @font-size-lg;
     color: @text-color;
     display: inline-block;
-    padding-right: 10px;
+    padding-right: 16px;
     position: relative;
     line-height: @steps-icon-size;
     &:after {
@@ -134,10 +134,13 @@
 
 .@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical) {
   .@{steps-prefix-cls}-item {
-    margin-right: 8px;
+    margin-right: 16px;
     white-space: nowrap;
     &:last-child {
       margin-right: 0;
+    }
+    &:last-child .@{steps-prefix-cls}-item-title {
+      padding-right: 0;
     }
     &-tail {
       display: none;
