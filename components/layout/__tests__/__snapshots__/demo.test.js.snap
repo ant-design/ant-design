@@ -253,7 +253,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
   >
     <div
       class="ant-breadcrumb"
-      style="margin:12px 0;"
+      style="margin:16px 0;"
     >
       <span>
         <span
@@ -806,7 +806,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     >
       <div
         class="ant-breadcrumb"
-        style="margin:12px 0;"
+        style="margin:16px 0;"
       >
         <span>
           <span
@@ -895,7 +895,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
   >
     <div
       class="ant-breadcrumb"
-      style="margin:12px 0;"
+      style="margin:16px 0;"
     >
       <span>
         <span
@@ -995,7 +995,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
   >
     <div
       class="ant-breadcrumb"
-      style="margin:12px 0;"
+      style="margin:16px 0;"
     >
       <span>
         <span
@@ -1324,7 +1324,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     >
       <div
         class="ant-breadcrumb"
-        style="margin:12px 0;"
+        style="margin:16px 0;"
       >
         <span>
           <span
