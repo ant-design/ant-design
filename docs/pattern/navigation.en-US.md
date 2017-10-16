@@ -3,11 +3,11 @@ order: 1
 title: Navigation
 ---
 
-Broadly speaking, anything telling users where they are, where to go and how to get there can be called navigation. We abstract common navigation patterns and provide handy components to help designers and developers to build a clear and smooth navigational system. When using navigation or customizing navigational structures, please pay attention to following common pitfalls:
+Broadly speaking, anything telling users where they are, where to go and how to get there can be called navigation. We abstract common navigation patterns and provide handy components to help designers and developers build a clear and smooth navigational system. When using navigation or customizing navigational structures, please pay attention to following common pitfalls:
 
-- Provide visual and contextual cues as many as possible, to prevent users from getting lost
+- Provide visual and contextual cues as much as possible, to prevent users from getting lost
 - Maintain consistency between form and behavior, or reduce the number of items in navigation, to decrease user's learning cost
-- Minimize page transitions (i.e. reduce the number of page tranistions required by a task from several to just once or twice), to ensure that user travels only a short distance from any page to another
+- Minimize page transitions (i.e. reduce the number of page transitions required by a task from several to just once or twice), to ensure that the user travels only a short distance from one page to another
 
 ---
 
@@ -21,8 +21,8 @@ Broadly speaking, anything telling users where they are, where to go and how to 
   </tr>
   <tr>
     <th>Pros</th>
-    <td>Hierarchy is easily extensible; Make room for page content horizontally; Allow fixed position, so that user can navigate to intended page quickly.</td>
-    <td>Conform to common human habit of browsing top-down, easy to browse and click; Content area usually stay in a fixed width (i.e. 1208px), so page layout is stabler and less sensitive to screen sizes.</td>
+    <td>Hierarchy is easily extensible; Makes room for page content horizontally; Allows fixed position, so that user can navigate to intended page quickly.</td>
+    <td>Conforms to common human habit of browsing top-down, easy to browse and click; Content area usually stays in a fixed width (i.e. 1208px), so page layout is more stable and less sensitive to screen sizes.</td>
   </tr>
   <tr>
     <th>Cons</th>
@@ -55,7 +55,7 @@ Navigational structure consists of following parts:
 
 #### About Breadcrumb
 
-> 1. Avoid using breadcrumb as much as you can, especially when page contains other navigation components sufficiently telling where users are.
+> 1. Avoid using breadcrumbs as much as you can, especially when a page contains other navigation components sufficiently telling where users are.
 > 2. Breadcrumb can be categorized as:
 >    - Path-Centric: dynamically showing a path of how user reaches current page
 >    - Position-Centric: usually fixed, showing position of current page among entire site structure

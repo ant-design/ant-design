@@ -163,7 +163,7 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If you see logs like below screenshot, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network perfermance.
+If you see logs like below screenshot, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network performance.
 
 ```
 You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
@@ -196,4 +196,4 @@ And this plugin can load styles too, read [usage](https://github.com/ant-design/
 ## Tips
 
 - You can use any `npm` modules.
-- We recommend to write code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated into our work flow.
+- We recommend writing code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated into our work flow.

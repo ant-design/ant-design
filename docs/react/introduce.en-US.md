@@ -132,7 +132,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [Home Page](http://ant.design/)
 - [UI library](/docs/react/introduce)
 - [Change Log](/changelog)
-- [Offcial Scaffold Tool](https://github.com/dvajs/dva-cli/)
+- [Official Scaffold Tool](https://github.com/dvajs/dva-cli/)
 - [Development Tool](http://ant-tool.github.io/)
 - [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
