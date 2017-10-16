@@ -17,6 +17,7 @@ export interface BadgeProps {
   dot?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  scrollNumberPrefixCls?: string;
   className?: string;
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   text?: string;
@@ -25,6 +26,7 @@ export interface BadgeProps {
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
     prefixCls: 'ant-badge',
+    scrollNumberPrefixCls: 'ant-scroll-number',
     count: null,
     showZero: false,
     dot: false,
@@ -46,6 +48,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       count,
       showZero,
       prefixCls,
+      scrollNumberPrefixCls,
       overflowCount,
       className,
       style,
@@ -94,6 +97,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
     const scrollNumber = hidden ? null : (
       <ScrollNumber
+        prefixCls={scrollNumberPrefixCls}
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
