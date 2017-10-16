@@ -203,4 +203,4 @@ And this plugin can load styles too, read [usage](https://github.com/ant-design/
 ## Tips
 
 - You can use any `npm` modules.
-- We recommend to write code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated into our work flow.
+- We recommend writing code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated into our work flow.

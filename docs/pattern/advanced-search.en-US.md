@@ -19,9 +19,9 @@ Advanced search is generally used by intermediate / expert users, typically by c
 
 <br>
 
-<img class="preview-img" align="right" alt='Interactive examples" description="Place an Alert to show the value that has already been entered; the user can click "Clear" to empty all the input values. Click advanced search to expand Advanced Search again.' src="https://os.alipayobjects.com/rmsportal/gKiZtjopvLufqSP.png">
+<img class="preview-img" align="right" alt="Interactive examples" description="Place an Alert to show the value that has already been entered; the user can click "Clear" to empty all the input values. Click advanced search to expand Advanced Search again.' src="https://os.alipayobjects.com/rmsportal/gKiZtjopvLufqSP.png">
 
-When an advanced search - with an entered a value - is hidden, you should display the search criteria and values.
+When advanced search is hidden, you should display the search criteria and values when a value is entered.
 
 ### Arrangement
 
