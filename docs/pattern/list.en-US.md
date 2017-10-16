@@ -3,13 +3,13 @@ order: 3
 title: List
 ---
 
-List is a very common UI element which can be applied to various scenarios:
+Lists are very common UI elements which can be applied to various scenarios:
 
 - Get an overview
 - Browse item by item
 - Find specific list item
 - Sort and filter
-- Rearrange, add, delete or recategorize list items
+- Rearrange, add, delete or re-categorize list items
 
 ---
 
@@ -19,7 +19,7 @@ List is a very common UI element which can be applied to various scenarios:
 
 <img class="preview-img" align="right" alt="Popover Example" description="When triggered by click, symmetry between activated and disabled states should be maintained, in other words, popover should be closed where it was opened. When triggered by hover, activate the popover 0.5 second after a mouse-enter event, and close the popover immediately after a mouse-leave event." src="https://os.alipayobjects.com/rmsportal/GmpRYixxnePBPPW.png">
 
-Popover: When a user click or hover a link or a piece of content, display a small amount of detailed information for corresponding list item in a floating layer.
+Popover: When a user clicks or hovers a link or piece of content, display a small amount of detailed information for the corresponding list item in a floating layer.
 
 <br />
 
@@ -29,7 +29,7 @@ Popover: When a user click or hover a link or a piece of content, display a smal
 
 <img class="preview-img" align="right" alt="Embedding Example 3" src="https://os.alipayobjects.com/rmsportal/MXXjEoLdnBxqcne.png">
 
-Embedding: A user can directly view detailed information in the context via a click, without openning a new page or modal.
+Embedding: A user can directly view detailed information in the context via a click, without opening a new page or modal.
 
 <br />
 
@@ -56,7 +56,7 @@ Full-Window: A user can view a large amount of detailed information in current p
 
 <img class="preview-img" align="right" alt="Text Wrap Example" src="https://os.alipayobjects.com/rmsportal/wWcixIvqaFXfTHd.png">
 
-Text Wrap: Expand certain list item into multiline text.
+Text Wrap: Expand certain list item into multi-line text.
 
 <br />
 
@@ -86,7 +86,7 @@ Pagination: Load list in a sectioned way, user determines whether to load other 
 
 <img class="preview-img" align="right" description="Pagination can make things clunky when there is intensive operation on listed data, especially when there is selection across pages. So infinite scrolling would be a better choice. Infinite scrolling is also suitable for presenting all data for a user (i.e. user's orders) or non-temporary data." src="https://os.alipayobjects.com/rmsportal/afDpGUyoyQZFgks.png">
 
-Infinite Scrolling: When user reach the bottom of the first section, load next section via listening to scroll event or a button click.
+Infinite Scrolling: When user reaches the bottom of the first section, load next section via listening to scroll event or a button click.
 
 ### Display Categorized/Layered List
 

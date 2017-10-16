@@ -119,7 +119,7 @@ $ yarn add react-app-rewired --dev
 }
 ```
 
-Then create a `config-overrides.js` at root directory of your project for futher overriding.
+Then create a `config-overrides.js` at root directory of your project for further overriding.
 
 ```js
 module.exports = function override(config, env) {

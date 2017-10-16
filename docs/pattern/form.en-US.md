@@ -3,9 +3,9 @@ order: 2
 title: Form
 ---
 
-As an important interface to obtain user input, form plays a role of matching answers to questions.
+As an important interface to obtain user input, forms play the important role of matching answers to questions.
 
-In the design of a form, it's recommended to:
+When designing a form, it's recommended to:
 
 1. Make sure users know what is required to enter and why.
 
@@ -17,7 +17,7 @@ In the design of a form, it's recommended to:
 
 3. Be error-sensitive and fault-tolerant.
 
-  Be error-sensitive means giving feedbacks to users quickly through a variety of validation rules of user input. If the validation starts only after a form is submitted, it would be too late. Be fault-tolerant means it should be allowed to use different kinds of formats as well as syntax. For example, if a user types in some spaces into a phone number input box, the system should delete those spaces automatically instead of telling the user to correct them.
+  Be error-sensitive means giving feedback to users quickly through a variety of validation rules of user input. If the validation starts only after a form is submitted, it would be too late. Being fault-tolerant means it should be allowed to use different kinds of formats as well as syntax. For example, if a user types in some spaces into a phone number input box, the system should delete those spaces automatically instead of telling the user to correct them.
 
 4. Don't ask unnecessary questions.
 
@@ -55,7 +55,7 @@ When two input boxes have strong correlation, they can be combined together so a
 
 <img class="preview-img" align="right" alt="Example of alignment" src="https://os.alipayobjects.com/rmsportal/cjHTEtXFxUSdHnE.png">
 
-In the design of a form, button groups should be aligned to the left of the input boxes.
+When designing a form, button groups should be aligned to the left of the input boxes.
 
 ### Disabled main button
 
@@ -68,13 +68,13 @@ When there are just a few (less than 3) input boxes in a form, "submit" button o
 
 <img class="preview-img" align="right" alt="main button is enabled when there are enough characters" src="https://os.alipayobjects.com/rmsportal/usdFxJmWDawqUuq.png">
 
-When there are just a few input boxes, users can see feedbacks once they type in something and thus the rule is easy to understand.
+When there are just a few input boxes, users can see feedback once they type in something and thus the rule is easy to understand.
 
 <br>
 
 <img class="preview-img" align="right" alt="Don't use disabled main button" src="https://os.alipayobjects.com/rmsportal/GwZhvOuXmwqUIUW.png">
 
-When there are many input boxes (especially when required input boxes are altogether with optional ones), the logic of feedbacks can be very complicated. Thus, disabling main buttons may cause confusion.
+When there are many input boxes (especially when required input boxes are altogether with optional ones), the logic of feedback can be very complicated. Thus, disabling main buttons may cause confusion.
 
 ### Structured format
 
@@ -87,24 +87,24 @@ The structured format can be used if users are familiar with the input content a
 <img class="preview-img inline" align="right" alt="Example of tooltip" description="when an input box is focused, the tooltip will appear until the input box loses focus again" src="https://os.alipayobjects.com/rmsportal/cTlmdEprGSzMZfs.png">
 <img class="preview-img inline" align="right" alt="Example of reminder" description="when an input box is focused, the reminder will appear until a user types in at least one character" src="https://os.alipayobjects.com/rmsportal/QPhvLWfMbLTvjRw.png">
 
-Use tooltip if a brief input label may cause confusion while you still want to keep the label text to be short.
+Use a tooltip if a brief input label may cause confusion while you still want to keep the label text to be short.
 
-Use reminder if you want users to pay attention to the format or purpose of an input box. A reminder will disappear once there is something typed in the input box, so it should be used only when users are familiar with the content.
+Use a reminder if you want users to pay attention to the format or purpose of an input box. A reminder will disappear once there is something typed in the input box, so it should be used only when users are familiar with the content.
 
 ### Password input box
 
 <img class="preview-img" align="right" alt="Example of password input box" src="https://os.alipayobjects.com/rmsportal/wKpOgeyyoOUeCrk.png">
 
-Password input box provides real time feedbacks on password strength and validity. It's quite applicable to a registration page.
+Password input box provides real time feedback on password strength and validity. It's quite applicable to a registration page.
 
 ### Validation
 
 <img class="preview-img inline" align="right" description="Validation in real time" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
 <img class="preview-img inline" align="right" description="Validation after losing focus" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
-<img class="preview-img" align="right" description='When a "submit" button is clicked, the system will deal with user inputs and display feedbacks (the number of errors and the types of errors) on the page.' src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
+<img class="preview-img" align="right" description="When a "submit" button is clicked, the system will deal with user inputs and display feedback (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 
-Use different validation rules and a variety of feedbacks to help users correct errors before they click on a "submit" button.
+Use different validation rules and a variety of feedback to help users correct errors before they click on a "submit" button.
 
 ### Character counting box
 
@@ -131,7 +131,7 @@ If the maximum length of an input content is known, it's recommended to define t
 
 ### Alignment
 
-There are both advantages and disadvantages for any kinds of alignment. Thus, you need to have a clear mind about your purposes (if you want to speed up or slow down a user) and the limits (screen width restrictions, problems of localization, etc.) before choosing one of those alignments.
+There are both advantages and disadvantages for any particular alignment. Thus, you need to be clear about your purposes (if you want to speed up or slow down a user) and the limitations (screen width restrictions, problems of localization, etc.) before choosing one of those alignments.
 
 <br>
 
@@ -145,14 +145,14 @@ Right alignment (recommended)
 
 <br>
 
-https://www.expedia.co.uk/FlightCheckout?tripid=89e54540-dcf4-4c27-be3f-c9efaae6dac2&c=69c4491d-2d30-406a-9b2c-6ec50a932b48
+<!-- https://www.expedia.co.uk/FlightCheckout?tripid=89e54540-dcf4-4c27-be3f-c9efaae6dac2&c=69c4491d-2d30-406a-9b2c-6ec50a932b48 -->
 
 <img class="preview-img" align="right" alt="Top alignment" src="https://os.alipayobjects.com/rmsportal/AsyyNKormNdEMLi.png">
 
 Top alignment
 
 - Advantages: high readability; high flexibility of the label length.
-- Disadvantage: takes a lot of vertical space.
+- Disadvantages: takes a lot of vertical space.
 - When to use: you want users to finish filling the form quickly.
 
 <br>
