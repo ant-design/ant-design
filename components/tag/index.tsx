@@ -75,7 +75,10 @@ export default class Tag extends React.Component<TagProps, TagState> {
 
   isPresetColor(color?: string): boolean {
     if (!color) { return false; }
-    return /^(pink|red|yellow|orange|cyan|green|blue|purple)(-inverse)?$/.test(color);
+    return (
+      /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/
+      .test(color)
+    );
   }
 
   render() {

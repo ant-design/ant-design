@@ -84,9 +84,8 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
   </h4>
   <div>
     <div
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-magenta"
       data-show="true"
-      style="background-color:magenta"
     >
       <span
         class="ant-tag-text"
@@ -105,6 +104,16 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       </span>
     </div>
     <div
+      class="ant-tag ant-tag-volcano"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        volcano
+      </span>
+    </div>
+    <div
       class="ant-tag ant-tag-orange"
       data-show="true"
     >
@@ -112,6 +121,26 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
         class="ant-tag-text"
       >
         orange
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-gold"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        gold
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-lime"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        lime
       </span>
     </div>
     <div
@@ -142,6 +171,16 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
         class="ant-tag-text"
       >
         blue
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-geekblue"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        geekblue
       </span>
     </div>
     <div
