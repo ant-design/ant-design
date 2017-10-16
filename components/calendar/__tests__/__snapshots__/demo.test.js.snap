@@ -2451,19 +2451,31 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                   >
                     <li>
                       <span
-                        class="event-warning"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-warning"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is warning event.
+                        </span>
                       </span>
-                      This is warning event.
                     </li>
                     <li>
                       <span
-                        class="event-normal"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is usual event.
+                        </span>
                       </span>
-                      This is usual event.
                     </li>
                   </ul>
                 </div>
@@ -2512,27 +2524,45 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                   >
                     <li>
                       <span
-                        class="event-warning"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-warning"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is warning event.
+                        </span>
                       </span>
-                      This is warning event.
                     </li>
                     <li>
                       <span
-                        class="event-normal"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is usual event.
+                        </span>
                       </span>
-                      This is usual event.
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event.
+                        </span>
                       </span>
-                      This is error event.
                     </li>
                   </ul>
                 </div>
@@ -2652,51 +2682,87 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                   >
                     <li>
                       <span
-                        class="event-warning"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-warning"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is warning event
+                        </span>
                       </span>
-                      This is warning event
                     </li>
                     <li>
                       <span
-                        class="event-normal"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is very long usual event。。....
+                        </span>
                       </span>
-                      This is very long usual event。。....
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event 1.
+                        </span>
                       </span>
-                      This is error event 1.
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event 2.
+                        </span>
                       </span>
-                      This is error event 2.
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event 3.
+                        </span>
                       </span>
-                      This is error event 3.
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event 4.
+                        </span>
                       </span>
-                      This is error event 4.
                     </li>
                   </ul>
                 </div>
@@ -3222,19 +3288,31 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                   >
                     <li>
                       <span
-                        class="event-warning"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-warning"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is warning event.
+                        </span>
                       </span>
-                      This is warning event.
                     </li>
                     <li>
                       <span
-                        class="event-normal"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is usual event.
+                        </span>
                       </span>
-                      This is usual event.
                     </li>
                   </ul>
                 </div>
@@ -3283,27 +3361,45 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
                   >
                     <li>
                       <span
-                        class="event-warning"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-warning"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is warning event.
+                        </span>
                       </span>
-                      This is warning event.
                     </li>
                     <li>
                       <span
-                        class="event-normal"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is usual event.
+                        </span>
                       </span>
-                      This is usual event.
                     </li>
                     <li>
                       <span
-                        class="event-error"
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                       >
-                        ●
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        >
+                          This is error event.
+                        </span>
                       </span>
-                      This is error event.
                     </li>
                   </ul>
                 </div>
