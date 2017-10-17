@@ -18,6 +18,7 @@ export interface UploadFile {
   originFileObj?: File;
   response?: any;
   error?: any;
+  linkProps?: any;
 }
 
 export interface UploadChangeParam {

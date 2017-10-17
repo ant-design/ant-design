@@ -111,6 +111,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
       const preview = file.url ? (
         <a
+          {...file.linkProps}
           href={file.url}
           target="_blank"
           rel="noopener noreferrer"
