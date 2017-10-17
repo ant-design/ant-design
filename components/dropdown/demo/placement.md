@@ -25,7 +25,7 @@ const menu = (
       <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">2nd menu item</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">3d menu item</a>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">3rd menu item</a>
     </Menu.Item>
   </Menu>
 );
