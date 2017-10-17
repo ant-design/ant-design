@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自定义时长 `10s`，默认时长为 `1.5s`。
+自定义时长 `10s`，默认时长为 `3s`。
 
 ## en-US
 
-Customize message display duration from default `1.5s` to `10s`.
+Customize message display duration from default `3s` to `10s`.
 
 ````jsx
 import { message, Button } from 'antd';
