@@ -166,6 +166,13 @@
     font-size: @font-size-base;
     &-item {
       display: inline-block;
+      margin-right: 8px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &-item + &-item {
+      margin-left: 0;
     }
   }
 
