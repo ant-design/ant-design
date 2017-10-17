@@ -5,7 +5,7 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
   class="avatar-uploader"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select ant-upload-select-picture-card"
     style="display:"
   />
 </span>
@@ -119,17 +119,16 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
-<div
-  style="margin-top:16px;height:180px"
+<span
+  class=""
 >
-  <span
-    class=""
-  >
-    <div
-      class="ant-upload ant-upload-drag"
-    />
-  </span>
-</div>
+  <div
+    class="ant-upload ant-upload-drag"
+  />
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
