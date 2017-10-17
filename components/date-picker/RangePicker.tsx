@@ -111,7 +111,9 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   handleOpenChange = (open) => {
-    this.setState({ open });
+    if (!('open' in this.props)) {
+      this.setState({ open });
+    }
 
     const { onOpenChange } = this.props;
     if (onOpenChange) {
@@ -125,7 +127,7 @@ export default class RangePicker extends React.Component<any, any> {
 
   setValue(value, hidePanel?) {
     this.handleChange(value);
-    if (hidePanel || !this.props.showTime) {
+    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
       this.setState({ open: false });
     }
   }
