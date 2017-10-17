@@ -61,6 +61,7 @@ When uploading state change, it returns:
       name: 'xx.png'   // file name
       status: 'done', // options：uploading, done, error, removed
       response: '{"status": "success"}', // response from server
+      linkProps: '{"download": "image"}', // additional html props of file link  
    }
    ```
 
