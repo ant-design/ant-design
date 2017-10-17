@@ -2,12 +2,12 @@ import React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
 export { TreeData, TreeSelectProps } from './interface';
 
-abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
+export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static TreeNode = TreeNode;
   static SHOW_ALL = SHOW_ALL;
   static SHOW_PARENT = SHOW_PARENT;
@@ -30,15 +30,12 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
     );
   }
 
-  abstract getLocale();
-
-  render() {
-    const locale = this.getLocale();
+  renderTreeSelect = (locale) => {
     const {
       prefixCls,
       className,
       size,
-      notFoundContent = locale.notFoundContent,
+      notFoundContent,
       dropdownStyle,
       ...restProps,
     } = this.props;
@@ -52,7 +49,6 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
     if (checkable) {
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
-
     return (
       <RcTreeSelect
         {...restProps}
@@ -60,12 +56,19 @@ abstract class TreeSelect extends React.Component<TreeSelectProps, any> {
         className={cls}
         dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
         treeCheckable={checkable}
-        notFoundContent={notFoundContent}
+        notFoundContent={notFoundContent || locale.notFoundContent}
       />
     );
   }
-}
 
-// Use Select's locale
-const injectSelectLocale = injectLocale('Select', {});
-export default injectSelectLocale<TreeSelectProps>(TreeSelect as any);
+  render() {
+    return (
+      <LocaleReceiver
+        componentName="Select"
+        defaultLocale={{}}
+      >
+        {this.renderTreeSelect}
+      </LocaleReceiver>
+    );
+  }
+}

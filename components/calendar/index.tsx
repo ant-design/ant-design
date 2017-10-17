@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
-import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
 declare const require: Function;
 
 export { HeaderProps } from './Header';
@@ -16,12 +16,6 @@ function zerofixed(v) {
     return `0${v}`;
   }
   return `${v}`;
-}
-
-export interface CalendarContext {
-  antLocale?: {
-    Calendar?: any,
-  };
 }
 
 export type CalendarMode = 'month' | 'year';
@@ -74,16 +68,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onSelect: PropTypes.func,
   };
 
-  static contextTypes = {
-    antLocale: PropTypes.object,
-  };
-
-  context: CalendarContext;
-
   constructor(props, context) {
     super(props, context);
-    // Make sure that moment locale had be set correctly.
-    getComponentLocale(props, context, 'Calendar', () => require('./locale/en_US'));
 
     const value = props.value || props.defaultValue || moment();
     if (!moment.isMoment(value)) {
@@ -174,16 +160,14 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     this.setValue(value, 'select');
   }
 
-  render() {
-    const { state, props, context } = this;
+  renderCalendar = (locale, localeCode) => {
+    const { state, props } = this;
     const { value, mode } = state;
-    const localeCode = getLocaleCode(context);
     if (value && localeCode) {
       value.locale(localeCode);
     }
     const { prefixCls, style, className, fullscreen, dateFullCellRender, monthFullCellRender } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/en_US'));
 
     let cls = className || '';
     if (fullscreen) {
@@ -217,6 +201,17 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           onSelect={this.onSelect}
         />
       </div>
+    );
+  }
+
+  render() {
+    return (
+      <LocaleReceiver
+        componentName="Calendar"
+        defaultLocale={() => require('./locale/en_US')}
+      >
+        {this.renderCalendar}
+      </LocaleReceiver>
     );
   }
 }

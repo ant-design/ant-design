@@ -4,7 +4,6 @@ import Calendar from 'rc-calendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
-import { getLocaleCode } from '../_util/getLocale';
 
 function formatValue(value: moment.Moment | undefined, format: string): string {
   return (value && value.format(format)) || '';
@@ -67,11 +66,10 @@ export default class WeekPicker extends Component<any, any> {
   render() {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
-      pickerInputClass, format, allowClear, locale, disabledDate,
+      pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
     } = this.props;
 
     const pickerValue = this.state.value;
-    const localeCode = getLocaleCode(this.context);
     if (pickerValue && localeCode) {
       pickerValue.locale(localeCode);
     }

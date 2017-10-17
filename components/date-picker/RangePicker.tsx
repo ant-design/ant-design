@@ -1,12 +1,10 @@
 /* tslint:disable jsx-no-multiline-js */
 import React from 'react';
 import moment from 'moment';
-import PropTypes from 'prop-types';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
-import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
 
 function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
@@ -41,9 +39,6 @@ function isEmptyArray(arr) {
 }
 
 export default class RangePicker extends React.Component<any, any> {
-  static contextTypes = {
-    antLocale: PropTypes.object,
-  };
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
@@ -164,9 +159,15 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   render() {
-    const { state, props, context } = this;
+    const { state, props } = this;
     const { value, showDate, hoverValue, open } = state;
-    const localeCode = getLocaleCode(context);
+    const {
+      prefixCls, popupStyle, style,
+      disabledDate, disabledTime,
+      showTime, showToday,
+      ranges, onOk, locale, localeCode, format,
+      dateRender,
+    } = props;
     if (value && localeCode) {
       if (value[0]) {
         value[0].locale(localeCode);
@@ -176,13 +177,6 @@ export default class RangePicker extends React.Component<any, any> {
       }
     }
 
-    const {
-      prefixCls, popupStyle, style,
-      disabledDate, disabledTime,
-      showTime, showToday,
-      ranges, onOk, locale, format,
-      dateRender,
-    } = props;
     warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
     const calendarClassName = classNames({

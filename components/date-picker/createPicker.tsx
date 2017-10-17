@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
-import { getLocaleCode } from '../_util/getLocale';
 import warning from '../_util/warning';
 
 export interface PickerProps {
@@ -16,10 +14,6 @@ export interface PickerProps {
 
 export default function createPicker(TheCalendar): any {
   return class CalenderWrapper extends React.Component<any, any> {
-    static contextTypes = {
-      antLocale: PropTypes.object,
-    };
-
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
@@ -74,7 +68,7 @@ export default function createPicker(TheCalendar): any {
     render() {
       const { value } = this.state;
       const props = omit(this.props, ['onChange']);
-      const { prefixCls, locale } = props;
+      const { prefixCls, locale, localeCode } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -147,7 +141,6 @@ export default function createPicker(TheCalendar): any {
       );
 
       const pickerValue = value;
-      const localeCode = getLocaleCode(this.context);
       if (pickerValue && localeCode) {
         pickerValue.locale(localeCode);
       }
