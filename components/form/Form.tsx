@@ -54,7 +54,7 @@ export type ValidationRule = {
   validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
 };
 
-export type ValidateCallback = (erros: any, values: any) => void;
+export type ValidateCallback = (errors: any, values: any) => void;
 
 export type GetFieldDecoratorOptions = {
   /** 子节点的值的属性，如 Checkbox 的是 'checked' */
