@@ -376,7 +376,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
       />
     </div>
     <div
-      style="text-align:center;margin-top:8px;height:32px"
+      style="text-align:center;margin-top:12px;height:32px;line-height:32px"
     >
       <button
         class="ant-btn"
@@ -856,7 +856,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
 
 exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-split"
+  class="ant-list ant-list-vertical ant-list-lg ant-list-split"
 >
   <div>
     <div
