@@ -27,6 +27,7 @@ class Card extends React.Component {
         message="Alert message title"
         description="Further details about the context of this alert."
         type="info"
+        style={{ marginBottom: 16 }}
       />
     );
     return (

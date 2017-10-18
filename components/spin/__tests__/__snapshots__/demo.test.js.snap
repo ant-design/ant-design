@@ -26,6 +26,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
+        style="margin-bottom:16px;"
       >
         <span
           class="ant-alert-message"

@@ -111,7 +111,9 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   handleOpenChange = (open) => {
-    this.setState({ open });
+    if (!('open' in this.props)) {
+      this.setState({ open });
+    }
 
     const { onOpenChange } = this.props;
     if (onOpenChange) {
@@ -123,9 +125,9 @@ export default class RangePicker extends React.Component<any, any> {
 
   handleHoverChange = hoverValue => this.setState({ hoverValue });
 
-  setValue(value) {
+  setValue(value, hidePanel?) {
     this.handleChange(value);
-    if (!this.props.showTime) {
+    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
       this.setState({ open: false });
     }
   }
@@ -145,7 +147,7 @@ export default class RangePicker extends React.Component<any, any> {
       return (
         <a
           key={range}
-          onClick={() => this.setValue(value)}
+          onClick={() => this.setValue(value, true)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
           onMouseLeave={this.clearHoverValue}
         >
