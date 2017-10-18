@@ -495,7 +495,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/meta.md correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable"
+  class="ant-card ant-card-bordered"
   style="width:300px"
 >
   <div>

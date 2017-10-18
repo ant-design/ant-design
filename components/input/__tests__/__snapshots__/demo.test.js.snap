@@ -659,7 +659,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
   </span>
   <input
     class="ant-input"
-    placeholder="Enter your userName"
+    placeholder="Enter your username"
     type="text"
     value=""
   />

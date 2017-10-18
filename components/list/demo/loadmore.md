@@ -66,7 +66,7 @@ class LoadMoreList extends React.Component {
   render() {
     const { loading, loadingMore, showLoadingMore, data } = this.state;
     const loadMore = showLoadingMore ? (
-      <div style={{ textAlign: 'center', marginTop: 8, height: 32 }}>
+      <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
         {loadingMore && <Spin />}
         {!loadingMore && <Button onClick={this.onLoadMore}>loading more</Button>}
       </div>
@@ -98,6 +98,6 @@ ReactDOM.render(<LoadMoreList />, mountNode);
 
 ````css
 .demo-loadmore-list {
-  min-height: 350px;  
+  min-height: 350px;
 }
 ````

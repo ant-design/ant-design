@@ -44,6 +44,7 @@ const IconText = ({ type, text }) => (
 ReactDOM.render(
   <List
     itemLayout="vertical"
+    size="large"
     pagination={pagination}
     dataSource={listData}
     renderItem={item => (

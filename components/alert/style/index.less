@@ -9,23 +9,22 @@
 .@{alert-prefix-cls} {
   .reset-component;
   position: relative;
-  padding: 8px 16px 8px 38px;
+  padding: 8px 15px 8px 37px;
   border-radius: @border-radius-base;
 
   &&-no-icon {
-    padding: 8px 16px;
+    padding: 8px 15px;
   }
 
   &-icon {
-    font-size: @font-size-lg;
-    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-lg / 2;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 + 1px;
     left: 16px;
     position: absolute;
   }
 
   &-description {
     font-size: @font-size-base;
-    line-height: 21px;
+    line-height: 22px;
     display: none;
   }
 
@@ -46,8 +45,8 @@
   }
 
   &-warning {
-    border: @border-width-base @border-style-base @yellow-3;
-    background-color: @yellow-1;
+    border: @border-width-base @border-style-base @gold-3;
+    background-color: @gold-1;
     .@{alert-prefix-cls}-icon {
       color: @warning-color;
     }
@@ -85,7 +84,7 @@
   }
 
   &-with-description {
-    padding: 16px 16px 16px 64px;
+    padding: 15px 15px 15px 64px;
     position: relative;
     border-radius: @border-radius-base;
     color: @text-color;
@@ -93,7 +92,7 @@
   }
 
   &-with-description&-no-icon {
-    padding: 16px;
+    padding: 15px;
   }
 
   &-with-description &-icon {

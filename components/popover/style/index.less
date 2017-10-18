@@ -68,17 +68,17 @@
   }
 
   &-inner-content {
-    padding: 8px @padding-md;
+    padding: 20px @padding-md;
     color: @popover-color;
   }
 
   &-message {
-    padding: 8px 0 @padding-md;
+    padding: 0 0 @padding-md;
     font-size: @font-size-base;
     color: @popover-color;
     > .@{iconfont-css-prefix} {
       color: @warning-color;
-      line-height: @line-height-base;
+      line-height: @line-height-base + 0.1;
       position: absolute;
     }
     &-title {
@@ -88,7 +88,6 @@
 
   &-buttons {
     text-align: right;
-    margin-bottom: 8px;
     button {
       margin-left: 8px;
     }

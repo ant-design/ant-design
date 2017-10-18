@@ -35,7 +35,7 @@ class App extends React.Component {
     const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
     return (
       <Input
-        placeholder="Enter your userName"
+        placeholder="Enter your username"
         prefix={<Icon type="user" />}
         suffix={suffix}
         value={userName}
