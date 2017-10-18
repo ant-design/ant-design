@@ -620,7 +620,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="25"
     >
@@ -1106,7 +1106,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       style="background-color:#52c41a"
       title="109"
@@ -1127,7 +1127,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="99"
     >
@@ -1451,7 +1451,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="100"
     >
@@ -1466,7 +1466,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="99"
     >
@@ -1481,7 +1481,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="1000"
     >

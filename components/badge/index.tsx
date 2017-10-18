@@ -71,6 +71,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
+      [`${prefixCls}-multiple-words`]: count && count.toString && count.toString().length > 1,
     });
     const badgeCls = classNames(className, prefixCls, {
       [`${prefixCls}-status`]: !!status,
