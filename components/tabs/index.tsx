@@ -24,7 +24,7 @@ export interface TabsProps {
   type?: TabsType;
   tabPosition?: TabsPosition;
   onEdit?: (targetKey: string, action: any) => void;
-  size?: 'default' | 'small';
+  size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -113,12 +113,12 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
 
     warning(
-      !(type.indexOf('card') >= 0 && size === 'small'),
-      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
+      !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
+      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by designed.',
     );
-    let cls = classNames(className, {
-      [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
+    const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
+      [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-no-animation`]: !tabPaneAnimated,

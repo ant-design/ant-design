@@ -939,95 +939,157 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
-<div
-  class="ant-tabs ant-tabs-top ant-tabs-mini ant-tabs-line"
->
+<div>
   <div
-    class="ant-tabs-bar"
-    role="tablist"
-    tabindex="0"
+    class="ant-radio-group"
+    style="margin-bottom:16px"
   >
-    <div
-      class="ant-tabs-nav-container"
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
-        class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
+        class="ant-radio-button ant-radio-button-checked"
       >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
         <span
-          class="ant-tabs-tab-prev-icon"
+          class="ant-radio-button-inner"
         />
       </span>
+      <span>
+        Small
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
       <span
-        class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
-        unselectable="unselectable"
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
         <span
-          class="ant-tabs-tab-next-icon"
+          class="ant-radio-button-inner"
         />
       </span>
-      <div
-        class="ant-tabs-nav-wrap"
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
       >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line"
+  >
+    <div
+      class="ant-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="ant-tabs-nav-container"
+      >
+        <span
+          class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-tabs-tab-prev-icon"
+          />
+        </span>
+        <span
+          class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-tabs-tab-next-icon"
+          />
+        </span>
         <div
-          class="ant-tabs-nav-scroll"
+          class="ant-tabs-nav-wrap"
         >
           <div
-            class="ant-tabs-nav ant-tabs-nav-animated"
+            class="ant-tabs-nav-scroll"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
+              class="ant-tabs-nav ant-tabs-nav-animated"
             >
-              Tab 1
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              Tab 2
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 3
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-tabs-content ant-tabs-content-animated"
-    style="margin-left:-100%"
-  >
     <div
-      aria-hidden="true"
-      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
-      role="tabpanel"
-    />
-    <div
-      aria-hidden="false"
-      class="ant-tabs-tabpane ant-tabs-tabpane-active"
-      role="tabpanel"
+      class="ant-tabs-content ant-tabs-content-animated"
+      style="margin-left:0%"
     >
-      Content of tab 2
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        Content of tab 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
     </div>
-    <div
-      aria-hidden="true"
-      class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
-      role="tabpanel"
-    />
   </div>
 </div>
 `;
