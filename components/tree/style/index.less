@@ -84,7 +84,7 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 0 4px 0 2px;
+        margin: 4px 4px 0 2px;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
@@ -178,16 +178,14 @@
       span {
         &.@{tree-prefix-cls}-switcher {
           background: @component-background;
-          color: @text-color;
+          color: @tree-showline-icon-color;
           &.@{tree-prefix-cls}-switcher-noop {
             .antTreeShowLineIcon("tree-doc-icon");
           }
           &.@{tree-prefix-cls}-switcher_open {
-            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-open-icon");
           }
           &.@{tree-prefix-cls}-switcher_close {
-            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-close-icon");
           }
         }

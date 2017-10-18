@@ -40,9 +40,10 @@
       border-bottom: 0;
     }
 
-    .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
+    .@{iconfont-css-prefix}-filter,
+    .@{table-prefix-cls}-filter-icon {
       position: relative;
-      margin-left: 4px;
+      margin-left: 8px;
       font-size: @font-size-base;
       cursor: pointer;
       color: @table-header-icon-color;
@@ -62,6 +63,10 @@
         left: 0;
         top: -19px;
       }
+    }
+
+    .@{table-prefix-cls}-column-sorter + .@{iconfont-css-prefix}-filter {
+      margin-left: 4px;
     }
 
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
@@ -295,7 +300,7 @@
 
   &-column-sorter {
     position: relative;
-    margin-left: 4px;
+    margin-left: 8px;
     display: inline-block;
     width: 14px;
     vertical-align: middle;
