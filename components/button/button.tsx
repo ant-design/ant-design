@@ -61,7 +61,6 @@ export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     prefixCls: 'ant-btn',
     loading: false,
-    clicked: false,
     ghost: false,
   };
 
@@ -83,6 +82,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     super(props);
     this.state = {
       loading: props.loading,
+      clicked: false,
     };
   }
 
@@ -166,7 +166,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <button
-        {...omit(others, ['loading', 'clicked'])}
+        {...omit(others, ['loading'])}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
