@@ -84,7 +84,7 @@
   "devDependencies": {
     "@types/react": "^15.0.38",
     "@types/react-dom": "~0.14.18",
-    "antd-tools": "~3.0.0",
+    "antd-tools": "^4.0.1",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^8.0.1",
     "babel-plugin-import": "^1.0.0",
