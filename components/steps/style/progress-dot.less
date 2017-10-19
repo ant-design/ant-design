@@ -2,12 +2,17 @@
   .@{steps-prefix-cls}-item {
     &-tail {
       width: 100%;
-      top: 1px;
+      top: 2px;
       margin: 0 0 0 @steps-desciption-max-width / 2;
       padding: 0;
       &:after {
         height: 3px;
+        width: ~"calc(100% - 20px)";
+        margin-left: 12px;
       }
+    }
+    &:first-child .@{steps-prefix-cls}-icon-dot {
+      left: 2px;
     }
     &-icon {
       padding-right: 0;
@@ -34,9 +39,6 @@
           top: -12px;
           left: -26px;
         }
-      }
-      &:hover .@{steps-prefix-cls}-icon-dot {
-        transform: scale(1.3);
       }
     }
     &-process .@{steps-prefix-cls}-item-icon {
