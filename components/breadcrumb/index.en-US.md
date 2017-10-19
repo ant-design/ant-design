@@ -33,13 +33,13 @@ import { Link } from 'react-router';
 
 const routes = [{
   path: 'index',
-  breadcrumbName: '首页'
+  breadcrumbName: 'home'
 }, {
   path: 'first',
-  breadcrumbName: '一级面包屑'
+  breadcrumbName: 'first'
 }, {
   path: 'second',
-  breadcrumbName: '当前页面'
+  breadcrumbName: 'second'
 }];
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
