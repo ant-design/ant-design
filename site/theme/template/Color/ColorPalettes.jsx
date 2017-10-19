@@ -17,7 +17,12 @@ class Palette extends Component {
   componentDidMount() {
     this.hexColors = {};
     Object.keys(this.colorNodes).forEach((key) => {
-      this.hexColors[key] = rgbToHex(getComputedStyle(this.colorNodes[key])['background-color']);
+      const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
+      if (computedColor.indexOf('rgba') >= 0) {
+        this.hexColors[key] = computedColor;
+      } else {
+        this.hexColors[key] = rgbToHex(computedColor);
+      }
     });
     this.forceUpdate();
   }
