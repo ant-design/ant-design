@@ -37,4 +37,4 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
   });
 }
 
-module.exports = webpackConfig[0];
+module.exports = webpackConfig;
