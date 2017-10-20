@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from '../locale-provider/en_US';
 import warning from '../_util/warning';
 
@@ -63,12 +64,6 @@ export interface OptGroupProps {
   label?: string | React.ReactElement<any>;
 }
 
-export interface SelectContext {
-  antLocale?: {
-    Select?: any,
-  };
-}
-
 const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
@@ -97,21 +92,7 @@ export default class Select extends React.Component<SelectProps, any> {
 
   static propTypes = SelectPropTypes;
 
-  static contextTypes = {
-    antLocale: PropTypes.object,
-  };
-
-  context: SelectContext;
-
-  getLocale() {
-    const { antLocale } = this.context;
-    if (antLocale && antLocale.Select) {
-      return antLocale.Select;
-    }
-    return enUS.Select;
-  }
-
-  render() {
+  renderSelect = (locale) => {
     const {
       prefixCls,
       className = '',
@@ -123,21 +104,14 @@ export default class Select extends React.Component<SelectProps, any> {
       combobox,
       ...restProps,
     } = this.props;
-    warning(
-      !multiple && !tags && !combobox,
-      '`Select[multiple|tags|combobox]` is deprecated, please use `Select[mode]` instead.',
-    );
-
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
     }, className);
 
-    const locale = this.getLocale();
-    let { notFoundContent = locale.notFoundContent, optionLabelProp } = this.props;
+    let { notFoundContent, optionLabelProp } = this.props;
     const isCombobox = mode === 'combobox' || combobox;
     if (isCombobox) {
-      notFoundContent = null;
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
@@ -148,6 +122,8 @@ export default class Select extends React.Component<SelectProps, any> {
       combobox: isCombobox,
     };
 
+    const notFoundContentLocale = isCombobox ?
+      null : notFoundContent || locale.notFoundContent;
     return (
       <RcSelect
         {...restProps}
@@ -155,8 +131,30 @@ export default class Select extends React.Component<SelectProps, any> {
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
-        notFoundContent={notFoundContent}
+        notFoundContent={notFoundContentLocale}
       />
+    );
+  }
+
+  render() {
+    const {
+      // @deprecated
+      multiple,
+      tags,
+      combobox,
+    } = this.props;
+    warning(
+      !multiple && !tags && !combobox,
+      '`Select[multiple|tags|combobox]` is deprecated, please use `Select[mode]` instead.',
+    );
+
+    return (
+      <LocaleReceiver
+        componentName="Select"
+        defaultLocale={enUS.Select}
+      >
+        {this.renderSelect}
+      </LocaleReceiver>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from './locale/en_US';
 
 export function generateShowHourMinuteSecond(format: string) {
@@ -40,7 +40,7 @@ export interface TimePickerProps {
   use12Hours?: boolean;
 }
 
-abstract class TimePicker extends React.Component<TimePickerProps, any> {
+export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
     prefixCls: 'ant-time-picker',
     align: {
@@ -70,8 +70,6 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
       value,
     };
   }
-
-  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TimePickerProps) {
     if ('value' in nextProps) {
@@ -114,7 +112,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
     return 'HH:mm:ss';
   }
 
-  render() {
+  renderTimePicker = (locale) => {
     const props = {
       ...this.props,
     };
@@ -141,7 +139,7 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
         format={format}
         className={className}
         value={this.state.value}
-        placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
+        placeholder={props.placeholder === undefined ? locale.placeholder : props.placeholder}
         onChange={this.handleChange}
         onOpen={this.handleOpenClose}
         onClose={this.handleOpenClose}
@@ -149,7 +147,15 @@ abstract class TimePicker extends React.Component<TimePickerProps, any> {
       />
     );
   }
-}
 
-const injectTimePickerLocale = injectLocale('TimePicker', defaultLocale);
-export default injectTimePickerLocale<TimePickerProps>(TimePicker as any);
+  render() {
+    return (
+      <LocaleReceiver
+        componentName="TimePicker"
+        defaultLocale={defaultLocale}
+      >
+        {this.renderTimePicker}
+      </LocaleReceiver>
+    );
+  }
+}

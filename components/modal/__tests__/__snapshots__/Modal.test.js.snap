@@ -36,22 +36,24 @@ exports[`Modal render correctly 1`] = `
             <div
               class="ant-modal-footer"
             >
-              <button
-                class="ant-btn"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
+              <div>
+                <button
+                  class="ant-btn"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
           <div

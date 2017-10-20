@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 import { ButtonType } from '../button/button';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
 
 let mousePosition;
@@ -42,12 +43,6 @@ export interface ModalProps {
   className?: string;
   getContainer?: (instance: React.ReactInstance) => HTMLElement;
   zIndex?: number;
-}
-
-export interface ModalContext {
-  antLocale?: {
-    Modal?: any,
-  };
 }
 
 export interface ModalFuncProps {
@@ -102,12 +97,6 @@ export default class Modal extends React.Component<ModalProps, any> {
     closable: PropTypes.bool,
   };
 
-  static contextTypes = {
-    antLocale: PropTypes.object,
-  };
-
-  context: ModalContext;
-
   handleCancel = (e) => {
     const onCancel = this.props.onCancel;
     if (onCancel) {
@@ -140,31 +129,37 @@ export default class Modal extends React.Component<ModalProps, any> {
     mousePositionEventBinded = true;
   }
 
+  renderFooter = (locale) => {
+    const { okText, okType, cancelText, confirmLoading } = this.props;
+    return (
+      <div>
+        <Button
+          onClick={this.handleCancel}
+        >
+          {cancelText || locale.cancelText}
+        </Button>
+        <Button
+          type={okType}
+          loading={confirmLoading}
+          onClick={this.handleOk}
+        >
+          {okText || locale.okText}
+        </Button>
+      </div>
+    );
+  }
+
   render() {
-    let { okText, okType, cancelText, confirmLoading, footer, visible } = this.props;
+    const { footer, visible } = this.props;
 
-    if (this.context.antLocale && this.context.antLocale.Modal) {
-      okText = okText || this.context.antLocale.Modal.okText;
-      cancelText = cancelText || this.context.antLocale.Modal.cancelText;
-    }
-
-    const defaultFooter = [(
-      <Button
-        key="cancel"
-        onClick={this.handleCancel}
+    const defaultFooter = (
+      <LocaleReceiver
+        componentName="Modal"
+        defaultLocale={getConfirmLocale()}
       >
-        {cancelText || getConfirmLocale().cancelText}
-      </Button>
-    ), (
-      <Button
-        key="confirm"
-        type={okType}
-        loading={confirmLoading}
-        onClick={this.handleOk}
-      >
-        {okText || getConfirmLocale().okText}
-      </Button>
-    )];
+        {this.renderFooter}
+      </LocaleReceiver>
+    );
 
     return (
       <Dialog

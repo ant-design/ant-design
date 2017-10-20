@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
 import warning from '../_util/warning';
-import { getComponentLocale } from '../_util/getLocale';
 declare const require: Function;
 
 function getColumns({ showHour, showMinute, showSecond, use12Hours }) {
@@ -26,10 +25,6 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }) {
 
 export default function wrapPicker(Picker, defaultFormat?: string): any {
   return class PickerWrapper extends React.Component<any, any> {
-    static contextTypes = {
-      antLocale: PropTypes.object,
-    };
-
     static defaultProps = {
       format: defaultFormat || 'YYYY-MM-DD',
       transitionName: 'slide-up',
@@ -59,7 +54,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       }
     }
 
-    render() {
+    renderPicker = (locale, localeCode) => {
       const props = this.props;
       const { prefixCls, inputPrefixCls } = props;
       const pickerClass = classNames(`${prefixCls}-picker`, {
@@ -70,11 +65,6 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
         [`${inputPrefixCls}-sm`]: props.size === 'small',
         [`${inputPrefixCls}-disabled`]: props.disabled,
       });
-
-      const locale = getComponentLocale(
-        props, this.context, 'DatePicker',
-        () => require('./locale/en_US'),
-      );
 
       const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';
       const rcTimePickerProps = {
@@ -101,9 +91,21 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
           pickerClass={pickerClass}
           pickerInputClass={pickerInputClass}
           locale={locale}
+          localeCode={localeCode}
           timePicker={timePicker}
           onOpenChange={this.handleOpenChange}
         />
+      );
+    }
+
+    render() {
+      return (
+        <LocaleReceiver
+          componentName="DatePicker"
+          defaultLocale={() => require('./locale/en_US')}
+        >
+          {this.renderPicker}
+        </LocaleReceiver>
       );
     }
   };

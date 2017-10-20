@@ -3,7 +3,7 @@ import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from '../locale-provider/en_US';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
@@ -15,7 +15,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelText?: React.ReactNode;
 }
 
-abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
+export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
@@ -33,8 +33,6 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
       visible: props.visible,
     };
   }
-
-  abstract getLocale();
 
   componentWillReceiveProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
@@ -84,11 +82,9 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     this.tooltip = node;
   }
 
-  render() {
-    const { prefixCls, title, placement, okText, okType, cancelText, ...restProps } = this.props;
-    const popconfirmLocale = this.getLocale();
-
-    const overlay = (
+  renderOverlay = (popconfirmLocale) => {
+    const { prefixCls, title, cancelText, okText, okType } = this.props;
+    return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
@@ -106,6 +102,19 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         </div>
       </div>
     );
+  }
+
+  render() {
+    const { prefixCls, placement, ...restProps } = this.props;
+
+    const overlay = (
+      <LocaleReceiver
+        componentName="Popconfirm"
+        defaultLocale={enUS.Popconfirm}
+      >
+        {this.renderOverlay}
+      </LocaleReceiver>
+    );
 
     return (
       <Tooltip
@@ -120,6 +129,3 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     );
   }
 }
-
-const injectPopconfirmLocale = injectLocale('Popconfirm', enUS.Popconfirm);
-export default injectPopconfirmLocale<PopconfirmProps>(Popconfirm as any);

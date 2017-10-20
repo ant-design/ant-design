@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from '../locale-provider/en_US';
 import warning from '../_util/warning';
 import FilterDropdown from './filterDropdown';
@@ -87,12 +88,6 @@ export interface TableProps<T> {
   style?: React.CSSProperties;
 }
 
-export interface TableContext {
-  antLocale?: {
-    Table?: any,
-  };
-}
-
 export default class Table<T> extends React.Component<TableProps<T>, any> {
   static Column = Column;
   static ColumnGroup = ColumnGroup;
@@ -130,11 +125,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     showHeader: true,
   };
 
-  static contextTypes = {
-    antLocale: PropTypes.object,
-  };
-
-  context: TableContext;
   CheckboxPropsCache: Object;
   store: Store;
   columns: ColumnProps<T>[];
@@ -197,18 +187,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         current: pagination.defaultCurrent || pagination.current || 1,
         pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
       } : {};
-  }
-
-  getLocale() {
-    let locale = {};
-    if (this.context.antLocale && this.context.antLocale.Table) {
-      locale = this.context.antLocale.Table;
-    }
-    return {
-      ...defaultLocale,
-      ...locale,
-      ...this.props.locale,
-    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -638,7 +616,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return findDOMNode(this) as HTMLElement;
   }
 
-  renderRowSelection() {
+  renderRowSelection(locale) {
     const { prefixCls, rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
@@ -661,7 +639,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         selectionColumn.title  = (
           <SelectionCheckboxAll
             store={this.store}
-            locale={this.getLocale()}
+            locale={locale}
             data={data}
             getCheckboxPropsByItem={this.getCheckboxPropsByItem}
             getRecordKey={this.getRecordKey}
@@ -706,10 +684,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return this.getColumnKey(sortColumn) === this.getColumnKey(column);
   }
 
-  renderColumnsDropdown(columns) {
+  renderColumnsDropdown(columns, locale) {
     const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
-    const locale = this.getLocale();
     return treeMap(columns, (originColumn, i) => {
       let column = { ...originColumn };
       let key = this.getColumnKey(column, i);
@@ -914,12 +891,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return data;
   }
 
-  render() {
+  renderTable = (contextLocale) => {
+    const locale = { ...contextLocale, ...this.props.locale };
     const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
-    let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    const locale = this.getLocale();
 
     const classString = classNames({
       [`${prefixCls}-${this.props.size}`]: true,
@@ -928,19 +904,18 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
-    columns = this.renderColumnsDropdown(columns);
+    let columns = this.renderRowSelection(locale);
+    columns = this.renderColumnsDropdown(columns, locale);
     columns = columns.map((column, i) => {
       const newColumn = { ...column };
       newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
-
     let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
     if ('expandIconColumnIndex' in restProps) {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
-
-    const table = (
+    return (
       <RcTable
         key="table"
         {...restProps}
@@ -953,6 +928,20 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         expandIconAsCell={expandIconAsCell}
         emptyText={() => locale.emptyText}
       />
+    );
+  }
+
+  render() {
+    const { style, className, prefixCls } = this.props;
+    const data = this.getCurrentPageData();
+
+    const table = (
+      <LocaleReceiver
+        componentName="Table"
+        defaultLocale={defaultLocale}
+      >
+        {this.renderTable}
+      </LocaleReceiver>
     );
 
     // if there is no pagination or no data,

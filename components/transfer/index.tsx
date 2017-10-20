@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from '../locale-provider/en_US';
 
 export { TransferListProps } from './list';
@@ -46,7 +46,7 @@ export interface TransferProps {
   onScroll?: (direction: 'left' | 'right', e: Event) => void;
 }
 
-abstract class Transfer extends React.Component<TransferProps, any> {
+export default class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;
   static Operation = Operation;
@@ -95,8 +95,6 @@ abstract class Transfer extends React.Component<TransferProps, any> {
       targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
     };
   }
-
-  abstract getLocale();
 
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -291,12 +289,11 @@ abstract class Transfer extends React.Component<TransferProps, any> {
   handleLeftScroll = (e) => this.handleScroll('left', e);
   handleRightScroll = (e) => this.handleScroll('right', e);
 
-  getTitles(): string[] {
+  getTitles(transferLocale): string[] {
     const { props } = this;
     if (props.titles) {
       return props.titles;
     }
-    const transferLocale = this.getLocale();
     return transferLocale.titles;
   }
 
@@ -304,15 +301,14 @@ abstract class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  render() {
-    const locale = this.getLocale();
+  renderTransfer = (locale) => {
     const {
       prefixCls = 'ant-transfer',
       className,
       operations = [],
       showSearch,
-      notFoundContent = locale.notFoundContent,
-      searchPlaceholder = locale.searchPlaceholder,
+      notFoundContent,
+      searchPlaceholder,
       body,
       footer,
       listStyle,
@@ -328,7 +324,7 @@ abstract class Transfer extends React.Component<TransferProps, any> {
 
     const cls = classNames(className, prefixCls);
 
-    const titles = this.getTitles();
+    const titles = this.getTitles(locale);
     return (
       <div className={cls}>
         <List
@@ -345,8 +341,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleLeftSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder}
-          notFoundContent={notFoundContent}
+          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
+          notFoundContent={notFoundContent || locale.notFoundContent}
           itemUnit={locale.itemUnit}
           itemsUnit={locale.itemsUnit}
           body={body}
@@ -377,8 +373,8 @@ abstract class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleRightSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder}
-          notFoundContent={notFoundContent}
+          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
+          notFoundContent={notFoundContent || locale.notFoundContent}
           itemUnit={locale.itemUnit}
           itemsUnit={locale.itemsUnit}
           body={body}
@@ -389,7 +385,15 @@ abstract class Transfer extends React.Component<TransferProps, any> {
       </div>
     );
   }
-}
 
-const injectTransferLocale = injectLocale('Transfer', enUS.Transfer);
-export default injectTransferLocale<TransferProps>(Transfer as any);
+  render() {
+    return (
+      <LocaleReceiver
+        componentName="Transfer"
+        defaultLocale={enUS.Transfer}
+      >
+        {this.renderTransfer}
+      </LocaleReceiver>
+    );
+  }
+}
