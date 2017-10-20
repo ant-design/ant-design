@@ -62,6 +62,11 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   componentWillReceiveProps(nextProps) {
     const { column } = nextProps;
+    const rootNode = ReactDOM.findDOMNode(this);
+    const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
+    if (filterBelongToScrollBody) {
+      this.neverShown = !!column.fixed;
+    }
     const newState = {} as {
       selectedKeys: string[];
       visible: boolean;
