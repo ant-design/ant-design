@@ -11,7 +11,7 @@ export interface ButtonGroupProps {
 }
 
 const ButtonGroup: React.SFC<ButtonGroupProps> = (props) => {
-  const { prefixCls = 'ant-btn-group', size = '', className, ...others } = props;
+  const { prefixCls = 'ant-btn-group', size, className, ...others } = props;
 
   // large => lg
   // small => sm
