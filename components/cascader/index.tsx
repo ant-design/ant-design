@@ -146,7 +146,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       popupVisible,
       inputFocused: popupVisible,
       inputValue: popupVisible ? this.state.inputValue : '',
-     });
+    });
 
     const onPopupVisibleChange = this.props.onPopupVisibleChange;
     if (onPopupVisibleChange) {
@@ -337,6 +337,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         <Input
           {...inputProps}
           ref={this.saveInput}
+          prefixCls={inputPrefixCls}
           placeholder={value && value.length > 0 ? undefined : placeholder}
           className={`${prefixCls}-input ${sizeCls}`}
           value={state.inputValue}
