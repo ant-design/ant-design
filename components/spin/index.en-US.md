@@ -19,3 +19,4 @@ spinning | whether Spin is spinning | boolean | true
 tip | customize description content when Spin has children | string | -
 delay | specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | -
 wrapperClassName | className of wrapper when Spin has children | string | -
+indicator | React node of the spinning indicator | ReactNode | -
