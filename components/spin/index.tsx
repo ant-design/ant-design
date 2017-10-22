@@ -13,7 +13,7 @@ export interface SpinProps {
   tip?: string;
   delay?: number;
   wrapperClassName?: string;
-  indicator?: React.ReactNode
+  indicator?: React.ReactNode;
 }
 
 export default class Spin extends React.Component<SpinProps, any> {
@@ -108,18 +108,18 @@ export default class Spin extends React.Component<SpinProps, any> {
       'delay',
     ]);
 
+    const spinIndicator = indicator ? indicator : (
+      <span className={`${prefixCls}-dot`}>
+        <i />
+        <i />
+        <i />
+        <i />
+      </span>
+    );
+
     const spinElement = (
       <div {...divProps} className={spinClassName} >
-        {
-          indicator ? indicator : (
-            <span className={`${prefixCls}-dot`}>
-              <i />
-              <i />
-              <i />
-              <i />
-            </span>
-          )
-        }
+        {spinIndicator}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
