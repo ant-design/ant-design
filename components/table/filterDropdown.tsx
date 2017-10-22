@@ -50,18 +50,12 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   componentDidMount() {
     const { column } = this.props;
-    const rootNode = ReactDOM.findDOMNode(this);
-    const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
-    if (filterBelongToScrollBody && column.fixed) {
-      // When fixed column have filters, there will be two dropdown menus
-      // Filter dropdown menu inside scroll body should never be shown
-      // To fix https://github.com/ant-design/ant-design/issues/5010
-      this.neverShown = true;
-    }
+    this.setNeverShown(column);
   }
 
   componentWillReceiveProps(nextProps) {
     const { column } = nextProps;
+    this.setNeverShown(column);
     const newState = {} as {
       selectedKeys: string[];
       visible: boolean;
@@ -74,6 +68,18 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     }
     if (Object.keys(newState).length > 0) {
       this.setState(newState);
+    }
+  }
+
+  setNeverShown = (column) => {
+    const rootNode = ReactDOM.findDOMNode(this);
+    const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
+    if (filterBelongToScrollBody) {
+      // When fixed column have filters, there will be two dropdown menus
+      // Filter dropdown menu inside scroll body should never be shown
+      // To fix https://github.com/ant-design/ant-design/issues/5010 and
+      // https://github.com/ant-design/ant-design/issues/7909
+      this.neverShown = !!column.fixed;
     }
   }
 
