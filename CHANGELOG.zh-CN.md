@@ -17,6 +17,20 @@ timeline: true
 
 ---
 
+## 2.13.7
+
+`2017-10-22`
+
+- 🐞 修复了 AutoComplete 的 input 高度。 [#7918](https://github.com/ant-design/ant-design/issues/7918)
+- 🐞 修复了 Cascader `inputPrefixCls` 不能完全生效的问题。[#7945](https://github.com/ant-design/ant-design/pull/7945) [@vgeyi](https://github.com/vgeyi)
+- 🐞 修复了有侧边栏的 Layout 存在多余外边距的问题。[#7967](https://github.com/ant-design/ant-design/issues/7967)
+- 🐞 修复了 RangePicker 在选中预设范围时间时不能关闭选择面板的问题。[#7747](https://github.com/ant-design/ant-design/issues/7747)
+- Table
+  - 🐞 修复了 Table 列中 Radio 选择框无法居中的问题。[#7969](https://github.com/ant-design/ant-design/issues/7969)
+  - 🐞 修复了去掉 `fixed` 属性设置后 Table 列无法进行筛选的问题。[#7909](https://github.com/ant-design/ant-design/issues/7909)
+- 🌟 Badge 新增 `scrollNumberPrefixCls` 属性。[#7882](https://github.com/ant-design/ant-design/pull/7882) [@vgeyi](https://github.com/vgeyi)
+- 🌟 补充了一些 less 变量。[#7886](https://github.com/ant-design/ant-design/issues/7886) [@syssam](https://github.com/syssam)
+
 ## 2.13.6
 
 `2017-10-12`
