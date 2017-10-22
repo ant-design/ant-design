@@ -16,10 +16,11 @@ Use custom loading indicator.
 ````jsx
 import { Spin, Icon } from 'antd';
 
-const antIcon = <Icon type="loading-3-quarters" style={{ fontSize: 24}} spin/>
-const squareLoader = <div className="square-loader" />
+const antIcon = <Icon type="loading-3-quarters" style={{ fontSize: 24 }} spin />;
+const squareLoader = <div className="square-loader" />;
 
-ReactDOM.render(<div>
+ReactDOM.render(
+  <div>
     <Spin indicator={antIcon} />
     <Spin indicator={squareLoader} />
   </div>, mountNode);
