@@ -196,7 +196,7 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -1634,7 +1634,7 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -3072,7 +3072,7 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -4510,7 +4510,7 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -5948,7 +5948,7 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -7386,7 +7386,7 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8824,7 +8824,7 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -10262,7 +10262,7 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -11700,7 +11700,7 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -13138,7 +13138,7 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -14576,7 +14576,7 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -16014,7 +16014,7 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -17452,7 +17452,7 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -18890,7 +18890,7 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -20328,7 +20328,7 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -21766,7 +21766,7 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -23204,7 +23204,7 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -24642,7 +24642,7 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -26080,7 +26080,7 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -27518,7 +27518,7 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -28956,7 +28956,7 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -30394,7 +30394,7 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -31832,7 +31832,7 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -33270,7 +33270,7 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -34708,7 +34708,7 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -36146,7 +36146,7 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -37584,7 +37584,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -37631,7 +37631,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
           class="ant-transfer-list-header-selected"
         >
           <span>
-            0 
+            0
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -37721,7 +37721,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
           class="ant-transfer-list-header-selected"
         >
           <span>
-            0 
+            0
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -39022,7 +39022,7 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -40460,7 +40460,7 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -41898,7 +41898,7 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -43336,7 +43336,7 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -44774,7 +44774,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
