@@ -15,6 +15,26 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
+<div>
+  <div
+    class="ant-spin ant-spin-spinning"
+  >
+    <i
+      class="anticon anticon-spin anticon-loading-3-quarters"
+      style="font-size:24px"
+    />
+  </div>
+  <div
+    class="ant-spin ant-spin-spinning"
+  >
+    <div
+      class="square-loader"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
 <div>
   <div
