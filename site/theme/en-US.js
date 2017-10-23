@@ -42,7 +42,6 @@ module.exports = {
     'app.footer.resources': 'Resources',
     'app.footer.data-vis': 'Data Visualization',
     'app.footer.eggjs': 'Enterprise Node Framework',
-    'app.footer.encloseio': 'Node.js Compiler',
     'app.footer.motion': 'Motion Solution',
     'app.footer.antd-library': 'Axure library',
     'app.footer.design-platform': 'Ant Financial Design Platform',
