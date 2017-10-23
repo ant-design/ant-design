@@ -31,6 +31,9 @@ title: Modal
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
 | wrapClassName | 对话框外层容器的类名 | string   | - |
+| bodyStyle | Modal body 样式 | object | {} |
+| maskStyle | 遮罩样式 | object | {} |
+| mask | 是否展示遮罩 | Boolean | true |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 | getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
 | zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
