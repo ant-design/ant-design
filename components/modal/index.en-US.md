@@ -32,6 +32,9 @@ and so on.
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean   | true       |
 | style | Style of floating layer, typically used at least for adjusting the position. | object   | - |
 | wrapClassName | The class name of the container of the modal dialog | string   | - |
+| bodyStyle | Body style for modal body element. Such as height, padding etc. | object | {} |
+| maskStyle | Style for modal's mask element. | object | {} |
+| mask | Whether show mask or not. | Boolean | true |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 | getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
