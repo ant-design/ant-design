@@ -627,7 +627,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               </div>
             </td>
             <td
-              class="ant-fullcalendar-cell"
+              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
               role="gridcell"
               title="11/21/2016"
             >
