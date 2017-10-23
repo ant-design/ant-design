@@ -91,7 +91,7 @@ class Demo extends React.Component {
   }
 
   handleExpandChange = (enable) => {
-    this.setState({ expandedRowRender: enable ? expandedRowRender : false });
+    this.setState({ expandedRowRender: enable ? expandedRowRender : undefined });
   }
 
   handleTitleChange = (enable) => {
