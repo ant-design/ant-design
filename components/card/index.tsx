@@ -162,7 +162,7 @@ export default class Card extends Component<CardProps, {}> {
 
     let head;
     const tabs = tabList && tabList.length ? (
-      <Tabs className={`${prefixCls}-head-tabs`} onChange={this.onTabChange}>
+      <Tabs className={`${prefixCls}-head-tabs`} size="large" onChange={this.onTabChange}>
         {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
       </Tabs>
     ) : null;
