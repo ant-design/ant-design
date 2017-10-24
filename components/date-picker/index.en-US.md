@@ -37,10 +37,10 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Whether to show clear button | boolean | true |
-| getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | className | picker className | string | '' |
 | disabled | determine whether the DatePicker is disabled | boolean | false |
 | disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | - |
+| getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
 | open | open state of picker | boolean | - |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |

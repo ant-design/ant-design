@@ -21,12 +21,12 @@ A long list can be divided into several pages by `Pagination`, and only one page
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | current | current page number | number | - |
-| showQuickJumper | determine whether you can jump to pages directly | boolean | false |
 | defaultCurrent | default initial page number | number | 1 |
 | defaultPageSize | default number of data items per page | number | 10 |
 | itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |
 | pageSize | number of data items per page | number | - |
 | pageSizeOptions | specify the sizeChanger options | string\[] | ['10', '20', '30', '40'] |
+| showQuickJumper | determine whether you can jump to pages directly | boolean | false |
 | showSizeChanger | determine whether `pageSize` can be changed | boolean | false |
 | showTotal | to display the total number and range | Function(total, range) | - |
 | simple | whether to use simple mode | boolean | - |

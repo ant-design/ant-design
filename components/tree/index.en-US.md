@@ -14,17 +14,17 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |
-| checkable | Adds a `Checkbox` before the treeNodes | boolean | false |
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | true |
-| defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |
+| checkable | Adds a `Checkbox` before the treeNodes | boolean | false |
 | checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other. | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |
-| filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |
-| expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |
-| defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false |
-| draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |
+| defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
+| defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |
+| defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |
+| draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |
+| expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |
+| filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |
 | loadData | Load data asynchronously | function(node) | - |
 | multiple | Allows selecting multiple treeNodes | boolean | false |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |

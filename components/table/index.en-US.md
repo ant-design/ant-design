@@ -52,18 +52,18 @@ const columns = [{
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| footer | Table footer renderer | Function(currentPageData) |  |
-| pagination | Pagination [config](/components/pagination/), hide it by setting it to `false` | object |  |
 | bordered | Whether to show all table borders | boolean | `false` |
-| dataSource | Data record array to be displayed | any\[] | - |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| dataSource | Data record array to be displayed | any\[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
-| indentSize | Indent size in pixels of tree data | number | 15 |
-| expandedRowRender  | Expanded container render for each row | Function(record):ReactNode | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
+| expandedRowRender | Expanded container render for each row | Function | - |
+| footer | Table footer renderer | Function(currentPageData) |  |
+| indentSize | Indent size in pixels of tree data | number | 15 |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
 | locale | i18n text including filter, sort, empty text, etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| pagination | Pagination [config](/components/pagination/), hide it by setting it to `false` | object |  |
 | rowClassName | Row's className | Function(record, index):string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
 | rowSelection | Row selection [config](#rowSelection) | object | null |
@@ -85,18 +85,18 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| filterIcon | Customized filter icon | ReactNode | `false` |
-| key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |
-| dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
-| filtered | Whether the `dataSource` is filtered | boolean | `false` |
+| dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
+| filtered | Whether the `dataSource` is filtered | boolean | `false` |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |
+| filterIcon | Customized filter icon | ReactNode | `false` |
 | filterMultiple | Whether multiple filters can be selected | boolean | `true` |
 | filters | Filter menu config | object\[] | - |
 | fixed | Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | `false` |
+| key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |

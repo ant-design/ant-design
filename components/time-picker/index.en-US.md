@@ -23,15 +23,15 @@ import moment from 'moment';
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| format | to set the time format | string | "HH:mm:ss" |
-| disabled | determine whether the TimePicker is disabled | boolean | false |
-| defaultOpenValue | to highlight values in panel when there is no selected value | [moment](http://momentjs.com/) | moment() |
-| className | className of picker | string | '' |
 | addon | called from timepicker panel to render some addon to its bottom | function | - |
+| className | className of picker | string | '' |
+| defaultOpenValue | to highlight values in panel when there is no selected value | [moment](http://momentjs.com/) | moment() |
 | defaultValue | to set default time | [moment](http://momentjs.com/) | - |
+| disabled | determine whether the TimePicker is disabled | boolean | false |
 | disabledHours | to specify the hours that cannot be selected | function() | - |
 | disabledMinutes | to specify the minutes that cannot be selected | function(selectedHour) | - |
 | disabledSeconds | to specify the seconds that cannot be selected | function(selectedHour, selectedMinute) | - |
+| format | to set the time format | string | "HH:mm:ss" |
 | getPopupContainer | to set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |
 | hideDisabledOptions | hide the options that can not be selected | boolean | false |
 | open | whether to popup panel | boolean | false |

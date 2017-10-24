@@ -28,13 +28,13 @@ More layouts with navigation: [layout](/components/layout).
 
 | Param | Description | Type | Default value |
 | ----- | ----------- | ---- | ------------- |
-| openKeys | array with the keys of currently opened sub menus | string\[] |  |
-| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
+| defaultOpenKeys | array with the keys of default opened sub menus |  |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
-| defaultOpenKeys | array with the keys of default opened sub menus |  |  |
+| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
 | multiple | Allow selection of multiple items | boolean | false |
+| openKeys | array with the keys of currently opened sub menus | string\[] |  |
 | selectable | allow selecting menu items | boolean | true |
 | selectable | Allow to be selected | boolean | true |
 | selectedKeys | array with the keys of currently selected menu items | string\[] |  |

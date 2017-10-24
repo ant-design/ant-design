@@ -20,15 +20,15 @@ Cascade selection box.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
-| loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |
+| allowClear | whether allow clear | boolean | true |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
+| className | additional css class | string | - |
+| defaultValue | initial selected value | [CascaderOptionType](https://git.io/vMMoK)\[] | \[] |
+| disabled | whether disabled select | boolean | false |
 | displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
-| className | additional css class | string | - |
-| allowClear | whether allow clear | boolean | true |
-| disabled | whether disabled select | boolean | false |
-| defaultValue | initial selected value | [CascaderOptionType](https://git.io/vMMoK)\[] | \[] |
+| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
+| loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |
 | notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
 | options | data options of cascade | object | - |
 | placeholder | input placeholder | string | 'Please select' |

@@ -23,20 +23,20 @@ Select component to select value from options.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| firstActiveValue | Value of action option by default | string\|string\[] | - |
-| multiple | Allow multiple select (Deprecated after 2.9, use `mode` instead) | boolean | false |
-| dropdownClassName | className of dropdown menu | string | - |
-| dropdownStyle | style of dropdown menu | object | - |
-| defaultActiveFirstOption | Whether active first option by default | boolean | true |
-| combobox | Enable combobox mode (can not set multiple at the same time). (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | allowClear | Show clear button. | boolean | false |
-| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |
-| disabled | Whether disabled select | boolean | false |
+| combobox | Enable combobox mode (can not set multiple at the same time). (Deprecated after 2.9, use `mode` instead) | boolean | false |
+| defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[] | - |
+| disabled | Whether disabled select | boolean | false |
+| dropdownClassName | className of dropdown menu | string | - |
 | dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
-| mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
+| dropdownStyle | style of dropdown menu | object | - |
+| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |
+| firstActiveValue | Value of action option by default | string\|string\[] | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | function(triggerNode) | () => document.body |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
+| mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
+| multiple | Allow multiple select (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |

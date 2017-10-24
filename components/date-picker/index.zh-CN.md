@@ -38,10 +38,10 @@ moment.locale('zh-cn');
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean | true |
-| getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | className | 选择器 className | string | '' |
 | disabled | 禁用 | boolean | false |
 | disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | 无 |
+| getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
 | open | 控制弹层是否展开 | boolean | - |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |

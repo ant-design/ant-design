@@ -24,15 +24,15 @@ import moment from 'moment';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| format | 展示的时间格式 | string | "HH:mm:ss" |
-| disabled | 禁用全部操作 | boolean | false |
-| defaultOpenValue | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
-| className | 选择器类名 | string | '' |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
+| className | 选择器类名 | string | '' |
+| defaultOpenValue | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | 无 |
+| disabled | 禁用全部操作 | boolean | false |
 | disabledHours | 禁止选择部分小时选项 | function() | 无 |
 | disabledMinutes | 禁止选择部分分钟选项 | function(selectedHour) | 无 |
 | disabledSeconds | 禁止选择部分秒选项 | function(selectedHour, selectedMinute) | 无 |
+| format | 展示的时间格式 | string | "HH:mm:ss" |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |
 | open | 面板是否打开 | boolean | false |

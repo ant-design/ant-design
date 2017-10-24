@@ -68,14 +68,14 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 | Method | Description | Type |
 | ------ | ----------- | ---- |
-| isFieldsTouched | Check whether any of fields is touched by `getFieldDecorator`'s `options.trigger` event | (names?: string\[]) => boolean |
-| isFieldValidating | Check if the specified field is being validated. | Function(name) |
 | getFieldDecorator | Two-way binding for form, please read below for details. |  |
-| isFieldTouched | Check whether a field is touched by `getFieldDecorator`'s `options.trigger` event | (name: string) => boolean |
-| getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function(\[fieldNames: string\[]]) |
-| getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |
-| getFieldValue | Get the value of a field. | Function(fieldName: string) |
 | getFieldError | Get the error of a field. | Function(name) |
+| getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |
+| getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function(\[fieldNames: string\[]]) |
+| getFieldValue | Get the value of a field. | Function(fieldName: string) |
+| isFieldsTouched | Check whether any of fields is touched by `getFieldDecorator`'s `options.trigger` event | (names?: string\[]) => boolean |
+| isFieldTouched | Check whether a field is touched by `getFieldDecorator`'s `options.trigger` event | (name: string) => boolean |
+| isFieldValidating | Check if the specified field is being validated. | Function(name) |
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function(\[names: string\[]]) |
 | setFields | Set the value and error of a field. [Code Sample](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | Function({ [fieldName]&#x3A; { value: any, errors: [Error] } }) |
 | setFields |  | Function(obj: object) |
@@ -145,12 +145,12 @@ Note:
 
 | Property | Description | Type | Default Value |
 | -------- | ----------- | ---- | ------------- |
-| message | validation error message | string | - |
-| pattern | validate from a regular expression | RegExp | - |
 | enum | validate a value from a list of possible values | string | - |
-| max | validate a max length of a field | number | - |
 | len | validate an exact length of a field | number | - |
+| max | validate a max length of a field | number | - |
+| message | validation error message | string | - |
 | min | validate a min length of a field | number | - |
+| pattern | validate from a regular expression | RegExp | - |
 | required | indicates whether field is required | boolean | `false` |
 | transform | transform a value before validation | function(value) => transformedValue:any | - |
 | type | built-in validation type, [available options](https://github.com/yiminghe/async-validator#type) | string | 'string' |

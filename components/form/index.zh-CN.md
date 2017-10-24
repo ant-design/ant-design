@@ -70,13 +70,13 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 方法      | 说明                                     | 类型       |
 | ------- | -------------------------------------- | -------- |
-| isFieldsTouched | 判断是否任一输入控件经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (names?: string\[]) => boolean |
-| isFieldTouched | 判断一个输入控件是否经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (name: string) => boolean |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |
+| getFieldError | 获取某个输入控件的 Error | Function(name) |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function(\[names: string\[]]) |
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function(\[fieldNames: string\[]]) |
 | getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
-| getFieldError | 获取某个输入控件的 Error | Function(name) |
+| isFieldsTouched | 判断是否任一输入控件经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (names?: string\[]) => boolean |
+| isFieldTouched | 判断一个输入控件是否经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (name: string) => boolean |
 | isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) |
 | resetFields | 重置一组输入控件的值（为 `initialValue`）与状态，如不传入参数，则重置所有组件 | Function(\[names: string\[]]) |
 | setFields | 设置一组输入控件的值与 Error。 [代码](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | Function({ [fieldName]&#x3A; { value: any, errors: [Error] } }) |
@@ -146,12 +146,12 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| message | 校验文案 | string | - |
-| pattern | 正则表达式校验 | RegExp | - |
 | enum | 枚举类型 | string | - |
-| max | 最大长度 | number | - |
 | len | 字段长度 | number | - |
+| max | 最大长度 | number | - |
+| message | 校验文案 | string | - |
 | min | 最小长度 | number | - |
+| pattern | 正则表达式校验 | RegExp | - |
 | required | 是否必选 | boolean | `false` |
 | transform | 校验前转换字段值 | function(value) => transformedValue:any | - |
 | type | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string' |
