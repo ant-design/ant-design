@@ -56,7 +56,7 @@ Unlike other design specifications, Ant Design pursues not only user experience,
 
 <img class="preview-img" align="right" alt="Charactor Count Sample" description="Make overflow text with color and underline instantly." src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
-"Diffrerence" is not always "better", but "better" is always different. Pursuing "better" in every details make our components is different, and also better naturally.
+"Difference" is not always "better", but "better" is always different. Pursuing "better" in every details make our components is different, and also better naturally.
 
 ### Compositive innovation
 
