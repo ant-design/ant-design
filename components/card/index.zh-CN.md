@@ -20,18 +20,18 @@ cols: 1
 
 ### Card
 
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|----------------|----------|--------------|
-| title    | 卡片标题 | string\|ReactNode   |  -  |
-| extra    | 卡片右上角的操作区域 | string\|ReactNode   | - |
-| bordered | 是否有边框 | boolean   |  true  |
-| bodyStyle | 内容区域自定义样式 | object   |  -  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| bodyStyle | 内容区域自定义样式 | object | - |
+| bordered | 是否有边框 | boolean | true |
+| extra | 卡片右上角的操作区域 | string\|ReactNode | - |
+| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
 | noHovering | 取消鼠标移过浮起 | boolean | false |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean   |  false  |
+| title | 卡片标题 | string\|ReactNode | - |
 
 ### Card.Grid
 
-Property | Description | Type | Default
----------|-------------|------|---------
-className | 网格容器类名 | string | -
-style | 定义网格容器类名的样式 | object | -
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| className | 网格容器类名 | string | - |
+| style | 定义网格容器类名的样式 | object | - |

@@ -15,12 +15,12 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ## API
 
-| Property      | Description                              | Type              |  Optional | Default |
-|-----------|-----------------------------------|-----------------|---------|--------|
-| routes    | The routing stack information of router | object[]             |         | -      |
-| params    | Routing parameters                        | object            |         | -      |
-| separator | Custom separator                      | string\|ReactNode |         | `/`    |
-| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | | - |
+| Property | Description | Type | Optional | Default |
+| -------- | ----------- | ---- | -------- | ------- |
+| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode |  | - |
+| params | Routing parameters | object |  | - |
+| routes | The routing stack information of router | object\[] |  | - |
+| separator | Custom separator | string\|ReactNode |  | `/` |
 
 > `linkRender` and `nameRender` were removed after `antd@2.0`, please use `itemRender` instead.
 
