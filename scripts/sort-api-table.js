@@ -24,30 +24,51 @@ function getCellValue(node) {
   return node.children[0].children[0].value;
 }
 
-function innerSort(nodes) {
-  return nodes.sort((prev, next) => {
-    // use toLowerCase to keep `case insensitive`
-    prev = getCellValue(prev).toLowerCase();
-    next = getCellValue(next).toLowerCase();
+// from small to large
+const sizeBreakPoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-    // follow the alphabet order
-    if (prev > next) {
-      return 1;
-    }
+const groups = {
+  isDynamic: val => /^on[A-Z]/.test(val),
+  isSize: val => sizeBreakPoints.indexOf(val) > 0,
+};
 
-    if (prev < next) {
-      return -1;
-    }
+function asciiSort(prev, next) {
+  if (prev > next) {
+    return 1;
+  }
 
-    return 0;
+  if (prev < next) {
+    return -1;
+  }
+
+  return 0;
+}
+
+// follow the alphabet order
+function alphabetSort(nodes) {
+  // use toLowerCase to keep `case insensitive`
+  return nodes.sort((...comparison) => {
+    return asciiSort(...comparison.map(val => getCellValue(val).toLowerCase()));
+  });
+}
+
+function sizeSort(nodes) {
+  return nodes.sort((...comparison) => {
+    return asciiSort(
+      ...comparison.map(val =>
+        sizeBreakPoints.indexOf(getCellValue(val).toLowerCase())
+      )
+    );
   });
 }
 
 function sort(ast) {
   ast.children.forEach((child) => {
-    const staticProp = [];
+    const staticProps = [];
     // prefix with `on`
-    const dynamicProp = [];
+    const dynamicProps = [];
+    // one of ['xs', 'sm', 'md', 'lg', 'xl']
+    const sizeProps = [];
 
     // find table markdown type
     if (child.type === 'table') {
@@ -55,17 +76,20 @@ function sort(ast) {
       // slice(1) cut down the thead
       child.children.slice(1).forEach((node) => {
         const value = getCellValue(node);
-        if (/^on[A-Z]/.test(value)) {
-          dynamicProp.push(node);
+        if (groups.isDynamic(value)) {
+          dynamicProps.push(node);
+        } else if (groups.isSize(value)) {
+          sizeProps.push(node);
         } else {
-          staticProp.push(node);
+          staticProps.push(node);
         }
       });
 
       child.children = [
         child.children[0],
-        ...innerSort(staticProp),
-        ...innerSort(dynamicProp),
+        ...alphabetSort(staticProps),
+        ...sizeSort(sizeProps),
+        ...alphabetSort(dynamicProps),
       ];
     }
   });
@@ -106,3 +130,8 @@ stream
     );
     /* eslint-enable no-console */
   });
+
+module.exports = {
+  getCellValue,
+  sort,
+};
