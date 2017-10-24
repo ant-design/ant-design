@@ -120,6 +120,11 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 
+  getDefaultLocale() {
+    const locale = require('./locale/en_US');
+    return locale.default || locale;
+  }
+
   setValue = (value, way: 'select' | 'changePanel') => {
     if (!('value' in this.props)) {
       this.setState({ value });
@@ -208,7 +213,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     return (
       <LocaleReceiver
         componentName="Calendar"
-        defaultLocale={() => require('./locale/en_US')}
+        defaultLocale={this.getDefaultLocale}
       >
         {this.renderCalendar}
       </LocaleReceiver>

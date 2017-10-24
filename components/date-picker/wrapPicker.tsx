@@ -54,6 +54,11 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       }
     }
 
+    getDefaultLocale() {
+      const locale = require('./locale/en_US');
+      return locale.default || locale;
+    }
+
     renderPicker = (locale, localeCode) => {
       const props = this.props;
       const { prefixCls, inputPrefixCls } = props;
@@ -102,7 +107,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       return (
         <LocaleReceiver
           componentName="DatePicker"
-          defaultLocale={() => require('./locale/en_US')}
+          defaultLocale={this.getDefaultLocale}
         >
           {this.renderPicker}
         </LocaleReceiver>
