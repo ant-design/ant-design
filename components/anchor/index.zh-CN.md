@@ -16,17 +16,17 @@ title: Anchor
 
 ### Anchor Props
 
-| 成员        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
-| offsetTop    | 距离窗口顶部达到指定偏移量后触发   | number |         |
-| offsetBottom | 距离窗口底部达到指定偏移量后触发   | number |         |
-| bounds | 锚点区域边界 | number | 5(px) |
+| 成员 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
 | affix | 固定模式 | boolean | false |
+| bounds | 锚点区域边界 | number | 5(px) |
+| offsetBottom | 距离窗口底部达到指定偏移量后触发 | number |  |
+| offsetTop | 距离窗口顶部达到指定偏移量后触发 | number |  |
 | showInkInFixed | 固定模式是否显示小圆点 | boolean | false |
 
 ### Link Props
 
-| 成员        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
-| href    | 锚点链接   | string |         |
-| title | 文字内容   | string\|ReactNode |         |
+| 成员 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| href | 锚点链接 | string |  |
+| title | 文字内容 | string\|ReactNode |  |

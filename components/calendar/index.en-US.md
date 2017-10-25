@@ -29,17 +29,17 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 />
 ```
 
-| Property         | Description           | Type     | Default       |
-|--------------|----------------|----------|--------------|
-| value        | The current selected date | [moment](http://momentjs.com/) | current date     |
-| defaultValue | The date selected by default | [moment](http://momentjs.com/) | default date     |
-| mode         | The display mode of the calendar | `month` \| `year` | `month`  |
-| fullscreen   | Whether to display in full-screen   | boolean     | `true`         |
-| dateCellRender      | Customize the display of the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
-| monthCellRender     | Customize the display of the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
-| dateFullCellRender  | Customize the display of the date cell, the returned content will override the cell | function(date: moment): ReactNode | - |
-| monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: moment): ReactNode | - |
-| locale       | The calendar's locale | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
-| onPanelChange| Callback for when panel changes | function(date: moment, mode: string) | - |
-| onSelect     | Callback for when a date is selected | function(date: moment）              | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| dateCellRender | Customize the display of the date cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: moment): ReactNode | - |
+| defaultValue | The date selected by default | [moment](http://momentjs.com/) | default date |
 | disabledDate | Function that specifies the dates that cannot be selected | (currentDate: moment) => boolean | - |
+| fullscreen | Whether to display in full-screen | boolean | `true` |
+| locale | The calendar's locale | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
+| mode | The display mode of the calendar | `month` \| `year` | `month` |
+| monthCellRender | Customize the display of the month cell, the returned content will be appended to the cell | function(date: moment): ReactNode | - |
+| monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: moment): ReactNode | - |
+| value | The current selected date | [moment](http://momentjs.com/) | current date |
+| onPanelChange | Callback for when panel changes | function(date: moment, mode: string) | - |
+| onSelect | Callback for when a date is selected | function(date: moment） | - |

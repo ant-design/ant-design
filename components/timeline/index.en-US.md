@@ -26,15 +26,15 @@ Vertical display timeline.
 
 Timeline
 
-| Property      | Description                                     | Type       | Default |
-|----------|----------------------------------------|------------|-------|
-| pending  | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false`  |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
 
 ### Timeline.Item
 
 Node of timeline
 
-| Property      | Description                                     | Type       | Default |
-|----------|------------------------------------------|------------|-------|
-| color   | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |
-| dot   | Customize timeline dot | string\|ReactNode | -  |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |
+| dot | Customize timeline dot | string\|ReactNode | - |

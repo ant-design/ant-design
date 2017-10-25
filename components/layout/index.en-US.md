@@ -73,10 +73,10 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 
 The wrapper.
 
-Property | Description | Type | Default
------|-----|-----|------
-style | to customize the styles | object | -
-className | container className | string | -
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| className | container className | string | - |
+| style | to customize the styles | object | - |
 
 > APIs of `Layout.Header` `Layout.Footer` `Layout.Content` are the same as that of `Layout`.
 
@@ -84,19 +84,19 @@ className | container className | string | -
 
 The sidebar.
 
-Property | Description | Type | Default
------|-----|-----|------
-collapsible | whether can be collapsed | boolean | false
-defaultCollapsed | to set the initial status | boolean | false  |
-reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false  |
-collapsed | to set the current status | boolean | -
-onCollapse | the callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}  | -
-trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
-width | width of the sidebar | number\|string | 200
-collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64
-breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
-style | to customize the styles | object | -
-className | container className | string | -
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| breakpoint | breakpoint of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
+| className | container className | string | - |
+| collapsed | to set the current status | boolean | - |
+| collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 64 |
+| collapsible | whether can be collapsed | boolean | false |
+| defaultCollapsed | to set the initial status | boolean | false |
+| reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false |
+| style | to customize the styles | object | - |
+| trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode | - |
+| width | width of the sidebar | number\|string | 200 |
+| onCollapse | the callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
 
 #### breakpoint width
 

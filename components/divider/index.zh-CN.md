@@ -14,6 +14,6 @@ subtitle: 分割线
 
 ## API
 
-参数 | 说明 | 类型 | 默认值
-----|-----|------|------
-type | 水平还是垂直类型 | enum: `horizontal` `vertical` | `horizontal`
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 水平还是垂直类型 | enum: `horizontal` `vertical` | `horizontal` |

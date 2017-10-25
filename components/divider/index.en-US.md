@@ -16,6 +16,6 @@ A divider line separates different content.
 
 ### Divider
 
-Property | Description | Type | Default
----------|-------------|------|--------
-type | direction type of divider | enum: `horizontal` `vertical` | `horizontal`
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| type | direction type of divider | enum: `horizontal` `vertical` | `horizontal` |
