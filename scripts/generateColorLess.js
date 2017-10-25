@@ -58,7 +58,6 @@ styles.forEach((style) => {
   content += `@import "${style}";\n`;
 });
 content += `@import "${path.join(antd, 'site/theme/static/index.less')}";\n`;
-fs.writeFileSync('/tmp/style.less', content);
 
 less.render.call(less, content, {
   paths: [path.join(antd, 'components/style')],
