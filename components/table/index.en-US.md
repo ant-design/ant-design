@@ -73,6 +73,7 @@ const columns = [{
 | onRowDoubleClick| Callback executed when a row is double clicked | Function(record, index, event)   | - |
 | onRowMouseEnter | Callback executed when mouse enters a row | Function(record, index, event)   | - |
 | onRowMouseLeave | Callback executed when mouse leaves a row | Function(record, index, event)   | - |
+| onRowContextMenu | Callback executed when right click on a row | Function(record, index, event) | - |
 | bordered  | Whether to show all table borders | boolean | `false`      |
 | showHeader  | Whether to show table header | boolean          | `true`      |
 | footer | Table footer renderer      | Function(currentPageData)   | |
