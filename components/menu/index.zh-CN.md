@@ -27,49 +27,49 @@ subtitle: 导航菜单
 
 ### Menu
 
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|---------------|----------|--------------|
-| theme    | 主题颜色 | string: `light` `dark` | `light` |
-| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | string: `vertical` `horizontal` `inline` | `vertical` |
-| selectedKeys | 当前选中的菜单项 key 数组 | string[] |      |
-| defaultSelectedKeys | 初始选中的菜单项 key 数组 | string[] |      |
-| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string[] |  |
-| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |      |
-| onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string[]) | noop |
-| onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | 无   |
-| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, selectedKeys }) | - |
-| onClick | 点击 MenuItem 调用此函数  | function({ item, key, keyPath }) | - |
-| style | 根节点样式 | object | |
-| inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
-| multiple | 是否允许多选 | boolean | false |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |  |
+| defaultSelectedKeys | 初始选中的菜单项 key 数组 | string\[] |  |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |
+| inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
+| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | string: `vertical` `horizontal` `inline` | `vertical` |
+| multiple | 是否允许多选 | boolean | false |
+| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] |  |
 | selectable | 是否允许选中 | boolean | true |
+| selectedKeys | 当前选中的菜单项 key 数组 | string\[] |  |
+| style | 根节点样式 | object |  |
+| theme | 主题颜色 | string: `light` `dark` | `light` |
+| onClick | 点击 MenuItem 调用此函数 | function({ item, key, keyPath }) | - |
+| onDeselect | 取消选中时调用，仅在 multiple 生效 | function({ item, key, selectedKeys }) | - |
+| onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys: string\[]) | noop |
+| onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | 无   |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
 ### Menu.Item
 
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | boolean   |  false  |
-| key   | item 的唯一标志 |  string |  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false |
+| key | item 的唯一标志 | string |  |
 
 ### Menu.SubMenu
 
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | boolean   |  false  |
-| key | 唯一标志 |  string |  |
-| title    | 子菜单项值 | string\|ReactNode |    |
-| children | 子菜单的菜单项 | Array<MenuItem\|SubMenu> |  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| children | 子菜单的菜单项 | Array&lt;MenuItem\|SubMenu> |  |
+| disabled | 是否禁用 | boolean | false |
+| key | 唯一标志 | string |  |
+| title | 子菜单项值 | string\|ReactNode |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) |  |
 
 ### Menu.ItemGroup
 
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|----------------|----------|--------------|
-| title    | 分组标题       | string\|ReactNode |    |
-| children | 分组的菜单项    | MenuItem[] |  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| children | 分组的菜单项 | MenuItem\[] |  |
+| title | 分组标题 | string\|ReactNode |  |
 
 ### Menu.Divider
 

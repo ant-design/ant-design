@@ -26,50 +26,50 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu
 
-| Param    | Description   | Type     | Default value       |
-|----------|---------------|----------|--------------|
-| theme    | color theme of the menu | string: `light` `dark` | `light` |
-| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
-| selectable | allow selecting menu items | boolean | true |
-| selectedKeys | array with the keys of currently selected menu items | string[] |      |
-| defaultSelectedKeys | array with the keys of default selected menu items | string[] |      |
-| openKeys | array with the keys of currently opened sub menus | string[] |  |
-| defaultOpenKeys | array with the keys of default opened sub menus |  |      |
-| onOpenChange | called when open/close sub menu | function(openKeys: string[]) | noop |
-| onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none   |
-| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
-| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
-| style | style of the root node | object | |
-| inlineIndent | indent px of inline menu item on each level | number | 24 |
-| multiple | Allow selection of multiple items | boolean | false |
+| Param | Description | Type | Default value |
+| ----- | ----------- | ---- | ------------- |
+| defaultOpenKeys | array with the keys of default opened sub menus |  |  |
+| defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
+| inlineIndent | indent px of inline menu item on each level | number | 24 |
+| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
+| multiple | Allow selection of multiple items | boolean | false |
+| openKeys | array with the keys of currently opened sub menus | string\[] |  |
 | selectable | Allow to be selected | boolean | true |
+| selectable | allow selecting menu items | boolean | true |
+| selectedKeys | array with the keys of currently selected menu items | string\[] |  |
+| style | style of the root node | object |  |
+| theme | color theme of the menu | string: `light` `dark` | `light` |
+| onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
+| onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
+| onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
+| onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
 ### Menu.Item
 
-| Param    | Description    | Type     | Default value       |
-|----------|----------------|----------|--------------|
-| disabled    | whether menu item is disabled or not | boolean   |  false  |
-| key   | unique id of the menu item |  string |  |
+| Param | Description | Type | Default value |
+| ----- | ----------- | ---- | ------------- |
+| disabled | whether menu item is disabled or not | boolean | false |
+| key | unique id of the menu item | string |  |
 
 ### Menu.SubMenu
 
-| Param    | Description    | Type     | Default value       |
-|----------|----------------|----------|--------------|
-| disabled    | whether sub menu is disabled or not | boolean   |  false  |
-| key   | unique id of the sub menu |  string |  |
-| title    | title of the sub menu | string\|ReactNode   |    |
-| children | sub menus or sub menu items | Array<MenuItem\|SubMenu> |  |
+| Param | Description | Type | Default value |
+| ----- | ----------- | ---- | ------------- |
+| children | sub menus or sub menu items | Array&lt;MenuItem\|SubMenu> |  |
+| disabled | whether sub menu is disabled or not | boolean | false |
+| key | unique id of the sub menu | string |  |
+| title | title of the sub menu | string\|ReactNode |  |
 | onTitleClick | callback executed when the sub menu title is clicked | function({ key, domEvent }) |  |
 
 ### Menu.ItemGroup
 
-| Param    | Description    | Type     | Default value       |
-|----------|----------------|----------|--------------|
-| title    | title of the group       | string\|ReactNode |    |
-| children | sub menu items    | MenuItem[] |  |
+| Param | Description | Type | Default value |
+| ----- | ----------- | ---- | ------------- |
+| children | sub menu items | MenuItem\[] |  |
+| title | title of the group | string\|ReactNode |  |
 
 ### Menu.Divider
 

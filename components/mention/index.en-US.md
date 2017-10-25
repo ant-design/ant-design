@@ -21,45 +21,44 @@ When need to mention someone or something.
 
 ### Mention API
 
-| API     | Description           | Type     |
-|----------|---------------|----------|--------------|
-| toString    | convert ContentState to string | Function(contentState: ContentState): string |
-| toContentState (recommended)    | convert string to ContentState | Function(value: string): ContentState |
-| toEditorState (Backward compatible)    | convert string to ContentState | Function(value: string): ContentState |
-| getMentions    | get mentioned people in current contentState | Function(ContentState: contentState): string[] |
-
+| API | Description | Type |
+| --- | ----------- | ---- |
+| getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
+| toContentState (recommended) | convert string to ContentState | Function(value: string): ContentState |
+| toEditorState (Backward compatible) | convert string to ContentState | Function(value: string): ContentState |
+| toString | convert ContentState to string | Function(contentState: ContentState): string |
 
 ### Mention
 
-| Property     | Description          | Type     | Default       |
-|----------|---------------|----------|--------------|
-| suggestions    | suggestion content | Array<string\|Mention.Nav> | [] |
-| suggestionStyle | style of suggestion container | object | {} |
-| onSearchChange | Callback function called when search content changes | function(value:string, trigger: string) | [] |
-| onChange | Callback function called when content of input changes | function(contentState: ContentState) | null |
-| onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
-| notFoundContent| suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| defaultValue | default value | ContentState, you can use `Mention.toContentState` or `Mention.toEditorState` to convert text to `ContentState` | null |
+| disabled | Tell if the input is disabled. | boolean | false |
+| getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
-| prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
-| defaultValue | default value | ContentState, you can use `Mention.toContentState` or `Mention.toEditorState` to convert text to `ContentState` | null |
-| value | core state of mention | ContentState | null |
+| notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | placeholder of input | string | null |
-| getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative.  | function | () => document.body |
-| onFocus | Callback function called when mention component get focus |  functione) | null |
-| onBlur | Callback function called when mention component blur | function(e) | null |
+| prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
 | readOnly | Tell if the input is readonly. | boolean | false |
-| disabled | Tell if the input is disabled. | boolean | false |
+| suggestions | suggestion content | Array&lt;string\|Mention.Nav> | \[] |
+| suggestionStyle | style of suggestion container | object | {} |
+| value | core state of mention | ContentState | null |
+| onBlur | Callback function called when mention component blur | function(e) | null |
+| onChange | Callback function called when content of input changes | function(contentState: ContentState) | null |
+| onFocus | Callback function called when mention component get focus | functione) | null |
+| onSearchChange | Callback function called when search content changes | function(value:string, trigger: string) | \[] |
+| onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
 
 ### Mention methods
 
-| Property     | Description          | Type     | Default       |
-|----------|---------------|----------|--------------|
-| focus | Force focus back onto the editor node. |  - | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| focus | Force focus back onto the editor node. | - | - |
 
 ### Nav
 
-| Property     | Description           | Type     | Default       |
-|----------|---------------|----------|--------------|
-| value    | value of suggestion，the value will insert into input filed while selected | string | "" |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
 | children | suggestion content | object | {} |
+| value | value of suggestion，the value will insert into input filed while selected | string | "" |

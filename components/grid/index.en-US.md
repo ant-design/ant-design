@@ -68,10 +68,10 @@ In the grid system, we define the frame outside the information area based on `r
 
 Following is a brief look at how it works:
 
-* Establish a set of `column` in the horizontal space defined by `row` (abbreviated col)
-* Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`
-* The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `.col-8` (`span=8`).
-* If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
+- Establish a set of `column` in the horizontal space defined by `row` (abbreviated col)
+- Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`
+- The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `.col-8` (`span=8`).
+- If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
 ## Flex layout
 
@@ -88,26 +88,26 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 ### Row
 
-| Property       | Description           | Type     | Default       |
-|------------|-----------------|--------------------|-------------|
-| gutter     | spacing between grids   | number | 0        |
-| type     | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |         |
-| align     | the vertical alignment of the flex layout: `top` `middle` `bottom`  | string | `top`      |
-| justify   | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between`   | string | `start`        |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |
+| gutter | spacing between grids | number | 0 |
+| justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |
+| type | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |  |
 
 ### Col
 
-| Property       | Description           | Type     | Default       |
-|------------|-----------------|--------------------|-------------|
-| span     | raster number of cells to occupy, 0 corresponds to `display: none`  | number | none        |
-| order     | raster order, used in `flex` layout mode   | number | 0        |
-| offset     | the number of cells to offset Col from the left  | number | 0        |
-| push     | the number of cells that raster is moved to the right | number | 0        |
-| pull     | the number of cells that raster is moved to the left   | number | 0        |
-| xs       | `<768px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |
-| sm       | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |
-| md       | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |
-| lg       | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |
-| xl       | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| offset | the number of cells to offset Col from the left | number | 0 |
+| order | raster order, used in `flex` layout mode | number | 0 |
+| pull | the number of cells that raster is moved to the left | number | 0 |
+| push | the number of cells that raster is moved to the right | number | 0 |
+| span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |
+| xs | `<768px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |
+| sm | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |
+| md | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |
+| lg | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |
+| xl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
 
 The breakpoints of responsive grid follow [BootStrap 3 media queries rules](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)(not including `occasionally part`).
