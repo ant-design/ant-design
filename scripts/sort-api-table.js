@@ -29,7 +29,7 @@ const sizeBreakPoints = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const groups = {
   isDynamic: val => /^on[A-Z]/.test(val),
-  isSize: val => sizeBreakPoints.indexOf(val) > 0,
+  isSize: val => sizeBreakPoints.indexOf(val) > -1,
 };
 
 function asciiSort(prev, next) {
