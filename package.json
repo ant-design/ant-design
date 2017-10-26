@@ -35,8 +35,8 @@
   "typings": "lib/index.d.ts",
   "license": "MIT",
   "peerDependencies": {
-    "react": "~0.14.0 || >=15.0.0",
-    "react-dom": "~0.14.0 || >=15.0.0"
+    "react": "~0.14.0 || >=15.0.0 || >=16.0.0",
+    "react-dom": "~0.14.0 || >=15.0.0 || >= 16.0.0"
   },
   "dependencies": {
     "array-tree-filter": "~1.0.0",
@@ -82,8 +82,8 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.38",
-    "@types/react-dom": "~0.14.18",
+    "@types/react": "^16.0.0",
+    "@types/react-dom": "^16.0.0",
     "ansi-styles": "^3.2.0",
     "antd-tools": "^4.0.1",
     "babel-cli": "^6.18.0",
