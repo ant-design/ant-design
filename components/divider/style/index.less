@@ -35,7 +35,7 @@
 
     &:before,
     &:after {
-    content: '';
+      content: '';
       display: table-cell;
       position: relative;
       top: 50%;
@@ -48,5 +48,18 @@
   &-inner-text {
     display: inline-block;
     padding: 0 24px;
+  }
+
+  &-dashed {
+    background: none;
+    border-top: 1px dashed @border-color-split;
+  }
+
+  &-horizontal&-with-text&-dashed {
+    border-top: 0;
+    &:before,
+    &:after {
+      border-style: dashed none none;
+    }
   }
 }

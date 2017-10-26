@@ -6,11 +6,13 @@ export default function Divider({
   type = 'horizontal',
   className,
   children,
+  dashed,
   ...restProps,
 }) {
-  const classString = classNames(className, `${prefixCls}-divider`, {
-    [`${prefixCls}-divider-${type}`]: true,
+  const classString = classNames(
+    className, `${prefixCls}-divider`, `${prefixCls}-divider-${type}`, {
     [`${prefixCls}-divider-with-text`]: children,
+    [`${prefixCls}-divider-dashed`]: !!dashed,
   });
   return (
     <div className={classString} {...restProps}>
