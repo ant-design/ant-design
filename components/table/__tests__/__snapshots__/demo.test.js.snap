@@ -3011,13 +3011,13 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             >
               <colgroup>
                 <col />
+                <col />
                 <col
-                  style="width:40%;min-width:40%"
+                  style="width:12%;min-width:12%"
                 />
                 <col
                   style="width:30%;min-width:30%"
                 />
-                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
