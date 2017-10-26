@@ -3,21 +3,26 @@ import { Item } from 'rc-menu';
 import PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 
-const MenuItem: any = (props, { inlineCollapsed }) => {
-  return (
-    <Tooltip
-      title={inlineCollapsed && props.level === 1 ? props.children : ''}
-      placement="right"
-      overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
-    >
-      <Item {...props} />
-    </Tooltip>
-  );
-};
+class MenuItem extends React.Component {
+  static contextTypes = {
+    inlineCollapsed: PropTypes.bool,
+  };
 
-MenuItem.contextTypes = {
-  inlineCollapsed: PropTypes.bool,
-};
+  render() {
+    const { inlineCollapsed } = this.context;
+    const { rootPrefixCls, level, children } = this.context;
+
+    return (
+      <Tooltip
+        title={inlineCollapsed && level === 1 ? children : ''}
+        placement="right"
+        overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
+      >
+        <Item {...this.props} />
+      </Tooltip>
+    );
+  }
+}
 
 MenuItem.isMenuItem = 1;
 
