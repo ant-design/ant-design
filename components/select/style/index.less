@@ -58,9 +58,10 @@
     top: 50%;
     right: @control-padding-horizontal - 1px;
     line-height: 1;
-    margin-top: -6px;
-    color: @text-color-secondary;
-    .iconfont-size-under-12px(9px);
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+    color: @disabled-color;
+    font-size: 12px;
 
     * {
       display: none;
