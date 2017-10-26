@@ -81,6 +81,11 @@ export default class List extends Component<ListProps> {
     return renderItem(item, index);
   }
 
+  isSomethingAfterLastTtem() {
+    const { loadMore, pagination, footer } = this.props;
+    return !!(loadMore || pagination || footer);
+  }
+
   render() {
     const {
       bordered = false,
@@ -122,6 +127,7 @@ export default class List extends Component<ListProps> {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-grid`]: grid,
+      [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastTtem(),
     });
 
     const paginationContent = (
@@ -140,19 +146,11 @@ export default class List extends Component<ListProps> {
       <Row gutter={grid.gutter}>{childrenList}</Row>
     ) : childrenList;
 
-    const content = loading ? (
+    const content = (
       <div>
-        <Spin>
-          {childrenContent}
-        </Spin>
+        <Spin spinning={loading}>{childrenContent}</Spin>
         {loadMore}
-        {(!loadMore && pagination) && paginationContent}
-     </div>
-    ) : (
-      <div>
-        {childrenContent}
-        {loadMore}
-        {(!loadMore && pagination) && paginationContent}
+        {(!loadMore && pagination) ? paginationContent : null}
       </div>
     );
 

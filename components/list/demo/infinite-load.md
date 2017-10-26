@@ -102,9 +102,10 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
 
 ````css
 .demo-infinite-container {
-  border: 1px solid #eee;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
   overflow: auto;
-  padding: 48px 16px;
+  padding: 8px 16px;
   height: 300px;
 }
 .demo-loading {
