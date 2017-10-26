@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from '../locale-provider/en_US';
+import defaultLocale from '../locale-provider/default';
 import warning from '../_util/warning';
 
 export interface AbstractSelectProps {
@@ -151,7 +151,7 @@ export default class Select extends React.Component<SelectProps, any> {
     return (
       <LocaleReceiver
         componentName="Select"
-        defaultLocale={enUS.Select}
+        defaultLocale={defaultLocale.Select}
       >
         {this.renderSelect}
       </LocaleReceiver>

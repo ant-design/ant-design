@@ -5,7 +5,7 @@ import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from '../locale-provider/en_US';
+import defaultLocale from '../locale-provider/default';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -390,7 +390,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return (
       <LocaleReceiver
         componentName="Transfer"
-        defaultLocale={enUS.Transfer}
+        defaultLocale={defaultLocale.Transfer}
       >
         {this.renderTransfer}
       </LocaleReceiver>

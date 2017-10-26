@@ -2,13 +2,11 @@ import React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from '../locale-provider/en_US';
+import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
-import { UploadProps, UploadLocale } from './interface';
+import { UploadProps } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
-
-const defaultLocale: UploadLocale = enUS.Upload;
 
 export { UploadProps };
 
@@ -254,7 +252,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     const uploadList = showUploadList ? (
       <LocaleReceiver
         componentName="Upload"
-        defaultLocale={defaultLocale}
+        defaultLocale={defaultLocale.Upload}
       >
         {this.renderUploadList}
       </LocaleReceiver>

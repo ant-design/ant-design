@@ -7,7 +7,7 @@ import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from '../locale-provider/en_US';
+import defaultLocale from '../locale-provider/default';
 import warning from '../_util/warning';
 import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
@@ -26,8 +26,6 @@ function stopPropagation(e) {
     e.nativeEvent.stopImmediatePropagation();
   }
 }
-
-const defaultLocale = enUS.Table;
 
 const defaultPagination = {
   onChange: noop,
@@ -938,7 +936,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const table = (
       <LocaleReceiver
         componentName="Table"
-        defaultLocale={defaultLocale}
+        defaultLocale={defaultLocale.Table}
       >
         {this.renderTable}
       </LocaleReceiver>

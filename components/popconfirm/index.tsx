@@ -4,7 +4,7 @@ import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from '../locale-provider/en_US';
+import defaultLocale from '../locale-provider/default';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -110,7 +110,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     const overlay = (
       <LocaleReceiver
         componentName="Popconfirm"
-        defaultLocale={enUS.Popconfirm}
+        defaultLocale={defaultLocale.Popconfirm}
       >
         {this.renderOverlay}
       </LocaleReceiver>
