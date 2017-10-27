@@ -21,10 +21,11 @@ timeline: true
 
 `2017-10-27`
 
-- 🌟 优化了 MenuItem 在 React 16 下处理 `ref` 的问题。[#8037](https://github.com/ant-design/ant-design/pull/8037) [@vgeyi](https://github.com/vgeyi)
+- 🌟 新增国内镜像文档站点：[http://ant-design.gitee.io](http://ant-design.gitee.io)
+- 🐞 修复了 Menu 在 React 16 下 `ref warning` 的问题。[#8037](https://github.com/ant-design/ant-design/pull/8037) [@vgeyi](https://github.com/vgeyi)
 - 🐞 修复了 Card 在比较宽的时候 `loading` 样式的问题。[ad9809ec](https://github.com/ant-design/ant-design/commit/ad9809ec2e29275c9348537b04584dcfdc96659a)
-- 🌟 引入了 API 展示排序规则，增强文档易读性。[@monkindey](https://github.com/monkindey)
-- 🌟 优化了 Card 设置样式的文档。[#7840](https://github.com/ant-design/ant-design/issues/7840) [@cnahliu](https://github.com/cnahliu)
+- 🌟 引入了 API 展示排序规则，增强文档易读性。[#7896](https://github.com/ant-design/ant-design/pull/7896)[@monkindey](https://github.com/monkindey)
+- 🌟 优化了 Card 设置样式的文档。[#7840](https://github.com/ant-design/ant-design/issues/7840) [@kossel](https://github.com/kossel)
 - 🐞 修复了 IOS 下 Input 有内阴影的样式问题。[#7974](https://github.com/ant-design/ant-design/pull/7974) [@cnahliu](https://github.com/cnahliu)
 
 ## 2.13.7
