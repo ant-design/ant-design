@@ -552,7 +552,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           <div
             aria-expanded="false"
             aria-haspopup="true"
-            aria-owns="sub2$Menu"
+            aria-owns="sub1-2$Menu"
             class="ant-menu-submenu-title"
             style="padding-left:48px;"
             title="Submenu"
