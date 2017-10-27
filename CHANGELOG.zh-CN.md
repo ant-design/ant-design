@@ -17,6 +17,15 @@ timeline: true
 
 ---
 
+## 2.13.8
+
+`2017-10-26`
+
+- 🐞 修复了 Card 在比较宽的时候 `loading` 样式的问题。[ad9809ec](https://github.com/ant-design/ant-design/commit/ad9809ec2e29275c9348537b04584dcfdc96659a)
+- 🌟 引入了 API 展示排序规则，增强文档易读性。[@monkindey](https://github.com/monkindey)
+- 🌟 优化了 Card 设置样式的文档。[#7840](https://github.com/ant-design/ant-design/issues/7840) [@cnahliu](https://github.com/cnahliu)
+- 🐞 修复了 IOS 下 input 有内阴影的样式问题。[#7974](https://github.com/ant-design/ant-design/pull/7974) [@cnahliu](https://github.com/cnahliu)
+
 ## 2.13.7
 
 `2017-10-22`
