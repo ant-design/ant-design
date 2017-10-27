@@ -74,7 +74,7 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 
 3. `webpack.dev.config.js` 中读取 `theme` 的配置信息：
 
-   ```
+   ```js
    const fs = require('fs')
    const pkgPath = path.resolve(__dirname, './package.json')
    const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {}
@@ -93,11 +93,9 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 
    根据配置文件的格式，上面的theme已经是个对象了，下面webpack，loader中可以直接使用
 
-   ​
+4. `webpack.dev.config.json` 中关于less 处理的相关 loader 写法：
 
-4.  `webpack.dev.config.json` 中关于less 处理的相关 loader 写法：
-
-   ```
+   ```json
    module: {
      rules: [
        {  // 处理自己的less 文件，如果没用less组件可以删除掉
