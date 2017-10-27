@@ -106,6 +106,11 @@ class Footer extends React.Component {
                 <FormattedMessage id="app.footer.awesome" />
               </a>
             </div>
+            <div>
+              <a target="_blank " href="http://ant-design.gitee.io/">
+                <FormattedMessage id="app.footer.chinamirror" />
+              </a>
+            </div>
             <div style={{ marginTop: 12 }}>
               <ColorPicker
                 type="sketch"

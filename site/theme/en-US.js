@@ -34,6 +34,7 @@ module.exports = {
     'app.home.vision': 'This is a design language dedicated to improve the user and design experience.',
     'app.footer.repo': 'GitHub Repository',
     'app.footer.awesome': 'Awesome Ant Design',
+    'app.footer.chinamirror': 'China Mirror 🇨🇳',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
     'app.footer.scaffolds': 'Scaffold Market',
