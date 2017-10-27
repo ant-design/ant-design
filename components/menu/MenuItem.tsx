@@ -6,8 +6,8 @@ import Tooltip from '../tooltip';
 class MenuItem extends React.Component<any, any> {
   static contextTypes = {
     inlineCollapsed: PropTypes.bool,
-  }
-  static isMenuItem = 1
+  };
+  static isMenuItem = 1;
   render() {
     const { inlineCollapsed } = this.context;
     const props = this.props;
@@ -17,7 +17,7 @@ class MenuItem extends React.Component<any, any> {
       overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
     >
       <Item {...props} />
-    </Tooltip>
+    </Tooltip>;
   }
 }
 
