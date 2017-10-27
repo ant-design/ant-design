@@ -14,7 +14,7 @@ describe('Tag', () => {
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-cross').simulate('click');
     expect(onClose).toBeCalled();
-    await delay(500);
+    await delay(1000);
     wrapper.update();
     expect(wrapper.find('.ant-tag').length).toBe(0);
   });
@@ -29,7 +29,7 @@ describe('Tag', () => {
     expect(wrapper.find('.anticon-cross').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-cross').simulate('click');
-    await delay(500);
+    await delay(1000);
     expect(wrapper.find('.ant-tag').length).toBe(1);
   });
 });
