@@ -96,42 +96,45 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 4. `webpack.dev.config.json` 中关于less 处理的相关 loader 写法：
 
    ```json
-   module: {
-     rules: [
-       {  // 处理自己的less 文件，如果没用less组件可以删除掉
-         test: /\.less$/, 
-         exclude: path.resolve(__dirname, 'node_modules'),  
-         use: ExtractTextPlugin.extract({
-           fallback: 'style-loader',
-           use: [
-             { loader: 'css-loader' },
-             {
-               loader: 'less-loader',
-             }
-           ]
-         })
-       },
-       {
-         test: /.less$/,
-         include: path.resolve(__dirname, 'node_modules/antd'),  // 处理antd 组件的 less 必须有
-         use: ExtractTextPlugin.extract({
-           fallback: 'style-loader',
-           use: [
-             {
-               loader: 'css-loader',
-             },
-             {
-               loader: 'less-loader',
-               options: {
-                 sourceMap: true,
-                 modules: false,
-                 modifyVars: theme
-               }
-             }
-           ]
-         })
-       }
-     ]
+   {
+     module: {
+       rules: [
+         {
+           // 处理自己的less 文件，如果没用less组件可以删除掉
+           test: /\.less$/,
+           exclude: path.resolve(__dirname, 'node_modules'),
+           use: ExtractTextPlugin.extract({
+             fallback: 'style-loader',
+             use: [
+               { loader: 'css-loader' },
+               {
+                 loader: 'less-loader',
+               },
+             ],
+           }),
+         },
+         {
+           test: /.less$/,
+           include: path.resolve(__dirname, 'node_modules/antd'), // 处理antd 组件的 less 必须有
+           use: ExtractTextPlugin.extract({
+             fallback: 'style-loader',
+             use: [
+               {
+                 loader: 'css-loader',
+               },
+               {
+                 loader: 'less-loader',
+                 options: {
+                   sourceMap: true,
+                   modules: false,
+                   modifyVars: theme,
+                 },
+               },
+             ],
+           }),
+         },
+       ]
+     }
    }
    ```
 
