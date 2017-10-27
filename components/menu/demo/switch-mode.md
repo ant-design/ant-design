@@ -58,7 +58,7 @@ class Sider extends React.Component {
           <SubMenu key="sub1" title={<span><Icon type="appstore" /><span>Navigation Three</span></span>}>
             <Menu.Item key="3">Option 3</Menu.Item>
             <Menu.Item key="4">Option 4</Menu.Item>
-            <SubMenu key="sub2" title="Submenu">
+            <SubMenu key="sub1-2" title="Submenu">
               <Menu.Item key="5">Option 5</Menu.Item>
               <Menu.Item key="6">Option 6</Menu.Item>
             </SubMenu>
