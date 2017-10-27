@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Item } from 'rc-menu';
 import PropTypes from 'prop-types';
 import Tooltip from '../tooltip';
 
-class MenuItem extends Component<any, any> {
+class MenuItem extends React.Component<any, any> {
   static contextTypes = {
     inlineCollapsed: PropTypes.bool,
   }
