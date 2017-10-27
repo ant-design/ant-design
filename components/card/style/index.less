@@ -116,7 +116,6 @@
     & > li {
       float: left;
       text-align: center;
-      height: 16px;
       margin: 12px 0;
       color: @text-color-secondary;
 
@@ -124,11 +123,9 @@
         display: inline-block;
         font-size: 14px;
         cursor: pointer;
-        height: 32px;
-        line-height: 32px;
+        line-height: 22px;
         min-width: 32px;
         position: relative;
-        top: -8px;
 
         &:hover {
           color: @primary-color;
@@ -190,6 +187,8 @@
   }
 
   &-meta {
+    margin: -4px 0;
+
     &-content {
       display: table-row;
     }
@@ -219,7 +218,7 @@
       font-weight: 500;
     }
 
-    &-desscription {
+    &-description {
       color: @text-color-secondary;
     }
   }
