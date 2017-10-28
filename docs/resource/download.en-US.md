@@ -34,20 +34,6 @@ Please find below some of the design resources and tools about Ant Design that w
     <span class="resource-card-description">Icon font package for your local reference</span>
   </span>
 </a>
-<a target="_blank" href="https://pro.modao.cc/app/ae93e47ae377cd00389d742727361cbd001556ac" class="resource-card">
-  <img src="https://modao.cc/images/landing/sketch/logo.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Modao Web</span>
-    <span class="resource-card-description">Ant Design Web Template for Modao</span>
-  </span>
-</a>
-<a target="_blank" href="https://pro.modao.cc/app/b912a5b6b919a9381db3ac0ee38046d8a2ce4308" class="resource-card">
-  <img src="https://modao.cc/images/landing/sketch/logo.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Modao Mobile</span>
-    <span class="resource-card-description">Ant Design Mobile Template for Modao</span>
-  </span>
-</a>
 <a target="_blank" href="http://ux.ant.design" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/yfTqrQuSKcqBDLY.png">
   <span class="resource-card-content">
