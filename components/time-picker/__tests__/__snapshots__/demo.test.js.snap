@@ -81,40 +81,6 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
 </span>
 `;
 
-exports[`renders ./components/time-picker/demo/disable-options.md correctly 1`] = `
-<div>
-  <span
-    class="ant-time-picker "
-  >
-    <input
-      class="ant-time-picker-input"
-      placeholder="Disabled"
-      readonly=""
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-time-picker-icon"
-    />
-  </span>
-  <span
-    class="ant-time-picker "
-    style="width:150px"
-  >
-    <input
-      class="ant-time-picker-input"
-      placeholder="Hide disabled"
-      readonly=""
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-time-picker-icon"
-    />
-  </span>
-</div>
-`;
-
 exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
 <span
   class="ant-time-picker "
@@ -143,6 +109,23 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
     readonly=""
     type="text"
     value="12:08"
+  />
+  <span
+    class="ant-time-picker-icon"
+  />
+</span>
+`;
+
+exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`] = `
+<span
+  class="ant-time-picker "
+>
+  <input
+    class="ant-time-picker-input"
+    placeholder="Select time"
+    readonly=""
+    type="text"
+    value=""
   />
   <span
     class="ant-time-picker-icon"
