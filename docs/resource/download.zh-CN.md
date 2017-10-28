@@ -34,20 +34,6 @@ title: 资源下载
     <span class="resource-card-description">网络字体图标的本地文件包</span>
   </span>
 </a>
-<a target="_blank" href="https://pro.modao.cc/app/ae93e47ae377cd00389d742727361cbd001556ac" class="resource-card">
-  <img src="https://modao.cc/images/landing/sketch/logo.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Modao Web</span>
-    <span class="resource-card-description">墨刀 Ant Design Web 模板库</span>
-  </span>
-</a>
-<a target="_blank" href="https://pro.modao.cc/app/b912a5b6b919a9381db3ac0ee38046d8a2ce4308" class="resource-card">
-  <img src="https://modao.cc/images/landing/sketch/logo.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Modao Mobile</span>
-    <span class="resource-card-description">墨刀 Ant Design Mobile 模板库</span>
-  </span>
-</a>
 <a target="_blank" href="http://ux.ant.design" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/yfTqrQuSKcqBDLY.png">
   <span class="resource-card-content">
