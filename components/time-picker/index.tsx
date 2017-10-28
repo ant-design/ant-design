@@ -38,6 +38,10 @@ export interface TimePickerProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   addon?: Function;
   use12Hours?: boolean;
+  focusOnOpen?: boolean;
+  hourStep?: number;
+  minuteStep?: number;
+  secondStep?: number;
 }
 
 export default class TimePicker extends React.Component<TimePickerProps, any> {
@@ -53,6 +57,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     hideDisabledOptions: false,
     placement: 'bottomLeft',
     transitionName: 'slide-up',
+    focusOnOpen: true,
   };
 
   private timePickerRef: any;
