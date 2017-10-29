@@ -22,7 +22,6 @@ export default class Spin extends React.Component<SpinProps, any> {
     spinning: true,
     size: 'default',
     wrapperClassName: '',
-    indicator: null,
   };
 
   static propTypes = {
