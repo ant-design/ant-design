@@ -105,10 +105,10 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | push | the number of cells that raster is moved to the right | number | 0 |
 | span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |
 | xs | `<576px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |
-| xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
 | sm | `≥576px`, could be a `span` value or an object containing above props | number\|object | - |
 | md | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |
 | lg | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |
 | xl | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |
+| xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |
 
 The breakpoints of responsive grid follow [BootStrap 3 media queries rules](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)(not including `occasionally part`).
