@@ -34,11 +34,11 @@ A list can be used to display content related to a single subject. The content c
 | column | column of grid | number | - |
 | gutter | spacing between grid | number | 0 |
 | xs | `<576px` column of grid | number | - |
-| xxl | `≥1600px` column of grid | number | - |
 | sm | `≥576px` column of grid | number | - |
 | md | `≥768px` column of grid | number | - |
 | lg | `≥992px` column of grid | number | - |
 | xl | `≥1200px` column of grid | number | - |
+| xxl | `≥1600px` column of grid | number | - |
 
 ### List.Item
 

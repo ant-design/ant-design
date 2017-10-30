@@ -35,11 +35,11 @@ cols: 1
 | column | 列数 | number | - |
 | gutter | 栅格间隔 | number | 0 |
 | xs | `<576px` 展示的列数 | number | - |
-| xxl | `≥1600px` 展示的列数 | number | - |
 | sm | `≥576px` 展示的列数 | number | - |
 | md | `≥768px` 展示的列数 | number | - |
 | lg | `≥992px` 展示的列数 | number | - |
 | xl | `≥1200px` 展示的列数 | number | - |
+| xxl | `≥1600px` 展示的列数 | number | - |
 
 ### List.Item
 
