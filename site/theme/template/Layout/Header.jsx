@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Button, Popover, AutoComplete, Input } from 'antd';
+import { Select, Menu, Row, Col, Icon, Button, Popover, AutoComplete, Input, Badge } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -195,10 +195,12 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="mobile">
-          <a href="//mobile.ant.design">
-            <FormattedMessage id="app.header.menu.mobile" />
-          </a>
+        <Menu.Item key="pro">
+          <Badge dot>
+            <a href="http://pro.ant.design" className="header-link">
+              <FormattedMessage id="app.header.menu.pro" />
+            </a>
+          </Badge>
         </Menu.Item>
       </Menu>,
     ];
