@@ -80,6 +80,9 @@ function getStyle() {
       color: #eee;
       transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     }
+    #nav .header-link {
+      color: #fff!important;
+    }
     #search-box {
       border-left-color: rgba(235, 237, 238, .5);
       transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
