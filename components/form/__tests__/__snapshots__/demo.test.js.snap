@@ -35,6 +35,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-0"
                 placeholder="placeholder"
@@ -71,6 +72,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-1"
                 placeholder="placeholder"
@@ -107,6 +109,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-2"
                 placeholder="placeholder"
@@ -143,6 +146,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-3"
                 placeholder="placeholder"
@@ -179,6 +183,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-4"
                 placeholder="placeholder"
@@ -215,6 +220,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-5"
                 placeholder="placeholder"
@@ -251,6 +257,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-6"
                 placeholder="placeholder"
@@ -287,6 +294,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-7"
                 placeholder="placeholder"
@@ -323,6 +331,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-8"
                 placeholder="placeholder"
@@ -359,6 +368,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             >
               <input
                 class="ant-input"
+                data-__field="[object Object]"
                 data-__meta="[object Object]"
                 id="field-9"
                 placeholder="placeholder"
@@ -439,6 +449,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="note"
           type="text"
@@ -691,6 +702,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="username"
           placeholder="Please input your name"
@@ -722,6 +734,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="nickname"
           placeholder="Please input your nickname"
@@ -824,6 +837,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
         >
           <input
             class="ant-input"
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="username"
             type="text"
@@ -871,6 +885,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="userName"
             placeholder="Username"
@@ -903,6 +918,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="password"
             placeholder="Password"
@@ -1126,6 +1142,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="userName"
             placeholder="Username"
@@ -1158,6 +1175,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           </span>
           <input
             class="ant-input"
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="password"
             placeholder="Password"
@@ -1186,6 +1204,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             <input
               checked=""
               class="ant-checkbox-input"
+              data-__field="[object Object]"
               data-__meta="[object Object]"
               type="checkbox"
             />
@@ -1249,6 +1268,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="email"
           type="text"
@@ -1279,6 +1299,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="password"
           type="password"
@@ -1309,6 +1330,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="confirm"
           type="password"
@@ -1344,6 +1366,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <input
           class="ant-input"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="nickname"
           type="text"
@@ -1384,6 +1407,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           <input
             autocomplete="off"
             class="ant-input ant-cascader-input "
+            data-__field="[object Object]"
             data-__meta="[object Object]"
             id="residence"
             readonly=""
@@ -1466,6 +1490,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </span>
             <input
               class="ant-input"
+              data-__field="[object Object]"
               data-__meta="[object Object]"
               id="phone"
               type="text"
@@ -1580,6 +1605,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <input
               class="ant-input"
+              data-__field="[object Object]"
               data-__meta="[object Object]"
               id="captcha"
               type="text"
@@ -1626,6 +1652,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           >
             <input
               class="ant-checkbox-input"
+              data-__field="[object Object]"
               data-__meta="[object Object]"
               type="checkbox"
             />
@@ -2202,6 +2229,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       >
         <span
           class="ant-switch"
+          data-__field="[object Object]"
           data-__meta="[object Object]"
           id="switch"
           tabindex="0"

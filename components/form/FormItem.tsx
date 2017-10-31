@@ -6,12 +6,12 @@ import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
-import { WrappedFormUtils } from './Form';
-import { FIELD_META_PROP } from './constants';
 import warning from '../_util/warning';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 
 export interface FormItemProps {
   prefixCls?: string;
+  className?: string;
   id?: string;
   label?: React.ReactNode;
   labelCol?: ColProps;
@@ -20,14 +20,12 @@ export interface FormItemProps {
   extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
   hasFeedback?: boolean;
-  className?: string;
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
 }
 
 export interface FormItemContext {
-  form: WrappedFormUtils;
   vertical: boolean;
 }
 
@@ -53,7 +51,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   static contextTypes = {
-    form: PropTypes.object,
     vertical: PropTypes.bool,
   };
 
@@ -72,10 +69,11 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   getHelpMsg() {
-    const context = this.context;
     const props = this.props;
-    if (props.help === undefined && context.form) {
-      return this.getId() ? (context.form.getFieldError(this.getId()) || []).join(', ') : '';
+    const onlyControl = this.getOnlyControl();
+    if (props.help === undefined && onlyControl) {
+      const errors = this.getField().errors;
+      return errors ? errors.map(e => e.message).join(', ') : '';
     }
 
     return props.help;
@@ -97,7 +95,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       if (!child.props) {
         continue;
       }
-      if (FIELD_META_PROP in child.props) {
+      if (FIELD_META_PROP in child.props) { // And means FIELD_DATA_PROP in chidl.props, too.
         controls.push(child);
       } else if (child.props.children) {
         controls = controls.concat(this.getControls(child.props.children, recursively));
@@ -124,6 +122,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return this.getChildProp(FIELD_META_PROP);
   }
 
+  getField() {
+    return this.getChildProp(FIELD_DATA_PROP);
+  }
+
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
@@ -147,18 +149,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   getValidateStatus() {
-    const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const fieldId = this.getId();
-    if (!fieldId) {
+    const onlyControl = this.getOnlyControl();
+    if (!onlyControl) {
       return '';
     }
-    if (isFieldValidating(fieldId)) {
+    const field = this.getField();
+    if (field.validating) {
       return 'validating';
     }
-    if (!!getFieldError(fieldId)) {
+    if (field.errors) {
       return 'error';
     }
-    const fieldValue = getFieldValue(fieldId);
+    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
     if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
@@ -166,23 +168,21 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderValidateWrapper(c1, c2, c3) {
-    let classes = '';
-    const form = this.context.form;
     const props = this.props;
-    const validateStatus = (props.validateStatus === undefined && form) ?
+    const onlyControl = this.getOnlyControl;
+    const validateStatus = (props.validateStatus === undefined && onlyControl) ?
       this.getValidateStatus() :
       props.validateStatus;
 
+    let classes = '';
     if (validateStatus) {
-      classes = classNames(
-        {
-          'has-feedback': props.hasFeedback || validateStatus === 'validating',
-          'has-success': validateStatus === 'success',
-          'has-warning': validateStatus === 'warning',
-          'has-error': validateStatus === 'error',
-          'is-validating': validateStatus === 'validating',
-        },
-      );
+      classes = classNames({
+        'has-feedback': props.hasFeedback || validateStatus === 'validating',
+        'has-success': validateStatus === 'success',
+        'has-warning': validateStatus === 'warning',
+        'has-error': validateStatus === 'error',
+        'is-validating': validateStatus === 'validating',
+      });
     }
     return (
       <div className={`${this.props.prefixCls}-item-control ${classes}`}>
@@ -209,9 +209,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (required !== undefined) {
       return required;
     }
-    if (this.context.form) {
+    if (this.getOnlyControl()) {
       const meta = this.getMeta() || {};
-      const validate = (meta.validate || []);
+      const validate = meta.validate || [];
 
       return validate.filter((item) => !!item.rules).some((item) => {
         return item.rules.some((rule) => rule.required);

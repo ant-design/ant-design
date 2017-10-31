@@ -4,10 +4,9 @@ import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
-import { FIELD_META_PROP } from './constants';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 
 export interface FormCreateOption<T> {
   onFieldsChange?: (props: T, fields: Array<any>) => void;
@@ -149,48 +148,12 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
-    const formWrapper = createDOMForm({
+    return createDOMForm({
       fieldNameProp: 'id',
       ...options,
       fieldMetaProp: FIELD_META_PROP,
+      fieldDataProp: FIELD_DATA_PROP,
     });
-
-    /* eslint-disable react/prefer-es6-class */
-    return (Component) => formWrapper(createReactClass({
-      propTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      childContextTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      getChildContext() {
-        return {
-          form: this.props.form,
-        };
-      },
-      componentWillMount() {
-        this.__getFieldProps = this.props.form.getFieldProps;
-      },
-      deprecatedGetFieldProps(name, option) {
-        warning(
-          false,
-          '`getFieldProps` is not recommended, please use `getFieldDecorator` instead, ' +
-          'see: https://u.ant.design/get-field-decorator',
-        );
-        return this.__getFieldProps(name, option);
-      },
-      render() {
-        this.props.form.getFieldProps = this.deprecatedGetFieldProps;
-
-        const withRef: any = {};
-        if (options.withRef) {
-          withRef.ref = 'formWrappedComponent';
-        } else if (this.props.wrappedComponentRef) {
-          withRef.ref = this.props.wrappedComponentRef;
-        }
-        return <Component {...this.props} {...withRef} />;
-      },
-    }));
   };
 
   constructor(props) {
