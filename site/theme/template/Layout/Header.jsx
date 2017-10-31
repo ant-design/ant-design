@@ -196,11 +196,12 @@ export default class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item key="pro">
-          <Badge dot>
-            <a href="http://pro.ant.design" className="header-link">
-              <FormattedMessage id="app.header.menu.pro" />
-            </a>
-          </Badge>
+          <a href="http://pro.ant.design" className="header-link">
+            <FormattedMessage id="app.header.menu.pro" />
+            <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 18 }}>
+              <Badge dot />
+            </span>
+          </a>
         </Menu.Item>
       </Menu>,
     ];
