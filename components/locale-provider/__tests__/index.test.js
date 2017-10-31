@@ -90,7 +90,7 @@ describe('Locale Provider', () => {
           <App />
         </LocaleProvider>
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
     MockDate.reset();
   });
