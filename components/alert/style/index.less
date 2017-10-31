@@ -29,32 +29,32 @@
   }
 
   &-success {
-    border: @border-width-base @border-style-base @green-3;
-    background-color: @green-1;
+    border: @border-width-base @border-style-base ~`colorPalette("@{success-color}", 3)`;
+    background-color: ~`colorPalette("@{success-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @success-color;
     }
   }
 
   &-info {
-    border: @border-width-base @border-style-base @primary-3;
-    background-color: @primary-1;
+    border: @border-width-base @border-style-base ~`colorPalette("@{info-color}", 3)`;
+    background-color: ~`colorPalette("@{info-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @info-color;
     }
   }
 
   &-warning {
-    border: @border-width-base @border-style-base @gold-3;
-    background-color: @gold-1;
+    border: @border-width-base @border-style-base ~`colorPalette("@{warning-color}", 3)`;
+    background-color: ~`colorPalette("@{warning-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @warning-color;
     }
   }
 
   &-error {
-    border: @border-width-base @border-style-base @red-3;
-    background-color: @red-1;
+    border: @border-width-base @border-style-base ~`colorPalette("@{error-color}", 3)`;
+    background-color: ~`colorPalette("@{error-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @error-color;
     }
