@@ -920,6 +920,17 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return data;
   }
 
+  getRowClassName = (record, index) => {
+    const { rowClassName, prefixCls } = this.props;
+    const { selectedRowKeys } = this.store.getState();
+    const recordKey = this.getRecordKey(record, index);
+    const className = typeof rowClassName === 'function'
+      ? rowClassName(record, index) : rowClassName;
+    return classNames(className, {
+      [`${prefixCls}-row-selected`]: selectedRowKeys.indexOf(recordKey) >= 0,
+    });
+  }
+
   render() {
     const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
@@ -958,6 +969,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
         emptyText={() => locale.emptyText}
+        rowClassName={this.getRowClassName}
       />
     );
 
