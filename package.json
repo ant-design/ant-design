@@ -152,7 +152,7 @@
     "rimraf": "^2.5.4",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
-    "typescript": "~2.5.3",
+    "typescript": "~2.6.1",
     "unified": "^6.1.5",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"

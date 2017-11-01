@@ -29,9 +29,13 @@ export interface TextAreaProps extends AbstractInputProps {
   onPressEnter?: React.FormEventHandler<any>;
 }
 
+export interface TextAreaState {
+  textareaStyles?: React.CSSProperties;
+}
+
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, any> {
+export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, TextAreaState> {
   static defaultProps = {
     prefixCls: 'ant-input',
   };
@@ -39,7 +43,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
   nextFrameActionId: number;
 
   state = {
-    textareaStyles: null,
+    textareaStyles: {},
   };
 
   private textAreaRef: HTMLTextAreaElement;
