@@ -31,16 +31,20 @@ export interface RowProps {
   prefixCls?: string;
 }
 
+const responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+
 const responsiveMap = {
   xs: '(max-width: 575px)',
-  sm: 'only screen and (min-width: 576px) and (max-width: 767px)',
-  md: 'only screen and (min-width: 767px) and (max-width: 991px)',
-  lg: 'only screen and (min-width: 992px) and (max-width: 1199px)',
-  xl: 'only screen and (min-width: 1200px) and (max-width: 1599px)',
+  sm: '(min-width: 576px)',
+  md: '(min-width: 768px)',
+  lg: '(min-width: 992px)',
+  xl: '(min-width: 1200px)',
   xxl: '(min-width: 1600px)',
 };
 
-export default class Row extends React.Component<RowProps, {}> {
+export default class Row extends React.Component<RowProps, {
+  screens: {},
+}> {
   static defaultProps = {
     gutter: 0,
   };
@@ -54,12 +58,34 @@ export default class Row extends React.Component<RowProps, {}> {
     prefixCls: PropTypes.string,
   };
   state = {
-    screen: 'xxl',
+    screens: {},
   };
   componentDidMount() {
     Object.keys(responsiveMap)
-      .map((screen) => enquire.register(
-        responsiveMap[screen], () => this.setState({ screen }),
+      .map((screen) => enquire.register(responsiveMap[screen], {
+          match: () => {
+            if (typeof this.props.gutter !== 'object') {
+              return;
+            }
+            this.setState((prevState) => ({
+              screens: {
+                ...prevState.screens,
+                [screen]: true,
+              },
+            }));
+          },
+          unmatch: () => {
+            if (typeof this.props.gutter !== 'object') {
+              return;
+            }
+            this.setState((prevState) => ({
+              screens: {
+                ...prevState.screens,
+                [screen]: false,
+              },
+            }));
+          },
+        },
       ));
   }
   componentWillUnmount() {
@@ -69,7 +95,11 @@ export default class Row extends React.Component<RowProps, {}> {
   getGutter() {
     const { gutter } = this.props;
     if (typeof gutter === 'object') {
-      return gutter[this.state.screen];
+      for (let i = 0; i <= responsiveArray.length; i++) {
+        if (this.state.screens[responsiveArray[i]] && gutter[responsiveArray[i]] !== undefined) {
+          return gutter[responsiveArray[i]];
+        }
+      }
     }
     return gutter;
   }
