@@ -1,5 +1,6 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
+let enquire;
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
     return {
@@ -12,13 +13,13 @@ if (typeof window !== 'undefined') {
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  enquire = require('enquire.js');
 }
 
 import React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-const enquire = require('enquire.js');
 
 export interface RowProps {
   className?: string;
