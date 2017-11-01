@@ -17,7 +17,6 @@ export default class Row extends React.Component<RowProps, {}> {
   static defaultProps = {
     gutter: 0,
   };
-
   static propTypes = {
     type: PropTypes.string,
     align: PropTypes.string,
@@ -28,8 +27,10 @@ export default class Row extends React.Component<RowProps, {}> {
     prefixCls: PropTypes.string,
   };
   render() {
-    const { type, justify, align, className, gutter, style, children,
-      prefixCls = 'ant-row', ...others } = this.props;
+    const {
+      type, justify, align, className, gutter, style, children,
+      prefixCls = 'ant-row', ...others,
+    } = this.props;
     const classes = classNames({
       [prefixCls]: !type,
       [`${prefixCls}-${type}`]: type,
