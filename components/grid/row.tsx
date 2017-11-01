@@ -85,6 +85,8 @@ export default class Row extends React.Component<RowProps, {
               },
             }));
           },
+          // Keep a empty destory to avoid triggering unmatch when unregister
+          destroy() {},
         },
       ));
   }
