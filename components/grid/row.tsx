@@ -18,7 +18,7 @@ import React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-const enquire = require('enquire.js').default;
+const enquire = require('enquire.js');
 
 export interface RowProps {
   className?: string;
