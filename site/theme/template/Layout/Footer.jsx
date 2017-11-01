@@ -94,6 +94,9 @@ class Footer extends React.Component {
               </a>
             </div>
             <div>
+              <a href="http://pro.ant.design">Ant Design Pro</a>
+            </div>
+            <div>
               <a href="http://mobile.ant.design">Ant Design Mobile</a>
             </div>
             <div>
