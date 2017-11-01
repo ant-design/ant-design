@@ -22,15 +22,17 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.focus();
   }
   render() {
-    const { className, inputPrefixCls, prefixCls, ...others } = this.props;
+    const { className, inputPrefixCls, prefixCls, suffix, ...others } = this.props;
     delete (others as any).onSearch;
-    const searchSuffix = (
+    const searchIcon = (
       <Icon
         className={`${prefixCls}-icon`}
         onClick={this.onSearch}
         type="search"
+        key="searchIcon"
       />
     );
+    const searchSuffix = suffix ? [suffix, searchIcon] : searchIcon;
     return (
       <Input
         onPressEnter={this.onSearch}
