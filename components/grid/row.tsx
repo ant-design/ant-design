@@ -54,7 +54,7 @@ export default class Row extends React.Component<RowProps, {
     justify: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node,
-    gutter: PropTypes.number,
+    gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     prefixCls: PropTypes.string,
   };
   state = {
