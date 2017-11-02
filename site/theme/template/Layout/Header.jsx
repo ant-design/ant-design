@@ -155,7 +155,7 @@ export default class Header extends React.Component {
     });
 
     const menu = [
-      <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+      <Button className="lang" ghost size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Select
