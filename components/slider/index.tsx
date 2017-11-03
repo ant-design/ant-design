@@ -19,7 +19,7 @@ export interface SliderProps {
   range?: boolean;
   min?: number;
   max?: number;
-  step?: number | void;
+  step?: number | null;
   marks?: SliderMarks;
   dots?: boolean;
   value?: SliderValue;
@@ -29,7 +29,7 @@ export interface SliderProps {
   vertical?: boolean;
   onChange?: (value: SliderValue) => void;
   onAfterChange?: (value: SliderValue) => void;
-  tipFormatter?: void | ((value: number) => React.ReactNode);
+  tipFormatter?: null | ((value: number) => React.ReactNode);
   className?: string;
   id?: string;
 }
