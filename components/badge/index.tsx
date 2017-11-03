@@ -21,6 +21,7 @@ export interface BadgeProps {
   className?: string;
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   text?: string;
+  offset?: [number | string, number | string];
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
@@ -56,6 +57,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       dot,
       status,
       text,
+      offset,
       ...restProps,
     } = this.props;
     const isDot = dot || status;
@@ -82,6 +84,12 @@ export default class Badge extends React.Component<BadgeProps, any> {
       !(children && status),
       '`Badge[children]` and `Badge[status]` cannot be used at the same time.',
     );
+
+    const styleWithOffset = offset ? {
+      marginTop: offset[0],
+      marginLeft: offset[1],
+      ...style,
+    } : style;
     // <Badge status="success" />
     if (!children && status) {
       const statusCls = classNames({
@@ -89,7 +97,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         [`${prefixCls}-status-${status}`]: true,
       });
       return (
-        <span className={badgeCls}>
+        <span className={badgeCls} style={styleWithOffset}>
           <span className={statusCls} />
           <span className={`${prefixCls}-status-text`}>{text}</span>
         </span>
@@ -103,7 +111,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         className={scrollNumberCls}
         count={displayCount}
         title={count}
-        style={style}
+        style={styleWithOffset}
       />
     );
 

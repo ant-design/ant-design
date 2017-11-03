@@ -30,3 +30,4 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | showZero | Whether to show badge when `count` is zero | boolean | `false` |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |
 | text | If `status` is set, `text` sets the display text of the status `dot` | string | `''` |
+| offset | set offset of the badge dot, like [x, y] | [number, number] | - |
