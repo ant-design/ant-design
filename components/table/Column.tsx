@@ -14,7 +14,7 @@ export interface ColumnProps<T> {
   sorter?: boolean | ((a: any, b: any) => number);
   colSpan?: number;
   width?: string | number;
-  className?: string;
+  className?: string | ((text: any, record: T, index: number) => string);
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode;
   filteredValue?: any[];
