@@ -38,6 +38,10 @@ export interface TimePickerProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   addon?: Function;
   use12Hours?: boolean;
+  allowEmpty?: boolean;
+  clearText?: string;
+  defaultOpenValue?: moment.Moment;
+  popupClassName?: string;
 }
 
 abstract class TimePicker extends React.Component<TimePickerProps, any> {

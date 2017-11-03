@@ -41,5 +41,9 @@ import moment from 'moment';
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |
 | onOpenChange | a callback function which will be called while panel opening/closing | (open: boolean): void | - |
+| allowEmpty | allow clearing text | boolean | true |
+| clearText | clear tooltip of icon | string | clear |
+| defaultOpenValue | default open panel value, used to set utcOffset,locale if value/defaultValue absent | [moment](http://momentjs.com/) | moment() |
+| popupClassName | time panel className | string | - |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
