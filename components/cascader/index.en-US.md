@@ -40,6 +40,7 @@ Cascade selection box.
 | value | selected value | [CascaderOptionType](https://git.io/vMMoK)\[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
+| popupVisible | set visible of cascader popup | boolean | - |
 
 Fields in `showSearch`:
 
