@@ -12,6 +12,7 @@ export interface ColumnProps<T> {
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | ((a: any, b: any) => number);
+  defaultSortOrder?: 'ascend' | 'descend';
   colSpan?: number;
   width?: string | number;
   className?: string;
