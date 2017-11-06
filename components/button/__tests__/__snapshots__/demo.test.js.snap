@@ -54,7 +54,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -97,7 +97,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -114,14 +114,6 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     </button>
     <button
       class="ant-btn"
-      type="button"
-    >
-      <span>
-        M
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-dashed"
       type="button"
     >
       <span>
@@ -465,7 +457,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     type="button"
   >
     <span>
-      more 
+      Actions 
     </span>
     <i
       class="anticon anticon-down"
