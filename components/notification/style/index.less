@@ -109,7 +109,11 @@
       top: 16px;
       color: @text-color-secondary;
       outline: none;
-      text-decoration: none;
+
+      a&:focus {
+        text-decoration: none;
+      }
+
       &:hover {
         color: #404040;
       }

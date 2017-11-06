@@ -31,7 +31,10 @@ class CustomNavMention extends React.Component {
     suggestions: [],
   }
   onSearchChange = (value) => {
-    const filtered = webFrameworks;
+    const searchValue = value.toLowerCase();
+    const filtered = webFrameworks.filter(item =>
+      item.name.toLowerCase().indexOf(searchValue) !== -1
+    );
     const suggestions = filtered.map(suggestion => (
       <Nav
         value={suggestion.name}

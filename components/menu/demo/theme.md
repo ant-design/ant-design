@@ -47,7 +47,7 @@ class Sider extends React.Component {
         <Menu
           theme={this.state.theme}
           onClick={this.handleClick}
-          style={{ width: 240 }}
+          style={{ width: 256 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
           mode="inline"
