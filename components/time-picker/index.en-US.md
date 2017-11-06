@@ -27,7 +27,6 @@ import moment from 'moment';
 | allowEmpty | allow clearing text | boolean | true |
 | className | className of picker | string | '' |
 | clearText | clear tooltip of icon | string | clear |
-| defaultOpenValue | to highlight values in panel when there is no selected value | [moment](http://momentjs.com/) | moment() |
 | defaultOpenValue | default open panel value, used to set utcOffset,locale if value/defaultValue absent | [moment](http://momentjs.com/) | moment() |
 | defaultValue | to set default time | [moment](http://momentjs.com/) | - |
 | disabled | determine whether the TimePicker is disabled | boolean | false |
@@ -40,7 +39,6 @@ import moment from 'moment';
 | open | whether to popup panel | boolean | false |
 | placeholder | display when there's no value | string | "Select a time" |
 | popupClassName | className of panel | string | '' |
-| popupClassName | time panel className | string | - |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |

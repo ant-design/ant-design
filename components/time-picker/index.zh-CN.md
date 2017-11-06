@@ -28,7 +28,6 @@ import moment from 'moment';
 | allowEmpty | 是否展示清除按钮 | boolean | true |
 | className | 选择器类名 | string | '' |
 | clearText | 清除按钮的提示文案 | string | clear |
-| defaultOpenValue | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
 | defaultOpenValue | 当 defaultValue/value 不存在时，可以设置面板打开时默认选中的值 | [moment](http://momentjs.com/) | moment() |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | 无 |
 | disabled | 禁用全部操作 | boolean | false |
@@ -41,7 +40,6 @@ import moment from 'moment';
 | open | 面板是否打开 | boolean | false |
 | placeholder | 没有值的时候显示的内容 | string | "请选择时间" |
 | popupClassName | 弹出层类名 | string | '' |
-| popupClassName | 浮层的 className | string | - |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |
