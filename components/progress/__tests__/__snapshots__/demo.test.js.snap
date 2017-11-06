@@ -32,7 +32,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -72,7 +72,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#ff5500"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -114,7 +114,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -161,7 +161,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="0"
-          style="stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -226,7 +226,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -266,7 +266,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
           stroke="#ff5500"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -308,7 +308,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -354,7 +354,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
         stroke="#108ee9"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+        style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
       />
     </svg>
     <span
@@ -446,7 +446,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#108ee9"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span
@@ -486,7 +486,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
           stroke="#87d068"
           stroke-linecap="round"
           stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s;"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s"
         />
       </svg>
       <span

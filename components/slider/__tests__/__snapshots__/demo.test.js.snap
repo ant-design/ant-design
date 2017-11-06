@@ -152,7 +152,8 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   class="icon-wrapper"
 >
   <i
-    class="anticon anticon-frown-o anticon-highlight"
+    class="anticon anticon-frown-o"
+    style="color:rgba(0, 0, 0, .45)"
   />
   <div
     class="ant-slider"
@@ -183,6 +184,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   </div>
   <i
     class="anticon anticon-smile-o"
+    style="color:"
   />
 </div>
 `;

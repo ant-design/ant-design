@@ -90,10 +90,10 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       disabled=""
       type="button"
     >
+      <i
+        class="anticon anticon-left"
+      />
       <span>
-        <i
-          class="anticon anticon-left"
-        />
         to left
       </span>
     </button>
@@ -102,11 +102,11 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       disabled=""
       type="button"
     >
+      <i
+        class="anticon anticon-right"
+      />
       <span>
         to right
-        <i
-          class="anticon anticon-right"
-        />
       </span>
     </button>
   </div>
@@ -303,26 +303,22 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
@@ -454,26 +450,22 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
@@ -578,26 +570,22 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
@@ -720,26 +708,22 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
