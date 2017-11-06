@@ -245,7 +245,7 @@ class RegistrationForm extends React.Component {
             </Col>
           </Row>
         </FormItem>
-        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
+        <FormItem {...tailFormItemLayout}>
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',
           })(
