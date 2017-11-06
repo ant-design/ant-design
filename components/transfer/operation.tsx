@@ -14,37 +14,38 @@ export interface TransferOperationProps {
   rightActive?: boolean;
 }
 
-export default (props: TransferOperationProps) => {
-  const {
-    moveToLeft = noop,
-    moveToRight = noop,
-    leftArrowText = '',
-    rightArrowText = '',
-    leftActive,
-    rightActive,
-    className,
-  } = props;
-
-  return (
-    <div className={className}>
-      <Button
-        type="primary"
-        size="small"
-        disabled={!leftActive}
-        onClick={moveToLeft}
-        icon="left"
-      >
-        {leftArrowText}
-      </Button>
-      <Button
-        type="primary"
-        size="small"
-        disabled={!rightActive}
-        onClick={moveToRight}
-        icon="right"
-      >
-        {rightArrowText}
-      </Button>
-    </div>
-  );
-};
+export default class Operation extends React.Component<TransferOperationProps, any> {
+  render() {
+    const {
+      moveToLeft = noop,
+      moveToRight = noop,
+      leftArrowText = '',
+      rightArrowText = '',
+      leftActive,
+      rightActive,
+      className,
+    } = this.props;
+    return (
+      <div className={className}>
+        <Button
+          type="primary"
+          size="small"
+          disabled={!leftActive}
+          onClick={moveToLeft}
+          icon="left"
+        >
+          {leftArrowText}
+        </Button>
+        <Button
+          type="primary"
+          size="small"
+          disabled={!rightActive}
+          onClick={moveToRight}
+          icon="right"
+        >
+          {rightArrowText}
+        </Button>
+      </div>
+    );
+  }
+}
