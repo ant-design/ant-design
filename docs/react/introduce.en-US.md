@@ -130,10 +130,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ## Links
 
 - [Home Page](http://ant.design/)
-- [UI library](/docs/react/introduce)
+- [Components](/docs/react/introduce)
+- [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](/changelog)
-- [Official Scaffold Tool](https://github.com/dvajs/dva-cli/)
-- [Development Tool](http://ant-tool.github.io/)
 - [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)

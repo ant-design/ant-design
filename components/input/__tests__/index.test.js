@@ -7,7 +7,6 @@ const { TextArea } = Input;
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
-
 describe('Input', () => {
   it('should support maxLength', async () => {
     const wrapper = mount(
@@ -16,6 +15,7 @@ describe('Input', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+
 describe('TextArea', () => {
   it('should auto calculate height according to content length', async () => {
     const wrapper = mount(
@@ -75,5 +75,14 @@ describe('As Form Control', () => {
     wrapper.find('button').simulate('click');
     expect(wrapper.find('input').prop('value')).toBe('');
     expect(wrapper.find('textarea').prop('value')).toBe('');
+  });
+});
+
+describe('Input.Search', () => {
+  it('should support suffix', async () => {
+    const wrapper = mount(
+      <Input.Search suffix="suffix" />
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

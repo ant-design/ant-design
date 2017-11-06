@@ -41,6 +41,7 @@ subtitle: 级联选择
 | value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
+| popupVisible | 控制浮层显隐 | boolean | - |
 
 `showSearch` 为对象时，其中的字段：
 

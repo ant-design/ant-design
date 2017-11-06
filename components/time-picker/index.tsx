@@ -42,6 +42,10 @@ export interface TimePickerProps {
   hourStep?: number;
   minuteStep?: number;
   secondStep?: number;
+  allowEmpty?: boolean;
+  clearText?: string;
+  defaultOpenValue?: moment.Moment;
+  popupClassName?: string;
 }
 
 export default class TimePicker extends React.Component<TimePickerProps, any> {

@@ -17,6 +17,16 @@ timeline: true
 
 ---
 
+## 2.13.9
+
+`2017-11-06`
+
+- 发布 [Ant Design Pro](https://pro.ant.design/)。
+- 修复 `Cascader[popupVisible]` 失效问题。[#8088](https://github.com/ant-design/ant-design/issues/8088)
+- 修复原生 `input[type=checkbox|radio]` 看不到的问题。[7c3a483](https://github.com/ant-design/ant-design/commit/7c3a48319074a800c89935e728904933d503ee86)
+- 修复 `Input.Search[suffix]` 失效的问题。[#7970](https://github.com/ant-design/ant-design/issues/7970)
+- 修复 Slider TypeScript 定义问题。[#8102](https://github.com/ant-design/ant-design/pull/8102) [@davschne](https://github.com/davschne)
+
 ## 2.13.8
 
 `2017-10-27`

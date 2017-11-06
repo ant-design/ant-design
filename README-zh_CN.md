@@ -81,11 +81,10 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 链接
 
-- [首页](http://ant.design/index-cn)
-- [UI 组件库](http://ant.design/docs/react/introduce-cn)
+- [首页](http://ant.design/)
+- [组件库](http://ant.design/docs/react/introduce)
+- [Ant Design Pro](http://pro.ant.design/)
 - [更新日志](CHANGELOG.en-US.md)
-- [官方脚手架](https://github.com/dvajs/dva-cli)
-- [开发工具文档](http://ant-tool.github.io/)
 - [脚手架市场](http://scaffold.ant.design)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)

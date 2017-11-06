@@ -25,8 +25,10 @@ import moment from 'moment';
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
+| allowEmpty | 是否展示清除按钮 | boolean | true |
 | className | 选择器类名 | string | '' |
-| defaultOpenValue | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
+| clearText | 清除按钮的提示文案 | string | clear |
+| defaultOpenValue | 当 defaultValue/value 不存在时，可以设置面板打开时默认选中的值 | [moment](http://momentjs.com/) | moment() |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | 无 |
 | disabled | 禁用全部操作 | boolean | false |
 | disabledHours | 禁止选择部分小时选项 | function() | 无 |

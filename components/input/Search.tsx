@@ -32,9 +32,9 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   render() {
-    const { className, prefixCls, inputPrefixCls, size, enterButton, ...others } = this.props;
+    const { className, prefixCls, inputPrefixCls, size, enterButton, suffix, ...others } = this.props;
     delete (others as any).onSearch;
-    const searchSuffix = enterButton
+    const buttonOrIcon = enterButton
       ? (
         <Button
           className={`${prefixCls}-button`}
@@ -45,6 +45,7 @@ export default class Search extends React.Component<SearchProps, any> {
           {enterButton === true ? <Icon type="search" /> : enterButton}
         </Button>
       ) : <Icon className={`${prefixCls}-icon`} type="search" />;
+    const searchSuffix = suffix ? [suffix, buttonOrIcon] : buttonOrIcon;
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-enter-button`]: !!enterButton,
       [`${prefixCls}-${size}`]: !!size,

@@ -116,7 +116,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       value: props.value || props.defaultValue || [],
       inputValue: '',
       inputFocused: false,
-      popupVisible: false,
+      popupVisible: props.popupVisible,
       flattenOptions: props.showSearch && this.flattenTree(props.options, props.changeOnSelect),
     };
   }
@@ -124,6 +124,9 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value || [] });
+    }
+    if ('popupVisible' in nextProps) {
+      this.setState({ popupVisible: nextProps.popupVisible });
     }
     if (nextProps.showSearch && this.props.options !== nextProps.options) {
       this.setState({ flattenOptions: this.flattenTree(nextProps.options, nextProps.changeOnSelect) });
@@ -142,11 +145,13 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   handlePopupVisibleChange = (popupVisible) => {
-    this.setState({
-      popupVisible,
-      inputFocused: popupVisible,
-      inputValue: popupVisible ? this.state.inputValue : '',
-    });
+    if (!('popupVisible' in this.props)) {
+      this.setState({
+        popupVisible,
+        inputFocused: popupVisible,
+        inputValue: popupVisible ? this.state.inputValue : '',
+      });
+    }
 
     const onPopupVisibleChange = this.props.onPopupVisibleChange;
     if (onPopupVisibleChange) {
@@ -204,7 +209,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     e.stopPropagation();
     if (!this.state.inputValue) {
       this.setValue([]);
-      this.setState({ popupVisible: false });
+      this.handlePopupVisibleChange(false);
     } else {
       this.setState({ inputValue: '' });
     }

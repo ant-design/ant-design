@@ -155,7 +155,7 @@ export default class Header extends React.Component {
     });
 
     const menu = [
-      <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+      <Button className="header-lang-button" ghost size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Select
@@ -196,7 +196,12 @@ export default class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item key="pro">
-          <a href="http://pro.ant.design" className="header-link">
+          <a
+            href="http://pro.ant.design"
+            className="header-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FormattedMessage id="app.header.menu.pro" />
             <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 18 }}>
               <Badge dot />
