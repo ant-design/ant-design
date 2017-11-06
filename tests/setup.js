@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import { jsdom } from 'jsdom';
 
 // fixed jsdom miss
@@ -18,6 +19,12 @@ global.requestAnimationFrame = global.requestAnimationFrame || function (cb) {
 };
 
 const Enzyme = require('enzyme');
-const Adapter = require('enzyme-adapter-react-16');
+
+let Adapter;
+if (process.env.REACT === '15') {
+  Adapter = require('enzyme-adapter-react-15');
+} else {
+  Adapter = require('enzyme-adapter-react-16');
+}
 
 Enzyme.configure({ adapter: new Adapter() });

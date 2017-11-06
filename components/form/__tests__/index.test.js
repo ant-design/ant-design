@@ -12,6 +12,9 @@ describe('Form', () => {
 
   describe('wrappedComponentRef', () => {
     it('warns on functional component', () => {
+      if (process.env.REACT === '15') {
+        return;
+      }
       const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const TestForm = () => <Form />;
       const Wrapped = Form.create()(TestForm);
