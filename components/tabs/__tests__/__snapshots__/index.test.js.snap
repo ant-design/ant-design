@@ -49,7 +49,6 @@ exports[`Tabs tabPosition remove card 1`] = `
         }
         prefixCls="ant-tabs"
         scrollAnimated={true}
-        style={undefined}
         styles={Object {}}
         tabBarPosition="left"
       >
@@ -57,7 +56,6 @@ exports[`Tabs tabPosition remove card 1`] = `
           className="ant-tabs-bar"
           onKeyDown={[Function]}
           role="tablist"
-          style={undefined}
           tabIndex="0"
         >
           <div
@@ -95,7 +93,6 @@ exports[`Tabs tabPosition remove card 1`] = `
                   <div
                     className="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
                     key="inkBar"
-                    style={undefined}
                   />
                   <div
                     aria-disabled="false"
@@ -150,7 +147,6 @@ exports[`Tabs tabPosition remove card 1`] = `
               aria-hidden="false"
               className="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
-              style={undefined}
             >
               foo
             </div>
