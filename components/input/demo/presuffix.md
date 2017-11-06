@@ -36,7 +36,7 @@ class App extends React.Component {
     return (
       <Input
         placeholder="Enter your username"
-        prefix={<Icon type="user" />}
+        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
         suffix={suffix}
         value={userName}
         onChange={this.onChangeUserName}

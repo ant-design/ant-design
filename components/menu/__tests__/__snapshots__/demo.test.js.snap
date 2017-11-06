@@ -69,7 +69,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
   aria-activedescendant=""
   class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
   role="menu"
-  style="width:240px"
+  style="width:256px"
   tabindex="0"
 >
   <li
@@ -213,7 +213,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 
 exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 <div
-  style="width:240px"
+  style="width:256px"
 >
   <button
     class="ant-btn ant-btn-primary"
@@ -363,7 +363,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
   aria-activedescendant=""
   class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
   role="menu"
-  style="width:240px"
+  style="width:256px"
   tabindex="0"
 >
   <li
@@ -507,7 +507,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
     aria-activedescendant=""
     class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
     role="menu"
-    style="width:240px"
+    style="width:256px"
     tabindex="0"
   >
     <li
@@ -641,7 +641,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
     aria-activedescendant=""
     class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
     role="menu"
-    style="width:240px"
+    style="width:256px"
     tabindex="0"
   >
     <li
@@ -761,7 +761,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
   aria-activedescendant=""
   class="ant-menu ant-menu-vertical ant-menu-light ant-menu-root"
   role="menu"
-  style="width:240px"
+  style="width:256px"
   tabindex="0"
 >
   <li

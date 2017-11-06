@@ -105,7 +105,7 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   overflow: auto;
-  padding: 8px 16px;
+  padding: 8px 24px;
   height: 300px;
 }
 .demo-loading {

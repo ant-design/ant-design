@@ -880,7 +880,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-user"
-              style="font-size:13px"
+              style="color:rgba(0,0,0,.25)"
             />
           </span>
           <input
@@ -913,7 +913,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-lock"
-              style="font-size:13px"
+              style="color:rgba(0,0,0,.25)"
             />
           </span>
           <input
@@ -1137,7 +1137,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-user"
-              style="font-size:13px"
+              style="color:rgba(0,0,0,.25)"
             />
           </span>
           <input
@@ -1170,7 +1170,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <i
               class="anticon anticon-lock"
-              style="font-size:13px"
+              style="color:rgba(0,0,0,.25)"
             />
           </span>
           <input
@@ -1636,7 +1636,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"

@@ -294,7 +294,10 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     <span
       class="ant-tag-text"
     >
-      + New Tag
+      <i
+        class="anticon anticon-plus"
+      />
+       New Tag
     </span>
   </div>
 </div>

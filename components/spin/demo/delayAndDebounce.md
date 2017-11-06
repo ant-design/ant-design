@@ -27,13 +27,14 @@ class Card extends React.Component {
         message="Alert message title"
         description="Further details about the context of this alert."
         type="info"
-        style={{ marginBottom: 16 }}
       />
     );
     return (
       <div>
         <Spin spinning={this.state.loading} delay={500} >{container}</Spin>
-        Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
+        <div style={{ marginTop: 16 }}>
+          Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
+        </div>
       </div>
     );
   }

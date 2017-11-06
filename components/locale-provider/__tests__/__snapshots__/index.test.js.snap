@@ -286,26 +286,22 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -1724,26 +1720,22 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -3162,26 +3154,22 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -4600,26 +4588,22 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -6038,26 +6022,22 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -7476,26 +7456,22 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -8914,26 +8890,22 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -10352,26 +10324,22 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -11790,26 +11758,22 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -13228,26 +13192,22 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -14666,26 +14626,22 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -16104,26 +16060,22 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -17542,26 +17494,22 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -18980,26 +18928,22 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -20418,26 +20362,22 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -21856,26 +21796,22 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -23294,26 +23230,22 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -24732,26 +24664,22 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -26170,26 +26098,22 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -27608,26 +27532,22 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -29046,26 +28966,22 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -30484,26 +30400,22 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -31922,26 +31834,22 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -33360,26 +33268,22 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -34798,26 +34702,22 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -36236,26 +36136,22 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -37674,26 +37570,22 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -39112,26 +39004,22 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -40550,26 +40438,22 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -41988,26 +41872,22 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -43426,26 +43306,22 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div
@@ -44864,26 +44740,22 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
       class="ant-transfer-operation"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-left"
-          />
-        </span>
+        <i
+          class="anticon anticon-left"
+        />
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         disabled=""
         type="button"
       >
-        <span>
-          <i
-            class="anticon anticon-right"
-          />
-        </span>
+        <i
+          class="anticon anticon-right"
+        />
       </button>
     </div>
     <div

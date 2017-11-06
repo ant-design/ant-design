@@ -43,7 +43,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            style="width:80px"
+            style="width:90px"
           >
             <div
               aria-autocomplete="list"
@@ -85,7 +85,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
-            style="width:70px"
+            style="width:80px"
           >
             <div
               aria-autocomplete="list"
@@ -655,6 +655,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
   >
     <i
       class="anticon anticon-user"
+      style="color:rgba(0,0,0,.25)"
     />
   </span>
   <input
