@@ -16,56 +16,24 @@ Table with editable rows.
 ````jsx
 import { Table, Input, Popconfirm } from 'antd';
 
-class EditableCell extends React.Component {
-  state = {
-    value: this.props.value,
-    editable: this.props.editable || false,
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.editable !== this.state.editable) {
-      this.setState({ editable: nextProps.editable });
-      if (nextProps.editable) {
-        this.cacheValue = this.state.value;
-      }
-    }
-    if (nextProps.status && nextProps.status !== this.props.status) {
-      if (nextProps.status === 'save') {
-        this.props.onChange(this.state.value);
-      } else if (nextProps.status === 'cancel') {
-        this.setState({ value: this.cacheValue });
-        this.props.onChange(this.cacheValue);
-      }
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.editable !== this.state.editable ||
-           nextState.value !== this.state.value;
-  }
-  handleChange(e) {
-    const value = e.target.value;
-    this.setState({ value });
-  }
-  render() {
-    const { value, editable } = this.state;
-    return (
-      <div>
-        {
-          editable ?
-            <div>
-              <Input
-                value={value}
-                onChange={e => this.handleChange(e)}
-              />
-            </div>
-            :
-            <div className="editable-row-text">
-              {value.toString() || ' '}
-            </div>
-        }
-      </div>
-    );
-  }
+const data = [];
+for (let i = 0; i < 100; i++) {
+  data.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    address: `London Park no. ${i}`,
+  });
 }
+
+const EditableCell = ({ editable, value, onChange }) => (
+  <div>
+    {editable
+      ? <Input style={{ margin: '-5px 0' }} value={value} onChange={e => onChange(e.target.value)} />
+      : value
+    }
+  </div>
+);
 
 class EditableTable extends React.Component {
   constructor(props) {
@@ -74,111 +42,86 @@ class EditableTable extends React.Component {
       title: 'name',
       dataIndex: 'name',
       width: '25%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'name', text),
+      render: (text, record) => this.renderColumns(text, record, 'name'),
     }, {
       title: 'age',
       dataIndex: 'age',
       width: '15%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'age', text),
+      render: (text, record) => this.renderColumns(text, record, 'age'),
     }, {
       title: 'address',
       dataIndex: 'address',
       width: '40%',
-      render: (text, record, index) => this.renderColumns(this.state.data, index, 'address', text),
+      render: (text, record) => this.renderColumns(text, record, 'address'),
     }, {
       title: 'operation',
       dataIndex: 'operation',
-      render: (text, record, index) => {
-        const { editable } = this.state.data[index].name;
+      render: (text, record) => {
+        const { editable } = record;
         return (
           <div className="editable-row-operations">
             {
               editable ?
                 <span>
-                  <a onClick={() => this.editDone(index, 'save')}>Save</a>
-                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.editDone(index, 'cancel')}>
+                  <a onClick={() => this.save(record.key)}>Save</a>
+                  <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
                     <a>Cancel</a>
                   </Popconfirm>
                 </span>
-                :
-                <span>
-                  <a onClick={() => this.edit(index)}>Edit</a>
-                </span>
+                : <a onClick={() => this.edit(record.key)}>Edit</a>
             }
           </div>
         );
       },
     }];
-    this.state = {
-      data: [{
-        key: '0',
-        name: {
-          editable: false,
-          value: 'Edward King 0',
-        },
-        age: {
-          editable: false,
-          value: '32',
-        },
-        address: {
-          value: 'London, Park Lane no. 0',
-        },
-      }],
-    };
+    this.state = { data };
+    this.cacheData = data.map(item => ({ ...item }));
   }
-  renderColumns(data, index, key, text) {
-    const { editable, status } = data[index][key];
-    if (typeof editable === 'undefined') {
-      return text;
+  renderColumns(text, record, column) {
+    return (
+      <EditableCell
+        editable={record.editable}
+        value={text}
+        onChange={value => this.handleChange(value, record.key, column)}
+      />
+    );
+  }
+  handleChange(value, key, column) {
+    const newData = [...this.state.data];
+    const target = newData.filter(item => key === item.key)[0];
+    if (target) {
+      target[column] = value;
+      this.setState({ data: newData });
     }
-    return (<EditableCell
-      editable={editable}
-      value={text}
-      onChange={value => this.handleChange(key, index, value)}
-      status={status}
-    />);
   }
-  handleChange(key, index, value) {
-    const { data } = this.state;
-    data[index][key].value = value;
-    this.setState({ data });
+  edit(key) {
+    const newData = [...this.state.data];
+    const target = newData.filter(item => key === item.key)[0];
+    if (target) {
+      target.editable = true;
+      this.setState({ data: newData });
+    }
   }
-  edit(index) {
-    const { data } = this.state;
-    Object.keys(data[index]).forEach((item) => {
-      if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-        data[index][item].editable = true;
-      }
-    });
-    this.setState({ data });
+  save(key) {
+    const newData = [...this.state.data];
+    const target = newData.filter(item => key === item.key)[0];
+    if (target) {
+      delete target.editable;
+      this.setState({ data: newData });
+      this.cacheData = newData.map(item => ({ ...item }));
+    }
   }
-  editDone(index, type) {
-    const { data } = this.state;
-    Object.keys(data[index]).forEach((item) => {
-      if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-        data[index][item].editable = false;
-        data[index][item].status = type;
-      }
-    });
-    this.setState({ data }, () => {
-      Object.keys(data[index]).forEach((item) => {
-        if (data[index][item] && typeof data[index][item].editable !== 'undefined') {
-          delete data[index][item].status;
-        }
-      });
-    });
+  cancel(key) {
+    const newData = [...this.state.data];
+    const target = newData.filter(item => key === item.key)[0];
+    if (target) {
+      Object.assign(target, this.cacheData.filter(item => key === item.key)[0]);
+      delete target.editable;
+      this.setState({ data: newData });
+    }
   }
   render() {
-    const { data } = this.state;
-    const dataSource = data.map((item) => {
-      const obj = {};
-      Object.keys(item).forEach((key) => {
-        obj[key] = key === 'key' ? item[key] : item[key].value;
-      });
-      return obj;
-    });
-    const columns = this.columns;
-    return <Table bordered dataSource={dataSource} columns={columns} />;
+    return <Table bordered dataSource={this.state.data} columns={this.columns} />;
   }
 }
 
@@ -186,10 +129,6 @@ ReactDOM.render(<EditableTable />, mountNode);
 ````
 
 ````css
-.editable-row-text {
-  padding: 5px;
-}
-
 .editable-row-operations a {
   margin-right: 8px;
 }
