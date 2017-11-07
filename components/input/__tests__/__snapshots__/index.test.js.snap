@@ -56,6 +56,7 @@ exports[`Input.Search should support suffix 1`] = `
         suffix
         <Icon
           className="ant-input-search-icon"
+          key="searchIcon"
           type="search"
         >
           <i
