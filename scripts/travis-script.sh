@@ -11,6 +11,14 @@ run_test() {
   fi
 }
 
+run_test_node() {
+  if [ "$REACT" != 16 ]; then
+    npm run test-node -- -w 2 -u
+  else
+    npm run test-node -- -w 2
+  fi
+}
+
 if [ "$TEST_TYPE" = lint ]; then
   npm run lint
 elif [ "$TEST_TYPE" = test:dist ]; then
@@ -30,5 +38,5 @@ elif [ "$TEST_TYPE" = test:dom ]; then
     bash <(curl -s https://codecov.io/bash)
   fi
 elif [ "$TEST_TYPE" = test:node ]; then
-  npm run test-node -- -w 2 -u
+  run_test_node
 fi
