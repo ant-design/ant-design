@@ -54,7 +54,7 @@
     "rc-cascader": "~0.12.0",
     "rc-checkbox": "~2.0.3",
     "rc-collapse": "~1.7.5",
-    "rc-dialog": "~6.5.10",
+    "rc-dialog": "~7.0.0",
     "rc-dropdown": "~1.5.0",
     "rc-editor-mention": "^1.0.2",
     "rc-form": "~1.5.0",
