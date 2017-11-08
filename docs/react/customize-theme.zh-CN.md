@@ -48,6 +48,100 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 - `dva-cli@0.7.0+` 的 `theme` 属性需要写在 [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) 文件里。
 - 如果要覆盖 `@icon-url` 变量，内容需要包括引号 `"@icon-url": "'your-icon-font-path'"`（[修正示例](https://github.com/visvadw/dvajs-user-dashboard/pull/2)）。
 
+
+#### 单独 webpack 中配置 theme
+
+
+1.  [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件
+
+
+2. `package.json` 中配置 `theme` 字段，直接配置为对象：
+
+   ```js
+   "theme": {
+     "primary-color": "#1DA57A",
+   },
+   ```
+
+   或者配置为[一个 js 文件](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js)：
+
+   ```js
+   "theme": "./theme.js",
+   ```
+
+   > 关于`primary-color`  还是 `@primary-color` 写法，两种都支持
+
+
+3. `webpack.dev.config.js` 中读取 `theme` 的配置信息：
+
+   ```js
+   const fs = require('fs')
+   const pkgPath = path.resolve(__dirname, './package.json')
+   const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {}
+   let theme = {}
+   if (pkg.theme && typeof pkg.theme === 'string') {
+     let cfgPath = pkg.theme
+     if (cfgPath.charAt(0) === '.') {
+       cfgPath = path.resolve(__dirname, cfgPath)
+     }
+     const getThemeConfig = require(cfgPath)
+     theme = getThemeConfig()
+   } else if (pkg.theme && typeof pkg.theme === 'object') {
+     theme = pkg.theme
+   }
+   ```
+
+   根据配置文件的格式，上面的theme已经是个对象了，下面webpack，loader中可以直接使用
+
+4. `webpack.dev.config.json` 中关于less 处理的相关 loader 写法：
+
+   ```json
+   {
+     module: {
+       rules: [
+         {
+           // 处理自己的less 文件，如果没用less组件可以删除掉
+           test: /\.less$/,
+           exclude: path.resolve(__dirname, 'node_modules'),
+           use: ExtractTextPlugin.extract({
+             fallback: 'style-loader',
+             use: [
+               { loader: 'css-loader' },
+               {
+                 loader: 'less-loader',
+               },
+             ],
+           }),
+         },
+         {
+           test: /.less$/,
+           include: path.resolve(__dirname, 'node_modules/antd'), // 处理antd 组件的 less 必须有
+           use: ExtractTextPlugin.extract({
+             fallback: 'style-loader',
+             use: [
+               {
+                 loader: 'css-loader',
+               },
+               {
+                 loader: 'less-loader',
+                 options: {
+                   sourceMap: true,
+                   modules: false,
+                   modifyVars: theme,
+                 },
+               },
+             ],
+           }),
+         },
+       ]
+     }
+   }
+   ```
+
+   以上使用的是 `webpack v 3.0` 的写法，可以根据不同版本调整 loader的写法，`ExtractTextPlugin`  是  [extract-text-webpack-plugin](https://www.npmjs.com/package/extract-text-webpack-plugin) 
+
+   ​
+
 ### 2) less
 
 用 less 文件进行变量覆盖。
