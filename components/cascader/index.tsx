@@ -223,7 +223,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     let flattenOptions: any = [];
     options.forEach((option) => {
       const path = ancestor.concat(option);
-      if (changeOnSelect || !option.children) {
+      if (changeOnSelect || !option.children || !option.children.length) {
         flattenOptions.push(path);
       }
       if (option.children) {
