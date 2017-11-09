@@ -45,12 +45,12 @@ class BasicLayout extends React.Component<BasicProps, any> {
       siderHook: {
         addSider: (id: string) => {
           this.setState({
-            siders: [...this.state.siders, id ],
+            siders: [...this.state.siders, id],
           });
         },
         removeSider: (id: string) => {
           this.setState({
-            siders: this.state.siders.filter(currentId => currentId !== id ),
+            siders: this.state.siders.filter(currentId => currentId !== id),
           });
         },
       },
