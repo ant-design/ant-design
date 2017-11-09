@@ -102,8 +102,12 @@ title:
 
 通过一个操作引发的反馈浮层位于顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/FJkgswzSavkIhZjFAqjj.png" alt="正确示例" description="失败时建议使用对话框形式提示并告知失败原因。">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/dBBUQzfBveiWCLwjiCSX.png" alt="错误示例" description="失败时不建议使用轻量级提示方式。">
+<br />
+
+<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/FJkgswzSavkIhZjFAqjj.png" alt="正确示例" description="重要的失败信息建议使用对话框形式提示并告知失败原因。">
+<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/dBBUQzfBveiWCLwjiCSX.png" alt="错误示例" description="重要的失败信息时不建议使用轻量级提示方式。">
+
+由于反馈浮层的展示时长较短（默认 4.5s），对于比较重要的失败通知，建议改用对话框的形式进行通知，以避免用户遗漏信息。
 
 ### 对话框反馈
 

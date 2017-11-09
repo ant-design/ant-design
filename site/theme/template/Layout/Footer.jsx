@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Modal, Icon, message } from 'antd';
+import { Link } from 'bisheng/router';
 import { isLocalStorageNameSupported, loadScript } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -225,6 +226,10 @@ class Footer extends React.Component {
             <h2>Copyright © {new Date().getFullYear()}</h2>
             <div>
               <FormattedMessage id="app.footer.author" />
+              &nbsp;
+              <Link to="/docs/resource/work-with-us">
+                <FormattedMessage id="app.footer.work_with_us" />
+              </Link>
             </div>
             <div>
               Built with&nbsp;

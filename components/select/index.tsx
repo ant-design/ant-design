@@ -22,7 +22,7 @@ export interface AbstractSelectProps {
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onSearch?: (value: string) => any;
-  filterOption?: boolean | ((inputValue: string, option: Object) => any);
+  filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
 }
 
 export interface LabeledValue {
@@ -58,10 +58,11 @@ export interface OptionProps {
   disabled?: boolean;
   value?: any;
   title?: string;
+  children?: React.ReactNode;
 }
 
 export interface OptGroupProps {
-  label?: string | React.ReactElement<any>;
+  label?: React.ReactNode;
 }
 
 const SelectPropTypes = {
