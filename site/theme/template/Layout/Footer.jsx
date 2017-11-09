@@ -224,7 +224,7 @@ class Footer extends React.Component {
               <FormattedMessage id="app.footer.author" />
               &nbsp;
               <Link to="/docs/resource/work-with-us">
-                加入我们
+                <FormattedMessage id="app.footer.work_with_us" />
               </Link>
             </div>
             <div>
