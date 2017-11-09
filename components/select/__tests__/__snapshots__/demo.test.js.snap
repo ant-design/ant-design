@@ -102,7 +102,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       </div>
       <span
         class="ant-select-selection__clear"
-        style="user-select:none;-webkit-user-select:none;display:block"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       />
       <span

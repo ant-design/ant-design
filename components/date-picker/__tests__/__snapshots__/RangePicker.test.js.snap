@@ -234,7 +234,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-selected-day"
+                        class="ant-calendar-cell ant-calendar-selected-start-date ant-calendar-selected-end-date ant-calendar-selected-day"
                         role="gridcell"
                         title="2000年1月1日"
                       >
@@ -1739,7 +1739,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-selected-day"
+                        class="ant-calendar-cell ant-calendar-selected-start-date ant-calendar-selected-end-date ant-calendar-selected-day"
                         role="gridcell"
                         title="2000年1月1日"
                       >
