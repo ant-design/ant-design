@@ -19,9 +19,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           >
             <i
               class="anticon anticon-caret-up"
-            >
-              
-            </i>
+            />
           </span>
           <span
             class="ant-table-column-sorter-down off"
@@ -29,9 +27,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           >
             <i
               class="anticon anticon-caret-down"
-            >
-              
-            </i>
+            />
           </span>
         </div>
       </span>
