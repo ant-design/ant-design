@@ -80,8 +80,8 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
   innerSlider: any;
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
     });
