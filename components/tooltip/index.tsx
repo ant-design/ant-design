@@ -33,9 +33,11 @@ export interface AbstractTooltipProps {
   children?: React.ReactNode;
 }
 
+export type RenderFunction = () => React.ReactNode;
+
 export interface TooltipProps extends AbstractTooltipProps {
-  title?: React.ReactNode;
-  overlay?: React.ReactNode;
+  title?: React.ReactNode | RenderFunction;
+  overlay?: React.ReactNode | RenderFunction;
 }
 
 const splitObject = (obj, keys) => {
