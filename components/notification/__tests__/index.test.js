@@ -3,6 +3,10 @@ import notification from '..';
 jest.useFakeTimers();
 
 describe('notification', () => {
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   afterEach(() => {
     notification.destroy();
   });
