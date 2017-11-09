@@ -30,7 +30,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       Header
     </div>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
     >
       <div
         class="ant-layout-sider"
@@ -63,7 +63,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       Header
     </div>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
     >
       <div
         class="ant-layout-content"
@@ -88,7 +88,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
   >
     <div
       class="ant-layout-sider"
@@ -125,7 +125,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout"
 >
   <div
     class="ant-layout-sider"
@@ -309,7 +309,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout"
 >
   <div
     class="ant-layout-sider"
@@ -574,7 +574,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout"
 >
   <div
     class="ant-layout-sider"
@@ -684,7 +684,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout"
   style="min-height:100vh;"
 >
   <div
@@ -1035,7 +1035,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="padding:24px 0;background:#fff;"
     >
       <div
@@ -1206,7 +1206,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     </ul>
   </div>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout"
   >
     <div
       class="ant-layout-sider"
