@@ -66,7 +66,7 @@ class EditableTagGroup extends React.Component {
               {isLongTag ? `${tag.slice(0, 20)}...` : tag}
             </Tag>
           );
-          return isLongTag ? <Tooltip title={tag}>{tagElem}</Tooltip> : tagElem;
+          return isLongTag ? <Tooltip title={tag} key={tag}>{tagElem}</Tooltip> : tagElem;
         })}
         {inputVisible && (
           <Input
