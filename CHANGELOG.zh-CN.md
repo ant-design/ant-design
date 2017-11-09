@@ -17,6 +17,15 @@ timeline: true
 
 ---
 
+## 3.0.0
+
+- Select
+  - 单选和多选模式 Option 支持 number。
+  - 新增 `maxTagCount` 和 `maxTagPlaceholder`。
+  - 新增 `showAction`。
+  - 新增 `onMouseEnter` 和 `onMouseLeave`。
+  - 新增 `focus()`、`blur()` 和 `autoFocus`。
+
 ## 2.13.9
 
 `2017-11-06`

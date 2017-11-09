@@ -52,6 +52,7 @@ export interface SelectProps extends AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
+  autoFocus?: boolean;
 }
 
 export interface OptionProps {
@@ -90,7 +91,21 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: 'zoom',
   };
 
+  private rcSelect: any;
+
   static propTypes = SelectPropTypes;
+
+  focus() {
+    this.rcSelect.focus();
+  }
+
+  blur() {
+    this.rcSelect.blur();
+  }
+
+  saveSelect = (node) => {
+    this.rcSelect = node;
+  }
 
   renderSelect = (locale) => {
     const {
@@ -132,6 +147,7 @@ export default class Select extends React.Component<SelectProps, any> {
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContentLocale}
+        ref={this.saveSelect}
       />
     );
   }
