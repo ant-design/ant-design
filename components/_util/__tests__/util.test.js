@@ -3,6 +3,9 @@ import throttleByAnimationFrame from '../throttleByAnimationFrame';
 jest.useFakeTimers();
 
 describe('Test utils function', () => {
+  afterAll(() => {
+    jest.useRealTimers();
+  });
   it('throttle function should work', () => {
     const callback = jest.fn();
     const throttled = throttleByAnimationFrame(callback);

@@ -48,6 +48,9 @@ class AffixMounter extends React.Component {
 }
 
 describe('Affix Render', () => {
+  afterAll(() => {
+    jest.useRealTimers();
+  });
   it('Anchor render perfectly', () => {
     document.body.innerHTML = '<div id="mounter" />';
 

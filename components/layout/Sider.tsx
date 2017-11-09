@@ -43,6 +43,14 @@ export interface SiderProps {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
+const generateId = (() => {
+  let i = 0;
+  return (prefix: string = '') => {
+    i += 1;
+    return `${prefix}${i}`;
+  };
+})();
+
 export default class Sider extends React.Component<SiderProps, any> {
   static __ANT_LAYOUT_SIDER: any = true;
 
@@ -60,10 +68,16 @@ export default class Sider extends React.Component<SiderProps, any> {
     siderCollapsed: PropTypes.bool,
   };
 
+  static contextTypes = {
+    siderHook: PropTypes.object,
+  };
+
   private mql: any;
+  private uniqueId: string;
 
   constructor(props) {
     super(props);
+    this.uniqueId = generateId('ant-sider-');
     let matchMedia;
     if (typeof window !== 'undefined') {
       matchMedia = window.matchMedia;
@@ -102,11 +116,19 @@ export default class Sider extends React.Component<SiderProps, any> {
       this.mql.addListener(this.responsiveHandler);
       this.responsiveHandler(this.mql);
     }
+
+    if (this.context.siderHook) {
+      this.context.siderHook.addSider(this.uniqueId);
+    }
   }
 
   componentWillUnmount() {
     if (this.mql) {
       this.mql.removeListener(this.responsiveHandler);
+    }
+
+    if (this.context.siderHook) {
+      this.context.siderHook.removeSider(this.uniqueId);
     }
   }
 
