@@ -28,7 +28,7 @@ describe('Upload', () => {
     const props = {
       action: 'http://upload.com',
       beforeUpload: () => new Promise(resolve =>
-        setTimeout(() => resolve('success'), 1000)
+        setTimeout(() => resolve('success'), 100)
       ),
       data,
       onChange: ({ file }) => {
