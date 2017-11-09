@@ -7868,7 +7868,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-column-sort"
                   >
                     <span>
                       Age
@@ -7884,7 +7884,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           />
                         </span>
                         <span
-                          class="ant-table-column-sorter-down off"
+                          class="ant-table-column-sorter-down on"
                           title="↓"
                         >
                           <i
@@ -7940,33 +7940,10 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    John Brown
-                  </td>
-                  <td
-                    class=""
-                  >
-                    32
-                  </td>
-                  <td
-                    class=""
-                  >
-                    New York No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row  ant-table-row-level-0"
-                >
-                  <td
-                    class=""
-                  >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim Green
                   </td>
                   <td
-                    class=""
+                    class="ant-table-column-sort"
                   >
                     42
                   </td>
@@ -7986,10 +7963,33 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    Joe Black
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-column-sort"
+                  >
+                    32
                   </td>
                   <td
                     class=""
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-column-sort"
                   >
                     32
                   </td>
@@ -8012,7 +8012,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     Jim Red
                   </td>
                   <td
-                    class=""
+                    class="ant-table-column-sort"
                   >
                     32
                   </td>

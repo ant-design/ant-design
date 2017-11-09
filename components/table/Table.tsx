@@ -139,7 +139,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     this.columns = props.columns || normalizeColumns(props.children);
 
     this.state = {
-      ...this.getSortStateFromColumns(),
+      ...this.getDefaultSortOrder(this.columns),
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
@@ -303,16 +303,33 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return filters;
   }
 
+  getDefaultSortOrder(columns?) {
+    const definedSortState = this.getSortStateFromColumns(columns);
+
+    let defaultSortedColumn = flatFilter(columns || [], column => column.defaultSortOrder != null)[0];
+
+    if (defaultSortedColumn && !definedSortState.sortColumn) {
+      return {
+        sortColumn: defaultSortedColumn,
+        sortOrder: defaultSortedColumn.defaultSortOrder,
+      };
+    }
+
+    return definedSortState;
+  }
+
   getSortStateFromColumns(columns?) {
-    // return fisrt column which sortOrder is not falsy
+    // return first column which sortOrder is not falsy
     const sortedColumn =
       this.getSortOrderColumns(columns).filter(col => col.sortOrder)[0];
+
     if (sortedColumn) {
       return {
         sortColumn: sortedColumn,
         sortOrder: sortedColumn.sortOrder,
       };
     }
+
     return {
       sortColumn: null,
       sortOrder: null,
@@ -707,10 +724,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
-          column.className = column.className || '';
-          if (sortOrder) {
-            column.className += ` ${prefixCls}-column-sort`;
-          }
+          column.className = classNames(column.className, {
+            [`${prefixCls}-column-sort`]: sortOrder,
+          });
         }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
