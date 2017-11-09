@@ -2721,7 +2721,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 1
@@ -2761,7 +2761,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 2
@@ -2801,7 +2801,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 3
@@ -2841,7 +2841,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 4
@@ -2881,7 +2881,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 5
@@ -2921,7 +2921,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 6
@@ -2961,7 +2961,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 7
@@ -3001,7 +3001,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 8
@@ -3041,7 +3041,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     <div>
                       Edrward 9
@@ -3140,7 +3140,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
         <li
           class="ant-pagination-jump-next"
           tabindex="0"
-          title="向后 5 页"
+          title="Next 5 Pages"
         >
           <a
             class="ant-pagination-item-link"
