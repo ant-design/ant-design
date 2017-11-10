@@ -64,7 +64,6 @@ export default class Menu extends React.Component<MenuProps, any> {
   };
   switchModeFromInline: boolean;
   inlineOpenKeys = [];
-  prevInlineCollapsed: boolean;
   constructor(props) {
     super(props);
 
@@ -116,7 +115,6 @@ export default class Menu extends React.Component<MenuProps, any> {
       this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
     }
-    this.prevInlineCollapsed = this.getInlineCollapsed();
   }
   handleClick = (e) => {
     this.handleOpenChange([]);
@@ -183,7 +181,7 @@ export default class Menu extends React.Component<MenuProps, any> {
               this.setState({});
               // when inlineCollapsed change false to true, all submenu will be unmounted,
               // so that we don't need handle animation leaving.
-              if (!this.prevInlineCollapsed && this.props.inlineCollapsed) {
+              if (this.getRealMenuMode() === 'vertical') {
                 return;
               }
               done();
