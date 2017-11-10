@@ -13,7 +13,7 @@ class SubMenu extends React.Component<any, any> {
     return (
       <RcSubMenu
         {...this.props}
-        className={classNames(`${rootPrefixCls}-${theme}`, className)}
+        popupClassName={classNames(`${rootPrefixCls}-${theme}`, className)}
       />
     );
   }
