@@ -215,6 +215,62 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -1431,6 +1487,81 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle0"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle0"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1649,6 +1780,62 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancelar
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -2865,6 +3052,81 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle1"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle1"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancelar
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -3083,6 +3345,62 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancelar
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -4299,6 +4617,81 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle2"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle2"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancelar
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -4517,6 +4910,62 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Отмена
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -5733,6 +6182,81 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle3"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle3"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Отмена
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -5951,6 +6475,62 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancelar
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Aceptar
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -7167,6 +7747,81 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle4"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle4"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancelar
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  Aceptar
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -7385,6 +8040,62 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Avbryt
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -8601,6 +9312,81 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle5"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle5"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Avbryt
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -8819,6 +9605,62 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Annuler
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -10035,6 +10877,81 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle6"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle6"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Annuler
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -10253,6 +11170,62 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Abbrechen
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -11469,6 +12442,81 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle7"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle7"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Abbrechen
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -11687,6 +12735,62 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Annuleren
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -12903,6 +14007,81 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle8"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle8"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Annuleren
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -13121,6 +14300,62 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancel·lar
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -14337,6 +15572,81 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle9"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle9"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancel·lar
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -14555,6 +15865,62 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Storno
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Ok
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -15771,6 +17137,81 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle10"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle10"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Storno
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  Ok
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -15989,6 +17430,62 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    취소
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    확인
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -17205,6 +18702,81 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle11"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle11"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  취소
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  확인
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -17423,6 +18995,62 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Tühista
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -18639,6 +20267,81 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle12"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle12"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Tühista
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -18857,6 +20560,62 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Zrušiť
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -20073,6 +21832,81 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle13"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle13"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Zrušiť
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -20291,6 +22125,62 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    キャンセル
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -21507,6 +23397,81 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle14"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle14"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  キャンセル
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -21725,6 +23690,62 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    İptal
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Tamam
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -22941,6 +24962,81 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle15"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle15"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  İptal
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  Tamam
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -23159,6 +25255,62 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    取 消
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    確 定
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -24375,6 +26527,81 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle16"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle16"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  取 消
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  確 定
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -24593,6 +26820,62 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Peruuta
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -25809,6 +28092,81 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle17"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle17"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Peruuta
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -26027,6 +28385,62 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Anuluj
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -27243,6 +29657,81 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle18"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle18"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Anuluj
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -27461,6 +29950,62 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Отказ
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Добре
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -28677,6 +31222,81 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle19"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle19"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Отказ
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  Добре
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -28895,6 +31515,62 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -30111,6 +32787,81 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle20"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle20"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -30329,6 +33080,62 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Annuler
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -31545,6 +34352,81 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle21"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle21"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Annuler
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -31763,6 +34645,62 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Annuleer
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -32979,6 +35917,81 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle22"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle22"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Annuleer
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -33197,6 +36210,62 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Annulla
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -34413,6 +37482,81 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle23"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle23"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Annulla
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -34631,6 +37775,62 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Huỷ
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -35847,6 +39047,81 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle24"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle24"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Huỷ
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -36065,6 +39340,62 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    ยกเลิก
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    ตกลง
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -37281,6 +40612,81 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle25"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle25"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  ยกเลิก
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  ตกลง
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -37499,6 +40905,62 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    لغو
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    تایید
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -38715,6 +42177,81 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle26"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle26"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  لغو
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  تایید
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -38933,6 +42470,62 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Άκυρο
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    ΟΚ
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -40149,6 +43742,81 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle27"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle27"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Άκυρο
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  ΟΚ
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -40367,6 +44035,62 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Avbryt
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -41583,6 +45307,81 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle28"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle28"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Avbryt
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -41801,6 +45600,62 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Otkaži
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    U redu
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -43017,6 +46872,81 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle29"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle29"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Otkaži
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  U redu
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -43235,6 +47165,62 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Hætta við
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    Áfram
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -44451,6 +48437,81 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle30"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle30"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Hætta við
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  Áfram
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -44669,6 +48730,62 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
   >
     Click to confirm
   </a>
+  <div>
+    <div
+      class="ant-popover ant-popover-placement-top zoom-big-appear"
+      style="left: -999px; top: -1003px;"
+    >
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-arrow"
+        />
+        <div
+          class="ant-popover-inner"
+        >
+          <div>
+            <div
+              class="ant-popover-inner-content"
+            >
+              <div
+                class="ant-popover-message"
+              >
+                <i
+                  class="anticon anticon-exclamation-circle"
+                />
+                <div
+                  class="ant-popover-message-title"
+                >
+                  Question?
+                </div>
+              </div>
+              <div
+                class="ant-popover-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    إلغاء
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  type="button"
+                >
+                  <span>
+                    تأكيد
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-transfer"
   >
@@ -45881,6 +49998,81 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               لا توجد بيانات
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle31"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle31"
+            >
+              Locale Modal
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            <p>
+              Locale Modal
+            </p>
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  إلغاء
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  تأكيد
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
         </div>
       </div>
     </div>

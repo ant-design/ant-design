@@ -1,9 +1,10 @@
 import React from 'react';
-import RcMenu, { Divider, SubMenu, ItemGroup } from 'rc-menu';
+import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
+import SubMenu from './SubMenu';
 import Item from './MenuItem';
 
 export interface SelectParam {
@@ -23,10 +24,8 @@ export interface ClickParam {
 
 export interface MenuProps {
   id?: string;
-  /** `light` `dark` */
   theme?: 'light' | 'dark';
-  /** enum: `vertical` `horizontal` `inline` */
-  mode?: 'vertical' | 'horizontal' | 'inline';
+  mode?: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
   selectable?: boolean;
   selectedKeys?: Array<string>;
   defaultSelectedKeys?: Array<string>;
@@ -58,6 +57,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,
+    antdMenuTheme: PropTypes.string,
   };
   static contextTypes = {
     siderCollapsed: PropTypes.bool,
@@ -92,6 +92,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   getChildContext() {
     return {
       inlineCollapsed: this.getInlineCollapsed(),
+      antdMenuTheme: this.props.theme,
     };
   }
   componentWillReceiveProps(nextProps, nextContext) {
@@ -160,6 +161,8 @@ export default class Menu extends React.Component<MenuProps, any> {
           menuOpenAnimation = 'slide-up';
           break;
         case 'vertical':
+        case 'vertical-left':
+        case 'vertical-right':
           // When mode switch from inline
           // submenu should hide without animation
           if (this.switchModeFromInline) {
@@ -176,6 +179,11 @@ export default class Menu extends React.Component<MenuProps, any> {
               // Make sure inline menu leave animation finished before mode is switched
               this.switchModeFromInline = false;
               this.setState({});
+              // when inlineCollapsed change false to true, all submenu will be unmounted,
+              // so that we don't need handle animation leaving.
+              if (this.getRealMenuMode() === 'vertical') {
+                return;
+              }
               done();
             }),
           };

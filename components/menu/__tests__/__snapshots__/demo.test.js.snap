@@ -3,13 +3,13 @@
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-horizontal ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
   role="menu"
   tabindex="0"
 >
   <li
     aria-selected="true"
-    class="ant-menu-item-selected ant-menu-item"
+    class="ant-menu-item ant-menu-item-selected"
     role="menuitem"
   >
     <i
@@ -20,7 +20,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
   <li
     aria-disabled="true"
     aria-selected="false"
-    class="ant-menu-item-disabled ant-menu-item"
+    class="ant-menu-item ant-menu-item-disabled"
     role="menuitem"
   >
     <i
@@ -29,7 +29,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     Navigation Two
   </li>
   <li
-    class="ant-menu-submenu-horizontal ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-horizontal"
   >
     <div
       aria-expanded="false"
@@ -67,13 +67,13 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
   role="menu"
   style="width:256px"
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
   >
     <div
       aria-expanded="true"
@@ -96,7 +96,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     </div>
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-inline  ant-menu-sub"
+      class="ant-menu  ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -114,7 +114,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         >
           <li
             aria-selected="true"
-            class="ant-menu-item-selected ant-menu-item"
+            class="ant-menu-item ant-menu-item-selected"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -163,7 +163,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     </ul>
   </li>
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline"
   >
     <div
       aria-expanded="false"
@@ -186,7 +186,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline"
   >
     <div
       aria-expanded="false"
@@ -226,13 +226,13 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   </button>
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
     role="menu"
     tabindex="0"
   >
     <li
       aria-selected="true"
-      class="ant-menu-item-selected ant-menu-item"
+      class="ant-menu-item ant-menu-item-selected"
       role="menuitem"
       style="padding-left:24px"
     >
@@ -270,7 +270,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </span>
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
     >
       <div
         aria-expanded="true"
@@ -293,7 +293,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </div>
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline  ant-menu-sub"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -332,7 +332,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       </ul>
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline"
     >
       <div
         aria-expanded="false"
@@ -361,13 +361,13 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
   role="menu"
   style="width:256px"
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
   >
     <div
       aria-expanded="true"
@@ -390,7 +390,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     </div>
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-inline  ant-menu-sub"
+      class="ant-menu  ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -429,7 +429,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     </ul>
   </li>
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline"
   >
     <div
       aria-expanded="false"
@@ -452,7 +452,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu-inline ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-inline"
   >
     <div
       aria-expanded="false"
@@ -505,14 +505,14 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
   <br />
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
+    class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
     role="menu"
     style="width:256px"
     tabindex="0"
   >
     <li
       aria-selected="true"
-      class="ant-menu-item-selected ant-menu-item"
+      class="ant-menu-item ant-menu-item-selected"
       role="menuitem"
       style="padding-left:24px"
     >
@@ -533,7 +533,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       Navigation Two
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
     >
       <div
         aria-expanded="true"
@@ -556,7 +556,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       </div>
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline  ant-menu-sub"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -577,7 +577,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           Option 4
         </li>
         <li
-          class="ant-menu-submenu-inline ant-menu-submenu"
+          class="ant-menu-submenu ant-menu-submenu-inline"
         >
           <div
             aria-expanded="false"
@@ -596,7 +596,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       </ul>
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline"
     >
       <div
         aria-expanded="false"
@@ -639,13 +639,13 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
   <br />
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
     role="menu"
     style="width:256px"
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
     >
       <div
         aria-expanded="true"
@@ -668,13 +668,13 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       </div>
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline  ant-menu-sub"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
         <li
           aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
+          class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -707,7 +707,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       </ul>
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline"
     >
       <div
         aria-expanded="false"
@@ -730,7 +730,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       </div>
     </li>
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu"
+      class="ant-menu-submenu ant-menu-submenu-inline"
     >
       <div
         aria-expanded="false"
@@ -759,13 +759,13 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 <ul
   aria-activedescendant=""
-  class="ant-menu ant-menu-vertical ant-menu-light ant-menu-root"
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
   role="menu"
   style="width:256px"
   tabindex="0"
 >
   <li
-    class="ant-menu-submenu-vertical ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-vertical"
   >
     <div
       aria-expanded="false"
@@ -787,7 +787,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu-vertical ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-vertical"
   >
     <div
       aria-expanded="false"
@@ -809,7 +809,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-submenu-vertical ant-menu-submenu"
+    class="ant-menu-submenu ant-menu-submenu-vertical"
   >
     <div
       aria-expanded="false"

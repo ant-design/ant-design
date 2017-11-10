@@ -52,6 +52,7 @@ export interface SelectProps extends AbstractSelectProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
+  autoFocus?: boolean;
 }
 
 export interface OptionProps {
@@ -93,6 +94,20 @@ export default class Select extends React.Component<SelectProps, any> {
 
   static propTypes = SelectPropTypes;
 
+  private rcSelect: any;
+
+  focus() {
+    this.rcSelect.focus();
+  }
+
+  blur() {
+    this.rcSelect.blur();
+  }
+
+  saveSelect = (node) => {
+    this.rcSelect = node;
+  }
+
   renderSelect = (locale) => {
     const {
       prefixCls,
@@ -133,6 +148,7 @@ export default class Select extends React.Component<SelectProps, any> {
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContentLocale}
+        ref={this.saveSelect}
       />
     );
   }

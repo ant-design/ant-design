@@ -115,7 +115,7 @@ describe('Table.filter', () => {
       }],
     }));
 
-    wrapper.find('Dropdown').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).toBeCalledWith(true);
   });

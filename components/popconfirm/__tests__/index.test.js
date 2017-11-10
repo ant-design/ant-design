@@ -22,7 +22,7 @@ describe('Popconfirm', () => {
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
     expect(onVisibleChange).toBeCalledWith(true);
-    expect(document.querySelectorAll('.popconfirm-test').length).toBe(1);
+    expect(wrapper.find('.popconfirm-test').length).toBe(1);
 
     triggerNode.simulate('click');
     expect(onVisibleChange).toBeCalledWith(false);

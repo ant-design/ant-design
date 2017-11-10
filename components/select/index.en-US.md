@@ -24,6 +24,7 @@ Select component to select value from options.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Show clear button. | boolean | false |
+| autoFocus | Get focus by default | boolean | false |
 | combobox | Enable combobox mode (can not set multiple at the same time). (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[] | - |
@@ -35,6 +36,8 @@ Select component to select value from options.
 | firstActiveValue | Value of action option by default | string\|string\[] | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | function(triggerNode) | () => document.body |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
+| maxTagCount |  Max tag count to show | number | - |
+| maxTagPlaceholder | Placeholder for not showing tags | ReactNode | - |
 | mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
 | multiple | Allow multiple select (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
@@ -50,8 +53,17 @@ Select component to select value from options.
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
 | onDeselect | Called when a option is deselected, the params are option's value (or key) . only called for multiple or tags, effective in multiple or tags mode only. | function(value) | - |
 | onFocus | Called when focus | function | - |
+| onMouseEnter | Called when mouse enter | function | - |
+| onMouseLeave | Called when mouse leave | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option) | - |
+
+### Select Methods
+
+| Name | Description |
+| --- | --- |
+| blur() | Remove focus |
+| focus() | Get focus |
 
 ### Option props
 

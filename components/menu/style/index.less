@@ -12,7 +12,6 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
   background: @component-background;
   line-height: 0; // Fix display inline-block gap
@@ -102,10 +101,6 @@
     color: @primary-color;
   }
 
-  &:not(&-inline) &-submenu-open {
-    z-index: @zindex-dropdown;
-  }
-
   &-horizontal &-item,
   &-horizontal &-submenu {
     margin-top: -1px;
@@ -129,18 +124,12 @@
     background-color: @item-active-bg;
   }
 
-  &-horizontal,
   &-inline,
-  &-vertical {
-    z-index: auto;
-  }
-
-  &-inline,
-  &-vertical {
-    border-right: @border-width-base @border-style-base @border-color-split;
+  &-vertical,
+  &-vertical-left,
+  &-vertical-right {
     .@{menu-prefix-cls}-item {
       position: relative;
-      z-index: 1;
       &:after {
         content: "";
         position: absolute;
@@ -155,7 +144,18 @@
     }
   }
 
-  &-vertical&-sub {
+  &-inline,
+  &-vertical,
+  &-vertical-left {
+    border-right: @border-width-base @border-style-base @border-color-split;
+  }
+  &-vertical-right {
+    border-left: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
     border-right: 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
@@ -167,26 +167,11 @@
     }
   }
 
-  &-submenu-horizontal > & {
-    top: 100%;
-    left: 0;
-    position: absolute;
-    min-width: 100%;
-    margin-top: 7px;
-    z-index: @zindex-dropdown;
-  }
-
-  &-submenu-vertical {
-    z-index: 1;
-  }
-
-  &-submenu-vertical > & {
-    top: 0;
-    left: 100%;
-    position: absolute;
+  &-horizontal&-sub,
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
     min-width: 160px;
-    margin-left: 4px;
-    z-index: @zindex-dropdown;
   }
 
   &-item,
@@ -217,7 +202,9 @@
   }
 
   &-submenu {
-    position: relative;
+    &-popup {
+      position: absolute;
+    }
 
     > .@{menu-prefix-cls} {
       background-color: @component-background;
@@ -227,9 +214,11 @@
       }
     }
 
-    &-vertical > .@{menu-prefix-cls}-submenu-title,
-    &-inline > .@{menu-prefix-cls}-submenu-title {
-      .@{menu-prefix-cls}-submenu-arrow {
+    &-vertical,
+    &-vertical-left,
+    &-vertical-right,
+    &-inline {
+      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
         transition: transform .3s @ease-in-out;
         position: absolute;
         top: 50%;
@@ -251,11 +240,19 @@
       }
     }
 
-    &-vertical > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:before {
-      transform: rotate(-45deg) translateY(2px);
+    &-vertical,
+    &-vertical-left,
+    &-vertical-right {
+      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:before {
+        transform: rotate(-45deg) translateY(2px);
+      }
     }
-    &-vertical > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:after {
-      transform: rotate(45deg) translateY(-2px);
+    &-vertical,
+    &-vertical-left,
+    &-vertical-right {
+      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:after {
+        transform: rotate(45deg) translateY(-2px);
+      }
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:after {
@@ -265,9 +262,11 @@
       transform: rotate(-45deg) translateX(2px);
     }
 
-    &-vertical > .@{menu-prefix-cls}-submenu-title:hover,
-    &-inline > .@{menu-prefix-cls}-submenu-title:hover {
-      .@{menu-prefix-cls}-submenu-arrow {
+    &-vertical,
+    &-vertical-left,
+    &-vertical-right,
+    &-inline {
+       > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
         &:after,
         &:before {
           background: linear-gradient(to right, @primary-color, @primary-color);
@@ -288,7 +287,9 @@
     }
   }
 
-  &-vertical &-submenu-selected {
+  &-vertical &-submenu-selected,
+  &-vertical-left &-submenu-selected,
+  &-vertical-right &-submenu-selected {
     color: @primary-color;
     > a {
       color: @primary-color;
@@ -299,7 +300,6 @@
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
-    z-index: 0;
     line-height: 46px;
 
     > .@{menu-prefix-cls}-item,
@@ -335,6 +335,8 @@
   }
 
   &-vertical,
+  &-vertical-left,
+  &-vertical-right,
   &-inline {
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
@@ -344,7 +346,6 @@
       height: @menu-item-height;
       margin-top: 4px;
       margin-bottom: 4px;
-      display: inline-block;
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -423,7 +424,9 @@
     }
   }
 
-  &-vertical&-sub {
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
     padding: 0;
     transform-origin: 0 0;
     & > .@{menu-prefix-cls}-item,
@@ -433,6 +436,8 @@
   }
 
   &-root&-vertical,
+  &-root&-vertical-left,
+  &-root&-vertical-right,
   &-root&-inline {
     box-shadow: none;
   }
@@ -511,12 +516,16 @@
   }
 
   &-dark&-inline,
-  &-dark&-vertical {
+  &-dark&-vertical,
+  &-dark&-vertical-left,
+  &-dark&-vertical-right {
     border-right: 0;
   }
 
   &-dark&-inline &-item,
-  &-dark&-vertical &-item {
+  &-dark&-vertical &-item,
+  &-dark&-vertical-left &-item,
+  &-dark&-vertical-right &-item {
     border-right: 0;
     margin-left: 0;
     left: 0;
