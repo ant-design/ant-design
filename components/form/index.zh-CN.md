@@ -162,7 +162,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 540px;
+  max-width: 600px;
 }
 </style>
 

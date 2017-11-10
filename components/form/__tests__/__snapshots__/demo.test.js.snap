@@ -431,7 +431,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -442,7 +442,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control "
@@ -462,7 +462,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -473,7 +473,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control "
@@ -517,7 +517,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+      class="ant-col-12 ant-col-offset-5 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control "
@@ -1456,7 +1456,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <div
                 class="ant-select ant-select-enabled"
-                style="width:64px"
+                style="width:70px"
               >
                 <div
                   aria-autocomplete="list"

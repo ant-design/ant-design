@@ -161,7 +161,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 540px;
+  max-width: 600px;
 }
 </style>
 
