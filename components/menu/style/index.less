@@ -481,7 +481,7 @@
 // dark theme
 .@{menu-prefix-cls} {
   &-dark,
-  &-dark&-sub {
+  &-dark &-sub {
     color: @text-color-secondary-dark;
     background: @menu-dark-bg;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .45) inset;
@@ -495,7 +495,7 @@
     }
   }
 
-  &-dark&-inline&-sub {
+  &-dark &-inline&-sub {
     background: @menu-dark-submenu-bg;
   }
 
@@ -541,10 +541,10 @@
 
   &-dark &-item:hover,
   &-dark &-item-active,
-  &-dark&-submenu-active,
-  &-dark&-submenu-open,
-  &-dark&-submenu-selected,
-  &-dark&-submenu-title:hover {
+  &-dark &-submenu-active,
+  &-dark &-submenu-open,
+  &-dark &-submenu-selected,
+  &-dark &-submenu-title:hover {
     background-color: transparent;
     color: #fff;
     > a {
@@ -580,7 +580,7 @@
 
   // Disabled state sets text to dark gray and nukes hover/tab effects
   &-dark &-item-disabled,
-  &-dark&-submenu-disabled {
+  &-dark &-submenu-disabled {
     &,
     > a {
       opacity: 0.8;
