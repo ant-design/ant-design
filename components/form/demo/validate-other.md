@@ -16,7 +16,7 @@ Demostration for validataion configuration for form controls which are not show 
 ````jsx
 import {
   Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon,
+  Slider, Button, Upload, Icon, Rate,
 } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -138,6 +138,17 @@ class Demo extends React.Component {
               <RadioButton value="b">item 2</RadioButton>
               <RadioButton value="c">item 3</RadioButton>
             </RadioGroup>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Rate"
+        >
+          {getFieldDecorator('rate', {
+            initialValue: 3.5,
+          })(
+            <Rate />
           )}
         </FormItem>
 

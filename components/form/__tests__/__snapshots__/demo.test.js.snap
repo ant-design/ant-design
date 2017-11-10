@@ -2522,6 +2522,123 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     >
       <label
         class=""
+        for="rate"
+        title="Rate"
+      >
+        Rate
+      </label>
+    </div>
+    <div
+      class="ant-col-14 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-success"
+      >
+        <ul
+          class="ant-rate"
+        >
+          <li
+            class="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              class="ant-rate-star-first"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+            <div
+              class="ant-rate-star-second"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              class="ant-rate-star-first"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+            <div
+              class="ant-rate-star-second"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-rate-star ant-rate-star-full"
+          >
+            <div
+              class="ant-rate-star-first"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+            <div
+              class="ant-rate-star-second"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-rate-star ant-rate-star-zero"
+          >
+            <div
+              class="ant-rate-star-first"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+            <div
+              class="ant-rate-star-second"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-rate-star ant-rate-star-zero"
+          >
+            <div
+              class="ant-rate-star-first"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+            <div
+              class="ant-rate-star-second"
+            >
+              <i
+                class="anticon anticon-star"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col-6 ant-form-item-label"
+    >
+      <label
+        class=""
         for="upload"
         title="Upload"
       >
