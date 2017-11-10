@@ -91,9 +91,9 @@ export default class Select extends React.Component<SelectProps, any> {
     choiceTransitionName: 'zoom',
   };
 
-  private rcSelect: any;
-
   static propTypes = SelectPropTypes;
+
+  private rcSelect: any;
 
   focus() {
     this.rcSelect.focus();
