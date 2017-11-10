@@ -19,8 +19,6 @@ matrix:
       - env: REACT=15 TEST_TYPE=test:es
       - env: REACT=15 TEST_TYPE=test:dom
       - env: REACT=15 TEST_TYPE=test:node
-  allow_failures:
-    - env: REACT=16 TEST_TYPE=test:dist
 
 before_script:
   - scripts/install-react.sh
