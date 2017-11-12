@@ -12,7 +12,7 @@ export interface HeaderProps {
   yearSelectOffset?: number;
   yearSelectTotal?: number;
   type?: string;
-  onValueChange?: (value) => void;
+  onValueChange?: (value: any) => void;
   onTypeChange?: (type: string) => void;
   value: any;
 }
