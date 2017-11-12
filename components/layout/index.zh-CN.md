@@ -110,12 +110,3 @@ title: Layout
   xl: '1600px',
 }
 ```
-
-> 注意：如果你想在 `Sider` 基础上进行包装，需要给自定义组件加上 `__ANT_LAYOUT_SIDER = true` 设置，例如：
-
-```jsx
-const CustomizedSider = (props) => <Sider {...props} />
-CustomizedSider.__ANT_LAYOUT_SIDER = true;
-...
-<CustomizedSider>Sider Content</CustomizedSider>
-```
