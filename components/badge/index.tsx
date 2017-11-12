@@ -71,12 +71,14 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const hidden = (isEmpty || (isZero && !showZero)) && !isDot;
     const statusCls = classNames({
       [`${prefixCls}-status-dot`]: !!status,
-    }, `${prefixCls}-status-${status}`);
+      [`${prefixCls}-status-${status}`]: !!status,
+    });
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
       [`${prefixCls}-multiple-words`]: count && count.toString && count.toString().length > 1,
-    }, `${prefixCls}-status-${status}`);
+      [`${prefixCls}-status-${status}`]: !!status,
+    });
     const badgeCls = classNames(className, prefixCls, {
       [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
