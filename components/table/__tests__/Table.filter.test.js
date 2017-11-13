@@ -285,4 +285,24 @@ describe('Table.filter', () => {
 
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
+
+  it('confirm filter when dropdown hidden', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filters: [
+          { text: 'Jack', value: 'Jack' },
+          { text: 'Lucy', value: 'Lucy' },
+        ],
+      }],
+      onChange: handleChange,
+    }));
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+    expect(handleChange).toBeCalled();
+  });
 });
