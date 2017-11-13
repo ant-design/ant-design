@@ -110,9 +110,6 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   onVisibleChange = (visible) => {
     this.setVisible(visible);
-    if (!visible) {
-      this.confirmFilter();
-    }
   }
 
   confirmFilter() {
