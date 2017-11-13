@@ -35,8 +35,9 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      fileList: this.props.fileList || this.props.defaultFileList || [],
+      fileList: props.fileList || props.defaultFileList || [],
       dragState: 'drop',
     };
   }

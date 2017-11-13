@@ -15,9 +15,7 @@ timeline: true
 
 如果需要查看 `2.0.0` 之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md)。
 
----
-
-## 3.0.0
+---## 3.0.0
 
 - Select
   - 单选和多选模式 Option 支持 number。
@@ -26,15 +24,28 @@ timeline: true
   - 新增 `onMouseEnter` 和 `onMouseLeave`。
   - 新增 `focus()`、`blur()` 和 `autoFocus`。
 
+## 2.13.10
+
+`2017-11-12`
+
+- 📝 添加 [招聘](http://ant.design/docs/resource/work-with-us-cn) 页面。
+- 📝 重构了可编辑表格的演示代码。[#8026](https://github.com/ant-design/ant-design/issues/8026)
+- 🌟 优化了 Layout.Sider 的探测方式，现在支持 Sider 随意内嵌和组合（不再需要指定 `__ANT_LAYOUT_SIDER` 属性）。[#8077](https://github.com/ant-design/ant-design/pull/8077/) [@yasinuslu](https://github.com/yasinuslu)
+- 🐞 修复 Chrome 62 下 Input.Group 内 Select 和 Input 的对齐问题。[ant-design/ant-design-pro#139](https://github.com/ant-design/ant-design-pro/issues/139)
+- 🐞 修复 Cascader 搜索在 options 内 children 为空数组时工作不正常的问题。[#8130](https://github.com/ant-design/ant-design/issues/8130) [@jdz321](https://github.com/jdz321)
+- 🐞 修复一个 AutoComponent 和 Input 样式优先级导致错位的问题。[#8081](https://github.com/ant-design/ant-design/issues/8081)
+- 🐞 修复 IE9 下 Upload 初始化时报错的问题。[#7706](https://github.com/ant-design/ant-design/issues/7706)
+- 🐞 修复 Select 的 filterOption 参数的 TypeScript 定义。[#8128](https://github.com/ant-design/ant-design/issues/8128)
+
 ## 2.13.9
 
 `2017-11-06`
 
-- 发布 [Ant Design Pro](https://pro.ant.design/)。
-- 修复 `Cascader[popupVisible]` 失效问题。[#8088](https://github.com/ant-design/ant-design/issues/8088)
-- 修复原生 `input[type=checkbox|radio]` 看不到的问题。[7c3a483](https://github.com/ant-design/ant-design/commit/7c3a48319074a800c89935e728904933d503ee86)
-- 修复 `Input.Search[suffix]` 失效的问题。[#7970](https://github.com/ant-design/ant-design/issues/7970)
-- 修复 Slider TypeScript 定义问题。[#8102](https://github.com/ant-design/ant-design/pull/8102) [@davschne](https://github.com/davschne)
+- 🌟 发布 [Ant Design Pro](https://pro.ant.design/)。
+- 🐞 修复 `Cascader[popupVisible]` 失效问题。[#8088](https://github.com/ant-design/ant-design/issues/8088)
+- 🐞 修复原生 `input[type=checkbox|radio]` 看不到的问题。[7c3a483](https://github.com/ant-design/ant-design/commit/7c3a48319074a800c89935e728904933d503ee86)
+- 🐞 修复 `Input.Search[suffix]` 失效的问题。[#7970](https://github.com/ant-design/ant-design/issues/7970)
+- 🐞 修复 Slider TypeScript 定义问题。[#8102](https://github.com/ant-design/ant-design/pull/8102) [@davschne](https://github.com/davschne)
 
 ## 2.13.8
 

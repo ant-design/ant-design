@@ -17,15 +17,28 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.10
+
+`2017-11-12`
+
+- 📝 Add documentation of [Work with Us](http://ant.design/docs/resource/work-with-us).
+- 📝 Refactor edit row demo of Table. [#8026](https://github.com/ant-design/ant-design/issues/8026)
+- 🌟 Improve code of detecting Layout.Sider, now we can compose and nest the Sider without specify `__ANT_LAYOUT_SIDER` aattribute. [#8077](https://github.com/ant-design/ant-design/pull/8077/) [@yasinuslu](https://github.com/yasinuslu)
+- 🐞 Fix align issue of `Input.Group` in Chrome 62. [ant-design/ant-design-pro#139](https://github.com/ant-design/ant-design-pro/issues/139)
+- 🐞 Fix Cascader search not working when option.chidlren is `[]`. [#8130](https://github.com/ant-design/ant-design/issues/8130) [@jdz321](https://github.com/jdz321)
+- 🐞 Fix broken padding of AutoComponent caused by style order conflict with Input. [#8081](https://github.com/ant-design/ant-design/issues/8081)
+- 🐞 Fix Upload constructor error in IE9. [#7706](https://github.com/ant-design/ant-design/issues/7706)
+- 🐞 Fix Select filterOption's TypeScript definition. [#8128](https://github.com/ant-design/ant-design/issues/8128)
+
 ## 2.13.9
 
 `2017-11-06`
 
-- Published [Ant Design Pro](https://pro.ant.design/).
-- Fix that `Cascader[popupVisible]` doesn't work. [#8088](https://github.com/ant-design/ant-design/issues/8088)
-- Fix that native `input[type=checkbox|radio]` invisible issue. [7c3a483](https://github.com/ant-design/ant-design/commit/7c3a48319074a800c89935e728904933d503ee86)
-- Fix that `Input.Search[suffix]` doesn't work. [#7970](https://github.com/ant-design/ant-design/issues/7970)
-- Fix TypeScript definitions of Slider. [#8102](https://github.com/ant-design/ant-design/pull/8102) [@davschne](https://github.com/davschne)
+- 🌟 Published [Ant Design Pro](https://pro.ant.design/).
+- 🐞 Fix that `Cascader[popupVisible]` doesn't work. [#8088](https://github.com/ant-design/ant-design/issues/8088)
+- 🐞 Fix that native `input[type=checkbox|radio]` invisible issue. [7c3a483](https://github.com/ant-design/ant-design/commit/7c3a48319074a800c89935e728904933d503ee86)
+- 🐞 Fix that `Input.Search[suffix]` doesn't work. [#7970](https://github.com/ant-design/ant-design/issues/7970)
+- 🐞 Fix TypeScript definitions of Slider. [#8102](https://github.com/ant-design/ant-design/pull/8102) [@davschne](https://github.com/davschne)
 
 ## 2.13.8
 

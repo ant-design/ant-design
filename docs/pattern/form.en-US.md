@@ -102,7 +102,7 @@ Password input box provides real time feedback on password strength and validity
 <img class="preview-img inline" align="right" description="Validation in real time" src="https://os.alipayobjects.com/rmsportal/urCdIJFuNYCenqH.png">
 <img class="preview-img inline" align="right" description="Validation after losing focus" src="https://os.alipayobjects.com/rmsportal/KkcSBkbTJirIxCw.png">
 
-<img class="preview-img" align="right" description="When a "submit" button is clicked, the system will deal with user inputs and display feedback (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
+<img class="preview-img" align="right" description="When a 'submit' button is clicked, the system will deal with user inputs and display feedback (the number of errors and the types of errors) on the page." src="https://zos.alipayobjects.com/rmsportal/xTtVSREbASRMstTggVGD.png">
 
 Use different validation rules and a variety of feedback to help users correct errors before they click on a "submit" button.
 
@@ -144,8 +144,6 @@ Right alignment (recommended)
 - When to use: you want to save more vertical space and speed up users for filling a form.
 
 <br>
-
-<!-- https://www.expedia.co.uk/FlightCheckout?tripid=89e54540-dcf4-4c27-be3f-c9efaae6dac2&c=69c4491d-2d30-406a-9b2c-6ec50a932b48 -->
 
 <img class="preview-img" align="right" alt="Top alignment" src="https://os.alipayobjects.com/rmsportal/AsyyNKormNdEMLi.png">
 

@@ -109,12 +109,3 @@ The sidebar.
   xl: '1600px',
 }
 ```
-
-> Note: If you want to wrap the `Sider`, do not forget to add this setting to the customized component: `__ANT_LAYOUT_SIDER = true`. e.g.
-
-```jsx
-const CustomizedSider = (props) => <Sider {...props} />
-CustomizedSider.__ANT_LAYOUT_SIDER = true;
-...
-<CustomizedSider>Sider Content</CustomizedSider>
-```
