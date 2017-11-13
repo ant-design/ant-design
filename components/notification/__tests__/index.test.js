@@ -1,8 +1,10 @@
 import notification from '..';
 
-jest.useFakeTimers();
-
 describe('notification', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
   afterAll(() => {
     jest.useRealTimers();
   });
