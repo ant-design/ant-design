@@ -89,7 +89,7 @@ export default class List extends Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderNoData = (contextLocale) => {
+  renderEmpty = (contextLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
     const { prefixCls = 'ant-list' } = this.props;
     return (<div className={`${prefixCls}-emptyText`}>{locale.emptyText}</div>);
@@ -162,7 +162,7 @@ export default class List extends Component<ListProps> {
           componentName="Table"
           defaultLocale={defaultLocale.Table}
         >
-          {this.renderNoData}
+          {this.renderEmpty}
         </LocaleReceiver>
       );
     }
