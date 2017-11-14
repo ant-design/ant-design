@@ -320,4 +320,12 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').at(1).simulate('change', { target: { checked: true } });
     expect(wrapper.find('tbody tr').at(0).hasClass('ant-table-row-selected')).toBe(true);
   });
+
+  it('fix selection column on the left', () => {
+    const wrapper = render(createTable({
+      rowSelection: { fixed: true },
+    }));
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
