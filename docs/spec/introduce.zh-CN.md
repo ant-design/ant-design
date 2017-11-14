@@ -27,9 +27,10 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 
 - [Ant Design of React](/docs/react/introduce)（官方实现）
 - <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
-- <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty</a></div>
+- <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
+- <div class="outside-link"><a href="https://github.com/zzuu666/antue" target="_blank">antue (vue)</a></div>
 
 ## 谁在使用
 
