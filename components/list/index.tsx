@@ -114,7 +114,7 @@ export default class List extends Component<ListProps> {
       header,
       footer,
       ...rest,
-      } = this.props;
+    } = this.props;
 
     // large => lg
     // small => sm
