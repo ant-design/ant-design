@@ -359,7 +359,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-list-emptyText"
+              class="ant-list-empty-text"
             >
               No data
             </div>
@@ -383,7 +383,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
         class="ant-spin-container"
       >
         <div
-          class="ant-list-emptyText"
+          class="ant-list-empty-text"
         >
           No data
         </div>
@@ -419,7 +419,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="ant-list-emptyText"
+          class="ant-list-empty-text"
         >
           No data
         </div>

@@ -92,7 +92,7 @@ export default class List extends Component<ListProps> {
   renderEmpty = (contextLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
     const { prefixCls = 'ant-list' } = this.props;
-    return (<div className={`${prefixCls}-emptyText`}>{locale.emptyText}</div>);
+    return (<div className={`${prefixCls}-empty-text`}>{locale.emptyText}</div>);
   }
 
   render() {
