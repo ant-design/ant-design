@@ -12,8 +12,7 @@ import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
-export type ColumnType =
-1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+export type ColumnType = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 
 export interface ListGridType {
   gutter?: number;
