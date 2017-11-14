@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale-provider/default';
 
 import Spin from '../spin';
 import Pagination from '../pagination';
@@ -10,7 +12,8 @@ import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
-export type ColumnType = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+export type ColumnType =
+1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
 
 export interface ListGridType {
   gutter?: number;
@@ -43,6 +46,7 @@ export interface ListProps {
   split?: boolean;
   header?: React.ReactNode;
   footer?: React.ReactNode;
+  locale?: Object;
 }
 
 export default class List extends Component<ListProps> {
@@ -86,6 +90,12 @@ export default class List extends Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
+  renderNoData = (contextLocale) => {
+    const locale = { ...contextLocale, ...this.props.locale };
+    const { prefixCls = 'ant-list' } = this.props;
+    return (<div className={`${prefixCls}-emptyText`}>{locale.emptyText}</div>);
+  }
+
   render() {
     const {
       bordered = false,
@@ -105,7 +115,7 @@ export default class List extends Component<ListProps> {
       header,
       footer,
       ...rest,
-    } = this.props;
+      } = this.props;
 
     // large => lg
     // small => sm
@@ -136,15 +146,27 @@ export default class List extends Component<ListProps> {
       </div>
     );
 
-    const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
-      (child: any, index) => React.cloneElement(child, {
-        key: this.keys[index],
-      }),
-    );
+    let childrenContent;
+    if (dataSource.length > 0) {
+      const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
+        (child: any, index) => React.cloneElement(child, {
+          key: this.keys[index],
+        }),
+      );
 
-    const childrenContent = grid ? (
-      <Row gutter={grid.gutter}>{childrenList}</Row>
-    ) : childrenList;
+      childrenContent = grid ? (
+        <Row gutter={grid.gutter}>{childrenList}</Row>
+      ) : childrenList;
+    } else {
+      childrenContent = (
+        <LocaleReceiver
+          componentName="Table"
+          defaultLocale={defaultLocale.Table}
+        >
+          {this.renderNoData}
+        </LocaleReceiver>
+      );
+    }
 
     const content = (
       <div>

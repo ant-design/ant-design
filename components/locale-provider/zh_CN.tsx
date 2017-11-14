@@ -12,6 +12,9 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  List: {
+    emptyText: '暂无数据',
+  },
   Table: {
     filterTitle: '筛选',
     filterConfirm: '确定',

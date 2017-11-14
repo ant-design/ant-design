@@ -18,6 +18,7 @@ cols: 1
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| size | list 的尺寸 | `default` \| `middle` \| `small` | `default` |
 | bordered | 是否展示边框 | boolean | false |
 | footer | 列表底部 | string\|ReactNode | - |
 | grid | 列表栅格配置 | object | - |
