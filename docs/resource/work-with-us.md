@@ -9,7 +9,16 @@ title:
 
 ## UI/UE 设计师
 
-作品和简历请投递：lindong.lld#alipay.com
+```__react
+const emails = [
+  'lindong.lld#alipay.com',
+  'momo.zxy#alipay.com',
+  'luli.fxx#alipay.com',
+];
+ReactDOM.render(
+  <p>作品和简历请投递：{emails[parseInt(Math.random() * emails.length, 10)]}</p>
+, mountNode)
+```
 
 - 岗位级别：P6/P7
 - 岗位地点：杭州
