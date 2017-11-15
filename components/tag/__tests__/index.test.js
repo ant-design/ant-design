@@ -2,10 +2,16 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
 
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 describe('Tag', () => {
-  it('should be closable', async () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
+  it('should be closable', () => {
     const onClose = jest.fn();
     const wrapper = mount(
       <Tag closable onClose={onClose} />
@@ -14,11 +20,11 @@ describe('Tag', () => {
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-cross').simulate('click');
     expect(onClose).toBeCalled();
-    await delay(500);
+    jest.runAllTimers();
     expect(wrapper.find('.ant-tag').length).toBe(0);
   });
 
-  it('should not be closed when prevent default', async () => {
+  it('should not be closed when prevent default', () => {
     const onClose = (e) => {
       e.preventDefault();
     };
@@ -28,7 +34,7 @@ describe('Tag', () => {
     expect(wrapper.find('.anticon-cross').length).toBe(1);
     expect(wrapper.find('.ant-tag').length).toBe(1);
     wrapper.find('.anticon-cross').simulate('click');
-    await delay(500);
+    jest.runAllTimers();
     expect(wrapper.find('.ant-tag').length).toBe(1);
   });
 });
