@@ -21,6 +21,8 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     dropdownClassName: 'ant-select-tree-dropdown',
   };
 
+  private rcTreeSelect: any;
+
   constructor(props) {
     super(props);
 
@@ -28,6 +30,18 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       props.multiple !== false || !props.treeCheckable,
       '`multiple` will alway be `true` when `treeCheckable` is true',
     );
+  }
+
+  focus() {
+    this.rcTreeSelect.focus();
+  }
+
+  blur() {
+    this.rcTreeSelect.blur();
+  }
+
+  saveTreeSelect = (node) => {
+    this.rcTreeSelect = node;
   }
 
   renderTreeSelect = (locale) => {
@@ -57,6 +71,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
         treeCheckable={checkable}
         notFoundContent={notFoundContent || locale.notFoundContent}
+        ref={this.saveTreeSelect}
       />
     );
   }
