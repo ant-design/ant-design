@@ -35,10 +35,24 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     checkboxGroup: PropTypes.any,
   };
 
+  private rcCheckbox: any;
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return !shallowEqual(this.props, nextProps) ||
            !shallowEqual(this.state, nextState) ||
            !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
+  }
+
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
+
+  saveCheckbox = (node) => {
+    this.rcCheckbox = node;
   }
 
   render() {
@@ -77,6 +91,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
           {...checkboxProps}
           prefixCls={prefixCls}
           className={checkboxClass}
+          ref={this.saveCheckbox}
         />
         {children !== undefined ? <span>{children}</span> : null}
       </label>
