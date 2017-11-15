@@ -20,6 +20,8 @@ ReactDOM.render(
 , mountNode)
 ```
 
+> 注明简历来自 ant.design 官网
+
 - 岗位级别：P6/P7
 - 岗位地点：杭州
 - 岗位要求：
@@ -37,6 +39,8 @@ ReactDOM.render(
 ## 前端工程师
 
 简历请投递：xingmin.zhu#alipay.com
+
+> 注明简历来自 ant.design 官网
 
 - 岗位级别：P6/P7/P8
 - 岗位地点：杭州
