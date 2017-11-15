@@ -1941,7 +1941,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <input
             class="ant-time-picker-input"
             placeholder="Select time"
-            readonly=""
             type="text"
             value=""
           />
@@ -2981,7 +2980,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <input
             class="ant-time-picker-input"
             placeholder="Select time"
-            readonly=""
             type="text"
             value=""
           />
