@@ -7,12 +7,20 @@ class SubMenu extends React.Component<any, any> {
   static contextTypes = {
     antdMenuTheme: PropTypes.string,
   };
+  private subMenu: any;
+  onKeyDown = (e) => {
+    this.subMenu.onKeyDown(e);
+  }
+  saveSubMenu = (subMenu) => {
+    this.subMenu = subMenu;
+  }
   render() {
     const { rootPrefixCls, className } = this.props;
     const theme = this.context.antdMenuTheme;
     return (
       <RcSubMenu
         {...this.props}
+        ref={this.saveSubMenu}
         popupClassName={classNames(`${rootPrefixCls}-${theme}`, className)}
       />
     );

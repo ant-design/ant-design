@@ -8,6 +8,13 @@ class MenuItem extends React.Component<any, any> {
     inlineCollapsed: PropTypes.bool,
   };
   static isMenuItem = 1;
+  private menuItem: any;
+  onKeyDown = (e) => {
+    this.menuItem.onKeyDown(e);
+  }
+  saveMenuItem = (menuItem) => {
+    this.menuItem = menuItem;
+  }
   render() {
     const { inlineCollapsed } = this.context;
     const props = this.props;
@@ -16,7 +23,7 @@ class MenuItem extends React.Component<any, any> {
       placement="right"
       overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
     >
-      <Item {...props} />
+      <Item {...props} ref={this.saveMenuItem} />
     </Tooltip>;
   }
 }
