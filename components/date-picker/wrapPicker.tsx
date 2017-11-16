@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';

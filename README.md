@@ -86,20 +86,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
-
-> Note:
-> - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-> - Don't use @types/antd, antd provide a built-in ts definition already.
+- Don't use @types/antd, antd provide a built-in ts definition already.
 
 #### Use [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) with modularized antd
 

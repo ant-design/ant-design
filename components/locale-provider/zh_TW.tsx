@@ -1,4 +1,4 @@
-import moment from 'moment';
+import * as moment from 'moment';
 moment.locale('zh-tw');
 
 import Pagination from 'rc-pagination/lib/locale/zh_TW';

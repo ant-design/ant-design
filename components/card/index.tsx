@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import omit from 'omit.js';
@@ -38,7 +38,7 @@ export interface CardProps {
   onTabChange?: (key: string) => void;
 }
 
-export default class Card extends Component<CardProps, {}> {
+export default class Card extends React.Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
   static Meta: typeof Meta = Meta;
   resizeEvent: any;
@@ -93,7 +93,7 @@ export default class Card extends Component<CardProps, {}> {
   }
   isContainGrid() {
     let containGrid;
-    Children.forEach(this.props.children, (element: JSX.Element) => {
+    React.Children.forEach(this.props.children, (element: JSX.Element) => {
       if (element && element.type && element.type === Grid) {
         containGrid = true;
       }

@@ -1,11 +1,12 @@
-import React from 'react';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
 import warning from '../_util/warning';
+import callMoment from '../_util/callMoment';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -104,7 +105,7 @@ export default function createPicker(TheCalendar): any {
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={props.defaultPickerValue || moment()}
+          defaultValue={props.defaultPickerValue || callMoment(moment)}
           dateInputPlaceholder={placeholder}
           prefixCls={prefixCls}
           className={calendarClassName}

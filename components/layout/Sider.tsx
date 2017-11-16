@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
 }
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import PropTypes from 'prop-types';

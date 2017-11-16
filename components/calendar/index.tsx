@@ -1,10 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
+import callMoment from '../_util/callMoment';
+
 declare const require: Function;
 
 export { HeaderProps } from './Header';
@@ -71,7 +73,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   constructor(props, context) {
     super(props, context);
 
-    const value = props.value || props.defaultValue || moment();
+    const value = props.value || props.defaultValue || callMoment(moment);
     if (!moment.isMoment(value)) {
       throw new Error(
         'The value/defaultValue of Calendar must be a moment object after `antd@2.0`, ' +

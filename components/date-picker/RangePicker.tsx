@@ -1,11 +1,12 @@
 /* tslint:disable jsx-no-multiline-js */
-import React from 'react';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
+import callMoment from '../_util/callMoment';
 
 function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
   const [start, end] = value;
@@ -60,7 +61,7 @@ export default class RangePicker extends React.Component<any, any> {
     const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;
     this.state = {
       value,
-      showDate: pickerValueAdapter(pickerValue || moment()),
+      showDate: pickerValueAdapter(pickerValue || callMoment(moment)),
       open: props.open,
       hoverValue: [],
     };

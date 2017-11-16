@@ -1,5 +1,5 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
@@ -230,7 +230,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const controls = document.querySelectorAll(`[id="${id}"]`);
     if (controls.length !== 1) {
       e.preventDefault();
-      const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
+      const control = ReactDOM.findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
       }

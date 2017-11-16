@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';

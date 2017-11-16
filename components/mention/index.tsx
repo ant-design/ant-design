@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';

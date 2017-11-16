@@ -1,5 +1,5 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -628,7 +628,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getPopupContainer = () => {
-    return findDOMNode(this) as HTMLElement;
+    return ReactDOM.findDOMNode(this) as HTMLElement;
   }
 
   renderRowSelection(locale) {

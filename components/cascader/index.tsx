@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
