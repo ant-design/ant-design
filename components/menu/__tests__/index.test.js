@@ -6,6 +6,14 @@ import Icon from '../../icon';
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('should accept defaultOpenKeys in mode horizontal', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="horizontal">
@@ -132,9 +140,7 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
-  it('should always follow openKeys when mode is switched', async () => {
-    jest.useFakeTimers();
-
+  it('should always follow openKeys when mode is switched', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
@@ -169,8 +175,6 @@ describe('Menu', () => {
 
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
-
-    jest.useRealTimers();
   });
 
   describe('open submenu when click submenu title', () => {
