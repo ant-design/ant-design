@@ -1,8 +1,14 @@
 import message from '..';
 
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 describe('message', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   afterEach(() => {
     message.destroy();
   });
@@ -28,15 +34,15 @@ describe('message', () => {
     expect(document.querySelectorAll('.custom-container').length).toBe(1);
   });
 
-  it('should be able to hide manually', async () => {
+  it('should be able to hide manually', () => {
     const hide1 = message.info('whatever', 0);
     const hide2 = message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     hide1();
-    await delay(100);
+    jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
     hide2();
-    await delay(100);
+    jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 

@@ -4,9 +4,16 @@ import Menu from '..';
 import Icon from '../../icon';
 
 const { SubMenu } = Menu;
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Menu', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('should accept defaultOpenKeys in mode horizontal', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="horizontal">
@@ -131,6 +138,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
+    jest.useRealTimers();
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
@@ -160,7 +168,7 @@ describe('Menu', () => {
     }, 300);
   });
 
-  it('should open submenu when click submenu title (inline)', async () => {
+  it('should open submenu when click submenu title (inline)', () => {
     const wrapper = mount(
       <Menu mode="inline">
         <SubMenu key="1" title="submenu1">
@@ -175,11 +183,11 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').length).toBe(1);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu-title').simulate('click');
-    await delay(300);
+    jest.runAllTimers();
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 
-  it('should open submenu when hover submenu title (vertical)', async () => {
+  it('should open submenu when hover submenu title (vertical)', () => {
     const wrapper = mount(
       <Menu mode="vertical">
         <SubMenu key="1" title="submenu1">
@@ -194,11 +202,11 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').length).toBe(1);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu').simulate('mouseleave');
-    await delay(300);
+    jest.runAllTimers();
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 
-  it('should open submenu when hover submenu title (horizontal)', async () => {
+  it('should open submenu when hover submenu title (horizontal)', () => {
     const wrapper = mount(
       <Menu mode="horizontal">
         <SubMenu key="1" title="submenu1">
@@ -213,7 +221,7 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').length).toBe(1);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
     wrapper.find('.ant-menu-submenu').simulate('mouseleave');
-    await delay(300);
+    jest.runAllTimers();
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
   });
 });
