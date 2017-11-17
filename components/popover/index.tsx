@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';
 import warning from '../_util/warning';

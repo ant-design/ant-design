@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Dialog from 'rc-dialog';
 import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';

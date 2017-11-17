@@ -1,4 +1,4 @@
-import moment from 'moment';
+import * as moment from 'moment';
 moment.locale('pt');
 
 import Pagination from 'rc-pagination/lib/locale/pt_PT';

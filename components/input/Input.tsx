@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -45,7 +45,7 @@ export interface InputProps extends AbstractInputProps {
   autoFocus?: boolean;
 }
 
-export default class Input extends Component<InputProps, any> {
+export default class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
   static TextArea: typeof TextArea;
@@ -148,7 +148,7 @@ export default class Input extends Component<InputProps, any> {
         >
           <span className={className}>
             {addonBefore}
-            {cloneElement(children, { style: null })}
+            {React.cloneElement(children, { style: null })}
             {addonAfter}
           </span>
         </span>
@@ -187,7 +187,7 @@ export default class Input extends Component<InputProps, any> {
         style={props.style}
       >
         {prefix}
-        {cloneElement(children, { style: null, className: this.getInputClassName() })}
+        {React.cloneElement(children, { style: null, className: this.getInputClassName() })}
         {suffix}
       </span>
     );

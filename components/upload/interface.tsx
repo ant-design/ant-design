@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 

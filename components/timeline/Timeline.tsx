@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 
@@ -23,10 +23,10 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       [`${prefixCls}-pending`]: !!pending,
     }, className);
     // Remove falsy items
-    const falsylessItems = Children.toArray(children).filter(item => !!item);
-    const items = Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
+    const falsylessItems = React.Children.toArray(children).filter(item => !!item);
+    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
-        last: idx === (Children.count(falsylessItems) - 1),
+        last: idx === (React.Children.count(falsylessItems) - 1),
       }),
     );
     const pendingItem = (!!pending) ? (

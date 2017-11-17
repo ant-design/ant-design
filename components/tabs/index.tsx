@@ -1,5 +1,5 @@
-import React, { cloneElement } from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import TabContent from 'rc-tabs/lib/TabContent';
@@ -78,7 +78,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   componentDidMount() {
     const NO_FLEX = ' no-flex';
-    const tabNode = findDOMNode(this);
+    const tabNode = ReactDOM.findDOMNode(this);
     if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
       tabNode.className += NO_FLEX;
     }
@@ -136,7 +136,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
              onClick={e => this.removeTab(child.key, e)}
            />
         ) : null;
-        childrenWithClose.push(cloneElement(child, {
+        childrenWithClose.push(React.cloneElement(child, {
           tab: (
             <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
               {child.props.tab}

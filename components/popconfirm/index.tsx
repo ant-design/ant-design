@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';

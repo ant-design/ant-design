@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
   enquire = require('enquire.js');
 }
 
-import React from 'react';
+import * as React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

@@ -1,5 +1,5 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
@@ -101,7 +101,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     // Manually trigger scroll event for lazy search bug
     // https://github.com/ant-design/ant-design/issues/5631
     this.triggerScrollTimer = window.setTimeout(() => {
-      const listNode = findDOMNode(this).querySelectorAll('.ant-transfer-list-content')[0];
+      const listNode = ReactDOM.findDOMNode(this).querySelectorAll('.ant-transfer-list-content')[0];
       if (listNode) {
         triggerEvent(listNode, 'scroll');
       }

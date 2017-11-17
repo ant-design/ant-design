@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -48,7 +48,7 @@ export interface ListProps {
   locale?: Object;
 }
 
-export default class List extends Component<ListProps> {
+export default class List extends React.Component<ListProps> {
   static Item: typeof Item = Item;
 
   static childContextTypes = {

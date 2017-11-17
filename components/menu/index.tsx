@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
