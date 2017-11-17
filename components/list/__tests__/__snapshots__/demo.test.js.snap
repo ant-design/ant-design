@@ -377,17 +377,16 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 >
   <div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin"
     >
-      <div
-        class="ant-spin-container"
+      <span
+        class="ant-spin-dot"
       >
-        <div
-          class="ant-list-empty-text"
-        >
-          No data
-        </div>
-      </div>
+        <i />
+        <i />
+        <i />
+        <i />
+      </span>
     </div>
   </div>
 </div>
