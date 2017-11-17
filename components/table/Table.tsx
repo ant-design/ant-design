@@ -15,7 +15,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
-import createTableRow from './createTableRow';
+import createBodyRow from './createBodyRow';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 
 function noop() {
@@ -945,7 +945,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     if (!prevComponents || bodyRow !== preBodyRow) {
       this.components.body = {
         ...components.body,
-        row: createTableRow(bodyRow),
+        row: createBodyRow(bodyRow),
       };
     }
   }

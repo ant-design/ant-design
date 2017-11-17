@@ -3,19 +3,19 @@ import classnames from 'classnames';
 import omit from 'omit.js';
 import { Store } from './createStore';
 
-interface TableRowProps {
+interface BodyRowProps {
   store: Store;
   className?: string;
   rowKey: string;
   prefixCls: string;
 }
 
-interface TableRowState {
+interface BodyRowState {
   selected: boolean;
 }
 
 export default function createTableRow(Component = 'tr') {
-  class TableRow extends React.Component<TableRowProps, TableRowState> {
+  class BodyRow extends React.Component<BodyRowProps, BodyRowState> {
     private store: Store;
     private unsubscribe: () => void;
 
@@ -52,7 +52,7 @@ export default function createTableRow(Component = 'tr') {
     }
 
     render() {
-      const rowProps = omit(this.props, ['prefixCls', 'rowKey']);
+      const rowProps = omit(this.props, ['prefixCls', 'rowKey', 'store']);
       const className = classnames(
         this.props.className,
         {
@@ -68,5 +68,5 @@ export default function createTableRow(Component = 'tr') {
     }
   }
 
-  return TableRow;
+  return BodyRow;
 }
