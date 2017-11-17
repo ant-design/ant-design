@@ -81,6 +81,10 @@ module.exports = {
       });
     }
 
+    if (isDev) {
+      config.devtool = 'source-map';
+    }
+
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
