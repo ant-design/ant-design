@@ -357,7 +357,13 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
         >
           <div
             class="ant-spin-container"
-          />
+          >
+            <div
+              class="ant-list-empty-text"
+            >
+              No data
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -375,7 +381,13 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
     >
       <div
         class="ant-spin-container"
-      />
+      >
+        <div
+          class="ant-list-empty-text"
+        >
+          No data
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -405,7 +417,13 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
       </div>
       <div
         class="ant-spin-container ant-spin-blur"
-      />
+      >
+        <div
+          class="ant-list-empty-text"
+        >
+          No data
+        </div>
+      </div>
     </div>
     <div
       style="text-align:center;margin-top:12px;height:32px;line-height:32px"

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale-provider/default';
 
 import Spin from '../spin';
 import Pagination from '../pagination';
@@ -43,6 +45,7 @@ export interface ListProps {
   split?: boolean;
   header?: React.ReactNode;
   footer?: React.ReactNode;
+  locale?: Object;
 }
 
 export default class List extends Component<ListProps> {
@@ -50,6 +53,15 @@ export default class List extends Component<ListProps> {
 
   static childContextTypes = {
     grid: PropTypes.any,
+  };
+
+  static defaultProps = {
+    dataSource: [],
+    prefixCls: 'ant-list',
+    bordered: false,
+    split: true,
+    loading: false,
+    pagination: false,
   };
 
   private keys = {};
@@ -86,19 +98,24 @@ export default class List extends Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
+  renderEmpty = (contextLocale) => {
+    const locale = { ...contextLocale, ...this.props.locale };
+    return <div className={`${this.props.prefixCls}-empty-text`}>{locale.emptyText}</div>;
+  }
+
   render() {
     const {
-      bordered = false,
-      split = true,
+      bordered,
+      split,
       className,
       children,
-      loading = false,
+      loading,
       itemLayout,
       loadMore,
-      pagination = false,
-      prefixCls = 'ant-list',
+      pagination,
+      prefixCls,
       grid,
-      dataSource = [],
+      dataSource,
       size,
       rowKey,
       renderItem,
@@ -136,15 +153,27 @@ export default class List extends Component<ListProps> {
       </div>
     );
 
-    const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
-      (child: any, index) => React.cloneElement(child, {
-        key: this.keys[index],
-      }),
-    );
+    let childrenContent;
+    if (dataSource.length > 0) {
+      const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
+        (child: any, index) => React.cloneElement(child, {
+          key: this.keys[index],
+        }),
+      );
 
-    const childrenContent = grid ? (
-      <Row gutter={grid.gutter}>{childrenList}</Row>
-    ) : childrenList;
+      childrenContent = grid ? (
+        <Row gutter={grid.gutter}>{childrenList}</Row>
+      ) : childrenList;
+    } else if (!children) {
+      childrenContent = (
+        <LocaleReceiver
+          componentName="Table"
+          defaultLocale={defaultLocale.Table}
+        >
+          {this.renderEmpty}
+        </LocaleReceiver>
+      );
+    }
 
     const content = (
       <div>
