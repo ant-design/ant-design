@@ -81,7 +81,7 @@ input[type="checkbox"] {
   }
 
   &-control {
-    line-height: @form-component-height;
+    line-height: @form-component-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
     .clearfix;
     > * {
@@ -236,7 +236,6 @@ form {
   }
 
   .@{ant-prefix}-input-number {
-    margin-top: -1px;
     margin-right: 8px;
   }
 
