@@ -22,6 +22,7 @@ export interface ColumnProps<T> {
   sortOrder?: boolean | ('ascend' | 'descend');
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
+  onCell?: (record: T) => any;
 }
 
 export default class Column<T> extends React.Component<ColumnProps<T>, React.ComponentState> {}

@@ -53,6 +53,7 @@ const columns = [{
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bordered | Whether to show all table borders | boolean | `false` |
+| components | Override default table elements | object | - |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
 | dataSource | Data record array to be displayed | any\[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
@@ -74,11 +75,8 @@ const columns = [{
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter) |  |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
-| onRowClick | Callback executed when a row is clicked | Function(record, index, event) | - |
-| onRowContextMenu | Callback executed when right click on a row | Function(record, index, event) | - |
-| onRowDoubleClick|  Callback executed when a row is double clicked | Function(record, index, event) | - |
-| onRowMouseEnter | Callback executed when mouse enters a row | Function(record, index, event) | - |
-| onRowMouseLeave | Callback executed when mouse leaves a row | Function(record, index, event) | - |
+| onHeaderRow | Set props on per header row | Function(column, index) | - |
+| onRow | Set props on per row | Function(record, index) | - |
 
 ### Column
 
@@ -104,9 +102,10 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |
 | title | Title of this column | string\|ReactNode | - |
 | width | Width of this column | string\|number | - |
-| onCellClick | Callback executed when table cell is clicked | Function(record, event) | - |
+| onCell | Set props on per cell | Function(record) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
+| onHeaderCell | Set props on per header cell | Function(column) | - |
 
 ### ColumnGroup
 

@@ -40,6 +40,20 @@ const emptyObject = {};
 
 export type TableColumnConfig<T> = ColumnProps<T>;
 
+export interface TableComponents {
+  table?: React.ComponentType<any>;
+  header?: {
+    wrapper?: React.ComponentType<any>;
+    row?: React.ComponentType<any>;
+    cell?: React.ComponentType<any>;
+  };
+  body?: {
+    wrapper?: React.ComponentType<any>;
+    row?: React.ComponentType<any>;
+    cell?: React.ComponentType<any>;
+  };
+}
+
 export interface TableRowSelection<T> {
   type?: 'checkbox' | 'radio';
   selectedRowKeys?: string[] | number[];
@@ -59,6 +73,7 @@ export interface TableProps<T> {
   pagination?: PaginationProps | boolean;
   size?: 'default' | 'middle' | 'small';
   dataSource?: T[];
+  components?: TableComponents;
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
@@ -74,6 +89,7 @@ export interface TableProps<T> {
   locale?: Object;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => any;
+  onRow?: (record: T, index: number) => any;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;

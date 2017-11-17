@@ -23,6 +23,50 @@ timeline: true
   - 新增 `showAction`。
   - 新增 `onMouseEnter` 和 `onMouseLeave`。
   - 新增 `focus()`、`blur()` 和 `autoFocus`。
+- Table
+  - 新增 `components` 属性，可以通过该属性覆盖 table 默认元素：
+    ```javascript
+    const components = {
+      table: MyTable,
+      header: {
+        wrapper: HeaderWrapper,
+        row: HeaderRow,
+        cell: HeaderCell,
+      },
+      body: {
+        wrapper: BodyWrapper,
+        row: BodyRow,
+        cell: BodyCell,
+      },
+    };
+
+    <Table components={components} columns={columns data={data}}  />
+    ```
+  - 新增 `onRow` 用于设置行属性。
+  - 新增 `onHeaderRow` 用于设置头部的行属性。
+  - 新增 `column[onCell]` 用于设置单元格属性 。
+  - 新增 `column[onHeaderCell]` 用于设置头部单元格属性。
+  - 新增 `column[align]` 用于设置列文字对其。
+  - 废弃以下属性
+    - `onRowClick`
+    - `onRowDoubleClick`
+    - `onRowContextMenu`
+    - 'onRowMouseEnter'
+    - 'onRowMouseLeave'
+
+    以上属性请使用 `onRow` 代替:
+    ```javascript
+    <Table onRow={(record) => ({
+      onClick: () => {},
+      onDoubleClick: () => {},
+      onContextMenu: () => {},
+      onMouseEnter: () => {},
+      onMouseLeave: () => {},
+    })} />
+    ```
+  - 废弃 `getBodyWrapper`, 请使用 `components` 代替。
+
+
 
 ## 2.13.10
 

@@ -55,6 +55,7 @@ const columns = [{
 | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| components | 覆盖默认的 table 元素 | object | - |
 | dataSource | 数据数组 | any\[] |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
@@ -75,11 +76,8 @@ const columns = [{
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |
-| onRowClick | 点击行时触发 | Function(record, index, event) | - |
-| onRowContextMenu | 右键行时触发 | Function(record, index, event) | - |
-| onRowDoubleClick | 双击行时触发 | Function(record, index, event) | - |
-| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event) | - |
-| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event) | - |
+| onHeaderRow | 设置头部列属性 | Function(column, index) | - |
+| onRow | 设置列属性 | Function(record, index) | - |
 
 ### Column
 
@@ -104,9 +102,10 @@ const columns = [{
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | 列头显示文字 | string\|ReactNode | - |
 | width | 列宽度 | string\|number | - |
-| onCellClick | 单元格点击回调 | Function(record, event) | - |
+| onCell | 设置单元格属性 | Function(record) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
+| onHeaderCell | 设置头部单元格属性 | Function(column) | - |
 
 ### ColumnGroup
 
