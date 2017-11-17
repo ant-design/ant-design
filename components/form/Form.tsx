@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
+import createFormField from 'rc-form/lib/createFormField';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
 import warning from '../_util/warning';
@@ -146,6 +147,8 @@ export default class Form extends React.Component<FormProps, any> {
   };
 
   static Item = FormItem;
+
+  static createFormField = createFormField;
 
   static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
     return createDOMForm({
