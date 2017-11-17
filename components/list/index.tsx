@@ -55,6 +55,15 @@ export default class List extends Component<ListProps> {
     grid: PropTypes.any,
   };
 
+  static defaultProps = {
+    dataSource: [],
+    prefixCls: 'ant-list',
+    bordered: false,
+    split: true,
+    loading: false,
+    pagination: false,
+  };
+
   private keys = {};
 
   getChildContext() {
@@ -91,23 +100,23 @@ export default class List extends Component<ListProps> {
 
   renderEmpty = (contextLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
-    const { prefixCls = 'ant-list' } = this.props;
+    const { prefixCls } = this.props;
     return (<div className={`${prefixCls}-empty-text`}>{locale.emptyText}</div>);
   }
 
   render() {
     const {
-      bordered = false,
-      split = true,
+      bordered,
+      split,
       className,
       children,
-      loading = false,
+      loading,
       itemLayout,
       loadMore,
-      pagination = false,
-      prefixCls = 'ant-list',
+      pagination,
+      prefixCls,
       grid,
-      dataSource = [],
+      dataSource,
       size,
       rowKey,
       renderItem,

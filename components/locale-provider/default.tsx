@@ -9,9 +9,6 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
-  List: {
-    emptyText: 'No data',
-  },
   Table: {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
