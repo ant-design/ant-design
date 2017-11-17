@@ -164,7 +164,7 @@ export default class List extends Component<ListProps> {
       childrenContent = grid ? (
         <Row gutter={grid.gutter}>{childrenList}</Row>
       ) : childrenList;
-    } else {
+    } else if (!children) {
       childrenContent = (
         <LocaleReceiver
           componentName="Table"
