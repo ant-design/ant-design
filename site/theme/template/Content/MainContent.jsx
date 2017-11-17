@@ -170,7 +170,7 @@ export default class MainContent extends React.Component {
   }
 
   flattenMenu(menu) {
-    if (menu && menu.type && !menu.type.isSubMenu && !menu.type.isMenuItemGroup) {
+    if (menu && menu.type && menu.type.isMenuItem) {
       return menu;
     }
     if (Array.isArray(menu)) {
