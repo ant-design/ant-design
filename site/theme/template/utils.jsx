@@ -1,3 +1,5 @@
+import enquire from 'enquire.js';
+
 export function getMenuItems(moduleData, locale) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
@@ -74,4 +76,18 @@ export function loadScript(src) {
     script.onerror = reject;
     document.head.appendChild(script);
   });
+}
+
+export function enquireScreen(cb) {
+  /* eslint-disable no-unused-expressions */
+  // and (min-width: 320px)
+  enquire.register('only screen and (max-width: 768px)', {
+    match: () => {
+      cb && cb(true);
+    },
+    unmatch: () => {
+      cb && cb();
+    },
+  });
+  /* eslint-enable no-unused-expressions */
 }
