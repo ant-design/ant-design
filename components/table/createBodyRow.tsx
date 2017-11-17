@@ -14,6 +14,8 @@ interface BodyRowState {
   selected: boolean;
 }
 
+export interface BodyRowClass extends React.ComponentClass {}
+
 export default function createTableRow(Component = 'tr') {
   class BodyRow extends React.Component<BodyRowProps, BodyRowState> {
     private store: Store;
@@ -68,5 +70,5 @@ export default function createTableRow(Component = 'tr') {
     }
   }
 
-  return BodyRow;
+  return BodyRow as BodyRowClass;
 }
