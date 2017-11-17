@@ -15,6 +15,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll, { SelectionDecorator } from './SelectionCheckboxAll';
 import Column, { ColumnProps } from './Column';
 import ColumnGroup from './ColumnGroup';
+import createTableRow from './createTableRow';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 
 function noop() {
@@ -41,16 +42,16 @@ const emptyObject = {};
 export type TableColumnConfig<T> = ColumnProps<T>;
 
 export interface TableComponents {
-  table?: React.ComponentType<any>;
+  table?: any;
   header?: {
-    wrapper?: React.ComponentType<any>;
-    row?: React.ComponentType<any>;
-    cell?: React.ComponentType<any>;
+    wrapper?: any;
+    row?: any;
+    cell?: any;
   };
   body?: {
-    wrapper?: React.ComponentType<any>;
-    row?: React.ComponentType<any>;
-    cell?: React.ComponentType<any>;
+    wrapper?: any;
+    row?: any;
+    cell?: any;
   };
 }
 
@@ -142,6 +143,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   CheckboxPropsCache: Object;
   store: Store;
   columns: ColumnProps<T>[];
+  components: TableComponents;
 
   constructor(props) {
     super(props);
@@ -153,6 +155,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     );
 
     this.columns = props.columns || normalizeColumns(props.children);
+
+    this.createComponents(props.components);
 
     this.state = {
       ...this.getDefaultSortOrder(this.columns),
@@ -256,6 +260,19 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         this.setState({ filters: newFilters });
       }
     }
+
+    this.createComponents(nextProps.components, this.props.components);
+  }
+
+  onRow = (record, index) => {
+    const { onRow, prefixCls } = this.props;
+    const custom = onRow ? onRow(record, index) : {};
+    return {
+      ...custom,
+      prefixCls,
+      store: this.store,
+      rowKey: this.getRecordKey(record, index),
+    };
   }
 
   setSelectedRowKeys(selectedRowKeys, { selectWay, record, checked, changeRowKeys }: any) {
@@ -921,6 +938,18 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return data;
   }
 
+  createComponents(components: TableComponents = {}, prevComponents?: TableComponents) {
+    const bodyRow = components && components.body && components.body.row;
+    const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
+    this.components = { ...components };
+    if (!prevComponents || bodyRow !== preBodyRow) {
+      this.components.body = {
+        ...components.body,
+        row: createTableRow(bodyRow),
+      };
+    }
+  }
+
   renderTable = (contextLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
     const { style, className, prefixCls, showHeader, ...restProps } = this.props;
@@ -945,10 +974,13 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     if ('expandIconColumnIndex' in restProps) {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
+
     return (
       <RcTable
         key="table"
         {...restProps}
+        onRow={this.onRow}
+        components={this.components}
         prefixCls={prefixCls}
         data={data}
         columns={columns}

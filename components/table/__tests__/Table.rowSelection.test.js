@@ -314,4 +314,10 @@ describe('Table.rowSelection', () => {
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']);
   });
+
+  it('highlight selected row', () => {
+    const wrapper = mount(createTable());
+    wrapper.find('input').at(1).simulate('change', { target: { checked: true } });
+    expect(wrapper.find('tbody tr').at(0).hasClass('ant-table-row-selected')).toBe(true);
+  });
 });
