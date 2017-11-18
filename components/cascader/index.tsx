@@ -254,6 +254,14 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     return [{ label: notFoundContent, value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
   }
 
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
   saveInput = (node) => {
     this.input = node;
   }

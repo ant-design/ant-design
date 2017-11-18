@@ -47,6 +47,8 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     filterOption: false,
   };
 
+  private select: any;
+
   getInputElement = () => {
     const { children } = this.props;
     const element = children && React.isValidElement(children) && children.type !== Option ?
@@ -57,6 +59,18 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     return (
       <InputElement {...elementProps}>{element}</InputElement>
     );
+  }
+
+  focus() {
+    this.select.focus();
+  }
+
+  blur() {
+    this.select.blur();
+  }
+
+  saveSelect = (node) => {
+    this.select = node;
   }
 
   render() {
@@ -106,6 +120,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
         optionLabelProp={optionLabelProp}
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
+        ref={this.saveSelect}
       >
         {options}
       </Select>

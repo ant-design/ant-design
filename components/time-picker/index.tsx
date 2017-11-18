@@ -111,6 +111,10 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     this.timePickerRef.focus();
   }
 
+  blur() {
+    this.timePickerRef.blur();
+  }
+
   getDefaultFormat() {
     const { format, use12Hours } = this.props;
     if (format) {

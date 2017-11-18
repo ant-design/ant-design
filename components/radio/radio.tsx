@@ -22,10 +22,24 @@ export default class Radio extends React.Component<RadioProps, any> {
     radioGroup: PropTypes.any,
   };
 
+  private rcCheckbox: any;
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return !shallowEqual(this.props, nextProps) ||
            !shallowEqual(this.state, nextState) ||
            !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
+  }
+
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
+
+  saveCheckbox = (node) => {
+    this.rcCheckbox = node;
   }
 
   render() {
@@ -61,6 +75,7 @@ export default class Radio extends React.Component<RadioProps, any> {
         <RcCheckbox
           {...radioProps}
           prefixCls={prefixCls}
+          ref={this.saveCheckbox}
         />
         {children !== undefined ? <span>{children}</span> : null}
       </label>

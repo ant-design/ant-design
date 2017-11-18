@@ -172,7 +172,6 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Select time"
-      readonly=""
       type="text"
       value=""
     />
@@ -1737,7 +1736,6 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Hora"
-      readonly=""
       type="text"
       value=""
     />
@@ -3302,7 +3300,6 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Hora"
-      readonly=""
       type="text"
       value=""
     />
@@ -4867,7 +4864,6 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Выберите время"
-      readonly=""
       type="text"
       value=""
     />
@@ -6432,7 +6428,6 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Seleccionar hora"
-      readonly=""
       type="text"
       value=""
     />
@@ -7997,7 +7992,6 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Välj tid"
-      readonly=""
       type="text"
       value=""
     />
@@ -9562,7 +9556,6 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Sélectionner l'heure"
-      readonly=""
       type="text"
       value=""
     />
@@ -11127,7 +11120,6 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Zeit auswählen"
-      readonly=""
       type="text"
       value=""
     />
@@ -12692,7 +12684,6 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Selecteer tijd"
-      readonly=""
       type="text"
       value=""
     />
@@ -14257,7 +14248,6 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Seleccionar hora"
-      readonly=""
       type="text"
       value=""
     />
@@ -15822,7 +15812,6 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Vybrat čas"
-      readonly=""
       type="text"
       value=""
     />
@@ -17387,7 +17376,6 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
     <input
       class="ant-time-picker-input"
       placeholder="날짜 선택"
-      readonly=""
       type="text"
       value=""
     />
@@ -18952,7 +18940,6 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Vali aeg"
-      readonly=""
       type="text"
       value=""
     />
@@ -20517,7 +20504,6 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Vybrať čas"
-      readonly=""
       type="text"
       value=""
     />
@@ -22082,7 +22068,6 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
     <input
       class="ant-time-picker-input"
       placeholder="時刻を選択"
-      readonly=""
       type="text"
       value=""
     />
@@ -23647,7 +23632,6 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Zaman Seç"
-      readonly=""
       type="text"
       value=""
     />
@@ -25212,7 +25196,6 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
     <input
       class="ant-time-picker-input"
       placeholder="請選擇時間"
-      readonly=""
       type="text"
       value=""
     />
@@ -26777,7 +26760,6 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Valitse aika"
-      readonly=""
       type="text"
       value=""
     />
@@ -28342,7 +28324,6 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Wybierz godzinę"
-      readonly=""
       type="text"
       value=""
     />
@@ -29907,7 +29888,6 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Избор на час"
-      readonly=""
       type="text"
       value=""
     />
@@ -31472,7 +31452,6 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Select time"
-      readonly=""
       type="text"
       value=""
     />
@@ -33037,7 +33016,6 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Sélectionner l'heure"
-      readonly=""
       type="text"
       value=""
     />
@@ -34602,7 +34580,6 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Selecteer tijd"
-      readonly=""
       type="text"
       value=""
     />
@@ -36167,7 +36144,6 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Selezionare il tempo"
-      readonly=""
       type="text"
       value=""
     />
@@ -37732,7 +37708,6 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Chọn thời gian"
-      readonly=""
       type="text"
       value=""
     />
@@ -39297,7 +39272,6 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
     <input
       class="ant-time-picker-input"
       placeholder="เลือกเวลา"
-      readonly=""
       type="text"
       value=""
     />
@@ -40862,7 +40836,6 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
     <input
       class="ant-time-picker-input"
       placeholder="انتخاب زمان"
-      readonly=""
       type="text"
       value=""
     />
@@ -42427,7 +42400,6 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Επιλέξτε ώρα"
-      readonly=""
       type="text"
       value=""
     />
@@ -43992,7 +43964,6 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Velg tid"
-      readonly=""
       type="text"
       value=""
     />
@@ -45557,7 +45528,6 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Izaberite vreme"
-      readonly=""
       type="text"
       value=""
     />
@@ -47122,7 +47092,6 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Velja tíma"
-      readonly=""
       type="text"
       value=""
     />
@@ -48687,7 +48656,6 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
     <input
       class="ant-time-picker-input"
       placeholder="اختيار الوقت"
-      readonly=""
       type="text"
       value=""
     />
@@ -50252,7 +50220,6 @@ exports[`Locale Provider should display the text as locale changed 33`] = `
     <input
       class="ant-time-picker-input"
       placeholder="Оберіть час"
-      readonly=""
       type="text"
       value=""
     />

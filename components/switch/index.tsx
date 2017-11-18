@@ -28,11 +28,31 @@ export default class Switch extends React.Component<SwitchProps, any> {
     className: PropTypes.string,
   };
 
+  private rcSwitch: any;
+
+  focus() {
+    this.rcSwitch.focus();
+  }
+
+  blur() {
+    this.rcSwitch.blur();
+  }
+
+  saveSwitch = (node) => {
+    this.rcSwitch = node;
+  }
+
   render() {
     const { prefixCls, size, className = '' } = this.props;
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
     });
-    return <RcSwitch {...this.props} className={classes} />;
+    return (
+      <RcSwitch
+        {...this.props}
+        className={classes}
+        ref={this.saveSwitch}
+      />
+    );
   }
 }

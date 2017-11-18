@@ -2,6 +2,7 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
+import focusTest from '../../../tests/shared/focusTest';
 
 const options = [{
   value: 'zhejiang',
@@ -28,6 +29,8 @@ const options = [{
 }];
 
 describe('Cascader', () => {
+  focusTest(Cascader);
+
   it('popup correctly when panel is hidden', () => {
     const wrapper = mount(
       <Cascader options={options} />
