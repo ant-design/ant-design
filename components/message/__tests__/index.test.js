@@ -1,16 +1,15 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import message from '..';
 
 describe('message', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
   });
 
   afterEach(() => {
     message.destroy();
+    jest.useRealTimers();
   });
 
   it('should be able to config top', () => {
@@ -70,5 +69,23 @@ describe('message', () => {
       expect(aboutDuration).toBe(defaultDuration);
       done();
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/8201
+  it('should hide message correctly', () => {
+    let hide;
+    class Test extends React.Component {
+      componentDidMount() {
+        hide = message.loading('Action in progress..', 0);
+      }
+      render() {
+        return <div>test</div>;
+      }
+    }
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    hide();
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 });

@@ -46,9 +46,10 @@ function notice(
     duration = defaultDuration;
   }
 
+  const target = key++;
   getMessageInstance((instance) => {
     instance.notice({
-      key,
+      key: target,
       duration,
       style: {},
       content: (
@@ -60,14 +61,11 @@ function notice(
       onClose,
     });
   });
-  return (function () {
-    let target = key++;
-    return function () {
-      if (messageInstance) {
-        messageInstance.removeNotice(target);
-      }
-    };
-  }());
+  return () => {
+    if (messageInstance) {
+      messageInstance.removeNotice(target);
+    }
+  };
 }
 
 type ConfigContent = React.ReactNode | string;
