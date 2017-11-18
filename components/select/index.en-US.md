@@ -8,8 +8,8 @@ Select component to select value from options.
 
 ## When To Use
 
-- A dropdown menu for choosing, an elegant alternative to the native select component.
-- [Radio](/components/radio/) is a better solution when options amount is too little (less than 5).
+- A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
+- Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 
 ## API
 

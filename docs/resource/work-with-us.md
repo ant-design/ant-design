@@ -11,8 +11,8 @@ title:
 
 ```__react
 const emails = [
-  'lindong.lld#alipay.com',
   'momo.zxy#alipay.com',
+  'lindong.lld#alipay.com',
   'luli.fxx#alipay.com',
 ];
 ReactDOM.render(
