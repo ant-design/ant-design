@@ -133,7 +133,7 @@
     "querystring": "^0.2.0",
     "rc-drawer-menu": "^0.3.0",
     "rc-queue-anim": "^1.0.1",
-    "rc-scroll-anim": "^2.0.",
+    "rc-scroll-anim": "^2.0.2",
     "rc-tween-one": "^1.1.2",
     "react": "^16.0.0",
     "react-color": "^2.11.7",
