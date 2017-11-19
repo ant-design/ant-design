@@ -120,6 +120,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
+| fixed | Fixed selection column on the left | boolean | - |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
 | selectedRowKeys | Controlled selected row keys | string\[] | \[] |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
