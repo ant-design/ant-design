@@ -56,6 +56,7 @@ title: Select
 | onFocus | 获得焦点时回调 | function | - |
 | onMouseEnter | 鼠标移入时回调 | function | - |
 | onMouseLeave | 鼠标移出时回调 | function | - |
+| onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | - |
 
