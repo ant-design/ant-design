@@ -3242,7 +3242,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-valuemax="9007199254740991"
             aria-valuemin="-9007199254740991"
             class="ant-input-number-input-wrap"
             role="spinbutton"
@@ -3250,7 +3249,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             <input
               autocomplete="off"
               class="ant-input-number-input"
-              max="9007199254740991"
               min="-9007199254740991"
               step="1"
               value=""
