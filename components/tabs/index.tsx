@@ -23,7 +23,7 @@ export interface TabsProps {
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
   tabPosition?: TabsPosition;
-  onEdit?: (targetKey: string, action: any) => void;
+  onEdit?: (targetKey: string | React.MouseEvent<HTMLElement>, action: any) => void;
   size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -50,14 +50,14 @@ export default class Tabs extends React.Component<TabsProps, any> {
     hideAdd: false,
   };
 
-  createNewTab = (targetKey) => {
+  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
     const onEdit = this.props.onEdit;
     if (onEdit) {
       onEdit(targetKey, 'add');
     }
   }
 
-  removeTab = (targetKey, e) => {
+  removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (!targetKey) {
       return;
@@ -69,7 +69,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
-  handleChange = (activeKey) => {
+  handleChange = (activeKey: string) => {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(activeKey);
@@ -124,7 +124,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       [`${prefixCls}-no-animation`]: !tabPaneAnimated,
     });
     // only card type tabs can be added and closed
-    let childrenWithClose;
+    let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
@@ -133,7 +133,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         const closeIcon = closable ? (
            <Icon
              type="close"
-             onClick={e => this.removeTab(child.key, e)}
+             onClick={e => this.removeTab(child.key as string, e)}
            />
         ) : null;
         childrenWithClose.push(React.cloneElement(child, {
@@ -183,7 +183,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
-        {childrenWithClose || children}
+        {childrenWithClose.length > 0 ? childrenWithClose : children}
       </RcTabs>
     );
   }
