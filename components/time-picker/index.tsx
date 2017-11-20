@@ -48,6 +48,10 @@ export interface TimePickerProps {
   popupClassName?: string;
 }
 
+export interface TimePickerLocale {
+  placeholder: string;
+}
+
 export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
     prefixCls: 'ant-time-picker',
@@ -64,7 +68,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     focusOnOpen: true,
   };
 
-  private timePickerRef: any;
+  private timePickerRef: typeof RcTimePicker;
 
   constructor(props: TimePickerProps) {
     super(props);
@@ -96,14 +100,14 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     }
   }
 
-  handleOpenClose = ({ open }) => {
+  handleOpenClose = ({ open }: { open: boolean }) => {
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
     }
   }
 
-  saveTimePicker = (timePickerRef) => {
+  saveTimePicker = (timePickerRef: typeof RcTimePicker) => {
     this.timePickerRef = timePickerRef;
   }
 
@@ -125,7 +129,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     return 'HH:mm:ss';
   }
 
-  renderTimePicker = (locale) => {
+  renderTimePicker = (locale: TimePickerLocale) => {
     const props = {
       ...this.props,
     };
@@ -136,7 +140,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
 
-    const addon = (panel) => (
+    const addon = (panel: React.ReactElement<any>) => (
       props.addon ? (
         <div className={`${props.prefixCls}-panel-addon`}>
           {props.addon(panel)}
