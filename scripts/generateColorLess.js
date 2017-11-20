@@ -21,6 +21,10 @@ const COLOR_MAP = {
 
 const reducePlugin = postcss.plugin('reducePlugin', () => {
   const cleanRule = (rule) => {
+    if (rule.selector.startsWith('.main-color .palatte-')) {
+      rule.remove();
+      return;
+    }
     let removeRule = true;
     rule.walkDecls((decl) => {
       if (
