@@ -10,6 +10,8 @@ export interface UploadFile {
   uid: number;
   size: number;
   name: string;
+  filename?: string;
+  lastModified?: string;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
@@ -19,6 +21,7 @@ export interface UploadFile {
   response?: any;
   error?: any;
   linkProps?: any;
+  type: string;
 }
 
 export interface UploadChangeParam {
