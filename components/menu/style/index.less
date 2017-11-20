@@ -347,10 +347,17 @@
       height: @menu-item-height;
       margin-top: 4px;
       margin-bottom: 4px;
-      display: inline-block;
-      width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    // disable margin collapsed
+    .@{menu-prefix-cls}-submenu {
+      padding-bottom: 0.01px;
+    }
+
+    .@{menu-prefix-cls}-item:not(:last-child) {
+      margin-bottom: 8px;
     }
 
     > .@{menu-prefix-cls}-item,
