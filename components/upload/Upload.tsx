@@ -50,7 +50,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     targetItem = fileToObject(file);
-    targetItem.status = "uploading";
+    targetItem.status = 'uploading';
     nextFileList.push(targetItem);
     this.onChange({
       file: targetItem,
