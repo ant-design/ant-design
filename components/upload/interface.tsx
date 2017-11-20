@@ -65,6 +65,11 @@ export interface UploadProps {
   locale?: UploadLocale;
 }
 
+export interface UploadState {
+  fileList: UploadFile[];
+  dragState: string;
+}
+
 export interface UploadListProps {
   listType?: 'text' | 'picture' | 'picture-card';
   onPreview?: (file: UploadFile) => void;
