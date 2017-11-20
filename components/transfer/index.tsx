@@ -14,6 +14,8 @@ export { SearchProps } from './search';
 function noop() {
 }
 
+export type TransferDirection = 'left' | 'right';
+
 export interface TransferItem {
   key: string;
   title: string;
@@ -41,9 +43,17 @@ export interface TransferProps {
   footer?: (props: TransferListProps) => React.ReactNode;
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
-  onSearchChange?: (direction: 'left' | 'right', e: Event) => void;
+  onSearchChange?: (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => void;
   lazy?: {} | boolean;
-  onScroll?: (direction: 'left' | 'right', e: Event) => void;
+  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+}
+
+export interface TransferLocale {
+  titles: string[];
+  notFoundContent: string;
+  searchPlaceholder: string;
+  itemUnit: string;
+  itemsUnit: string;
 }
 
 export default class Transfer extends React.Component<TransferProps, any> {
@@ -167,12 +177,14 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return this.splitedDataSource;
   }
 
-  moveTo = (direction) => {
+  moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
-    const newMoveKeys = moveKeys.filter(key => !dataSource.some(data => !!(key === data.key && data.disabled)));
+    const newMoveKeys = moveKeys.filter((key: string) =>
+      !dataSource.some(data => !!(key === data.key && data.disabled)),
+    );
     // move items to target box
     const newTargetKeys = direction === 'right'
       ? newMoveKeys.concat(targetKeys)
@@ -193,7 +205,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   moveToLeft = () => this.moveTo('left');
   moveToRight = () => this.moveTo('right');
 
-  handleSelectChange(direction: string, holder: string[]) {
+  handleSelectChange(direction: TransferDirection, holder: string[]) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const onSelectChange = this.props.onSelectChange;
     if (!onSelectChange) {
@@ -207,11 +219,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleSelectAll = (direction, filteredDataSource, checkAll) => {
+  handleSelectAll = (direction: TransferDirection, filteredDataSource: TransferItem[], checkAll: boolean) => {
     const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
     const currentKeys = filteredDataSource.map(item => item.key);
     // Only operate current keys from original selected keys
-    const newKeys1 = originalSelectedKeys.filter(key => currentKeys.indexOf(key) === -1);
+    const newKeys1 = originalSelectedKeys.filter((key: string) => currentKeys.indexOf(key) === -1);
     const newKeys2 = [...originalSelectedKeys];
     currentKeys.forEach((key) => {
       if (newKeys2.indexOf(key) === -1) {
@@ -228,14 +240,14 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleLeftSelectAll = (filteredDataSource, checkAll) => (
+  handleLeftSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) => (
     this.handleSelectAll('left', filteredDataSource, checkAll)
   )
-  handleRightSelectAll = (filteredDataSource, checkAll) => (
+  handleRightSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) => (
     this.handleSelectAll('right', filteredDataSource, checkAll)
   )
 
-  handleFilter = (direction, e) => {
+  handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       // add filter
       [`${direction}Filter`]: e.target.value,
@@ -245,10 +257,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleLeftFilter = (e) => this.handleFilter('left', e);
-  handleRightFilter = (e) => this.handleFilter('right', e);
+  handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
+  handleRightFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('right', e);
 
-  handleClear = (direction) => {
+  handleClear = (direction: string) => {
     this.setState({
       [`${direction}Filter`]: '',
     });
@@ -257,7 +269,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleLeftClear = () => this.handleClear('left');
   handleRightClear = () => this.handleClear('right');
 
-  handleSelect = (direction, selectedItem, checked) => {
+  handleSelect = (direction: TransferDirection, selectedItem: TransferItem, checked: boolean) => {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const holder = direction === 'left' ? [...sourceSelectedKeys] : [...targetSelectedKeys];
     const index = holder.indexOf(selectedItem.key);
@@ -276,20 +288,25 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  handleLeftSelect = (selectedItem, checked) => this.handleSelect('left', selectedItem, checked);
-  handleRightSelect = (selectedItem, checked) => this.handleSelect('right', selectedItem, checked);
+  handleLeftSelect = (selectedItem: TransferItem, checked: boolean) => {
+    return this.handleSelect('left', selectedItem, checked);
+  }
 
-  handleScroll = (direction, e) => {
+  handleRightSelect = (selectedItem: TransferItem, checked: boolean) => {
+    return this.handleSelect('right', selectedItem, checked);
+  }
+
+  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => {
     const { onScroll } = this.props;
     if (onScroll) {
       onScroll(direction, e);
     }
   }
 
-  handleLeftScroll = (e) => this.handleScroll('left', e);
-  handleRightScroll = (e) => this.handleScroll('right', e);
+  handleLeftScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('left', e);
+  handleRightScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('right', e);
 
-  getTitles(transferLocale): string[] {
+  getTitles(transferLocale: TransferLocale): string[] {
     const { props } = this;
     if (props.titles) {
       return props.titles;
@@ -297,11 +314,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return transferLocale.titles;
   }
 
-  getSelectedKeysName(direction) {
+  getSelectedKeysName(direction: TransferDirection) {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  renderTransfer = (locale) => {
+  renderTransfer = (locale: TransferLocale) => {
     const {
       prefixCls = 'ant-transfer',
       className,

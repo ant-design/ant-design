@@ -15,14 +15,14 @@ export default class Search extends React.Component<SearchProps, any> {
     placeholder: '',
   };
 
-  handleChange = (e) => {
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(e);
     }
   }
 
-  handleClear = (e) => {
+  handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
     const handleClear = this.props.handleClear;

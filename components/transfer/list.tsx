@@ -12,7 +12,7 @@ import triggerEvent from '../_util/triggerEvent';
 function noop() {
 }
 
-function isRenderResultPlainObject(result) {
+function isRenderResultPlainObject(result: any) {
   return result && !React.isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]';
 }
@@ -53,7 +53,7 @@ export default class TransferList extends React.Component<TransferListProps, any
   timer: number;
   triggerScrollTimer: number;
 
-  constructor(props) {
+  constructor(props: TransferListProps) {
     super(props);
     this.state = {
       mounted: false,
@@ -73,11 +73,11 @@ export default class TransferList extends React.Component<TransferListProps, any
     clearTimeout(this.triggerScrollTimer);
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
-  getCheckStatus(filteredDataSource) {
+  getCheckStatus(filteredDataSource: TransferItem[]) {
     const { checkedKeys } = this.props;
     if (checkedKeys.length === 0) {
       return 'none';
@@ -87,13 +87,13 @@ export default class TransferList extends React.Component<TransferListProps, any
     return 'part';
   }
 
-  handleSelect = (selectedItem) => {
+  handleSelect = (selectedItem: TransferItem) => {
     const { checkedKeys } = this.props;
     const result = checkedKeys.some((key) => key === selectedItem.key);
     this.props.handleSelect(selectedItem, !result);
   }
 
-  handleFilter = (e) => {
+  handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.props.handleFilter(e);
     if (!e.target.value) {
       return;
@@ -112,7 +112,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     this.props.handleClear();
   }
 
-  matchFilter = (text, item) => {
+  matchFilter = (text: string, item: TransferItem) => {
     const { filter, filterOption } = this.props;
     if (filterOption) {
       return filterOption(filter, item);
@@ -120,7 +120,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     return text.indexOf(filter) >= 0;
   }
 
-  renderItem = (item) => {
+  renderItem = (item: TransferItem) => {
     const { render = noop } = this.props;
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
