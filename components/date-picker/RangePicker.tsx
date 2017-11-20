@@ -181,6 +181,7 @@ export default class RangePicker extends React.Component<any, any> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, format,
+      onCalendarChange,
     } = props;
     warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
@@ -210,6 +211,7 @@ export default class RangePicker extends React.Component<any, any> {
     const calendar = (
       <RangeCalendar
         {...calendarHandler}
+        onChange={onCalendarChange}
         format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
