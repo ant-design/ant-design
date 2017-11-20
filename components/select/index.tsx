@@ -66,6 +66,10 @@ export interface OptGroupProps {
   label?: React.ReactNode;
 }
 
+export interface SelectLocale {
+  notFoundContent?: string;
+}
+
 const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,

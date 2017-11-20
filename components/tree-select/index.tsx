@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import { TreeSelectProps } from './interface';
+import { SelectLocale } from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 
@@ -23,7 +24,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
   private rcTreeSelect: any;
 
-  constructor(props) {
+  constructor(props: TreeSelectProps) {
     super(props);
 
     warning(
@@ -40,11 +41,11 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     this.rcTreeSelect.blur();
   }
 
-  saveTreeSelect = (node) => {
+  saveTreeSelect = (node: typeof RcTreeSelect) => {
     this.rcTreeSelect = node;
   }
 
-  renderTreeSelect = (locale) => {
+  renderTreeSelect = (locale: SelectLocale) => {
     const {
       prefixCls,
       className,

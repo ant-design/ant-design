@@ -10,11 +10,7 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
 }
 
-export class AntTreeNode extends React.Component<AntTreeNodeProps, {}> {
-  render() {
-    return <AntTreeNode {...this.props} />;
-  }
-}
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
 export interface AntTreeNodeEvent {
   event: 'check' | 'select';
