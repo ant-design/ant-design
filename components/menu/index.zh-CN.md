@@ -46,6 +46,7 @@ subtitle: 导航菜单
 | onSelect | 被选中时调用 | function({ item, key, selectedKeys }) | 无   |
 | subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 |
 | subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 |
+| forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

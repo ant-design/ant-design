@@ -46,6 +46,7 @@ More layouts with navigation: [layout](/components/layout).
 | onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
 | subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
 | subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
+| forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
