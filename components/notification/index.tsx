@@ -4,12 +4,14 @@ import Icon from '../icon';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
-const notificationInstance = {};
+export type IconType =  'success' | 'info' | 'error' | 'warning';
+
+const notificationInstance: { [key: string]: any } = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement: NotificationPlacement = 'topRight';
-let defaultGetContainer;
+let defaultGetContainer: () => HTMLElement;
 
 export interface ConfigProps {
   top?: number;
@@ -72,7 +74,7 @@ function getPlacementStyle(placement: NotificationPlacement) {
   return style;
 }
 
-function getNotificationInstance(prefixCls, placement, callback) {
+function getNotificationInstance(prefixCls: string, placement: NotificationPlacement, callback: (n: any) => void) {
   const cacheKey = `${prefixCls}-${placement}`;
   if (notificationInstance[cacheKey]) {
     callback(notificationInstance[cacheKey]);
@@ -83,7 +85,7 @@ function getNotificationInstance(prefixCls, placement, callback) {
     className: `${prefixCls}-${placement}`,
     style: getPlacementStyle(placement),
     getContainer: defaultGetContainer,
-  }, (notification) => {
+  }, (notification: any) => {
     notificationInstance[cacheKey] = notification;
     callback(notification);
   });
@@ -108,7 +110,7 @@ export interface ArgsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  readonly type?: string;
+  readonly type?: IconType;
 }
 function notice(args: ArgsProps) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
@@ -136,7 +138,7 @@ function notice(args: ArgsProps) {
     ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
     : null;
 
-  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement, (notification) => {
+  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement, (notification: any) => {
     notification.notice({
       content: (
         <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
@@ -161,7 +163,7 @@ function notice(args: ArgsProps) {
 
 const api: any = {
   open: notice,
-  close(key) {
+  close(key: string) {
     Object.keys(notificationInstance)
       .forEach(cacheKey => notificationInstance[cacheKey].removeNotice(key));
   },
