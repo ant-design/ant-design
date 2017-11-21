@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export interface LocaleReceiverProps {
   componentName: string;
   defaultLocale: object | Function;
-  children: (locale, localeCode?) => React.ReactElement<any>;
+  children: (locale: object, localeCode?: string) => React.ReactElement<any>;
 }
 
 export interface LocaleReceiverContext {
