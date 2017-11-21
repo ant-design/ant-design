@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
-import CheckboxGroup from './Group';
+import CheckboxGroup, { CheckboxGroupContext } from './Group';
 
 export interface AbstractCheckboxProps {
   prefixCls?: string;
@@ -24,7 +24,7 @@ export interface CheckboxProps extends AbstractCheckboxProps {
   indeterminate?: boolean;
 }
 
-export default class Checkbox extends React.Component<CheckboxProps, any> {
+export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
   static defaultProps = {
     prefixCls: 'ant-checkbox',
@@ -37,7 +37,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
 
   private rcCheckbox: any;
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps: CheckboxProps, nextState: {}, nextContext: CheckboxGroupContext) {
     return !shallowEqual(this.props, nextProps) ||
            !shallowEqual(this.state, nextState) ||
            !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
@@ -51,7 +51,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     this.rcCheckbox.blur();
   }
 
-  saveCheckbox = (node) => {
+  saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
   }
 
