@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
+import { RadioProps, RadioGroupContext } from './interface';
 
-export type RadioProps = AbstractCheckboxProps;
-
-export default class Radio extends React.Component<RadioProps, any> {
+export default class Radio extends React.Component<RadioProps, {}> {
   static Group: typeof RadioGroup;
   static Button: typeof RadioButton;
 
@@ -24,7 +22,7 @@ export default class Radio extends React.Component<RadioProps, any> {
 
   private rcCheckbox: any;
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
     return !shallowEqual(this.props, nextProps) ||
            !shallowEqual(this.state, nextState) ||
            !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
@@ -38,7 +36,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     this.rcCheckbox.blur();
   }
 
-  saveCheckbox = (node) => {
+  saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
   }
 

@@ -103,7 +103,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
-  onTypeChange = (e) => {
+  onTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
       onTypeChange(e.target.value);
