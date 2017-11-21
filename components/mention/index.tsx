@@ -22,8 +22,8 @@ export interface MentionProps {
   prefix?: string;
   placeholder?: string;
   getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
-  onFocus?: Function;
-  onBlur?: Function;
+  onFocus?: React.FocusEventHandler<HTMLElement>;
+  onBlur?: React.FocusEventHandler<HTMLElement>;
   readOnly?: boolean;
   disabled?: boolean;
   placement?: MentionPlacement;
@@ -46,12 +46,12 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   static Nav = Nav;
   static toString = toString;
   static toContentState = toEditorState;
-  static toEditorState = text => {
+  static toEditorState = (text: string) => {
     console.warn('Mention.toEditorState is deprecated. Use toContentState instead.');
     return toEditorState(text);
   }
   private mentionEle: any;
-  constructor(props) {
+  constructor(props: MentionProps) {
     super(props);
     this.state = {
       suggestions: props.suggestions,
@@ -68,14 +68,14 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     }
   }
 
-  onSearchChange = (value, prefix) => {
+  onSearchChange = (value: string, prefix: string) => {
     if (this.props.onSearchChange) {
       return this.props.onSearchChange(value, prefix);
     }
     return this.defaultSearchChange(value);
   }
 
-  onChange = (editorState) => {
+  onChange = (editorState: any) => {
     if (this.props.onChange) {
       this.props.onChange(editorState);
     }
@@ -98,7 +98,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     });
   }
 
-  onFocus = (ev) => {
+  onFocus = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
       focus: true,
     });
@@ -106,7 +106,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       this.props.onFocus(ev);
     }
   }
-  onBlur = (ev) => {
+  onBlur = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
       focus: false,
     });
@@ -117,7 +117,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   focus = () => {
     this.mentionEle._editor.focus();
   }
-  mentionRef = ele => {
+  mentionRef = (ele: any) => {
     this.mentionEle = ele;
   }
   render() {
