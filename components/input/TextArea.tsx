@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import { AbstractInputProps } from './Input';
 import calculateNodeHeight from './calculateNodeHeight';
 
-function onNextFrame(cb) {
+function onNextFrame(cb: () => void) {
   if (window.requestAnimationFrame) {
     return window.requestAnimationFrame(cb);
   }
   return window.setTimeout(cb, 1);
 }
 
-function clearNextFrameAction(nextFrameId) {
+function clearNextFrameAction(nextFrameId: number) {
   if (window.cancelAnimationFrame) {
     window.cancelAnimationFrame(nextFrameId);
   } else {
@@ -52,7 +52,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     this.resizeTextarea();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: TextAreaProps) {
     // Re-render with the new content then recalculate the height as required.
     if (this.props.value !== nextProps.value) {
       if (this.nextFrameActionId) {
@@ -88,7 +88,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     });
   }
 
-  handleTextareaChange = (e) => {
+  handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
@@ -98,7 +98,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     }
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
@@ -108,7 +108,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     }
   }
 
-  saveTextAreaRef = (textArea) => {
+  saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
     this.textAreaRef = textArea;
   }
 

@@ -27,7 +27,7 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.focus();
   }
 
-  saveInput = (node) => {
+  saveInput = (node: Input) => {
     this.input = node;
   }
 

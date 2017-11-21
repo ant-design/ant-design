@@ -6,7 +6,7 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 
-function fixControlledValue(value) {
+function fixControlledValue(value: undefined | null | string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
@@ -82,7 +82,7 @@ export default class Input extends React.Component<InputProps, any> {
 
   input: HTMLInputElement;
 
-  handleKeyDown = (e) => {
+  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
@@ -109,11 +109,11 @@ export default class Input extends React.Component<InputProps, any> {
     });
   }
 
-  saveInput = (node) => {
+  saveInput = (node: HTMLInputElement) => {
     this.input = node;
   }
 
-  renderLabeledInput(children) {
+  renderLabeledInput(children: React.ReactElement<any>) {
     const props = this.props;
     // Not wrap when there is not addons
     if ((!props.addonBefore && !props.addonAfter)) {
@@ -163,7 +163,7 @@ export default class Input extends React.Component<InputProps, any> {
     );
   }
 
-  renderLabeledIcon(children) {
+  renderLabeledIcon(children: React.ReactElement<any>) {
     const { props } = this;
     if (!('prefix' in props || 'suffix' in props)) {
       return children;

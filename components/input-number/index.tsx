@@ -38,7 +38,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       [`${this.props.prefixCls}-sm`]: size === 'small',
     }, className);
 
-    return <RcInputNumber ref={c => this.inputNumberRef = c} className={inputNumberClass} {...others} />;
+    return <RcInputNumber ref={(c: any) => this.inputNumberRef = c} className={inputNumberClass} {...others} />;
   }
 
   focus() {
