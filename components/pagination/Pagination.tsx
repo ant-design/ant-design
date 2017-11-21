@@ -7,12 +7,12 @@ import Select from '../select';
 import MiniSelect from './MiniSelect';
 
 export interface PaginationProps {
-  total: number;
+  total?: number;
   defaultCurrent?: number;
   current?: number;
   defaultPageSize?: number;
   pageSize?: number;
-  onChange?: (page: number, pageSize: number) => void;
+  onChange?: (page: number, pageSize?: number) => void;
   showSizeChanger?: boolean;
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;

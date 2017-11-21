@@ -21,7 +21,7 @@ export default function createTableRow(Component = 'tr') {
     private store: Store;
     private unsubscribe: () => void;
 
-    constructor(props) {
+    constructor(props: BodyRowProps) {
       super(props);
 
       this.store = props.store;

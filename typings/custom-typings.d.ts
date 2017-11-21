@@ -78,6 +78,8 @@ declare module 'rc-form*';
 
 declare module 'react-lazy-load';
 
+declare module 'dom-closest';
+
 declare module "*.json" {
   const value: any;
   export const version: string;
