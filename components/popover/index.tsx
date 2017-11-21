@@ -8,7 +8,7 @@ export interface PopoverProps extends AbstractTooltipProps {
    content?: React.ReactNode;
 }
 
-export default class Popover extends React.Component<PopoverProps, any> {
+export default class Popover extends React.Component<PopoverProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     placement: 'top',
@@ -42,7 +42,7 @@ export default class Popover extends React.Component<PopoverProps, any> {
     );
   }
 
-  saveTooltip = (node) => {
+  saveTooltip = (node: any) => {
     this.tooltip = node;
   }
 

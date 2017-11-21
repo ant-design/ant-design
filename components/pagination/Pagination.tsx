@@ -28,13 +28,15 @@ export interface PaginationProps {
   itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
 }
 
-export default class Pagination extends React.Component<PaginationProps, any> {
+export type PaginationLocale = any;
+
+export default class Pagination extends React.Component<PaginationProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-pagination',
     selectPrefixCls: 'ant-select',
   };
 
-  renderPagination = (locale) => {
+  renderPagination = (locale: PaginationLocale) => {
     const { className, size, ...restProps } = this.props;
     const isSmall = size === 'small';
     return (

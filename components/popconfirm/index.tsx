@@ -15,7 +15,16 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelText?: React.ReactNode;
 }
 
-export default class Popconfirm extends React.Component<PopconfirmProps, any> {
+export interface PopconfirmState {
+  visible?: boolean;
+}
+
+export interface PopconfirmLocale {
+  okText: string;
+  cancelText: string;
+}
+
+export default class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
@@ -24,7 +33,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     okType: 'primary',
   };
 
-  private tooltip: Tooltip;
+  private tooltip: any;
 
   constructor(props: PopconfirmProps) {
     super(props);
@@ -44,7 +53,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     return this.tooltip.getPopupDomNode();
   }
 
-  onConfirm = (e) => {
+  onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setVisible(false);
 
     const { onConfirm } = this.props;
@@ -53,7 +62,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  onCancel = (e) => {
+  onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setVisible(false);
 
     const { onCancel } = this.props;
@@ -62,11 +71,11 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  onVisibleChange = (visible) => {
+  onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
   }
 
-  setVisible(visible) {
+  setVisible(visible: boolean) {
     const props = this.props;
     if (!('visible' in props)) {
       this.setState({ visible });
@@ -78,11 +87,11 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  saveTooltip = (node) => {
+  saveTooltip = (node: any) => {
     this.tooltip = node;
   }
 
-  renderOverlay = (popconfirmLocale) => {
+  renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
     const { prefixCls, title, cancelText, okText, okType } = this.props;
     return (
       <div>

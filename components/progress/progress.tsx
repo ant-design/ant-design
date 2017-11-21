@@ -3,6 +3,7 @@ import * as React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
+
 const statusColorMap = {
   normal: '#108ee9',
   exception: '#ff5500',
@@ -26,7 +27,7 @@ export interface ProgressProps {
   size?: 'default' | 'small';
 }
 
-export default class Progress extends React.Component<ProgressProps, any> {
+export default class Progress extends React.Component<ProgressProps, {}> {
   static Line: any;
   static Circle: any;
 
@@ -108,7 +109,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
             percent={percent}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
-            strokeColor={statusColorMap[progressStatus]}
+            strokeColor={(statusColorMap as any)[progressStatus]}
             trailColor={trailColor}
             prefixCls={prefixCls}
             gapDegree={gapDeg}
