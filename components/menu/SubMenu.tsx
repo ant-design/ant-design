@@ -8,10 +8,10 @@ class SubMenu extends React.Component<any, any> {
     antdMenuTheme: PropTypes.string,
   };
   private subMenu: any;
-  onKeyDown = (e) => {
+  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.subMenu.onKeyDown(e);
   }
-  saveSubMenu = (subMenu) => {
+  saveSubMenu = (subMenu: any) => {
     this.subMenu = subMenu;
   }
   render() {

@@ -43,6 +43,10 @@ export interface SiderProps {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
+export interface SliderContext {
+  siderCollapsed: boolean;
+}
+
 const generateId = (() => {
   let i = 0;
   return (prefix: string = '') => {

@@ -9,10 +9,10 @@ class MenuItem extends React.Component<any, any> {
   };
   static isMenuItem = 1;
   private menuItem: any;
-  onKeyDown = (e) => {
+  onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
     this.menuItem.onKeyDown(e);
   }
-  saveMenuItem = (menuItem) => {
+  saveMenuItem = (menuItem: any) => {
     this.menuItem = menuItem;
   }
   render() {
