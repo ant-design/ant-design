@@ -97,6 +97,9 @@ export function loadScript(src) {
 export function enquireScreen(cb) {
   /* eslint-disable no-unused-expressions */
   // and (min-width: 320px)
+  if (!enquire) {
+    return;
+  }
   enquire.register('only screen and (max-width: 768px)', {
     match: () => {
       cb && cb(true);
