@@ -16,6 +16,7 @@ export interface AbstractTooltipProps {
   overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
   builtinPlacements?: Object;
+  defaultVisible?: boolean;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   mouseEnterDelay?: number;
@@ -67,7 +68,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     super(props);
 
     this.state = {
-      visible: !!props.visible,
+      visible: !!props.visible || !!props.defaultVisible,
     };
   }
 
