@@ -64,7 +64,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
@@ -73,13 +73,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const onlyControl = this.getOnlyControl();
     if (props.help === undefined && onlyControl) {
       const errors = this.getField().errors;
-      return errors ? errors.map(e => e.message).join(', ') : '';
+      return errors ? errors.map((e: any) => e.message).join(', ') : '';
     }
 
     return props.help;
   }
 
-  getControls(children, recursively: boolean) {
+  getControls(children: React.ReactNode, recursively: boolean) {
     let controls: React.ReactElement<any>[] = [];
     const childrenArray = React.Children.toArray(children);
     for (let i = 0; i < childrenArray.length; i++) {
@@ -109,7 +109,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return child !== undefined ? child : null;
   }
 
-  getChildProp(prop) {
+  getChildProp(prop: string) {
     const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
@@ -167,7 +167,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return '';
   }
 
-  renderValidateWrapper(c1, c2, c3) {
+  renderValidateWrapper(c1: React.ReactNode, c2: React.ReactNode, c3: React.ReactNode) {
     const props = this.props;
     const onlyControl = this.getOnlyControl;
     const validateStatus = (props.validateStatus === undefined && onlyControl) ?
@@ -191,7 +191,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  renderWrapper(children) {
+  renderWrapper(children: React.ReactNode) {
     const { prefixCls, wrapperCol } = this.props;
     const className = classNames(
       `${prefixCls}-item-control-wrapper`,
@@ -213,8 +213,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       const meta = this.getMeta() || {};
       const validate = meta.validate || [];
 
-      return validate.filter((item) => !!item.rules).some((item) => {
-        return item.rules.some((rule) => rule.required);
+      return validate.filter((item: any) => !!item.rules).some((item: any) => {
+        return item.rules.some((rule: any) => rule.required);
       });
     }
     return false;
@@ -222,7 +222,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e) => {
+  onLabelClick = (e: React.MouseEvent<HTMLLabelElement>) => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
@@ -286,7 +286,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     ];
   }
 
-  renderFormItem(children) {
+  renderFormItem(children: React.ReactNode) {
     const props = this.props;
     const prefixCls = props.prefixCls;
     const style = props.style;

@@ -129,7 +129,7 @@ export default class Form extends React.Component<FormProps, any> {
     prefixCls: 'ant-form',
     layout: 'horizontal',
     hideRequiredMark: false,
-    onSubmit(e) {
+    onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
     },
   };
@@ -159,13 +159,13 @@ export default class Form extends React.Component<FormProps, any> {
     });
   };
 
-  constructor(props) {
+  constructor(props: FormProps) {
     super(props);
 
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
