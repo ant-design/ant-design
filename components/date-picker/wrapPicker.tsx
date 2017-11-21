@@ -6,7 +6,7 @@ import { generateShowHourMinuteSecond } from '../time-picker';
 import warning from '../_util/warning';
 declare const require: Function;
 
-function getColumns({ showHour, showMinute, showSecond, use12Hours }) {
+function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   let column = 0;
   if (showHour) {
     column += 1;
@@ -23,7 +23,7 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }) {
   return column;
 }
 
-export default function wrapPicker(Picker, defaultFormat?: string): any {
+export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFormat?: string): any {
   return class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
       format: defaultFormat || 'YYYY-MM-DD',
@@ -40,7 +40,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       inputPrefixCls: 'ant-input',
     };
 
-    handleOpenChange = (open) => {
+    handleOpenChange = (open: boolean) => {
       const { onOpenChange, toggleOpen } = this.props;
       onOpenChange(open);
 
@@ -59,7 +59,7 @@ export default function wrapPicker(Picker, defaultFormat?: string): any {
       return locale.default || locale;
     }
 
-    renderPicker = (locale, localeCode) => {
+    renderPicker = (locale: any, localeCode: string) => {
       const props = this.props;
       const { prefixCls, inputPrefixCls } = props;
       const pickerClass = classNames(`${prefixCls}-picker`, {

@@ -5,7 +5,7 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-function formatValue(value: moment.Moment | undefined, format: string): string {
+function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
 }
 
@@ -14,7 +14,7 @@ export default class WeekPicker extends React.Component<any, any> {
     format: 'YYYY-Wo',
     allowClear: true,
   };
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     const value = props.value || props.defaultValue;
     if (value && !moment.isMoment(value)) {
@@ -27,12 +27,12 @@ export default class WeekPicker extends React.Component<any, any> {
       value,
     };
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: any) {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value });
     }
   }
-  weekDateRender = (current) => {
+  weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this.props;
     if (selectedValue &&
@@ -52,13 +52,13 @@ export default class WeekPicker extends React.Component<any, any> {
       </div>
     );
   }
-  handleChange = (value) => {
+  handleChange = (value: moment.Moment | null) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
   }
-  clearSelection = (e) => {
+  clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     this.handleChange(null);
@@ -96,7 +96,7 @@ export default class WeekPicker extends React.Component<any, any> {
         onClick={this.clearSelection}
       />
     ) : null;
-    const input = ({ value }) => {
+    const input = ({ value }: {  value: moment.Moment | undefined }) => {
       return (
         <span>
           <input

@@ -32,7 +32,7 @@ function pickerValueAdapter(value?: moment.Moment | moment.Moment[]): moment.Mom
   return [value, value.clone().add(1, 'month')];
 }
 
-function isEmptyArray(arr) {
+function isEmptyArray(arr: any) {
   if (Array.isArray(arr)) {
     return arr.length === 0 || arr.every(i => !i);
   }
@@ -46,7 +46,7 @@ export default class RangePicker extends React.Component<any, any> {
     showToday: false,
   };
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     const value = props.value || props.defaultValue || [];
     if (
@@ -67,7 +67,7 @@ export default class RangePicker extends React.Component<any, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: any) {
     if ('value' in nextProps) {
       const state = this.state;
       const value = nextProps.value || [];
@@ -83,7 +83,7 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  clearSelection = (e) => {
+  clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     this.setState({ value: [] });
@@ -106,7 +106,7 @@ export default class RangePicker extends React.Component<any, any> {
     ]);
   }
 
-  handleOpenChange = (open) => {
+  handleOpenChange = (open: boolean) => {
     if (!('open' in this.props)) {
       this.setState({ open });
     }
@@ -117,18 +117,18 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  handleShowDateChange = showDate => this.setState({ showDate });
+  handleShowDateChange = (showDate: boolean) => this.setState({ showDate });
 
-  handleHoverChange = hoverValue => this.setState({ hoverValue });
+  handleHoverChange = (hoverValue: any) => this.setState({ hoverValue });
 
-  setValue(value, hidePanel?) {
+  setValue(value: moment.Moment[], hidePanel?: boolean) {
     this.handleChange(value);
     if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
       this.setState({ open: false });
     }
   }
 
-  renderFooter = (...args) => {
+  renderFooter = (...args: any[]) => {
     const { prefixCls, ranges, renderExtraFooter } = this.props;
     if (!ranges && !renderExtraFooter) {
       return null;
@@ -243,7 +243,7 @@ export default class RangePicker extends React.Component<any, any> {
       />
     ) : null;
 
-    const input = ({ value: inputValue }) => {
+    const input = ({ value: inputValue }: { value: any }) => {
       const start = inputValue[0];
       const end = inputValue[1];
       return (

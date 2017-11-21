@@ -13,7 +13,7 @@ export interface PickerProps {
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar): any {
+export default function createPicker(TheCalendar: React.ComponentClass): any {
   return class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
@@ -21,7 +21,7 @@ export default function createPicker(TheCalendar): any {
       showToday: true,
     };
 
-    constructor(props) {
+    constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
       if (value && !moment.isMoment(value)) {
@@ -43,7 +43,7 @@ export default function createPicker(TheCalendar): any {
       }
     }
 
-    renderFooter = (...args) => {
+    renderFooter = (...args: any[]) => {
       const { prefixCls, renderExtraFooter } = this.props;
       return renderExtraFooter ? (
         <div className={`${prefixCls}-footer-extra`}>
@@ -52,13 +52,13 @@ export default function createPicker(TheCalendar): any {
       ) : null;
     }
 
-    clearSelection = (e) => {
+    clearSelection = (e: React.MouseEvent<HTMLElement>) => {
       e.preventDefault();
       e.stopPropagation();
       this.handleChange(null);
     }
 
-    handleChange = (value) => {
+    handleChange = (value: moment.Moment | null) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({ value });
@@ -127,7 +127,7 @@ export default function createPicker(TheCalendar): any {
         />
       ) : null;
 
-      const input = ({ value: inputValue }) => (
+      const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
           <input
             disabled={props.disabled}
