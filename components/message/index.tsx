@@ -3,13 +3,13 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 
 let defaultDuration = 3;
-let defaultTop;
-let messageInstance;
+let defaultTop: number;
+let messageInstance: any;
 let key = 1;
 let prefixCls = 'ant-message';
-let getContainer;
+let getContainer: () => HTMLElement;
 
-function getMessageInstance(callback) {
+function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
     callback(messageInstance);
     return;
@@ -19,7 +19,7 @@ function getMessageInstance(callback) {
     transitionName: 'move-up',
     style: { top: defaultTop }, // 覆盖原来的样式
     getContainer,
-  }, (instance) => {
+  }, (instance: any) => {
     messageInstance = instance;
     callback(instance);
   });

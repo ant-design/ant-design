@@ -7,8 +7,8 @@ import { ButtonType } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
 
-let mousePosition;
-let mousePositionEventBinded;
+let mousePosition: { x: number, y: number } | null;
+let mousePositionEventBinded: boolean;
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -46,11 +46,13 @@ export interface ModalProps {
 }
 
 export interface ModalFuncProps {
+  prefixCls?: string;
+  className?: string;
   visible?: boolean;
-  title?: React.ReactNode | string;
-  content?: React.ReactNode | string;
-  onOk?: (func: Function) => any;
-  onCancel?: (func: Function) => any;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
+  onOk?: (...args: any[]) => any | PromiseLike<any>;
+  onCancel?: (...args: any[]) => any | PromiseLike<any>;
   width?: string | number;
   iconClassName?: string;
   okText?: string;
@@ -59,12 +61,22 @@ export interface ModalFuncProps {
   iconType?: string;
   maskClosable?: boolean;
   zIndex?: number;
+  okCancel?: boolean;
+  style?: React.CSSProperties;
+  type?: string;
 }
+
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void,
 };
 
-export default class Modal extends React.Component<ModalProps, any> {
+export interface ModalLocale {
+  okText: string;
+  cancelText: string;
+  justOkText: string;
+}
+
+export default class Modal extends React.Component<ModalProps, {}> {
   static info: ModalFunc;
   static success: ModalFunc;
   static error: ModalFunc;
@@ -97,14 +109,14 @@ export default class Modal extends React.Component<ModalProps, any> {
     closable: PropTypes.bool,
   };
 
-  handleCancel = (e) => {
+  handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const onCancel = this.props.onCancel;
     if (onCancel) {
       onCancel(e);
     }
   }
 
-  handleOk = (e) => {
+  handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     const onOk = this.props.onOk;
     if (onOk) {
       onOk(e);
@@ -129,7 +141,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     mousePositionEventBinded = true;
   }
 
-  renderFooter = (locale) => {
+  renderFooter = (locale: ModalLocale) => {
     const { okText, okType, cancelText, confirmLoading } = this.props;
     return (
       <div>

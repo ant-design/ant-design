@@ -5,13 +5,19 @@ import { ButtonType } from '../button/button';
 
 export interface ActionButtonProps {
   type?: ButtonType;
-  actionFn: Function;
+  actionFn?: (...args: any[]) => any | PromiseLike<any>;
   closeModal: Function;
-  autoFocus?: Boolean;
+  autoFocus?: boolean;
 }
-export default class ActionButton extends React.Component<ActionButtonProps, any> {
+
+export interface ActionButtonState {
+  loading: boolean;
+}
+
+export default class ActionButton extends React.Component<ActionButtonProps, ActionButtonState> {
   timeoutId: number;
-  constructor(props) {
+
+  constructor(props: ActionButtonProps) {
     super(props);
     this.state = {
       loading: false,
@@ -40,7 +46,7 @@ export default class ActionButton extends React.Component<ActionButtonProps, any
       }
       if (ret && ret.then) {
         this.setState({ loading: true });
-        ret.then((...args) => {
+        ret.then((...args: any[]) => {
           // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
           // this.setState({ loading: false });
           closeModal(...args);
