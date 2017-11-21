@@ -1,4 +1,20 @@
-import enquire from 'enquire.js';
+// matchMedia polyfill for
+// https://github.com/WickyNilliams/enquire.js/issues/82
+let enquire;
+if (typeof window !== 'undefined') {
+  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+    return {
+      media: mediaQuery,
+      matches: false,
+      addListener() {
+      },
+      removeListener() {
+      },
+    };
+  };
+  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  enquire = require('enquire.js');
+}
 
 export function getMenuItems(moduleData, locale) {
   const menuMeta = moduleData.map(item => item.meta);
