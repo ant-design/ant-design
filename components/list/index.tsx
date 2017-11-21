@@ -12,16 +12,18 @@ import Item from './Item';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
-export type ColumnType = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+export type ColumnCount = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 24;
+
+export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface ListGridType {
   gutter?: number;
-  column?: ColumnType;
-  xs?: ColumnType;
-  sm?: ColumnType;
-  md?: ColumnType;
-  lg?: ColumnType;
-  xl?: ColumnType;
+  column?: ColumnCount;
+  xs?: ColumnCount;
+  sm?: ColumnCount;
+  md?: ColumnCount;
+  lg?: ColumnCount;
+  xl?: ColumnCount;
 }
 
 export type ListSize = 'small' | 'default' | 'large';
@@ -48,6 +50,10 @@ export interface ListProps {
   locale?: Object;
 }
 
+export interface ListLocale {
+  emptyText: string;
+}
+
 export default class List extends React.Component<ListProps> {
   static Item: typeof Item = Item;
 
@@ -64,7 +70,7 @@ export default class List extends React.Component<ListProps> {
     pagination: false,
   };
 
-  private keys = {};
+  private keys: {[key: string]: string} = {};
 
   getChildContext() {
     return {
@@ -72,7 +78,7 @@ export default class List extends React.Component<ListProps> {
     };
   }
 
-  renderItem = (item, index) => {
+  renderItem = (item: React.ReactElement<any>, index: number) => {
     const { dataSource, renderItem, rowKey } = this.props;
     let key;
 
@@ -98,7 +104,7 @@ export default class List extends React.Component<ListProps> {
     return !!(loadMore || pagination || footer);
   }
 
-  renderEmpty = (contextLocale) => {
+  renderEmpty = (contextLocale: ListLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
     return <div className={`${this.props.prefixCls}-empty-text`}>{locale.emptyText}</div>;
   }
@@ -155,8 +161,8 @@ export default class List extends React.Component<ListProps> {
 
     let childrenContent;
     if (dataSource.length > 0) {
-      const childrenList = React.Children.map(dataSource.map((item: any, index) => this.renderItem(item, index)),
-        (child: any, index) => React.cloneElement(child, {
+      const items = dataSource.map((item: any, index: number) => this.renderItem(item, index));
+      const childrenList = React.Children.map(items, (child: any, index) => React.cloneElement(child, {
           key: this.keys[index],
         }),
       );

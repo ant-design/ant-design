@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Col } from '../grid';
-import { ListGridType } from './index';
+import { ListGridType, ColumnType } from './index';
 
 export interface ListItemProps {
   className?: string;
@@ -51,8 +51,8 @@ export const Meta = (props: ListItemMetaProps) => {
   );
 };
 
-function getGrid(grid, t) {
-  return grid[t] && Math.floor(24 / grid[t]);
+function getGrid(grid: ListGridType, t: ColumnType) {
+  return grid[t] && Math.floor(24 / grid[t]!);
 }
 
 const GridColumns = ['', 1, 2, 3, 4, 6, 8, 12, 24];
@@ -99,7 +99,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     let actionsContent;
     if (actions && actions.length > 0) {
-      const actionsContentItem = (action, i) => (
+      const actionsContentItem = (action: React.ReactNode, i: number) => (
         <li key={`${prefixCls}-item-action-${i}`}>
           {action}
           {i !== (actions.length - 1) && <em className={`${prefixCls}-item-action-split`}/>}
