@@ -13,6 +13,13 @@ export interface SliderMarks {
 
 export type SliderValue = number | [number, number];
 
+export type HandleGeneratorFn = (info: {
+  value: number,
+  dragging: boolean,
+  index: number,
+  rest: any[],
+}) => React.ReactElement<any>;
+
 export interface SliderProps {
   prefixCls?: string;
   tooltipPrefixCls?: string;
@@ -34,23 +41,27 @@ export interface SliderProps {
   id?: string;
 }
 
-export default class Slider extends React.Component<SliderProps, any> {
+export interface SliderState {
+  visibles: { [index: number]: boolean };
+}
+
+export default class Slider extends React.Component<SliderProps, SliderState> {
   static defaultProps = {
     prefixCls: 'ant-slider',
     tooltipPrefixCls: 'ant-tooltip',
-    tipFormatter(value) {
+    tipFormatter(value: number) {
       return value.toString();
     },
   };
 
-  constructor(props) {
+  constructor(props: SliderProps) {
     super(props);
     this.state = {
       visibles: {},
     };
   }
 
-  toggleTooltipVisible = (index, visible) => {
+  toggleTooltipVisible = (index: number, visible: boolean) => {
     this.setState(({ visibles }) => ({
       visibles: {
         ...visibles,
@@ -58,14 +69,15 @@ export default class Slider extends React.Component<SliderProps, any> {
       },
     }));
   }
-  handleWithTooltip = ({ value, dragging, index, ...restProps }) => {
+  handleWithTooltip: HandleGeneratorFn = ({ value, dragging, index, ...restProps }) => {
     const { tooltipPrefixCls, tipFormatter } = this.props;
     const { visibles } = this.state;
+    const visible = tipFormatter ? (visibles[index] || dragging)  : false;
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
-        visible={tipFormatter && (visibles[index] || dragging)}
+        visible={visible}
         placement="top"
         transitionName="zoom-down"
         key={index}

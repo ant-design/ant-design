@@ -15,7 +15,7 @@ export interface SwitchProps {
   disabled?: boolean;
 }
 
-export default class Switch extends React.Component<SwitchProps, any> {
+export default class Switch extends React.Component<SwitchProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-switch',
   };
@@ -28,7 +28,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     className: PropTypes.string,
   };
 
-  private rcSwitch: any;
+  private rcSwitch: typeof RcSwitch;
 
   focus() {
     this.rcSwitch.focus();
@@ -38,7 +38,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     this.rcSwitch.blur();
   }
 
-  saveSwitch = (node) => {
+  saveSwitch = (node: typeof RcSwitch) => {
     this.rcSwitch = node;
   }
 

@@ -16,7 +16,12 @@ export interface SpinProps {
   indicator?: React.ReactNode;
 }
 
-export default class Spin extends React.Component<SpinProps, any> {
+export interface SpinState {
+  spinning?: boolean;
+  notCssAnimationSupported?: boolean;
+}
+
+export default class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
@@ -36,7 +41,7 @@ export default class Spin extends React.Component<SpinProps, any> {
   debounceTimeout: number;
   delayTimeout: number;
 
-  constructor(props) {
+  constructor(props: SpinProps) {
     super(props);
     const spinning = props.spinning;
     this.state = {
@@ -66,7 +71,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: SpinProps) {
     const currentSpinning = this.props.spinning;
     const spinning = nextProps.spinning;
     const { delay } = this.props;

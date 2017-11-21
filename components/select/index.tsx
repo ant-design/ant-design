@@ -85,7 +85,7 @@ const SelectPropTypes = {
 // => It is needless to export the declaration of below two inner components.
 // export { Option, OptGroup };
 
-export default class Select extends React.Component<SelectProps, any> {
+export default class Select extends React.Component<SelectProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -108,11 +108,11 @@ export default class Select extends React.Component<SelectProps, any> {
     this.rcSelect.blur();
   }
 
-  saveSelect = (node) => {
+  saveSelect = (node: any) => {
     this.rcSelect = node;
   }
 
-  renderSelect = (locale) => {
+  renderSelect = (locale: SelectLocale) => {
     const {
       prefixCls,
       className = '',
