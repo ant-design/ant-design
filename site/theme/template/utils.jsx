@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  enquire = require('enquire.js');
+  enquire = require('enquire.js'); // eslint-disable-line global-require
 }
 
 export function getMenuItems(moduleData, locale) {
