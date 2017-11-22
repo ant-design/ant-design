@@ -9,7 +9,7 @@ export interface SelectionBoxProps {
   defaultSelection: string[];
   rowIndex: string;
   disabled?: boolean;
-  onChange: (e) => void;
+  onChange: (e: any) => void;
 }
 
 export default class SelectionBox extends React.Component<SelectionBoxProps, any> {
