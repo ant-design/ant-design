@@ -5,17 +5,22 @@ import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
 import classNames from 'classnames';
 
+export interface Route {
+  path: string;
+  breadcrumbName: string;
+}
+
 export interface BreadcrumbProps {
   prefixCls?: string;
-  routes?: Array<any>;
-  params?: Object;
+  routes?: Route[];
+  params?: any;
   separator?: React.ReactNode;
   itemRender?: (route: any, params: any, routes: Array<any>, paths: Array<string>) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
 }
 
-function getBreadcrumbName(route, params) {
+function getBreadcrumbName(route: Route, params: any) {
   if (!route.breadcrumbName) {
     return null;
   }
@@ -27,7 +32,7 @@ function getBreadcrumbName(route, params) {
   return name;
 }
 
-function defaultItemRender(route, params, routes, paths) {
+function defaultItemRender(route: Route, params: any, routes: Route[], paths: string[]) {
   const isLastItem = routes.indexOf(route) === routes.length - 1;
   const name = getBreadcrumbName(route, params);
   return isLastItem
