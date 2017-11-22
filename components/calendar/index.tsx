@@ -13,7 +13,7 @@ export { HeaderProps } from './Header';
 
 function noop() { return null; }
 
-function zerofixed(v) {
+function zerofixed(v: number) {
   if (v < 10) {
     return `0${v}`;
   }
@@ -41,7 +41,7 @@ export interface CalendarProps {
 }
 
 export interface CalendarState {
-  value?: moment.Moment;
+  value: moment.Moment;
   mode?: CalendarMode;
 }
 
@@ -70,8 +70,8 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     onSelect: PropTypes.func,
   };
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props: CalendarProps) {
+    super(props);
 
     const value = props.value || props.defaultValue || callMoment(moment);
     if (!moment.isMoment(value)) {
@@ -89,12 +89,12 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   componentWillReceiveProps(nextProps: CalendarProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value,
+        value: nextProps.value!,
       });
     }
   }
 
-  monthCellRender = (value) => {
+  monthCellRender = (value: moment.Moment) => {
     const { prefixCls, monthCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-month`}>
@@ -108,7 +108,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 
-  dateCellRender = (value) => {
+  dateCellRender = (value: moment.Moment) => {
     const { prefixCls, dateCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-date`}>
@@ -127,7 +127,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     return locale.default || locale;
   }
 
-  setValue = (value, way: 'select' | 'changePanel') => {
+  setValue = (value: moment.Moment, way: 'select' | 'changePanel') => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -140,7 +140,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     }
   }
 
-  setType = (type) => {
+  setType = (type: string) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
       this.setState({ mode });
@@ -148,26 +148,26 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     }
   }
 
-  onHeaderValueChange = (value) => {
+  onHeaderValueChange = (value: moment.Moment) => {
     this.setValue(value, 'changePanel');
   }
 
-  onHeaderTypeChange = (type) => {
+  onHeaderTypeChange = (type: string) => {
     this.setType(type);
   }
 
-  onPanelChange(value, mode) {
+  onPanelChange(value: moment.Moment, mode: CalendarMode | undefined) {
     const { onPanelChange } = this.props;
     if (onPanelChange) {
       onPanelChange(value, mode);
     }
   }
 
-  onSelect = (value) => {
+  onSelect = (value: moment.Moment) => {
     this.setValue(value, 'select');
   }
 
-  renderCalendar = (locale, localeCode) => {
+  renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
     const { value, mode } = state;
     if (value && localeCode) {
