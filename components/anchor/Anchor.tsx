@@ -42,7 +42,7 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 }
 
 const reqAnimFrame = getRequestAnimationFrame();
-function scrollTo(href: string, offsetTop = 0, target, callback = () => { }) {
+function scrollTo(href: string, offsetTop = 0, target: () => Window | HTMLElement, callback = () => { }) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
@@ -95,7 +95,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     antAnchor: PropTypes.object,
   };
 
-  private inkNode: HTMLElement;
+  private inkNode: HTMLSpanElement;
 
   private links: String[];
   private scrollEvent: any;
@@ -155,7 +155,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
   }
 
-  handleScrollTo = (link) => {
+  handleScrollTo = (link: string) => {
     const { offsetTop, target = getDefaultTarget } = this.props;
     this.animating = true;
     this.setState({ activeLink: link });
@@ -200,7 +200,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }
   }
 
-  saveInkNode = (node) => {
+  saveInkNode = (node: HTMLSpanElement) => {
     this.inkNode = node;
   }
 
