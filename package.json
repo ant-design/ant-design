@@ -57,7 +57,7 @@
     "rc-dialog": "~7.0.0",
     "rc-dropdown": "~2.1.0",
     "rc-editor-mention": "^1.0.2",
-    "rc-form": "~2.0.0",
+    "rc-form": "^2.1.0",
     "rc-input-number": "~4.0.0",
     "rc-menu": "~6.2.0",
     "rc-notification": "~3.0.0",
