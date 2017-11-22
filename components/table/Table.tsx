@@ -901,8 +901,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   createComponents(components: TableComponents = {}, prevComponents?: TableComponents) {
     const bodyRow = components && components.body && components.body.row;
     const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-    this.components = { ...components };
-    if (!prevComponents || bodyRow !== preBodyRow) {
+    if (!this.components || bodyRow !== preBodyRow) {
+      this.components = { ...components };
       this.components.body = {
         ...components.body,
         row: createBodyRow(bodyRow),
