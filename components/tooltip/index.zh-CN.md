@@ -34,6 +34,7 @@ title: Tooltip
 | overlayStyle | 卡片样式 | object | 无 |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | top |
 | trigger | 触发行为，可选 `hover/focus/click` | string | hover |
+| defaultVisible | 默认是否显隐 | boolean | false |
 | visible | 用于手动控制浮层显隐 | boolean | false |
 | onVisibleChange | 显示隐藏的回调 | (visible) => void | 无 |
 

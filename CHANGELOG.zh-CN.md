@@ -1438,8 +1438,8 @@ timeline: true
 
   ```diff
   {
-  -  "plugins": [["antd", { style: "css" }]]
-  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
+  -  "plugins": [["antd", { "style": "css" }]]
+  +  "plugins": [["import", { "libraryName": "antd", "style": "css" }]]
   }
   ```
 

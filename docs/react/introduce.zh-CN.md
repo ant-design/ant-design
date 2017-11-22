@@ -41,7 +41,7 @@ title: Ant Design of React
 ## 版本
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- 预览版：[![](https://cnpmjs.org/badge/v/antd.svg?&tag=next&subject=npm)](https://www.npmjs.org/package/antd)
+- 预览版：[![npm (next)](https://img.shields.io/npm/v/antd/next.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
 
@@ -93,7 +93,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { libraryName: "antd", style: "css" }] // `style: true` 会加载 less 文件
+       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` 会加载 less 文件
      ]
    }
    ```
