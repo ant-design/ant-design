@@ -34,7 +34,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
+export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -69,7 +69,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     this.select.blur();
   }
 
-  saveSelect = (node) => {
+  saveSelect = (node: any) => {
     this.select = node;
   }
 
