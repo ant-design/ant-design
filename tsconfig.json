@@ -6,6 +6,7 @@
     "jsx": "preserve",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "noImplicitAny": true,
     "target": "es6",
     "lib": [
       "dom",
