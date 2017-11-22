@@ -83,7 +83,7 @@ export default class Card extends React.Component<CardProps, {}> {
       });
     }
   }
-  onTabChange = (key) => {
+  onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
     }
@@ -100,7 +100,7 @@ export default class Card extends React.Component<CardProps, {}> {
     });
     return containGrid;
   }
-  getAction(actions) {
+  getAction(actions: React.ReactNode[]) {
     if (!actions || !actions.length) {
       return null;
     }
