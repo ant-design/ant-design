@@ -89,12 +89,12 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     [key: string]: any;
   } = {};
 
-  private fixedNode: HTMLElement;
-
   state: AffixState = {
     affixStyle: undefined,
     placeholderStyle: undefined,
   };
+
+  private fixedNode: HTMLElement;
 
   setAffixStyle(e: any, affixStyle: React.CSSProperties | null) {
     const { onChange = noop, target = getDefaultTarget } = this.props;
