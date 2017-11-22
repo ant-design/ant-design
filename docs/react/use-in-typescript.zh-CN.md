@@ -71,21 +71,6 @@ export default App;
 ...
 ```
 
-这个时候你可能会碰到下面类似的错误，这是因为 antd 的类型定义还不完善（[帮助我们完善类型定义](https://github.com/ant-design/ant-design/issues/5627)）。
-
-> error TS7006: Parameter 'e' implicitly has an 'any' type.
-
-修改 tsconfig.json 设置 `skipLibCheck` 为 `true` 跳过对第三方库的类型检查。
-
-```json
-{
-  "compilerOptions": {
-    ...,
-    "skipLibCheck": true
-  }
-}
-```
-
 重新启动 `yarn start`，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)。
 
 ## 高级配置

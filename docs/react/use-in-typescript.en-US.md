@@ -71,21 +71,6 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 ...
 ```
 
-Now you may see following error on the browser, this is because there are many implicitly `any` types in antd's codebase ([please help us improving type definition](https://github.com/ant-design/ant-design/issues/5627).
-
-> error TS7006: Parameter 'e' implicitly has an 'any' type.
-
-You need setting `skipLibCheck` to `true` in tsconfig.json, then TypeScript will skip type checking for third party libraries.
-
-```json
-{
-  "compilerOptions": {
-    ...,
-    "skipLibCheck": true
-  }
-}
-```
-
 Ok, reboot with `yarn start`, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Advanced Guides
