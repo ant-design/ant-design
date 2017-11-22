@@ -3,7 +3,7 @@ order: 1
 title: Features
 ---
 
-Unlike other design specifications, Ant Design pursues not only user experience, but also experience of desigers and developers, which practice a humanist design idea.
+Unlike other design specifications, Ant Design pursues not only user experience, but also experience of designers and developers, which practice a humanist design idea.
 
 <div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
   <div class="ant-col-8 features">
