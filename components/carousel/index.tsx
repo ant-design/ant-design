@@ -66,7 +66,7 @@ export interface CarouselProps {
   slickGoTo?: number;
 }
 
-export default class Carousel extends React.Component<CarouselProps, any> {
+export default class Carousel extends React.Component<CarouselProps, {}> {
   static defaultProps = {
     dots: true,
     arrows: false,
@@ -78,7 +78,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
   private slick: any;
 
-  constructor(props) {
+  constructor(props: CarouselProps) {
     super(props);
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
@@ -110,7 +110,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     }
   }
 
-  saveSlick = (node) => {
+  saveSlick = (node: any) => {
     this.slick = node;
   }
 
@@ -122,7 +122,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     this.slick.slickPrev();
   }
 
-  goTo(slide) {
+  goTo(slide: number) {
     this.slick.slickGoTo(slide);
   }
 

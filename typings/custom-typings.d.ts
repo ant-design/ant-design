@@ -93,3 +93,5 @@ declare module "*.json" {
 }
 
 declare module "prop-types"
+
+declare module "lodash.debounce"
