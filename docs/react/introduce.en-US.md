@@ -90,7 +90,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { libraryName: "antd", style: "css" }] // `style: true` for less
+       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` for less
      ]
    }
    ```

@@ -93,7 +93,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { libraryName: "antd", style: "css" }] // `style: true` 会加载 less 文件
+       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` 会加载 less 文件
      ]
    }
    ```
