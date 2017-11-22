@@ -41,7 +41,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 ## Version
 
 - Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- Next: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=next&subject=npm)](https://www.npmjs.org/package/antd)
+- Next：  [![npm (next)](https://img.shields.io/npm/v/antd/next.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 You can subscribe to this feed for new version notifications: https://github.com/ant-design/ant-design/releases.atom
 
