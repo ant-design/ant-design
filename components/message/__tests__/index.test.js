@@ -88,4 +88,23 @@ describe('message', () => {
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/8201
+  it('should destroy messages correctly', () => {
+    // eslint-disable-next-line
+    class Test extends React.Component {
+      componentDidMount() {
+        message.loading('Action in progress1..', 0);
+        message.loading('Action in progress2..', 0);
+        setTimeout(() => message.destroy(), 1000);
+      }
+      render() {
+        return <div>test</div>;
+      }
+    }
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
 });

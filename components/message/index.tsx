@@ -20,6 +20,10 @@ function getMessageInstance(callback: (i: any) => void) {
     style: { top: defaultTop }, // 覆盖原来的样式
     getContainer,
   }, (instance: any) => {
+    if (messageInstance) {
+      callback(messageInstance);
+      return;
+    }
     messageInstance = instance;
     callback(instance);
   });
