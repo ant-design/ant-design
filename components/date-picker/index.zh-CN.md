@@ -87,7 +87,8 @@ moment.locale('zh-cn');
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
 | value | 日期 | [moment](http://momentjs.com/)\[] | 无 |
-| onChange | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
+| onChange | 时间段发生变化的回调，开始时间和结束时间都被选定后触发 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
+| onCalendarChange | 时间发生变化的回调，开始日期或结束日期改变时触发 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
 | onOk | 点击确定按钮的回调 | function() | - |
 
 <style>
