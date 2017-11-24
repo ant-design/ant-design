@@ -104,7 +104,7 @@ export interface TableProps<T> {
   bodyStyle?: React.CSSProperties;
   className?: string;
   style?: React.CSSProperties;
-  children?: React.ReactChildren;
+  children?: React.ReactNode;
 }
 
 export interface TableStateFilters {
@@ -170,6 +170,6 @@ export interface FilterMenuProps<T> {
 
 export interface FilterMenuState {
   selectedKeys: string[];
-  keyPathOfSelectedItem: {[key: string]: string};
+  keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
 }
