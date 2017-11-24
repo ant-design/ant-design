@@ -10,7 +10,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   name?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface RadioGroupState {
