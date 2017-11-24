@@ -5,10 +5,18 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
+import LZString from 'lz-string';
 import { Icon, Tooltip } from 'antd';
 import EditButton from './EditButton';
 import BrowserFrame from '../BrowserFrame';
 import { ping } from '../utils';
+
+function compress(string) {
+  return LZString.compressToBase64(string)
+    .replace(/\+/g, '-') // Convert '+' to '-'
+    .replace(/\//g, '_') // Convert '/' to '_'
+    .replace(/=+$/, ''); // Remove ending '='
+}
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -117,13 +125,14 @@ export default class Demo extends React.Component {
     });
 
     const prefillStyle = `@import 'antd/dist/antd.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const html = `<div id="container" style="padding: 24px"></div>
+<script>
+  var mountNode = document.getElementById('container');
+</script>`;
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
-      html: `<div id="container" style="padding: 24px"></div>
-<script>
-  var mountNode = document.getElementById('container');
-</script>`,
+      html,
       js: state.sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;'),
       css: prefillStyle,
       editors: '001',
@@ -140,6 +149,37 @@ export default class Demo extends React.Component {
       title: `${localizedTitle} - Ant Design Demo`,
       js: state.sourceCode,
       css: prefillStyle,
+    };
+    const dependencies = state.sourceCode.split('\n').reduce((acc, line) => {
+      const matches = line.match(/import .+? from '(.+)';$/);
+      if (matches && matches[1]) {
+        acc[matches[1]] = 'latest';
+      }
+      return acc;
+    }, { react: 'latest', 'react-dom': 'latest' });
+    const codesanboxPrefillConfig = {
+      files: {
+        'package.json': {
+          content: {
+            dependencies,
+          },
+        },
+        'index.css': {
+          content: (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), ''),
+        },
+        'index.js': {
+          content: `
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import './index.css';
+${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')')}
+          `,
+        },
+        'index.html': {
+          content: html,
+        },
+      },
     };
     return (
       <section className={codeBoxClass} id={meta.id}>
@@ -194,6 +234,12 @@ export default class Demo extends React.Component {
                 <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
                 <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
                   <input type="submit" value="Create New Pen with Prefilled Data" className="code-box-codepen" />
+                </Tooltip>
+              </form>
+              <form action="https://codesandbox.io/api/v1/sandboxes/define" method="POST" target="_blank">
+                <input type="hidden" name="parameters" value={compress(JSON.stringify(codesanboxPrefillConfig))} />
+                <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                  <input type="submit" value="Create New Sandbox with Prefilled Data" className="code-box-codesandbox" />
                 </Tooltip>
               </form>
               <CopyToClipboard
