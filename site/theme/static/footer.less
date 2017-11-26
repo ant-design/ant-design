@@ -1,4 +1,27 @@
+@import './colors';
+
+@padding-space: 114px;
+
+footer.dark {
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.65);
+  a {
+    color: #fff;
+  }
+  h2 {
+    color: rgba(255, 255, 255, 1);
+    & > span {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  .bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+  }
+}
+
 footer {
+  border-top: 1px solid @border-color;
   clear: both;
   font-size: 12px;
   background: #fff;
@@ -6,6 +29,11 @@ footer {
   z-index: 1;
   color: @text-color;
   box-shadow: 0 1000px 0 1000px #fff;
+
+  .footer-wrap {
+    position: relative;
+    padding: 86px @padding-space 70px @padding-space;
+  }
   ul {
     overflow: hidden;
     margin: 0 2%;

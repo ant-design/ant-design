@@ -1,27 +1,50 @@
+@import "~antd/lib/style/themes/default.less";
+
 .nav-phone-icon {
   display: none;
   position: absolute;
   right: 30px;
-  top: 32px;
+  top: 25px;
   z-index: 1;
   width: 16px;
   height: 22px;
   cursor: pointer;
 }
 
-@media only screen and (min-width: 0) and (max-width: 1280px) {
+@media only screen and (min-width: 1440px) and (max-width: 1599px) {
+  .main-wrapper > .ant-row > .ant-col-xl-5 {
+    width: 274px;
+  }
+
+  #header .ant-row .ant-col-xl-5 {
+    width: 274px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
   .en-us #search-box {
     display: none;
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 1180px) {
-  .zh-cn #search-box {
+@media only screen and (max-width: @screen-xl) {
+  #search-box {
     display: none;
+  }
+  #logo {
+    padding: 0 40px;
+  }
+  .banner-wrapper .banner-title-wrapper {
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 992px) {
+@media only screen and (max-width: @screen-lg) {
   #search-box {
     display: none;
   }
@@ -37,14 +60,6 @@
   .preview-image-box {
     padding-left: 0;
     margin: 10px 0;
-  }
-
-  a#logo {
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    display: block;
   }
 
   .banner-entry {
@@ -124,7 +139,7 @@
       float: none;
     }
     div.version {
-      margin: 32px auto 16px;
+      margin: 16px auto;
       float: none;
     }
     .ant-popover-inner {
@@ -137,7 +152,7 @@
           display: inline-block;
         }
         .ant-btn {
-          margin: 32px 10% 0 0;
+          margin: 16px 10% 0 0;
         }
       }
     }
@@ -153,8 +168,8 @@
   }
 
   ul#nav li {
-    line-height: 60px;
-    height: 60px;
+    line-height: 40px;
+    height: 40px;
     padding: 0 !important;
     border: 0;
     a {
