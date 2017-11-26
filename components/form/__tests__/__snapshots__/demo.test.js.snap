@@ -1421,7 +1421,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control "
       >
         <span
-          class="ant-input-group-wrapper"
+          class="ant-input-group-wrapper ant-input-group-wrapper-lg"
           style="width:100%;"
         >
           <span
