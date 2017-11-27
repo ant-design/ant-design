@@ -8,11 +8,11 @@ pre code {
  display: block;
  background: white;
  color: @text-color;
- line-height: 1.7;
+ line-height: 2;
  border: 1px solid #e9e9e9;
- padding: 10px 15px;
- border-radius: @border-radius-base;
- font-size: 13px;
+ padding: 16px 32px;
+ border-radius: @border-radius-sm;
+ font-size: @font-size-base;
  white-space: pre;
  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
@@ -21,7 +21,6 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: black;
   background: none;
-  text-shadow: 0 1px white;
   font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   direction: ltr;
   text-align: left;
@@ -66,8 +65,8 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 1.2em 0;
+  padding: 12px 20px;
+  margin: 16px 0;
   overflow: auto;
 }
 

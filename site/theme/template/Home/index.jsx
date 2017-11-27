@@ -25,6 +25,7 @@ function getStyle() {
     }
     #header {
       position: fixed;
+      width: 100%;
       z-index: 999;
       background: rgba(0, 0, 0, 0.25);
       border-bottom: 1px solid transparent;
