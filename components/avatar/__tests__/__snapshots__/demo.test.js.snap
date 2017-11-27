@@ -253,7 +253,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    style="background-color:#f56a00"
+    style="background-color:#f56a00;vertical-align:middle"
   >
     <span
       class="ant-avatar-string"
@@ -263,7 +263,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
   </span>
   <button
     class="ant-btn ant-btn-sm"
-    style="margin-left:16px"
+    style="margin-left:16px;vertical-align:middle"
     type="button"
   >
     <span>
