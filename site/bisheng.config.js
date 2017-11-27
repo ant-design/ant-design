@@ -1,8 +1,19 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
+const replaceLib = require('antd-tools/lib/replaceLib');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
+
+function alertBabelConfig(rules) {
+  rules.forEach((rule) => {
+    if (rule.loader && rule.loader === 'babel-loader') {
+      rule.options.plugins.push(replaceLib);
+    } else if (rule.use) {
+      alertBabelConfig(rule.use);
+    }
+  });
+}
 
 module.exports = {
   port: 8001,
@@ -79,6 +90,8 @@ module.exports = {
     if (isDev) {
       config.devtool = 'source-map';
     }
+
+    alertBabelConfig(config.module.rules);
 
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
