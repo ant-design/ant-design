@@ -26,25 +26,17 @@ footer {
   font-size: 12px;
   background: #fff;
   position: relative;
-  z-index: 1;
+  z-index: 100;
   color: @text-color;
   box-shadow: 0 1000px 0 1000px #fff;
-
-  .footer-wrap {
-    position: relative;
-    padding: 86px @padding-space 70px @padding-space;
-  }
-  ul {
-    overflow: hidden;
-    margin: 0 2%;
-    list-style: none;
-    li {
-      float: left;
-      width: 25%;
-      padding: 24px 2%;
+  .ant-row {
+    text-align: center;
+    .footer-center {
+      display: inline-block;
+      text-align: left;
       > h2 {
         font-size: 14px;
-        margin: 0 auto 16px;
+        margin: 0 auto 24px;
         font-weight: 500;
         position: relative;
         > .anticon {
@@ -56,8 +48,30 @@ footer {
         }
       }
       > div {
-        margin-bottom: 8px;
+        margin: 12px 0;
       }
+    }
+  }
+  .footer-wrap {
+    position: relative;
+    padding: 86px @padding-space 70px @padding-space;
+  }
+  .bottom-bar {
+    border-top: 1px solid @border-color;
+    text-align: right;
+    padding: 20px @padding-space;
+    margin: 0;
+    line-height: 24px;
+    a {
+      color: rgba(255, 255, 255, 0.65);
+      &:hover {
+        color: #fff;
+      }
+    }
+    .build-tool {
+      text-align: left;
+      width: 200px;
+      margin: 0 auto;
     }
   }
 }
