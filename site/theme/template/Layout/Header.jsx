@@ -232,14 +232,15 @@ export default class Header extends React.Component {
           </Popover>
         ) : null}
         <Row>
-          <Col lg={4} md={5} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={5} md={8} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg" />
               <span>Ant Design</span>
             </Link>
           </Col>
-          <Col lg={20} md={19} sm={0} xs={0}>
+          <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>
             <div id="search-box">
+              <Icon type="search" />
               <AutoComplete
                 dataSource={options}
                 value={inputValue}

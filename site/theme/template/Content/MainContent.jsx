@@ -221,6 +221,7 @@ export default class MainContent extends React.Component {
     });
     const menuChild = (
       <Menu
+        inlineIndent="40"
         className="aside-container"
         mode="inline"
         openKeys={this.state.openKeys}
@@ -240,12 +241,12 @@ export default class MainContent extends React.Component {
             >
               {menuChild}
             </MobileMenu>) : (
-              <Col lg={4} md={6} sm={24} xs={24}>
+              <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
                 {menuChild}
               </Col>
             )
           }
-          <Col lg={20} md={18} sm={24} xs={24} className={mainContainerClass}>
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
@@ -257,7 +258,7 @@ export default class MainContent extends React.Component {
         <Row>
           <Col
             lg={{ span: 20, offset: 4 }}
-            md={{ span: 18, offset: 6 }}
+            md={24}
             sm={24}
             xs={24}
           >

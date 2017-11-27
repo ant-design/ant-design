@@ -1,12 +1,11 @@
-@header-height: 80px;
+@header-height: 64px;
 
 #header {
   transition: opacity 0.5s;
   background: #fff;
-  height: @header-height;
-  margin-bottom: 24px;
-  padding: 0 48px;
-  width: 100%;
+  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+  position: relative;
+  z-index: 10;
 
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
@@ -29,25 +28,27 @@
 }
 
 #logo {
+  overflow: hidden;
+  padding-left: 40px;
   float: left;
-  height: 80px;
-  line-height: 80px;
-}
+  height: @header-height;
+  line-height: @header-height;
+  text-decoration: none;
 
-#logo img {
-  height: 80px;
-  line-height: 80px;
-  width: 40px;
-  margin-right: 8px;
-}
-
-#logo span {
-  float: right;
-  font-size: 16px;
-  font-family: 'Raleway', 'Hiragino Sans GB', sans-serif;
-  height: 80px;
-  line-height: 80px;
-  text-transform: uppercase;
+  img {
+    height: @header-height;
+    line-height: @header-height;
+    width: 32px;
+    margin-right: 16px;
+  }
+  span {
+    float: right;
+    font-size: 14px;
+    font-family: 'Raleway', 'Hiragino Sans GB', sans-serif;
+    height: @header-height;
+    line-height: @header-height;
+    text-transform: uppercase;
+  }
 }
 
 #search-box {
@@ -55,13 +56,19 @@
   float: left;
   height: 22px;
   line-height: 22px;
-  padding-left: 30px;
-  margin: 29px auto 0;
+  padding-left: 16px;
+  margin: 20px auto 0;
+}
+
+#search-box .anticon {
+  color: #ced4d9;
+  position: relative;
+  top: 0.5px;
 }
 
 #search-box .ant-select {
   font-size: 14px;
-  margin-top: -3px;
+  margin-top: -5px;
   width: 200px;
 }
 
@@ -78,13 +85,14 @@
 .header-lang-button,
 .version {
   float: right;
-  margin-top: 29px;
+  margin-top: 20px;
   margin-left: 10px;
 }
 
 .header-lang-button {
   color: @text-color;
   border-color: @border-color-base;
+  margin-right: 40px;
 }
 
 .version {
@@ -98,16 +106,33 @@
   font-family: Lato, @font-family;
 }
 
-#nav li {
-  height: @header-height;
-  line-height: @header-height;
-  min-width: 72px;
-  text-align: center;
-  border-bottom-width: 3px;
+#nav {
+  &.ant-menu-horizontal {
+    border-bottom: none;
 
-  &.ant-menu-item-selected a {
-    color: @primary-color;
-    font-weight: bold;
+    & > .ant-menu-item {
+      height: @header-height;
+      line-height: @header-height;
+      min-width: 72px;
+      border-top: 2px solid transparent;
+
+      &:hover {
+        border-top: 2px solid @primary-color;
+        border-bottom: 2px solid transparent;
+      }
+    }
+
+    & > .ant-menu-item-selected {
+      border-top: 2px solid @primary-color;
+      border-bottom: 2px solid transparent;
+      a {
+        color: @primary-color;
+      }
+    }
+  }
+
+  & > .ant-menu-item {
+    text-align: center;
   }
 }
 
