@@ -2348,6 +2348,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       >
         <div
           class="ant-radio-group ant-radio-group-large"
+          id="radio-group"
         >
           <label
             class="ant-radio-wrapper"
@@ -2429,6 +2430,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       >
         <div
           class="ant-radio-group ant-radio-group-large"
+          id="radio-button"
         >
           <label
             class="ant-radio-button-wrapper"
