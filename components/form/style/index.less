@@ -71,8 +71,8 @@ input[type="checkbox"] {
   vertical-align: top;
 
   // nested FormItem
-  & > &:last-child,
-  & :not(.@{form-prefix-cls}) > & {
+  &-control > &:last-child,
+  & [class^="@{ant-prefix}-col-"] > &:only-child {
     margin-bottom: -@form-item-margin-bottom;
   }
 
