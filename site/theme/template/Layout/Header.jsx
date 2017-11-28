@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Button, Popover, AutoComplete, Input, Badge } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -89,21 +89,6 @@ export default class Header extends React.Component {
       optionValue.indexOf(value.toLowerCase()) > -1;
   }
 
-  handleLangChange = () => {
-    const { pathname } = this.props.location;
-    const currentProtocol = `${window.location.protocol}//`;
-    const currentHref = window.location.href.substr(currentProtocol.length);
-
-    if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
-    }
-
-    window.location.href = currentProtocol + currentHref.replace(
-      window.location.pathname,
-      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
-    );
-  }
-
   handleVersionChange = (url) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -155,9 +140,6 @@ export default class Header extends React.Component {
     });
 
     const menu = [
-      <Button className="header-lang-button" ghost size="small" onClick={this.handleLangChange} key="lang">
-        <FormattedMessage id="app.header.lang" />
-      </Button>,
       <Select
         key="version"
         className="version"
@@ -234,7 +216,8 @@ export default class Header extends React.Component {
         <Row>
           <Col xxl={4} xl={5} lg={5} md={8} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/wvWaxYOwGvgnVQxkoxpU.svg" />
+              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+              <span>ANT DESIGN</span>
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>

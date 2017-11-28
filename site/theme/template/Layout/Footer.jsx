@@ -1,8 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col } from 'antd';
-import { Link } from 'bisheng/router';
-import { isLocalStorageNameSupported, loadScript } from '../utils';
+import { Modal, message, Row, Col, Button } from 'antd';
+import { isLocalStorageNameSupported, loadScript, getLocalizedPathname, isZhCN } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component {
@@ -81,6 +80,21 @@ class Footer extends React.Component {
       className: 'new-version-info-modal',
       width: 470,
     });
+  }
+
+  handleLangChange = () => {
+    const { pathname } = this.props.location;
+    const currentProtocol = `${window.location.protocol}//`;
+    const currentHref = window.location.href.substr(currentProtocol.length);
+
+    if (isLocalStorageNameSupported()) {
+      localStorage.setItem('locale', isZhCN(pathname) ? 'en-US' : 'zh-CN');
+    }
+
+    window.location.href = currentProtocol + currentHref.replace(
+      window.location.pathname,
+      getLocalizedPathname(pathname, !isZhCN(pathname)),
+    );
   }
 
   render() {
@@ -245,11 +259,10 @@ class Footer extends React.Component {
         </div>
         <Row className="bottom-bar">
           <Col lg={6} sm={24}>
-            <div className="build-tool">
-              Built with&nbsp;
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/benjycui/bisheng">
-                BiSheng
-              </a>
+            <div className="translate-button">
+              <Button ghost size="small" onClick={this.handleLangChange}>
+                <FormattedMessage id="app.header.lang" />
+              </Button>
             </div>
           </Col>
           <Col lg={18} sm={24}>
@@ -275,10 +288,6 @@ class Footer extends React.Component {
             </span>
             <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
             <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
-            &nbsp;
-            <Link to="/docs/resource/work-with-us">
-              <FormattedMessage id="app.footer.work_with_us" />
-            </Link>
           </Col>
         </Row>
       </footer>
