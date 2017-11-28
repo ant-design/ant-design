@@ -65,6 +65,7 @@ module.exports = {
     'app.footer.privacy': '隐私权政策',
     'app.footer.commitment': '权益保障承诺书',
     'app.footer.company': '蚂蚁金融服务集团',
+    'app.footer.ant-design': '蚂蚁 UI 设计体系',
     'app.publish.title': 'antd@2.0.0 发布！',
     'app.publish.greeting': '你好，',
     'app.publish.intro': ' 已正式发布，欢迎升级。',
