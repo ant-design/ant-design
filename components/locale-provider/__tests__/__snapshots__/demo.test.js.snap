@@ -244,6 +244,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       <span
         class="ant-calendar-picker"
         style="width:200px"
+        tabindex="0"
       >
         <span
           class="ant-calendar-picker-input ant-input"
@@ -252,6 +253,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             class="ant-calendar-range-picker-input"
             placeholder="Start date"
             readonly=""
+            tabindex="-1"
             value=""
           />
           <span
@@ -263,6 +265,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             class="ant-calendar-range-picker-input"
             placeholder="End date"
             readonly=""
+            tabindex="-1"
             value=""
           />
           <span

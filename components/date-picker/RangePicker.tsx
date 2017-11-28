@@ -46,6 +46,8 @@ export default class RangePicker extends React.Component<any, any> {
     showToday: false,
   };
 
+  private picker: HTMLSpanElement;
+
   constructor(props: any) {
     super(props);
     const value = props.value || props.defaultValue || [];
@@ -126,6 +128,18 @@ export default class RangePicker extends React.Component<any, any> {
     if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
       this.setState({ open: false });
     }
+  }
+
+  focus() {
+    this.picker.focus();
+  }
+
+  blur() {
+    this.picker.blur();
+  }
+
+  savePicker = (node: HTMLSpanElement) => {
+    this.picker = node;
   }
 
   renderFooter = (...args: any[]) => {
@@ -254,6 +268,7 @@ export default class RangePicker extends React.Component<any, any> {
             value={(start && start.format(props.format)) || ''}
             placeholder={startPlaceholder}
             className={`${prefixCls}-range-picker-input`}
+            tabIndex={-1}
           />
           <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
           <input
@@ -262,6 +277,7 @@ export default class RangePicker extends React.Component<any, any> {
             value={(end && end.format(props.format)) || ''}
             placeholder={endPlaceholder}
             className={`${prefixCls}-range-picker-input`}
+            tabIndex={-1}
           />
           {clearIcon}
           <span className={`${prefixCls}-picker-icon`} />
@@ -271,11 +287,12 @@ export default class RangePicker extends React.Component<any, any> {
 
     return (
       <span
+        ref={this.savePicker}
         className={classNames(props.className, props.pickerClass)}
-        style={{
-          ...style,
-          ...pickerStyle,
-        }}
+        style={{ ...style, ...pickerStyle }}
+        tabIndex={props.disabled ? -1 : 0}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
       >
         <RcDatePicker
           {...props}

@@ -1834,6 +1834,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       >
         <span
           class="ant-calendar-picker"
+          tabindex="0"
         >
           <span
             class="ant-calendar-picker-input ant-input"
@@ -1842,6 +1843,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-calendar-range-picker-input"
               placeholder="Start date"
               readonly=""
+              tabindex="-1"
               value=""
             />
             <span
@@ -1853,6 +1855,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-calendar-range-picker-input"
               placeholder="End date"
               readonly=""
+              tabindex="-1"
               value=""
             />
             <span
@@ -1886,6 +1889,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         <span
           class="ant-calendar-picker"
           style="width:350px"
+          tabindex="0"
         >
           <span
             class="ant-calendar-picker-input ant-input"
@@ -1894,6 +1898,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-calendar-range-picker-input"
               placeholder="Start date"
               readonly=""
+              tabindex="-1"
               value=""
             />
             <span
@@ -1905,6 +1910,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-calendar-range-picker-input"
               placeholder="End date"
               readonly=""
+              tabindex="-1"
               value=""
             />
             <span

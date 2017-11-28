@@ -182,6 +182,7 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -190,6 +191,7 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -201,6 +203,7 @@ exports[`Locale Provider should display the text as locale changed 1`] = `
         class="ant-calendar-range-picker-input"
         placeholder="End date"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -1746,6 +1749,7 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -1754,6 +1758,7 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data de início"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -1765,6 +1770,7 @@ exports[`Locale Provider should display the text as locale changed 2`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data de fim"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -3310,6 +3316,7 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -3318,6 +3325,7 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data inicial"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -3329,6 +3337,7 @@ exports[`Locale Provider should display the text as locale changed 3`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data final"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -4874,6 +4883,7 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -4882,6 +4892,7 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Начальная дата"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -4893,6 +4904,7 @@ exports[`Locale Provider should display the text as locale changed 4`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Конечная дата"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -6438,6 +6450,7 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -6446,6 +6459,7 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Fecha inicial"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -6457,6 +6471,7 @@ exports[`Locale Provider should display the text as locale changed 5`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Fecha final"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -8002,6 +8017,7 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -8010,6 +8026,7 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Startdatum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -8021,6 +8038,7 @@ exports[`Locale Provider should display the text as locale changed 6`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Slutdatum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -9566,6 +9584,7 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -9574,6 +9593,7 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Date de début"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -9585,6 +9605,7 @@ exports[`Locale Provider should display the text as locale changed 7`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Date de fin"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -11130,6 +11151,7 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -11138,6 +11160,7 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Startdatum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -11149,6 +11172,7 @@ exports[`Locale Provider should display the text as locale changed 8`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Enddatum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -12694,6 +12718,7 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -12702,6 +12727,7 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Begin datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -12713,6 +12739,7 @@ exports[`Locale Provider should display the text as locale changed 9`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Eind datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -14258,6 +14285,7 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -14266,6 +14294,7 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data inicial"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -14277,6 +14306,7 @@ exports[`Locale Provider should display the text as locale changed 10`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data final"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -15822,6 +15852,7 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -15830,6 +15861,7 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Od"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -15841,6 +15873,7 @@ exports[`Locale Provider should display the text as locale changed 11`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Do"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -17386,6 +17419,7 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -17394,6 +17428,7 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
         class="ant-calendar-range-picker-input"
         placeholder="시작일"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -17405,6 +17440,7 @@ exports[`Locale Provider should display the text as locale changed 12`] = `
         class="ant-calendar-range-picker-input"
         placeholder="종료일"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -18950,6 +18986,7 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -18958,6 +18995,7 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Algus kuupäev"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -18969,6 +19007,7 @@ exports[`Locale Provider should display the text as locale changed 13`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Lõpu kuupäev"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -20514,6 +20553,7 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -20522,6 +20562,7 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Od"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -20533,6 +20574,7 @@ exports[`Locale Provider should display the text as locale changed 14`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Do"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -22078,6 +22120,7 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -22086,6 +22129,7 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
         class="ant-calendar-range-picker-input"
         placeholder="開始日付"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -22097,6 +22141,7 @@ exports[`Locale Provider should display the text as locale changed 15`] = `
         class="ant-calendar-range-picker-input"
         placeholder="終了日付"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -23642,6 +23687,7 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -23650,6 +23696,7 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Başlangıç Tarihi"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -23661,6 +23708,7 @@ exports[`Locale Provider should display the text as locale changed 16`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Bitiş Tarihi"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -25206,6 +25254,7 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -25214,6 +25263,7 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
         class="ant-calendar-range-picker-input"
         placeholder="開始日期"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -25225,6 +25275,7 @@ exports[`Locale Provider should display the text as locale changed 17`] = `
         class="ant-calendar-range-picker-input"
         placeholder="結束日期"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -26770,6 +26821,7 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -26778,6 +26830,7 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Alku päivä"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -26789,6 +26842,7 @@ exports[`Locale Provider should display the text as locale changed 18`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Loppu päivä"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -28334,6 +28388,7 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -28342,6 +28397,7 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data początkowa"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -28353,6 +28409,7 @@ exports[`Locale Provider should display the text as locale changed 19`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data końcowa"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -29898,6 +29955,7 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -29906,6 +29964,7 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Начална"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -29917,6 +29976,7 @@ exports[`Locale Provider should display the text as locale changed 20`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Крайна"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -31462,6 +31522,7 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -31470,6 +31531,7 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -31481,6 +31543,7 @@ exports[`Locale Provider should display the text as locale changed 21`] = `
         class="ant-calendar-range-picker-input"
         placeholder="End date"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -33026,6 +33089,7 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -33034,6 +33098,7 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Date de début"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -33045,6 +33110,7 @@ exports[`Locale Provider should display the text as locale changed 22`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Date de fin"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -34590,6 +34656,7 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -34598,6 +34665,7 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Begin datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -34609,6 +34677,7 @@ exports[`Locale Provider should display the text as locale changed 23`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Eind datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -36154,6 +36223,7 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -36162,6 +36232,7 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data d'inizio"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -36173,6 +36244,7 @@ exports[`Locale Provider should display the text as locale changed 24`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Data di fine"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -37718,6 +37790,7 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -37726,6 +37799,7 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Ngày bắt đầu"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -37737,6 +37811,7 @@ exports[`Locale Provider should display the text as locale changed 25`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Ngày kết thúc"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -39282,6 +39357,7 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -39290,6 +39366,7 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
         class="ant-calendar-range-picker-input"
         placeholder="วันเริ่มต้น"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -39301,6 +39378,7 @@ exports[`Locale Provider should display the text as locale changed 26`] = `
         class="ant-calendar-range-picker-input"
         placeholder="วันสิ้นสุด"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -40846,6 +40924,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -40854,6 +40933,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
         class="ant-calendar-range-picker-input"
         placeholder="تاریخ شروع"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -40865,6 +40945,7 @@ exports[`Locale Provider should display the text as locale changed 27`] = `
         class="ant-calendar-range-picker-input"
         placeholder="تاریخ پایان"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -42410,6 +42491,7 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -42418,6 +42500,7 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Αρχική ημερομηνία"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -42429,6 +42512,7 @@ exports[`Locale Provider should display the text as locale changed 28`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Τελική ημερομηνία"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -43974,6 +44058,7 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -43982,6 +44067,7 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Startdato"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -43993,6 +44079,7 @@ exports[`Locale Provider should display the text as locale changed 29`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Sluttdato"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -45538,6 +45625,7 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -45546,6 +45634,7 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Početni datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -45557,6 +45646,7 @@ exports[`Locale Provider should display the text as locale changed 30`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Krajnji datum"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -47102,6 +47192,7 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -47110,6 +47201,7 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Upphafsdagur"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -47121,6 +47213,7 @@ exports[`Locale Provider should display the text as locale changed 31`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Lokadagur"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -48666,6 +48759,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -48674,6 +48768,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
         class="ant-calendar-range-picker-input"
         placeholder="البداية"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -48685,6 +48780,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
         class="ant-calendar-range-picker-input"
         placeholder="النهاية"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -50230,6 +50326,7 @@ exports[`Locale Provider should display the text as locale changed 33`] = `
   <span
     class="ant-calendar-picker"
     style="width: 200px;"
+    tabindex="0"
   >
     <span
       class="ant-calendar-picker-input ant-input"
@@ -50238,6 +50335,7 @@ exports[`Locale Provider should display the text as locale changed 33`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Початкова дата"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span
@@ -50249,6 +50347,7 @@ exports[`Locale Provider should display the text as locale changed 33`] = `
         class="ant-calendar-range-picker-input"
         placeholder="Кінцева дата"
         readonly=""
+        tabindex="-1"
         value=""
       />
       <span

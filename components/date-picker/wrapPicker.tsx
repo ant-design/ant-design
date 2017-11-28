@@ -40,6 +40,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       inputPrefixCls: 'ant-input',
     };
 
+    private picker: any;
+
+    componentDidMount() {
+      const { autoFocus, disabled } = this.props;
+      if (autoFocus && !disabled) {
+        this.focus();
+      }
+    }
+
     handleOpenChange = (open: boolean) => {
       const { onOpenChange, toggleOpen } = this.props;
       onOpenChange(open);
@@ -52,6 +61,32 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
         );
         toggleOpen({ open });
       }
+    }
+
+    handleFocus = (e: React.FocusEventHandler<HTMLInputElement>) => {
+      const { onFocus } = this.props;
+      if (onFocus) {
+        onFocus(e);
+      }
+    }
+
+    handleBlur = (e: React.FocusEventHandler<HTMLInputElement>) => {
+      const { onBlur } = this.props;
+      if (onBlur) {
+        onBlur(e);
+      }
+    }
+
+    focus() {
+      this.picker.focus();
+    }
+
+    blur() {
+      this.picker.blur();
+    }
+
+    savePicker = (node: any) => {
+      this.picker = node;
     }
 
     getDefaultLocale() {
@@ -93,12 +128,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       return (
         <Picker
           {...props}
+          ref={this.savePicker}
           pickerClass={pickerClass}
           pickerInputClass={pickerInputClass}
           locale={locale}
           localeCode={localeCode}
           timePicker={timePicker}
           onOpenChange={this.handleOpenChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
       );
     }
