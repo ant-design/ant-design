@@ -2535,6 +2535,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       >
         <ul
           class="ant-rate"
+          tabindex="0"
         >
           <li
             class="ant-rate-star ant-rate-star-full"
