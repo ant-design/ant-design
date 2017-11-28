@@ -52,6 +52,8 @@ export interface ButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  target?: string;
+  href?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -142,6 +144,8 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
+    const ComponentProp = others.href ? 'a' : 'button';
+
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
@@ -158,14 +162,14 @@ export default class Button extends React.Component<ButtonProps, any> {
     const kids = children ? React.Children.map(children, child => insertSpace(child, needInserted)) : null;
 
     return (
-      <button
+      <ComponentProp
         {...omit(others, ['loading'])}
         type={htmlType || 'button'}
         className={classes}
         onClick={this.handleClick}
       >
         {iconNode}{kids}
-      </button>
+      </ComponentProp>
     );
   }
 }
