@@ -23,5 +23,8 @@ Rate component.
 | disabled | read only, unable to interact | boolean | false |
 | style | custom style object of rate | object | - |
 | value | current value | number | - |
+| onBlur | callback when component lose focus | Function() | - |
 | onChange | callback when select value | Function(value: number) | - |
+| onFocus | callback when component get focus | Function() | - |
 | onHoverChange | callback when hover item | Function(value: number) | - |
+| onKeyDown | callback when keydown on component | Function(event) | - |

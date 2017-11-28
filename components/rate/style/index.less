@@ -11,6 +11,7 @@
   font-size: 20px;
   display: inline-block;
   color: @rate-star-color;
+  outline: none;
 
   &-disabled &-star {
     cursor: not-allowed;
@@ -36,7 +37,7 @@
       color: @rate-star-bg;
     }
 
-    &:hover {
+    &-focused, &:hover {
       transform: scale(1.1);
     }
 

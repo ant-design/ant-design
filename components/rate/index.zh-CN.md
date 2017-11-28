@@ -24,5 +24,8 @@ title: Rate
 | disabled | 只读，无法进行交互 | boolean | false |
 | style | 自定义样式对象 | object | - |
 | value | 当前数，受控值 | number | - |
+| onBlur | 失去焦点时的回调 | Function() | - |
 | onChange | 选择时的回调 | Function(value: number) | - |
+| onFocus | 获取焦点时的回调 | Function() | - |
 | onHoverChange | 鼠标经过时数值变化的回调 | Function(value: number) | - |
+| onKeyDown | 按键回调 | Function(event) | - |
