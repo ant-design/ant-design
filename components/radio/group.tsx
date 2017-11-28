@@ -25,6 +25,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   onMouseEnter?: React.FormEventHandler<any>;
   onMouseLeave?: React.FormEventHandler<any>;
   name?: string;
+  id?: string;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
@@ -99,7 +100,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const { prefixCls = 'ant-radio-group', className = '' } = props;
+    const { prefixCls = 'ant-radio-group', className = '', options } = props;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${props.size}`]: props.size,
     }, className);
@@ -107,8 +108,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode = props.children;
 
     // 如果存在 options, 优先使用
-    if (props.options && props.options.length > 0) {
-      children = props.options.map((option, index) => {
+    if (options && options.length > 0) {
+      children = options.map((option, index) => {
         if (typeof option === 'string') { // 此处类型自动推导为 string
           return (
             <Radio
@@ -143,6 +144,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         style={props.style}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
+        id={props.id}
       >
         {children}
       </div>
