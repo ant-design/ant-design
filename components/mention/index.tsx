@@ -46,10 +46,6 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   static Nav = Nav;
   static toString = toString;
   static toContentState = toEditorState;
-  static toEditorState = (text: string) => {
-    console.warn('Mention.toEditorState is deprecated. Use toContentState instead.');
-    return toEditorState(text);
-  }
   private mentionEle: any;
   constructor(props: MentionProps) {
     super(props);

@@ -3,7 +3,7 @@ import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
-import warning from '../_util/warning';
+
 declare const require: Function;
 
 function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
@@ -41,17 +41,8 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
     };
 
     handleOpenChange = (open: boolean) => {
-      const { onOpenChange, toggleOpen } = this.props;
+      const { onOpenChange } = this.props;
       onOpenChange(open);
-
-      if (toggleOpen) {
-        warning(
-          false,
-          '`toggleOpen` is deprecated and will be removed in the future, ' +
-          'please use `onOpenChange` instead, see: https://u.ant.design/date-picker-on-open-change',
-        );
-        toggleOpen({ open });
-      }
     }
 
     getDefaultLocale() {

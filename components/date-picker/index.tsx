@@ -6,7 +6,6 @@ import createPicker from './createPicker';
 import wrapPicker from './wrapPicker';
 import RangePicker from './RangePicker';
 import WeekPicker from './WeekPicker';
-import Calendar from './Calendar';
 import { TimePickerProps } from '../time-picker';
 
 export interface PickerProps {
@@ -40,7 +39,6 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
   showTime?: TimePickerProps | boolean;
   showToday?: boolean;
   open?: boolean;
-  toggleOpen?: (e: {open: boolean}) => void;
   disabledTime?: (current: moment.Moment) => {
     disabledHours?: () => number[],
     disabledMinutes?: () => number[],
@@ -84,7 +82,6 @@ export interface WeexPickerProps extends PickerProps, SinglePickerProps {
 
 Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
-  Calendar,
   MonthPicker,
   WeekPicker: wrapPicker(WeekPicker, 'YYYY-Wo'),
 });
