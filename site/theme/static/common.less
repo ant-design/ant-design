@@ -101,9 +101,14 @@ a {
   display: none;
 }
 
-// .ant-menu-item > a {
-//   color: @site-text-color !important;
-// }
+// reset menu text color
+.ant-menu-item > a {
+  color: @site-text-color !important;
+}
+
+.ant-menu-item-selected > a, .ant-menu-item-selected > a:hover {
+  color: @primary-color !important;
+}
 
 #react-content {
   transition: transform .3s @ease-in-out-circ;
