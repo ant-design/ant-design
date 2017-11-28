@@ -55,7 +55,6 @@ exports[`Button should support link button 1`] = `
   class="ant-btn"
   href="http://ant.design"
   target="_blank"
-  type="button"
 >
   <span>
     link button

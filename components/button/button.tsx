@@ -54,6 +54,7 @@ export interface ButtonProps {
   ghost?: boolean;
   target?: string;
   href?: string;
+  download?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -164,7 +165,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     return (
       <ComponentProp
         {...omit(others, ['loading'])}
-        type={htmlType || 'button'}
+        type={others.href ? undefined : (htmlType || 'button')}
         className={classes}
         onClick={this.handleClick}
       >
