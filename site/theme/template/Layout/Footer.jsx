@@ -131,7 +131,7 @@ class Footer extends React.Component {
                     <FormattedMessage id="app.footer.chinamirror" />
                   </a>
                 </div>
-                <div style={{ marginTop: 12 }}>
+                <div style={{ marginTop: 16 }}>
                   <ColorPicker
                     type="sketch"
                     small
@@ -236,6 +236,7 @@ class Footer extends React.Component {
             <Col lg={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
+                  <img className="title-icon" src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg" alt="" />
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
@@ -258,14 +259,14 @@ class Footer extends React.Component {
           </Row>
         </div>
         <Row className="bottom-bar">
-          <Col lg={6} sm={24}>
+          <Col lg={4} sm={24}>
             <div className="translate-button">
-              <Button ghost size="small" onClick={this.handleLangChange}>
+              <Button ghost onClick={this.handleLangChange}>
                 <FormattedMessage id="app.header.lang" />
               </Button>
             </div>
           </Col>
-          <Col lg={18} sm={24}>
+          <Col lg={20} sm={24}>
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
             >

@@ -101,16 +101,6 @@ function getStyle() {
       border-left-color: rgba(235, 237, 238, .5);
       transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     }
-    #footer {
-      background: #000;
-    }
-    #footer,
-    #footer h2 {
-      color: #999;
-    }
-    #footer a {
-      color: #eee;
-    }
   `;
 }
 

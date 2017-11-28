@@ -1,12 +1,12 @@
 @import './colors';
 
-@padding-space: 114px;
+@padding-space: 144px;
 
 footer.dark {
   background-color: #000;
   color: rgba(255, 255, 255, 0.65);
   a {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.9);
   }
   h2 {
     color: rgba(255, 255, 255, 1);
@@ -23,7 +23,7 @@ footer.dark {
 footer {
   border-top: 1px solid @border-color;
   clear: both;
-  font-size: 12px;
+  font-size: 14px;
   background: #fff;
   position: relative;
   z-index: 100;
@@ -35,10 +35,15 @@ footer {
       display: inline-block;
       text-align: left;
       > h2 {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0 auto 24px;
         font-weight: 500;
         position: relative;
+
+        > .title-icon {
+          width: 27px;
+          margin-right: 16px;
+        }
         > .anticon {
           font-size: 16px;
           position: absolute;
@@ -54,14 +59,14 @@ footer {
   }
   .footer-wrap {
     position: relative;
-    padding: 86px @padding-space 70px @padding-space;
+    padding: 86px @padding-space 93px @padding-space;
   }
   .bottom-bar {
     border-top: 1px solid @border-color;
     text-align: right;
-    padding: 20px @padding-space;
+    padding: 16px @padding-space;
     margin: 0;
-    line-height: 24px;
+    line-height: 32px;
     a {
       color: rgba(255, 255, 255, 0.65);
       &:hover {
@@ -70,8 +75,6 @@ footer {
     }
     .translate-button {
       text-align: left;
-      width: 200px;
-      margin: 0 auto;
     }
   }
 }
