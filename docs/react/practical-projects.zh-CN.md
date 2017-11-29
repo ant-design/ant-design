@@ -18,7 +18,7 @@ title: 项目实战
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-0.8.1
+0.8.2
 ```
 
 ## 创建新应用
@@ -67,7 +67,7 @@ $ npm install antd babel-plugin-import --save
   "extraBabelPlugins": [
 -    "transform-runtime"
 +    "transform-runtime",
-+    ["import", { "libraryName": "antd", "style": "css" }]
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
   ],
 ```
 

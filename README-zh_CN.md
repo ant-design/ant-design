@@ -60,11 +60,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## TypeScript
 
-- 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
+参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
 
 ## 国际化
 
-参考 [国际化文档](http://ant.design/docs/react/i18n)。
+参考 [国际化文档](http://ant.design/docs/react/i18n-cn)。
 
 ## 链接
 
@@ -80,7 +80,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](http://ant.design/docs/react/customize-theme-cn)
 
