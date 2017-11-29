@@ -215,10 +215,6 @@ You can also follow instructions in [Use in create-react-app](/docs/react/use-wi
 
 ## FAQ
 
-### error TS7006: Parameter 'x' implicitly has an 'any' type.
-
-You need setting `skipLibCheck` to `true` in tsconfig.json.
-
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
 
 Before antd 3, You need setting `allowSyntheticDefaultImports` to `true` in tsconfig.json.

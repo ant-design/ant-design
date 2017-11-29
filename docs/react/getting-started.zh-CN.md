@@ -11,9 +11,9 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-最简单的使用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
+最简单的使用方式参照以下 CodeSandbox 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
 
-- [antd CodePen](http://codepen.io/benjycui/pen/KgPZrE?editors=001)
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
 ## 标准开发
 
@@ -198,7 +198,7 @@ import { Button } from 'antd';
 - [改变主题](/docs/react/customize-theme)
 - [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
-## 小甜点
+## 小贴士
 
 - 你可以享用 `npm` 生态圈里的所有模块。
 - 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。

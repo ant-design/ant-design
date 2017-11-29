@@ -11,9 +11,9 @@ Before delving into Ant Design React, a good knowledge of [React](http://faceboo
 
 ## First Example
 
-The following CodePen demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
+The following CodeSandbox demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
 
-- [antd CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
 ## Standard Development Flow
 

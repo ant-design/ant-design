@@ -217,10 +217,6 @@ $ yarn add react-app-rewire-less --dev
 
 ## 常见问题
 
-### error TS7006: Parameter 'x' implicitly has an 'any' type.
-
-需要在 tsconfig.json 的 `compilerOptions` 中配置 `"skipLibCheck": true`。
-
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
 
 antd 3 以前的版本需要在 tsconfig.json 的 `compilerOptions` 中配置 `"allowSyntheticDefaultImports": true`。
