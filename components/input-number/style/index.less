@@ -58,6 +58,13 @@
 
   &-disabled {
     .disabled();
+    .@{input-number-prefix-cls}-input {
+      cursor: not-allowed;
+      background-color: @disabled-bg;
+    }
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
+    }
   }
 
   &-input {
@@ -148,16 +155,6 @@
     }
     &:hover {
       height: 60% !important;
-    }
-  }
-
-  &-disabled {
-    .@{input-number-prefix-cls}-input {
-      cursor: not-allowed;
-      background-color: @disabled-bg;
-    }
-    .@{input-number-prefix-cls}-handler-wrap {
-      display: none;
     }
   }
 }

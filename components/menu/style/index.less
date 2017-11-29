@@ -29,11 +29,6 @@
     display: none;
   }
 
-  &-item-group-list {
-    margin: 0;
-    padding: 0;
-  }
-
   &-item-group-title {
     color: @text-color-secondary;
     font-size: @font-size-base;
@@ -42,16 +37,9 @@
     transition: all .3s;
   }
 
-  &-item,
   &-submenu,
-  &-submenu-title {
-    cursor: pointer;
-  }
-  &-submenu, &-submenu-inline {
+  &-submenu-inline {
     transition: border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
-  }
-  &-item, &-submenu-title {
-    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
   }
 
   &-item:active,
@@ -126,26 +114,6 @@
 
   &-inline,
   &-vertical,
-  &-vertical-left,
-  &-vertical-right {
-    .@{menu-prefix-cls}-item {
-      position: relative;
-      &:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        border-right: 3px solid @primary-color;
-        transform: scaleY(.0001);
-        opacity: 0;
-        transition: transform .15s @ease-out, opacity .15s @ease-out;
-      }
-    }
-  }
-
-  &-inline,
-  &-vertical,
   &-vertical-left {
     border-right: @border-width-base @border-style-base @border-color-split;
   }
@@ -157,6 +125,8 @@
   &-vertical-left&-sub,
   &-vertical-right&-sub {
     border-right: 0;
+    padding: 0;
+    transform-origin: 0 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
       margin-left: 0;
@@ -164,6 +134,10 @@
       &:after {
         border-right: 0;
       }
+    }
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu {
+      transform-origin: 0 0;
     }
   }
 
@@ -176,11 +150,13 @@
 
   &-item,
   &-submenu-title {
+    cursor: pointer;
     margin: 0;
     padding: 0 20px;
     position: relative;
     display: block;
     white-space: nowrap;
+    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 10px;
@@ -226,9 +202,8 @@
         top: 50%;
         right: 16px;
         width: 10px;
-
-        &:after,
-        &:before {
+        &:before,
+        &:after {
           content: '';
           position: absolute;
           vertical-align: baseline;
@@ -239,40 +214,27 @@
           border-radius: 2px;
           transition: background .3s @ease-in-out, transform .3s @ease-in-out, top .3s @ease-in-out;
         }
+        &:before {
+          transform: rotate(45deg) translateY(-2px);
+        }
+        &:after {
+          transform: rotate(-45deg) translateY(2px);
+        }
       }
-    }
-
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:before {
-        transform: rotate(-45deg) translateY(2px);
-      }
-    }
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right {
-      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:after {
-        transform: rotate(45deg) translateY(-2px);
-      }
-    }
-
-    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:after {
-      transform: rotate(45deg) translateX(-2px);
-    }
-    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow:before {
-      transform: rotate(-45deg) translateX(2px);
-    }
-
-    &-vertical,
-    &-vertical-left,
-    &-vertical-right,
-    &-inline {
-       > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
+      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
         &:after,
         &:before {
           background: linear-gradient(to right, @primary-color, @primary-color);
         }
+      }
+    }
+
+    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      &:before {
+        transform: rotate(-45deg) translateX(2px);
+      }
+      &:after {
+        transform: rotate(45deg) translateX(-2px);
       }
     }
 
@@ -340,6 +302,21 @@
   &-vertical-left,
   &-vertical-right,
   &-inline {
+    .@{menu-prefix-cls}-item {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 3px solid @primary-color;
+        transform: scaleY(.0001);
+        opacity: 0;
+        transition: transform .15s @ease-out, opacity .15s @ease-out;
+      }
+    }
+
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       padding: 0 16px;
@@ -387,7 +364,6 @@
 
   &-inline-collapsed {
     width: @menu-collapsed-width;
-
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
@@ -428,20 +404,11 @@
   }
 
   &-item-group-list {
+    margin: 0;
+    padding: 0;
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       padding: 0 16px 0 28px;
-    }
-  }
-
-  &-vertical&-sub,
-  &-vertical-left&-sub,
-  &-vertical-right&-sub {
-    padding: 0;
-    transform-origin: 0 0;
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu {
-      transform-origin: 0 0;
     }
   }
 
@@ -486,10 +453,8 @@
       cursor: not-allowed;
     }
   }
-}
 
-// dark theme
-.@{menu-prefix-cls} {
+  // dark theme
   &-dark,
   &-dark &-sub {
     color: @text-color-secondary-dark;
