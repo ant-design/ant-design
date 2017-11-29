@@ -151,7 +151,7 @@ export default class Header extends React.Component {
       >
         {versionOptions}
       </Select>,
-      <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
+      <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />

@@ -27,13 +27,10 @@ function getStyle() {
       position: fixed;
       width: 100%;
       z-index: 999;
+      box-shadow: none;
       background: rgba(0, 0, 0, 0.25);
       border-bottom: 1px solid transparent;
       transition: border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    }
-    #header .header-lang-button {
-      color: #fff;
-      border-color: #fff;
     }
     #header .ant-select-selection,
     #header .ant-menu {
@@ -62,11 +59,7 @@ function getStyle() {
       border-left-color: #ebedee;
     }
     .home-nav-white #nav a {
-      color: rgba(0, 0, 0, 0.65);
-    }
-    #header.home-nav-white .header-lang-button:not(:hover) {
-      color: rgba(0, 0, 0, 0.65);
-      border-color: #d9d9d9;
+      color: #314659;
     }
     #header.home-nav-white .version > .ant-select-selection {
       color: rgba(0, 0, 0, 0.65);
@@ -85,7 +78,6 @@ function getStyle() {
       background: #777;
       box-shadow: 0 7px 0 0 #777, 0 14px 0 0 #777;
     }
-    .lang,
     .version > .ant-select-selection,
     #nav a {
       color: #eee;
@@ -95,7 +87,7 @@ function getStyle() {
       color: #fff;
     }
     .home-nav-white #nav a.header-link {
-      color: rgba(0, 0, 0, .65);
+      color: #314659;
     }
     #search-box {
       border-left-color: rgba(235, 237, 238, .5);

@@ -222,7 +222,7 @@ export default class MainContent extends React.Component {
     const menuChild = (
       <Menu
         inlineIndent="40"
-        className="aside-container"
+        className="aside-container menu-site"
         mode="inline"
         openKeys={this.state.openKeys}
         selectedKeys={[activeMenuItem]}
