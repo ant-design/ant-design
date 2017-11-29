@@ -408,23 +408,6 @@ form {
 .has-success {
   &.has-feedback:after {
     animation-name: diffZoomIn1 !important;
-  }
-}
-
-.has-error {
-  &.has-feedback:after {
-    animation-name: diffZoomIn2 !important;
-  }
-}
-
-.has-warning {
-  &.has-feedback:after {
-    animation-name: diffZoomIn3 !important;
-  }
-}
-
-.has-success {
-  &.has-feedback:after {
     content: '\e630';
     color: @success-color;
   }
@@ -436,6 +419,7 @@ form {
   &.has-feedback:after {
     content: '\e62c';
     color: @warning-color;
+    animation-name: diffZoomIn3 !important;
   }
 
   //select
@@ -482,6 +466,7 @@ form {
   &.has-feedback:after {
     content: '\e62e';
     color: @error-color;
+    animation-name: diffZoomIn2 !important;
   }
 
   //select

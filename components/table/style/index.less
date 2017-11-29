@@ -258,6 +258,13 @@
     .@{table-prefix-cls}-thead > tr > th {
       background: @component-background;
       border-bottom: @border-width-base @border-style-base @border-color-split;
+      .@{iconfont-css-prefix}-filter,
+      .@{table-prefix-cls}-filter-icon {
+        &:after {
+          height: 39px;
+          top: -14px;
+        }
+      }
     }
 
     .@{table-prefix-cls}-tbody > tr > td {
@@ -292,16 +299,6 @@
     .@{table-prefix-cls}-column-sorter-down:after {
       bottom: -11px;
       height: 13px;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th {
-      .@{iconfont-css-prefix}-filter,
-      .@{table-prefix-cls}-filter-icon {
-        &:after {
-          height: 39px;
-          top: -14px;
-        }
-      }
     }
   }
 
