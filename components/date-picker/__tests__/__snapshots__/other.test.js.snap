@@ -10,243 +10,251 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
       tabindex="0"
     >
       <div
-        class="ant-calendar-header"
+        class="ant-calendar-month-calendar-content"
       >
         <div
-          style="position:relative"
+          class="ant-calendar-month-header-wrap"
         >
-          <a
-            class="ant-calendar-prev-year-btn"
-            role="button"
-            title="Last year (Control + left)"
-          />
-          <a
-            class="ant-calendar-prev-month-btn"
-            role="button"
-            title="Previous month (PageUp)"
-          />
-          <span
-            class="ant-calendar-my-select"
+          <div
+            class="ant-calendar-header"
           >
-            <a
-              class="ant-calendar-month-select"
-              role="button"
-              title="Choose a month"
-            >
-              1月
-            </a>
-            <a
-              class="ant-calendar-year-select"
-              role="button"
-              title="Choose a year"
-            >
-              2000
-            </a>
-          </span>
-          <a
-            class="ant-calendar-next-month-btn"
-            title="Next month (PageDown)"
-          />
-          <a
-            class="ant-calendar-next-year-btn"
-            title="Next year (Control + right)"
-          />
-        </div>
-        <div
-          class="ant-calendar-month-panel"
-        >
-          <div>
             <div
-              class="ant-calendar-month-panel-header"
+              style="position:relative"
             >
               <a
-                class="ant-calendar-month-panel-prev-year-btn"
+                class="ant-calendar-prev-year-btn"
                 role="button"
                 title="Last year (Control + left)"
               />
               <a
-                class="ant-calendar-month-panel-year-select"
+                class="ant-calendar-prev-month-btn"
                 role="button"
-                title="Choose a year"
+                title="Previous month (PageUp)"
+              />
+              <span
+                class="ant-calendar-my-select"
               >
-                <span
-                  class="ant-calendar-month-panel-year-select-content"
+                <a
+                  class="ant-calendar-month-select"
+                  role="button"
+                  title="Choose a month"
+                >
+                  1月
+                </a>
+                <a
+                  class="ant-calendar-year-select"
+                  role="button"
+                  title="Choose a year"
                 >
                   2000
-                </span>
-                <span
-                  class="ant-calendar-month-panel-year-select-arrow"
-                >
-                  x
-                </span>
-              </a>
+                </a>
+              </span>
               <a
-                class="ant-calendar-month-panel-next-year-btn"
-                role="button"
+                class="ant-calendar-next-month-btn"
+                title="Next month (PageDown)"
+              />
+              <a
+                class="ant-calendar-next-year-btn"
                 title="Next year (Control + right)"
               />
             </div>
             <div
-              class="ant-calendar-month-panel-body"
+              class="ant-calendar-month-panel"
             >
-              <table
-                cellspacing="0"
-                class="ant-calendar-month-panel-table"
-                role="grid"
-              >
-                <tbody
-                  class="ant-calendar-month-panel-tbody"
+              <div>
+                <div
+                  class="ant-calendar-month-panel-header"
                 >
-                  <tr
-                    role="row"
+                  <a
+                    class="ant-calendar-month-panel-prev-year-btn"
+                    role="button"
+                    title="Last year (Control + left)"
+                  />
+                  <a
+                    class="ant-calendar-month-panel-year-select"
+                    role="button"
+                    title="Choose a year"
                   >
-                    <td
-                      class="ant-calendar-month-panel-cell ant-calendar-month-panel-selected-cell"
-                      role="gridcell"
-                      title="一月"
+                    <span
+                      class="ant-calendar-month-panel-year-select-content"
                     >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        一月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="二月"
+                      2000
+                    </span>
+                    <span
+                      class="ant-calendar-month-panel-year-select-arrow"
                     >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        二月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="三月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        三月
-                      </a>
-                    </td>
-                  </tr>
-                  <tr
-                    role="row"
+                      x
+                    </span>
+                  </a>
+                  <a
+                    class="ant-calendar-month-panel-next-year-btn"
+                    role="button"
+                    title="Next year (Control + right)"
+                  />
+                </div>
+                <div
+                  class="ant-calendar-month-panel-body"
+                >
+                  <table
+                    cellspacing="0"
+                    class="ant-calendar-month-panel-table"
+                    role="grid"
                   >
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="四月"
+                    <tbody
+                      class="ant-calendar-month-panel-tbody"
                     >
-                      <a
-                        class="ant-calendar-month-panel-month"
+                      <tr
+                        role="row"
                       >
-                        四月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="五月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
+                        <td
+                          class="ant-calendar-month-panel-cell ant-calendar-month-panel-selected-cell"
+                          role="gridcell"
+                          title="一月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            一月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="二月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            二月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="三月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            三月
+                          </a>
+                        </td>
+                      </tr>
+                      <tr
+                        role="row"
                       >
-                        五月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="六月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="四月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            四月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="五月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            五月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="六月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            六月
+                          </a>
+                        </td>
+                      </tr>
+                      <tr
+                        role="row"
                       >
-                        六月
-                      </a>
-                    </td>
-                  </tr>
-                  <tr
-                    role="row"
-                  >
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="七月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="七月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            七月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="八月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            八月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="九月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            九月
+                          </a>
+                        </td>
+                      </tr>
+                      <tr
+                        role="row"
                       >
-                        七月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="八月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        八月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="九月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        九月
-                      </a>
-                    </td>
-                  </tr>
-                  <tr
-                    role="row"
-                  >
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="十月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        十月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="十一月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        十一月
-                      </a>
-                    </td>
-                    <td
-                      class="ant-calendar-month-panel-cell"
-                      role="gridcell"
-                      title="十二月"
-                    >
-                      <a
-                        class="ant-calendar-month-panel-month"
-                      >
-                        十二月
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="十月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            十月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="十一月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            十一月
+                          </a>
+                        </td>
+                        <td
+                          class="ant-calendar-month-panel-cell"
+                          role="gridcell"
+                          title="十二月"
+                        >
+                          <a
+                            class="ant-calendar-month-panel-month"
+                          >
+                            十二月
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>

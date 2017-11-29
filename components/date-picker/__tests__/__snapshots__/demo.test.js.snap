@@ -353,6 +353,21 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       />
     </span>
   </span>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
 </div>
 `;
 
@@ -627,7 +642,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
+        placeholder="Select Month"
         readonly=""
         value=""
       />
@@ -672,7 +687,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
+        placeholder="Select Week"
         readonly=""
         value=""
       />
