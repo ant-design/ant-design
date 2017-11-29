@@ -73,6 +73,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 
 ### RangePicker
 

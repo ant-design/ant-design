@@ -291,6 +291,21 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       />
     </span>
   </span>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
 </div>
 `;
 
@@ -516,7 +531,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="请选择日期"
+        placeholder="Select month"
         readonly=""
         value=""
       />
