@@ -130,7 +130,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="E-mail"
-          hasFeedback
         >
           {getFieldDecorator('email', {
             rules: [{
@@ -145,7 +144,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="Password"
-          hasFeedback
         >
           {getFieldDecorator('password', {
             rules: [{
@@ -160,7 +158,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="Confirm Password"
-          hasFeedback
         >
           {getFieldDecorator('confirm', {
             rules: [{
@@ -182,7 +179,6 @@ class RegistrationForm extends React.Component {
               </Tooltip>
             </span>
           )}
-          hasFeedback
         >
           {getFieldDecorator('nickname', {
             rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
