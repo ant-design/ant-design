@@ -75,6 +75,7 @@ subtitle: 日期选择框
 | monthCellContentRender | 自定义的月份内容渲染方法 | function(date, locale): ReactNode | - |
 | value | 日期 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |
+| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 
 ### WeekPicker
 
