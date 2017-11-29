@@ -257,7 +257,9 @@ export default class MainContent extends React.Component {
 
         <Row>
           <Col
-            lg={{ span: 20, offset: 4 }}
+            xxl={{ span: 20, offset: 4 }}
+            xl={{ span: 19, offset: 5 }}
+            lg={{ span: 18, offset: 6 }}
             md={24}
             sm={24}
             xs={24}
