@@ -31,7 +31,7 @@ module.exports = {
     'app.home.reusable-components': '丰富的基础组件',
     'app.home.components-intro': '丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。',
     'app.home.learn-more': '了解更多',
-    'app.home.sub-slogan': '微小·确定·幸福',
+    'app.home.sub-slogan': '微小 · 确定 · 幸福',
     'app.home.vision': '这是一套致力于提升『用户』和『设计者』使用体验的中后台设计语言。',
     'app.footer.repo': 'GitHub 仓库',
     'app.footer.awesome': 'Awesome Ant Design',

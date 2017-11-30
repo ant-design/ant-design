@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
@@ -30,7 +30,6 @@ export default class Layout extends React.Component {
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
     this.state = {
-      isFirstScreen: true,
       appLocale,
     };
   }
@@ -54,20 +53,14 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
-  onEnterChange = (mode) => {
-    this.setState({
-      isFirstScreen: mode === 'enter',
-    });
-  }
-
   render() {
     const { children, ...restProps } = this.props;
-    const { appLocale, isFirstScreen } = this.state;
+    const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
-          <Header {...restProps} isFirstScreen={isFirstScreen} />
-          {cloneElement(children, { onEnterChange: this.onEnterChange })}
+          <Header {...restProps} />
+          {children}
           <Footer {...restProps} />
         </div>
       </IntlProvider>

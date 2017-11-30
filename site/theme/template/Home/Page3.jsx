@@ -20,7 +20,6 @@ export default function Page3({ location }) {
         className="text-wrapper"
         key="text"
         leaveReverse
-        style={{ top: '40%' }}
       >
         <h2 key="h2"><FormattedMessage id="app.home.reusable-components" /></h2>
         <p key="p" style={{ maxWidth: 280 }}><FormattedMessage id="app.home.components-intro" /></p>
