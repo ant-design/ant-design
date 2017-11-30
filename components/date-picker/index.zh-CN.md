@@ -98,7 +98,7 @@ subtitle: 日期选择框
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
 | value | 日期 | [moment](http://momentjs.com/)\[] | 无 |
 | onChange | 日期范围发生变化的回调 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
-| onCalendarChange | 日期发生变化的回调 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
+| onCalendarChange | 待选日期发生变化的回调 | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
 | onOk | 点击确定按钮的回调 | function() | - |
 
 <style>
