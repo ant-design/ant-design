@@ -38,4 +38,10 @@ export default {
   Select: {
     notFoundContent: 'Nicht gefunden',
   },
+  Upload: {
+    uploading: 'Hochladen...',
+    removeFile: 'Datei entfernen',
+    uploadError: 'Fehler beim Hochladen',
+    previewFile: 'Dateivorschau',
+  },
 };
