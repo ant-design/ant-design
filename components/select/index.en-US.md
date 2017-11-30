@@ -25,7 +25,6 @@ Select component to select value from options.
 | -------- | ----------- | ---- | ------- |
 | allowClear | Show clear button. | boolean | false |
 | autoFocus | Get focus by default | boolean | false |
-| combobox | Enable combobox mode (can not set multiple at the same time). (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | defaultValue | Initial selected option. | string\|string\[] | - |
 | disabled | Whether disabled select | boolean | false |
@@ -39,14 +38,12 @@ Select component to select value from options.
 | maxTagCount |  Max tag count to show | number | - |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |
 | mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
-| multiple | Allow multiple select (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
 | placeholder | Placeholder of select | string\|ReactNode | - |
 | showSearch | Whether show search input in single mode. | boolean | false |
 | size | Size of Select input. `default` `large` `small` | string | default |
-| tags | When tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far. (Deprecated after 2.9, use `mode` instead) | boolean | false |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|string\[] | - |
 | onBlur | Called when blur | function | - |

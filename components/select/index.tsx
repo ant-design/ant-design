@@ -4,7 +4,6 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
-import warning from '../_util/warning';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -36,9 +35,6 @@ export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox';
-  multiple?: boolean;
-  tags?: boolean;
-  combobox?: boolean;
   optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
@@ -118,10 +114,6 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
-      // @deprecated
-      multiple,
-      tags,
-      combobox,
       ...restProps,
     } = this.props;
     const cls = classNames({
@@ -130,15 +122,15 @@ export default class Select extends React.Component<SelectProps, {}> {
     }, className);
 
     let { notFoundContent, optionLabelProp } = this.props;
-    const isCombobox = mode === 'combobox' || combobox;
+    const isCombobox = mode === 'combobox';
     if (isCombobox) {
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
 
     const modeConfig = {
-      multiple: mode === 'multiple' || multiple,
-      tags: mode === 'tags' || tags,
+      multiple: mode === 'multiple',
+      tags: mode === 'tags',
       combobox: isCombobox,
     };
 
@@ -158,17 +150,6 @@ export default class Select extends React.Component<SelectProps, {}> {
   }
 
   render() {
-    const {
-      // @deprecated
-      multiple,
-      tags,
-      combobox,
-    } = this.props;
-    warning(
-      !multiple && !tags && !combobox,
-      '`Select[multiple|tags|combobox]` is deprecated, please use `Select[mode]` instead.',
-    );
-
     return (
       <LocaleReceiver
         componentName="Select"

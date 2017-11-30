@@ -24,15 +24,14 @@ When need to mention someone or something.
 | API | Description | Type |
 | --- | ----------- | ---- |
 | getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
-| toContentState (recommended) | convert string to ContentState | Function(value: string): ContentState |
-| toEditorState (Backward compatible) | convert string to ContentState | Function(value: string): ContentState |
+| toContentState | convert string to ContentState | Function(value: string): ContentState |
 | toString | convert ContentState to string | Function(contentState: ContentState): string |
 
 ### Mention
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| defaultValue | default value | ContentState, you can use `Mention.toContentState` or `Mention.toEditorState` to convert text to `ContentState` | null |
+| defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
 | disabled | Tell if the input is disabled. | boolean | false |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |

@@ -26,7 +26,7 @@ Keyboard and mouse can be used for providing or changing data.
 | prefix | The prefix icon for the Input. | string\|ReactNode |  |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |
 | suffix | The suffix icon for the Input. | string\|ReactNode |  |
-| type | The type of input, `text` or `textarea`(`type=textarea` are deprecated after `2.12`, please use `Input.TextArea`) | string | `text` |
+| type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)(use `Input.TextArea` instead of `type="textarea"`) | string | `text` |
 | value | The input content value | string |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |
 

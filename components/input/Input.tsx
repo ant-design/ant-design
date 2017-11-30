@@ -222,9 +222,6 @@ export default class Input extends React.Component<InputProps, any> {
   }
 
   render() {
-    if (this.props.type === 'textarea') {
-      return <TextArea {...this.props as any} ref={this.saveInput} />;
-    }
     return this.renderLabeledInput(this.renderInput());
   }
 }

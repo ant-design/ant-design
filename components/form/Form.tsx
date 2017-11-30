@@ -18,9 +18,6 @@ export interface FormCreateOption<T> {
 
 export interface FormProps {
   layout?: 'horizontal' | 'inline' | 'vertical';
-  horizontal?: boolean;
-  inline?: boolean;
-  vertical?: boolean;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
@@ -170,26 +167,20 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   getChildContext() {
-    const { layout, vertical } = this.props;
+    const { layout } = this.props;
     return {
-      vertical: layout === 'vertical' || vertical,
+      vertical: layout === 'vertical',
     };
   }
 
   render() {
     const {
       prefixCls, hideRequiredMark, className = '', layout,
-      // @deprecated
-      inline, horizontal, vertical,
     } = this.props;
-    warning(
-      !inline && !horizontal && !vertical,
-      '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.',
-    );
     const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: (!inline && !vertical && layout === 'horizontal') || horizontal,
-      [`${prefixCls}-vertical`]: layout === 'vertical' || vertical,
-      [`${prefixCls}-inline`]: layout === 'inline' || inline,
+      [`${prefixCls}-horizontal`]: layout === 'horizontal',
+      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-inline`]: layout === 'inline',
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
     }, className);
 
@@ -197,9 +188,6 @@ export default class Form extends React.Component<FormProps, any> {
       'prefixCls',
       'className',
       'layout',
-      'inline',
-      'horizontal',
-      'vertical',
       'form',
       'hideRequiredMark',
     ]);
