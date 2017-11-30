@@ -89,7 +89,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 成员 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| align | flex 布局下的垂直对齐方式：`top` `middle` `bottom` | string | `top` |
+| align | flex 布局下的垂直对齐方式：`top` `middle` `bottom` ,如果使用flex的响应式布局，需要声明xs到lg的所有响应式| string | `top` |
 | gutter | 栅格间隔 | number | 0 |
 | justify | flex 布局下的水平排列方式：`start` `end` `center` `space-around` `space-between` | string | `start` |
 | type | 布局模式，可选 `flex`，[现代浏览器](http://caniuse.com/#search=flex) 下有效 | string |  |
