@@ -90,7 +90,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |
+| align | the vertical alignment of the flex layout: `top` `middle` `bottom` (if using responsive flex, you should declare all styles from `xs` to `lg`)| string | `top` |
 | gutter | spacing between grids | number | 0 |
 | justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |
 | type | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |  |
