@@ -6,9 +6,9 @@
 @import "./mixin";
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
-@form-component-height: @input-height-base;
+@form-component-height: @input-height-lg;
 @form-feedback-icon-size: 14px;
-@form-help-margin-top: 2px;
+@form-help-margin-top: -2px;
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -97,7 +97,7 @@ input[type="checkbox"] {
   &-label {
     text-align: right;
     vertical-align: middle;
-    line-height: @form-component-height;
+    line-height: @form-component-height - 0.0001px;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
@@ -245,6 +245,18 @@ form {
     // Fix https://github.com/ant-design/ant-design/issues/6097
     &:only-child {
       display: block;
+      position: relative;
+      top: (@input-height-lg - @input-height-base) / 2;
+
+      &.@{ant-prefix}-select-sm,
+      &.@{ant-prefix}-cascader-picker-small {
+        top: (@input-height-lg - @input-height-sm) / 2;
+      }
+
+      &.@{ant-prefix}-select-lg,
+      &.@{ant-prefix}-cascader-picker-large {
+        top: 0;
+      }
     }
   }
 
@@ -259,6 +271,12 @@ form {
   .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
     &:only-child {
       display: inline-block;
+      top: 0;
+
+      &.@{ant-prefix}-select-sm,
+      &.@{ant-prefix}-cascader-picker-small {
+        top: 0;
+      }
     }
   }
 
@@ -289,7 +307,7 @@ form {
 
   .@{ant-prefix}-select-selection--single {
     margin-left: -1px;
-    height: @input-height-base;
+    height: @input-height-lg;
     background-color: #eee;
     .@{ant-prefix}-select-selection__rendered {
       padding-left: 8px;
@@ -409,8 +427,8 @@ form {
     right: 0;
     visibility: visible;
     pointer-events: none;
-    .square(@input-height-base);
-    line-height: @input-height-base;
+    .square(@input-height-lg);
+    line-height: @input-height-lg;
     text-align: center;
     font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
