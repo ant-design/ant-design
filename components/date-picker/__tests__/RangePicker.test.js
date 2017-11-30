@@ -2,8 +2,11 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
 import { RangePicker } from '../';
+import focusTest from '../../../tests/shared/focusTest';
 
 describe('RangePicker', () => {
+  focusTest(RangePicker);
+
   it('show month panel according to value', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(

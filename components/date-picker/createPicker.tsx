@@ -21,6 +21,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       showToday: true,
     };
 
+    private input: any;
+
     constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
@@ -64,6 +66,18 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
+    }
+
+    focus() {
+      this.input.focus();
+    }
+
+    blur() {
+      this.input.blur();
+    }
+
+    saveInput = (node: any) => {
+      this.input = node;
     }
 
     render() {
@@ -130,6 +144,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
           <input
+            ref={this.saveInput}
             disabled={props.disabled}
             readOnly
             value={(inputValue && inputValue.format(props.format)) || ''}
@@ -146,7 +161,12 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         pickerValue.locale(localeCode);
       }
       return (
-        <span className={classNames(props.className, props.pickerClass)} style={props.style}>
+        <span
+          className={classNames(props.className, props.pickerClass)}
+          style={props.style}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
+        >
           <RcDatePicker
             {...props}
             {...pickerProps}

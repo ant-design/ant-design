@@ -1,3 +1,5 @@
+@import "../../button/style/mixin";
+
 .@{calendar-prefix-cls}-picker-container {
   .reset-component;
   position: absolute;
@@ -42,6 +44,10 @@
 
   &:hover &-input:not(.@{ant-prefix}-input-disabled) {
     border-color: @primary-color;
+  }
+
+  &:focus &-input:not(.@{ant-prefix}-input-disabled) {
+    .active();
   }
 
   &-clear,

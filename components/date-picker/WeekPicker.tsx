@@ -14,6 +14,9 @@ export default class WeekPicker extends React.Component<any, any> {
     format: 'YYYY-Wo',
     allowClear: true,
   };
+
+  private input: any;
+
   constructor(props: any) {
     super(props);
     const value = props.value || props.defaultValue;
@@ -63,6 +66,19 @@ export default class WeekPicker extends React.Component<any, any> {
     e.stopPropagation();
     this.handleChange(null);
   }
+
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
+  saveInput = (node: any) => {
+    this.input = node;
+  }
+
   render() {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
@@ -100,11 +116,14 @@ export default class WeekPicker extends React.Component<any, any> {
       return (
         <span>
           <input
+            ref={this.saveInput}
             disabled={disabled}
             readOnly
             value={(value && value.format(format)) || ''}
             placeholder={placeholder}
             className={pickerInputClass}
+            onFocus={this.props.onFocus}
+            onBlur={this.props.onBlur}
           />
           {clearIcon}
           <span className={`${prefixCls}-picker-icon`} />
