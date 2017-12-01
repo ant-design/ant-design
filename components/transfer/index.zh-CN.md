@@ -27,7 +27,7 @@ title: Transfer
 | listStyle | 两个穿梭框的自定义样式 | object |  |
 | notFoundContent | 当列表为空时显示的内容 | string\|ReactNode | '列表为空' |
 | operations | 操作文案集合，顺序从下至上 | string\[] | ['>', '<'] |
-| render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement | Function(record) |  |
+| render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | Function(record) |  |
 | searchPlaceholder | 搜索框的默认值 | string | '请输入搜索内容' |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |
 | showSearch | 是否显示搜索框 | boolean | false |

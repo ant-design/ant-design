@@ -25,7 +25,7 @@ One or more elements can be selected from either column, one click on the proper
 | listStyle | A custom CSS style used for rendering the transfer columns. | object |  |
 | notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty' |
 | operations | A set of operations that are sorted from bottom to top. | string\[] | ['>', '<'] |
-| render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. | Function(record) |  |
+| render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | Function(record) |  |
 | searchPlaceholder | The hint text of the search box. | string | 'Search here' |
 | selectedKeys | A set of keys of selected items. | string\[] | \[] |
 | showSearch | If included, a search box is shown on each column. | boolean | false |

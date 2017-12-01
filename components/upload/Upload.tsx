@@ -153,8 +153,8 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.handleRemove(file);
   }
 
-  onChange = (info: UploadChangeParam) => {
-    if (!('fileList' in this.props)) {
+  onChange = (info: UploadChangeParam, updateState = true) => {
+    if (!('fileList' in this.props) && updateState) {
       this.setState({ fileList: info.fileList });
     }
 
@@ -187,7 +187,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
       this.onChange({
         file,
         fileList,
-      });
+      }, false);
       return false;
     } else if (result && (result as PromiseLike<any>).then) {
       return result;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
@@ -115,5 +116,91 @@ describe('Upload List', () => {
         ],
       },
     });
+  });
+
+  it('does not change filelist when beforeUpload returns false', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={fileList}
+        onChange={handleChange}
+        beforeUpload={() => false}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+
+    expect(wrapper.state().fileList).toBe(fileList);
+    expect(handleChange.mock.calls[0][0].fileList).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/7762
+  it('work with form validation', () => {
+    let errors;
+    class TestForm extends React.Component {
+      handleSubmit = () => {
+        const { validateFields } = this.props.form;
+        validateFields((err) => {
+          errors = err;
+        });
+      }
+
+      render() {
+        const { getFieldDecorator } = this.props.form;
+
+        return (
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Item>
+              {getFieldDecorator('file', {
+                valuePropname: 'fileList',
+                getValueFromEvent: e => e.fileList,
+                rules: [
+                  {
+                    required: true,
+                    validator: (rule, value, callback) => {
+                      if (!value || value.length === 0) {
+                        callback('file required');
+                      } else {
+                        callback();
+                      }
+                    },
+                  },
+                ],
+              })(
+                <Upload
+                  beforeUpload={() => false}
+                >
+                  <button>upload</button>
+                </Upload>
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+
+    const App = Form.create()(TestForm);
+    const wrapper = mount(<App />);
+    wrapper.find(Form).simulate('submit');
+    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+    wrapper.find(Form).simulate('submit');
+    expect(errors).toBeNull();
   });
 });

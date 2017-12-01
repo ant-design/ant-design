@@ -47,7 +47,7 @@
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.1",
     "lodash.debounce": "^4.0.8",
-    "moment": "^2.18.1",
+    "moment": "^2.19.3",
     "omit.js": "^1.0.0",
     "prop-types": "^15.5.7",
     "rc-animate": "^2.4.1",

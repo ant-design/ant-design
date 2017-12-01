@@ -75,8 +75,8 @@ input[type="checkbox"] {
   transition: margin .15s steps(1);
 
   // nested FormItem
-  & > &:last-child,
-  & :not(.@{form-prefix-cls}) > & {
+  &-control > &:last-child,
+  & [class^="@{ant-prefix}-col-"] > &:only-child {
     margin-bottom: -@form-item-margin-bottom;
   }
 
@@ -259,6 +259,20 @@ form {
   .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
     &:only-child {
       display: inline-block;
+    }
+  }
+
+  // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
+  .@{ant-prefix}-input-group-wrapper {
+    position: relative;
+    top: (@input-height-lg - @input-height-base) / 2;
+
+    &.@{ant-prefix}-input-group-wrapper-lg {
+      top: 0;
+    }
+
+    &.@{ant-prefix}-input-group-wrapper-sm {
+      top: (@input-height-lg - @input-height-sm) / 2;
     }
   }
 }
