@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge, Button } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -139,6 +139,9 @@ export default class Header extends React.Component {
     });
 
     const menu = [
+      <Button ghost size="small" onClick={this.handleLangChange} className="header-lang-button" key="lang-button">
+        <FormattedMessage id="app.header.lang" />
+      </Button>,
       <Select
         key="version"
         className="version"
