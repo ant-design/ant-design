@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Icon from '../icon';
-import Dialog from './Modal';
+import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 
-export default function confirm(config) {
-  const props = {
+export default function confirm(config: ModalFuncProps) {
+  const props: ModalFuncProps = {
     iconType: 'question-circle',
     okType: 'primary',
     ...config,
@@ -33,7 +33,7 @@ export default function confirm(config) {
     (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
-  function close(...args) {
+  function close(...args: any[]) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
@@ -47,7 +47,7 @@ export default function confirm(config) {
 
   let body = (
     <div className={`${prefixCls}-body`}>
-      <Icon type={props.iconType} />
+      <Icon type={props.iconType!} />
       <span className={`${prefixCls}-title`}>{props.title}</span>
       <div className={`${prefixCls}-content`}>{props.content}</div>
     </div>

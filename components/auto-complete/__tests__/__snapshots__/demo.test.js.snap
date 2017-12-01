@@ -3,7 +3,7 @@
 exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -18,7 +18,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         input here
@@ -46,7 +46,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -58,11 +58,11 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1`] = `
 <div
   class="certain-category-search-wrapper"
-  style="width:250px;"
+  style="width:250px"
 >
   <div
     class="ant-select-lg ant-select-lg certain-category-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
@@ -77,7 +77,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:block;user-select:none;-webkit-user-select:none;"
+          style="display:block;user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           input here
@@ -116,7 +116,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -129,7 +129,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
 exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -152,7 +152,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
             <textarea
               class="ant-input custom ant-select-search__field"
               placeholder="input here"
-              style="height:50px;"
+              style="height:50px"
             />
             <span
               class="ant-select-search__field__mirror"
@@ -165,7 +165,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -177,7 +177,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -192,7 +192,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         try to type \`b\`
@@ -220,7 +220,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -232,7 +232,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
 exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 <div
   class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -247,7 +247,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         input here
@@ -275,7 +275,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -287,11 +287,11 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
 <div
   class="global-search-wrapper"
-  style="width:300px;"
+  style="width:300px"
 >
   <div
     class="ant-select-lg ant-select-lg global-search ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
@@ -306,7 +306,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:block;user-select:none;-webkit-user-select:none;"
+          style="display:block;user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           input here
@@ -350,7 +350,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />

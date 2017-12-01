@@ -1,15 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
-const notificationInstance = {};
+export type IconType =  'success' | 'info' | 'error' | 'warning';
+
+const notificationInstance: { [key: string]: any } = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement: NotificationPlacement = 'topRight';
-let defaultGetContainer;
+let defaultGetContainer: () => HTMLElement;
 
 export interface ConfigProps {
   top?: number;
@@ -72,17 +74,21 @@ function getPlacementStyle(placement: NotificationPlacement) {
   return style;
 }
 
-function getNotificationInstance(prefixCls, placement) {
+function getNotificationInstance(prefixCls: string, placement: NotificationPlacement, callback: (n: any) => void) {
   const cacheKey = `${prefixCls}-${placement}`;
-  if (!notificationInstance[cacheKey]) {
-    notificationInstance[cacheKey] = (Notification as any).newInstance({
-      prefixCls,
-      className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement),
-      getContainer: defaultGetContainer,
-    });
+  if (notificationInstance[cacheKey]) {
+    callback(notificationInstance[cacheKey]);
+    return;
   }
-  return notificationInstance[cacheKey];
+  (Notification as any).newInstance({
+    prefixCls,
+    className: `${prefixCls}-${placement}`,
+    style: getPlacementStyle(placement),
+    getContainer: defaultGetContainer,
+  }, (notification: any) => {
+    notificationInstance[cacheKey] = notification;
+    callback(notification);
+  });
 }
 
 const typeToIcon = {
@@ -104,7 +110,7 @@ export interface ArgsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  readonly type?: string;
+  readonly type?: IconType;
 }
 function notice(args: ArgsProps) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
@@ -132,30 +138,32 @@ function notice(args: ArgsProps) {
     ? <span className={`${prefixCls}-message-single-line-auto-margin`} />
     : null;
 
-  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement).notice({
-    content: (
-      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
-        {iconNode}
-        <div className={`${prefixCls}-message`}>
-          {autoMarginTag}
-          {args.message}
+  getNotificationInstance(outerPrefixCls, args.placement || defaultPlacement, (notification: any) => {
+    notification.notice({
+      content: (
+        <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+          {iconNode}
+          <div className={`${prefixCls}-message`}>
+            {autoMarginTag}
+            {args.message}
+          </div>
+          <div className={`${prefixCls}-description`}>{args.description}</div>
+          {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
         </div>
-        <div className={`${prefixCls}-description`}>{args.description}</div>
-        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
-      </div>
-    ),
-    duration,
-    closable: true,
-    onClose: args.onClose,
-    key: args.key,
-    style: args.style || {},
-    className: args.className,
+      ),
+      duration,
+      closable: true,
+      onClose: args.onClose,
+      key: args.key,
+      style: args.style || {},
+      className: args.className,
+    });
   });
 }
 
 const api: any = {
   open: notice,
-  close(key) {
+  close(key: string) {
     Object.keys(notificationInstance)
       .forEach(cacheKey => notificationInstance[cacheKey].removeNotice(key));
   },

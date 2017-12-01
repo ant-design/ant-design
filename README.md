@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="320" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+    <img width="230" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
 
@@ -86,33 +86,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
+See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript)
 
-> Note:
-> - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-> - Don't use @types/antd, antd provide a built-in ts definition already.
-
-#### Use [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) with modularized antd
-
-  ```js
-  {
-    loader: "ts-loader", // or awesome-typescript-loader
-    options {
-      getCustomTransformers: () => ({
-        before: [ tsImportPluginFactory({ libraryName: "antd", style: "css" }) ]
-      })
-    }
-  }
-  ```
 
 ## Internationalization
 
@@ -131,7 +106,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](http://ant.design/docs/react/customize-theme)
 

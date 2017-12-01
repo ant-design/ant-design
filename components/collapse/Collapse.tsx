@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';

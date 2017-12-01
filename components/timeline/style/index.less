@@ -5,20 +5,22 @@
 @timeline-color: @border-color-split;
 
 .@{timeline-prefix-cls} {
+  .reset-component;
   list-style: none;
   margin: 0;
   padding: 0;
 
   &-item {
     position: relative;
-    padding: 0 0 12px;
+    padding: 0 0 20px;
     list-style: none;
     margin: 0;
+    font-size: @font-size-base;
 
     &-tail {
       position: absolute;
-      left: 5px;
-      top: 0;
+      left: 4px;
+      top: 0.75em;
       height: 100%;
       border-left: 2px solid @timeline-color;
     }
@@ -29,11 +31,12 @@
 
     &-head {
       position: absolute;
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       background-color: @component-background;
       border-radius: 100px;
       border: 2px solid transparent;
+
       &-blue {
         border-color: @primary-color;
         color: @primary-color;
@@ -51,23 +54,22 @@
     &-head-custom {
       position: absolute;
       text-align: center;
-      width: 40px;
-      left: -14px;
       line-height: 1;
-      margin-top: 6px;
+      margin-top: 0;
       border: 0;
       height: auto;
       border-radius: 0;
       padding: 3px 0;
-      font-size: @font-size-base;
-      transform: translateY(-50%);
+      transform: translate(-50%, -50%);
+      top: 5px;
+      left: 5px;
+      width: auto;
     }
 
     &-content {
-      padding: 0 0 10px 24px;
-      font-size: @font-size-base;
+      padding: 0 0 0 18px;
       position: relative;
-      top: -3px;
+      top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
     }
 
     &-last {

@@ -5,10 +5,12 @@
 @mention-prefix-cls: ~"@{ant-prefix}-mention";
 
 .@{mention-prefix-cls}-wrapper {
+  .reset-component;
   position: relative;
   display: inline-block;
   width: 100%;
   vertical-align: middle;
+
   .@{mention-prefix-cls}-editor {
     .input;
     line-height: @line-height-base;
@@ -34,23 +36,23 @@
       white-space: pre-wrap;
       word-wrap: break-word;
       height: auto;
-      padding: 4px 7px;
+      padding: 5px @control-padding-horizontal - 1px;
     }
   }
   .DraftEditor-editorContainer .public-DraftEditor-content {
     height: auto;
-    padding: 4px 7px;
+    padding: 5px @control-padding-horizontal - 1px;
   }
 }
 
 .@{mention-prefix-cls}-dropdown {
+  .reset-component;
   margin-top: 1.5em;
   max-height: 250px;
   min-width: 120px;
   background-color: @component-background;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
-  box-sizing: border-box;
   z-index: @zindex-dropdown;
   left: -9999px;
   top: -9999px;
@@ -58,7 +60,11 @@
   outline: none;
   overflow-x: hidden;
   overflow-y: auto;
-  font-size: @font-size-base;
+
+  &-placement-top {
+    margin-top: -0.1em;
+  }
+
   &-notfound&-item {
     color: @disabled-color;
 
@@ -71,7 +77,8 @@
   &-item {
     position: relative;
     display: block;
-    padding: 7px 8px;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
     font-weight: normal;
     color: @text-color;
     white-space: nowrap;

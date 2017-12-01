@@ -18,13 +18,13 @@ import { Input, Select, Icon } from 'antd';
 const Option = Select.Option;
 
 const selectBefore = (
-  <Select defaultValue="Http://" style={{ width: 80 }}>
+  <Select defaultValue="Http://" style={{ width: 90 }}>
     <Option value="Http://">Http://</Option>
     <Option value="Https://">Https://</Option>
   </Select>
 );
 const selectAfter = (
-  <Select defaultValue=".com" style={{ width: 70 }}>
+  <Select defaultValue=".com" style={{ width: 80 }}>
     <Option value=".com">.com</Option>
     <Option value=".jp">.jp</Option>
     <Option value=".cn">.cn</Option>

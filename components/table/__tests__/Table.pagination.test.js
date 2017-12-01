@@ -96,6 +96,7 @@ describe('Table.pagination', () => {
     wrapper.setProps({ pagination: false });
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination });
+    wrapper.update();
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
     wrapper.find('.ant-pagination-item-2').simulate('click');

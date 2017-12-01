@@ -32,7 +32,7 @@ More layouts with navigation: [layout](/components/layout).
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
-| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `horizontal` \| `inline` | `vertical` |
+| mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `vertical-right` \| `horizontal` \| `inline` | `vertical` |
 | multiple | Allow selection of multiple items | boolean | false |
 | openKeys | array with the keys of currently opened sub menus | string\[] |  |
 | selectable | Allow to be selected | boolean | true |
@@ -44,6 +44,9 @@ More layouts with navigation: [layout](/components/layout).
 | onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
 | onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
 | onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
+| subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
+| subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
+| forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

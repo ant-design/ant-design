@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';
 import warning from '../_util/warning';
@@ -8,7 +8,7 @@ export interface PopoverProps extends AbstractTooltipProps {
    content?: React.ReactNode;
 }
 
-export default class Popover extends React.Component<PopoverProps, any> {
+export default class Popover extends React.Component<PopoverProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     placement: 'top',
@@ -19,12 +19,10 @@ export default class Popover extends React.Component<PopoverProps, any> {
     overlayStyle: {},
   };
 
-  refs: {
-    tooltip: Tooltip,
-  };
+  private tooltip: Tooltip;
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
   getOverlay() {
@@ -44,13 +42,17 @@ export default class Popover extends React.Component<PopoverProps, any> {
     );
   }
 
+  saveTooltip = (node: any) => {
+    this.tooltip = node;
+  }
+
   render() {
     const props = { ...this.props };
     delete props.title;
     return (
       <Tooltip
         {...props}
-        ref="tooltip"
+        ref={this.saveTooltip}
         overlay={this.getOverlay()}
       />
     );

@@ -4,13 +4,15 @@
   @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
   // 一般状态
   .@{checkbox-prefix-cls} {
+    .reset-component;
     white-space: nowrap;
     cursor: pointer;
     outline: none;
     display: inline-block;
     line-height: 1;
     position: relative;
-    vertical-align: text-bottom;
+    vertical-align: middle;
+    top: -0.09em;
 
     .@{checkbox-prefix-cls}-wrapper:hover &-inner,
     &:hover &-inner,
@@ -72,7 +74,7 @@
       left: 0;
       z-index: 1;
       cursor: pointer;
-      .opacity(0);
+      opacity: 0;
       top: 0;
       bottom: 0;
       right: 0;
@@ -148,8 +150,9 @@
   }
 
   .@{checkbox-prefix-cls}-wrapper {
+    .reset-component;
+    line-height: unset;
     cursor: pointer;
-    font-size: @font-size-base;
     display: inline-block;
     & + & {
       margin-left: 8px;
@@ -163,7 +166,7 @@
   }
 
   .@{checkbox-prefix-cls}-group {
-    font-size: @font-size-base;
+    .reset-component;
     &-item {
       display: inline-block;
       margin-right: 8px;
@@ -173,23 +176,6 @@
     }
     &-item + &-item {
       margin-left: 0;
-    }
-  }
-
-  @ie8: \0screen;
-
-  // IE8 hack for https://github.com/ant-design/ant-design/issues/2148
-  @media @ie8 {
-    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:before,
-    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:after {
-      .iconfont-font("\e632");
-      font-weight: bold;
-      font-size: 8px;
-      border: 0;
-      color: #fff;
-      left: 2px;
-      top: 3px;
-      position: absolute;
     }
   }
 }

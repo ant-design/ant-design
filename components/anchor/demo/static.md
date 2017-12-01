@@ -1,8 +1,8 @@
 ---
 order: 2
 title:
-  zh-CN: 固定
-  en-US: Fixed Anchor
+  zh-CN: 静态位置
+  en-US: Static Anchor
 ---
 
 ## zh-CN

@@ -43,5 +43,8 @@ import moment from 'moment';
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |
 | onOpenChange | a callback function which will be called while panel opening/closing | (open: boolean): void | - |
+| hourStep | interval between hours in picker |	number | 1 |
+| minuteStep |	interval between minutes in picker | number | 1 |
+| secondStep |	interval between seconds in picker | number | 1 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

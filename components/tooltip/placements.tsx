@@ -37,7 +37,7 @@ export function getOverflowOptions(autoAdjustOverflow: any) {
 
 export default function getPlacements(config: PlacementsConfig = {}) {
   const { arrowWidth = 5, horizontalArrowShift = 16, verticalArrowShift = 12, autoAdjustOverflow = true } = config;
-  const placementMap = {
+  const placementMap: any = {
     left: {
       points: ['cr', 'cl'],
       offset: [-4, 0],

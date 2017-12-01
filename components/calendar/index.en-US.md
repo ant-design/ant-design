@@ -16,11 +16,10 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 **Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `moment` correctly.
 
 ```jsx
-import moment from 'moment';
-
-// It's recommended to set locale in entry file globaly.
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+// The default locale is en-US, if you want to use other locale, just set locale in entry file globaly.
+// import moment from 'moment';
+// import 'moment/locale/zh-cn';
+// moment.locale('zh-cn');
 
 <Calendar
   dateCellRender={dateCellRender}

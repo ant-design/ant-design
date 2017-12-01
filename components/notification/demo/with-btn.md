@@ -22,12 +22,8 @@ const close = () => {
 
 const openNotification = () => {
   const key = `open${Date.now()}`;
-  const btnClick = function () {
-    // to hide notification box
-    notification.close(key);
-  };
   const btn = (
-    <Button type="primary" size="small" onClick={btnClick}>
+    <Button type="primary" size="small" onClick={() => notification.close(key)}>
       Confirm
     </Button>
   );
@@ -41,6 +37,8 @@ const openNotification = () => {
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>Open the notification box</Button>
+  <Button type="primary" onClick={openNotification}>
+    Open the notification box
+  </Button>
 , mountNode);
 ````

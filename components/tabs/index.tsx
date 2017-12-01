@@ -1,5 +1,5 @@
-import React, { cloneElement } from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import TabContent from 'rc-tabs/lib/TabContent';
@@ -23,8 +23,8 @@ export interface TabsProps {
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
   tabPosition?: TabsPosition;
-  onEdit?: (targetKey: string, action: any) => void;
-  size?: 'default' | 'small';
+  onEdit?: (targetKey: string | React.MouseEvent<HTMLElement>, action: any) => void;
+  size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -50,14 +50,14 @@ export default class Tabs extends React.Component<TabsProps, any> {
     hideAdd: false,
   };
 
-  createNewTab = (targetKey) => {
+  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
     const onEdit = this.props.onEdit;
     if (onEdit) {
       onEdit(targetKey, 'add');
     }
   }
 
-  removeTab = (targetKey, e) => {
+  removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     if (!targetKey) {
       return;
@@ -69,7 +69,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
-  handleChange = (activeKey) => {
+  handleChange = (activeKey: string) => {
     const onChange = this.props.onChange;
     if (onChange) {
       onChange(activeKey);
@@ -78,7 +78,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   componentDidMount() {
     const NO_FLEX = ' no-flex';
-    const tabNode = findDOMNode(this);
+    const tabNode = ReactDOM.findDOMNode(this);
     if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
       tabNode.className += NO_FLEX;
     }
@@ -113,18 +113,18 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
 
     warning(
-      !(type.indexOf('card') >= 0 && size === 'small'),
-      'Tabs[type=card|editable-card] doesn\'t have small size, it\'s by designed.',
+      !(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')),
+      'Tabs[type=card|editable-card] doesn\'t have small or large size, it\'s by designed.',
     );
-    let cls = classNames(className, {
-      [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
+    const cls = classNames(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
+      [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-no-animation`]: !tabPaneAnimated,
     });
     // only card type tabs can be added and closed
-    let childrenWithClose;
+    let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
       React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
@@ -133,10 +133,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
         const closeIcon = closable ? (
            <Icon
              type="close"
-             onClick={e => this.removeTab(child.key, e)}
+             onClick={e => this.removeTab(child.key as string, e)}
            />
         ) : null;
-        childrenWithClose.push(cloneElement(child, {
+        childrenWithClose.push(React.cloneElement(child, {
           tab: (
             <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
               {child.props.tab}
@@ -183,7 +183,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >
-        {childrenWithClose || children}
+        {childrenWithClose.length > 0 ? childrenWithClose : children}
       </RcTabs>
     );
   }

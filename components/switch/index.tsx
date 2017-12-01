@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
@@ -15,7 +15,7 @@ export interface SwitchProps {
   disabled?: boolean;
 }
 
-export default class Switch extends React.Component<SwitchProps, any> {
+export default class Switch extends React.Component<SwitchProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-switch',
   };
@@ -28,11 +28,31 @@ export default class Switch extends React.Component<SwitchProps, any> {
     className: PropTypes.string,
   };
 
+  private rcSwitch: typeof RcSwitch;
+
+  focus() {
+    this.rcSwitch.focus();
+  }
+
+  blur() {
+    this.rcSwitch.blur();
+  }
+
+  saveSwitch = (node: typeof RcSwitch) => {
+    this.rcSwitch = node;
+  }
+
   render() {
     const { prefixCls, size, className = '' } = this.props;
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
     });
-    return <RcSwitch {...this.props} className={classes} />;
+    return (
+      <RcSwitch
+        {...this.props}
+        className={classes}
+        ref={this.saveSwitch}
+      />
+    );
   }
 }

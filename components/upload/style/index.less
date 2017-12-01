@@ -3,11 +3,15 @@
 
 @upload-prefix-cls: ~"@{ant-prefix}-upload";
 @upload-item: ~"@{ant-prefix}-upload-list-item";
-@upload-pictrue-card-size: 96px;
+@upload-pictrue-card-size: 104px;
 
 .@{upload-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
   outline: 0;
+
+  p {
+    margin: 0;
+  }
 
   &-btn {
     display: block;
@@ -28,20 +32,22 @@
     width: @upload-pictrue-card-size;
     height: @upload-pictrue-card-size;
     border-radius: @border-radius-base;
-    background-color: #fbfbfb;
+    background-color: @background-color-light;
     text-align: center;
     cursor: pointer;
     transition: border-color 0.3s ease;
-    display: inline-block;
     vertical-align: top;
     margin-right: 8px;
     margin-bottom: 8px;
+    display: table;
 
     > .@{upload-prefix-cls} {
-      display: block;
       width: 100%;
       height: 100%;
-      padding: 20px 0;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      padding: 8px;
     }
 
     &:hover {
@@ -51,13 +57,15 @@
 
   &&-drag {
     border: @border-width-base dashed @border-color-base;
-    transition: border-color 0.3s ease;
+    transition: border-color .3s;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
     width: 100%;
     height: 100%;
     position: relative;
+    padding: 16px 0;
+    background: @background-color-light;
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
       border: 2px dashed @primary-5;
@@ -83,15 +91,15 @@
 
     p.@{upload-prefix-cls}-drag-icon {
       .@{iconfont-css-prefix} {
-        font-size: 80px;
-        margin-top: -5px;
+        font-size: 48px;
         color: @primary-5;
       }
-      height: 60px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     p.@{upload-prefix-cls}-text {
       font-size: @font-size-lg;
+      margin: 0 0 4px;
+      color: @heading-color;
     }
     p.@{upload-prefix-cls}-hint {
       font-size: @font-size-base;
@@ -99,7 +107,7 @@
     }
     .@{iconfont-css-prefix}-plus {
       font-size: 30px;
-      transition: all 0.3s ease;
+      transition: all .3s;
       color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
@@ -112,34 +120,37 @@
 }
 
 .@{upload-prefix-cls}-list {
-  overflow: hidden;
+  .reset-component;
+  .clearfix;
   &-item {
-    overflow: hidden;
     margin-top: 8px;
     font-size: @font-size-base;
     position: relative;
-    height: 24px;
+    height: 22px;
     &-name {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-left: 16px;
+      padding-left: @font-size-base + 8px;
       width: 100%;
       display: inline-block;
     }
 
     &-info {
-      line-height: 24px;
+      height: 100%;
       padding: 0 12px 0 4px;
       transition: background-color .3s;
 
+      > span {
+        display: block;
+      }
+
       .@{iconfont-css-prefix}-loading,
       .@{iconfont-css-prefix}-paper-clip {
-        margin-right: 4px;
         font-size: @font-size-base;
         color: @text-color-secondary;
         position: absolute;
-        top: 5.5px;
+        top: @font-size-base / 2 - 2px;
       }
     }
 
@@ -152,7 +163,7 @@
       top: 0;
       right: 4px;
       color: @text-color-secondary;
-      line-height: 24px;
+      line-height: 22px;
       &:hover {
         color: @text-color;
       }
@@ -182,7 +193,8 @@
       font-size: @font-size-base;
       position: absolute;
       width: 100%;
-      bottom: 0;
+      bottom: -12px;
+      padding-left: @font-size-base + 12px;
     }
   }
 
@@ -227,7 +239,6 @@
       height: 48px;
       display: block;
       overflow: hidden;
-      border-radius: @border-radius-base;
     }
 
     .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
@@ -257,7 +268,7 @@
     .@{upload-item}-progress {
       padding-left: 56px;
       margin-top: 0;
-      bottom: 24px;
+      bottom: 14px;
       width: ~"calc(100% - 24px)";
     }
 
@@ -272,6 +283,9 @@
   &-picture-card {
     display: inline;
 
+    &.@{upload-prefix-cls}-list:after {
+      display: none;
+    }
     .@{upload-item} {
       float: left;
       width: @upload-pictrue-card-size;
@@ -344,7 +358,7 @@
 
     .@{upload-item}-uploading {
       &.@{upload-item} {
-        background-color: #fbfbfb;
+        background-color: @background-color-light;
       }
 
       .@{upload-item}-info {

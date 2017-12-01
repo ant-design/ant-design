@@ -12,32 +12,33 @@ By clicking the input box, you can select a date from a popup calendar.
 
 ## API
 
-There are three kinds of picker:
+There are four kinds of picker:
 
 - DatePicker
 - MonthPicker
 - RangePicker
+- WeekPicker
 
-**Note:** Part of locale of DatePicker, MonthPicker, RangePicker is read from value. So, please set the locale of moment correctly.
+**Note:** Part of locale of DatePicker, MonthPicker, RangePicker, WeekPicker is read from value. So, please set the locale of moment correctly.
 
 ```jsx
-import moment from 'moment';
-
-// It's recommended to set locale in entry file globaly.
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+// The default locale is en-US, if you want to use other locale, just set locale in entry file globaly.
+// import moment from 'moment';
+// import 'moment/locale/zh-cn';
+// moment.locale('zh-cn');
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
 
 ### Common API
 
-The following APIs are shared by DatePicker, MonthPicker, RangePicker.
+The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicker.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Whether to show clear button | boolean | true |
 | className | picker className | string | '' |
+| dateRender | custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |
 | disabled | determine whether the DatePicker is disabled | boolean | false |
 | disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
@@ -45,7 +46,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | open | open state of picker | boolean | - |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |
 | popupStyle | to customize the style of the popup calendar | object | {} |
-| size | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | string | - |
+| size | determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | string | - |
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 
@@ -62,6 +63,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showToday | whether to show "Today" button | boolean | true |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
+| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
 | onOk | callback when click ok button | function() | - |
 
 ### MonthPicker
@@ -71,6 +73,16 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM" |
 | monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
+| value | to set date | [moment](http://momentjs.com/) | - |
+| onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
+
+### WeekPicker
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| defaultValue | to set default date | [moment](http://momentjs.com/) | - |
+| format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-Wo" |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 

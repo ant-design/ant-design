@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 卡片模式
   en-US: Card
 ---
@@ -21,7 +21,7 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+  <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
     <Calendar fullscreen={false} onPanelChange={onPanelChange} />
   </div>
 , mountNode);

@@ -1,9 +1,11 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @badge-prefix-cls: ~"@{ant-prefix}-badge";
 @number-prefix-cls: ~"@{ant-prefix}-scroll-number";
 
 .@{badge-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   line-height: 1;
@@ -24,11 +26,15 @@
     font-size: @badge-font-size;
     white-space: nowrap;
     transform-origin: -10% center;
-    font-family: tahoma;
+    box-shadow: 0 0 0 1px #fff;
     a,
     a:hover {
       color: #fff;
     }
+  }
+
+  &-multiple-words {
+    padding: 0 8px;
   }
 
   &-dot {
@@ -49,16 +55,19 @@
     vertical-align: baseline;
 
     &-dot {
-      width: 8px;
-      height: 8px;
+      width: @badge-status-size;
+      height: @badge-status-size;
       display: inline-block;
       border-radius: 50%;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
     }
     &-success {
       background-color: @success-color;
     }
     &-processing {
-      background-color: @primary-color;
+      background-color: @processing-color;
       position: relative;
       &:after {
         position: absolute;
@@ -67,7 +76,7 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        border: 1px solid @primary-color;
+        border: 1px solid @processing-color;
         content: '';
         animation: antStatusProcessing 1.2s infinite ease-in-out;
       }
@@ -99,7 +108,7 @@
     animation-fill-mode: both;
   }
 
-  &-not-a-wrapper &-count {
+  &-not-a-wrapper .@{ant-prefix}-scroll-number {
     top: auto;
     display: block;
     position: relative;
@@ -126,6 +135,7 @@
     height: @badge-height;
     > p {
       height: @badge-height;
+      margin: 0;
     }
   }
 }

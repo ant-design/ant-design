@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -52,6 +52,9 @@ export interface ButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  target?: string;
+  href?: string;
+  download?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -95,7 +98,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
 
     if (typeof loading !== 'boolean' && loading && loading.delay) {
-      this.delayTimeout = setTimeout(() => this.setState({ loading }), loading.delay);
+      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
     } else {
       this.setState({ loading });
     }
@@ -114,7 +117,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     // Add click effect
     this.setState({ clicked: true });
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => this.setState({ clicked: false }), 500);
+    this.timeout = window.setTimeout(() => this.setState({ clicked: false }), 500);
 
     const onClick = this.props.onClick;
     if (onClick) {
@@ -142,6 +145,8 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
+    const ComponentProp = others.href ? 'a' : 'button';
+
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
@@ -155,17 +160,17 @@ export default class Button extends React.Component<ButtonProps, any> {
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
     const needInserted = React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
-    const kids = React.Children.map(children, child => insertSpace(child, needInserted));
+    const kids = children ? React.Children.map(children, child => insertSpace(child, needInserted)) : null;
 
     return (
-      <button
+      <ComponentProp
         {...omit(others, ['loading'])}
-        type={htmlType || 'button'}
+        type={others.href ? undefined : (htmlType || 'button')}
         className={classes}
         onClick={this.handleClick}
       >
         {iconNode}{kids}
-      </button>
+      </ComponentProp>
     );
   }
 }

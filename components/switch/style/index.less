@@ -5,14 +5,15 @@
 @switch-duration: .36s;
 
 .@{switch-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  height: 22px;
+  height: @switch-height;
   min-width: 44px;
-  line-height: 20px;
+  line-height: @switch-height - 2px;
   vertical-align: middle;
-  border-radius: 20px;
+  border-radius: 100px;
   border: 1px solid transparent;
   background-color: @disabled-color;
   cursor: pointer;
@@ -21,7 +22,7 @@
 
   &-inner {
     color: #fff;
-    font-size: @font-size-base;
+    font-size: @font-size-sm;
     margin-left: 24px;
     margin-right: 6px;
     display: block;
@@ -29,8 +30,8 @@
 
   &:after {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: @switch-height - 4px;
+    height: @switch-height - 4px;
     left: 1px;
     top: 1px;
 
@@ -55,20 +56,19 @@
   }
 
   &-small {
-    height: 14px;
+    height: @switch-sm-height;
     min-width: 28px;
-    line-height: 12px;
+    line-height: @switch-sm-height - 2px;
 
     .@{switch-prefix-cls}-inner {
       margin-left: 18px;
       margin-right: 3px;
+      font-size: @font-size-sm;
     }
 
     &:after {
-      width: 12px;
-      height: 12px;
-      top: 0;
-      left: 0.5px;
+      width: @switch-sm-height - 4px;
+      height: @switch-sm-height - 4px;
     }
 
     &:active:after {
@@ -112,15 +112,6 @@
 
   &-disabled {
     cursor: not-allowed;
-    background: #f4f4f4;
-
-    &:after {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-
-    .@{switch-prefix-cls}-inner {
-      color: @disabled-color;
-    }
+    opacity: 0.35;
   }
 }

@@ -67,7 +67,7 @@ Edit `.roadhogrc` to integrate `babel-plugin-import`.
   "extraBabelPlugins": [
 -    "transform-runtime"
 +    "transform-runtime",
-+    ["import", { "libraryName": "antd", "style": "css" }]
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
   ],
 ```
 

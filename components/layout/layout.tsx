@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
@@ -9,8 +9,8 @@ export interface BasicProps {
   className?: string;
 }
 
-function generator(props) {
-  return (BasicComponent): any => {
+function generator(props: BasicProps) {
+  return (BasicComponent: React.ComponentClass<BasicProps>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;

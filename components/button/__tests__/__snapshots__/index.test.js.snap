@@ -49,3 +49,15 @@ exports[`Button renders correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`Button should support link button 1`] = `
+<a
+  class="ant-btn"
+  href="http://ant.design"
+  target="_blank"
+>
+  <span>
+    link button
+  </span>
+</a>
+`;

@@ -1,9 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Icon from '../icon';
 import getScroll from '../_util/getScroll';
 import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
@@ -109,7 +108,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
     const defaultElement = (
       <div className={`${prefixCls}-content`}>
-        <Icon className={`${prefixCls}-icon`} type="to-top" />
+        <div className={`${prefixCls}-icon`} />
       </div>
     );
 

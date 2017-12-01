@@ -25,6 +25,7 @@ title: Select
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean | false |
+| autoFocus | 默认获取焦点 | boolean | false |
 | combobox | 输入框自动提示模式（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
 | defaultValue | 指定默认选中的条目 | string\|string\[] | - |
@@ -36,6 +37,8 @@ title: Select
 | firstActiveValue | 默认高亮的选项 | string\|string\[] | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 `{key: string, label: ReactNode}` 的格式 | boolean | false |
+| maxTagCount | 最多显示多少个 tag | number | - |
+| maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
 | mode | 设置 Select 的模式（2.9 之后支持） | 'multiple' \| 'tags' \| 'combobox' | - |
 | multiple | 支持多选（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
@@ -51,10 +54,20 @@ title: Select
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value) | - |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(value) | - |
 | onFocus | 获得焦点时回调 | function | - |
+| onMouseEnter | 鼠标移入时回调 | function | - |
+| onMouseLeave | 鼠标移出时回调 | function | - |
+| onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | - |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
+
+### Select Methods
+
+| 名称 | 说明 |
+| --- | --- |
+| blur() | 取消焦点 |
+| focus() | 获取焦点 |
 
 ### Option props
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import animation from '../_util/openAnimation';
 
@@ -10,11 +10,7 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
 }
 
-export class AntTreeNode extends React.Component<AntTreeNodeProps, {}> {
-  render() {
-    return <AntTreeNode {...this.props} />;
-  }
-}
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
 export interface AntTreeNodeEvent {
   event: 'check' | 'select';

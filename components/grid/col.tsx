@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -29,7 +29,7 @@ export interface ColProps {
   style?: React.CSSProperties;
 }
 
-export default class Col extends React.Component<ColProps, any> {
+export default class Col extends React.Component<ColProps, {}> {
   static propTypes = {
     span: stringOrNumber,
     order: stringOrNumber,
@@ -46,10 +46,10 @@ export default class Col extends React.Component<ColProps, any> {
   };
 
   render() {
-    const props = this.props;
+    const props: any = this.props;
     const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
     let sizeClassObj = {};
-    ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
       if (typeof props[size] === 'number') {
         sizeProps.span = props[size];

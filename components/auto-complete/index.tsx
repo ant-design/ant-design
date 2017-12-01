@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
@@ -34,7 +34,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
-export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
+export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
@@ -47,6 +47,8 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     filterOption: false,
   };
 
+  private select: any;
+
   getInputElement = () => {
     const { children } = this.props;
     const element = children && React.isValidElement(children) && children.type !== Option ?
@@ -57,6 +59,18 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     return (
       <InputElement {...elementProps}>{element}</InputElement>
     );
+  }
+
+  focus() {
+    this.select.focus();
+  }
+
+  blur() {
+    this.select.blur();
+  }
+
+  saveSelect = (node: any) => {
+    this.select = node;
   }
 
   render() {
@@ -106,6 +120,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
         optionLabelProp={optionLabelProp}
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
+        ref={this.saveSelect}
       >
         {options}
       </Select>

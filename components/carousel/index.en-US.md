@@ -24,4 +24,12 @@ A carousel component. Scales with its container.
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |
 | vertical | Whether to use a vertical display | boolean | `false` |
 
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| goTo(slideNumber) | Change current slide to given slide number |
+| next() | Change current slide to next slide |
+| prev() | Change current slide to previous slide |
+
 For more info on the parameters, refer to the <https://github.com/akiran/react-slick>

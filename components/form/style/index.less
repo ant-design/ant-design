@@ -6,18 +6,13 @@
 @import "./mixin";
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
-@form-component-height: @input-height-lg;
+@form-component-height: @input-height-base;
 @form-feedback-icon-size: 14px;
+@form-help-margin-top: 2px;
 
-.reset-form();
-
-label {
-  position: relative;
-
-  > .@{iconfont-css-prefix} {
-    vertical-align: top;
-    font-size: @font-size-base;
-  }
+.@{form-prefix-cls} {
+  .reset-component;
+  .reset-form;
 }
 
 .@{form-prefix-cls}-item-required:before {
@@ -65,10 +60,19 @@ input[type="checkbox"] {
 // Form items
 // You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
 .@{form-prefix-cls}-item {
-  font-size: @font-size-base;
+  label {
+    position: relative;
+
+    > .@{iconfont-css-prefix} {
+      vertical-align: top;
+      font-size: @font-size-base;
+    }
+  }
+
+  .reset-component;
   margin-bottom: @form-item-margin-bottom;
-  color: @text-color;
   vertical-align: top;
+  transition: margin .15s steps(1);
 
   // nested FormItem
   &-control > &:last-child,
@@ -80,10 +84,14 @@ input[type="checkbox"] {
     line-height: @form-component-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
     .clearfix;
+    > * {
+      font-size: @font-size-base;
+    }
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+    transition: none;
   }
 
   &-label {
@@ -92,7 +100,6 @@ input[type="checkbox"] {
     line-height: @form-component-height;
     display: inline-block;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
 
     label {
@@ -124,7 +131,9 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
-  line-height: 1.5;
+  line-height: @line-height-base;
+  transition: color .15s @ease-out;
+  margin-top: @form-help-margin-top;
 }
 
 .@{form-prefix-cls}-extra {
@@ -163,7 +172,7 @@ form {
 
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        margin-right: 21px;
+        margin-right: 17px;
       }
       &-clear {
         right: 28px;
@@ -171,7 +180,7 @@ form {
     }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/7854
-    .@{ant-prefix}-input-search {
+    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
         right: 28px;
       }
@@ -280,7 +289,7 @@ form {
 
   .@{ant-prefix}-select-selection--single {
     margin-left: -1px;
-    height: @input-height-lg;
+    height: @input-height-base;
     background-color: #eee;
     .@{ant-prefix}-select-selection__rendered {
       padding-left: 8px;
@@ -297,7 +306,7 @@ form {
 
 // Form layout
 //== Vertical Form
-.make-vertical-layout() {
+.make-vertical-layout-label() {
   padding: @form-vertical-label-padding;
   margin: @form-vertical-label-margin;
   display: block;
@@ -308,34 +317,53 @@ form {
     display: none;
   }
 }
+
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item-label,
+  .@{form-prefix-cls}-item-control-wrapper {
+    display: block;
+    width: 100%;
+  }
+  .@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
 .@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
-// when labelCol is 24, it is a vertical form
+  // when labelCol is 24, it is a vertical form
 .@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
 .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
-  .make-vertical-layout();
+  .make-vertical-layout-label();
 }
 
 @media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
   .@{ant-prefix}-col-xs-24.@{form-prefix-cls}-item-label {
-    .make-vertical-layout();
+    .make-vertical-layout-label();
   }
 }
 
 @media (max-width: @screen-sm-max) {
   .@{ant-prefix}-col-sm-24.@{form-prefix-cls}-item-label {
-    .make-vertical-layout();
+    .make-vertical-layout-label();
   }
 }
 
 @media (max-width: @screen-md-max) {
   .@{ant-prefix}-col-md-24.@{form-prefix-cls}-item-label {
-    .make-vertical-layout();
+    .make-vertical-layout-label();
   }
 }
 
 @media (max-width: @screen-lg-max) {
   .@{ant-prefix}-col-lg-24.@{form-prefix-cls}-item-label {
-    .make-vertical-layout();
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-xl-max) {
+  .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
   }
 }
 
@@ -381,8 +409,8 @@ form {
     right: 0;
     visibility: visible;
     pointer-events: none;
-    .square(@input-height-lg);
-    line-height: @input-height-lg;
+    .square(@input-height-base);
+    line-height: @input-height-base;
     text-align: center;
     font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
@@ -394,23 +422,6 @@ form {
 .has-success {
   &.has-feedback:after {
     animation-name: diffZoomIn1 !important;
-  }
-}
-
-.has-error {
-  &.has-feedback:after {
-    animation-name: diffZoomIn2 !important;
-  }
-}
-
-.has-warning {
-  &.has-feedback:after {
-    animation-name: diffZoomIn3 !important;
-  }
-}
-
-.has-success {
-  &.has-feedback:after {
     content: '\e630';
     color: @success-color;
   }
@@ -422,6 +433,7 @@ form {
   &.has-feedback:after {
     content: '\e62c';
     color: @warning-color;
+    animation-name: diffZoomIn3 !important;
   }
 
   //select
@@ -468,6 +480,7 @@ form {
   &.has-feedback:after {
     content: '\e62e';
     color: @error-color;
+    animation-name: diffZoomIn2 !important;
   }
 
   //select
@@ -538,12 +551,39 @@ form {
 
 .@{ant-prefix}-advanced-search-form {
   .@{form-prefix-cls}-item {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
-  .@{ant-prefix}-input,
-  .@{ant-prefix}-input-group .@{ant-prefix}-input,
-  .@{ant-prefix}-input-group .@{ant-prefix}-input-group-addon {
-    height: @input-height-base;
+}
+
+.show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
+  .make-motion(@className, @keyframeName, @duration);
+  .@{className}-enter,
+  .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: @ease-in-out;
+  }
+  .@{className}-leave {
+    animation-timing-function: @ease-in-out;
+  }
+}
+
+.show-help-motion(show-help, antShowHelp, 0.15s);
+
+@keyframes antShowHelpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes antShowHelpOut {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
   }
 }
 

@@ -11,9 +11,9 @@ Before delving into Ant Design React, a good knowledge of [React](http://faceboo
 
 ## First Example
 
-The following CodePen demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
+The following CodeSandbox demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
 
-- [antd CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
 ## Standard Development Flow
 
@@ -64,7 +64,12 @@ As you can see, there is no difference between antd's components and usual React
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DatePicker, message } from 'antd';
+import { LocaleProvider, DatePicker, message } from 'antd';
+// The default locale is en-US, but we can change it to other language
+import frFR from 'antd/lib/locale-provider/fr_FR';
+import moment from 'moment';
+import 'moment/locale/fr';
+moment.locale('fr');
 
 class App extends React.Component {
   constructor(props) {
@@ -79,10 +84,12 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={value => this.handleChange(value)} />
-        <div style={{ marginTop: 20 }}>Date: {this.state.date.toString()}</div>
-      </div>
+      <LocaleProvider locale={frFR}>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={value => this.handleChange(value)} />
+          <div style={{ marginTop: 20 }}>Date: {this.state.date.toString()}</div>
+        </div>
+      </LocaleProvider>
     );
   }
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
+import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -20,7 +21,7 @@ function getModuleData(props) {
   const moduleName = /^\/?components/.test(pathname) ?
     'components' : pathname.split('/').filter(item => item).slice(0, 2).join('/');
   const moduleData = moduleName === 'components' || moduleName === 'docs/react' ||
-          moduleName === 'changelog' || moduleName === 'changelog-cn' ?
+    moduleName === 'changelog' || moduleName === 'changelog-cn' ?
     [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
     props.picked[moduleName];
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
@@ -36,6 +37,11 @@ function isNotTopLevel(level) {
   return level !== 'topLevel';
 }
 
+let isMobile;
+utils.enquireScreen((b) => {
+  isMobile = b;
+});
+
 export default class MainContent extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
@@ -43,11 +49,19 @@ export default class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { openKeys: this.getSideBarOpenKeys(props) || [] };
+    this.state = {
+      openKeys: this.getSideBarOpenKeys(props) || [],
+      isMobile,
+    };
   }
 
   componentDidMount() {
     this.componentDidUpdate();
+    utils.enquireScreen((b) => {
+      this.setState({
+        isMobile: !!b,
+      });
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -110,12 +124,16 @@ export default class MainContent extends React.Component {
         disabled={disabled}
       >
         {text}
-      </Link>
-    ) : (
-      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled} className="menu-item-link-outside">
-        {text} <Icon type="export" />
-      </a>
-    );
+      </Link>) : (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          disabled={disabled}
+          className="menu-item-link-outside"
+        >
+          {text} <Icon type="export" />
+        </a>);
 
     return (
       <Menu.Item key={key.toLowerCase()} disabled={disabled}>
@@ -132,7 +150,7 @@ export default class MainContent extends React.Component {
       .map((type) => {
         const groupItems = obj[type].sort((a, b) => {
           return a.title.charCodeAt(0) -
-          b.title.charCodeAt(0);
+            b.title.charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup title={type} key={type}>
@@ -170,7 +188,7 @@ export default class MainContent extends React.Component {
   }
 
   flattenMenu(menu) {
-    if (menu && menu.type && !menu.type.isSubMenu && !menu.type.isMenuItemGroup) {
+    if (menu && menu.type && menu.type.isMenuItem) {
       return menu;
     }
     if (Array.isArray(menu)) {
@@ -201,21 +219,34 @@ export default class MainContent extends React.Component {
     const mainContainerClass = classNames('main-container', {
       'main-container-component': !!props.demos,
     });
+    const menuChild = (
+      <Menu
+        inlineIndent="40"
+        className="aside-container menu-site"
+        mode="inline"
+        openKeys={this.state.openKeys}
+        selectedKeys={[activeMenuItem]}
+        onOpenChange={this.handleMenuOpenChange}
+      >
+        {menuItems}
+      </Menu>);
     return (
       <div className="main-wrapper">
         <Row>
-          <Col lg={4} md={6} sm={24} xs={24}>
-            <Menu
-              className="aside-container"
-              mode="inline"
-              openKeys={this.state.openKeys}
-              selectedKeys={[activeMenuItem]}
-              onOpenChange={this.handleMenuOpenChange}
+          {this.state.isMobile ? (
+            <MobileMenu
+              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              key="mobile-menu"
+              wrapperClassName="drawer-wrapper"
             >
-              {menuItems}
-            </Menu>
-          </Col>
-          <Col lg={20} md={18} sm={24} xs={24} className={mainContainerClass}>
+              {menuChild}
+            </MobileMenu>) : (
+              <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
+                {menuChild}
+              </Col>
+            )
+          }
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
@@ -226,8 +257,10 @@ export default class MainContent extends React.Component {
 
         <Row>
           <Col
-            lg={{ span: 20, offset: 4 }}
-            md={{ span: 18, offset: 6 }}
+            xxl={{ span: 20, offset: 4 }}
+            xl={{ span: 19, offset: 5 }}
+            lg={{ span: 18, offset: 6 }}
+            md={24}
             sm={24}
             xs={24}
           >

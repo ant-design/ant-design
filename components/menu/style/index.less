@@ -2,27 +2,31 @@
 @import "../../style/mixins/index";
 
 @menu-prefix-cls: ~"@{ant-prefix}-menu";
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 40px;
 
 // default theme
 .@{menu-prefix-cls} {
+  .reset-component;
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
-  color: @text-color;
   background: @component-background;
-  line-height: 46px;
+  line-height: 0; // Fix display inline-block gap
   transition: background .3s, width .2s;
+  .clearfix;
+
+  ul,
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   &-hidden {
     display: none;
-  }
-
-  &-item-group-list {
-    margin: 0;
-    padding: 0;
   }
 
   &-item-group-title {
@@ -33,16 +37,9 @@
     transition: all .3s;
   }
 
-  &-item,
   &-submenu,
-  &-submenu-title {
-    cursor: pointer;
-  }
-  &-submenu, &-submenu-inline {
+  &-submenu-inline {
     transition: border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
-  }
-  &-item, &-submenu-title {
-    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
   }
 
   &-item:active,
@@ -92,10 +89,6 @@
     color: @primary-color;
   }
 
-  &:not(&-inline) &-submenu-open {
-    z-index: @zindex-dropdown;
-  }
-
   &-horizontal &-item,
   &-horizontal &-submenu {
     margin-top: -1px;
@@ -119,36 +112,21 @@
     background-color: @item-active-bg;
   }
 
-  &-horizontal,
   &-inline,
-  &-vertical {
-    z-index: auto;
-  }
-
-  &-inline,
-  &-vertical {
+  &-vertical,
+  &-vertical-left {
     border-right: @border-width-base @border-style-base @border-color-split;
-    .@{menu-prefix-cls}-item {
-      margin-left: -1px;
-      left: 1px;
-      position: relative;
-      z-index: 1;
-      &:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        border-right: 3px solid @primary-color;
-        transform: scaleY(.0001);
-        opacity: 0;
-        transition: transform .15s @ease-out, opacity .15s @ease-out;
-      }
-    }
+  }
+  &-vertical-right {
+    border-left: @border-width-base @border-style-base @border-color-split;
   }
 
-  &-vertical&-sub {
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
     border-right: 0;
+    padding: 0;
+    transform-origin: 0 0;
     .@{menu-prefix-cls}-item {
       border-right: 0;
       margin-left: 0;
@@ -157,62 +135,31 @@
         border-right: 0;
       }
     }
-    > .@{menu-prefix-cls}-item:first-child {
-      border-radius: @border-radius-base @border-radius-base 0 0;
-    }
-    > .@{menu-prefix-cls}-item:last-child,
-    > .@{menu-prefix-cls}-item-group:last-child > .@{menu-prefix-cls}-item-group-list:last-child > .@{menu-prefix-cls}-item:last-child {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
-    }
-    > .@{menu-prefix-cls}-item:only-child {
-      border-radius: @border-radius-base;
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu {
+      transform-origin: 0 0;
     }
   }
 
-  &-inline {
-    width: 100%;
-    .@{menu-prefix-cls}-selected,
-    .@{menu-prefix-cls}-item-selected {
-      &:after {
-        transition: transform .15s @ease-in-out, opacity .15s @ease-in-out;
-        opacity: 1;
-        transform: scaleY(1);
-      }
-    }
-  }
-
-  &-submenu-horizontal > & {
-    top: 100%;
-    left: 0;
-    position: absolute;
-    min-width: 100%;
-    margin-top: 7px;
-    z-index: @zindex-dropdown;
-  }
-
-  &-submenu-vertical {
-    z-index: 1;
-  }
-
-  &-submenu-vertical > & {
-    top: 0;
-    left: 100%;
-    position: absolute;
+  &-horizontal&-sub,
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
     min-width: 160px;
-    margin-left: 4px;
-    z-index: @zindex-dropdown;
   }
 
   &-item,
   &-submenu-title {
+    cursor: pointer;
     margin: 0;
     padding: 0 20px;
     position: relative;
     display: block;
     white-space: nowrap;
+    transition: color .3s @ease-in-out, border-color .3s @ease-in-out, background .3s @ease-in-out, padding .15s @ease-in-out;
     .@{iconfont-css-prefix} {
       min-width: 14px;
-      margin-right: 8px;
+      margin-right: 10px;
       transition: font-size .15s @ease-out, margin .3s @ease-in-out;
       + span {
         transition: opacity .3s @ease-in-out, width .3s @ease-in-out;
@@ -231,7 +178,11 @@
   }
 
   &-submenu {
-    position: relative;
+    &-popup {
+      position: absolute;
+      border-radius: @border-radius-base;
+      z-index: @zindex-dropdown;
+    }
 
     > .@{menu-prefix-cls} {
       background-color: @component-background;
@@ -241,43 +192,68 @@
       }
     }
 
-    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "anticon" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      content: "\e61d";
-      right: 16px;
-      .ie-rotate(3);
-      transform: rotate(270deg) scale(0.75);
+    &-vertical,
+    &-vertical-left,
+    &-vertical-right,
+    &-inline {
+      > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+        transition: transform .3s @ease-in-out;
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        width: 10px;
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          vertical-align: baseline;
+          background: #fff;
+          background-image: linear-gradient(to right, @text-color, @text-color);
+          width: 6px;
+          height: 1.5px;
+          border-radius: 2px;
+          transition: background .3s @ease-in-out, transform .3s @ease-in-out, top .3s @ease-in-out;
+        }
+        &:before {
+          transform: rotate(45deg) translateY(-2px);
+        }
+        &:after {
+          transform: rotate(-45deg) translateY(2px);
+        }
+      }
+      > .@{menu-prefix-cls}-submenu-title:hover .@{menu-prefix-cls}-submenu-arrow {
+        &:after,
+        &:before {
+          background: linear-gradient(to right, @primary-color, @primary-color);
+        }
+      }
     }
 
-    &-inline > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "anticon" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      content: "\e61d";
-      right: 16px;
-      top: 0;
-      .iconfont-size-under-12px(8px);
+    &-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      &:before {
+        transform: rotate(-45deg) translateX(2px);
+      }
+      &:after {
+        transform: rotate(45deg) translateX(-2px);
+      }
     }
 
     &-open {
-      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        .ie-rotate(1);
-        transform: rotate(180deg) scale(0.75);
+      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+        transform: translateY(-2px);
+        &:after {
+          transform: rotate(-45deg) translateX(-2px);
+        }
+        &:before {
+          transform: rotate(45deg) translateX(2px);
+        }
       }
     }
   }
 
-  &-vertical &-submenu-selected {
+  &-vertical &-submenu-selected,
+  &-vertical-left &-submenu-selected,
+  &-vertical-right &-submenu-selected {
     color: @primary-color;
     > a {
       color: @primary-color;
@@ -288,7 +264,7 @@
     border: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
-    z-index: 0;
+    line-height: 46px;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
@@ -323,33 +299,83 @@
   }
 
   &-vertical,
+  &-vertical-left,
+  &-vertical-right,
   &-inline {
+    .@{menu-prefix-cls}-item {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 3px solid @primary-color;
+        transform: scaleY(.0001);
+        opacity: 0;
+        transition: transform .15s @ease-out, opacity .15s @ease-out;
+      }
+    }
+
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       padding: 0 16px;
       font-size: @font-size-base;
-      line-height: 42px;
-      height: 42px;
+      line-height: @menu-item-height;
+      height: @menu-item-height;
+      margin-top: 4px;
+      margin-bottom: 4px;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    // disable margin collapsed
+    .@{menu-prefix-cls}-submenu {
+      padding-bottom: 0.01px;
+    }
+
+    .@{menu-prefix-cls}-item:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      line-height: @menu-inline-toplevel-item-height;
+      height: @menu-inline-toplevel-item-height;
+    }
+  }
+
+  &-inline {
+    width: 100%;
+    .@{menu-prefix-cls}-selected,
+    .@{menu-prefix-cls}-item-selected {
+      &:after {
+        transition: transform .15s @ease-in-out, opacity .15s @ease-in-out;
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      width: ~"calc(100% + 1px)";
     }
   }
 
   &-inline-collapsed {
     width: @menu-collapsed-width;
-
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-item-group > .@{menu-prefix-cls}-item-group-list > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
       text-overflow: clip;
       padding: 0 (@menu-collapsed-width - 16px) / 2 !important;
-      &:after {
+      .@{menu-prefix-cls}-submenu-arrow {
         display: none;
       }
       .@{iconfont-css-prefix} {
         font-size: 16px;
-        line-height: 42px;
+        line-height: @menu-item-height;
         margin: 0;
         + span {
           max-width: 0;
@@ -378,22 +404,17 @@
   }
 
   &-item-group-list {
+    margin: 0;
+    padding: 0;
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       padding: 0 16px 0 28px;
     }
   }
 
-  &-vertical&-sub {
-    padding: 0;
-    transform-origin: 0 0;
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu {
-      transform-origin: 0 0;
-    }
-  }
-
   &-root&-vertical,
+  &-root&-vertical-left,
+  &-root&-vertical-right,
   &-root&-inline {
     box-shadow: none;
   }
@@ -405,8 +426,8 @@
     border-radius: 0;
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      line-height: 42px;
-      height: 42px;
+      line-height: @menu-item-height;
+      height: @menu-item-height;
       list-style-type: disc;
       list-style-position: inside;
     }
@@ -434,88 +455,4 @@
   }
 }
 
-// dark theme
-.@{menu-prefix-cls} {
-  &-dark,
-  &-dark &-sub {
-    color: @text-color-secondary-dark;
-    background: @menu-dark-bg;
-  }
-
-  &-dark &-inline&-sub {
-    background: @menu-dark-submenu-bg;
-  }
-
-  &-dark&-horizontal {
-    border-bottom-color: @menu-dark-bg;
-  }
-
-  &-dark&-horizontal > &-item,
-  &-dark&-horizontal > &-submenu {
-    border-color: @menu-dark-bg;
-    border-bottom: 0;
-  }
-
-  &-dark &-item,
-  &-dark &-item-group-title,
-  &-dark &-item > a {
-    color: @text-color-secondary-dark;
-  }
-
-  &-dark&-inline,
-  &-dark&-vertical {
-    border-right: 0;
-  }
-
-  &-dark&-inline &-item,
-  &-dark&-vertical &-item {
-    border-right: 0;
-    margin-left: 0;
-    left: 0;
-    &:after {
-      border-right: 0;
-    }
-  }
-
-  &-dark &-item:hover,
-  &-dark &-item-active,
-  &-dark &-submenu-active,
-  &-dark:not(&-inline) &-submenu-open,
-  &-dark &-submenu-selected,
-  &-dark &-submenu-title:hover {
-    background-color: transparent;
-    color: #fff;
-    > a {
-      color: #fff;
-    }
-  }
-
-  &-dark &-item-selected {
-    border-right: 0;
-    color: #fff;
-    &:after {
-      border-right: 0;
-    }
-    > a,
-    > a:hover {
-      color: #fff;
-    }
-  }
-
-  &&-dark &-item-selected {
-    background-color: @primary-color;
-  }
-
-  // Disabled state sets text to dark gray and nukes hover/tab effects
-  &-dark &-item-disabled,
-  &-dark &-submenu-disabled {
-    &,
-    > a {
-      opacity: 0.8;
-      color: @disabled-color-dark !important;
-    }
-    > .@{menu-prefix-cls}-submenu-title {
-      color: @disabled-color-dark !important;
-    }
-  }
-}
+@import './dark';

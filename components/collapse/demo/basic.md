@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 折叠面板
   en-US: Collapse
 ---
@@ -41,3 +41,9 @@ ReactDOM.render(
   </Collapse>
 , mountNode);
 ````
+
+<style>
+p {
+  margin: 0;
+}
+</style>

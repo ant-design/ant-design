@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import { AbstractCheckboxGroupProps } from '../checkbox/Group';
+import { RadioGroupProps, RadioGroupState } from './interface';
 
-function getCheckedValue(children) {
+function getCheckedValue(children: React.ReactNode) {
   let value = null;
   let matched = false;
   React.Children.forEach(children, (radio: any) => {
@@ -17,18 +17,7 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export interface RadioGroupProps extends AbstractCheckboxGroupProps {
-  defaultValue?: any;
-  value?: any;
-  onChange?: React.FormEventHandler<any>;
-  size?: 'large' | 'default' | 'small';
-  onMouseEnter?: React.FormEventHandler<any>;
-  onMouseLeave?: React.FormEventHandler<any>;
-  name?: string;
-  id?: string;
-}
-
-export default class RadioGroup extends React.Component<RadioGroupProps, any> {
+export default class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     disabled: false,
   };
@@ -37,7 +26,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     radioGroup: PropTypes.any,
   };
 
-  constructor(props) {
+  constructor(props: RadioGroupProps) {
     super(props);
     let value;
     if ('value' in props) {
@@ -64,7 +53,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: RadioGroupProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
@@ -79,12 +68,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
 
-  onRadioChange = (ev) => {
+  onRadioChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const lastValue = this.state.value;
     const { value } = ev.target;
     if (!('value' in this.props)) {

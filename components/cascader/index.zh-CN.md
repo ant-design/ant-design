@@ -24,7 +24,7 @@ subtitle: 级联选择
 | allowClear | 是否支持清除 | boolean | true |
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |
 | className | 自定义类名 | string | - |
-| defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)\[] | \[] |
+| defaultValue | 默认的选中项 | string\[] | \[] |
 | disabled | 禁用 | boolean | false |
 | displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |
@@ -38,7 +38,7 @@ subtitle: 级联选择
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | style | 自定义样式 | string | - |
-| value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)\[] | - |
+| value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
 | popupVisible | 控制浮层显隐 | boolean | - |
@@ -54,7 +54,7 @@ subtitle: 级联选择
 
 <style>
 .ant-cascader-picker {
-  width: 220px;
+  width: 300px;
 }
 </style>
 

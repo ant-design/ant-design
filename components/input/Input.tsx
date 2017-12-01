@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -6,7 +6,7 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 
-function fixControlledValue(value) {
+function fixControlledValue(value: undefined | null | string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
@@ -45,7 +45,7 @@ export interface InputProps extends AbstractInputProps {
   autoFocus?: boolean;
 }
 
-export default class Input extends Component<InputProps, any> {
+export default class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
   static Search: typeof Search;
   static TextArea: typeof TextArea;
@@ -80,11 +80,9 @@ export default class Input extends Component<InputProps, any> {
     suffix: PropTypes.node,
   };
 
-  refs: {
-    input: HTMLInputElement;
-  };
+  input: HTMLInputElement;
 
-  handleKeyDown = (e) => {
+  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
@@ -95,11 +93,11 @@ export default class Input extends Component<InputProps, any> {
   }
 
   focus() {
-    this.refs.input.focus();
+    this.input.focus();
   }
 
   blur() {
-    this.refs.input.blur();
+    this.input.blur();
   }
 
   getInputClassName() {
@@ -111,7 +109,11 @@ export default class Input extends Component<InputProps, any> {
     });
   }
 
-  renderLabeledInput(children) {
+  saveInput = (node: HTMLInputElement) => {
+    this.input = node;
+  }
+
+  renderLabeledInput(children: React.ReactElement<any>) {
     const props = this.props;
     // Not wrap when there is not addons
     if ((!props.addonBefore && !props.addonAfter)) {
@@ -151,7 +153,7 @@ export default class Input extends Component<InputProps, any> {
         >
           <span className={className}>
             {addonBefore}
-            {cloneElement(children, { style: null })}
+            {React.cloneElement(children, { style: null })}
             {addonAfter}
           </span>
         </span>
@@ -166,7 +168,7 @@ export default class Input extends Component<InputProps, any> {
     );
   }
 
-  renderLabeledIcon(children) {
+  renderLabeledIcon(children: React.ReactElement<any>) {
     const { props } = this;
     if (!('prefix' in props || 'suffix' in props)) {
       return children;
@@ -190,7 +192,7 @@ export default class Input extends Component<InputProps, any> {
         style={props.style}
       >
         {prefix}
-        {cloneElement(children, { style: null, className: this.getInputClassName() })}
+        {React.cloneElement(children, { style: null, className: this.getInputClassName() })}
         {suffix}
       </span>
     );
@@ -219,15 +221,12 @@ export default class Input extends Component<InputProps, any> {
         {...otherProps}
         className={classNames(this.getInputClassName(), className)}
         onKeyDown={this.handleKeyDown}
-        ref="input"
+        ref={this.saveInput}
       />,
     );
   }
 
   render() {
-    if (this.props.type === 'textarea') {
-      return <TextArea {...this.props as any} ref="input" />;
-    }
     return this.renderLabeledInput(this.renderInput());
   }
 }

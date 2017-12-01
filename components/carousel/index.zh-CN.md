@@ -25,4 +25,12 @@ subtitle: 走马灯
 | effect | 动画效果函数，可取 scrollx, fade | string | scrollx |
 | vertical | 垂直显示 | boolean | false |
 
+## 方法
+
+| 名称 | 描述 |
+| --- | --- |
+| goTo(slideNumber) | 切换到指定面板 |
+| next() | 切换到下一面板 |
+| prev() | 切换到上一面板 |
+
 更多参数可参考：<https://github.com/akiran/react-slick>
