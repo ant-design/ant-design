@@ -37,6 +37,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Whether to show clear button | boolean | true |
+| autoFocus | get focus when component mounted | boolean | false |
 | className | picker className | string | '' |
 | dateRender | custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |
 | disabled | determine whether the DatePicker is disabled | boolean | false |
@@ -49,6 +50,14 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | size | determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | string | - |
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
+
+
+### Common Methods
+
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |
 
 ### DatePicker
 

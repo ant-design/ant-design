@@ -21,6 +21,7 @@ Cascade selection box.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | whether allow clear | boolean | true |
+| autoFocus | get focus when component mounted | boolean | false |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
 | className | additional css class | string | - |
 | defaultValue | initial selected value | string\[] | \[] |
@@ -50,6 +51,13 @@ Fields in `showSearch`:
 | matchInputWidth | Whether the width of result list equals to input's | boolean |  |
 | render | Used to render filtered options. | `function(inputValue, path): ReactNode` |  |
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` |  |
+
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |
 
 <style>
 .ant-cascader-picker {

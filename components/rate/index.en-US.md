@@ -16,6 +16,7 @@ Rate component.
 | Property | Description | type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowHalf | whether to allow semi selection | boolean | false |
+| autoFocus | get focus when component mounted | boolean | false |
 | character | custom character of rate | ReactNode | `<Icon type="star" />` |
 | className | custom class name of rate | string | - |
 | count | star count | number | 5 |
@@ -28,3 +29,10 @@ Rate component.
 | onFocus | callback when component get focus | Function() | - |
 | onHoverChange | callback when hover item | Function(value: number) | - |
 | onKeyDown | callback when keydown on component | Function(event) | - |
+
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |

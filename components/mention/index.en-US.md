@@ -31,6 +31,7 @@ When need to mention someone or something.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
 | disabled | Tell if the input is disabled. | boolean | false |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
@@ -52,9 +53,10 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| focus | Force focus back onto the editor node. | - | - |
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |
 
 ### Nav
 

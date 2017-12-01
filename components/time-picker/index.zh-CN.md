@@ -26,6 +26,7 @@ import moment from 'moment';
 | --- | --- | --- | --- |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
 | allowEmpty | 是否展示清除按钮 | boolean | true |
+| autoFocus | 自动获取焦点 | boolean | false |
 | className | 选择器类名 | string | '' |
 | clearText | 清除按钮的提示文案 | string | clear |
 | defaultOpenValue | 当 defaultValue/value 不存在时，可以设置面板打开时默认选中的值 | [moment](http://momentjs.com/) | moment() |
@@ -47,5 +48,12 @@ import moment from 'moment';
 | hourStep | 小时选项间隔 |	number | 1 |
 | minuteStep | 分钟选项间隔 | number | 1 |
 | secondStep | 秒选项间隔 | number | 1 |
+
+## 方法
+
+| 名称 | 描述 |
+| ---- | ----------- |
+| focus() | 获取焦点 |
+| blur() | 移除焦点 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

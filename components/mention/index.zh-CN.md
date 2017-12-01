@@ -32,6 +32,7 @@ title: Mention
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| autoFocus | 自动获取焦点 | boolean | false |
 | defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
 | disabled | 是否禁用状态. | boolean | false |
 | getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
@@ -51,11 +52,12 @@ title: Mention
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:string, trigger: string) | \[] |
 | onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null |
 
-### Mention methods
+### Mention 方法
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| focus | 强制获得焦点. | - | - |
+| 名称 | 描述 |
+| ---- | ----------- |
+| focus() | 获取焦点 |
+| blur() | 移除焦点 |
 
 ### Nav
 

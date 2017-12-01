@@ -25,6 +25,7 @@ import moment from 'moment';
 | -------- | ----------- | ---- | ------- |
 | addon | called from timepicker panel to render some addon to its bottom | function | - |
 | allowEmpty | allow clearing text | boolean | true |
+| autoFocus | get focus when component mounted | boolean | false |
 | className | className of picker | string | '' |
 | clearText | clear tooltip of icon | string | clear |
 | defaultOpenValue | default open panel value, used to set utcOffset,locale if value/defaultValue absent | [moment](http://momentjs.com/) | moment() |
@@ -46,5 +47,12 @@ import moment from 'moment';
 | hourStep | interval between hours in picker |	number | 1 |
 | minuteStep |	interval between minutes in picker | number | 1 |
 | secondStep |	interval between seconds in picker | number | 1 |
+
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

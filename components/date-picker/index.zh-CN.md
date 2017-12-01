@@ -38,6 +38,7 @@ subtitle: 日期选择框
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 是否显示清除按钮 | boolean | true |
+| autoFocus | 自动获取焦点 | boolean | false |
 | className | 选择器 className | string | '' |
 | dateRender | 自定义日期单元格的内容 | function(currentDate: moment, today: moment) => React.ReactNode | - |
 | disabled | 禁用 | boolean | false |
@@ -50,6 +51,13 @@ subtitle: 日期选择框
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string | 无 |
 | style | 自定义输入框样式 | object | {} |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |
+
+### 共同的方法
+
+| 名称 | 描述 |
+| ---- | ----------- |
+| focus() | 获取焦点 |
+| blur() | 移除焦点 |
 
 ### DatePicker
 

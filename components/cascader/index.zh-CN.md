@@ -22,6 +22,7 @@ subtitle: 级联选择
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 是否支持清除 | boolean | true |
+| autoFocus | 自动获取焦点 | boolean | false |
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |
 | className | 自定义类名 | string | - |
 | defaultValue | 默认的选中项 | string\[] | \[] |
@@ -51,6 +52,13 @@ subtitle: 级联选择
 | matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean |  |
 | render | 用于渲染 filter 后的选项 | `function(inputValue, path): ReactNode` |  |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` |  |
+
+## 方法
+
+| 名称 | 描述 |
+| ---- | ----------- |
+| focus() | 获取焦点 |
+| blur() | 移除焦点 |
 
 <style>
 .ant-cascader-picker {
