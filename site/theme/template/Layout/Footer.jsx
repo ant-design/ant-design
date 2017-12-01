@@ -25,8 +25,8 @@ class Footer extends React.Component {
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
     if (
-      localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
-        Date.now() < new Date('2016/10/14').getTime()
+      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true' &&
+        Date.now() < new Date('2017/12/20').getTime()
     ) {
       this.infoNewVersion();
     }
@@ -64,19 +64,19 @@ class Footer extends React.Component {
       title: messages['app.publish.title'],
       content: (
         <div>
-          <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
+          <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="Ant Design" />
           <p>
             {messages['app.publish.greeting']}
-            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@2.0.0</a>
+            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@3.0.0</a>
             {messages['app.publish.intro']}
             {messages['app.publish.old-version-guide']}
-            <a target="_blank" rel="noopener noreferrer" href="http://1x.ant.design">1x.ant.design</a>
+            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">2x.ant.design</a>
             {messages['app.publish.old-version-tips']}
           </p>
         </div>
       ),
       okText: 'OK',
-      onOk: () => localStorage.setItem('antd@2.0.0-notification-sent', 'true'),
+      onOk: () => localStorage.setItem('antd@3.0.0-notification-sent', 'true'),
       className: 'new-version-info-modal',
       width: 470,
     });

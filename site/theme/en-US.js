@@ -66,10 +66,10 @@ module.exports = {
     'app.footer.commitment': 'Our Commitment to Customer Protection',
     'app.footer.company': 'Ant Financial',
     'app.footer.ant-design': 'UI Design Language',
-    'app.publish.title': 'antd@2.0.0 is released!',
+    'app.publish.title': 'antd@3.0.0 is released!',
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' is released, and please upgrade. ',
     'app.publish.old-version-guide': 'If you want to read old version documentation, please visit ',
-    'app.publish.old-version-tips': ', or change the version of documentation with the bottom-right selector.',
+    'app.publish.old-version-tips': ', or change the version of documentation with the top-right selector.',
   },
 };

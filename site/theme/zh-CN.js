@@ -66,10 +66,10 @@ module.exports = {
     'app.footer.commitment': '权益保障承诺书',
     'app.footer.company': '蚂蚁金融服务集团',
     'app.footer.ant-design': '蚂蚁 UI 体系',
-    'app.publish.title': 'antd@2.0.0 发布！',
+    'app.publish.title': 'antd@3.0.0 发布！',
     'app.publish.greeting': '你好，',
     'app.publish.intro': ' 已正式发布，欢迎升级。',
     'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
-    'app.publish.old-version-tips': '，也可通过页面右下角的文档版本选择框进行切换。',
+    'app.publish.old-version-tips': '，也可通过页面右上角的文档版本选择框进行切换。',
   },
 };
