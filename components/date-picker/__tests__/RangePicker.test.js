@@ -63,6 +63,20 @@ describe('RangePicker', () => {
     expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
   });
 
+  it('should trigger onCalendarChange when change value', () => {
+    const onCalendarChangeFn = jest.fn();
+    const wrapper = mount(
+      <RangePicker
+        getCalendarContainer={trigger => trigger}
+        onCalendarChange={onCalendarChangeFn}
+        open
+      />
+    );
+    const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click');
+    expect(onCalendarChangeFn).toHaveBeenCalled();
+  });
+
   // issue: https://github.com/ant-design/ant-design/issues/5872
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD');

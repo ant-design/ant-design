@@ -63,6 +63,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | showToday | whether to show "Today" button | boolean | true |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
+| onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
 | onOk | callback when click ok button | function() | - |
 
 ### MonthPicker

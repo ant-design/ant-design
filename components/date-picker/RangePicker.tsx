@@ -181,7 +181,7 @@ export default class RangePicker extends React.Component<any, any> {
       disabledDate, disabledTime,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
-      dateRender,
+      dateRender, onCalendarChange,
     } = props;
     if (value && localeCode) {
       if (value[0]) {
@@ -223,6 +223,7 @@ export default class RangePicker extends React.Component<any, any> {
     const calendar = (
       <RangeCalendar
         {...calendarProps}
+        onChange={onCalendarChange}
         format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
