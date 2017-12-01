@@ -21,7 +21,7 @@ timeline: true
 
 `2017-12-01`
 
-- 📝 完善各种组件对 TypeScript 的支持。[#8394](https://github.com/ant-design/ant-design/pull/8394) [#8395](https://github.com/ant-design/ant-design/pull/8395) [@burdell](https://github.com/burdell) [@khayalan-mathew](https://github.com/khayalan-mathew)
+- 📝 完善组件对 TypeScript 的支持。[#8394](https://github.com/ant-design/ant-design/pull/8394) [#8395](https://github.com/ant-design/ant-design/pull/8395) [@burdell](https://github.com/burdell) [@khayalan-mathew](https://github.com/khayalan-mathew)
 - 🌟 新增 Tooltip 的 `defaultVisible` 属性，用于指定初始的显示状态。[#8257](https://github.com/ant-design/ant-design/issues/8257)
 - 🐞 修复了 Modal 组件在传入自定义 `footer` 的时候默认 `footer` 被覆盖的问题。[#8379](https://github.com/ant-design/ant-design/issues/8379)
 - 🐞 修复了 Upload 组件在 `beforeUpload` 中返回 `false` 时，修改 `fileList` 导致上传列表展示不正常的问题。[#8036](https://github.com/ant-design/ant-design/issues/8036)
