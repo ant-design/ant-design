@@ -1,4 +1,5 @@
 @header-height: 64px;
+@menu-item-border: 2px;
 
 #header {
   transition: opacity 0.5s;
@@ -91,19 +92,19 @@
 
     & > .ant-menu-item {
       height: @header-height;
-      line-height: @header-height;
+      line-height: @header-height - @menu-item-border * 2;
       min-width: 72px;
-      border-top: 2px solid transparent;
+      border-top: @menu-item-border solid transparent;
 
       &:hover {
-        border-top: 2px solid @primary-color;
-        border-bottom: 2px solid transparent;
+        border-top: @menu-item-border solid @primary-color;
+        border-bottom: @menu-item-border solid transparent;
       }
     }
 
     & > .ant-menu-item-selected {
-      border-top: 2px solid @primary-color;
-      border-bottom: 2px solid transparent;
+      border-top: @menu-item-border solid @primary-color;
+      border-bottom: @menu-item-border solid transparent;
       a {
         color: @primary-color;
       }
