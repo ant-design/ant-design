@@ -2,7 +2,7 @@
 @menu-item-border: 2px;
 
 #header {
-  transition: opacity 0.5s;
+  transition: all 0.3s;
   background: #fff;
   box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   position: relative;
@@ -75,10 +75,16 @@
   box-shadow: none;
 }
 
+.header-lang-button,
 .version {
   float: right;
   margin-top: 20px;
   margin-left: 16px;
+}
+
+.header-lang-button {
+  color: @text-color;
+  border-color: @border-color-base;
   margin-right: 40px;
 }
 
@@ -92,7 +98,7 @@
 
     & > .ant-menu-item {
       height: @header-height;
-      line-height: @header-height - @menu-item-border * 2;
+      line-height: @header-height - @menu-item-border - 2px;
       min-width: 72px;
       border-top: @menu-item-border solid transparent;
 

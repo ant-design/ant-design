@@ -12,6 +12,16 @@ function getStyle() {
     .main-wrapper {
       padding: 0;
     }
+    #header {
+      box-shadow: none;
+      width: 100%;
+      position: absolute;
+    }
+    #header,
+    #header .ant-select-selection,
+    #header .ant-menu {
+      background: transparent;
+    }
   `;
 }
 

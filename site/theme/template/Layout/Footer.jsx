@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Button } from 'antd';
+import { Modal, message, Row, Col } from 'antd';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname, isZhCN } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -240,11 +240,6 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ant.design/">Ant Design</a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.ant-design" />
-                </div>
-                <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
@@ -259,13 +254,7 @@ class Footer extends React.Component {
           </Row>
         </div>
         <Row className="bottom-bar">
-          <Col lg={4} sm={24}>
-            <div className="translate-button">
-              <Button ghost onClick={this.handleLangChange}>
-                <FormattedMessage id="app.header.lang" />
-              </Button>
-            </div>
-          </Col>
+          <Col lg={4} sm={24} />
           <Col lg={20} sm={24}>
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
