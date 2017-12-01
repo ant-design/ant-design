@@ -54,6 +54,8 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     },
   };
 
+  private rcSlider: any;
+
   constructor(props: SliderProps) {
     super(props);
     this.state = {
@@ -92,11 +94,23 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     );
   }
 
+  focus() {
+    this.rcSlider.focus();
+  }
+
+  blur() {
+    this.rcSlider.focus();
+  }
+
+  saveSlider = (node: any) => {
+    this.rcSlider = node;
+  }
+
   render() {
     const { range, ...restProps } = this.props;
     if (range) {
-      return <RcRange {...restProps} handle={this.handleWithTooltip} />;
+      return <RcRange {...restProps} ref={this.saveSlider} handle={this.handleWithTooltip} />;
     }
-    return <RcSlider {...restProps} handle={this.handleWithTooltip} />;
+    return <RcSlider {...restProps} ref={this.saveSlider} handle={this.handleWithTooltip} />;
   }
 }

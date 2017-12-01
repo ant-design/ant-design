@@ -54,6 +54,12 @@
     background-color: @component-background;
     transition: border-color .3s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
+    &:focus {
+      border-color: tint(@primary-color, 20%);
+      box-shadow: 0 0 0 5px tint(@primary-color, 50%);
+      outline: none;
+    }
+
     &.@{ant-prefix}-tooltip-open {
       border-color: @primary-color;
     }
