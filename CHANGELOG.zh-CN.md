@@ -17,7 +17,7 @@ timeline: true
 
 ---
 
-## 2.x statble
+## 2.x Statble
 
 `2017-12-01`
 
