@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Modal, message, Row, Col } from 'antd';
-import { isLocalStorageNameSupported, loadScript, getLocalizedPathname, isZhCN } from '../utils';
+import { isLocalStorageNameSupported, loadScript } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
 class Footer extends React.Component {
@@ -80,21 +80,6 @@ class Footer extends React.Component {
       className: 'new-version-info-modal',
       width: 470,
     });
-  }
-
-  handleLangChange = () => {
-    const { pathname } = this.props.location;
-    const currentProtocol = `${window.location.protocol}//`;
-    const currentHref = window.location.href.substr(currentProtocol.length);
-
-    if (isLocalStorageNameSupported()) {
-      localStorage.setItem('locale', isZhCN(pathname) ? 'en-US' : 'zh-CN');
-    }
-
-    window.location.href = currentProtocol + currentHref.replace(
-      window.location.pathname,
-      getLocalizedPathname(pathname, !isZhCN(pathname)),
-    );
   }
 
   render() {
