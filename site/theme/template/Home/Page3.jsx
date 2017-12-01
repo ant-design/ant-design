@@ -22,7 +22,7 @@ export default function Page3({ location }) {
         leaveReverse
       >
         <h2 key="h2"><FormattedMessage id="app.home.reusable-components" /></h2>
-        <p key="p" style={{ maxWidth: 280 }}><FormattedMessage id="app.home.components-intro" /></p>
+        <p key="p" style={{ maxWidth: 360 }}><FormattedMessage id="app.home.components-intro" /></p>
         <div key="button">
           <Link to={utils.getLocalizedPathname('/docs/react/introduce', utils.isZhCN(location.pathname))}>
             <Button type="primary" size="large">
