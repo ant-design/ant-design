@@ -13,6 +13,7 @@ export interface SwitchProps {
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
+  loading?: boolean;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
@@ -43,9 +44,10 @@ export default class Switch extends React.Component<SwitchProps, {}> {
   }
 
   render() {
-    const { prefixCls, size, className = '' } = this.props;
+    const { prefixCls, size, loading, className = '' } = this.props;
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-loading`]: loading,
     });
     return (
       <RcSwitch

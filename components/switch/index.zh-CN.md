@@ -23,6 +23,7 @@ title: Switch
 | size | 开关大小，可选值：`default` `small` | string | default |
 | unCheckedChildren | 非选中时的内容 | string\|ReactNode |  |
 | onChange | 变化时回调函数 | Function(checked:Boolean) |  |
+| loading | 加载中的开关 | boolean | false |
 
 ## 方法
 
