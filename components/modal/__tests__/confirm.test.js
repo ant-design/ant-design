@@ -75,4 +75,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-confirm')).toHaveLength(0);
     jest.useRealTimers();
   });
+
+  it('ok only', () => {
+    open({ okCancel: false });
+    expect($$('.ant-btn')).toHaveLength(1);
+    expect($$('.ant-btn')[0].innerHTML).toContain('OK');
+  });
 });
