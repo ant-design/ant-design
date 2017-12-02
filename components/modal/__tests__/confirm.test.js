@@ -66,15 +66,17 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it('shows animation when close', () => {
-    jest.useFakeTimers();
-    open();
-    $$('.ant-btn')[0].click();
-    expect($$('.ant-confirm')).toHaveLength(1);
-    jest.runAllTimers();
-    expect($$('.ant-confirm')).toHaveLength(0);
-    jest.useRealTimers();
-  });
+  if (process.env.REACT !== '15') {
+    it('shows animation when close', () => {
+      jest.useFakeTimers();
+      open();
+      $$('.ant-btn')[0].click();
+      expect($$('.ant-confirm')).toHaveLength(1);
+      jest.runAllTimers();
+      expect($$('.ant-confirm')).toHaveLength(0);
+      jest.useRealTimers();
+    });
+  }
 
   it('ok only', () => {
     open({ okCancel: false });
