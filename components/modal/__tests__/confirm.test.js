@@ -65,4 +65,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn-primary')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
   });
+
+  if (process.env.REACT !== '15') {
+    it('shows animation when close', () => {
+      jest.useFakeTimers();
+      open();
+      $$('.ant-btn')[0].click();
+      expect($$('.ant-confirm')).toHaveLength(1);
+      jest.runAllTimers();
+      expect($$('.ant-confirm')).toHaveLength(0);
+      jest.useRealTimers();
+    });
+  }
+
+  it('ok only', () => {
+    open({ okCancel: false });
+    expect($$('.ant-btn')).toHaveLength(1);
+    expect($$('.ant-btn')[0].innerHTML).toContain('OK');
+  });
 });
