@@ -28,8 +28,8 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - 🐞 Fixed vertical align of Form.Item's feedback shown incorrect when Input `size` property is `default\small`. [#8243](https://github.com/ant-design/ant-design/issues/8243)
 - 🐞 Fixed nested Form.Item style incorrect. [#8320](https://github.com/ant-design/ant-design/issues/8320)
 - 🐞 Fixed Form.Item height are different between Chrome with Safari. [#8220](https://github.com/ant-design/ant-design/issues/8220)
+- 🐞 Fixed links where inside Form.Item's label are unavailable to click. [bf70d30](https://github.com/ant-design/ant-design/commit/bf70d30a60595916a38671f384ed17cbd0c4ba5d)
 - 🐞 Fixed Progress word wrap. [#8239](https://github.com/ant-design/ant-design/issues/8239)
-- 🐞 Fixed links where inside FormItem's label are unavailable to click. [bf70d30](https://github.com/ant-design/ant-design/commit/bf70d30a60595916a38671f384ed17cbd0c4ba5d)
 
 ## 2.13.10
 

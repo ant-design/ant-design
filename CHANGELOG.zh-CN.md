@@ -28,8 +28,8 @@ timeline: true
 - 🐞 修复了 Form 表单的信息回显在当 Input 组件 `size` 属性为 `default\small` 时没有对齐的问题。[#8243](https://github.com/ant-design/ant-design/issues/8243)
 - 🐞 修复了 Form.Item 在互相嵌套时样式异常的问题。[#8320](https://github.com/ant-design/ant-design/issues/8320)
 - 🐞 修复了 Form.Item 在 Chrome 和 Safari 下高度不一致的问题。 [#8220](https://github.com/ant-design/ant-design/issues/8220)
+- 🐞 修复了 Form.Item 在部分情况下 label 内链接无法点击的问题。 [bf70d30](https://github.com/ant-design/ant-design/commit/bf70d30a60595916a38671f384ed17cbd0c4ba5d)
 - 🐞 修复了 Progress 对于折行的场景兼容性问题。[#8239](https://github.com/ant-design/ant-design/issues/8239)
-- 🐞 修复了 FormItem 在部分情况下 label 内链接无法点击的问题。 [bf70d30](https://github.com/ant-design/ant-design/commit/bf70d30a60595916a38671f384ed17cbd0c4ba5d)
 
 ## 2.13.10
 
