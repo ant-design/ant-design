@@ -65,4 +65,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn-primary')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
   });
+
+  it('shows animation when close', () => {
+    jest.useFakeTimers();
+    open();
+    $$('.ant-btn')[0].click();
+    expect($$('.ant-confirm')).toHaveLength(1);
+    jest.runAllTimers();
+    expect($$('.ant-confirm')).toHaveLength(0);
+    jest.useRealTimers();
+  });
 });
