@@ -54,6 +54,8 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
           // See: https://github.com/ant-design/ant-design/issues/6183
           this.setState({ loading: false });
         });
+      } else {
+        closeModal();
       }
     } else {
       closeModal();
