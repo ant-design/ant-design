@@ -30,16 +30,16 @@ export default function Banner({ location }) {
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>
           <span className="line" key="line" />
           <div key="button1" className="start-button">
-            <Button type="primary" size="large">
-              <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+            <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+              <Button type="primary" size="large">
                 <FormattedMessage id="app.home.introduce" />
-              </Link>
-            </Button>
-            <Button type="primary" ghost size="large">
-              <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+              </Button>
+            </Link>
+            <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+              <Button type="primary" ghost size="large">
                 <FormattedMessage id="app.home.start" />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
           <GitHubButton
             key="github-button"
