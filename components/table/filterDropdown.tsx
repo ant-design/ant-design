@@ -219,6 +219,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
         visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
+        forceRender
       >
         {this.renderFilterIcon()}
       </Dropdown>

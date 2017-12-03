@@ -16,6 +16,7 @@ export interface DropDownProps {
   prefixCls?: string;
   className?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  forceRender?: boolean;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
