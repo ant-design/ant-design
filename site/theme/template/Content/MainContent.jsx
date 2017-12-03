@@ -71,7 +71,10 @@ export default class MainContent extends React.Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(nextProps) {
+    if (!nextProps || nextProps.location.pathname !== this.props.location.pathname) {
+      this.bindScroller();
+    }
     if (!window.location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
@@ -87,6 +90,30 @@ export default class MainContent extends React.Component {
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    this.scroller.disable();
+  }
+
+  bindScroller() {
+    if (this.scroller) {
+      this.scroller.disable();
+    }
+    // eslint-disable-next-line
+    const scrollama = require('scrollama');
+    this.scroller = scrollama();
+    this.scroller
+      .setup({
+        step: '.markdown > h2, .code-box', // required
+        offset: 0,
+      })
+      .onStepEnter(({ element }) => {
+        document.querySelectorAll('.toc-affix li a').forEach((node) => {
+          node.className = '';
+        });
+        const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
+        if (currentNode) {
+          currentNode.className = 'current';
+        }
+      });
   }
 
   handleMenuOpenChange = (openKeys) => {
