@@ -5,8 +5,11 @@ import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import delegate from 'delegate';
+import scrollama from 'scrollama';
 import EditButton from './EditButton';
 import { ping } from '../utils';
+
+const scroller = scrollama();
 
 export default class Article extends React.Component {
   static contextTypes = {
@@ -20,6 +23,21 @@ export default class Article extends React.Component {
       }
     }, false);
     this.componentDidUpdate();
+
+    scroller
+      .setup({
+        step: '.markdown > h2', // required
+        offset: 0,
+      })
+      .onStepEnter(({ element }) => {
+        document.querySelectorAll('.toc-affix li a').forEach((node) => {
+          node.className = '';
+        });
+        const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
+        if (currentNode) {
+          currentNode.className = 'current';
+        }
+      });
   }
   componentDidUpdate() {
     const links = [...document.querySelectorAll('.outside-link.internal')];
@@ -39,6 +57,7 @@ export default class Article extends React.Component {
     if (this.delegation) {
       this.delegation.destroy();
     }
+    scroller.disable();
   }
   getArticle(article) {
     const { content } = this.props;
