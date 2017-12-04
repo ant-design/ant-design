@@ -62,7 +62,7 @@ timeline: true
   或者在 less 里引入
 
   ```less
-  @import '~antd/lib/style/v2-compatible-reset.css';
+  @import '~antd/lib/style/v2-compatible-reset.less';
   ```
 
 - 由于默认语言改为英文，如果你需要显示中文，现在需要配置 `LocalProvider`。

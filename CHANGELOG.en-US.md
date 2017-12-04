@@ -62,7 +62,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
   Or use less
 
   ```less
-  @import '~antd/lib/style/v2-compatible-reset.css';
+  @import '~antd/lib/style/v2-compatible-reset.less';
   ```
 
 - Since we changed default locale to en_US, LocalProvider is not required any more for English users.
