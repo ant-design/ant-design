@@ -7,16 +7,13 @@ const postcss = require('postcss');
 const less = require('less');
 
 const COLOR_MAP = {
-  '#ecf6fd': 'color(~`colorPalette("@{primary-color}", 1)`)', // @primary-1
-  '#d2eafb': 'color(~`colorPalette("@{primary-color}", 2)`)', // @primary-2
-  '#49a9ee': 'color(~`colorPalette("@{primary-color}", 5)`)', // @primary-5
-  '#108ee9': '@primary-color',
-  '#0e77ca': 'color(~`colorPalette("@{primary-color}", 7)`)', // @primary-7
-  '#40a5ed': 'tint(@primary-color, 20%)',
-  '#70bbf2': 'tint(@primary-color, 40%)',
-  '#88c7f4': 'tint(@primary-color, 50%)',
-  '#9fd2f6': 'tint(@primary-color, 60%)',
-  'rgba(16, 142, 233, 0.2)': 'fadeout(@primary-color, 80%)',
+  '#e6f7ff': 'color(~`colorPalette("@{primary-color}", 1)`)', // @primary-1
+  '#bae7ff': 'color(~`colorPalette("@{primary-color}", 2)`)', // @primary-2
+  '#40a9ff': 'color(~`colorPalette("@{primary-color}", 5)`)', // @primary-5
+  '#1890ff': '@primary-color',
+  '#096dd9': 'color(~`colorPalette("@{primary-color}", 7)`)', // @primary-7
+  '#46a6ff': 'tint(@primary-color, 20%)',
+  '#8cc8ff': 'tint(@primary-color, 50%)',
 };
 
 const reducePlugin = postcss.plugin('reducePlugin', () => {
@@ -84,7 +81,7 @@ less.render.call(less, content, {
   css = `${colorPalette}\n${css}`;
   css = `${tinyColor}\n${css}`;
   css = `${bezierEasing}\n${css}`;
-  css = `@primary-color: #108ee9;\n${css}`;
+  css = `@primary-color: #1890ff;\n${css}`;
 
   const siteDir = path.resolve(__dirname, '../_site');
   if (!fs.existsSync(siteDir)) {
