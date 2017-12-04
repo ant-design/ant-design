@@ -40,7 +40,7 @@ An enterprise-class UI design language and React-based implementation.
 ## Install
 
 ```bash
-npm install antd
+npm install antd --save
 ```
 
 ## Usage
@@ -56,33 +56,7 @@ And import style manually:
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-### Use modularized antd
-
-- Manually import
-
-   ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // for js
-   import 'antd/lib/date-picker/style/css';        // for css
-   // import 'antd/lib/date-picker/style';         // that will import less
-   ```
-
-- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
-
-   ```js
-   // .babelrc or babel-loader option
-   {
-     "plugins": [
-       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` for less
-     ]
-   }
-   ```
-
-   Then you can import components from antd, equivalent to import manually below.
-
-   ```jsx
-   // import js and css modularly, parsed by babel-plugin-import
-   import { DatePicker } from 'antd';
-   ```
+Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand)
 
 ### TypeScript
 
