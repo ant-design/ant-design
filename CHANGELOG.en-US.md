@@ -56,7 +56,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 - Improved global reset style, if you encounter style problem after upgrading, you can try import our v2 compatible style.
 
   ```javascript
-  import 'antd/style/v2-compatible-reset';
+  import 'antd/lib/style/v2-compatible-reset';
   ```
 
   Or use less
