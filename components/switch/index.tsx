@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
+import omit from 'omit.js';
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -51,7 +52,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     });
     return (
       <RcSwitch
-        {...this.props}
+        {...omit(this.props, ['loading'])}
         className={classes}
         ref={this.saveSwitch}
       />
