@@ -1,28 +1,44 @@
 sudo: false
-
 language: node_js
-
 node_js:
   - 8
-
 matrix:
   fast_finish: true
   include:
-      - env: TEST_TYPE=lint
-      - env: REACT=16 TEST_TYPE=test:dist
-      - env: REACT=16 TEST_TYPE=test:lib
-      - env: REACT=16 TEST_TYPE=test:es
-      - env: REACT=16 TEST_TYPE=test:dom
-      - env: REACT=16 TEST_TYPE=test:node
-      - env: REACT=15 TEST_TYPE=test:dist
-      - env: REACT=15 TEST_TYPE=test:lib
-      - env: REACT=15 TEST_TYPE=test:es
-      - env: REACT=15 TEST_TYPE=test:dom
-      - env: REACT=15 TEST_TYPE=test:node
-      - env: REACT=16 TEST_TYPE=bisheng:build
-
+    -
+      env: TEST_TYPE=lint
+    -
+      env: 'REACT=16 TEST_TYPE=test:dist'
+    -
+      env: 'REACT=16 TEST_TYPE=test:lib'
+    -
+      env: 'REACT=16 TEST_TYPE=test:es'
+    -
+      env: 'REACT=16 TEST_TYPE=test:dom'
+    -
+      env: 'REACT=16 TEST_TYPE=test:node'
+    -
+      env: 'REACT=15 TEST_TYPE=test:dist'
+    -
+      env: 'REACT=15 TEST_TYPE=test:lib'
+    -
+      env: 'REACT=15 TEST_TYPE=test:es'
+    -
+      env: 'REACT=15 TEST_TYPE=test:dom'
+    -
+      env: 'REACT=15 TEST_TYPE=test:node'
+    -
+      env: 'REACT=16 TEST_TYPE=bisheng:build'
 before_script:
   - scripts/install-react.sh
-
 script:
   - scripts/travis-script.sh
+notifications:
+  webhooks:
+    urls:
+      - 'https://www.travisbuddy.com/'
+    on_success: never
+    on_failure: always
+    on_start: never
+    on_cancel: never
+    on_error: never
