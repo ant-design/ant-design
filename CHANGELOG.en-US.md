@@ -102,10 +102,10 @@ timeline: true
   - 🌟 Added `cover`、`actions` and a new `Meta` component. [Demo](https://ant.design/components/card/#components-card-demo-meta)。
 - DatePicker
   - 🌟 Added `mode` and `onPanelChange`，to allow controlling the panel mode. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-mode)。
-  - 🌟 Added `WeekPicker` component. [例子](https://ant.design/components/date-picker/#components-date-picker-demo-basic)
+  - 🌟 Added `WeekPicker` component. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-basic)
   - 🌟 Added new `dateRender` prop to allow customizing date cell.
 - TimePicker
-  - 🌟 Added new `hourStep`, `minuteStep`, `secondStep` props to allow customizing time setps. [例子](https://ant.design/components/time-picker/#components-time-picker-demo-interval-options)
+  - 🌟 Added new `hourStep`, `minuteStep`, `secondStep` props to allow customizing time setps. [Demo](https://ant.design/components/time-picker/#components-time-picker-demo-interval-options)
   - 🌟 Added new `focusOnOpen` prop to focus input after panel is open.
 - Table
   - 🌟 Added new `components` prop to allow overriding default table elements.
