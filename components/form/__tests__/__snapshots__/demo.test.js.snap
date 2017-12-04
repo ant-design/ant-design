@@ -7,17 +7,17 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
   >
     <div
       class="ant-row"
-      style="margin-left:-20px;margin-right:-20px"
+      style="margin-left:-12px;margin-right:-12px"
     >
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -28,7 +28,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -48,13 +48,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -65,7 +65,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -85,13 +85,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -102,7 +102,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -122,13 +122,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -139,7 +139,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -159,13 +159,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -176,7 +176,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -196,13 +196,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:block"
+        style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -213,7 +213,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -233,13 +233,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none"
+        style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -250,7 +250,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -270,13 +270,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none"
+        style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -287,7 +287,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -307,13 +307,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none"
+        style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -324,7 +324,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
@@ -344,13 +344,13 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       </div>
       <div
         class="ant-col-8"
-        style="padding-left:20px;padding-right:20px;display:none"
+        style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-col-5 ant-form-item-label"
+            class="ant-form-item-label"
           >
             <label
               class=""
@@ -361,7 +361,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-col-19 ant-form-item-control-wrapper"
+            class="ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control "
