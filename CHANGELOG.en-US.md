@@ -38,30 +38,30 @@ timeline: true
 - Form `getFieldDecorator`'s `exclusive` option has been removeed.
 - Added `Form.createFormField`, and you must use it to wrap field data returned in `option.mapPropsToFields`:
 
-```diff
-import { Form } from 'antd';
+  ```diff
+  import { Form } from 'antd';
 
-Form.create({
-  mapPropsToFields() {
-    return {
--     name: { value: 'antd' },
-+     name: Form.createFormField({ value: 'antd' }),
-    };
-  },
-})
-```
+  Form.create({
+    mapPropsToFields() {
+      return {
+  -     name: { value: 'antd' },
+  +     name: Form.createFormField({ value: 'antd' }),
+      };
+    },
+  })
+  ```
 
 - Improved global reset style, if you encounter style problem after upgrading, you can try import our v2 compatible style.
 
-```javascript
-import 'antd/style/v2-compatible-reset';
-```
+  ```javascript
+  import 'antd/style/v2-compatible-reset';
+  ```
 
-Or use less
+  Or use less
 
-```less
-@import '~antd/style/v2-compatible-reset.css';
-```
+  ```less
+  @import '~antd/style/v2-compatible-reset.css';
+  ```
 
 - Since we changed default locale to en_US, LocalProvider is not required any more for English users.
 - We don't set `size="large"` to `Input` in `Form` by default any more.
@@ -109,24 +109,24 @@ Or use less
   - 🌟 Added new `focusOnOpen` prop to focus input after panel is open.
 - Table
   - 🌟 Added new `components` prop to allow overriding default table elements.
-  ```javascript
-  // You can override following elements
-  const components = {
-    table: MyTable,
-    header: {
-      wrapper: HeaderWrapper,
-      row: HeaderRow,
-      cell: HeaderCell,
-    },
-    body: {
-      wrapper: BodyWrapper,
-      row: BodyRow,
-      cell: BodyCell,
-    },
-  };
+    ```javascript
+    // You can override following elements
+    const components = {
+      table: MyTable,
+      header: {
+        wrapper: HeaderWrapper,
+        row: HeaderRow,
+        cell: HeaderCell,
+      },
+      body: {
+        wrapper: BodyWrapper,
+        row: BodyRow,
+        cell: BodyCell,
+      },
+    };
 
-  <Table components={components} columns={columns data={data}}  />
-  ```
+    <Table components={components} columns={columns data={data}}  />
+    ```
   - 🌟 Added new `onRow` prop to allow passing custom props to table body row.
   - 🌟 Added new `onHeaderRow` props to allow passing custom props to table header row.
   - 🌟 Added `column[onCell]` to allow passing custom props to table body cell.
@@ -136,15 +136,15 @@ Or use less
   - 🌟 Added `rowSelection[fixed]` to allow fixing the selection column.。
   - 🙅 Deprecated `getBodyWrapper`, please use `components` instead.
   - 🙅 Deprecated `onRowClick`，`onRowDoubleClick`、`onRowContextMenu`、`onRowMouseEnter`、`onRowMouseLeave`, please use `onRow` instead.
-  ```javascript
-  <Table onRow={(record) => ({
-    onClick: () => {},
-    onDoubleClick: () => {},
-    onContextMenu: () => {},
-    onMouseEnter: () => {},
-    onMouseLeave: () => {},
-  })} />
-  ```
+    ```javascript
+    <Table onRow={(record) => ({
+      onClick: () => {},
+      onDoubleClick: () => {},
+      onContextMenu: () => {},
+      onMouseEnter: () => {},
+      onMouseLeave: () => {},
+    })} />
+    ```
 - Select
   - 🌟 Option's value can be a number in single or multiple mode.
   - 🌟 Added new `maxTagCount` and `maxTagPlaceholder` props.

@@ -38,42 +38,42 @@ timeline: true
 - Form `getFieldDecorator` 的 `exclusive` 参数被移除，此类场景应该由 Radio.Group、Checkbox.Group 之类的组件来完成。
 - 新增 `Form.createFormField` 方法，`mapPropsToFields` 返回的字段都需要由该方法创建。
 
-```diff
-import { Form } from 'antd';
+  ```diff
+  import { Form } from 'antd';
 
-Form.create({
-  mapPropsToFields() {
-    return {
--     name: { value: 'antd' },
-+     name: Form.createFormField({ value: 'antd' }),
-    };
-  },
-})
-```
+  Form.create({
+    mapPropsToFields() {
+      return {
+  -     name: { value: 'antd' },
+  +     name: Form.createFormField({ value: 'antd' }),
+      };
+    },
+  })
+  ```
 
 - 优化了全局的重置样式，如果升级后你的全局样式有问题，可以引入我们提供的 2.x 兼容样式。
 
-```javascript
-import 'antd/style/v2-compatible-reset';
-```
+  ```javascript
+  import 'antd/style/v2-compatible-reset';
+  ```
 
-或者在 less 里引入
+  或者在 less 里引入
 
-```less
-@import '~antd/style/v2-compatible-reset.css';
-```
+  ```less
+  @import '~antd/style/v2-compatible-reset.css';
+  ```
 
 - 由于默认语言改为英文，如果你需要显示中文，现在需要配置 `LocalProvider`。
 
-```javascript
-import { LocaleProvider } from 'antd';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+  ```javascript
+  import { LocaleProvider } from 'antd';
+  import zhCN from 'antd/lib/locale-provider/zh_CN';
 
-ReactDOM.render(
-  <LocaleProvider locale={zhCN}><YourApp /></LocaleProvider>,
-  document.getElementById('root')
-);
-```
+  ReactDOM.render(
+    <LocaleProvider locale={zhCN}><YourApp /></LocaleProvider>,
+    document.getElementById('root')
+  );
+  ```
 
 - Form 下的表单控件不再默认为 size="large"。
 
@@ -120,24 +120,24 @@ ReactDOM.render(
   - 🌟 新增 `focusOnOpen`，用于设置在打开面板的时候是否聚焦输入框。
 - Table
   - 🌟 新增 `components` 属性，用于覆盖表格元素的默认标签。
-  ```javascript
-  // 支持覆盖的元素
-  const components = {
-    table: MyTable,
-    header: {
-      wrapper: HeaderWrapper,
-      row: HeaderRow,
-      cell: HeaderCell,
-    },
-    body: {
-      wrapper: BodyWrapper,
-      row: BodyRow,
-      cell: BodyCell,
-    },
-  };
+    ```javascript
+    // 支持覆盖的元素
+    const components = {
+      table: MyTable,
+      header: {
+        wrapper: HeaderWrapper,
+        row: HeaderRow,
+        cell: HeaderCell,
+      },
+      body: {
+        wrapper: BodyWrapper,
+        row: BodyRow,
+        cell: BodyCell,
+      },
+    };
 
-  <Table components={components} columns={columns data={data}}  />
-  ```
+    <Table components={components} columns={columns data={data}}  />
+    ```
   - 🌟 新增 `onRow` 属性，用于设置表格列的属性。
   - 🌟 新增 `onHeaderRow`，用户设置表格头部列的属性。
   - 🌟 新增 `column[onCell]`，用户设置单元格的属性。
@@ -147,15 +147,15 @@ ReactDOM.render(
   - 🌟 新增 `rowSelection[fixed]`，用于固定选择列。
   - 🙅 废弃 `getBodyWrapper`，请使用 `components` 属性代替。
   - 🙅 废弃以下属性 `onRowClick`，`onRowDoubleClick`、`onRowContextMenu`、`onRowMouseEnter`、`onRowMouseLeave`，请使用 `onRow` 代替。
-  ```javascript
-  <Table onRow={(record) => ({
-    onClick: () => {},
-    onDoubleClick: () => {},
-    onContextMenu: () => {},
-    onMouseEnter: () => {},
-    onMouseLeave: () => {},
-  })} />
-  ```
+    ```javascript
+    <Table onRow={(record) => ({
+      onClick: () => {},
+      onDoubleClick: () => {},
+      onContextMenu: () => {},
+      onMouseEnter: () => {},
+      onMouseLeave: () => {},
+    })} />
+    ```
 - Select
   - 🌟 默认和多选模式下 Option 的值允许使用 number。
   - 🌟 新增 `maxTagCount 和 `maxTagPlaceholder`，用与设置最多可显示的选中项。
