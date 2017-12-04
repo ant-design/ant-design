@@ -23,7 +23,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 ### Major Changes
 
-- New [color system](https://ant.design/docs/spec/colors#Color-Palettes), We changed our primary color from 『`#108EE9`』 to 『`#1890FF`』, we called the new primary color "拂晓蓝" which means the color of the sky at daybreak.
+- New [color system](https://ant.design/docs/spec/colors#Color-Palettes), We changed our primary color from 『`#108EE9`』 to 『`#1890FF`』, we called the new primary color "拂晓蓝(Daybreak blue)" which means the color of the sky at daybreak.
 - New design of components.
 - Increased the base font size from 12px to 14px.
 - Changed default locale to en_US.
