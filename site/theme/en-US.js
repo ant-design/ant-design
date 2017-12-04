@@ -69,7 +69,7 @@ module.exports = {
     'app.publish.title': 'antd@3.0.0 has released!',
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' has released, and please upgrade. ',
-    'app.publish.old-version-guide': 'If you want to read old version documentation, please visit ',
-    'app.publish.old-version-tips': ', or change the version of documentation with the top-right selector.',
+    'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
+    'app.publish.old-version-tips': ', or switch version with the select at header navigation.',
   },
 };
