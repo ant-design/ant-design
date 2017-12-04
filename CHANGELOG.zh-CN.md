@@ -56,7 +56,7 @@ timeline: true
 - 优化了全局的重置样式，如果升级后你的全局样式有问题，可以引入我们提供的 2.x 兼容样式。
 
   ```javascript
-  import 'antd/style/v2-compatible-reset';
+  import 'antd/lib/style/v2-compatible-reset';
   ```
 
   或者在 less 里引入
