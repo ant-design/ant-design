@@ -117,6 +117,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     if (filterOption) {
       return filterOption(filter, item);
     }
+    // if text is react element
+    if (typeof text !== 'string') text = text.props.children;
     return text.indexOf(filter) >= 0;
   }
 
