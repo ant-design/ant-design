@@ -299,7 +299,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon anticon-credit-card"
+          class="anticon anticon-spin anticon-loading"
         />
       </span>
     </div>
