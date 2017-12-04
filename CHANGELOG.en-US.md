@@ -19,6 +19,8 @@ timeline: true
 
 `2017-12-04`
 
+Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)!
+
 ### Major Changes
 
 - New [color system](https://ant.design/docs/spec/colors#Color-Palettes), We changed our primary color from 『`#108EE9`』 to 『`#1890FF`』, we called the new primary color "拂晓蓝" which means the color of the sky at daybreak.

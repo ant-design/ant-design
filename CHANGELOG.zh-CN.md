@@ -19,6 +19,8 @@ timeline: true
 
 `2017-12-04`
 
+更多内容见 [Ant Design 3.0 发布公告](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)！
+
 ### 主要变化
 
 - 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes), 组件主色由 『`#108EE9`』 改为 『`#1890FF`』，新主色我们称之为“拂晓蓝”。
