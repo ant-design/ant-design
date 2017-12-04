@@ -23,7 +23,7 @@ timeline: true
 
 ### 主要变化
 
-- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes), 组件主色由 『`#108EE9`』 改为 『`#1890FF`』，新主色我们称之为“拂晓蓝”。
+- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes)，组件主色由 『`#108EE9`』 改为 『`#1890FF`』，新主色我们称之为『拂晓蓝』。
 - 全新的视觉样式和组件尺寸，更现代更美观。
 - 基础字体大小由 `12px` 增大到 `14px`。
 - 默认语言由中文改为英文。
