@@ -162,11 +162,12 @@ Or use less
   - 🐞 Fixed feedback icon not centered in large input.
 - 🐞 Fix Menu key press error. [#8089](https://github.com/ant-design/ant-design/issues/8089)
 
-### Other changes
+### Other things
 
 - Don't need set `allowSyntheticDefaultImports` when using in TypeScript.
 - We removed `react@0.14` and `react@15` from `peerDependencies`, though `antd@3.0` still works on old React versions, but we highly recommend you upgrading to React 16 since we may use the new features only exists in React 16 in the future. See [React 16](https://reactjs.org/blog/2017/09/26/react-v16.0.html)
 - Fully es module support, if you are using webpack 3, you can set babel-import-plugin's `libraryDirectory` to `es` to enable tree shaking .
+- We will support 2.x branch until July in next year.
 
 ## 2.x
 
