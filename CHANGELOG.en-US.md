@@ -67,6 +67,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 - Since we changed default locale to en_US, LocalProvider is not required any more for English users.
 - We don't set `size="large"` to `Input` in `Form` by default any more.
+- UMD version of `dist/antd.js` doesn't include moment any more, you need add moment by yourself if you are using the UMD version.
 
 ### Removed Deprecations
 
