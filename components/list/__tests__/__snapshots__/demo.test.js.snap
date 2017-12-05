@@ -193,26 +193,24 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 1
-                        </div>
+                        Title 1
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -232,26 +230,24 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 2
-                        </div>
+                        Title 2
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -271,26 +267,24 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 3
-                        </div>
+                        Title 3
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -310,26 +304,24 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 4
-                        </div>
+                        Title 4
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -468,26 +460,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 1
-                        </div>
+                        Title 1
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -507,26 +497,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 2
-                        </div>
+                        Title 2
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -546,26 +534,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 3
-                        </div>
+                        Title 3
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -585,26 +571,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 4
-                        </div>
+                        Title 4
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -624,26 +608,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 5
-                        </div>
+                        Title 5
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
@@ -663,26 +645,24 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                 <div
                   class="ant-card ant-card-bordered"
                 >
-                  <div>
+                  <div
+                    class="ant-card-head"
+                  >
                     <div
-                      class="ant-card-head"
+                      class="ant-card-head-wrapper"
                     >
                       <div
-                        class="ant-card-head-wrapper"
+                        class="ant-card-head-title"
                       >
-                        <div
-                          class="ant-card-head-title"
-                        >
-                          Title 6
-                        </div>
+                        Title 6
                       </div>
                     </div>
-                    <div
-                      class="ant-card-body"
-                    >
-                      <div>
-                        Card content
-                      </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    <div>
+                      Card content
                     </div>
                   </div>
                 </div>
