@@ -142,14 +142,14 @@ const columns = [{
 
 ```jsx
 import { Table } from 'antd';
-import { TableColumnConfig } from 'antd/lib/table/Table';
+import { ColumnProps } from 'antd/lib/table';
 
 interface IUser {
   key: number;
   name: string;
 }
 
-const columns: TableColumnConfig<IUser>[] = [{
+const columns: ColumnProps<IUser>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',
