@@ -9,7 +9,7 @@ export interface ListItemProps {
   children?: React.ReactNode;
   prefixCls?: string;
   style?: React.CSSProperties;
-  extra: React.ReactNode;
+  extra?: React.ReactNode;
   actions?: Array<React.ReactNode>;
   grid?: ListGridType;
 }
