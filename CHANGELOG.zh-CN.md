@@ -79,6 +79,14 @@ timeline: true
 
 - Form 下的表单控件不再默认为 size="large"。
 - UMD 版本的  `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
+  ```diff
+  <html>
+    <head>
+  +   <script src="https://unpkg.com/moment@2.19.3/moment.js"></script>
+      <script src="https://unpkg.com/antd@3.0.0/dist/antd.js"></script>
+    </head>
+  </html>
+  ```
 
 ### 以下在 2.x 中废弃的特性被移除
 
