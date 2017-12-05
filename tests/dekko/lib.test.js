@@ -22,7 +22,7 @@ $('lib/*')
 $('lib/*/style')
   .hasFile('css.js')
   .hasFile('index.js')
-  .hasFile('v2-compatible-reset.less.css');
+  .hasFile('v2-compatible-reset.css');
 
 // eslint-disable-next-line
 console.log('`lib` directory is valid.');
