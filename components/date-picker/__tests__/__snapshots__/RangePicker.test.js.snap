@@ -26,46 +26,46 @@ exports[`RangePicker show month panel according to value 1`] = `
               >
                 <input
                   class="ant-calendar-input "
-                  placeholder="开始日期"
+                  placeholder="Start date"
                   value="2000/01/01"
                 />
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <a
                     class="ant-calendar-prev-year-btn"
                     role="button"
-                    title="上一年 (Control键加左方向键)"
+                    title="Last year (Control + left)"
                   />
                   <a
                     class="ant-calendar-prev-month-btn"
                     role="button"
-                    title="上个月 (翻页上键)"
+                    title="Previous month (PageUp)"
                   />
                   <span
-                    class="ant-calendar-ym-select"
+                    class="ant-calendar-my-select"
                   >
-                    <a
-                      class="ant-calendar-year-select"
-                      role="button"
-                      title="选择年份"
-                    >
-                      2000年
-                    </a>
                     <a
                       class="ant-calendar-month-select"
                       role="button"
-                      title="选择月份"
+                      title="Choose a month"
                     >
                       1月
+                    </a>
+                    <a
+                      class="ant-calendar-year-select"
+                      role="button"
+                      title="Choose a year"
+                    >
+                      2000
                     </a>
                   </span>
                 </div>
@@ -234,7 +234,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-selected-day"
+                        class="ant-calendar-cell ant-calendar-selected-start-date ant-calendar-selected-end-date ant-calendar-selected-day"
                         role="gridcell"
                         title="2000年1月1日"
                       >
@@ -761,45 +761,45 @@ exports[`RangePicker show month panel according to value 1`] = `
               >
                 <input
                   class="ant-calendar-input "
-                  placeholder="结束日期"
+                  placeholder="End date"
                   value="2000/01/01"
                 />
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <span
-                    class="ant-calendar-ym-select"
+                    class="ant-calendar-my-select"
                   >
-                    <a
-                      class="ant-calendar-year-select"
-                      role="button"
-                      title="选择年份"
-                    >
-                      2000年
-                    </a>
                     <a
                       class="ant-calendar-month-select"
                       role="button"
-                      title="选择月份"
+                      title="Choose a month"
                     >
                       2月
+                    </a>
+                    <a
+                      class="ant-calendar-year-select"
+                      role="button"
+                      title="Choose a year"
+                    >
+                      2000
                     </a>
                   </span>
                   <a
                     class="ant-calendar-next-month-btn"
-                    title="下个月 (翻页下键)"
+                    title="Next month (PageDown)"
                   />
                   <a
                     class="ant-calendar-next-year-btn"
-                    title="下一年 (Control键加右方向键)"
+                    title="Next year (Control + right)"
                   />
                 </div>
               </div>
@@ -1489,13 +1489,13 @@ exports[`RangePicker show month panel according to value 1`] = `
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              选择时间
+              Select time
             </a>
             <a
               class="ant-calendar-ok-btn"
               role="button"
             >
-              确 定
+              Ok
             </a>
           </div>
         </div>
@@ -1531,46 +1531,46 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               >
                 <input
                   class="ant-calendar-input "
-                  placeholder="开始日期"
+                  placeholder="Start date"
                   value="2000/01/01"
                 />
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <a
                     class="ant-calendar-prev-year-btn"
                     role="button"
-                    title="上一年 (Control键加左方向键)"
+                    title="Last year (Control + left)"
                   />
                   <a
                     class="ant-calendar-prev-month-btn"
                     role="button"
-                    title="上个月 (翻页上键)"
+                    title="Previous month (PageUp)"
                   />
                   <span
-                    class="ant-calendar-ym-select"
+                    class="ant-calendar-my-select"
                   >
-                    <a
-                      class="ant-calendar-year-select"
-                      role="button"
-                      title="选择年份"
-                    >
-                      2000年
-                    </a>
                     <a
                       class="ant-calendar-month-select"
                       role="button"
-                      title="选择月份"
+                      title="Choose a month"
                     >
                       1月
+                    </a>
+                    <a
+                      class="ant-calendar-year-select"
+                      role="button"
+                      title="Choose a year"
+                    >
+                      2000
                     </a>
                   </span>
                 </div>
@@ -1739,7 +1739,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-selected-day"
+                        class="ant-calendar-cell ant-calendar-selected-start-date ant-calendar-selected-end-date ant-calendar-selected-day"
                         role="gridcell"
                         title="2000年1月1日"
                       >
@@ -2266,45 +2266,45 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               >
                 <input
                   class="ant-calendar-input "
-                  placeholder="结束日期"
+                  placeholder="End date"
                   value="2000/01/01"
                 />
               </div>
             </div>
             <div
-              style="outline:none;"
+              style="outline:none"
             >
               <div
                 class="ant-calendar-header"
               >
                 <div
-                  style="position:relative;"
+                  style="position:relative"
                 >
                   <span
-                    class="ant-calendar-ym-select"
+                    class="ant-calendar-my-select"
                   >
-                    <a
-                      class="ant-calendar-year-select"
-                      role="button"
-                      title="选择年份"
-                    >
-                      2000年
-                    </a>
                     <a
                       class="ant-calendar-month-select"
                       role="button"
-                      title="选择月份"
+                      title="Choose a month"
                     >
                       2月
+                    </a>
+                    <a
+                      class="ant-calendar-year-select"
+                      role="button"
+                      title="Choose a year"
+                    >
+                      2000
                     </a>
                   </span>
                   <a
                     class="ant-calendar-next-month-btn"
-                    title="下个月 (翻页下键)"
+                    title="Next month (PageDown)"
                   />
                   <a
                     class="ant-calendar-next-year-btn"
-                    title="下一年 (Control键加右方向键)"
+                    title="Next year (Control + right)"
                   />
                 </div>
               </div>
@@ -3001,13 +3001,13 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              选择时间
+              Select time
             </a>
             <a
               class="ant-calendar-ok-btn"
               role="button"
             >
-              确 定
+              Ok
             </a>
           </div>
         </div>

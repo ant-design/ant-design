@@ -14,7 +14,7 @@ describe('Anchor Render', () => {
 
     wrapper.find('a[href="#API"]').simulate('click');
 
-    wrapper.node.handleScroll();
-    expect(wrapper.node.state).not.toBe(null);
+    wrapper.instance().handleScroll();
+    expect(wrapper.instance().state).not.toBe(null);
   });
 });

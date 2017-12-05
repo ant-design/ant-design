@@ -52,7 +52,7 @@ describe('Button', () => {
       <DefaultButton />
     );
     wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(true);
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
@@ -73,5 +73,12 @@ describe('Button', () => {
     );
     wrapper.simulate('click');
     expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+  });
+
+  it('should support link button', () => {
+    const wrapper = mount(
+      <Button target="_blank" href="http://ant.design">link button</Button>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

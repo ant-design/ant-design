@@ -37,7 +37,7 @@ class HotTags extends React.Component {
     const { selectedTags } = this.state;
     return (
       <div>
-        <strong style={{ marginRight: 8 }}>Categories:</strong>
+        <h6 style={{ marginRight: 8, display: 'inline' }}>Categories:</h6>
         {tagsFromServer.map(tag => (
           <CheckableTag
             key={tag}

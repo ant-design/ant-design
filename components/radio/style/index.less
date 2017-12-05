@@ -1,5 +1,6 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
+@import "../../style/mixins/index";
 
 @radio-prefix-cls: ~"@{ant-prefix}-radio";
 @radio-group-prefix-cls: ~"@{radio-prefix-cls}-group";
@@ -7,13 +8,14 @@
 @radio-duration: .3s;
 
 .@{radio-group-prefix-cls} {
+  .reset-component;
   display: inline-block;
-  font-size: @font-size-base;
+  line-height: unset;
 }
 
 // 一般状态
 .@{radio-prefix-cls}-wrapper {
-  font-size: @font-size-base;
+  .reset-component;
   display: inline-block;
   position: relative;
   white-space: nowrap;
@@ -22,6 +24,7 @@
 }
 
 .@{radio-prefix-cls} {
+  .reset-component;
   white-space: nowrap;
   outline: none;
   display: inline-block;
@@ -55,11 +58,12 @@
   }
   &-inner {
     &:after {
+      @radio-dot-size: @radio-size - 8px;
       position: absolute;
-      width: 6px;
-      height: 6px;
-      left: 3px;
-      top: 3px;
+      width: @radio-dot-size;
+      height: @radio-dot-size;
+      left: (@radio-size - @radio-dot-size) / 2 - 1px;
+      top: (@radio-size - @radio-dot-size) / 2 - 1px;
       border-radius: @border-radius-base;
       display: table;
       border-top: 0;
@@ -75,11 +79,11 @@
     top: 0;
     left: 0;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: @radio-size;
+    height: @radio-size;
     border-width: 1px;
     border-style: solid;
-    border-radius: 14px;
+    border-radius: 100px;
     border-color: @border-color-base;
     background-color: @radio-button-bg;
     transition: all @radio-duration;
@@ -102,7 +106,7 @@
   .@{radio-inner-prefix-cls} {
     border-color: @primary-color;
     &:after {
-      transform: scale(1);
+      transform: scale(.875);
       opacity: 1;
       transition: all @radio-duration @ease-in-out-circ;
     }
@@ -135,8 +139,8 @@ span.@{radio-prefix-cls} + * {
 
 .@{radio-prefix-cls}-button-wrapper {
   margin: 0;
-  height: @input-height-base;
-  line-height: @input-height-base - 2px;
+  height: @btn-height-base;
+  line-height: @btn-height-base - 2px;
   color: @radio-button-color;
   display: inline-block;
   transition: all 0.3s ease;
@@ -144,7 +148,7 @@ span.@{radio-prefix-cls} + * {
   border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
   background: @radio-button-bg;
-  padding: 0 16px;
+  padding: 0 @padding-md - 1px;
   position: relative;
 
   a {
@@ -166,13 +170,7 @@ span.@{radio-prefix-cls} + * {
   .@{radio-group-prefix-cls}-small & {
     height: @input-height-sm;
     line-height: @input-height-sm - 2px;
-    padding: 0 12px;
-    &:first-child {
-      border-radius: @border-radius-sm 0 0 @border-radius-sm;
-    }
-    &:last-child {
-      border-radius: 0 @border-radius-sm @border-radius-sm 0;
-    }
+    padding: 0 @control-padding-horizontal-sm - 1px;
   }
 
   &:not(:first-child) {
@@ -209,7 +207,7 @@ span.@{radio-prefix-cls} + * {
   .@{radio-prefix-cls}-inner,
   input[type="checkbox"],
   input[type="radio"] {
-    .opacity(0);
+    opacity: 0;
     width: 0;
     height: 0;
   }

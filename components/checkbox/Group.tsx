@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
@@ -30,6 +30,14 @@ export interface CheckboxGroupState {
   value: any;
 }
 
+export interface CheckboxGroupContext {
+  checkboxGroup: {
+    toggleOption: (option: CheckboxOptionType) => void;
+    value: any;
+    disabled: boolean;
+  };
+}
+
 export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
@@ -47,7 +55,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     checkboxGroup: PropTypes.any,
   };
 
-  constructor(props) {
+  constructor(props: CheckboxGroupProps) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
@@ -64,14 +72,14 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: CheckboxGroupProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value || [],
       });
     }
   }
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
     return !shallowEqual(this.props, nextProps) ||
       !shallowEqual(this.state, nextState);
   }
@@ -88,7 +96,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       return option;
     });
   }
-  toggleOption = (option) => {
+  toggleOption = (option: CheckboxOptionType) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
     if (optionIndex === - 1) {

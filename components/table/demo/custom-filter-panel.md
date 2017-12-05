@@ -94,7 +94,7 @@ class App extends React.Component {
       onFilterDropdownVisibleChange: (visible) => {
         this.setState({
           filterDropdownVisible: visible,
-        }, () => this.searchInput.focus());
+        }, () => this.searchInput && this.searchInput.focus());
       },
     }, {
       title: 'Age',

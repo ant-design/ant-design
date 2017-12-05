@@ -13,11 +13,11 @@
   text-rendering: auto;
   opacity: 0;
   position: absolute;
-  right: 8px;
+  right: @control-padding-horizontal - 1px;
   z-index: 1;
   background: @component-background;
   top: 50%;
-  font-size: @font-size-base;
+  font-size: @font-size-sm;
   color: @disabled-color;
   width: 12px;
   height: 12px;
@@ -35,11 +35,16 @@
 }
 
 .@{select-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   display: inline-block;
   position: relative;
-  color: @text-color;
-  font-size: @font-size-base;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   > ul > li > a {
     padding: 0;
@@ -51,11 +56,12 @@
     .iconfont-mixin();
     position: absolute;
     top: 50%;
-    right: 8px;
+    right: @control-padding-horizontal - 1px;
     line-height: 1;
-    margin-top: -6px;
-    color: @text-color-secondary;
-    .iconfont-size-under-12px(9px);
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+    color: @disabled-color;
+    font-size: 12px;
 
     * {
       display: none;
@@ -103,7 +109,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       max-width: 100%;
-      padding-right: 14px;
+      padding-right: 20px;
     }
   }
 
@@ -129,7 +135,7 @@
   }
 
   &-disabled &-selection--multiple &-selection__choice {
-    background: @background-color-active;
+    background: @background-color-base;
     color: #aaa;
     padding-right: 10px;
     &__remove {
@@ -145,8 +151,8 @@
 
   &-selection__rendered {
     display: block;
-    margin-left: 7px;
-    margin-right: 7px;
+    margin-left: @control-padding-horizontal - 1px;
+    margin-right: @control-padding-horizontal - 1px;
     position: relative;
     line-height: @input-height-base - 2px;
     // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
@@ -186,18 +192,23 @@
     }
     .@{select-prefix-cls}-selection__rendered {
       line-height: @input-height-sm - 2px;
+      margin: 0 @control-padding-horizontal-sm - 1px;
     }
     .@{select-prefix-cls}-selection--multiple {
       min-height: @input-height-sm;
       .@{select-prefix-cls}-selection__rendered {
         li {
           height: @input-height-sm - 8px;
-          line-height: @input-height-sm - 8px;
+          line-height: @input-height-sm - 10px;
         }
       }
       .@{select-prefix-cls}-selection__clear {
         top: @input-height-sm / 2;
       }
+    }
+    .@{select-prefix-cls}-selection__clear,
+    .@{select-prefix-cls}-arrow {
+      right: @control-padding-horizontal-sm;
     }
   }
 
@@ -232,7 +243,7 @@
   }
 
   &-search__field__placeholder {
-    left: 8px;
+    left: @control-padding-horizontal;
   }
 
   &-search__field__mirror {
@@ -247,11 +258,6 @@
     position: absolute;
     height: 100%;
     width: 100%;
-
-    .@{select-prefix-cls}-selection--multiple & {
-      float: left;
-      position: static;
-    }
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -281,6 +287,8 @@
     .clearfix;
 
     .@{select-prefix-cls}-search--inline {
+      float: left;
+      position: static;
       width: auto;
       padding: 0;
       max-width: 100%;
@@ -296,17 +304,22 @@
       height: auto;
     }
 
+    .@{select-prefix-cls}-selection__placeholder {
+      margin-left: 6px;
+    }
+
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
       margin-top: 3px;
       height: @input-height-base - 8px;
-      line-height: @input-height-base - 8px;
+      line-height: @input-height-base - 8px - 2px;
     }
 
     .@{select-prefix-cls}-selection__choice {
       color: @tag-default-color;
       background-color: @tag-default-bg;
-      border-radius: 4px;
+      border: 1px solid @border-color-split;
+      border-radius: @border-radius-sm;
       cursor: default;
       float: left;
       margin-right: 4px;
@@ -336,11 +349,11 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      transition: all 0.3s @ease-in-out;
-      .iconfont-size-under-12px(8px);
+      transition: all .3s;
+      font-size: @font-size-sm;
+      .iconfont-size-under-12px(10px);
       position: absolute;
       right: 4px;
-      padding: 0 0 0 8px;
       &:hover {
         color: #404040;
       }
@@ -360,7 +373,6 @@
 
   &-open {
     .@{select-prefix-cls}-arrow {
-      .ie-rotate(2);
       -ms-transform: rotate(180deg);
       &:before {
         transform: rotate(180deg);
@@ -399,6 +411,8 @@
 }
 
 .@{select-prefix-cls}-dropdown {
+  .reset-component;
+
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
     animation-name: antSlideUpIn;
@@ -446,20 +460,23 @@
       padding: 0;
 
       > .@{select-prefix-cls}-dropdown-menu-item {
-        padding-left: 16px;
+        padding-left: 20px;
       }
     }
 
     &-item-group-title {
       color: @text-color-secondary;
-      line-height: 1.5;
-      padding: 8px;
+      padding: 0 @control-padding-horizontal;
+      height: 32px;
+      line-height: 32px;
+      font-size: @font-size-sm;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 8px;
+      padding: 5px @control-padding-horizontal;
+      line-height: 22px;
       font-weight: normal;
       color: @text-color;
       white-space: nowrap;
@@ -486,7 +503,7 @@
       &-selected {
         &,
         &:hover {
-          background-color: @background-color-base;
+          background-color: @background-color-light;
           font-weight: 600;
           color: @text-color;
         }
@@ -500,7 +517,7 @@
         height: 1px;
         margin: 1px 0;
         overflow: hidden;
-        background-color: #e5e5e5;
+        background-color: @border-color-split;
         line-height: 0;
       }
     }
@@ -516,7 +533,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 8px;
+        right: @control-padding-horizontal;
         font-weight: bold;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }

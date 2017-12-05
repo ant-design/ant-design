@@ -13,7 +13,7 @@ const coldRotate = 10; // 冷色角度
 // eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
   state = {
-    primaryColor: '#108ee9',
+    primaryColor: '#1890ff',
   };
   handleChangeColor = (e) => {
     const value = e.target ? e.target.value : e;

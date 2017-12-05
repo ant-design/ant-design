@@ -5,11 +5,10 @@
 @import "./card-style";
 
 .@{tab-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   position: relative;
   overflow: hidden;
   .clearfix;
-  color: @text-color;
 
   &-ink-bar {
     z-index: 1;
@@ -23,7 +22,7 @@
   }
 
   &-bar {
-    border-bottom: @border-width-base @border-style-base @border-color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     margin-bottom: 16px;
     outline: none;
     transition: padding .3s @ease-in-out;
@@ -52,7 +51,6 @@
     z-index: 2;
     width: 0;
     height: 100%;
-    line-height: 32px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
@@ -159,7 +157,7 @@
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin-right: 24px;
+      margin-right: 32px;
       box-sizing: border-box;
       position: relative;
 
@@ -167,7 +165,7 @@
         margin-right: 0;
       }
 
-      padding: 8px 20px;
+      padding: 12px 16px;
       transition: color 0.3s @ease-in-out;
       cursor: pointer;
       text-decoration: none;
@@ -179,24 +177,31 @@
       &:active {
         color: @primary-7;
       }
+
       .@{iconfont-css-prefix} {
-        width: 14px;
-        height: 14px;
         margin-right: 8px;
       }
     }
 
     .@{tab-prefix-cls}-tab-active {
       color: @primary-color;
+      font-weight: 500;
     }
   }
 
-  &-mini &-nav-container {
+  &-large &-nav-container {
+    font-size: @font-size-lg;
+  }
+
+  &-large &-tab {
+    padding: 16px;
+  }
+
+  &-small &-nav-container {
     font-size: @font-size-base;
   }
 
-  &-mini &-tab {
-    margin-right: 0;
+  &-small &-tab {
     padding: 8px 16px;
   }
 
@@ -288,15 +293,7 @@
         height: auto;
         top: 0;
       }
-    }
 
-    > .@{tab-prefix-cls}-content {
-      overflow: hidden;
-      width: auto;
-      margin-top: 0 !important;
-    }
-
-    > .@{tab-prefix-cls}-bar {
       .@{tab-prefix-cls}-tab-next {
         width: 100%;
         bottom: 0;
@@ -314,6 +311,12 @@
           content: "\e61e";
         }
       }
+    }
+
+    > .@{tab-prefix-cls}-content {
+      overflow: hidden;
+      width: auto;
+      margin-top: 0 !important;
     }
   }
 

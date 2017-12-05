@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 import DropdownButton from './dropdown-button';
@@ -7,7 +7,6 @@ import warning from '../_util/warning';
 export interface DropDownProps {
   trigger?: ('click' | 'hover')[];
   overlay: React.ReactNode;
-  style?: React.CSSProperties;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
@@ -16,6 +15,7 @@ export interface DropDownProps {
   prefixCls?: string;
   className?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
+  forceRender?: boolean;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
@@ -46,7 +46,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
   render() {
     const { children, prefixCls, overlay, trigger, disabled } = this.props;
-    const dropdownTrigger = cloneElement(children as any, {
+    const dropdownTrigger = React.cloneElement(children as any, {
       className: classNames((children as any).props.className, `${prefixCls}-trigger`),
       disabled,
     });
@@ -54,7 +54,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     const overlayProps = overlay && (overlay as any).props;
     const selectable = (overlayProps && 'selectable' in overlayProps)
       ? overlayProps.selectable : false;
-    const fixedModeOverlay = cloneElement(overlay as any, {
+    const fixedModeOverlay = React.cloneElement(overlay as any, {
       mode: 'vertical',
       selectable,
     });

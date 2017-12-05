@@ -52,7 +52,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                       Name
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
+                        title="Filter menu"
                       />
                     </span>
                   </th>
@@ -69,7 +69,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jack
                   </td>
@@ -82,7 +82,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Lucy
                   </td>
@@ -95,7 +95,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Tom
                   </td>
@@ -108,7 +108,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jerry
                   </td>
@@ -133,7 +133,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     >
       <ul
         aria-activedescendant=""
-        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
@@ -186,7 +186,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
         >
           <div
             aria-expanded="false"
@@ -196,6 +196,9 @@ exports[`Table.filter renders menu correctly 1`] = `
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -205,12 +208,12 @@ exports[`Table.filter renders menu correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>
@@ -228,7 +231,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     >
       <ul
         aria-activedescendant=""
-        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
@@ -281,7 +284,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
         >
           <div
             aria-expanded="false"
@@ -291,6 +294,9 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -300,12 +306,12 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>

@@ -90,6 +90,11 @@ class Demo extends React.Component {
       if (dropPosition === -1) {
         ar.splice(i, 0, dragObj);
       } else {
+        // drag node and drop node in the same level
+        // and drop to the last node
+        if (dragKey.length === dropKey.length && ar.length - 1 === i) {
+          i += 2;
+        }
         ar.splice(i - 1, 0, dragObj);
       }
     } else {

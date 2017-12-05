@@ -4,6 +4,7 @@
 @popover-prefix-cls: ~"@{ant-prefix}-popover";
 
 .@{popover-prefix-cls} {
+  .reset-component;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,8 +12,6 @@
   cursor: auto;
   user-select: text;
   white-space: normal;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
   font-weight: normal;
   text-align: left;
 
@@ -61,35 +60,35 @@
   &-title {
     min-width: @popover-min-width;
     margin: 0; // reset heading margin
-    padding: 8px 16px;
+    padding: 5px @padding-md 4px;
     min-height: 32px;
     border-bottom: 1px solid @border-color-split;
-    color: @popover-color;
+    color: @heading-color;
     font-weight: 500;
   }
 
   &-inner-content {
-    padding: 8px 16px;
+    padding: 12px @padding-md;
     color: @popover-color;
   }
 
   &-message {
-    padding: 8px 0 16px;
+    padding: 4px 0 12px;
     font-size: @font-size-base;
     color: @popover-color;
     > .@{iconfont-css-prefix} {
       color: @warning-color;
-      line-height: 17px;
+      line-height: @line-height-base + 0.1;
       position: absolute;
     }
     &-title {
-      padding-left: 20px;
+      padding-left: @font-size-base + 8px;
     }
   }
 
   &-buttons {
     text-align: right;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     button {
       margin-left: 8px;
     }
@@ -99,6 +98,10 @@
   // .popover-arrow is outer, .popover-arrow:after is inner
 
   &-arrow {
+    background: @popover-bg;
+    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    transform: rotate(45deg);
     &,
     &:after {
       position: absolute;
@@ -110,32 +113,15 @@
     }
   }
 
-  &-arrow {
-    border-width: @popover-arrow-outer-width;
-  }
-
-  &-arrow:after {
-    border-width: @popover-arrow-width;
-    content: "";
-  }
-
   &-placement-top > &-content > &-arrow,
   &-placement-topLeft > &-content >  &-arrow,
   &-placement-topRight > &-content >  &-arrow {
-    border-bottom-width: 0;
-    border-top-color: @popover-arrow-outer-color;
-    bottom: @popover-distance - @popover-arrow-outer-width;
-    &:after {
-      content: " ";
-      bottom: 1px;
-      margin-left: -@popover-arrow-width;
-      border-bottom-width: 0;
-      border-top-color: @popover-arrow-color;
-    }
+    bottom: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
   }
   &-placement-top > &-content >  &-arrow {
     left: 50%;
-    margin-left: -@popover-arrow-outer-width;
+    margin-left: -@popover-arrow-width;
   }
   &-placement-topLeft > &-content >  &-arrow {
     left: 16px;
@@ -147,20 +133,12 @@
   &-placement-right > &-content >  &-arrow,
   &-placement-rightTop > &-content >  &-arrow,
   &-placement-rightBottom > &-content >  &-arrow {
-    left: @popover-distance - @popover-arrow-outer-width;
-    border-left-width: 0;
-    border-right-color: @popover-arrow-outer-color;
-    &:after {
-      content: " ";
-      left: 1px;
-      bottom: -@popover-arrow-width;
-      border-left-width: 0;
-      border-right-color: @popover-arrow-color;
-    }
+    left: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
   }
   &-placement-right > &-content >  &-arrow {
     top: 50%;
-    margin-top: -@popover-arrow-outer-width;
+    margin-top: -@popover-arrow-width;
   }
   &-placement-rightTop > &-content >  &-arrow {
     top: 12px;
@@ -172,20 +150,12 @@
   &-placement-bottom > &-content >  &-arrow,
   &-placement-bottomLeft > &-content >  &-arrow,
   &-placement-bottomRight > &-content >  &-arrow {
-    border-top-width: 0;
-    border-bottom-color: @popover-arrow-outer-color;
-    top: @popover-distance - @popover-arrow-outer-width;
-    &:after {
-      content: " ";
-      top: 1px;
-      margin-left: -@popover-arrow-width;
-      border-top-width: 0;
-      border-bottom-color: @popover-arrow-color;
-    }
+    top: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.06);
   }
   &-placement-bottom > &-content >  &-arrow {
     left: 50%;
-    margin-left: -@popover-arrow-outer-width;
+    margin-left: -@popover-arrow-width;
   }
   &-placement-bottomLeft > &-content >  &-arrow {
     left: 16px;
@@ -197,20 +167,12 @@
   &-placement-left > &-content >  &-arrow,
   &-placement-leftTop > &-content >  &-arrow,
   &-placement-leftBottom > &-content >  &-arrow {
-    right: @popover-distance - @popover-arrow-outer-width;
-    border-right-width: 0;
-    border-left-color: @popover-arrow-outer-color;
-    &:after {
-      content: " ";
-      right: 1px;
-      border-right-width: 0;
-      border-left-color: @popover-arrow-color;
-      bottom: -@popover-arrow-width;
-    }
+    right: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
   }
   &-placement-left > &-content >  &-arrow {
     top: 50%;
-    margin-top: -@popover-arrow-outer-width;
+    margin-top: -@popover-arrow-width;
   }
   &-placement-leftTop > &-content >  &-arrow {
     top: 12px;

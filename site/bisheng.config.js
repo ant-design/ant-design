@@ -1,8 +1,19 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
+const replaceLib = require('antd-tools/lib/replaceLib');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
+
+function alertBabelConfig(rules) {
+  rules.forEach((rule) => {
+    if (rule.loader && rule.loader === 'babel-loader') {
+      rule.options.plugins.push(replaceLib);
+    } else if (rule.use) {
+      alertBabelConfig(rule.use);
+    }
+  });
+}
 
 module.exports = {
   port: 8001,
@@ -37,6 +48,7 @@ module.exports = {
       '0.11.x': 'http://011x.ant.design',
       '0.12.x': 'http://012x.ant.design',
       '1.x': 'http://1x.ant.design',
+      '2.x': 'http://2x.ant.design',
     },
   },
   filePathMapper(filePath) {
@@ -76,13 +88,11 @@ module.exports = {
       });
     }
 
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-transform-runtime'),
-      {
-        polyfill: false,
-        regenerator: true,
-      },
-    ]);
+    if (isDev) {
+      config.devtool = 'source-map';
+    }
+
+    alertBabelConfig(config.module.rules);
 
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 

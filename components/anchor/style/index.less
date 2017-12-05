@@ -1,7 +1,12 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@anchor-border-width: 2px;
 
 .@{ant-prefix}-anchor {
+  .reset-component;
   position: relative;
+  padding-left: @anchor-border-width;
   &-wrapper {
     background-color: @component-background;
   }
@@ -14,7 +19,7 @@
     &:before {
       content: ' ';
       position: relative;
-      width: 2px;
+      width: @anchor-border-width;
       height: 100%;
       display: block;
       background-color: @border-color-split;
@@ -23,10 +28,10 @@
     &-ball {
       display: none;
       position: absolute;
-      width: 9px;
-      height: 9px;
-      border-radius: 9px;
-      border: 3px solid @primary-color;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      border: 2px solid @primary-color;
       background-color: @component-background;
       left: 50%;
       transition: top .3s ease-in-out;
@@ -42,7 +47,7 @@
   }
 
   &-link {
-    padding: 8px 0 8px 18px;
+    padding: 8px 0 8px 16px;
     line-height: 1;
 
     &-title {

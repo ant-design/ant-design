@@ -7,6 +7,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   afterEach(() => {
     errorSpy.mockReset();
+    document.body.innerHTML = '';
   });
 
   afterAll(() => {
@@ -46,7 +47,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       onOk,
     });
     // second Modal
-    $$('.ant-btn-primary')[1].click();
+    $$('.ant-btn-primary')[0].click();
     expect(onCancel.mock.calls.length).toBe(0);
     expect(onOk.mock.calls.length).toBe(1);
   });
@@ -54,14 +55,32 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should allow Modal.comfirm without onCancel been set', () => {
     open();
     // Third Modal
-    $$('.ant-btn')[4].click();
+    $$('.ant-btn')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('should allow Modal.comfirm without onOk been set', () => {
     open();
     // Fourth Modal
-    $$('.ant-btn-primary')[3].click();
+    $$('.ant-btn-primary')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  if (process.env.REACT !== '15') {
+    it('shows animation when close', () => {
+      jest.useFakeTimers();
+      open();
+      $$('.ant-btn')[0].click();
+      expect($$('.ant-confirm')).toHaveLength(1);
+      jest.runAllTimers();
+      expect($$('.ant-confirm')).toHaveLength(0);
+      jest.useRealTimers();
+    });
+  }
+
+  it('ok only', () => {
+    open({ okCancel: false });
+    expect($$('.ant-btn')).toHaveLength(1);
+    expect($$('.ant-btn')[0].innerHTML).toContain('OK');
   });
 });

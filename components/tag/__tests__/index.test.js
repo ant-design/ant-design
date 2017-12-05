@@ -21,6 +21,7 @@ describe('Tag', () => {
     wrapper.find('.anticon-cross').simulate('click');
     expect(onClose).toBeCalled();
     jest.runAllTimers();
+    wrapper.update();
     expect(wrapper.find('.ant-tag').length).toBe(0);
   });
 

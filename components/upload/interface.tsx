@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
@@ -10,6 +10,8 @@ export interface UploadFile {
   uid: number;
   size: number;
   name: string;
+  filename?: string;
+  lastModified?: string;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
@@ -18,6 +20,8 @@ export interface UploadFile {
   originFileObj?: File;
   response?: any;
   error?: any;
+  linkProps?: any;
+  type: string;
 }
 
 export interface UploadChangeParam {
@@ -62,6 +66,11 @@ export interface UploadProps {
   customRequest?: (option: any) => void;
   withCredentials?: boolean;
   locale?: UploadLocale;
+}
+
+export interface UploadState {
+  fileList: UploadFile[];
+  dragState: string;
 }
 
 export interface UploadListProps {

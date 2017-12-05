@@ -251,7 +251,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
-  style="background:rgb(190, 200, 200);padding:26px 16px 16px;"
+  style="background:rgb(190, 200, 200);padding:26px 16px 16px"
 >
   <button
     class="ant-btn ant-btn-primary ant-btn-background-ghost"

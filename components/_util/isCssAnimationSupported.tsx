@@ -1,4 +1,4 @@
-let animation;
+let animation: boolean;
 
 function isCssAnimationSupported() {
   if (animation !== undefined) {
@@ -11,7 +11,7 @@ function isCssAnimationSupported() {
   }
   if (animation !== undefined) {
     for (let i = 0; i < domPrefixes.length; i++) {
-      if (elm.style[`${domPrefixes[i]}AnimationName`] !== undefined) {
+      if ((elm.style as any)[`${domPrefixes[i]}AnimationName`] !== undefined) {
         animation = true;
         break;
       }

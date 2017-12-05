@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
@@ -58,7 +59,8 @@ describe('Upload List', () => {
     expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
     wrapper.find('.ant-upload-list-item').at(0).find('.anticon-cross').simulate('click');
     await delay(400);
-    expect(wrapper.find('.ant-upload-list-item').length).toBe(1);
+    wrapper.update();
+    expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
 
   it('should be uploading when upload a file', (done) => {
@@ -114,5 +116,149 @@ describe('Upload List', () => {
         ],
       },
     });
+  });
+
+  it('does not change filelist when beforeUpload returns false', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={fileList}
+        onChange={handleChange}
+        beforeUpload={() => false}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+
+    expect(wrapper.state().fileList).toBe(fileList);
+    expect(handleChange.mock.calls[0][0].fileList).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/7762
+  it('work with form validation', () => {
+    let errors;
+    class TestForm extends React.Component {
+      handleSubmit = () => {
+        const { validateFields } = this.props.form;
+        validateFields((err) => {
+          errors = err;
+        });
+      }
+
+      render() {
+        const { getFieldDecorator } = this.props.form;
+
+        return (
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Item>
+              {getFieldDecorator('file', {
+                valuePropname: 'fileList',
+                getValueFromEvent: e => e.fileList,
+                rules: [
+                  {
+                    required: true,
+                    validator: (rule, value, callback) => {
+                      if (!value || value.length === 0) {
+                        callback('file required');
+                      } else {
+                        callback();
+                      }
+                    },
+                  },
+                ],
+              })(
+                <Upload
+                  beforeUpload={() => false}
+                >
+                  <button>upload</button>
+                </Upload>
+              )}
+            </Form.Item>
+          </Form>
+        );
+      }
+    }
+
+    const App = Form.create()(TestForm);
+    const wrapper = mount(<App />);
+    wrapper.find(Form).simulate('submit');
+    expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { filename: 'foo.png' },
+        ],
+      },
+    });
+    wrapper.find(Form).simulate('submit');
+    expect(errors).toBeNull();
+  });
+
+  it('should support onPreview', () => {
+    const handlePreview = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={fileList}
+        onPreview={handlePreview}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+    wrapper.find('.anticon-eye-o').at(0).simulate('click');
+    expect(handlePreview).toBeCalledWith(fileList[0]);
+    wrapper.find('.anticon-eye-o').at(1).simulate('click');
+    expect(handlePreview).toBeCalledWith(fileList[1]);
+  });
+
+  it('should support onRemove', async () => {
+    const handleRemove = jest.fn();
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={fileList}
+        onRemove={handleRemove}
+        onChange={handleChange}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+    wrapper.find('.anticon-delete').at(0).simulate('click');
+    expect(handleRemove).toBeCalledWith(fileList[0]);
+    wrapper.find('.anticon-delete').at(1).simulate('click');
+    expect(handleRemove).toBeCalledWith(fileList[1]);
+    await delay(0);
+    expect(handleChange.mock.calls.length).toBe(2);
+  });
+
+  it('should generate thumbUrl from file', async () => {
+    const handlePreview = jest.fn();
+    const newFileList = [...fileList];
+    const newFile = { ...fileList[0], uid: -3, originFileObj: new File([], 'xxx.png') };
+    delete newFile.thumbUrl;
+    newFileList.push(newFile);
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={newFileList}
+        onPreview={handlePreview}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+    wrapper.setState({});
+    await delay(0);
+    expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
   });
 });

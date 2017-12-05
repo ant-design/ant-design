@@ -34,7 +34,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     >
       <div
         class="ant-layout-sider"
-        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
@@ -72,7 +72,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="ant-layout-sider"
-        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
@@ -92,7 +92,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
   >
     <div
       class="ant-layout-sider"
-      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
@@ -129,7 +129,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
@@ -139,15 +139,15 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       />
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
         tabindex="0"
       >
         <li
           aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
+          class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-user"
@@ -160,7 +160,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-video-camera"
@@ -173,7 +173,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-upload"
@@ -190,7 +190,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
   >
     <div
       class="ant-layout-header"
-      style="background:#fff;padding:0;"
+      style="background:#fff;padding:0"
     >
       <i
         class="anticon anticon-menu-fold trigger"
@@ -198,7 +198,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-content"
-      style="margin:24px 16px;padding:24px;background:#fff;min-height:280px;"
+      style="margin:24px 16px;padding:24px;background:#fff;min-height:280px"
     >
       Content
     </div>
@@ -212,16 +212,16 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 >
   <div
     class="ant-layout-header"
-    style="position:fixed;width:100%;"
+    style="position:fixed;width:100%"
   >
     <div
       class="logo"
     />
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-horizontal ant-menu-dark ant-menu-root"
+      class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px;"
+      style="line-height:64px"
       tabindex="0"
     >
       <li
@@ -233,7 +233,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       </li>
       <li
         aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
+        class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -249,11 +249,11 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
   </div>
   <div
     class="ant-layout-content"
-    style="padding:0 50px;margin-top:64px;"
+    style="padding:0 50px;margin-top:64px"
   >
     <div
       class="ant-breadcrumb"
-      style="margin:16px 0;"
+      style="margin:16px 0"
     >
       <span>
         <span
@@ -293,14 +293,14 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:380px;"
+      style="background:#fff;padding:24px;min-height:380px"
     >
       Content
     </div>
   </div>
   <div
     class="ant-layout-footer"
-    style="text-align:center;"
+    style="text-align:center"
   >
     Ant Design ©2016 Created by Ant UED
   </div>
@@ -313,7 +313,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+    style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
@@ -323,7 +323,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       />
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
         tabindex="0"
       >
@@ -331,7 +331,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-user"
@@ -346,7 +346,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-video-camera"
@@ -361,7 +361,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-upload"
@@ -374,9 +374,9 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         </li>
         <li
           aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
+          class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-bar-chart"
@@ -391,7 +391,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-cloud-o"
@@ -406,7 +406,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-appstore-o"
@@ -421,7 +421,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-team"
@@ -436,7 +436,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-shop"
@@ -452,18 +452,18 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
   </div>
   <div
     class="ant-layout"
-    style="margin-left:200px;"
+    style="margin-left:200px"
   >
     <div
       class="ant-layout-header"
-      style="background:#fff;padding:0;"
+      style="background:#fff;padding:0"
     />
     <div
       class="ant-layout-content"
-      style="margin:24px 16px 0;overflow:initial;"
+      style="margin:24px 16px 0;overflow:initial"
     >
       <div
-        style="padding:24px;background:#fff;text-align:center;"
+        style="padding:24px;background:#fff;text-align:center"
       >
         ...
         <br />
@@ -564,7 +564,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-footer"
-      style="text-align:center;"
+      style="text-align:center"
     >
       Ant Design ©2016 Created by Ant UED
     </div>
@@ -578,7 +578,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
@@ -588,7 +588,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       />
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
         tabindex="0"
       >
@@ -596,7 +596,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-user"
@@ -611,7 +611,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-video-camera"
@@ -626,7 +626,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-upload"
@@ -639,9 +639,9 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         </li>
         <li
           aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
+          class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-user"
@@ -660,21 +660,21 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
   >
     <div
       class="ant-layout-header"
-      style="background:#fff;padding:0;"
+      style="background:#fff;padding:0"
     />
     <div
       class="ant-layout-content"
-      style="margin:24px 16px 0;"
+      style="margin:24px 16px 0"
     >
       <div
-        style="padding:24px;background:#fff;min-height:360px;"
+        style="padding:24px;background:#fff;min-height:360px"
       >
         content
       </div>
     </div>
     <div
       class="ant-layout-footer"
-      style="text-align:center;"
+      style="text-align:center"
     >
       Ant Design ©2016 Created by Ant UED
     </div>
@@ -685,11 +685,11 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 <div
   class="ant-layout"
-  style="min-height:100vh;"
+  style="min-height:100vh"
 >
   <div
     class="ant-layout-sider"
-    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
       class="ant-layout-sider-children"
@@ -699,15 +699,15 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       />
       <ul
         aria-activedescendant=""
-        class="ant-menu ant-menu-inline ant-menu-dark ant-menu-root"
+        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
         tabindex="0"
       >
         <li
           aria-selected="true"
-          class="ant-menu-item-selected ant-menu-item"
+          class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-pie-chart"
@@ -720,7 +720,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-desktop"
@@ -730,14 +730,14 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-menu-submenu-inline ant-menu-submenu"
+          class="ant-menu-submenu ant-menu-submenu-inline"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
             aria-owns="sub1$Menu"
             class="ant-menu-submenu-title"
-            style="padding-left:24px;"
+            style="padding-left:24px"
           >
             <span>
               <i
@@ -747,17 +747,20 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 User
               </span>
             </span>
+            <i
+              class="ant-menu-submenu-arrow"
+            />
           </div>
         </li>
         <li
-          class="ant-menu-submenu-inline ant-menu-submenu"
+          class="ant-menu-submenu ant-menu-submenu-inline"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
             aria-owns="sub2$Menu"
             class="ant-menu-submenu-title"
-            style="padding-left:24px;"
+            style="padding-left:24px"
           >
             <span>
               <i
@@ -767,13 +770,16 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
                 Team
               </span>
             </span>
+            <i
+              class="ant-menu-submenu-arrow"
+            />
           </div>
         </li>
         <li
           aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px;"
+          style="padding-left:24px"
         >
           <i
             class="anticon anticon-file"
@@ -786,7 +792,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-sider-trigger"
-      style="width:200px;"
+      style="width:200px"
     >
       <i
         class="anticon anticon-left"
@@ -798,15 +804,15 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
   >
     <div
       class="ant-layout-header"
-      style="background:#fff;padding:0;"
+      style="background:#fff;padding:0"
     />
     <div
       class="ant-layout-content"
-      style="margin:0 16px;"
+      style="margin:0 16px"
     >
       <div
         class="ant-breadcrumb"
-        style="margin:16px 0;"
+        style="margin:16px 0"
       >
         <span>
           <span
@@ -834,14 +840,14 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         </span>
       </div>
       <div
-        style="padding:24px;background:#fff;min-height:360px;"
+        style="padding:24px;background:#fff;min-height:360px"
       >
         Bill is a cat.
       </div>
     </div>
     <div
       class="ant-layout-footer"
-      style="text-align:center;"
+      style="text-align:center"
     >
       Ant Design ©2016 Created by Ant UED
     </div>
@@ -861,9 +867,9 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     />
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-horizontal ant-menu-dark ant-menu-root"
+      class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px;"
+      style="line-height:64px"
       tabindex="0"
     >
       <li
@@ -875,7 +881,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       </li>
       <li
         aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
+        class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -891,11 +897,11 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
   </div>
   <div
     class="ant-layout-content"
-    style="padding:0 50px;"
+    style="padding:0 50px"
   >
     <div
       class="ant-breadcrumb"
-      style="margin:16px 0;"
+      style="margin:16px 0"
     >
       <span>
         <span
@@ -935,14 +941,14 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:280px;"
+      style="background:#fff;padding:24px;min-height:280px"
     >
       Content
     </div>
   </div>
   <div
     class="ant-layout-footer"
-    style="text-align:center;"
+    style="text-align:center"
   >
     Ant Design ©2016 Created by Ant UED
   </div>
@@ -961,9 +967,9 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     />
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-horizontal ant-menu-dark ant-menu-root"
+      class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px;"
+      style="line-height:64px"
       tabindex="0"
     >
       <li
@@ -975,7 +981,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </li>
       <li
         aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
+        class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -991,11 +997,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
   </div>
   <div
     class="ant-layout-content"
-    style="padding:0 50px;"
+    style="padding:0 50px"
   >
     <div
       class="ant-breadcrumb"
-      style="margin:16px 0;"
+      style="margin:16px 0"
     >
       <span>
         <span
@@ -1036,31 +1042,31 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     </div>
     <div
       class="ant-layout"
-      style="padding:24px 0;background:#fff;"
+      style="padding:24px 0;background:#fff"
     >
       <div
         class="ant-layout-sider"
-        style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+        style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <ul
             aria-activedescendant=""
-            class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
+            class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
             role="menu"
-            style="height:100%;"
+            style="height:100%"
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
+              class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
             >
               <div
                 aria-expanded="true"
                 aria-haspopup="true"
                 aria-owns="sub1$Menu"
                 class="ant-menu-submenu-title"
-                style="padding-left:24px;"
+                style="padding-left:24px"
               >
                 <span>
                   <i
@@ -1068,18 +1074,21 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 1
                 </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
               </div>
               <ul
                 aria-activedescendant=""
-                class="ant-menu ant-menu-inline  ant-menu-sub"
+                class="ant-menu  ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
                 role="menu"
               >
                 <li
                   aria-selected="true"
-                  class="ant-menu-item-selected ant-menu-item"
+                  class="ant-menu-item ant-menu-item-selected"
                   role="menuitem"
-                  style="padding-left:48px;"
+                  style="padding-left:48px"
                 >
                   option1
                 </li>
@@ -1087,7 +1096,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
-                  style="padding-left:48px;"
+                  style="padding-left:48px"
                 >
                   option2
                 </li>
@@ -1095,7 +1104,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
-                  style="padding-left:48px;"
+                  style="padding-left:48px"
                 >
                   option3
                 </li>
@@ -1103,21 +1112,21 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
-                  style="padding-left:48px;"
+                  style="padding-left:48px"
                 >
                   option4
                 </li>
               </ul>
             </li>
             <li
-              class="ant-menu-submenu-inline ant-menu-submenu"
+              class="ant-menu-submenu ant-menu-submenu-inline"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
                 aria-owns="sub2$Menu"
                 class="ant-menu-submenu-title"
-                style="padding-left:24px;"
+                style="padding-left:24px"
               >
                 <span>
                   <i
@@ -1125,17 +1134,20 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 2
                 </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
               </div>
             </li>
             <li
-              class="ant-menu-submenu-inline ant-menu-submenu"
+              class="ant-menu-submenu ant-menu-submenu-inline"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
                 aria-owns="sub3$Menu"
                 class="ant-menu-submenu-title"
-                style="padding-left:24px;"
+                style="padding-left:24px"
               >
                 <span>
                   <i
@@ -1143,6 +1155,9 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   />
                   subnav 3
                 </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
               </div>
             </li>
           </ul>
@@ -1150,7 +1165,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </div>
       <div
         class="ant-layout-content"
-        style="padding:0 24px;min-height:280px;"
+        style="padding:0 24px;min-height:280px"
       >
         Content
       </div>
@@ -1158,7 +1173,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
   </div>
   <div
     class="ant-layout-footer"
-    style="text-align:center;"
+    style="text-align:center"
   >
     Ant Design ©2016 Created by Ant UED
   </div>
@@ -1177,9 +1192,9 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     />
     <ul
       aria-activedescendant=""
-      class="ant-menu ant-menu-horizontal ant-menu-dark ant-menu-root"
+      class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
-      style="line-height:64px;"
+      style="line-height:64px"
       tabindex="0"
     >
       <li
@@ -1191,7 +1206,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       </li>
       <li
         aria-selected="true"
-        class="ant-menu-item-selected ant-menu-item"
+        class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -1210,27 +1225,27 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
   >
     <div
       class="ant-layout-sider"
-      style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px;"
+      style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <ul
           aria-activedescendant=""
-          class="ant-menu ant-menu-inline ant-menu-light ant-menu-root"
+          class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
           role="menu"
-          style="height:100%;border-right:0;"
+          style="height:100%;border-right:0"
           tabindex="0"
         >
           <li
-            class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu"
+            class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
           >
             <div
               aria-expanded="true"
               aria-haspopup="true"
               aria-owns="sub1$Menu"
               class="ant-menu-submenu-title"
-              style="padding-left:24px;"
+              style="padding-left:24px"
             >
               <span>
                 <i
@@ -1238,18 +1253,21 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 1
               </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
             </div>
             <ul
               aria-activedescendant=""
-              class="ant-menu ant-menu-inline  ant-menu-sub"
+              class="ant-menu  ant-menu-sub ant-menu-inline"
               id="sub1$Menu"
               role="menu"
             >
               <li
                 aria-selected="true"
-                class="ant-menu-item-selected ant-menu-item"
+                class="ant-menu-item ant-menu-item-selected"
                 role="menuitem"
-                style="padding-left:48px;"
+                style="padding-left:48px"
               >
                 option1
               </li>
@@ -1257,7 +1275,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
-                style="padding-left:48px;"
+                style="padding-left:48px"
               >
                 option2
               </li>
@@ -1265,7 +1283,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
-                style="padding-left:48px;"
+                style="padding-left:48px"
               >
                 option3
               </li>
@@ -1273,21 +1291,21 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
-                style="padding-left:48px;"
+                style="padding-left:48px"
               >
                 option4
               </li>
             </ul>
           </li>
           <li
-            class="ant-menu-submenu-inline ant-menu-submenu"
+            class="ant-menu-submenu ant-menu-submenu-inline"
           >
             <div
               aria-expanded="false"
               aria-haspopup="true"
               aria-owns="sub2$Menu"
               class="ant-menu-submenu-title"
-              style="padding-left:24px;"
+              style="padding-left:24px"
             >
               <span>
                 <i
@@ -1295,17 +1313,20 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 2
               </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
             </div>
           </li>
           <li
-            class="ant-menu-submenu-inline ant-menu-submenu"
+            class="ant-menu-submenu ant-menu-submenu-inline"
           >
             <div
               aria-expanded="false"
               aria-haspopup="true"
               aria-owns="sub3$Menu"
               class="ant-menu-submenu-title"
-              style="padding-left:24px;"
+              style="padding-left:24px"
             >
               <span>
                 <i
@@ -1313,6 +1334,9 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 />
                 subnav 3
               </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
             </div>
           </li>
         </ul>
@@ -1320,11 +1344,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     </div>
     <div
       class="ant-layout"
-      style="padding:0 24px 24px;"
+      style="padding:0 24px 24px"
     >
       <div
         class="ant-breadcrumb"
-        style="margin:16px 0;"
+        style="margin:16px 0"
       >
         <span>
           <span
@@ -1365,7 +1389,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       </div>
       <div
         class="ant-layout-content"
-        style="background:#fff;padding:24px;margin:0;min-height:280px;"
+        style="background:#fff;padding:24px;margin:0;min-height:280px"
       >
         Content
       </div>

@@ -1,16 +1,17 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
-import { WrappedFormUtils } from './Form';
-import { FIELD_META_PROP } from './constants';
 import warning from '../_util/warning';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 
 export interface FormItemProps {
   prefixCls?: string;
+  className?: string;
   id?: string;
   label?: React.ReactNode;
   labelCol?: ColProps;
@@ -19,14 +20,12 @@ export interface FormItemProps {
   extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
   hasFeedback?: boolean;
-  className?: string;
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
 }
 
 export interface FormItemContext {
-  form: WrappedFormUtils;
   vertical: boolean;
 }
 
@@ -52,7 +51,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   };
 
   static contextTypes = {
-    form: PropTypes.object,
     vertical: PropTypes.bool,
   };
 
@@ -66,21 +64,22 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getHelpMsg() {
-    const context = this.context;
     const props = this.props;
-    if (props.help === undefined && context.form) {
-      return this.getId() ? (context.form.getFieldError(this.getId()) || []).join(', ') : '';
+    const onlyControl = this.getOnlyControl();
+    if (props.help === undefined && onlyControl) {
+      const errors = this.getField().errors;
+      return errors ? errors.map((e: any) => e.message).join(', ') : '';
     }
 
     return props.help;
   }
 
-  getControls(children, recursively: boolean) {
+  getControls(children: React.ReactNode, recursively: boolean) {
     let controls: React.ReactElement<any>[] = [];
     const childrenArray = React.Children.toArray(children);
     for (let i = 0; i < childrenArray.length; i++) {
@@ -96,7 +95,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       if (!child.props) {
         continue;
       }
-      if (FIELD_META_PROP in child.props) {
+      if (FIELD_META_PROP in child.props) { // And means FIELD_DATA_PROP in chidl.props, too.
         controls.push(child);
       } else if (child.props.children) {
         controls = controls.concat(this.getControls(child.props.children, recursively));
@@ -110,7 +109,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return child !== undefined ? child : null;
   }
 
-  getChildProp(prop) {
+  getChildProp(prop: string) {
     const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
@@ -123,14 +122,23 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return this.getChildProp(FIELD_META_PROP);
   }
 
+  getField() {
+    return this.getChildProp(FIELD_DATA_PROP);
+  }
+
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
-    return help ? (
+    const children = help ? (
       <div className={`${prefixCls}-explain`} key="help">
         {help}
       </div>
     ) : null;
+    return (
+      <Animate transitionName="show-help" component="" transitionAppear key="help">
+        {children}
+      </Animate>
+    );
   }
 
   renderExtra() {
@@ -141,42 +149,40 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   getValidateStatus() {
-    const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const fieldId = this.getId();
-    if (!fieldId) {
+    const onlyControl = this.getOnlyControl();
+    if (!onlyControl) {
       return '';
     }
-    if (isFieldValidating(fieldId)) {
+    const field = this.getField();
+    if (field.validating) {
       return 'validating';
     }
-    if (!!getFieldError(fieldId)) {
+    if (field.errors) {
       return 'error';
     }
-    const fieldValue = getFieldValue(fieldId);
+    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
     if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
     return '';
   }
 
-  renderValidateWrapper(c1, c2, c3) {
-    let classes = '';
-    const form = this.context.form;
+  renderValidateWrapper(c1: React.ReactNode, c2: React.ReactNode, c3: React.ReactNode) {
     const props = this.props;
-    const validateStatus = (props.validateStatus === undefined && form) ?
+    const onlyControl = this.getOnlyControl;
+    const validateStatus = (props.validateStatus === undefined && onlyControl) ?
       this.getValidateStatus() :
       props.validateStatus;
 
+    let classes = '';
     if (validateStatus) {
-      classes = classNames(
-        {
-          'has-feedback': props.hasFeedback || validateStatus === 'validating',
-          'has-success': validateStatus === 'success',
-          'has-warning': validateStatus === 'warning',
-          'has-error': validateStatus === 'error',
-          'is-validating': validateStatus === 'validating',
-        },
-      );
+      classes = classNames({
+        'has-feedback': props.hasFeedback || validateStatus === 'validating',
+        'has-success': validateStatus === 'success',
+        'has-warning': validateStatus === 'warning',
+        'has-error': validateStatus === 'error',
+        'is-validating': validateStatus === 'validating',
+      });
     }
     return (
       <div className={`${this.props.prefixCls}-item-control ${classes}`}>
@@ -185,7 +191,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  renderWrapper(children) {
+  renderWrapper(children: React.ReactNode) {
     const { prefixCls, wrapperCol } = this.props;
     const className = classNames(
       `${prefixCls}-item-control-wrapper`,
@@ -203,12 +209,12 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     if (required !== undefined) {
       return required;
     }
-    if (this.context.form) {
+    if (this.getOnlyControl()) {
       const meta = this.getMeta() || {};
-      const validate = (meta.validate || []);
+      const validate = meta.validate || [];
 
-      return validate.filter((item) => !!item.rules).some((item) => {
-        return item.rules.some((rule) => rule.required);
+      return validate.filter((item: any) => !!item.rules).some((item: any) => {
+        return item.rules.some((rule: any) => rule.required);
       });
     }
     return false;
@@ -216,15 +222,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   // Resolve duplicated ids bug between different forms
   // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = (e) => {
+  onLabelClick = () => {
     const id = this.props.id || this.getId();
     if (!id) {
       return;
     }
     const controls = document.querySelectorAll(`[id="${id}"]`);
     if (controls.length !== 1) {
-      e.preventDefault();
-      const control = findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
+      const control = ReactDOM.findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
       }
@@ -267,13 +272,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderChildren() {
-    const props = this.props;
-    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
-      if (child && typeof child.type === 'function' && !child.props.size) {
-        return React.cloneElement(child, { size: 'large' });
-      }
-      return child;
-    });
+    const { children } = this.props;
     return [
       this.renderLabel(),
       this.renderWrapper(
@@ -286,7 +285,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     ];
   }
 
-  renderFormItem(children) {
+  renderFormItem(children: React.ReactNode) {
     const props = this.props;
     const prefixCls = props.prefixCls;
     const style = props.style;

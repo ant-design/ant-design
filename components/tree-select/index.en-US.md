@@ -45,6 +45,13 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | onSearch | A callback function, can be executed when the search input changes. | function(value: string) | - |
 | onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | - |
 
+### Tree Methods
+
+| Name | Description |
+| ---- | ----------- |
+| focus() | get focus |
+| blur() | remove focus |
+
 ### TreeNode props
 
 > We recommend you to use `treeData` rather than `TreeNode`, to avoid the trouble of manual construction.

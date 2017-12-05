@@ -1,4 +1,4 @@
-import moment from 'moment';
+import * as moment from 'moment';
 moment.locale('de');
 
 import Pagination from 'rc-pagination/lib/locale/de_DE';
@@ -37,5 +37,11 @@ export default {
   },
   Select: {
     notFoundContent: 'Nicht gefunden',
+  },
+  Upload: {
+    uploading: 'Hochladen...',
+    removeFile: 'Datei entfernen',
+    uploadError: 'Fehler beim Hochladen',
+    previewFile: 'Dateivorschau',
   },
 };

@@ -12,6 +12,7 @@
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
+  .reset-component;
   .btn;
   .btn-default;
 
@@ -127,7 +128,7 @@
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
-    margin-left: 0.5em;
+    margin-left: 8px;
   }
 
   &-clicked:after {
@@ -171,5 +172,15 @@
     bottom: -6px;
     right: -6px;
     border-width: 6px;
+  }
+}
+
+a.@{btn-prefix-cls} {
+  line-height: @btn-height-base - 2px;
+  &-lg {
+    line-height: @btn-height-lg - 2px;
+  }
+  &-sm {
+    line-height: @btn-height-sm - 2px;
   }
 }

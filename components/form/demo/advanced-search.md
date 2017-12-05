@@ -47,15 +47,11 @@ class AdvancedSearchForm extends React.Component {
   getFields() {
     const count = this.state.expand ? 10 : 6;
     const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: { span: 5 },
-      wrapperCol: { span: 19 },
-    };
     const children = [];
     for (let i = 0; i < 10; i++) {
       children.push(
         <Col span={8} key={i} style={{ display: i < count ? 'block' : 'none' }}>
-          <FormItem {...formItemLayout} label={`Field ${i}`}>
+          <FormItem label={`Field ${i}`}>
             {getFieldDecorator(`field-${i}`)(
               <Input placeholder="placeholder" />
             )}
@@ -72,7 +68,7 @@ class AdvancedSearchForm extends React.Component {
         className="ant-advanced-search-form"
         onSubmit={this.handleSearch}
       >
-        <Row gutter={40}>{this.getFields()}</Row>
+        <Row gutter={24}>{this.getFields()}</Row>
         <Row>
           <Col span={24} style={{ textAlign: 'right' }}>
             <Button type="primary" htmlType="submit">Search</Button>
@@ -100,11 +96,19 @@ ReactDOM.render(
 ````
 
 ````css
-#components-form-demo-advanced-search .ant-advanced-search-form {
+.ant-advanced-search-form {
   padding: 24px;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
+}
+
+.ant-advanced-search-form .ant-form-item {
+  display: flex;
+}
+
+.ant-advanced-search-form .ant-form-item-label {
+  overflow: visible;
 }
 ````
 

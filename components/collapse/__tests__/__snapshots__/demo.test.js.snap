@@ -138,12 +138,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       <div
         class="ant-collapse-content-box"
       >
-        <p>
-          
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-
+        <p
+          style="padding-left:24px"
+        >
+          A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>
       </div>
     </div>
@@ -185,7 +183,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="true"
@@ -216,7 +214,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="false"
@@ -231,7 +229,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="false"

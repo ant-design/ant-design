@@ -6,7 +6,7 @@ title: Ant Design of React
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
 
 <div class="pic-plus">
-  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
@@ -93,10 +93,12 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` 会加载 less 文件
+       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
      ]
    }
    ```
+
+   > 注意：webpack 1 无需设置 `libraryDirectory`。
 
    然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
 
@@ -113,23 +115,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // 加载 LESS
    ```
 
-### TypeScript
-
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
-
-> 注意：
-> - 设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
-> - 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
-
 ## 链接
 
 - [首页](http://ant.design/)
@@ -144,13 +129,13 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)
 
 ## 谁在使用
 
-- [蚂蚁金服](http://www.antgroup.com/)
+- [蚂蚁金服](http://www.antfin.com/)
 - [阿里巴巴](http://www.alibaba.com/)
 - [腾讯](http://www.tencent.com)
 - [百度](http://www.baidu.com)

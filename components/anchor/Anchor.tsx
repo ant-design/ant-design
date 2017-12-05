@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
@@ -42,7 +42,7 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 }
 
 const reqAnimFrame = getRequestAnimationFrame();
-function scrollTo(href: string, offsetTop = 0, target, callback = () => { }) {
+function scrollTo(href: string, offsetTop = 0, target: () => Window | HTMLElement, callback = () => { }) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
@@ -95,9 +95,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     antAnchor: PropTypes.object,
   };
 
-  refs: {
-    ink?: any;
-  };
+  private inkNode: HTMLSpanElement;
 
   private links: String[];
   private scrollEvent: any;
@@ -157,7 +155,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
   }
 
-  handleScrollTo = (link) => {
+  handleScrollTo = (link: string) => {
     const { offsetTop, target = getDefaultTarget } = this.props;
     this.animating = true;
     this.setState({ activeLink: link });
@@ -198,8 +196,12 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     const { prefixCls } = this.props;
     const linkNode = ReactDOM.findDOMNode(this as any).getElementsByClassName(`${prefixCls}-link-title-active`)[0];
     if (linkNode) {
-      this.refs.ink.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
+  }
+
+  saveInkNode = (node: HTMLSpanElement) => {
+    this.inkNode = node;
   }
 
   render() {
@@ -228,7 +230,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       <div className={wrapperClass} style={style}>
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`} >
-            <span className={inkClass} ref="ink" />
+            <span className={inkClass} ref={this.saveInkNode} />
           </div>
           {children}
         </div>

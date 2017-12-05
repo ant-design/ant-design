@@ -14,7 +14,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch ant-switch-disabled"
+    class="ant-switch ant-switch-checked ant-switch-disabled"
     tabindex="-1"
   >
     <span
@@ -30,6 +30,28 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
       Toggle disabled
     </span>
   </button>
+</div>
+`;
+
+exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
+<div>
+  <span
+    class="ant-switch-loading ant-switch ant-switch-checked"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+  <br />
+  <span
+    class="ant-switch-small ant-switch-loading ant-switch"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
 </div>
 `;
 

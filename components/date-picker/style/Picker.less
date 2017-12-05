@@ -1,4 +1,7 @@
+@import "../../button/style/mixin";
+
 .@{calendar-prefix-cls}-picker-container {
+  .reset-component;
   position: absolute;
   z-index: @zindex-picker;
 
@@ -28,10 +31,10 @@
 }
 
 .@{calendar-prefix-cls}-picker {
+  .reset-component;
   position: relative;
   display: inline-block;
   outline: none;
-  font-size: @font-size-base;
   transition: opacity 0.3s;
 
   &-input {
@@ -43,16 +46,20 @@
     border-color: @primary-color;
   }
 
+  &:focus &-input:not(.@{ant-prefix}-input-disabled) {
+    .active();
+  }
+
   &-clear,
   &-icon {
     position: absolute;
     width: 14px;
     height: 14px;
-    right: 8px;
+    right: @control-padding-horizontal;
     top: 50%;
     margin-top: -7px;
     line-height: 14px;
-    font-size: @font-size-base;
+    font-size: @font-size-sm;
     transition: all .3s;
     user-select: none;
   }
@@ -75,14 +82,19 @@
   }
 
   &-icon {
-    color: @text-color-secondary;
+    color: @disabled-color;
     &:after {
       content: "\e6bb";
       font-family: "anticon";
       font-size: @font-size-base;
-      color: @text-color-secondary;
+      color: @disabled-color;
       display: inline-block;
       line-height: 1;
     }
+  }
+
+  &-small &-clear,
+  &-small &-icon {
+    right: @control-padding-horizontal-sm;
   }
 }

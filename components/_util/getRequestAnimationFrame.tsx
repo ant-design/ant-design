@@ -2,7 +2,7 @@ const availablePrefixs = ['moz', 'ms', 'webkit'];
 
 function requestAnimationFramePolyfill() {
   let lastTime = 0;
-  return function(callback) {
+  return function(callback: (n: number) => void) {
     const currTime = new Date().getTime();
     const timeToCall = Math.max(0, 16 - (currTime - lastTime));
     const id = window.setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
@@ -23,11 +23,11 @@ export default function getRequestAnimationFrame() {
   const prefix = availablePrefixs.filter(key => `${key}RequestAnimationFrame` in window)[0];
 
   return prefix
-    ? window[`${prefix}RequestAnimationFrame`]
+    ? (window as any)[`${prefix}RequestAnimationFrame`]
     : requestAnimationFramePolyfill();
 }
 
-export function cancelRequestAnimationFrame(id) {
+export function cancelRequestAnimationFrame(id: number) {
   if (typeof window === 'undefined') {
     return null;
   }
@@ -39,6 +39,8 @@ export function cancelRequestAnimationFrame(id) {
   )[0];
 
   return prefix ?
-    (window[`${prefix}CancelAnimationFrame`] || window[`${prefix}CancelRequestAnimationFrame`]).call(this, id)
-    : clearTimeout(id);
+    (
+      (window as any)[`${prefix}CancelAnimationFrame`] ||
+      (window as any)[`${prefix}CancelRequestAnimationFrame`]
+    ).call(this, id) : clearTimeout(id);
 }

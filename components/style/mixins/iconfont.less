@@ -27,12 +27,11 @@
 .iconfont-size-under-12px(@size, @rotate: 0deg) {
   display: inline-block;
   @font-scale: unit(@size / 12px);
-  font-size: @font-size-base;
-  // ie8-9
+  font-size: 12px;
+  // IE9
   font-size: ~"@{size} \9"; // lesshint duplicateProperty: false
   transform: scale(@font-scale) rotate(@rotate);
-  .ie-rotate-via-degrees(@rotate);
   :root & {
-    font-size: @font-size-base; // reset ie9 and above
+    font-size: @font-size-sm; // reset IE9 and above
   }
 }

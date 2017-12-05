@@ -1,6 +1,7 @@
 @dialog-prefix-cls: ~"@{ant-prefix}-modal";
 
 .@{dialog-prefix-cls} {
+  .reset-component;
   position: relative;
   width: auto;
   margin: 0 auto;
@@ -22,7 +23,7 @@
   &-title {
     margin: 0;
     font-size: @font-size-lg;
-    line-height: 21px;
+    line-height: 22px;
     font-weight: 500;
     color: @heading-color;
   }
@@ -47,9 +48,10 @@
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
-    transition: color .3s ease;
+    transition: color .3s;
     color: @text-color-secondary;
     outline: 0;
+    padding: 0;
 
     &-x {
       display: block;
@@ -58,9 +60,9 @@
       text-align: center;
       text-transform: none;
       text-rendering: auto;
-      width: 48px;
-      height: 48px;
-      line-height: 48px;
+      width: 56px;
+      height: 56px;
+      line-height: 56px;
       font-size: @font-size-lg;
 
       &:before {
@@ -78,7 +80,7 @@
   }
 
   &-header {
-    padding: 13px 16px;
+    padding: 16px 24px;
     border-radius: @border-radius-base @border-radius-base 0 0;
     background: @component-background;
     color: @text-color;
@@ -86,14 +88,14 @@
   }
 
   &-body {
-    padding: 16px;
+    padding: 24px;
     font-size: @font-size-base;
-    line-height: 1.5;
+    line-height: @line-height-base;
   }
 
   &-footer {
     border-top: @border-width-base @border-style-base @border-color-split;
-    padding: 10px 16px 10px 10px;
+    padding: 10px 16px;
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
@@ -131,7 +133,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: @screen-md) {
   .@{dialog-prefix-cls} {
     width: auto !important;
     margin: 10px;

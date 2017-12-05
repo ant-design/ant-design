@@ -19,6 +19,7 @@ exports[`Input should support maxLength 1`] = `
 
 exports[`Input.Search should support suffix 1`] = `
 <Search
+  enterButton={false}
   inputPrefixCls="ant-input"
   prefixCls="ant-input-search"
   suffix="suffix"
@@ -33,7 +34,6 @@ exports[`Input.Search should support suffix 1`] = `
         "suffix",
         <Icon
           className="ant-input-search-icon"
-          onClick={[Function]}
           type="search"
         />,
       ]
@@ -56,12 +56,11 @@ exports[`Input.Search should support suffix 1`] = `
         suffix
         <Icon
           className="ant-input-search-icon"
-          onClick={[Function]}
+          key="searchIcon"
           type="search"
         >
           <i
             className="anticon anticon-search ant-input-search-icon"
-            onClick={[Function]}
           />
         </Icon>
       </span>

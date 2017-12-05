@@ -102,12 +102,7 @@ exports[`Table renders empty table 1`] = `
           <div
             class="ant-table-placeholder"
           >
-            <span>
-              <i
-                class="anticon anticon-frown-o"
-              />
-              暂无数据
-            </span>
+            No data
           </div>
         </div>
       </div>
@@ -254,10 +249,10 @@ exports[`Table renders empty table with fixed columns 1`] = `
               >
                 <colgroup>
                   <col
-                    style="width:100px;min-width:100px;"
+                    style="width:100px;min-width:100px"
                   />
                   <col
-                    style="width:100px;min-width:100px;"
+                    style="width:100px;min-width:100px"
                   />
                   <col />
                   <col />
@@ -268,7 +263,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   <col />
                   <col />
                   <col
-                    style="width:100px;min-width:100px;"
+                    style="width:100px;min-width:100px"
                   />
                 </colgroup>
                 <thead
@@ -362,12 +357,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
             <div
               class="ant-table-placeholder"
             >
-              <span>
-                <i
-                  class="anticon anticon-frown-o"
-                />
-                暂无数据
-              </span>
+              No data
             </div>
           </div>
           <div
@@ -375,7 +365,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
           >
             <div
               class="ant-table-body-outer"
-              style="-webkit-transform:translate3d (0, 0, 0);"
+              style="-webkit-transform:translate3d (0, 0, 0)"
             >
               <div
                 class="ant-table-body-inner"
@@ -385,10 +375,10 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <colgroup>
                     <col
-                      style="width:100px;min-width:100px;"
+                      style="width:100px;min-width:100px"
                     />
                     <col
-                      style="width:100px;min-width:100px;"
+                      style="width:100px;min-width:100px"
                     />
                   </colgroup>
                   <thead
@@ -423,7 +413,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
           >
             <div
               class="ant-table-body-outer"
-              style="-webkit-transform:translate3d (0, 0, 0);"
+              style="-webkit-transform:translate3d (0, 0, 0)"
             >
               <div
                 class="ant-table-body-inner"
@@ -433,7 +423,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <colgroup>
                     <col
-                      style="width:100px;min-width:100px;"
+                      style="width:100px;min-width:100px"
                     />
                   </colgroup>
                   <thead

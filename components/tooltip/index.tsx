@@ -1,8 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
-import getPlacements, { AdjustOverflow } from './placements';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
+import Button from '../button/index';
+
+export { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
   'top' | 'left' | 'right' | 'bottom' |
@@ -32,14 +35,16 @@ export interface AbstractTooltipProps {
   children?: React.ReactNode;
 }
 
+export type RenderFunction = () => React.ReactNode;
+
 export interface TooltipProps extends AbstractTooltipProps {
-  title?: React.ReactNode;
-  overlay?: React.ReactNode;
+  title?: React.ReactNode | RenderFunction;
+  overlay?: React.ReactNode | RenderFunction;
 }
 
-const splitObject = (obj, keys) => {
-  const picked = {};
-  const omited = { ...obj };
+const splitObject = (obj: any, keys: string[]) => {
+  const picked: any = {};
+  const omited: any = { ...obj };
   keys.forEach(key => {
     if (obj && key in obj) {
       picked[key] = obj[key];
@@ -60,9 +65,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     autoAdjustOverflow: true,
   };
 
-  refs: {
-    tooltip: any;
-  };
+  private tooltip: typeof RcTooltip;
 
   constructor(props: TooltipProps) {
     super(props);
@@ -78,7 +81,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     }
   }
 
-  onVisibleChange = (visible) => {
+  onVisibleChange = (visible: boolean) => {
     const { onVisibleChange } = this.props;
     if (!('visible' in this.props)) {
       this.setState({ visible: this.isNoTitle() ? false : visible });
@@ -89,7 +92,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
   getPlacements() {
@@ -115,8 +118,8 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   // Fix Tooltip won't hide at disabled button
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
-  getDisabledCompatibleChildren(element) {
-    if ((element.type.__ANT_BUTTON || element.type === 'button') &&
+  getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+    if (((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
         element.props.disabled && this.isHoverTrigger()) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
@@ -152,8 +155,8 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   // 动态设置动画点
-  onPopupAlign = (domNode, align) => {
-    const placements = this.getPlacements();
+  onPopupAlign = (domNode: HTMLElement, align: any) => {
+    const placements: any = this.getPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).filter(
       key => (
@@ -183,6 +186,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   }
 
+  saveTooltip = (node: typeof RcTooltip) => {
+    this.tooltip = node;
+  }
+
   render() {
     const { props, state } = this;
     const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
@@ -205,7 +212,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       <RcTooltip
         {...this.props}
         getTooltipContainer={getPopupContainer || getTooltipContainer}
-        ref="tooltip"
+        ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
         overlay={overlay || title || ''}
         visible={visible}

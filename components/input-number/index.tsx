@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 
@@ -29,6 +29,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     step: 1,
   };
 
+  private inputNumberRef: any;
+
   render() {
     const { className, size, ...others } = this.props;
     const inputNumberClass = classNames({
@@ -36,6 +38,14 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       [`${this.props.prefixCls}-sm`]: size === 'small',
     }, className);
 
-    return <RcInputNumber className={inputNumberClass} {...others} />;
+    return <RcInputNumber ref={(c: any) => this.inputNumberRef = c} className={inputNumberClass} {...others} />;
+  }
+
+  focus() {
+    this.inputNumberRef.focus();
+  }
+
+  blur() {
+    this.inputNumberRef.blur();
   }
 }

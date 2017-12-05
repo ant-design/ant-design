@@ -6,7 +6,7 @@ title: Ant Design of React
 Following the Ant Design specification, we developed a React UI library `antd` that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
-  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
@@ -90,10 +90,12 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` for less
+       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
      ]
    }
    ```
+
+   > Note: Don't set `libraryDirectory` if you are using webpack 1.
 
    This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 
@@ -112,20 +114,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
-
-> Note:
-> - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-> - Don't use @types/antd, as antd provides a built-in ts definition already.
+- Don't use @types/antd, as antd provides a built-in ts definition already.
 
 ## Links
 
@@ -140,13 +129,13 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
 
 ## Companies using antd
 
-- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
 - [Tencent](http://www.tencent.com)
 - [Baidu](http://www.baidu.com)

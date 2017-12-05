@@ -1,27 +1,50 @@
+@import "../../../components/style/themes/default.less";
+
 .nav-phone-icon {
   display: none;
   position: absolute;
   right: 30px;
-  top: 32px;
+  top: 25px;
   z-index: 1;
   width: 16px;
   height: 22px;
   cursor: pointer;
 }
 
-@media only screen and (min-width: 0) and (max-width: 1280px) {
+@media only screen and (min-width: 1440px) and (max-width: 1599px) {
+  .main-wrapper > .ant-row > .ant-col-xl-5 {
+    width: 274px;
+  }
+
+  #header .ant-row .ant-col-xl-5 {
+    width: 274px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
   .en-us #search-box {
     display: none;
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 1180px) {
-  .zh-cn #search-box {
+@media only screen and (max-width: @screen-xl) {
+  #search-box {
     display: none;
+  }
+  #logo {
+    padding: 0 40px;
+  }
+  .banner-wrapper .banner-title-wrapper {
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 992px) {
+@media only screen and (max-width: @screen-lg) {
   #search-box {
     display: none;
   }
@@ -37,14 +60,6 @@
   .preview-image-box {
     padding-left: 0;
     margin: 10px 0;
-  }
-
-  a#logo {
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    display: block;
   }
 
   .banner-entry {
@@ -83,6 +98,7 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    width: 100%;
     .start-button {
       text-align: center;
       > a {
@@ -99,39 +115,38 @@
     }
   }
 
-  button.lang {
-    display: block;
-    margin: 29px auto 16px;
-    color: @text-color;
-    border-color: @text-color;
-  }
-
   div.version {
     display: block;
     margin: 29px auto 16px;
     & > .ant-select-selection {
-      color: @text-color;
+      color: @site-text-color;
       &:not(:hover) {
-        border-color: @text-color;
+        border-color: @site-text-color;
       }
     }
   }
 
   .popover-menu {
     width: 300px;
-    button.lang {
-      margin: 16px auto;
-      float: none;
-    }
     div.version {
-      margin: 32px auto 16px;
+      margin: 16px auto;
       float: none;
     }
     .ant-popover-inner {
       overflow: hidden;
       &-content {
         padding: 0;
+        .ant-select {
+          width: 60%;
+          display: block;
+        }
+        .ant-btn {
+          margin: 16px 10% 0 0;
+        }
       }
+    }
+    #nav a.header-link {
+      color: #333;
     }
   }
 
@@ -142,8 +157,8 @@
   }
 
   ul#nav li {
-    line-height: 60px;
-    height: 60px;
+    line-height: 40px;
+    height: 40px;
     padding: 0 !important;
     border: 0;
     a {
@@ -178,9 +193,7 @@
     float: none;
     width: auto;
     padding-bottom: 30px;
-    border-bottom: 1px solid #e9e9e9;
     border-right: 0;
-    margin-bottom: 30px;
   }
 
   .main-container {
@@ -198,14 +211,37 @@
     margin: 0;
   }
 
-  footer {
+  #footer {
     text-align: center;
-    ul li {
-      float: none;
-      width: auto;
-      > h2 .anticon {
-        display: none;
+    .footer-wrap {
+      padding: 40px;
+    }
+    .footer-center {
+      text-align: center;
+    }
+    h2 {
+      margin-top: 16px;
+    }
+    .bottom-bar {
+      text-align: center;
+      .translate-button {
+        width: auto;
+        text-align: center;
+        margin-bottom: 16px;
       }
+    }
+  }
+
+  .prev-next-nav {
+    margin-left: 16px;
+    width: ~"calc(100% - 32px)";
+  }
+
+  .drawer {
+    .ant-menu-inline .ant-menu-item:after,
+    .ant-menu-vertical .ant-menu-item:after {
+      left: 0;
+      right: auto;
     }
   }
 }

@@ -79,7 +79,7 @@ exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/fixed.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
 >

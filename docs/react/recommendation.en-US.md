@@ -18,14 +18,14 @@ Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy
 Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title)
 Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons)
 QR Code | [qrcode.react](https://github.com/zpao/qrcode.react)
-Charts | [g2-react](https://github.com/antvis/g2-react) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
+Charts | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory)
 Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress)
 i18n | [react-intl](https://github.com/yahoo/react-intl)
 Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/react-syntax-highlighter)
 Markdown renderer | [react-markdown](http://rexxars.github.io/react-markdown/)
 Infinite Scroll | [react-virtualized](https://github.com/bvaughn/react-virtualized)
 Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap)
-Emoji | [emoji-mart)](https://github.com/missive/emoji-mart)
+Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 
 <style>
 .markdown table td:first-child {

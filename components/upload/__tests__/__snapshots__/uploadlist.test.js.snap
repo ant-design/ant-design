@@ -45,13 +45,13 @@ exports[`Upload List handle error 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div
@@ -119,13 +119,13 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div
@@ -193,13 +193,13 @@ exports[`Upload List should be uploading when upload a file 2`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div

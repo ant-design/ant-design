@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Button from '../button';
 import { ButtonGroupProps } from '../button/button-group';
 import Icon from '../icon';

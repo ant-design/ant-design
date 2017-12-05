@@ -10,7 +10,7 @@ describe('DatePicker with showTime', () => {
       <DatePicker showTime open onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     calendarWrapper.find('.ant-calendar-date').at(0).simulate('click');
     expect(onChangeFn).toHaveBeenCalled();
     expect(onOpenChangeFn).not.toHaveBeenCalled();
@@ -25,7 +25,7 @@ describe('DatePicker with showTime', () => {
       <DatePicker showTime open onChange={onChangeFn} onOk={onOkFn} onOpenChange={onOpenChangeFn} />
     );
 
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     calendarWrapper.find('.ant-calendar-ok-btn').simulate('click');
     expect(onOkFn).toHaveBeenCalled();
     expect(onOpenChangeFn).toHaveBeenCalledWith(false);
@@ -40,7 +40,7 @@ describe('DatePicker with showTime', () => {
       <DatePicker showTime open onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     calendarWrapper.find('.ant-calendar-today-btn').simulate('click');
     expect(onOpenChangeFn).toHaveBeenCalledWith(false);
     expect(onChangeFn).toHaveBeenCalled();
@@ -50,10 +50,10 @@ describe('DatePicker with showTime', () => {
     const wrapper = mount(
       <DatePicker showTime={{ use12Hours: true }} open />
     );
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(calendarWrapper.find('.ant-calendar-time-picker-column-4').length).toBe(0);
     calendarWrapper.find('.ant-calendar-time-picker-btn').at(0).simulate('click');
-    expect(calendarWrapper.find('.ant-calendar-time-picker-column-4').length).toBe(1);
+    expect(calendarWrapper.find('.ant-calendar-time-picker-column-4').hostNodes().length).toBe(1);
   });
 });
 
@@ -65,7 +65,7 @@ describe('RangePicker with showTime', () => {
       <RangePicker showTime open onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(calendarWrapper.find('.ant-calendar-time-picker-btn').hasClass('ant-calendar-time-picker-btn-disabled')).toBe(true);
     expect(calendarWrapper.find('.ant-calendar-ok-btn').hasClass('ant-calendar-ok-btn-disabled')).toBe(true);
     calendarWrapper.find('.ant-calendar-date').at(10).simulate('click');
@@ -84,7 +84,7 @@ describe('RangePicker with showTime', () => {
       <RangePicker showTime open onOk={onOkFn} onChange={onChangeFn} onOpenChange={onOpenChangeFn} />
     );
 
-    const calendarWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const calendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     calendarWrapper.find('.ant-calendar-date').at(10).simulate('click');
     calendarWrapper.find('.ant-calendar-date').at(11).simulate('click');
     onChangeFn.mockClear();

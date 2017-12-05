@@ -12,6 +12,7 @@
 @slider-tooltip-arrow-color: @slider-tooltip-bg;
 
 .@{slider-prefix-cls} {
+  .reset-component;
   position: relative;
   margin: 10px 6px;
   padding: 4px 0;
@@ -29,15 +30,15 @@
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: @border-color-split;
-    transition: background-color 0.3s ease;
+    background-color: @background-color-base;
+    transition: background-color .3s;
   }
 
   &-track {
     position: absolute;
     height: 4px;
     border-radius: @border-radius-base;
-    background-color: tint(@primary-color, 60%);
+    background-color: @primary-3;
     transition: background-color 0.3s ease;
   }
 
@@ -49,18 +50,18 @@
     height: 14px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px tint(@primary-color, 50%);
+    border: solid 2px @primary-3;
     background-color: @component-background;
-    transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    transition: border-color .3s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
-    &:hover {
-      border-color: @primary-5;
-      transform: scale(1.2);
-      transform-origin: center center;
+    &:focus {
+      border-color: tint(@primary-color, 20%);
+      box-shadow: 0 0 0 5px tint(@primary-color, 50%);
+      outline: none;
     }
 
-    &:active {
-      box-shadow: 0 0 0 2px fadeout(@primary-color, 80%);
+    &.@{ant-prefix}-tooltip-open {
+      border-color: @primary-color;
     }
   }
 
@@ -69,10 +70,10 @@
       background-color: #e1e1e1;
     }
     .@{slider-prefix-cls}-track {
-      background-color: tint(@primary-color, 40%);
+      background-color: @primary-4;
     }
-    .@{slider-prefix-cls}-handle {
-      border-color: @primary-5;
+    .@{slider-prefix-cls}-handle:not(.@{ant-prefix}-tooltip-open) {
+      border-color: @primary-4;
     }
   }
 

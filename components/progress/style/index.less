@@ -4,6 +4,7 @@
 @progress-prefix-cls: ~"@{ant-prefix}-progress";
 
 .@{progress-prefix-cls} {
+  .reset-component;
   display: inline-block;
 
   &-line {
@@ -12,14 +13,19 @@
     position: relative;
   }
 
+  &-small&-line,
+  &-small&-line &-text .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
+  }
+
   &-outer {
     display: inline-block;
     width: 100%;
     margin-right: 0;
     padding-right: 0;
     .@{progress-prefix-cls}-show-info & {
-      padding-right: 2.75em;
-      margin-right: -2.75em;
+      padding-right: ~"calc(2em + 8px)";
+      margin-right: ~"calc(-2em - 8px)";
     }
   }
 
@@ -52,9 +58,11 @@
     width: 2em;
     text-align: left;
     font-size: 1em;
-    margin-left: 0.75em;
+    margin-left: 8px;
     vertical-align: middle;
     display: inline-block;
+    color: @text-color-secondary;
+    line-height: 1;
     .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -114,32 +122,23 @@
     top: 50%;
     transform: translateY(-50%);
     left: 0;
-    font-family: tahoma;
     margin: 0;
+    color: @text-color;
 
     .@{iconfont-css-prefix} {
       font-size: 14 / 12em;
     }
   }
 
-  &-circle &-status-exception {
+  &-circle&-status-exception {
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
   }
-  &-circle &-status-success {
+  &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
     }
-  }
-}
-
-@keyframes ~"@{ant-prefix}-progress-appear" {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
