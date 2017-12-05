@@ -20,6 +20,10 @@ An enterprise-class UI design language and React-based implementation.
 
 [中文 README](README-zh_CN.md)
 
+## 3.0 Released Now! :tada::tada::tada:
+
+[Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c]
+
 ## Features
 
 - An enterprise-class UI design language for web applications.
