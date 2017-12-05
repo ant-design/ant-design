@@ -86,7 +86,7 @@
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "ansi-styles": "^3.2.0",
-    "antd-tools": "^4.0.1",
+    "antd-tools": "^4.0.6",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^8.0.1",
     "babel-plugin-import": "^1.0.0",
