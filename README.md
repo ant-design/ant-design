@@ -22,7 +22,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## 3.0 Released Now! :tada::tada::tada:
 
-[Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c]
+[Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)
 
 ## Features
 
