@@ -183,13 +183,6 @@ export default class Card extends React.Component<CardProps, {}> {
         {loading ? loadingBlock : <div>{children}</div>}
       </div>
     );
-    const mainContent = (
-      <div>
-        {head}
-        {coverDom}
-        {children ? body : null}
-      </div>
-    );
     const actionDom = actions && actions.length ?
       <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul> : null;
     const divProps = omit(others, [
@@ -197,7 +190,9 @@ export default class Card extends React.Component<CardProps, {}> {
     ]);
     return (
       <div {...divProps} className={classString} ref={this.saveRef}>
-        {mainContent}
+        {head}
+        {coverDom}
+        {children ? body : null}
         {actionDom}
       </div>
     );
