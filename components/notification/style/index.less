@@ -3,7 +3,9 @@
 
 @notification-prefix-cls: ~"@{ant-prefix}-notification";
 @notification-width: 384px;
-@notification-padding: 16px 24px;
+@notification-padding-vertical: 16px;
+@notification-padding-horizontal: 24px;
+@notification-padding: @notification-padding-vertical @notification-padding-horizontal;
 @notification-margin-bottom: 16px;
 
 .@{notification-prefix-cls} {
@@ -44,7 +46,7 @@
 
       // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
       &-single-line-auto-margin {
-        width: ~"calc(@{notification-width} - @{notification-padding} * 2 - 24px - 48px - 100%)";
+        width: ~"calc(@{notification-width} - @{notification-padding-horizontal} * 2 - 24px - 48px - 100%)";
         background-color: transparent;
         pointer-events: none;
         display: block;
