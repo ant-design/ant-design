@@ -35,7 +35,6 @@ More layouts with navigation: [layout](/components/layout).
 | mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `vertical-right` \| `horizontal` \| `inline` | `vertical` |
 | multiple | Allow selection of multiple items | boolean | false |
 | openKeys | array with the keys of currently opened sub menus | string\[] |  |
-| selectable | Allow to be selected | boolean | true |
 | selectable | allow selecting menu items | boolean | true |
 | selectedKeys | array with the keys of currently selected menu items | string\[] |  |
 | style | style of the root node | object |  |
