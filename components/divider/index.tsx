@@ -7,7 +7,7 @@ export interface DividerProps {
   className?: string;
   children?: React.ReactNode;
   dashed?: boolean;
-
+  style?: React.CSSProperties;
 }
 
 export default function Divider({
