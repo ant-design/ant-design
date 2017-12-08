@@ -87,7 +87,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       class="ant-select-selection
             ant-select-selection--single"
       role="combobox"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-select-selection__rendered"
