@@ -71,5 +71,6 @@ module.exports = {
     'app.publish.intro': ' has been released, and please upgrade. ',
     'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips': ', or switch version with the select at header navigation.',
+    'app.docs.color.pick-primary': 'Pick your primary color',
   },
 };

@@ -29,7 +29,7 @@ export default class ColorBlock extends Component {
         >
           color-{index}
           <span className="main-color-value">
-            {color}
+            {color.toLowerCase()}
           </span>
         </div>
       </CopyToClipboard>
