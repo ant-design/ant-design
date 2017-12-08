@@ -9,7 +9,7 @@
 @form-component-height: @input-height-base;
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: 14px;
-@form-help-margin-top: -2px;
+@form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
 
 .@{form-prefix-cls} {
   .reset-component;
