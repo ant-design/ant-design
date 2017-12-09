@@ -71,5 +71,6 @@ module.exports = {
     'app.publish.intro': ' 已正式发布，欢迎升级。',
     'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
     'app.publish.old-version-tips': '，也可通过页面右上角的文档版本选择框进行切换。',
+    'app.docs.color.pick-primary': '选择你的主色',
   },
 };

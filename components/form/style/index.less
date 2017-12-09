@@ -7,8 +7,9 @@
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
 @form-component-height: @input-height-base;
+@form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: 14px;
-@form-help-margin-top: 2px;
+@form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -81,7 +82,7 @@ input[type="checkbox"] {
   }
 
   &-control {
-    line-height: @form-component-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
+    line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
     .clearfix;
     > * {
@@ -97,7 +98,7 @@ input[type="checkbox"] {
   &-label {
     text-align: right;
     vertical-align: middle;
-    line-height: @form-component-height - 0.0001px;
+    line-height: @form-component-max-height - 0.0001px;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
@@ -245,11 +246,17 @@ form {
     // Fix https://github.com/ant-design/ant-design/issues/6097
     &:only-child {
       display: block;
+      position: relative;
+      top: (@form-component-max-height - @input-height-base) / 2;
 
       &.@{ant-prefix}-select-sm,
       &.@{ant-prefix}-cascader-picker-small {
-        position: relative;
-        top: (@input-height-base - @input-height-sm) / 2;
+        top: (@form-component-max-height - @input-height-sm) / 2;
+      }
+
+      &.@{ant-prefix}-select-lg,
+      &.@{ant-prefix}-cascader-picker-large {
+        top: (@form-component-max-height - @input-height-lg) / 2;
       }
     }
   }
@@ -265,9 +272,15 @@ form {
   .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
     &:only-child {
       display: inline-block;
+      top: 0;
 
       &.@{ant-prefix}-select-sm,
       &.@{ant-prefix}-cascader-picker-small {
+        top: 0;
+      }
+
+      &.@{ant-prefix}-select-lg,
+      &.@{ant-prefix}-cascader-picker-large {
         top: 0;
       }
     }
@@ -275,31 +288,15 @@ form {
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
   .@{ant-prefix}-input-group-wrapper {
-    &.@{ant-prefix}-input-group-wrapper-sm {
-      position: relative;
-      top: (@input-height-base - @input-height-sm) / 2;
-    }
-  }
-
-  // fix large size vertical align. https://github.com/ant-design/ant-design/issues/8336
-  .@{ant-prefix}-input-lg,
-  .@{ant-prefix}-input-number-lg,
-  .@{ant-prefix}-cascader-picker-large,
-  .@{ant-prefix}-select-lg,
-  .@{ant-prefix}-calendar-picker-large,
-  .@{ant-prefix}-time-picker-large,
-  .@{ant-prefix}-radio-group-large,
-  .@{ant-prefix}-input-group-wrapper-lg .@{ant-prefix}-input-group-addon {
     position: relative;
-    top: (@input-height-base - @input-height-lg) / 2;
-  }
+    top: (@form-component-max-height - @input-height-base) / 2;
 
-  .@{ant-prefix}-cascader-picker-large,
-  .@{ant-prefix}-calendar-picker-large,
-  .@{ant-prefix}-input-group-wrapper-lg .@{ant-prefix}-input-group-addon {
-    .@{ant-prefix}-input-lg,
-    .@{ant-prefix}-select-lg {
-      top: 0;
+    &.@{ant-prefix}-input-group-wrapper-lg {
+      top: (@form-component-max-height - @input-height-lg) / 2;
+    }
+
+    &.@{ant-prefix}-input-group-wrapper-sm {
+      top: (@form-component-max-height - @input-height-sm) / 2;
     }
   }
 }
@@ -316,7 +313,7 @@ form {
 
   .@{ant-prefix}-select-selection--single {
     margin-left: -1px;
-    height: @input-height-base;
+    height: @input-height-lg;
     background-color: #eee;
     .@{ant-prefix}-select-selection__rendered {
       padding-left: 8px;
@@ -436,8 +433,8 @@ form {
     right: 0;
     visibility: visible;
     pointer-events: none;
-    .square(@input-height-base);
-    line-height: @input-height-base;
+    .square(@form-component-max-height);
+    line-height: @form-component-max-height;
     text-align: center;
     font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;

@@ -13,7 +13,7 @@ function animate(node: HTMLElement, show: boolean, done: () => void) {
         node.style.opacity = '1';
       } else {
         height = node.offsetHeight;
-        node.style.height = '0 px';
+        node.style.height = '0px';
         node.style.opacity = '0';
       }
     },

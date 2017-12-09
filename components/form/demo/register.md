@@ -174,7 +174,7 @@ class RegistrationForm extends React.Component {
           label={(
             <span>
               Nickname&nbsp;
-              <Tooltip title="What do you want other to call you?">
+              <Tooltip title="What do you want others to call you?">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>

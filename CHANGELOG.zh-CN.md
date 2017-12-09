@@ -188,7 +188,7 @@ timeline: true
 
 - 在 TypeScript 中使用时不再需要设置 `allowSyntheticDefaultImports`。
 - 从 `peerDependencies` 中移除了 `react@0.14` 和 `react@15`，虽然目前 antd 3.0.0 依然可以在旧版本的 React 上使用，但是我们在未来有可能使用 React 16 的新特性，所以强烈建议升级到 React 16，见[升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html)。
-- 全面支持 ES Module ，antd 及其依赖的底层 react-component 组件全部提供了 ES Module 的构建版本，如果你使用 webpack 3，可以把 `babel-import-plugin` 的 `libraryDirectory` 设置为 `es`，以获得 Tree Shaking 的优化效果。
+- 全面支持 ES Module ，antd 及其依赖的底层 react-component 组件全部提供了 ES Module 的构建版本，如果你使用 webpack 3，可以把 `babel-plugin-import` 的 `libraryDirectory` 设置为 `es`，以获得 Tree Shaking 的优化效果。
 - 最后，我们会继续维护 2.x 的分支到明年 6 月份。
 
 ## 2.x

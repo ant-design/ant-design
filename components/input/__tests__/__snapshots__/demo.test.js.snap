@@ -710,7 +710,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
   <br />
   <br />
   <span
-    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-affix-wrapper"
+    class="ant-input-search ant-input-search-enter-button ant-input-search-large ant-input-affix-wrapper ant-input-affix-wrapper-lg"
   >
     <input
       class="ant-input ant-input-lg"

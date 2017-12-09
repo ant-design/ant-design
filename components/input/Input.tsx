@@ -186,9 +186,13 @@ export default class Input extends React.Component<InputProps, any> {
       </span>
     ) : null;
 
+    const affixWrapperCls = classNames(props.className, `${props.prefixCls}-affix-wrapper`, {
+      [`${props.prefixCls}-affix-wrapper-sm`]: props.size === 'small',
+      [`${props.prefixCls}-affix-wrapper-lg`]: props.size === 'large',
+    });
     return (
       <span
-        className={classNames(props.className, `${props.prefixCls}-affix-wrapper`)}
+        className={affixWrapperCls}
         style={props.style}
       >
         {prefix}

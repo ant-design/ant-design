@@ -30,9 +30,10 @@ export default {
     okText: '确定',
   },
   Transfer: {
-    titles: ['', ''],
-    searchPlaceholder: 'Search',
-    notFoundContent: 'Not Found',
+    notFoundContent: '无匹配结果',
+    searchPlaceholder: '请输入搜索内容',
+    itemUnit: '项',
+    itemsUnit: '项',
   },
   Select: {
     notFoundContent: '无匹配结果',

@@ -14,6 +14,7 @@ const COLOR_MAP = {
   '#096dd9': 'color(~`colorPalette("@{primary-color}", 7)`)', // @primary-7
   '#46a6ff': 'tint(@primary-color, 20%)',
   '#8cc8ff': 'tint(@primary-color, 50%)',
+  'rgba\\(24, 144, 255, 0.2\\)': 'fade(@primary-color, 20%)',
 };
 
 const reducePlugin = postcss.plugin('reducePlugin', () => {

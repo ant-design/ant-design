@@ -69,6 +69,7 @@ import { LocaleProvider, DatePicker, message } from 'antd';
 import frFR from 'antd/lib/locale-provider/fr_FR';
 import moment from 'moment';
 import 'moment/locale/fr';
+
 moment.locale('fr');
 
 class App extends React.Component {

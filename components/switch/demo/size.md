@@ -18,9 +18,9 @@ import { Switch } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Switch />
+    <Switch defaultChecked />
     <br />
-    <Switch size="small" />
+    <Switch size="small" defaultChecked />
   </div>
 , mountNode);
 ````
