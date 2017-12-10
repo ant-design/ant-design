@@ -50,18 +50,10 @@
       transition: all .3s;
       width: 14px;
       font-weight: normal;
+      vertical-align: text-bottom;
 
       &:hover {
         color: @text-color;
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        width: 14px;
-        height: 50px;
-        left: 0;
-        top: -19px;
       }
     }
 
@@ -218,6 +210,7 @@
     margin-left: 8px;
     display: inline-block;
     width: 14px;
+    height: 14px;
     vertical-align: middle;
     text-align: center;
     font-weight: normal;
@@ -225,7 +218,7 @@
 
     &-up,
     &-down {
-      line-height: 4px;
+      line-height: 6px;
       display: block;
       width: 14px;
       height: 6px;
@@ -243,18 +236,18 @@
       &:after {
         position: absolute;
         content: '';
-        height: 20px;
+        height: 30px;
         width: 14px;
         left: 0;
       }
     }
 
     &-up:after {
-      top: -19px;
+      top: -30px;
     }
 
     &-down:after {
-      bottom: -17px;
+      bottom: -30px;
     }
 
     .@{iconfont-css-prefix}-caret-up,
