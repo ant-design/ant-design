@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-The example of infinite & virtualized load with [react-virtualized](https://github.com/bvaughn/react-virtualized). [Learned more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
+An example of infinite list & virtualized loading using [react-virtualized](https://github.com/bvaughn/react-virtualized). [Learn more](https://blog.jscrambler.com/optimizing-react-rendering-through-virtualization/)
 
-`virtualized` is a technology which use to mount big data, to reducing the render dom witch not visible.
+`Virtualized` rendering is a technique to mount big sets of data. It reduces the amount of rendered DOM nodes by tracking and hiding whatever isn't currently visible.
 
 ````jsx
 import { List, message, Avatar, Spin } from 'antd';
