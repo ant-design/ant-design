@@ -157,10 +157,12 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     if (scrollTop > elemOffset.top - (offsetTop as number) && offsetMode.top) {
       // Fixed Top
       const width = elemOffset.width;
+      const top = targetRect.top + (offsetTop as number);
       this.setAffixStyle(e, {
         position: 'fixed',
-        top: targetRect.top + (offsetTop as number),
+        top,
         left: targetRect.left + elemOffset.left,
+        maxHeight: `calc(100vh - ${top}px)`,
         width,
       });
       this.setPlaceholderStyle({
