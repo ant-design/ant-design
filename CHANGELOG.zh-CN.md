@@ -77,7 +77,8 @@ timeline: true
   );
   ```
 
-- Form 下的表单控件不再默认为 size="large"。
+- Form 下的表单控件不再默认为 `size="large"`。
+- `Input.Search` 默认的 🔍 图标只作为装饰，不再响应用户交互。需要添加可交互按钮请使用 `enterButton`。
 - UMD 版本的  `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
   ```diff
   <html>
@@ -109,6 +110,7 @@ timeline: true
 - 🌟 Steps 进行了重构，首次渲染的时候不会再闪烁。 [#6010](https://github.com/ant-design/ant-design/issues/6010)
 - 🌟 Switch 新增 `loading` 属性，用于表现加载中的状态。
 - Menu
+  - 🌟 我们使用了 [rc-trigger](https://github.com/react-component/trigger) 重构了菜单以支持延迟加载和窗口边缘浮层自适应方向。
   - 🌟 新增 `subMenuOpenDelay` 和 `subMenuCloseDelay`，用于设置子菜单打开和关闭的延迟。
   - 🌟 新增 `forceSubMenuRender`，用于强制渲染子菜单。[#5586](https://github.com/ant-design/ant-design/issues/5586)
 - Form

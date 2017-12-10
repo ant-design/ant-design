@@ -67,6 +67,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 - Since we changed default locale to en_US, LocalProvider is not required any more for English users.
 - We don't set `size="large"` to `Input` in `Form` by default any more.
+- `Input.Search` 🔍 icon don't be interactive anymore, you can use new `enterButton` prop to add a button after input.
 - UMD version of `dist/antd.js` doesn't include moment any more, you need add moment by yourself if you are using the UMD version.
   ```diff
   <html>
@@ -98,6 +99,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 - 🌟 Steps was refactored, first rendering won't flash. [#6010](https://github.com/ant-design/ant-design/issues/6010)
 - 🌟 Switch added new `loading` prop to show a loading status.
 - Menu
+  - 🌟 We refactored it with [rc-trigger](https://github.com/react-component/trigger) for delay popup and auto overflow in viewport.
   - 🌟 Added new `subMenuOpenDelay` and `subMenuCloseDelay` props to allow setting delay time for submenu toggling.
   - 🌟 Added new `forceSubMenuRender` prop to render submenu even if it's collapsed. [#5586](https://github.com/ant-design/ant-design/issues/5586)
 - Form
