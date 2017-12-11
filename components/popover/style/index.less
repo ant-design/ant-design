@@ -102,15 +102,10 @@
     width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
     transform: rotate(45deg);
-    &,
-    &:after {
-      position: absolute;
-      display: block;
-      width: 0;
-      height: 0;
-      border-color: transparent;
-      border-style: solid;
-    }
+    position: absolute;
+    display: block;
+    border-color: transparent;
+    border-style: solid;
   }
 
   &-placement-top > &-content > &-arrow,
