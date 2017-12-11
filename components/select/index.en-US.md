@@ -52,6 +52,7 @@ Select component to select value from options.
 | onFocus | Called when focus | function | - |
 | onMouseEnter | Called when mouse enter | function | - |
 | onMouseLeave | Called when mouse leave | function | - |
+| onInputKeyDown | Called when key pressed | function | - |
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option) | - |
