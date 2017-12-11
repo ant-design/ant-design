@@ -9,7 +9,7 @@ import defaultLocale from '../locale-provider/default';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
-export { SearchProps } from './search';
+export { TransferSearchProps } from './search';
 
 function noop() {
 }
