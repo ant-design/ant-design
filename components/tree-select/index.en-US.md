@@ -24,7 +24,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | dropdownStyle | To set the style of the dropdown menu | object | - |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
-| labelInValue | whether to embed label in value, turn the format of value from `string` to \`{key: string, label: ReactNode, halfChecked: string\[]} \| boolean \| false |  |  |
+| labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode, halfChecked: string[]}` | boolean | false |
 | loadData | Load data asynchronously. | function(node) | - |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | boolean | false |
 | placeholder | Placeholder of the select input | string | - |
