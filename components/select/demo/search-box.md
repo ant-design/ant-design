@@ -70,7 +70,6 @@ class SearchInput extends React.Component {
         mode="combobox"
         value={this.state.value}
         placeholder={this.props.placeholder}
-        notFoundContent=""
         style={this.props.style}
         defaultActiveFirstOption={false}
         showArrow={false}
