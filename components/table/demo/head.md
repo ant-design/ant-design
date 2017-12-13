@@ -92,9 +92,7 @@ function onChange(pagination, filters, sorter) {
   console.log('params', pagination, filters, sorter);
 }
 
-ReactDOM.render(<Table
-  columns={columns}
-  dataSource={data}
-  onChange={onChange}
-/>, mountNode);
+ReactDOM.render(
+  <Table columns={columns} dataSource={data} onChange={onChange} />
+, mountNode);
 ````

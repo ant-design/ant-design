@@ -26,8 +26,6 @@ A form field is defined using `<Form.Item />`.
 </Form.Item>
 ```
 
-> PS：By default, large size controls are used within a form.
-
 ## API
 
 ### Form

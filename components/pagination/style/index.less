@@ -291,6 +291,10 @@
     line-height: @pagination-item-size-sm;
   }
 
+  &.mini &-item:not(&-item-active) {
+    background: transparent;
+  }
+
   &.mini &-prev,
   &.mini &-next {
     margin: 0;
@@ -302,6 +306,7 @@
   &.mini &-prev &-item-link,
   &.mini &-next &-item-link {
     border: 0;
+    background: transparent;
     &:after {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;

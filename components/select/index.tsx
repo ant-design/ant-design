@@ -134,8 +134,9 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: isCombobox,
     };
 
+    // AutoComplete don't have notFoundContent defaultly
     const notFoundContentLocale = isCombobox ?
-      null : notFoundContent || locale.notFoundContent;
+      (notFoundContent || '') : (notFoundContent || locale.notFoundContent);
     return (
       <RcSelect
         {...restProps}

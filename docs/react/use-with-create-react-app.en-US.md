@@ -148,7 +148,7 @@ $ yarn add babel-plugin-import --dev
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles and import components like below:
 
 ```diff
-  // scr/App.js
+  // src/App.js
   import React, { Component } from 'react';
 - import Button from 'antd/lib/button';
 + import { Button } from 'antd';
