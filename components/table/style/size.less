@@ -1,17 +1,18 @@
 .@{table-prefix-cls}-middle {
+  > .@{table-prefix-cls}-title,
+  > .@{table-prefix-cls}-footer {
+    padding: 12px 8px;
+  }
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-body > table {
+    > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table {
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
         padding: 12px 8px;
       }
     }
-  }
-
-  .@{table-prefix-cls}-title,
-  .@{table-prefix-cls}-footer {
-    padding: 12px 8px;
   }
 }
 
@@ -19,9 +20,21 @@
   border: @border-width-base @border-style-base @border-color-split;
   border-radius: @border-radius-base;
 
+  > .@{table-prefix-cls}-title,
+  > .@{table-prefix-cls}-footer {
+    padding: 8px;
+  }
+
+  > .@{table-prefix-cls}-title {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    top: 0;
+  }
+
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-body > table {
+    > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table {
       border: 0;
       padding: 0 8px;
       > .@{table-prefix-cls}-thead > tr > th,
@@ -32,16 +45,6 @@
         background: @component-background;
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer {
-      padding: 8px;
-    }
-
-    .@{table-prefix-cls}-title {
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-      top: 0;
     }
 
     .@{table-prefix-cls}-header {
