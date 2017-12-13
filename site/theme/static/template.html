@@ -48,7 +48,7 @@
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
       if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
-        var lang = (window.localStorage && localStorage.getItem('locale')) || (navigator.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : 'en-US');
+        var lang = (window.localStorage && localStorage.getItem('locale')) || ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn' ? 'zh-CN' : 'en-US');
         // safari is 'zh-cn', while other browser is 'zh-CN';
         if ((lang === 'zh-CN') !== isZhCN(pathname)) {
           location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
