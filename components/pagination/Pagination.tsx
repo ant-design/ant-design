@@ -13,6 +13,7 @@ export interface PaginationProps {
   defaultPageSize?: number;
   pageSize?: number;
   onChange?: (page: number, pageSize?: number) => void;
+  hideOnSinglePage?: boolean;
   showSizeChanger?: boolean;
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
