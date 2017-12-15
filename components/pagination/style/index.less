@@ -65,19 +65,21 @@
     }
 
     &-active {
-      background-color: @primary-color;
       border-color: @primary-color;
+      font-weight: 500;
+
+      a {
+        color: @primary-color;
+      }
 
       &:focus,
       &:hover {
-        background-color: @primary-5;
         border-color: @primary-5;
       }
 
-      a,
       &:focus a,
       &:hover a {
-        color: #fff;
+        color: @primary-5;
       }
     }
   }
@@ -156,7 +158,7 @@
     }
 
     &:hover a {
-      color: @primary-color;
+      border-color: @primary-5;
     }
 
     .@{pagination-prefix-cls}-item-link {
@@ -284,7 +286,6 @@
   }
 
   &.mini &-item {
-    border: 0;
     margin: 0;
     min-width: @pagination-item-size-sm;
     height: @pagination-item-size-sm;
@@ -293,6 +294,7 @@
 
   &.mini &-item:not(&-item-active) {
     background: transparent;
+    border-color: transparent;
   }
 
   &.mini &-prev,
@@ -305,7 +307,7 @@
 
   &.mini &-prev &-item-link,
   &.mini &-next &-item-link {
-    border: 0;
+    border-color: transparent;
     background: transparent;
     &:after {
       height: @pagination-item-size-sm;
