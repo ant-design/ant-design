@@ -2,57 +2,63 @@
 
 The following is a set of guidelines for contributing to Ant Design. Please spend several minutes in reading these guidelines before you create an issue or pull request.
 
-Anyway, these are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
+## Code of Conduct
 
+We have adopted a [Code of Conduct](../CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.
 
-## Do your homework before asking a question
+## Open Development
 
-It's a great idea to read Eric Steven Raymond's [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html) twice before asking a question. But if you are busy now, I recommend to read [Don't post homework questions](http://www.catb.org/esr/faqs/smart-questions.html#homework) first.
+All work on Ant Design happens directly on [GitHub](https://github.com/ant-design). Both core team members and external contributors send pull requests which go through the same review process.
 
-The following guidelines are about *How to avoid Homework Questions*.
+## Branch Organization
 
-### 1. Read the documentation.
+According to our [release schedule](../CHANGELOG.md#release-schedule), we'll cut a `feature` branch (e.g. `feature-3.1` for 3.1 release) from `master` every month. If you send a bugfix pull request, please do it against the `master` branch, if it's a feature pull request, please do it against the `feature` branch.
 
-It sad but true that someone just glance(not read) [Ant Design's documentation](http://ant.design/). Please read the documentation closely. What's more, you can modify and run our demo with [CodePen](http://codepen.io/benjycui/pen/KgPZrE?editors=001). It's helpful to understand our documentation.
+## Bugs
 
-Tips: choose the corresponding documentation with versions selector which in the bottom-right corner.
+We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reprduction with this [template](https://u.ant.design/codesandbox-repro).
 
-### 2. Make sure that your question is about Ant Design, not React
+Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ).
 
-Someone may think all of the questions that he/she meets in developing are about Ant Design, but it's not true. So, please read [React's documentation](http://facebook.github.io/react/docs/getting-started.html) or just Google (not Baidu, seriously) your questions with keyword *React* first. If you are sure that your question is about Ant Design, go ahead.
+## Proposing a Change
 
-### 3. Read the FAQ and search the issues list of Ant Design
+If you intend to change the public API or introduce new feature, we also recommend use our [issue helper](http://new-issue.ant.design) to create a feature request issue.
 
-Your questions may be asked and solved by others. So please spend several minutes on searching. Remember [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), both code and questions.
+## Your First Pull Request
 
-P.S.
+Working on your first Pull Request? You can learn how from this free video series:
 
-1. [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-1. [Issues list](https://github.com/ant-design/ant-design/issues)
+[How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-## Close your issue if it's solved
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/ant-design/ant-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) that contain bugs or small features that have a relatively limited scope. This is a great place to get started.
 
-It is a good habit which will save maintainers' time. Thank you!
+If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t accidentally duplicate your effort.
 
-## Providing a demo while reporting a bug
+If somebody claims an issue but doesn’t follow up for more than two weeks, it’s fine to take over it but you should still leave a comment.
 
-It would be helpful to provide a demo which can re-produce the bug 100%. Please fork this [CodePen](http://codepen.io/benjycui/pen/KgPZrE?editors=001) and re-produce the bug you met. Then, create an issue. The most important thing is: double check before claiming that you have found a bug.
+## Sending a Pull Request
 
+The core team is monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation.
 
-## Tips about Feature Request
+**Before submitting a pull request**, please make sure the following is done:
 
-If you believe that Ant Design should provide some features, but it does not. You could create an issue to discuss. However, Ant Design is not Swiss Army Knife, there are some features which Ant Design will not support:
+1. Fork the repository and create your branch from [proper branch](./CONTRIBUTING.md#branch-organization).
+1. Run `npm install` in the repository root.
+1. If you’ve fixed a bug or added code that should be tested, add tests!
+1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
+1. Run `npm test -- -u` to update [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if has).
+1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit`.
 
-1. Request or operate data
+Sending a Pull Request to [react-component](https://github.com/react-component/):
 
+Since antd's components are based on react-component, sometimes you may need to send pull request to the corresponding react-component repository. If it's a bugfix pull request, after it's merged, the core team will release a patch release for that component as soon as possible, then you only need to do is reinstalling antd in your project to get the latest patch release. If it's a feature pull request, after it's merged, the core team will release a minor release, then you need raise another pull request to [Ant Design](https://github.com/ant-design/ant-design/) to update dependencies, document and TypeScript interfaces (if needed).
 
-## Tips about Pull Request
+## Development Workflow
 
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+After cloning antd, run `npm install` to fetch its dependencies. Then, you can run several commands:
 
-It's welcomed to pull request. And there are some tips about that:
-
-1. It is a good habit to create a feature request issue to discuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentation, just create a pull request.
-1. Run `npm run lint` and fix those errors before committing in order to keep consistent code style.
-1. Rebase before creating a PR to keep commit history clear.
-1. Add some descriptions and refer relative issues for you PR.
+1. `npm start` runs Ant Design website locally.
+1. `npm run lint` checks the code style.
+1. `npm test` runs the complete test suite.
+1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
+1. `npm run dist` creates UMD build of antd.
