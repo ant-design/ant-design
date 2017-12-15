@@ -59,7 +59,7 @@ Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-desi
 
 ### Breaking Changes
 
-We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find depracated usages in your codebase.
+We provide a [migration tool](https://github.com/ant-design/antd-migration-helper) to help you find deprecated usages in your codebase.
 
 - Card's `noHovering` has been renamed to `hoverable`，and its default value now is `true`.
 - Added new Grid breakpoints. [#7230](https://github.com/ant-design/ant-design/pull/7230)
