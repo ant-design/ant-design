@@ -68,6 +68,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   };
   static contextTypes = {
     siderCollapsed: PropTypes.bool,
+    collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
   switchModeFromInline: boolean;
   inlineOpenKeys: string[] = [];
@@ -223,6 +224,15 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       menuProps.openTransitionName = menuOpenAnimation;
     } else {
       menuProps.openAnimation = menuOpenAnimation;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/8587
+    const { collapsedWidth } = this.context;
+    if (
+      this.getInlineCollapsed() &&
+      (collapsedWidth === 0 || collapsedWidth === '0' || collapsedWidth === '0px')
+    ) {
+      return null;
     }
 
     return <RcMenu {...this.props} {...menuProps} />;

@@ -79,6 +79,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
 
   static childContextTypes = {
     siderCollapsed: PropTypes.bool,
+    collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
 
   static contextTypes = {
@@ -113,6 +114,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
   getChildContext() {
     return {
       siderCollapsed: this.state.collapsed,
+      collapsedWidth: this.props.collapsedWidth,
     };
   }
 
@@ -182,7 +184,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
       'defaultCollapsed', 'onCollapse', 'breakpoint']);
     const siderWidth = this.state.collapsed ? collapsedWidth : width;
     // special trigger when collapsedWidth == 0
-    const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' ? (
+    const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' || collapsedWidth === '0px' ? (
       <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
         <Icon type="bars" />
       </span>
@@ -212,7 +214,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: !!trigger,
       [`${prefixCls}-below`]: !!this.state.below,
-      [`${prefixCls}-zero-width`]: siderWidth === 0 || siderWidth === '0',
+      [`${prefixCls}-zero-width`]: siderWidth === 0 || siderWidth === '0' || siderWidth === '0px',
     });
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
