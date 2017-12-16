@@ -188,22 +188,16 @@
 
   &-meta {
     margin: -4px 0;
-
-    &-content {
-      display: table-row;
-    }
+    .clearfix;
 
     &-avatar {
       padding-right: 16px;
-      display: table-cell;
+      float: left;
     }
 
     &-detail {
-      display: table-cell;
-      vertical-align: top;
-      position: relative;
-
-      & > div:not(:last-child) {
+      overflow: hidden;
+      > div:not(:last-child) {
         margin-bottom: 8px;
       }
     }
@@ -211,7 +205,6 @@
     &-title {
       font-size: @font-size-lg;
       text-overflow: ellipsis;
-      width: 100%;
       overflow: hidden;
       white-space: nowrap;
       color: @card-head-color;

@@ -24,10 +24,8 @@ export default (props: CardMetaProps) => {
     </div> : null;
   return (
     <div {...others} className={classString}>
-      <div className={`${prefixCls}-meta-content`}>
-        {avatarDom}
-        {MetaDetail}
-      </div>
+      {avatarDom}
+      {MetaDetail}
     </div>
   );
 };
