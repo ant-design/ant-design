@@ -84,7 +84,9 @@ export default class MainContent extends React.Component {
       clearTimeout(this.timer);
     }
     this.timer = setTimeout(() => {
-      window.location.hash = window.location.hash;
+      if (window.location.hash) {
+        window.location.hash = window.location.hash;
+      }
     }, 10);
   }
 
