@@ -47,7 +47,6 @@ ReactDOM.render(
     size="large"
     pagination={pagination}
     dataSource={listData}
-    bordered
     renderItem={item => (
       <List.Item
         key={item.title}

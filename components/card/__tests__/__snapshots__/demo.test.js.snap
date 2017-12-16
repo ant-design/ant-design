@@ -106,21 +106,17 @@ exports[`renders ./components/card/demo/flexible-content.md correctly 1`] = `
         class="ant-card-meta"
       >
         <div
-          class="ant-card-meta-content"
+          class="ant-card-meta-detail"
         >
           <div
-            class="ant-card-meta-detail"
+            class="ant-card-meta-title"
           >
-            <div
-              class="ant-card-meta-title"
-            >
-              Europe Street beat
-            </div>
-            <div
-              class="ant-card-meta-description"
-            >
-              www.instagram.com
-            </div>
+            Europe Street beat
+          </div>
+          <div
+            class="ant-card-meta-description"
+          >
+            www.instagram.com
           </div>
         </div>
       </div>
@@ -492,32 +488,28 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
         class="ant-card-meta"
       >
         <div
-          class="ant-card-meta-content"
+          class="ant-card-meta-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-circle ant-avatar-image"
+          >
+            <img
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-card-meta-detail"
         >
           <div
-            class="ant-card-meta-avatar"
+            class="ant-card-meta-title"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
+            Card title
           </div>
           <div
-            class="ant-card-meta-detail"
+            class="ant-card-meta-description"
           >
-            <div
-              class="ant-card-meta-title"
-            >
-              Card title
-            </div>
-            <div
-              class="ant-card-meta-description"
-            >
-              This is the description
-            </div>
+            This is the description
           </div>
         </div>
       </div>
