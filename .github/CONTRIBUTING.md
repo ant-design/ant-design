@@ -1,5 +1,7 @@
 # Contributing to Ant Design
 
+[中文版](./CONTRIBUTING.zh-CN.md)
+
 The following is a set of guidelines for contributing to Ant Design. Please spend several minutes in reading these guidelines before you create an issue or pull request.
 
 ## Code of Conduct
