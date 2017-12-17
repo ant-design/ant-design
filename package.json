@@ -39,7 +39,7 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "array-tree-filter": "~1.0.0",
+    "array-tree-filter": "^2.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
     "create-react-class": "^15.6.0",
@@ -95,8 +95,8 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "bezier-easing": "^2.0.3",
-    "bisheng": "^0.27.0",
-    "bisheng-plugin-antd": "^0.15.0",
+    "bisheng": "^0.28.0",
+    "bisheng-plugin-antd": "^0.16.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.6.0",
     "bisheng-plugin-toc": "^0.4.0",
