@@ -232,7 +232,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
 
 ## 2.x
 
-Visit [GitHub](https://github.com/ant-design/ant-design/blob/2.x-stable/CHANGELOG.md) to read `2.x` change logs.
+Visit [GitHub](https://github.com/ant-design/ant-design/blob/2.x-stable/CHANGELOG.en-US.md) to read `2.x` change logs.
 
 
 ## 1.11.4

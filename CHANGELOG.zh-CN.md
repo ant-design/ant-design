@@ -242,7 +242,7 @@ timeline: true
 
 ## 2.x
 
-去 [GitHub](https://github.com/ant-design/ant-design/blob/2.x-stable/CHANGELOG.md) 查看 `2.x` 的 Change Log。
+去 [GitHub](https://github.com/ant-design/ant-design/blob/2.x-stable/CHANGELOG.zh-CN.md) 查看 `2.x` 的 Change Log。
 
 ## 1.11.4
 
