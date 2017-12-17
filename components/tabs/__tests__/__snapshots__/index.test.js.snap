@@ -101,6 +101,11 @@ exports[`Tabs tabPosition remove card 1`] = `
                     key="1"
                     onClick={[Function]}
                     role="tab"
+                    style={
+                      Object {
+                        "marginRight": undefined,
+                      }
+                    }
                   >
                     foo
                   </div>
