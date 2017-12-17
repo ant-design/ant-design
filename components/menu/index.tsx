@@ -71,6 +71,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     collapsedWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
   switchModeFromInline: boolean;
+  leaveAnimationExecutedWhenInlineCollapsed: boolean;
   inlineOpenKeys: string[] = [];
   constructor(props: MenuProps) {
     super(props);
@@ -147,7 +148,8 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   }
   getRealMenuMode() {
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.switchModeFromInline && inlineCollapsed) {
+    if (this.switchModeFromInline && inlineCollapsed && this.leaveAnimationExecutedWhenInlineCollapsed) {
+      this.leaveAnimationExecutedWhenInlineCollapsed = false;
       return 'inline';
     }
     const { mode } = this.props;
@@ -186,6 +188,8 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
             leave: (node: HTMLElement, done: () => void) => animation.leave(node, () => {
               // Make sure inline menu leave animation finished before mode is switched
               this.switchModeFromInline = false;
+              // Fix https://github.com/ant-design/ant-design/issues/8475
+              this.leaveAnimationExecutedWhenInlineCollapsed = true;
               this.setState({});
               // when inlineCollapsed change false to true, all submenu will be unmounted,
               // so that we don't need handle animation leaving.
