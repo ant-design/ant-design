@@ -138,7 +138,6 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    jest.useRealTimers();
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
@@ -158,14 +157,39 @@ describe('Menu', () => {
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ inlineCollapsed: true });
-    setTimeout(() => {
-      // 动画结束后套样式;
-      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
-      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
-      wrapper.setProps({ inlineCollapsed: false });
-      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-      expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
-    }, 300);
+    jest.runAllTimers();
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(true);
+    wrapper.setProps({ inlineCollapsed: false });
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+  });
+
+  it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
+    const wrapper = mount(
+      <Menu defaultOpenKeys={['not-existed']} mode="inline">
+        <Menu.Item key="menu1">
+          <Icon type="inbox" />
+          <span>Option</span>
+        </Menu.Item>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="submenu1">
+            Option
+          </Menu.Item>
+          <Menu.Item key="submenu2">
+            Option
+          </Menu.Item>
+        </SubMenu>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    wrapper.setProps({ inlineCollapsed: true });
+    jest.runAllTimers();
+    wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
+    jest.runAllTimers();
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-vertical')).toBe(true);
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-open')).toBe(true);
+    expect(wrapper.find('.ant-menu-sub').length).toBe(1);
   });
 
   it('should open submenu when click submenu title (inline)', () => {

@@ -63,6 +63,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     siderCollapsed: PropTypes.bool,
   };
   switchModeFromInline: boolean;
+  leaveAnimationExecutedWhenInlineCollapsed: boolean;
   inlineOpenKeys = [];
   constructor(props) {
     super(props);
@@ -138,7 +139,8 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   getRealMenuMode() {
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.switchModeFromInline && inlineCollapsed) {
+    if (this.switchModeFromInline && inlineCollapsed && this.leaveAnimationExecutedWhenInlineCollapsed) {
+      this.leaveAnimationExecutedWhenInlineCollapsed = false;
       return 'inline';
     }
     const { mode } = this.props;
@@ -175,6 +177,8 @@ export default class Menu extends React.Component<MenuProps, any> {
             leave: (node, done) => animation.leave(node, () => {
               // Make sure inline menu leave animation finished before mode is switched
               this.switchModeFromInline = false;
+              // Fix https://github.com/ant-design/ant-design/issues/8475
+              this.leaveAnimationExecutedWhenInlineCollapsed = true;
               this.setState({});
               done();
             }),
