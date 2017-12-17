@@ -173,7 +173,6 @@
         font-size: 12px;
         display: block;
         height: @pagination-item-size - 2px;
-        line-height: @pagination-item-size - 2px;
         font-family: "anticon";
         text-align: center;
         font-weight: 500;
@@ -231,6 +230,7 @@
 
     &-quick-jumper {
       display: inline-block;
+      vertical-align: top;
       height: @input-height-base;
       line-height: @input-height-base;
 
@@ -251,6 +251,7 @@
       border: 0;
       height: @pagination-item-size-sm;
       &:after {
+        height: @pagination-item-size-sm;
         line-height: @pagination-item-size-sm;
       }
     }
