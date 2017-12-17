@@ -171,7 +171,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月27日"
+                        title="1999/12/27"
                       >
                         <div
                           aria-disabled="false"
@@ -184,7 +184,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月28日"
+                        title="1999/12/28"
                       >
                         <div
                           aria-disabled="false"
@@ -197,7 +197,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月29日"
+                        title="1999/12/29"
                       >
                         <div
                           aria-disabled="false"
@@ -210,7 +210,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月30日"
+                        title="1999/12/30"
                       >
                         <div
                           aria-disabled="false"
@@ -223,7 +223,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月31日"
+                        title="1999/12/31"
                       >
                         <div
                           aria-disabled="false"
@@ -236,7 +236,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-selected-day"
                         role="gridcell"
-                        title="2000年1月1日"
+                        title="2000/01/01"
                       >
                         <div
                           aria-disabled="false"
@@ -249,7 +249,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月2日"
+                        title="2000/01/02"
                       >
                         <div
                           aria-disabled="false"
@@ -267,7 +267,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月3日"
+                        title="2000/01/03"
                       >
                         <div
                           aria-disabled="false"
@@ -280,7 +280,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月4日"
+                        title="2000/01/04"
                       >
                         <div
                           aria-disabled="false"
@@ -293,7 +293,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月5日"
+                        title="2000/01/05"
                       >
                         <div
                           aria-disabled="false"
@@ -306,7 +306,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月6日"
+                        title="2000/01/06"
                       >
                         <div
                           aria-disabled="false"
@@ -319,7 +319,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月7日"
+                        title="2000/01/07"
                       >
                         <div
                           aria-disabled="false"
@@ -332,7 +332,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月8日"
+                        title="2000/01/08"
                       >
                         <div
                           aria-disabled="false"
@@ -345,7 +345,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月9日"
+                        title="2000/01/09"
                       >
                         <div
                           aria-disabled="false"
@@ -363,7 +363,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月10日"
+                        title="2000/01/10"
                       >
                         <div
                           aria-disabled="false"
@@ -376,7 +376,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月11日"
+                        title="2000/01/11"
                       >
                         <div
                           aria-disabled="false"
@@ -389,7 +389,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月12日"
+                        title="2000/01/12"
                       >
                         <div
                           aria-disabled="false"
@@ -402,7 +402,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月13日"
+                        title="2000/01/13"
                       >
                         <div
                           aria-disabled="false"
@@ -415,7 +415,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月14日"
+                        title="2000/01/14"
                       >
                         <div
                           aria-disabled="false"
@@ -428,7 +428,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月15日"
+                        title="2000/01/15"
                       >
                         <div
                           aria-disabled="false"
@@ -441,7 +441,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月16日"
+                        title="2000/01/16"
                       >
                         <div
                           aria-disabled="false"
@@ -459,7 +459,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月17日"
+                        title="2000/01/17"
                       >
                         <div
                           aria-disabled="false"
@@ -472,7 +472,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月18日"
+                        title="2000/01/18"
                       >
                         <div
                           aria-disabled="false"
@@ -485,7 +485,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月19日"
+                        title="2000/01/19"
                       >
                         <div
                           aria-disabled="false"
@@ -498,7 +498,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月20日"
+                        title="2000/01/20"
                       >
                         <div
                           aria-disabled="false"
@@ -511,7 +511,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月21日"
+                        title="2000/01/21"
                       >
                         <div
                           aria-disabled="false"
@@ -524,7 +524,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月22日"
+                        title="2000/01/22"
                       >
                         <div
                           aria-disabled="false"
@@ -537,7 +537,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月23日"
+                        title="2000/01/23"
                       >
                         <div
                           aria-disabled="false"
@@ -555,7 +555,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月24日"
+                        title="2000/01/24"
                       >
                         <div
                           aria-disabled="false"
@@ -568,7 +568,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月25日"
+                        title="2000/01/25"
                       >
                         <div
                           aria-disabled="false"
@@ -581,7 +581,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月26日"
+                        title="2000/01/26"
                       >
                         <div
                           aria-disabled="false"
@@ -594,7 +594,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月27日"
+                        title="2000/01/27"
                       >
                         <div
                           aria-disabled="false"
@@ -607,7 +607,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月28日"
+                        title="2000/01/28"
                       >
                         <div
                           aria-disabled="false"
@@ -620,7 +620,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月29日"
+                        title="2000/01/29"
                       >
                         <div
                           aria-disabled="false"
@@ -633,7 +633,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月30日"
+                        title="2000/01/30"
                       >
                         <div
                           aria-disabled="false"
@@ -651,7 +651,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月31日"
+                        title="2000/01/31"
                       >
                         <div
                           aria-disabled="false"
@@ -664,7 +664,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月1日"
+                        title="2000/02/01"
                       >
                         <div
                           aria-disabled="false"
@@ -677,7 +677,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月2日"
+                        title="2000/02/02"
                       >
                         <div
                           aria-disabled="false"
@@ -690,7 +690,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月3日"
+                        title="2000/02/03"
                       >
                         <div
                           aria-disabled="false"
@@ -703,7 +703,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月4日"
+                        title="2000/02/04"
                       >
                         <div
                           aria-disabled="false"
@@ -716,7 +716,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月5日"
+                        title="2000/02/05"
                       >
                         <div
                           aria-disabled="false"
@@ -729,7 +729,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月6日"
+                        title="2000/02/06"
                       >
                         <div
                           aria-disabled="false"
@@ -904,7 +904,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="2000年1月31日"
+                        title="2000/01/31"
                       >
                         <div
                           aria-disabled="false"
@@ -917,7 +917,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月1日"
+                        title="2000/02/01"
                       >
                         <div
                           aria-disabled="false"
@@ -930,7 +930,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月2日"
+                        title="2000/02/02"
                       >
                         <div
                           aria-disabled="false"
@@ -943,7 +943,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月3日"
+                        title="2000/02/03"
                       >
                         <div
                           aria-disabled="false"
@@ -956,7 +956,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月4日"
+                        title="2000/02/04"
                       >
                         <div
                           aria-disabled="false"
@@ -969,7 +969,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月5日"
+                        title="2000/02/05"
                       >
                         <div
                           aria-disabled="false"
@@ -982,7 +982,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月6日"
+                        title="2000/02/06"
                       >
                         <div
                           aria-disabled="false"
@@ -1000,7 +1000,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月7日"
+                        title="2000/02/07"
                       >
                         <div
                           aria-disabled="false"
@@ -1013,7 +1013,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月8日"
+                        title="2000/02/08"
                       >
                         <div
                           aria-disabled="false"
@@ -1026,7 +1026,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月9日"
+                        title="2000/02/09"
                       >
                         <div
                           aria-disabled="false"
@@ -1039,7 +1039,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月10日"
+                        title="2000/02/10"
                       >
                         <div
                           aria-disabled="false"
@@ -1052,7 +1052,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月11日"
+                        title="2000/02/11"
                       >
                         <div
                           aria-disabled="false"
@@ -1065,7 +1065,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月12日"
+                        title="2000/02/12"
                       >
                         <div
                           aria-disabled="false"
@@ -1078,7 +1078,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月13日"
+                        title="2000/02/13"
                       >
                         <div
                           aria-disabled="false"
@@ -1096,7 +1096,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月14日"
+                        title="2000/02/14"
                       >
                         <div
                           aria-disabled="false"
@@ -1109,7 +1109,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月15日"
+                        title="2000/02/15"
                       >
                         <div
                           aria-disabled="false"
@@ -1122,7 +1122,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月16日"
+                        title="2000/02/16"
                       >
                         <div
                           aria-disabled="false"
@@ -1135,7 +1135,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月17日"
+                        title="2000/02/17"
                       >
                         <div
                           aria-disabled="false"
@@ -1148,7 +1148,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月18日"
+                        title="2000/02/18"
                       >
                         <div
                           aria-disabled="false"
@@ -1161,7 +1161,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月19日"
+                        title="2000/02/19"
                       >
                         <div
                           aria-disabled="false"
@@ -1174,7 +1174,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月20日"
+                        title="2000/02/20"
                       >
                         <div
                           aria-disabled="false"
@@ -1192,7 +1192,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月21日"
+                        title="2000/02/21"
                       >
                         <div
                           aria-disabled="false"
@@ -1205,7 +1205,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月22日"
+                        title="2000/02/22"
                       >
                         <div
                           aria-disabled="false"
@@ -1218,7 +1218,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月23日"
+                        title="2000/02/23"
                       >
                         <div
                           aria-disabled="false"
@@ -1231,7 +1231,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月24日"
+                        title="2000/02/24"
                       >
                         <div
                           aria-disabled="false"
@@ -1244,7 +1244,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月25日"
+                        title="2000/02/25"
                       >
                         <div
                           aria-disabled="false"
@@ -1257,7 +1257,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月26日"
+                        title="2000/02/26"
                       >
                         <div
                           aria-disabled="false"
@@ -1270,7 +1270,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月27日"
+                        title="2000/02/27"
                       >
                         <div
                           aria-disabled="false"
@@ -1288,7 +1288,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月28日"
+                        title="2000/02/28"
                       >
                         <div
                           aria-disabled="false"
@@ -1301,7 +1301,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月29日"
+                        title="2000/02/29"
                       >
                         <div
                           aria-disabled="false"
@@ -1314,7 +1314,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月1日"
+                        title="2000/03/01"
                       >
                         <div
                           aria-disabled="false"
@@ -1327,7 +1327,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月2日"
+                        title="2000/03/02"
                       >
                         <div
                           aria-disabled="false"
@@ -1340,7 +1340,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月3日"
+                        title="2000/03/03"
                       >
                         <div
                           aria-disabled="false"
@@ -1353,7 +1353,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月4日"
+                        title="2000/03/04"
                       >
                         <div
                           aria-disabled="false"
@@ -1366,7 +1366,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月5日"
+                        title="2000/03/05"
                       >
                         <div
                           aria-disabled="false"
@@ -1384,7 +1384,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月6日"
+                        title="2000/03/06"
                       >
                         <div
                           aria-disabled="false"
@@ -1397,7 +1397,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月7日"
+                        title="2000/03/07"
                       >
                         <div
                           aria-disabled="false"
@@ -1410,7 +1410,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月8日"
+                        title="2000/03/08"
                       >
                         <div
                           aria-disabled="false"
@@ -1423,7 +1423,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月9日"
+                        title="2000/03/09"
                       >
                         <div
                           aria-disabled="false"
@@ -1436,7 +1436,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月10日"
+                        title="2000/03/10"
                       >
                         <div
                           aria-disabled="false"
@@ -1449,7 +1449,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月11日"
+                        title="2000/03/11"
                       >
                         <div
                           aria-disabled="false"
@@ -1462,7 +1462,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月12日"
+                        title="2000/03/12"
                       >
                         <div
                           aria-disabled="false"
@@ -1676,7 +1676,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月27日"
+                        title="1999/12/27"
                       >
                         <div
                           aria-disabled="false"
@@ -1689,7 +1689,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月28日"
+                        title="1999/12/28"
                       >
                         <div
                           aria-disabled="false"
@@ -1702,7 +1702,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月29日"
+                        title="1999/12/29"
                       >
                         <div
                           aria-disabled="false"
@@ -1715,7 +1715,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月30日"
+                        title="1999/12/30"
                       >
                         <div
                           aria-disabled="false"
@@ -1728,7 +1728,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="1999年12月31日"
+                        title="1999/12/31"
                       >
                         <div
                           aria-disabled="false"
@@ -1741,7 +1741,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-selected-day"
                         role="gridcell"
-                        title="2000年1月1日"
+                        title="2000/01/01"
                       >
                         <div
                           aria-disabled="false"
@@ -1754,7 +1754,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月2日"
+                        title="2000/01/02"
                       >
                         <div
                           aria-disabled="false"
@@ -1772,7 +1772,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月3日"
+                        title="2000/01/03"
                       >
                         <div
                           aria-disabled="false"
@@ -1785,7 +1785,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月4日"
+                        title="2000/01/04"
                       >
                         <div
                           aria-disabled="false"
@@ -1798,7 +1798,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月5日"
+                        title="2000/01/05"
                       >
                         <div
                           aria-disabled="false"
@@ -1811,7 +1811,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月6日"
+                        title="2000/01/06"
                       >
                         <div
                           aria-disabled="false"
@@ -1824,7 +1824,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月7日"
+                        title="2000/01/07"
                       >
                         <div
                           aria-disabled="false"
@@ -1837,7 +1837,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月8日"
+                        title="2000/01/08"
                       >
                         <div
                           aria-disabled="false"
@@ -1850,7 +1850,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月9日"
+                        title="2000/01/09"
                       >
                         <div
                           aria-disabled="false"
@@ -1868,7 +1868,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月10日"
+                        title="2000/01/10"
                       >
                         <div
                           aria-disabled="false"
@@ -1881,7 +1881,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月11日"
+                        title="2000/01/11"
                       >
                         <div
                           aria-disabled="false"
@@ -1894,7 +1894,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月12日"
+                        title="2000/01/12"
                       >
                         <div
                           aria-disabled="false"
@@ -1907,7 +1907,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月13日"
+                        title="2000/01/13"
                       >
                         <div
                           aria-disabled="false"
@@ -1920,7 +1920,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月14日"
+                        title="2000/01/14"
                       >
                         <div
                           aria-disabled="false"
@@ -1933,7 +1933,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月15日"
+                        title="2000/01/15"
                       >
                         <div
                           aria-disabled="false"
@@ -1946,7 +1946,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月16日"
+                        title="2000/01/16"
                       >
                         <div
                           aria-disabled="false"
@@ -1964,7 +1964,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月17日"
+                        title="2000/01/17"
                       >
                         <div
                           aria-disabled="false"
@@ -1977,7 +1977,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月18日"
+                        title="2000/01/18"
                       >
                         <div
                           aria-disabled="false"
@@ -1990,7 +1990,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月19日"
+                        title="2000/01/19"
                       >
                         <div
                           aria-disabled="false"
@@ -2003,7 +2003,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月20日"
+                        title="2000/01/20"
                       >
                         <div
                           aria-disabled="false"
@@ -2016,7 +2016,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月21日"
+                        title="2000/01/21"
                       >
                         <div
                           aria-disabled="false"
@@ -2029,7 +2029,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月22日"
+                        title="2000/01/22"
                       >
                         <div
                           aria-disabled="false"
@@ -2042,7 +2042,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月23日"
+                        title="2000/01/23"
                       >
                         <div
                           aria-disabled="false"
@@ -2060,7 +2060,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月24日"
+                        title="2000/01/24"
                       >
                         <div
                           aria-disabled="false"
@@ -2073,7 +2073,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月25日"
+                        title="2000/01/25"
                       >
                         <div
                           aria-disabled="false"
@@ -2086,7 +2086,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月26日"
+                        title="2000/01/26"
                       >
                         <div
                           aria-disabled="false"
@@ -2099,7 +2099,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月27日"
+                        title="2000/01/27"
                       >
                         <div
                           aria-disabled="false"
@@ -2112,7 +2112,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月28日"
+                        title="2000/01/28"
                       >
                         <div
                           aria-disabled="false"
@@ -2125,7 +2125,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月29日"
+                        title="2000/01/29"
                       >
                         <div
                           aria-disabled="false"
@@ -2138,7 +2138,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月30日"
+                        title="2000/01/30"
                       >
                         <div
                           aria-disabled="false"
@@ -2156,7 +2156,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年1月31日"
+                        title="2000/01/31"
                       >
                         <div
                           aria-disabled="false"
@@ -2169,7 +2169,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月1日"
+                        title="2000/02/01"
                       >
                         <div
                           aria-disabled="false"
@@ -2182,7 +2182,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月2日"
+                        title="2000/02/02"
                       >
                         <div
                           aria-disabled="false"
@@ -2195,7 +2195,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月3日"
+                        title="2000/02/03"
                       >
                         <div
                           aria-disabled="false"
@@ -2208,7 +2208,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月4日"
+                        title="2000/02/04"
                       >
                         <div
                           aria-disabled="false"
@@ -2221,7 +2221,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月5日"
+                        title="2000/02/05"
                       >
                         <div
                           aria-disabled="false"
@@ -2234,7 +2234,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年2月6日"
+                        title="2000/02/06"
                       >
                         <div
                           aria-disabled="false"
@@ -2409,7 +2409,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-last-month-cell"
                         role="gridcell"
-                        title="2000年1月31日"
+                        title="2000/01/31"
                       >
                         <div
                           aria-disabled="false"
@@ -2422,7 +2422,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月1日"
+                        title="2000/02/01"
                       >
                         <div
                           aria-disabled="false"
@@ -2435,7 +2435,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月2日"
+                        title="2000/02/02"
                       >
                         <div
                           aria-disabled="false"
@@ -2448,7 +2448,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月3日"
+                        title="2000/02/03"
                       >
                         <div
                           aria-disabled="false"
@@ -2461,7 +2461,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月4日"
+                        title="2000/02/04"
                       >
                         <div
                           aria-disabled="false"
@@ -2474,7 +2474,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月5日"
+                        title="2000/02/05"
                       >
                         <div
                           aria-disabled="false"
@@ -2487,7 +2487,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月6日"
+                        title="2000/02/06"
                       >
                         <div
                           aria-disabled="false"
@@ -2505,7 +2505,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月7日"
+                        title="2000/02/07"
                       >
                         <div
                           aria-disabled="false"
@@ -2518,7 +2518,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月8日"
+                        title="2000/02/08"
                       >
                         <div
                           aria-disabled="false"
@@ -2531,7 +2531,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月9日"
+                        title="2000/02/09"
                       >
                         <div
                           aria-disabled="false"
@@ -2544,7 +2544,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月10日"
+                        title="2000/02/10"
                       >
                         <div
                           aria-disabled="false"
@@ -2557,7 +2557,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月11日"
+                        title="2000/02/11"
                       >
                         <div
                           aria-disabled="false"
@@ -2570,7 +2570,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月12日"
+                        title="2000/02/12"
                       >
                         <div
                           aria-disabled="false"
@@ -2583,7 +2583,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月13日"
+                        title="2000/02/13"
                       >
                         <div
                           aria-disabled="false"
@@ -2601,7 +2601,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月14日"
+                        title="2000/02/14"
                       >
                         <div
                           aria-disabled="false"
@@ -2614,7 +2614,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月15日"
+                        title="2000/02/15"
                       >
                         <div
                           aria-disabled="false"
@@ -2627,7 +2627,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月16日"
+                        title="2000/02/16"
                       >
                         <div
                           aria-disabled="false"
@@ -2640,7 +2640,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月17日"
+                        title="2000/02/17"
                       >
                         <div
                           aria-disabled="false"
@@ -2653,7 +2653,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月18日"
+                        title="2000/02/18"
                       >
                         <div
                           aria-disabled="false"
@@ -2666,7 +2666,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月19日"
+                        title="2000/02/19"
                       >
                         <div
                           aria-disabled="false"
@@ -2679,7 +2679,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月20日"
+                        title="2000/02/20"
                       >
                         <div
                           aria-disabled="false"
@@ -2697,7 +2697,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月21日"
+                        title="2000/02/21"
                       >
                         <div
                           aria-disabled="false"
@@ -2710,7 +2710,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月22日"
+                        title="2000/02/22"
                       >
                         <div
                           aria-disabled="false"
@@ -2723,7 +2723,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月23日"
+                        title="2000/02/23"
                       >
                         <div
                           aria-disabled="false"
@@ -2736,7 +2736,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月24日"
+                        title="2000/02/24"
                       >
                         <div
                           aria-disabled="false"
@@ -2749,7 +2749,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月25日"
+                        title="2000/02/25"
                       >
                         <div
                           aria-disabled="false"
@@ -2762,7 +2762,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月26日"
+                        title="2000/02/26"
                       >
                         <div
                           aria-disabled="false"
@@ -2775,7 +2775,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月27日"
+                        title="2000/02/27"
                       >
                         <div
                           aria-disabled="false"
@@ -2793,7 +2793,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月28日"
+                        title="2000/02/28"
                       >
                         <div
                           aria-disabled="false"
@@ -2806,7 +2806,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell"
                         role="gridcell"
-                        title="2000年2月29日"
+                        title="2000/02/29"
                       >
                         <div
                           aria-disabled="false"
@@ -2819,7 +2819,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月1日"
+                        title="2000/03/01"
                       >
                         <div
                           aria-disabled="false"
@@ -2832,7 +2832,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月2日"
+                        title="2000/03/02"
                       >
                         <div
                           aria-disabled="false"
@@ -2845,7 +2845,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月3日"
+                        title="2000/03/03"
                       >
                         <div
                           aria-disabled="false"
@@ -2858,7 +2858,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月4日"
+                        title="2000/03/04"
                       >
                         <div
                           aria-disabled="false"
@@ -2871,7 +2871,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月5日"
+                        title="2000/03/05"
                       >
                         <div
                           aria-disabled="false"
@@ -2889,7 +2889,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月6日"
+                        title="2000/03/06"
                       >
                         <div
                           aria-disabled="false"
@@ -2902,7 +2902,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月7日"
+                        title="2000/03/07"
                       >
                         <div
                           aria-disabled="false"
@@ -2915,7 +2915,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月8日"
+                        title="2000/03/08"
                       >
                         <div
                           aria-disabled="false"
@@ -2928,7 +2928,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月9日"
+                        title="2000/03/09"
                       >
                         <div
                           aria-disabled="false"
@@ -2941,7 +2941,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月10日"
+                        title="2000/03/10"
                       >
                         <div
                           aria-disabled="false"
@@ -2954,7 +2954,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月11日"
+                        title="2000/03/11"
                       >
                         <div
                           aria-disabled="false"
@@ -2967,7 +2967,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       <td
                         class="ant-calendar-cell ant-calendar-next-month-btn-day"
                         role="gridcell"
-                        title="2000年3月12日"
+                        title="2000/03/12"
                       >
                         <div
                           aria-disabled="false"
