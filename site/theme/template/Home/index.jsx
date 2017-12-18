@@ -33,6 +33,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       adBannerClosed: (
+        typeof window !== 'undefined' &&
         window.localStorage &&
         window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
       ),
