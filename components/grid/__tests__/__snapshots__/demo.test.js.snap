@@ -709,7 +709,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/reponsive.md correctly 1`] = `
+exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -731,7 +731,7 @@ exports[`renders ./components/grid/demo/reponsive.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/reponsive-more.md correctly 1`] = `
+exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
 <div
   class="ant-row"
 >
