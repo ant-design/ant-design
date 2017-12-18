@@ -163,3 +163,25 @@
     transform: translateY(10px);
   }
 }
+
+.promote-banner {
+  position: relative;
+  display: block;
+  padding-top: 64px;
+  img {
+    max-width: 100%;
+  }
+  .anticon-cross {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    right: 24px;
+    top: 64px + 24px;
+    color: #fff;
+    transition: all .3s;
+    opacity: 0;
+  }
+  &:hover .anticon-cross {
+    opacity: 1;
+  }
+}
