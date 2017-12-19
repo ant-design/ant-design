@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import moment from 'moment';
+import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -44,9 +46,12 @@ describe('DatePicker', () => {
         placeholder: 'Избор на час',
       },
     };
+    MockDate.set(new Date('2016-11-22').getTime() + (new Date().getTimezoneOffset() * 60 * 1000));
+    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(
-      <DatePicker open locale={locale} />
+      <DatePicker open locale={locale} value={birthday} />
     );
     expect(wrapper.render()).toMatchSnapshot();
+    MockDate.reset();
   });
 });

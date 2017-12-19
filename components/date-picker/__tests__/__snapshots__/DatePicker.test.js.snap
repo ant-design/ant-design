@@ -11,7 +11,10 @@ exports[`DatePicker prop locale should works 1`] = `
       class="ant-calendar-picker-input ant-input"
       placeholder="Избери дата"
       readonly=""
-      value=""
+      value="2000-01-01"
+    />
+    <i
+      class="anticon anticon-cross-circle ant-calendar-picker-clear"
     />
     <span
       class="ant-calendar-picker-icon"
@@ -38,7 +41,7 @@ exports[`DatePicker prop locale should works 1`] = `
               <input
                 class="ant-calendar-input "
                 placeholder="Избери дата"
-                value=""
+                value="2000-01-01"
               />
             </div>
             <a
@@ -74,14 +77,14 @@ exports[`DatePicker prop locale should works 1`] = `
                     role="button"
                     title="Избор на месец"
                   >
-                    Dec
+                    Jan
                   </a>
                   <a
                     class="ant-calendar-year-select"
                     role="button"
                     title="Избор на година"
                   >
-                    2017
+                    2000
                   </a>
                 </span>
                 <a
@@ -189,13 +192,13 @@ exports[`DatePicker prop locale should works 1`] = `
                   class="ant-calendar-tbody"
                 >
                   <tr
-                    class=""
+                    class="ant-calendar-active-week"
                     role="row"
                   >
                     <td
                       class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="November 26, 2017"
+                      title="December 26, 1999"
                     >
                       <div
                         aria-disabled="false"
@@ -208,7 +211,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="November 27, 2017"
+                      title="December 27, 1999"
                     >
                       <div
                         aria-disabled="false"
@@ -221,7 +224,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="November 28, 2017"
+                      title="December 28, 1999"
                     >
                       <div
                         aria-disabled="false"
@@ -234,7 +237,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="November 29, 2017"
+                      title="December 29, 1999"
                     >
                       <div
                         aria-disabled="false"
@@ -247,7 +250,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="November 30, 2017"
+                      title="December 30, 1999"
                     >
                       <div
                         aria-disabled="false"
@@ -258,29 +261,29 @@ exports[`DatePicker prop locale should works 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-calendar-cell"
+                      class="ant-calendar-cell ant-calendar-last-month-cell"
                       role="gridcell"
-                      title="December 1, 2017"
+                      title="December 31, 1999"
                     >
                       <div
                         aria-disabled="false"
                         aria-selected="false"
                         class="ant-calendar-date"
                       >
-                        1
+                        31
                       </div>
                     </td>
                     <td
-                      class="ant-calendar-cell"
+                      class="ant-calendar-cell ant-calendar-selected-date ant-calendar-selected-day"
                       role="gridcell"
-                      title="December 2, 2017"
+                      title="January 1, 2000"
                     >
                       <div
                         aria-disabled="false"
-                        aria-selected="false"
+                        aria-selected="true"
                         class="ant-calendar-date"
                       >
-                        2
+                        1
                       </div>
                     </td>
                   </tr>
@@ -291,7 +294,20 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 3, 2017"
+                      title="January 2, 2000"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="ant-calendar-date"
+                      >
+                        2
+                      </div>
+                    </td>
+                    <td
+                      class="ant-calendar-cell"
+                      role="gridcell"
+                      title="January 3, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -304,7 +320,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 4, 2017"
+                      title="January 4, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -317,7 +333,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 5, 2017"
+                      title="January 5, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -330,7 +346,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 6, 2017"
+                      title="January 6, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -343,7 +359,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 7, 2017"
+                      title="January 7, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -356,7 +372,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 8, 2017"
+                      title="January 8, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -364,19 +380,6 @@ exports[`DatePicker prop locale should works 1`] = `
                         class="ant-calendar-date"
                       >
                         8
-                      </div>
-                    </td>
-                    <td
-                      class="ant-calendar-cell"
-                      role="gridcell"
-                      title="December 9, 2017"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="ant-calendar-date"
-                      >
-                        9
                       </div>
                     </td>
                   </tr>
@@ -387,7 +390,20 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 10, 2017"
+                      title="January 9, 2000"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="ant-calendar-date"
+                      >
+                        9
+                      </div>
+                    </td>
+                    <td
+                      class="ant-calendar-cell"
+                      role="gridcell"
+                      title="January 10, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -400,7 +416,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 11, 2017"
+                      title="January 11, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -413,7 +429,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 12, 2017"
+                      title="January 12, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -426,7 +442,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 13, 2017"
+                      title="January 13, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -439,7 +455,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 14, 2017"
+                      title="January 14, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -452,7 +468,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 15, 2017"
+                      title="January 15, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -462,10 +478,15 @@ exports[`DatePicker prop locale should works 1`] = `
                         15
                       </div>
                     </td>
+                  </tr>
+                  <tr
+                    class=""
+                    role="row"
+                  >
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 16, 2017"
+                      title="January 16, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -475,15 +496,10 @@ exports[`DatePicker prop locale should works 1`] = `
                         16
                       </div>
                     </td>
-                  </tr>
-                  <tr
-                    class="ant-calendar-current-week ant-calendar-active-week"
-                    role="row"
-                  >
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 17, 2017"
+                      title="January 17, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -494,13 +510,13 @@ exports[`DatePicker prop locale should works 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-calendar-cell ant-calendar-today ant-calendar-selected-day"
+                      class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 18, 2017"
+                      title="January 18, 2000"
                     >
                       <div
                         aria-disabled="false"
-                        aria-selected="true"
+                        aria-selected="false"
                         class="ant-calendar-date"
                       >
                         18
@@ -509,7 +525,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 19, 2017"
+                      title="January 19, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -522,7 +538,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 20, 2017"
+                      title="January 20, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -535,7 +551,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 21, 2017"
+                      title="January 21, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -548,7 +564,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 22, 2017"
+                      title="January 22, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -556,19 +572,6 @@ exports[`DatePicker prop locale should works 1`] = `
                         class="ant-calendar-date"
                       >
                         22
-                      </div>
-                    </td>
-                    <td
-                      class="ant-calendar-cell"
-                      role="gridcell"
-                      title="December 23, 2017"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="ant-calendar-date"
-                      >
-                        23
                       </div>
                     </td>
                   </tr>
@@ -579,7 +582,20 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 24, 2017"
+                      title="January 23, 2000"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="ant-calendar-date"
+                      >
+                        23
+                      </div>
+                    </td>
+                    <td
+                      class="ant-calendar-cell"
+                      role="gridcell"
+                      title="January 24, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -592,7 +608,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 25, 2017"
+                      title="January 25, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -605,7 +621,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 26, 2017"
+                      title="January 26, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -618,7 +634,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 27, 2017"
+                      title="January 27, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -631,7 +647,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 28, 2017"
+                      title="January 28, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -644,7 +660,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 29, 2017"
+                      title="January 29, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -652,19 +668,6 @@ exports[`DatePicker prop locale should works 1`] = `
                         class="ant-calendar-date"
                       >
                         29
-                      </div>
-                    </td>
-                    <td
-                      class="ant-calendar-cell"
-                      role="gridcell"
-                      title="December 30, 2017"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="ant-calendar-date"
-                      >
-                        30
                       </div>
                     </td>
                   </tr>
@@ -675,7 +678,20 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell"
                       role="gridcell"
-                      title="December 31, 2017"
+                      title="January 30, 2000"
+                    >
+                      <div
+                        aria-disabled="false"
+                        aria-selected="false"
+                        class="ant-calendar-date"
+                      >
+                        30
+                      </div>
+                    </td>
+                    <td
+                      class="ant-calendar-cell"
+                      role="gridcell"
+                      title="January 31, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -688,7 +704,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-next-month-btn-day"
                       role="gridcell"
-                      title="January 1, 2018"
+                      title="February 1, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -701,7 +717,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-next-month-btn-day"
                       role="gridcell"
-                      title="January 2, 2018"
+                      title="February 2, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -714,7 +730,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-next-month-btn-day"
                       role="gridcell"
-                      title="January 3, 2018"
+                      title="February 3, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -727,7 +743,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-next-month-btn-day"
                       role="gridcell"
-                      title="January 4, 2018"
+                      title="February 4, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -740,7 +756,7 @@ exports[`DatePicker prop locale should works 1`] = `
                     <td
                       class="ant-calendar-cell ant-calendar-next-month-btn-day"
                       role="gridcell"
-                      title="January 5, 2018"
+                      title="February 5, 2000"
                     >
                       <div
                         aria-disabled="false"
@@ -748,19 +764,6 @@ exports[`DatePicker prop locale should works 1`] = `
                         class="ant-calendar-date"
                       >
                         5
-                      </div>
-                    </td>
-                    <td
-                      class="ant-calendar-cell ant-calendar-next-month-btn-day"
-                      role="gridcell"
-                      title="January 6, 2018"
-                    >
-                      <div
-                        aria-disabled="false"
-                        aria-selected="false"
-                        class="ant-calendar-date"
-                      >
-                        6
                       </div>
                     </td>
                   </tr>
@@ -776,7 +779,7 @@ exports[`DatePicker prop locale should works 1`] = `
                 <a
                   class="ant-calendar-today-btn "
                   role="button"
-                  title="December 18, 2017"
+                  title="November 22, 2016"
                 >
                   Днес
                 </a>
