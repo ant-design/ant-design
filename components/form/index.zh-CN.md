@@ -169,7 +169,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

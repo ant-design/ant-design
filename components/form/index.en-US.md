@@ -168,7 +168,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;
