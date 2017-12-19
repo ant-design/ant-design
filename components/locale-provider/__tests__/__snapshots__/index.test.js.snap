@@ -49059,9 +49059,9 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
             <div
               class="ant-select-selection-selected-value"
               style="display: block; opacity: 1;"
-              title="أيلول سبتمبر"
+              title="سبتمبر"
             >
-              أيلول سبتمبر
+              سبتمبر
             </div>
           </div>
           <span
@@ -49218,7 +49218,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٢٦ آب أغسطس ٢٠١٧"
+                title="٢٦ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49236,7 +49236,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٢٧ آب أغسطس ٢٠١٧"
+                title="٢٧ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49254,7 +49254,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٢٨ آب أغسطس ٢٠١٧"
+                title="٢٨ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49272,7 +49272,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٢٩ آب أغسطس ٢٠١٧"
+                title="٢٩ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49290,7 +49290,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٣٠ آب أغسطس ٢٠١٧"
+                title="٣٠ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49308,7 +49308,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
                 role="gridcell"
-                title="٣١ آب أغسطس ٢٠١٧"
+                title="٣١ أغسطس ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49326,7 +49326,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١ أيلول سبتمبر ٢٠١٧"
+                title="١ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49349,7 +49349,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢ أيلول سبتمبر ٢٠١٧"
+                title="٢ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49367,7 +49367,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٣ أيلول سبتمبر ٢٠١٧"
+                title="٣ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49385,7 +49385,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٤ أيلول سبتمبر ٢٠١٧"
+                title="٤ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49403,7 +49403,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٥ أيلول سبتمبر ٢٠١٧"
+                title="٥ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49421,7 +49421,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٦ أيلول سبتمبر ٢٠١٧"
+                title="٦ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49439,7 +49439,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٧ أيلول سبتمبر ٢٠١٧"
+                title="٧ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49457,7 +49457,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٨ أيلول سبتمبر ٢٠١٧"
+                title="٨ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49480,7 +49480,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٩ أيلول سبتمبر ٢٠١٧"
+                title="٩ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49498,7 +49498,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٠ أيلول سبتمبر ٢٠١٧"
+                title="١٠ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49516,7 +49516,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١١ أيلول سبتمبر ٢٠١٧"
+                title="١١ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49534,7 +49534,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٢ أيلول سبتمبر ٢٠١٧"
+                title="١٢ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49552,7 +49552,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٣ أيلول سبتمبر ٢٠١٧"
+                title="١٣ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49570,7 +49570,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٤ أيلول سبتمبر ٢٠١٧"
+                title="١٤ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49588,7 +49588,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٥ أيلول سبتمبر ٢٠١٧"
+                title="١٥ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49611,7 +49611,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٦ أيلول سبتمبر ٢٠١٧"
+                title="١٦ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49629,7 +49629,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٧ أيلول سبتمبر ٢٠١٧"
+                title="١٧ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49647,7 +49647,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
                 role="gridcell"
-                title="١٨ أيلول سبتمبر ٢٠١٧"
+                title="١٨ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49665,7 +49665,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="١٩ أيلول سبتمبر ٢٠١٧"
+                title="١٩ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49683,7 +49683,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٠ أيلول سبتمبر ٢٠١٧"
+                title="٢٠ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49701,7 +49701,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢١ أيلول سبتمبر ٢٠١٧"
+                title="٢١ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49719,7 +49719,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٢ أيلول سبتمبر ٢٠١٧"
+                title="٢٢ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49742,7 +49742,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٣ أيلول سبتمبر ٢٠١٧"
+                title="٢٣ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49760,7 +49760,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٤ أيلول سبتمبر ٢٠١٧"
+                title="٢٤ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49778,7 +49778,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٥ أيلول سبتمبر ٢٠١٧"
+                title="٢٥ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49796,7 +49796,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٦ أيلول سبتمبر ٢٠١٧"
+                title="٢٦ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49814,7 +49814,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٧ أيلول سبتمبر ٢٠١٧"
+                title="٢٧ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49832,7 +49832,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٨ أيلول سبتمبر ٢٠١٧"
+                title="٢٨ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49850,7 +49850,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٢٩ أيلول سبتمبر ٢٠١٧"
+                title="٢٩ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49873,7 +49873,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell"
                 role="gridcell"
-                title="٣٠ أيلول سبتمبر ٢٠١٧"
+                title="٣٠ سبتمبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49891,7 +49891,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="١ تشرين الأول أكتوبر ٢٠١٧"
+                title="١ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49909,7 +49909,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="٢ تشرين الأول أكتوبر ٢٠١٧"
+                title="٢ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49927,7 +49927,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="٣ تشرين الأول أكتوبر ٢٠١٧"
+                title="٣ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49945,7 +49945,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="٤ تشرين الأول أكتوبر ٢٠١٧"
+                title="٤ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49963,7 +49963,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="٥ تشرين الأول أكتوبر ٢٠١٧"
+                title="٥ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
@@ -49981,7 +49981,7 @@ exports[`Locale Provider should display the text as locale changed 32`] = `
               <td
                 class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
                 role="gridcell"
-                title="٦ تشرين الأول أكتوبر ٢٠١٧"
+                title="٦ أكتوبر ٢٠١٧"
               >
                 <div
                   class="ant-fullcalendar-date"
