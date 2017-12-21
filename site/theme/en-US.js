@@ -28,7 +28,7 @@ module.exports = {
     'app.home.experience': 'Designed by experienced team, and showcase dozens of inspiring projects.',
     'app.home.design-pattern': 'Design Pattern',
     'app.home.pattern': 'Provide solutions for usual problems that may be encountered while developing enterprise-like complex UIs.',
-    'app.home.reusable-components': 'Dozens of Reusable Components',
+    'app.home.reusable-components': 'Dozens of UI Components',
     'app.home.components-intro': 'Dozens of flexible and practical reusable components that increase your productivity.',
     'app.home.learn-more': 'Learn more',
     'app.home.sub-slogan': 'A Little Happiness in Hand',
