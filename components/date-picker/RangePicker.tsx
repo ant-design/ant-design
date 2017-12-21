@@ -8,7 +8,7 @@ import Icon from '../icon';
 import warning from '../_util/warning';
 import callMoment from '../_util/callMoment';
 
-type RangePickerValue = moment.Moment[];
+export type RangePickerValue = moment.Moment[];
 
 export interface RangePickerState {
   value?: RangePickerValue;
