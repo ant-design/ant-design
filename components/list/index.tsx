@@ -160,6 +160,7 @@ export default class List extends React.Component<ListProps> {
     );
 
     let childrenContent;
+    childrenContent = (<div style={{ minHeight: 53 }} />);
     if (dataSource.length > 0) {
       const items = dataSource.map((item: any, index: number) => this.renderItem(item, index));
       const childrenList = React.Children.map(items, (child: any, index) => React.cloneElement(child, {
@@ -170,7 +171,7 @@ export default class List extends React.Component<ListProps> {
       childrenContent = grid ? (
         <Row gutter={grid.gutter}>{childrenList}</Row>
       ) : childrenList;
-    } else if (!children) {
+    } else if (!children && !loading) {
       childrenContent = (
         <LocaleReceiver
           componentName="Table"
