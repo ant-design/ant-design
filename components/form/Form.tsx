@@ -117,7 +117,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
 export interface ComponentDecorator<TOwnProps> {
   <P extends FormComponentProps>(
-    component: React.ComponentClass<P> | React.SFC<P>
+    component: React.ComponentClass<P> | React.SFC<P>,
   ): React.ComponentClass<Omit<P, keyof FormComponentProps> & TOwnProps>;
 }
 
