@@ -16,13 +16,13 @@
 
 ## Bugs
 
-我们使用 [GitHub Issues](https://github.com/ant-design/ant-design/issues) 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 [issue 小助手](http://new-issue.ant.design) 来提 issue。 并且能使用这个[模板](https://u.ant.design/codesandbox-repro)来提供重现。
+我们使用 [GitHub Issues](https://github.com/ant-design/ant-design/issues) 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 [issue 小助手](http://new-issue.ant.design) 来提 issue。 并且能使用这个 [模板](https://u.ant.design/codesandbox-repro) 来提供重现。
 
-在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的[常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)。
+在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的 [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)。
 
 ## 新增功能
 
-如果你有改进我们的 API 或者新增功能的想法, 我们同样推荐你使用我们提供的[issue 小助手](http://new-issue.ant.design)来新建一个添加新功能的 issue。
+如果你有改进我们的 API 或者新增功能的想法, 我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
 
 ## 第一次贡献
 
@@ -42,12 +42,12 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
-1. 基于[正确的分支](./CONTRIBUTING.zh-CN.md#branch-organization)来做修改。
-1. 在项目根目录下运行了 `npm install`。
-1. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试, 这很重要。
-1. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
-1. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
-1. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行。
+1. 基于 [正确的分支](./CONTRIBUTING.zh-CN.md#branch-organization) 来做修改。
+2. 在项目根目录下运行了 `npm install`。
+3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试, 这很重要。
+4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
+5. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
+6. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行。
 
 给 [react-component](https://github.com/react-component/) 发送 pull request：
 
@@ -58,7 +58,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 在你 clone 了 antd  的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
 
 1. `npm start` 在本地运行 Ant Design 的网站。
-1. `npm run lint` 检查代码风格。
-1. `npm test` 运行测试。
-1. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
-1. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
+2. `npm run lint` 检查代码风格。
+3. `npm test` 运行测试。
+4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
+5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
