@@ -12,7 +12,7 @@
 
 ## 分支管理
 
-基于我们的 [发布周期](../CHANGELOG.zh-CN.md#release-schedule), 我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](../CHANGELOG.zh-CN.md#release-schedule)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
 
 ## Bugs
 
@@ -22,7 +22,7 @@
 
 ## 新增功能
 
-如果你有改进我们的 API 或者新增功能的想法, 我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
+如果你有改进我们的 API 或者新增功能的想法，我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
 
 ## 第一次贡献
 
@@ -44,7 +44,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 1. 基于 [正确的分支](./CONTRIBUTING.zh-CN.md#branch-organization) 来做修改。
 2. 在项目根目录下运行了 `npm install`。
-3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试, 这很重要。
+3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
 5. 运行 `npm test -- -u` 来更新 [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) 并且把这些更新也提交上来（如果有的话）。
 6. 确保你的代码通过了 lint 检查 `npm run lint`. 小贴士: Lint 会在你 `git commit` 的时候自动运行。
