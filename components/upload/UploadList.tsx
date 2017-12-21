@@ -23,11 +23,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     prefixCls: 'ant-upload',
     showRemoveIcon: true,
     showPreviewIcon: true,
+    disabled: false,
   };
 
   handleClose = (file: UploadFile) => {
-    const { onRemove } = this.props;
-    if (onRemove) {
+    const { onRemove, disabled } = this.props;
+    if (onRemove && !disabled) {
       onRemove(file);
     }
   }
