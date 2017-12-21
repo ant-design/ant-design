@@ -369,16 +369,15 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 >
   <div>
     <div
-      class="ant-spin"
+      class="ant-spin-nested-loading"
     >
-      <span
-        class="ant-spin-dot"
+      <div
+        class="ant-spin-container"
       >
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
+        <div
+          style="min-height:53px"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -410,10 +409,8 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="ant-list-empty-text"
-        >
-          No data
-        </div>
+          style="min-height:53px"
+        />
       </div>
     </div>
     <div
