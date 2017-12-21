@@ -23,6 +23,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     prefixCls: 'ant-upload',
     showRemoveIcon: true,
     showPreviewIcon: true,
+    disabled: false,
   };
 
   handleClose = (file: UploadFile) => {
@@ -66,7 +67,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
+    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale, disabled } = this.props;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
@@ -146,7 +147,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           <Icon type="eye-o" />
         </a>
       ) : null;
-      const removeIcon = showRemoveIcon ? (
+      const removeIcon = (showRemoveIcon && !disabled) ? (
         <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const removeIconCross = showRemoveIcon ? (
