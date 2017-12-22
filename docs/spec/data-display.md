@@ -1,4 +1,5 @@
 ---
+category: 模式语言
 order: 10
 title:
   zh-CN: 数据展示

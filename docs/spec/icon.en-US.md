@@ -1,4 +1,5 @@
 ---
+category: Visual
 order: 4
 title: Icons
 ---

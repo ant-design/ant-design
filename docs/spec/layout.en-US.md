@@ -1,5 +1,6 @@
 ---
-order: 7
+category: Visual
+order: 2
 title: Layout
 ---
 

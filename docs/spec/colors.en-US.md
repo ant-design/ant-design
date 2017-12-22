@@ -1,5 +1,6 @@
 ---
-order: 3
+category: Visual
+order: 0
 title: Colors
 ---
 

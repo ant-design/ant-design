@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 7
 title:
   zh-CN: 加入我们
   en-US: Work with Us

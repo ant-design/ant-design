@@ -1,5 +1,6 @@
 ---
-order: 5
+category: Visual
+order: 3
 title:
   zh-CN: 字体
   en-US: Font

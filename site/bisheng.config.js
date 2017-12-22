@@ -29,8 +29,16 @@ module.exports = {
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
     categoryOrder: {
-      设计原则: 2,
-      Principles: 2,
+      'Ant Design': 0,
+      设计原则: 1,
+      Principles: 1,
+      视觉语言: 2,
+      Visual: 2,
+      模式语言: 3,
+      Patterns: 3,
+      资源: 6,
+      Resources: 6,
+      Components: 100,
     },
     typeOrder: {
       General: 0,

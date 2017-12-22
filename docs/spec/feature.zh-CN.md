@@ -1,6 +1,7 @@
 ---
+category: Ant Design
 order: 1
-title: 基本理念
+title: 设计价值观
 ---
 
 与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』和『开发者』的使用体验，践行『以人为本』的设计理念。

@@ -1,5 +1,6 @@
 ---
-order: 7
+category: 视觉语言
+order: 2
 title: 布局
 ---
 
