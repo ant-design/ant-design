@@ -70,7 +70,7 @@ export type GetFieldDecoratorOptions = {
   exclusive?: boolean;
   /** Normalize value to form component */
   normalize?: (value: any, prevValue: any, allValues: any) => any;
-  /** Whether stop validate on first rule of error for this field.	 */
+  /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
 };
 
@@ -117,7 +117,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
 export interface ComponentDecorator<TOwnProps> {
   <P extends FormComponentProps>(
-    component: React.ComponentClass<P>,
+    component: React.ComponentClass<P> | React.SFC<P>,
   ): React.ComponentClass<Omit<P, keyof FormComponentProps> & TOwnProps>;
 }
 

@@ -121,7 +121,7 @@ input[type="checkbox"] {
   }
 
   .@{ant-prefix}-switch {
-    margin: 4px 0;
+    margin: 2px 0 4px;
   }
 
   &-no-colon &-label label:after {
@@ -243,47 +243,12 @@ form {
   .@{ant-prefix}-select,
   .@{ant-prefix}-cascader-picker {
     width: 100%;
-    // Fix https://github.com/ant-design/ant-design/issues/6097
-    &:only-child {
-      display: block;
-      position: relative;
-      top: (@form-component-max-height - @input-height-base) / 2;
-
-      &.@{ant-prefix}-select-sm,
-      &.@{ant-prefix}-cascader-picker-small {
-        top: (@form-component-max-height - @input-height-sm) / 2;
-      }
-
-      &.@{ant-prefix}-select-lg,
-      &.@{ant-prefix}-cascader-picker-large {
-        top: (@form-component-max-height - @input-height-lg) / 2;
-      }
-    }
   }
 
   // Don't impact select inside input group
   .@{ant-prefix}-input-group .@{ant-prefix}-select,
   .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
     width: auto;
-  }
-
-  // Don't impact select inside input group addon
-  .@{ant-prefix}-input-group-addon .@{ant-prefix}-select,
-  .@{ant-prefix}-input-group-addon .@{ant-prefix}-cascader-picker {
-    &:only-child {
-      display: inline-block;
-      top: 0;
-
-      &.@{ant-prefix}-select-sm,
-      &.@{ant-prefix}-cascader-picker-small {
-        top: 0;
-      }
-
-      &.@{ant-prefix}-select-lg,
-      &.@{ant-prefix}-cascader-picker-large {
-        top: 0;
-      }
-    }
   }
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
