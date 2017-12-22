@@ -336,9 +336,9 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             />
           </span>
           <span
-            aria-disabled="false"
+            aria-disabled="true"
             aria-label="Decrease Value"
-            class="ant-input-number-handler ant-input-number-handler-down "
+            class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
             role="button"
             unselectable="unselectable"
           >

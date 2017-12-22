@@ -2,7 +2,7 @@ import * as React from 'react';
 import Icon from '../icon';
 import Input from '../input';
 
-export interface SearchProps {
+export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
   onChange?: (e: React.FormEvent<any>) => void;
@@ -10,7 +10,7 @@ export interface SearchProps {
   value?: any;
 }
 
-export default class Search extends React.Component<SearchProps, any> {
+export default class Search extends React.Component<TransferSearchProps, any> {
   static defaultProps = {
     placeholder: '',
   };

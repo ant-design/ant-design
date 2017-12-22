@@ -44,7 +44,7 @@
     border-radius: 100px;
     margin-right: 16px;
     font-size: 16px;
-    width: 114px;
+    min-width: 114px;
     text-align: center;
     a {
       text-decoration: none;
@@ -96,6 +96,7 @@
     left: 110px;
     font-family: Lato, @font-family;
     z-index: 1;
+    min-height: 194px;
   }
   .text-wrapper h2,
   .text-wrapper-bottom h2 {
@@ -161,5 +162,27 @@
 @keyframes upDownMove {
   to {
     transform: translateY(10px);
+  }
+}
+
+.promote-banner {
+  position: relative;
+  display: block;
+  padding-top: 64px;
+  img {
+    max-width: 100%;
+  }
+  .anticon-cross {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    right: 24px;
+    top: 64px + 24px;
+    color: #fff;
+    transition: all .3s;
+    opacity: 0;
+  }
+  &:hover .anticon-cross {
+    opacity: 1;
   }
 }

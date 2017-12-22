@@ -80,7 +80,7 @@
   .content-wrapper .text-wrapper {
     float: none;
     text-align: center;
-    left: 0;
+    left: 0 !important;
     width: 100%;
     padding: 0;
     > p {
@@ -118,19 +118,12 @@
   div.version {
     display: block;
     margin: 29px auto 16px;
-    & > .ant-select-selection {
-      color: @site-text-color;
-      &:not(:hover) {
-        border-color: @site-text-color;
-      }
-    }
   }
 
   .popover-menu {
     width: 300px;
     div.version {
       margin: 16px auto;
-      float: none;
     }
     .ant-popover-inner {
       overflow: hidden;
@@ -141,7 +134,7 @@
           display: block;
         }
         .ant-btn {
-          margin: 16px 10% 0 0;
+          margin: 16px 8% 0 8px;
         }
       }
     }
@@ -243,5 +236,9 @@
       left: 0;
       right: auto;
     }
+  }
+
+  #_hj_feedback_container {
+    display: none;
   }
 }

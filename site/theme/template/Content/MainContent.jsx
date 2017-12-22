@@ -75,7 +75,7 @@ export default class MainContent extends React.Component {
     if (!nextProps || nextProps.location.pathname !== this.props.location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash) {
+    if (!window.location.hash && nextProps && nextProps.location.pathname !== this.props.location.pathname) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       return;
@@ -84,7 +84,9 @@ export default class MainContent extends React.Component {
       clearTimeout(this.timer);
     }
     this.timer = setTimeout(() => {
-      window.location.hash = window.location.hash;
+      if (window.location.hash) {
+        window.location.hash = window.location.hash;
+      }
     }, 10);
   }
 

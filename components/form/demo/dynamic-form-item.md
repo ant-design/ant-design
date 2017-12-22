@@ -35,11 +35,11 @@ class DynamicFieldSet extends React.Component {
   }
 
   add = () => {
-    uuid++;
     const { form } = this.props;
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
     const nextKeys = keys.concat(uuid);
+    uuid++;
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
@@ -84,7 +84,7 @@ class DynamicFieldSet extends React.Component {
           required={false}
           key={k}
         >
-          {getFieldDecorator(`names-${k}`, {
+          {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,

@@ -26,8 +26,6 @@ A form field is defined using `<Form.Item />`.
 </Form.Item>
 ```
 
-> PS：By default, large size controls are used within a form.
-
 ## API
 
 ### Form
@@ -170,7 +168,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;
