@@ -47,6 +47,7 @@ exports[`Input.Search should support suffix 1`] = `
         className="ant-input"
         disabled={false}
         onKeyDown={[Function]}
+        onKeyUp={[Function]}
         style={null}
         type="text"
       />
