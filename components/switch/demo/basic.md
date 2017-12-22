@@ -30,4 +30,4 @@ ReactDOM.render(
 .ant-switch {
   margin-bottom: 8px;
 }
-<style>
+</style>

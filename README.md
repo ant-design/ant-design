@@ -39,7 +39,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` is an open source project; improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute. And we are always happy to [offer collaborator permission](https://github.com/ant-design/ant-design/issues/3222) for some active contributors.
+Read our [contributing guide](./.github/CONTRIBUTING.md).
 
 ## Install
 

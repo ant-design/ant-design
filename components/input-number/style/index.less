@@ -157,4 +157,14 @@
       height: 60% !important;
     }
   }
+
+  &-handler-up-disabled,
+  &-handler-down-disabled {
+    cursor: not-allowed;
+  }
+
+  &-handler-up-disabled:hover &-handler-up-inner,
+  &-handler-down-disabled:hover &-handler-down-inner {
+    color: @disabled-color;
+  }
 }

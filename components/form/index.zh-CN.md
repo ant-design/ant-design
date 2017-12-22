@@ -28,8 +28,6 @@ title: Form
 </Form.Item>
 ```
 
-> 注：标准表单中一律使用大号控件。
-
 ## API
 
 ### Form
@@ -171,7 +169,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

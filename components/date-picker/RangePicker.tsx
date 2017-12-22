@@ -8,6 +8,15 @@ import Icon from '../icon';
 import warning from '../_util/warning';
 import callMoment from '../_util/callMoment';
 
+export type RangePickerValue = moment.Moment[];
+
+export interface RangePickerState {
+  value?: RangePickerValue;
+  showDate?: RangePickerValue;
+  open?: boolean;
+  hoverValue?: RangePickerValue;
+}
+
 function getShowDateFromValue(value: moment.Moment[]): moment.Moment[] | undefined {
   const [start, end] = value;
   // value could be an empty array, then we should not reset showDate
@@ -39,7 +48,7 @@ function isEmptyArray(arr: any) {
   return false;
 }
 
-export default class RangePicker extends React.Component<any, any> {
+export default class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
@@ -119,7 +128,7 @@ export default class RangePicker extends React.Component<any, any> {
     }
   }
 
-  handleShowDateChange = (showDate: boolean) => this.setState({ showDate });
+  handleShowDateChange = (showDate: RangePickerValue) => this.setState({ showDate });
 
   handleHoverChange = (hoverValue: any) => this.setState({ hoverValue });
 
