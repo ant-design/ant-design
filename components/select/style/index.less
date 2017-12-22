@@ -83,6 +83,9 @@
     background-color: @component-background;
     border-radius: @border-radius-base;
     border: @border-width-base @border-style-base @border-color-base;
+    // strange align fix for chrome but works
+    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
+    border-top-width: @border-width-base + 0.02px;
     transition: all .3s @ease-in-out;
 
     &:hover {
@@ -161,7 +164,7 @@
       visibility: hidden;
       pointer-events: none;
       display: inline-block;
-      width: 0;
+      width: .1px;
     }
   }
 
