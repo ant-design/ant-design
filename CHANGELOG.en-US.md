@@ -20,7 +20,7 @@ timeline: true
 `2017-12-22`
 
 - 🐞 Add React.SFC type for Form.create return value. [#8672](https://github.com/ant-design/ant-design/issues/8672)
-- 🐞 Fix form item height problem. [#8701](https://github.com/ant-design/ant-design/issues/8701)
+- 🐞 Fix form item height and align problem. [#8701](https://github.com/ant-design/ant-design/issues/8701)
 - 🐞 Improve input addon size. [#8680](https://github.com/ant-design/ant-design/issues/8680)
 - 🐞 Fix table size of fixed column. [#8660](https://github.com/ant-design/ant-design/issues/8660)
 
