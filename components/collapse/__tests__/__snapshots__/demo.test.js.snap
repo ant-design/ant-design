@@ -315,6 +315,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
   >
     <div
       aria-expanded="true"
@@ -345,6 +346,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item ant-collapse-no-arrow"
+    role="tablist"
   >
     <div
       aria-expanded="false"
