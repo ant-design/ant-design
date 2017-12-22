@@ -127,13 +127,14 @@ export default class List extends React.Component<ListProps> {
       renderItem,
       header,
       footer,
+      loading,
       ...rest,
     } = this.props;
 
-    let { loading } = this.props;
-    if (typeof loading === 'boolean') {
-      loading = {
-        spinning: loading,
+    let loadingProp = loading;
+    if (typeof loadingProp === 'boolean') {
+      loadingProp = {
+        spinning: loadingProp,
       };
     }
 
@@ -155,7 +156,7 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-split`]: split,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-loading`]: (loading && loading.spinning),
+      [`${prefixCls}-loading`]: (loadingProp && loadingProp.spinning),
       [`${prefixCls}-grid`]: grid,
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastTtem(),
     });
@@ -178,7 +179,7 @@ export default class List extends React.Component<ListProps> {
       childrenContent = grid ? (
         <Row gutter={grid.gutter}>{childrenList}</Row>
       ) : childrenList;
-    } else if (!children && !(loading && loading.spinning)) {
+    } else if (!children && !(loadingProp && loadingProp.spinning)) {
       childrenContent = (
         <LocaleReceiver
           componentName="Table"
@@ -191,7 +192,7 @@ export default class List extends React.Component<ListProps> {
 
     const content = (
       <div>
-        <Spin {...loading}>{childrenContent}</Spin>
+        <Spin {...loadingProp}>{childrenContent}</Spin>
         {loadMore}
         {(!loadMore && pagination) ? paginationContent : null}
       </div>

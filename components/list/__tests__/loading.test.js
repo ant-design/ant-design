@@ -5,8 +5,11 @@ import Icon from '../../icon';
 
 describe('List', () => {
   it('renders empty loading', () => {
+    const loading = {
+      spinning: true,
+    };
     const wrapper = render(
-      <List loading dataSource={[]} renderItem={() => <List.Item />} />
+      <List loading={loading} dataSource={[]} renderItem={() => <List.Item />} />
     );
     expect(wrapper.find('.ant-list-empty-text')).toHaveLength(0);
   });
