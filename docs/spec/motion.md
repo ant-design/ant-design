@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 5
 title:
   zh-CN: 动效
   en-US: Motion

@@ -9,7 +9,7 @@ module.exports = {
     'app.header.menu.practice': '实践',
     'app.header.menu.pattern': '模式',
     'app.header.menu.components': '组件',
-    'app.header.menu.spec': '指引',
+    'app.header.menu.spec': '设计语言',
     'app.header.menu.resource': '资源',
     'app.header.menu.mobile': '移动版',
     'app.header.menu.pro': 'PRO',

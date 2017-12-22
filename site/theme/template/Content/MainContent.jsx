@@ -33,10 +33,6 @@ function fileNameToPath(filename) {
   return snippets[snippets.length - 1];
 }
 
-function isNotTopLevel(level) {
-  return level !== 'topLevel';
-}
-
 let isMobile;
 utils.enquireScreen((b) => {
   isMobile = b;
@@ -123,6 +119,7 @@ export default class MainContent extends React.Component {
   }
 
   getSideBarOpenKeys(nextProps) {
+    const { themeConfig } = nextProps;
     const { pathname } = nextProps.location;
     const prevModule = this.currentModule;
     this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
@@ -132,7 +129,12 @@ export default class MainContent extends React.Component {
     const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
     if (prevModule !== this.currentModule) {
       const moduleData = getModuleData(nextProps);
-      const shouldOpenKeys = Object.keys(utils.getMenuItems(moduleData, locale));
+      const shouldOpenKeys = utils.getMenuItems(
+        moduleData,
+        locale,
+        themeConfig.categoryOrder,
+        themeConfig.typeOrder
+      ).map(m => m.title[locale] || m.title);
       return shouldOpenKeys;
     }
   }
@@ -140,11 +142,11 @@ export default class MainContent extends React.Component {
   generateMenuItem(isTop, item) {
     const { locale } = this.context.intl;
     const key = fileNameToPath(item.filename);
-    const text = isTop ?
-      item.title[locale] || item.title : [
-        <span key="english">{item.title}</span>,
-        <span className="chinese" key="chinese">{item.subtitle}</span>,
-      ];
+    const title = item.title[locale] || item.title;
+    const text = isTop ? title : [
+      <span key="english">{title}</span>,
+      <span className="chinese" key="chinese">{item.subtitle}</span>,
+    ];
     const { disabled } = item;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ? (
@@ -171,49 +173,34 @@ export default class MainContent extends React.Component {
     );
   }
 
-  generateSubMenuItems(obj) {
-    const { themeConfig } = this.props;
-    const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
-    const itemGroups = Object.keys(obj).filter(isNotTopLevel)
-      .sort((a, b) => themeConfig.typeOrder[a] - themeConfig.typeOrder[b])
-      .map((type) => {
-        const groupItems = obj[type].sort((a, b) => {
-          return a.title.charCodeAt(0) -
-            b.title.charCodeAt(0);
-        }).map(this.generateMenuItem.bind(this, false));
-        return (
-          <Menu.ItemGroup title={type} key={type}>
-            {groupItems}
-          </Menu.ItemGroup>
-        );
-      });
-    return [...topLevel, ...itemGroups];
-  }
-
   getMenuItems() {
     const { themeConfig } = this.props;
     const moduleData = getModuleData(this.props);
     const menuItems = utils.getMenuItems(
-      moduleData, this.context.intl.locale
+      moduleData,
+      this.context.intl.locale,
+      themeConfig.categoryOrder,
+      themeConfig.typeOrder,
     );
-    const categories = Object.keys(menuItems).filter(isNotTopLevel);
-    const topLevel = this.generateSubMenuItems(menuItems.topLevel);
-    const result = [...topLevel];
-    result.forEach((item, i) => {
-      const insertCategory = categories.filter(
-        cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] <= i : i === result.length - 1)
-      )[0];
-      if (insertCategory) {
-        const target = (
-          <SubMenu title={<h4>{insertCategory}</h4>} key={insertCategory}>
-            {this.generateSubMenuItems(menuItems[insertCategory])}
+    return menuItems.map((menuItem) => {
+      if (menuItem.children) {
+        return (
+          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
+            {menuItem.children.map((child) => {
+              if (child.type === 'type') {
+                return (
+                  <Menu.ItemGroup title={child.title} key={child.title}>
+                    {child.children.map(leaf => this.generateMenuItem(false, leaf))}
+                  </Menu.ItemGroup>
+                );
+              }
+              return this.generateMenuItem(false, child);
+            })}
           </SubMenu>
         );
-        result.splice(i + 1, 0, target);
-        categories.splice(categories.indexOf(insertCategory), 1);
       }
+      return this.generateMenuItem(true, menuItem);
     });
-    return result;
   }
 
   flattenMenu(menu) {

@@ -1,5 +1,6 @@
 ---
-order: 3
+category: 视觉语言
+order: 0
 title: 色彩
 ---
 
