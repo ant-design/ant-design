@@ -31,13 +31,11 @@ const promoteBannerImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/qVVhew
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      adBannerClosed: (
-        typeof window !== 'undefined' &&
-        window.localStorage &&
-        window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
-      ),
-    };
+    const adBannerClosed = typeof window !== 'undefined' ? true : (
+      window.localStorage &&
+      window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
+    );
+    this.state = { adBannerClosed };
   }
   closePromoteBanner = (e) => {
     e.preventDefault();
