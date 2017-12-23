@@ -12,6 +12,7 @@ exports[`Input should support maxLength 1`] = `
     disabled={false}
     maxLength="3"
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     type="text"
   />
 </Input>
