@@ -31,7 +31,7 @@ const promoteBannerImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/qVVhew
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    const adBannerClosed = typeof window !== 'undefined' ? true : (
+    const adBannerClosed = typeof window === 'undefined' ? true : (
       window.localStorage &&
       window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
     );
