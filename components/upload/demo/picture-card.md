@@ -55,6 +55,7 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
+          disabled
         >
           {fileList.length >= 3 ? null : uploadButton}
         </Upload>
