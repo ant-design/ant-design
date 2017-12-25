@@ -31,7 +31,7 @@ Call to Action Invitations are generally provided as static instructions on the 
 
 <br>
 
-<img class="preview-img" align="right" alt="example 1 of Tour Invitation" description="A few of tour points are provided when the user first logs in. Clicking the “Got It” button leads the user to the next tour step." src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
+<img class="preview-img" align="right" alt="example 1 of Tour Invitation" description="A few of tour points are provided when the user first logs in. Clicking the 'Got It' button leads the user to the next tour step." src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
 
 <img class="preview-img" align="right" alt="example 2 of Tour Invitation" src="https://os.alipayobjects.com/rmsportal/KQabdaTbolVuMld.png">
 

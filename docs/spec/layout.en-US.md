@@ -105,7 +105,7 @@ It is recommended that the number of blocks arranged in the horizontal direction
 
 <img class="preview-img no-padding" align="right" src="https://os.alipayobjects.com/rmsportal/htXqyMPydaagYLdAGEJK.png">
 
-The `Gutter` value in ant design is fixed. When the width of a browser decrease or increase within a certain range, the width of `grids` will be changed accordingly, but the width of `Gutter` remains unchanged.
+The `Gutter` value in Ant Design is fixed. When the width of a browser decrease or increase within a certain range, the width of `grids` will be changed accordingly, but the width of `Gutter` remains unchanged.
 
 There are two `Gutter`s in Ant Design
 

@@ -4,110 +4,63 @@ order: 2
 title: 布局
 ---
 
-布局是页面构成的前提，是后续展开交互和视觉设计的基础。Ant Design 提供了常用的布局模板来保证同类产品间的一致性，设计者在选择布局之前，需要注意以下几点原则：
+空间布局是体系化视觉设计的起点，和传统的平面设计的不同之处在于，UI界面的布局空间要基于『动态、体系化』的角度出发展开。我们受到建筑界大师柯布西耶的模度思想的启发，基于『秩序之美』的原则，探索 UI 设计中的动态空间秩序，形成了 Ant Design 的界面布局方式，为设计者构筑具备理性之美的布局空间创造了条件。
 
-- 明确用户在此场景中完成的主要任务和需获取的决策信息。
-- 明确决策信息和操作的优先级及内容特点，选择合理布局。
+在中后台视觉体系中定义布局系统，我们建议从 5 个方面出发：
 
----
+1. 统一的画板尺寸
+1. 适配方案
+1. 网格单位
+1. 栅格
+1. 常用模度
 
-## 常用布局
+## 统一画板
 
-通过大量的中台设计实践，Ant Design 总结了六类常用的页面布局模板：网站展示页、Dashboard、列表页、表格页、详情页、表单页。在设计前先了解这些模板有助于让用户快速找到适合自己产品的页面布局。
+为了尽可能减少沟通与理解的成本，有必要在组织内部统一设计板的尺寸。蚂蚁中台设计设计团队统一的画板尺寸为1440。
 
-### 网站展示页
+## 适配
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/olHkTiGQqfwThlgPIXzx.png">
+在设计过程中，设计师还需要建立适配的概念，根据具体情况判断系统是否需要进行适配，以及哪些区块需要考虑动态布局。据统计，使用中台系统的用户的主流分辨率主要为 1920、1440和 1366，个别系统还存在 1280 的显示设备。
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/uxbNrsFCmPFjYdhDowky.png">
+Ant Design 两种较为典型的适配方案：
 
-网站展示页（即官网页）通常是用户了解网站或产品的第一步。这类页面通常会包含产品展示图，简短的产品介绍信息，以及用户登录入口等。在设计时我们建议：
+### 一、左右布局的适配方案
 
-- 明确你要传达的内容，保持简短而清晰的文案。
-- 搭配清晰、直观的产品图片，有助于加深用户对产品的理解和记忆。
+常被用于左右布局的设计方案中，常见的做法是将左边的导航栏固定，对右边的工作区域进行动态缩放。
 
-### 控制台页
+![左右布局的适配方案](https://gw.alipayobjects.com/zos/rmsportal/xQRlXSOwrRonMOIYXeRZ.png)
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fCVwqOiItdbzyZkQOOiQ.png">
+### 二、上下布局的适配方案
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/LvYKhbKsPzIRLGsBxUJA.png">
+常被用于上下布局的设计方案中，做法是对两边留白区域进行最小值的定义，当留白区域到达限定值之后再对中间的主内容区域进行动态缩放。
 
-控制台页（Dashboard）集合了大量多样化的信息（如数字，图形，文案等），需要一目了然地将关键信息展示给用户。因此，如何将庞大复杂的信息精简清晰地展示出来，是设计此类页面的关键。在设计时要注意以下几点：
+![上下布局的适配方案](https://gw.alipayobjects.com/zos/rmsportal/XzcyeBnPowMqKStoDHMk.png)
 
-- 按照信息的重要程度来组织页面排版，突出展示关键信息。
-- 将数据可视化，让用户可以直观地了解关键信息及整体情况。
-- 合理地使用颜色及栅格排版，减轻用户的视觉负担。
+这里提及的只是非常简单的两种适配的思路，实际设计中一套完美的适配方案需要设计师具备前端视角、平面构图视角以及交互视角。
 
-### 列表页
+## 网格单位
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/GSIyiSRJmxUhmxpMoyrj.png">
+Ant Design 通过网格体系来实现视觉体系的秩序。网格的基数为8，不仅符合偶数的思路同时能够匹配多数主流的显示设备。通过建立网格的思考方式，还能帮助设计者快速实现布局空间的设计决策同时也能简化设计到开发的沟通损耗。
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/VyFWYXzkQYYzMzqBXfzO.png">
+## 关于栅格
 
-列表设计是并列式展现信息，方便用户能快速查看基本信息及操作。因此，信息的「可阅读性」及「可操作性」是设计的关键。在设计时要注意以下几点：
+Ant Design 采用 24 栅格体系。以 1440 上下布局的结构为例，对宽度为 1168 的内容区域 进行 24 栅格的划分设置，如下图所示。我们为页面中栅格的 Gutter 设定了定值，即浏览器在一定范围扩大或缩小，栅格的 Column 宽度会随之扩大或缩小，但 Gutter 的宽度值固定不变。
 
-- 根据用户需求来定义信息展示的等级，仅展示关键信息及操作。
-- 当信息内容较为复杂时，可将次要的信息折叠或放到详情页面中，以递进的方式让用户获得更多的信息。
+![栅格 layout](https://gw.alipayobjects.com/zos/rmsportal/TGgqrjNNHljnktGrafre.png)
 
-## 表格页
+对开发者而言栅格是实现动态布局的手段，而设计师对于栅格的理解源自平面设计中的栅格。在具体落地中视角的不同就容易造成偏差，最终影响还原度，继而增加沟通成本。
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ArRESSbBrLJWhjscKiZh.png">
+Ant Design 的设计师通过 4 点来实现设计过程中和工程师的沟通：
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/gDwAZagDBphbcePRDnBZ.png">
+1. 清晰的定义动态布局范围
+1. 尽量保持偶数思维
+1. 关键数据的交付（Gutter、Column）
+1. 区块的定义要从 column 开始到 column 结束
 
-表格作为多维信息展示的载体，使复杂的信息更易于阅读与理解。它的易读性，便捷性，易操作性对产品的体验起着举足轻重的作用。因此，我们在设计时要注意以下几点：
+## 常用模度
 
-- 构造清晰的表格布局，有利于提升读者对信息的接收速度和理解程度。
-- 更多地展示用户所必须的信息，通过视觉上的调优突出展示重点信息。
-- 当界面需要在一个很大的多纵行表格中展示数据，或每一横列数据有多行信息时，可以巧妙地运用横向或纵向斑马条，使得信息条目之间更为分明，视觉上更易区分。
+蚂蚁中后台涵盖了大量的不同类型和量级的产品，为了帮助不同设计能力的设计者们在界面布局上的一致性和韵律感，统一设计到开发的布局语言，减少还原损耗，Ant Design 提出了 UI 模度的概念。在大量的实践中，我们提取了一组可以用于UI布局空间决策的数组，他们都保持了 8 倍数的原则、具备动态的韵律感。经过验证，可以在一定程度上帮助我们更快更好的实现布局空间上的设计决策。
 
-### 详情页
+## 是启发，而非限制
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/wRdLpkIoTNfxOvNOqKyf.png">
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/IWXpmErtdIHzDYbtNohi.png">
-
-详情页面一般会承载大量的基本信息，扩展信息，或者状态信息。对于信息效率和优先级判定的要求会比较高。清晰的布局能帮助快速看到关键信息，提高决策效率。这设计时有以下几点需要注意：
-
-- 清晰的排版格式，易于阅读的文本大小及间距，都是影响用户获取信息效率的关键因素。
-- 图文搭配比单文本展示信息能更好地提高用户的理解。
-
-### 表单页
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AVxFnNgjBPIaxLnCOxJv.png">
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/sqeTZuWlqiGboOITncCh.png">
-
-表单页通常用来执行登录、注册、预定、下单、评论等任务，是产品中数据录入必不可少的页面模式。因此，舒适的表单设计，可以引导用户高效地完成表单背后的工作流程：
-
-- 考虑用户的浏览方式，提供清晰的用户视线浏览路径；
-- 内容是表单的核心，保证表单的内容精简（尽量避免多余的输入项）；
-- 标签的命名要易于用户阅读和理解，避免模糊的描述给用户造成困扰；
-- 醒目的提交或完成按钮，放在用户的浏览线的终点更有利于用户的完成操作。
-
----
-
-## 栅格
-
-我们通过定义网格、间距来呈现产品布局的最佳效果，设计师在设计时可按『页面总宽 1440px，内容区 1208px』来设定，并在此基础上以 24 等分的栅格来划分整个设计建议区域。
-
-![](https://os.alipayobjects.com/rmsportal/bohSixChLxFkwsOEiNaF.png)
-
-建议横向排列的区块数量最多四个，最少一个，以保证视觉层面的舒适感。
-
-![](https://os.alipayobjects.com/rmsportal/JmrNLpHxwcLebVpBIGqD.png)
-
-> 注：图中灰色部分为栅格的列，定义为『Column』，白色部分为栅格的间隔，定义为『Gutter』。
-
-### 栅格公式
-
-<img class="preview-img no-padding" align="right" src="https://os.alipayobjects.com/rmsportal/htXqyMPydaagYLdAGEJK.png">
-
-我们为页面中栅格的 Gutter 设定了定值，即浏览器在一定范围扩大或缩小，栅格的 Column 宽度会随之扩大或缩小，但 Gutter 的宽度值固定不变。
-
-在 Ant Design 中，我们定义了两种 Gutter：
-
-- 网站展示页和 Dashboard 的 Gutter 宽度为 24px。
-- 列表、表格、详情和表单页面的 Gutter 宽度为 16px。
-
-> [设置栅格的小技巧](https://zos.alipayobjects.com/rmsportal/cbxeMLaFnqQEvFgmhSTS.png)。
+Ant Design 在布局空间上的成果并非要限制设计产出，更多的在于引导设计者如何做到『更好』。8 倍数的双数组通过排列组合的方式可以形成千变万化种可能性，但在无限的可能性之中依然存在着『只是简单的套用数据组合』同『看起来很精妙』的差别。实现合理优雅的界面布局，在对美感的追求之上，还应当结合可用性来看待，对于企业级应用界面布局的探索，我们依然在路上。
