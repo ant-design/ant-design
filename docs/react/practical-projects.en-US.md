@@ -214,6 +214,8 @@ export default connect(({ products }) => ({
 Finally, we need some initial data to make the application run together. Edit `index.js`:
 
 ```diff
++ import 'antd/dist/antd.css';
++
 - const app = dva();
 + const app = dva({
 +   initialState: {

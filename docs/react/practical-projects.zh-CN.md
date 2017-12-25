@@ -216,6 +216,8 @@ export default connect(({ products }) => ({
 最后，我们还需要一些初始数据让这个应用 run 起来。编辑 `index.js`：
 
 ```diff
++ import 'antd/dist/antd.css';
++
 - const app = dva();
 + const app = dva({
 +   initialState: {
