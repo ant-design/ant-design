@@ -137,6 +137,7 @@ export default class List extends React.Component<ListProps> {
         spinning: loadingProp,
       };
     }
+    const isLoading = (loadingProp && loadingProp.spinning);
 
     // large => lg
     // small => sm
@@ -156,7 +157,7 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-split`]: split,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-loading`]: (loadingProp && loadingProp.spinning),
+      [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: grid,
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastTtem(),
     });
@@ -168,7 +169,7 @@ export default class List extends React.Component<ListProps> {
     );
 
     let childrenContent;
-    childrenContent = (<div style={{ minHeight: 53 }} />);
+    childrenContent = isLoading && (<div style={{ minHeight: 53 }} />);
     if (dataSource.length > 0) {
       const items = dataSource.map((item: any, index: number) => this.renderItem(item, index));
       const childrenList = React.Children.map(items, (child: any, index) => React.cloneElement(child, {
@@ -179,7 +180,7 @@ export default class List extends React.Component<ListProps> {
       childrenContent = grid ? (
         <Row gutter={grid.gutter}>{childrenList}</Row>
       ) : childrenList;
-    } else if (!children && !(loadingProp && loadingProp.spinning)) {
+    } else if (!children && !isLoading) {
       childrenContent = (
         <LocaleReceiver
           componentName="Table"

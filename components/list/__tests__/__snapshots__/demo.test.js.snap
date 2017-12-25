@@ -369,15 +369,16 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 >
   <div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin"
     >
-      <div
-        class="ant-spin-container"
+      <span
+        class="ant-spin-dot"
       >
-        <div
-          style="min-height:53px"
-        />
-      </div>
+        <i />
+        <i />
+        <i />
+        <i />
+      </span>
     </div>
   </div>
 </div>
