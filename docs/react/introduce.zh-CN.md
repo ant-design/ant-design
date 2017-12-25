@@ -106,6 +106,33 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // babel-plugin-import 会帮助你加载 JS 和 CSS
    import { DatePicker } from 'antd';
    ```
+   
+- 使用 [ui-component-loader](https://github.com/gwuhaolin/ui-component-loader) (适用于Webpack项目)。
+
+  ```js
+  // 修改Webpack配置文件
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          'ts-loader',
+          {
+            loader: 'ui-component-loader',
+            options: {
+              'lib': 'antd',
+              'style': 'style/index.css',
+            }
+          },
+        ],
+      },
+    ]
+  },
+  ```
+  
+  > 该方法是为了解决babel-plugin-import无法在TypeScript环境下使用，任何使用Webpack构建的项目都可以使用该方法。
+  
+  然后可以像使用babel-plugin-import一样去加载antd组件。 
 
 - 手动引入
 
