@@ -242,6 +242,24 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls.length).toBe(2);
   });
 
+  it('should not support onRemove when component is disabled', async () => {
+    const handleRemove = jest.fn();
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={fileList}
+        onRemove={handleRemove}
+        onChange={handleChange}
+        disabled
+      >
+        <button>upload</button>
+      </Upload>
+    );
+    expect(wrapper.find('.anticon-delete') === null);
+  });
+
+
   it('should generate thumbUrl from file', async () => {
     const handlePreview = jest.fn();
     const newFileList = [...fileList];
