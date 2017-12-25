@@ -143,12 +143,6 @@ const ColorPalettes = () => {
       chinese: '法式洋红',
       description: '明快、感性',
     },
-    {
-      name: 'grey',
-      english: 'Grey',
-      chinese: '灰',
-      description: '平稳、中性',
-    },
   ];
   return (
     <div className="color-palettes">
