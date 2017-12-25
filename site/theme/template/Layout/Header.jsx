@@ -4,6 +4,7 @@ import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button } from 'antd';
+import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -238,6 +239,7 @@ export default class Header extends React.Component {
                 alt="Ant Design"
                 src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
               />
+              <Santa />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
