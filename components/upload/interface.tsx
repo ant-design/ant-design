@@ -83,4 +83,5 @@ export interface UploadListProps {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
+  disabled?: boolean;
 }
