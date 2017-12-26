@@ -235,7 +235,7 @@ export default class Header extends React.Component {
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DmMsyewtkhAzjNkeGnYe.svg" />
-              <Tooltip title="🎅🏻 Merry Chrismas!">
+              <Tooltip title="🎅🏻 Merry Christmas :)">
                 <div className="santa">
                   <div className="santa-body">
                     <div className="santa-head">
