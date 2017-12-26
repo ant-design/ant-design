@@ -81,4 +81,15 @@ describe('Button', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('fixbug renders {0} and 0', () => {
+    const wrapper = render(
+      <Button>{0}</Button>
+    );
+    expect(wrapper).toMatchSnapshot();
+    const wrapper1 = render(
+      <Button>0</Button>
+    );
+    expect(wrapper1).toMatchSnapshot();
+  });
 });
