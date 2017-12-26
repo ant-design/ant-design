@@ -6,7 +6,7 @@ title: 设计价值观
 与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』和『开发者』的使用体验，践行『以人为本』的设计理念。
 设计价值观（Design Values）为 Ant Design 的设计者以及基于 Ant Design 进行产品设计的设计者，提供评价设计好坏的内在标准，并提供有效的设计实践所遵循的规则。同时，它启示并激发了设计原则和设计模式，为具体的设计问题提供向导和一般解决方案。
 
-![](https://os.alipayobjects.com/rmsportal/SyurwytfcvpbNLG.png)
+todo...
 
 在设计价值观坚持上，Ant Design 有三点与众不同：
 
