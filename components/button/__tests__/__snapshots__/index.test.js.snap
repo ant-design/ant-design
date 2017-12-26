@@ -5,9 +5,7 @@ exports[`Button fixbug renders {0} and 0 1`] = `
   class="ant-btn"
   type="button"
 >
-  <span>
-    0
-  </span>
+  0
 </button>
 `;
 
