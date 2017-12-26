@@ -32,7 +32,11 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 ### 中性色板
 
-todo...
+`````__react
+import Palette from '../../site/theme/template/Color/Palette';
+
+ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+`````
 
 ### 数据可视化色板
 
