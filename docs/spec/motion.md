@@ -7,7 +7,7 @@ title:
 
 Ant Motion 是 Ant Design 中提炼出来的动效语言。他不仅仅是动效语言，同时也是一套 React 框架动效解决方案，可以帮助开发者，更容易的在项目中使用动效。 我们提供了单项，组合动画，以及整套解决方案。
 
-你可以通过 React 标签，以简单的配置即可完成想要的动画，可以快速的实现不同组合的动画效果，更好的提高你的工作效率，pGithub 反馈地址](https://github.com/ant-design/ant-motion/issues)
+你可以通过 React 标签，以简单的配置即可完成想要的动画，可以快速的实现不同组合的动画效果，更好的提高你的工作效率，[Github 反馈地址](https://github.com/ant-design/ant-motion/issues)
 
 ## 设计资源
 
