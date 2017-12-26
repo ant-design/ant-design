@@ -88,7 +88,7 @@ describe('Button', () => {
     );
     expect(wrapper).toMatchSnapshot();
     const wrapper1 = render(
-      <Button>0</Button>
+      <Button>{0}</Button>
     );
     expect(wrapper1).toMatchSnapshot();
   });
