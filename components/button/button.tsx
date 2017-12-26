@@ -160,6 +160,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
     const needInserted = React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
+    // tslint:disable-next-line:max-line-length
     const kids = children || children === 0 ? React.Children.map(children, child => insertSpace(child, needInserted)) : null;
 
     return (

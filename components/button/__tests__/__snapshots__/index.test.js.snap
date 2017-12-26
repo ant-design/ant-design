@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button fixbug renders {0} and 0 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    0
+  </span>
+</button>
+`;
+
+exports[`Button fixbug renders {0} and 0 2`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    0
+  </span>
+</button>
+`;
+
 exports[`Button renders Chinese characters correctly 1`] = `
 <button
   class="ant-btn"
