@@ -63,23 +63,21 @@ Ant Design 受到 5 音阶以及自然律的启发定义了 10 个不同尺寸�
 
 字重的选择同样基于秩序、稳定、克制的原则。多数情况下，只出现 regular 以及 medium 的两种字体重量，分别对应代码中的 400 和 500。在英文字体加粗的情况下会采用 semibold 的字体重量，对应代码中的600。
 
-<div>
-	<div class="sample" style="text-align: left;">
-	  <img width="272" src="https://gw.alipayobjects.com/zos/rmsportal/orIVrEOZIpjMbqZGiXEi.png" />
+<div class="font-samples">
+	<div>
+	  <img src="https://gw.alipayobjects.com/zos/rmsportal/orIVrEOZIpjMbqZGiXEi.png" />
 	</div>
-	<div class="sample">
-  	<img width="272" src="https://gw.alipayobjects.com/zos/rmsportal/sasWhUzTGjlZKftukraH.png" />
+	<div>
+  	<img src="https://gw.alipayobjects.com/zos/rmsportal/sasWhUzTGjlZKftukraH.png" />
 	</div>
-	<div class="sample" style="text-align: right;">
-  	<img width="272" src="https://gw.alipayobjects.com/zos/rmsportal/QqxifAZlISrSUwnlonyx.png" />
+	<div>
+  	<img src="https://gw.alipayobjects.com/zos/rmsportal/QqxifAZlISrSUwnlonyx.png" />
 	</div>
 </div>
 
 <style>
-.sample {
-	text-align: center;
-	width: 33.33%;
-	display: inline-block;
+.font-samples {
+  display: flex;
 }
 </style>
 
