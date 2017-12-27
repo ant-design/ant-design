@@ -205,7 +205,7 @@ timeline: true
       },
     };
 
-    <Table components={components} columns={columns data={data}}  />
+    <Table components={components} columns={columns} data={data} />
     ```
   - 🌟 新增 `onRow` 属性，用于设置表格列的属性。
   - 🌟 新增 `onHeaderRow`，用户设置表格头部列的属性。

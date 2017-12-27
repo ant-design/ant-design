@@ -194,7 +194,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
       },
     };
 
-    <Table components={components} columns={columns data={data}}  />
+    <Table components={components} columns={columns} data={data} />
     ```
   - 🌟 Added new `onRow` prop to allow passing custom props to table body row.
   - 🌟 Added new `onHeaderRow` props to allow passing custom props to table header row.
