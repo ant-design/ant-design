@@ -1,5 +1,7 @@
 ---
-category: Visual
+category:
+  zh-CN: 视觉语言
+  en-US: Visual
 order: 3
 title:
   zh-CN: 字体

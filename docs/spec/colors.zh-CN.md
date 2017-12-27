@@ -38,9 +38,9 @@ import Palette from '../../site/theme/template/Color/Palette';
 ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
 `````
 
-### 数据可视化色板
+### 数据可视化色板（敬请期待）
 
-数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 『有效、清晰、准确、美』的原则产生的。数据可视化色板详见[链接](todo...)。
+数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 『有效、清晰、准确、美』的原则产生的。
 
 ### 色板生成工具
 
@@ -73,7 +73,7 @@ Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 1890FF，应用�
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkaVzBvUUEcTKeUxhgpN.png">
 
-Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线、等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结 WCAG 2.0 的 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：
+Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线、等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 WCAG 2.0 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：
 
 ---
 
