@@ -19,7 +19,7 @@ After hard working of designers and programmers, we got a great [color palette g
 
 Ant Design's default theme consists of eight basic colors, each of which is derived from the above algorithm.
 
-> Note: In these shallow-to-deep palettes, the 6th color cell [generally satisfies WCAG 2.0](https://leaverou.github.io/contrast-ratio/)'s 4.5:1 minimum contrast ratio (AA level), and is used as the default for the palette.
+> Note: In these shallow-to-deep palettes, the 6th color cell [generally satisfies WCAG 2.0](https://leaverou.github.io/contrast-ratio/)'s 4.5:1 minimum contrast ratio (AA level), and is used as the default for the palette（Yellow color don't follow WCAG in white color because it is designed to be used with dark font/background).
 
 `````__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';

@@ -19,7 +19,7 @@ Ant Design PC 端的色板由 10 个由浅至深的色彩单元格组成，我�
 
 Ant Design 的色板由 8 种基本色彩组成，每种基本色（第 6 格）又按上述算法衍生出 10 种渐变色。
 
-> 注：在由浅至深的色板里，第 6 格色彩单元格普遍满足 [WCAG 2.0](http://leaverou.github.io/contrast-ratio/) 的 4.5:1 最小对比度（AA 级），我们将其定义为色板的默认品牌色。
+> 注：在由浅至深的色板里，第 6 格色彩单元格普遍满足 [WCAG 2.0](http://leaverou.github.io/contrast-ratio/) 的 4.5:1 最小对比度（AA 级），我们将其定义为色板的默认品牌色。（黄色用于搭配黑色字体/背景，故不满足和白色的对比度）
 
 `````__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
