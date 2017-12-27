@@ -12,7 +12,6 @@ exports[`Input should support maxLength 1`] = `
     disabled={false}
     maxLength="3"
     onKeyDown={[Function]}
-    onKeyUp={[Function]}
     type="text"
   />
 </Input>
@@ -48,7 +47,6 @@ exports[`Input.Search should support suffix 1`] = `
         className="ant-input"
         disabled={false}
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
         style={null}
         type="text"
       />

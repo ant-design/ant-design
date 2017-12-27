@@ -94,13 +94,6 @@ export default class Input extends React.Component<InputProps, any> {
     }
   }
 
-  handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { onKeyUp } = this.props;
-    if (onKeyUp) {
-      onKeyUp(e);
-    }
-  }
-
   focus() {
     this.input.focus();
   }
@@ -234,7 +227,6 @@ export default class Input extends React.Component<InputProps, any> {
         {...otherProps}
         className={classNames(this.getInputClassName(), className)}
         onKeyDown={this.handleKeyDown}
-        onKeyUp={this.handleKeyUp}
         ref={this.saveInput}
       />,
     );
