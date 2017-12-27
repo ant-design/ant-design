@@ -19,7 +19,7 @@ timeline: true
 
 `2017-12-22`
 
-- 🐞 Form.create 返回值增加`React.SFC`类型的支持。[#8672](https://github.com/ant-design/ant-design/issues/8672)
+- 🐞 Form.create 返回值增加 `React.SFC` 类型的支持。[#8672](https://github.com/ant-design/ant-design/issues/8672)
 - 🐞 修复 Form 控件高度和对齐的问题。[#8701](https://github.com/ant-design/ant-design/issues/8701)
 - 🐞 修复前后置标签与 Input 高度不一致的问题。[#8680](https://github.com/ant-design/ant-design/issues/8680)
 - 🐞 修复 Table 固定列时左右未对齐的问题。[#8660](https://github.com/ant-design/ant-design/issues/8660)
