@@ -23,6 +23,7 @@ and so on.
 | cancelText | Text of the Cancel button | string | `Cancel` |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |
+| destroyOnClose | Whether to unmount child compenents on onClose | boolean | false |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and Cancel buttons |
 | getContainer | Return the mount node for Modal | (instance): HTMLElement | () => document.body |
 | mask | Whether show mask or not. | Boolean | true |
@@ -36,13 +37,14 @@ and so on.
 | width | Width of the modal dialog | string\|number | 520 |
 | wrapClassName | The class name of the container of the modal dialog | string | - |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
-| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |
+| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button |
+function(e) | - |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |
 
-#### Destroy on close
+#### Note
 
-> The state of Modal will be preserved at it's component lifecycle.
-> If you wish to open it with a brand new state everytime, you need to reset state manually.
+ > The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
+
 
 ### Modal.method()
 
