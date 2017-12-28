@@ -83,6 +83,7 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
+    "@babel/types": "7.0.0-beta.31",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "ansi-styles": "^3.2.0",
