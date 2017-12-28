@@ -1,5 +1,5 @@
 ---
-category: 模式语言
+category: 模式
 order: 9
 title:
   zh-CN: 数据录入
