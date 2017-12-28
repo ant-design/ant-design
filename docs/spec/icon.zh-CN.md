@@ -1,5 +1,5 @@
 ---
-category: 视觉语言
+category: 视觉
 order: 4
 title: 图标
 ---
