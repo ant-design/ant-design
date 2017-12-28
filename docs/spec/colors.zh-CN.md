@@ -1,5 +1,5 @@
 ---
-category: 视觉语言
+category: 视觉
 order: 0
 title: 色彩
 ---
