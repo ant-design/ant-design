@@ -1,5 +1,5 @@
 ---
-category: 模式语言
+category: 模式
 order: 6
 title:
   zh-CN: 文案
