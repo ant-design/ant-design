@@ -226,8 +226,16 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       'fixed': !affix && !showInkInFixed,
     });
 
+    const wrapperStyle = {
+      maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
+      ...style,
+    };
+
     const anchorContent = (
-      <div className={wrapperClass} style={style}>
+      <div
+        className={wrapperClass}
+        style={wrapperStyle}
+      >
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`} >
             <span className={inkClass} ref={this.saveInkNode} />

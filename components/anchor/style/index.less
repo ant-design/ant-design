@@ -7,8 +7,12 @@
   .reset-component;
   position: relative;
   padding-left: @anchor-border-width;
+
   &-wrapper {
     background-color: @component-background;
+    overflow: auto;
+    padding-left: 4px;
+    margin-left: -4px;
   }
 
   &-ink {
