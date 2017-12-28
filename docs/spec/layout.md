@@ -1,6 +1,6 @@
 ---
 category:
-  zh-CN: 视觉语言
+  zh-CN: 视觉
   en-US: Visual
 order: 2
 title:
