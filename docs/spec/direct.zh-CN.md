@@ -1,5 +1,5 @@
 ---
-category: 设计原则
+category: 原则
 order: 5
 title: 直截了当
 ---
