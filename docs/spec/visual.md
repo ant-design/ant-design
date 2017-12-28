@@ -1,7 +1,7 @@
 ---
 order: 4
 title:
-  zh-CN: 可视化语言
+  zh-CN: 可视化
   en-US: Visualization
 ---
 
