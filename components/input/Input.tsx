@@ -34,6 +34,7 @@ export interface InputProps extends AbstractInputProps {
   addonAfter?: React.ReactNode;
   onPressEnter?: React.FormEventHandler<any>;
   onKeyDown?: React.FormEventHandler<any>;
+  onKeyUp?: React.FormEventHandler<any>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onClick?: React.FormEventHandler<any>;
   onFocus?: React.FormEventHandler<any>;
@@ -74,6 +75,7 @@ export default class Input extends React.Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     prefix: PropTypes.node,
