@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge, Button, Tooltip } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -235,6 +235,21 @@ export default class Header extends React.Component {
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DmMsyewtkhAzjNkeGnYe.svg" />
+              <Tooltip title="🎅🏻 Merry Christmas :)">
+                <div className="santa">
+                  <div className="santa-body">
+                    <div className="santa-head">
+                      <div className="santa-ear" />
+                      <div className="santa-ear" />
+                      <div className="santa-hat" />
+                      <div className="santa-eye" />
+                      <div className="santa-eye" />
+                      <div className="santa-nose" />
+                      <div className="santa-mouth" />
+                    </div>
+                  </div>
+                </div>
+              </Tooltip>
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>

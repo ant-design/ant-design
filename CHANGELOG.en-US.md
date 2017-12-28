@@ -11,10 +11,18 @@ timeline: true
 
 * Weekly release: patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
 * Monthly release: minor version at the end of every month for new features.
-* Major version release is not included in this schedule for breadking change and new features.
+* Major version release is not included in this schedule for breaking change and new features.
 
 ---
 
+## 3.0.3
+
+`2017-12-22`
+
+- 🐞 Add React.SFC type for Form.create return value. [#8672](https://github.com/ant-design/ant-design/issues/8672)
+- 🐞 Fix form item height and align problem. [#8701](https://github.com/ant-design/ant-design/issues/8701)
+- 🐞 Improve input addon size. [#8680](https://github.com/ant-design/ant-design/issues/8680)
+- 🐞 Fix table size of fixed column. [#8660](https://github.com/ant-design/ant-design/issues/8660)
 
 ## 3.0.2
 
@@ -186,7 +194,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
       },
     };
 
-    <Table components={components} columns={columns data={data}}  />
+    <Table components={components} columns={columns} data={data} />
     ```
   - 🌟 Added new `onRow` prop to allow passing custom props to table body row.
   - 🌟 Added new `onHeaderRow` props to allow passing custom props to table header row.

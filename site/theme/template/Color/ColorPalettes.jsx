@@ -44,7 +44,7 @@ class Palette extends Component {
             ref={(node) => { this.colorNodes[`${name}-${i}`] = node; }}
             className={`main-color-item palatte-${name}-${i}`}
             style={{
-              color: i > 5 ? '#fff' : 'unset',
+              color: (name === 'yellow' ? i > 6 : i > 5) ? '#fff' : 'unset',
               fontWeight: i === 6 ? 'bold' : 'normal',
             }}
             title="click to copy color"
