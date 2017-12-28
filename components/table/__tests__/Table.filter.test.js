@@ -195,13 +195,19 @@ describe('Table.filter', () => {
         filters,
       }],
     }));
+    jest.useFakeTimers();
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
+    jest.runAllTimers();
+    dropdownWrapper.update();
     dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
+    jest.runAllTimers();
+    dropdownWrapper.update();
     dropdownWrapper.find('MenuItem').last().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+    jest.useRealTimers();
   });
 
   it('works with JSX in controlled mode', () => {
