@@ -120,7 +120,4 @@ describe('Locale Provider', () => {
       expect(okButtonText).toBe(locale.Modal.okText);
     });
   });
-
-  it('lazy set moment locale', () => {
-  });
 });
