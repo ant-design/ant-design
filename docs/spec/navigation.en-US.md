@@ -1,5 +1,5 @@
 ---
-category: Pattern
+category: Patterns
 order: 8
 title: Navigation
 ---

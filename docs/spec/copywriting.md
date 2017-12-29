@@ -1,7 +1,7 @@
 ---
 category:
   zh-CN: 模式
-  en-US: Pattern
+  en-US: Patterns
 order: 6
 title:
   zh-CN: 文案
