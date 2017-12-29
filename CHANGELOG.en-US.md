@@ -17,17 +17,17 @@ timeline: true
 
 ## 3.1.0
 
-- 🐞 Fix ant-spin-container overflow resizing for Spin component [#8602]
-- 🐞 Fix extra padding in Table small with fixed columns (#8724]
-- 🐞 Fix Checkbox.Group align issue in Form [#8739]
-- 🐞 Fix unexpected scrollbar in Affix [#8606]
-- 🌟 Add onKeyUp TypeScript definition to Input component [#8705]
-- 🌟 Add option for disabling arrow icon in collapse panel [#8536]
-- 🌟 Update rate to 2.4.0 for support allowClear [#8627]
-- 🌟 Add responsive for BackTop [#8719]
-- 🌟 Add `onCancel` and `destroyOnClose` to Modal component
+- 🐞 Fix ant-spin-container overflow resizing for Spin component [#8602](https://github.com/ant-design/ant-design/issues/8602)
+- 🐞 Fix extra padding in Table small with fixed columns (#8724](https://github.com/ant-design/ant-design/issues/8724)
+- 🐞 Fix Checkbox.Group align issue in Form [#8739](https://github.com/ant-design/ant-design/issues/8739)
+- 🐞 Fix unexpected scrollbar in Affix [#8606](https://github.com/ant-design/ant-design/issues/8606)
+- 🌟 Add onKeyUp TypeScript definition to Input component [#8705](https://github.com/ant-design/ant-design/issues/8705)
+- 🌟 Add `showArrow` for disabling arrow icon in collapse panel [#8536](https://github.com/ant-design/ant-design/issues/8536)
+- 🌟 Update rate to 2.4.0 for support `allowClear` [#8627](https://github.com/ant-design/ant-design/issues/8627)
+- 🌟 Add responsive for BackTop [#8719](https://github.com/ant-design/ant-design/issues/8719)
+- 🌟 Add `destroyOnClose` to Modal component
 - 🌟 Support customize spin for List component
-- 👻 Support open official demo in CodeSandbox [#8747]
+- 👻 Support open official demo in CodeSandbox
 
 ## 3.0.3
 
