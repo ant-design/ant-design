@@ -30,11 +30,11 @@ module.exports = {
   themeConfig: {
     categoryOrder: {
       'Ant Design': 0,
-      设计原则: 1,
+      原则: 1,
       Principles: 1,
-      视觉语言: 2,
+      视觉: 2,
       Visual: 2,
-      模式语言: 3,
+      模式: 3,
       Patterns: 3,
       资源: 6,
       Resources: 6,
