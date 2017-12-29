@@ -23,9 +23,9 @@ timeline: true
 - 🐞 Fix unexpected scrollbar in Affix [#8606](https://github.com/ant-design/ant-design/issues/8606)
 - 🌟 Add onKeyUp TypeScript definition to Input component [#8705](https://github.com/ant-design/ant-design/issues/8705)
 - 🌟 Add `showArrow` for disabling arrow icon in collapse panel [#8536](https://github.com/ant-design/ant-design/issues/8536)
-- 🌟 Update rate to 2.4.0 for support `allowClear` [#8627](https://github.com/ant-design/ant-design/issues/8627)
+- 🌟 Rate add `allowClear` for reset when click again [#8627](https://github.com/ant-design/ant-design/issues/8627)
 - 🌟 Add responsive for BackTop [#8719](https://github.com/ant-design/ant-design/issues/8719)
-- 🌟 Add `destroyOnClose` to Modal component
+- 🌟 Add `destroyOnClose` to Modal component to support unmount child compenents on onClose
 - 🌟 Support customize spin for List component
 - 👻 Support open official demo in CodeSandbox
 

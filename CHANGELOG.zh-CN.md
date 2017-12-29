@@ -23,9 +23,9 @@ timeline: true
 - 🐞 修复 Affix 组件出现滚动条的问题。[#8606](https://github.com/ant-design/ant-design/issues/8606)
 - 🌟 为 Input 添加 onKeyUp。[#8705](https://github.com/ant-design/ant-design/issues/8705)
 - 🌟 折叠面板 Collapse 添加 `showArrow` 来支持隐藏箭头。[#8536](https://github.com/ant-design/ant-design/issues/8536)
-- 🌟 评分 Rate 组件添加 `allowClear`。[#8627](https://github.com/ant-design/ant-design/issues/8627)
+- 🌟 评分 Rate 组件添加 `allowClear`，支持再次点击后重置。[#8627](https://github.com/ant-design/ant-design/issues/8627)
 - 🌟 优化 BackTop 组件的响应式效果。[#8719](https://github.com/ant-design/ant-design/issues/8719)
-- 🌟 Modal 组件添加 `destroyOnClose`。
+- 🌟 Modal 组件添加 `destroyOnClose` 支持关闭时销毁 Modal 里的子元素。
 - 🌟 支持 List 组件自定义加载动画。
 - 👻 你现在可以通过 CodeSandbox 来打开官方文档中的示例了。
 
