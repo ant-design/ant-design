@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.1.0
+
+- 🐞 fix ant-spin-container overflow resizing for Spin component [#8602]
+- 🐞 Fix extra padding in Table small with fixed columns (#8724]
+- 🐞 Fix Checkbox.Group align issue in Form [#8739]
+- 🐞 Fix unexpected scrollbar in Affix [#8606]
+- 🌟 Add onKeyUp TypeScript definition to Input component [#8705]
+- 🌟 Add option for disabling arrow icon in collapse panel [#8536]
+- 🌟 update rate to 2.4.0 for support allowClear [#8627]
+- 🌟 Add responsive for BackTop [#8719]
+- 🌟 Add `onCancel` and `destroyOnClose` to Modal component
+- 🌟 Support customize spin for List component
+- 👻 Support open official demo in CodeSandbox [#8747]
+
 ## 3.0.3
 
 `2017-12-22`

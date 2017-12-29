@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.1.0
+
+- 🐞 修复组件 Spin 可能出现跳动的 问题。[#8602]
+- 🐞 修复 Table 在设置 `size=small` 的情况下出现多余 padding 的问题。(#8724]
+- 🐞 修复 Checkbox.Group 在 Form 中和 label 的对齐问题。[#8739]
+- 🐞 修复 Affix 组件出现滚动条的问题。[#8606]
+- 🌟 为 Input 添加 onKeyUp。[#8705]
+- 🌟 折叠面板 Collapse 添加 showArrow 来支持隐藏箭头。[#8536]
+- 🌟 评分 Rate 组件添加 allowClear。[#8627]
+- 🌟 优化 BackTop 组件的响应式效果。[#8719]
+- 🌟 Modal 组件添加 onCancel 和 destroyOnClose。
+- 🌟 支持 List 组件自定义加载动画。
+- 👻 你现在可以通过 CodeSandbox 来打开官方文档中的示例了。
+
 ## 3.0.3
 
 `2017-12-22`

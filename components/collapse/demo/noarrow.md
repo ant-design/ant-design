@@ -1,13 +1,13 @@
 ---
 order: 4
 title:
-  zh-CN: TODO
+  zh-CN: 隐藏箭头
   en-US: No arrow
 ---
 
 ## zh-CN
 
-TODO
+你可以通过 `showArrow={false}` 隐藏 `CollapsePanel` 组件的箭头图标。
 
 ## en-US
 
