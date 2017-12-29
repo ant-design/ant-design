@@ -15,8 +15,8 @@ Rate component.
 
 | Property | Description | type | Default |
 | -------- | ----------- | ---- | ------- |
-| allowHalf | whether to allow semi selection | boolean | false |
 | allowClear | whether to allow clear when click again | boolean | true |
+| allowHalf | whether to allow semi selection | boolean | false |
 | autoFocus | get focus when component mounted | boolean | false |
 | character | custom character of rate | ReactNode | `<Icon type="star" />` |
 | className | custom class name of rate | string | - |
@@ -35,5 +35,5 @@ Rate component.
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

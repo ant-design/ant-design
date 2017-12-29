@@ -53,8 +53,8 @@ const columns = [{
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bordered | Whether to show all table borders | boolean | `false` |
-| components | Override default table elements | object | - |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| components | Override default table elements | object | - |
 | dataSource | Data record array to be displayed | any\[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
@@ -88,6 +88,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
+| defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |
@@ -100,7 +101,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
-| defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |
 | title | Title of this column | string\|ReactNode | - |
 | width | Width of this column | string\|number | - |
 | onCell | Set props on per cell | Function(record) | - |
@@ -120,8 +120,8 @@ Properties for row selection.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
 | fixed | Fixed selection column on the left | boolean | - |
+| getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
 | selectedRowKeys | Controlled selected row keys | string\[] | \[] |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |

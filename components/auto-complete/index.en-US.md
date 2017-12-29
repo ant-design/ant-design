@@ -41,5 +41,5 @@ const dataSource = ['12345', '23456', '34567'];
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

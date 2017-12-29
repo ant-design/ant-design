@@ -30,6 +30,7 @@ More layouts with navigation: [layout](/components/layout).
 | ----- | ----------- | ---- | ------------- |
 | defaultOpenKeys | array with the keys of default opened sub menus |  |  |
 | defaultSelectedKeys | array with the keys of default selected menu items | string\[] |  |
+| forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 | inlineCollapsed | specifies the collapsed status when menu is inline mode | boolean | - |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 | mode | type of the menu; `vertical`, `horizontal`, and `inline` modes are supported | string: `vertical` \| `vertical-right` \| `horizontal` \| `inline` | `vertical` |
@@ -38,14 +39,13 @@ More layouts with navigation: [layout](/components/layout).
 | selectable | allow selecting menu items | boolean | true |
 | selectedKeys | array with the keys of currently selected menu items | string\[] |  |
 | style | style of the root node | object |  |
+| subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
+| subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
 | theme | color theme of the menu | string: `light` `dark` | `light` |
 | onClick | callback executed when a menu item is clicked | function({ item, key, keyPath }) | - |
 | onDeselect | callback executed when a menu item is deselected, only supported for multiple mode | function({ item, key, selectedKeys }) | - |
 | onOpenChange | called when open/close sub menu | function(openKeys: string\[]) | noop |
 | onSelect | callback executed when a menu item is selected | function({ item, key, selectedKeys }) | none |
-| subMenuOpenDelay | delay time to show submenu when mouse enter, unit: second | number | 0 |
-| subMenuCloseDelay | delay time to hide submenu when mouse leave, unit: second | number | 0.1 |
-| forceSubMenuRender | render submenu into DOM before it shows | boolean | false |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 

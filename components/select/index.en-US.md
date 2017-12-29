@@ -35,7 +35,7 @@ Select component to select value from options.
 | firstActiveValue | Value of action option by default | string\|string\[] | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw01) | function(triggerNode) | () => document.body |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |
-| maxTagCount |  Max tag count to show | number | - |
+| maxTagCount | Max tag count to show | number | - |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |
 | mode | Set mode of Select (Support after 2.9) | 'multiple' \| 'tags' \| 'combobox' | - |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
@@ -50,9 +50,9 @@ Select component to select value from options.
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
 | onDeselect | Called when a option is deselected, the params are option's value (or key) . only called for multiple or tags, effective in multiple or tags mode only. | function(value) | - |
 | onFocus | Called when focus | function | - |
+| onInputKeyDown | Called when key pressed | function | - |
 | onMouseEnter | Called when mouse enter | function | - |
 | onMouseLeave | Called when mouse leave | function | - |
-| onInputKeyDown | Called when key pressed | function | - |
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
 | onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option) | - |
@@ -60,7 +60,7 @@ Select component to select value from options.
 ### Select Methods
 
 | Name | Description |
-| --- | --- |
+| ---- | ----------- |
 | blur() | Remove focus |
 | focus() | Get focus |
 

@@ -36,13 +36,13 @@ subtitle: 级联选择
 | placeholder | 输入框占位文本 | string | '请选择' |
 | popupClassName | 自定义浮层类名 | string | - |
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |
+| popupVisible | 控制浮层显隐 | boolean | - |
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | style | 自定义样式 | string | - |
 | value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
-| popupVisible | 控制浮层显隐 | boolean | - |
 
 `showSearch` 为对象时，其中的字段：
 
@@ -56,9 +56,9 @@ subtitle: 级联选择
 ## 方法
 
 | 名称 | 描述 |
-| ---- | ----------- |
-| focus() | 获取焦点 |
+| --- | --- |
 | blur() | 移除焦点 |
+| focus() | 获取焦点 |
 
 <style>
 .ant-cascader-picker {

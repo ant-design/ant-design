@@ -24,10 +24,10 @@ cols: 1
 | current | 当前页数 | number | - |
 | defaultCurrent | 默认的当前页数 | number | 1 |
 | defaultPageSize | 默认的每页条数 | number | 10 |
+| hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |
 | itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |
 | pageSize | 每页条数 | number | - |
 | pageSizeOptions | 指定每页可以显示多少条 | string\[] | ['10', '20', '30', '40'] |
-| hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean | false |
 | showSizeChanger | 是否可以改变 pageSize | boolean | false |
 | showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |
