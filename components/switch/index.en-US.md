@@ -20,14 +20,14 @@ Switching Selector.
 | checkedChildren | content to be shown when the state is checked | string\|ReactNode |  |
 | defaultChecked | to set the initial state | boolean | false |
 | disabled | Disable switch | boolean | false |
+| loading | loading state of switch | boolean | false |
 | size | the size of the `Switch`, options: `default` `small` | string | default |
 | unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode |  |
 | onChange | a callback function, can be executed when the checked state is changing | Function(checked:Boolean) |  |
-| loading | loading state of switch | boolean | false |
 
 ## Methods
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

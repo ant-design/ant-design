@@ -85,7 +85,7 @@ const App = () => (
 describe('Locale Provider', () => {
   locales.forEach((locale) => {
     it(`should display the text as ${locale.locale}`, () => {
-      MockDate.set(moment('2017-09-18T03:30:07.795Z').valueOf());
+      MockDate.set(moment('2017-09-18T03:30:07.795Z').valueOf() + (new Date().getTimezoneOffset() * 60 * 1000));
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />

@@ -49,8 +49,8 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |
 
 ### TreeNode props
 

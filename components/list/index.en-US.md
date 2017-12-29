@@ -31,9 +31,9 @@ A list can be used to display content related to a single subject. The content c
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| size | Size of list | `default` \| `middle` \| `small` | `default` |
 | column | column of grid | number | - |
 | gutter | spacing between grid | number | 0 |
+| size | Size of list | `default` \| `middle` \| `small` | `default` |
 | xs | `<576px` column of grid | number | - |
 | sm | `≥576px` column of grid | number | - |
 | md | `≥768px` column of grid | number | - |

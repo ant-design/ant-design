@@ -37,14 +37,12 @@ and so on.
 | width | Width of the modal dialog | string\|number | 520 |
 | wrapClassName | The class name of the container of the modal dialog | string | - |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
-| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button |
-function(e) | - |
+| onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |
 
 #### Note
 
- > The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
-
+> The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state everytime, set `destroyOnClose` on it.
 
 ### Modal.method()
 

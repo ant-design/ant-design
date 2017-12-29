@@ -35,13 +35,13 @@ Cascade selection box.
 | placeholder | input placeholder | string | 'Please select' |
 | popupClassName | additional className of popup overlay | string | - |
 | popupPlacement | use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
+| popupVisible | set visible of cascader popup | boolean | - |
 | showSearch | Whether show search input in single mode. | boolean\|object | false |
 | size | input size, one of `large` `default` `small` | string | `default` |
 | style | additional style | string | - |
 | value | selected value | string\[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
-| popupVisible | set visible of cascader popup | boolean | - |
 
 Fields in `showSearch`:
 
@@ -56,8 +56,8 @@ Fields in `showSearch`:
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |
 
 <style>
 .ant-cascader-picker {

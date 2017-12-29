@@ -16,8 +16,8 @@ title: Rate
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| allowHalf | 是否允许半选 | boolean | false |
 | allowClear | 是否允许再次点击后清除 | boolean | true |
+| allowHalf | 是否允许半选 | boolean | false |
 | autoFocus | 自动获取焦点 | boolean | false |
 | character | 自定义字符 | ReactNode | `<Icon type="star" />` |
 | className | 自定义样式类名 | string | - |
@@ -35,6 +35,6 @@ title: Rate
 ## 方法
 
 | 名称 | 描述 |
-| ---- | ----------- |
-| focus() | 获取焦点 |
+| --- | --- |
 | blur() | 移除焦点 |
+| focus() | 获取焦点 |

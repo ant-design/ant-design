@@ -17,7 +17,7 @@ title: Radio
 ### Radio
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |
 | checked | 指定当前是否选中 | boolean | false |
 | defaultChecked | 初始是否选中 | boolean | false |
@@ -27,8 +27,8 @@ title: Radio
 
 单选框组合，用于包裹一组 `Radio`。
 
-| 参数 | 说明 | 类型 |  默认值 |
-| --- | --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
 | defaultValue | 默认选中的值 | any | 无 |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性 | string | 无 |
 | options | 以配置形式设置子元素 | string\[] \| Array&lt;{ label: string value: string disabled?: boolean }> | 无 |
@@ -41,6 +41,6 @@ title: Radio
 ### Radio
 
 | 名称 | 描述 |
-| ---- | ----------- |
-| focus() | 获取焦点 |
+| --- | --- |
 | blur() | 移除焦点 |
+| focus() | 获取焦点 |
