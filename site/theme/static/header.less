@@ -48,7 +48,7 @@
 }
 
 #search-box {
-  border-left: 1px solid #ebedee;
+  border-left: 1px solid @site-border-color-split;
   float: left;
   height: 22px;
   line-height: 22px;
@@ -69,6 +69,10 @@
   border: 0;
   box-shadow: none;
   background: transparent;
+
+  &::placeholder {
+    color: #a3b1bf;
+  }
 }
 
 .header-lang-button,
