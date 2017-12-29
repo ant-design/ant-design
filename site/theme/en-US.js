@@ -20,6 +20,7 @@ module.exports = {
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',
     'app.demo.codepen': 'Open in CodePen',
+    'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': 'A UI Design Language',
     'app.home.introduce': 'Introduce',
