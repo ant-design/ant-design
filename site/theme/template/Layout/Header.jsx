@@ -3,13 +3,46 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, Input, Badge, Button } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
-const { Option } = AutoComplete;
-const searchEngine = 'Google';
-const searchLink = 'https://www.google.com/#q=site:ant.design+';
+const { Option } = Select;
+
+let docsearch;
+if (typeof window !== 'undefined') {
+  docsearch = require('docsearch.js'); // eslint-disable-line
+}
+
+function initDocSearch(locale) {
+  if (!docsearch) {
+    return;
+  }
+  const lang = locale === 'zh-CN' ? 'cn' : 'en';
+  docsearch({
+    apiKey: '60ac2c1a7d26ab713757e4a081e133d0',
+    indexName: 'ant_design',
+    inputSelector: '#search-box input',
+    algoliaOptions: { facetFilters: [`tags:${lang}`] },
+    transformData(hits) {
+      if (lang === 'cn') {
+        const categories = {
+          Components: '组件',
+          Documentation: '文档',
+        };
+        return hits.map((hit) => {
+          const category = categories[hit.hierarchy.lvl0];
+          hit.hierarchy.lvl0 = category;
+          hit._highlightResult.hierarchy.lvl0.value = category; // eslint-disable-line
+          hit._highlightResult.hierarchy_camel[0].lvl0.value = category; // eslint-disable-line
+          return hit;
+        });
+      }
+      return hits;
+    },
+    debug: false, // Set debug to true if you want to inspect the dropdown
+  });
+}
 
 export default class Header extends React.Component {
   static contextTypes = {
@@ -18,13 +51,13 @@ export default class Header extends React.Component {
   }
 
   state = {
-    inputValue: '',
     menuVisible: false,
     menuMode: 'horizontal',
   };
 
   componentDidMount() {
-    this.context.router.listen(this.handleHideMenu);
+    const { intl, router } = this.context;
+    router.listen(this.handleHideMenu);
     const { searchInput } = this;
     /* eslint-disable global-require */
     require('enquire.js')
@@ -41,28 +74,8 @@ export default class Header extends React.Component {
         searchInput.focus();
       }
     });
+    initDocSearch(intl.locale);
     /* eslint-enable global-require */
-  }
-
-  handleSearch = (value) => {
-    if (value === searchEngine) {
-      window.location.href = `${searchLink}${this.state.inputValue}`;
-      return;
-    }
-
-    const { intl, router } = this.context;
-    this.setState({
-      inputValue: '',
-    }, () => {
-      router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
-      this.searchInput.blur();
-    });
-  }
-
-  handleInputChange = (value) => {
-    this.setState({
-      inputValue: value,
-    });
   }
 
   handleShowMenu = () => {
@@ -81,12 +94,6 @@ export default class Header extends React.Component {
     this.setState({
       menuVisible: visible,
     });
-  }
-
-  handleSelectFilter = (value, option) => {
-    const optionValue = option.props['data-label'];
-    return optionValue === searchEngine ||
-      optionValue.indexOf(value.toLowerCase()) > -1;
   }
 
   handleVersionChange = (url) => {
@@ -112,14 +119,13 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { inputValue, menuMode, menuVisible } = this.state;
+    const { menuMode, menuVisible } = this.state;
     const {
-      location, picked, themeConfig,
+      location, themeConfig,
     } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions)
       .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
-    const { components } = picked;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
@@ -128,26 +134,6 @@ export default class Header extends React.Component {
 
     const { locale } = this.context.intl;
     const isZhCN = locale === 'zh-CN';
-    const excludedSuffix = isZhCN ? 'en-US.md' : 'zh-CN.md';
-    const options = components
-      .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
-      .map(({ meta }) => {
-        const pathSnippet = meta.filename.split('/')[1];
-        const url = `/components/${pathSnippet}`;
-        const { subtitle } = meta;
-        return (
-          <Option value={url} key={url} data-label={`${meta.title.toLowerCase()} ${subtitle || ''}`}>
-            <strong>{meta.title}</strong>
-            {subtitle && <span className="ant-component-decs">{subtitle}</span>}
-          </Option>
-        );
-      });
-
-    options.push(
-      <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
-        <FormattedMessage id="app.header.search" />
-      </Option>
-    );
 
     const headerClassName = classNames({
       clearfix: true,
@@ -230,19 +216,7 @@ export default class Header extends React.Component {
           <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
-              <AutoComplete
-                dataSource={options}
-                value={inputValue}
-                dropdownClassName="component-select"
-                placeholder={searchPlaceholder}
-                optionLabelProp="data-label"
-                filterOption={this.handleSelectFilter}
-                onSelect={this.handleSearch}
-                onSearch={this.handleInputChange}
-                getPopupContainer={trigger => trigger.parentNode}
-              >
-                <Input ref={ref => this.searchInput = ref} />
-              </AutoComplete>
+              <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
             </div>
             {menuMode === 'horizontal' ? menu : null}
           </Col>
