@@ -1,5 +1,5 @@
 ---
-category: 模式语言
+category: Pattern
 order: 8
 title: Navigation
 ---
