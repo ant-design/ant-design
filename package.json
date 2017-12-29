@@ -107,6 +107,7 @@
     "css-split-webpack-plugin": "^0.2.3",
     "dekko": "^0.2.0",
     "delegate": "^3.1.2",
+    "docsearch.js": "^2.5.2",
     "dora-plugin-upload": "^0.3.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.0",
