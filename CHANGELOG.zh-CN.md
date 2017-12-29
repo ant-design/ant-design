@@ -26,7 +26,7 @@ timeline: true
 - 🌟 评分 Rate 组件添加 `allowClear`，支持再次点击后重置。[#8627](https://github.com/ant-design/ant-design/issues/8627)
 - 🌟 优化 BackTop 组件的响应式效果。[#8719](https://github.com/ant-design/ant-design/issues/8719) [@JetRunner](https://github.com/JetRunner)
 - 🌟 Modal 组件添加 `destroyOnClose` 支持关闭时销毁 Modal 里的子元素。[#8769](https://github.com/ant-design/ant-design/pull/8769) [@Rohanhacker](https://github.com/Rohanhacker)
-- 🌟 支持 List 组件自定义加载动画。 [#8702](https://github.com/ant-design/ant-design/pull/8702) [@nikogu](https://github.com/nikogu)
+- 🌟 支持 List 组件自定义加载动画。
 - 👻 你现在可以通过 CodeSandbox 来打开官方文档中的示例了。
 
 ## 3.0.3

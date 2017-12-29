@@ -26,7 +26,7 @@ timeline: true
 - 🌟 Rate add `allowClear` for reset when click again. [#8627](https://github.com/ant-design/ant-design/issues/8627)
 - 🌟 Add responsive for BackTop. [#8719](https://github.com/ant-design/ant-design/issues/8719) [@JetRunner](https://github.com/JetRunner)
 - 🌟 Add `destroyOnClose` to Modal component to support unmount child compenents on onClose. [#8769](https://github.com/ant-design/ant-design/pull/8769) [@Rohanhacker](https://github.com/Rohanhacker)
-- 🌟 Support customize spin for List component. [#8702](https://github.com/ant-design/ant-design/pull/8702) [@nikogu](https://github.com/nikogu)
+- 🌟 Support customize spin for List component.
 - 👻 Support open official demo in CodeSandbox.
 
 ## 3.0.3
