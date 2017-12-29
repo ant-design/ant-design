@@ -42,6 +42,7 @@ export interface SelectProps extends AbstractSelectProps {
   onDeselect?: (value: SelectValue) => any;
   onBlur?: () => any;
   onFocus?: () => any;
+  onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   dropdownMatchSelectWidth?: boolean;
   optionFilterProp?: string;
   labelInValue?: boolean;
