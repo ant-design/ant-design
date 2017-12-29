@@ -1,5 +1,7 @@
 ---
-category: 模式
+category:
+  zh-CN: 模式
+  en-US: Pattern
 order: 6
 title:
   zh-CN: 文案
