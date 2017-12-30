@@ -19,10 +19,13 @@ timeline: true
 
 `2017-12-29`
 
+Happy 2018 !~ 2018 2018 2018 coming!~~~
+
 - 🐞 Fix ant-spin-container overflow resizing for Spin component. [#8602](https://github.com/ant-design/ant-design/issues/8602) [@jhsu](https://github.com/jhsu)
 - 🐞 Fix extra padding in Table small with fixed columns. [#8724](https://github.com/ant-design/ant-design/issues/8724)
 - 🐞 Fix Checkbox.Group align issue in Form. [#8739](https://github.com/ant-design/ant-design/issues/8739)
 - 🐞 Fix unexpected scrollbar in Affix. [#8606](https://github.com/ant-design/ant-design/issues/8606)
+- 🐞 Fix List component "No Data" mixed with loading. [#8647](https://github.com/ant-design/ant-design/issues/8647)
 - 🌟 Add onKeyUp TypeScript definition to Input component. [#8705](https://github.com/ant-design/ant-design/issues/8705) [@delesseps](https://github.com/delesseps)
 - 🌟 Add `showArrow` for disabling arrow icon in collapse panel. [#8536](https://github.com/ant-design/ant-design/pull/8536) [@apieceofbart](https://github.com/apieceofbart)
 - 🌟 Rate add `allowClear` for reset when click again. [#8627](https://github.com/ant-design/ant-design/issues/8627)
