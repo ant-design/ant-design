@@ -3,7 +3,7 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React is dedicated to providing a **good development experience** for programmers.
+Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you had installed [Node.js](https://nodejs.org/)(> v6.5) correctly.
 
 ---
 
@@ -11,19 +11,19 @@ Before delving into Ant Design React, a good knowledge of [React](http://faceboo
 
 ## First Example
 
-The following CodePen demo is the simplest usage case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in real world.
+The following CodeSandbox demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
 
-- [antd CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
 ## Standard Development Flow
 
-During development, you may need to compile and debug JSX and ES2015 code, and even proxy some of the request to mocked data or some external services. And all of these to be done with a quick feedback provided through hot reloading of changes.
+During development, you may need to compile and debug JSX and ES2015 code, and even proxy some of the requests to mock data or other external services. All of these can be done with quick feedback provided through hot reloading of changes.
 
-Such features, together with packaging the production version are covered in this work flow.
+Such features, together with packaging the production version, are covered in this work flow.
 
 ### 1. Installation
 
-> Please make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) before using `antd-init`.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) is our recommendation.
 
 ```bash
 $ npm install antd-init -g
@@ -33,11 +33,14 @@ Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/
 
 > Also, you can use scaffold/demo which is provided by community:
 >
->   - [react-redux-antd](https://github.com/okoala/react-redux-antd)
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
+>   - [reactSPA](https://github.com/JasonBai007/reactSPA)
+>   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
+>   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [more](https://github.com/ant-design/ant-design/issues/129)
+>   - more scaffolds at [Scaffold Market](http://scaffold.ant.design/)
 
 ### 2. Create a New Project
 
@@ -61,7 +64,13 @@ As you can see, there is no difference between antd's components and usual React
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DatePicker, message } from 'antd';
+import { LocaleProvider, DatePicker, message } from 'antd';
+// The default locale is en-US, but we can change it to other language
+import frFR from 'antd/lib/locale-provider/fr_FR';
+import moment from 'moment';
+import 'moment/locale/fr';
+
+moment.locale('fr');
 
 class App extends React.Component {
   constructor(props) {
@@ -76,10 +85,12 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={value => this.handleChange(value)} />
-        <div style={{ marginTop: 20 }}>Date: {this.state.date.toString()}</div>
-      </div>
+      <LocaleProvider locale={frFR}>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={value => this.handleChange(value)} />
+          <div style={{ marginTop: 20 }}>Date: {this.state.date.toString()}</div>
+        </div>
+      </LocaleProvider>
     );
   }
 }
@@ -91,7 +102,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. Development & Debugging
 
-Run your project and visit http://127.0.0.1:8000
+Run your project and visit http://127.0.0.1:8001
 
 ```bash
 $ npm start
@@ -103,7 +114,7 @@ $ npm start
 $ npm run build
 ```
 
-Entry files will be built and generated in `dist` directory, then we can deploy it to different environments.
+Entry files will be built and generated in `dist` directory, where we can deploy it to different environments.
 
 > This guide is designed to help you to understand how to use antd, so it may not be similar to what you do in the real world.
 > But you can use those tools in your project, depending on your context and needs.
@@ -112,7 +123,13 @@ Entry files will be built and generated in `dist` directory, then we can deploy 
 
 Ant Design React supports all the modern browsers and IE9+.
 
-You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers. If you are using babel, we strongly recommend to use [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/).
+You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers.
+
+If you are using babel, we strongly recommend using [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/) instead of those two shims.
+
+> Please avoid using both the babel and shim methods at the same time.
+
+> If you run into problems with [startsWith ](https://github.com/ant-design/ant-design/issues/3400#issuecomment-253181445), you should import  [es6-shim](https://github.com/paulmillr/es6-shim) or [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) as a workaround.
 
 ```html
 <!DOCTYPE html>
@@ -125,6 +142,7 @@ You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-sh
     <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
+    <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
   </head>
   <body>
   </body>
@@ -145,34 +163,45 @@ You may encounter problems like [#28](https://github.com/ant-tool/atool-build/is
 
 ## Customized Work Flow
 
-If you want to customize your work flow, we recommend to use [webpack](http://webpack.github.io/) to build and debug code.
+If you want to customize your work flow, we recommend using [webpack](http://webpack.github.io/) to build and debug code.
 
-Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
+Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in the React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
 
 There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) which have already integrated antd, so you can try and start with one of these, and even contribute.
 
 ## Import on Demand
 
-If we import a component like this `import { Button } from 'antd';`, then all the components of antd will be imported. But, we can import component on demand:
+If you see logs like below screenshot, you might be importing all components by writing `import { Button } from 'antd';`. This will affect your app's network performance.
+
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
+
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+
+However, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
+import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
 ```
 
-If you use `babel`, we recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import). This plugin will convert the following code to the above form:
+We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
 
 ```jsx
 import { Button } from 'antd';
 ```
 
-And this plugin can also load styles on demand. See the [usage](https://github.com/ant-design/babel-plugin-import#usage) for further details.
+And this plugin can load styles too, read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
+
+> FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
 
 ## Customization
 
-- [Customize Theme](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [Customize Theme](/docs/react/customize-theme)
 - [Local Iconfont](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
 ## Tips
 
 - You can use any `npm` modules.
-- We recommend to write code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated in our work flow.
+- We recommend writing code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated into our work flow.

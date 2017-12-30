@@ -1,25 +1,29 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
+@import "../../input/style/mixin";
 
 @cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
+
   &-input.@{ant-prefix}-input {
-    background-color: transparent;
-    display: block;
+    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
+    // because input.less will compile after cascader.less
+    background-color: transparent !important;
     cursor: pointer;
     width: 100%;
-    z-index: 1;
+    display: block;
   }
+
   &-picker {
+    .reset-component;
     position: relative;
     display: inline-block;
     cursor: pointer;
-    vertical-align: middle;
-    font-size: @font-size-base;
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
+    outline: 0;
 
     &-with-value &-label {
       color: transparent;
@@ -27,10 +31,15 @@
 
     &-disabled {
       cursor: not-allowed;
-
+      background: @input-disabled-bg;
+      color: @disabled-color;
       .@{cascader-prefix-cls}-input {
         cursor: not-allowed;
       }
+    }
+
+    &:focus .@{cascader-prefix-cls}-input {
+      .active;
     }
 
     &-label {
@@ -44,18 +53,18 @@
       text-overflow: ellipsis;
       overflow: hidden;
       width: 100%;
-      padding: 0 12px 0 8px;
+      padding: 0 @control-padding-horizontal;
     }
 
     &-clear {
       opacity: 0;
       position: absolute;
-      right: 8px;
+      right: @control-padding-horizontal;
       z-index: 2;
-      background: #fff;
+      background: @component-background;
       top: 50%;
-      font-size: 12px;
-      color: #ccc;
+      font-size: @font-size-sm;
+      color: @disabled-color;
       width: 12px;
       height: 12px;
       margin-top: -6px;
@@ -63,7 +72,7 @@
       cursor: pointer;
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
-        color: #999;
+        color: @text-color-secondary;
       }
     }
 
@@ -76,32 +85,45 @@
       position: absolute;
       z-index: 1;
       top: 50%;
-      right: 8px;
+      right: @control-padding-horizontal;
       width: 12px;
       height: 12px;
+      font-size: 12px;
       margin-top: -6px;
       line-height: 12px;
-      color: #999;
-      .iconfont-size-under-12px(9px);
+      color: @disabled-color;
       &:before {
-        transition: transform 0.2s ease;
+        transition: transform .2s;
       }
       &&-expand {
-        .ie-rotate(2);
         &:before {
           transform: rotate(180deg);
         }
       }
     }
   }
+
+  &-picker-small &-picker-clear,
+  &-picker-small &-picker-arrow {
+    right: @control-padding-horizontal-sm;
+  }
+
   &-menus {
-    font-size: 12px;
-    background: #fff;
+    font-size: @font-size-base;
+    background: @component-background;
     position: absolute;
     z-index: @zindex-dropdown;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     white-space: nowrap;
+
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     &-empty,
     &-hidden {
       display: none;
@@ -132,7 +154,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    border-right: 1px solid @border-color-split;
+    border-right: @border-width-base @border-style-base @border-color-split;
     overflow: auto;
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
@@ -147,16 +169,17 @@
     }
   }
   &-menu-item {
-    padding: 7px 26px 7px 16px;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @item-hover-bg;
     }
     &-disabled {
       cursor: not-allowed;
-      color: #ccc;
+      color: @disabled-color;
       &:hover {
         background: transparent;
       }
@@ -164,23 +187,28 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        background-color: @background-color-base;
-        font-weight: bold;
+        background: @background-color-base;
+        font-weight: 600;
       }
     }
     &-expand {
       position: relative;
+      padding-right: 24px;
       &:after {
         .iconfont-font("\e61f");
         .iconfont-size-under-12px(8px);
-        color: #999;
+        color: @text-color-secondary;
         position: absolute;
-        right: 15px;
+        right: @control-padding-horizontal;
       }
+    }
+    &-loading:after {
+      .iconfont-font("\e64d");
+      animation: loadingCircle 1s infinite linear;
     }
 
     & &-keyword {
-      color: @error-color;
+      color: @highlight-color;
     }
   }
 }

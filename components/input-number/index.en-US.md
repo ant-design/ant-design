@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form Controls
+type: Data Entry
 title: InputNumber
 ---
 
@@ -12,13 +12,24 @@ When a numeric value needs to be provided.
 
 ## API
 
-| property    | description           | type               | default       |
-|-------------|----------------|--------------------|--------------|
-| min     | min value   | Number | -Infinity        |
-| max     | max vale       | Number      | Infinity           |
-| value     | current value       | Number      |            |
-| step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | Number or String      |  1      |
-| defaultValue     | initial value       | Number      |            |
-| onChange     | The callback triggered when the value is changed.     | Function      |            |
-| disabled     | disable the input       | Boolean      |      false      |
-| size    | width of input box  | String      |      none      |
+| property | description | type | default |
+| -------- | ----------- | ---- | ------- |
+| autoFocus | get focus when component mounted | boolean | false |
+| defaultValue | initial value | number |  |
+| disabled | disable the input | boolean | false |
+| formatter | Specifies the format of the value presented | function(value: number \| string): string | - |
+| max | max vale | number | Infinity |
+| min | min value | number | -Infinity |
+| parser | Specifies the value extracted from formatter | function( string): number | - |
+| precision | precision of input value | number | - |
+| size | width of input box | string | - |
+| step | The number to which the current value is increased or decreased. It can be an integer or decimal. | number\|string | 1 |
+| value | current value | number |  |
+| onChange | The callback triggered when the value is changed. | function(value: number \| string) |  |
+
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| blur() | remove focus |
+| focus() | get focus |

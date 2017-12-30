@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 title:
   zh-CN: 多个按钮组合
   en-US: Multiple Buttons
@@ -32,10 +32,10 @@ const menu = (
 ReactDOM.render(
   <div>
     <Button type="primary">primary</Button>
-    <Button type="ghost">secondary</Button>
+    <Button>secondary</Button>
     <Dropdown overlay={menu}>
-      <Button type="ghost">
-        more <Icon type="down" />
+      <Button>
+        Actions <Icon type="down" />
       </Button>
     </Dropdown>
   </div>,

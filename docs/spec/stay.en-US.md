@@ -50,10 +50,6 @@ List Inlay: Works as an effective way to hide detail until needed — while at t
 
 <br>
 
-<p><span class="waiting">Detail Inlay (coming soon)</span></p>
-
-<br>
-
 <img class="preview-img" align="right" alt="example of Tabs" src="https://os.alipayobjects.com/rmsportal/MsVyvEIJtlxZWBL.png">
 
 Tabs: Provides additional panels of information accessible by tab controls.
@@ -72,15 +68,11 @@ Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图�
 
 <br>
 
-<p><span class="waiting">Flexible User Interface (coming soon)</span></p>
-
-<br>
-
 ---
 
 ##  Process Flows
 
-It has long been common practice on the Web to turn each step into a sepa- rate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process. 
+It has long been common practice on the Web to turn each step into a separate page. While this may be the simplest way break down the problem, it may not lead to the best solution. For some Process Flows it makes sense to keep the user on the same page throughout the process.
 
 <br>
 

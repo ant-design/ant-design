@@ -7,13 +7,13 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ---
 
-在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。
+在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v6.5 或以上。
 
 ## 第一个例子
 
-最简单的使用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
+最简单的使用方式参照以下 CodeSandbox 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
 
-- [antd CodePen](http://codepen.io/benjycui/pen/KgPZrE?editors=001)
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
 ## 标准开发
 
@@ -22,7 +22,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装脚手架工具
 
-> 使用 `antd-init` 前，务必确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，真实项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli)。
 
 ```bash
 $ npm install antd-init -g
@@ -32,11 +32,14 @@ $ npm install antd-init -g
 
 > 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
 >
->   - [react-redux-antd](https://github.com/okoala/react-redux-antd)
+>   - [antd-admin](https://github.com/zuiidea/antd-admin)
+>   - [reactSPA](https://github.com/JasonBai007/reactSPA)
+>   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
+>   - [react-redux-antd by okoala](https://github.com/okoala/react-redux-antd)
 >   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
 >   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
 >   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
->   - [更多](https://github.com/ant-design/ant-design/issues/129)
+>   - 更多脚手架可以查看 [脚手架市场](http://scaffold.ant.design/)
 
 ### 2. 创建一个项目
 
@@ -60,7 +63,13 @@ antd-init 会自动安装 npm 依赖，若有问题则可自行安装。
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DatePicker, message } from 'antd';
+import { LocaleProvider, DatePicker, message } from 'antd';
+// 由于 antd 组件的默认文案是英文，所以需要修改为中文
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+
+moment.locale('zh-cn');
 
 class App extends React.Component {
   constructor(props) {
@@ -75,10 +84,12 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={value => this.handleChange(value)} />
-        <div style={{ marginTop: 20 }}>当前日期：{this.state.date.toString()}</div>
-      </div>
+      <LocaleProvider locale={zhCN}>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={value => this.handleChange(value)} />
+          <div style={{ marginTop: 20 }}>当前日期：{this.state.date.toString()}</div>
+        </div>
+      </LocaleProvider>
     );
   }
 }
@@ -90,7 +101,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
 $ npm start
@@ -110,7 +121,13 @@ $ npm run build
 
 Ant Design React 支持所有的现代浏览器和 IE9+。
 
-对于 IE 系列浏览器，需要提供 [es5-shim](https://github.com/es-shims/es5-shim) 和 [es6-shim](https://github.com/paulmillr/es6-shim) 等 Polyfills 的支持。如果你使用了 babel，强烈推荐使用 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) 和 [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/)。
+对于 IE 系列浏览器，需要提供 [es5-shim](https://github.com/es-shims/es5-shim) 和 [es6-shim](https://github.com/paulmillr/es6-shim) 等 Polyfills 的支持。
+
+如果你使用了 babel，强烈推荐使用 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) 和 [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/) 来替代以上两个 shim。
+
+> 避免同时使用 babel 和 shim 两种兼容方法，以规避 [#6512](https://github.com/ant-design/ant-design/issues/6512) 中所遇问题
+
+> 如果在 IE 浏览器中遇到 `startsWith` 的[问题](https://github.com/ant-design/ant-design/issues/3400#issuecomment-253181445)，请引入 [es6-shim](https://github.com/paulmillr/es6-shim) 或 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)。
 
 ```html
 <!DOCTYPE html>
@@ -123,6 +140,7 @@ Ant Design React 支持所有的现代浏览器和 IE9+。
     <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
+    <script src="https://as.alipayobjects.com/g/component/??es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js"></script>
   </head>
   <body>
   </body>
@@ -151,26 +169,37 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 
 ## 按需加载
 
-通过 `import { Button } from 'antd';` 引入会加载 antd 下所有的模块，如果要按需加载可以通过以下的写法来引用。
+如果你在开发环境的控制台看到下面的提示，那么你可能使用了 `import { Button } from 'antd';` 的写法引入了 antd 下所有的模块，这会影响应用的网络性能。
+
+```
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
+```
+
+> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+
+可以通过以下的写法来按需加载组件。
 
 ```jsx
 import Button from 'antd/lib/button';
+import 'antd/lib/button/style'; // 或者 antd/lib/button/style/css 加载 css 文件
 ```
 
-如果你使用 babel，我们推荐使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来进行按需加载，加入这个插件后。你可以仍然这么写：
+如果你使用了 babel，那么可以使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来进行按需加载，加入这个插件后。你可以仍然这么写：
 
 ```jsx
 import { Button } from 'antd';
 ```
 
-插件会帮你转换成上面的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-import#usage) 属性可以做到模块样式的按需自动加载。
+插件会帮你转换成 `antd/lib/xxx` 的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-import#usage) 属性可以做到模块样式的按需自动加载。
+
+> 注意，babel-plugin-import 的 `style` 属性除了引入对应组件的样式，也会引入一些必要的全局样式。如果你不需要它们，建议不要使用此属性。你可以 `import 'antd/dist/antd.css` 手动引入，并覆盖全局样式。
 
 ## 配置主题和字体
 
-- [改变主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [改变主题](/docs/react/customize-theme)
 - [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
-## 小甜点
+## 小贴士
 
 - 你可以享用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。
+- 我们使用了 `babel`，试试用 [ES2015+](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。

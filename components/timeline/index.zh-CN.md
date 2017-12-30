@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间轴
-type: Views
+type: Data Display
 title: Timeline
 ---
 
@@ -9,8 +9,8 @@ title: Timeline
 
 ## 何时使用
 
-- 当有一系列信息需要从上至下按时间排列时；
-- 需要有一条时间轴进行视觉上的串联时；
+- 当有一系列信息需按时间排列时，可正序和倒序。
+- 需要有一条时间轴进行视觉上的串联时。
 
 ## API
 
@@ -27,15 +27,15 @@ title: Timeline
 
 时间轴。
 
-| 参数      | 说明                                     | 类型       | 默认值 |
-|----------|----------------------------------------|------------|-------|
-| pending  | 指定最后一个幽灵节点是否存在或内容 | boolean or React.Element | false  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| pending | 指定最后一个幽灵节点是否存在或内容 | boolean\|string\|ReactNode | false |
 
 ### Timeline.Item
 
 时间轴的每一个节点。
 
-| 参数      | 说明                                     | 类型       | 默认值 |
-|----------|------------------------------------------|------------|-------|
-| color   | 指定圆圈颜色 `blue, red, green`，或自定义的色值 | string | blue  |
-| dot   | 自定义时间轴点 | React.Element | -  |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| color | 指定圆圈颜色 `blue, red, green`，或自定义的色值 | string | blue |
+| dot | 自定义时间轴点 | string\|ReactNode | - |

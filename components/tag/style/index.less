@@ -4,20 +4,20 @@
 @tag-prefix-cls: ~"@{ant-prefix}-tag";
 
 .@{tag-prefix-cls} {
+  .reset-component;
   display: inline-block;
   line-height: 20px;
   height: 22px;
-  padding: 0 8px;
+  padding: 0 7px;
   border-radius: @border-radius-base;
-  border: 1px solid @border-color-split;
-  background: @background-color-base;
-  font-size: @font-size-base;
-  transition: all 0.3s @ease-in-out-circ;
-  vertical-align: middle;
+  border: @border-width-base @border-style-base @border-color-base;
+  background: @tag-default-bg;
+  font-size: @tag-font-size;
+  transition: all 0.3s @ease-out;
   opacity: 1;
-  overflow: hidden;
-  margin: 2px 4px 2px 0;
+  margin-right: 8px;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     opacity: 0.85;
@@ -26,7 +26,7 @@
   &,
   a,
   a:hover {
-    color: @text-color;
+    color: @tag-default-color;
   }
 
   &-text {
@@ -40,25 +40,18 @@
   .@{iconfont-css-prefix}-cross {
     .iconfont-size-under-12px(10px);
     cursor: pointer;
-    font-weight: bold;
     margin-left: 3px;
-    color: #666;
-    transition: all 0.3s ease;
-    opacity: 0.66;
+    transition: all .3s;
+    color: @text-color-secondary;
+    font-weight: bold;
 
     &:hover {
-      opacity: 1;
+      color: @heading-color;
     }
   }
 
   &-has-color {
     border-color: transparent;
-  }
-
-  &-blue,
-  &-green,
-  &-yellow,
-  &-red {
     &,
     a,
     a:hover,
@@ -68,20 +61,22 @@
     }
   }
 
-  &-blue {
-    background: @link-color;
-  }
-
-  &-green {
-    background: @success-color;
-  }
-
-  &-yellow {
-    background: @warning-color;
-  }
-
-  &-red {
-    background: @error-color;
+  &-checkable {
+    background-color: transparent;
+    border-color: transparent;
+    &:not(&-checked):hover {
+      color: @primary-color;
+    }
+    &:active,
+    &-checked {
+      color: #fff;
+    }
+    &-checked {
+      background-color: @primary-6;
+    }
+    &:active {
+      background-color: @primary-7;
+    }
   }
 
   &-close {
@@ -100,4 +95,27 @@
     animation: antZoomOut .3s @ease-in-out-circ;
     animation-fill-mode: both;
   }
+
+  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue, purple;
+
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@colors, @i);
+    @lightColor: "@{color}-1";
+    @lightBorderColor: "@{color}-3";
+    @darkColor: "@{color}-6";
+    &-@{color} {
+      color: @@darkColor;
+      background: @@lightColor;
+      border-color: @@lightBorderColor;
+    }
+    &-@{color}-inverse {
+      background: @@darkColor;
+      border-color: @@darkColor;
+      color: #fff;
+    }
+  }
+
+  .make-color-classes();
 }

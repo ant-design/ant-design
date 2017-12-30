@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import omit from 'omit.js';
 import getScroll from '../_util/getScroll';
+import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
-function getTargetRect(target): ClientRect {
+function getTargetRect(target: HTMLElement | Window | null): ClientRect {
   return target !== window ?
-    target.getBoundingClientRect() :
-    { top: 0, left: 0, bottom: 0 };
+    (target as HTMLElement).getBoundingClientRect() :
+    { top: 0, left: 0, bottom: 0 } as ClientRect;
 }
 
-function getOffset(element: HTMLElement, target) {
+function getOffset(element: HTMLElement, target: HTMLElement | Window | null) {
   const elemRect = element.getBoundingClientRect();
   const targetRect = getTargetRect(target);
 
@@ -28,6 +30,8 @@ function getOffset(element: HTMLElement, target) {
       scrollTop - clientTop,
     left: elemRect.left - targetRect.left +
       scrollLeft - clientLeft,
+    width: elemRect.width,
+    height: elemRect.height,
   };
 }
 
@@ -36,7 +40,7 @@ function noop() {}
 function getDefaultTarget() {
   return typeof window !== 'undefined' ?
     window : null;
-};
+}
 
 // Affix
 export interface AffixProps {
@@ -51,32 +55,48 @@ export interface AffixProps {
   /** 固定状态改变时触发的回调函数 */
   onChange?: (affixed?: boolean) => void;
   /** 设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 */
-  target?: () => Window | HTMLElement;
+  target?: () => Window | HTMLElement | null;
   prefixCls?: string;
 }
 
-export default class Affix extends React.Component<AffixProps, any> {
+export interface AffixState {
+  affixStyle: React.CSSProperties | undefined;
+  placeholderStyle: React.CSSProperties | undefined;
+}
+
+export default class Affix extends React.Component<AffixProps, AffixState> {
   static propTypes = {
-    offsetTop: React.PropTypes.number,
-    offsetBottom: React.PropTypes.number,
-    target: React.PropTypes.func,
+    offsetTop: PropTypes.number,
+    offsetBottom: PropTypes.number,
+    target: PropTypes.func,
   };
 
   scrollEvent: any;
   resizeEvent: any;
-  refs: {
-    fixedNode: HTMLElement;
+  timeout: any;
+
+  events = [
+    'resize',
+    'scroll',
+    'touchstart',
+    'touchmove',
+    'touchend',
+    'pageshow',
+    'load',
+  ];
+
+  eventHandlers: {
+    [key: string]: any;
+  } = {};
+
+  state: AffixState = {
+    affixStyle: undefined,
+    placeholderStyle: undefined,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      affixStyle: null,
-      placeholderStyle: null,
-    };
-  }
+  private fixedNode: HTMLElement;
 
-  setAffixStyle(e, affixStyle) {
+  setAffixStyle(e: any, affixStyle: React.CSSProperties | null) {
     const { onChange = noop, target = getDefaultTarget } = this.props;
     const originalAffixStyle = this.state.affixStyle;
     const isWindow = target() === window;
@@ -86,7 +106,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     if (shallowequal(affixStyle, originalAffixStyle)) {
       return;
     }
-    this.setState({ affixStyle }, () => {
+    this.setState({ affixStyle: affixStyle as React.CSSProperties }, () => {
       const affixed = !!this.state.affixStyle;
       if ((affixStyle && !originalAffixStyle) ||
           (!affixStyle && originalAffixStyle)) {
@@ -95,18 +115,16 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
   }
 
-  setPlaceholderStyle(e, placeholderStyle) {
+  setPlaceholderStyle(placeholderStyle: React.CSSProperties | null) {
     const originalPlaceholderStyle = this.state.placeholderStyle;
-    if (e.type === 'resize') {
-      return;
-    }
     if (shallowequal(placeholderStyle, originalPlaceholderStyle)) {
       return;
     }
-    this.setState({ placeholderStyle });
+    this.setState({ placeholderStyle: placeholderStyle as React.CSSProperties });
   }
 
-  updatePosition = (e) => {
+  @throttleByAnimationFrameDecorator()
+  updatePosition(e: any) {
     let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
     const targetNode = target();
 
@@ -116,8 +134,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
     const elemOffset = getOffset(affixNode, targetNode);
     const elemSize = {
-      width: this.refs.fixedNode.offsetWidth,
-      height: this.refs.fixedNode.offsetHeight,
+      width: this.fixedNode.offsetWidth,
+      height: this.fixedNode.offsetHeight,
     };
 
     const offsetMode = {
@@ -136,49 +154,60 @@ export default class Affix extends React.Component<AffixProps, any> {
     const targetRect = getTargetRect(targetNode);
     const targetInnerHeight =
       (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
-    if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
+    if (scrollTop > elemOffset.top - (offsetTop as number) && offsetMode.top) {
       // Fixed Top
+      const width = elemOffset.width;
+      const top = targetRect.top + (offsetTop as number);
       this.setAffixStyle(e, {
         position: 'fixed',
-        top: targetRect.top + offsetTop,
+        top,
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
-      this.setPlaceholderStyle(e, {
-        width: affixNode.offsetWidth,
-        height: affixNode.offsetHeight,
+      this.setPlaceholderStyle({
+        width,
+        height: elemSize.height,
       });
     } else if (
-      scrollTop < elemOffset.top + elemSize.height + offsetBottom - targetInnerHeight &&
+      scrollTop < elemOffset.top + elemSize.height + (offsetBottom as number) - targetInnerHeight &&
         offsetMode.bottom
     ) {
       // Fixed Bottom
       const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
+      const width = elemOffset.width;
       this.setAffixStyle(e, {
         position: 'fixed',
-        bottom: targetBottomOffet + offsetBottom,
+        bottom: targetBottomOffet + (offsetBottom as number),
         left: targetRect.left + elemOffset.left,
-        width: affixNode.offsetWidth,
+        width,
       });
-      this.setPlaceholderStyle(e, {
-        width: affixNode.offsetWidth,
-        height: affixNode.offsetHeight,
+      this.setPlaceholderStyle({
+        width,
+        height: elemOffset.height,
       });
     } else {
-      this.setAffixStyle(e, null);
-      this.setPlaceholderStyle(e, null);
+      const { affixStyle } = this.state;
+      if (e.type === 'resize' && affixStyle && affixStyle.position === 'fixed' && affixNode.offsetWidth) {
+        this.setAffixStyle(e, { ...affixStyle, width: affixNode.offsetWidth });
+      } else {
+        this.setAffixStyle(e, null);
+      }
+      this.setPlaceholderStyle(null);
     }
   }
 
   componentDidMount() {
     const target = this.props.target || getDefaultTarget;
-    this.setTargetEventListeners(target);
+    // Wait for parent component ref has its value
+    this.timeout = setTimeout(() => {
+      this.setTargetEventListeners(target);
+    });
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: AffixProps) {
     if (this.props.target !== nextProps.target) {
-      this.clearScrollEventListeners();
-      this.setTargetEventListeners(nextProps.target);
+      this.clearEventListeners();
+      this.setTargetEventListeners(nextProps.target!);
 
       // Mock Event object.
       this.updatePosition({});
@@ -186,21 +215,34 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   componentWillUnmount() {
-    this.clearScrollEventListeners();
+    this.clearEventListeners();
+    clearTimeout(this.timeout);
+    (this.updatePosition as any).cancel();
   }
 
-  setTargetEventListeners(getTarget) {
+  setTargetEventListeners(getTarget: () => HTMLElement | Window | null) {
     const target = getTarget();
-    this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
-    this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
+    if (!target) {
+      return;
+    }
+    this.clearEventListeners();
+
+    this.events.forEach(eventName => {
+      this.eventHandlers[eventName] = addEventListener(target, eventName, this.updatePosition);
+    });
   }
 
-  clearScrollEventListeners() {
-    ['scrollEvent', 'resizeEvent'].forEach((name) => {
-      if (this[name]) {
-        this[name].remove();
+  clearEventListeners() {
+    this.events.forEach(eventName => {
+      const handler = this.eventHandlers[eventName];
+      if (handler && handler.remove) {
+        handler.remove();
       }
     });
+  }
+
+  saveFixedNode = (node: HTMLDivElement) => {
+    this.fixedNode = node;
   }
 
   render() {
@@ -208,11 +250,11 @@ export default class Affix extends React.Component<AffixProps, any> {
       [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
     });
 
-    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
-
+    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
+    const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
-      <div {...props} style={this.state.placeholderStyle}>
-        <div className={className} ref="fixedNode" style={this.state.affixStyle}>
+      <div {...props} style={placeholderStyle}>
+        <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
           {this.props.children}
         </div>
       </div>

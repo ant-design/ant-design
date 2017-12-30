@@ -1,0 +1,416 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
+<div
+  class="ant-input-number"
+>
+  <div
+    class="ant-input-number-handler-wrap"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="ant-input-number-handler ant-input-number-handler-up "
+      role="button"
+      unselectable="unselectable"
+    >
+      <span
+        class="ant-input-number-handler-up-inner"
+        unselectable="unselectable"
+      />
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="ant-input-number-handler ant-input-number-handler-down "
+      role="button"
+      unselectable="unselectable"
+    >
+      <span
+        class="ant-input-number-handler-down-inner"
+        unselectable="unselectable"
+      />
+    </span>
+  </div>
+  <div
+    aria-valuemax="10"
+    aria-valuemin="1"
+    aria-valuenow="3"
+    class="ant-input-number-input-wrap"
+    role="spinbutton"
+  >
+    <input
+      autocomplete="off"
+      class="ant-input-number-input"
+      max="10"
+      min="1"
+      step="1"
+      value="3"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
+<div
+  class="ant-input-number"
+>
+  <div
+    class="ant-input-number-handler-wrap"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="ant-input-number-handler ant-input-number-handler-up "
+      role="button"
+      unselectable="unselectable"
+    >
+      <span
+        class="ant-input-number-handler-up-inner"
+        unselectable="unselectable"
+      />
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="ant-input-number-handler ant-input-number-handler-down "
+      role="button"
+      unselectable="unselectable"
+    >
+      <span
+        class="ant-input-number-handler-down-inner"
+        unselectable="unselectable"
+      />
+    </span>
+  </div>
+  <div
+    aria-valuemax="10"
+    aria-valuemin="0"
+    class="ant-input-number-input-wrap"
+    role="spinbutton"
+  >
+    <input
+      autocomplete="off"
+      class="ant-input-number-input"
+      max="10"
+      min="0"
+      step="0.1"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
+<div>
+  <div
+    class="ant-input-number ant-input-number-disabled"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="true"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="true"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="3"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        disabled=""
+        max="10"
+        min="1"
+        step="1"
+        value="3"
+      />
+    </div>
+  </div>
+  <div
+    style="margin-top:20px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Toggle disabled
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
+<div>
+  <div
+    class="ant-input-number"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemin="-9007199254740991"
+      aria-valuenow="1000"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        min="-9007199254740991"
+        step="1"
+        value="$ 1,000"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-input-number"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="true"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100"
+        min="0"
+        step="1"
+        value="100%"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-input-number ant-input-number-lg"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemax="100000"
+      aria-valuemin="1"
+      aria-valuenow="3"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        step="1"
+        value="3"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-input-number"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemax="100000"
+      aria-valuemin="1"
+      aria-valuenow="3"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        step="1"
+        value="3"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-input-number ant-input-number-sm"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-up-inner"
+          unselectable="unselectable"
+        />
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down "
+        role="button"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-input-number-handler-down-inner"
+          unselectable="unselectable"
+        />
+      </span>
+    </div>
+    <div
+      aria-valuemax="100000"
+      aria-valuemin="1"
+      aria-valuenow="3"
+      class="ant-input-number-input-wrap"
+      role="spinbutton"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        max="100000"
+        min="1"
+        step="1"
+        value="3"
+      />
+    </div>
+  </div>
+</div>
+`;

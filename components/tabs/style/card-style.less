@@ -1,0 +1,135 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@tab-prefix-cls: ~"@{ant-prefix}-tabs";
+
+// card style
+.@{tab-prefix-cls} {
+  &&-card > &-bar &-nav-container {
+    height: @tabs-card-height;
+  }
+  &&-card > &-bar &-ink-bar {
+    visibility: hidden;
+  }
+  &&-card > &-bar &-tab {
+    margin: 0;
+    border: @border-width-base @border-style-base @border-color-split;
+    border-bottom: 0;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    background: @tabs-card-head-background;
+    margin-right: 2px;
+    padding: 0 16px;
+    transition: all 0.3s @ease-in-out;
+    line-height: @tabs-card-height - 2px;
+  }
+  &&-card > &-bar &-tab-active {
+    background: @component-background;
+    border-color: @border-color-split;
+    color: @primary-color;
+    padding-bottom: 1px;
+  }
+  &&-card > &-bar &-tab-inactive {
+    padding: 0;
+  }
+  &&-card > &-bar &-nav-wrap {
+    margin-bottom: 0;
+  }
+  &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
+    color: @text-color-secondary;
+    transition: all .3s;
+    font-size: @font-size-sm;
+    margin-left: 3px;
+    margin-right: -5px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    height: @font-size-base;
+    &:hover {
+      color: @heading-color;
+    }
+  }
+
+  &&-card &-content > &-tabpane,
+  &&-editable-card &-content > &-tabpane {
+    transition: none !important;
+    &-inactive {
+      overflow: hidden;
+    }
+  }
+
+  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-close {
+    opacity: 1;
+  }
+
+  &-extra-content {
+    line-height: @tabs-card-height;
+
+    .@{tab-prefix-cls}-new-tab {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: @border-radius-sm;
+      border: @border-width-base @border-style-base @border-color-split;
+      font-size: 12px;
+      color: @text-color;
+      transition: all .3s;
+      &:hover {
+        color: @primary-color;
+        border-color: @primary-color;
+      }
+    }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/4669
+  &-vertical&-card > .@{tab-prefix-cls}-bar {
+    .@{tab-prefix-cls}-nav-container {
+      height: auto;
+    }
+    .@{tab-prefix-cls}-tab {
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+      margin-bottom: 8px;
+      &-active {
+        padding-bottom: 4px;
+      }
+      &:last-child {
+        margin-bottom: 8px;
+      }
+    }
+    .@{tab-prefix-cls}-new-tab {
+      width: 90%;
+    }
+  }
+
+  &-vertical&-card&-left > .@{tab-prefix-cls}-bar {
+    .@{tab-prefix-cls}-nav-wrap {
+      margin-right: 0;
+    }
+    .@{tab-prefix-cls}-tab {
+      border-right: 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      margin-right: 1px;
+      &-active {
+        margin-right: -1px;
+        padding-right: 18px;
+      }
+    }
+  }
+
+  &-vertical&-card&-right > .@{tab-prefix-cls}-bar {
+    .@{tab-prefix-cls}-nav-wrap {
+      margin-left: 0;
+    }
+    .@{tab-prefix-cls}-tab {
+      border-left: 0;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+      margin-left: 1px;
+      &-active {
+        margin-left: -1px;
+        padding-left: 18px;
+      }
+    }
+  }
+}

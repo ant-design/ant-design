@@ -3,24 +3,23 @@
 @import "../../input/style/mixin";
 
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
+@timepicker-item-height: 32px;
 
 .@{timepicker-prefix-cls}-panel {
-  max-width: 168px;
+  .reset-component;
   z-index: @zindex-picker;
   position: absolute;
 
   &-inner {
-    display: inline-block;
     position: relative;
     outline: none;
     list-style: none;
-    font-size: 12px;
+    font-size: @font-size-base;
     text-align: left;
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    line-height: 1.5;
     overflow: hidden;
     left: -2px;
   }
@@ -31,14 +30,15 @@
     border: 0;
     width: 100%;
     cursor: auto;
-    line-height: 1.5;
     outline: 0;
+
+    .placeholder;
 
     &-wrap {
       box-sizing: border-box;
       position: relative;
-      padding: 6px;
-      border-bottom: 1px solid @border-color-split;
+      padding: 7px 2px 7px @control-padding-horizontal;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     &-invalid {
@@ -48,20 +48,20 @@
 
   &-clear-btn {
     position: absolute;
-    right: 5px;
+    right: 8px;
     cursor: pointer;
     overflow: hidden;
     width: 20px;
     height: 20px;
     text-align: center;
     line-height: 20px;
-    top: 5px;
+    top: 7px;
     margin: 0;
   }
 
   &-clear-btn:after {
-    font-size: 12px;
-    color: #ccc;
+    font-size: @font-size-base - 2px;
+    color: @disabled-color;
     display: inline-block;
     line-height: 1;
     width: 20px;
@@ -70,21 +70,22 @@
   }
 
   &-clear-btn:hover:after {
-    color: #999;
+    color: @text-color-secondary;
   }
 
   &-narrow &-input-wrap {
-    max-width: 111px;
+    max-width: @time-picker-panel-column-width * 2;
   }
 
   &-select {
     float: left;
-    font-size: 12px;
-    border-left: 1px solid @border-color-split;
+    font-size: @font-size-base;
+    border-left: @border-width-base @border-style-base @border-color-split;
     box-sizing: border-box;
-    width: 56px;
+    width: @time-picker-panel-column-width;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
+    max-height: @timepicker-item-height * 6;
 
     &:hover {
       overflow-y: auto;
@@ -99,49 +100,49 @@
       border-right: 0;
     }
 
+    &:only-child {
+      width: 100%;
+    }
+
     ul {
       list-style: none;
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0 0 @timepicker-item-height * 5;
       width: 100%;
-      max-height: 144px;
     }
 
     li {
       list-style: none;
       box-sizing: content-box;
       margin: 0;
-      padding: 0 0 0 16px;
+      padding: 0 0 0 @control-padding-horizontal;
       width: 100%;
-      height: 24px;
-      line-height: 24px;
+      height: @timepicker-item-height;
+      line-height: @timepicker-item-height;
       text-align: left;
       cursor: pointer;
       user-select: none;
-      transition: background 0.3s ease;
-    }
-
-    li:last-child:after {
-      content: '';
-      height: 120px;
-      display: block;
+      transition: background 0.3s;
     }
 
     li:hover {
-      background: tint(@primary-color, 90%);
+      background: @item-hover-bg;
     }
 
     li&-option-selected {
-      background: @background-color-base;
+      background: @time-picker-selected-bg;
       font-weight: bold;
+      &:hover {
+        background: @time-picker-selected-bg;
+      }
     }
 
     li&-option-disabled {
       color: @btn-disable-color;
       &:hover {
         background: transparent;
-        cursor: @cursor-disabled;
+        cursor: not-allowed;
       }
     }
   }
@@ -152,7 +153,7 @@
 
   &-addon {
     padding: 8px;
-    border-top: 1px solid @border-color-split;
+    border-top: @border-width-base @border-style-base @border-color-split;
   }
 
   &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
@@ -181,23 +182,18 @@
 }
 
 .@{timepicker-prefix-cls} {
+  .reset-component;
   position: relative;
   display: inline-block;
   outline: none;
-  font-size: @font-size-base;
-  transition: opacity 0.3s ease;
+  transition: opacity .3s;
+  width: 128px;
 
   &-input {
     .input;
-    width: 100px;
-  }
-
-  &-large &-input {
-    .input-lg;
-  }
-
-  &-small &-input {
-    .input-sm;
+    &[disabled] {
+      .disabled;
+    }
   }
 
   &-open {
@@ -208,21 +204,31 @@
     position: absolute;
     user-select: none;
     transition: all .3s @ease-in-out;
-    width: 12px;
-    height: 12px;
-    line-height: 12px;
-    right: 8px;
-    color: #999;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    right: @control-padding-horizontal - 1px;
+    color: @disabled-color;
     top: 50%;
-    margin-top: -6px;
+    margin-top: -7px;
     &:after {
       content: "\e641";
       font-family: "anticon";
-      font-size: 12px;
-      color: #999;
-      display: inline-block;
+      color: @disabled-color;
+      display: block;
       line-height: 1;
-      vertical-align: bottom;
     }
+  }
+
+  &-large &-input {
+    .input-lg;
+  }
+
+  &-small &-input {
+    .input-sm;
+  }
+
+  &-small &-icon {
+    right: @control-padding-horizontal-sm - 1px;
   }
 }

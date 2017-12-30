@@ -1,7 +1,7 @@
 .markdown {
-  color: #666;
+  color: @site-text-color;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 .highlight {
@@ -9,23 +9,31 @@
 }
 
 .markdown img {
-  vertical-align: middle;
-  max-width: 100%;
+  max-width: ~"calc(100% - 32px)";
+}
+
+.markdown p > img {
+  margin: 2.4em 1em;
+  box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
 }
 
 .markdown h1 {
-  color: #404040;
+  color: @site-heading-color;
   font-weight: 500;
-  line-height: 40px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   margin-top: 8px;
-  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  font-family: Lato, @font-family;
+  font-size: 30px;
+  line-height: 38px;
 
   .subtitle {
-    font-weight: normal;
-    font-size: 90%;
     margin-left: 12px;
   }
+}
+
+.markdown h2 {
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .markdown h2,
@@ -33,15 +41,13 @@
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  color: #404040;
-  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
-  margin: 1.6em 0 0.6em 0;
+  color: @site-heading-color;
+  font-family: Lato, @font-family;
+  margin: 1.6em 0 0.6em;
   font-weight: 500;
   clear: both;
 }
 
-.markdown h1 { font-size: 28px; }
-.markdown h2 { font-size: 22px; }
 .markdown h3 { font-size: 18px; }
 .markdown h4 { font-size: 16px; }
 .markdown h5 { font-size: 14px; }
@@ -61,36 +67,28 @@
 }
 
 .markdown ul > li {
-  list-style: circle;
+  list-style-type: circle;
+  margin-left: 20px;
+  padding-left: 4px;
   &:empty {
     display: none;
   }
 }
 
-.markdown > ul li,
-.markdown blockquote ul > li {
-  margin-left: 20px;
-  padding-left: 4px;
-}
-
-.markdown > ul li > p,
-.markdown > ol li > p {
-  margin: 0.2em 0;
-}
-
 .markdown ol > li {
-  list-style: decimal;
-}
-
-.markdown > ol li,
-.markdown blockquote ol > li {
+  list-style-type: decimal;
   margin-left: 20px;
   padding-left: 4px;
+}
+
+.markdown ul > li > p,
+.markdown ol > li > p {
+  margin: 0.2em 0;
 }
 
 .markdown code {
   margin: 0 1px;
-  background: #f7f7f7;
+  background: #f2f4f5;
   padding: .2em .4em;
   border-radius: 3px;
   font-size: .9em;
@@ -98,56 +96,53 @@
 }
 
 .markdown pre {
-  border-radius: 6px;
-  background: #f7f7f7;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  border-radius: @border-radius-sm;
+  background: #f2f4f5;
+  font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
   border: none;
-  background: #f7f7f7;
+  background: #f2f4f5;
   margin: 0;
   padding: 0;
-  font-size: 13px;
-  color: #666;
+  font-size: @font-size-base - 1px;
+  color: @site-text-color;
   overflow: auto;
 }
 
 .markdown strong,
 .markdown b {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .markdown > table {
   border-collapse: collapse;
-  border-spacing: 0px;
+  border-spacing: 0;
   empty-cells: show;
-  border: 1px solid #e9e9e9;
+  border: 1px solid @site-border-color-split;
   width: 100%;
-  margin: 16px 0;
+  margin: 8px 0 16px;
 }
 
 .markdown > table th {
   white-space: nowrap;
-  color: #5C6B77;
-  font-weight: 600;
+  color: #5c6b77;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .markdown > table th,
 .markdown > table td {
-  border: 1px solid #e9e9e9;
-  padding: 8px 16px;
+  border: 1px solid @site-border-color-split;
+  padding: 16px 24px;
   text-align: left;
-}
-
-.markdown > table th {
-  background: #F7F7F7;
 }
 
 .markdown blockquote {
   font-size: 90%;
-  color: #999;
-  border-left: 4px solid #e9e9e9;
+  color: @site-text-color-secondary;
+  border-left: 4px solid @site-border-color-split;
   padding-left: 0.8em;
   margin: 1em 0;
 }
@@ -172,12 +167,14 @@
   display: inline-block;
   margin-left: 10px;
   height: 12px;
+  text-decoration: none;
+  font-weight: 400;
 
   i {
-    color: #999;
+    color: @site-text-color-secondary;
 
     &:hover {
-      color: #2db7f5;
+      color: @primary-color;
     }
   }
 
@@ -203,35 +200,36 @@
 }
 
 .markdown.api-container table {
-  font-family: Consolas, Menlo, Courier, monospace;
-  font-size: 13px;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
   td:first-child {
-    background: #fcfcfc;
     font-weight: 500;
     width: 20%;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
   }
   td:nth-child(3) {
-    width: 20%;
-    word-break: break-all;
+    width: 22%;
     font-size: 12px;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
   }
   td:last-child {
-    width: 15%;
+    width: 13%;
     font-size: 12px;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
   }
 }
 
-.layout-demo,
-[id^="components-layout-demo-"] {
+.grid-demo,
+[id^="components-grid-demo-"] {
   .demo-row,
   .code-box-demo .demo-row {
-    background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
+    background-image: linear-gradient(90deg, #f5f5f5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #f5f5f5 8.33333333%, #f5f5f5 12.5%, transparent 12.5%, transparent 16.66666667%, #f5f5f5 16.66666667%, #f5f5f5 20.83333333%, transparent 20.83333333%, transparent 25%, #f5f5f5 25%, #f5f5f5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #f5f5f5 33.33333333%, #f5f5f5 37.5%, transparent 37.5%, transparent 41.66666667%, #f5f5f5 41.66666667%, #f5f5f5 45.83333333%, transparent 45.83333333%, transparent 50%, #f5f5f5 50%, #f5f5f5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #f5f5f5 58.33333333%, #f5f5f5 62.5%, transparent 62.5%, transparent 66.66666667%, #f5f5f5 66.66666667%, #f5f5f5 70.83333333%, transparent 70.83333333%, transparent 75%, #f5f5f5 75%, #f5f5f5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #f5f5f5 83.33333333%, #f5f5f5 87.5%, transparent 87.5%, transparent 91.66666667%, #f5f5f5 91.66666667%, #f5f5f5 95.83333333%, transparent 95.83333333%);
     overflow: hidden;
     margin-bottom: 8px;
   }
   .ant-row-flex,
   .code-box-demo .ant-row-flex {
-    background: #F5F5F5;
+    background: #f5f5f5;
   }
   .ant-row > div,
   .code-box-demo .ant-row > div,
@@ -247,10 +245,10 @@
   }
   .code-box-demo .ant-row > div:not(.gutter-row),
   .code-box-demo .ant-row-flex > div:not(.gutter-row) {
-    background: #00A0E9;
+    background: #00a0e9;
     padding: 16px 0;
     &:nth-child(2n+1) {
-      background: fade(#00A0E9, 70%);
+      background: fade(#00a0e9, 70%);
     }
   }
   .ant-row .demo-col,
@@ -265,20 +263,20 @@
   }
   .ant-row .demo-col-1,
   .ant-row .demo-col-1 {
-    background: fade(#00A0E9, 70%);
+    background: fade(#00a0e9, 70%);
   }
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
-    background: fade(#00A0E9, 50%);
+    background: fade(#00a0e9, 50%);
   }
   .ant-row .demo-col-3,
-  .code-box-demo .ant-row .demo-col-3{
+  .code-box-demo .ant-row .demo-col-3 {
     background: rgba(255, 255, 255, 0.2);
     color: #999;
   }
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
-    background: fade(#00A0E9, 60%);
+    background: fade(#00a0e9, 60%);
   }
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
@@ -304,25 +302,24 @@
 }
 
 // For Changelog
-.markdown {
-  ul.ant-timeline {
-    li.ant-timeline-item {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 30px 0;
-      .ant-timeline-item-content {
-        font-size: 14px;
-        padding-left: 32px;
-        position: relative;
-        top: -14px;
-        > h2 {
-          margin-top: 0;
-          padding-top: 0.5px;
-        }
+.markdown ul.ant-timeline {
+  line-height: 2;
+  li.ant-timeline-item {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 30px;
+    .ant-timeline-item-content {
+      font-size: 14px;
+      padding-left: 32px;
+      position: relative;
+      top: -14px;
+      > h2 {
+        margin-top: 0;
+        padding-top: 2px;
       }
     }
-    li.ant-timeline-item:first-child {
-      margin-top: 40px;
-    }
+  }
+  li.ant-timeline-item:first-child {
+    margin-top: 40px;
   }
 }

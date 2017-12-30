@@ -1,78 +1,77 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @alert-prefix-cls: ~"@{ant-prefix}-alert";
 
+@alert-message-color: @heading-color;
+@alert-text-color: @text-color;
+
 .@{alert-prefix-cls} {
+  .reset-component;
   position: relative;
-  padding: 8px 48px 8px 38px;
+  padding: 8px 15px 8px 37px;
   border-radius: @border-radius-base;
-  color: @text-color;
-  font-size: @font-size-base;
-  line-height: 16px;
-  margin-bottom: 10px;
 
   &&-no-icon {
-    padding: 8px 48px 8px 16px;
+    padding: 8px 15px;
   }
 
   &-icon {
-    font-size: 14px;
-    top: 9px;
+    top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2 + 1px;
     left: 16px;
     position: absolute;
   }
 
   &-description {
     font-size: @font-size-base;
-    line-height: 21px;
+    line-height: 22px;
     display: none;
   }
 
   &-success {
-    border: 1px solid tint(@success-color, 80%);
-    background-color: tint(@success-color, 90%);
+    border: @border-width-base @border-style-base ~`colorPalette("@{success-color}", 3)`;
+    background-color: ~`colorPalette("@{success-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @success-color;
     }
   }
 
   &-info {
-    border: 1px solid tint(@primary-color, 80%);
-    background-color: tint(@primary-color, 90%);
+    border: @border-width-base @border-style-base ~`colorPalette("@{info-color}", 3)`;
+    background-color: ~`colorPalette("@{info-color}", 1)`;
     .@{alert-prefix-cls}-icon {
-      color: @primary-color;
+      color: @info-color;
     }
   }
 
   &-warning {
-    border: 1px solid tint(@warning-color, 80%);
-    background-color: tint(@warning-color, 90%);
+    border: @border-width-base @border-style-base ~`colorPalette("@{warning-color}", 3)`;
+    background-color: ~`colorPalette("@{warning-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @warning-color;
     }
   }
 
   &-error {
-    border: 1px solid tint(@error-color, 80%);
-    background-color: tint(@error-color, 90%);
+    border: @border-width-base @border-style-base ~`colorPalette("@{error-color}", 3)`;
+    background-color: ~`colorPalette("@{error-color}", 1)`;
     .@{alert-prefix-cls}-icon {
       color: @error-color;
     }
   }
 
   &-close-icon {
-    font-size: @font-size-base;
+    font-size: @font-size-sm;
     position: absolute;
     right: 16px;
-    top: 10px;
-    height: 12px;
-    line-height: 12px;
+    top: 8px;
+    line-height: 22px;
     overflow: hidden;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-cross {
-      color: @legend-color;
-      transition: color .3s ease;
+      color: @text-color-secondary;
+      transition: color .3s;
       &:hover {
         color: #404040;
       }
@@ -85,22 +84,21 @@
   }
 
   &-with-description {
-    padding: 16px 16px 16px 60px;
+    padding: 15px 15px 15px 64px;
     position: relative;
     border-radius: @border-radius-base;
-    margin-bottom: 10px;
     color: @text-color;
-    line-height: 1.5;
+    line-height: @line-height-base;
   }
 
   &-with-description&-no-icon {
-    padding: 16px;
+    padding: 15px;
   }
 
   &-with-description &-icon {
     position: absolute;
     top: 16px;
-    left: 20px;
+    left: 24px;
     font-size: 24px;
   }
 
@@ -113,8 +111,8 @@
   }
 
   &-with-description &-message {
-    font-size: 14px;
-    color: @heading-color;
+    font-size: @font-size-lg;
+    color: @alert-message-color;
     display: block;
     margin-bottom: 4px;
   }

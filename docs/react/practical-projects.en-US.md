@@ -1,9 +1,9 @@
 ---
 order: 3
-title: Practical Projects
+title: Real project with dva
 ---
 
-[dva](https://github.com/dvajs/dva) is a React and redux based, lightweight and elm-style framework, which supports side effects, hot module replacement, dynamic on demand, react-native, SSR. And it has been widely used in production environment.
+[dva](https://github.com/dvajs/dva) is a React and redux based, lightweight and elm-style framework, which supports side effects, hot module replacement, dynamic on demand, react-native, and SSR. It has been widely used in production environments.
 
 This article will guide you to create a simple application from zero using dva and antd.
 
@@ -11,60 +11,67 @@ Include the following:
 
 ---
 
-## Install dva
+## Install dva-cli
 
-Install dva with npm.
+Install dva-cli with npm, and make sure the version is later than `0.8.1`.
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.8.1
 ```
 
 ## Create New App
 
-After installed dva-cli, you can have access to the `dva` command in terminal. Now, create a new application with `dva new`.
+After you have installed dva-cli, you can have access to the `dva` command in terminal ([can't access?](http://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found)). Now, create a new application with `dva new`.
 
 ```bash
 $ dva new dva-quickstart
 ```
 
-This creates `dva-quickstart` directory, that contains the project directories and files, and provides development server, build script, mock service, proxy server and so on.
+This creates a `dva-quickstart` directory, that contains the project directories and files, and provides a development server, build script, mock service, proxy server and so on.
 
-Then `cd` the `dva-quickstart` directory, and start the development server.
+Then `cd` to the `dva-quickstart` directory, and start the development server.
 
 ```bash
 $ cd dva-quickstart
 $ npm start
 ```
 
-After a few seconds, you will see thw following output:
+After a few seconds, you will see the following output:
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
-Open http://localhost:8989 in your browser, you will see dva welcome page.
+Open http://localhost:8000 in your browser, you will see the dva welcome page.
 
 ## Integrate antd
 
-Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd in demand. See [repo](https://github.com/ant-design/babel-plugin-import) 。
+Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd on demand. See [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
 $ npm install antd babel-plugin-import --save
 ```
 
-Edit `webpack.config.js` to integrate `babel-plugin-import`.
+Edit `.roadhogrc` to integrate `babel-plugin-import`.
 
 ```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd',
-+   style: 'css',
-+ }]);
+  "extraBabelPlugins": [
+-    "transform-runtime"
++    "transform-runtime",
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+  ],
 ```
 
-> Notice: No need to manually restart the server, it will restart automatically after you save the `webpack.config.js`.
+> Notice: dva-cli's build and server is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
 
 ## Define Router
 
@@ -75,24 +82,22 @@ Create a route component `routes/Products.js`:
 ```javascript
 import React from 'react';
 
-const Products = (props) => {
-  return (
-    <h2>List of Products</h2>
-  );
-};
+const Products = (props) => (
+  <h2>List of Products</h2>
+);
 
 export default Products;
 ```
 
-Add routing infomation to router, edit `router.js`:
+Add routing information to router, edit `router.js`:
 
 ```diff
 + import Products from './routes/Products';
 ...
-+ <Route path="/products" component={Products} />
++ <Route path="/products" exact component={Products} />
 ```
 
-Then open http://localhost:8989/#/products in your browser, you should be able to see the `<h2>` tag defined before.
+Then open http://localhost:8000/#/products in your browser, you should be able to see the `<h2>` tag defined before.
 
 ## Write UI Components
 
@@ -100,29 +105,27 @@ As your application grows and you notice you are sharing UI elements between mul
 
 Let's create a `ProductList` component that we can use in multiple places to show a list of products.
 
-Create `components/ProductList.js` and typing:
+Create `components/ProductList.js` by typing:
 
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
+  const columns = [{
+    title: 'Name',
+    dataIndex: 'name',
+  }, {
+    title: 'Actions',
+    render: (text, record) => {
+      return (
+        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+          <Button>Delete</Button>
+        </Popconfirm>
+      );
     },
-    {
-      title: 'Actions',
-      render(text, record) {
-        return (
-          <Popconfirm title="Delete?" onConfirm={onDelete.bind(this, record.id)}>
-            <Button>删除</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  }];
   return (
     <Table
       dataSource={products}
@@ -141,11 +144,11 @@ export default ProductList;
 
 ## Define Model
 
-After complete the UI, we will begin processing the data and logic.
+After completing the UI, we will begin processing the data and logic.
 
-dva manages domain model with `model`, with reducers for synchronous state update, effects for async logic, and subscriptions for data source subscribe.
+dva manages the domain model with `model`, with reducers for synchronous state updates, effects for async logic, and subscriptions for data source subscribe.
 
-Let's create a model `models/products.js` and typing:
+Let's create a model `models/products.js` by typing:
 
 ```javascript
 import dva from 'dva';
@@ -163,9 +166,9 @@ export default {
 
 In this model:
 
-- `namespace` represent the key on global state
-- `state` is the initial value, here is an empty array
-- `reducers` is equal to reducer in redux, accepting action, and update state synchronously
+- `namespace` represents the key on global state
+- `state` is the initial value, here it is an empty array
+- `reducers` is equivalent to a reducer in redux, accepting an action, and update state simultaneously
 
 Then don't forget to require it in `index.js`:
 
@@ -176,37 +179,35 @@ Then don't forget to require it in `index.js`:
 
 ## Connect
 
-So far, wee have completed a seperate model and component. Then how to connect these together?
+So far, we have completed a separate model and component. How do we connect them together?
 
-dva provides a `connect` method. If you are familar with redux, this `connect` is from react-router.
+dva provides a `connect` method. If you are familiar with redux, this `connect` is from react-router.
 
-Edit `routes/Products.js` and replace with following:
+Edit `routes/Products.js` and replace it with the following:
 
 ```javascript
 import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../components/ProductList';
 
-const Products = (props) => {
-
+const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
-    props.dispatch({
+    dispatch({
       type: 'products/delete',
       payload: id,
     });
   }
-
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={props.products} />
+      <ProductList onDelete={handleDelete} products={products} />
     </div>
   );
 };
 
 // export default Products;
 export default connect(({ products }) => ({
-  products
+  products,
 }))(Products);
 ```
 
@@ -232,7 +233,7 @@ Refresh your browser, you should see the following result:
 
 ## Build
 
-Now that we've written our application and verified that it works in development, it's time to get it ready to deploy to our users. To do so, run the following command:
+Now that we've written our application and verified that it works in development, it's time to get it ready for deployment to our users. To do so, run the following command:
 
 ```bash
 $ npm run build
@@ -241,13 +242,16 @@ $ npm run build
 After a few seconds, the output should be as follows:
 
 ```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
+> @ build /private/tmp/myapp
+> roadhog build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  82.98 KB  dist/index.js
+  270 B     dist/index.css
 ```
 
 The `build` command packages up all of the assets that make up your application —— JavaScript, templates, CSS, web fonts, images, and more. Then you can find these files in the `dist /` directory.
@@ -256,7 +260,7 @@ The `build` command packages up all of the assets that make up your application 
 
 We have completed a simple application, but you may still have lots of questions, such as:
 
-- How to dealing with async logic
+- How to deal with async logic
 - How to load initial data elegantly
 - How to handle onError globally and locally
 - How to load Routes and Models on demand
@@ -266,7 +270,9 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-- Visit [dva offical website](https://github.com/dvajs/dva)
-- View all the [API](https://github.com/dvajs/dva#api)
-- View [toturial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step
-- View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews)
+- Visit [dva official website](https://github.com/dvajs/dva).
+- Be familiar with the [8 Concepts](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and understand how they are connected together
+- Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
+- Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
+- Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
+- If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#配置)

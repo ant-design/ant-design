@@ -3,7 +3,9 @@ order: 3
 title: 项目实战
 ---
 
-[dva](https://github.com/dvajs/dva) 是一个基于 react 和 redux 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
+在真实项目开发中，你可能会需要 Redux 或者 Mbox 这样的数据应用框架，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的应用框架搭配使用。我们也基于 Redux 推出了自己的最佳实践 dva，推荐你在项目中使用。
+
+[dva](https://github.com/dvajs/dva) 是一个基于 React 和 Redux 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
 
 本文会引导你使用 dva 和 antd 从 0 开始创建一个简单应用。
 
@@ -11,17 +13,19 @@ title: 项目实战
 
 ---
 
-## 安装 dva
+## 安装 dva-cli
 
-通过 npm 安装 dva 。
+通过 npm 安装 dva-cli 并确保版本是 `0.8.1` 或以上。
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.8.2
 ```
 
 ## 创建新应用
 
-安装完 dva-cli 之后，就可以在 terminal 里访问到 `dva` 命令。现在，你可以通过 `dva new` 创建新应用。
+安装完 dva-cli 之后，就可以在命令行里访问到 `dva` 命令（[不能访问？](http://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found)）。现在，你可以通过 `dva new` 创建新应用。
 
 ```bash
 $ dva new dva-quickstart
@@ -39,13 +43,17 @@ $ npm start
 几秒钟后，你会看到以下输出：
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
-在浏览器里打开 http://localhost:8989 ，你会看到 dva 的欢迎界面。
+在浏览器里打开 http://localhost:8000 ，你会看到 dva 的欢迎界面。
 
 ## 使用 antd
 
@@ -55,16 +63,17 @@ webpack: bundle build is now finished.
 $ npm install antd babel-plugin-import --save
 ```
 
-编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效。
+编辑 `.roadhogrc`，使 `babel-plugin-import` 插件生效。
 
 ```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd',
-+   style: 'css',
-+ }]);
+  "extraBabelPlugins": [
+-    "transform-runtime"
++    "transform-runtime",
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+  ],
 ```
 
-> 注：这里不需要手动重启开发服务器，保存 `webpack.config.js` 后会自动重启。
+> 注：dva-cli 基于 roadhog 实现 build 和 server，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
 
 ## 定义路由
 
@@ -75,11 +84,9 @@ $ npm install antd babel-plugin-import --save
 ```javascript
 import React from 'react';
 
-const Products = (props) => {
-  return (
-    <h2>List of Products</h2>
-  );
-};
+const Products = (props) => (
+  <h2>List of Products</h2>
+);
 
 export default Products;
 ```
@@ -89,10 +96,10 @@ export default Products;
 ```diff
 + import Products from './routes/Products';
 ...
-+ <Route path="/products" component={Products} />
++ <Route path="/products" exact component={Products} />
 ```
 
-然后在浏览器里打开 http://localhost:8989/#/products ，你应该能看到前面定义的 `<h2>` 标签。
+然后在浏览器里打开 http://localhost:8000/#/products ，你应该能看到前面定义的 `<h2>` 标签。
 
 ## 编写 UI Component
 
@@ -103,26 +110,24 @@ export default Products;
 新建 `components/ProductList.js` 文件：
 
 ```javascript
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
+  const columns = [{
+    title: 'Name',
+    dataIndex: 'name',
+  }, {
+    title: 'Actions',
+    render: (text, record) => {
+      return (
+        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+          <Button>Delete</Button>
+        </Popconfirm>
+      );
     },
-    {
-      title: 'Actions',
-      render(text, record) {
-        return (
-          <Popconfirm title="Delete?" onConfirm={onDelete.bind(this, record.id)}>
-            <Button>删除</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  }];
   return (
     <Table
       dataSource={products}
@@ -187,26 +192,24 @@ import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../components/ProductList';
 
-const Products = (props) => {
-
+const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
-    props.dispatch({
+    dispatch({
       type: 'products/delete',
       payload: id,
     });
   }
-
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={props.products} />
+      <ProductList onDelete={handleDelete} products={products} />
     </div>
   );
 };
 
 // export default Products;
 export default connect(({ products }) => ({
-  products
+  products,
 }))(Products);
 ```
 
@@ -241,13 +244,16 @@ $ npm run build
 几秒后，输出应该如下：
 
 ```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
+> @ build /private/tmp/myapp
+> roadhog build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  82.98 KB  dist/index.js
+  270 B     dist/index.css
 ```
 
 `build` 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。然后你可以在 `dist/` 目录下找到这些文件。
@@ -267,6 +273,8 @@ Child
 你可以：
 
 - 访问 [dva 官网](https://github.com/dvajs/dva)
-- 查看所有 [API](https://github.com/dvajs/dva#api)
-- [教程](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md)，一步步完成一个中型应用
-- 看看 [dva 版 hackernews](https://github.com/dvajs/dva-hackernews) 是[如何实现](https://github.com/sorrycc/blog/issues/9)的
+- 理解 dva 的 [8 个概念](https://github.com/dvajs/dva/blob/master/docs/Concepts_zh-CN.md) ，以及他们是如何串起来的
+- 掌握 dva 的[所有 API](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md)
+- 查看 [dva 知识地图](https://github.com/dvajs/dva-knowledgemap) ，包含 ES6, React, dva 等所有基础知识
+- 查看 [更多 FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)，看看别人通常会遇到什么问题
+- 如果你基于 dva-cli 创建项目，最好了解他的 [配置方式](https://github.com/sorrycc/roadhog#配置)

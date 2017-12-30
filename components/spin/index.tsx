@@ -1,25 +1,33 @@
-import React from 'react';
-import { PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
 
 export interface SpinProps {
   prefixCls?: string;
   className?: string;
   spinning?: boolean;
+  style?: React.CSSProperties;
   size?: 'small' | 'default' | 'large';
   tip?: string;
+  delay?: number;
+  wrapperClassName?: string;
+  indicator?: React.ReactNode;
 }
 
-export default class Spin extends React.Component<SpinProps, any> {
+export interface SpinState {
+  spinning?: boolean;
+  notCssAnimationSupported?: boolean;
+}
+
+export default class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
     size: 'default',
+    wrapperClassName: '',
   };
 
   static propTypes = {
@@ -27,11 +35,14 @@ export default class Spin extends React.Component<SpinProps, any> {
     className: PropTypes.string,
     spinning: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'default', 'large']),
+    wrapperClassName: PropTypes.string,
+    indicator: PropTypes.node,
   };
 
   debounceTimeout: number;
+  delayTimeout: number;
 
-  constructor(props) {
+  constructor(props: SpinProps) {
     super(props);
     const spinning = props.spinning;
     this.state = {
@@ -45,8 +56,10 @@ export default class Spin extends React.Component<SpinProps, any> {
 
   componentDidMount() {
     if (!isCssAnimationSupported()) {
-      // Show text in IE8/9
-      findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
+      // Show text in IE9
+      this.setState({
+        notCssAnimationSupported: true,
+      });
     }
   }
 
@@ -54,53 +67,72 @@ export default class Spin extends React.Component<SpinProps, any> {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: SpinProps) {
     const currentSpinning = this.props.spinning;
     const spinning = nextProps.spinning;
+    const { delay } = this.props;
+
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
     if (currentSpinning && !spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
+      this.debounceTimeout = window.setTimeout(() => this.setState({ spinning }), 200);
+      if (this.delayTimeout) {
+        clearTimeout(this.delayTimeout);
+      }
     } else {
-      this.setState({ spinning });
+      if (spinning && delay && !isNaN(Number(delay))) {
+        if (this.delayTimeout) {
+          clearTimeout(this.delayTimeout);
+        }
+        this.delayTimeout = window.setTimeout(() => this.setState({ spinning }), delay);
+      } else {
+        this.setState({ spinning });
+      }
     }
   }
   render() {
-    const [{
-      className, size, prefixCls, tip,
-    }, restProps] = splitObject(this.props,
-      ['className', 'size', 'prefixCls', 'tip']);
-    const { spinning } = this.state;
+    const { className, size, prefixCls, tip, wrapperClassName, indicator, ...restProps } = this.props;
+    const { spinning, notCssAnimationSupported } = this.state;
 
-    const spinClassName = classNames({
-      [prefixCls]: true,
+    const spinClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!this.props.tip,
-      [className]: !!className,
-    });
+      [`${prefixCls}-show-text`]: !!tip || notCssAnimationSupported,
+    }, className);
 
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(restProps, [
       'spinning',
+      'delay',
     ]);
+
+    const spinIndicator = indicator ? indicator : (
+      <span className={`${prefixCls}-dot`}>
+        <i />
+        <i />
+        <i />
+        <i />
+      </span>
+    );
 
     const spinElement = (
       <div {...divProps} className={spinClassName} >
-        <span className={`${prefixCls}-dot`}>
-          <i />
-          <i />
-          <i />
-          <i />
-        </span>
+        {spinIndicator}
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
     if (this.isNestedPattern()) {
+      let animateClassName = prefixCls + '-nested-loading';
+      if (wrapperClassName) {
+        animateClassName += ' ' + wrapperClassName;
+      }
       const containerClassName = classNames({
         [`${prefixCls}-container`]: true,
         [`${prefixCls}-blur`]: spinning,
@@ -109,7 +141,8 @@ export default class Spin extends React.Component<SpinProps, any> {
         <Animate
           {...divProps}
           component="div"
-          className={`${prefixCls}-nested-loading`}
+          className={animateClassName}
+          style={null}
           transitionName="fade"
         >
           {spinning && <div key="loading">{spinElement}</div>}

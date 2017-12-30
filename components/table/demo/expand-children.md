@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 16
 title:
   en-US: Tree data
   zh-CN: 树形数据展示
@@ -24,17 +24,16 @@ const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
-  width: '40%',
 }, {
   title: 'Age',
   dataIndex: 'age',
   key: 'age',
-  width: '30%',
+  width: '12%',
 }, {
   title: 'Address',
   dataIndex: 'address',
-  key: 'address',
   width: '30%',
+  key: 'address',
 }];
 
 const data = [{
@@ -90,19 +89,18 @@ const data = [{
 
 // rowSelection objects indicates the need for row selection
 const rowSelection = {
-  onChange(selectedRowKeys, selectedRows) {
+  onChange: (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
-  onSelect(record, selected, selectedRows) {
+  onSelect: (record, selected, selectedRows) => {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll(selected, selectedRows, changeRows) {
+  onSelectAll: (selected, selectedRows, changeRows) => {
     console.log(selected, selectedRows, changeRows);
   },
 };
 
 ReactDOM.render(
-  <Table columns={columns} rowSelection={rowSelection} dataSource={data} />,
-  mountNode
-);
+  <Table columns={columns} rowSelection={rowSelection} dataSource={data} />
+, mountNode);
 ````

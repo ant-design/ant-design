@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 7
 title:
   zh-CN: 自定义已选项
   en-US: Custom render
@@ -64,7 +64,7 @@ ReactDOM.render(
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
     displayRender={displayRender}
-    style={{ width: 270 }}
+    style={{ width: '100%' }}
   />
 , mountNode);
 ````

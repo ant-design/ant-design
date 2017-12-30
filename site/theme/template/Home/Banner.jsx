@@ -1,40 +1,51 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import GitHubButton from 'react-github-button';
-import 'react-github-button/assets/style.css';
-import { Icon } from 'antd';
+import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
 function typeFunc(a) {
   if (a.key === 'line') {
-    return 'right';
+    return 'left';
   } else if (a.key === 'button') {
     return 'bottom';
   }
-  return 'left';
+  return 'right';
 }
 
 export default function Banner({ location }) {
-  const query = location.query;
+  const isZhCN = utils.isZhCN(location.pathname);
   return (
-    <section id="banner">
-      <ScrollElement scrollName="banner" className="page">
-        <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300}>
+    <section className="page banner-wrapper">
+      <ScrollElement
+        className="page"
+        id="banner"
+        playScale={0.9}
+      >
+        <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300} key="banner">
           <h2 key="h2">ANT <p>DESIGN</p></h2>
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>
           <span className="line" key="line" />
-          <div key="button1" className="start-button clearfix">
-            <Link to={{ query, pathname: '/docs/spec/introduce' }}>
-              <FormattedMessage id="app.home.introduce" />
+          <div key="button1" className="start-button">
+            <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+              <Button type="primary" size="large">
+                <FormattedMessage id="app.home.introduce" />
+              </Button>
             </Link>
-            <Link to={{ query, pathname: '/docs/react/introduce' }}>
-              <FormattedMessage id="app.home.start" />
+            <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+              <Button type="primary" ghost size="large">
+                <FormattedMessage id="app.home.start" />
+              </Button>
             </Link>
           </div>
-          <GitHubButton key="github-button" type="stargazers"
-            namespace="ant-design" repo="ant-design"
+          <GitHubButton
+            key="github-button"
+            type="stargazers"
+            namespace="ant-design"
+            repo="ant-design"
           />
         </QueueAnim>
         <Icon type="down" className="down" />

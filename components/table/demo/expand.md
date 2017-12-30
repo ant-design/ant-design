@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 13
 title:
   en-US: Expandable Row
   zh-CN: 可展开
@@ -32,9 +32,8 @@ const data = [
 ReactDOM.render(
   <Table
     columns={columns}
-    expandedRowRender={record => <p>{record.description}</p>}
+    expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
     dataSource={data}
-    className="table"
   />
 , mountNode);
 ````

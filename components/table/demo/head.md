@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   en-US: Filter and sorter
   zh-CN: 筛选和排序
@@ -16,6 +16,8 @@ title:
 Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
 
 Use `sorter` to make a column sortable. `sorter` can be a function `function(a, b) { ... }` for sorting data locally.
+
+Uses `defaultSortOrder` to make a column sorted by default.
 
 ````jsx
 import { Table } from 'antd';
@@ -47,6 +49,7 @@ const columns = [{
 }, {
   title: 'Age',
   dataIndex: 'age',
+  defaultSortOrder: 'descend',
   sorter: (a, b) => a.age - b.age,
 }, {
   title: 'Address',
@@ -89,5 +92,7 @@ function onChange(pagination, filters, sorter) {
   console.log('params', pagination, filters, sorter);
 }
 
-ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);
+ReactDOM.render(
+  <Table columns={columns} dataSource={data} onChange={onChange} />
+, mountNode);
 ````

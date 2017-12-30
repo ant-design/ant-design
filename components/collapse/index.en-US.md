@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Data Display
 title: Collapse
 cols: 1
 ---
@@ -16,15 +16,17 @@ A content area which can be collapsed and expanded.
 
 ### Collapse
 
-| Property     | Description           | Type     | Default       |
-|----------|----------------|----------|--------------|
-| activeKey    | key of the active panel | Array or String   | No default value. In `accordion` mode, it's the key of the first panel.  |
-| defaultActiveKey    | key of the initialized active panel | String   | - |
-| onChange | a callback function, which can be executed when you switch the panels | Function   |  -  |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| activeKey | Key of the active panel | string\[]\|string | No default value. In `accordion` mode, it's the key of the first panel. |
+| defaultActiveKey | Key of the initial active panel | string | - |
+| onChange | Callback function executed when active panel is changed | Function | - |
 
 ### Collapse.Panel
 
-| Property     | Description           | Type     | Default       |
-|----------|----------------|----------|--------------|
-| key    | corresponds to the `activeKey` | String   |  -  |
-| header    | title of the panel | React.Element or String   | - |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| disabled | If `true`, panel cannot be opened or closed | boolean | `false` |
+| header | Title of the panel | string\|ReactNode | - |
+| key | Unique key identifying the panel from among its siblings | string | - |
+| showArrow | If `false`, panel will not show arrow icon | boolean | `true` |

@@ -1,0 +1,834 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
+<ul
+  aria-activedescendant=""
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+  role="menu"
+  tabindex="0"
+>
+  <li
+    aria-selected="true"
+    class="ant-menu-item ant-menu-item-selected"
+    role="menuitem"
+  >
+    <i
+      class="anticon anticon-mail"
+    />
+    Navigation One
+  </li>
+  <li
+    aria-disabled="true"
+    aria-selected="false"
+    class="ant-menu-item ant-menu-item-disabled"
+    role="menuitem"
+  >
+    <i
+      class="anticon anticon-appstore"
+    />
+    Navigation Two
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-horizontal"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="item_2$Menu"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        <i
+          class="anticon anticon-setting"
+        />
+        Navigation Three - Submenu
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    aria-selected="false"
+    class="ant-menu-item"
+    role="menuitem"
+  >
+    <a
+      href="https://ant.design"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Navigation Four - Link
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
+<ul
+  aria-activedescendant=""
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  role="menu"
+  style="width:256px"
+  tabindex="0"
+>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="true"
+      aria-owns="sub1$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-mail"
+        />
+        <span>
+          Navigation One
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+    <ul
+      aria-activedescendant=""
+      class="ant-menu  ant-menu-sub ant-menu-inline"
+      id="sub1$Menu"
+      role="menu"
+    >
+      <li
+        class=" ant-menu-item-group"
+      >
+        <div
+          class="ant-menu-item-group-title"
+          title="Item 1"
+        >
+          Item 1
+        </div>
+        <ul
+          class="ant-menu-item-group-list"
+        >
+          <li
+            aria-selected="true"
+            class="ant-menu-item ant-menu-item-selected"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Option 1
+          </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Option 2
+          </li>
+        </ul>
+      </li>
+      <li
+        class=" ant-menu-item-group"
+      >
+        <div
+          class="ant-menu-item-group-title"
+          title="Item 2"
+        >
+          Item 2
+        </div>
+        <ul
+          class="ant-menu-item-group-list"
+        >
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Option 3
+          </li>
+          <li
+            aria-selected="false"
+            class="ant-menu-item"
+            role="menuitem"
+            style="padding-left:48px"
+          >
+            Option 4
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub2$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-appstore"
+        />
+        <span>
+          Navigation Two
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub4$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-setting"
+        />
+        <span>
+          Navigation Three
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
+<div
+  style="width:256px"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    style="margin-bottom:16px"
+    type="button"
+  >
+    <i
+      class="anticon anticon-menu-fold"
+    />
+  </button>
+  <ul
+    aria-activedescendant=""
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-selected="true"
+      class="ant-menu-item ant-menu-item-selected"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <i
+        class="anticon anticon-pie-chart"
+      />
+      <span>
+        Option 1
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <i
+        class="anticon anticon-desktop"
+      />
+      <span>
+        Option 2
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <i
+        class="anticon anticon-inbox"
+      />
+      <span>
+        Option 3
+      </span>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        aria-owns="sub1$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-mail"
+          />
+          <span>
+            Navigation One
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        aria-activedescendant=""
+        class="ant-menu  ant-menu-sub ant-menu-inline"
+        id="sub1$Menu"
+        role="menu"
+      >
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 5
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 6
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 7
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 8
+        </li>
+      </ul>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-owns="sub2$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-appstore"
+          />
+          <span>
+            Navigation Two
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
+<ul
+  aria-activedescendant=""
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  role="menu"
+  style="width:256px"
+  tabindex="0"
+>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="true"
+      aria-owns="sub1$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-mail"
+        />
+        <span>
+          Navigation One
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+    <ul
+      aria-activedescendant=""
+      class="ant-menu  ant-menu-sub ant-menu-inline"
+      id="sub1$Menu"
+      role="menu"
+    >
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px"
+      >
+        Option 1
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px"
+      >
+        Option 2
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px"
+      >
+        Option 3
+      </li>
+      <li
+        aria-selected="false"
+        class="ant-menu-item"
+        role="menuitem"
+        style="padding-left:48px"
+      >
+        Option 4
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub2$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-appstore"
+        />
+        <span>
+          Navigation Two
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-inline"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub4$Menu"
+      class="ant-menu-submenu-title"
+      style="padding-left:24px"
+    >
+      <span>
+        <i
+          class="anticon anticon-setting"
+        />
+        <span>
+          Navigation Three
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
+<div>
+  <span
+    class="ant-switch"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+   Change Mode
+  <span
+    class="ant-divider"
+    style="margin:0 1em"
+  />
+  <span
+    class="ant-switch"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+   Change Theme
+  <br />
+  <br />
+  <ul
+    aria-activedescendant=""
+    class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+    role="menu"
+    style="width:256px"
+    tabindex="0"
+  >
+    <li
+      aria-selected="true"
+      class="ant-menu-item ant-menu-item-selected"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <i
+        class="anticon anticon-mail"
+      />
+      Navigation One
+    </li>
+    <li
+      aria-selected="false"
+      class="ant-menu-item"
+      role="menuitem"
+      style="padding-left:24px"
+    >
+      <i
+        class="anticon anticon-calendar"
+      />
+      Navigation Two
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        aria-owns="sub1$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-appstore"
+          />
+          <span>
+            Navigation Three
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        aria-activedescendant=""
+        class="ant-menu  ant-menu-sub ant-menu-inline"
+        id="sub1$Menu"
+        role="menu"
+      >
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 3
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 4
+        </li>
+        <li
+          class="ant-menu-submenu ant-menu-submenu-inline"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="sub1-2$Menu"
+            class="ant-menu-submenu-title"
+            style="padding-left:48px"
+            title="Submenu"
+          >
+            Submenu
+            <i
+              class="ant-menu-submenu-arrow"
+            />
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-owns="sub2$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-setting"
+          />
+          <span>
+            Navigation Four
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
+<div>
+  <span
+    checked=""
+    class="ant-switch ant-switch-checked"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    >
+      Dark
+    </span>
+  </span>
+  <br />
+  <br />
+  <ul
+    aria-activedescendant=""
+    class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    role="menu"
+    style="width:256px"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        aria-owns="sub1$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-mail"
+          />
+          <span>
+            Navigation One
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        aria-activedescendant=""
+        class="ant-menu  ant-menu-sub ant-menu-inline"
+        id="sub1$Menu"
+        role="menu"
+      >
+        <li
+          aria-selected="true"
+          class="ant-menu-item ant-menu-item-selected"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 1
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 2
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 3
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:48px"
+        >
+          Option 4
+        </li>
+      </ul>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-owns="sub2$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-appstore"
+          />
+          <span>
+            Navigtion Two
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-owns="sub4$Menu"
+        class="ant-menu-submenu-title"
+        style="padding-left:24px"
+      >
+        <span>
+          <i
+            class="anticon anticon-setting"
+          />
+          <span>
+            Navigation Three
+          </span>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
+<ul
+  aria-activedescendant=""
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  role="menu"
+  style="width:256px"
+  tabindex="0"
+>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub1$Menu"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        <i
+          class="anticon anticon-mail"
+        />
+        <span>
+          Navigation One
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub2$Menu"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        <i
+          class="anticon anticon-appstore"
+        />
+        <span>
+          Navigation Two
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-owns="sub4$Menu"
+      class="ant-menu-submenu-title"
+    >
+      <span>
+        <i
+          class="anticon anticon-setting"
+        />
+        <span>
+          Navigation Three
+        </span>
+      </span>
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;

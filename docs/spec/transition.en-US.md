@@ -23,17 +23,13 @@ Slide In and Slide Out: Create an illusion of virtual space.
 
 <video class="transition-video-player" alt="example of Carousel" src="https://os.alipayobjects.com/rmsportal/GIutPgZMTyfFfrH.mp4" />
 
-Carousel: Carousels are great for extending vir- tual space.
+Carousel: Carousels are great for extending virtual space.
 
 <br>
 
 <video class="transition-video-player" alt="example of Accordion" src="https://os.alipayobjects.com/rmsportal/ERKhqHlcHiCDSQu.mp4" />
 
 Accordion: Accordion helps maintain context while switching views.
-
-<br>
-
-<p><span class="waiting">View Navigation (coming soon)</span></p>
 
 <br>
 
@@ -69,12 +65,8 @@ Calling out an Object: Click the page element and call out a new object.
 
 If actual performance can hardly improved, there is a difference between actual performance and perceived performance. Diverting the user’s attention is a good way to improve the perceived time an operation takes.
 
-<br>
-
-<p><span class="waiting">Image (coming soon)</span></p>
-
 ---
 
 ## Natural Motion
 
-Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/)。
+Please refer to [Ant Motion, a motion language](http://motion.ant.design/#/language/).

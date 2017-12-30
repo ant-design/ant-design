@@ -1,5 +1,5 @@
 ---
-order: 21
+order: 26
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性
@@ -14,18 +14,20 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Switch, Radio, Form } from 'antd';
+import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
 const FormItem = Form.Item;
 
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
+  width: 150,
   render: text => <a href="#">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
   key: 'age',
+  width: 70,
 }, {
   title: 'Address',
   dataIndex: 'address',
@@ -33,52 +35,49 @@ const columns = [{
 }, {
   title: 'Action',
   key: 'action',
+  width: 360,
   render: (text, record) => (
     <span>
       <a href="#">Action 一 {record.name}</a>
-      <span className="ant-divider" />
+      <Divider type="vertical" />
       <a href="#">Delete</a>
-      <span className="ant-divider" />
+      <Divider type="vertical" />
       <a href="#" className="ant-dropdown-link">
-        More actions<Icon type="down" />
+        More actions <Icon type="down" />
       </a>
     </span>
   ),
 }];
 
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-  description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
-}, {
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.',
-}];
+const data = [];
+for (let i = 1; i <= 10; i++) {
+  data.push({
+    key: i,
+    name: 'John Brown',
+    age: `${i}2`,
+    address: `New York No. ${i} Lake Park`,
+    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+  });
+}
 
 const expandedRowRender = record => <p>{record.description}</p>;
 const title = () => 'Here is title';
+const showHeader = true;
 const footer = () => 'Here is footer';
+const scroll = { y: 240 };
 
 class Demo extends React.Component {
   state = {
-    bordered: true,
+    bordered: false,
     loading: false,
     pagination: true,
     size: 'default',
     expandedRowRender,
     title,
+    showHeader,
     footer,
+    rowSelection: {},
+    scroll: undefined,
   }
 
   handleToggle = (prop) => {
@@ -92,15 +91,27 @@ class Demo extends React.Component {
   }
 
   handleExpandChange = (enable) => {
-    this.setState({ expandedRowRender: enable ? expandedRowRender : false });
+    this.setState({ expandedRowRender: enable ? expandedRowRender : undefined });
   }
 
   handleTitleChange = (enable) => {
     this.setState({ title: enable ? title : undefined });
   }
 
+  handleHeaderChange = (enable) => {
+    this.setState({ showHeader: enable ? showHeader : false });
+  }
+
   handleFooterChange = (enable) => {
     this.setState({ footer: enable ? footer : undefined });
+  }
+
+  handleRowSelectionChange = (enable) => {
+    this.setState({ rowSelection: enable ? {} : undefined });
+  }
+
+  handleScollChange = (enable) => {
+    this.setState({ scroll: enable ? scroll : undefined });
   }
 
   render() {
@@ -108,7 +119,7 @@ class Demo extends React.Component {
     return (
       <div>
         <div className="components-table-demo-control-bar">
-          <Form inline>
+          <Form layout="inline">
             <FormItem label="Bordered">
               <Switch checked={state.bordered} onChange={this.handleToggle('bordered')} />
             </FormItem>
@@ -119,16 +130,25 @@ class Demo extends React.Component {
               <Switch checked={state.pagination} onChange={this.handleToggle('pagination')} />
             </FormItem>
             <FormItem label="Title">
-              <Switch defaultChecked onChange={this.handleTitleChange} />
+              <Switch checked={!!state.title} onChange={this.handleTitleChange} />
+            </FormItem>
+            <FormItem label="Column Header">
+              <Switch checked={!!state.showHeader} onChange={this.handleHeaderChange} />
             </FormItem>
             <FormItem label="Footer">
-              <Switch defaultChecked onChange={this.handleFooterChange} />
+              <Switch checked={!!state.footer} onChange={this.handleFooterChange} />
             </FormItem>
             <FormItem label="Expandable">
-              <Switch defaultChecked onChange={this.handleExpandChange} />
+              <Switch checked={!!state.expandedRowRender} onChange={this.handleExpandChange} />
+            </FormItem>
+            <FormItem label="Checkbox">
+              <Switch checked={!!state.rowSelection} onChange={this.handleRowSelectionChange} />
+            </FormItem>
+            <FormItem label="Fixed Header">
+              <Switch checked={!!state.scroll} onChange={this.handleScollChange} />
             </FormItem>
             <FormItem label="Size">
-              <Radio.Group value={state.size} onChange={this.handleSizeChange}>
+              <Radio.Group size="default" value={state.size} onChange={this.handleSizeChange}>
                 <Radio.Button value="default">Default</Radio.Button>
                 <Radio.Button value="middle">Middle</Radio.Button>
                 <Radio.Button value="small">Small</Radio.Button>

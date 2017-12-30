@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal render correctly 1`] = `
+<div>
+  <div />
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-body"
+          >
+            Here is content of Modal
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal render without footer 1`] = `
+<div>
+  <div />
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-body"
+          >
+            Here is content of Modal
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

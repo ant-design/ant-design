@@ -62,6 +62,12 @@ declare module 'rc-queue-anim';
 
 declare module 'rc-slider';
 
+declare module 'rc-slider/lib/Slider';
+
+declare module 'rc-slider/lib/Range';
+
+declare module 'rc-slider/lib/Handle';
+
 declare module 'rc-steps';
 
 declare module 'rc-switch';
@@ -78,8 +84,14 @@ declare module 'rc-form*';
 
 declare module 'react-lazy-load';
 
-declare var process: {
-  env: {
-    NODE_ENV: string
-  }
-};
+declare module 'dom-closest';
+
+declare module "*.json" {
+  const value: any;
+  export const version: string;
+  export default value;
+}
+
+declare module "prop-types"
+
+declare module "lodash.debounce"

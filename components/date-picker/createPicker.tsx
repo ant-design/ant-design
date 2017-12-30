@@ -1,89 +1,89 @@
-import React from 'react';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
+import warning from '../_util/warning';
+import callMoment from '../_util/callMoment';
 
 export interface PickerProps {
   value?: moment.Moment;
   prefixCls: string;
 }
 
-export default function createPicker(TheCalendar) {
-  // use class typescript error
-  const CalenderWrapper = React.createClass<any, any>({
-    getDefaultProps() {
-      return {
-        prefixCls: 'ant-calendar',
-        allowClear: true,
-      };
-    },
+export default function createPicker(TheCalendar: React.ComponentClass): any {
+  return class CalenderWrapper extends React.Component<any, any> {
+    static defaultProps = {
+      prefixCls: 'ant-calendar',
+      allowClear: true,
+      showToday: true,
+    };
 
-    getInitialState() {
-      const props = this.props;
-      return {
-        value: props.value || props.defaultValue,
-        tempValue: undefined,
+    private input: any;
+
+    constructor(props: any) {
+      super(props);
+      const value = props.value || props.defaultValue;
+      if (value && !moment.isMoment(value)) {
+        throw new Error(
+          'The value/defaultValue of DatePicker or MonthPicker must be ' +
+          'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
+        );
+      }
+      this.state = {
+        value,
       };
-    },
+    }
 
     componentWillReceiveProps(nextProps: PickerProps) {
-      if (nextProps.value !== undefined) {
+      if ('value' in nextProps) {
         this.setState({
           value: nextProps.value,
-          tempValue: nextProps.value,
         });
       }
-    },
+    }
 
-    clearSelection(e) {
+    renderFooter = (...args: any[]) => {
+      const { prefixCls, renderExtraFooter } = this.props;
+      return renderExtraFooter ? (
+        <div className={`${prefixCls}-footer-extra`}>
+          {renderExtraFooter(...args)}
+        </div>
+      ) : null;
+    }
+
+    clearSelection = (e: React.MouseEvent<HTMLElement>) => {
       e.preventDefault();
       e.stopPropagation();
-      this.setState({ value: null });
       this.handleChange(null);
-    },
+    }
 
-    handleChange(value) {
+    handleChange = (value: moment.Moment | null) => {
       const props = this.props;
-      if (props.value === undefined) {
+      if (!('value' in props)) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
-    },
+    }
 
-    handleTempChange(tempValue) {
-      this.setState({ tempValue });
-    },
+    focus() {
+      this.input.focus();
+    }
 
-    // Clear temp value and trigger onChange when hide DatePicker[showTime] panel
-    handleOpenChange(open) {
-      const { showTime, onOpenChange } = this.props;
-      if (!open) {
-        // tricky code to avoid triggering onChange multiple times
-        // when click `Now` button
-        let tempValue;
-        this.setState(prevState => {
-          tempValue = prevState.tempValue;
-          return {
-            tempValue: undefined,
-          };
-        }, () => {
-          if (showTime && tempValue) {
-            this.handleChange(tempValue);
-          }
-        });
-      }
-      if (onOpenChange) {
-        onOpenChange(open);
-      }
-    },
+    blur() {
+      this.input.blur();
+    }
+
+    saveInput = (node: any) => {
+      this.input = node;
+    }
 
     render() {
+      const { value } = this.state;
       const props = omit(this.props, ['onChange']);
-      const prefixCls = props.prefixCls;
-      const locale = props.locale;
+      const { prefixCls, locale, localeCode } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -95,76 +95,90 @@ export default function createPicker(TheCalendar) {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
-      // 需要选择时间时，点击 ok 时才触发 onChange
-      let pickerChangeHandler: Object = {};
-      let calendarHandler: Object = {};
+      let pickerProps: Object = {};
+      let calendarProps: any = {};
       if (props.showTime) {
-        calendarHandler = {
+        calendarProps = {
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (value) => {
-            this.handleTempChange(value);
-          },
+          onSelect: this.handleChange,
         };
       } else {
-        pickerChangeHandler = {
+        pickerProps = {
           onChange: this.handleChange,
         };
       }
+      if ('mode' in props) {
+        calendarProps.mode = props.mode;
+      }
 
+      warning(!('onOK' in props), 'It should be `DatePicker[onOk]` or `MonthPicker[onOk]`, instead of `onOK`!');
       const calendar = (
         <TheCalendar
+          {...calendarProps}
           disabledDate={props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={props.defaultPickerValue || moment()}
+          defaultValue={props.defaultPickerValue || callMoment(moment)}
           dateInputPlaceholder={placeholder}
           prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
+          dateRender={props.dateRender}
           format={props.format}
-          {...calendarHandler}
+          showToday={props.showToday}
+          monthCellContentRender={props.monthCellContentRender}
+          renderFooter={this.renderFooter}
+          onPanelChange={props.onPanelChange}
         />
       );
 
-      const clearIcon = (!props.disabled && props.allowClear && this.state.value) ?
-        <Icon type="cross-circle"
+      const clearIcon = (!props.disabled && props.allowClear && value) ? (
+        <Icon
+          type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
-        /> : null;
+        />
+      ) : null;
+
+      const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
+        <div>
+          <input
+            ref={this.saveInput}
+            disabled={props.disabled}
+            readOnly
+            value={(inputValue && inputValue.format(props.format)) || ''}
+            placeholder={placeholder}
+            className={props.pickerInputClass}
+          />
+          {clearIcon}
+          <span className={`${prefixCls}-picker-icon`} />
+        </div>
+      );
+
+      const pickerValue = value;
+      if (pickerValue && localeCode) {
+        pickerValue.locale(localeCode);
+      }
       return (
-        <span className={props.pickerClass} style={props.style}>
+        <span
+          className={classNames(props.className, props.pickerClass)}
+          style={props.style}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
+        >
           <RcDatePicker
             {...props}
-            {...pickerChangeHandler}
-            onOpenChange={this.handleOpenChange}
+            {...pickerProps}
             calendar={calendar}
-            value={this.state.tempValue || this.state.value}
+            value={pickerValue}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
-            {
-              ({ value }) => {
-                return (
-                  <span>
-                    <input
-                      disabled={props.disabled}
-                      readOnly
-                      value={(value && value.format(props.format)) || ''}
-                      placeholder={placeholder}
-                      className={props.pickerInputClass}
-                    />
-                    {clearIcon}
-                    <span className={`${prefixCls}-picker-icon`} />
-                  </span>
-                );
-              }
-            }
+            {input}
           </RcDatePicker>
         </span>
       );
-    },
-  });
-
-  return CalenderWrapper;
+    }
+  };
 }

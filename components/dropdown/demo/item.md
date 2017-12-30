@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 其他元素
   en-US: Other elements
@@ -25,7 +25,7 @@ const menu = (
       <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">2nd menu item</a>
     </Menu.Item>
     <Menu.Divider />
-    <Menu.Item key="3" disabled>3d menu item（disabled）</Menu.Item>
+    <Menu.Item key="3" disabled>3rd menu item（disabled）</Menu.Item>
   </Menu>
 );
 

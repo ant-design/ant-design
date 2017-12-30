@@ -3,17 +3,17 @@ order: 0
 title: Ant Design of React
 ---
 
-We supply a react implementation `antd` following Ant Design specification, which designed to help developing RIA such as dashboards or other enterprise-like complex UI needs.
+Following the Ant Design specification, we developed a React UI library `antd` that contains a set of high quality components and demos for building rich, interactive user interfaces.
 
 <div class="pic-plus">
-  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
 
 <style>
 .pic-plus > * {
-  display: inline-block!important;
+  display: inline-block !important;
   vertical-align: middle;
 }
 .pic-plus span {
@@ -27,26 +27,58 @@ We supply a react implementation `antd` following Ant Design specification, whic
 
 ## Features
 
-- Following Ant Design, a design language for creating user friendly and beautiful websites.
-- It is a set of high quality UI components and based on [React Component](http://react-component.github.io/badgeboard/).
-- Provides a work flow which is based on npm, webpack, and babel, supporting ES2015 and TypeScript.
+- An enterprise-class UI design language for web applications.
+- A set of high-quality React components out of the box.
+- Written in TypeScript with complete defined types.
+- A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
+
+## Environment Support
+
+* Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+* Server-side Rendering
+* [Electron](http://electron.atom.io/)
+
+## Version
+
+- Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+- Next：  [![npm (next)](https://img.shields.io/npm/v/antd/next.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+
+You can subscribe to this feed for new version notifications: https://github.com/ant-design/ant-design/releases.atom
 
 ## Installation
 
+### Using npm or yarn
+
+**We recommend using npm or yarn to install**，it not only makes development easier，but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
+
 ```bash
-$ npm install antd
+$ npm install antd --save
 ```
 
-## Usage
+```bash
+$ yarn add antd
+```
 
-### Use prebuilt bundle
+If you are in a bad network environment，you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
+
+### Import in Browser
+
+Add `script` and `link` tags in your browser and use the global variable `antd`.
+
+We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd) or [unpkg](https://unpkg.com/).
+
+> **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
+
+> Note: you should import moment before using antd.js after `3.0`.
+
+## Usage
 
 ```jsx
 import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-And import style manually:
+And import stylesheets manually:
 
 ```jsx
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
@@ -57,13 +89,17 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
    ```js
-   // .babelrc
+   // .babelrc or babel-loader option
    {
-     "plugins": [["import", { libraryName: "antd", style: "css" }]]
+     "plugins": [
+       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
+     ]
    }
    ```
 
-   Then you can import components from antd directly.
+   > Note: Don't set `libraryDirectory` if you are using webpack 1.
+
+   This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 
    ```jsx
    // import js and css modularly, parsed by babel-plugin-import
@@ -73,58 +109,55 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - Manually import
 
    ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // just for js
-   import 'antd/lib/date-picker/style/css';  // with style
+   import DatePicker from 'antd/lib/date-picker';  // for js
+   import 'antd/lib/date-picker/style/css';        // for css
+   // import 'antd/lib/date-picker/style';         // that will import less
    ```
 
-## Version
+### TypeScript
 
-- Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- Beta: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
+- Don't use @types/antd, as antd provides a built-in ts definition already.
 
-## Compatibility
-
-Modern browsers and IE9+.
-
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
-
-## Useful Links
+## Links
 
 - [Home Page](http://ant.design/)
+- [Components](/docs/react/introduce)
+- [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](/changelog)
-- [Scaffold](https://github.com/ant-design/antd-init/)
-- [Development Tools](http://ant-tool.github.io/)
-- [React Component](http://react-component.github.io/)
-- [Ant Design Mobile](http://mobile.ant.design)
-- [React Code Style](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
-- [Component Design Principles](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
-- [Design Handbook](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
-- [Scaffold and Demo Supported by Community](https://github.com/ant-design/ant-design/issues/129)
+- [Scaffold Market](http://scaffold.ant.design)
+- [rc-components](http://react-component.github.io/)
+- [Mobile UI](http://mobile.ant.design)
+- [Motion](https://motion.ant.design)
+- [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
+- [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
+- [CodeSandbox template](https://u.ant.design/codesandbox-repro) for bug reports
+- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
+- [Customize Theme](/docs/react/customize-theme)
 
-## Who are using antd
+## Companies using antd
 
-- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Ant Financial](http://www.antfin.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
+- [Tencent](http://www.tencent.com)
+- [Baidu](http://www.baidu.com)
 - [Koubei](http://www.koubei.com/)
 - [Meituan](http://www.meituan.com)
 - [Didi](http://www.xiaojukeji.com/)
+- [Eleme](https://www.ele.me/)
 
-> If your company or product uses Ant Design, you are welcome to comment in [this issue]((https://github.com/ant-design/ant-design/issues/477)). Thank you!
+> If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
 
 ## Contributing
 
 Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first.
 
-If you have any idea to improve antd, just create a [Pull Request](https://github.com/ant-design/ant-design/pulls). Also, you can also [issue](https://github.com/ant-design/ant-design/issues/new) bugs.
+If you'd like to help us improve antd, just create a [Pull Request](https://github.com/ant-design/ant-design/pulls). Feel free to report bugs and issues [here](http://new-issue.ant.design/).
 
-> Recommend to read [*How To Ask Questions The Smart Way*](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html), a smart question will get right answer quickly.
+> If you're new to posting issues, we ask that you read [*How To Ask Questions The Smart Way*](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
 
 ## Need Help?
 
-You can ask questions while you meet problem through the following ways.
-And we encourage experienced users to help those who are not familiar with `antd`.
+For questions on how to use antd, please post questions to [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag. If you're not finding what you need on stackoverflow, you can find us on [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
 
-We recommend to tag your questions with `antd` on Stack Overflow.
-
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)(Recommended)
-2. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+As always, we encourage experienced users to help those who are not familiar with `antd`!

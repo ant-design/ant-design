@@ -1,72 +1,66 @@
-import React from 'react';
-import classnames from 'classnames';
-import AnchorHelper, { scrollTo } from './anchorHelper';
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export interface AnchorLinkProps {
-  href: string;
-  onClick: (href: string) => void;
-  active?: boolean;
   prefixCls?: string;
+  href: string;
+  title: React.ReactNode;
   children?: any;
-  title?: Element;
-  bounds: number;
-  target?: () => HTMLElement | Window;
 }
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
-  static contextTypes = {
-    anchorHelper: React.PropTypes.any,
-  };
-
-  static childContextTypes = {
-    anchorHelper: React.PropTypes.any,
-  };
-
   static defaultProps = {
-    href: '#',
     prefixCls: 'ant-anchor',
+    href: '#',
+  };
+
+  static contextTypes = {
+    antAnchor: PropTypes.object,
   };
 
   context: {
-    anchorHelper: AnchorHelper;
+    antAnchor: any;
   };
 
-  constructor(props, context) {
-    super(props, context);
+  componentDidMount() {
+    this.context.antAnchor.registerLink(this.props.href);
   }
 
-  getChildContext() {
-    return {
-      anchorHelper: this.context.anchorHelper,
-    };
+  componentWillUnmount() {
+    this.context.antAnchor.unregisterLink(this.props.href);
   }
-  renderAnchorLink = (child) => {
-    const { href } = child.props;
-    if (href) {
-      this.context.anchorHelper.addLink(href);
-      return React.cloneElement(child, {
-        onClick: this.context.anchorHelper.scrollTo,
-        prefixCls: this.props.prefixCls,
-      });
-    }
-    return child;
+
+  handleClick = () => {
+    this.context.antAnchor.scrollTo(this.props.href);
   }
+
   render() {
-    const { prefixCls, href, children, onClick, title, bounds } = this.props;
-    const { anchorHelper } = this.context;
-    const active = anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
-    const cls = classnames({
-      [`${prefixCls}-link`]: true,
+    const {
+      prefixCls,
+      href,
+      title,
+      children,
+    } = this.props;
+    const active = this.context.antAnchor.activeLink === href;
+    const wrapperClassName = classNames(`${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,
     });
-    const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
-    return <div className={cls}>
-      <span
-        ref={(component) => component && active && anchorHelper ? anchorHelper.setActiveAnchor(component) : null}
-        className={`${prefixCls}-link-title`}
-        onClick={() => onClick ? onClick(href) : scrollToFn(href)}
-      >{title}</span>
-      {React.Children.map(children, this.renderAnchorLink)}
-    </div>;
+    const titleClassName = classNames(`${prefixCls}-link-title`, {
+      [`${prefixCls}-link-title-active`]: active,
+    });
+    return (
+      <div className={wrapperClassName}>
+        <a
+          className={titleClassName}
+          href={href}
+          title={typeof title === 'string' ? title : ''}
+          onClick={this.handleClick}
+        >
+          {title}
+        </a>
+        {children}
+      </div>
+    );
   }
 }

@@ -3,50 +3,61 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
+@collapse-header-bg: @background-color-light;
+@collapse-active-bg: @background-color-base;
+
 .collapse-close() {
-  .iconfont-size-under-12px(7px, 270deg);
+  transform: rotate(0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(7px, 360deg);
+  transform: rotate(90deg);
 }
 
 .@{collapse-prefix-cls} {
-  background-color: @background-color-base;
-  border-radius: 3px;
-  border: 1px solid @border-color-base;
+  .reset-component;
+  background-color: @collapse-header-bg;
+  border-radius: @border-radius-base;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-bottom: 0;
 
   & > &-item {
-    border-top: 1px solid @border-color-base;
-    &:first-child {
-      border-top: 0;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
+
+    &:last-child {
+      &,
+      & > .@{collapse-prefix-cls}-header {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
     }
 
     > .@{collapse-prefix-cls}-header {
-      height: 38px;
-      line-height: 38px;
-      padding-left: 32px;
-      color: #666;
+      line-height: 22px;
+      padding: 12px 0 12px 40px;
+      color: @heading-color;
       cursor: pointer;
       position: relative;
+      transition: all .3s;
 
       .arrow {
-        .collapse-close();
         .iconfont-mixin();
+        .collapse-close();
+        font-size: @font-size-sm;
         position: absolute;
-        color: #666;
         display: inline-block;
-        margin-right: 8px;
-        line-height: 40px;
-        content: "\e606";
-        vertical-align: middle;
-        transition: transform 0.24s ease;
+        line-height: 46px;
+        vertical-align: top;
+        transition: transform 0.24s;
         top: 0;
-        left: 16px;
-        top: ~"16px \9";
-        left: ~"0 \9";
+        left: @padding-md;
         &:before {
-          content: "\e606";
+          content: "\E61F";
         }
+      }
+    }
+
+    &.@{collapse-prefix-cls}-no-arrow {
+      > .@{collapse-prefix-cls}-header {
+        padding-left: 12px;
       }
     }
   }
@@ -58,12 +69,13 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: 0 16px;
-    background-color: #fff;
+    padding: 0 @padding-md;
+    background-color: @component-background;
+    border-top: @border-width-base @border-style-base @border-color-base;
 
     & > &-box {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: @padding-md;
+      padding-bottom: @padding-md;
     }
 
     &-inactive {
@@ -73,7 +85,7 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
@@ -84,20 +96,33 @@
   }
 
   &-borderless {
-    background-color: #fff;
+    background-color: @component-background;
     border: 0;
   }
 
   &-borderless > &-item {
-    border: 0;
+    border-bottom: 1px solid @border-color-base;
   }
 
-  &-borderless > &-item > &-header {
-    border-bottom: 1px solid @border-color-base;
-    transition: all .3s;
-    border-radius: @border-color-base @border-color-base 0 0;
-    &:hover {
-      background-color: #fcfcfc;
+  &-borderless > &-item:last-child,
+  &-borderless > &-item:last-child &-header {
+    border-radius: 0;
+  }
+
+  &-borderless > &-item > &-content {
+    background-color: transparent;
+    border-top: 0;
+  }
+
+  &-borderless > &-item > &-content > &-content-box {
+    padding-top: 4px;
+  }
+
+  & &-item-disabled > &-header {
+    &,
+    & > .arrow {
+      cursor: not-allowed;
+      color: @disabled-color;
     }
   }
 }

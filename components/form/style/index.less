@@ -2,20 +2,18 @@
 @import "../../style/mixins/index";
 @import "../../input/style/mixin";
 @import "../../button/style/mixin";
-@import "../../layout/style/mixin";
+@import "../../grid/style/mixin";
 @import "./mixin";
 
 @form-prefix-cls: ~"@{ant-prefix}-form";
+@form-component-height: @input-height-base;
+@form-component-max-height: @input-height-lg;
+@form-feedback-icon-size: 14px;
+@form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
 
-.reset-form();
-
-label {
-  position: relative;
-
-  > .@{iconfont-css-prefix} {
-    vertical-align: top;
-    font-size: @font-size-base;
-  }
+.@{form-prefix-cls} {
+  .reset-component;
+  .reset-form;
 }
 
 .@{form-prefix-cls}-item-required:before {
@@ -23,8 +21,12 @@ label {
   margin-right: 4px;
   content: "*";
   font-family: SimSun;
+  line-height: 1;
   font-size: @font-size-base;
   color: @label-required-color;
+  .@{form-prefix-cls}-hide-required-mark & {
+    display: none;
+  }
 }
 
 // Radio && Checkbox
@@ -32,7 +34,7 @@ input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
   &.disabled {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
   }
 }
 
@@ -42,7 +44,7 @@ input[type="checkbox"] {
 .@{ant-prefix}-checkbox-inline,
 .@{ant-prefix}-checkbox-vertical {
   &.disabled {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
   }
 }
 
@@ -51,7 +53,7 @@ input[type="checkbox"] {
 .@{ant-prefix}-checkbox {
   &.disabled {
     label {
-      cursor: @cursor-disabled;
+      cursor: not-allowed;
     }
   }
 }
@@ -59,41 +61,58 @@ input[type="checkbox"] {
 // Form items
 // You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
 .@{form-prefix-cls}-item {
-  font-size: @font-size-base;
+  label {
+    position: relative;
+
+    > .@{iconfont-css-prefix} {
+      vertical-align: top;
+      font-size: @font-size-base;
+    }
+  }
+
+  .reset-component;
   margin-bottom: @form-item-margin-bottom;
-  color: #666;
   vertical-align: top;
+  transition: margin .15s steps(1);
 
   // nested FormItem
-  & > &,
-  & :not(.@{form-prefix-cls}) > & {
+  &-control > &:last-child,
+  & [class^="@{ant-prefix}-col-"] > &:only-child {
     margin-bottom: -@form-item-margin-bottom;
   }
 
   &-control {
-    line-height: 32px;
+    line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
     .clearfix;
+    > * {
+      font-size: @font-size-base;
+    }
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+    transition: none;
   }
 
   &-label {
     text-align: right;
     vertical-align: middle;
-    padding: 7px 0;
+    line-height: @form-component-max-height - 0.0001px;
     display: inline-block;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
 
     label {
       color: @label-color;
 
       &:after {
-        content: ":";
+        & when (@form-item-trailing-colon=true) {
+          content: ":";
+        }
+        & when not (@form-item-trailing-colon=true) {
+          content: " ";
+        }
         margin: 0 8px 0 2px;
         position: relative;
         top: -0.5px;
@@ -102,7 +121,7 @@ input[type="checkbox"] {
   }
 
   .@{ant-prefix}-switch {
-    margin: 4px 0;
+    margin: 2px 0 4px;
   }
 
   &-no-colon &-label label:after {
@@ -110,13 +129,16 @@ input[type="checkbox"] {
   }
 }
 
-.@{form-prefix-cls}-explain {
-  line-height: 1.5;
-}
-
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
-  color: #999;
+  color: @text-color-secondary;
+  line-height: @line-height-base;
+  transition: color .15s @ease-out;
+  margin-top: @form-help-margin-top;
+}
+
+.@{form-prefix-cls}-extra {
+  padding-top: 4px;
 }
 
 .@{form-prefix-cls}-text {
@@ -134,6 +156,44 @@ form {
   .has-feedback {
     .@{ant-prefix}-input {
       padding-right: 24px;
+    }
+
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear {
+      right: 28px;
+    }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value {
+      padding-right: 42px;
+    }
+
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        margin-right: 17px;
+      }
+      &-clear {
+        right: 28px;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
+    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
+      .@{ant-prefix}-input-suffix {
+        right: 28px;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
+    .@{ant-prefix}-calendar-picker,
+    .@{ant-prefix}-time-picker {
+      &-icon,
+      &-clear {
+        right: 28px;
+      }
     }
   }
 
@@ -177,13 +237,32 @@ form {
   }
 
   .@{ant-prefix}-input-number {
-    margin-top: -1px;
     margin-right: 8px;
   }
 
   .@{ant-prefix}-select,
   .@{ant-prefix}-cascader-picker {
     width: 100%;
+  }
+
+  // Don't impact select inside input group
+  .@{ant-prefix}-input-group .@{ant-prefix}-select,
+  .@{ant-prefix}-input-group .@{ant-prefix}-cascader-picker {
+    width: auto;
+  }
+
+  // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
+  .@{ant-prefix}-input-group-wrapper {
+    position: relative;
+    top: (@form-component-max-height - @input-height-base) / 2;
+
+    &.@{ant-prefix}-input-group-wrapper-lg {
+      top: (@form-component-max-height - @input-height-lg) / 2;
+    }
+
+    &.@{ant-prefix}-input-group-wrapper-sm {
+      top: (@form-component-max-height - @input-height-sm) / 2;
+    }
   }
 }
 
@@ -215,27 +294,65 @@ form {
 }
 
 // Form layout
-//== Horizontal Form
-.@{form-prefix-cls}-horizontal {
-  .@{form-prefix-cls}-item {
-    .make-row;
-  }
+//== Vertical Form
+.make-vertical-layout-label() {
+  padding: @form-vertical-label-padding;
+  margin: @form-vertical-label-margin;
+  display: block;
+  text-align: left;
+  line-height: @line-height-base;
 
-  .@{ant-prefix}-radio-inline,
-  .@{ant-prefix}-checkbox-inline {
-    vertical-align: baseline;
+  label:after {
+    display: none;
   }
 }
 
-// Form layout
-//== Vertical Form
-.@{form-prefix-cls}-vertical {
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item-label,
+  .@{form-prefix-cls}-item-control-wrapper {
+    display: block;
+    width: 100%;
+  }
   .@{form-prefix-cls}-item-label {
-    padding: 0 0 8px;
+    .make-vertical-layout-label();
+  }
+}
 
-    label:after {
-      content: '';
-    }
+.@{form-prefix-cls}-vertical .@{form-prefix-cls}-item-label,
+  // when labelCol is 24, it is a vertical form
+.@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
+.@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+  .make-vertical-layout-label();
+}
+
+@media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
+  .@{ant-prefix}-col-xs-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .@{ant-prefix}-col-sm-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-md-max) {
+  .@{ant-prefix}-col-md-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-lg-max) {
+  .@{ant-prefix}-col-lg-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
+@media (max-width: @screen-xl-max) {
+  .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
   }
 }
 
@@ -243,7 +360,7 @@ form {
 .@{form-prefix-cls}-inline {
   .@{form-prefix-cls}-item {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 16px;
     margin-bottom: 0;
 
     &-with-help {
@@ -252,6 +369,7 @@ form {
 
     > div {
       display: inline-block;
+      vertical-align: middle;
     }
   }
 
@@ -263,19 +381,9 @@ form {
     display: inline-block;
   }
 
-  // Fix https://github.comdesigndesign/issues/1040
+  // Fix https://github.com/ant-design/ant-design/issues/1040
   .@{form-prefix-cls}-explain {
     position: absolute;
-  }
-}
-
-.@{form-prefix-cls}-horizontal,
-.@{form-prefix-cls}-inline {
-  label {
-    > input[type="radio"],
-    > input[type="checkbox"] {
-      margin-right: 4px;
-    }
   }
 }
 
@@ -289,40 +397,21 @@ form {
     top: 0;
     right: 0;
     visibility: visible;
-    .square(@input-height-lg);
-    line-height: @input-height-lg;
+    pointer-events: none;
+    width: @form-component-height;
+    height: @form-component-max-height;
+    line-height: @form-component-max-height;
     text-align: center;
-    font-size: 14px;
+    font-size: @form-feedback-icon-size;
     animation: zoomIn .3s @ease-out-back;
     .iconfont-font("");
+    z-index: 1;
   }
 }
 
 .has-success {
   &.has-feedback:after {
     animation-name: diffZoomIn1 !important;
-  }
-}
-
-.has-error {
-  &.has-feedback:after {
-    animation-name: diffZoomIn2 !important;
-  }
-}
-
-.has-warning {
-  &.has-feedback:after {
-    animation-name: diffZoomIn3 !important;
-  }
-}
-
-.has-success {
-  .@{ant-prefix}-input {
-    border-color: @input-border-color;
-    box-shadow: none;
-  }
-
-  &.has-feedback:after {
     content: '\e630';
     color: @success-color;
   }
@@ -334,26 +423,26 @@ form {
   &.has-feedback:after {
     content: '\e62c';
     color: @warning-color;
+    animation-name: diffZoomIn3 !important;
   }
 
   //select
   .@{ant-prefix}-select {
     &-selection {
       border-color: @warning-color;
+    }
+    &-open .@{ant-prefix}-select-selection,
+    &-focused .@{ant-prefix}-select-selection {
       .active(@warning-color);
     }
-    &-arrow {
-      color: @warning-color;
-    }
   }
 
-  //datepicker
-  .@{ant-prefix}-calendar-picker-icon:after {
-    color: @warning-color;
-  }
-
-  //timepicker
-  .@{ant-prefix}-time-picker-icon:after {
+  // arrow and icon
+  .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-time-picker-icon:after,
+  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-select-arrow,
+  .@{ant-prefix}-cascader-picker-arrow {
     color: @warning-color;
   }
 
@@ -361,10 +450,17 @@ form {
   .@{ant-prefix}-input-number,
   .@{ant-prefix}-time-picker-input {
     border-color: @warning-color;
-    .active(@warning-color);
+    &-focused,
+    &:focus {
+      .active(@warning-color);
+    }
     &:not([disabled]):hover {
       border-color: @warning-color;
     }
+  }
+
+  .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+    .active(@warning-color);
   }
 }
 
@@ -374,27 +470,33 @@ form {
   &.has-feedback:after {
     content: '\e62e';
     color: @error-color;
+    animation-name: diffZoomIn2 !important;
   }
 
   //select
   .@{ant-prefix}-select {
     &-selection {
       border-color: @error-color;
+    }
+    &-open .@{ant-prefix}-select-selection,
+    &-focused .@{ant-prefix}-select-selection {
       .active(@error-color);
     }
+  }
 
-    &-arrow {
-      color: @error-color;
+  .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
+    &-selection {
+      border-color: transparent;
+      box-shadow: none;
     }
   }
 
-  //datepicker
-  .@{ant-prefix}-calendar-picker-icon:after {
-    color: @error-color;
-  }
-
-  //timepicker
-  .@{ant-prefix}-picker-icon:after {
+  // arrow and icon
+  .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-time-picker-icon:after,
+  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-select-arrow,
+  .@{ant-prefix}-cascader-picker-arrow {
     color: @error-color;
   }
 
@@ -402,22 +504,29 @@ form {
   .@{ant-prefix}-input-number,
   .@{ant-prefix}-time-picker-input {
     border-color: @error-color;
-    .active(@error-color);
+    &-focused,
+    &:focus {
+      .active(@error-color);
+    }
     &:not([disabled]):hover {
       border-color: @error-color;
     }
   }
-  .@{ant-prefix}-mention-wrapper,
-  .@{ant-prefix}-mention-wrapper.active {
+  .@{ant-prefix}-mention-wrapper {
     .@{ant-prefix}-mention-editor {
-      border-color: @error-color;
-      .active(@error-color);
-      &:not([disabled]):hover,
-      &:not([disabled]):focus {
+      &,
+      &:not([disabled]):hover {
         border-color: @error-color;
-        .active(@error-color);
       }
     }
+    &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
+    .@{ant-prefix}-mention-editor:not([disabled]):focus {
+      .active(@error-color);
+    }
+  }
+
+  .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+    .active(@error-color);
   }
 }
 
@@ -425,19 +534,46 @@ form {
   &.has-feedback:after {
     display: inline-block;
     animation: loadingCircle 1s infinite linear;
-    content: "\e6ae";
-    color: #999;
+    content: "\e64d";
+    color: @primary-color;
   }
 }
 
 .@{ant-prefix}-advanced-search-form {
   .@{form-prefix-cls}-item {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
-  .@{ant-prefix}-input,
-  .@{ant-prefix}-input-group .@{ant-prefix}-input,
-  .@{ant-prefix}-input-group .@{ant-prefix}-input-group-addon {
-    height: 28px;
+}
+
+.show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
+  .make-motion(@className, @keyframeName, @duration);
+  .@{className}-enter,
+  .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: @ease-in-out;
+  }
+  .@{className}-leave {
+    animation-timing-function: @ease-in-out;
+  }
+}
+
+.show-help-motion(show-help, antShowHelp, 0.15s);
+
+@keyframes antShowHelpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes antShowHelpOut {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
   }
 }
 

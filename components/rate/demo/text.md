@@ -16,16 +16,13 @@ Add copywriting in rate components.
 ````jsx
 import { Rate } from 'antd';
 
-const Rater = React.createClass({
-  getInitialState() {
-    return {
-      value: 3,
-      count: null,
-    };
-  },
-  handleChange(value) {
+class Rater extends React.Component {
+  state = {
+    value: 3,
+  }
+  handleChange = (value) => {
     this.setState({ value });
-  },
+  }
   render() {
     const { value } = this.state;
     return (
@@ -34,8 +31,8 @@ const Rater = React.createClass({
         {value && <span className="ant-rate-text">{value} stars</span>}
       </span>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Rater />, mountNode);
 ````

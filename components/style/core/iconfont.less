@@ -1,12 +1,17 @@
+@import '../themes/default';
+@import "../mixins/iconfont";
+
 // font-face
-// @icon-url： 字体源文件的地址
 @font-face {
   font-family: 'anticon';
   src: url('@{icon-url}.eot'); /* IE9*/
-  src: url('@{icon-url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('@{icon-url}.woff') format('woff'), /* chrome、firefox */
-  url('@{icon-url}.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('@{icon-url}.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src:
+  /* chrome、firefox */
+  url('@{icon-url}.woff') format('woff'),
+  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('@{icon-url}.ttf') format('truetype'),
+  /* iOS 4.1- */
+  url('@{icon-url}.svg#iconfont') format('svg');
 }
 
 .@{iconfont-css-prefix} {
@@ -90,7 +95,6 @@
 .@{iconfont-css-prefix}-credit-card:before { content: "\e635"; }
 .@{iconfont-css-prefix}-code-o:before { content: "\e636"; }
 .@{iconfont-css-prefix}-book:before { content: "\e637"; }
-.@{iconfont-css-prefix}-bar-chart:before { content: "\e638"; }
 .@{iconfont-css-prefix}-bars:before { content: "\e639"; }
 .@{iconfont-css-prefix}-question:before { content: "\e63a"; }
 .@{iconfont-css-prefix}-question-circle:before { content: "\e63b"; }
@@ -108,7 +112,7 @@
 .@{iconfont-css-prefix}-frown-circle:before { content: "\e646"; } // antd@1.x compatibility alias: frown
 .@{iconfont-css-prefix}-ellipsis:before { content: "\e647"; }
 .@{iconfont-css-prefix}-copy:before { content: "\e648"; }
-.@{iconfont-css-prefix}-menu-fold:before { content: "\e658"; }
+.@{iconfont-css-prefix}-menu-fold:before { content: "\e9ac"; }
 .@{iconfont-css-prefix}-mail:before { content: "\e659"; }
 .@{iconfont-css-prefix}-logout:before { content: "\e65a"; }
 .@{iconfont-css-prefix}-link:before { content: "\e65b"; }
@@ -142,7 +146,7 @@
 .@{iconfont-css-prefix}-paper-clip:before { content: "\e676"; }
 .@{iconfont-css-prefix}-notification:before { content: "\e677"; }
 .@{iconfont-css-prefix}-mobile:before { content: "\e678"; }
-.@{iconfont-css-prefix}-menu-unfold:before { content: "\e679"; }
+.@{iconfont-css-prefix}-menu-unfold:before { content: "\e9ad"; }
 .@{iconfont-css-prefix}-inbox:before { content: "\e67a"; }
 .@{iconfont-css-prefix}-lock:before { content: "\e67b"; }
 .@{iconfont-css-prefix}-qrcode:before { content: "\e67c"; }
@@ -167,7 +171,8 @@
 .@{iconfont-css-prefix}-windows:before { content: "\e68b"; }
 .@{iconfont-css-prefix}-apple:before { content: "\e68c"; }
 .@{iconfont-css-prefix}-apple-o:before { content: "\e6d4"; }
-.@{iconfont-css-prefix}-android:before { content: "\e68d"; }
+.@{iconfont-css-prefix}-android:before { content: "\e938"; }
+.@{iconfont-css-prefix}-android-o:before { content: "\e68d"; }
 .@{iconfont-css-prefix}-aliwangwang:before { content: "\e68e"; }
 .@{iconfont-css-prefix}-aliwangwang-o:before { content: "\e68f"; }
 .@{iconfont-css-prefix}-export:before { content: "\e691"; }
@@ -217,6 +222,7 @@
 .@{iconfont-css-prefix}-dot-chart:before { content: "\e6bd"; }
 .@{iconfont-css-prefix}-bar-chart:before { content: "\e6be"; }
 .@{iconfont-css-prefix}-code:before { content: "\e6bf"; }
+.@{iconfont-css-prefix}-api:before { content: "\e951"; }
 .@{iconfont-css-prefix}-plus-square:before { content: "\e6c0"; }
 .@{iconfont-css-prefix}-minus-square:before { content: "\e6c1"; }
 .@{iconfont-css-prefix}-close-square:before { content: "\e6c2"; }
@@ -233,11 +239,91 @@
 .@{iconfont-css-prefix}-left-square-o:before { content: "\e6cd"; }
 .@{iconfont-css-prefix}-down-square-o:before { content: "\e6ce"; }
 .@{iconfont-css-prefix}-up-square-o:before { content: "\e6cf"; }
-.@{iconfont-css-prefix}-loading:before { content: "\e6ae"; }
+.@{iconfont-css-prefix}-loading:before { content: "\e64d"; }
+.@{iconfont-css-prefix}-loading-3-quarters:before { content: "\e6ae"; }
 .@{iconfont-css-prefix}-bulb:before { content: "\e649"; }
 .@{iconfont-css-prefix}-select:before { content: "\e64a"; }
-
-.@{iconfont-css-prefix}-spin {
+.@{iconfont-css-prefix}-addfile:before,
+.@{iconfont-css-prefix}-file-add:before { content: "\e910"; }
+.@{iconfont-css-prefix}-addfolder:before,
+.@{iconfont-css-prefix}-folder-add:before { content: "\e914"; }
+.@{iconfont-css-prefix}-switcher:before { content: "\e913"; }
+.@{iconfont-css-prefix}-rocket:before { content: "\e90f"; }
+.@{iconfont-css-prefix}-dingding:before { content: "\e923"; }
+.@{iconfont-css-prefix}-dingding-o:before { content: "\e925"; }
+.@{iconfont-css-prefix}-bell:before { content: "\e64e"; }
+.@{iconfont-css-prefix}-disconnect:before { content: "\e64f"; }
+.@{iconfont-css-prefix}-database:before { content: "\e650"; }
+.@{iconfont-css-prefix}-compass:before { content: "\e6db"; }
+.@{iconfont-css-prefix}-barcode:before { content: "\e652"; }
+.@{iconfont-css-prefix}-hourglass:before { content: "\e653"; }
+.@{iconfont-css-prefix}-key:before { content: "\e654"; }
+.@{iconfont-css-prefix}-flag:before { content: "\e655"; }
+.@{iconfont-css-prefix}-layout:before { content: "\e656"; }
+.@{iconfont-css-prefix}-login:before { content: "\e657"; }
+.@{iconfont-css-prefix}-printer:before { content: "\e673"; }
+.@{iconfont-css-prefix}-sound:before { content: "\e6e9"; }
+.@{iconfont-css-prefix}-usb:before { content: "\e6d7"; }
+.@{iconfont-css-prefix}-skin:before { content: "\e6d8"; }
+.@{iconfont-css-prefix}-tool:before { content: "\e6d9"; }
+.@{iconfont-css-prefix}-sync:before { content: "\e6da"; }
+.@{iconfont-css-prefix}-wifi:before { content: "\e6d6"; }
+.@{iconfont-css-prefix}-car:before { content: "\e6dc"; }
+.@{iconfont-css-prefix}-copyright:before { content: "\e6de"; }
+.@{iconfont-css-prefix}-schedule:before { content: "\e6df"; }
+.@{iconfont-css-prefix}-user-add:before { content: "\e6ed"; }
+.@{iconfont-css-prefix}-user-delete:before { content: "\e6e0"; }
+.@{iconfont-css-prefix}-usergroup-add:before { content: "\e6dd"; }
+.@{iconfont-css-prefix}-usergroup-delete:before { content: "\e6e1"; }
+.@{iconfont-css-prefix}-man:before { content: "\e6e2"; }
+.@{iconfont-css-prefix}-woman:before { content: "\e6ec"; }
+.@{iconfont-css-prefix}-shop:before { content: "\e6e3"; }
+.@{iconfont-css-prefix}-gift:before { content: "\e6e4"; }
+.@{iconfont-css-prefix}-idcard:before { content: "\e6e5"; }
+.@{iconfont-css-prefix}-medicine-box:before { content: "\e6e6"; }
+.@{iconfont-css-prefix}-red-envelope:before { content: "\e6e7"; }
+.@{iconfont-css-prefix}-coffee:before { content: "\e6e8"; }
+.@{iconfont-css-prefix}-trademark:before { content: "\e651"; }
+.@{iconfont-css-prefix}-safety:before { content: "\e6ea"; }
+.@{iconfont-css-prefix}-wallet:before { content: "\e6eb"; }
+.@{iconfont-css-prefix}-bank:before { content: "\e6ee"; }
+.@{iconfont-css-prefix}-trophy:before { content: "\e6ef"; }
+.@{iconfont-css-prefix}-contacts:before { content: "\e6f0"; }
+.@{iconfont-css-prefix}-global:before { content: "\e6f1"; }
+.@{iconfont-css-prefix}-shake:before { content: "\e94f"; }
+.@{iconfont-css-prefix}-fork:before { content: "\e6f2"; }
+.@{iconfont-css-prefix}-dashboard:before { content: "\e99a"; }
+.@{iconfont-css-prefix}-profile:before { content: "\e999"; }
+.@{iconfont-css-prefix}-table:before { content: "\e998"; }
+.@{iconfont-css-prefix}-warning:before { content: "\e997"; }
+.@{iconfont-css-prefix}-form:before { content: "\e996"; }
+.@{iconfont-css-prefix}-spin:before {
   display: inline-block;
-  animation: loadingCircle 1.6s infinite linear;
+  animation: loadingCircle 1s infinite linear;
 }
+
+.@{iconfont-css-prefix}-weibo-square:before { content: "\e6f5"; }
+.@{iconfont-css-prefix}-weibo-circle:before { content: "\e6f4"; }
+.@{iconfont-css-prefix}-taobao-circle:before { content: "\e6f3"; }
+.@{iconfont-css-prefix}-html5:before { content: "\e9c7"; }
+.@{iconfont-css-prefix}-weibo:before { content: "\e9c6"; }
+.@{iconfont-css-prefix}-twitter:before { content: "\e9c5"; }
+.@{iconfont-css-prefix}-wechat:before { content: "\e9c4"; }
+.@{iconfont-css-prefix}-youtube:before { content: "\e9c3"; }
+.@{iconfont-css-prefix}-alipay-circle:before { content: "\e9c2"; }
+.@{iconfont-css-prefix}-taobao:before { content: "\e9c1"; }
+.@{iconfont-css-prefix}-skype:before { content: "\e9c0"; }
+.@{iconfont-css-prefix}-qq:before { content: "\e9bf"; }
+.@{iconfont-css-prefix}-medium-workmark:before { content: "\e9be"; }
+.@{iconfont-css-prefix}-gitlab:before { content: "\e9bd"; }
+.@{iconfont-css-prefix}-medium:before { content: "\e9bc"; }
+.@{iconfont-css-prefix}-linkedin:before { content: "\e9bb"; }
+.@{iconfont-css-prefix}-google-plus:before { content: "\e9ba"; }
+.@{iconfont-css-prefix}-dropbox:before { content: "\e9b9"; }
+.@{iconfont-css-prefix}-facebook:before { content: "\e9b8"; }
+.@{iconfont-css-prefix}-codepen:before { content: "\e9b7"; }
+.@{iconfont-css-prefix}-amazon:before { content: "\e9b6"; }
+.@{iconfont-css-prefix}-google:before { content: "\e9b5"; }
+.@{iconfont-css-prefix}-codepen-circle:before { content: "\e9b4"; }
+.@{iconfont-css-prefix}-alipay:before { content: "\e9b3"; }
+.@{iconfont-css-prefix}-ant-design:before { content: "\e9b2"; }

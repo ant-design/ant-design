@@ -12,18 +12,31 @@ title: LocaleProvider
 
 LocaleProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
-
 ```jsx
-import enUS from 'antd/lib/locale-provider/en_US';
+import { LocaleProvider } from 'antd';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import 'moment/locale/zh-cn';
 
 ...
 
-return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
+return <LocaleProvider locale={zh_CN}><App /></LocaleProvider>;
 ```
 
-### Add a language
+我们提供了英语，中文，俄语，法语，德语等多种语言支持，所有语言包可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/) 找到。
 
-We supply an English locale package. Other language users can create a locale package based on [en_US](https://github.com/ant-design/ant-design/blob/26b1f37392a278285aec6c573b99c6feea09e218/components/locale-provider/en_US.js) and send us a pull request.
+注意：如果你需要使用 UMD 版的 dist 文件，应该引入 `antd/dist/antd-with-locales.js`，同时引入 moment 对应的 locale，然后按以下方式使用：
+
+```jsx
+const { LocaleProvider, locales } = window.antd;
+
+...
+
+return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
+```
+
+### 增加语言包
+
+如果你找不到你需要的语言包，欢迎你在 [英文语言包](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/en_US.tsx) 的基础上创建一个新的语言包，并给我们 Pull Request。
 
 ### 其他国际化需求
 
@@ -31,6 +44,6 @@ We supply an English locale package. Other language users can create a locale pa
 
 ## API
 
-| 参数    | 说明           | 类型              | 默认值        |
-|--------|----------------|------------------|--------------|
-| locale | 语言包配置，语言包可到 `antd/lib/locale-provider/` 目录下寻找 | Object | - |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| locale | 语言包配置，语言包可到 `antd/lib/locale-provider/` 目录下寻找 | object | - |

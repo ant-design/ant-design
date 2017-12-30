@@ -11,53 +11,53 @@ title:
 
 ## en-US
 
-`Form.create` will collect and validate form data automatically. But if you don't need this feature or the default behaviour cannot satisfy you business, you can drop `Form.create` and handle form data manually.
+`Form.create` will collect and validate form data automatically. But if you don't need this feature or the default behaviour cannot satisfy your business, you can drop `Form.create` and handle form data manually.
 
 ````jsx
 import { Form, InputNumber } from 'antd';
 const FormItem = Form.Item;
 
-const RawForm = React.createClass({
-  getInitialState() {
+function validatePrimeNumber(number) {
+  if (number === 11) {
     return {
-      number: {
-        value: 11,
-      },
+      validateStatus: 'success',
+      errorMsg: null,
     };
-  },
-  handleNumberChange(value) {
+  }
+  return {
+    validateStatus: 'error',
+    errorMsg: 'The prime between 8 and 12 is 11!',
+  };
+}
+
+class RawForm extends React.Component {
+  state = {
+    number: {
+      value: 11,
+    },
+  };
+  handleNumberChange = (value) => {
     this.setState({
       number: {
-        ...this.validatePrimeNumber(value),
+        ...validatePrimeNumber(value),
         value,
       },
     });
-  },
-  validatePrimeNumber(number) {
-    if (number === 11) {
-      return {
-        validateStatus: 'success',
-        errorMsg: null,
-      };
-    }
-    return {
-      validateStatus: 'error',
-      errorMsg: 'The prime number between 8 to 12 is 11!',
-    };
-  },
+  }
   render() {
     const formItemLayout = {
-      labelCol: { span: 8 },
+      labelCol: { span: 7 },
       wrapperCol: { span: 12 },
     };
     const number = this.state.number;
+    const tips = 'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
     return (
-      <Form horizontal>
+      <Form>
         <FormItem
           {...formItemLayout}
-          label="Prime num between 8 & 12"
+          label="Prime between 8 & 12"
           validateStatus={number.validateStatus}
-          help={number.errorMsg}
+          help={number.errorMsg || tips}
         >
           <InputNumber
             min={8}
@@ -68,8 +68,8 @@ const RawForm = React.createClass({
         </FormItem>
       </Form>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<RawForm />, mountNode);
 ````

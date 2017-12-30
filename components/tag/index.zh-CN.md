@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签
-type: Views
+type: Data Display
 title: Tag
 ---
 
@@ -14,8 +14,18 @@ title: Tag
 
 ## API
 
-| 参数           | 说明                           | 类型  | 默认值 |
-|----------------|-------------------------------|------|--------|
-| closable       | 标签是否可以关闭               | boolean    | false  |
-| onClose        | 关闭时的回调                   | function(event) | - |
-| afterClose     | 关闭动画完成后的回调             | function(event) | - |
+### Tag
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| afterClose | 关闭动画完成后的回调 | () => void | - |
+| closable | 标签是否可以关闭 | boolean | false |
+| color | 标签色 | string | - |
+| onClose | 关闭时的回调 | (e) => void | - |
+
+### Tag.CheckableTag
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| checked | 设置标签的选中状态 | boolean | false |
+| onChange | 点击标签时触发的回调 | (checked) => void | - |

@@ -27,9 +27,10 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select tags
+  <Select
+    mode="tags"
     style={{ width: '100%' }}
-    searchPlaceholder="标签模式"
+    placeholder="Tags Mode"
     onChange={handleChange}
   >
     {children}

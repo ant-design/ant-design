@@ -11,13 +11,14 @@ export interface IconProps {
   style?: React.CSSProperties;
 }
 
-export default (props: IconProps) => {
+const Icon = (props: IconProps) => {
   const { type, className = '', spin } = props;
   const classString = classNames({
     anticon: true,
     'anticon-spin': !!spin || type === 'loading',
     [`anticon-${type}`]: true,
-    [className]: true,
-  });
+  }, className);
   return <i {...omit(props, ['type', 'spin'])} className={classString} />;
 };
+
+export default Icon;

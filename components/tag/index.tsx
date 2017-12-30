@@ -1,13 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
-import warning from '../_util/warning';
-import splitObject from '../_util/splitObject';
+import CheckableTag from './CheckableTag';
+
+export { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps {
+  prefixCls?: string;
+  className?: string;
+  color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
   /** 关闭时的回调 */
@@ -17,15 +21,20 @@ export interface TagProps {
   style?: React.CSSProperties;
 }
 
-export default class Tag extends React.Component<TagProps, any> {
+export interface TagState {
+  closing: boolean;
+  closed: boolean;
+}
+
+export default class Tag extends React.Component<TagProps, TagState> {
+  static CheckableTag = CheckableTag;
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
   };
 
-  constructor(props) {
+  constructor(props: TagProps) {
     super(props);
-    warning(!('color' in props), '`Tag[color]` is deprecated, please override color by CSS instead.');
 
     this.state = {
       closing: false,
@@ -33,7 +42,7 @@ export default class Tag extends React.Component<TagProps, any> {
     };
   }
 
-  close = (e) => {
+  close = (e: React.MouseEvent<HTMLElement>) => {
     const onClose = this.props.onClose;
     if (onClose) {
       onClose(e);
@@ -50,7 +59,7 @@ export default class Tag extends React.Component<TagProps, any> {
     });
   }
 
-  animationEnd = (_, existed) => {
+  animationEnd = (_: string, existed: boolean) => {
     if (!existed && !this.state.closed) {
       this.setState({
         closed: true,
@@ -64,44 +73,52 @@ export default class Tag extends React.Component<TagProps, any> {
     }
   }
 
-  render() {
-    const [{
-      prefixCls, closable, color, className, children,
-    }, otherProps] = splitObject(
-      this.props,
-      ['prefixCls', 'closable', 'color', 'className', 'children']
+  isPresetColor(color?: string): boolean {
+    if (!color) { return false; }
+    return (
+      /^(pink|red|yellow|orange|cyan|green|blue|purple|geekblue|magenta|volcano|gold|lime)(-inverse)?$/
+      .test(color)
     );
+  }
+
+  render() {
+    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
-    const classString = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-${color}`]: !!color,
-      [`${prefixCls}-has-color`]: !!color,
+    const isPresetColor = this.isPresetColor(color);
+    const classString = classNames(prefixCls, {
+      [`${prefixCls}-${color}`]: isPresetColor,
+      [`${prefixCls}-has-color`]: (color && !isPresetColor),
       [`${prefixCls}-close`]: this.state.closing,
-      [className]: !!className,
-    });
+    }, className);
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(otherProps, [
       'onClose',
       'afterClose',
     ]);
+    const tagStyle = {
+      backgroundColor: (color && !isPresetColor) ? color : null,
+      ...style,
+    };
+    const tag = this.state.closed ? null : (
+      <div
+        data-show={!this.state.closing}
+        {...divProps}
+        className={classString}
+        style={tagStyle}
+      >
+        <span className={`${prefixCls}-text`}>{children}</span>
+        {closeIcon}
+      </div>
+    );
     return (
-      <Animate component=""
+      <Animate
+        component=""
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
         onEnd={this.animationEnd}
-        >
-        {this.state.closed ? null : (
-          <div
-            data-show={!this.state.closing}
-            {...divProps}
-            className={classString}
-            style={{ backgroundColor: /blue|red|green|yellow/.test(color) ? null : color }}
-          >
-            <span className={`${prefixCls}-text`}>{children}</span>
-            {closeIcon}
-          </div>
-        ) }
+      >
+        {tag}
       </Animate>
     );
   }

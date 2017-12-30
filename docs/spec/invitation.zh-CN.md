@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: 设计原则
 order: 8
 title: 提供邀请
 ---
@@ -32,7 +32,7 @@ title: 提供邀请
 
 <br>
 
-<img class="preview-img" align="right" alt="漫游探索邀请示例 1" description="在用户首次登陆时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
+<img class="preview-img" align="right" alt="漫游探索邀请示例 1" description="在用户首次登录时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
 
 <img class="preview-img" align="right" alt="漫游探索邀请示例 2" src="https://os.alipayobjects.com/rmsportal/KQabdaTbolVuMld.png">
 
@@ -70,13 +70,4 @@ title: 提供邀请
 
 更多内容邀请：用于邀请用户查看更多内容。
 
-
 <br>
-
-<br>
-
-<p><span class="waiting">预期功能邀请 (敬请期待)</span></p>
-
-<br>
-
-<p><span class="waiting">拖放邀请 (敬请期待)</span></p>

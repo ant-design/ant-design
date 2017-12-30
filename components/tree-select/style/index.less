@@ -9,9 +9,10 @@
 .antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
 
 .@{select-tree-prefix-cls} {
+  .reset-component;
   margin: 0;
-  padding: 8px;
-  font-size: 12px;
+  padding: 0 4px;
+  margin-top: -4px;
   li {
     padding: 0;
     margin: 8px 0;
@@ -19,74 +20,70 @@
     white-space: nowrap;
     outline: 0;
     &.filter-node {
-      > a {
-        font-weight: bold !important;
+      > span {
+        font-weight: 500;
       }
     }
     ul {
       margin: 0;
       padding: 0 0 0 18px;
     }
-    a {
+    .@{select-tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 1px 5px;
+      padding: 3px 5px;
       border-radius: 2px;
       margin: 0;
       cursor: pointer;
       text-decoration: none;
-      vertical-align: top;
-      color: #666;
-      transition: all 0.3s ease;
+      color: @text-color;
+      transition: all .3s;
+      width: ~"calc(100% - 24px)";
       &:hover {
-        background-color: tint(@primary-color, 90%);
+        background-color: @item-hover-bg;
       }
       &.@{select-tree-prefix-cls}-node-selected {
-        background-color: tint(@primary-color, 80%);
+        background-color: @primary-2;
       }
     }
     span {
       &.@{select-tree-prefix-cls}-checkbox {
-        margin: 2px 4px 0 0;
+        margin: 0 4px 0 0;
+        + .@{select-tree-prefix-cls}-node-content-wrapper {
+          width: ~"calc(100% - 46px)";
+        }
       }
       &.@{select-tree-prefix-cls}-switcher,
       &.@{select-tree-prefix-cls}-iconEle {
         margin: 0;
-        width: 16px;
-        height: 16px;
-        line-height: 16px;
+        width: 24px;
+        height: 24px;
+        line-height: 22px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
         cursor: pointer;
         outline: none;
+        text-align: center;
       }
       &.@{select-tree-prefix-cls}-icon_loading {
         &:after {
           display: inline-block;
-          .iconfont-font("\e6a1");
-          font-weight: bold;
+          .iconfont-font("\e6ae");
           animation: loadingCircle 1s infinite linear;
-          margin-top: 8px;
+          color: @primary-color;
         }
       }
       &.@{select-tree-prefix-cls}-switcher {
         &.@{select-tree-prefix-cls}-switcher-noop {
           cursor: auto;
         }
-        &.@{select-tree-prefix-cls}-roots_open,
-        &.@{select-tree-prefix-cls}-center_open,
-        &.@{select-tree-prefix-cls}-bottom_open,
-        &.@{select-tree-prefix-cls}-noline_open {
+        &.@{select-tree-prefix-cls}-switcher_open {
           .antTreeSwitcherIcon();
         }
-        &.@{select-tree-prefix-cls}-roots_close,
-        &.@{select-tree-prefix-cls}-center_close,
-        &.@{select-tree-prefix-cls}-bottom_close,
-        &.@{select-tree-prefix-cls}-noline_close {
+        &.@{select-tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
-          .ie-rotate(3);
           &:after {
-            transform: rotate(270deg) scale(0.5);
+            transform: rotate(270deg) scale(0.59);
           }
         }
       }
@@ -98,12 +95,16 @@
       display: block;
     }
   }
-  &-treenode-disabled {
+  li&-treenode-disabled {
     > span,
-    > a,
-    > a span {
-      color: #ccc;
+    > .@{select-tree-prefix-cls}-node-content-wrapper,
+    > .@{select-tree-prefix-cls}-node-content-wrapper span,
+    > span.@{select-tree-prefix-cls}-switcher {
+      color: @disabled-color;
       cursor: not-allowed;
+    }
+    > .@{select-tree-prefix-cls}-node-content-wrapper:hover {
+      background: transparent;
     }
   }
   &-icon__open {
@@ -117,6 +118,7 @@
 }
 
 .@{select-prefix-cls}-tree-dropdown {
+  .reset-component;
   .@{select-prefix-cls}-dropdown-search {
     display: block;
     padding: 4px;
@@ -127,7 +129,7 @@
       padding: 4px 7px;
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       border-radius: 4px;
       outline: none;
     }
@@ -137,7 +139,7 @@
   }
   .@{select-prefix-cls}-not-found {
     cursor: not-allowed;
-    color: #ccc;
+    color: @disabled-color;
     padding: 7px 16px;
     display: block;
   }

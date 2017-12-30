@@ -1,20 +1,20 @@
 ---
-order: 2
+order: 1
 title:
-  zh-CN: 通知事项日历演示
-  en-US: A demo of Notice Calendar
+  zh-CN: 通知事项日历
+  en-US: Notice Calendar
 ---
 
 ## zh-CN
 
-一个复杂的应用示例。
+一个复杂的应用示例，用 `dateCellRender` 和 `monthCellRender` 函数来自定义需要渲染的数据。
 
 ## en-US
 
-A complex application.
+This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
 ````jsx
-import { Calendar } from 'antd';
+import { Calendar, Badge } from 'antd';
 
 function getListData(value) {
   let listData;
@@ -22,22 +22,22 @@ function getListData(value) {
     case 8:
       listData = [
         { type: 'warning', content: 'This is warning event.' },
-        { type: 'normal', content: 'This is usual event.' },
+        { type: 'success', content: 'This is usual event.' },
       ]; break;
     case 10:
       listData = [
         { type: 'warning', content: 'This is warning event.' },
-        { type: 'normal', content: 'This is usual event.' },
+        { type: 'success', content: 'This is usual event.' },
         { type: 'error', content: 'This is error event.' },
       ]; break;
     case 15:
       listData = [
         { type: 'warning', content: 'This is warning event' },
-        { type: 'normal', content: 'This is very long usual event。。....' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
+        { type: 'success', content: 'This is very long usual event。。....' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
       ]; break;
     default:
   }
@@ -49,12 +49,11 @@ function dateCellRender(value) {
   return (
     <ul className="events">
       {
-        listData.map((item, index) =>
-          <li key={index}>
-            <span className={`event-${item.type}`}>●</span>
-            {item.content}
+        listData.map(item => (
+          <li key={item.content}>
+            <Badge status={item.type} text={item.content} />
           </li>
-        )
+        ))
       }
     </ul>
   );
@@ -68,10 +67,12 @@ function getMonthData(value) {
 
 function monthCellRender(value) {
   const num = getMonthData(value);
-  return num ? <div className="notes-month">
-    <section>{num}</section>
-    <span>Backlog number</span>
-  </div> : null;
+  return num ? (
+    <div className="notes-month">
+      <section>{num}</section>
+      <span>Backlog number</span>
+    </div>
+  ) : null;
 }
 
 ReactDOM.render(
@@ -81,42 +82,20 @@ ReactDOM.render(
 
 ````css
 .events {
-  line-height: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-.events li {
-  color: #999;
+.events .ant-badge-status {
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  font-size: 12px;
 }
-
-.events li span {
-  vertical-align: middle;
-}
-
-.events li span:first-child {
-  font-size: 9px;
-  margin-right: 4px;
-}
-
-.event-warning {
-  color: #fac450;
-}
-
-.event-normal {
-  color: #2db7f5;
-}
-
-.event-error {
-  color: #f50;
-}
-
 .notes-month {
   text-align: center;
+  font-size: 28px;
 }
 .notes-month section {
   font-size: 28px;

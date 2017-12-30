@@ -16,7 +16,7 @@ Components which need localization support are listed here, you can toggle the l
 ````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('en');
@@ -36,24 +36,16 @@ const columns = [{
   dataIndex: 'age',
 }];
 
-const customLocale = {
-  timezoneOffset: 8 * 60,
-  firstDayOfWeek: 1,
-  minimalDaysInFirstWeek: 1,
-};
-
-const Page = React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-    };
-  },
-  showModal() {
+class Page extends React.Component {
+  state = {
+    visible: false,
+  }
+  showModal = () => {
     this.setState({ visible: true });
-  },
-  hideModal() {
+  }
+  hideModal = () => {
     this.setState({ visible: false });
-  },
+  }
   render() {
     const info = () => {
       Modal.info({
@@ -108,43 +100,43 @@ const Page = React.createClass({
         </Modal>
       </div>
     );
-  },
-});
+  }
+}
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      locale: enUS,
+let forceRerender = 0;
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      locale: null,
     };
-  },
-  changeLocale(e) {
+  }
+  changeLocale = (e) => {
     const localeValue = e.target.value;
     this.setState({ locale: localeValue });
     if (!localeValue) {
-      moment.locale('zh-cn');
-    } else {
       moment.locale('en');
+    } else {
+      moment.locale('zh-cn');
     }
-  },
+  }
   render() {
-    const locale = { ...this.state.locale };
-    if (locale.DatePicker) {
-      locale.DatePicker = { ...locale.DatePicker, ...customLocale };
-    }
     return (
       <div>
         <div className="change-locale">
           <span style={{ marginRight: 16 }}>Change locale of components: </span>
-          <Radio.Group defaultValue={enUS} onChange={this.changeLocale}>
-            <Radio.Button key="en" value={enUS}>English</Radio.Button>
-            <Radio.Button key="cn">中文</Radio.Button>
+          <Radio.Group defaultValue={null} onChange={this.changeLocale}>
+            <Radio.Button key="en" value={null}>English</Radio.Button>
+            <Radio.Button key="cn" value={zhCN}>中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={this.state.locale}>
+          <Page key={forceRerender++ /* HACK: just refresh in production environment */} />
+        </LocaleProvider>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

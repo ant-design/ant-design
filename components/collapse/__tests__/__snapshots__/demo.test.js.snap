@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 1
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 1
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+      role="tabpanel"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
+          
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item ant-collapse-item-disabled"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
+<div
+  class="ant-collapse ant-collapse-borderless"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 1
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+      role="tabpanel"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p
+          style="padding-left:24px"
+        >
+          A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
+<div
+  class="ant-collapse ant-collapse-borderless"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 1
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+      role="tabpanel"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
+          
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 1
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 2
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header with arrow icon
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+      role="tabpanel"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
+          
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item ant-collapse-no-arrow"
+    role="tablist"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="tab"
+    >
+      This is panel header with no arrow icon
+    </div>
+  </div>
+</div>
+`;

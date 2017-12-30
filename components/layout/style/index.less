@@ -1,102 +1,112 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-@import "./mixin";
 
-// Grid system
-.@{ant-prefix}-row {
-  .make-row();
-  display: block;
-}
+@layout-prefix-cls: ~"@{ant-prefix}-layout";
 
-.@{ant-prefix}-row-flex {
+.@{layout-prefix-cls} {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex: auto;
+  background: @layout-body-background;
 
-  &:before,
-  &:after {
-    display: flex;
+  &,
+  * {
+    box-sizing: border-box;
   }
-}
 
-// x轴原点
-.@{ant-prefix}-row-flex-start {
-  justify-content: flex-start;
-}
+  &&-has-sider {
+    flex-direction: row;
+    > .@{layout-prefix-cls},
+    > .@{layout-prefix-cls}-content {
+      overflow-x: hidden;
+    }
+  }
 
-// x轴居中
-.@{ant-prefix}-row-flex-center {
-  justify-content: center;
-}
+  &-header,
+  &-footer {
+    flex: 0 0 auto;
+  }
 
-// x轴反方向
-.@{ant-prefix}-row-flex-end {
-  justify-content: flex-end;
-}
+  &-header {
+    background: @layout-header-background;
+    padding: @layout-header-padding;
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+  }
 
-// x轴平分
-.@{ant-prefix}-row-flex-space-between {
-  justify-content: space-between;
-}
+  &-footer {
+    background: @layout-footer-background;
+    padding: @layout-footer-padding;
+    color: @text-color;
+    font-size: @font-size-base;
+  }
 
-// x轴有间隔地平分
-.@{ant-prefix}-row-flex-space-around {
-  justify-content: space-around;
-}
+  &-content {
+    flex: auto;
+  }
 
-// 顶部对齐
-.@{ant-prefix}-row-flex-top {
-  align-items: flex-start;
-}
+  &-sider {
+    transition: all .2s;
+    position: relative;
+    background: @layout-sider-background;
 
-// 居中对齐
-.@{ant-prefix}-row-flex-middle {
-  align-items: center;
-}
+    /* fix firefox can't set width smaller than content on flex item */
+    min-width: 0;
 
-// 底部对齐
-.@{ant-prefix}-row-flex-bottom {
-  align-items: flex-end;
-}
+    &-children {
+      height: 100%;
+      // Hack for fixing margin collaspe bug
+      // https://github.com/ant-design/ant-design/issues/7967
+      // solution from https://stackoverflow.com/a/33132624/3040605
+      padding-top: 0.1px;
+      margin-top: -0.1px;
+    }
 
-.@{ant-prefix}-col {
-  position: relative;
-  display: block;
-}
+    &-has-trigger {
+      padding-bottom: @layout-trigger-height;
+    }
 
-.make-grid-columns();
-.make-grid();
+    &-right {
+      order: 1;
+    }
 
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
+    &-trigger {
+      position: fixed;
+      text-align: center;
+      bottom: 0;
+      cursor: pointer;
+      height: @layout-trigger-height;
+      line-height: @layout-trigger-height;
+      color: @layout-trigger-color;
+      background: @layout-trigger-background;
+      z-index: 1;
+      transition: all .2s;
+    }
 
-.make-grid(-xs);
+    &-zero-width {
+      & > * {
+        overflow: hidden;
+      }
 
-// Small grid
-//
-// Columns, offsets, pushes, and pulls for the small device range, from phones
-// to tablets.
+      &-trigger {
+        position: absolute;
+        top: @layout-header-height;
+        right: -@layout-zero-trigger-width;
+        text-align: center;
+        width: @layout-zero-trigger-width;
+        height: @layout-zero-trigger-height;
+        line-height: @layout-zero-trigger-height;
+        background: @layout-sider-background;
+        color: #fff;
+        font-size: @layout-zero-trigger-width / 2;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+        cursor: pointer;
+        transition: background .3s ease;
 
-@media (min-width: @screen-sm-min) {
-  .make-grid(-sm);
-}
-
-
-// Medium grid
-//
-// Columns, offsets, pushes, and pulls for the desktop device range.
-
-@media (min-width: @screen-md-min) {
-  .make-grid(-md);
-}
-
-
-// Large grid
-//
-// Columns, offsets, pushes, and pulls for the large desktop device range.
-
-@media (min-width: @screen-lg-min) {
-  .make-grid(-lg);
+        &:hover {
+          background: tint(@layout-sider-background, 10%);
+        }
+      }
+    }
+  }
 }

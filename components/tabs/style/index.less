@@ -1,18 +1,14 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-
 @tab-prefix-cls: ~"@{ant-prefix}-tabs";
 
+@import "./card-style";
+
 .@{tab-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   position: relative;
   overflow: hidden;
   .clearfix;
-  color: @text-color;
-
-  &-bar {
-    outline: none;
-  }
 
   &-ink-bar {
     z-index: 1;
@@ -22,68 +18,77 @@
     box-sizing: border-box;
     height: 2px;
     background-color: @primary-color;
-    transition: transform 0.3s @ease-in-out;
     transform-origin: 0 0;
   }
 
   &-bar {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     margin-bottom: 16px;
+    outline: none;
+    transition: padding .3s @ease-in-out;
   }
 
   &-nav-container {
     overflow: hidden;
-    font-size: 14px;
+    font-size: @tabs-title-font-size;
     line-height: @line-height-base;
     box-sizing: border-box;
     position: relative;
     white-space: nowrap;
     margin-bottom: -1px;
+    transition: padding .3s @ease-in-out;
     .clearfix;
-  }
 
-  &-nav-container-scrolling {
-    padding-left: 32px;
-    padding-right: 32px;
+    &-scrolling {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   &-tab-prev,
   &-tab-next {
     user-select: none;
     z-index: 2;
-    margin-right: -2px;
-    margin-top: 3px;
-    width: 32px;
+    width: 0;
     height: 100%;
-    line-height: 32px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
     position: absolute;
     text-align: center;
-    color: #999;
-    transition: color 0.3s ease;
+    color: @text-color-secondary;
+    transition: width .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+
+    &.@{tab-prefix-cls}-tab-arrow-show {
+      opacity: 1;
+      width: 32px;
+      height: 100%;
+      pointer-events: auto;
+    }
 
     &:hover {
-      color: #666;
+      color: @text-color;
     }
 
     &-icon {
-      position: relative;
-      display: inline-block;
       font-style: normal;
       font-weight: bold;
       font-variant: normal;
       line-height: inherit;
       vertical-align: baseline;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       text-transform: none;
-      font-family: sans-serif;
-      .iconfont-size-under-12px(10px);
 
       &:before {
         display: block;
         font-family: "anticon" !important;
+        .iconfont-size-under-12px(10px);
       }
     }
   }
@@ -92,7 +97,7 @@
     cursor: not-allowed;
     &,
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -127,11 +132,11 @@
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: transform 0.5s @ease-in-out;
+    transition: transform 0.3s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
-    float: left;
+    display: inline-block;
 
     &:before,
     &:after {
@@ -146,73 +151,100 @@
     .@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
-      color: #ccc;
+      color: @disabled-color;
     }
 
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin-right: 24px;
+      margin-right: 32px;
       box-sizing: border-box;
       position: relative;
 
-      padding: 8px 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+
+      padding: 12px 16px;
       transition: color 0.3s @ease-in-out;
       cursor: pointer;
       text-decoration: none;
 
       &:hover {
-        color: tint(@primary-color, 20%);
+        color: @primary-5;
       }
 
       &:active {
-        color: shade(@primary-color, 5%);
+        color: @primary-7;
       }
+
       .@{iconfont-css-prefix} {
-        width: 14px;
-        height: 14px;
         margin-right: 8px;
       }
     }
 
     .@{tab-prefix-cls}-tab-active {
       color: @primary-color;
+      font-weight: 500;
     }
   }
 
-  &-mini &-nav-container {
-    font-size: 12px;
+  &-large &-nav-container {
+    font-size: @font-size-lg;
   }
 
-  &-mini &-tab {
-    margin-right: 0;
+  &-large &-tab {
+    padding: 16px;
+  }
+
+  &-small &-nav-container {
+    font-size: @font-size-base;
+  }
+
+  &-small &-tab {
     padding: 8px 16px;
   }
 
   &:not(&-vertical) {
-    .@{tab-prefix-cls}-content-animated {
+    > .@{tab-prefix-cls}-content {
+      width: 100%;
+
+      > .@{tab-prefix-cls}-tabpane {
+        flex-shrink: 0;
+        width: 100%;
+        transition: opacity .45s;
+        opacity: 1;
+      }
+
+      > .@{tab-prefix-cls}-tabpane-inactive {
+        opacity: 0;
+        height: 0;
+        padding: 0 !important;
+        pointer-events: none;
+      }
+    }
+    > .@{tab-prefix-cls}-content-animated {
       display: flex;
       flex-direction: row;
-      will-change: transform;
-      transition: transform 0.3s @ease-in-out;
-    }
-
-    .@{tab-prefix-cls}-tabpane {
-      flex-shrink: 0;
-      width: 100%;
-      transition: opacity 0.3s;
-      opacity: 1;
-    }
-
-    .@{tab-prefix-cls}-tabpane-inactive {
-      opacity: 0;
-      height: 0;
+      will-change: margin-left;
+      transition: margin-left 0.3s @ease-in-out;
     }
   }
 
   &-vertical {
     > .@{tab-prefix-cls}-bar {
       border-bottom: 0;
+      height: 100%;
+      &-tab-prev, &-tab-next {
+        width: 32px;
+        height: 0;
+        transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
+      }
+      &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
+      &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
+        width: 100%;
+        height: 32px;
+      }
 
       .@{tab-prefix-cls}-tab {
         float: none;
@@ -226,16 +258,33 @@
         }
       }
 
+      .@{tab-prefix-cls}-extra-content {
+        text-align: center;
+      }
+
       .@{tab-prefix-cls}-nav-scroll {
         width: auto;
       }
 
+      .@{tab-prefix-cls}-nav-container,
+      .@{tab-prefix-cls}-nav-wrap {
+        height: 100%;
+      }
+
       .@{tab-prefix-cls}-nav-container {
         margin-bottom: 0;
+
+        &.@{tab-prefix-cls}-nav-container-scrolling {
+          padding: 32px 0;
+        }
       }
 
       .@{tab-prefix-cls}-nav-wrap {
         margin-bottom: 0;
+      }
+
+      .@{tab-prefix-cls}-nav {
+        width: 100%;
       }
 
       .@{tab-prefix-cls}-ink-bar {
@@ -244,18 +293,37 @@
         height: auto;
         top: 0;
       }
+
+      .@{tab-prefix-cls}-tab-next {
+        width: 100%;
+        bottom: 0;
+        height: 32px;
+        &-icon:before {
+          content: "\e61d";
+        }
+      }
+
+      .@{tab-prefix-cls}-tab-prev {
+        top: 0;
+        width: 100%;
+        height: 32px;
+        &-icon:before {
+          content: "\e61e";
+        }
+      }
     }
 
     > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
+      margin-top: 0 !important;
     }
   }
 
   &-vertical&-left {
     > .@{tab-prefix-cls}-bar {
       float: left;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
       margin-right: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-tab {
@@ -273,14 +341,14 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-left: 24px;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-vertical&-right {
     > .@{tab-prefix-cls}-bar {
       float: right;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-nav-container {
@@ -295,7 +363,7 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-right: 24px;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
     }
   }
 
@@ -303,98 +371,26 @@
     margin-bottom: 0;
     margin-top: 16px;
   }
+}
 
-  // card style
-  &&-card > &-bar &-nav-container {
-    height: 32px;
-  }
-  &&-card > &-bar &-ink-bar {
-    visibility: hidden;
-  }
-  &&-card > &-bar &-tab {
-    margin: 0;
-    border: 1px solid @border-color-base;
-    border-bottom: 0;
-    border-radius: 6px 6px 0 0;
-    transition: all 0.3s @ease-in-out;
-    background: #f9f9f9;
-    margin-right: 2px;
-  }
-  &&-card > &-bar &-tab {
-    padding: 5px 16px 4px;
-    transition: all 0.3s @ease-in-out;
-  }
-  &&-card > &-bar &-tab-active {
-    background: #fff;
-    transform: translateZ(0);
-    border-color: @border-color-base;
-    color: @primary-color;
-  }
-  &&-card > &-bar &-tab-active {
-    padding-bottom: 5px;
-    transform: translateZ(0);
-  }
-  &&-card > &-bar &-nav-wrap {
-    margin-bottom: 0;
-  }
-  &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
-    margin-right: 0;
-    color: #999;
-    transition: all 0.3s @ease-in-out;
-    .iconfont-size-under-12px(9px);
-    transform-origin: 100% 50%;
-    width: 0;
-    text-align: right;
-    vertical-align: middle;
-    overflow: hidden;
-    &:hover {
-      color: #404040;
-      font-weight: bold;
-    }
-  }
+.@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, width .3s @ease-in-out;
+}
 
-  &&-editable-card > &-bar &-tab:not(&-tab-active):hover {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-close,
-  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-close {
-    width: 16px;
-    transform: translateZ(0);
-  }
-
-  &-extra-content {
-    float: right;
-    line-height: 32px;
-
-    .@{tab-prefix-cls}-new-tab {
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 3px;
-      border: 1px solid @border-color-base;
-      font-size: 12px;
-      .iconfont-size-under-12px(10px);
-      color: #999;
-      transition: color 0.3s ease;
-      &:hover {
-        color: #404040;
-      }
-    }
-  }
+.@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
+.@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
+  transition: transform .3s @ease-in-out, height .3s @ease-in-out;
 }
 
 .no-flex,
 .@{tab-prefix-cls}-no-animation,
 .@{tab-prefix-cls}-vertical {
-  .@{tab-prefix-cls}-content {
+  > .@{tab-prefix-cls}-content {
     &-animated {
-      transform: none!important;
+      transform: none !important;
+      margin-left: 0 !important;
     }
-
     > .@{tab-prefix-cls}-tabpane-inactive {
       display: none;
     }

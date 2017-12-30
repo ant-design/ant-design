@@ -13,12 +13,12 @@
   text-rendering: auto;
   opacity: 0;
   position: absolute;
-  right: 8px;
+  right: @control-padding-horizontal - 1px;
   z-index: 1;
-  background: #fff;
+  background: @component-background;
   top: 50%;
-  font-size: 12px;
-  color: #ccc;
+  font-size: @font-size-sm;
+  color: @disabled-color;
   width: 12px;
   height: 12px;
   margin-top: -6px;
@@ -30,20 +30,25 @@
     .iconfont-font("\e62e");
   }
   &:hover {
-    color: #999;
+    color: @text-color-secondary;
   }
 }
 
 .@{select-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   display: inline-block;
   position: relative;
-  color: #666;
-  font-size: @font-size-base;
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
   > ul > li > a {
     padding: 0;
-    background-color: #fff;
+    background-color: @component-background;
   }
 
   // arrow
@@ -51,10 +56,12 @@
     .iconfont-mixin();
     position: absolute;
     top: 50%;
-    right: 8px;
+    right: @control-padding-horizontal - 1px;
     line-height: 1;
-    margin-top: -6px;
-    .iconfont-size-under-12px(9px);
+    transform: translateY(-50%);
+    transform-origin: 50% 50%;
+    color: @disabled-color;
+    font-size: 12px;
 
     * {
       display: none;
@@ -73,9 +80,12 @@
     box-sizing: border-box;
     display: block;
 
-    background-color: #fff;
+    background-color: @component-background;
     border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
+    border: @border-width-base @border-style-base @border-color-base;
+    // strange align fix for chrome but works
+    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
+    border-top-width: @border-width-base + 0.02px;
     transition: all .3s @ease-in-out;
 
     &:hover {
@@ -102,16 +112,16 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       max-width: 100%;
-      padding-right: 16px;
+      padding-right: 20px;
     }
   }
 
   &-disabled {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-disabled &-selection {
-    background: @background-color-base;
+    background: @input-disabled-bg;
     cursor: not-allowed;
     &:hover,
     &:focus,
@@ -128,7 +138,7 @@
   }
 
   &-disabled &-selection--multiple &-selection__choice {
-    background: #e9e9e9;
+    background: @background-color-base;
     color: #aaa;
     padding-right: 10px;
     &__remove {
@@ -137,17 +147,17 @@
   }
 
   &-selection--single {
-    height: 28px;
+    height: @input-height-base;
     position: relative;
     cursor: pointer;
   }
 
   &-selection__rendered {
     display: block;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: @control-padding-horizontal - 1px;
+    margin-right: @control-padding-horizontal - 1px;
     position: relative;
-    line-height: 26px;
+    line-height: @input-height-base - 2px;
     // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
     &:after {
       content: '.';
@@ -159,49 +169,58 @@
   }
 
   &-lg {
+    font-size: @font-size-lg;
     .@{select-prefix-cls}-selection--single {
-      height: 32px;
+      height: @input-height-lg;
     }
     .@{select-prefix-cls}-selection__rendered {
-      line-height: 30px;
+      line-height: @input-height-lg - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 32px;
+      min-height: @input-height-lg;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 24px;
-          line-height: 24px;
+          height: @input-height-lg - 8px;
+          line-height: @input-height-lg - 8px;
         }
+      }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-lg / 2;
       }
     }
   }
 
   &-sm {
-    .@{select-prefix-cls}-selection {
-      border-radius: @border-radius-sm;
-    }
     .@{select-prefix-cls}-selection--single {
-      height: 22px;
+      height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
-      line-height: 20px;
+      line-height: @input-height-sm - 2px;
+      margin: 0 @control-padding-horizontal-sm - 1px;
     }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 22px;
+      min-height: @input-height-sm;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 14px;
-          line-height: 14px;
+          height: @input-height-sm - 8px;
+          line-height: @input-height-sm - 10px;
         }
       }
+      .@{select-prefix-cls}-selection__clear {
+        top: @input-height-sm / 2;
+      }
+    }
+    .@{select-prefix-cls}-selection__clear,
+    .@{select-prefix-cls}-arrow {
+      right: @control-padding-horizontal-sm;
     }
   }
 
   &-disabled &-selection__choice__remove {
-    color: #ccc;
+    color: @disabled-color;
     cursor: default;
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -216,7 +235,7 @@
     top: 50%;
     left: 0;
     right: 9px;
-    color: #ccc;
+    color: @input-placeholder-color;
     line-height: 20px;
     height: 20px;
     max-width: 100%;
@@ -224,16 +243,25 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
+  }
+
+  &-search__field__placeholder {
+    left: @control-padding-horizontal;
+  }
+
+  &-search__field__mirror {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    white-space: pre;
+    pointer-events: none;
   }
 
   &-search--inline {
     position: absolute;
     height: 100%;
-
-    .@{select-prefix-cls}-selection--multiple & {
-      float: left;
-      position: static;
-    }
+    width: 100%;
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -241,21 +269,14 @@
     }
 
     .@{select-prefix-cls}-search__field {
-      border: 0;
+      border-width: 0;
       font-size: 100%;
       height: 100%;
       width: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
-    }
-
-    .@{select-prefix-cls}-search__field__mirror {
-      position: absolute;
-      top: 0;
-      left: -9999px;
-      white-space: pre;
-      pointer-events: none;
+      line-height: 1;
     }
 
     > i {
@@ -264,15 +285,19 @@
   }
 
   &-selection--multiple {
-    min-height: 28px;
+    min-height: @input-height-base;
     cursor: text;
     padding-bottom: 3px;
     .clearfix;
 
     .@{select-prefix-cls}-search--inline {
+      float: left;
+      position: static;
       width: auto;
       padding: 0;
+      max-width: 100%;
       .@{select-prefix-cls}-search__field {
+        max-width: 100%;
         width: 0.75em;
       }
     }
@@ -283,19 +308,24 @@
       height: auto;
     }
 
+    .@{select-prefix-cls}-selection__placeholder {
+      margin-left: 6px;
+    }
+
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
       margin-top: 3px;
-      height: 20px;
-      line-height: 20px;
+      height: @input-height-base - 8px;
+      line-height: @input-height-base - 8px - 2px;
     }
 
     .@{select-prefix-cls}-selection__choice {
-      background-color: #f3f3f3;
-      border-radius: 4px;
+      color: @tag-default-color;
+      background-color: @tag-default-bg;
+      border: 1px solid @border-color-split;
+      border-radius: @border-radius-sm;
       cursor: default;
       float: left;
-      padding: 0 16px;
       margin-right: 4px;
       max-width: 99%;
       position: relative;
@@ -318,16 +348,16 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #999;
+      color: @text-color-secondary;
       line-height: inherit;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      transition: all 0.3s @ease-in-out;
-      .iconfont-size-under-12px(8px);
+      transition: all .3s;
+      font-size: @font-size-sm;
+      .iconfont-size-under-12px(10px);
       position: absolute;
       right: 4px;
-      padding: 0 0 0 8px;
       &:hover {
         color: #404040;
       }
@@ -335,11 +365,18 @@
         content: "\e633";
       }
     }
+
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-base / 2;
+    }
+  }
+
+  &-allow-clear &-selection--multiple &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 
   &-open {
     .@{select-prefix-cls}-arrow {
-      .ie-rotate(2);
       -ms-transform: rotate(180deg);
       &:before {
         transform: rotate(180deg);
@@ -371,20 +408,15 @@
       transition: all .3s @ease-in-out;
       box-shadow: none;
     }
-    .@{select-prefix-cls}-selection__rendered {
-      padding: 0;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      > ul {
-        height: 100%;
-      }
-    }
+  }
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 }
 
 .@{select-prefix-cls}-dropdown {
+  .reset-component;
+
   &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
   &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
     animation-name: antSlideUpIn;
@@ -407,7 +439,7 @@
     display: none;
   }
 
-  background-color: white;
+  background-color: @component-background;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -432,40 +464,42 @@
       padding: 0;
 
       > .@{select-prefix-cls}-dropdown-menu-item {
-        padding-left: 24px;
+        padding-left: 20px;
       }
     }
 
     &-item-group-title {
-      color: #999;
-      line-height: 1.5;
-      padding: 8px 16px;
+      color: @text-color-secondary;
+      padding: 0 @control-padding-horizontal;
+      height: 32px;
+      line-height: 32px;
+      font-size: @font-size-sm;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 16px;
+      padding: 5px @control-padding-horizontal;
+      line-height: 22px;
       font-weight: normal;
-      color: #666;
+      color: @text-color;
       white-space: nowrap;
       cursor: pointer;
-      white-space: nowrap;
       overflow: hidden;
+      text-overflow: ellipsis;
       transition: background 0.3s ease;
 
-      &:hover,
-      &-active {
-        background-color: tint(@primary-color, 90%);
+      &:hover {
+        background-color: @item-hover-bg;
       }
 
       &-disabled {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
 
         &:hover {
-          color: #ccc;
-          background-color: #fff;
+          color: @disabled-color;
+          background-color: @component-background;
           cursor: not-allowed;
         }
       }
@@ -473,17 +507,21 @@
       &-selected {
         &,
         &:hover {
-          background-color: @background-color-base;
-          font-weight: bold;
-          color: #666;
+          background-color: @background-color-light;
+          font-weight: 600;
+          color: @text-color;
         }
+      }
+
+      &-active {
+        background-color: @item-active-bg;
       }
 
       &-divider {
         height: 1px;
         margin: 1px 0;
         overflow: hidden;
-        background-color: #e5e5e5;
+        background-color: @border-color-split;
         line-height: 0;
       }
     }
@@ -499,7 +537,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 16px;
+        right: @control-padding-horizontal;
         font-weight: bold;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }

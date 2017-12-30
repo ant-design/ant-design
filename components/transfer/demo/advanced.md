@@ -18,17 +18,15 @@ You can customize the labels of the transfer buttons, the width and height of th
 ````jsx
 import { Transfer, Button } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      mockData: [],
-      targetKeys: [],
-    };
-  },
+class App extends React.Component {
+  state = {
+    mockData: [],
+    targetKeys: [],
+  }
   componentDidMount() {
     this.getMock();
-  },
-  getMock() {
+  }
+  getMock = () => {
     const targetKeys = [];
     const mockData = [];
     for (let i = 0; i < 20; i++) {
@@ -44,19 +42,21 @@ const App = React.createClass({
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  },
-  handleChange(targetKeys) {
+  }
+  handleChange = (targetKeys) => {
     this.setState({ targetKeys });
-  },
-  renderFooter() {
+  }
+  renderFooter = () => {
     return (
-      <Button type="ghost" size="small" style={{ float: 'right', margin: 5 }}
+      <Button
+        size="small"
+        style={{ float: 'right', margin: 5 }}
         onClick={this.getMock}
       >
         reload
       </Button>
     );
-  },
+  }
   render() {
     return (
       <Transfer
@@ -73,8 +73,8 @@ const App = React.createClass({
         footer={this.renderFooter}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

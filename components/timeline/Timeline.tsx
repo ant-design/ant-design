@@ -1,43 +1,41 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
-import TimelineItem from './TimelineItem';
-import splitObject from '../_util/splitObject';
+import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 
 export interface TimelineProps {
+  prefixCls?: string;
+  className?: string;
   /** 指定最后一个幽灵节点是否存在或内容 */
-  pending?: boolean | React.ReactNode;
+  pending?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
-  static Item: React.ReactNode;
+  static Item = TimelineItem as React.ClassicComponentClass<TimeLineItemProps>;
   static defaultProps = {
     prefixCls: 'ant-timeline',
   };
 
   render() {
-    const [{
-      prefixCls, children, pending, className,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'pending', 'className']);
+    const { prefixCls, children, pending, className, ...restProps } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames({
-      [prefixCls]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
-      [className]: className,
-    });
+    }, className);
+    // Remove falsy items
+    const falsylessItems = React.Children.toArray(children).filter(item => !!item);
+    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
+      React.cloneElement(ele, {
+        last: idx === (React.Children.count(falsylessItems) - 1),
+      }),
+    );
+    const pendingItem = (!!pending) ? (
+      <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
+    ) : null;
     return (
       <ul {...restProps} className={classString}>
-        {
-          React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
-            React.cloneElement(ele, {
-              last: idx === children.length - 1,
-            })
-          )
-        }
-        {(!!pending)
-          ? <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
-          : null}
+        {items}
+        {pendingItem}
       </ul>
     );
   }

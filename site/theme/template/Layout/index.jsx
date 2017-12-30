@@ -1,40 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import { LocaleProvider } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import '../../static/style';
 
-// Expose to iframe
-window.react = React;
-window['react-dom'] = ReactDOM;
-window.antd = require('antd');
+if (typeof window !== 'undefined') {
+  /* eslint-disable global-require */
+  require('../../static/style');
 
-const appLocale = utils.isZhCN() ? cnLocale : enLocale;
-addLocaleData(appLocale.data);
+  // Expose to iframe
+  window.react = React;
+  window['react-dom'] = ReactDOM;
+  window.antd = require('antd');
+  /* eslint-enable global-require */
+}
 
 export default class Layout extends React.Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    const { pathname } = props.location;
+    const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
+    addLocaleData(appLocale.data);
+    this.state = {
+      appLocale,
+    };
   }
 
   componentDidMount() {
-    if (typeof ga !== 'undefined') {
+    if (typeof window.ga !== 'undefined') {
       this.context.router.listen((loc) => {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       });
     }
 
-    const loadingNode = document.getElementById('ant-site-loading');
-    if (loadingNode) {
+    const nprogressHiddenStyle = document.getElementById('nprogress-style');
+    if (nprogressHiddenStyle) {
       this.timer = setTimeout(() => {
-        loadingNode.parentNode.removeChild(loadingNode);
-      }, 450);
+        nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
+      }, 0);
     }
   }
 
@@ -44,15 +55,14 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, ...restProps } = this.props;
+    const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={enUS}>
-          <div className="page-wrapper">
-            <Header {...restProps} />
-              {children}
-            <Footer />
-          </div>
-        </LocaleProvider>
+        <div className="page-wrapper">
+          <Header {...restProps} />
+          {children}
+          <Footer {...restProps} />
+        </div>
       </IntlProvider>
     );
   }

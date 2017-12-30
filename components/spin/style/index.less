@@ -2,19 +2,16 @@
 @import "../../style/mixins/index";
 
 @spin-prefix-cls: ~"@{ant-prefix}-spin";
-@spin-dot-default: #999;
-@spin-dot-size-sm: 14px;
-@spin-dot-size: 20px;
-@spin-dot-size-lg: 30px;
+@spin-dot-default: @text-color-secondary;
 
 .@{spin-prefix-cls} {
+  .reset-component;
   color: @primary-color;
   vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
   transition: transform 0.3s @ease-in-out-circ;
-  font-size: @font-size-base;
   display: none;
 
   &-spinning {
@@ -25,62 +22,72 @@
 
   &-nested-loading {
     position: relative;
-  }
-
-  &-nested-loading & {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 4;
-    &-dot {
+    > div > .@{spin-prefix-cls} {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -@spin-dot-size / 2;
-    }
-
-    &-sm .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-sm / 2;
-    }
-    &-lg .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-lg / 2;
-    }
-
-    &-show-text .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size / 2 - @font-size-base / 2;
-    }
-
-    &-show-text.@{spin-prefix-cls}-sm .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-sm / 2 - @font-size-base / 2;
-    }
-
-    &-show-text.@{spin-prefix-cls}-lg .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-lg / 2 - @font-size-base / 2;
-    }
-
-    &-text {
-      position: absolute;
-      top: 50%;
+      height: 100%;
+      max-height: 320px;
       width: 100%;
-      padding-top: (@spin-dot-size - @font-size-base) / 2;
+      z-index: 4;
+      .@{spin-prefix-cls}-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -@spin-dot-size / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding-top: (@spin-dot-size - @font-size-base) / 2 + 2px;
+        text-shadow: 0 1px 2px #fff;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size / 2 - 10px;
+      }
     }
-    &-sm .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-sm - @font-size-base) / 2;
+
+    > div > .@{spin-prefix-cls}-sm {
+      .@{spin-prefix-cls}-dot {
+        margin: -@spin-dot-size-sm / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: (@spin-dot-size-sm - @font-size-base) / 2 + 2px;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size-sm / 2 - 10px;
+      }
     }
-    &-lg .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-lg - @font-size-base) / 2;
+
+    > div > .@{spin-prefix-cls}-lg {
+      .@{spin-prefix-cls}-dot {
+        margin: -@spin-dot-size-lg / 2;
+      }
+      .@{spin-prefix-cls}-text {
+        padding-top: (@spin-dot-size-lg - @font-size-base) / 2 + 2px;
+      }
+      &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
+        margin-top: -@spin-dot-size-lg / 2 - 10px;
+      }
     }
   }
+
   &-container {
-    transition: all 0.3s @ease-in-out;
+    overflow: auto;
     position: relative;
   }
 
   &-blur {
+    overflow: hidden;
     opacity: 0.7;
-    -webkit-filter: blur(1px);
-    filter: blur(1px);
-    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
+    -webkit-filter: blur(0.5px);
+    filter: blur(0.5px);
+
+    /* autoprefixer: off */
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)";
+    // workround for a strange style bug in safari:
+    // https://github.com/ant-design/ant-design/issues/4622
+    // have no clue why this works
+    -webkit-transform: translateZ(0);
     &:after {
       content: '';
       position: absolute;
@@ -88,7 +95,10 @@
       right: 0;
       top: 0;
       bottom: 0;
-      background: transparent;
+      background: #fff;
+      opacity: 0.3;
+      transition: all .3s;
+      z-index: 10;
     }
   }
 
@@ -103,21 +113,21 @@
 
   &-dot {
     position: relative;
-    display: block;
+    display: inline-block;
     .square(@spin-dot-size);
     transform: rotate(45deg);
-    animation: antRotate 3.2s infinite linear;
+    animation: antRotate 1.2s infinite linear;
     i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 9px;
+      height: 9px;
+      border-radius: 100%;
       background-color: @primary-color;
-      transform: scale(0.6);
+      transform: scale(0.75);
       display: block;
       position: absolute;
       opacity: 0.3;
-      animation: antSpinMove .8s infinite linear alternate;
-      transform-origin: 0 0;
+      animation: antSpinMove 1s infinite linear alternate;
+      transform-origin: 50% 50%;
       &:nth-child(1) {
         left: 0;
         top: 0;
@@ -155,8 +165,8 @@
   &-lg &-dot {
     .square(@spin-dot-size-lg);
     i {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
     }
   }
 
@@ -168,14 +178,13 @@
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /* IE10+ */
   .@{spin-prefix-cls}-blur {
-    background: #fff;
+    background: @component-background;
     opacity: 0.5;
   }
 }
 
 @keyframes antSpinMove {
   to {
-    transform: scale(1);
     opacity: 1;
   }
 }

@@ -1,30 +1,78 @@
-import React from 'react';
-import { PropTypes } from 'react';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import createDOMForm from 'rc-form/lib/createDOMForm';
+import createFormField from 'rc-form/lib/createFormField';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import warning from 'warning';
-import assign from 'object-assign';
+import warning from '../_util/warning';
 import FormItem from './FormItem';
-import createDOMForm from 'rc-form/lib/createDOMForm';
-import { FIELD_META_PROP } from './constants';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 
-export interface FormCreateOption {
-  onFieldsChange?: (props: any, fields: Array<any>) => void;
-  mapPropsToFields?: (props: any) => void;
+export interface FormCreateOption<T> {
+  onFieldsChange?: (props: T, fields: Array<any>) => void;
+  onValuesChange?: (props: T, values: any) => void;
+  mapPropsToFields?: (props: T) => void;
   withRef?: boolean;
 }
 
 export interface FormProps {
-  horizontal?: boolean;
-  inline?: boolean;
-  vertical?: boolean;
+  layout?: 'horizontal' | 'inline' | 'vertical';
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
+  hideRequiredMark?: boolean;
 }
+
+export type ValidationRule = {
+  /** validation error message */
+  message?: string;
+  /** built-in validation type, available options: https://github.com/yiminghe/async-validator#type */
+  type?: string;
+  /** indicates whether field is required */
+  required?: boolean;
+  /** treat required fields that only contain whitespace as errors */
+  whitespace?: boolean;
+  /** validate the exact length of a field */
+  len?: number;
+  /** validate the min length of a field */
+  min?: number;
+  /** validate the max length of a field */
+  max?: number;
+  /** validate the value from a list of possible values */
+  enum?: string | string[];
+  /** validate from a regular expression */
+  pattern?: RegExp;
+  /** transform a value before validation */
+  transform?: (value: any) => any;
+  /** custom validate function (Note: callback must be called) */
+  validator?: (rule: any, value: any, callback: any, source?: any, options?: any) => any;
+};
+
+export type ValidateCallback = (errors: any, values: any) => void;
+
+export type GetFieldDecoratorOptions = {
+  /** 子节点的值的属性，如 Checkbox 的是 'checked' */
+  valuePropName?: string;
+  /** 子节点的初始值，类型、可选值均由子节点决定 */
+  initialValue?: any;
+  /** 收集子节点的值的时机 */
+  trigger?: string;
+  /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
+  getValueFromEvent?: (...args: any[]) => any;
+  /** 校验子节点值的时机 */
+  validateTrigger?: string | string[];
+  /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
+  rules?: ValidationRule[];
+  /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
+  exclusive?: boolean;
+  /** Normalize value to form component */
+  normalize?: (value: any, prevValue: any, allValues: any) => any;
+  /** Whether stop validate on first rule of error for this field.  */
+  validateFirst?: boolean;
+};
 
 // function create
 export type WrappedFormUtils = {
@@ -37,138 +85,111 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: Object, callback: (erros: any, values: any) => void): any;
-  validateFields(fieldNames: Array<string>, callback: (erros: any, values: any) => void): any;
-  validateFields(options: Object, callback: (erros: any, values: any) => void): any;
-  validateFields(callback: (erros: any, values: any) => void): any;
+  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): any;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): any;
+  validateFields(options: Object, callback: ValidateCallback): any;
+  validateFields(callback: ValidateCallback): any;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(fieldNames?: Array<string>,
-                          options?: Object,
-                          callback?: (erros: any, values: any) => void): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
+  validateFieldsAndScroll(callback?: ValidateCallback): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
+  getFieldsError(names?: Array<string>): Object;
   /** 判断一个输入控件是否在校验状态*/
   isFieldValidating(name: string): boolean;
+  isFieldTouched(name: string): boolean;
+  isFieldsTouched(names?: Array<string>): boolean;
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
 
-  getFieldDecorator(id: string, options: {
-    /** 子节点的值的属性，如 Checkbox 的是 'checked' */
-    valuePropName?: string;
-    /** 子节点的初始值，类型、可选值均由子节点决定 */
-    initialValue?: any;
-    /** 收集子节点的值的时机 */
-    trigger?: string;
-    /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-    getValueFromEvent?: (...args: any[]) => any;
-    /** 校验子节点值的时机 */
-    validateTrigger?: string;
-    /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
-    rules?: Array<any>;
-    /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
-    exclusive?: boolean;
-  }): (node: React.ReactNode) => React.ReactNode;
-}
+  getFieldDecorator(id: string, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
+};
 
 export interface FormComponentProps {
-  form?: WrappedFormUtils;
+  form: WrappedFormUtils;
 }
 
-export class FormComponent extends React.Component<FormComponentProps, {}> {
-}
+export type Diff<T extends string, U extends string> =
+  ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
+export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
-export interface ComponentDecorator {
-  <T extends (typeof FormComponent)>(component: T): T;
+export interface ComponentDecorator<TOwnProps> {
+  <P extends FormComponentProps>(
+    component: React.ComponentClass<P> | React.SFC<P>,
+  ): React.ComponentClass<Omit<P, keyof FormComponentProps> & TOwnProps>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
-    onSubmit(e) {
+    layout: 'horizontal',
+    hideRequiredMark: false,
+    onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
     },
   };
 
   static propTypes = {
-    prefixCls: React.PropTypes.string,
-    vertical: React.PropTypes.bool,
-    horizontal: React.PropTypes.bool,
-    inline: React.PropTypes.bool,
-    children: React.PropTypes.any,
-    onSubmit: React.PropTypes.func,
+    prefixCls: PropTypes.string,
+    layout: PropTypes.oneOf(['horizontal', 'inline', 'vertical']),
+    children: PropTypes.any,
+    onSubmit: PropTypes.func,
+    hideRequiredMark: PropTypes.bool,
+  };
+
+  static childContextTypes = {
+    vertical: PropTypes.bool,
   };
 
   static Item = FormItem;
 
-  static create = (options?: FormCreateOption): ComponentDecorator => {
-    const formWrapper = createDOMForm(assign({
+  static createFormField = createFormField;
+
+  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
+    return createDOMForm({
       fieldNameProp: 'id',
-    }, options, {
+      ...options,
       fieldMetaProp: FIELD_META_PROP,
-    }));
-
-    /* eslint-disable react/prefer-es6-class */
-    return (Component) => formWrapper(React.createClass({
-      propTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      childContextTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      getChildContext() {
-        return {
-          form: this.props.form,
-        };
-      },
-      componentWillMount() {
-        this.getFieldProps = this.deprecatedGetFieldProps;
-      },
-      deprecatedGetFieldProps(name, option) {
-        warning(
-          false,
-          '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
-        );
-        return this.getFieldProps(name, option);
-      },
-      render() {
-        this.props.form.getFieldProps = this.deprecatedGetFieldProps;
-
-        const withRef: any = {};
-        if (options && options.withRef) {
-          withRef.ref = 'formWrappedComponent';
-        }
-        return <Component {...this.props} {...withRef} />;
-      },
-    }));
+      fieldDataProp: FIELD_DATA_PROP,
+    });
   };
 
-  constructor(props) {
+  constructor(props: FormProps) {
     super(props);
 
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
+  getChildContext() {
+    const { layout } = this.props;
+    return {
+      vertical: layout === 'vertical',
+    };
+  }
+
   render() {
-    const { prefixCls, className = '', inline, horizontal, vertical } = this.props;
-    const formClassName = classNames({
-      [`${prefixCls}`]: true,
-      [`${prefixCls}-horizontal`]: horizontal,
-      [`${prefixCls}-vertical`]: vertical,
-      [`${prefixCls}-inline`]: inline,
-      [className]: !!className,
-    });
+    const {
+      prefixCls, hideRequiredMark, className = '', layout,
+    } = this.props;
+    const formClassName = classNames(prefixCls, {
+      [`${prefixCls}-horizontal`]: layout === 'horizontal',
+      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-inline`]: layout === 'inline',
+      [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+    }, className);
 
     const formProps = omit(this.props, [
       'prefixCls',
       'className',
-      'inline',
-      'horizontal',
-      'vertical',
+      'layout',
       'form',
+      'hideRequiredMark',
     ]);
 
     return <form {...formProps} className={formClassName} />;

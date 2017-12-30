@@ -1,11 +1,17 @@
-/* eslint no-console:0 */
+/* @remove-on-es-build-begin */
 // this file is not used if use https://github.com/ant-design/babel-plugin-import
-if (process.env.NODE_ENV !== 'production') {
-  if (typeof console !== 'undefined' && console.warn) {
-    console.warn(`You are using prebuilt antd,
-please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.`);
-  }
+const ENV = process.env.NODE_ENV;
+if (ENV !== 'production' &&
+    ENV !== 'test' &&
+    typeof console !== 'undefined' &&
+    console.warn &&
+    typeof window !== 'undefined') {
+  console.warn(
+    'You are using a whole package of antd, ' +
+    'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
+  );
 }
+/* @remove-on-es-build-end */
 
 export { default as Affix } from './affix';
 
@@ -14,6 +20,8 @@ export { default as Anchor } from './anchor';
 export { default as AutoComplete } from './auto-complete';
 
 export { default as Alert } from './alert';
+
+export { default as Avatar } from './avatar';
 
 export { default as BackTop } from './back-top';
 
@@ -39,6 +47,8 @@ export { default as Col } from './col';
 
 export { default as DatePicker } from './date-picker';
 
+export { default as Divider } from './divider';
+
 export { default as Dropdown } from './dropdown';
 
 export { default as Form } from './form';
@@ -48,6 +58,10 @@ export { default as Icon } from './icon';
 export { default as Input } from './input';
 
 export { default as InputNumber } from './input-number';
+
+export { default as Layout } from './layout';
+
+export { default as List } from './list';
 
 export { default as LocaleProvider } from './locale-provider';
 
@@ -104,3 +118,5 @@ export { default as Tooltip } from './tooltip';
 export { default as Mention } from './mention';
 
 export { default as Upload } from './upload';
+
+export { default as version } from './version';

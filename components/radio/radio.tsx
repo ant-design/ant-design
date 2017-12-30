@@ -1,49 +1,81 @@
-import RcRadio from 'rc-radio';
-import React from 'react';
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import shallowEqual from 'shallowequal';
+import RadioGroup from './group';
+import RadioButton from './radioButton';
+import { RadioProps, RadioGroupContext } from './interface';
 
-export interface RadioProps {
-  /** 指定当前是否选中*/
-  checked?: boolean;
-  /** 初始是否选中*/
-  defaultChecked?: boolean;
-  /** 根据 value 进行比较，判断是否选中  */
-  value?: string | number;
-  style?: React.CSSProperties;
-  prefixCls?: string;
-  disabled?: boolean;
-  className?: string;
-  onChange?: (e: any) => any;
-}
-
-export default class Radio extends React.Component<RadioProps, any> {
-  static Group: any;
-  static Button: any;
+export default class Radio extends React.Component<RadioProps, {}> {
+  static Group: typeof RadioGroup;
+  static Button: typeof RadioButton;
 
   static defaultProps = {
     prefixCls: 'ant-radio',
+    type: 'radio',
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+
+  static contextTypes = {
+    radioGroup: PropTypes.any,
+  };
+
+  private rcCheckbox: any;
+
+  shouldComponentUpdate(nextProps: RadioProps, nextState: {}, nextContext: RadioGroupContext) {
+    return !shallowEqual(this.props, nextProps) ||
+           !shallowEqual(this.state, nextState) ||
+           !shallowEqual(this.context.radioGroup, nextContext.radioGroup);
   }
+
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
+
+  saveCheckbox = (node: any) => {
+    this.rcCheckbox = node;
+  }
+
   render() {
-    const { prefixCls, children, checked, disabled, className = '', style } = this.props;
-    const wrapperClassString = classNames({
+    const { props, context } = this;
+    const {
+      prefixCls,
+      className,
+      children,
+      style,
+      ...restProps,
+    } = props;
+    const { radioGroup } = context;
+    let radioProps: RadioProps = { ...restProps };
+    if (radioGroup) {
+      radioProps.name = radioGroup.name;
+      radioProps.onChange = radioGroup.onChange;
+      radioProps.checked = props.value === radioGroup.value;
+      radioProps.disabled = props.disabled || radioGroup.disabled;
+    }
+    const wrapperClassString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-checked`]: checked,
-      [`${prefixCls}-wrapper-disabled`]: disabled,
-      [className]: !!className,
+      [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
     });
-    const classString = classNames({
-      [`${prefixCls}`]: true,
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-disabled`]: disabled,
-    });
+
     return (
-      <label className={wrapperClassString} style={style}>
-        <RcRadio {...this.props} className={classString} style={null} children={null} />
-        {children ? <span>{children}</span> : null}
+      <label
+        className={wrapperClassString}
+        style={style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      >
+        <RcCheckbox
+          {...radioProps}
+          prefixCls={prefixCls}
+          ref={this.saveCheckbox}
+        />
+        {children !== undefined ? <span>{children}</span> : null}
       </label>
     );
   }

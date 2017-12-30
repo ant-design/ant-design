@@ -16,23 +16,25 @@ Messages of success, error and warning types.
 ````jsx
 import { message, Button } from 'antd';
 
-const success = function () {
+const success = () => {
   message.success('This is a message of success');
 };
 
-const error = function () {
+const error = () => {
   message.error('This is a message of error');
 };
 
-const warning = function () {
+const warning = () => {
   message.warning('This is message of warning');
 };
 
-ReactDOM.render(<div>
-  <Button onClick={success}>Success</Button>
-  <Button onClick={error}>Error</Button>
-  <Button onClick={warning}>Warning</Button>
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Button onClick={success}>Success</Button>
+    <Button onClick={error}>Error</Button>
+    <Button onClick={warning}>Warning</Button>
+  </div>
+, mountNode);
 ````
 
 <style>

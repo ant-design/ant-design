@@ -1,21 +1,25 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @breadcrumb-prefix-cls: ~"@{ant-prefix}-breadcrumb";
 
 .@{breadcrumb-prefix-cls} {
-  color: #999;
-  font-size: @font-size-base;
+  .reset-component;
+  color: @text-color-secondary;
+
+  .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
+  }
 
   a {
-    color: @text-color;
+    color: @text-color-secondary;
     transition: color .3s;
     &:hover {
-      color: tint(@primary-color, 20%);
+      color: @primary-5;
     }
   }
 
   & > span:last-child {
-    font-weight: bold;
     color: @text-color;
   }
 
@@ -24,8 +28,8 @@
   }
 
   &-separator {
-    margin: 0 8px;
-    color: @border-color-base;
+    margin: 0 @padding-xs;
+    color: @text-color-secondary;
   }
 
   &-link {

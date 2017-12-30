@@ -1,7 +1,8 @@
-import Row from './row';
-import Col from './col';
+import Layout from './layout';
+import Sider from './Sider';
 
-export {
-  Row,
-  Col,
-};
+export { BasicProps as LayoutProps } from './layout';
+export { SiderProps } from './Sider';
+
+Layout.Sider = Sider;
+export default Layout;
