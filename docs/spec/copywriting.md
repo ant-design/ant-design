@@ -25,8 +25,8 @@ title:
 
 ### 明确表述立足点
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/YNOszTuSiTsssVpHhEGs.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/NRHIpjNTFNPcrWIDnJwS.png" alt="错误示范" description="侧重在『我们』为用户提供了什么，而不是以用户视角的关注点为中心。">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/JTdXAMSRReuZErOBWdYc.png" alt="正确示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/BRwGAoGwvINrllzufuCA.png" alt="错误示范" description="侧重在『我们』为用户提供了什么，而不是以用户视角的关注点为中心。">
 
 在表述内容时，关注点应该是用户和他们能用你的产品做什么，而不是你和你的产品在为他们做什么，所以内容表述的立足点很重要。
 
