@@ -80,7 +80,7 @@ export default class Article extends React.Component {
               type="warning"
               message={(
                 <span>
-                  This article has not been translated yet. Wan&apos;t to help us out?
+                  This article has not been translated yet. Wanna help us out?&nbsp;
                   <a href="https://github.com/ant-design/ant-design/issues/1471">See this issue on GitHub.</a>
                 </span>
               )}
