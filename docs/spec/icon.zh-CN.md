@@ -103,6 +103,6 @@ Ant Design 的图标设计中，外轮廓线统一半径为 72px 的圆角，ico
 
 ### 颜色
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KjXUhatKsjtoigPcLSbm.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/PTUrLyzuLsdxMrJzGNpj.png">
 
 业务图标有单色（中性色）和双色（中性色+主色）两种，主色的面积不超过整个 icon 的 40%。
