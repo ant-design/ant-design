@@ -17,7 +17,7 @@ title:
 
 ## 表格（Table）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/OGkfpUVQFWqlioeslvue.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/PetAXSByOolFbtmLazQz.png">
 
 表格被公认为是展现数据最为清晰、高效的形式之一。它常和排序、搜索、筛选、分页等其他界面元素一起协同，适用于信息的收集和展示、数据的分析和归纳整理、以及操作结构化数据。它结构简单，分隔归纳明确，使信息之间更易于对比，大大提升了用户对信息的接收效率和理解程度。
 
@@ -27,7 +27,7 @@ title:
 
 ## 折叠面板（Collapse）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/UzmOpWyvIZmFibFPOjuo.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ypeOSafZJYqVJUHcJeef.png">
 
 折叠面板通过对信息的分组和收纳，指引用户递进式的获取信息，使界面保持整洁的同时增加空间的有效利用率。
 
@@ -40,7 +40,7 @@ title:
 
 ## 卡片（Card）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fpXuAguWCWWbmQNzOmnM.png" description="如页面内容加载过慢时，可采用『预加载』或『分步获取』的方式来缓解用户在等待时间中的焦虑感。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xtIGZmqUHAovPPKjwyVT.png" description="如页面内容加载过慢时，可采用『预加载』或『分步获取』的方式来缓解用户在等待时间中的焦虑感。">
 
 卡片是一种承载信息的容器，对可承载的内容类型无过多限制，它让一类信息集中化，增强区块感的同时更易于操作；卡片通常以网格或矩阵的方式排列，传达相互之间的层级关系。适合较为轻量级和个性化较强的信息区块展示。
 
@@ -52,7 +52,7 @@ title:
 
 ## 走马灯（Carousel）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fELwaApwGyZoUDCZQtLb.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FaAbGkTwlhykSDSBqWbW.png">
 
 作为一组平级内容的并列展示模式，常用于图片或卡片轮播，可由用户主动触发或者系统自动轮播。适合用于官网首页、产品介绍页等展示型区块。
 
@@ -64,7 +64,7 @@ title:
 
 ## 树形控件（Tree）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/iIicElfzdIoNzyRJXlqx.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QZyxnLWUkbIuTqGYxTQs.png">
 
 『树形控件』通过逐级大纲的形式来展现信息的层级关系，高效且具有极佳的视觉可视性，使得整体信息框架一目了然。
 
@@ -74,7 +74,7 @@ title:
 
 ## 时间轴（Timeline）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/bIYaUSPaBWSzXEpRsIjO.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WmQeylAyWUNKmQIyoQGH.png">
 
 垂直展示的时间流信息，一般按照时间倒叙记录事件，追踪用户当下以及过去做了什么。
 
