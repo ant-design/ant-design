@@ -1,4 +1,5 @@
 .preview-image-boxes {
+  display: flex;
   float: right;
   margin: 0 0 70px 64px;
   width: 496px;
@@ -20,6 +21,10 @@
 .preview-image-box {
   width: 100%;
   float: left;
+}
+
+.preview-image-box + .preview-image-box {
+  margin-left: 24px;
 }
 
 .preview-image-wrapper {
