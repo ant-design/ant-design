@@ -56,7 +56,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 Ant Design 受到 5 音阶以及自然律的启发定义了 10 个不同尺寸的字体以及与之相对应的行高。
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/oAPYYRGryJzdOawgVVLm.png" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/SSfldeRsKZxaRFaufoEd.png" />
 </div>
 
 在 Ant Design 的视觉体系中，我们建议的主要字体为 14，与之对应的行高为 22。其余的字阶的选择可根据具体情况进行自由的定义。建议在一个系统设计中（展示型页面除外），字阶的选择尽量控制在 3-5 种之间，保持克制的原则。
@@ -88,7 +88,7 @@ Ant Design 受到 5 音阶以及自然律的启发定义了 10 个不同尺寸�
 文本颜色如果和背景颜色太接近就会难以阅读。考虑到无障碍设计的需求，我们参考了 WCAG的标准，将正文文本、标题和背景色之间保持在了 7:1 以上的 AAA 级对比度。
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/XaLviGPkcGkOcezaZSYd.png" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/jPbEabWakVQHosHxhQPR.png" />
 </div>
 
 ## 建议
