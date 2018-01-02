@@ -43,7 +43,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xcDCXmgTCeXWelIovxvh.png" description="当说明文案较长时，你可以使用一个『信息』图标或者提示工具。">
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XkDFnTSypNLHBVXTbLeg.png" description="对于那些短的输入提醒（短于一句），你可以将其放置在输入框的下方。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AUTvHOWDsCTgSojYrQms.png" description="对于那些短的输入提醒（短于一句），你可以将其放置在输入框的下方。">
 
 ### 搜索（Search）
 
@@ -77,7 +77,7 @@ title:
 
 ### 开关（Switch）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/TfSWmIuIksHSrblJuBxt.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MsOFIDWorXeobBLkEwjS.png">
 
 用于切换单个选项的状态。『开关』的内联标签应该显示清楚，例如：禁用/启用，不允许/允许等。
 
@@ -118,7 +118,7 @@ title:
 
 ### 日期选择器（DatePicker）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uJWyAXBqnhNlgtrGUDRA.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/IyntUBesFLpPNQTHtgVk.png">
 
 日期选择器为用户提供了一种可视化的方式去浏览和选择一个日期或者日期范围。
 
@@ -130,19 +130,19 @@ title:
 
 ### 简单点击上传
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KzAejsoAsnqeQqtPHmqu.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/nslSHZVgVxmBNgKhFcqT.png">
 
 一般用于单个上传且不需要预览效果的文件上传，点击按钮弹出文件选择框。
 
 ### 显示缩略图上传
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/eYEmzmthQAQJodKByIOm.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HQvQFtYdIQKoUOjgSFQP.png">
 
 一般用于图片文件上传，用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
 
 ### 拖拽上传
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zjjdPpilOVxvNUCXiBQH.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/evyhWzbCtinnGURCPJSn.png">
 
 把文件拖入指定区域，完成上传，同样支持点击上传。
 
