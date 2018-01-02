@@ -36,7 +36,7 @@ title: 导航
 
 面包屑导航的作用是告诉用户当前页面在系统层级结构中的位置以及父子级页面间的关系。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ieAUAWAycyUQKjsRbNWP.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
 
 > 注意事项：
 > 1. 层级过深时，建议做隐藏处理，页面显示保持在三级以内，最多不宜超过五级；
@@ -50,25 +50,25 @@ title: 导航
 
 ### 基本样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KfWwAvqZOKvUleEEqSYL.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
 
 引领整个页面的内容，用于主功能切换。
 
 ### 卡片样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/lcqzMnhivNsKDoEXIiGr.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
 
 用于页面中局部展示，包裹型容器能很好的和其它内容隔离。
 
 ### 胶囊型样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FDQDEuuUmSSGBqkcBwDd.png" description="一般用于小版块内，或与基本样式、卡片样式搭配使用。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="一般用于小版块内，或与基本样式、卡片样式搭配使用。">
 
 用于卡片内的选项切换，经常和其它组件结合使用，让用户快速切换对应内容。
 
 ### 竖状样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GwxtWJFOpcDtQhbZaBif.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
 
 用于分类较多的选项，可以不限制分类数量，具备更好的扩展性。
 
@@ -98,7 +98,7 @@ title: 导航
 
 ### 标准样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/uMATIbeUxCNMruZshoYp.png" description="当页数超过 5 页时，可以提供快速跳转页面的功能。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="当页数超过 5 页时，可以提供快速跳转页面的功能。">
 
 当信息条目较多的时候，可以允许用户自定义每页的行数，以提高用户查看和检索信息的效率和灵活性，常与表格、卡片搭配使用。
 
