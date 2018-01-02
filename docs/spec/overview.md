@@ -16,7 +16,7 @@ title:
 
 ## 信息框架
 
-todo...
+![结构图](https://gw.alipayobjects.com/zos/rmsportal/NyWYOFQxJYElAwtUfSdv.png)
 
 完整的设计模式将会包含 ETC 三大实体部分，以及 Genneral Concepts 这样的黏合剂：
 
