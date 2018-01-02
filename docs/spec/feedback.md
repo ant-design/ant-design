@@ -81,7 +81,7 @@ title:
 
 ### 录入反馈
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gyubcxGMSURaSkXNGRwY.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
 
 操作过程中可通过不同的校验规则和形式，让用户及时发现并纠正错误。
 
