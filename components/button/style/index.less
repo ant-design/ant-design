@@ -162,6 +162,15 @@
   &-background-ghost&-danger {
     .button-variant-ghost(@btn-danger-color);
   }
+
+  &-two-chinese-chars:first-letter {
+    letter-spacing: .34em;
+  }
+
+  &-two-chinese-chars > * {
+    letter-spacing: .34em;
+    margin-right: -.34em;
+  }
 }
 
 @keyframes buttonEffect {
