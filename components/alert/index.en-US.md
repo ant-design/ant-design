@@ -21,5 +21,6 @@ Alert component for feedback.
 | description | Additional content of Alert | string\|ReactNode | - |
 | message | Content of Alert | string\|ReactNode | - |
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |
+| iconType | Icon type, effective when `showIcon` is `true` | string | - |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |
 | onClose | Callback when Alert is closed | Function | - |
