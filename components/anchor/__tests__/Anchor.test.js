@@ -17,4 +17,48 @@ describe('Anchor Render', () => {
     wrapper.node.handleScroll();
     expect(wrapper.node.state).not.toBe(null);
   });
+
+  it('Anchor render perfectly for complete href - click', () => {
+    const wrapper = mount(
+      <Anchor>
+        <Link href="http://www.example.com/#API" title="API" />
+      </Anchor>
+    );
+    wrapper.find('a[href="http://www.example.com/#API"]').simulate('click');
+    expect(wrapper.node.state.activeLink).toBe('http://www.example.com/#API');
+  });
+
+  it('Anchor render perfectly for complete href - scoll', () => {
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
+    mount(<div id="API">Hello</div>, { attachTo: root });
+    const wrapper = mount(
+      <Anchor>
+        <Link href="http://www.example.com/#API" title="API" />
+      </Anchor>
+    );
+    wrapper.node.handleScroll();
+    expect(wrapper.node.state.activeLink).toBe('http://www.example.com/#API');
+  });
+
+  it('Anchor render perfectly for complete href - scollTo', () => {
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
+    mount(<div id="API">Hello</div>, { attachTo: root });
+    const wrapper = mount(
+      <Anchor>
+        <Link href="##API" title="API" />
+      </Anchor>
+    );
+    wrapper.node.handleScrollTo('##API');
+    expect(wrapper.node.state.activeLink).toBe('##API');
+  });
 });
