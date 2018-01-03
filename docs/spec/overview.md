@@ -20,7 +20,7 @@ title:
 
 完整的设计模式将会包含 ETC 三大实体部分，以及 Genneral Concepts 这样的黏合剂：
 
-- **Examples 产品范例：**由多张模板构成，启发用户如何使用和搭建出一个常见系统
+- **Examples 功能范例：**由多张模板构成，启发用户如何使用和搭建出一个常见功能
 - **Templates 模板：**页面级示例，启发用户如何通过组件搭建出系统中的典型页面，eg：详情页
 - **Components 组件**
 	- Examples of Components 业务组件/模块：区块级示例，一般由多个组件构成，eg：PageHeader
