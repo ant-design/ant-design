@@ -6,6 +6,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -20,6 +21,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -34,6 +36,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -55,6 +58,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
   >
     <div
       aria-expanded="true"
@@ -85,6 +89,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -99,6 +104,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item ant-collapse-item-disabled"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -120,6 +126,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
   >
     <div
       aria-expanded="true"
@@ -150,6 +157,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -164,6 +172,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -185,6 +194,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
+    role="tablist"
     style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
   >
     <div
@@ -216,6 +226,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
     style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
   >
     <div
@@ -231,6 +242,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
     style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
   >
     <div
@@ -253,6 +265,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -267,6 +280,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -281,6 +295,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
