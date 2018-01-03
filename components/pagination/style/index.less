@@ -27,7 +27,7 @@
     display: inline-block;
     vertical-align: middle;
     height: @pagination-item-size;
-    line-height: @pagination-item-size;
+    line-height: @pagination-item-size - 2px;
     margin-right: 8px;
   }
 
@@ -37,7 +37,7 @@
     user-select: none;
     min-width: @pagination-item-size;
     height: @pagination-item-size;
-    line-height: @pagination-item-size;
+    line-height: @pagination-item-size - 2px;
     text-align: center;
     list-style: none;
     display: inline-block;
@@ -290,7 +290,7 @@
     margin: 0;
     min-width: @pagination-item-size-sm;
     height: @pagination-item-size-sm;
-    line-height: @pagination-item-size-sm;
+    line-height: @pagination-item-size-sm - 2px;
   }
 
   &.mini &-item:not(&-item-active) {
