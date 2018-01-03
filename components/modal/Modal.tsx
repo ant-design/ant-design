@@ -95,7 +95,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
-    okType: 'primary',
+    okType: 'primary' as ButtonType,
   };
 
   static propTypes = {
