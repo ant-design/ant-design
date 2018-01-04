@@ -9,7 +9,7 @@ title:
 设计价值观为 Ant Design 的设计者以及基于 Ant Design 进行产品设计的设计者，提供评价设计好坏的内在标准，并提供有效的设计实践所遵循的规则。同时，它启示并激发了设计原则和设计模式，为具体的设计问题提供向导和一般解决方案。
 
 
-todo...
+![总概](https://gw.alipayobjects.com/zos/rmsportal/lHrHyPcxgEBLdchFEpxX.png)
 
 「在设计价值观的坚持上」，Ant Design 有两点与众不同：
 
