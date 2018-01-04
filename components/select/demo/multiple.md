@@ -34,7 +34,7 @@ ReactDOM.render(
     defaultValue={['a10', 'c12']}
     onChange={handleChange}
   >
-    {children}
+    {}
   </Select>
 , mountNode);
 ````
