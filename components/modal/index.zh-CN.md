@@ -60,7 +60,7 @@ title: Modal
 | cancelText | 取消按钮文字 | string | 取消 |
 | content | 内容 | string\|ReactNode | 无 |
 | iconType | 图标 Icon 类型 | string | question-circle |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
+| maskClosable | 点击蒙层是否允许关闭 | Boolean | `true` |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |
 | title | 标题 | string\|ReactNode | 无 |
