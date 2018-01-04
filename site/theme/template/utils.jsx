@@ -1,20 +1,3 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire;
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  enquire = require('enquire.js'); // eslint-disable-line global-require
-}
 
 export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
   const menuMeta = moduleData.map(item => item.meta);
@@ -117,19 +100,3 @@ export function loadScript(src) {
   });
 }
 
-export function enquireScreen(cb) {
-  /* eslint-disable no-unused-expressions */
-  // and (min-width: 320px)
-  if (!enquire) {
-    return;
-  }
-  enquire.register('only screen and (max-width: 768px)', {
-    match: () => {
-      cb && cb(true);
-    },
-    unmatch: () => {
-      cb && cb();
-    },
-  });
-  /* eslint-enable no-unused-expressions */
-}

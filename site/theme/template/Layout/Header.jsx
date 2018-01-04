@@ -48,11 +48,11 @@ export default class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
+    isMoblie: PropTypes.bool.isRequired,
   }
 
   state = {
     menuVisible: false,
-    menuMode: 'horizontal',
   };
 
   componentDidMount() {
@@ -60,15 +60,6 @@ export default class Header extends React.Component {
     router.listen(this.handleHideMenu);
     const { searchInput } = this;
     /* eslint-disable global-require */
-    require('enquire.js')
-      .register('only screen and (min-width: 0) and (max-width: 992px)', {
-        match: () => {
-          this.setState({ menuMode: 'inline' });
-        },
-        unmatch: () => {
-          this.setState({ menuMode: 'horizontal' });
-        },
-      });
     document.addEventListener('keyup', (event) => {
       if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
@@ -119,7 +110,9 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { menuMode, menuVisible } = this.state;
+    const { menuVisible } = this.state;
+    const { isMoblie } = this.context;
+    const menuMode = isMoblie ? 'inline' : 'horizontal';
     const {
       location, themeConfig,
     } = this.props;
@@ -131,7 +124,6 @@ export default class Header extends React.Component {
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
-
     const { locale } = this.context.intl;
     const isZhCN = locale === 'zh-CN';
 
@@ -189,7 +181,7 @@ export default class Header extends React.Component {
     const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
-        {menuMode === 'inline' ? (
+        {isMoblie && (
           <Popover
             overlayClassName="popover-menu"
             placement="bottomRight"
@@ -205,20 +197,20 @@ export default class Header extends React.Component {
               onClick={this.handleShowMenu}
             />
           </Popover>
-        ) : null}
+        )}
         <Row>
-          <Col xxl={4} xl={5} lg={5} md={8} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={5} md={6} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <img alt="Ant Design" src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg" />
             </Link>
           </Col>
-          <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>
+          <Col xxl={20} xl={19} lg={19} md={18} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
               <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
             </div>
-            {menuMode === 'horizontal' ? menu : null}
+            {!isMoblie && menu}
           </Col>
         </Row>
       </header>
