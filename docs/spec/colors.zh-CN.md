@@ -32,6 +32,8 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 ### 中性色板
 
+中性色包含了黑、白、灰。在蚂蚁中后台的网页设计中被大量使用到，合理的选择中性色能够令页面信息具备良好的主次关系，助力阅读体验。Ant Design 的中心色板一共包含了从白到黑的 14 个颜色。
+
 `````__react
 import Palette from '../../site/theme/template/Color/Palette';
 
