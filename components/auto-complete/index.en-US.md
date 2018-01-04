@@ -33,7 +33,7 @@ const dataSource = ['12345', '23456', '34567'];
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
 | placeholder | placeholder of input | string | - |
 | value | selected option | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | - |
-| onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
+| onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |
 | onSearch | Called when searching items. | function(value) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | - |
 
