@@ -87,7 +87,7 @@ export default function Page2({ isMoblie }) {
           md={i === 2 ? 6 : 8}
           className={`block-image-wrapper${i % 2 ? ' right' : ''}`}
         >
-          <img src={item.img} style={isMoblie && i === 2 ? { marginLeft: 16 } : {}} />
+          <img src={item.img} style={isMoblie && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
         </Col>
         <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
           <h4>{item.name}</h4>
