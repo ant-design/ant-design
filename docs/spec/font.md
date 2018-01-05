@@ -50,13 +50,13 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 字阶和行高决定着一套字体系统的动态与秩序之美。字阶是指一系列有规律的不同尺寸的字体。行高可以理解为一个包裹在字体外面的无形的盒子。
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZgQWUJvIQGumfibqSzVz.png" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/xpykKKFJQorFJltdXkie.png" />
 </div>
 
 Ant Design 受到 5 音阶以及自然律的启发定义了 10 个不同尺寸的字体以及与之相对应的行高。
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/SSfldeRsKZxaRFaufoEd.png" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
 </div>
 
 在 Ant Design 的视觉体系中，我们建议的主要字体为 14，与之对应的行高为 22。其余的字阶的选择可根据具体情况进行自由的定义。建议在一个系统设计中（展示型页面除外），字阶的选择尽量控制在 3-5 种之间，保持克制的原则。
