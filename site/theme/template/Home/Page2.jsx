@@ -74,10 +74,10 @@ export default function Page2({ isMobile, locale }) {
   const componentButton = (
     <div key="b" className="components-button-wrapper">
       <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-        <FormattedMessage id="app.home.components-react" /> <Icon type="right" />
+        Ant Design of React <Icon type="right" />
       </Link>
       <a href="https://ng.ant.design/" target="_black">
-        <FormattedMessage id="app.home.components-angular" /> <Icon type="right" />
+        Ant Design of Angular <Icon type="right" />
       </a>
     </div>
   );
@@ -87,7 +87,7 @@ export default function Page2({ isMobile, locale }) {
     }
     const content = isMobile && !i ? componentButton : [
       <p key="p">{item.slogan}</p>,
-      <a key="a" href={item.link} target="_black"><FormattedMessage id="app.home.product-more" /> <Icon type="right" /></a>,
+      <a key="a" href={item.link} target="_black">learn more <Icon type="right" /></a>,
     ];
     return (
       <Row className="product-block" key={i.toString()}>
