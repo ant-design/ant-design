@@ -57,11 +57,11 @@ export default class MainContent extends React.Component {
     }
   }
 
-  componentDidUpdate(nextProps) {
-    if (!nextProps || nextProps.location.pathname !== this.props.location.pathname) {
+  componentDidUpdate(prevProps) {
+    if (!prevProps || prevProps.location.pathname !== this.props.location.pathname) {
       this.bindScroller();
     }
-    if (!window.location.hash && nextProps && nextProps.location.pathname !== this.props.location.pathname) {
+    if (!prevProps || (!window.location.hash && prevProps && prevProps.location.pathname !== this.props.location.pathname)) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
       return;
