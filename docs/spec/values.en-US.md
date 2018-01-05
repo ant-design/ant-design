@@ -6,13 +6,17 @@ title: Design Values
 
 For designers of Ant Design and designers who used Ant Design for product design, it provides the criteria for evaluation. At the same time, it inspires and inspires design principles and design patterns to provide guidance and general solutions to specific design issues
 
-![Overview](https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png" alt="Overview" />
+</div>
 
 About Design Values, Ant Design has something different:
 
 ## Nature
 
-![Nature](https://gw.alipayobjects.com/zos/rmsportal/cdaxgaTMQCGTqjdlwwgt.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/cdaxgaTMQCGTqjdlwwgt.png" alt="Nature" />
+</div>
 
 As a part of nature, it will have deep influence on user behavior, and designers should draw inspiration from it and apply it to current design work. We have done some exploration and will pursue "nature" as our future direction.
 
@@ -21,7 +25,9 @@ As a part of nature, it will have deep influence on user behavior, and designers
 
 ## Determine
 
-![Determine](https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Determine" />
+</div>
 
 The "designer" needs to make better design decisions and give the R & D team a high-definition, low-entropy R & D status. At the same time, different designers, based on a complete understanding of the business requirements, will have the same design output that is consistent with the current business characteristics based on the Ant Design system.
 

@@ -6,13 +6,17 @@ title: 设计价值观
 
 设计价值观为 Ant Design 的设计者以及基于 Ant Design 进行产品设计的设计者，提供评价设计好坏的内在标准，并提供有效的设计实践所遵循的规则。同时，它启示并激发了设计原则和设计模式，为具体的设计问题提供向导和一般解决方案。
 
-![总概](https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png" alt="总概" />
+</div>
 
 「在设计价值观的坚持上」，Ant Design 有两点与众不同：
 
 ## 自然
 
-![自然](https://gw.alipayobjects.com/zos/rmsportal/cdaxgaTMQCGTqjdlwwgt.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/cdaxgaTMQCGTqjdlwwgt.png" alt="自然" />
+</div>
 
 作为一份子，自然界的方方面面都会对用户行为产生深远影响，设计者应该从其中汲取灵感，并运用到当下的设计工作中。我们已做了部分探索，并将追求『自然』作为我们未来持之以恒的方向。
 
@@ -21,7 +25,9 @@ title: 设计价值观
 
 ## 确定
 
-![确定](https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png)
+<div>
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="确定" />
+</div>
 
 『设计者』需要做出更好的设计决策，给予研发团队一种高确定性、低熵值的研发状态。同时，不同设计者在充分理解业务述求后，基于 Ant Design 体系都会有相同且符合当前业务特性的设计产出。
 
