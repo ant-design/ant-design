@@ -61,6 +61,7 @@ const promoteBannerImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/qVVhew
 
 class Home extends React.Component {
   static contextTypes = {
+    intl: PropTypes.object.isRequired,
     isMoblie: PropTypes.bool.isRequired,
   }
   constructor(props) {
@@ -84,8 +85,8 @@ class Home extends React.Component {
     }
   }
   render() {
-    const { isMoblie } = this.context;
-    const childProps = { ...this.props, isMoblie };
+    const { isMoblie, intl } = this.context;
+    const childProps = { ...this.props, isMoblie, locale: intl.locale };
     const promoteBanner = this.state.adBannerClosed ? null : (
       <a href="http://seeconf.alipay.com/" className="promote-banner" onClick={this.makeAdBannerClosed}>
         <img

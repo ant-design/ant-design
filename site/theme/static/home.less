@@ -4,8 +4,7 @@
   width: 100%;
   padding: 0;
   overflow: hidden;
-  position: relative;
-  // will-change: transform;
+  position: relative; // will-change: transform;
   color: @home-text-color;
   font-family: 'SF UI Display', "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -273,9 +272,13 @@ svg {
 .page3 {
   min-height: 556px;
   &-block {
-    display: flex;
-    justify-content: center;
     padding: 24px 32px;
+    a {
+      display: flex;
+      justify-content: center;
+      color: @home-text-color;
+      text-decoration: none;
+    }
   }
   &-img-wrapper,
   &-text-wrapper {
