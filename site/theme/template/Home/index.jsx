@@ -58,7 +58,7 @@ function getStyle() {
 }
 
 const versionName = 'antd-noShowNewVersionVideo-3.0';
-const vidoeSrc = 'https://gw.alipayobjects.com/os/rmsportal/BGdVjjPjKQtvtEtRTMgv.mp4';
+const vidoeSrc = 'https://gw.alipayobjects.com/os/rmsportal/DNDyihnvkHUuANuumKck.mp4';
 // window.localStorage.setItem(versionName, 'false');
 class Home extends React.Component {
   static contextTypes = {
