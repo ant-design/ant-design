@@ -30,12 +30,12 @@ export default class Layout extends React.Component {
     router: PropTypes.object.isRequired,
   }
   static childContextTypes = {
-    isMoblie: PropTypes.bool,
+    isMobile: PropTypes.bool,
   };
 
   getChildContext() {
     return {
-      isMoblie: this.state.isMobile,
+      isMobile: this.state.isMobile,
     };
   }
 

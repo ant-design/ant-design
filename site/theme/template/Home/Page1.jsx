@@ -187,7 +187,7 @@ export default class Page1 extends React.PureComponent {
             component="svg"
             resetStyleBool={false}
           >
-            {(this.props.isMoblie || isHover) && this.getSvgChild(item.svgBg.props.children)}
+            {(this.props.isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
           </TweenOneGroup>
           <QueueAnim
             className="page1-block"

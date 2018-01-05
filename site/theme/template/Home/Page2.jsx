@@ -69,7 +69,7 @@ const svgBgChildArray = svgBgChild.map((item, i) => {
   const { props } = item;
   return React.cloneElement(item, { children: svgBgToParallax(props.children, i) });
 });
-export default function Page2({ isMoblie, locale }) {
+export default function Page2({ isMobile, locale }) {
   const isZhCN = locale === 'zh-CN';
   const componentButton = (
     <div key="b" className="components-button-wrapper">
@@ -82,10 +82,10 @@ export default function Page2({ isMoblie, locale }) {
     </div>
   );
   const children = page2Data.map((item, i) => {
-    if (!isMoblie && !i) {
+    if (!isMobile && !i) {
       return null;
     }
-    const content = isMoblie && !i ? componentButton : [
+    const content = isMobile && !i ? componentButton : [
       <p key="p">{item.slogan}</p>,
       <a key="a" href={item.link} target="_black">learn more <Icon type="right" /></a>,
     ];
@@ -96,7 +96,7 @@ export default function Page2({ isMoblie, locale }) {
           md={i === 2 ? 6 : 8}
           className={`block-image-wrapper${i % 2 ? ' right' : ''}`}
         >
-          <img src={item.img} style={isMoblie && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
+          <img src={item.img} style={isMobile && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
         </Col>
         <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
           <h4>{item.name}</h4>

@@ -48,7 +48,7 @@ export default class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
-    isMoblie: PropTypes.bool.isRequired,
+    isMobile: PropTypes.bool.isRequired,
   }
 
   state = {
@@ -111,8 +111,8 @@ export default class Header extends React.Component {
 
   render() {
     const { menuVisible } = this.state;
-    const { isMoblie } = this.context;
-    const menuMode = isMoblie ? 'inline' : 'horizontal';
+    const { isMobile } = this.context;
+    const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location, themeConfig,
     } = this.props;
@@ -181,7 +181,7 @@ export default class Header extends React.Component {
     const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
-        {isMoblie && (
+        {isMobile && (
           <Popover
             overlayClassName="popover-menu"
             placement="bottomRight"
@@ -210,7 +210,7 @@ export default class Header extends React.Component {
               <Icon type="search" />
               <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
             </div>
-            {!isMoblie && menu}
+            {!isMobile && menu}
           </Col>
         </Row>
       </header>

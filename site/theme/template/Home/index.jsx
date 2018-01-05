@@ -63,7 +63,7 @@ const vidoeSrc = 'https://gw.alipayobjects.com/os/rmsportal/DNDyihnvkHUuANuumKck
 class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
-    isMoblie: PropTypes.bool.isRequired,
+    isMobile: PropTypes.bool.isRequired,
   }
   constructor(props) {
     super(props);
@@ -81,8 +81,8 @@ class Home extends React.Component {
     }
   }
   render() {
-    const { isMoblie, intl } = this.context;
-    const childProps = { ...this.props, isMoblie, locale: intl.locale };
+    const { isMobile, intl } = this.context;
+    const childProps = { ...this.props, isMobile, locale: intl.locale };
     const noShowNewVersionVideo = this.state.noShowNewVersionVideo ? null : (
       <div className="new-version-video" key="video">
         <div className="vidoe-wrap">
@@ -101,9 +101,11 @@ class Home extends React.Component {
           <Page2 {...childProps} />
           <Page3 {...childProps} />
           <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
-          <Animate transitionName="fade">
-            {noShowNewVersionVideo}
-          </Animate>
+          {!isMobile && (
+            <Animate transitionName="fade">
+              {noShowNewVersionVideo}
+            </Animate>
+          )}
         </div>
       </DocumentTitle>
     );
