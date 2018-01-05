@@ -100,7 +100,7 @@ title:
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/qIwLlXOyJQlAqFwWSUuo.png" alt="正确示范" description="时间信息的表述精准完整。">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的『日』、『月』，容易让用户产生困扰。">
 
-<table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
+<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;">
   <tr>
     <th style="border-bottom: 2px solid #108ee9;width:20%;">使用</th>
     <th style="border-bottom: 2px solid #f04134;width:25%;">不使用</th>
@@ -244,7 +244,7 @@ title:
 
 ### 基本标点规范
 
-<table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
+<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;">
   <tr>
     <th>标点名称</th>
     <th>字符</th>
