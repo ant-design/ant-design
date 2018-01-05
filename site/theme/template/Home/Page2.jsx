@@ -2,8 +2,9 @@ import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-
+import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
+import * as utils from '../utils';
 
 import svgBgToParallax from './util';
 
@@ -16,16 +17,19 @@ const page2Data = [
     img: 'https://gw.alipayobjects.com/zos/rmsportal/EPaPtDVGnJhyqyBAUZMl.svg',
     name: 'Ant Design Pro',
     slogan: (<FormattedMessage id="app.home.product-pro-slogan" />),
+    link: 'https://pro.ant.design/index-cn',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/GobRAKexhfTSJdLFzDFY.svg',
     name: 'Ant Design Mobile',
     slogan: (<FormattedMessage id="app.home.product-mobile-slogan" />),
+    link: 'https://mobile.ant.design/index-cn',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
     name: 'AntV',
     slogan: (<FormattedMessage id="app.home.product-antv-slogan" />),
+    link: 'https://antv.alipay.com/zh-cn/index.html',
   },
 ];
 
@@ -65,11 +69,16 @@ const svgBgChildArray = svgBgChild.map((item, i) => {
   const { props } = item;
   return React.cloneElement(item, { children: svgBgToParallax(props.children, i) });
 });
-export default function Page2({ isMoblie }) {
+export default function Page2({ isMoblie, locale }) {
+  const isZhCN = locale === 'zh-CN';
   const componentButton = (
     <div key="b" className="components-button-wrapper">
-      <a>Ant Design of React <Icon type="right" /></a>
-      <a>Ant Design of Angular <Icon type="right" /></a>
+      <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+        Ant Design of React <Icon type="right" />
+      </Link>
+      <a href="https://ng.ant.design/" target="_black">
+        Ant Design of Angular <Icon type="right" />
+      </a>
     </div>
   );
   const children = page2Data.map((item, i) => {
@@ -78,7 +87,7 @@ export default function Page2({ isMoblie }) {
     }
     const content = isMoblie && !i ? componentButton : [
       <p key="p">{item.slogan}</p>,
-      <a key="a">learn more <Icon type="right" /></a>,
+      <a key="a" href={item.link} target="_black">learn more <Icon type="right" /></a>,
     ];
     return (
       <Row className="product-block" key={i.toString()}>
