@@ -81,7 +81,7 @@ For example, icons inline with 12pt font should be 12px in size with 8px of spac
 
 ### Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/POLtbudedSVkOBEtNedn.png" description="Colors demonstrated - @Black = #000000、@White = #FFFFFF、@Blue-6 = #1890FF">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LxGLhtnwvCqZWYqGDAAr.png" description="Colors demonstrated - @Black = #000000、@White = #FFFFFF、@Blue-6 = #1890FF">
 
 The color of the icon should be consistent the color of the surrounding copy, unless the icon is being used to express state (in which case it should be colored accordingly).
 
@@ -103,6 +103,6 @@ In normal use, there are 32px (minimum size), 48px and 64px (maximum size) three
 
 ### Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/KjXUhatKsjtoigPcLSbm.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wUxhTxZlHoTxDvneWBWO.png">
 
 There are two kinds of business icon, single-color (neutral color) and double-color (neutral color + primary color), the area of primary color does not exceed 40% of the entire icon.
