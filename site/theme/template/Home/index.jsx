@@ -3,7 +3,6 @@ import { injectIntl } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import PropTypes from 'prop-types';
 import Animate from 'rc-animate';
-import { Icon } from 'antd';
 import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
@@ -42,7 +41,7 @@ function getStyle() {
       max-width: 1200px;
       padding: 86px 24px 93px 24px;
       margin: auto;
-      
+
     }
     footer .bottom-bar{
       margin: auto;
@@ -58,7 +57,6 @@ function getStyle() {
   `;
 }
 
-const promoteBannerImageUrl = 'https://gw.alipayobjects.com/zos/rmsportal/qVVhewfLyIYZnqrBvfhy.png';
 const versionName = 'antd-noShowNewVersionVideo-3.0';
 const vidoeSrc = 'https://gw.alipayobjects.com/os/rmsportal/BGdVjjPjKQtvtEtRTMgv.mp4';
 // window.localStorage.setItem(versionName, 'false');
@@ -69,26 +67,10 @@ class Home extends React.Component {
   }
   constructor(props) {
     super(props);
-    const adBannerClosed = typeof window === 'undefined' ? true : (
-      window.localStorage &&
-      window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
-    );
     const noShowNewVersionVideo = typeof window === 'undefined' ? true : (
       window.localStorage && window.localStorage.getItem(versionName) === 'true'
     );
-    this.state = { adBannerClosed, noShowNewVersionVideo };
-  }
-  closePromoteBanner = (e) => {
-    e.preventDefault();
-    this.makeAdBannerClosed();
-  }
-  makeAdBannerClosed = () => {
-    this.setState({
-      adBannerClosed: true,
-    });
-    if (window.localStorage) {
-      window.localStorage.setItem(`adBannerClosed-${promoteBannerImageUrl}`, 'true');
-    }
+    this.state = { noShowNewVersionVideo };
   }
   onVideoEnd = () => {
     this.setState({
@@ -101,15 +83,6 @@ class Home extends React.Component {
   render() {
     const { isMoblie, intl } = this.context;
     const childProps = { ...this.props, isMoblie, locale: intl.locale };
-    const promoteBanner = this.state.adBannerClosed ? null : (
-      <a href="http://seeconf.alipay.com/" className="promote-banner" onClick={this.makeAdBannerClosed}>
-        <img
-          src={promoteBannerImageUrl}
-          alt="seeconf"
-        />
-        <Icon type="cross" title="close ad" onClick={this.closePromoteBanner} />
-      </a>
-    );
     const noShowNewVersionVideo = this.state.noShowNewVersionVideo ? null : (
       <div className="new-version-video" key="video">
         <div className="vidoe-wrap">
@@ -123,7 +96,6 @@ class Home extends React.Component {
     return (
       <DocumentTitle title={`Ant Design - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="main-wrapper">
-          {promoteBanner}
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
