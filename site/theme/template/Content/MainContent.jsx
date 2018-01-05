@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
-import MoblieMenu from 'rc-drawer-menu';
+import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -36,7 +36,7 @@ function fileNameToPath(filename) {
 export default class MainContent extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
-    isMoblie: PropTypes.bool.isRequired,
+    isMobile: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -218,7 +218,7 @@ export default class MainContent extends React.Component {
 
   render() {
     const { props } = this;
-    const { isMoblie } = this.context;
+    const { isMobile } = this.context;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
@@ -240,14 +240,14 @@ export default class MainContent extends React.Component {
     return (
       <div className="main-wrapper">
         <Row>
-          {isMoblie ? (
-            <MoblieMenu
+          {isMobile ? (
+            <MobileMenu
               iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
-              key="moblie-menu"
+              key="Mobile-menu"
               wrapperClassName="drawer-wrapper"
             >
               {menuChild}
-            </MoblieMenu>) : (
+            </MobileMenu>) : (
               <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
                 {menuChild}
               </Col>
