@@ -24,7 +24,7 @@ title:
 
 ## 确定
 
-todo...
+![确定](https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png)
 
 『设计者』需要做出更好的设计决策，给予研发团队一种高确定性、低熵值的研发状态。同时，不同设计者在充分理解业务述求后，基于 Ant Design 体系都会有相同且符合当前业务特性的设计产出。
 
