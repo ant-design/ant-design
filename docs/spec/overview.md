@@ -18,14 +18,14 @@ title:
 
 ![结构图](https://gw.alipayobjects.com/zos/rmsportal/NyWYOFQxJYElAwtUfSdv.png)
 
-完整的设计模式将会包含 ETC 三大实体部分，以及 Genneral Concepts 这样的黏合剂：
+完整的设计模式将会包含示例、模板、组件（ETC）三大实体部分，以及通用概念这样的黏合剂：
 
-- **Examples 功能范例：** 由多张模板构成，启发用户如何使用和搭建出一个常见功能
-- **Templates 模板：** 页面级示例，启发用户如何通过组件搭建出系统中的典型页面，eg：详情页
-- **Components 组件**
-  - Examples of Components 业务组件/模块：区块级示例，一般由多个组件构成，eg：PageHeader
-  - Basic Components 基础组件：构成系统最基础的元素，eg：Button、Pagination
-- **Genneral Concepts 通用概念：** 一些保证 ETC 体系化的约定，eg：文案
+- **功能范例：** 由多张模板构成，启发用户如何使用和搭建出一个常见功能。
+- **模板：** 页面级示例，启发用户如何通过组件搭建出系统中的典型页面，如：详情页。
+- **组件**
+  - 基础组件：构成系统最基础的元素，如按钮、分页器。
+  - 业务组件/模块：区块级示例，一般由多个组件构成，如 PageHeader 通用页头。
+- **通用概念：** 一些保证 ETC 体系化的约定，如：排版、字体、文案。
 
 ## 资源
 
