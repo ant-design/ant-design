@@ -180,7 +180,9 @@ export default class MainContent extends React.Component {
               if (child.type === 'type') {
                 return (
                   <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children.map(leaf => this.generateMenuItem(false, leaf))}
+                    {child.children.sort((a, b) => {
+                      return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+                    }).map(leaf => this.generateMenuItem(false, leaf))}
                   </Menu.ItemGroup>
                 );
               }
