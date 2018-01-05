@@ -4,6 +4,7 @@ import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { FormattedMessage } from 'react-intl';
+import GitHubButton from 'react-github-button';
 import BannerImage from './BannerImage';
 
 const loop = {
@@ -29,7 +30,7 @@ class Banner extends React.PureComponent {
               <ellipse id="Oval-9-Copy-4" cx="100" cy="100" rx="6" ry="6" stroke="#2F54EB" strokeWidth="1.6" />
             </TweenOne>
             <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: -15 }]}>
-              <g transform="translate(200 400)">
+              <g transform="translate(200 450)">
                 <g style={{ transformOrigin: '50% 50%', transform: 'rotate(-340deg)' }}>
                   <rect stroke="#FADB14" strokeWidth="1.6" width="9" height="9" />
                 </g>
@@ -54,6 +55,14 @@ class Banner extends React.PureComponent {
             <p key="p">
               <FormattedMessage id="app.home.introduce" />
             </p>
+            <div key="git" style={{ marginTop: 24 }}>
+              <GitHubButton
+                key="github-button"
+                type="stargazers"
+                namespace="ant-design"
+                repo="ant-design"
+              />
+            </div>
           </QueueAnim>
           {!isMoblie && (
             <div className="img-wrapper" key="image">
