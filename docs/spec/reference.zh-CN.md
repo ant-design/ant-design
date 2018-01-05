@@ -1,5 +1,5 @@
 ---
-category: 资源
+category: 其他
 order: 1
 title: 致敬
 ---

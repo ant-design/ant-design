@@ -1,7 +1,7 @@
 ---
-category: Resources
+category: Other
 order: 0
-title: Download
+title: Resources
 ---
 
 Please find below some of the design resources and tools about Ant Design that we consider valuable. More of this is still being collected.

@@ -1,5 +1,5 @@
 ---
-category: Resources
+category: Other
 order: 1
 title: Reference
 ---

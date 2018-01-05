@@ -23,7 +23,7 @@ module.exports = {
     'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': 'A UI Design Language',
-    'app.home.introduce': 'A design system for enterprise applications. Based on design values of "Determinacy" and "Nature", let designers focus on "a better user experience" by modular solution.',
+    'app.home.introduce': 'A design system with values of Nature and Determinacy for better user experience of enterprise applications',
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',
     'app.home.components-explain': 'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications,including the official React implementation and Angular, Vue implementations',

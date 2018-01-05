@@ -36,8 +36,8 @@ module.exports = {
       Visual: 2,
       模式: 3,
       Patterns: 3,
-      资源: 6,
-      Resources: 6,
+      其他: 6,
+      Other: 6,
       Components: 100,
     },
     typeOrder: {
