@@ -55,14 +55,16 @@ class Banner extends React.PureComponent {
             <p key="p">
               <FormattedMessage id="app.home.introduce" />
             </p>
-            <div key="git" style={{ marginTop: 24 }}>
-              <GitHubButton
-                key="github-button"
-                type="stargazers"
-                namespace="ant-design"
-                repo="ant-design"
-              />
-            </div>
+            {!isMobile && (
+              <div key="git" style={{ marginTop: 24 }}>
+                <GitHubButton
+                  key="github-button"
+                  type="stargazers"
+                  namespace="ant-design"
+                  repo="ant-design"
+                />
+              </div>
+            )}
           </QueueAnim>
           {!isMobile && (
             <div className="img-wrapper" key="image">
