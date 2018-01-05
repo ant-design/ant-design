@@ -7,7 +7,7 @@ title: Design Values
 For designers of Ant Design and designers who used Ant Design for product design, it provides the criteria for evaluation. At the same time, it inspires and inspires design principles and design patterns to provide guidance and general solutions to specific design issues
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png" alt="Overview" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/kEwBspjVFChYqhqafCiW.png" />
 </div>
 
 About Design Values, Ant Design has something different:
