@@ -7,7 +7,7 @@ title: 下载
 这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。
 
 <div class="resource-cards">
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Template.sketch" class="resource-card">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.3.0.Components.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
     </div>
