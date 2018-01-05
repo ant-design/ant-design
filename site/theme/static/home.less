@@ -5,7 +5,7 @@
   padding: 0;
   overflow: hidden;
   position: relative;
-  will-change: transform;
+  // will-change: transform;
   color: @home-text-color;
   font-family: 'SF UI Display', "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +22,13 @@
       text-align: center;
       font-weight: 400;
       margin: 140px auto 100px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      will-change: transform;
     }
   }
 }

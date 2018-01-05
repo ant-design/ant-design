@@ -39,7 +39,7 @@ const svgChildren = svgBgToParallax(svgBg);
 const children = page3Data.map((item, i) => (
   <Col key={i.toString()} md={8} xs={24} className="page3-block">
     <div className="page3-img-wrapper">
-      <img src={item.img} />
+      <img src={item.img} alt="icon" />
     </div>
     <div className="page3-text-wrapper">
       <h3>{item.title}</h3>

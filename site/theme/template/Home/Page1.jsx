@@ -193,7 +193,7 @@ export default class Page1 extends React.PureComponent {
             onMouseLeave={this.onMouseOut}
           >
             <div className="page1-image">
-              <img src={item.img} />
+              <img src={item.img} alt="icon" />
             </div>
             <h3 >{item.name}</h3>
             <p>{item.nameEn}</p>
