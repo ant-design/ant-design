@@ -110,7 +110,7 @@ title:
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DrKzGoqfLRtrPuZaHUiq.png" alt="正确示例" description="重要的失败信息建议使用对话框形式提示并告知失败原因。">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/akPBJQUiUWNsULtGOnyx.png" alt="错误示例" description="重要的失败信息时不建议使用轻量级提示方式。">
 
-由于反馈浮层的展示时长较短（默认 4.5s），对于比较重要的失败通知，建议改用对话框的形式进行通知，以避免用户遗漏信息。
+由于反馈浮层的展示时长较短（默认 3s），对于比较重要的失败通知，建议改用对话框的形式进行通知，以避免用户遗漏信息。
 
 ### 对话框反馈
 
