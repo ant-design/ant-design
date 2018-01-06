@@ -15,21 +15,15 @@ function getStyle() {
     }
     #header {
       box-shadow: none;
-      max-width: 1200px;
       width: 100%;
-      margin: 20px auto 0;
-      padding: 0 24px;
+    }
+    #header #search-box {
+      display: none;
     }
     #header,
     #header .ant-select-selection,
     #header .ant-menu {
       background: transparent;
-    }
-    #header #logo {
-      padding: 0;
-    }
-    #header .ant-row > div:last-child, #header .nav-phone-icon{
-      display: none;
     }
     footer .footer-wrap{
       width: 100%;

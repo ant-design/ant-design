@@ -210,7 +210,11 @@ export default class Header extends React.Component {
               <Icon type="search" />
               <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
             </div>
-            {!isMobile && menu}
+            {!isMobile && (
+              <div id="header-menu">
+                {menu}
+              </div>
+            )}
           </Col>
         </Row>
       </header>
