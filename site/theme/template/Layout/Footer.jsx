@@ -162,7 +162,7 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">AntD Library</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">Axure Library</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
