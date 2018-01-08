@@ -178,7 +178,7 @@ $ yarn add react-app-rewire-less --dev
   const { getLoader } = require("react-app-rewired");
 + const rewireLess = require('react-app-rewire-less');
 
-  module.exports = function override(config,env) {
+  module.exports = function override(config, env) {
     const tsLoader = getLoader(
       config.module.rules,
       rule =>
