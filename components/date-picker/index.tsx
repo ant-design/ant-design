@@ -69,6 +69,7 @@ export interface RangePickerProps extends PickerProps {
     [range: string]: moment.Moment[],
   };
   placeholder?: [string, string];
+  mode?: string | string[];
   disabledTime?: (current: moment.Moment, type: string) => {
     disabledHours?: () => number[],
     disabledMinutes?: () => number[],
