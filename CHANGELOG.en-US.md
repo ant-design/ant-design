@@ -19,13 +19,15 @@ timeline: true
 
 `2018-01-08`
 
-- 🐞 Add contextMenu event for trigger prop in the TypeScript definition of Dropdown. [#8646](https://github.com/ant-design/ant-design/issues/8646) [@cjahv](https://github.com/cjahv)
+- 🐞 Fix contextMenu event for trigger prop in the TypeScript definition of Dropdown. [#8646](https://github.com/ant-design/ant-design/issues/8646) [@cjahv](https://github.com/cjahv)
 - 🐞 Fix HOC in Button not inserted space between chinese words.
 - 🐞 Fix the style compatibility in IE 11 for List Component. [#8784](https://github.com/ant-design/ant-design/issues/8784)
 - 🐞 Fix notFoundContent prop not working for Select Component. [#8809](https://github.com/ant-design/ant-design/issues/8809)
 - 🐞 Fix the warning for BackTop Component in React 16. [#8848](https://github.com/ant-design/ant-design/issues/8848)
 - 🐞 Fix unexpedted scrollbar for List Component when setting gutter. [#8799](https://github.com/ant-design/ant-design/issues/8799)
-- 🌟 Anchor.Link supports complete href link.
+- 🐞 Fix to support complete href link for Anchor.Link Component. [#8808](https://github.com/ant-design/ant-design/issues/8808)
+- 👻 Published the new site and docs.
+- 👻 Updated the docs of real project with dva. [5dcf1c0](https://github.com/ant-design/ant-design/commit/5dcf1c015fc2674adb09434bf766549d6f3f0022)
 
 ## 3.1.0
 
