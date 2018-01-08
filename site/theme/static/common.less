@@ -34,6 +34,7 @@ a {
   overflow: hidden;
   border-left: 1px solid @site-border-color-split;
   position: relative;
+  margin-left: -1px;
 }
 
 .main-menu {
@@ -43,7 +44,6 @@ a {
 .aside-container {
   padding-bottom: 50px;
   font-family: Lato, @font-family;
-  border: none;
 
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
@@ -118,6 +118,9 @@ a {
   overflow: hidden;
   padding: 0;
   width: 100%;
+  a {
+    text-decoration: none;
+  }
 }
 
 .drawer-content {
