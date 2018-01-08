@@ -19,6 +19,9 @@ timeline: true
 
 `2018-01-08`
 
+- 📖 Published the new site and design guideline.
+- 📖 Updated the guideline of real project with dva. [5dcf1c0](https://github.com/ant-design/ant-design/commit/5dcf1c015fc2674adb09434bf766549d6f3f0022)
+- 📖 Published the new sketch resource of Ant Design 3.0. [22dfe88](https://github.com/ant-design/ant-design/commit/22dfe88ab043c1e116382fc96b7d78cabf125054)
 - 🐞 Fix contextMenu event for trigger prop in the TypeScript definition of Dropdown. [#8646](https://github.com/ant-design/ant-design/issues/8646) [@cjahv](https://github.com/cjahv)
 - 🐞 Fix HOC in Button not inserted space between chinese words.
 - 🐞 Fix the style compatibility in IE 11 for List Component. [#8784](https://github.com/ant-design/ant-design/issues/8784)
@@ -27,9 +30,6 @@ timeline: true
 - 🐞 Fix unexpedted scrollbar for List Component when setting gutter. [#8799](https://github.com/ant-design/ant-design/issues/8799)
 - 🐞 Fix to support complete href link for Anchor.Link Component. [#8808](https://github.com/ant-design/ant-design/issues/8808)
 - 🐞 Fix to make Chinese quote more readable. [c6fcc31](https://github.com/ant-design/ant-design/commit/c6fcc3121758dfe6ac5b50c1b55790eb42b805c5)
-- 👻 Published the new site and docs.
-- 👻 Updated the docs of real project with dva. [5dcf1c0](https://github.com/ant-design/ant-design/commit/5dcf1c015fc2674adb09434bf766549d6f3f0022)
-- 👻 Published the new sketch resource of Ant Design 3.0. [22dfe88](https://github.com/ant-design/ant-design/commit/22dfe88ab043c1e116382fc96b7d78cabf125054)
 
 ## 3.1.0
 
