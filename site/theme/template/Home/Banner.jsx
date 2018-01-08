@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
+import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import GitHubButton from 'react-github-button';
 import BannerImage from './BannerImage';
+import * as utils from '../utils';
 
 const loop = {
   duration: 3000,
@@ -14,6 +16,9 @@ const loop = {
 };
 
 class Banner extends React.PureComponent {
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  }
   static propTypes = {
     className: PropTypes.string,
   }
@@ -22,6 +27,8 @@ class Banner extends React.PureComponent {
   }
   render() {
     const { className, isMobile } = this.props;
+    const { locale } = this.context.intl;
+    const isZhCN = locale === 'zh-CN';
     return (
       <div className="home-page-wrapper banner-wrapper" id="banner">
         <div className="banner-bg-wrapper">
@@ -56,13 +63,21 @@ class Banner extends React.PureComponent {
               <FormattedMessage id="app.home.introduce" />
             </p>
             {!isMobile && (
-              <div key="git" style={{ marginTop: 24 }}>
-                <GitHubButton
-                  key="github-button"
-                  type="stargazers"
-                  namespace="ant-design"
-                  repo="ant-design"
-                />
+              <div key="buttons" style={{ marginTop: 24 }}>
+                <Link className="banner-btn components" to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                  <FormattedMessage id="app.home.getting-started" />
+                </Link>
+                <Link className="banner-btn language" to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+                  <FormattedMessage id="app.home.design-language" />
+                </Link>
+                <div style={{ display: 'inline-block' }}>
+                  <GitHubButton
+                    key="github-button"
+                    type="stargazers"
+                    namespace="ant-design"
+                    repo="ant-design"
+                  />
+                </div>
               </div>
             )}
           </QueueAnim>

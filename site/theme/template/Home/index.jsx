@@ -28,8 +28,19 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child, #header .nav-phone-icon{
+    #header .ant-row > div:last-child #search-box,
+    #header .ant-row > div:last-child .ant-select,
+    #header .ant-row > div:last-child .ant-menu,
+    #header .nav-phone-icon {
       display: none;
+    }
+    #header .ant-row > div:last-child .header-lang-button {
+      margin-right: 0;
+    }
+    #header .ant-row .ant-col-lg-19,
+    #header .ant-row .ant-col-xl-19 {
+      width: 50%;
+      float: right;
     }
     footer .footer-wrap{
       width: 100%;

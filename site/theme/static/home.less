@@ -63,7 +63,7 @@
   .text-wrapper {
     width: 54%;
     max-width: 560px;
-    min-height: 320px;
+    min-height: 336px;
     color: #0d1a26;
     h1 {
       font-size: 68px;
@@ -85,6 +85,25 @@
     position: absolute;
     right: 0;
     bottom: 26px;
+  }
+
+  .banner-btn {
+    padding: 0 24px;
+    border-radius: 100px;
+    font-size: 16px;
+    line-height: 40px;
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+    margin-right: 16px;
+  }
+  .banner-btn.components {
+    background: #2f54eb;
+    color: #fff;
+  }
+  .banner-btn.language {
+    border: 1px solid #2f54eb;
+    color: #2f54eb;
   }
 }
 
@@ -133,7 +152,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 46px auto 32px;
+    margin: 46px auto 40px;
     transition: transform .45s @ease-out, box-shadow .45s @ease-out;
     img {
       display: block;
@@ -172,6 +191,7 @@ svg {
     min-height: 554px;
   }
   &-components {
+    position: initial;
     background: @home-bg-color;
     padding: 56px;
     color: #fff;
@@ -198,6 +218,8 @@ svg {
     padding: 48px 56px;
     .product-block {
       margin-bottom: 34px;
+      cursor: pointer;
+      color: @home-text-color;
       &:last-child {
         margin-bottom: 0;
         .block-text-wrapper {
@@ -218,7 +240,7 @@ svg {
           line-height: 24px;
           margin-bottom: 24px;
         }
-        a {
+        .more {
           display: inline-block;
           line-height: 22px;
           color: @home-bg-color;
@@ -240,6 +262,12 @@ svg {
         &.right {
           float: right;
           justify-content: flex-end;
+        }
+      }
+
+      &:hover {
+        h4 {
+          color: @home-bg-color;
         }
       }
     }
@@ -278,6 +306,11 @@ svg {
       justify-content: center;
       color: @home-text-color;
       text-decoration: none;
+    }
+    &:hover {
+      h3 {
+        color: @home-bg-color;
+      }
     }
   }
   &-img-wrapper,
