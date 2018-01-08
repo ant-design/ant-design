@@ -27,7 +27,7 @@ timeline: true
 - 🐞 Fix the style compatibility in IE 11 for List Component. [#8784](https://github.com/ant-design/ant-design/issues/8784)
 - 🐞 Fix notFoundContent prop not working for Select Component. [#8809](https://github.com/ant-design/ant-design/issues/8809)
 - 🐞 Fix the warning for BackTop Component in React 16. [#8848](https://github.com/ant-design/ant-design/issues/8848)
-- 🐞 Fix unexpedted scrollbar for List Component when setting gutter. [#8799](https://github.com/ant-design/ant-design/issues/8799)
+- 🐞 Fix unexpected scrollbar for List Component when setting gutter. [#8799](https://github.com/ant-design/ant-design/issues/8799)
 - 🐞 Fix to support complete href link for Anchor.Link Component. [#8808](https://github.com/ant-design/ant-design/issues/8808)
 - 🌟 Optimize the font family of Chinese quote. [c6fcc31](https://github.com/ant-design/ant-design/commit/c6fcc3121758dfe6ac5b50c1b55790eb42b805c5)
 
