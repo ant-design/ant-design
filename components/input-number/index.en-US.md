@@ -31,5 +31,5 @@ When a numeric value needs to be provided.
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

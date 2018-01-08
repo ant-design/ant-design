@@ -51,13 +51,12 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 
-
 ### Common Methods
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |
 
 ### DatePicker
 
@@ -71,8 +70,8 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday | whether to show "Today" button | boolean | true |
 | value | to set date | [moment](http://momentjs.com/) | - |
-| onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 | onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
+| onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
 | onOk | callback when click ok button | function() | - |
 
 ### MonthPicker
@@ -82,9 +81,9 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | defaultValue | to set default date | [moment](http://momentjs.com/) | - |
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM" |
 | monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
+| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | - |
-| renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 
 ### WeekPicker
 

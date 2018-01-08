@@ -114,7 +114,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   }
   render() {
     const { props, state } = this;
-    const { prefixCls, className, options } = props;
+    const { prefixCls, className, style, options } = props;
     let children = props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
@@ -133,7 +133,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
 
     const classString = classNames(prefixCls, className);
     return (
-      <div className={classString}>
+      <div className={classString} style={style}>
         {children}
       </div>
     );

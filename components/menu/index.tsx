@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -105,6 +106,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     };
   }
   componentWillReceiveProps(nextProps: MenuProps, nextContext: SliderContext) {
+    const { prefixCls } = this.props;
     if (this.props.mode === 'inline' &&
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
@@ -115,7 +117,8 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
-      this.switchModeFromInline = !!this.state.openKeys.length;
+      this.switchModeFromInline =
+        !!this.state.openKeys.length && !!findDOMNode(this).querySelectorAll(`.${prefixCls}-submenu-open`).length;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
@@ -148,8 +151,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   }
   getRealMenuMode() {
     const inlineCollapsed = this.getInlineCollapsed();
-    if (this.switchModeFromInline && inlineCollapsed && this.leaveAnimationExecutedWhenInlineCollapsed) {
-      this.leaveAnimationExecutedWhenInlineCollapsed = false;
+    if (this.switchModeFromInline && inlineCollapsed) {
       return 'inline';
     }
     const { mode } = this.props;
@@ -188,8 +190,6 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
             leave: (node: HTMLElement, done: () => void) => animation.leave(node, () => {
               // Make sure inline menu leave animation finished before mode is switched
               this.switchModeFromInline = false;
-              // Fix https://github.com/ant-design/ant-design/issues/8475
-              this.leaveAnimationExecutedWhenInlineCollapsed = true;
               this.setState({});
               // when inlineCollapsed change false to true, all submenu will be unmounted,
               // so that we don't need handle animation leaving.

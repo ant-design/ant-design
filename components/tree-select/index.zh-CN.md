@@ -48,9 +48,9 @@ title: TreeSelect
 ### Tree 方法
 
 | 名称 | 描述 |
-| ---- | ----------- |
-| focus() | 获取焦点 |
+| --- | --- |
 | blur() | 移除焦点 |
+| focus() | 获取焦点 |
 
 ### TreeNode props
 

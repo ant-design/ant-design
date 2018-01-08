@@ -17,7 +17,7 @@ Radio.
 
 | Property | Description | Type | optional | Default |
 | -------- | ----------- | ---- | -------- | ------- |
-| autoFocus | get focus when component mounted | boolean | false |
+| autoFocus | get focus when component mounted | boolean | false |  |
 | checked | Specifies whether the radio is selected. | boolean |  | false |
 | defaultChecked | Specifies the initial state: whether or not the radio is selected. | boolean |  | false |
 | disabled | Disable radio | boolean |  | false |
@@ -43,5 +43,5 @@ radio group，wrap a group of `Radio`。
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |

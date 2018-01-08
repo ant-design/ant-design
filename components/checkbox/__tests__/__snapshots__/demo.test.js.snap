@@ -257,6 +257,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
   </div>
   <br />
+  <br />
   <div
     class="ant-checkbox-group"
   >
@@ -316,6 +317,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
       </span>
     </label>
   </div>
+  <br />
   <br />
   <div
     class="ant-checkbox-group"
@@ -385,6 +387,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
 exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
 <div
   class="ant-checkbox-group"
+  style="width:100%"
 >
   <div
     class="ant-row"

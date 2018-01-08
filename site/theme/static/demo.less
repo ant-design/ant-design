@@ -231,8 +231,21 @@
     overflow: hidden;
   }
 
+  &-codesandbox {
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
   .highlight-wrapper:hover &-code-copy,
   .highlight-wrapper:hover &-codepen,
+  .highlight-wrapper:hover &-codesandbox,
   .highlight-wrapper:hover &-riddle {
     opacity: 1;
   }

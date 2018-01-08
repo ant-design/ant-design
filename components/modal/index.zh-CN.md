@@ -22,6 +22,7 @@ title: Modal
 | cancelText | 取消按钮文字 | string | 取消 |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | confirmLoading | 确定按钮 loading | boolean | 无 |
+| destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
 | mask | 是否展示遮罩 | Boolean | true |
@@ -38,10 +39,9 @@ title: Modal
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 | onOk | 点击确定回调 | function(e) | 无 |
 
-#### 清空旧数据
+#### 注意
 
-> `<Modal />` 组件有标准的 React 生命周期，关闭后状态不会自动清空。
-> 如果希望每次打开都是新内容，需要自行手动清空旧的状态。
+> `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
 
 ### Modal.method()
 
@@ -58,6 +58,7 @@ title: Modal
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | cancelText | 取消按钮文字 | string | 取消 |
+| className | 容器类名 | string | - |
 | content | 内容 | string\|ReactNode | 无 |
 | iconType | 图标 Icon 类型 | string | question-circle |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |

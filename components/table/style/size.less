@@ -55,6 +55,15 @@
       }
     }
 
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
+      padding: 0;
+    }
+
     .@{table-prefix-cls}-header {
       background: @component-background;
     }
@@ -67,14 +76,6 @@
 
   &.@{table-prefix-cls}-bordered {
     border-right: 0;
-
-    .@{table-prefix-cls}-header > table,
-    .@{table-prefix-cls}-body > table,
-    .@{table-prefix-cls}-fixed-left table,
-    .@{table-prefix-cls}-fixed-right table {
-      border: 0;
-      padding: 0;
-    }
 
     .@{table-prefix-cls}-title {
       border: 0;

@@ -55,8 +55,8 @@ When need to mention someone or something.
 
 | Name | Description |
 | ---- | ----------- |
-| focus() | get focus |
 | blur() | remove focus |
+| focus() | get focus |
 
 ### Nav
 
