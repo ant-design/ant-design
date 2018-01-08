@@ -3,5 +3,7 @@ title: Features
 ---
 
 `````__react
-window.location.href = '/docs/spec/values';
+if (typeof window !== 'undefined') {
+  window.location.href = '/docs/spec/values';
+}
 `````
