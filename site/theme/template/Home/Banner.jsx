@@ -70,7 +70,7 @@ class Banner extends React.PureComponent {
                 <Link className="banner-btn language" to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
                   <FormattedMessage id="app.home.design-language" />
                 </Link>
-                <div style={{ display: 'inline-block' }}>
+                <div className="github-btn">
                   <GitHubButton
                     key="github-button"
                     type="stargazers"
