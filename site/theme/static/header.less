@@ -7,7 +7,7 @@
   box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   position: relative;
   z-index: 10;
-
+  max-width: 100%;
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
     border-bottom-color: #ebedee;
@@ -48,7 +48,7 @@
 }
 
 #search-box {
-  border-left: 1px solid #ebedee;
+  border-left: 1px solid @site-border-color-split;
   float: left;
   height: 22px;
   line-height: 22px;
@@ -62,20 +62,17 @@
   top: 0.5px;
 }
 
-#search-box .ant-select {
+#search-box input {
   font-size: 14px;
   margin-top: -5px;
   width: 200px;
-}
-
-#search-box .ant-select-selection {
   border: 0;
   box-shadow: none;
-}
+  background: transparent;
 
-#search-box .ant-input {
-  border: 0;
-  box-shadow: none;
+  &::placeholder {
+    color: #a3b1bf;
+  }
 }
 
 .header-lang-button,

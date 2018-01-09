@@ -69,11 +69,13 @@ export interface RangePickerProps extends PickerProps {
     [range: string]: moment.Moment[],
   };
   placeholder?: [string, string];
+  mode?: string | string[];
   disabledTime?: (current: moment.Moment, type: string) => {
     disabledHours?: () => number[],
     disabledMinutes?: () => number[],
     disabledSeconds?: () => number[],
   };
+  onPanelChange?: (value?: moment.Moment[], mode?: string | string[]) => void;
 }
 
 export interface WeexPickerProps extends PickerProps, SinglePickerProps {

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -86,7 +87,18 @@ export default class Button extends React.Component<ButtonProps, any> {
     this.state = {
       loading: props.loading,
       clicked: false,
+      hasTwoCNChar: false,
     };
+  }
+
+  componentDidMount() {
+    // Fix for HOC usage like <FormatMessage />
+    const buttonText = (findDOMNode(this) as HTMLElement).innerText;
+    if (this.isNeedInserted() && isTwoCNChar(buttonText)) {
+      this.setState({
+        hasTwoCNChar: true,
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps: ButtonProps) {
@@ -125,12 +137,18 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
   }
 
+  isNeedInserted() {
+    const { loading, icon, children } = this.props;
+    const iconType = loading ? 'loading' : icon;
+    return React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
+  }
+
   render() {
     const {
       type, shape, size, className, htmlType, children, icon, prefixCls, ghost, ...others,
     } = this.props;
 
-    const { loading, clicked } = this.state;
+    const { loading, clicked, hasTwoCNChar } = this.state;
 
     // large => lg
     // small => sm
@@ -155,12 +173,13 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
     });
 
     const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
-    const needInserted = React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
-    const kids = children ? React.Children.map(children, child => insertSpace(child, needInserted)) : null;
+    const kids = children
+      ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted())) : null;
 
     return (
       <ComponentProp

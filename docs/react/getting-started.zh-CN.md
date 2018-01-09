@@ -165,7 +165,9 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 
 如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试。理论上你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates) 进行开发，如果遇到问题可参考我们所使用的 [webpack 配置](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) 进行 [定制](http://ant-tool.github.io/webpack-config.html)。
 
-目前社区也有很多基于 antd 定制的 [脚手架](https://github.com/ant-design/ant-design/issues/129)，欢迎进行试用和贡献。
+如果你使用 [parcel](https://parceljs.org)，这里也有 [一个例子](https://github.com/ant-design/parcel-antd) 可以参考。
+
+目前社区也有很多基于 antd 定制的 [脚手架](http://scaffold.ant.design/)，欢迎进行试用和贡献。
 
 ## 按需加载
 

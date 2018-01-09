@@ -60,6 +60,7 @@ The properties of the object are follows:
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | cancelText | Text of the Cancel button | string | `Cancel` |
+| className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
 | iconType | Icon `type` of the Icon component | string | `question-circle` |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |

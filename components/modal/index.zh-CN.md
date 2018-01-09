@@ -58,6 +58,7 @@ title: Modal
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | cancelText | 取消按钮文字 | string | 取消 |
+| className | 容器类名 | string | - |
 | content | 内容 | string\|ReactNode | 无 |
 | iconType | 图标 Icon 类型 | string | question-circle |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | `false` |
