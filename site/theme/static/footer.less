@@ -2,32 +2,13 @@
 
 @padding-space: 144px;
 
-footer.dark {
-  background-color: #000;
-  color: rgba(255, 255, 255, 0.65);
-  a {
-    color: rgba(255, 255, 255, 0.9);
-  }
-  h2 {
-    color: rgba(255, 255, 255, 1);
-    & > span {
-      color: rgba(255, 255, 255, 1);
-    }
-  }
-  .bottom-bar {
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-    overflow: hidden;
-  }
-}
-
 footer {
-  border-top: 1px solid @border-color;
   clear: both;
   font-size: 14px;
-  background: #fff;
+  background-color: #000;
   position: relative;
   z-index: 100;
-  color: @site-text-color;
+  color: rgba(255, 255, 255, 0.65);
   box-shadow: 0 1000px 0 1000px #fff;
   .ant-row {
     text-align: center;
@@ -60,13 +41,14 @@ footer {
   .footer-wrap {
     position: relative;
     padding: 86px @padding-space 93px @padding-space;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   }
   .bottom-bar {
-    border-top: 1px solid @border-color;
     text-align: right;
     padding: 16px @padding-space;
     margin: 0;
     line-height: 32px;
+    overflow: hidden;
     a {
       color: rgba(255, 255, 255, 0.65);
       &:hover {
@@ -75,6 +57,15 @@ footer {
     }
     .translate-button {
       text-align: left;
+    }
+  }
+  a {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  h2 {
+    color: rgba(255, 255, 255, 1);
+    & > span {
+      color: rgba(255, 255, 255, 1);
     }
   }
 }

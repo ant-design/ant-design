@@ -84,7 +84,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer id="footer" className="dark">
+      <footer id="footer">
         <div className="footer-wrap">
           <Row>
             <Col md={6} sm={24} xs={24}>
