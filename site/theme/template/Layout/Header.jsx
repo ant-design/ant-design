@@ -24,6 +24,13 @@ function initDocSearch(locale) {
     indexName: 'ant_design',
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
+    transformData(hits) {
+      hits.forEach((hit) => {
+        hit.url = hit.url.replace('ant.design', location.host);
+        hit.url = hit.url.replace('https:', location.protocol);
+      });
+      return hits;
+    },
     debug: false, // Set debug to true if you want to inspect the dropdown
   });
 }
