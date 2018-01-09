@@ -42,9 +42,12 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 }
 
 const reqAnimFrame = getRequestAnimationFrame();
+const sharpMatcherRegx = /#([^#]+)$/;
 function scrollTo(href: string, offsetTop = 0, target: () => Window | HTMLElement, callback = () => { }) {
   const scrollTop = getScroll(target(), true);
-  const targetElement = document.getElementById(href.substring(1));
+  const sharpLinkMatch = sharpMatcherRegx.exec(href);
+  if (!sharpLinkMatch) { return; }
+  const targetElement = document.getElementById(sharpLinkMatch[1]);
   if (!targetElement) {
     return;
   }
@@ -172,7 +175,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
     const linkSections: Array<Section> = [];
     this.links.forEach(link => {
-      const target = document.getElementById(link.substring(1));
+      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
+      if (!sharpLinkMatch) { return; }
+      const target = document.getElementById(sharpLinkMatch[1]);
       if (target && getOffsetTop(target) < offsetTop + bounds) {
         const top = getOffsetTop(target);
         linkSections.push({
