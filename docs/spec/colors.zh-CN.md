@@ -20,7 +20,7 @@ Ant Design 系统级色彩体系同样源于『自然』的设计价值观。设
 
 ### 基础色板
 
-Ant Design 的基础色板共计 120 个颜色，包含 12 个主色以及它们衍生色。这些颜色基本可以包含中后台设计中对于颜色的需求。
+Ant Design 的基础色板共计 120 个颜色，包含 12 个主色以及衍生色。这些颜色基本可以满足中后台设计中对于颜色的需求。
 
 `````__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
