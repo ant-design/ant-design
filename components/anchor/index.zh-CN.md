@@ -18,7 +18,7 @@ title: Anchor
 
 | 成员 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| affix | 固定模式 | boolean | false |
+| affix | 固定模式 | boolean | true |
 | bounds | 锚点区域边界 | number | 5(px) |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number |  |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number |  |
