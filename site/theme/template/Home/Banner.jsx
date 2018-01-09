@@ -63,21 +63,20 @@ class Banner extends React.PureComponent {
               <FormattedMessage id="app.home.introduce" />
             </p>
             {!isMobile && (
-              <div key="buttons" style={{ marginTop: 24 }}>
+              <div className="banner-btns" key="buttons">
                 <Link className="banner-btn components" to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
                   <FormattedMessage id="app.home.getting-started" />
                 </Link>
                 <Link className="banner-btn language" to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
                   <FormattedMessage id="app.home.design-language" />
                 </Link>
-                <div className="github-btn">
-                  <GitHubButton
-                    key="github-button"
-                    type="stargazers"
-                    namespace="ant-design"
-                    repo="ant-design"
-                  />
-                </div>
+                <GitHubButton
+                  key="github-button"
+                  size="large"
+                  type="stargazers"
+                  namespace="ant-design"
+                  repo="ant-design"
+                />
               </div>
             )}
           </QueueAnim>
