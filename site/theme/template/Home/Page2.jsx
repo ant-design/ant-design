@@ -87,22 +87,24 @@ export default function Page2({ isMobile, locale }) {
     }
     const content = isMobile && !i ? componentButton : [
       <p key="p">{item.slogan}</p>,
-      <a key="a" href={item.link} target="_black">learn more <Icon type="right" /></a>,
+      <span className="more" key="a"><FormattedMessage id="app.home.more" /> <Icon type="right" /></span>,
     ];
     return (
-      <Row className="product-block" key={i.toString()}>
-        <Col
-          xs={8}
-          md={i === 2 ? 6 : 8}
-          className={`block-image-wrapper${i % 2 ? ' right' : ''}`}
-        >
-          <img src={item.img} style={isMobile && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
-        </Col>
-        <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
-          <h4>{item.name}</h4>
-          {content}
-        </Col>
-      </Row>
+      <a className="product-block" key={item.name} href={item.link} style={{ display: 'block' }}>
+        <Row>
+          <Col
+            xs={8}
+            md={i === 2 ? 6 : 8}
+            className={`block-image-wrapper${i % 2 ? ' right' : ''}`}
+          >
+            <img src={item.img} style={isMobile && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
+          </Col>
+          <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
+            <h4>{item.name}</h4>
+            {content}
+          </Col>
+        </Row>
+      </a>
     );
   });
   return (

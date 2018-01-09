@@ -15,15 +15,32 @@ function getStyle() {
     }
     #header {
       box-shadow: none;
+      max-width: 1200px;
       width: 100%;
-    }
-    #header #search-box {
-      display: none;
+      margin: 20px auto 0;
+      padding: 0 24px;
     }
     #header,
     #header .ant-select-selection,
     #header .ant-menu {
       background: transparent;
+    }
+    #header #logo {
+      padding: 0;
+    }
+    #header .ant-row > div:last-child #search-box,
+    #header .ant-row > div:last-child .ant-select,
+    #header .ant-row > div:last-child .ant-menu,
+    #header .nav-phone-icon {
+      display: none;
+    }
+    #header .ant-row > div:last-child .header-lang-button {
+      margin-right: 0;
+    }
+    #header .ant-row .ant-col-lg-19,
+    #header .ant-row .ant-col-xl-19 {
+      width: 50%;
+      float: right;
     }
     footer .footer-wrap{
       width: 100%;

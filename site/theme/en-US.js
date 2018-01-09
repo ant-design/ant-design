@@ -37,6 +37,8 @@ module.exports = {
     'app.home.tool-library-content': 'Beautifully visual Axure library',
     'app.home.tool-kitchen-title': 'Kitchen (comming soon)',
     'app.home.tool-kitchen-content': 'A Sketch tools for designers',
+    'app.home.getting-started': 'Getting Started',
+    'app.home.more': 'Learn more',
     'app.footer.repo': 'GitHub Repository',
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.chinamirror': 'China Mirror 🇨🇳',

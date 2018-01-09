@@ -28,7 +28,7 @@ title: Select
 | autoFocus | 默认获取焦点 | boolean | false |
 | combobox | 输入框自动提示模式（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
-| defaultValue | 指定默认选中的条目 | string\|string\[] | - |
+| defaultValue | 指定默认选中的条目 | string\|string\[]\|number\|number\[] | - |
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
@@ -49,7 +49,7 @@ title: Select
 | size | 选择框大小，可选 `large` `small` | string | default |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
-| value | 指定当前选中的条目 | string\|string\[] | - |
+| value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value) | - |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(value) | - |
@@ -76,7 +76,7 @@ title: Select
 | disabled | 是否禁用 | boolean | false |
 | key | 和 value 含义一致。如果 React 需要你设置此项，此项值与 value 的值相同，然后可以省略 value 设置 | string |  |
 | title | 选中该 Option 后，Select 的 title | string | - |
-| value | 默认根据此属性值进行筛选 | string | - |
+| value | 默认根据此属性值进行筛选 | string\|number | - |
 
 ### OptGroup props
 

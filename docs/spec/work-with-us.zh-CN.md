@@ -11,8 +11,6 @@ title: 加入我们
 ```__react
 const emails = [
   'lindong.lld#alipay.com',
-  'momo.zxy#alipay.com',
-  'luli.fxx#alipay.com',
 ];
 ReactDOM.render(
   <p>作品和简历请投递：{emails[parseInt(Math.random() * emails.length, 10)]}</p>

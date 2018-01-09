@@ -24,22 +24,6 @@ function initDocSearch(locale) {
     indexName: 'ant_design',
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
-    transformData(hits) {
-      if (lang === 'cn') {
-        const categories = {
-          Components: '组件',
-          Documentation: '文档',
-        };
-        return hits.map((hit) => {
-          const category = categories[hit.hierarchy.lvl0];
-          hit.hierarchy.lvl0 = category;
-          hit._highlightResult.hierarchy.lvl0.value = category; // eslint-disable-line
-          hit._highlightResult.hierarchy_camel[0].lvl0.value = category; // eslint-disable-line
-          return hit;
-        });
-      }
-      return hits;
-    },
     debug: false, // Set debug to true if you want to inspect the dropdown
   });
 }
@@ -210,11 +194,7 @@ export default class Header extends React.Component {
               <Icon type="search" />
               <Input ref={ref => this.searchInput = ref} placeholder={searchPlaceholder} />
             </div>
-            {!isMobile && (
-              <div id="header-menu">
-                {menu}
-              </div>
-            )}
+            {!isMobile && menu}
           </Col>
         </Row>
       </header>

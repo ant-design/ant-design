@@ -200,8 +200,7 @@ export default class Page1 extends React.PureComponent {
             <div className="page1-image">
               <img src={item.img} alt="icon" />
             </div>
-            <h3 >{item.name}</h3>
-            <p>{item.nameEn}</p>
+            <h3 >{isZhCN ? item.name : item.nameEn}</h3>
           </QueueAnim>
         </Col>
       );

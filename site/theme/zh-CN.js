@@ -37,6 +37,8 @@ module.exports = {
     'app.home.tool-library-content': '一套精美得像视觉稿的 Axure 组件库',
     'app.home.tool-kitchen-title': 'Kitchen（敬请期待）',
     'app.home.tool-kitchen-content': '一个为设计师提效的 Sketch 工具集',
+    'app.home.getting-started': '开始使用',
+    'app.home.more': '查看更多',
     'app.footer.repo': 'GitHub 仓库',
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.chinamirror': '国内镜像站点 🇨🇳',
