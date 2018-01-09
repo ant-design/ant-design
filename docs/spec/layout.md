@@ -50,7 +50,7 @@ Ant Design 通过网格体系来实现视觉体系的秩序。网格的基数为
 
 Ant Design 采用 24 栅格体系。以 1440 上下布局的结构为例，对宽度为 1168 的内容区域 进行 24 栅格的划分设置，如下图所示。我们为页面中栅格的 Gutter 设定了定值，即浏览器在一定范围扩大或缩小，栅格的 Column 宽度会随之扩大或缩小，但 Gutter 的宽度值固定不变。
 
-![栅格 layout](https://gw.alipayobjects.com/zos/rmsportal/TGgqrjNNHljnktGrafre.png)
+![栅格 layout](https://gw.alipayobjects.com/zos/rmsportal/YPUZpPCzFgQHVxXCIAzq.png)
 
 对开发者而言栅格是实现动态布局的手段，而设计师对于栅格的理解源自平面设计中的栅格。在具体落地中视角的不同就容易造成偏差，最终影响还原度，继而增加沟通成本。
 
