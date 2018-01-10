@@ -6,6 +6,7 @@ TweenOne.plugins.push(PathPlugin);
 const duration = 7000;
 const ease = 'easeInOutSine';
 const p = 'M123.5,89.5 C148,82.5 239.5,48.5 230,17.5 C220.5,-13.5 127,6 99.5,13.5 C72,21 -9.5,56.5 1.5,84.5 C12.5,112.5 99,96.5 123.5,89.5 Z';
+const easePath = 'M0,100 C7.33333333,89 14.3333333,81.6666667 21,78 C25.3601456,75.6019199 29.8706084,72.9026327 33,70 C37.0478723,66.2454406 39.3980801,62.0758689 42.5,57 C48,46.5 61.5,32.5 70,28 C77.5,23.5 81.5,20 86.5,16 C89.8333333,13.3333333 94.3333333,8 100,0';
 const loop = {
   yoyo: true,
   repeat: -1,
@@ -17,7 +18,7 @@ const animate = {
     path: { x: p, y: p },
     duration: 5000,
     repeat: -1,
-    ease: 'linear',
+    ease: TweenOne.easing.path(easePath, { lengthPixel: 400 }),
   },
   rotate: {
     ...loop,

@@ -137,7 +137,7 @@
     "rc-drawer-menu": "^0.5.3",
     "rc-queue-anim": "^1.4.1",
     "rc-scroll-anim": "^2.2.1",
-    "rc-tween-one": "^1.7.1",
+    "rc-tween-one": "^1.7.2",
     "react": "^16.0.0",
     "react-color": "^2.11.7",
     "react-copy-to-clipboard": "^5.0.0",
