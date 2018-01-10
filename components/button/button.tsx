@@ -38,7 +38,7 @@ export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'default' | 'large';
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLProps<Button> {
   type?: ButtonType;
   htmlType?: string;
   icon?: string;
