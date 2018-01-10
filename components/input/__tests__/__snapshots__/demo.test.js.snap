@@ -484,7 +484,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       class="ant-input ant-input-disabled"
       disabled=""
       placeholder="~"
-      style="width:24px;border-left:0;pointer-events:none;background-color:#fff"
+      style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
       type="text"
     />
     <input
