@@ -65,6 +65,9 @@
     max-width: 560px;
     min-height: 336px;
     color: #0d1a26;
+    > * {
+      will-change: transform;
+    }
     h1 {
       font-size: 68px;
       font-weight: 600;
@@ -86,13 +89,11 @@
     right: 0;
     bottom: 26px;
   }
-
   .banner-btns {
     display: flex;
     align-items: center;
     margin-top: 24px;
   }
-
   .banner-btn {
     padding: 0 24px;
     border-radius: 100px;
@@ -271,7 +272,6 @@ svg {
           justify-content: flex-end;
         }
       }
-
       &:hover {
         h4 {
           color: @home-bg-color;

@@ -22,7 +22,7 @@ export interface TimePickerProps {
   className?: string;
   size?: 'large' | 'default' | 'small';
   value?: moment.Moment;
-  defaultValue?: moment.Moment;
+  defaultValue?: moment.Moment | moment.Moment[];
   open?: boolean;
   format?: string;
   onChange?: (time: moment.Moment, timeString: string) => void;
