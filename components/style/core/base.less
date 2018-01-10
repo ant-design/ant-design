@@ -2,7 +2,7 @@
 
 // Reboot
 //
-// Normalization of HTML elements, manually forked from Normalize.css to emove
+// Normalization of HTML elements, manually forked from Normalize.css to remove
 // styles targeting irrelevant browsers while applying new styles.
 //
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
@@ -25,7 +25,7 @@ html, body {
   .square(100%);
 }
 
-// emove the clear button of a text input control in IE10+
+// remove the clear button of a text input control in IE10+
 input::-ms-clear, input::-ms-reveal {
   display: none;
 }
@@ -67,7 +67,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 // Body
 //
-// 1. emove the margin in all browsers.
+// 1. remove the margin in all browsers.
 // 2. As a best practice, apply a default `body-background`.
 
 body {
@@ -103,7 +103,7 @@ hr {
 // Typography
 //
 
-// emove top margins from headings
+// remove top margins from headings
 //
 // By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 // margin for easier control within type scales as it avoids margin collapsing.
@@ -125,7 +125,7 @@ p {
 
 // Abbreviations
 //
-// 1. emove the bottom border in Firefox 39-.
+// 1. remove the bottom border in Firefox 39-.
 // 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
 // 3. Add explicit cursor to indicate changed behavior.
 // 4. Duplicate behavior to the data-* attribute for our tooltip plugin
@@ -213,12 +213,12 @@ sup { top: -.5em; }
 
 a {
   color: @link-color;
-  background-color: transparent; // emove the gray background on active links in IE 10.
+  background-color: transparent; // remove the gray background on active links in IE 10.
   text-decoration: @link-decoration;
   outline: none;
   cursor: pointer;
   transition: color .3s;
-  -webkit-text-decoration-skip: objects; // emove gaps in links underline in iOS 8+ and Safari 8+.
+  -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
 
   &:focus {
     text-decoration: underline;
@@ -259,7 +259,7 @@ samp {
 }
 
 pre {
-  // emove browser default top margin
+  // remove browser default top margin
   margin-top: 0;
   // Reset browser default of `1em` to use `em`s
   margin-bottom: 1em;
@@ -281,7 +281,7 @@ figure {
 
 img {
   vertical-align: middle;
-  border-style: none; // emove the border on images inside links in IE 10-.
+  border-style: none; // remove the border on images inside links in IE 10-.
 }
 
 svg:not(:root) {
@@ -291,7 +291,7 @@ svg:not(:root) {
 // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
 //
 // In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch devices and IE Mobile 10-11
-// DON'T emove the click delay when `<meta name="viewport" content="width=device-width">` is present.
+// DON'T remove the click delay when `<meta name="viewport" content="width=device-width">` is present.
 // However, they DO support emoving the click delay via `touch-action: manipulation`.
 // See:
 // * https://getbootstrap.com/docs/4.0/content/reboot/#click-delay-optimization-for-touch
@@ -341,7 +341,7 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0; // emove the margin in Firefox and Safari
+  margin: 0; // remove the margin in Firefox and Safari
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -355,7 +355,7 @@ input {
 
 button,
 select {
-  text-transform: none; // emove the inheritance of text transform in Firefox
+  text-transform: none; // remove the inheritance of text transform in Firefox
 }
 
 // 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
@@ -368,7 +368,7 @@ html [type="button"], // 1
   -webkit-appearance: button; // 2
 }
 
-// emove inner border and padding from Firefox, but don't restore the outline like Normalize.
+// remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -380,14 +380,14 @@ button::-moz-focus-inner,
 input[type="radio"],
 input[type="checkbox"] {
   box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
-  padding: 0; // 2. emove the padding in IE 10-
+  padding: 0; // 2. remove the padding in IE 10-
 }
 
 input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
-  // emove the default appearance of temporal inputs to avoid a Mobile Safari
+  // remove the default appearance of temporal inputs to avoid a Mobile Safari
   // bug where setting a custom line-height prevents text from being vertically
   // centered within the input.
   // See https://bugs.webkit.org/show_bug.cgi?id=139848
@@ -396,7 +396,7 @@ input[type="month"] {
 }
 
 textarea {
-  overflow: auto; // emove the default vertical scrollbar in IE.
+  overflow: auto; // remove the default vertical scrollbar in IE.
   // Textareas should really only resize vertically so they don't break their (horizontal) containers.
   resize: vertical;
 }
@@ -448,7 +448,7 @@ progress {
 }
 
 //
-// emove the inner padding and cancel buttons in Chrome and Safari on macOS.
+// remove the inner padding and cancel buttons in Chrome and Safari on macOS.
 //
 
 [type="search"]::-webkit-search-cancel-button,
