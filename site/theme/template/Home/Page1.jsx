@@ -57,7 +57,7 @@ const page1Data = [
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/YFXXZocxAgjReehpPNbX.svg',
     name: '可视化',
-    nameEn: 'Visualisation',
+    nameEn: 'Visualization',
     to: '/docs/spec/visual',
     svgBg: (
       <svg width="215px" height="286px" viewBox="0 0 215 286" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" style={{ transform: 'translateX(-30px)' }}>
