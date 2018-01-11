@@ -112,9 +112,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - 手动引入
 
    ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // 加载 JS
-   import 'antd/lib/date-picker/style/css';        // 加载 CSS
-   // import 'antd/lib/date-picker/style';         // 加载 LESS
+   import DatePicker from 'antd/es/date-picker';  // 加载 JS
+   import 'antd/es/date-picker/style/css';        // 加载 CSS
+   // import 'antd/es/date-picker/style';         // 加载 LESS
    ```
 
 ## 链接
