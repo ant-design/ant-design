@@ -85,15 +85,17 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): any;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): any;
-  validateFields(options: Object, callback: ValidateCallback): any;
-  validateFields(callback: ValidateCallback): any;
+  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(options: Object, callback: ValidateCallback): void;
+  validateFields(callback: ValidateCallback): void;
+  validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
   validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
   validateFieldsAndScroll(callback?: ValidateCallback): void;
+  validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   getFieldsError(names?: Array<string>): Object;
