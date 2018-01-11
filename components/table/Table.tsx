@@ -948,7 +948,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={() => locale.emptyText}
+        emptyText={locale.emptyText}
       />
     );
   }
