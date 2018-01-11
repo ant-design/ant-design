@@ -9,6 +9,7 @@ export interface InputNumberProps {
   value?: number;
   step?: number | string;
   defaultValue?: number;
+  tabIndex?: number;
   onKeyDown?: React.FormEventHandler<any>;
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
