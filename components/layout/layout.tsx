@@ -7,6 +7,7 @@ export interface BasicProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  hasSider?: boolean;
 }
 
 function generator(props: BasicProps) {
@@ -58,9 +59,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
   }
 
   render() {
-    const { prefixCls, className, children, ...others } = this.props;
+    const { prefixCls, className, children, hasSider, ...others } = this.props;
     const divCls = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]: this.state.siders.length > 0,
+      [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
       <div className={divCls} {...others}>{children}</div>
