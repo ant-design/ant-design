@@ -169,7 +169,7 @@ export default class Header extends React.Component {
       </Menu>,
     ];
 
-    const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
+    const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
     return (
       <header id="header" className={headerClassName}>
         {isMobile && (
