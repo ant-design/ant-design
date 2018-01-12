@@ -174,9 +174,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       this.getValidateStatus() :
       props.validateStatus;
 
-    let classes = '';
+    let classes = `${this.props.prefixCls}-item-control`;
     if (validateStatus) {
-      classes = classNames({
+      classes = classNames(`${this.props.prefixCls}-item-control`, {
         'has-feedback': props.hasFeedback || validateStatus === 'validating',
         'has-success': validateStatus === 'success',
         'has-warning': validateStatus === 'warning',
@@ -185,7 +185,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       });
     }
     return (
-      <div className={`${this.props.prefixCls}-item-control ${classes}`}>
+      <div className={classes}>
         {c1}{c2}{c3}
       </div>
     );
