@@ -250,16 +250,9 @@ form {
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
   .@{ant-prefix}-input-group-wrapper {
+    vertical-align: middle;
     position: relative;
-    top: (@form-component-max-height - @input-height-base) / 2;
-
-    &.@{ant-prefix}-input-group-wrapper-lg {
-      top: (@form-component-max-height - @input-height-lg) / 2;
-    }
-
-    &.@{ant-prefix}-input-group-wrapper-sm {
-      top: (@form-component-max-height - @input-height-sm) / 2;
-    }
+    top: -1px;
   }
 }
 
