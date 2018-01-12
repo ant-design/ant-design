@@ -322,6 +322,20 @@ form {
   .make-vertical-layout-label();
 }
 
+.@{form-prefix-cls}-vertical {
+  .@{form-prefix-cls}-item {
+    padding-bottom: 8px;
+  }
+  .@{form-prefix-cls}-item-control {
+    line-height: @line-height-base;
+  }
+  .@{form-prefix-cls}-explain,
+  .@{form-prefix-cls}-extra {
+    margin-top: 2px;
+    margin-bottom: -4px;
+  }
+}
+
 @media (max-width: @screen-xs-max) {
   .make-vertical-layout();
   .@{ant-prefix}-col-xs-24.@{form-prefix-cls}-item-label {
