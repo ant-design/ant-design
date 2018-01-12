@@ -33,7 +33,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 
 > 参考自：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 
-另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体设置为 `Helvetica Neue`，使其为等宽字体。
+另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体设置为 `Tahoma`，使其为等宽字体。
 
 > 技术方案：http://stackoverflow.com/questions/13611420/set-a-font-specifically-for-all-numbers-on-the-page
 
