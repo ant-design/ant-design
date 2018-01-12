@@ -1250,7 +1250,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               class="ant-switch"
@@ -1280,7 +1280,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               class="ant-switch"
@@ -1310,7 +1310,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1341,7 +1341,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1372,7 +1372,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1403,7 +1403,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1434,7 +1434,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1465,7 +1465,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               checked=""
@@ -1496,7 +1496,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <span
               class="ant-switch"
@@ -1526,7 +1526,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           class="ant-form-item-control-wrapper"
         >
           <div
-            class="ant-form-item-control "
+            class="ant-form-item-control"
           >
             <div
               class="ant-radio-group ant-radio-group-default"
