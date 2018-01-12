@@ -84,10 +84,10 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer id="footer" className="dark">
+      <footer id="footer">
         <div className="footer-wrap">
           <Row>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>Ant Design</h2>
                 <div>
@@ -141,7 +141,7 @@ class Footer extends React.Component {
                 </div>
               </div>
             </Col>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.resources" /></h2>
                 <div>
@@ -162,7 +162,7 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">AntD Library</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">Axure Library</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
@@ -173,7 +173,7 @@ class Footer extends React.Component {
                 </div>
               </div>
             </Col>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.community" /></h2>
                 <div>
@@ -218,7 +218,7 @@ class Footer extends React.Component {
                 </div>
               </div>
             </Col>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
                   <img className="title-icon" src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg" alt="" />
@@ -239,8 +239,8 @@ class Footer extends React.Component {
           </Row>
         </div>
         <Row className="bottom-bar">
-          <Col lg={4} sm={24} />
-          <Col lg={20} sm={24}>
+          <Col md={4} sm={24} />
+          <Col md={20} sm={24}>
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
             >

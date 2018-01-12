@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
@@ -19,9 +20,23 @@ if (typeof window !== 'undefined') {
   /* eslint-enable global-require */
 }
 
+let isMobile = false;
+enquireScreen((b) => {
+  isMobile = b;
+});
+
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
+  }
+  static childContextTypes = {
+    isMobile: PropTypes.bool,
+  };
+
+  getChildContext() {
+    return {
+      isMobile: this.state.isMobile,
+    };
   }
 
   constructor(props) {
@@ -31,6 +46,7 @@ export default class Layout extends React.Component {
     addLocaleData(appLocale.data);
     this.state = {
       appLocale,
+      isMobile,
     };
   }
 
@@ -47,6 +63,12 @@ export default class Layout extends React.Component {
         nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
       }, 0);
     }
+
+    enquireScreen((b) => {
+      this.setState({
+        isMobile: !!b,
+      });
+    });
   }
 
   componentWillUnmount() {

@@ -18,6 +18,7 @@ export interface AbstractInputProps {
   className?: string;
   defaultValue?: any;
   value?: any;
+  tabIndex?: number;
   style?: React.CSSProperties;
 }
 

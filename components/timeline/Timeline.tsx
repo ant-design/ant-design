@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
+import Icon from '../icon';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -30,7 +31,12 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       }),
     );
     const pendingItem = (!!pending) ? (
-      <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
+      <TimelineItem
+        pending={!!pending}
+        dot={<Icon type="loading" />}
+      >
+        {pendingNode}
+      </TimelineItem>
     ) : null;
     return (
       <ul {...restProps} className={classString}>

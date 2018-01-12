@@ -167,7 +167,10 @@ If you want to customize your work flow, we recommend using [webpack](http://web
 
 Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in the React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
 
-There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) which have already integrated antd, so you can try and start with one of these, and even contribute.
+If you are trying [parcel](https://parceljs.org), here is [a demo repository](https://github.com/ant-design/parcel-antd).
+
+There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these, and even contribute.
+
 
 ## Import on Demand
 

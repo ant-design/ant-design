@@ -1,5 +1,5 @@
 ---
-category: 设计原则
+category: 原则
 order: 8
 title: 提供邀请
 ---
@@ -21,20 +21,18 @@ title: 提供邀请
 
 <br>
 
-<img class="preview-img" align="right" alt="文本邀请示例" src="https://os.alipayobjects.com/rmsportal/pWnlJpbkCPIaKdP.png">
+<img class="preview-img" align="right" alt="文本邀请示例" src="https://gw.alipayobjects.com/zos/rmsportal/ZeMSbCHmvWETbssJHRvo.png">
 
-<img class="preview-img" align="right" alt="白板式邀请示例" src="https://os.alipayobjects.com/rmsportal/DkOYgfJHDuzhyBg.png">
+<img class="preview-img" align="right" alt="白板式邀请示例" src="https://gw.alipayobjects.com/zos/rmsportal/PHxVAFKncyXDCFUJInbB.png">
 
-<img class="preview-img" align="right" alt="未完成邀请示例" src="https://os.alipayobjects.com/rmsportal/cojQlWfINmsVDGd.png">
+<img class="preview-img" align="right" alt="未完成邀请示例" src="https://gw.alipayobjects.com/zos/rmsportal/ChvxJAQTwWbqzBnUBLec.png">
 
 引导操作邀请：一般以静态说明形式出现在页面上，不过它们在视觉上也可以表现出多种不同样式。
 常见类型：『文本邀请』、『白板式邀请』、『未完成邀请』。
 
 <br>
 
-<img class="preview-img" align="right" alt="漫游探索邀请示例 1" description="在用户首次登录时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://os.alipayobjects.com/rmsportal/TGnzYViseCoFBYL.png">
-
-<img class="preview-img" align="right" alt="漫游探索邀请示例 2" src="https://os.alipayobjects.com/rmsportal/KQabdaTbolVuMld.png">
+<img class="preview-img" align="right" alt="漫游探索邀请示例 " description="在用户首次登录时出现少量『探索点』，当用户点击『我知道了』，能快速切换到下一个探索点。" src="https://gw.alipayobjects.com/zos/rmsportal/dMrVeJJiaCLzoYfJrJKe.png">
 
 漫游探索邀请：是向用户介绍新功能的好方法，尤其是对于那些设计优良的界面。但是它不是『创口贴』，仅通过它不能解决界面交互的真正问题。
 
@@ -51,16 +49,16 @@ title: 提供邀请
 
 <br>
 
-<img class="preview-img" align="right" alt="悬停邀请示例 1" description="鼠标『悬停』整个卡片时，可被点击部分变为蓝色的『文字链』。" src="https://os.alipayobjects.com/rmsportal/gzfDJLcETyTOfFg.png">
+<img class="preview-img" align="right" alt="悬停邀请示例 1" description="鼠标『悬停』整个卡片时，可被点击部分变为蓝色的『文字链』。" src="https://gw.alipayobjects.com/zos/rmsportal/ejvYAogJXLPqoMUqyvIV.png">
 
-<img class="preview-img" align="right" alt="悬停邀请示例 2" description="鼠标『悬停』时，出现『选择此模板』的按钮。" src="https://os.alipayobjects.com/rmsportal/tdJWZFIDWYuMVIe.png">
+<img class="preview-img" align="right" alt="悬停邀请示例 2" description="鼠标『悬停』时，出现『选择此模板』的按钮。" src="https://gw.alipayobjects.com/zos/rmsportal/umGVwLlIJSmxaQXcjlbh.png">
 
 悬停邀请：在鼠标悬停期间提供邀请。
 
 
 <br>
 
-<img class="preview-img" align="right" alt="推论邀请示例" description="用户点击『赞』后，同时系统分析（既然用户喜欢这篇文章，那么可能对这一类文章都有兴趣）并提供开启『精打细算』的邀请。" src="https://os.alipayobjects.com/rmsportal/SyurwytfcvpbNLG.png">
+<img class="preview-img" align="right" alt="推论邀请示例" description="用户点击『赞』后，同时系统分析（既然用户喜欢这篇文章，那么可能对这一类文章都有兴趣）并提供开启『精打细算』的邀请。" src="https://gw.alipayobjects.com/zos/rmsportal/iuLdCuNQWCvYuTxxQUuL.png">
 
 推论邀请：用于交互期间，合理推断用户可能产生的需求。
 

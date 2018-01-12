@@ -29,12 +29,12 @@ a {
 
 .main-container {
   padding: 0 170px 144px 64px;
-  margin-left: -1px;
   background: #fff;
   min-height: 500px;
   overflow: hidden;
-  border-left: 1px solid #e9e9e9;
+  border-left: 1px solid @site-border-color-split;
   position: relative;
+  margin-left: -1px;
 }
 
 .main-menu {
@@ -113,6 +113,14 @@ a {
 
 #react-content {
   transition: transform .3s @ease-in-out-circ;
+}
+.page-wrapper {
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
 }
 
 .drawer-content {

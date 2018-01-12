@@ -85,9 +85,6 @@ input[type="checkbox"] {
     line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
     .clearfix;
-    > * {
-      font-size: @font-size-base;
-    }
   }
 
   &-with-help {
@@ -253,16 +250,9 @@ form {
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
   .@{ant-prefix}-input-group-wrapper {
+    vertical-align: middle;
     position: relative;
-    top: (@form-component-max-height - @input-height-base) / 2;
-
-    &.@{ant-prefix}-input-group-wrapper-lg {
-      top: (@form-component-max-height - @input-height-lg) / 2;
-    }
-
-    &.@{ant-prefix}-input-group-wrapper-sm {
-      top: (@form-component-max-height - @input-height-sm) / 2;
-    }
+    top: -1px;
   }
 }
 
@@ -323,6 +313,20 @@ form {
 .@{ant-prefix}-col-24.@{form-prefix-cls}-item-label,
 .@{ant-prefix}-col-xl-24.@{form-prefix-cls}-item-label {
   .make-vertical-layout-label();
+}
+
+.@{form-prefix-cls}-vertical {
+  .@{form-prefix-cls}-item {
+    padding-bottom: 8px;
+  }
+  .@{form-prefix-cls}-item-control {
+    line-height: @line-height-base;
+  }
+  .@{form-prefix-cls}-explain,
+  .@{form-prefix-cls}-extra {
+    margin-top: 2px;
+    margin-bottom: -4px;
+  }
 }
 
 @media (max-width: @screen-xs-max) {
