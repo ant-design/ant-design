@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DatePicker, { RangePicker } from '../';
+import DatePicker from '../';
+
+const { RangePicker } = DatePicker;
 
 describe('DatePicker with showTime', () => {
   it('should trigger onChange when select value', () => {

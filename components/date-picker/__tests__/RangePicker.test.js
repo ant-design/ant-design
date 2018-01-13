@@ -1,8 +1,10 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
-import { RangePicker } from '../';
+import DatePicker from '../';
 import focusTest from '../../../tests/shared/focusTest';
+
+const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
   focusTest(RangePicker);

@@ -8,7 +8,12 @@ const usePreact = process.env.REACT_ENV === 'preact';
 function alertBabelConfig(rules) {
   rules.forEach((rule) => {
     if (rule.loader && rule.loader === 'babel-loader') {
-      rule.options.plugins.push(replaceLib);
+      if (rule.options.plugins.indexOf(replaceLib) === -1) {
+        rule.options.plugins.push(replaceLib);
+      }
+      rule.options.plugins = rule.options.plugins.filter(plugin =>
+        !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
+      );
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }
