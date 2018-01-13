@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.1.3
+
+`2019-01-14`
+
+- 🐞 Fix error when passing `null` `locale` to LocaleProvider.
+
 ## 3.1.2
 
 `2018-01-13`
