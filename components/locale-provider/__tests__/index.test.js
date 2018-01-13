@@ -153,5 +153,7 @@ describe('Locale Provider', () => {
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setState({ locale: frFR });
     expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setState({ locale: null });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

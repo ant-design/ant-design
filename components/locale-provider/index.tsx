@@ -58,7 +58,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   componentWillReceiveProps(nextProps: LocaleProviderProps) {
     const { locale } = this.props;
     const nextLocale = nextProps.locale;
-    if (locale.locale !== nextLocale.locale) {
+    if (locale !== nextLocale) {
       setMomentLocale(nextProps.locale);
     }
   }
