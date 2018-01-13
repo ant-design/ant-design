@@ -14,6 +14,7 @@ export interface DropDownProps {
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   prefixCls?: string;
   className?: string;
+  transitionName?: string;
   placement?: 'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
   forceRender?: boolean;
 }
@@ -28,7 +29,10 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   };
 
   getTransitionName() {
-    const { placement = '' } = this.props;
+    const { placement = '', transitionName } = this.props;
+    if (transitionName !== undefined) {
+      return transitionName;
+    }
     if (placement.indexOf('top') >= 0) {
       return 'slide-down';
     }
