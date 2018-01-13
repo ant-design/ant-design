@@ -15,12 +15,12 @@ title: 项目实战
 
 ## 安装 dva-cli
 
-通过 npm 安装 dva-cli 并确保版本是 `0.9.1` 或以上。
+通过 npm 安装 dva-cli 并确保版本是 `0.9.2` 或以上。
 
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-dva-cli version 0.9.1
+dva-cli version 0.9.2
 ```
 
 ## 创建新应用
@@ -63,7 +63,7 @@ To create a production build, use npm run build.
 $ npm install antd babel-plugin-import --save
 ```
 
-编辑 `.webpackrc`，使 `babel-plugin-import` 插件生效。
+编辑 `.roadhog`，使 `babel-plugin-import` 插件生效。
 
 ```diff
 +  "extraBabelPlugins": [
