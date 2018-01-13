@@ -1,6 +1,3 @@
-import * as moment from 'moment';
-moment.locale('zh-tw');
-
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
 import DatePicker from '../date-picker/locale/zh_TW';
 import TimePicker from '../time-picker/locale/zh_TW';

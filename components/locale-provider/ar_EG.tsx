@@ -1,6 +1,3 @@
-import * as moment from 'moment';
-moment.locale('ar');
-
 import Pagination from 'rc-pagination/lib/locale/ar_EG';
 import DatePicker from '../date-picker/locale/ar_EG';
 import TimePicker from '../time-picker/locale/ar_EG';
