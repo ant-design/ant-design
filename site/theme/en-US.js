@@ -35,7 +35,7 @@ module.exports = {
     'app.home.tool-package-content': 'Ant Design Resources Download',
     'app.home.tool-library-title': 'Axure Library',
     'app.home.tool-library-content': 'Beautifully visual Axure library',
-    'app.home.tool-kitchen-title': 'Kitchen (comming soon)',
+    'app.home.tool-kitchen-title': 'Kitchen (coming soon)',
     'app.home.tool-kitchen-content': 'A Sketch tools for designers',
     'app.home.getting-started': 'Getting Started',
     'app.home.more': 'Learn more',
