@@ -25,6 +25,8 @@ export interface LocaleProviderProps {
 function setMomentLocale(locale: Locale) {
   if (locale && locale.locale) {
     moment.locale(locale.locale);
+  } else {
+    moment.locale('en');
   }
 }
 
