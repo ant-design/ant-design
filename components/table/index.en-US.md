@@ -68,6 +68,7 @@ const columns = [{
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to `false` | object |  |
 | rowClassName | Row's className | Function(record, index):string | - |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |
+| onRowClick | Set the handler to handle row click event | Function(record, index, event) | - |
 | rowSelection | Row selection [config](#rowSelection) | object | null |
 | scroll | Whether table can be scrolled in x/y direction, `x` or `y` can be a number that indicates the width and height of table body | object | - |
 | showHeader | Whether to show table header | boolean | `true` |
