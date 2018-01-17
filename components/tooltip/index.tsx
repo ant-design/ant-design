@@ -80,7 +80,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       let onVisibleChange = this.props.onVisibleChange;
       const isNoTitle = this.isNoTitle();
       if (onVisibleChange && !isNoTitle && this.state.visible !== nextProps.visible) {
-        onVisibleChange(nextProps.visible);
+        onVisibleChange((nextProps.visible) as boolean);
       }
       this.setState({ visible: isNoTitle ? false : nextProps.visible });
     }
