@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.1.3
 
-`2019-01-14`
+`2018-01-14`
 
 - 🐞 Fix error when passing `null` `locale` to LocaleProvider.
 
