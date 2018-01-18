@@ -36,7 +36,7 @@
   &:hover,
   &-focused {
     .@{radio-inner-prefix-cls} {
-      border-color: @primary-color;
+      border-color: @radio-dot-color;
     }
   }
   &-checked:after {
@@ -46,7 +46,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1px solid @primary-color;
+    border: 1px solid @radio-dot-color;
     content: '';
     animation: antRadioEffect 0.36s ease-in-out;
     animation-fill-mode: both;
@@ -69,7 +69,7 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      background-color: @primary-color;
+      background-color: @radio-dot-color;
       opacity: 0;
       transform: scale(0);
       transition: all @radio-duration @ease-in-out-circ;
@@ -104,7 +104,7 @@
 // 选中状态
 .@{radio-prefix-cls}-checked {
   .@{radio-inner-prefix-cls} {
-    border-color: @primary-color;
+    border-color: @radio-dot-color;
     &:after {
       transform: scale(.875);
       opacity: 1;
@@ -204,7 +204,7 @@ span.@{radio-prefix-cls} + * {
 
   &:hover,
   &-focused {
-    color: @primary-color;
+    color: @radio-dot-color;
     position: relative;
   }
 
@@ -218,29 +218,29 @@ span.@{radio-prefix-cls} + * {
 
   &-checked {
     background: @radio-button-bg;
-    border-color: @primary-color;
-    color: @primary-color;
-    box-shadow: -1px 0 0 0 @primary-color;
+    border-color: @radio-dot-color;
+    color: @radio-dot-color;
+    box-shadow: -1px 0 0 0 @radio-dot-color;
     z-index: 1;
     &::before {
-      background-color: @primary-color !important;
+      background-color: @radio-dot-color !important;
       opacity: 0.1;
     }
     &:first-child {
-      border-color: @primary-color;
+      border-color: @radio-dot-color;
       box-shadow: none !important;
     }
 
     &:hover {
-      border-color: @primary-5;
-      box-shadow: -1px 0 0 0 @primary-5;
-      color: @primary-5;
+      border-color: @radio-button-hover-color;
+      box-shadow: -1px 0 0 0 @radio-button-hover-color;
+      color: @radio-button-hover-color;
     }
 
     &:active {
-      border-color: @primary-7;
-      box-shadow: -1px 0 0 0 @primary-7;
-      color: @primary-7;
+      border-color: @radio-button-active-color;
+      box-shadow: -1px 0 0 0 @radio-button-active-color;
+      color: @radio-button-active-color;
     }
   }
 
