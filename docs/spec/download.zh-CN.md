@@ -16,7 +16,7 @@ title: 设计资源
       <span class="resource-card-description">桌面组件 Sketch 模板</span>
     </div>
   </a>
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Mobile.Template.sketch" class="resource-card">
+  <a target="_blank" href="http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="41" src="https://gw.alipayobjects.com/zos/rmsportal/rFMdPVzabtQwxONUuVFr.png">
     </div>
