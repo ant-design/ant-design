@@ -41,6 +41,32 @@ function getStyle() {
       width: 50%;
       float: right;
     }
+    footer .footer-wrap{
+      width: 100%;
+      padding: 0;
+    }
+    footer .bottom-bar{
+      margin: auto;
+      max-width: 1200px;
+      padding: 16px 24px;
+    }
+    footer  .bottom-bar{
+      border-top: none;
+    }
+    footer .footer-wrap .ant-row{
+      width: 100%;
+      max-width: 1200px;
+      padding: 86px 24px 93px 24px;
+      margin: auto;
+    }
+    @media only screen and (max-width: 767.99px) {
+      #footer .footer-wrap{
+        padding: 40px 24px
+      }
+      footer .footer-wrap .ant-row {
+        padding: 0;
+      }
+    }
   `;
 }
 
