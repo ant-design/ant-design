@@ -86,7 +86,7 @@ export interface WeexPickerProps extends PickerProps, SinglePickerProps {
 Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
   MonthPicker,
-  WeekPicker: wrapPicker(WeekPicker, 'YYYY-Wo'),
+  WeekPicker: wrapPicker(WeekPicker, 'YYYY-wo'),
 });
 
 export interface DatePickerDecorator extends React.ClassicComponentClass<DatePickerProps> {
