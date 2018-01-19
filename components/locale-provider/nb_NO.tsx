@@ -1,6 +1,3 @@
-import * as moment from 'moment';
-moment.locale('nb');
-
 import Pagination from 'rc-pagination/lib/locale/nb_NO';
 import DatePicker from '../date-picker/locale/nb_NO';
 import TimePicker from '../time-picker/locale/nb_NO';

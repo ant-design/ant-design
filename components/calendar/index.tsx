@@ -6,8 +6,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import callMoment from '../_util/callMoment';
-
-declare const require: Function;
+import enUS from './locale/en_US';
 
 export { HeaderProps } from './Header';
 
@@ -122,11 +121,6 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     );
   }
 
-  getDefaultLocale() {
-    const locale = require('./locale/en_US');
-    return locale.default || locale;
-  }
-
   setValue = (value: moment.Moment, way: 'select' | 'changePanel') => {
     if (!('value' in this.props)) {
       this.setState({ value });
@@ -215,7 +209,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     return (
       <LocaleReceiver
         componentName="Calendar"
-        defaultLocale={this.getDefaultLocale}
+        defaultLocale={enUS}
       >
         {this.renderCalendar}
       </LocaleReceiver>

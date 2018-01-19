@@ -1,7 +1,9 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
-import { MonthPicker, WeekPicker } from '../';
+import DatePicker from '../';
+
+const { MonthPicker, WeekPicker } = DatePicker;
 
 describe('MonthPicker and WeekPicker', () => {
   it('render MonthPicker', () => {

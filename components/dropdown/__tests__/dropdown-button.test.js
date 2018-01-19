@@ -14,6 +14,7 @@ describe('DropdownButton', () => {
           <Menu.Item>foo</Menu.Item>
         </Menu>
       ),
+      disabled: false,
       trigger: ['hover'],
       visible: true,
       onVisibleChange: () => {},

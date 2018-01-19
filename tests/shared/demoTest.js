@@ -12,7 +12,7 @@ export default function demoTest(component, options = {}) {
     }
     testMethod(`renders ${file} correctly`, () => {
       MockDate.set(new Date('2016-11-22').getTime() + (new Date().getTimezoneOffset() * 60 * 1000));
-      const demo = require(`../.${file}`); // eslint-disable-line global-require, import/no-dynamic-require
+      const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
       expect(wrapper).toMatchSnapshot();
       MockDate.reset();

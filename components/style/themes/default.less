@@ -35,7 +35,7 @@
 // Base background color for most components
 @component-background   : #fff;
 @font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family            : "Helvetica Neue For Number", @font-family-no-number;
+@font-family            : "Monospace Number", @font-family-no-number;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
@@ -67,7 +67,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_148784_r2qo40wrmaolayvi";
+@icon-url               : "https://at.alicdn.com/t/font_148784_dky7e838xq4obt9";
 
 // LINK
 @link-color             : @primary-color;
@@ -156,13 +156,17 @@
 
 // Checkbox
 @checkbox-size          : 16px;
+@checkbox-color         : @primary-color;
 
 // Radio
 @radio-size             : 16px;
+@radio-dot-color        : @primary-color;
 
 // Radio buttons
-@radio-button-bg        : @btn-default-bg;
-@radio-button-color     : @btn-default-color;
+@radio-button-bg           : @btn-default-bg;
+@radio-button-color        : @btn-default-color;
+@radio-button-hover-color  : @primary-5;
+@radio-button-active-color : @primary-7;
 
 // Media queries breakpoints
 // Extra small screen / phone
