@@ -28,3 +28,4 @@ title: Progress
 | strokeWidth `(type=circle)` | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
 | type | 类型，可选 `line` `circle` `dashboard` | string | line |
 | width `(type=circle)` | 圆形进度条画布宽度，单位 px | number | 132 |
+| successPercent | 已完成的分段百分比，`type="line"` 时有效 | number | 0 |
