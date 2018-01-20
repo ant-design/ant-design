@@ -14,7 +14,7 @@ const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 Object.assign(DatePicker, {
   RangePicker: wrapPicker(RangePicker),
   MonthPicker,
-  WeekPicker: wrapPicker(WeekPicker, 'YYYY-Wo'),
+  WeekPicker: wrapPicker(WeekPicker, 'YYYY-wo'),
 });
 
 export default DatePicker as DatePickerDecorator;
