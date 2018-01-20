@@ -109,7 +109,6 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     prefixCls: 'ant-cascader',
     inputPrefixCls: 'ant-input',
     placeholder: 'Please select',
-    transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
     options: [],
     disabled: false,
@@ -315,7 +314,6 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       'onChange',
       'options',
       'popupPlacement',
-      'transitionName',
       'displayRender',
       'onPopupVisibleChange',
       'changeOnSelect',
@@ -389,6 +387,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
+        transitionName="slide-up"
       >
         {input}
       </RcCascader>
