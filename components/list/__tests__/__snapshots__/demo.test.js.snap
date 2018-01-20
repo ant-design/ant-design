@@ -446,7 +446,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
@@ -483,7 +483,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
@@ -520,7 +520,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
@@ -557,7 +557,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
@@ -594,7 +594,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
@@ -631,7 +631,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4"
+            class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           >
             <div
               class="ant-list-item"
