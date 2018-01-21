@@ -2,6 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
 import DatePicker from '../';
+import { setMockDate, resetMockDate } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { RangePicker } = DatePicker;
@@ -111,5 +112,25 @@ describe('RangePicker', () => {
     rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(() => rangeCalendarWrapper.find('.ant-calendar-cell').at(15).simulate('click').simulate('click'))
       .not.toThrow();
+  });
+
+  it('clear hover value after panel close', () => {
+    setMockDate();
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <div>
+        <RangePicker value={[moment(), moment().add(2, 'day')]} />
+      </div>
+    );
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    wrapper.find('.ant-calendar-cell').at(25).simulate('click');
+    wrapper.find('.ant-calendar-cell').at(27).simulate('mouseEnter');
+    document.dispatchEvent(new MouseEvent('mousedown'));
+    jest.runAllTimers();
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    expect(
+      wrapper.find('.ant-calendar-cell').at(23).hasClass('ant-calendar-in-range-cell')
+    ).toBe(true);
+    resetMockDate();
   });
 });

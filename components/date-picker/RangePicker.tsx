@@ -121,6 +121,10 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       this.setState({ open });
     }
 
+    if (open === false) {
+      this.clearHoverValue();
+    }
+
     const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
