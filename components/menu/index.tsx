@@ -47,8 +47,6 @@ export interface MenuProps {
   multiple?: boolean;
   inlineIndent?: number;
   inlineCollapsed?: boolean;
-  subMenuCloseDelay?: number;
-  subMenuOpenDelay?: number;
 }
 
 export interface MenuState {
