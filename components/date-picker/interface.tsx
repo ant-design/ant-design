@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { TimePickerProps } from '../time-picker';
 
 export interface PickerProps {
+  id?: number | string;
   prefixCls?: string;
   inputPrefixCls?: string;
   format?: string;
