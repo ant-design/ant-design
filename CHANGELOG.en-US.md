@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.1.4
+
+`2018-01-21`
+
+- 🐞 Fix ButtonGroup z-index issue. [#9014](https://github.com/ant-design/ant-design/issues/9014)
+- 🐞 Fix Dropdown.Button can not be fully disabled. [#8991](https://github.com/ant-design/ant-design/issues/8991) [@sallen450](https://github.com/sallen450)
+- 🐞 Fix Layout error responsive docs. [#8995](https://github.com/ant-design/ant-design/pull/8995) [@ReedSun](https://github.com/ReedSun)
+- 🐞 Fix List `grid` do not support xxl. [#9019](https://github.com/ant-design/ant-design/issues/9019)
+- 🐞 Fix RangePicker can not cancel selected start date when the panel is closed. [#8839](https://github.com/ant-design/ant-design/issues/8839)
+- 🐞 Fix Tabs error margin. [commit/200d6c](https://github.com/ant-design/ant-design/commit/200d6cb11aba12a488510f957353bbd5bd1dcd1b)
+- 🐞 Fix WeekPicker shows error weeks. [#9021](https://github.com/ant-design/ant-design/issues/9021)
+- 🐞 Fix some TypeScript type definitions.
+  - Add `subMenuCloseDelay` and `subMenuOpenDelay` for Menu. [#8976](https://github.com/ant-design/ant-design/issues/8976) [@Rohanhacker](https://github.com/Rohanhacker)
+  - Refactor DatePicker types. [commit/0bb531](https://github.com/ant-design/ant-design/commit/0bb531aca6cb2045d5323196a599c925537a4eb0)
+  - Fix Input `maxLength` type definitions. [#9046](https://github.com/ant-design/ant-design/pull/9046) [@Riokai](https://github.com/Riokai)
+- 🌟 Add some new less variables.
+  - About Checkbox and Radio: [#9003](https://github.com/ant-design/ant-design/pull/9003) [@mrgeorgegray](https://github.com/mrgeorgegray)
+  - About Breadcrumb: [#9022](https://github.com/ant-design/ant-design/pull/9022) [@mrgeorgegray](https://github.com/mrgeorgegray)
+- 🌟 Add aliyun icon.
+
 ## 3.1.3
 
 `2018-01-14`

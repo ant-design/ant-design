@@ -67,6 +67,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     md: PropTypes.oneOf(GridColumns),
     lg: PropTypes.oneOf(GridColumns),
     xl: PropTypes.oneOf(GridColumns),
+    xxl: PropTypes.oneOf(GridColumns),
   };
 
   static contextTypes = {
@@ -131,6 +132,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         md={getGrid(grid, 'md')}
         lg={getGrid(grid, 'lg')}
         xl={getGrid(grid, 'xl')}
+        xxl={getGrid(grid, 'xxl')}
       >
         <div {...others} className={classString}>
           {extra && extraContent}
