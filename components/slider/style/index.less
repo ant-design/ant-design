@@ -2,15 +2,6 @@
 @import "../../style/mixins/index";
 
 @slider-prefix-cls: ~"@{ant-prefix}-slider";
-// slider color
-@slider-disabled-color: @disabled-color;
-// tooltip
-@slider-tooltip-color: #fff;
-@slider-tooltip-bg: tint(@text-color, 4%);
-@slider-tooltip-arrow-width: 4px;
-@slider-tooltip-distance: @slider-tooltip-arrow-width + 4px;
-@slider-tooltip-arrow-color: @slider-tooltip-bg;
-@slider-margin: 14px 6px 10px;
 
 .@{slider-prefix-cls} {
   .reset-component;
@@ -31,7 +22,7 @@
     width: 100%;
     height: 4px;
     border-radius: 2px;
-    background-color: @background-color-base;
+    background-color: @slider-rail-background-color;
     transition: background-color .3s;
   }
 
@@ -39,7 +30,7 @@
     position: absolute;
     height: 4px;
     border-radius: @border-radius-base;
-    background-color: @primary-3;
+    background-color: @slider-track-background-color;
     transition: background-color 0.3s ease;
   }
 
@@ -51,30 +42,30 @@
     height: 14px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px @primary-3;
+    border: solid 2px @slider-handle-color;
     background-color: @component-background;
     transition: border-color .3s, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:focus {
-      border-color: tint(@primary-color, 20%);
-      box-shadow: 0 0 0 5px tint(@primary-color, 50%);
+      border-color: @slider-handle-color-focus;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
       outline: none;
     }
 
     &.@{ant-prefix}-tooltip-open {
-      border-color: @primary-color;
+      border-color: @slider-handle-color-tooltip-open;
     }
   }
 
   &:hover {
     .@{slider-prefix-cls}-rail {
-      background-color: #e1e1e1;
+      background-color: @slider-rail-background-color-hover;
     }
     .@{slider-prefix-cls}-track {
-      background-color: @primary-4;
+      background-color: @slider-track-background-color-hover;
     }
     .@{slider-prefix-cls}-handle:not(.@{ant-prefix}-tooltip-open) {
-      border-color: @primary-4;
+      border-color: @slider-handle-color-hover;
     }
   }
 
@@ -112,7 +103,7 @@
     margin-left: -4px;
     width: 8px;
     height: 8px;
-    border: 2px solid @border-color-split;
+    border: 2px solid @slider-dot-border-color;
     background-color: @component-background;
     cursor: pointer;
     border-radius: 50%;
@@ -124,7 +115,7 @@
       margin-left: -4px;
     }
     &-active {
-      border-color: tint(@primary-color, 50%);
+      border-color: @slider-dot-border-color-active;
     }
   }
 
