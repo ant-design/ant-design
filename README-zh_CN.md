@@ -35,7 +35,7 @@
 
 ## 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` 是一个开源项目，我们欢迎社区参与共建。如果你对此项目感兴趣，有 [很多方式](https://opensource.guide/how-to-contribute/) 进行参与。你可以 watch 这个仓库，加入 [issue 中的讨论](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion)，以及尝试实现一些 [已接受的特性](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22)。我们会给予有活跃贡献的社区成员 [collaborator 权限](https://github.com/ant-design/ant-design/issues/3222)。
+请参考[贡献指南](https://ant.design/docs/react/contributing-cn).
 
 ## 安装
 

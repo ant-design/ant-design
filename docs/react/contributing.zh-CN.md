@@ -1,18 +1,22 @@
-# 贡献指南
+---
+order: 9
+title: 贡献指南
+toc: false
+---
 
 这篇指南会指导你如何为 Ant Design 贡献一份自己的力量，请在你要提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。
 
 ## 行为准则
 
-我们有一份 [行为准则](../CODE_OF_CONDUCT.md)，希望所有的贡献者都能遵守，请花时间阅读一遍全文以确保你能明白哪些是可以做的，哪些是不可以做的。
+我们有一份 [行为准则](https://github.com/ant-design/ant-design/blob/master/CODE_OF_CONDUCT.md)，希望所有的贡献者都能遵守，请花时间阅读一遍全文以确保你能明白哪些是可以做的，哪些是不可以做的。
 
 ## 透明的开发
 
-我们所有的工作都会放在 [GitHub](https://github.com/ant-design) 上。不管是核心团队的成员还是外部贡献者的 pull request 都需要进过同样流程的 review。
+我们所有的工作都会放在 [GitHub](https://github.com/ant-design) 上。不管是核心团队的成员还是外部贡献者的 pull request 都需要经过同样流程的 review。
 
 ## 分支管理
 
-基于我们的 [发布周期](../CHANGELOG.zh-CN.md#release-schedule)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](changelog-cn#Release-Schedule)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
 
 ## Bugs
 
@@ -42,7 +46,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
-1. 基于 [正确的分支](./CONTRIBUTING.zh-CN.md#branch-organization) 来做修改。
+1. 基于 [正确的分支](#Branch-Organization) 来做修改。
 2. 在项目根目录下运行了 `npm install`。
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
