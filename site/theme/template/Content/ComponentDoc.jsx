@@ -102,7 +102,7 @@ export default class ComponentDoc extends React.Component {
               <Icon
                 type="appstore"
                 className={expandTriggerClass}
-                title="展开全部代码"
+                title={expand ? '收起全部代码' : '展开全部代码'}
                 onClick={this.handleExpandToggle}
               />
             </h2>
