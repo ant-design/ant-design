@@ -10,7 +10,7 @@ title: 设计价值观
   <img src="https://gw.alipayobjects.com/zos/rmsportal/bIJZFjriQqeMPYyUkSev.png" alt="总概" />
 </div>
 
-「在设计价值观的坚持上」，Ant Design 有两点与众不同：
+在『设计价值观』的坚持上，Ant Design 有两点与众不同：
 
 ## 自然
 
