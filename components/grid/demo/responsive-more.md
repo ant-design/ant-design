@@ -13,7 +13,7 @@ title:
 
 ## en-US
 
-`Span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` properties to use,
+`span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` properties to use,
 where `xs = {6}` is equivalent to `xs = {{span: 6}}`.
 
 ````jsx

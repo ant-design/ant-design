@@ -94,7 +94,7 @@ export default class MainContent extends React.Component {
         offset: 0,
       })
       .onStepEnter(({ element }) => {
-        document.querySelectorAll('.toc-affix li a').forEach((node) => {
+        [].forEach.call(document.querySelectorAll('.toc-affix li a'), (node) => {
           node.className = '';
         });
         const currentNode = document.querySelectorAll(`.toc-affix li a[href="#${element.id}"]`)[0];
