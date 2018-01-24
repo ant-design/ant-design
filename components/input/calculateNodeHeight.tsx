@@ -138,7 +138,7 @@ export default function calculateNodeHeight(
 
   if (minRows !== null || maxRows !== null) {
     // measure height of a textarea with a single row
-    hiddenTextarea.value = '';
+    hiddenTextarea.value = ' ';
     let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
     if (minRows !== null) {
       minHeight = singleRowHeight * minRows;
