@@ -131,7 +131,7 @@ export default class WeekPicker extends React.Component<any, any> {
       );
     };
     return (
-      <span className={classNames(className, pickerClass)} id={this.props.id}>
+      <span className={classNames(className, pickerClass)}>
         <RcDatePicker
           {...this.props}
           calendar={calendar}

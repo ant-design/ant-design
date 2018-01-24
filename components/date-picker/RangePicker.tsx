@@ -301,7 +301,6 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     return (
       <span
         ref={this.savePicker}
-        id={props.id}
         className={classNames(props.className, props.pickerClass)}
         style={{ ...style, ...pickerStyle }}
         tabIndex={props.disabled ? -1 : 0}

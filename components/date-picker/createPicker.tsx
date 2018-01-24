@@ -162,7 +162,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       }
       return (
         <span
-          id={props.id}
           className={classNames(props.className, props.pickerClass)}
           style={props.style}
           onFocus={props.onFocus}
