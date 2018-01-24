@@ -16,7 +16,7 @@ toc: false
 
 ## 分支管理
 
-基于我们的 [发布周期](changelog-cn#Release-Schedule)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
+基于我们的 [发布周期](/changelog-cn)，我们每个月都会从 `master` 分支切一个 `feature` 分支出来（比如 `features-3.1` 分支用来发布 3.1 版本）。 如果你要修一个 bug，那么请发 pull request 到 `master`；如果你要提一个增加新功能的 pull request，那么请基于 `feature` 分支来做。
 
 ## Bugs
 
@@ -46,7 +46,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
-1. 基于 [正确的分支](#Branch-Organization) 来做修改。
+1. 基于 [正确的分支](#分支管理)做修改。
 2. 在项目根目录下运行了 `npm install`。
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
