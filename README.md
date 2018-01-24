@@ -39,7 +39,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Read our [contributing guide](./.github/CONTRIBUTING.md).
+Read our [contributing guide](https://ant.design/docs/react/contributing).
 
 ## Install
 
