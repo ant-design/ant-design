@@ -2,14 +2,14 @@
   // dark theme
   &-dark,
   &-dark &-sub {
-    color: @text-color-secondary-dark;
+    color: @menu-dark-color;
     background: @menu-dark-bg;
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       opacity: .45;
       transition: all .3s;
       &:after,
       &:before {
-        background: #fff;
+        background: @menu-dark-arrow-color;
       }
     }
   }
@@ -36,7 +36,7 @@
   &-dark &-item,
   &-dark &-item-group-title,
   &-dark &-item > a {
-    color: @text-color-secondary-dark;
+    color: @menu-dark-color;
   }
 
   &-dark&-inline,
@@ -70,9 +70,9 @@
   &-dark &-submenu-selected,
   &-dark &-submenu-title:hover {
     background-color: transparent;
-    color: #fff;
+    color: @menu-dark-highlight-color;
     > a {
-      color: #fff;
+      color: @menu-dark-highlight-color;
     }
     > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu-title:hover {
@@ -80,7 +80,7 @@
         opacity: 1;
         &:after,
         &:before {
-          background: #fff;
+          background: @menu-dark-highlight-color;
         }
       }
     }
@@ -88,19 +88,19 @@
 
   &-dark &-item-selected {
     border-right: 0;
-    color: #fff;
+    color: @menu-dark-highlight-color;
     &:after {
       border-right: 0;
     }
     > a,
     > a:hover {
-      color: #fff;
+      color: @menu-dark-highlight-color;
     }
   }
 
   &&-dark &-item-selected,
   &-submenu-popup&-dark &-item-selected {
-    background-color: @primary-color;
+    background-color: @menu-dark-item-selected-bg;
   }
 
   // Disabled state sets text to dark gray and nukes hover/tab effects
