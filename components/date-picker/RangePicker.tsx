@@ -47,6 +47,21 @@ function isEmptyArray(arr: any) {
   return false;
 }
 
+function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
+  if (!localeCode) {
+    return;
+  }
+  if (!value || value.length === 0) {
+    return;
+  }
+  if (value[0]) {
+    value[0]!.locale(localeCode);
+  }
+  if (value[1]) {
+    value[1]!.locale(localeCode);
+  }
+}
+
 export default class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
@@ -195,14 +210,9 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       ranges, onOk, locale, localeCode, format,
       dateRender, onCalendarChange,
     } = props;
-    if (value && localeCode) {
-      if (value[0]) {
-        value[0]!.locale(localeCode);
-      }
-      if (value[1]) {
-        value[1]!.locale(localeCode);
-      }
-    }
+
+    fixLocale(value, localeCode);
+    fixLocale(showDate, localeCode);
 
     warning(!('onOK' in props), 'It should be `RangePicker[onOk]`, instead of `onOK`!');
 
