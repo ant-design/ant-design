@@ -762,6 +762,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value="false"
             />
             <span
               class="ant-checkbox-inner"
@@ -989,6 +990,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
                   checked=""
                   class="ant-radio-button-input"
                   type="radio"
+                  value="horizontal"
                 />
                 <span
                   class="ant-radio-button-inner"
@@ -1007,6 +1009,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
                 <input
                   class="ant-radio-button-input"
                   type="radio"
+                  value="vertical"
                 />
                 <span
                   class="ant-radio-button-inner"
@@ -1025,6 +1028,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
                 <input
                   class="ant-radio-button-input"
                   type="radio"
+                  value="inline"
                 />
                 <span
                   class="ant-radio-button-inner"
@@ -2390,6 +2394,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-input"
                 type="radio"
+                value="a"
               />
               <span
                 class="ant-radio-inner"
@@ -2408,6 +2413,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-input"
                 type="radio"
+                value="b"
               />
               <span
                 class="ant-radio-inner"
@@ -2426,6 +2432,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-input"
                 type="radio"
+                value="c"
               />
               <span
                 class="ant-radio-inner"
@@ -2472,6 +2479,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-button-input"
                 type="radio"
+                value="a"
               />
               <span
                 class="ant-radio-button-inner"
@@ -2490,6 +2498,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-button-input"
                 type="radio"
+                value="b"
               />
               <span
                 class="ant-radio-button-inner"
@@ -2508,6 +2517,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 class="ant-radio-button-input"
                 type="radio"
+                value="c"
               />
               <span
                 class="ant-radio-button-inner"
