@@ -16,7 +16,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%);"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
           class=""
@@ -206,7 +206,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       >
         <span
           class="ant-scroll-number-only"
-          style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%);"
+          style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
         >
           <p
             class=""
@@ -383,7 +383,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:10px;"
+    style="margin-top:10px"
   >
     <span
       class="ant-badge"
@@ -456,7 +456,7 @@ exports[`renders ./components/badge/demo/link.md correctly 1`] = `
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%);"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
           class=""
@@ -620,13 +620,13 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="25"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1200%);-webkit-transform:translateY(-1200%);transform:translateY(-1200%);"
+        style="transition:none;-ms-transform:translateY(-1200%);-webkit-transform:translateY(-1200%);transform:translateY(-1200%)"
       >
         <p
           class=""
@@ -781,7 +781,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%);"
+        style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
           class=""
@@ -942,12 +942,12 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset;"
+      style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset"
       title="4"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%);"
+        style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%)"
       >
         <p
           class=""
@@ -1106,9 +1106,9 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
-      style="background-color:#87d068;"
+      style="background-color:#52c41a"
       title="109"
     >
       99+
@@ -1127,13 +1127,13 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="99"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%);"
+        style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%)"
       >
         <p
           class=""
@@ -1288,7 +1288,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%);"
+        style="transition:none;-ms-transform:translateY(-1900%);-webkit-transform:translateY(-1900%);transform:translateY(-1900%)"
       >
         <p
           class=""
@@ -1451,7 +1451,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="100"
     >
@@ -1466,7 +1466,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="99"
     >
@@ -1481,7 +1481,7 @@ exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#"
     />
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
       data-show="true"
       title="1000"
     >

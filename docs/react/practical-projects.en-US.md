@@ -13,12 +13,12 @@ Include the following:
 
 ## Install dva-cli
 
-Install dva-cli with npm, and make sure the version is later than `0.8.1`.
+Install dva-cli with npm, and make sure the version is later than `0.9.1`.
 
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-0.8.1
+dva-cli version 0.9.1
 ```
 
 ## Create New App
@@ -61,17 +61,15 @@ Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used
 $ npm install antd babel-plugin-import --save
 ```
 
-Edit `.roadhogrc` to integrate `babel-plugin-import`.
+Edit `.webpackrc` to integrate `babel-plugin-import`.
 
 ```diff
-  "extraBabelPlugins": [
--    "transform-runtime"
-+    "transform-runtime",
-+    ["import", { "libraryName": "antd", "style": "css" }]
-  ],
++  "extraBabelPlugins": [
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
++  ],
 ```
 
-> Notice: dva-cli's build and server is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
+> Notice: dva-cli's build and dev is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
 
 ## Define Router
 
@@ -174,7 +172,7 @@ Then don't forget to require it in `index.js`:
 
 ```diff
 // 3. Model
-+ app.model(require('./models/products'));
++ app.model(require('./models/products').default);
 ```
 
 ## Connect
@@ -275,4 +273,4 @@ You can:
 - Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
 - Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
 - Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
-- If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#配置)
+- If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#configuration)

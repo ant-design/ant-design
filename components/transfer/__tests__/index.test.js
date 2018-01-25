@@ -163,7 +163,7 @@ describe('Transfer', () => {
     expect(wrapper.find(TransferList).at(0).find('.ant-transfer-list-header-selected > span').at(0)
       .first()
       .text()
-      .trim()).toEqual('1');
+      .trim()).toEqual('1 items');
   });
 
   it('should just check the filtered item when click on check all after search by input', () => {

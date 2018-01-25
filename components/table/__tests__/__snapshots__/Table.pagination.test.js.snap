@@ -49,7 +49,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jack
                   </td>
@@ -62,7 +62,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Lucy
                   </td>
@@ -80,7 +80,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
           tabindex="0"
-          title="上一页"
+          title="Previous Page"
         >
           <a
             class="ant-pagination-item-link"
@@ -108,7 +108,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           aria-disabled="false"
           class=" ant-pagination-next"
           tabindex="0"
-          title="下一页"
+          title="Next Page"
         >
           <a
             class="ant-pagination-item-link"

@@ -1,4 +1,7 @@
 ---
+category:
+  zh-CN: 模式
+  en-US: Patterns
 order: 9
 title:
   zh-CN: 数据录入
@@ -18,7 +21,7 @@ title:
 
 ### 文本框（Input）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/BPMNkGkHFqbBCRMUdfRh.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/tlOeUNcdGkvWedJpiTSz.png">
 
 输入较少的字符总数，使用单行的输入形式。
 
@@ -26,25 +29,25 @@ title:
 
 ### 文本域（Textarea）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/QVRSSdYrWjthpCOupqON.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HwJLPhuelqEaeQvsYlFz.png">
 
 录入长篇幅的单一的文本使用多行的文本区域。
 
 ### 提示与帮助
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/KSWwgpyjPkbwclNvbvvR.png" alt="基本样式">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cggdJfFgvDlOwaFRylSk.png" alt="基本样式">
 
 为提升数据录入效率，通常可以在输入框内增加暗提示以帮助提醒用户。
 
 > 注：输入框通常与标签（label）搭配使用，标签（label）默认放于输入区域的左侧，当文案过长或英文环境下也可放于在上方，但同个系统中需保持统一。
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/RtFCPKSMfRlgISbMJJRy.png" description="当说明文案较长时，你可以使用一个『信息』图标或者提示工具。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xcDCXmgTCeXWelIovxvh.png" description="当说明文案较长时，你可以使用一个『信息』图标或者提示工具。">
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/rElfIRpcmLsCTFzZDINy.png" description="对于那些短的输入提醒（短于一句），你可以将其放置在输入框的下方。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/AUTvHOWDsCTgSojYrQms.png" description="对于那些短的输入提醒（短于一句），你可以将其放置在输入框的下方。">
 
 ### 搜索（Search）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ycPmRlbZtsoYAibbwMCZ.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xLIltABSbmNgukJTZShA.png">
 
 搜索可以让用户在巨大的信息池中缩小目标范围，并快速获取需要的信息。
 
@@ -56,7 +59,7 @@ title:
 
 #### 单选框（Radio Button）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/EvxgOJzHiQAxpuRaEhbH.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mLZUWZmJZKiTmcGFzaOC.png">
 
 单选按钮允许用户从多个选项中选择一个选项。Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
 
@@ -64,7 +67,7 @@ title:
 
 ### 复选框（Checkbox）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/duKUrQDKiyPnYaWtvkQK.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DvQNtGZJgMZNAtfgweGo.png">
 
 复选框用于在一组可选项中进行多项选择时。
 
@@ -74,20 +77,20 @@ title:
 
 ### 开关（Switch）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/aIdIORGzFNjqMwrmiguZ.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MsOFIDWorXeobBLkEwjS.png">
 
 用于切换单个选项的状态。『开关』的内联标签应该显示清楚，例如：禁用/启用，不允许/允许等。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/qoqGjsZYATDiXiWEjNIK.png" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/ZcWvStIELApkpnkDOWDG.png" alt="错误示范" description="切换『开关』结果会立即生效，无需与操作按钮搭配使用。">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GJNIykRlFgmVRSKNGOCg.png" alt="正确示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/gLJCJDtOquBTRdBSoGYe.png" alt="错误示范" description="切换『开关』结果会立即生效，无需与操作按钮搭配使用。">
 
 > 注：当用户切换『开关』按钮将直接触发状态改变。
 
 ### 选择列表（Dropdown）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/iGSmUHkADwVyhuTOBkpJ.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/wbOaUEKPkjzVFNLabvtF.png">
 
 选择列表（通常称为下拉菜单）允许用户从列表中选择一个选项或多个选项，为用户在选项的数量上提供了更多的灵活性。
 
@@ -97,25 +100,25 @@ title:
 
 ### 滑块选择（Slider）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/JJZycUHtpopKCMxXyQpx.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/kfDmEBuFbbDsrsqTyxIH.png">
 
 滑块选择可以在连续或间断的区间内，通过滑动锚点来选择一个合适的数值。这种交互特性使得它在设置诸如音量，亮度，色彩饱和度等需要反映强度等级的选项时是一种极好的选择。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/hWhUUUzikHarZSBhefDI.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/jRUNDmdChSEsFAXVBzAx.png">
 
 > 注：在不要求精准数值的场景下用户使用『连续滑块』可得到更灵活便捷的操作；在用户需要精确数值时，可与『数字输入框』搭配使用。
 
 ### 穿梭框（Transfer）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/VpfyicZPlNugqEjQKSDf.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fxYgAmCVVkduXRfBYUCo.png">
 
 穿梭框用直观的方式在两栏中移动元素，完成选择行为。
 
 ### 日期选择器（DatePicker）
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/gaaLemRmjgNpcnlthmkr.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/IyntUBesFLpPNQTHtgVk.png">
 
 日期选择器为用户提供了一种可视化的方式去浏览和选择一个日期或者日期范围。
 
@@ -127,19 +130,19 @@ title:
 
 ### 简单点击上传
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/aqMzAypQRBkmWfMOpOCE.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/nslSHZVgVxmBNgKhFcqT.png">
 
 一般用于单个上传且不需要预览效果的文件上传，点击按钮弹出文件选择框。
 
 ### 显示缩略图上传
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/oUsyeTsjadJfieTspgVq.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/HQvQFtYdIQKoUOjgSFQP.png">
 
 一般用于图片文件上传，用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
 
 ### 拖拽上传
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/euEBewdgKmhThFWrWHIm.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/evyhWzbCtinnGURCPJSn.png">
 
 把文件拖入指定区域，完成上传，同样支持点击上传。
 

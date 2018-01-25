@@ -1,25 +1,26 @@
 ---
-order: 3
+category: 视觉
+order: 0
 title: 色彩
 ---
 
-设计中对色彩的运用不仅应考虑品牌的识别性，还需达到信息传递、操作指引、交互反馈，或是强化和凸显某一个元素的目的。基于操作系统更注重高效、清晰等特点，Ant Design 的用色上更偏向简洁实用一些。在选择色彩时有以下三个注意点：
+Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品级色彩体系。
 
-- 色彩应与产品定位相匹配，且符合用户心理认知；
-- 视觉层次应清晰分明，为重要行动点或关键信息定义一个主色，并建立视觉连续性；
-- 遵守 WCAG 2.0 的 标准，保证足够的对比度，让色彩更容易被视障碍（色盲）用户识别。
+系统级色彩体系主要定义了蚂蚁中台设计中的基础色板、中性色板和数据可视化色板。产品级色彩体系则是在具体设计过程中，基于系统色彩进一步定义符合产品调性以及功能诉求的颜色。
 
 ---
 
-## 色板
+## 色彩模型
 
-Ant Design PC 端的色板由 10 个由浅至深的色彩单元格组成，我们为部分色彩格定义了默认使用场景，用户在进行色彩配色时只需根据关键词选择一条色板即可得到一套完整的系统配色方案。在理论上，在 UI 设计中的色彩都应取自这份色板。
+Ant Design 的设计团队倾向于采用 HSB 色彩模型进行设计，该模型更便于设计师在调整色彩时对于颜色有明确的心理预期，同时也方便团队间的沟通。
 
-经过设计师和程序员的精心调教，结合了色彩加白、加黑、加深，贝塞尔曲线，以及针对冷暖色的不同旋转角度，得出一套[色板生成算法](https://github.com/ant-design/ant-design/blob/734beb84ffc3f0469fbae1566aa8450f966cb261/components/style/color/colorPalette.less)（用以取代我们原来的 tint/shade 色彩系统）。使用者只需指定主色，便可导出一条完整的渐变色板。
+## 系统级色彩体系
 
-Ant Design 的色板由 8 种基本色彩组成，每种基本色（第 6 格）又按上述算法衍生出 10 种渐变色。
+Ant Design 系统级色彩体系同样源于『自然』的设计价值观。设计师通过对自然场景的抽象捕捉，结合蚂蚁的技术基因，形成了特有的 12 色。进一步又通过大量的观察，捕捉不同色彩在自然光下的变化规律，借助美术中素描的思路，对 12 个颜色进行了衍生。在中性色板的定义上，则是平衡了可读性、美感以及可用性得出的。
 
-> 注：在由浅至深的色板里，第 6 格色彩单元格普遍满足 [WCAG 2.0](http://leaverou.github.io/contrast-ratio/) 的 4.5:1 最小对比度（AA 级），我们将其定义为色板的默认品牌色。
+### 基础色板
+
+Ant Design 的基础色板共计 120 个颜色，包含 12 个主色以及衍生色。这些颜色基本可以满足中后台设计中对于颜色的需求。
 
 `````__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
@@ -27,7 +28,21 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
-为了考虑文本在不同颜色背景下的呈现，我们选择了『White #FFFFFF』和『Black #000000』并配以透明度来区分文本的等级层次。详情请查看 [字体颜色](/docs/spec/font#字体颜色)。
+Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
+
+### 中性色板
+
+中性色包含了黑、白、灰。在蚂蚁中后台的网页设计中被大量使用到，合理的选择中性色能够令页面信息具备良好的主次关系，助力阅读体验。Ant Design 的中性色板一共包含了从白到黑的 10 个颜色。
+
+`````__react
+import Palette from '../../site/theme/template/Color/Palette';
+
+ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+`````
+
+### 数据可视化色板（敬请期待）
+
+数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 『有效、清晰、准确、美』的原则产生的。
 
 ### 色板生成工具
 
@@ -41,45 +56,29 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 ---
 
-## 色彩应用
+## 产品级色彩体系
 
 ### 品牌色的应用
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/lVKfKMuLmaTlnTDitPEJ.png" alt="Ant Design 品牌色常用色值">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/msiCkgfDaDgrTUuumxlq.png">
 
-品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需先了解品牌色在界面中的使用场景及选色范围。以 Ant Design 网页组件的默认样式为例，品牌色主要体现在关键行动点及操作状态、重要信息高亮等场景。
+品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅自深的第六个颜色作为主色。
+Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 1890FF，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
 
-> 注：图形插画和 logo 可以不必遵循色板，但需保持相近的色系。
+### 功能色
 
-### 中性色的应用
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XrBtAnEiozhuTdrifhFr.png">
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AmXwsVOWrLxDfwLNlyvL.png" alt="Ant Design 中性色常用色值">
+功能色代表了明确的信息以及状态，比如成功、出错、失败、提醒、链接等。功能色的选取需要遵守用户对色彩的基本认知。我们建议在一套产品体系下，功能色尽量保持一致，不要有过多的自定义干扰用户的认知体验。Ant Design 的功能色板如右图：
 
-灰色作为中性色在 Ant Design 的网页设计中被大量使用到，它的使用有利于关键内容的衬托和功能的引导。这类色彩主要体现在导航框架、背景底色、描边、或次级操作等等。
+### 中性色
 
-### 功能色的应用
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WAlfDnpYniUjaLzmnIqf.png">
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/mewwdThVwyTQzpZQtYXw.png" alt="Ant Design 功能色卡">
+Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线、等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 WCAG 2.0 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：
 
-UI 设计中，比较稳定的色彩除了中性色外还有具备特定含义的功能色，这类色彩起到传递功能信息、代表某种状态等作用。主要应用于消息通知、反馈提醒、表单校验这类场景中的成功、出错、失败、提醒、链接等状态。
+---
 
-### 视觉层次
+## 企业级产品设计中的色彩应用
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/ADUfVlZwjziJRUQSMbMt.png" alt="正确示例" description="通过品牌色引导用户的视线路径">
-
-将品牌色赋予在重要信息或关键主动点上，并衬以大面积的中性色，可以让用户更聚焦到任务本身，从而提高任务的执行效率。
-
-<br />
-
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/RmSDSeAAYphuiDFszIMa.png" alt="错误示例" description="操作界面使用的色彩应尽量避免面积过大或种类过多而造成用户视觉疲劳">
-
-> 注：界面用色建议不超过三种（数据图表和图形类插画除外）。
-
-### 色彩的易识别性
-
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/jeyvhMIQgoPUotNerRGy.png" alt="正确示例">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/ppdlrVnFCsYVicjDrnzi.png" alt="错误示例" description="当对比度数值低于 3:1 时，弱视用户将很难识别">
-
-Ant Design 的色板颜色遵守 WCAG 2.0 的标准，操作类的色彩搭配都应满足颜色对比值 3:1 的最低标准。
-
-- [色彩对比值校验工具](http://leaverou.github.io/contrast-ratio/#%23454545-on-%23fff)
+在蚂蚁中后台的设计中，我们对于色彩的态度是克制的。色彩在使用时更多的是基于信息传递、操作引导和交互反馈等目的。在不破坏操作效率，影响信息的清晰传达的这些原则之上，理性的选择颜色是关键。当然在配图插画以及展示性页面中可以适当打破这一思路。

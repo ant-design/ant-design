@@ -37,6 +37,21 @@ describe('Table.pagination', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
+    const wrapper = mount(createTable({ pagination: { pageSize: 3, hideOnSinglePage: true } }));
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 3, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: true } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: true } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: false } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+  });
+
   it('paginate data', () => {
     const wrapper = mount(createTable());
 
@@ -96,6 +111,7 @@ describe('Table.pagination', () => {
     wrapper.setProps({ pagination: false });
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination });
+    wrapper.update();
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
     wrapper.find('.ant-pagination-item-2').simulate('click');

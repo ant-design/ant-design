@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
@@ -8,26 +8,9 @@ import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
+import { FilterMenuProps, FilterMenuState, ColumnProps, ColumnFilterItem } from './interface';
 
-export interface FilterMenuProps {
-  locale: any;
-  selectedKeys: string[];
-  column: {
-    filterMultiple?: boolean,
-    filterDropdown?: React.ReactNode,
-    filters?: { text: string; value: string, children?: any[] }[],
-    filterDropdownVisible?: boolean,
-    onFilterDropdownVisibleChange?: (visible: boolean) => any,
-    fixed?: boolean | string,
-    filterIcon?: React.ReactNode;
-  };
-  confirmFilter: (column: Object, selectedKeys: string[]) => any;
-  prefixCls: string;
-  dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
-}
-
-export default class FilterMenu extends React.Component<FilterMenuProps, any> {
+export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState> {
   static defaultProps = {
     handleFilter() {},
     column: {},
@@ -35,7 +18,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   neverShown: boolean;
 
-  constructor(props) {
+  constructor(props: FilterMenuProps<T>) {
     super(props);
 
     const visible = ('filterDropdownVisible' in props.column) ?
@@ -53,7 +36,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     this.setNeverShown(column);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: FilterMenuProps<T>) {
     const { column } = nextProps;
     this.setNeverShown(column);
     const newState = {} as {
@@ -64,14 +47,14 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
-      newState.visible = column.filterDropdownVisible;
+      newState.visible = column.filterDropdownVisible as boolean;
     }
     if (Object.keys(newState).length > 0) {
       this.setState(newState);
     }
   }
 
-  setNeverShown = (column) => {
+  setNeverShown = (column: ColumnProps<T>) => {
     const rootNode = ReactDOM.findDOMNode(this);
     const filterBelongToScrollBody = !!closest(rootNode, `.ant-table-scroll`);
     if (filterBelongToScrollBody) {
@@ -83,11 +66,11 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     }
   }
 
-  setSelectedKeys = ({ selectedKeys }) => {
+  setSelectedKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
     this.setState({ selectedKeys });
   }
 
-  setVisible(visible) {
+  setVisible(visible: boolean) {
     const { column } = this.props;
     if (!('filterDropdownVisible' in column)) {
       this.setState({ visible });
@@ -108,7 +91,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     this.confirmFilter();
   }
 
-  onVisibleChange = (visible) => {
+  onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
     if (!visible) {
       this.confirmFilter();
@@ -121,7 +104,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     }
   }
 
-  renderMenuItem(item) {
+  renderMenuItem(item: ColumnFilterItem) {
     const { column } = this.props;
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
     const input = multiple ? (
@@ -143,7 +126,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     return filters.some(item => !!(item.children && item.children.length > 0));
   }
 
-  renderMenus(items) {
+  renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
     return items.map(item => {
       if (item.children && item.children.length > 0) {
         const { keyPathOfSelectedItem } = this.state;
@@ -161,7 +144,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     });
   }
 
-  handleMenuItemClick = (info) => {
+  handleMenuItemClick = (info: { keyPath: string, key: string }) => {
     if (info.keyPath.length <= 1) {
       return;
     }
@@ -210,7 +193,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
           onDeselect={this.setSelectedKeys}
           selectedKeys={this.state.selectedKeys}
         >
-          {this.renderMenus(column.filters)}
+          {this.renderMenus(column.filters!)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <a
@@ -236,6 +219,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
         visible={this.neverShown ? false : this.state.visible}
         onVisibleChange={this.onVisibleChange}
         getPopupContainer={getPopupContainer}
+        forceRender
       >
         {this.renderFilterIcon()}
       </Dropdown>

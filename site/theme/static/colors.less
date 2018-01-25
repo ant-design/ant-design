@@ -1,5 +1,11 @@
+/* stylelint-disable no-duplicate-selectors */
+.color-palettes {
+  margin: 0 1%;
+}
 .color-palette {
-  margin: 45px 0;
+  margin: 45px 1%;
+  width: 31%;
+  display: inline-block;
   &-pick {
     text-align: center;
     font-size: 20px;
@@ -15,38 +21,40 @@
 }
 
 .main-color {
-  display: flex;
+  text-align: left;
   &-item {
     cursor: pointer;
-    flex: 1;
-    height: 80px;
-    border-radius: 4px;
-    float: left;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 12px;
     margin-right: 4px;
     transition: all .2s;
     position: relative;
-    text-align: center;
-    padding-top: 28px;
     font-family: Consolas;
-    font-size: 12px;
+    font-size: 14px;
+    &:first-child {
+      border-radius: 4px 4px 0 0;
+    }
     &:last-child {
-      margin-right: 0;
+      border-radius: 0 0 4px 4px;
     }
     &:hover {
-      margin-top: -10px;
-      height: 90px;
+      margin-right: -8px;
+      border-radius: 0 4px 4px 0;
     }
   }
+  &-item &-text {
+    transition: all .3s;
+    float: left;
+  }
   &-item &-value {
-    font-size: 12px;
-    position: absolute;
-    bottom: -4px;
+    float: right;
     transform: scale(0.85);
-    left: 0;
-    width: 100%;
-    text-align: center;
+    transform-origin: 100% 50%;
     opacity: 0;
-    transition: all .2s ease .1s;
+    position: relative;
+    left: 3px;
+    transition: all .3s;
   }
 }
 
@@ -54,25 +62,73 @@
   margin: 0 0 24px;
   font-weight: 500;
   color: #5c6b77;
-  font-size: 26px;
+  font-size: 22px;
   text-transform: capitalize;
   text-align: center;
 }
 
 .color-description {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: lighter;
   color: #777;
   display: block;
 }
 
 .main-color:hover {
-  .main-color-item {
-    padding-top: 4px;
-  }
   .main-color-value {
     opacity: 0.7;
-    bottom: 3px;
+    left: 0;
+  }
+}
+
+.color-palette-horizontal {
+  width: 100%;
+
+  .main-color {
+    display: flex;
+
+    &-item {
+      flex: 1;
+      position: relative;
+      padding: 0;
+      margin-right: 0;
+      border-radius: 0;
+      height: 86px;
+      text-align: center;
+      padding-top: 37px;
+      line-height: normal;
+
+      .main-color-text {
+        float: none;
+      }
+
+      &:hover {
+        margin-top: -10px;
+        height: 96px;
+        border-radius: 4px 4px 0 0;
+      }
+    }
+
+    &-value {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      float: none;
+      transform-origin: unset;
+    }
+
+    &:hover {
+      .main-color-item {
+        padding-top: 8px;
+      }
+
+      .main-color-value {
+        opacity: 0.7;
+        bottom: 8px;
+      }
+    }
   }
 }
 
@@ -84,25 +140,31 @@
   .make-palatte(@color, (@index + 1));    // next iteration
 }
 
-@grey-1: #fbfbfb;
-@grey-2: #f7f7f7;
+@grey-1: #fff;
+@grey-2: #fafafa;
 @grey-3: #f5f5f5;
-@grey-4: #e9e9e9;
+@grey-4: #e8e8e8;
 @grey-5: #d9d9d9;
 @grey-6: #bfbfbf;
-@grey-7: #919191;
-@grey-8: #5a5a5a;
-@grey-9: #404040;
-@grey-10: #222;
+@grey-7: #8c8c8c;
+@grey-8: #595959;
+@grey-9: #262626;
+@grey-10: #000;
+
+@border-color: rgba(229, 231, 235, 100);
 
 .main-color {
   .make-palatte(blue);
   .make-palatte(purple);
   .make-palatte(cyan);
   .make-palatte(green);
-  .make-palatte(pink);
+  .make-palatte(magenta);
   .make-palatte(red);
+  .make-palatte(volcano);
   .make-palatte(orange);
+  .make-palatte(gold);
   .make-palatte(yellow);
+  .make-palatte(lime);
+  .make-palatte(geekblue);
   .make-palatte(grey);
 }

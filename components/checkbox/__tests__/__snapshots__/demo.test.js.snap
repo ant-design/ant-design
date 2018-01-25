@@ -24,7 +24,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
 exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
 <div>
   <div
-    style="border-bottom:1px solid #E9E9E9;"
+    style="border-bottom:1px solid #E9E9E9"
   >
     <label
       class="ant-checkbox-wrapper"
@@ -112,7 +112,7 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
 exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
 <div>
   <p
-    style="margin-bottom:20px;"
+    style="margin-bottom:20px"
   >
     <label
       class="ant-checkbox-wrapper"
@@ -145,7 +145,7 @@ exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
-      style="margin-left:10px;"
+      style="margin-left:10px"
       type="button"
     >
       <span>
@@ -257,6 +257,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
   </div>
   <br />
+  <br />
   <div
     class="ant-checkbox-group"
   >
@@ -316,6 +317,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
       </span>
     </label>
   </div>
+  <br />
   <br />
   <div
     class="ant-checkbox-group"
@@ -385,6 +387,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
 exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
 <div
   class="ant-checkbox-group"
+  style="width:100%"
 >
   <div
     class="ant-row"

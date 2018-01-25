@@ -5,12 +5,11 @@
 
 // Base class
 .@{tooltip-prefix-cls} {
+  .reset-component;
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
   visibility: visible;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
 
   &-hidden {
     display: none;
@@ -36,31 +35,29 @@
   &-placement-leftBottom {
     padding-right: @tooltip-distance;
   }
-}
 
-// Wrapper for the tooltip content
-.@{tooltip-prefix-cls}-inner {
-  max-width: @tooltip-max-width;
-  padding: 8px 10px;
-  color: @tooltip-color;
-  text-align: left;
-  text-decoration: none;
-  background-color: @tooltip-bg;
-  border-radius: @border-radius-base;
-  box-shadow: @box-shadow-base;
-  min-height: 34px;
-}
+  // Wrapper for the tooltip content
+  &-inner {
+    max-width: @tooltip-max-width;
+    padding: 6px 8px;
+    color: @tooltip-color;
+    text-align: left;
+    text-decoration: none;
+    background-color: @tooltip-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    min-height: 32px;
+  }
 
-// Arrows
-.@{tooltip-prefix-cls}-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-}
+  // Arrows
+  &-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
 
-.@{tooltip-prefix-cls} {
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {

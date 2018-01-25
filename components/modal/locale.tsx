@@ -1,17 +1,13 @@
+import defaultLocale from '../locale-provider/default';
+
 export interface ModalLocale {
   okText: string;
   cancelText: string;
   justOkText: string;
 }
 
-const defaultLocale: ModalLocale = {
-  okText: '确定',
-  cancelText: '取消',
-  justOkText: '知道了',
-};
-
 let runtimeLocale: ModalLocale = {
-  ...defaultLocale,
+  ...defaultLocale.Modal,
 };
 
 export function changeConfirmLocale(newLocale?: ModalLocale) {
@@ -22,7 +18,7 @@ export function changeConfirmLocale(newLocale?: ModalLocale) {
     };
   } else {
     runtimeLocale = {
-      ...defaultLocale,
+      ...defaultLocale.Modal,
     };
   }
 }

@@ -18,13 +18,16 @@ describe('Table.sorter', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  function createTable(props) {
+  function createTable(tableProps, columnProps = {}) {
     return (
       <Table
-        columns={[column]}
+        columns={[{
+          ...column,
+          ...columnProps,
+        }]}
         dataSource={data}
         pagination={false}
-        {...props}
+        {...tableProps}
       />
     );
   }
@@ -36,6 +39,22 @@ describe('Table.sorter', () => {
   it('renders sorter icon correctly', () => {
     const wrapper = render(createTable());
     expect(wrapper.find('thead')).toMatchSnapshot();
+  });
+
+  it('default sort order ascend', () => {
+    const wrapper = mount(createTable({}, {
+      defaultSortOrder: 'ascend',
+    }));
+
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
+  it('default sort order descend', () => {
+    const wrapper = mount(createTable({}, {
+      defaultSortOrder: 'descend',
+    }));
+
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
   it('sort records', () => {

@@ -1,6 +1,3 @@
-import moment from 'moment';
-moment.locale('sv');
-
 import Pagination from 'rc-pagination/lib/locale/sv_SE';
 import DatePicker from '../date-picker/locale/sv_SE';
 import TimePicker from '../time-picker/locale/sv_SE';

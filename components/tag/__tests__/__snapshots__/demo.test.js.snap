@@ -78,19 +78,19 @@ exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
 <div>
   <h4
-    style="margin-bottom:16px;"
+    style="margin-bottom:16px"
   >
     Presets:
   </h4>
   <div>
     <div
-      class="ant-tag ant-tag-pink"
+      class="ant-tag ant-tag-magenta"
       data-show="true"
     >
       <span
         class="ant-tag-text"
       >
-        pink
+        magenta
       </span>
     </div>
     <div
@@ -104,6 +104,16 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       </span>
     </div>
     <div
+      class="ant-tag ant-tag-volcano"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        volcano
+      </span>
+    </div>
+    <div
       class="ant-tag ant-tag-orange"
       data-show="true"
     >
@@ -111,6 +121,26 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
         class="ant-tag-text"
       >
         orange
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-gold"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        gold
+      </span>
+    </div>
+    <div
+      class="ant-tag ant-tag-lime"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        lime
       </span>
     </div>
     <div
@@ -144,6 +174,16 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       </span>
     </div>
     <div
+      class="ant-tag ant-tag-geekblue"
+      data-show="true"
+    >
+      <span
+        class="ant-tag-text"
+      >
+        geekblue
+      </span>
+    </div>
+    <div
       class="ant-tag ant-tag-purple"
       data-show="true"
     >
@@ -155,7 +195,7 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     </div>
   </div>
   <h4
-    style="margin:16px 0;"
+    style="margin:16px 0"
   >
     Custom:
   </h4>
@@ -163,7 +203,7 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#f50;"
+      style="background-color:#f50"
     >
       <span
         class="ant-tag-text"
@@ -174,7 +214,7 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#2db7f5;"
+      style="background-color:#2db7f5"
     >
       <span
         class="ant-tag-text"
@@ -185,7 +225,7 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#87d068;"
+      style="background-color:#87d068"
     >
       <span
         class="ant-tag-text"
@@ -196,7 +236,7 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
-      style="background-color:#108ee9;"
+      style="background-color:#108ee9"
     >
       <span
         class="ant-tag-text"
@@ -246,24 +286,30 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
       class="anticon anticon-cross"
     />
   </div>
-  <button
-    class="ant-btn ant-btn-dashed ant-btn-sm"
-    type="button"
+  <div
+    class="ant-tag"
+    data-show="true"
+    style="background:#fff;border-style:dashed"
   >
-    <span>
-      + New Tag
+    <span
+      class="ant-tag-text"
+    >
+      <i
+        class="anticon anticon-plus"
+      />
+       New Tag
     </span>
-  </button>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
-  <strong
-    style="margin-right:8px;"
+  <h6
+    style="margin-right:8px;display:inline"
   >
     Categories:
-  </strong>
+  </h6>
   <div
     class="ant-tag ant-tag-checkable"
   >

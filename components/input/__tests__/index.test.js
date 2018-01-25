@@ -2,10 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Input from '..';
 import Form from '../../form';
+import focusTest from '../../../tests/shared/focusTest';
 
 const { TextArea } = Input;
 
 describe('Input', () => {
+  focusTest(Input);
+
   it('should support maxLength', () => {
     const wrapper = mount(
       <Input maxLength="3" />
@@ -13,6 +16,8 @@ describe('Input', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+
+focusTest(TextArea);
 
 describe('TextArea', () => {
   beforeAll(() => {
@@ -27,7 +32,7 @@ describe('TextArea', () => {
     const wrapper = mount(
       <TextArea value="" readOnly autosize />
     );
-    const mockFunc = jest.spyOn(wrapper.node, 'resizeTextarea');
+    const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     jest.runAllTimers();
     expect(mockFunc).toHaveBeenCalledTimes(1);

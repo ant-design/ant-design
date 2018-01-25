@@ -13,16 +13,18 @@ title: LocaleProvider
 LocaleProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
 ```jsx
-import enUS from 'antd/lib/locale-provider/en_US';
+import { LocaleProvider } from 'antd';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import 'moment/locale/zh-cn';
 
 ...
 
-return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
+return <LocaleProvider locale={zh_CN}><App /></LocaleProvider>;
 ```
 
 我们提供了英语，中文，俄语，法语，德语等多种语言支持，所有语言包可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/) 找到。
 
-注意：如果你需要使用 UMD 版的 dist 文件，应该引入 `antd/dist/antd-with-locales.js`，然后按以下方式使用：
+注意：如果你需要使用 UMD 版的 dist 文件，应该引入 `antd/dist/antd-with-locales.js`，同时引入 moment 对应的 locale，然后按以下方式使用：
 
 ```jsx
 const { LocaleProvider, locales } = window.antd;

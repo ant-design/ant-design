@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
+import createFormField from 'rc-form/lib/createFormField';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import createReactClass from 'create-react-class';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
-import { FIELD_META_PROP } from './constants';
+import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 
 export interface FormCreateOption<T> {
   onFieldsChange?: (props: T, fields: Array<any>) => void;
@@ -18,9 +18,6 @@ export interface FormCreateOption<T> {
 
 export interface FormProps {
   layout?: 'horizontal' | 'inline' | 'vertical';
-  horizontal?: boolean;
-  inline?: boolean;
-  vertical?: boolean;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
@@ -73,7 +70,7 @@ export type GetFieldDecoratorOptions = {
   exclusive?: boolean;
   /** Normalize value to form component */
   normalize?: (value: any, prevValue: any, allValues: any) => any;
-  /** Whether stop validate on first rule of error for this field.	 */
+  /** Whether stop validate on first rule of error for this field.  */
   validateFirst?: boolean;
 };
 
@@ -88,15 +85,17 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): any;
-  validateFields(fieldNames: Array<string>, callback: ValidateCallback): any;
-  validateFields(options: Object, callback: ValidateCallback): any;
-  validateFields(callback: ValidateCallback): any;
+  validateFields(fieldNames: Array<string>, options: Object, callback: ValidateCallback): void;
+  validateFields(fieldNames: Array<string>, callback: ValidateCallback): void;
+  validateFields(options: Object, callback: ValidateCallback): void;
+  validateFields(callback: ValidateCallback): void;
+  validateFields(): void;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(fieldNames?: Array<string>, options?: Object, callback?: ValidateCallback): void;
   validateFieldsAndScroll(fieldNames?: Array<string>, callback?: ValidateCallback): void;
   validateFieldsAndScroll(options?: Object, callback?: ValidateCallback): void;
   validateFieldsAndScroll(callback?: ValidateCallback): void;
+  validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   getFieldsError(names?: Array<string>): Object;
@@ -120,7 +119,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
 export interface ComponentDecorator<TOwnProps> {
   <P extends FormComponentProps>(
-    component: React.ComponentClass<P>,
+    component: React.ComponentClass<P> | React.SFC<P>,
   ): React.ComponentClass<Omit<P, keyof FormComponentProps> & TOwnProps>;
 }
 
@@ -129,7 +128,7 @@ export default class Form extends React.Component<FormProps, any> {
     prefixCls: 'ant-form',
     layout: 'horizontal',
     hideRequiredMark: false,
-    onSubmit(e) {
+    onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
     },
   };
@@ -148,82 +147,42 @@ export default class Form extends React.Component<FormProps, any> {
 
   static Item = FormItem;
 
+  static createFormField = createFormField;
+
   static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
-    const formWrapper = createDOMForm({
+    return createDOMForm({
       fieldNameProp: 'id',
       ...options,
       fieldMetaProp: FIELD_META_PROP,
+      fieldDataProp: FIELD_DATA_PROP,
     });
-
-    /* eslint-disable react/prefer-es6-class */
-    return (Component) => formWrapper(createReactClass({
-      propTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      childContextTypes: {
-        form: PropTypes.object.isRequired,
-      },
-      getChildContext() {
-        return {
-          form: this.props.form,
-        };
-      },
-      componentWillMount() {
-        this.__getFieldProps = this.props.form.getFieldProps;
-      },
-      deprecatedGetFieldProps(name, option) {
-        warning(
-          false,
-          '`getFieldProps` is not recommended, please use `getFieldDecorator` instead, ' +
-          'see: https://u.ant.design/get-field-decorator',
-        );
-        return this.__getFieldProps(name, option);
-      },
-      render() {
-        this.props.form.getFieldProps = this.deprecatedGetFieldProps;
-
-        const withRef: any = {};
-        if (options.withRef) {
-          withRef.ref = 'formWrappedComponent';
-        } else if (this.props.wrappedComponentRef) {
-          withRef.ref = this.props.wrappedComponentRef;
-        }
-        return <Component {...this.props} {...withRef} />;
-      },
-    }));
   };
 
-  constructor(props) {
+  constructor(props: FormProps) {
     super(props);
 
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getChildContext() {
-    const { layout, vertical } = this.props;
+    const { layout } = this.props;
     return {
-      vertical: layout === 'vertical' || vertical,
+      vertical: layout === 'vertical',
     };
   }
 
   render() {
     const {
       prefixCls, hideRequiredMark, className = '', layout,
-      // @deprecated
-      inline, horizontal, vertical,
     } = this.props;
-    warning(
-      !inline && !horizontal && !vertical,
-      '`Form[inline|horizontal|vertical]` is deprecated, please use `Form[layout]` instead.',
-    );
     const formClassName = classNames(prefixCls, {
-      [`${prefixCls}-horizontal`]: (!inline && !vertical && layout === 'horizontal') || horizontal,
-      [`${prefixCls}-vertical`]: layout === 'vertical' || vertical,
-      [`${prefixCls}-inline`]: layout === 'inline' || inline,
+      [`${prefixCls}-horizontal`]: layout === 'horizontal',
+      [`${prefixCls}-vertical`]: layout === 'vertical',
+      [`${prefixCls}-inline`]: layout === 'inline',
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
     }, className);
 
@@ -231,9 +190,6 @@ export default class Form extends React.Component<FormProps, any> {
       'prefixCls',
       'className',
       'layout',
-      'inline',
-      'horizontal',
-      'vertical',
       'form',
       'hideRequiredMark',
     ]);

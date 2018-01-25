@@ -14,7 +14,7 @@ describe('Card', () => {
   });
 
   function fakeResizeWindowTo(wrapper, width) {
-    Object.defineProperties(wrapper.node.container, {
+    Object.defineProperties(wrapper.instance().container, {
       offsetWidth: {
         get() { return width; },
         configurable: true,
@@ -27,9 +27,11 @@ describe('Card', () => {
     const wrapper = mount(<Card title="xxx">xxx</Card>);
     fakeResizeWindowTo(wrapper, 1000);
     jest.runAllTimers();
-    expect(wrapper.hasClass('ant-card-wider-padding')).toBe(true);
+    wrapper.update();
+    expect(wrapper.find('.ant-card-wider-padding').length).toBe(1);
     fakeResizeWindowTo(wrapper, 800);
     jest.runAllTimers();
-    expect(wrapper.hasClass('ant-card-wider-padding')).toBe(false);
+    wrapper.update();
+    expect(wrapper.find('.ant-card-wider-padding').length).toBe(0);
   });
 });

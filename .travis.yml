@@ -5,33 +5,24 @@ language: node_js
 node_js:
   - 8
 
-env:
-  matrix:
-    - TEST_TYPE=lint
-    - TEST_TYPE=test:dist
-    - TEST_TYPE=test:lib
-    - TEST_TYPE=test:es
-    - TEST_TYPE=test:dom
-    - TEST_TYPE=test:node
+matrix:
+  fast_finish: true
+  include:
+      - env: TEST_TYPE=lint
+      - env: REACT=16 TEST_TYPE=test:dist
+      - env: REACT=16 TEST_TYPE=test:lib
+      - env: REACT=16 TEST_TYPE=test:es
+      - env: REACT=16 TEST_TYPE=test:dom
+      - env: REACT=16 TEST_TYPE=test:node
+      - env: REACT=15 TEST_TYPE=test:dist
+      - env: REACT=15 TEST_TYPE=test:lib
+      - env: REACT=15 TEST_TYPE=test:es
+      - env: REACT=15 TEST_TYPE=test:dom
+      - env: REACT=15 TEST_TYPE=test:node
+      - env: REACT=16 TEST_TYPE=bisheng:build
+
+before_script:
+  - scripts/install-react.sh
 
 script:
-  - |
-    if [ "$TEST_TYPE" = lint ]; then
-      npm run lint
-    elif [ "$TEST_TYPE" = test:dist ]; then
-      npm run dist && \
-      node ./tests/dekko/dist.test.js && \
-      LIB_DIR=dist npm test -- -w 2
-    elif [ "$TEST_TYPE" = test:lib ]; then
-      npm run compile && \
-      node ./tests/dekko/lib.test.js && \
-      LIB_DIR=lib npm test -- -w 2
-    elif [ "$TEST_TYPE" = test:es ]; then
-      npm run compile && \
-      LIB_DIR=es npm test -- -w 2
-    elif [ "$TEST_TYPE" = test:dom ]; then
-      npm test -- --coverage -w 2 && \
-      bash <(curl -s https://codecov.io/bash)
-    elif [ "$TEST_TYPE" = test:node ]; then
-      npm run test-node -- -w 2
-    fi
+  - scripts/travis-script.sh

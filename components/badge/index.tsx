@@ -1,9 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
-import warning from '../_util/warning';
+
+export { ScrollNumberProps } from './ScrollNumber';
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -19,6 +20,7 @@ export interface BadgeProps {
   className?: string;
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   text?: string;
+  offset?: [number | string, number | string];
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
@@ -54,6 +56,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       dot,
       status,
       text,
+      offset,
       ...restProps,
     } = this.props;
     const isDot = dot || status;
@@ -66,27 +69,29 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const isZero = displayCount === '0' || displayCount === 0;
     const isEmpty = displayCount === null || displayCount === undefined || displayCount === '';
     const hidden = (isEmpty || (isZero && !showZero)) && !isDot;
+    const statusCls = classNames({
+      [`${prefixCls}-status-dot`]: !!status,
+      [`${prefixCls}-status-${status}`]: !!status,
+    });
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
+      [`${prefixCls}-multiple-words`]: count && count.toString && count.toString().length > 1,
+      [`${prefixCls}-status-${status}`]: !!status,
     });
     const badgeCls = classNames(className, prefixCls, {
       [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
-
-    warning(
-      !(children && status),
-      '`Badge[children]` and `Badge[status]` cannot be used at the same time.',
-    );
+    const styleWithOffset = offset ? {
+      marginTop: offset[0],
+      marginLeft: offset[1],
+      ...style,
+    } : style;
     // <Badge status="success" />
     if (!children && status) {
-      const statusCls = classNames({
-        [`${prefixCls}-status-dot`]: !!status,
-        [`${prefixCls}-status-${status}`]: true,
-      });
       return (
-        <span className={badgeCls}>
+        <span className={badgeCls} style={styleWithOffset}>
           <span className={statusCls} />
           <span className={`${prefixCls}-status-text`}>{text}</span>
         </span>
@@ -100,7 +105,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         className={scrollNumberCls}
         count={displayCount}
         title={count}
-        style={style}
+        style={styleWithOffset}
       />
     );
 

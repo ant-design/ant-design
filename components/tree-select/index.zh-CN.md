@@ -45,6 +45,13 @@ title: TreeSelect
 | onSearch | 文本框值变化时回调 | function(value: string) | - |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |
 
+### Tree 方法
+
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
+| focus() | 获取焦点 |
+
 ### TreeNode props
 
 > 建议使用 treeData 来代替 TreeNode，免去手工构造麻烦

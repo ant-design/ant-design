@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { Timeline, Alert } from 'antd';
+import { Timeline, Alert, Affix } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
 import { ping } from '../utils';
@@ -80,8 +80,8 @@ export default class Article extends React.Component {
               type="warning"
               message={(
                 <span>
-                  This article has not been translated, hope that your can PR to translated it.
-                  <a href="https://github.com/ant-design/ant-design/issues/1471"> Help us!</a>
+                  This article has not been translated yet. Wanna help us out?&nbsp;
+                  <a href="https://github.com/ant-design/ant-design/issues/1471">See this issue on GitHub.</a>
                 </span>
               )}
             />
@@ -102,7 +102,13 @@ export default class Article extends React.Component {
           }
           {
             (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
-            <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
+            <Affix className="toc-affix" offsetTop={16}>
+              {
+                props.utils.toReactComponent(
+                  ['ul', { className: 'toc' }].concat(getChildren(content.toc))
+                )
+              }
+            </Affix>
           }
           {
             this.getArticle(props.utils.toReactComponent(

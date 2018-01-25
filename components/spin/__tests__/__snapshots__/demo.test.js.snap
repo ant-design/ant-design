@@ -15,6 +15,17 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <i
+    class="anticon anticon-spin anticon-loading"
+    style="font-size:24px"
+  />
+</div>
+`;
+
 exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
 <div>
   <div
@@ -26,7 +37,6 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
-        style="margin-bottom:16px;"
       >
         <span
           class="ant-alert-message"
@@ -41,15 +51,19 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       </div>
     </div>
   </div>
-  Loading state：
-  <span
-    class="ant-switch"
-    tabindex="0"
+  <div
+    style="margin-top:16px"
   >
+    Loading state：
     <span
-      class="ant-switch-inner"
-    />
-  </span>
+      class="ant-switch"
+      tabindex="0"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </span>
+  </div>
 </div>
 `;
 
@@ -98,7 +112,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <span

@@ -24,7 +24,6 @@ const Dragger = Upload.Dragger;
 const props = {
   name: 'file',
   multiple: true,
-  showUploadList: false,
   action: '//jsonplaceholder.typicode.com/posts/',
   onChange(info) {
     const status = info.file.status;
@@ -40,14 +39,12 @@ const props = {
 };
 
 ReactDOM.render(
-  <div style={{ marginTop: 16, height: 180 }}>
-    <Dragger {...props}>
-      <p className="ant-upload-drag-icon">
-        <Icon type="inbox" />
-      </p>
-      <p className="ant-upload-text">Click or drag file to this area to upload</p>
-      <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
-    </Dragger>
-  </div>
+  <Dragger {...props}>
+    <p className="ant-upload-drag-icon">
+      <Icon type="inbox" />
+    </p>
+    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+    <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+  </Dragger>
 , mountNode);
 ````

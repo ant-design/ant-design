@@ -9,7 +9,7 @@ Form is used to collect, validate, and submit the user input, usually contains v
 
 ## Form
 
-You can align the controls of a `form` using one of the following attributes：
+You can align the controls of a `form` using the `layout` prop：
 
 - `horizontal`：to horizontally align the `label`s and controls of the fields. (Default)
 - `vertical`：to vertically align the `label`s and controls of the fields.
@@ -26,8 +26,6 @@ A form field is defined using `<Form.Item />`.
 </Form.Item>
 ```
 
-> PS：By default, large size controls are used within a form.
-
 ## API
 
 ### Form
@@ -38,10 +36,7 @@ A form field is defined using `<Form.Item />`.
 | -------- | ----------- | ---- | ------------- |
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a |
 | hideRequiredMark | Hide required mark of all form items | Boolean | false |
-| horizontal | Use horizontal layout(Deprecated after 2.8) | boolean | true |
-| inline | Use inline alignment(Deprecated after 2.8) | boolean | false |
 | layout | Define form layout(Support after 2.8) | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
-| vertical | Use vertical layout(Deprecated after 2.8) | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 
 ### Form.create(options)
@@ -58,8 +53,8 @@ The following `options` are available:
 
 | Property | Description | Type |
 | -------- | ----------- | ---- |
-| validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { [nested.path]: String } |
-| mapPropsToFields | Convert props to field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | Convert props to field value(e.g. reading the values from Redux store). And you must mark returned fields with [`Form.createFormField`](#Form.createFormField) | (props) => Object{ fieldName: FormField { value } } |
+| validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { [nested.path]&#x3A; String } |
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
 | onValuesChange | A handler while value of any field is changed | (props, values) => void |
 
@@ -93,6 +88,10 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
 | options.scroll | Config scroll behavior of `validateFieldsAndScroll`, more: [dom-scroll-into-view's config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
 
+### Form.createFormField
+
+To mark the returned fields data in `mapPropsToFields`, [demo](#components-form-demo-global-state).
+
 ### this.props.form.getFieldDecorator(id, options)
 
 After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
@@ -111,7 +110,6 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 | Property | Description | Type | Default Value |
 | -------- | ----------- | ---- | ------------- |
 | id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string |  |
-| options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
 | options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internaly, we recommend to use vairable as `initialValue`, instead of literal) |  | n/a |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
@@ -162,7 +160,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 540px;
+  max-width: 600px;
 }
 </style>
 
@@ -170,7 +168,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

@@ -55,11 +55,13 @@ const columns = [{
 | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| components | 覆盖默认的 table 元素 | object | - |
 | dataSource | 数据数组 | any\[] |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
 | expandedRowRender | 额外的展开行 | Function(record):ReactNode | - |
+| expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
@@ -75,11 +77,8 @@ const columns = [{
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |
-| onRowClick | 点击行时触发 | Function(record, index, event) | - |
-| onRowContextMenu | 右键行时触发 | Function(record, index, event) | - |
-| onRowDoubleClick | 双击行时触发 | Function(record, index, event) | - |
-| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event) | - |
-| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event) | - |
+| onHeaderRow | 设置头部行属性 | Function(column, index) | - |
+| onRow | 设置行属性 | Function(record, index) | - |
 
 ### Column
 
@@ -104,9 +103,10 @@ const columns = [{
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | 列头显示文字 | string\|ReactNode | - |
 | width | 列宽度 | string\|number | - |
-| onCellClick | 单元格点击回调 | Function(record, event) | - |
+| onCell | 设置单元格属性 | Function(record) | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
+| onHeaderCell | 设置头部单元格属性 | Function(column) | - |
 
 ### ColumnGroup
 
@@ -120,6 +120,7 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
 | hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
@@ -142,14 +143,14 @@ const columns = [{
 
 ```jsx
 import { Table } from 'antd';
-import { TableColumnConfig } from 'antd/lib/table/Table';
+import { ColumnProps } from 'antd/lib/table';
 
 interface IUser {
   key: number;
   name: string;
 }
 
-const columns: TableColumnConfig<IUser>[] = [{
+const columns: ColumnProps<IUser>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',

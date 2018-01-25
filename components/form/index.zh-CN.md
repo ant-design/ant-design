@@ -28,8 +28,6 @@ title: Form
 </Form.Item>
 ```
 
-> 注：标准表单中一律使用大号控件。
-
 ## API
 
 ### Form
@@ -40,10 +38,7 @@ title: Form
 | --- | --- | --- | --- |
 | form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置 | object | 无 |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | Boolean | false |
-| horizontal | 水平排列布局(2.8 之后废弃) | boolean | true |
-| inline | 行内排列布局(2.8 之后废弃) | boolean | false |
 | layout | 表单布局(2.8 之后支持) | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
-| vertical | 垂直排列布局(2.8 之后废弃) | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
 
 ### Form.create(options)
@@ -60,8 +55,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
-| validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { [nested.path]: String } |
-| mapPropsToFields | 把父组件的属性映射到表单项上（可用于把 Redux store 中的值读出） | Function(props): Object{ fieldName: Object{ value } } |
+| mapPropsToFields | 把父组件的属性映射到表单项上（如：把 Redux store 中的值读出），需要对返回值中的表单域数据用 [`Form.createFormField`](#Form.createFormField) 标记 | (props) => Object{ fieldName: FormField { value } } |
+| validateMessages | 默认校验信息，可用于把默认错误信息改为中文等，格式与 [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js) 返回值一致 | Object { [nested.path]&#x3A; String } |
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, values) => void |
 
@@ -94,6 +89,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
 | options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
 
+### Form.createFormField
+
+用于标记 `mapPropsToFields` 返回的表单域数据，[例子](#components-form-demo-global-state)。
+
 ### this.props.form.getFieldDecorator(id, options)
 
 经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
@@ -112,7 +111,6 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | id | 必填输入控件唯一标志。支持嵌套式的[写法](https://github.com/react-component/form/pull/48)。 | string |  |
-| options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
 | options.getValueFromEvent | 可以把 onChange 的参数（如 event）转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#option-object) |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) |  |  |
 | options.normalize | 转换默认的 value 给控件，[一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |
@@ -163,7 +161,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
-  max-width: 540px;
+  max-width: 600px;
 }
 </style>
 
@@ -171,7 +169,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ```jsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from 'antd/lib/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

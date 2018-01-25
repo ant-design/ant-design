@@ -3,56 +3,31 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
-.@{ant-prefix}-input-search-icon {
-  cursor: pointer;
-  transition: all .3s;
-  font-size: 14px;
-  &:hover {
-    color: @input-hover-border-color;
-  }
-}
+@search-prefix: ~"@{ant-prefix}-input-search";
 
-// code blow is keeped for compatibility
-// for this demo: http://1x.ant.design/components/select/#components-select-demo-search-box
-// do not delete until 3.x
-.@{ant-prefix}-search-input-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.@{ant-prefix}-search-input {
-  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child,
-  &.@{ant-prefix}-input-group .@{ant-prefix}-select:first-child {
-    border-radius: @border-radius-base;
-    position: absolute;
-    top: -1px;
-    width: 100%;
+.@{search-prefix} {
+  &-icon {
+    pointer-events: none;
+    color: @text-color-secondary;
   }
 
-  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child {
-    padding-right: 36px;
+  &:not(&-small) > .@{ant-prefix}-input-suffix {
+    right: @control-padding-horizontal;
   }
 
-  .@{ant-prefix}-search-btn {
-    .btn-default;
-    border-radius: 0 @border-radius-base - 1px @border-radius-base - 1px 0;
-    left: -1px;
-    position: relative;
-    border-width: 0 0 0 1px;
-    z-index: 2;
-    padding-left: 8px;
-    padding-right: 8px;
-    &:hover {
-      border-color: @border-color-base;
+  > .@{ant-prefix}-input-suffix > .@{search-prefix}-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    > .@{iconfont-css-prefix}-search {
+      font-size: @font-size-lg;
     }
   }
-  &&-focus .@{ant-prefix}-search-btn-noempty,
-  &:hover .@{ant-prefix}-search-btn-noempty {
-    .btn-primary;
+
+  &.@{search-prefix}-enter-button > .@{ant-prefix}-input {
+    padding-right: 46px;
   }
-  .@{ant-prefix}-select-combobox {
-    .@{ant-prefix}-select-selection__rendered {
-      margin-right: 29px;
-    }
+
+  &.@{search-prefix}-enter-button > .@{ant-prefix}-input-suffix {
+    right: 0;
   }
 }

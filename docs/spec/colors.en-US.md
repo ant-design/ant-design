@@ -1,25 +1,26 @@
 ---
-order: 3
+category: Visual
+order: 0
 title: Colors
 ---
 
-Not only is color an effective way to create brand recognition, but it also plays an important role in conveying information, providing interactive feedback, and bringing attention to a particular element. Ant Design makes using color simple and practical through an emphasis on efficiency, clarity, and user experience. Please note the following three points when choosing colors:
+Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
 
-- Color usage and positioning should respect cognitive psychology (stay user-focused)
-- Visual hierarchy should be clear-cut, and color should establish visual continuity
-- Color usage should be in compliance with the [WCAG 2.0 standards](https://www.w3.org/WAI/WCAG20/glance/ "Web Content Accessibility Guidelines") by using sufficient contrast to ensure accessibility
+The system-level color system mainly defines the basic color palette, neutral color palette and data visualization color palette in the design of Ant Financial. The product-level color system is in the specific design process, based on the color of the system to further define the tone of the product in accordance with the requirements and function of the color.
 
 ---
 
-## Color Palettes
+## Color Model
 
-Ant Design's color palettes consist of 10 shallow-to-deep color swatches, and default palettes are defined for certain hues. Users can select a swatch from the color scheme using keywords. In theory, all colors used in the design should be taken from a color palette.
+Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
 
-After careful tuning by designers and programmers, our [palette generation algorithm](https://github.com/ant-design/ant-design/blob/734beb84ffc3f0469fbae1566aa8450f966cb261/components/style/color/colorPalette.less) uses a combination of color plus Bezier curves and different rotation angles for cold and warm colors to generate new palettes (replacing our original tint / shade color system). This algorithm can be used to generate new palettes based on an input color that you specify.
+## System-level Color System
 
-Ant Design's default theme consists of eight basic colors, each of which is derived from the above algorithm.
+Ant Design system-level color system also comes from the "natural" design language. Designers abstract the natural scenes through the capture, combined with the technical gene of Ant Financial, forming a unique 12 colors. Further through a large number of observations, to capture the different colors of natural light under the law of change, with the art of drawing ideas, the 12 colors were derived. The definition of neutral color palette is balanced with readability, aesthetics and usability.
 
-> Note: In these shallow-to-deep palettes, the 6th color cell [generally satisfies WCAG 2.0](https://leaverou.github.io/contrast-ratio/)'s 4.5:1 minimum contrast ratio (AA level), and is used as the default for the palette.
+### Base Color Palettes
+
+Ant Design's base color palette totals 120 colors, including 12 primary colors and their derivative colors. These colors can basically include the need for color in background applications design.
 
 `````__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
@@ -27,7 +28,19 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes />, mountNode);
 `````
 
-In order to provide contrast against different background shades, we chose `White #FFFFFF` and `Black #000000` with varying transparency to distinguish foreground text. For details, please see [font color](/docs/spec/font#font-color).
+Ant Design's color palette also has the ability to further extend. After careful elaboration by designers and programmers, we have come up with a set of color generation tools that combine the natural variation of colors. When there is a need for further color design, designers simply define the primary colors according to certain rules and will get a complete range of derived colors automatically .
+
+### Neutral Color Palette
+
+`````__react
+import Palette from '../../site/theme/template/Color/Palette';
+
+ReactDOM.render(<Palette color={{ name: 'grey' }} direction="horizontal" />, mountNode);
+`````
+
+### Data Visualization  Color Palette (Coming soon)
+
+Data visualization color palette is based on the basic color palette and neutral color palette, and based on the principle that AntV's "effective, clear, accurate and beautiful".
 
 ### Palette Generation Tool
 
@@ -41,45 +54,28 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 ---
 
-## Color application
+## Product-level Color System
 
-### Brand color application
+### Brand Color
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/lVKfKMuLmaTlnTDitPEJ.png" alt="Ant Design's commonly used brand color values">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/diEtYItrQZpqsiPsadeU.png">
 
-The brand color is one of the most intuitive visual elements used that is used to embody product characteristics and communicate ideas. When selecting colors, it is important to understand how the brand color is used in the user interface. Taking the default styles of an Ant Design web component as an example, the brand color is mainly reflected in key actions and when highlighting important information.
+The brand color is one of the most intuitive visual elements used that is used to embody product characteristics and communicate ideas. When selecting colors, it is important to understand how the brand color is used in the user interface. In the basic color palette to choose the main color, we recommend choosing the color plate from the shallow depth of the sixth color as the main color. Ant Design's brand color comes from blue of the base color palette, it's Hex value is 1890FF, application scenarios include: key action point, the operation status, important information highlighting, graphics and other scenes.
 
-> Note: Images and logos can not automatically adhere to the color palette, but should be compatible.
+### Functional Color
 
-### Neutral color application
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/rfkSGJhMIhnUYILGIlrh.png">
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AmXwsVOWrLxDfwLNlyvL.png" alt="Ant Design's neutral color values">
+Functional color represents a clear message as well as status, such as success, error, failure, reminder, link and so on. Functional color selection need to comply with the user's basic understanding of color. We suggest that the functional colors should be kept as consistent as possible under a set of product systems. Do not have too much customization to interfere with the user's cognitive experience. Ant Design's functional color palette is shown on the right:
 
-Gray as a neutral color is used extensively in Ant Design's web design, and its use facilitates the targeting and functional guidance of key content. This color is mainly seen in the navigation frame, backgrounds, secondary operations, and so on.
+### Neutral Color
 
-### Functional color application
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/mkaVzBvUUEcTKeUxhgpN.png">
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/mewwdThVwyTQzpZQtYXw.png" alt="Ant Design's functional color card">
+Neutral color is mainly used in a large part of the text interface, in addition to the background, borders, dividing lines, and other scenes are also very common. Neutral color definition needs to consider the difference between dark background and light background, while incorporating the WCAG 2.0 standard. The neutral color of Ant Design is based on transparency, as shown on the right:
 
-Functional colors are colors that are used to convey state. These are mainly used in notifications, form validations, status messages, etc. Green indicates success, yellow indicates alerts / warnings, red indicates errors, gray indicates skipped / disabled.
+---
 
-### Visual hierarchy
+## Color Application In Enterprise Product Design
 
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/ADUfVlZwjziJRUQSMbMt.png" alt="Good example" description="Guide the user's line of sight through brand color">
-
-Use the brand color to convey important information or to highlight important actions while surrounding it with large areas of neutral color. This allows users to focus more on the task itself, improving efficiency.
-
-<br />
-
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/RmSDSeAAYphuiDFszIMa.png" alt="Bad example" description="Avoid using too many colors or colors in large areas">
-
-> Note: We suggest using no more than three colors in the user interface (except for within data charts and graphic illustrations)
-
-### Color contrast
-
-<img class="preview-img no-padding good" align="right" src="https://zos.alipayobjects.com/rmsportal/jeyvhMIQgoPUotNerRGy.png" alt="Good example">
-<img class="preview-img no-padding bad" align="right" src="https://zos.alipayobjects.com/rmsportal/ppdlrVnFCsYVicjDrnzi.png" alt="Bad example" description="When the contrast is less than 3:1, it becomes difficult to read">
-
-Ant Design's color palette conforms to the WCAG 2.0 standard. The foreground and background colors should always meet the minimum standard of a 3:1 contrast ratio.
-
-- [Contrast ratio tool](https://leaverou.github.io/contrast-ratio/#%23454545-on-%23fff)
+In the design of background applications of Ant Financial, our attitude towards color is restrained. Color is used more based on information delivery, operational guidance and interactive feedback purposes. Above these principles that do not undermine operational efficiency and affect the clear communication of information, a rational choice of color is key. Of course, with illustrations and display page can be properly broken this idea.

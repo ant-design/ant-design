@@ -2,27 +2,27 @@ import getRequestAnimationFrame, { cancelRequestAnimationFrame } from '../_util/
 
 const reqAnimFrame = getRequestAnimationFrame();
 
-export default function throttleByAnimationFrame(fn) {
-  let requestId;
+export default function throttleByAnimationFrame(fn: () => void) {
+  let requestId: number | null;
 
-  const later = args => () => {
+  const later = (args: any[]) => () => {
     requestId = null;
     fn(...args);
   };
 
-  const throttled = (...args) => {
+  const throttled = (...args: any[]) => {
     if (requestId == null) {
       requestId = reqAnimFrame(later(args));
     }
   };
 
-  (throttled as any).cancel = () => cancelRequestAnimationFrame(requestId);
+  (throttled as any).cancel = () => cancelRequestAnimationFrame(requestId!);
 
   return throttled;
 }
 
 export function throttleByAnimationFrameDecorator() {
-  return function(target, key, descriptor) {
+  return function(target: any, key: string, descriptor: any) {
     let fn = descriptor.value;
     let definingProperty = false;
     return {

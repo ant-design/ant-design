@@ -137,7 +137,7 @@ $ yarn add babel-plugin-import --dev
 + const { injectBabelPlugin } = require('react-app-rewired');
 
   module.exports = function override(config, env) {
-+   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
++   config = injectBabelPlugin(['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }], config);
     return config;
   };
 ```
@@ -145,7 +145,7 @@ $ yarn add babel-plugin-import --dev
 然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，并且按下面的格式引入模块。
 
 ```diff
-  // scr/App.js
+  // src/App.js
   import React, { Component } from 'react';
 - import Button from 'antd/lib/button';
 + import { Button } from 'antd';

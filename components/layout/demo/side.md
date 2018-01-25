@@ -98,8 +98,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ````css
 #components-layout-demo-side .logo {
   height: 32px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255,255,255,.2);
   margin: 16px;
 }
 ````

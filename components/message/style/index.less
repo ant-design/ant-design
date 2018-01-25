@@ -1,9 +1,10 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @message-prefix-cls: ~"@{ant-prefix}-message";
 
 .@{message-prefix-cls} {
-  font-size: @font-size-base;
+  .reset-component;
   position: fixed;
   z-index: @zindex-message;
   width: 100%;
@@ -20,7 +21,7 @@
   }
 
   &-notice-content {
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
     background: @component-background;

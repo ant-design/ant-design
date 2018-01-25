@@ -3,17 +3,18 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
-@collapse-header-bg: @background-color-base;
-@collapse-active-bg: @background-color-active;
+@collapse-header-bg: @background-color-light;
+@collapse-active-bg: @background-color-base;
 
 .collapse-close() {
-  .iconfont-size-under-12px(9px, 0);
+  transform: rotate(0);
 }
 .collapse-open() {
-  .iconfont-size-under-12px(9px, 90deg);
+  transform: rotate(90deg);
 }
 
 .@{collapse-prefix-cls} {
+  .reset-component;
   background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
@@ -31,27 +32,32 @@
 
     > .@{collapse-prefix-cls}-header {
       line-height: 22px;
-      padding: 8px 0 8px 32px;
+      padding: 12px 0 12px 40px;
       color: @heading-color;
       cursor: pointer;
       position: relative;
       transition: all .3s;
 
       .arrow {
-        .collapse-close();
         .iconfont-mixin();
+        .collapse-close();
+        font-size: @font-size-sm;
         position: absolute;
-        color: @text-color-secondary;
         display: inline-block;
-        font-weight: bold;
-        line-height: 40px;
+        line-height: 46px;
         vertical-align: top;
         transition: transform 0.24s;
         top: 0;
-        left: 16px;
+        left: @padding-md;
         &:before {
           content: "\E61F";
         }
+      }
+    }
+
+    &.@{collapse-prefix-cls}-no-arrow {
+      > .@{collapse-prefix-cls}-header {
+        padding-left: 12px;
       }
     }
   }
@@ -63,12 +69,13 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: 0 16px;
+    padding: 0 @padding-md;
     background-color: @component-background;
+    border-top: @border-width-base @border-style-base @border-color-base;
 
     & > &-box {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: @padding-md;
+      padding-bottom: @padding-md;
     }
 
     &-inactive {
@@ -93,25 +100,22 @@
     border: 0;
   }
 
+  &-borderless > &-item {
+    border-bottom: 1px solid @border-color-base;
+  }
+
   &-borderless > &-item:last-child,
   &-borderless > &-item:last-child &-header {
     border-radius: 0;
   }
 
-  &-borderless > &-item-active {
-    border: 0;
-  }
-
   &-borderless > &-item > &-content {
     background-color: transparent;
-    border-top: @border-width-base @border-style-base @border-color-base;
+    border-top: 0;
   }
 
-  &-borderless > &-item > &-header {
-    transition: all .3s;
-    &:hover {
-      background-color: @collapse-header-bg;
-    }
+  &-borderless > &-item > &-content > &-content-box {
+    padding-top: 4px;
   }
 
   & &-item-disabled > &-header {
@@ -119,11 +123,6 @@
     & > .arrow {
       cursor: not-allowed;
       color: @disabled-color;
-      background-color: @disabled-bg;
     }
-  }
-
-  & > &-item:not(&-item-disabled) > .@{collapse-prefix-cls}-header:active {
-    background-color: @collapse-active-bg;
   }
 }

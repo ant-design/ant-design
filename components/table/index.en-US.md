@@ -54,11 +54,13 @@ const columns = [{
 | -------- | ----------- | ---- | ------- |
 | bordered | Whether to show all table borders | boolean | `false` |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| components | Override default table elements | object | - |
 | dataSource | Data record array to be displayed | any\[] | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record):ReactNode | - |
+| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |
@@ -74,11 +76,8 @@ const columns = [{
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter) |  |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
-| onRowClick | Callback executed when a row is clicked | Function(record, index, event) | - |
-| onRowContextMenu | Callback executed when right click on a row | Function(record, index, event) | - |
-| onRowDoubleClick | Callback executed when a row is double clicked | Function(record, index, event) | - |
-| onRowMouseEnter | Callback executed when mouse enters a row | Function(record, index, event) | - |
-| onRowMouseLeave | Callback executed when mouse leaves a row | Function(record, index, event) | - |
+| onHeaderRow | Set props on per header row | Function(column, index) | - |
+| onRow | Set props on per row | Function(record, index) | - |
 
 ### Column
 
@@ -89,6 +88,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c` | string | - |
+| defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |
 | filterDropdown | Customized filter overlay | ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |
@@ -103,9 +103,10 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | Title of this column | string\|ReactNode | - |
 | width | Width of this column | string\|number | - |
-| onCellClick | Callback executed when table cell is clicked | Function(record, event) | - |
+| onCell | Set props on per cell | Function(record) | - |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
+| onHeaderCell | Set props on per header cell | Function(column) | - |
 
 ### ColumnGroup
 
@@ -119,6 +120,7 @@ Properties for row selection.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
 | selectedRowKeys | Controlled selected row keys | string\[] | \[] |
@@ -141,14 +143,14 @@ Properties for row selection.
 
 ```jsx
 import { Table } from 'antd';
-import { TableColumnConfig } from 'antd/lib/table/Table';
+import { ColumnProps } from 'antd/lib/table';
 
 interface IUser {
   key: number,
   name: string;
 }
 
-const columns: TableColumnConfig<IUser>[] = [{
+const columns: ColumnProps<IUser>[] = [{
   key: 'name',
   title: 'Name',
   dataIndex: 'name',

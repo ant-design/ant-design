@@ -79,7 +79,7 @@ export default class ComponentDoc extends React.Component {
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
           <Affix className="toc-affix" offsetTop={16}>
-            <ul className="toc demos-anchor">
+            <ul id="demo-toc" className="toc">
               {jumper}
             </ul>
           </Affix>
@@ -102,7 +102,7 @@ export default class ComponentDoc extends React.Component {
               <Icon
                 type="appstore"
                 className={expandTriggerClass}
-                title="展开全部代码"
+                title={expand ? '收起全部代码' : '展开全部代码'}
                 onClick={this.handleExpandToggle}
               />
             </h2>

@@ -1,8 +1,10 @@
 @import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 @avatar-prefix-cls: ~"@{ant-prefix}-avatar";
 
 .@{avatar-prefix-cls} {
+  .reset-component;
   display: inline-block;
   text-align: center;
   background: @avatar-bg;
@@ -10,6 +12,11 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  vertical-align: middle;
+
+  &-image {
+    background: transparent;
+  }
 
   .avatar-size(@avatar-size-base, @avatar-font-size-base);
 

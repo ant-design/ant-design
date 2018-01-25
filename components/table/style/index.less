@@ -2,20 +2,20 @@
 @import "../../style/mixins/index";
 
 @table-prefix-cls: ~"@{ant-prefix}-table";
+@table-header-icon-color: @text-color-secondary;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
 }
 
 .@{table-prefix-cls} {
-  font-size: @font-size-base;
-  color: @text-color;
+  .reset-component;
   overflow: hidden;
   position: relative;
   border-radius: @border-radius-base @border-radius-base 0 0;
 
   &-body {
-    transition: opacity 0.3s ease;
+    transition: opacity .3s;
   }
 
   table {
@@ -29,36 +29,36 @@
 
   &-thead > tr > th {
     background: @table-header-bg;
-    font-weight: 500;
     transition: background .3s ease;
     text-align: left;
     color: @heading-color;
+    font-weight: 500;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
 
     &[colspan] {
       text-align: center;
+      border-bottom: 0;
     }
 
-    .@{iconfont-css-prefix}-filter, .@{table-prefix-cls}-filter-icon {
+    .@{iconfont-css-prefix}-filter,
+    .@{table-prefix-cls}-filter-icon {
       position: relative;
-      margin-left: 4px;
+      margin-left: 8px;
       font-size: @font-size-base;
       cursor: pointer;
-      color: #999;
+      color: @table-header-icon-color;
       transition: all .3s;
       width: 14px;
+      font-weight: normal;
+      vertical-align: text-bottom;
 
       &:hover {
         color: @text-color;
       }
+    }
 
-      &:after {
-        content: '';
-        position: absolute;
-        width: 14px;
-        height: 50px;
-        left: 0;
-        top: -19px;
-      }
+    .@{table-prefix-cls}-column-sorter + .@{iconfont-css-prefix}-filter {
+      margin-left: 4px;
     }
 
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
@@ -91,6 +91,7 @@
     background: @table-header-bg;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     position: relative;
+    border-top: @border-width-base @border-style-base @border-color-split;
     &:before {
       content: '';
       height: 1px;
@@ -137,7 +138,7 @@
     border-radius: 0;
   }
 
-  &-tbody > tr.@{table-prefix-cls}-row-selected {
+  &-tbody > tr.@{table-prefix-cls}-row-selected td {
     background: @table-selected-row-bg;
   }
 
@@ -204,109 +205,20 @@
     }
   }
 
-  &-middle {
-    .@{table-prefix-cls}-thead > tr > th,
-    .@{table-prefix-cls}-tbody > tr > td {
-      padding: 10px 8px;
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer {
-      padding: 10px 8px;
-    }
-
-    .@{table-prefix-cls}-column-sorter-up:after {
-      top: -13px;
-      height: 13px;
-    }
-
-    .@{table-prefix-cls}-column-sorter-down:after {
-      bottom: -11px;
-      height: 13px;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th {
-      .@{iconfont-css-prefix}-filter,
-      .@{table-prefix-cls}-filter-icon {
-        &:after {
-          height: 38px;
-          top: -13px;
-        }
-      }
-    }
-  }
-
-  &-small {
-    border: @border-width-base @border-style-base @border-color-split;
-    border-radius: @border-radius-base;
-
-    .@{table-prefix-cls}-header > table,
-    .@{table-prefix-cls}-body > table {
-      border: 0;
-      padding: 0 8px;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th {
-      background: @component-background;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-    }
-
-    .@{table-prefix-cls}-tbody > tr > td {
-      padding: 6px 8px;
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer,
-    .@{table-prefix-cls}-thead > tr > th {
-      padding: 10px 8px;
-    }
-
-    .@{table-prefix-cls}-title {
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-      top: 0;
-    }
-
-    .@{table-prefix-cls}-header {
-      background: @component-background;
-    }
-
-    .@{table-prefix-cls}-placeholder,
-    .@{table-prefix-cls}-row:last-child td {
-      border-bottom: 0;
-    }
-
-    .@{table-prefix-cls}-column-sorter-up:after {
-      top: -14px;
-      height: 13px;
-    }
-
-    .@{table-prefix-cls}-column-sorter-down:after {
-      bottom: -11px;
-      height: 13px;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th {
-      .@{iconfont-css-prefix}-filter,
-      .@{table-prefix-cls}-filter-icon {
-        &:after {
-          height: 39px;
-          top: -14px;
-        }
-      }
-    }
-  }
-
   &-column-sorter {
     position: relative;
-    margin-left: 4px;
+    margin-left: 8px;
     display: inline-block;
     width: 14px;
+    height: 14px;
     vertical-align: middle;
     text-align: center;
+    font-weight: normal;
+    color: @table-header-icon-color;
 
     &-up,
     &-down {
-      line-height: 4px;
+      line-height: 6px;
       display: block;
       width: 14px;
       height: 6px;
@@ -324,18 +236,18 @@
       &:after {
         position: absolute;
         content: '';
-        height: 20px;
+        height: 30px;
         width: 14px;
         left: 0;
       }
     }
 
     &-up:after {
-      top: -19px;
+      top: -30px;
     }
 
     &-down:after {
-      bottom: -17px;
+      bottom: -30px;
     }
 
     .@{iconfont-css-prefix}-caret-up,
@@ -343,7 +255,6 @@
       .iconfont-size-under-12px(8px);
       line-height: 4px;
       height: 4px;
-      color: #999;
       transition: all .3s;
     }
   }
@@ -392,38 +303,6 @@
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
       border-right: @border-width-base @border-style-base @border-color-split;
-    }
-
-    &.@{table-prefix-cls}-small {
-      border-right: 0;
-
-      .@{table-prefix-cls}-header > table,
-      .@{table-prefix-cls}-body > table,
-      .@{table-prefix-cls}-fixed-left table,
-      .@{table-prefix-cls}-fixed-right table {
-        border: 0;
-        padding: 0;
-      }
-
-      .@{table-prefix-cls}-title {
-        border: 0;
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-        border-right: @border-width-base @border-style-base @border-color-split;
-      }
-
-      .@{table-prefix-cls}-footer {
-        border: 0;
-        border-top: @border-width-base @border-style-base @border-color-split;
-        border-right: @border-width-base @border-style-base @border-color-split;
-        &:before {
-          display: none;
-        }
-      }
-
-      .@{table-prefix-cls}-placeholder {
-        border-left: 0;
-        border-bottom: 0;
-      }
     }
   }
 
@@ -520,7 +399,7 @@
     }
 
     .@{iconfont-css-prefix}-down {
-      color: #999;
+      color: @table-header-icon-color;
       transition: all .3s;
     }
 
@@ -533,7 +412,7 @@
       box-shadow: @box-shadow-base;
 
       .@{ant-prefix}-action-down {
-        color: #999;
+        color: @table-header-icon-color;
       }
     }
 
@@ -681,3 +560,5 @@
     box-shadow: none;
   }
 }
+
+@import './size';

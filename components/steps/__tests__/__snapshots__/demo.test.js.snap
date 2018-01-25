@@ -2,180 +2,133 @@
 
 exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-hidden ant-steps-dot"
+  class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          You can hover on the dot.
-        </div>
+        You can hover on the dot.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        In Progress
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          You can hover on the dot.
-        </div>
+        You can hover on the dot.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          You can hover on the dot.
-        </div>
+        You can hover on the dot.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          You can hover on the dot.
-        </div>
+        You can hover on the dot.
       </div>
     </div>
   </div>
@@ -184,126 +137,91 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
 
 exports[`renders ./components/steps/demo/error.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-hidden"
+  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish ant-steps-next-error"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-check"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-check"
-          />
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description
-        </div>
+        This is a description
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-error"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-error"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-cross"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-cross"
-          />
-        </div>
+        In Process
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Process
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description
-        </div>
+        This is a description
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        3
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            3
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description
-        </div>
+        This is a description
       </div>
     </div>
   </div>
@@ -312,160 +230,113 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-hidden"
+  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish ant-steps-custom"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <i
+          class="anticon anticon-user"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <i
-              class="anticon anticon-user"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Login
-        </div>
+        Login
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-finish ant-steps-custom"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <i
+          class="anticon anticon-solution"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <i
-              class="anticon anticon-solution"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Verification
-        </div>
+        Verification
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process ant-steps-custom"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-process ant-steps-item-custom"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <i
+          class="anticon anticon-spin anticon-loading"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <i
-              class="anticon anticon-credit-card"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Pay
-        </div>
+        Pay
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait ant-steps-custom"
+    class="ant-steps-item ant-steps-item-wait ant-steps-item-custom"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <i
+          class="anticon anticon-smile-o"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <i
-              class="anticon anticon-smile-o"
-            />
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Done
-        </div>
+        Done
       </div>
     </div>
   </div>
@@ -474,136 +345,101 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-hidden ant-steps-dot"
+  class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        In Progress
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        <span
+          class="ant-steps-icon-dot"
+        />
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            <span
-              class="ant-steps-icon-dot"
-            />
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
@@ -612,128 +448,93 @@ exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-hidden"
+  class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-check"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-check"
-          />
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        2
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            2
-          </span>
-        </div>
+        In Progress
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        3
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            3
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
@@ -742,113 +543,78 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-small ant-steps-horizontal ant-steps-label-horizontal ant-steps-hidden"
+  class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-check"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-check"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
+        Finished
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
-    style="margin-right:-1px;"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:1px;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        2
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            2
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
+        In Progress
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        3
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            3
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-steps-main"
-      >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
+        Waiting
       </div>
     </div>
   </div>
@@ -858,115 +624,80 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
 exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
 <div>
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-hidden"
+    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
   >
     <div
-      class="ant-steps-item ant-steps-status-process"
-      style="margin-right:-1px;"
+      class="ant-steps-item ant-steps-item-process"
     >
       <div
-        class="ant-steps-tail"
-        style="padding-right:1px;"
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
       >
-        <i />
+        <span
+          class="ant-steps-icon"
+        >
+          1
+        </span>
       </div>
       <div
-        class="ant-steps-step"
+        class="ant-steps-item-content"
       >
         <div
-          class="ant-steps-head"
+          class="ant-steps-item-title"
         >
-          <div
-            class="ant-steps-head-inner"
-          >
-            <span
-              class="ant-steps-icon"
-            >
-              1
-            </span>
-          </div>
-        </div>
-        <div
-          class="ant-steps-main"
-        >
-          <div
-            class="ant-steps-title"
-          >
-            First
-          </div>
+          First
         </div>
       </div>
     </div>
     <div
-      class="ant-steps-item ant-steps-status-wait"
-      style="margin-right:-1px;"
+      class="ant-steps-item ant-steps-item-wait"
     >
       <div
-        class="ant-steps-tail"
-        style="padding-right:1px;"
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
       >
-        <i />
+        <span
+          class="ant-steps-icon"
+        >
+          2
+        </span>
       </div>
       <div
-        class="ant-steps-step"
+        class="ant-steps-item-content"
       >
         <div
-          class="ant-steps-head"
+          class="ant-steps-item-title"
         >
-          <div
-            class="ant-steps-head-inner"
-          >
-            <span
-              class="ant-steps-icon"
-            >
-              2
-            </span>
-          </div>
-        </div>
-        <div
-          class="ant-steps-main"
-        >
-          <div
-            class="ant-steps-title"
-          >
-            Second
-          </div>
+          Second
         </div>
       </div>
     </div>
     <div
-      class="ant-steps-item ant-steps-status-wait"
+      class="ant-steps-item ant-steps-item-wait"
     >
       <div
-        class="ant-steps-tail"
-        style="padding-right:0;"
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
       >
-        <i />
+        <span
+          class="ant-steps-icon"
+        >
+          3
+        </span>
       </div>
       <div
-        class="ant-steps-step"
+        class="ant-steps-item-content"
       >
         <div
-          class="ant-steps-head"
+          class="ant-steps-item-title"
         >
-          <div
-            class="ant-steps-head-inner"
-          >
-            <span
-              class="ant-steps-icon"
-            >
-              3
-            </span>
-          </div>
-        </div>
-        <div
-          class="ant-steps-main"
-        >
-          <div
-            class="ant-steps-title"
-          >
-            Last
-          </div>
+          Last
         </div>
       </div>
     </div>
@@ -993,126 +724,93 @@ exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-hidden"
+  class="ant-steps ant-steps-vertical"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-check"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-check"
-          />
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        2
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            2
-          </span>
-        </div>
+        In Progress
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        3
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            3
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
@@ -1121,126 +819,93 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 
 exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
 <div
-  class="ant-steps ant-steps-small ant-steps-vertical ant-steps-hidden"
+  class="ant-steps ant-steps-vertical ant-steps-small"
 >
   <div
-    class="ant-steps-item ant-steps-status-finish"
+    class="ant-steps-item ant-steps-item-finish"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon anticon anticon-check"
+      />
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon anticon anticon-check"
-          />
-        </div>
+        Finished
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Finished
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-process"
+    class="ant-steps-item ant-steps-item-process"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        2
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            2
-          </span>
-        </div>
+        In Progress
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>
   <div
-    class="ant-steps-item ant-steps-status-wait"
+    class="ant-steps-item ant-steps-item-wait"
   >
     <div
-      class="ant-steps-tail"
-      style="padding-right:0;"
+      class="ant-steps-item-tail"
+    />
+    <div
+      class="ant-steps-item-icon"
     >
-      <i />
+      <span
+        class="ant-steps-icon"
+      >
+        3
+      </span>
     </div>
     <div
-      class="ant-steps-step"
+      class="ant-steps-item-content"
     >
       <div
-        class="ant-steps-head"
+        class="ant-steps-item-title"
       >
-        <div
-          class="ant-steps-head-inner"
-        >
-          <span
-            class="ant-steps-icon"
-          >
-            3
-          </span>
-        </div>
+        Waiting
       </div>
       <div
-        class="ant-steps-main"
+        class="ant-steps-item-description"
       >
-        <div
-          class="ant-steps-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="ant-steps-description"
-        >
-          This is a description.
-        </div>
+        This is a description.
       </div>
     </div>
   </div>

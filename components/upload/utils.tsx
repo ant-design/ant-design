@@ -1,10 +1,12 @@
+import { UploadFile } from './interface';
+
 export function T() {
   return true;
 }
 
 // Fix IE file.status problem
 // via coping a new Object
-export function fileToObject(file): any {
+export function fileToObject(file: UploadFile) {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -15,9 +17,8 @@ export function fileToObject(file): any {
     response: file.response,
     error: file.error,
     percent: 0,
-    originFileObj: file,
-    status: null,
-  };
+    originFileObj: file as (File | UploadFile),
+  } as UploadFile;
 }
 
 /**
@@ -28,7 +29,7 @@ export function genPercentAdd() {
   let k = 0.1;
   const i = 0.01;
   const end = 0.98;
-  return function (s) {
+  return function (s: number) {
     let start = s;
     if (start >= end) {
       return start;
@@ -43,12 +44,12 @@ export function genPercentAdd() {
   };
 }
 
-export function getFileItem(file, fileList) {
+export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];
 }
 
-export function removeFileItem(file, fileList) {
+export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   const removed = fileList.filter(item => item[matchKey] !== file[matchKey]);
   if (removed.length === fileList.length) {

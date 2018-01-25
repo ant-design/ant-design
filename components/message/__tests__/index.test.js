@@ -1,16 +1,15 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import message from '..';
 
 describe('message', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
   });
 
   afterEach(() => {
     message.destroy();
+    jest.useRealTimers();
   });
 
   it('should be able to config top', () => {
@@ -53,6 +52,59 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     message.destroy();
     expect(document.querySelectorAll('.ant-message').length).toBe(0);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  it('should not need to use duration argument when using the onClose arguments', () => {
+    message.info('whatever', () => {});
+  });
+
+  it('should have the default duration when using the onClose arguments', (done) => {
+    jest.useRealTimers();
+    const defaultDuration = 3;
+    const now = Date.now();
+    message.info('whatever', () => {
+      // calculate the approximately duration value
+      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      expect(aboutDuration).toBe(defaultDuration);
+      done();
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/8201
+  it('should hide message correctly', () => {
+    let hide;
+    class Test extends React.Component {
+      componentDidMount() {
+        hide = message.loading('Action in progress..', 0);
+      }
+      render() {
+        return <div>test</div>;
+      }
+    }
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    hide();
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/8201
+  it('should destroy messages correctly', () => {
+    // eslint-disable-next-line
+    class Test extends React.Component {
+      componentDidMount() {
+        message.loading('Action in progress1..', 0);
+        message.loading('Action in progress2..', 0);
+        setTimeout(() => message.destroy(), 1000);
+      }
+      render() {
+        return <div>test</div>;
+      }
+    }
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
+    jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 });

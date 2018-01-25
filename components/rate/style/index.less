@@ -4,13 +4,15 @@
 @rate-prefix-cls: ~"@{ant-prefix}-rate";
 
 .@{rate-prefix-cls} {
+  .reset-component;
+  line-height: unset;
   margin: 0;
   padding: 0;
   list-style: none;
   font-size: 20px;
   display: inline-block;
-  vertical-align: middle;
   color: @rate-star-color;
+  outline: none;
 
   &-disabled &-star {
     cursor: not-allowed;
@@ -36,7 +38,7 @@
       color: @rate-star-bg;
     }
 
-    &:hover {
+    &-focused, &:hover {
       transform: scale(1.1);
     }
 
@@ -63,7 +65,6 @@
 
   &-text {
     margin-left: 8px;
-    vertical-align: middle;
     display: inline-block;
     font-size: @font-size-base;
   }

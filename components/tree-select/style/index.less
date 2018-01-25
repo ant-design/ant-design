@@ -9,10 +9,10 @@
 .antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
 
 .@{select-tree-prefix-cls} {
+  .reset-component;
   margin: 0;
   padding: 0 4px;
   margin-top: -4px;
-  font-size: @font-size-base;
   li {
     padding: 0;
     margin: 8px 0;
@@ -82,7 +82,6 @@
         }
         &.@{select-tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
-          .ie-rotate(3);
           &:after {
             transform: rotate(270deg) scale(0.59);
           }
@@ -119,6 +118,7 @@
 }
 
 .@{select-prefix-cls}-tree-dropdown {
+  .reset-component;
   .@{select-prefix-cls}-dropdown-search {
     display: block;
     padding: 4px;

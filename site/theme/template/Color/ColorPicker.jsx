@@ -46,15 +46,15 @@ export default class ColorPicker extends Component {
 
     const styles = {
       color: {
-        width: small ? '60px' : '120px',
-        height: small ? '12px' : '24px',
+        width: small ? '80px' : '120px',
+        height: small ? '16px' : '24px',
         borderRadius: '2px',
         background: this.state.color,
       },
       swatch: {
-        padding: '5px',
+        padding: '4px',
         background: '#fff',
-        borderRadius: '1px',
+        borderRadius: '2px',
         boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
         display: 'inline-block',
         cursor: 'pointer',

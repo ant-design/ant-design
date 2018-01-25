@@ -40,7 +40,7 @@
 
   &:hover,
   &:focus {
-    .button-color(@primary-color; @background; @primary-color);
+    .button-color(@primary-5; @background; @primary-5);
   }
 
   &:active,
@@ -56,12 +56,12 @@
 
   &:hover,
   &:focus {
-    .button-color(@btn-primary-color; @color; @color;);
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 5)`; ~`colorPalette("@{color}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`);
   }
 
   .button-disabled();
@@ -108,7 +108,6 @@
   display: inline-block;
   > .@{btnClassName} {
     position: relative;
-    z-index: 1;
 
     &:hover,
     &:focus,
@@ -139,7 +138,6 @@
 // --------------------------------------------------
 .btn() {
   display: inline-block;
-  margin-bottom: 0;
   font-weight: @btn-font-weight;
   text-align: center;
   touch-action: manipulation;
@@ -147,7 +145,6 @@
   background-image: none;
   border: @border-width-base @border-style-base transparent;
   white-space: nowrap;
-  line-height: 1.15; // https://github.com/ant-design/ant-design/issues/7070
   .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
   user-select: none;
   transition: all .3s @ease-in-out;
@@ -185,7 +182,7 @@
   }
 
   &-sm {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-height-sm; @btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm);
   }
 }
 
@@ -251,8 +248,6 @@
 
   .@{btnClassName}:not(:first-child):not(:last-child) {
     border-radius: 0;
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   > .@{btnClassName}:first-child {
@@ -260,14 +255,12 @@
     &:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
-      padding-right: 8px;
     }
   }
 
   > .@{btnClassName}:last-child:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    padding-left: 8px;
   }
 
   & > & {

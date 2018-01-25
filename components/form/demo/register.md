@@ -93,11 +93,11 @@ class RegistrationForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 6 },
+        sm: { span: 8 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 14 },
+        sm: { span: 16 },
       },
     };
     const tailFormItemLayout = {
@@ -107,15 +107,15 @@ class RegistrationForm extends React.Component {
           offset: 0,
         },
         sm: {
-          span: 14,
-          offset: 6,
+          span: 16,
+          offset: 8,
         },
       },
     };
     const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86',
     })(
-      <Select style={{ width: 60 }}>
+      <Select style={{ width: 70 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
       </Select>
@@ -130,7 +130,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="E-mail"
-          hasFeedback
         >
           {getFieldDecorator('email', {
             rules: [{
@@ -145,7 +144,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="Password"
-          hasFeedback
         >
           {getFieldDecorator('password', {
             rules: [{
@@ -160,7 +158,6 @@ class RegistrationForm extends React.Component {
         <FormItem
           {...formItemLayout}
           label="Confirm Password"
-          hasFeedback
         >
           {getFieldDecorator('confirm', {
             rules: [{
@@ -177,12 +174,11 @@ class RegistrationForm extends React.Component {
           label={(
             <span>
               Nickname&nbsp;
-              <Tooltip title="What do you want other to call you?">
+              <Tooltip title="What do you want others to call you?">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>
           )}
-          hasFeedback
         >
           {getFieldDecorator('nickname', {
             rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
@@ -237,15 +233,15 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator('captcha', {
                 rules: [{ required: true, message: 'Please input the captcha you got!' }],
               })(
-                <Input size="large" />
+                <Input />
               )}
             </Col>
             <Col span={12}>
-              <Button size="large">Get captcha</Button>
+              <Button>Get captcha</Button>
             </Col>
           </Row>
         </FormItem>
-        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
+        <FormItem {...tailFormItemLayout}>
           {getFieldDecorator('agreement', {
             valuePropName: 'checked',
           })(

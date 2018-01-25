@@ -25,7 +25,7 @@ function getCellValue(node) {
 }
 
 // from small to large
-const sizeBreakPoints = ['xs', 'sm', 'md', 'lg', 'xl'];
+const sizeBreakPoints = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 const groups = {
   isDynamic: val => /^on[A-Z]/.test(val),

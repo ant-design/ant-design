@@ -1,5 +1,5 @@
-import React from 'react';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
@@ -12,7 +12,7 @@ export interface HeaderProps {
   yearSelectOffset?: number;
   yearSelectTotal?: number;
   type?: string;
-  onValueChange?: (value) => void;
+  onValueChange?: (value: moment.Moment) => void;
   onTypeChange?: (type: string) => void;
   value: any;
 }
@@ -24,9 +24,9 @@ export default class Header extends React.Component<HeaderProps, any> {
     yearSelectTotal: 20,
   };
 
-  calenderHeaderNode: any;
+  private calenderHeaderNode: HTMLDivElement;
 
-  getYearSelectElement(year) {
+  getYearSelectElement(year: number) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - (yearSelectOffset as number);
     const end = start + (yearSelectTotal as number);
@@ -61,7 +61,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     return months;
   }
 
-  getMonthSelectElement(month, months) {
+  getMonthSelectElement(month: number, months: number[]) {
     const props = this.props;
     const { prefixCls, fullscreen } = props;
     const options: React.ReactElement<any>[] = [];
@@ -84,7 +84,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     );
   }
 
-  onYearChange = (year) => {
+  onYearChange = (year: string) => {
     const newValue = this.props.value.clone();
     newValue.year(parseInt(year, 10));
 
@@ -94,7 +94,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
-  onMonthChange = (month) => {
+  onMonthChange = (month: string) => {
     const newValue = this.props.value.clone();
     newValue.month(parseInt(month, 10));
     const onValueChange = this.props.onValueChange;
@@ -103,14 +103,14 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
-  onTypeChange = (e) => {
+  onTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
       onTypeChange(e.target.value);
     }
   }
 
-  getCalenderHeaderNode = (node) => {
+  getCalenderHeaderNode = (node: HTMLDivElement) => {
     this.calenderHeaderNode = node;
   }
 

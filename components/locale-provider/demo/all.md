@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。涉及时间的组件请注意时区设置 [DatePicker](/components/date-picker/#components-date-picker-demo-locale)。
+此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。
 
 ## en-US
 
@@ -16,7 +16,7 @@ Components which need localization support are listed here, you can toggle the l
 ````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('en');
@@ -103,20 +103,21 @@ class Page extends React.Component {
   }
 }
 
+let forceRerender = 0;
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      locale: enUS,
+      locale: null,
     };
   }
   changeLocale = (e) => {
     const localeValue = e.target.value;
     this.setState({ locale: localeValue });
     if (!localeValue) {
-      moment.locale('zh-cn');
-    } else {
       moment.locale('en');
+    } else {
+      moment.locale('zh-cn');
     }
   }
   render() {
@@ -124,12 +125,14 @@ class App extends React.Component {
       <div>
         <div className="change-locale">
           <span style={{ marginRight: 16 }}>Change locale of components: </span>
-          <Radio.Group defaultValue={enUS} onChange={this.changeLocale}>
-            <Radio.Button key="en" value={enUS}>English</Radio.Button>
-            <Radio.Button key="cn">中文</Radio.Button>
+          <Radio.Group defaultValue={null} onChange={this.changeLocale}>
+            <Radio.Button key="en" value={null}>English</Radio.Button>
+            <Radio.Button key="cn" value={zhCN}>中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={this.state.locale}>
+          <Page key={forceRerender++ /* HACK: just refresh in production environment */} />
+        </LocaleProvider>
       </div>
     );
   }

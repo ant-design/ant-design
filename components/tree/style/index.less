@@ -9,9 +9,16 @@
 .antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-tree-checkbox");
 
 .@{tree-prefix-cls} {
+  .reset-component;
   margin: 0;
   padding: 0;
-  font-size: @font-size-base;
+
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   li {
     padding: 4px 0;
     margin: 0;
@@ -57,7 +64,7 @@
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 3px 5px;
+      padding: 0 5px;
       border-radius: @border-radius-sm;
       margin: 0;
       cursor: pointer;
@@ -66,6 +73,8 @@
       color: @text-color;
       transition: all .3s;
       position: relative;
+      height: 24px;
+      line-height: 24px;
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -75,8 +84,7 @@
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 0 4px 0 2px;
-        vertical-align: middle;
+        margin: 4px 4px 0 2px;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
@@ -100,7 +108,7 @@
         transition: all .3s;
         &:after {
           display: inline-block;
-          .iconfont-font("\e6ae");
+          .iconfont-font("\E64D");
           animation: loadingCircle 1s infinite linear;
           color: @primary-color;
         }
@@ -114,7 +122,6 @@
         }
         &.@{tree-prefix-cls}-switcher_close {
           .antTreeSwitcherIcon();
-          .ie-rotate(3);
           &:after {
             transform: rotate(270deg) scale(0.59);
           }
@@ -171,16 +178,14 @@
       span {
         &.@{tree-prefix-cls}-switcher {
           background: @component-background;
-          color: @text-color;
+          color: @tree-showline-icon-color;
           &.@{tree-prefix-cls}-switcher-noop {
             .antTreeShowLineIcon("tree-doc-icon");
           }
           &.@{tree-prefix-cls}-switcher_open {
-            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-open-icon");
           }
           &.@{tree-prefix-cls}-switcher_close {
-            color: @tree-showline-icon-color;
             .antTreeShowLineIcon("tree-showline-close-icon");
           }
         }

@@ -22,9 +22,10 @@ subtitle: 级联选择
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | allowClear | 是否支持清除 | boolean | true |
+| autoFocus | 自动获取焦点 | boolean | false |
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |
 | className | 自定义类名 | string | - |
-| defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)\[] | \[] |
+| defaultValue | 默认的选中项 | string\[] | \[] |
 | disabled | 禁用 | boolean | false |
 | displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |
@@ -35,13 +36,13 @@ subtitle: 级联选择
 | placeholder | 输入框占位文本 | string | '请选择' |
 | popupClassName | 自定义浮层类名 | string | - |
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |
+| popupVisible | 控制浮层显隐 | boolean | - |
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | style | 自定义样式 | string | - |
-| value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)\[] | - |
+| value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
-| popupVisible | 控制浮层显隐 | boolean | - |
 
 `showSearch` 为对象时，其中的字段：
 
@@ -52,9 +53,16 @@ subtitle: 级联选择
 | render | 用于渲染 filter 后的选项 | `function(inputValue, path): ReactNode` |  |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` |  |
 
+## 方法
+
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
+| focus() | 获取焦点 |
+
 <style>
 .ant-cascader-picker {
-  width: 220px;
+  width: 300px;
 }
 </style>
 

@@ -1,12 +1,13 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-affix-width: 17px;
+@input-affix-width: 19px;
 
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   height: @input-height-lg;
+  font-size: @font-size-lg;
 }
 
 .input-sm() {
@@ -72,6 +73,7 @@
     height: auto;
     vertical-align: bottom;
     transition: all .3s, height 0s;
+    min-height: @input-height-base;
   }
 
   // Size
@@ -137,7 +139,7 @@
   }
 
   &-addon {
-    padding: @input-padding-vertical-base @input-padding-horizontal-base;
+    padding: 0 @input-padding-horizontal-base;
     font-size: @font-size-base;
     font-weight: normal;
     line-height: 1;
@@ -328,11 +330,11 @@
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal-base;
+    left: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal-base;
+    right: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}:not(:first-child) {

@@ -1,9 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale-provider/default';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -14,7 +15,16 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelText?: React.ReactNode;
 }
 
-abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
+export interface PopconfirmState {
+  visible?: boolean;
+}
+
+export interface PopconfirmLocale {
+  okText: string;
+  cancelText: string;
+}
+
+export default class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
@@ -23,9 +33,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     okType: 'primary',
   };
 
-  refs: {
-    tooltip: Tooltip,
-  };
+  private tooltip: any;
 
   constructor(props: PopconfirmProps) {
     super(props);
@@ -35,8 +43,6 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     };
   }
 
-  abstract getLocale();
-
   componentWillReceiveProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       this.setState({ visible: nextProps.visible });
@@ -44,10 +50,10 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltip.getPopupDomNode();
   }
 
-  onConfirm = (e) => {
+  onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setVisible(false);
 
     const { onConfirm } = this.props;
@@ -56,7 +62,7 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  onCancel = (e) => {
+  onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setVisible(false);
 
     const { onCancel } = this.props;
@@ -65,11 +71,11 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  onVisibleChange = (visible) => {
+  onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
   }
 
-  setVisible(visible) {
+  setVisible(visible: boolean) {
     const props = this.props;
     if (!('visible' in props)) {
       this.setState({ visible });
@@ -81,11 +87,13 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
     }
   }
 
-  render() {
-    const { prefixCls, title, placement, okText, okType, cancelText, ...restProps } = this.props;
-    const popconfirmLocale = this.getLocale();
+  saveTooltip = (node: any) => {
+    this.tooltip = node;
+  }
 
-    const overlay = (
+  renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
+    const { prefixCls, title, cancelText, okText, okType } = this.props;
+    return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
@@ -103,6 +111,19 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         </div>
       </div>
     );
+  }
+
+  render() {
+    const { prefixCls, placement, ...restProps } = this.props;
+
+    const overlay = (
+      <LocaleReceiver
+        componentName="Popconfirm"
+        defaultLocale={defaultLocale.Popconfirm}
+      >
+        {this.renderOverlay}
+      </LocaleReceiver>
+    );
 
     return (
       <Tooltip
@@ -112,14 +133,8 @@ abstract class Popconfirm extends React.Component<PopconfirmProps, any> {
         onVisibleChange={this.onVisibleChange}
         visible={this.state.visible}
         overlay={overlay}
-        ref="tooltip"
+        ref={this.saveTooltip}
       />
     );
   }
 }
-
-const injectPopconfirmLocale = injectLocale('Popconfirm', {
-  cancelText: '取消',
-  okText: '确定',
-});
-export default injectPopconfirmLocale<PopconfirmProps>(Popconfirm as any);

@@ -14,6 +14,7 @@ To input a value in a range.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
+| autoFocus | get focus when component mounted | boolean | false |
 | defaultValue | The default value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]` | number\|number\[] | 0 or [0, 0] |
 | disabled | If true, the slider will not be interactable. | boolean | false |
 | dots | Whether the thumb can drag over tick only. | boolean | false |
@@ -28,3 +29,10 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical. | Boolean | false |
 | onAfterChange | Fire when  `onmouseup` is fired. | Function(value) | NOOP |
 | onChange | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP |
+
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| blur() | remove focus |
+| focus() | get focus |
