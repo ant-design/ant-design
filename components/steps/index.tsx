@@ -10,6 +10,7 @@ export interface StepsProps {
   size?: 'default' | 'small';
   direction?: 'horizontal' | 'vertical';
   progressDot?: boolean | Function;
+  style?: React.CSSProperties;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
