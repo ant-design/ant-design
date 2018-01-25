@@ -59,6 +59,7 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
         <span
           class="ant-checkbox-inner"
@@ -77,6 +78,7 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
         <span
           class="ant-checkbox-inner"
@@ -96,6 +98,7 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
         <span
           class="ant-checkbox-inner"
@@ -210,6 +213,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
         <span
           class="ant-checkbox-inner"
@@ -228,6 +232,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
         <span
           class="ant-checkbox-inner"
@@ -246,6 +251,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
         <span
           class="ant-checkbox-inner"
@@ -270,6 +276,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
         <span
           class="ant-checkbox-inner"
@@ -289,6 +296,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
         <span
           class="ant-checkbox-inner"
@@ -307,6 +315,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
         <span
           class="ant-checkbox-inner"
@@ -333,6 +342,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
+          value="Apple"
         />
         <span
           class="ant-checkbox-inner"
@@ -352,6 +362,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
+          value="Pear"
         />
         <span
           class="ant-checkbox-inner"
@@ -371,6 +382,7 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
+          value="Orange"
         />
         <span
           class="ant-checkbox-inner"
@@ -404,6 +416,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="A"
           />
           <span
             class="ant-checkbox-inner"
@@ -426,6 +439,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="B"
           />
           <span
             class="ant-checkbox-inner"
@@ -448,6 +462,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="C"
           />
           <span
             class="ant-checkbox-inner"
@@ -470,6 +485,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="D"
           />
           <span
             class="ant-checkbox-inner"
@@ -492,6 +508,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="E"
           />
           <span
             class="ant-checkbox-inner"
