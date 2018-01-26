@@ -11,6 +11,8 @@ title:
 
 对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。`sorter: function(a, b) { ... }`， a、b 为比较的两个列数据。
 
+使用 `defaultSortOrder` 属性，设置列的默认排序顺序。
+
 ## en-US
 
 Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
