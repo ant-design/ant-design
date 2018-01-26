@@ -23,7 +23,7 @@ timeline: true
 - 🐞 修复了 Menu.SubMenu 组件标题右边距不正确的问题。[commit/8c442c](https://github.com/ant-design/ant-design/commit/8c442cfaf01665b1ed809119607a2e6ab4ea6c79)
 - 🐞 修复了 Form 中使用 `getFieldDecorator` 当 id 重复时引用冲突的问题。[#9103](https://github.com/ant-design/ant-design/issues/9103) [#7351](https://github.com/ant-design/ant-design/issues/7351)
 - 🐞 修复了 RangePicker 在语言切换时会显示上一次的语言的问题。[#8970](https://github.com/ant-design/ant-design/issues/8970)
-- 🐞 修复了 Calendar 的 `clear` 操作清理时间不正确的问题。[#8885](https://github.com/ant-design/ant-design/issues/8885)
+- 🐞 修复了 DatePicker 在受控模式下时间显示不正确的问题。[#8885](https://github.com/ant-design/ant-design/issues/8885)
 - 🐞 优化了 Table 在 loading 时不显示空提示的问题。[#9095](https://github.com/ant-design/ant-design/pull/9095) [@sallen450](https://github.com/sallen450)
 - 📖 修复了 TypeScript 定义
   - 补充 Notification 缺失的 `duration` 定义。[pull/9120](https://github.com/ant-design/ant-design/pull/9120) [@duhongjun](https://github.com/duhongjun)
