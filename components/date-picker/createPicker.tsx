@@ -95,6 +95,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
+      if (value && localeCode) {
+        value.locale(localeCode);
+      }
+
       let pickerProps: Object = {};
       let calendarProps: any = {};
       if (props.showTime) {
@@ -130,6 +134,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           monthCellContentRender={props.monthCellContentRender}
           renderFooter={this.renderFooter}
           onPanelChange={props.onPanelChange}
+          value={value}
         />
       );
 
@@ -156,10 +161,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         </div>
       );
 
-      const pickerValue = value;
-      if (pickerValue && localeCode) {
-        pickerValue.locale(localeCode);
-      }
       return (
         <span
           className={classNames(props.className, props.pickerClass)}
@@ -171,7 +172,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             {...props}
             {...pickerProps}
             calendar={calendar}
-            value={pickerValue}
+            value={value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
