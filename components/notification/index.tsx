@@ -104,7 +104,7 @@ export interface ArgsProps {
   btn?: React.ReactNode;
   key?: string;
   onClose?: () => void;
-  duration?: number;
+  duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
   style?: React.CSSProperties;

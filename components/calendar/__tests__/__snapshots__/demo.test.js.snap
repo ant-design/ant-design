@@ -84,6 +84,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
             checked=""
             class="ant-radio-button-input"
             type="radio"
+            value="date"
           />
           <span
             class="ant-radio-button-inner"
@@ -102,6 +103,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
+            value="month"
           />
           <span
             class="ant-radio-button-inner"
@@ -1091,6 +1093,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
+              value="date"
             />
             <span
               class="ant-radio-button-inner"
@@ -1109,6 +1112,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"
@@ -2096,6 +2100,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
             checked=""
             class="ant-radio-button-input"
             type="radio"
+            value="date"
           />
           <span
             class="ant-radio-button-inner"
@@ -2114,6 +2119,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
+            value="month"
           />
           <span
             class="ant-radio-button-inner"
@@ -3511,6 +3517,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
               checked=""
               class="ant-radio-button-input"
               type="radio"
+              value="date"
             />
             <span
               class="ant-radio-button-inner"
@@ -3529,6 +3536,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
+              value="month"
             />
             <span
               class="ant-radio-button-inner"

@@ -35,7 +35,7 @@
 // Base background color for most components
 @component-background   : #fff;
 @font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family            : "Monospace Number", @font-family-no-number;
+@font-family            : "Monospaced Number", @font-family-no-number;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
@@ -308,9 +308,21 @@
 
 // Menu
 // ---
-@menu-dark-bg: @layout-header-background;
-@menu-dark-submenu-bg: #000c17;
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 40px;
 @menu-collapsed-width: 80px;
+@menu-bg: @component-background;
+@menu-item-color: @text-color;
+@menu-highlight-color: @primary-color;
+@menu-item-active-bg: @item-active-bg;
+@menu-item-group-title-color: @text-color-secondary;
+// dark theme
+@menu-dark-color: @text-color-secondary-dark;
+@menu-dark-bg: @layout-header-background;
+@menu-dark-arrow-color: #fff;
+@menu-dark-submenu-bg: #000c17;
+@menu-dark-highlight-color: #fff;
+@menu-dark-item-selected-bg: @primary-color;
 
 // Spin
 // ---

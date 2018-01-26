@@ -601,6 +601,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="large"
         />
         <span
           class="ant-radio-button-inner"
@@ -620,6 +621,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
+          value="default"
         />
         <span
           class="ant-radio-button-inner"
@@ -638,6 +640,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="small"
         />
         <span
           class="ant-radio-button-inner"
