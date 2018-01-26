@@ -21,14 +21,14 @@ timeline: true
 
 - 🐞 修复了 Select 下拉选择框在 IE11 中进行操作会无故消失的问题。[#7934](https://github.com/ant-design/ant-design/issues/7934) [@tianlang89757](https://github.com/tianlang89757)
 - 🐞 修复了 Menu.SubMenu 组件标题右边距不正确的问题。[commit/8c442c](https://github.com/ant-design/ant-design/commit/8c442cfaf01665b1ed809119607a2e6ab4ea6c79)
-- 🐞 修复了 Form 中使用 getFieldDecorator 当 id 重复时引用冲突的问题。[#9103](https://github.com/ant-design/ant-design/issues/9103) [#7351](https://github.com/ant-design/ant-design/issues/7351)
+- 🐞 修复了 Form 中使用 `getFieldDecorator` 当 id 重复时引用冲突的问题。[#9103](https://github.com/ant-design/ant-design/issues/9103) [#7351](https://github.com/ant-design/ant-design/issues/7351)
 - 🐞 修复了 DatePicker 在某些国际化场景下同时出现多种语言的问题。[#8970](https://github.com/ant-design/ant-design/issues/8970)
-- 🐞 修复了 Calendar 的 clear 操作清理时间不正确的问题。[#8885](https://github.com/ant-design/ant-design/issues/8885)
-- 📖 修复 TypeScript 定义
+- 🐞 修复了 Calendar 的 `clear` 操作清理时间不正确的问题。[#8885](https://github.com/ant-design/ant-design/issues/8885)
+- 📖 修复了 TypeScript 定义
   - 补充 Notification 缺失的 `duration` 定义。[pull/9120](https://github.com/ant-design/ant-design/pull/9120) [@duhongjun](https://github.com/duhongjun)
   - 补充 Steps 缺失的 `style` 定义。[pull/9126](https://github.com/ant-design/ant-design/pull/9126) [@wanliyunyan](https://github.com/wanliyunyan)
-- 🌟 新增了 Slider 以及 Menu 的 less 变量，更加方便的修改主题。[pull/9065](https://github.com/ant-design/ant-design/pull/9065) [pull/9115](https://github.com/ant-design/ant-design/pull/9115)
-- 🌟 新增了 Icon 类型 `file-word`。[#9092](https://github.com/ant-design/ant-design/issues/9092) [#9061](https://github.com/ant-design/ant-design/issues/9061) [@mrgeorgegray](https://github.com/mrgeorgegray)
+- 🌟 新增了 Slider 以及 Menu 的 less 变量，更加方便的修改主题。[pull/9065](https://github.com/ant-design/ant-design/pull/9065) [pull/9115](https://github.com/ant-design/ant-design/pull/9115)  [@mrgeorgegray](https://github.com/mrgeorgegray)
+- 🌟 新增了 Icon 类型 `file-word`。[#9092](https://github.com/ant-design/ant-design/issues/9092) [#9061](https://github.com/ant-design/ant-design/issues/9061)
 
 ## 3.1.4
 
