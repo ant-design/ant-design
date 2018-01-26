@@ -912,7 +912,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   renderTable = (contextLocale: TableLocale) => {
     const locale = { ...contextLocale, ...this.props.locale };
-    const { style, className, prefixCls, showHeader, ...restProps } = this.props;
+    const { style, loading, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
 
@@ -948,7 +948,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
-        emptyText={locale.emptyText}
+        emptyText={!loading && locale.emptyText}
       />
     );
   }
