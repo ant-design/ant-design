@@ -64,12 +64,12 @@ export default class Tag extends React.Component<TagProps, TagState> {
       this.setState({
         closed: true,
         closing: false,
+      }, () => {
+        const afterClose = this.props.afterClose;
+        if (afterClose) {
+          afterClose();
+        }
       });
-
-      const afterClose = this.props.afterClose;
-      if (afterClose) {
-        afterClose();
-      }
     }
   }
 
