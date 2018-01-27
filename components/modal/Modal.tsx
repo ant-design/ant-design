@@ -39,6 +39,7 @@ export interface ModalProps {
   destroyOnClose?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
+  wrapProps?: object;
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
@@ -151,6 +152,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       <div>
         <Button
           onClick={this.handleCancel}
+          aria-label="cancel"
         >
           {cancelText || locale.cancelText}
         </Button>
@@ -158,6 +160,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
           type={okType}
           loading={confirmLoading}
           onClick={this.handleOk}
+          aria-label="ok"
         >
           {okText || locale.okText}
         </Button>

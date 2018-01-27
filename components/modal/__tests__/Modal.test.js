@@ -44,4 +44,20 @@ describe('Modal', () => {
     const wrapper = mount(<ModalTester footer={null} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should assign aria-labels to default ok and cancel button', () => {
+    const wrapProps = {
+      id: 'test',
+    };
+    const wrapper = mount(<ModalTester wrapProps={wrapProps} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should pass wrapper props to dialog', () => {
+    const wrapProps = {
+      id: 'test',
+    };
+    const wrapper = mount(<ModalTester wrapProps={wrapProps} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

@@ -36,6 +36,7 @@ and so on.
 | visible | Whether the modal dialog is visible or not | boolean | false |
 | width | Width of the modal dialog | string\|number | 520 |
 | wrapClassName | The class name of the container of the modal dialog | string | - |
+| wrapProps | Props for the container of the modal dialog | object | - |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |
