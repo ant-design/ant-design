@@ -43,6 +43,7 @@ module.exports = {
   snapshotSerializers: [
     'enzyme-to-json/serializer',
   ],
+  mapCoverage: true,
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',
