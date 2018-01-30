@@ -40,7 +40,7 @@ class DateRange extends React.Component {
     if (!endValue || !startValue) {
       return false;
     }
-    return endValue.clone().endOf('day') <= startValue.valueOf();
+    return endValue.valueOf() <= startValue.valueOf();
   }
 
   onChange = (field, value) => {
