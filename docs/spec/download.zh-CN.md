@@ -27,7 +27,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="50" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
+      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Pro</span>
