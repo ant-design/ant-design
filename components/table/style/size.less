@@ -1,7 +1,7 @@
 .@{table-prefix-cls}-middle {
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: 12px 8px;
+    padding: @table-padding-vertical*2/3 @table-padding-horizontal/2;
   }
   > .@{table-prefix-cls}-content {
     > .@{table-prefix-cls}-header > table,
@@ -14,7 +14,7 @@
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: 12px 8px;
+        padding: @table-padding-vertical*2/3 @table-padding-horizontal/2;
       }
     }
   }
@@ -26,7 +26,7 @@
 
   > .@{table-prefix-cls}-title,
   > .@{table-prefix-cls}-footer {
-    padding: 8px;
+    padding: @table-padding-vertical/2 @table-padding-horizontal/2;
   }
 
   > .@{table-prefix-cls}-title {
@@ -44,10 +44,10 @@
     > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
     > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
       border: 0;
-      padding: 0 8px;
+      padding: 0 @table-padding-horizontal/2;
       > .@{table-prefix-cls}-thead > tr > th,
       > .@{table-prefix-cls}-tbody > tr > td {
-        padding: 8px;
+        padding: @table-padding-vertical/2 @table-padding-horizontal/2;
       }
       > .@{table-prefix-cls}-thead > tr > th {
         background: @component-background;
