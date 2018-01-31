@@ -30,3 +30,4 @@ cols: 1
 | disabled | 禁用后的面板展开与否将无法通过用户交互改变 | boolean | false |
 | header | 面板头内容 | string\|ReactNode | 无 |
 | key | 对应 activeKey | string | 无 |
+| forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |
