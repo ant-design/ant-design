@@ -25,6 +25,15 @@ Please find below some of the design resources and tools about Ant Design that w
       <span class="resource-card-description">Sketch Template for Mobile</span>
     </div>
   </a>
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">
+    <div class="resource-card-icon">
+      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ibCZMxKsTUzDbwTEdcTC.svg">
+    </div>
+    <div class="resource-card-content">
+      <span class="resource-card-title">Ant Design Pro</span>
+      <span class="resource-card-description">Common Templates and Pages</span>
+    </div>
+  </a>
   <a target="_blank" href="http://library.ant.design" class="resource-card">
     <div class="resource-card-icon">
       <img width="50" src="https://gw.alipayobjects.com/zos/rmsportal/TXrKQUJBTuwSTGimGYYn.png">

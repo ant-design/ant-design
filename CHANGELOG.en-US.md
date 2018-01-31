@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.1.6
+
+`2018-01-28`
+
+- 🐞 Revert [#9141](https://github.com/ant-design/ant-design/pull/9141) since it causes year and month can not be selected in DatePicker.
+
+
 ## 3.1.5
 
 `2018-01-27`
