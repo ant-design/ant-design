@@ -10,6 +10,14 @@ const { RangePicker } = DatePicker;
 describe('RangePicker', () => {
   focusTest(RangePicker);
 
+  beforeEach(() => {
+    setMockDate();
+  });
+
+  afterEach(() => {
+    resetMockDate();
+  });
+
   it('show month panel according to value', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(
@@ -115,7 +123,6 @@ describe('RangePicker', () => {
   });
 
   it('clear hover value after panel close', () => {
-    setMockDate();
     jest.useFakeTimers();
     const wrapper = mount(
       <div>
@@ -131,7 +138,46 @@ describe('RangePicker', () => {
     expect(
       wrapper.find('.ant-calendar-cell').at(23).hasClass('ant-calendar-in-range-cell')
     ).toBe(true);
-    resetMockDate();
+  });
+
+  describe('preset range', () => {
+    it('static range', () => {
+      const range = [moment().subtract(2, 'd'), moment()];
+      const format = 'YYYY-MM-DD HH:mm:ss';
+      const wrapper = mount(
+        <RangePicker
+          ranges={{ 'recent two days': range }}
+          format={format}
+        />
+      );
+      wrapper.find('.ant-calendar-picker-input').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      expect(
+        wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
+      ).toBe(range[0].format(format));
+      expect(
+        wrapper.find('.ant-calendar-range-picker-input').last().getDOMNode().value
+      ).toBe(range[1].format(format));
+    });
+
+    it('function range', () => {
+      const range = [moment().subtract(2, 'd'), moment()];
+      const format = 'YYYY-MM-DD HH:mm:ss';
+      const wrapper = mount(
+        <RangePicker
+          ranges={{ 'recent two days': () => range }}
+          format={format}
+        />
+      );
+      wrapper.find('.ant-calendar-picker-input').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      expect(
+        wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
+      ).toBe(range[0].format(format));
+      expect(
+        wrapper.find('.ant-calendar-range-picker-input').last().getDOMNode().value
+      ).toBe(range[1].format(format));
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/6999
