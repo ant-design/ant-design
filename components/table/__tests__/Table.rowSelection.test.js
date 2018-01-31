@@ -77,6 +77,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        name: record.name,
       }),
     };
 
@@ -84,7 +85,9 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
 
     expect(checkboxes.at(1).props().disabled).toBe(false);
+    expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
+    expect(checkboxes.at(2).props().name).toEqual(data[1].name);
   });
 
   it('works with pagination', () => {
