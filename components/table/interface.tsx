@@ -152,6 +152,7 @@ export interface SelectionBoxProps {
   type?: RowSelectionType;
   defaultSelection: string[];
   rowIndex: string;
+  name?: string;
   disabled?: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
