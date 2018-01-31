@@ -133,4 +133,13 @@ describe('RangePicker', () => {
     ).toBe(true);
     resetMockDate();
   });
+
+  // https://github.com/ant-design/ant-design/issues/6999
+  it('input date manually', () => {
+    const wrapper = mount(<RangePicker open />);
+    const dateString = '2008-12-31';
+    const input = wrapper.find('.ant-calendar-input').first();
+    input.simulate('change', { target: { value: dateString } });
+    expect(input.getDOMNode().value).toBe(dateString);
+  });
 });
