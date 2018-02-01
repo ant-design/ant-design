@@ -54,7 +54,7 @@ export type RangePickerValue =
   [moment.Moment] |
   [undefined, moment.Moment] |
   [moment.Moment, moment.Moment];
-export type RangePickerRange = RangePickerValue | (() => RangePickerValue);
+export type RangePickerPresetRange = RangePickerValue | (() => RangePickerValue);
 
 export interface RangePickerProps extends PickerProps {
   className?: string;
@@ -66,7 +66,7 @@ export interface RangePickerProps extends PickerProps {
   onOk?: (selectedTime: moment.Moment) => void;
   showTime?: TimePickerProps | boolean;
   ranges?: {
-    [range: string]: RangePickerRange,
+    [range: string]: RangePickerPresetRange,
   };
   placeholder?: [string, string];
   mode?: string | string[];

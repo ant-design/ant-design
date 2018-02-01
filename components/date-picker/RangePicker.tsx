@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import callMoment from '../_util/callMoment';
-import { RangePickerValue } from './interface';
+import { RangePickerValue, RangePickerPresetRange } from './interface';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -157,6 +157,13 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     }));
   }
 
+  handleRangeClick = (value: RangePickerPresetRange) => {
+    if (typeof value === 'function') {
+      value = value();
+    }
+    this.setValue(value, true);
+  }
+
   setValue(value: RangePickerValue, hidePanel?: boolean) {
     this.handleChange(value);
     if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
@@ -191,7 +198,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       return (
         <a
           key={range}
-          onClick={() => this.setValue(value, true)}
+          onClick={() => this.handleRangeClick(value)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
           onMouseLeave={this.clearHoverValue}
         >
