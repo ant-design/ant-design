@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import callMoment from '../_util/callMoment';
-import { RangePickerValue, RangePickerRange } from './interface';
+import { RangePickerValue, RangePickerPresetRange } from './interface';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -157,7 +157,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     }));
   }
 
-  handleRangeClick = (value: RangePickerRange) => {
+  handleRangeClick = (value: RangePickerPresetRange) => {
     if (typeof value === 'function') {
       value = value();
     }
