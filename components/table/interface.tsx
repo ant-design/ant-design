@@ -29,6 +29,7 @@ export interface ColumnProps<T> {
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T) => any;
+  onHeaderCell?: (record: T) => any;
 }
 
 export interface TableComponents {
