@@ -303,6 +303,50 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tag/demo/custom-close.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      custom close 1
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      custom close 2
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    <span
+      class="ant-tag-text"
+    >
+      custom close 3
+    </span>
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
   <h6

@@ -14,6 +14,7 @@ export interface TagProps {
   color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
+  customCloseIcon?: (onClose: Function) => React.ReactNode;
   /** 关闭时的回调 */
   onClose?: Function;
   /** 动画关闭后的回调 */
@@ -73,6 +74,12 @@ export default class Tag extends React.Component<TagProps, TagState> {
     }
   }
 
+  getCloseIcon = () => {
+    const { closable, customCloseIcon } = this.props;
+    if (!closable) { return ''; }
+    return customCloseIcon ? customCloseIcon(this.close) : <Icon type="cross" onClick={this.close} />;
+  }
+
   isPresetColor(color?: string): boolean {
     if (!color) { return false; }
     return (
@@ -82,8 +89,8 @@ export default class Tag extends React.Component<TagProps, TagState> {
   }
 
   render() {
-    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
-    const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
+    const { prefixCls, closable, color, className, children, style, customCloseIcon, ...otherProps } = this.props;
+    const closeIcon = this.getCloseIcon();
     const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: isPresetColor,
