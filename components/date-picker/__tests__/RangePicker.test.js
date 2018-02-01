@@ -188,4 +188,18 @@ describe('RangePicker', () => {
     input.simulate('change', { target: { value: dateString } });
     expect(input.getDOMNode().value).toBe(dateString);
   });
+
+  it('triggers onOk when click on preset range', () => {
+    const handleOk = jest.fn();
+    const range = [moment().subtract(2, 'd'), moment()];
+    const wrapper = mount(
+      <RangePicker
+        ranges={{ 'recent two days': range }}
+        onOk={handleOk}
+      />
+    );
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+    expect(handleOk).toBeCalledWith(range);
+  });
 });

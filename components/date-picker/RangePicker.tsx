@@ -161,7 +161,13 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     if (typeof value === 'function') {
       value = value();
     }
+
     this.setValue(value, true);
+
+    const { onOk } = this.props;
+    if (onOk) {
+      onOk(value);
+    }
   }
 
   setValue(value: RangePickerValue, hidePanel?: boolean) {
