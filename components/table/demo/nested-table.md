@@ -135,4 +135,8 @@ ReactDOM.render(<NestedTable />, mountNode);
 .components-table-demo-nested .table-operation a:not(:last-child) {
   margin-right: 24px;
 }
+
+.components-table-demo-nested .ant-table-expanded-row:hover > td {
+  background: #fbfbfb;
+}
 ````
