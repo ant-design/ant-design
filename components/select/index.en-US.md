@@ -47,15 +47,15 @@ Select component to select value from options.
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
 | onBlur | Called when blur | function | - |
-| onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
-| onDeselect | Called when a option is deselected, the params are option's value (or key) . only called for multiple or tags, effective in multiple or tags mode only. | function(value) | - |
+| onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array<Option\>) | - |
+| onDeselect | Called when a option is deselected, the params are option's value (or key) . only called for multiple or tags, effective in multiple or tags mode only. | function(value, option:Option) | - |
 | onFocus | Called when focus | function | - |
 | onInputKeyDown | Called when key pressed | function | - |
 | onMouseEnter | Called when mouse enter | function | - |
 | onMouseLeave | Called when mouse leave | function | - |
 | onPopupScroll | Called when dropdown scrolls | function | - |
 | onSearch | Callback function that is fired when input changed. | function(value: string) |  |
-| onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option) | - |
+| onSelect | Called when a option is selected, the params are option's value (or key) and option instance. | function(value, option:Option) | - |
 
 ### Select Methods
 
