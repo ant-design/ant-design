@@ -2,6 +2,8 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
 import DatePicker from '../';
+import UnwrappedRangePicker from '../RangePicker';
+import locale from '../locale/en_US';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -132,5 +134,23 @@ describe('RangePicker', () => {
       wrapper.find('.ant-calendar-cell').at(23).hasClass('ant-calendar-in-range-cell')
     ).toBe(true);
     resetMockDate();
+  });
+
+  it('clear hover value only when picker is open', () => {
+    const wrapper = mount(
+      <UnwrappedRangePicker
+        locale={locale}
+        onChange={() => {}}
+        ranges={{ Today: [moment(), moment()] }}
+      />
+    );
+
+    wrapper.find('.ant-calendar-range-picker-input').first().simulate('click');
+    wrapper.find('.ant-calendar-range-quick-selector a')
+      .simulate('mouseEnter')
+      .simulate('click')
+      .simulate('mouseLeave');
+
+    expect(wrapper.state().hoverValue).not.toBe(null);
   });
 });
