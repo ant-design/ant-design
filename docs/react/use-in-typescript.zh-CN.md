@@ -215,6 +215,11 @@ $ yarn add react-app-rewire-less --dev
 
 你也可以根据 [在 create-react-app 中使用](/docs/react/use-with-create-react-app.zh-CN.md) 的介绍使用 [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript] 自己来配置 TypeScript 的开发环境。
 
+此外，还可以选择 [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd)，其中已经配置好了 ts-import-plugin、react-app-rewired、scss、less 等常用功能。只需一条命令即可生成一个免配置的 TypeScript 项目.
+```bash
+$ create-react-app my-project --scripts-version=react-scripts-ts-antd
+```
+
 ## 常见问题
 
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.

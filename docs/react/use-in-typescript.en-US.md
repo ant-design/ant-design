@@ -213,6 +213,11 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 You can also follow instructions in [Use in create-react-app](/docs/react/use-with-create-react-app.en-US.md), then use [react-app-rewire-typescript][https://github.com/lwd-technology/react-app-rewire-typescript] to setup the TypeScript development environment by yourself.
 
+And you can use [react-scripts-ts-antd](https://www.npmjs.com/package/react-scripts-ts-antd) which includes ts-import-plugin, react-app-rewired, scss, less and etc.You can create a new project that without any configurations by running just one command.
+```bash
+$ create-react-app my-project --scripts-version=react-scripts-ts-antd
+```
+
 ## FAQ
 
 ### error TS2605: JSX element type Xxx is not a constructor function for JSX elements.
