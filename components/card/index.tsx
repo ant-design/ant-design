@@ -180,7 +180,7 @@ export default class Card extends React.Component<CardProps, {}> {
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
     const body = (
       <div className={`${prefixCls}-body`} style={bodyStyle}>
-        {loading ? loadingBlock : <div>{children}</div>}
+        {loading ? loadingBlock : children}
       </div>
     );
     const actionDom = actions && actions.length ?
