@@ -167,8 +167,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
       current: moment.Moment,
     ) => { startDate: moment.Moment, endDate: moment.Moment },
     disabledDate?: (current: moment.Moment) => boolean,
-  ) => {
-    return (current: moment.Moment) => {
+  ) => (current: moment.Moment) => {
       if (!current) {
         return false;
       }
@@ -178,8 +177,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
         return (disabledDate(current) || inRange);
       }
       return !inRange;
-    };
-  }
+    }
 
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
