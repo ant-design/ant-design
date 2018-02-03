@@ -3,7 +3,7 @@ order: 3
 title: 项目实战
 ---
 
-在真实项目开发中，你可能会需要 Redux 或者 Mbox 这样的数据应用框架，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的应用框架搭配使用。我们也基于 Redux 推出了自己的最佳实践 dva，推荐你在项目中使用。
+在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据应用框架，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的应用框架搭配使用。我们也基于 Redux 推出了自己的最佳实践 dva，推荐你在项目中使用。
 
 [dva](https://github.com/dvajs/dva) 是一个基于 React 和 Redux 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
 
