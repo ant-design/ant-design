@@ -176,7 +176,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
       if (disabledDate) {
         return (disabledDate(current) || inRange);
       }
-      return !inRange;
+      return inRange;
     }
 
   renderCalendar = (locale: any, localeCode: string) => {
