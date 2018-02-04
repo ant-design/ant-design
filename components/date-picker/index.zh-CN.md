@@ -101,7 +101,7 @@ subtitle: 日期选择框
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |
-| ranges       | 预设时间范围快捷选择 | { [range: string]&#x3A; [moment](http://momentjs.com/)\[] } | 无 |
+| ranges       | 预设时间范围快捷选择 | { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } \| () => { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } | 无 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
