@@ -25,7 +25,7 @@
   &&-card > &-bar &-tab-active {
     background: @component-background;
     border-color: @border-color-split;
-    color: @primary-color;
+    color: @tabs-card-active-color;
     padding-bottom: 1px;
   }
   &&-card > &-bar &-tab-inactive {
@@ -77,8 +77,8 @@
       color: @text-color;
       transition: all .3s;
       &:hover {
-        color: @primary-color;
-        border-color: @primary-color;
+        color: @tabs-card-active-color;
+        border-color: @tabs-card-active-color;
       }
     }
   }

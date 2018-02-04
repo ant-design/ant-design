@@ -1,19 +1,9 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-@tab-prefix-cls: ~"@{ant-prefix}-tabs";
 
 @import "./card-style";
 
-@tab-bar-margin: 0 0 16px 0;
-
-@tab-horizontal-margin: 0 32px 0 0;
-@tab-vertical-margin: 0 0 16px 0;
-
-@tab-horizontal-padding: 12px 16px;
-@tab-vertical-padding: 8px 24px;
-
-// The width (or height for vertical) of the scrolling arrow
-@tab-scrolling-size: 32px;
+@tab-prefix-cls: ~"@{ant-prefix}-tabs";
 
 .@{tab-prefix-cls} {
   .reset-component;
@@ -28,7 +18,7 @@
     bottom: 1px;
     box-sizing: border-box;
     height: 2px;
-    background-color: @primary-color;
+    background-color: @tabs-ink-bar-bg-color;
     transform-origin: 0 0;
   }
 
@@ -198,11 +188,11 @@
       text-decoration: none;
 
       &:hover {
-        color: @primary-5;
+        color: @tab-hover-color;
       }
 
       &:active {
-        color: @primary-7;
+        color: @tab-active-color;
       }
 
       .@{iconfont-css-prefix} {
@@ -211,7 +201,7 @@
     }
 
     .@{tab-prefix-cls}-tab-active {
-      color: @primary-color;
+      color: @tab-highlight-color;
       font-weight: 500;
     }
   }
