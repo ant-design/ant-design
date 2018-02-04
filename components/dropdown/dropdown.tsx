@@ -49,16 +49,18 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   }
 
   render() {
-    const { children, prefixCls, overlay, trigger, disabled } = this.props;
-    const dropdownTrigger = React.cloneElement(children as any, {
-      className: classNames((children as any).props.className, `${prefixCls}-trigger`),
+    const { children, prefixCls, overlay: overlayElements, trigger, disabled } = this.props;
+
+    const child = React.Children.only(children);
+    const overlay = React.Children.only(overlayElements);
+
+    const dropdownTrigger = React.cloneElement(child, {
+      className: classNames(child.props.className, `${prefixCls}-trigger`),
       disabled,
     });
     // menu cannot be selectable in dropdown defaultly
-    const overlayProps = overlay && (overlay as any).props;
-    const selectable = (overlayProps && 'selectable' in overlayProps)
-      ? overlayProps.selectable : false;
-    const fixedModeOverlay = React.cloneElement(overlay as any, {
+    const selectable = overlay.props.selectable || false;
+    const fixedModeOverlay = React.cloneElement(overlay, {
       mode: 'vertical',
       selectable,
     });
