@@ -78,7 +78,7 @@
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.12",
-    "react-slick": "~0.16.0",
+    "react-slick": "~0.17.0",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },
