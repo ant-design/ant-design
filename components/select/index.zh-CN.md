@@ -51,14 +51,14 @@ title: Select
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |
 | value | 指定当前选中的条目 | string\|string\[]\|number\|number\[] | - |
 | onBlur | 失去焦点的时回调 | function | - |
-| onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value) | - |
-| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(value) | - |
+| onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array<Option\>) | - |
+| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(value，option:Option) | - |
 | onFocus | 获得焦点时回调 | function | - |
 | onMouseEnter | 鼠标移入时回调 | function | - |
 | onMouseLeave | 鼠标移出时回调 | function | - |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |
 | onSearch | 文本框值变化时回调 | function(value: string) |  |
-| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | - |
+| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option:Option) | - |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
