@@ -41,10 +41,7 @@ describe('Calendar', () => {
 
   it('only Valid range should be selectable', () => {
     const onSelect = jest.fn();
-    const validRange = () => ({
-      startDate: Moment('2018-02-02'),
-      endDate: Moment('2018-02-18'),
-    });
+    const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
     const wrapper = mount(
       <Calendar onSelect={onSelect} validRange={validRange} />
     );
