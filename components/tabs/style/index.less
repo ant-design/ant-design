@@ -56,6 +56,22 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/9104
+  &-bottom &-bar {
+    border-bottom: none;
+    border-top: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-bottom &-ink-bar {
+    bottom: auto;
+    top: 1px;
+  }
+
+  &-bottom &-nav-container {
+    margin-bottom: 0;
+    margin-top: -1px;
+  }
+
   &-tab-prev,
   &-tab-next {
     user-select: none;

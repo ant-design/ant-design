@@ -132,4 +132,17 @@
       }
     }
   }
+
+  // https://github.com/ant-design/ant-design/issues/9104
+  &&-card&-bottom > &-bar &-tab {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-top: 0;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+
+  &&-card&-bottom > &-bar &-tab-active {
+    color: @primary-color;
+    padding-bottom: 0;
+    padding-top: 1px;
+  }
 }
