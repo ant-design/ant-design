@@ -60,6 +60,7 @@ const rowSelection = {
   },
   getCheckboxProps: record => ({
     disabled: record.name === 'Disabled User', // Column configuration not to be checked
+    name: record.name,
   }),
 };
 

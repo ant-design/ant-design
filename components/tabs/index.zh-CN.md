@@ -38,6 +38,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onNextClick | next 按钮被点击的回调 | Function | 无 |
 | onPrevClick | prev 按钮被点击的回调 | Function | 无 |
 | onTabClick | tab 被点击的回调 | Function | 无 |
+| tabBarGutter | tabs 之间的间隙 | number | 无 |
 
 ### Tabs.TabPane
 

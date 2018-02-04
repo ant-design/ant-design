@@ -35,6 +35,7 @@
     background-color: @progress-remaining-color;
     border-radius: 100px;
     vertical-align: middle;
+    position: relative;
   }
 
   &-circle-trail {
@@ -46,11 +47,19 @@
     animation: ~"@{ant-prefix}-progress-appear" .3s;
   }
 
+  &-success-bg,
   &-bg {
     border-radius: 100px;
     background-color: @progress-default-color;
     transition: all .4s @ease-out-circ 0s;
     position: relative;
+  }
+
+  &-success-bg {
+    background-color: @success-color;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   &-text {

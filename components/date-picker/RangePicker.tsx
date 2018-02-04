@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import callMoment from '../_util/callMoment';
-import { RangePickerValue } from './interface';
+import { RangePickerValue, RangePickerPresetRange } from './interface';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -156,6 +156,26 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     }
   }
 
+  handleCalendarInputSelect = (value: RangePickerValue) => {
+    this.setState(({ showDate }) => ({
+      value,
+      showDate: getShowDateFromValue(value) || showDate,
+    }));
+  }
+
+  handleRangeClick = (value: RangePickerPresetRange) => {
+    if (typeof value === 'function') {
+      value = value();
+    }
+
+    this.setValue(value, true);
+
+    const { onOk } = this.props;
+    if (onOk) {
+      onOk(value);
+    }
+  }
+
   setValue(value: RangePickerValue, hidePanel?: boolean) {
     this.handleChange(value);
     if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
@@ -190,7 +210,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       return (
         <a
           key={range}
-          onClick={() => this.setValue(value, true)}
+          onClick={() => this.handleRangeClick(value)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
           onMouseLeave={this.handleRangeMouseLeave}
         >
@@ -269,6 +289,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
         onHoverChange={this.handleHoverChange}
         onPanelChange={props.onPanelChange}
         showToday={showToday}
+        onInputSelect={this.handleCalendarInputSelect}
       />
     );
 
@@ -317,6 +338,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     return (
       <span
         ref={this.savePicker}
+        id={props.id}
         className={classNames(props.className, props.pickerClass)}
         style={{ ...style, ...pickerStyle }}
         tabIndex={props.disabled ? -1 : 0}

@@ -15,6 +15,7 @@ export interface ProgressProps {
   className?: string;
   type?: 'line' | 'circle' | 'dashboard';
   percent?: number;
+  successPercent?: number;
   format?: (percent: number) => string;
   status?: 'success' | 'active' | 'exception';
   showInfo?: boolean;
@@ -56,7 +57,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
   render() {
     const props = this.props;
     const {
-      prefixCls, className, percent = 0, status, format, trailColor, size,
+      prefixCls, className, percent = 0, status, format, trailColor, size, successPercent,
       type, strokeWidth, width, showInfo, gapDegree = 0, gapPosition, ...restProps,
     } = props;
     const progressStatus = parseInt(percent.toString(), 10) >= 100 && !('status' in props) ?
@@ -83,11 +84,19 @@ export default class Progress extends React.Component<ProgressProps, {}> {
         width: `${percent}%`,
         height: strokeWidth || (size === 'small' ? 6 : 8),
       };
+      const successPercentStyle = {
+        width: `${successPercent}%`,
+        height: strokeWidth || (size === 'small' ? 6 : 8),
+      };
+      const successSegment = successPercent !== undefined
+        ? <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+        : null;
       progress = (
         <div>
           <div className={`${prefixCls}-outer`}>
             <div className={`${prefixCls}-inner`}>
               <div className={`${prefixCls}-bg`} style={percentStyle} />
+              {successSegment}
             </div>
           </div>
           {progressInfo}

@@ -45,26 +45,24 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
   }
 
   render() {
-    const { type, rowIndex, disabled, onChange } = this.props;
+    const { type, rowIndex, ...rest } = this.props;
     const { checked } = this.state;
 
     if (type === 'radio') {
       return (
         <Radio
-          disabled={disabled}
-          onChange={onChange}
-          value={rowIndex}
           checked={checked}
+          value={rowIndex}
+          {...rest}
+        />
+      );
+    } else {
+      return (
+        <Checkbox
+          checked={checked}
+          {...rest}
         />
       );
     }
-
-    return (
-      <Checkbox
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-      />
-    );
   }
 }

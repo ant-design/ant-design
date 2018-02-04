@@ -597,9 +597,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             type={type}
             store={this.store}
             rowIndex={rowIndex}
-            disabled={props.disabled}
             onChange={handleChange}
             defaultSelection={this.getDefaultSelection()}
+            {...props}
           />
         </span>
       );

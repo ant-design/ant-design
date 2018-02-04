@@ -720,3 +720,33 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width:60%;height:8px"
+        />
+        <div
+          class="ant-progress-success-bg"
+          style="width:30%;height:8px"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+    >
+      60%
+    </span>
+  </div>
+</div>
+`;

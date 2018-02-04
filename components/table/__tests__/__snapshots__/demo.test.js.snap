@@ -9302,6 +9302,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="John Brown"
                             type="checkbox"
                           />
                           <span
@@ -9350,6 +9351,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="Jim Green"
                             type="checkbox"
                           />
                           <span
@@ -9398,6 +9400,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="Joe Black"
                             type="checkbox"
                           />
                           <span
@@ -9447,6 +9450,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                           <input
                             class="ant-checkbox-input"
                             disabled=""
+                            name="Disabled User"
                             type="checkbox"
                           />
                           <span
