@@ -90,11 +90,27 @@ See [i18n](http://ant.design/docs/react/i18n).
 
 ## Development
 
+Clone the repo:
 ```bash
-$ git clone git@github.com:ant-design/ant-design.git
-$ cd ant-design
-$ npm install
-$ npm start
+git clone git@github.com:ant-design/ant-design.git
+```
+Then install dependencies:
+```bash
+cd ./ant-design
+yarn
+```
+or
+```bash
+cd ./ant-design
+npm install
+```
+Run project:
+```bash
+yarn start
+```
+or
+```bash
+npm start
 ```
 
 Open your browser and visit http://127.0.0.1:8001 , see more at https://github.com/ant-design/ant-design/wiki/Development .
