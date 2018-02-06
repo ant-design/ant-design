@@ -1,13 +1,19 @@
 import notification from '..';
 
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 describe('notification', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   afterEach(() => {
     notification.destroy();
   });
 
-  it('should be able to hide manually', async () => {
+  it('should be able to hide manually', () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
@@ -20,10 +26,10 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
     notification.close('1');
-    await delay(100);
+    jest.runAllTimers();
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(1);
     notification.close('2');
-    await delay(100);
+    jest.runAllTimers();
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
   });
 

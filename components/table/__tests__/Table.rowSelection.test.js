@@ -77,6 +77,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
+        name: record.name,
       }),
     };
 
@@ -84,7 +85,9 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
 
     expect(checkboxes.at(1).props().disabled).toBe(false);
+    expect(checkboxes.at(1).props().name).toEqual(data[0].name);
     expect(checkboxes.at(2).props().disabled).toBe(true);
+    expect(checkboxes.at(2).props().name).toEqual(data[1].name);
   });
 
   it('works with pagination', () => {
@@ -94,13 +97,13 @@ describe('Table.rowSelection', () => {
     const pagers = wrapper.find('Pager');
 
     checkboxAll.find('input').simulate('change', { target: { checked: true } });
-    expect(checkboxAll.node.state).toEqual({ checked: true, indeterminate: false });
+    expect(checkboxAll.instance().state).toEqual({ checked: true, indeterminate: false });
 
     pagers.at(1).simulate('click');
-    expect(checkboxAll.node.state).toEqual({ checked: false, indeterminate: false });
+    expect(checkboxAll.instance().state).toEqual({ checked: false, indeterminate: false });
 
     pagers.at(0).simulate('click');
-    expect(checkboxAll.node.state).toEqual({ checked: true, indeterminate: false });
+    expect(checkboxAll.instance().state).toEqual({ checked: true, indeterminate: false });
   });
 
   // https://github.com/ant-design/ant-design/issues/4020
@@ -113,11 +116,12 @@ describe('Table.rowSelection', () => {
 
     const wrapper = mount(createTable({ rowSelection }));
 
-    const checkboxs = wrapper.find('input');
+    let checkboxs = wrapper.find('input');
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(false);
 
     checkboxs.at(2).simulate('change', { target: { checked: true } });
+    checkboxs = wrapper.find('input');
     expect(checkboxs.at(1).props().checked).toBe(true);
     expect(checkboxs.at(2).props().checked).toBe(true);
   });
@@ -176,7 +180,7 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper).toMatchSnapshot();
   });
 
@@ -188,7 +192,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item > div').first().simulate('click');
 
     expect(handleSelectAll).toBeCalledWith(true, data, data);
@@ -204,7 +208,7 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-item > div').last().simulate('click');
 
     expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
@@ -226,7 +230,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(4);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(2).simulate('click');
@@ -248,7 +252,7 @@ describe('Table.rowSelection', () => {
       }],
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
   });
 
@@ -269,7 +273,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper.find('.ant-dropdown-menu-item').length).toBe(2);
 
     dropdownWrapper.find('.ant-dropdown-menu-item > div').at(0).simulate('click');
@@ -312,5 +316,19 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').first().simulate('change', { target: { checked: true } });
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']);
+  });
+
+  it('highlight selected row', () => {
+    const wrapper = mount(createTable());
+    wrapper.find('input').at(1).simulate('change', { target: { checked: true } });
+    expect(wrapper.find('tbody tr').at(0).hasClass('ant-table-row-selected')).toBe(true);
+  });
+
+  it('fix selection column on the left', () => {
+    const wrapper = render(createTable({
+      rowSelection: { fixed: true },
+    }));
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

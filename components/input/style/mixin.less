@@ -1,16 +1,17 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-affix-width: 17px;
+@input-affix-width: 19px;
 
 // size mixins for input
 .input-lg() {
-  padding: @input-padding-vertical-lg @input-padding-horizontal;
+  padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   height: @input-height-lg;
+  font-size: @font-size-lg;
 }
 
 .input-sm() {
-  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
   height: @input-height-sm;
 }
 
@@ -41,7 +42,7 @@
 .input() {
   position: relative;
   display: inline-block;
-  padding: @input-padding-vertical-base @input-padding-horizontal;
+  padding: @input-padding-vertical-base @input-padding-horizontal-base;
   width: 100%;
   height: @input-height-base;
   font-size: @font-size-base;
@@ -72,6 +73,7 @@
     height: auto;
     vertical-align: bottom;
     transition: all .3s, height 0s;
+    min-height: @input-height-base;
   }
 
   // Size
@@ -137,7 +139,7 @@
   }
 
   &-addon {
-    padding: @input-padding-vertical-base @input-padding-horizontal;
+    padding: 0 @input-padding-horizontal-base;
     font-size: @font-size-base;
     font-weight: normal;
     line-height: 1;
@@ -151,7 +153,7 @@
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);  // lesshint spaceAroundOperator: false
 
       .@{ant-prefix}-select-selection {
         background-color: inherit;
@@ -257,7 +259,7 @@
     & > * {
       border-radius: 0;
       border-right-width: 0;
-      vertical-align: middle;
+      vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       float: none;
       display: inline-block;
     }
@@ -328,18 +330,18 @@
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal;
+    left: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal;
+    right: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal + @input-affix-width;
+    padding-left: @input-padding-horizontal-base + @input-affix-width;
   }
 
   .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal + @input-affix-width;
+    padding-right: @input-padding-horizontal-base + @input-affix-width;
   }
 }

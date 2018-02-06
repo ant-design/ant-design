@@ -6,7 +6,7 @@ body {
 body {
   font-family: @font-family;
   line-height: 1.5;
-  color: @text-color;
+  color: @site-text-color;
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -23,24 +23,22 @@ a {
 
 .main-wrapper {
   background: #fff;
-  margin: 0 48px;
-  border-radius: @border-radius-base;
-  padding: 24px 0 0;
-  margin-bottom: 24px;
+  padding: 40px 0 0;
   position: relative;
 }
 
 .main-container {
-  padding: 0 40px 120px;
-  margin-left: -1px;
+  padding: 0 170px 144px 64px;
   background: #fff;
   min-height: 500px;
   overflow: hidden;
-  border-left: 1px solid #e9e9e9;
+  border-left: 1px solid @site-border-color-split;
   position: relative;
-  &-component {
-    padding-right: 130px;
-  }
+  margin-left: -1px;
+}
+
+.main-menu {
+  z-index: 1;
 }
 
 .aside-container {
@@ -53,6 +51,10 @@ a {
     font-size: 14px;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  &.ant-menu-inline .ant-menu-item-group-title {
+    padding-left: 56px;
   }
 
   a[disabled] {
@@ -99,6 +101,32 @@ a {
   display: none;
 }
 
+// reset menu text color
+.menu-site .ant-menu-item > a {
+  color: @site-text-color;
+}
+
+.menu-site .ant-menu-item-selected > a,
+.menu-site .ant-menu-item > a:hover {
+  color: @primary-color;
+}
+
+#react-content {
+  transition: transform .3s @ease-in-out-circ;
+}
 .page-wrapper {
-  background: #f0f2f5;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
+}
+
+.drawer-content {
+  padding: 40px 0;
+}
+
+.drawer {
+  z-index: 1029;
 }

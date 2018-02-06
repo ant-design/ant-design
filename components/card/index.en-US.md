@@ -19,18 +19,33 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card
 
-| Property     | Description           | Type     | Default       |
-|----------|----------------|----------|--------------|
-| title    | Card title | string\|ReactNode   |  -  |
-| extra    | Content to render in the top-right corner of the card | string\|ReactNode   | - |
-| bordered | Toggles rendering of the border around the card | boolean   |  `true`  |
-| bodyStyle | Inline style to apply to the card content | object   |  -  |
-| noHovering | Whether to disable hover effect on mouse over | boolean | `false` |
-| loading | Shows a loading indicator while the contents of the card are being fetched | boolean   |  `false`  |
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| actions | The action list, shows at the bottom of the Card. | Array<ReactNode> | - |
+| bodyStyle | Inline style to apply to the card content | object | - |
+| bordered | Toggles rendering of the border around the card | boolean | `true` |
+| cover | Card cover | ReactNode | - |
+| extra | Content to render in the top-right corner of the card | string\|ReactNode | - |
+| hoverable | Lift up when hovering card | boolean | false |
+| loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |
+| tabList | List of TabPane's head. | Array&lt;{key: string, tab: ReactNode}> | - |
+| title | Card title | string\|ReactNode | - |
+| type | Card style type, can be set to `inner` or not set | string | - |
+| onTabChange | Callback when tab is switched | (key) => void | - |
 
 ### Card.Grid
 
-Property | Description | Type | Default
----------|-------------|------|---------
-className | className of container | string | -
-style | style object of container | object | -
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| className | className of container | string | - |
+| style | style object of container | object | - |
+
+### Card.Meta
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| avatar | avatar or icon | ReactNode | - |
+| className | className of container | string | - |
+| description | description content | ReactNode | - |
+| style | style object of container | object | - |
+| title | title content | ReactNode | - |

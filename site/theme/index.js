@@ -1,7 +1,9 @@
+require('core-js/es6/string');
 const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
+const redirectTmpl = './template/Redirect';
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
@@ -60,7 +62,7 @@ module.exports = {
       component: homeTmpl,
     }, {
       path: 'docs/pattern/:children',
-      component: contentTmpl,
+      component: redirectTmpl,
     }, {
       path: 'docs/react/:children',
       component: contentTmpl,
@@ -74,11 +76,17 @@ module.exports = {
       path: 'components/:children/',
       component: contentTmpl,
     }, {
+      path: 'docs/spec/feature',
+      component: redirectTmpl,
+    }, {
+      path: 'docs/spec/feature-cn',
+      component: redirectTmpl,
+    }, {
       path: 'docs/spec/:children',
       component: contentTmpl,
     }, {
       path: 'docs/resource/:children',
-      component: contentTmpl,
+      component: redirectTmpl,
     }],
   },
 };

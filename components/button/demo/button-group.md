@@ -26,7 +26,7 @@ ReactDOM.render(
     <h4>Basic</h4>
     <ButtonGroup>
       <Button>Cancel</Button>
-      <Button type="primary">OK</Button>
+      <Button>OK</Button>
     </ButtonGroup>
     <ButtonGroup>
       <Button disabled>L</Button>
@@ -34,10 +34,9 @@ ReactDOM.render(
       <Button disabled>R</Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button type="primary">L</Button>
+      <Button>L</Button>
       <Button>M</Button>
-      <Button>M</Button>
-      <Button type="dashed">R</Button>
+      <Button>R</Button>
     </ButtonGroup>
 
     <h4>With Icon</h4>

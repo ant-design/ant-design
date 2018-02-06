@@ -7,6 +7,8 @@
 @autocomplete-prefix-cls: ~"@{select-prefix-cls}-auto-complete";
 
 .@{autocomplete-prefix-cls} {
+  .reset-component;
+
   &.@{select-prefix-cls} {
     .@{select-prefix-cls} {
       &-selection {
@@ -19,8 +21,8 @@
           line-height: @input-height-base;
         }
         &__placeholder {
-          margin-left: (@input-padding-horizontal + 1px);
-          margin-right: (@input-padding-horizontal + 1px);
+          margin-left: (@input-padding-horizontal-base + 1px);
+          margin-right: (@input-padding-horizontal-base + 1px);
         }
 
         &--single {
@@ -57,7 +59,9 @@
         line-height: @input-height-lg;
       }
       .@{input-prefix-cls} {
-        .input-lg();
+        padding-top: @input-padding-vertical-lg;
+        padding-bottom: @input-padding-vertical-lg;
+        height: @input-height-lg;
       }
     }
 
@@ -66,7 +70,9 @@
         line-height: @input-height-sm;
       }
       .@{input-prefix-cls} {
-        .input-sm();
+        padding-top: @input-padding-vertical-sm;
+        padding-bottom: @input-padding-vertical-sm;
+        height: @input-height-sm;
       }
     }
   }

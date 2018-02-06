@@ -5,8 +5,8 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
   class="avatar-uploader"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;"
+    class="ant-upload ant-upload-select ant-upload-select-picture-card"
+    style="display:"
   />
 </span>
 `;
@@ -17,7 +17,7 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;"
+    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -31,7 +31,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;"
+    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -59,7 +59,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
     </div>
     <div
@@ -85,7 +85,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
     </div>
     <div
@@ -111,7 +111,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
     </div>
   </div>
@@ -119,17 +119,16 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
-<div
-  style="margin-top:16px;height:180px;"
+<span
+  class=""
 >
-  <span
-    class=""
-  >
-    <div
-      class="ant-upload ant-upload-drag"
-    />
-  </span>
-</div>
+  <div
+    class="ant-upload ant-upload-drag"
+  />
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
 `;
 
 exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
@@ -138,7 +137,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;"
+    style="display:"
   />
   <div
     class="ant-upload-list ant-upload-list-text"
@@ -166,7 +165,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
     </div>
   </div>
@@ -219,7 +218,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             rel="noopener noreferrer"
             target="_blank"
-            title="预览文件"
+            title="Preview file"
           >
             <i
               class="anticon anticon-eye-o"
@@ -227,14 +226,14 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </a>
           <i
             class="anticon anticon-delete"
-            title="删除文件"
+            title="Remove file"
           />
         </span>
       </div>
     </div>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture-card"
-      style="display:;"
+      style="display:"
     />
   </span>
 </div>
@@ -247,7 +246,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:;"
+      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -283,7 +282,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
-          title="删除文件"
+          title="Remove file"
         />
       </div>
       <div
@@ -317,7 +316,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
-          title="删除文件"
+          title="Remove file"
         />
       </div>
     </div>
@@ -329,7 +328,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
-      style="display:;"
+      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
@@ -365,7 +364,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
-          title="删除文件"
+          title="Remove file"
         />
       </div>
       <div
@@ -399,7 +398,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
-          title="删除文件"
+          title="Remove file"
         />
       </div>
     </div>
@@ -414,7 +413,7 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select ant-upload-select-text"
-      style="display:;"
+      style="display:"
     />
     <div
       class="ant-upload-list ant-upload-list-text"

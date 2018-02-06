@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
@@ -32,7 +32,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     }
   }
 
-  handlePreview = (file: UploadFile, e) => {
+  handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
     const { onPreview } = this.props;
     if (!onPreview) {
       return;
@@ -56,7 +56,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       /*eslint-disable */
       file.thumbUrl = '';
       /*eslint-enable */
-      previewFile(file.originFileObj, (previewDataUrl) => {
+      previewFile(file.originFileObj, (previewDataUrl: string) => {
         /*eslint-disable */
         file.thumbUrl = previewDataUrl;
         /*eslint-enable */
@@ -111,6 +111,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
       const preview = file.url ? (
         <a
+          {...file.linkProps}
           href={file.url}
           target="_blank"
           rel="noopener noreferrer"

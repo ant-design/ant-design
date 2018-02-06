@@ -3,6 +3,7 @@
 exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
 <ul
   class="ant-rate"
+  tabindex="0"
 >
   <li
     class="ant-rate-star ant-rate-star-zero"
@@ -101,6 +102,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
 <div>
   <ul
     class="ant-rate"
+    tabindex="0"
   >
     <li
       class="ant-rate-star ant-rate-star-zero"
@@ -196,7 +198,8 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
-    style="font-size:36px;"
+    style="font-size:36px"
+    tabindex="0"
   >
     <li
       class="ant-rate-star ant-rate-star-zero"
@@ -272,6 +275,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
+    tabindex="0"
   >
     <li
       class="ant-rate-star ant-rate-star-zero"
@@ -347,9 +351,208 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
+<div>
+  <ul
+    class="ant-rate"
+    tabindex="0"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+  </ul>
+   allowClear: true
+  <br />
+  <ul
+    class="ant-rate"
+    tabindex="0"
+  >
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-full"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-rate-star ant-rate-star-zero"
+    >
+      <div
+        class="ant-rate-star-first"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+      <div
+        class="ant-rate-star-second"
+      >
+        <i
+          class="anticon anticon-star"
+        />
+      </div>
+    </li>
+  </ul>
+   allowClear: false
+</div>
+`;
+
 exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
+  tabindex="-1"
 >
   <li
     class="ant-rate-star ant-rate-star-full"
@@ -447,6 +650,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
 exports[`renders ./components/rate/demo/half.md correctly 1`] = `
 <ul
   class="ant-rate"
+  tabindex="0"
 >
   <li
     class="ant-rate-star ant-rate-star-full"
@@ -545,6 +749,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
 <span>
   <ul
     class="ant-rate"
+    tabindex="0"
   >
     <li
       class="ant-rate-star ant-rate-star-full"

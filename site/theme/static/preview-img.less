@@ -1,7 +1,8 @@
 .preview-image-boxes {
+  display: flex;
   float: right;
-  margin: 0 0 70px 20px;
-  width: 608px;
+  margin: 0 0 70px 64px;
+  width: 496px;
   clear: both;
 
   &-with-carousel {
@@ -20,11 +21,14 @@
 .preview-image-box {
   width: 100%;
   float: left;
-  padding: 0 8px;
+}
+
+.preview-image-box + .preview-image-box {
+  margin-left: 24px;
 }
 
 .preview-image-wrapper {
-  background: #f7f7f7;
+  background: #f2f4f5;
   padding: 16px;
   display: inline-block;
   text-align: center;
@@ -73,13 +77,13 @@
 .preview-image-title {
   font-size: 12px;
   margin-top: 5px;
-  color: @text-color;
+  color: @site-text-color;
 }
 
 .preview-image-description {
   font-size: 12px;
   margin-top: 2px;
-  color: @text-color-secondary;
+  color: @site-text-color-secondary;
   line-height: 1.5;
 }
 

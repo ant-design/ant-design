@@ -15,12 +15,12 @@ title: Breadcrumb
 
 ## API
 
-| 参数      | 说明                              | 类型              |  可选值 | 默认值 |
-|-----------|-----------------------------------|-----------------|---------|--------|
-| routes    | router 的路由栈信息               | object[]             |         | -      |
-| params    | 路由的参数                        | object            |         | -      |
-| separator | 分隔符自定义                      | string\|ReactNode |         | '/'    |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode |  | - |
+| params | 路由的参数 | object |  | - |
+| routes | router 的路由栈信息 | object\[] |  | - |
+| separator | 分隔符自定义 | string\|ReactNode |  | '/' |
 
 > 2.0 之后，`linkRender` 和 `nameRender` 被移除，请使用 `itemRender` 来代替。
 
@@ -31,10 +31,20 @@ title: Breadcrumb
 ```jsx
 import { Link } from 'react-router';
 
+const routes = [{
+  path: 'index',
+  breadcrumbName: '首页'
+}, {
+  path: 'first',
+  breadcrumbName: '一级面包屑'
+}, {
+  path: 'second',
+  breadcrumbName: '当前页面'
+}];
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
   return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} />;
+return <Breadcrumb itemRender={itemRender} routes={routes}/>;
 ```

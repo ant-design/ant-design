@@ -52,7 +52,7 @@ describe('Table.filter', () => {
 
   it('renders menu correctly', () => {
     const wrapper = mount(createTable());
-    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper).toMatchSnapshot();
   });
 
@@ -63,7 +63,7 @@ describe('Table.filter', () => {
         filterMultiple: false,
       }],
     }));
-    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper).toMatchSnapshot();
   });
 
@@ -80,7 +80,7 @@ describe('Table.filter', () => {
       }],
     }));
 
-    const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
     expect(dropdownWrapper).toMatchSnapshot();
   });
 
@@ -91,15 +91,18 @@ describe('Table.filter', () => {
         filterDropdownVisible: true,
       }],
     }));
-    const dropdown = wrapper.find('Dropdown').first();
 
+    let dropdown = wrapper.find('Dropdown').first();
     expect(dropdown.props().visible).toBe(true);
+
     wrapper.setProps({
       columns: [{
         ...column,
         filterDropdownVisible: false,
       }],
     });
+
+    dropdown = wrapper.find('Dropdown').first();
     expect(dropdown.props().visible).toBe(false);
   });
 
@@ -112,7 +115,7 @@ describe('Table.filter', () => {
       }],
     }));
 
-    wrapper.find('Dropdown').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
 
     expect(handleChange).toBeCalledWith(true);
   });
@@ -156,7 +159,7 @@ describe('Table.filter', () => {
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
 
     dropdownWrapper.find('MenuItem').first().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
@@ -192,12 +195,19 @@ describe('Table.filter', () => {
         filters,
       }],
     }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    jest.useFakeTimers();
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
+    jest.runAllTimers();
+    dropdownWrapper.update();
     dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
+    jest.runAllTimers();
+    dropdownWrapper.update();
     dropdownWrapper.find('MenuItem').last().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
+    wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+    jest.useRealTimers();
   });
 
   it('works with JSX in controlled mode', () => {
@@ -232,13 +242,15 @@ describe('Table.filter', () => {
     }
 
     const wrapper = mount(<App />);
-    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
 
     dropdownWrapper.find('MenuItem').first().simulate('click');
     dropdownWrapper.find('.confirm').simulate('click');
+    wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
 
     dropdownWrapper.find('.clear').simulate('click');
+    wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 
@@ -278,5 +290,25 @@ describe('Table.filter', () => {
     );
 
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
+
+  it('confirm filter when dropdown hidden', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filters: [
+          { text: 'Jack', value: 'Jack' },
+          { text: 'Lucy', value: 'Lucy' },
+        ],
+      }],
+      onChange: handleChange,
+    }));
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+
+    expect(handleChange).toBeCalled();
   });
 });

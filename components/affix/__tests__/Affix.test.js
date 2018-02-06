@@ -3,8 +3,6 @@ import { mount } from 'enzyme';
 import Affix from '..';
 import Button from '../../button';
 
-jest.useFakeTimers();
-
 const events = {};
 
 class AffixMounter extends React.Component {
@@ -48,13 +46,21 @@ class AffixMounter extends React.Component {
 }
 
 describe('Affix Render', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it('Anchor render perfectly', () => {
     document.body.innerHTML = '<div id="mounter" />';
 
     const wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
     jest.runAllTimers();
 
-    wrapper.node.affix.refs.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
+    wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
       return {
         bottom: 100, height: 28, left: 0, right: 0, top: -50, width: 195,
       };
@@ -65,6 +71,6 @@ describe('Affix Render', () => {
     });
 
     jest.runAllTimers();
-    expect(wrapper.node.affix.state.affixStyle).not.toBe(null);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
   });
 });

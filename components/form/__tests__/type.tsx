@@ -1,5 +1,5 @@
 /* tslint:disable */
-import React from 'react';
+import * as React from 'react';
 import Form, { FormComponentProps } from '../Form';
 
 // test Form.create on component without own props

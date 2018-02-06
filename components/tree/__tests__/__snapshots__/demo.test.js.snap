@@ -158,7 +158,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
                 class="ant-tree-title"
               >
                 <span
-                  style="color:#08c;"
+                  style="color:#1890ff"
                 >
                   sss
                 </span>
@@ -1040,7 +1040,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 <div>
   <span
     class="ant-input-search ant-input-affix-wrapper"
-    style="margin-bottom:8px;"
+    style="margin-bottom:8px"
   >
     <input
       class="ant-input"
@@ -1075,7 +1075,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         >
           <span>
             <span
-              style="color:#f50;"
+              style="color:#f50"
             />
             0-0
           </span>
@@ -1097,7 +1097,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         >
           <span>
             <span
-              style="color:#f50;"
+              style="color:#f50"
             />
             0-1
           </span>
@@ -1119,7 +1119,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         >
           <span>
             <span
-              style="color:#f50;"
+              style="color:#f50"
             />
             0-2
           </span>

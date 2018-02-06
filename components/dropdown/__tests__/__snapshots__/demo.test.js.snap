@@ -12,6 +12,15 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 </a>
 `;
 
+exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
+<span
+  class="ant-dropdown-trigger"
+  style="user-select:none"
+>
+  Right Click on Me
+</span>
+`;
+
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 <div>
   <div
@@ -36,7 +45,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-btn-group ant-dropdown-button"
-    style="margin-left:8px;"
+    style="margin-left:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -49,6 +58,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-dropdown-trigger ant-btn-default"
+      disabled=""
       type="button"
     >
       <i
@@ -58,7 +68,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <button
     class="ant-btn ant-dropdown-trigger"
-    style="margin-left:8px;"
+    style="margin-left:8px"
     type="button"
   >
     <span>

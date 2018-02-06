@@ -3,7 +3,7 @@
 exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:100%;"
+  style="width:100%"
 >
   <div
     aria-autocomplete="list"
@@ -45,7 +45,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:120px;"
+    style="width:120px"
   >
     <div
       aria-autocomplete="list"
@@ -61,7 +61,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="Lucy"
         >
           Lucy
@@ -69,7 +69,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -78,7 +78,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-disabled ant-select-allow-clear"
-    style="width:120px;"
+    style="width:120px"
   >
     <div
       aria-autocomplete="list"
@@ -87,14 +87,14 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       class="ant-select-selection
             ant-select-selection--single"
       role="combobox"
-      tabindex="0"
+      tabindex="-1"
     >
       <div
         class="ant-select-selection__rendered"
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="Lucy"
         >
           Lucy
@@ -102,12 +102,12 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       </div>
       <span
         class="ant-select-selection__clear"
-        style="user-select:none;-webkit-user-select:none;display:block;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       />
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -120,7 +120,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
 exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
 <div
   class="ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -135,7 +135,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         Enter the account name
@@ -163,7 +163,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -176,7 +176,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:90px;"
+    style="width:90px"
   >
     <div
       aria-autocomplete="list"
@@ -192,7 +192,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="Zhejiang"
         >
           Zhejiang
@@ -200,7 +200,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -209,7 +209,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-enabled"
-    style="width:90px;"
+    style="width:90px"
   >
     <div
       aria-autocomplete="list"
@@ -225,7 +225,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="Hangzhou"
         >
           Hangzhou
@@ -233,7 +233,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -246,7 +246,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:120px;"
+  style="width:120px"
 >
   <div
     aria-autocomplete="list"
@@ -262,7 +262,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-selected-value"
-        style="display:block;opacity:1;"
+        style="display:block;opacity:1"
         title="Lucy (101)"
       >
         Lucy (101)
@@ -270,7 +270,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -282,7 +282,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:100%;"
+  style="width:100%"
 >
   <div
     aria-autocomplete="list"
@@ -297,7 +297,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:none;user-select:none;-webkit-user-select:none;"
+        style="display:none;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         Please select
@@ -305,7 +305,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
       <ul>
         <li
           class="ant-select-selection__choice"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           title="a10"
           unselectable="unselectable"
         >
@@ -320,7 +320,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
         </li>
         <li
           class="ant-select-selection__choice"
-          style="user-select:none;-webkit-user-select:none;"
+          style="user-select:none;-webkit-user-select:none"
           title="c12"
           unselectable="unselectable"
         >
@@ -360,7 +360,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -376,7 +376,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-selected-value"
-        style="display:block;opacity:1;"
+        style="display:block;opacity:1"
         title="Lucy"
       >
         Lucy
@@ -384,7 +384,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -396,7 +396,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 exports[`renders ./components/select/demo/search.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -412,14 +412,14 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         Select a person
       </div>
       <div
         class="ant-select-search ant-select-search--inline"
-        style="display:none;"
+        style="display:none"
       >
         <div
           class="ant-select-search__field__wrap"
@@ -439,7 +439,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
     </div>
     <span
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="unselectable"
     >
       <b />
@@ -451,7 +451,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
   class="ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px;"
+  style="width:200px"
 >
   <div
     aria-autocomplete="list"
@@ -466,7 +466,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         input search text
@@ -499,7 +499,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:100%;"
+  style="width:100%"
 >
   <div
     aria-autocomplete="list"
@@ -514,7 +514,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         Select users
@@ -558,6 +558,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="large"
         />
         <span
           class="ant-radio-button-inner"
@@ -577,6 +578,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
+          value="default"
         />
         <span
           class="ant-radio-button-inner"
@@ -595,6 +597,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="small"
         />
         <span
           class="ant-radio-button-inner"
@@ -609,7 +612,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   <br />
   <div
     class="ant-select ant-select-enabled"
-    style="width:200px;"
+    style="width:200px"
   >
     <div
       aria-autocomplete="list"
@@ -625,7 +628,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-selected-value"
-          style="display:block;opacity:1;"
+          style="display:block;opacity:1"
           title="a1"
         >
           a1
@@ -633,7 +636,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -643,7 +646,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   <br />
   <div
     class="ant-select ant-select-combobox ant-select-enabled"
-    style="width:200px;"
+    style="width:200px"
   >
     <div
       aria-autocomplete="list"
@@ -679,7 +682,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       </div>
       <span
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         <b />
@@ -689,7 +692,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   <br />
   <div
     class="ant-select ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
@@ -704,7 +707,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:none;user-select:none;-webkit-user-select:none;"
+          style="display:none;user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           Please select
@@ -712,7 +715,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="unselectable"
           >
@@ -727,7 +730,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="unselectable"
           >
@@ -765,7 +768,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   <br />
   <div
     class="ant-select ant-select-enabled"
-    style="width:100%;"
+    style="width:100%"
   >
     <div
       aria-autocomplete="list"
@@ -780,7 +783,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       >
         <div
           class="ant-select-selection__placeholder"
-          style="display:none;user-select:none;-webkit-user-select:none;"
+          style="display:none;user-select:none;-webkit-user-select:none"
           unselectable="unselectable"
         >
           Please select
@@ -788,7 +791,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <ul>
           <li
             class="ant-select-selection__choice"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             title="a10"
             unselectable="unselectable"
           >
@@ -803,7 +806,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           </li>
           <li
             class="ant-select-selection__choice"
-            style="user-select:none;-webkit-user-select:none;"
+            style="user-select:none;-webkit-user-select:none"
             title="c12"
             unselectable="unselectable"
           >
@@ -844,7 +847,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
 exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:100%;"
+  style="width:100%"
 >
   <div
     aria-autocomplete="list"
@@ -859,7 +862,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none;"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="unselectable"
       >
         Tags Mode

@@ -12,7 +12,7 @@
   }
 
   .@{ant-prefix}-modal-body {
-    padding: 30px 40px;
+    padding: 32px 32px 24px;
   }
 
   &-body-wrapper {
@@ -21,32 +21,33 @@
 
   &-body {
     .@{confirm-prefix-cls}-title {
-      color: @text-color;
-      font-weight: bold;
+      color: @heading-color;
+      font-weight: 500;
       font-size: @font-size-lg;
+      line-height: 22px;
     }
 
     .@{confirm-prefix-cls}-content {
-      margin-left: 42px;
+      margin-left: 38px;
       font-size: @font-size-base;
       color: @text-color;
       margin-top: 8px;
     }
 
     > .@{iconfont-css-prefix} {
-      font-size: 24px;
+      font-size: 22px;
       margin-right: 16px;
-      padding: 0 1px;
       float: left;
+      min-height: 48px;
     }
   }
 
   .@{confirm-prefix-cls}-btns {
-    margin-top: 30px;
+    margin-top: 24px;
     float: right;
 
     button + button {
-      margin-left: 10px;
+      margin-left: 8px;
       margin-bottom: 0;
     }
   }

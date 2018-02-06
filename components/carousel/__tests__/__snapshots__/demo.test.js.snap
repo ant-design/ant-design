@@ -24,7 +24,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
         <div
           class="slick-slide slick-active slick-cloned"
           data-index="0"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -34,7 +34,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="1"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -44,7 +44,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="2"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -54,7 +54,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="3"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -67,6 +67,30 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
         >
           <h3>
             1
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
           </h3>
         </div>
       </div>
@@ -99,7 +123,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="slick-slide slick-active slick-cloned"
           data-index="0"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -109,7 +133,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="1"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -119,7 +143,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="2"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -129,7 +153,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="3"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -142,6 +166,30 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         >
           <h3>
             1
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
           </h3>
         </div>
       </div>
@@ -166,7 +214,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
         <div
           class="slick-slide slick-active slick-cloned"
           data-index="0"
-          style="outline:none;position:relative;left:0;opacity:1;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
+          style="outline:none;position:relative;left:0;opacity:1;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease"
           tabindex="-1"
         >
           <h3>
@@ -176,7 +224,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="1"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
+          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease"
           tabindex="-1"
         >
           <h3>
@@ -186,7 +234,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="2"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
+          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease"
           tabindex="-1"
         >
           <h3>
@@ -196,7 +244,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="3"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease;"
+          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease;-webkit-transition:opacity 500ms ease"
           tabindex="-1"
         >
           <h3>
@@ -233,7 +281,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         <div
           class="slick-slide slick-active slick-cloned"
           data-index="0"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -243,7 +291,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="1"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -253,7 +301,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="2"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -263,7 +311,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         <div
           class="slick-slide slick-cloned"
           data-index="3"
-          style="outline:none;"
+          style="outline:none"
           tabindex="-1"
         >
           <h3>
@@ -276,6 +324,30 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         >
           <h3>
             1
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
           </h3>
         </div>
       </div>

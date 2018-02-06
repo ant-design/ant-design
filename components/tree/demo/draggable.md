@@ -90,7 +90,7 @@ class Demo extends React.Component {
       if (dropPosition === -1) {
         ar.splice(i, 0, dragObj);
       } else {
-        ar.splice(i - 1, 0, dragObj);
+        ar.splice(i + 1, 0, dragObj);
       }
     } else {
       loop(data, dropKey, (item) => {

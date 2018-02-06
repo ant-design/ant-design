@@ -1,7 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
-
-export type ButtonSize = 'small' | 'large';
+import { ButtonSize } from './button';
 
 export interface ButtonGroupProps {
   size?: ButtonSize;
@@ -11,7 +10,7 @@ export interface ButtonGroupProps {
 }
 
 const ButtonGroup: React.SFC<ButtonGroupProps> = (props) => {
-  const { prefixCls = 'ant-btn-group', size = '', className, ...others } = props;
+  const { prefixCls = 'ant-btn-group', size, className, ...others } = props;
 
   // large => lg
   // small => sm

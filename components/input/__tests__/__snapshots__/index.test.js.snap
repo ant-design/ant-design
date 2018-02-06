@@ -17,6 +17,58 @@ exports[`Input should support maxLength 1`] = `
 </Input>
 `;
 
+exports[`Input.Search should support suffix 1`] = `
+<Search
+  enterButton={false}
+  inputPrefixCls="ant-input"
+  prefixCls="ant-input-search"
+  suffix="suffix"
+>
+  <Input
+    className="ant-input-search"
+    disabled={false}
+    onPressEnter={[Function]}
+    prefixCls="ant-input"
+    suffix={
+      Array [
+        "suffix",
+        <Icon
+          className="ant-input-search-icon"
+          type="search"
+        />,
+      ]
+    }
+    type="text"
+  >
+    <span
+      className="ant-input-search ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+      />
+      <span
+        className="ant-input-suffix"
+      >
+        suffix
+        <Icon
+          className="ant-input-search-icon"
+          key="searchIcon"
+          type="search"
+        >
+          <i
+            className="anticon anticon-search ant-input-search-icon"
+          />
+        </Icon>
+      </span>
+    </span>
+  </Input>
+</Search>
+`;
+
 exports[`TextArea should support disabled 1`] = `
 <TextArea
   disabled={true}

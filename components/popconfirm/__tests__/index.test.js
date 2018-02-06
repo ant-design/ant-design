@@ -22,7 +22,7 @@ describe('Popconfirm', () => {
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
     expect(onVisibleChange).toBeCalledWith(true);
-    expect(document.querySelectorAll('.popconfirm-test').length).toBe(1);
+    expect(wrapper.find('.popconfirm-test').length).toBe(1);
 
     triggerNode.simulate('click');
     expect(onVisibleChange).toBeCalledWith(false);
@@ -35,11 +35,11 @@ describe('Popconfirm', () => {
       </Popconfirm>
     );
 
-    expect(popconfirm.node.getPopupDomNode()).toBe(null);
+    expect(popconfirm.instance().getPopupDomNode()).toBe(null);
 
     popconfirm.find('span').simulate('click');
 
-    const popup = popconfirm.node.getPopupDomNode();
+    const popup = popconfirm.instance().getPopupDomNode();
     expect(popup).not.toBe(null);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();

@@ -1,18 +1,19 @@
-import React from 'react';
+import * as React from 'react';
 import RcPagination from 'rc-pagination';
-import zhCN from 'rc-pagination/lib/locale/zh_CN';
+import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import injectLocale from '../locale-provider/injectLocale';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Select from '../select';
 import MiniSelect from './MiniSelect';
 
 export interface PaginationProps {
-  total: number;
+  total?: number;
   defaultCurrent?: number;
   current?: number;
   defaultPageSize?: number;
   pageSize?: number;
-  onChange?: (page: number, pageSize: number) => void;
+  onChange?: (page: number, pageSize?: number) => void;
+  hideOnSinglePage?: boolean;
   showSizeChanger?: boolean;
   pageSizeOptions?: string[];
   onShowSizeChange?: (current: number, size: number) => void;
@@ -28,17 +29,16 @@ export interface PaginationProps {
   itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
 }
 
-abstract class Pagination extends React.Component<PaginationProps, any> {
+export type PaginationLocale = any;
+
+export default class Pagination extends React.Component<PaginationProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-pagination',
     selectPrefixCls: 'ant-select',
   };
 
-  abstract getLocale();
-
-  render() {
+  renderPagination = (locale: PaginationLocale) => {
     const { className, size, ...restProps } = this.props;
-    const locale = this.getLocale();
     const isSmall = size === 'small';
     return (
       <RcPagination
@@ -49,7 +49,15 @@ abstract class Pagination extends React.Component<PaginationProps, any> {
       />
     );
   }
-}
 
-const injectPaginationLocale = injectLocale('Pagination', zhCN);
-export default injectPaginationLocale<PaginationProps>(Pagination as any);
+  render() {
+    return (
+      <LocaleReceiver
+        componentName="Pagination"
+        defaultLocale={enUS}
+      >
+        {this.renderPagination}
+      </LocaleReceiver>
+    );
+  }
+}

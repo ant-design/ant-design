@@ -2,7 +2,7 @@
 
 exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 <span
-  class="ant-switch"
+  class="ant-switch ant-switch-checked"
   tabindex="0"
 >
   <span
@@ -14,7 +14,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch ant-switch-disabled"
+    class="ant-switch ant-switch-checked ant-switch-disabled"
     tabindex="-1"
   >
     <span
@@ -33,10 +33,10 @@ exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/switch/demo/size.md correctly 1`] = `
+exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch"
+    class="ant-switch-loading ant-switch ant-switch-checked"
     tabindex="0"
   >
     <span
@@ -45,7 +45,29 @@ exports[`renders ./components/switch/demo/size.md correctly 1`] = `
   </span>
   <br />
   <span
-    class="ant-switch-small ant-switch"
+    class="ant-switch-small ant-switch-loading ant-switch"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+</div>
+`;
+
+exports[`renders ./components/switch/demo/size.md correctly 1`] = `
+<div>
+  <span
+    class="ant-switch ant-switch-checked"
+    tabindex="0"
+  >
+    <span
+      class="ant-switch-inner"
+    />
+  </span>
+  <br />
+  <span
+    class="ant-switch-small ant-switch ant-switch-checked"
     tabindex="0"
   >
     <span
@@ -58,13 +80,13 @@ exports[`renders ./components/switch/demo/size.md correctly 1`] = `
 exports[`renders ./components/switch/demo/text.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch"
+    class="ant-switch ant-switch-checked"
     tabindex="0"
   >
     <span
       class="ant-switch-inner"
     >
-      关
+      开
     </span>
   </span>
   <br />
@@ -80,14 +102,14 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
   </span>
   <br />
   <span
-    class="ant-switch"
+    class="ant-switch ant-switch-checked"
     tabindex="0"
   >
     <span
       class="ant-switch-inner"
     >
       <i
-        class="anticon anticon-cross"
+        class="anticon anticon-check"
       />
     </span>
   </span>

@@ -3,7 +3,9 @@ order: 3
 title: 项目实战
 ---
 
-[dva](https://github.com/dvajs/dva) 是一个基于 react 和 redux 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
+在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据应用框架，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的应用框架搭配使用。我们也基于 Redux 推出了自己的最佳实践 dva，推荐你在项目中使用。
+
+[dva](https://github.com/dvajs/dva) 是一个基于 React 和 Redux 的轻量应用框架，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
 
 本文会引导你使用 dva 和 antd 从 0 开始创建一个简单应用。
 
@@ -13,12 +15,12 @@ title: 项目实战
 
 ## 安装 dva-cli
 
-通过 npm 安装 dva-cli 并确保版本是 `0.8.1` 或以上。
+通过 npm 安装 dva-cli 并确保版本是 `0.9.1` 或以上。
 
 ```bash
 $ npm install dva-cli -g
 $ dva -v
-0.8.1
+dva-cli version 0.9.1
 ```
 
 ## 创建新应用
@@ -61,17 +63,15 @@ To create a production build, use npm run build.
 $ npm install antd babel-plugin-import --save
 ```
 
-编辑 `.roadhogrc`，使 `babel-plugin-import` 插件生效。
+编辑 `.webpackrc`，使 `babel-plugin-import` 插件生效。
 
 ```diff
-  "extraBabelPlugins": [
--    "transform-runtime"
-+    "transform-runtime",
-+    ["import", { "libraryName": "antd", "style": "css" }]
-  ],
++  "extraBabelPlugins": [
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
++  ],
 ```
 
-> 注：dva-cli 基于 roadhog 实现 build 和 server，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
+> 注：dva-cli 基于 roadhog 实现 build 和 dev，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
 
 ## 定义路由
 
@@ -174,7 +174,7 @@ export default {
 
 ```diff
 // 3. Model
-+ app.model(require('./models/products'));
++ app.model(require('./models/products').default);
 ```
 
 ## connect 起来
@@ -275,4 +275,4 @@ File sizes after gzip:
 - 掌握 dva 的[所有 API](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md)
 - 查看 [dva 知识地图](https://github.com/dvajs/dva-knowledgemap) ，包含 ES6, React, dva 等所有基础知识
 - 查看 [更多 FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)，看看别人通常会遇到什么问题
-- 如果你基于 dva-cli 创建项目，最好了解他的 [配置方式](https://github.com/sorrycc/roadhog#配置)
+- 如果你基于 dva-cli 创建项目，最好了解他的 [配置方式](https://github.com/sorrycc/roadhog/blob/master/README_zh-cn.md#配置)

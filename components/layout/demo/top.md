@@ -58,8 +58,7 @@ ReactDOM.render(
 #components-layout-demo-top .logo {
   width: 120px;
   height: 31px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255,255,255,.2);  
   margin: 16px 24px 16px 0;
   float: left;
 }

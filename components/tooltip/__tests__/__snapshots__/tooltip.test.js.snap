@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip should hide when mouse leave antd disabled Button 1`] = `
+<span
+  style="display: inline-block; cursor: not-allowed;"
+>
+  <button
+    class="ant-btn"
+    disabled=""
+    style="pointer-events: none;"
+    type="button"
+  >
+    <span>
+      Hello world!
+    </span>
+  </button>
+</span>
+`;

@@ -24,15 +24,15 @@ const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
-  width: '40%',
 }, {
   title: 'Age',
   dataIndex: 'age',
   key: 'age',
-  width: '30%',
+  width: '12%',
 }, {
   title: 'Address',
   dataIndex: 'address',
+  width: '30%',
   key: 'address',
 }];
 

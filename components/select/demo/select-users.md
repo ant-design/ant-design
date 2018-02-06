@@ -33,7 +33,7 @@ class UserRemoteSelect extends React.Component {
     console.log('fetching user', value);
     this.lastFetchId += 1;
     const fetchId = this.lastFetchId;
-    this.setState({ fetching: true });
+    this.setState({ data: [], fetching: true });
     fetch('https://randomuser.me/api/?results=5')
       .then(response => response.json())
       .then((body) => {
@@ -43,9 +43,8 @@ class UserRemoteSelect extends React.Component {
         const data = body.results.map(user => ({
           text: `${user.name.first} ${user.name.last}`,
           value: user.login.username,
-          fetching: false,
         }));
-        this.setState({ data });
+        this.setState({ data, fetching: false });
       });
   }
   handleChange = (value) => {

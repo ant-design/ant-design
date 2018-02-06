@@ -1,10 +1,3 @@
-/**
- * Created by Andrey Gayvoronsky on 13/04/16.
- */
-
-import moment from 'moment';
-moment.locale('ru');
-
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
 import DatePicker from '../date-picker/locale/ru_RU';
 import TimePicker from '../time-picker/locale/ru_RU';

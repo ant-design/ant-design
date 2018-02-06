@@ -2,11 +2,11 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "noImplicitAny": true,
     "target": "es6",
     "lib": [
       "dom",

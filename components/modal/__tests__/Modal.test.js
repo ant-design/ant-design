@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Modal from '..';
 
+jest.mock('rc-util/lib/Portal');
+
 class ModalTester extends React.Component {
   constructor(props) {
     super(props);

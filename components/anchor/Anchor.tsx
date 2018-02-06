@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
@@ -42,9 +42,12 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 }
 
 const reqAnimFrame = getRequestAnimationFrame();
-function scrollTo(href: string, offsetTop = 0, target, callback = () => { }) {
+const sharpMatcherRegx = /#([^#]+)$/;
+function scrollTo(href: string, offsetTop = 0, target: () => Window | HTMLElement, callback = () => { }) {
   const scrollTop = getScroll(target(), true);
-  const targetElement = document.getElementById(href.substring(1));
+  const sharpLinkMatch = sharpMatcherRegx.exec(href);
+  if (!sharpLinkMatch) { return; }
+  const targetElement = document.getElementById(sharpLinkMatch[1]);
   if (!targetElement) {
     return;
   }
@@ -95,9 +98,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     antAnchor: PropTypes.object,
   };
 
-  refs: {
-    ink?: any;
-  };
+  private inkNode: HTMLSpanElement;
 
   private links: String[];
   private scrollEvent: any;
@@ -157,7 +158,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
   }
 
-  handleScrollTo = (link) => {
+  handleScrollTo = (link: string) => {
     const { offsetTop, target = getDefaultTarget } = this.props;
     this.animating = true;
     this.setState({ activeLink: link });
@@ -174,7 +175,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
     const linkSections: Array<Section> = [];
     this.links.forEach(link => {
-      const target = document.getElementById(link.substring(1));
+      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
+      if (!sharpLinkMatch) { return; }
+      const target = document.getElementById(sharpLinkMatch[1]);
       if (target && getOffsetTop(target) < offsetTop + bounds) {
         const top = getOffsetTop(target);
         linkSections.push({
@@ -198,8 +201,12 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     const { prefixCls } = this.props;
     const linkNode = ReactDOM.findDOMNode(this as any).getElementsByClassName(`${prefixCls}-link-title-active`)[0];
     if (linkNode) {
-      this.refs.ink.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
+  }
+
+  saveInkNode = (node: HTMLSpanElement) => {
+    this.inkNode = node;
   }
 
   render() {
@@ -224,11 +231,19 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       'fixed': !affix && !showInkInFixed,
     });
 
+    const wrapperStyle = {
+      maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
+      ...style,
+    };
+
     const anchorContent = (
-      <div className={wrapperClass} style={style}>
+      <div
+        className={wrapperClass}
+        style={wrapperStyle}
+      >
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`} >
-            <span className={inkClass} ref="ink" />
+            <span className={inkClass} ref={this.saveInkNode} />
           </div>
           {children}
         </div>

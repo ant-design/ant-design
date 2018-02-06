@@ -12,4 +12,12 @@ describe('Spin', () => {
     expect(wrapper.find('.ant-spin-nested-loading').at(0).prop('style')).toBe(null);
     expect(wrapper.find('.ant-spin').at(0).prop('style').background).toBe('red');
   });
+
+  it('should render custom indicator when it\'s set', () => {
+    const customIndicator = <div className="custom-indicator" />;
+    const wrapper = shallow(
+      <Spin indicator={customIndicator} />
+    );
+    expect(wrapper.contains(customIndicator)).toEqual(true);
+  });
 });

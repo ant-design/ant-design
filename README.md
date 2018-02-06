@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="320" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+    <img width="230" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
 
@@ -20,6 +20,10 @@ An enterprise-class UI design language and React-based implementation.
 
 [中文 README](README-zh_CN.md)
 
+## 3.0 Released Now! :tada::tada::tada:
+
+[Announcing Ant Design 3.0](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)
+
 ## Features
 
 - An enterprise-class UI design language for web applications.
@@ -35,12 +39,12 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` is an open source project; improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22). Actually, there are [many ways](https://opensource.guide/how-to-contribute/) to contribute. And we are always happy to [offer collaborator permission](https://github.com/ant-design/ant-design/issues/3222) for some active contributors.
+Read our [contributing guide](https://ant.design/docs/react/contributing).
 
 ## Install
 
 ```bash
-npm install antd
+npm install antd --save
 ```
 
 ## Usage
@@ -56,63 +60,12 @@ And import style manually:
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-### Use modularized antd
-
-- Manually import
-
-   ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // for js
-   import 'antd/lib/date-picker/style/css';        // for css
-   // import 'antd/lib/date-picker/style';         // that will import less
-   ```
-
-- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
-
-   ```js
-   // .babelrc or babel-loader option
-   {
-     "plugins": [
-       ["import", { libraryName: "antd", style: "css" }] // `style: true` for less
-     ]
-   }
-   ```
-
-   Then you can import components from antd, equivalent to import manually below.
-
-   ```jsx
-   // import js and css modularly, parsed by babel-plugin-import
-   import { DatePicker } from 'antd';
-   ```
+Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand)
 
 ### TypeScript
 
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
+See [Use in TypeScript](https://ant.design/docs/react/use-in-typescript)
 
-> Note:
-> - set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
-> - Don't use @types/antd, antd provide a built-in ts definition already.
-
-#### Use [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) with modularized antd
-
-  ```js
-  {
-    loader: "ts-loader", // or awesome-typescript-loader
-    options {
-      getCustomTransformers: () => ({
-        before: [ tsImportPluginFactory({ libraryName: "antd", style: "css" }) ]
-      })
-    }
-  }
-  ```
 
 ## Internationalization
 
@@ -121,10 +74,9 @@ See [i18n](http://ant.design/docs/react/i18n).
 ## Links
 
 - [Home page](http://ant.design/)
-- [UI library](http://ant.design/docs/react/introduce)
+- [Components](http://ant.design/docs/react/introduce)
+- [Ant Design Pro](http://pro.ant.design/)
 - [Change Log](CHANGELOG.en-US.md)
-- [Official Scaffold Tool](https://github.com/dvajs/dva-cli/)
-- [Development Tool](http://ant-tool.github.io/)
 - [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
@@ -132,7 +84,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](http://ant.design/docs/react/customize-theme)
 

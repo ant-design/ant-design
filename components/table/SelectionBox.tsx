@@ -1,21 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
-import { Store } from './createStore';
+import { SelectionBoxProps, SelectionBoxState } from './interface';
 
-export interface SelectionBoxProps {
-  store: Store;
-  type: string;
-  defaultSelection: string[];
-  rowIndex: string;
-  disabled?: boolean;
-  onChange: (e) => void;
-}
-
-export default class SelectionBox extends React.Component<SelectionBoxProps, any> {
+export default class SelectionBox extends React.Component<SelectionBoxProps, SelectionBoxState> {
   unsubscribe: () => void;
 
-  constructor(props) {
+  constructor(props: SelectionBoxProps) {
     super(props);
 
     this.state = {
@@ -41,7 +32,7 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, any
     });
   }
 
-  getCheckState(props) {
+  getCheckState(props: SelectionBoxProps) {
     const { store, defaultSelection, rowIndex } = props;
     let checked = false;
     if (store.getState().selectionDirty) {
@@ -54,26 +45,24 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, any
   }
 
   render() {
-    const { type, rowIndex, disabled, onChange } = this.props;
+    const { type, rowIndex, ...rest } = this.props;
     const { checked } = this.state;
 
     if (type === 'radio') {
       return (
         <Radio
-          disabled={disabled}
-          onChange={onChange}
-          value={rowIndex}
           checked={checked}
+          value={rowIndex}
+          {...rest}
+        />
+      );
+    } else {
+      return (
+        <Checkbox
+          checked={checked}
+          {...rest}
         />
       );
     }
-
-    return (
-      <Checkbox
-        checked={checked}
-        disabled={disabled}
-        onChange={onChange}
-      />
-    );
   }
 }

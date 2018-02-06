@@ -71,8 +71,8 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 <Icon type="question" style={{ fontSize: 16, color: '#08c' }} />
 ```
 
-| 参数      | 说明             | 类型      | 默认值  |
-|----------|------------------|----------|--------|
-| type | 图标类型 | string | - |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
 | spin | 是否有旋转动画 | boolean | false |
 | style | 设置图标的样式，例如 fontSize 和 color | object | - |
+| type | 图标类型 | string | - |

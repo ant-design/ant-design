@@ -8,8 +8,8 @@
 }
 
 .code-box {
-  border: 1px solid @border-color-split;
-  border-radius: @border-radius-base;
+  border: 1px solid @site-border-color-split;
+  border-radius: @border-radius-sm;
   display: inline-block;
   width: 100%;
   position: relative;
@@ -18,7 +18,6 @@
 
   &:target {
     border: 1px solid @primary-color;
-    z-index: 10;
   }
 
   &-expand-trigger {
@@ -42,14 +41,14 @@
     padding: 1px 8px;
     margin-left: -8px;
     color: #777;
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @border-radius-sm @border-radius-sm 0 0;
     background: #fff;
     transition: background-color .4s;
 
     a,
     a:hover {
-      color: @text-color;
-      font-size: 14px;
+      color: @site-text-color;
+      font-size: @font-size-base;
       font-weight: 500;
     }
   }
@@ -66,8 +65,9 @@
   }
 
   &-demo {
-    border-bottom: 1px solid @border-color-split;
-    padding: 42px 20px 50px;
+    border-bottom: 1px solid @site-border-color-split;
+    padding: 42px 24px 50px;
+    color: rgba(0, 0, 0, .65);
   }
 
   iframe {
@@ -78,11 +78,11 @@
   &-meta {
     &.markdown {
       position: relative;
-      padding: 17px 16px 15px 20px;
-      border-radius: 0 0 @border-radius-base @border-radius-base;
+      padding: 18px 32px;
+      border-radius: 0 0 @border-radius-sm @border-radius-sm;
       transition: background-color .4s;
       width: 100%;
-      font-size: 12px;
+      font-size: @font-size-base;
     }
 
     blockquote {
@@ -91,7 +91,7 @@
 
     h4,
     section& p {
-      margin: 4px 0;
+      margin: 0;
       width: 98%;
     }
 
@@ -106,7 +106,7 @@
 
   &.expand &-meta {
     border-radius: 0;
-    border-bottom: 1px dashed @border-color-split;
+    border-bottom: 1px dashed @site-border-color-split;
   }
 
   .code-expand-icon {
@@ -127,6 +127,10 @@
     position: absolute;
     left: 0;
     top: 0;
+    margin: 0;
+    max-width: 100%;
+    vertical-align: baseline;
+    box-shadow: none;
   }
 
   .code-expand-icon-show {
@@ -149,7 +153,7 @@
   .highlight-wrapper {
     display: none;
     overflow: auto;
-    border-radius: 0 0 @border-radius-base @border-radius-base;
+    border-radius: 0 0 @border-radius-sm @border-radius-sm;
 
     &-expand {
       display: block;
@@ -164,7 +168,7 @@
       background: #fff;
     }
     &:not(:first-child) {
-       border-top: 1px dashed @border-color-split;
+       border-top: 1px dashed @site-border-color-split;
     }
   }
 
@@ -183,7 +187,7 @@
   &-code-copy {
     font-size: 14px;
     cursor: pointer;
-    color: #222;
+    color: @site-text-color-secondary;
     transition: all .24s;
     background: #fff;
     width: 20px;
@@ -194,7 +198,7 @@
     opacity: 0;
 
     &:hover {
-      color: @primary-color;
+      color: @site-text-color-secondary;
       transform: scale(1.2);
     }
     &.anticon-check {
@@ -204,7 +208,7 @@
   }
 
   &-codepen {
-    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat;
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg") center / 14px no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -216,7 +220,19 @@
   }
 
   &-riddle {
-    background: transparent url("https://zos.alipayobjects.com/rmsportal/WpXYyalbBFqfZEV.svg") center / 14px no-repeat;
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  &-codesandbox {
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg") center / 14px no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -229,8 +245,9 @@
 
   .highlight-wrapper:hover &-code-copy,
   .highlight-wrapper:hover &-codepen,
+  .highlight-wrapper:hover &-codesandbox,
   .highlight-wrapper:hover &-riddle {
-    opacity: .66;
+    opacity: 1;
   }
 
   pre {

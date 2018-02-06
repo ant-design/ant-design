@@ -54,7 +54,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -97,7 +97,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     class="ant-btn-group"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -114,14 +114,6 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
     </button>
     <button
       class="ant-btn"
-      type="button"
-    >
-      <span>
-        M
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-dashed"
       type="button"
     >
       <span>
@@ -259,7 +251,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
-  style="background:rgb(190, 200, 200);padding:26px 16px 16px;"
+  style="background:rgb(190, 200, 200);padding:26px 16px 16px"
 >
   <button
     class="ant-btn ant-btn-primary ant-btn-background-ghost"
@@ -465,7 +457,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     type="button"
   >
     <span>
-      more 
+      Actions 
     </span>
     <i
       class="anticon anticon-down"
@@ -489,6 +481,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
+          value="large"
         />
         <span
           class="ant-radio-button-inner"
@@ -507,6 +500,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="default"
         />
         <span
           class="ant-radio-button-inner"
@@ -525,6 +519,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="small"
         />
         <span
           class="ant-radio-button-inner"

@@ -32,7 +32,7 @@ const data = [
 ReactDOM.render(
   <Table
     columns={columns}
-    expandedRowRender={record => <p>{record.description}</p>}
+    expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
     dataSource={data}
   />
 , mountNode);

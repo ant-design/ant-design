@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
@@ -23,6 +23,7 @@ export interface AlertProps {
   onClose?: React.MouseEventHandler<HTMLAnchorElement>;
   /** Whether to show icon */
   showIcon?: boolean;
+  iconType?: string;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -59,7 +60,7 @@ export default class Alert extends React.Component<AlertProps, any> {
   render() {
     let {
       closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
-      className = '', style,
+      className = '', style, iconType,
     } = this.props;
 
     // banner模式默认有 Icon
@@ -67,27 +68,28 @@ export default class Alert extends React.Component<AlertProps, any> {
     // banner模式默认为警告
     type = banner && type === undefined ? 'warning' : type || 'info';
 
-    let iconType = '';
-    switch (type) {
-      case 'success':
-        iconType = 'check-circle';
-        break;
-      case 'info':
-        iconType = 'info-circle';
-        break;
-      case 'error':
-        iconType = 'cross-circle';
-        break;
-      case 'warning':
-        iconType = 'exclamation-circle';
-        break;
-      default:
-        iconType = 'default';
-    }
+    if (!iconType) {
+      switch (type) {
+        case 'success':
+          iconType = 'check-circle';
+          break;
+        case 'info':
+          iconType = 'info-circle';
+          break;
+        case 'error':
+          iconType = 'cross-circle';
+          break;
+        case 'warning':
+          iconType = 'exclamation-circle';
+          break;
+        default:
+          iconType = 'default';
+      }
 
-    // use outline icon in alert with description
-    if (!!description) {
-      iconType += '-o';
+      // use outline icon in alert with description
+      if (!!description) {
+        iconType += '-o';
+      }
     }
 
     let alertCls = classNames(prefixCls, {
