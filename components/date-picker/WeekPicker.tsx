@@ -81,7 +81,7 @@ export default class WeekPicker extends React.Component<any, any> {
 
   render() {
     const {
-      prefixCls, className, disabled, pickerClass, popupStyle,
+      prefixCls, className, disabled, pickerClass, popupStyle, popupClassName,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
     } = this.props;
 
@@ -135,7 +135,7 @@ export default class WeekPicker extends React.Component<any, any> {
         <RcDatePicker
           {...this.props}
           calendar={calendar}
-          prefixCls={`${prefixCls}-picker-container`}
+          prefixCls={`${popupClassName} ${prefixCls}-picker-container`}
           value={pickerValue}
           onChange={this.handleChange}
           style={popupStyle}
