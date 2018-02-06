@@ -232,7 +232,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const {
       prefixCls, popupStyle, style,
       disabledDate, disabledTime,
-      showTime, showToday,
+      showTime, showToday, popupClassName,
       ranges, onOk, locale, localeCode, format,
       dateRender, onCalendarChange,
     } = props;
@@ -352,7 +352,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
           value={value}
           open={open}
           onOpenChange={this.handleOpenChange}
-          prefixCls={`${prefixCls}-picker-container`}
+          prefixCls={`${popupClassName} ${prefixCls}-picker-container`}
           style={popupStyle}
         >
           {input}

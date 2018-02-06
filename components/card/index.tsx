@@ -192,7 +192,7 @@ export default class Card extends React.Component<CardProps, {}> {
       <div {...divProps} className={classString} ref={this.saveRef}>
         {head}
         {coverDom}
-        {children ? body : null}
+        {body}
         {actionDom}
       </div>
     );
