@@ -27,6 +27,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
     static defaultProps = {
       format: defaultFormat || 'YYYY-MM-DD',
       transitionName: 'slide-up',
+      popupClassName: '',
       popupStyle: {},
       onChange() {
       },
