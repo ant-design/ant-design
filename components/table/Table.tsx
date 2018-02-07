@@ -696,7 +696,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
     return treeMap(columns, (originColumn, i) => {
-      let column = { ...originColumn };
+      let column: ColumnProps<T> = { ...originColumn };
       let key = this.getColumnKey(column, i) as string;
       let filterDropdown;
       let sortButton;
