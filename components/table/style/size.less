@@ -83,6 +83,10 @@
       border-right: @border-width-base @border-style-base @border-color-split;
     }
 
+    .@{table-prefix-cls}-content {
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+
     .@{table-prefix-cls}-footer {
       border: 0;
       border-top: @border-width-base @border-style-base @border-color-split;
@@ -95,6 +99,11 @@
     .@{table-prefix-cls}-placeholder {
       border-left: 0;
       border-bottom: 0;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th:last-child,
+    .@{table-prefix-cls}-tbody > tr > td:last-child {
+      border-right: none;
     }
   }
 }
