@@ -79,7 +79,9 @@ const columns = [{
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 
-#### onRow and onHeaderRow
+#### onRow usage
+
+Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 ```jsx
 <Table
@@ -92,7 +94,7 @@ const columns = [{
   )}
   onHeaderRow={(column) => {
     return {
-      onClick: () => {},        // click column header
+      onClick: () => {},        // click header row
     };
   )}
 />

@@ -81,20 +81,22 @@ const columns = [{
 | onRow | 设置行属性 | Function(record, index) | - |
 
 
-#### onRow 和 onHeaderRow 用法
+#### onRow 用法
+
+适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
 
 ```jsx
 <Table
   onRow={(column) => {
     return {
-      onClick: () => {},       // 点击列
-      onMouseEnter: () => {},  // 鼠标移入列
+      onClick: () => {},       // 点击行
+      onMouseEnter: () => {},  // 鼠标移入行
       onXxxx...
     };
   )}
   onHeaderRow={(column) => {
     return {
-      onClick: () => {},        // 点击列头
+      onClick: () => {},        // 点击表头行
     };
   )}
 />
