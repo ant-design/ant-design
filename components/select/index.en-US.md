@@ -43,6 +43,7 @@ Select component to select value from options.
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
 | placeholder | Placeholder of select | string\|ReactNode | - |
 | showSearch | Whether show search input in single mode. | boolean | false |
+| showArrow | Whether to show the drop-down arrow | boolean |  true |
 | size | Size of Select input. `default` `large` `small` | string | default |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |
 | value | Current selected option. | string\|number\|string\[]\|number\[] | - |
