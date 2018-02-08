@@ -18,14 +18,14 @@ Buttons can be grouped by placing multiple `Button` components into a `Button.Gr
 The `size` can be set to `large`, `small` or left unset resulting in a default size.
 
 ````jsx
-import { Button, Icon, Tooltip } from 'antd';
+import { Button, Icon } from 'antd';
 const ButtonGroup = Button.Group;
 
 ReactDOM.render(
   <div>
     <h4>Basic</h4>
     <ButtonGroup>
-      <Tooltip title="xxx"><Button disabled>Cancel</Button></Tooltip>
+      <Button>Cancel</Button>
       <Button>OK</Button>
     </ButtonGroup>
     <ButtonGroup>
