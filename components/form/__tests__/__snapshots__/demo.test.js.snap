@@ -1049,7 +1049,8 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         class="ant-col-4 ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
+          for="fieldA"
           title="Field A"
         >
           Field A
@@ -1063,8 +1064,12 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         >
           <input
             class="ant-input"
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="fieldA"
             placeholder="input placeholder"
             type="text"
+            value=""
           />
         </div>
       </div>
@@ -1076,7 +1081,8 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         class="ant-col-4 ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
+          for="fieldB"
           title="Field B"
         >
           Field B
@@ -1090,8 +1096,12 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         >
           <input
             class="ant-input"
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="fieldB"
             placeholder="input placeholder"
             type="text"
+            value=""
           />
         </div>
       </div>
