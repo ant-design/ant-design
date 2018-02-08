@@ -79,6 +79,25 @@ const columns = [{
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 
+#### onRow and onHeaderRow
+
+```jsx
+<Table
+  onRow={(column) => {
+    return {
+      onClick: () => {},       // click row
+      onMouseEnter: () => {},  // mouse enter row
+      onXxxx...
+    };
+  )}
+  onHeaderRow={(column) => {
+    return {
+      onClick: () => {},        // click column header
+    };
+  )}
+/>
+```
+
 ### Column
 
 One of the Table `columns` prop for describing the table's columns, Column has the same API.
