@@ -207,4 +207,4 @@ React 生态圈中还有很多优秀的脚手架，使用它们并引入 antd �
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
 - [create-react-app-antd](https://github.com/ant-design/create-react-app-antd)
 - [cra-ts-antd](https://github.com/comerc/cra-ts-antd)
-- [next.js](https://github.com/zeit/next.js/tree/v3-beta/examples/with-ant-design)
+- [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
