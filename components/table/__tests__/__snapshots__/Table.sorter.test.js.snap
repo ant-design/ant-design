@@ -6,7 +6,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
-      class=""
+      class="ant-table-column-has-filters"
     >
       <span>
         Name

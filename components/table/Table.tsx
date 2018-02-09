@@ -749,6 +749,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           {filterDropdown}
         </span>
       );
+
+      if (sortButton || filterDropdown) {
+        column.className = classNames(`${prefixCls}-column-has-filters`, column.className);
+      }
+
       return column;
     });
   }
