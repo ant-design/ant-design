@@ -1506,7 +1506,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                     >
                       <tr>
                         <th
-                          class=""
+                          class="ant-table-column-has-filters"
                         >
                           <span>
                             Name
