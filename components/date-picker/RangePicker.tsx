@@ -157,6 +157,9 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
   }
 
   handleCalendarInputSelect = (value: RangePickerValue) => {
+    if (!value[0]) {
+      return;
+    }
     this.setState(({ showDate }) => ({
       value,
       showDate: getShowDateFromValue(value) || showDate,

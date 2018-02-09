@@ -48,7 +48,7 @@ let BodyRow = (props) => {
     initialClientOffset,
     ...restProps
   } = props;
-  const style = { cursor: 'move' };
+  const style = { ...restProps.style, cursor: 'move' };
 
   let className = restProps.className;
   if (isOver && initialClientOffset) {

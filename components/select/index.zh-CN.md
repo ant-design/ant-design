@@ -46,6 +46,7 @@ title: Select
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | placeholder | 选择框默认文字 | string | - |
 | showSearch | 使单选模式可搜索 | boolean | false |
+| showArrow | 是否显示下拉小箭头 | boolean |  true |
 | size | 选择框大小，可选 `large` `small` | string | default |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string\[] |  |

@@ -355,7 +355,7 @@ timeline: true
     ```
 - Select
   - 🌟 默认和多选模式下 Option 的值允许使用 number。
-  - 🌟 新增 `maxTagCount 和 `maxTagPlaceholder`，用与设置最多可显示的选中项。
+  - 🌟 新增 `maxTagCount 和 `maxTagPlaceholder`，用于设置最多可显示的选中项。
   - 🌟 新增 `showAction`，用于设置出发下拉框打开的事件。
   - 🌟 新增 `onMouseEnter` 和 `onMouseLeave` 事件回调。
 - LocaleProvider
