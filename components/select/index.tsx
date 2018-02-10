@@ -38,7 +38,7 @@ export interface SelectProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox';
   optionLabelProp?: string;
-  onChange?: (value: SelectValue) => void;
+  onChange?: (value: SelectValue, option: Object | Object[]) => void;
   onSelect?: (value: SelectValue, option: Object) => any;
   onDeselect?: (value: SelectValue) => any;
   onBlur?: () => any;
