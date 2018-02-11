@@ -29,6 +29,7 @@ class FormLayoutDemo extends React.Component {
   }
   render() {
     const { formLayout } = this.state;
+    const { getFieldDecorator } = this.props.form;
     const formItemLayout = formLayout === 'horizontal' ? {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
@@ -51,15 +52,21 @@ class FormLayoutDemo extends React.Component {
           </FormItem>
           <FormItem
             label="Field A"
+            hasFeedback
             {...formItemLayout}
           >
-            <Input placeholder="input placeholder" />
+            {getFieldDecorator('fieldA', { rules: [{ required: true }] })(
+              <Input placeholder="input placeholder" />
+            )}
           </FormItem>
           <FormItem
             label="Field B"
+            hasFeedback
             {...formItemLayout}
           >
-            <Input placeholder="input placeholder" />
+            {getFieldDecorator('fieldB', { rules: [{ required: true }] })(
+              <Input placeholder="input placeholder" />
+            )}
           </FormItem>
           <FormItem {...buttonItemLayout}>
             <Button type="primary">Submit</Button>
@@ -70,5 +77,8 @@ class FormLayoutDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<FormLayoutDemo />, mountNode);
+
+const WrappedRegistrationForm = Form.create()(FormLayoutDemo);
+
+ReactDOM.render(<WrappedRegistrationForm />, mountNode);
 ````
