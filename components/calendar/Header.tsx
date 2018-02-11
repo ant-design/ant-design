@@ -34,13 +34,13 @@ export default class Header extends React.Component<HeaderProps, any> {
       locale,
       prefixCls,
       fullscreen,
-      validRange
+      validRange,
     } = this.props;
     let start = year - (yearSelectOffset as number);
     let end = start + (yearSelectTotal as number);
     if (validRange) {
-      start = validRange[0].get("year");
-      end = validRange[1].get("year") + 1;
+      start = validRange[0].get('year');
+      end = validRange[1].get('year') + 1;
     }
     const suffix = locale.year === '年' ? '年' : '';
     const options: React.ReactElement<any>[] = [];
@@ -80,11 +80,11 @@ export default class Header extends React.Component<HeaderProps, any> {
     let end = 12;
     if (validRange) {
       const [rangeStart, rangeEnd] = validRange;
-      const currentYear = value.get("year");
-      if(rangeEnd.get("year") === currentYear) {
-        end = rangeEnd.get("month") + 1;
+      const currentYear = value.get('year');
+      if (rangeEnd.get('year') === currentYear) {
+        end = rangeEnd.get('month') + 1;
       } else {
-        start = rangeStart.get("month");
+        start = rangeStart.get('month');
       }
     }
     for (let index = start; index < end; index++) {
@@ -105,19 +105,19 @@ export default class Header extends React.Component<HeaderProps, any> {
   }
 
   onYearChange = (year: string) => {
-    const { value, validRange } = this.props
+    const { value, validRange } = this.props;
     const newValue = value.clone();
     newValue.year(parseInt(year, 10));
     // switch the month so that it remains within range when year changes
-    if(validRange) {
+    if (validRange) {
       const [ start, end ] = validRange;
-      const newYear = newValue.get("year");
-      const newMonth = newValue.get("month");
-      if(newYear === end.get("year") && newMonth > end.get("month")) {
-        newValue.month(end.get("month"));
+      const newYear = newValue.get('year');
+      const newMonth = newValue.get('month');
+      if (newYear === end.get('year') && newMonth > end.get('month')) {
+        newValue.month(end.get('month'));
       }
-      if(newYear === start.get("year") && newMonth < start.get("month")) {
-        newValue.month(start.get("month"));
+      if (newYear === start.get('year') && newMonth < start.get('month')) {
+        newValue.month(start.get('month'));
       }
     }
 
