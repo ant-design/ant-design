@@ -38,13 +38,13 @@ import moment from 'moment';
 | getPopupContainer | to set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |
 | hideDisabledOptions | hide the options that can not be selected | boolean | false |
 | hourStep | interval between hours in picker | number | 1 |
+| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |
 | minuteStep | interval between minutes in picker | number | 1 |
 | open | whether to popup panel | boolean | false |
 | placeholder | display when there's no value | string | "Select a time" |
 | popupClassName | className of panel | string | '' |
 | secondStep | interval between seconds in picker | number | 1 |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |
-| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |
 | value | to set time | [moment](http://momentjs.com/) | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |
 | onOpenChange | a callback function which will be called while panel opening/closing | (open: boolean): void | - |
