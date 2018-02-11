@@ -3,6 +3,7 @@ import { mount, render } from 'enzyme';
 import moment from 'moment';
 import DatePicker from '../';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
+import { selectDate } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { RangePicker } = DatePicker;
@@ -201,5 +202,17 @@ describe('RangePicker', () => {
     wrapper.find('.ant-calendar-picker-input').simulate('click');
     wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
     expect(handleOk).toBeCalledWith(range);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/9267
+  it('invali end date not throw error', () => {
+    const wrapper = mount(<RangePicker />);
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    selectDate(wrapper, moment('2017-09-18'), 0);
+    selectDate(wrapper, moment('2017-10-18'), 1);
+    wrapper.find('.ant-calendar-picker-input').simulate('click');
+    expect(() =>
+      wrapper.find('.ant-calendar-input').at(1).simulate('change', { target: { value: '2016-01-01' } })
+    ).not.toThrow();
   });
 });

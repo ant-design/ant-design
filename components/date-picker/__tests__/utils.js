@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 export function selectDate(wrapper, date, index) {
   let calendar = wrapper;
-  if (index) {
-    calendar = wrapper.find('.ant-calendar-range-part')[index];
+  if (index !== undefined) {
+    calendar = wrapper.find('.ant-calendar-range-part').at(index);
   }
   calendar.find({ title: date.format('LL'), role: 'gridcell' }).simulate('click');
 }

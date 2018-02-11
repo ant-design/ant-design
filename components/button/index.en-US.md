@@ -36,7 +36,8 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
   margin-right: 8px;
   margin-bottom: 12px;
 }
-[id^=components-button-demo-] .ant-btn-group > .ant-btn {
+[id^=components-button-demo-] .ant-btn-group > .ant-btn,
+[id^=components-button-demo-] .ant-btn-group > span > .ant-btn {
   margin-right: 0;
 }
 </style>

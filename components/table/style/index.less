@@ -64,6 +64,11 @@
     .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
+
+    // https://github.com/ant-design/ant-design/issues/8979
+    &.@{table-prefix-cls}-column-has-filters {
+      overflow: hidden;
+    }
   }
 
   &-tbody > tr > td {
@@ -223,8 +228,9 @@
       width: 14px;
       height: 6px;
       cursor: pointer;
+      position: relative;
       &:hover .@{iconfont-css-prefix} {
-        color: @text-color;
+        color: @primary-4;
       }
       &.on {
         .@{iconfont-css-prefix}-caret-up,
@@ -243,11 +249,11 @@
     }
 
     &-up:after {
-      top: -30px;
+      bottom: -2px;
     }
 
     &-down:after {
-      bottom: -30px;
+      top: 2px;
     }
 
     .@{iconfont-css-prefix}-caret-up,

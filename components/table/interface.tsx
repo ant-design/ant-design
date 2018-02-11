@@ -9,7 +9,7 @@ export type ColumnFilterItem = { text: string; value: string, children?: ColumnF
 export interface ColumnProps<T> {
   title?: React.ReactNode;
   key?: React.Key;
-  dataIndex?: string;
+  dataIndex?: keyof T;
   render?: (text: any, record: T, index: number) => React.ReactNode;
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;

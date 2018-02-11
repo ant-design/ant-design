@@ -24,7 +24,7 @@ We supply a series of design principles, practical patterns and high quality des
 
 ## Front-end Implementation
 
-[React](http://facebook.github.io/react/) is used to encapsulate a library of Ant Design components. Any other version of frameworks to implement is also welcome.
+[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
 
 - [Ant Design of React](/docs/react/introduce) (official implementation)
 - <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
@@ -44,8 +44,8 @@ We supply a series of design principles, practical patterns and high quality des
 - [Didi](http://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
 
-> If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
+> If your company or products use Ant Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
 
 ## How to Contribute
 
-Welcome to contribute to Ant Design on Github. If you have any suggestions for improvement, questions,or concerns, do not hesitate to advice us [here](https://github.com/ant-design/ant-design/issues).
+Contributions to Ant Design on Github are welcomed! Whether you have questions, concerns, or suggestions for improving Ant Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).
