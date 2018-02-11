@@ -210,6 +210,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           prefixCls={prefixCls}
           onTypeChange={this.onHeaderTypeChange}
           onValueChange={this.onHeaderValueChange}
+          validRange={props.validRange}
         />
         <FullCalendar
           {...props}
