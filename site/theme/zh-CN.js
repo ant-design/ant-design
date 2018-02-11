@@ -79,7 +79,7 @@ module.exports = {
     'app.footer.fengdie.slogan': '移动建站平台',
     'app.footer.zhihu': '知乎专栏',
     'app.footer.zhihu.xtech': '体验科技专栏',
-    'app.footer.seeconf': '蚂蚁金服体验科技大会',
+    'app.footer.seeconf': '蚂蚁体验科技大会',
     'app.footer.xcloud': '蚂蚁体验云',
     'app.publish.title': 'antd@3.0.0 发布！🎉 🎉 🎉',
     'app.publish.greeting': '你好，',
