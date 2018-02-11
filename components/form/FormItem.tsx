@@ -186,7 +186,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     }
     return (
       <div className={classes}>
-        {c1}{c2}{c3}
+        <span className={`${this.props.prefixCls}-item-children`}>{c1}</span>
+        {c2}{c3}
       </div>
     );
   }
