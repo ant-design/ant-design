@@ -92,6 +92,7 @@ See [i18n](http://ant.design/docs/react/i18n).
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
+$ cd ant-design
 $ npm install
 $ npm start
 ```
