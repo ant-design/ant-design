@@ -1253,12 +1253,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              class="ant-switch"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                class="ant-switch"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1283,12 +1287,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              class="ant-switch"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                class="ant-switch"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1313,13 +1321,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1344,13 +1356,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1375,13 +1391,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1406,13 +1426,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1437,13 +1461,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1468,13 +1496,17 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              checked=""
-              class="ant-switch ant-switch-checked"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                checked=""
+                class="ant-switch ant-switch-checked"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1499,12 +1531,16 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             class="ant-form-item-control"
           >
             <span
-              class="ant-switch"
-              tabindex="0"
+              class="ant-form-item-children"
             >
               <span
-                class="ant-switch-inner"
-              />
+                class="ant-switch"
+                tabindex="0"
+              >
+                <span
+                  class="ant-switch-inner"
+                />
+              </span>
             </span>
           </div>
         </div>
@@ -1528,68 +1564,72 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           <div
             class="ant-form-item-control"
           >
-            <div
-              class="ant-radio-group ant-radio-group-default"
+            <span
+              class="ant-form-item-children"
             >
-              <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              <div
+                class="ant-radio-group ant-radio-group-default"
               >
-                <span
-                  class="ant-radio-button ant-radio-button-checked"
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
                 >
-                  <input
-                    checked=""
-                    class="ant-radio-button-input"
-                    type="radio"
-                    value="default"
-                  />
                   <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  Default
-                </span>
-              </label>
-              <label
-                class="ant-radio-button-wrapper"
-              >
-                <span
-                  class="ant-radio-button"
+                    class="ant-radio-button ant-radio-button-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="default"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Default
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
                 >
-                  <input
-                    class="ant-radio-button-input"
-                    type="radio"
-                    value="middle"
-                  />
                   <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  Middle
-                </span>
-              </label>
-              <label
-                class="ant-radio-button-wrapper"
-              >
-                <span
-                  class="ant-radio-button"
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="middle"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Middle
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
                 >
-                  <input
-                    class="ant-radio-button-input"
-                    type="radio"
-                    value="small"
-                  />
                   <span
-                    class="ant-radio-button-inner"
-                  />
-                </span>
-                <span>
-                  Small
-                </span>
-              </label>
-            </div>
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="small"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Small
+                  </span>
+                </label>
+              </div>
+            </span>
           </div>
         </div>
       </div>
