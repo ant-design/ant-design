@@ -47,7 +47,8 @@ subtitle: 日期选择框
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
 | open | 控制弹层是否展开 | boolean | - |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |
-| popupStyle | 格外的弹出日历样式 | object | {} |
+| popupStyle | 额外的弹出日历样式 | object | {} |
+| dropdownClassName | 额外的弹出日历 className | string | - |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string | 无 |
 | style | 自定义输入框样式 | object | {} |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |
@@ -101,7 +102,7 @@ subtitle: 日期选择框
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |
-| ranges       | 预设时间范围快捷选择 | { [range: string]&#x3A; [moment](http://momentjs.com/)\[] } | 无 |
+| ranges       | 预设时间范围快捷选择 | { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } \| () => { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } | 无 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |

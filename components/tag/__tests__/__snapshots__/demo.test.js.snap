@@ -6,35 +6,23 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 1
-    </span>
+    Tag 1
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
+    <a
+      href="https://github.com/ant-design/ant-design/issues/1862"
     >
-      <a
-        href="https://github.com/ant-design/ant-design/issues/1862"
-      >
-        Link
-      </a>
-    </span>
+      Link
+    </a>
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 2
-    </span>
+    Tag 2
     <i
       class="anticon anticon-cross"
     />
@@ -43,11 +31,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Prevent Default
-    </span>
+    Prevent Default
     <i
       class="anticon anticon-cross"
     />
@@ -87,111 +71,67 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       class="ant-tag ant-tag-magenta"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        magenta
-      </span>
+      magenta
     </div>
     <div
       class="ant-tag ant-tag-red"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        red
-      </span>
+      red
     </div>
     <div
       class="ant-tag ant-tag-volcano"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        volcano
-      </span>
+      volcano
     </div>
     <div
       class="ant-tag ant-tag-orange"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        orange
-      </span>
+      orange
     </div>
     <div
       class="ant-tag ant-tag-gold"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        gold
-      </span>
+      gold
     </div>
     <div
       class="ant-tag ant-tag-lime"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        lime
-      </span>
+      lime
     </div>
     <div
       class="ant-tag ant-tag-green"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        green
-      </span>
+      green
     </div>
     <div
       class="ant-tag ant-tag-cyan"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        cyan
-      </span>
+      cyan
     </div>
     <div
       class="ant-tag ant-tag-blue"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        blue
-      </span>
+      blue
     </div>
     <div
       class="ant-tag ant-tag-geekblue"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        geekblue
-      </span>
+      geekblue
     </div>
     <div
       class="ant-tag ant-tag-purple"
       data-show="true"
     >
-      <span
-        class="ant-tag-text"
-      >
-        purple
-      </span>
+      purple
     </div>
   </div>
   <h4
@@ -205,44 +145,28 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
       data-show="true"
       style="background-color:#f50"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #f50
-      </span>
+      #f50
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
       style="background-color:#2db7f5"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #2db7f5
-      </span>
+      #2db7f5
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
       style="background-color:#87d068"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #87d068
-      </span>
+      #87d068
     </div>
     <div
       class="ant-tag ant-tag-has-color"
       data-show="true"
       style="background-color:#108ee9"
     >
-      <span
-        class="ant-tag-text"
-      >
-        #108ee9
-      </span>
+      #108ee9
     </div>
   </div>
 </div>
@@ -254,21 +178,13 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Unremovable
-    </span>
+    Unremovable
   </div>
   <div
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 2
-    </span>
+    Tag 2
     <i
       class="anticon anticon-cross"
     />
@@ -277,11 +193,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     class="ant-tag"
     data-show="true"
   >
-    <span
-      class="ant-tag-text"
-    >
-      Tag 3
-    </span>
+    Tag 3
     <i
       class="anticon anticon-cross"
     />
@@ -291,14 +203,10 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     data-show="true"
     style="background:#fff;border-style:dashed"
   >
-    <span
-      class="ant-tag-text"
-    >
-      <i
-        class="anticon anticon-plus"
-      />
-       New Tag
-    </span>
+    <i
+      class="anticon anticon-plus"
+    />
+     New Tag
   </div>
 </div>
 `;

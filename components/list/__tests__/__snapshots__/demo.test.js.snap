@@ -209,9 +209,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -246,9 +244,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -283,9 +279,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -320,9 +314,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -474,9 +466,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -511,9 +501,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -548,9 +536,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -585,9 +571,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -622,9 +606,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>
@@ -659,9 +641,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
                   <div
                     class="ant-card-body"
                   >
-                    <div>
-                      Card content
-                    </div>
+                    Card content
                   </div>
                 </div>
               </div>

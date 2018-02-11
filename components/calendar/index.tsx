@@ -92,6 +92,11 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
         value: nextProps.value!,
       });
     }
+    if ('mode' in nextProps && nextProps.mode !== this.props.mode) {
+      this.setState({
+          mode: nextProps.mode!,
+      });
+    }
   }
 
   monthCellRender = (value: moment.Moment) => {

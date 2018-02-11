@@ -80,6 +80,28 @@ const columns = [{
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
 | onRow | 设置行属性 | Function(record, index) | - |
 
+
+#### onRow 用法
+
+适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
+
+```jsx
+<Table
+  onRow={(column) => {
+    return {
+      onClick: () => {},       // 点击行
+      onMouseEnter: () => {},  // 鼠标移入行
+      onXxxx...
+    };
+  )}
+  onHeaderRow={(column) => {
+    return {
+      onClick: () => {},        // 点击表头行
+    };
+  )}
+/>
+```
+
 ### Column
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。

@@ -241,6 +241,8 @@
 
   .@{btnClassName} + .@{btnClassName},
   .@{btnClassName} + &,
+  span + .@{btnClassName},
+  .@{btnClassName} + span,
   & + .@{btnClassName},
   & + & {
     margin-left: -1px;
@@ -250,15 +252,19 @@
     border-radius: 0;
   }
 
-  > .@{btnClassName}:first-child {
+  > .@{btnClassName}:first-child,
+  > span:first-child > .@{btnClassName} {
     margin-left: 0;
-    &:not(:last-child) {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-    }
   }
 
-  > .@{btnClassName}:last-child:not(:first-child) {
+  > .@{btnClassName}:first-child:not(:last-child),
+  > span:first-child:not(:last-child) > .@{btnClassName} {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  > .@{btnClassName}:last-child:not(:first-child),
+  > span:last-child:not(:first-child) > .@{btnClassName} {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }

@@ -25,7 +25,7 @@
   &&-card > &-bar &-tab-active {
     background: @component-background;
     border-color: @border-color-split;
-    color: @primary-color;
+    color: @tabs-card-active-color;
     padding-bottom: 1px;
   }
   &&-card > &-bar &-tab-inactive {
@@ -77,8 +77,8 @@
       color: @text-color;
       transition: all .3s;
       &:hover {
-        color: @primary-color;
-        border-color: @primary-color;
+        color: @tabs-card-active-color;
+        border-color: @tabs-card-active-color;
       }
     }
   }
@@ -131,5 +131,18 @@
         padding-left: 18px;
       }
     }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/9104
+  &&-card&-bottom > &-bar &-tab {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-top: 0;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+
+  &&-card&-bottom > &-bar &-tab-active {
+    color: @primary-color;
+    padding-bottom: 0;
+    padding-top: 1px;
   }
 }

@@ -106,7 +106,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
         className={classString}
         style={tagStyle}
       >
-        <span className={`${prefixCls}-text`}>{children}</span>
+        {children}
         {closeIcon}
       </div>
     );

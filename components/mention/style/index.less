@@ -13,6 +13,8 @@
 
   .@{mention-prefix-cls}-editor {
     .input;
+    min-height: @input-height-base;
+    height: auto; // To override height in .input mixin
     line-height: @line-height-base;
     padding: 0;
     display: block;
@@ -29,6 +31,7 @@
   }
   .public-DraftEditorPlaceholder-root {
     position: absolute;
+    pointer-events: none;
     .public-DraftEditorPlaceholder-inner {
       color: @input-placeholder-color;
       opacity: 1;

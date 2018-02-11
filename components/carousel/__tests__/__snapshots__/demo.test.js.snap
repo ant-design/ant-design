@@ -69,6 +69,30 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
             1
           </h3>
         </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
+          </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -142,6 +166,30 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         >
           <h3>
             1
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
           </h3>
         </div>
       </div>
@@ -276,6 +324,30 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
         >
           <h3>
             1
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="5"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="6"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="slick-slide slick-cloned"
+          data-index="7"
+        >
+          <h3>
+            4
           </h3>
         </div>
       </div>
