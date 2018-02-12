@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import uniqBy from 'lodash.uniqby';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
@@ -187,7 +186,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file,
-        fileList: uniqBy(fileList.concat(this.state.fileList), (item: any) => item.uid),
+        fileList: this.state.fileList,
       });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {
