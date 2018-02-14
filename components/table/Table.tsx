@@ -984,6 +984,36 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
       ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
 
+    let loading = this.props.loading;
+    if (typeof loading === 'boolean') {
+      loading = {
+        spinning: loading,
+      };
+    }
+
+    const tableWithPagination = () => {
+      const { pagination } = this.state;
+      if (this.hasPagination()) {
+        if (pagination.position === 'top') {
+          return [
+            this.renderPagination(),
+            table,
+          ];
+        } else if (pagination.position === 'both') {
+          return [
+            this.renderPagination(),
+            table,
+            this.renderPagination(),
+          ];
+        } else {
+          return [
+            table,
+            this.renderPagination(),
+          ];
+        }
+      }
+      return table;
+    };
     return (
       <div
         className={classNames(`${prefixCls}-wrapper`, className)}
@@ -993,8 +1023,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
-          {table}
-          {this.renderPagination()}
+          {tableWithPagination()}
         </Spin>
       </div>
     );
