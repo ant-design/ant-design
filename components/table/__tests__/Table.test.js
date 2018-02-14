@@ -67,6 +67,7 @@ describe('Table', () => {
     };
     const wrapper = mount(<Table loading={loading} />);
     expect(wrapper.find('.ant-spin')).toHaveLength(0);
+    expect(wrapper.find('.ant-table-placeholder').text()).not.toEqual('');
 
     loading.spinning = true;
     wrapper.setProps({ loading });
