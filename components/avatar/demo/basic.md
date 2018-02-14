@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Three sizes and two shapes are available.
+Three sizes and three shapes are available.
 
 ````jsx
 import { Avatar } from 'antd';
@@ -27,6 +27,11 @@ ReactDOM.render(
       <Avatar shape="square" size="large" icon="user" />
       <Avatar shape="square" icon="user" />
       <Avatar shape="square" size="small" icon="user" />
+    </div>
+    <div>
+      <Avatar shape="cushion" size="large" icon="user" />
+      <Avatar shape="cushion" icon="user" />
+      <Avatar shape="cushion" size="small" icon="user" />
     </div>
   </div>
 , mountNode);

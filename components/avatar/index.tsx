@@ -4,8 +4,8 @@ import Icon from '../icon';
 import classNames from 'classnames';
 
 export interface AvatarProps {
-  /** Shape of avatar, options:`circle`, `square` */
-  shape?: 'circle' | 'square';
+  /** Shape of avatar, options:`circle`, `square`, `cushion` */
+  shape?: 'circle' | 'square' | 'cushion';
   /** Size of avatar, options:`large`, `small`, `default` */
   size?: 'large' | 'small' | 'default';
   /** Src of image avatar */

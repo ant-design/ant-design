@@ -246,6 +246,29 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       />
     </span>
   </div>
+  <div>
+    <span
+      class="ant-avatar ant-avatar-lg ant-avatar-cushion ant-avatar-icon"
+    >
+      <i
+        class="anticon anticon-user"
+      />
+    </span>
+    <span
+      class="ant-avatar ant-avatar-cushion ant-avatar-icon"
+    >
+      <i
+        class="anticon anticon-user"
+      />
+    </span>
+    <span
+      class="ant-avatar ant-avatar-sm ant-avatar-cushion ant-avatar-icon"
+    >
+      <i
+        class="anticon anticon-user"
+      />
+    </span>
+  </div>
 </div>
 `;
 
