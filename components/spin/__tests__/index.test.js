@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, render } from 'enzyme';
 import Spin from '..';
 
 describe('Spin', () => {
@@ -15,9 +15,9 @@ describe('Spin', () => {
 
   it('should render custom indicator when it\'s set', () => {
     const customIndicator = <div className="custom-indicator" />;
-    const wrapper = shallow(
+    const wrapper = render(
       <Spin indicator={customIndicator} />
     );
-    expect(wrapper.contains(customIndicator)).toEqual(true);
+    expect(wrapper).toMatchSnapshot();
   });
 });
