@@ -15,8 +15,8 @@ export interface AbstractCheckboxProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onMouseEnter?: React.MouseEventHandler<any>;
   onMouseLeave?: React.MouseEventHandler<any>;
-  onKeyPress?: React.KeyboardEvent<any>;
-  onKeyDown?: React.KeyboardEvent<any>;
+  onKeyPress?: React.KeyboardEventHandler<any>;
+  onKeyDown?: React.KeyboardEventHandler<any>;
   value?: any;
   tabIndex?: number;
   name?: string;

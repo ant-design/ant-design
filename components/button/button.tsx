@@ -47,8 +47,8 @@ export interface ButtonProps {
   onClick?: React.FormEventHandler<any>;
   onMouseUp?: React.FormEventHandler<any>;
   onMouseDown?: React.FormEventHandler<any>;
-  onKeyPress?: React.KeyboardEvent<any>;
-  onKeyDown?: React.KeyboardEvent<any>;
+  onKeyPress?: React.KeyboardEventHandler<any>;
+  onKeyDown?: React.KeyboardEventHandler<any>;
   tabIndex?: number;
   loading?: boolean | { delay?: number };
   disabled?: boolean;
