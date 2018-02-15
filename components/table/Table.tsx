@@ -778,7 +778,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
   }
 
-  renderPagination() {
+  renderPagination(paginationPosition: string) {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
@@ -790,10 +790,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } else if (this.props.size as string === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
+    let position = pagination.position || 'bottom';
     let total = pagination.total || this.getLocalData().length;
-    return (total > 0) ? (
+    return (total > 0 && (position === paginationPosition || position === 'both')) ? (
       <Pagination
-        key="pagination"
+        key={`pagination-${paginationPosition}`}
         {...pagination}
         className={classNames(pagination.className, `${this.props.prefixCls}-pagination`)}
         onChange={this.handlePageChange}
@@ -991,29 +992,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       };
     }
 
-    const tableWithPagination = () => {
-      const { pagination } = this.state;
-      if (this.hasPagination()) {
-        if (pagination.position === 'top') {
-          return [
-            this.renderPagination(),
-            table,
-          ];
-        } else if (pagination.position === 'both') {
-          return [
-            this.renderPagination(),
-            table,
-            this.renderPagination(),
-          ];
-        } else {
-          return [
-            table,
-            this.renderPagination(),
-          ];
-        }
-      }
-      return table;
-    };
     return (
       <div
         className={classNames(`${prefixCls}-wrapper`, className)}
@@ -1023,7 +1001,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
-          {tableWithPagination()}
+          {this.renderPagination('top')}
+          {table}
+          {this.renderPagination('bottom')}
         </Spin>
       </div>
     );
