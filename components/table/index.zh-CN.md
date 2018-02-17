@@ -66,7 +66,7 @@ const columns = [{
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
-| pagination | 分页器，配置项参考 [pagination](/components/pagination/)，设为 false 时不展示和进行分页 | object |  |
+| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/)，设为 false 时不展示和进行分页 | object |  |
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowSelection | 列表项是否可选择，[配置项](#rowSelection) | object | null |
@@ -135,6 +135,29 @@ const columns = [{
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 列头显示文字 | string\|ReactNode | - |
+
+### pagination
+
+分页的配置项。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| current | 当前页数 | number | - |
+| defaultCurrent | 默认的当前页数 | number | 1 |
+| defaultPageSize | 默认的每页条数 | number | 10 |
+| hideOnSinglePage | 只有一页时是否隐藏分页器 | boolean | false |
+| itemRender | 用于自定义页码的结构，可用于优化 SEO | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |
+| pageSize | 每页条数 | number | - |
+| pageSizeOptions | 指定每页可以显示多少条 | string\[] | ['10', '20', '30', '40'] |
+| position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
+| showQuickJumper | 是否可以快速跳转至某页 | boolean | false |
+| showSizeChanger | 是否可以改变 pageSize | boolean | false |
+| showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |
+| simple | 当添加该属性时，显示为简单分页 | boolean | - |
+| size | 当为「small」时，是小尺寸分页 | string | "" |
+| total | 数据总数 | number | 0 |
+| onChange | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize) | noop |
+| onShowSizeChange | pageSize 变化的回调 | Function(current, size) | noop |
 
 ### rowSelection
 
