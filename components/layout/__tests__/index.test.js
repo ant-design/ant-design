@@ -24,4 +24,14 @@ describe('Layout', () => {
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
   });
+
+  it('detect `${prefixCls}-has-trigger` class in sider when `${prefixCls}-trigger` div tag exists', async () => {
+    const wrapper = mount(
+      <Layout>
+        <div><Sider collapsible>Sider</Sider></div>
+        <Content>Content</Content>
+      </Layout>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-has-trigger')).toBe(true);
+  });
 });
