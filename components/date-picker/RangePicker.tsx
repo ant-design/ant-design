@@ -234,7 +234,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const { value, showDate, hoverValue, open } = state;
     const {
       prefixCls, popupStyle, style,
-      disabledDate, disabledTime,disabledMonth,
+      disabledDate, disabledTime, disabledMonth,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
       dateRender, onCalendarChange,
