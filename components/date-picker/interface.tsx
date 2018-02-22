@@ -47,6 +47,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
   className?: string;
   placeholder?: string;
+  disabledMonth?: (current: moment.Moment) => boolean;
 }
 
 export type RangePickerValue =
