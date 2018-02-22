@@ -46,7 +46,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span>
                       Name
@@ -65,7 +65,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -78,7 +78,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -91,7 +91,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
@@ -104,7 +104,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                   class="ant-table-row  ant-table-row-level-0"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"

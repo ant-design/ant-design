@@ -465,7 +465,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
         class="ant-spin ant-spin-spinning ant-table-without-pagination ant-table-spin-holder"
       >
         <span
-          class="ant-spin-dot"
+          class="ant-spin-dot ant-spin-dot-spin"
         >
           <i />
           <i />

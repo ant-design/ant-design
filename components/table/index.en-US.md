@@ -85,7 +85,7 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
 
 ```jsx
 <Table
-  onRow={(column) => {
+  onRow={(record) => {
     return {
       onClick: () => {},       // click row
       onMouseEnter: () => {},  // mouse enter row

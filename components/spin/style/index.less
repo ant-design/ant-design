@@ -115,8 +115,7 @@
     position: relative;
     display: inline-block;
     .square(@spin-dot-size);
-    transform: rotate(45deg);
-    animation: antRotate 1.2s infinite linear;
+
     i {
       width: 9px;
       height: 9px;
@@ -147,6 +146,11 @@
         bottom: 0;
         animation-delay: 1.2s;
       }
+    }
+
+    &-spin {
+      transform: rotate(45deg);
+      animation: antRotate 1.2s infinite linear;
     }
   }
 

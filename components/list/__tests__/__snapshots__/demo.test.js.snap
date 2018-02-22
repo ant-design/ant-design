@@ -364,7 +364,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
       class="ant-spin"
     >
       <span
-        class="ant-spin-dot"
+        class="ant-spin-dot ant-spin-dot-spin"
       >
         <i />
         <i />
@@ -389,7 +389,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
           class="ant-spin ant-spin-spinning"
         >
           <span
-            class="ant-spin-dot"
+            class="ant-spin-dot ant-spin-dot-spin"
           >
             <i />
             <i />

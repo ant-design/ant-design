@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
+import uniqBy from 'lodash.uniqby';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
@@ -153,8 +154,8 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.handleRemove(file);
   }
 
-  onChange = (info: UploadChangeParam, updateState = true) => {
-    if (!('fileList' in this.props) && updateState) {
+  onChange = (info: UploadChangeParam) => {
+    if (!('fileList' in this.props)) {
       this.setState({ fileList: info.fileList });
     }
 
@@ -186,8 +187,8 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file,
-        fileList,
-      }, false);
+        fileList: uniqBy(fileList.concat(this.state.fileList), (item: any) => item.uid),
+      });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {
       return result;

@@ -26,7 +26,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 | -------- | ----------- | ---- | ------- |
 | count | Number to show in badge | number\|ReactNode |  |
 | dot | Whether to display a red dot instead of `count` | boolean | `false` |
-| offset | set offset of the badge dot, like [x, y] | [number, number] | - |
+| offset | set offset of the badge dot, like`[x, y]` | `[number, number]` | - |
 | overflowCount | Max count to show | number | 99 |
 | showZero | Whether to show badge when `count` is zero | boolean | `false` |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | `''` |
