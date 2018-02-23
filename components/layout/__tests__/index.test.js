@@ -25,7 +25,7 @@ describe('Layout', () => {
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
   });
 
-  it('detect `${prefixCls}-has-trigger` class in sider when `${prefixCls}-trigger` div tag exists', async () => {
+  it('detect ant-layout-sider-has-trigger class in sider when ant-layout-sider-trigger div tag exists', async () => {
     const wrapper = mount(
       <Layout>
         <div><Sider collapsible>Sider</Sider></div>
