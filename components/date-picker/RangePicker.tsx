@@ -234,7 +234,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const { value, showDate, hoverValue, open } = state;
     const {
       prefixCls, popupStyle, style,
-      disabledDate, disabledTime,
+      disabledDate, disabledTime, disabledMonth,
       showTime, showToday,
       ranges, onOk, locale, localeCode, format,
       dateRender, onCalendarChange,
@@ -281,6 +281,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
         renderFooter={this.renderFooter}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
+        disabledMonth={disabledMonth}
         disabledTime={disabledTime}
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
