@@ -212,7 +212,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
     };
     const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
-      [`${prefixCls}-has-trigger`]: !!trigger,
+      [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!this.state.below,
       [`${prefixCls}-zero-width`]: siderWidth === 0 || siderWidth === '0' || siderWidth === '0px',
     });
