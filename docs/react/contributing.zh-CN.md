@@ -20,7 +20,7 @@ toc: false
 
 ## Bugs
 
-我们使用 [GitHub Issues](https://github.com/ant-design/ant-design/issues) 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 [issue 小助手](http://new-issue.ant.design) 来提 issue。 并且能使用这个 [模板](https://u.ant.design/codesandbox-repro) 来提供重现。
+我们使用 [GitHub Issues](https://github.com/ant-design/ant-design/issues) 来做 bug 追踪。 如果你想要你发现的 bug 被快速解决，最好的办法就是通过我们提供的 [issue 小助手](http://new-issue.ant.design) 来提 issue。并且能使用这个 [模板](https://u.ant.design/codesandbox-repro) 来提供重现。
 
 在你报告一个 bug 之前，请先确保已经搜索过已有的 issue 和阅读了我们的 [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)。
 
@@ -46,7 +46,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
-1. 基于 [正确的分支](#分支管理)做修改。
+1. 基于 [正确的分支](#分支管理) 做修改。
 2. 在项目根目录下运行了 `npm install`。
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保写了相应的测试，这很重要。
 4. 确认所有的测试都是通过的 `npm run test`。 小贴士：开发过程中可以用 `npm test -- --watch TestName` 来运行指定的测试。
