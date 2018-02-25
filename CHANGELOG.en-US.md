@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.2.2
+
+`2018-02-24`
+
+- 🌟 Add font-family variable for `Pagination`. [#9351](https://github.com/ant-design/ant-design/issues/9351)
+- 🌟 Add font-weight variable for `Badge`. [#9352](https://github.com/ant-design/ant-design/issues/9352)
+- 🐞 Fix table custom spin indicator. [#9355](https://github.com/ant-design/ant-design/issues/9355)
+- 🐞 Fix `Form.create`. [#9331](https://github.com/ant-design/ant-design/issues/9331)
+- 🐞 Revert typescript definition of `column.dataIndex`. [#9393](https://github.com/ant-design/ant-design/issues/9393)
+- 🐞 Fix last menu item in Sider could be blocked by collapse trigger. [#9398](https://github.com/ant-design/ant-design/issues/9398) [@MJ111](https://github.com/MJ111)
+- 🐞 Fix badge works wrong in dot mode. [#9359](https://github.com/ant-design/ant-design/issues/9359) [@khayalan-mathew](https://github.com/khayalan-mathew)
+
 ## 3.2.1
 
 `2018-02-11`
