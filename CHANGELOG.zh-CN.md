@@ -17,6 +17,13 @@ timeline: true
 
 ---
 
+## 2.13.12
+
+`2018-02-26`
+
+- 🐞 修复 Menu 的 `defaultOpenKeys` 包含不存在的 key 时，子菜单不能正确显示的问题。 [#8475](https://github.com/ant-design/ant-design/issues/8475)
+- 🐞 修复 DatePicker 的值不能正确受控的问题。[#8885](https://github.com/ant-design/ant-design/issues/8885)
+
 ## 2.13.11
 
 `2017-12-01`
