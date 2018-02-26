@@ -21,8 +21,8 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2018-02-26`
 
-- 🐞 Fix issue resulting in SubMenu can not been shown correctly when `defaultOpenKeys` includes nonexistent key. [#8475](https://github.com/ant-design/ant-design/issues/8475)
-- 🐞 Fix issue resulting in DatePicker's value can not been controlled correctly. [#8885](https://github.com/ant-design/ant-design/issues/8885)
+- 🐞 Fix issue resulting in SubMenu can not be shown correctly when `defaultOpenKeys` includes a nonexistent key. [#8475](https://github.com/ant-design/ant-design/issues/8475)
+- 🐞 Fix issue resulting in DatePicker's value can not be controlled correctly. [#8885](https://github.com/ant-design/ant-design/issues/8885)
 
 ## 2.13.11
 
