@@ -37,6 +37,7 @@ export default function createPicker(TheCalendar): any {
       }
       this.state = {
         value,
+        showDate: value,
       };
     }
 
@@ -44,6 +45,7 @@ export default function createPicker(TheCalendar): any {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.value,
+          showDate: nextProps.value,
         });
       }
     }
@@ -66,13 +68,20 @@ export default function createPicker(TheCalendar): any {
     handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
-        this.setState({ value });
+        this.setState({
+          value,
+          showDate: value,
+        });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
     }
 
+    handleCalendarChange = (value: moment.Moment) => {
+      this.setState({ showDate: value });
+    }
+
     render() {
-      const { value } = this.state;
+      const { value, showDate } = this.state;
       const props = omit(this.props, ['onChange']);
       const { prefixCls, locale } = props;
 
@@ -116,6 +125,8 @@ export default function createPicker(TheCalendar): any {
           showToday={props.showToday}
           monthCellContentRender={props.monthCellContentRender}
           renderFooter={this.renderFooter}
+          onChange={this.handleCalendarChange}
+          value={showDate}
         />
       );
 
@@ -156,13 +167,14 @@ export default function createPicker(TheCalendar): any {
         ...props.style,
         ...pickerStyle,
       };
+
       return (
         <span className={classNames(props.className, props.pickerClass)} style={style}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
             calendar={calendar}
-            value={pickerValue}
+            value={value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
