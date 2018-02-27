@@ -2503,7 +2503,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
             <div
               class="ant-slider-track"
-              style="visibility:visible;left:0%;width:0%"
+              style="left:0%;width:0%"
             />
             <div
               class="ant-slider-step"
