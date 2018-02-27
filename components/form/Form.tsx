@@ -117,10 +117,10 @@ export type Diff<T extends string, U extends string> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
-export interface ComponentDecorator<TOwnProps> {
+export interface ComponentDecorator {
   <P extends FormComponentProps>(
     component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<Omit<P, keyof FormComponentProps> & TOwnProps>;
+  ): React.ComponentClass<Omit<P, keyof FormComponentProps>>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -149,7 +149,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator<TOwnProps> {
+  static create = function<TOwnProps>(options: FormCreateOption<TOwnProps> = {}): ComponentDecorator {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,

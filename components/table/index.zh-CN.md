@@ -87,7 +87,7 @@ const columns = [{
 
 ```jsx
 <Table
-  onRow={(column) => {
+  onRow={(record) => {
     return {
       onClick: () => {},       // 点击行
       onMouseEnter: () => {},  // 鼠标移入行

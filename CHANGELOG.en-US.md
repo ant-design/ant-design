@@ -15,6 +15,42 @@ timeline: true
 
 ---
 
+## 3.2.2
+
+`2018-02-24`
+
+- 🌟 Add font-family variable for `Pagination`. [#9351](https://github.com/ant-design/ant-design/issues/9351)
+- 🌟 Add font-weight variable for `Badge`. [#9352](https://github.com/ant-design/ant-design/issues/9352)
+- 🐞 Fix table custom spin indicator. [#9355](https://github.com/ant-design/ant-design/issues/9355)
+- 🐞 Fix `Form.create`. [#9331](https://github.com/ant-design/ant-design/issues/9331)
+- 🐞 Revert typescript definition of `column.dataIndex`. [#9393](https://github.com/ant-design/ant-design/issues/9393)
+- 🐞 Fix last menu item in Sider could be blocked by collapse trigger. [#9398](https://github.com/ant-design/ant-design/issues/9398) [@MJ111](https://github.com/MJ111)
+- 🐞 Fix badge works wrong in dot mode. [#9359](https://github.com/ant-design/ant-design/issues/9359) [@khayalan-mathew](https://github.com/khayalan-mathew)
+
+## 3.2.1
+
+`2018-02-11`
+
+- 🌟 Add icons of some famous products. [c04377e5](https://github.com/ant-design/ant-design/commit/c04377e5413d344b37c34ceac6fee456933fa516)
+- Mention
+  - 🌟 `multiLines` mode will support autosize.
+  - 🐞 Fix paste not working when `placeholder` is specified. [#9215](https://github.com/ant-design/ant-design/issues/9215)
+- Table
+  - 🐞 Fix padding of middle size table. [#9319](https://github.com/ant-design/ant-design/issues/9319)
+  - 🐞 Fix border bug of small size table. [#8980](https://github.com/ant-design/ant-design/issues/8980)
+  - 🐞 Fix overflow issue of sort icon interactive area. [#8979](https://github.com/ant-design/ant-design/issues/8979)
+  - 🌟 Improve typescript definition of `column.dataIndex`. [#9298](https://github.com/ant-design/ant-design/pull/9298) [@clinyong](https://github.com/clinyong)
+- Select
+  - 🐞 Fix wrong scroll position when navigating active item with keyboard. [#9276](https://github.com/ant-design/ant-design/issues/9276)
+  - 🐞 Fix arrow position in IE11.
+- 🐞 Fix issue that file item showing `uploading` when Upload `beforeUpload` return false. [#8020](https://github.com/ant-design/ant-design/issues/8020)
+- 🐞 Fix misplace of feedback icon of `vertical` layout Form. [#9153](https://github.com/ant-design/ant-design/issues/9153)
+- 🐞 Fix loading style missing of empty childen Card. [#9258](https://github.com/ant-design/ant-design/issues/9258)
+- 🐞 Fix background color of Avatar when image source is not existe. [#9278](https://github.com/ant-design/ant-design/pull/9278) [@andriijas](https://github.com/andriijas)
+- 🐞 Fix RangePicker `Cannot read property 'locale' of undefined` error when select end date. [#9267](https://github.com/ant-design/ant-design/issues/9267)
+- 🐞 Fix style problem when using disabled button with Tooltip inside ButtonGroup. [#9296](https://github.com/ant-design/ant-design/issues/9296) [#9296](https://github.com/ant-design/ant-design/issues/9296)
+- 🐞 Fix z-index of Dropdown's submenu. [#9218](https://github.com/ant-design/ant-design/issues/9218)
+
 ## 3.2.0
 
 `2018-02-04`

@@ -426,6 +426,13 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
   <span
     class="ant-badge"
   >
+    <i
+      class="anticon anticon-notification"
+    />
+  </span>
+  <span
+    class="ant-badge"
+  >
     <a
       href="#"
     >

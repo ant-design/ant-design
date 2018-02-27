@@ -192,6 +192,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={this.state.selectedKeys}
+          getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
         >
           {this.renderMenus(column.filters!)}
         </Menu>
