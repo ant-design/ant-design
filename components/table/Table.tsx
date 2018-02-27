@@ -985,13 +985,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
       ? `${prefixCls}-with-pagination` : `${prefixCls}-without-pagination`;
 
-    let loading = this.props.loading;
-    if (typeof loading === 'boolean') {
-      loading = {
-        spinning: loading,
-      };
-    }
-
     return (
       <div
         className={classNames(`${prefixCls}-wrapper`, className)}
