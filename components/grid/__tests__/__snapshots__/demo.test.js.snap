@@ -480,7 +480,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="visibility:visible;left:0%;width:20%"
+          style="left:0%;width:20%"
         />
         <div
           class="ant-slider-step"
@@ -578,7 +578,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="visibility:visible;left:0%;width:40%"
+          style="left:0%;width:40%"
         />
         <div
           class="ant-slider-step"

@@ -10,7 +10,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:30%"
+      style="left:0%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -37,7 +37,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="visibility:visible;left:20%;width:30%"
+      style="left:20%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -88,7 +88,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:30%"
+      style="left:0%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -115,7 +115,7 @@ exports[`renders ./components/slider/demo/event.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="visibility:visible;left:20%;width:30%"
+      style="left:20%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -163,7 +163,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -205,7 +205,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="visibility:visible;left:0%;width:0%"
+          style="left:0%;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -293,7 +293,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="visibility:visible;left:0%;width:0%"
+          style="left:0%;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -383,7 +383,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -454,7 +454,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="visibility:visible;left:26%;width:11%"
+      style="left:26%;width:11%"
     />
     <div
       class="ant-slider-step"
@@ -537,10 +537,6 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
       class="ant-slider-rail"
     />
     <div
-      class="ant-slider-track"
-      style="visibility:hidden;left:0%;width:37%"
-    />
-    <div
       class="ant-slider-step"
     >
       <span
@@ -612,7 +608,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -686,7 +682,7 @@ exports[`renders ./components/slider/demo/mark.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
@@ -762,7 +758,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -789,7 +785,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
     />
     <div
       class="ant-slider-track"
-      style="visibility:visible;left:0%;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -826,7 +822,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track"
-        style="visibility:visible;bottom:0%;height:30%"
+        style="bottom:0%;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -857,7 +853,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="visibility:visible;bottom:20%;height:30%"
+        style="bottom:20%;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -898,7 +894,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="visibility:visible;bottom:26%;height:11%"
+        style="bottom:26%;height:11%"
       />
       <div
         class="ant-slider-step"
