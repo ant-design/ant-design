@@ -58,6 +58,10 @@ export interface TableLocale {
 export type RowSelectionType = 'checkbox' | 'radio';
 export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[]) => any;
 
+export interface TablePaginationConfig extends PaginationProps {
+  position?: 'top' | 'bottom' | 'both';
+}
+
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: string[] | number[];
@@ -75,7 +79,7 @@ export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
-  pagination?: PaginationProps | false;
+  pagination?: TablePaginationConfig | false;
   size?: 'default' | 'middle' | 'small';
   dataSource?: T[];
   components?: TableComponents;
@@ -91,7 +95,7 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
+  onChange?: (pagination: TablePaginationConfig | boolean, filters: string[], sorter: Object) => any;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
@@ -115,7 +119,7 @@ export interface TableStateFilters {
 }
 
 export interface TableState<T> {
-  pagination: PaginationProps;
+  pagination: TablePaginationConfig;
   filters: TableStateFilters;
   sortColumn: ColumnProps<T> | null;
   sortOrder: string;

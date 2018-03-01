@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Pagination, { PaginationProps } from '../pagination';
+import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -28,6 +28,7 @@ import {
   CompareFn,
   TableStateFilters,
   SelectionItemSelectFn,
+  TablePaginationConfig,
 } from './interface';
 
 function noop() {
@@ -147,7 +148,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: PaginationProps = props.pagination || {};
+    const pagination: TablePaginationConfig = props.pagination || {};
     return this.hasPagination(props) ?
       {
         ...defaultPagination,
