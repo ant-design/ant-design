@@ -19,7 +19,7 @@ describe('Calendar', () => {
     const onSelect = jest.fn();
     const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
     const wrapper = mount(
-      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-01')} />
+      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />
     );
     wrapper.find('[title="February 1, 2018"]').at(0).simulate('click');
     wrapper.find('[title="February 2, 2018"]').at(0).simulate('click');
@@ -48,16 +48,5 @@ describe('Calendar', () => {
     wrapper.instance().setType('date');
     expect(wrapper.state().mode).toEqual(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(1);
-  });
-
-  it('only Valid range should be selectable', () => {
-    const onSelect = jest.fn();
-    const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
-    const wrapper = mount(
-      <Calendar onSelect={onSelect} validRange={validRange} />
-    );
-    wrapper.find('[title="February 1, 2018"]').at(0).simulate('click');
-    wrapper.find('[title="February 2, 2018"]').at(0).simulate('click');
-    expect(onSelect.mock.calls.length).toBe(1);
   });
 });
