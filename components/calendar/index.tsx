@@ -37,7 +37,7 @@ export interface CalendarProps {
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
-  validRange ?: (current: moment.Moment) => ({startDate: moment.Moment, endDate: moment.Moment});
+  validRange ?: [moment.Moment, moment.Moment];
 }
 
 export interface CalendarState {
@@ -168,23 +168,19 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
   }
 
   getDateRange = (
-    validRange: (
-      current: moment.Moment,
-    ) => { startDate: moment.Moment, endDate: moment.Moment },
+    validRange: [moment.Moment, moment.Moment],
     disabledDate?: (current: moment.Moment) => boolean,
-  ) => {
-    return (current: moment.Moment) => {
+  ) => (current: moment.Moment) => {
       if (!current) {
         return false;
       }
-      const { startDate, endDate } = validRange(current);
+      const [ startDate, endDate ] = validRange;
       const inRange = !current.isBetween(startDate, endDate, 'days', '[]');
       if (disabledDate) {
         return (disabledDate(current) || inRange);
       }
-      return !inRange;
-    };
-  }
+      return inRange;
+    }
 
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
@@ -219,6 +215,7 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           prefixCls={prefixCls}
           onTypeChange={this.onHeaderTypeChange}
           onValueChange={this.onHeaderValueChange}
+          validRange={props.validRange}
         />
         <FullCalendar
           {...props}

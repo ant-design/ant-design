@@ -15,6 +15,17 @@ describe('Calendar', () => {
     expect(Moment.isMoment(value)).toBe(true);
   });
 
+  it('only Valid range should be selectable', () => {
+    const onSelect = jest.fn();
+    const validRange = [Moment('2018-02-02'), Moment('2018-02-18')];
+    const wrapper = mount(
+      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />
+    );
+    wrapper.find('[title="February 1, 2018"]').at(0).simulate('click');
+    wrapper.find('[title="February 2, 2018"]').at(0).simulate('click');
+    expect(onSelect.mock.calls.length).toBe(1);
+  });
+
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';

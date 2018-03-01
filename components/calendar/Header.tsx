@@ -15,6 +15,7 @@ export interface HeaderProps {
   onValueChange?: (value: moment.Moment) => void;
   onTypeChange?: (type: string) => void;
   value: any;
+  validRange ?: [moment.Moment, moment.Moment];
 }
 
 export default class Header extends React.Component<HeaderProps, any> {
@@ -27,11 +28,21 @@ export default class Header extends React.Component<HeaderProps, any> {
   private calenderHeaderNode: HTMLDivElement;
 
   getYearSelectElement(year: number) {
-    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
-    const start = year - (yearSelectOffset as number);
-    const end = start + (yearSelectTotal as number);
+    const {
+      yearSelectOffset,
+      yearSelectTotal,
+      locale,
+      prefixCls,
+      fullscreen,
+      validRange,
+    } = this.props;
+    let start = year - (yearSelectOffset as number);
+    let end = start + (yearSelectTotal as number);
+    if (validRange) {
+      start = validRange[0].get('year');
+      end = validRange[1].get('year') + 1;
+    }
     const suffix = locale.year === '年' ? '年' : '';
-
     const options: React.ReactElement<any>[] = [];
     for (let index = start; index < end; index++) {
       options.push(<Option key={`${index}`}>{index + suffix}</Option>);
@@ -63,13 +74,22 @@ export default class Header extends React.Component<HeaderProps, any> {
 
   getMonthSelectElement(month: number, months: number[]) {
     const props = this.props;
-    const { prefixCls, fullscreen } = props;
+    const { prefixCls, fullscreen, validRange, value } = props;
     const options: React.ReactElement<any>[] = [];
-
-    for (let index = 0; index < 12; index++) {
+    let start = 0;
+    let end = 12;
+    if (validRange) {
+      const [rangeStart, rangeEnd] = validRange;
+      const currentYear = value.get('year');
+      if (rangeEnd.get('year') === currentYear) {
+        end = rangeEnd.get('month') + 1;
+      } else {
+        start = rangeStart.get('month');
+      }
+    }
+    for (let index = start; index < end; index++) {
       options.push(<Option key={`${index}`}>{months[index]}</Option>);
     }
-
     return (
       <Select
         size={fullscreen ? 'default' : 'small'}
@@ -85,8 +105,21 @@ export default class Header extends React.Component<HeaderProps, any> {
   }
 
   onYearChange = (year: string) => {
-    const newValue = this.props.value.clone();
+    const { value, validRange } = this.props;
+    const newValue = value.clone();
     newValue.year(parseInt(year, 10));
+    // switch the month so that it remains within range when year changes
+    if (validRange) {
+      const [ start, end ] = validRange;
+      const newYear = newValue.get('year');
+      const newMonth = newValue.get('month');
+      if (newYear === end.get('year') && newMonth > end.get('month')) {
+        newValue.month(end.get('month'));
+      }
+      if (newYear === start.get('year') && newMonth < start.get('month')) {
+        newValue.month(start.get('month'));
+      }
+    }
 
     const onValueChange = this.props.onValueChange;
     if (onValueChange) {
