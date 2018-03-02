@@ -18,5 +18,5 @@ A divider line separates different content.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| dashed | whether line is dasded | Boolean | false |
+| dashed | whether line is dashed | Boolean | false |
 | type | direction type of divider | enum: `horizontal` `vertical` | `horizontal` |
