@@ -69,7 +69,7 @@ export interface TableRowSelection<T> {
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
-  selectionColumnWidth?: string | number;
+  columnWidth?: string | number;
 }
 
 export interface TableProps<T> {
