@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import RcTable from 'rc-table';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Pagination, { PaginationProps } from '../pagination';
+import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -28,6 +28,7 @@ import {
   CompareFn,
   TableStateFilters,
   SelectionItemSelectFn,
+  TablePaginationConfig,
 } from './interface';
 
 function noop() {
@@ -147,7 +148,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: PaginationProps = props.pagination || {};
+    const pagination: TablePaginationConfig = props.pagination || {};
     return this.hasPagination(props) ?
       {
         ...defaultPagination,
@@ -778,7 +779,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
   }
 
-  renderPagination() {
+  renderPagination(paginationPosition: string) {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
@@ -790,10 +791,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     } else if (this.props.size as string === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
+    let position = pagination.position || 'bottom';
     let total = pagination.total || this.getLocalData().length;
-    return (total > 0) ? (
+    return (total > 0 && (position === paginationPosition || position === 'both')) ? (
       <Pagination
-        key="pagination"
+        key={`pagination-${paginationPosition}`}
         {...pagination}
         className={classNames(pagination.className, `${this.props.prefixCls}-pagination`)}
         onChange={this.handlePageChange}
@@ -993,8 +995,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
+          {this.renderPagination('top')}
           {table}
-          {this.renderPagination()}
+          {this.renderPagination('bottom')}
         </Spin>
       </div>
     );
