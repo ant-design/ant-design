@@ -177,7 +177,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-lg"
   >
     <div
-      class="ant-col-4"
+      class="ant-col-5"
     >
       <input
         class="ant-input"
