@@ -1359,8 +1359,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-form-item-children"
             >
               <span
-                checked=""
-                class="ant-switch ant-switch-checked"
+                class="ant-switch"
                 tabindex="0"
               >
                 <span
@@ -1644,14 +1643,43 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
+        <ul
+          class="ant-pagination ant-table-pagination"
+          unselectable="unselectable"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            tabindex="0"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
         <div
           class="ant-table ant-table-default ant-table-scroll-position-left"
         >
-          <div
-            class="ant-table-title"
-          >
-            Here is title
-          </div>
           <div
             class="ant-table-content"
           >

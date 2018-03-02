@@ -71,10 +71,10 @@ class Demo extends React.Component {
   state = {
     bordered: false,
     loading: false,
-    pagination: false,
+    pagination,
     size: 'default',
     expandedRowRender,
-    title,
+    title: false,
     showHeader,
     footer,
     rowSelection: {},
