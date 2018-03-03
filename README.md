@@ -26,10 +26,10 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Features
 
-- An enterprise-class UI design language for web applications.
+- An enterprise-class UI design system for desktop applications.
 - A set of high-quality React components out of the box.
-- Written in TypeScript with complete define types.
-- A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
+- Written in TypeScript with predictable static types.
+- Work with great development and design resources and tools.
 
 ## Environment Support
 
