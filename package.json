@@ -158,7 +158,7 @@
     "remark-yaml-config": "^4.0.1",
     "reqwest": "^2.0.5",
     "rimraf": "^2.5.4",
-    "scrollama": "^0.6.1",
+    "scrollama": "^1.4.1",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^18.0.0",
     "typescript": "~2.6.1",
