@@ -154,7 +154,7 @@
     "react-virtualized": "~9.13.0",
     "remark-frontmatter": "^1.1.0",
     "remark-parse": "^4.0.0",
-    "remark-stringify": "^4.0.0",
+    "remark-stringify": "^5.0.0",
     "remark-yaml-config": "^4.0.1",
     "reqwest": "^2.0.5",
     "rimraf": "^2.5.4",
