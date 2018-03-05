@@ -71,7 +71,7 @@ class TabsCard extends React.Component {
         <Card
           style={{ width: '100%' }}
           tabList={tabListNoTitle}
-          defaultActiveTabKey={this.state.noTitleKey}
+          activeTabKey={this.state.noTitleKey}
           onTabChange={(key) => { this.onTabChange(key, 'noTitleKey'); }}
         >
           {contentListNoTitle[this.state.noTitleKey]}
