@@ -7,6 +7,10 @@ if (typeof window !== 'undefined') {
   };
 }
 
+global.requestAnimationFrame = function (cb) {
+  return setTimeout(cb, 0);
+};
+
 const Enzyme = require('enzyme');
 
 let Adapter;

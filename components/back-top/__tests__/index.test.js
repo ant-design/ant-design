@@ -1,16 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import BackTop from '..';
 
 describe('BackTop', () => {
-  let BackTop;
   beforeAll(() => {
     jest.useFakeTimers();
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation(setTimeout);
-    BackTop = require('..').default; // eslint-disable-line
   });
 
   afterAll(() => {
-    window.requestAnimationFrame.mockRestore();
     jest.useRealTimers();
   });
 
@@ -19,6 +16,7 @@ describe('BackTop', () => {
     document.documentElement.scrollTop = 400;
     // trigger scroll manually
     wrapper.instance().handleScroll();
+    jest.runAllTimers();
     wrapper.find('.ant-back-top').simulate('click');
     jest.runAllTimers();
     expect(Math.round(document.documentElement.scrollTop)).toBe(0);
