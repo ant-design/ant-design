@@ -36,6 +36,7 @@ export interface CardProps {
   actions?: Array<React.ReactNode>;
   tabList?: CardTabListType[];
   onTabChange?: (key: string) => void;
+  defaultActiveTabKey?: string;
 }
 
 export default class Card extends React.Component<CardProps, {}> {
@@ -123,7 +124,7 @@ export default class Card extends React.Component<CardProps, {}> {
   render() {
     const {
       prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, hoverable, title, loading,
-      bordered = true, type, cover, actions, tabList, children, ...others,
+      bordered = true, type, cover, actions, tabList, children, defaultActiveTabKey, ...others,
     } = this.props;
 
     const classString = classNames(prefixCls, className, {
@@ -162,7 +163,12 @@ export default class Card extends React.Component<CardProps, {}> {
 
     let head;
     const tabs = tabList && tabList.length ? (
-      <Tabs className={`${prefixCls}-head-tabs`} size="large" onChange={this.onTabChange}>
+      <Tabs
+        className={`${prefixCls}-head-tabs`}
+        size="large"
+        defaultActiveKey={defaultActiveTabKey}
+        onChange={this.onTabChange}
+      >
         {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
       </Tabs>
     ) : null;
