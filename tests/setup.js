@@ -7,6 +7,8 @@ if (typeof window !== 'undefined') {
   };
 }
 
+// The built-in requestAnimationFrame and cancelAnimationFrame not working with jest.runFakeTimes()
+// https://github.com/facebook/jest/issues/5147
 global.requestAnimationFrame = function (cb) {
   return setTimeout(cb, 0);
 };
