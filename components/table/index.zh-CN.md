@@ -156,6 +156,7 @@ const columns = [{
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
 | hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
+| columnWidth | 自定义列表选择框宽度 | string\|number | - |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | - |
