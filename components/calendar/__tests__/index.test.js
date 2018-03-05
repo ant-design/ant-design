@@ -38,6 +38,20 @@ describe('Calendar', () => {
     expect(onSelect.mock.calls.length).toBe(0);
   });
 
+  it('months other than in valid range should be disabled', () => {
+    const onSelect = jest.fn();
+    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} mode="year" />
+    );
+    expect(wrapper.find('[title="Jan"]').at(0).hasClass('ant-fullcalendar-month-panel-cell-disabled')).toBe(true);
+    expect(wrapper.find('[title="Feb"]').at(0).hasClass('ant-fullcalendar-month-panel-cell-disabled')).toBe(false);
+    expect(wrapper.find('[title="Jun"]').at(0).hasClass('ant-fullcalendar-month-panel-cell-disabled')).toBe(true);
+    wrapper.find('[title="Jan"]').at(0).simulate('click');
+    wrapper.find('[title="Mar"]').at(0).simulate('click');
+    expect(onSelect.mock.calls.length).toBe(1);
+  });
+
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';
