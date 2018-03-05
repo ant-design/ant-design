@@ -11,6 +11,10 @@ global.requestAnimationFrame = function (cb) {
   return setTimeout(cb, 0);
 };
 
+global.cancelAnimationFrame = function (cb) {
+  return clearTimeout(cb, 0);
+};
+
 const Enzyme = require('enzyme');
 
 let Adapter;
