@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
 import warning from '../_util/warning';
-import callMoment from '../_util/callMoment';
+import interopDefault from '../_util/interopDefault';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -26,7 +26,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     constructor(props: any) {
       super(props);
       const value = props.value || props.defaultValue;
-      if (value && !moment.isMoment(value)) {
+      if (value && !interopDefault(moment).isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
           'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
@@ -132,7 +132,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={props.defaultPickerValue || callMoment(moment)}
+          defaultValue={props.defaultPickerValue || interopDefault(moment)()}
           dateInputPlaceholder={placeholder}
           prefixCls={prefixCls}
           className={calendarClassName}
