@@ -52,6 +52,17 @@ describe('Calendar', () => {
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
+  it('getDateRange should returns a disabledDate function', () => {
+    const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar validRange={validRange} defaultValue={Moment('2018-02-02')} />
+    );
+    const instance = wrapper.instance();
+    const disabledDate = instance.getDateRange(validRange);
+    expect(disabledDate(Moment('2018-06-02'))).toBe(true);
+    expect(disabledDate(Moment('2018-04-02'))).toBe(false);
+  });
+
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';
