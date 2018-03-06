@@ -25,7 +25,7 @@ export interface AbstractTooltipProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   transitionName?: string;
-  trigger?: 'hover' | 'focus' | 'click';
+  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu';
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
