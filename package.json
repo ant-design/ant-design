@@ -153,7 +153,7 @@
     "react-sublime-video": "^0.2.0",
     "react-virtualized": "~9.13.0",
     "remark-frontmatter": "^1.1.0",
-    "remark-parse": "^4.0.0",
+    "remark-parse": "^5.0.0",
     "remark-stringify": "^5.0.0",
     "remark-yaml-config": "^4.0.1",
     "reqwest": "^2.0.5",
