@@ -20,6 +20,7 @@ title: TreeSelect
 | allowClear | 显示清除按钮 | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/string\[] | - |
 | disabled | 是否禁用 | boolean | false |
+| dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
 | dropdownStyle | 下拉菜单的样式 | object | - |
 | filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | boolean\|Function(inputValue: string, treeNode: TreeNode) (函数需要返回bool值) | Function |
