@@ -88,7 +88,7 @@
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "ansi-styles": "^3.2.0",
-    "antd-tools": "^5.1.0",
+    "antd-tools": "^5.1.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^8.1.1",
     "babel-plugin-import": "^1.0.0",
@@ -199,14 +199,14 @@
   },
   "lint-staged": {
     "components/**/*.tsx": [
-      "lint-staged:ts"
+      "npm run lint-staged:ts"
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
-      "lint-staged:es"
+      "npm run lint-staged:es"
     ],
     "{site,components}/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [
-      "lint-staged:demo"
+      "npm run lint-staged:demo"
     ]
   },
   "pre-commit": [
