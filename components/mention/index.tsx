@@ -111,7 +111,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     }
   }
   focus = () => {
-    this.mentionEle._editor.focus();
+    this.mentionEle._editor.focusEditor();
   }
   mentionRef = (ele: any) => {
     this.mentionEle = ele;
