@@ -152,10 +152,9 @@
     }
   }
   li&-treenode-disabled {
-    > span,
+    > span:not(.@{tree-prefix-cls}-switcher),
     > .@{tree-prefix-cls}-node-content-wrapper,
-    > .@{tree-prefix-cls}-node-content-wrapper span,
-    > span.@{tree-prefix-cls}-switcher {
+    > .@{tree-prefix-cls}-node-content-wrapper span {
       color: @disabled-color;
       cursor: not-allowed;
     }
