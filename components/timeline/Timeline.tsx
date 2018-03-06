@@ -8,6 +8,7 @@ export interface TimelineProps {
   className?: string;
   /** 指定最后一个幽灵节点是否存在或内容 */
   pending?: React.ReactNode;
+  pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -18,8 +19,9 @@ export default class Timeline extends React.Component<TimelineProps, any> {
   };
 
   render() {
-    const { prefixCls, children, pending, className, ...restProps } = this.props;
+    const { prefixCls, children, pending, pendingDot, className, ...restProps } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
+    const pendingDotNode = pending ? pendingDot || <Icon type="loading" /> : null;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
     }, className);
@@ -33,7 +35,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const pendingItem = (!!pending) ? (
       <TimelineItem
         pending={!!pending}
-        dot={<Icon type="loading" />}
+        dot={pendingDotNode}
       >
         {pendingNode}
       </TimelineItem>
