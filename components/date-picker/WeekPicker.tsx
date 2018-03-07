@@ -11,7 +11,7 @@ function formatValue(value: moment.Moment | null, format: string): string {
 
 export default class WeekPicker extends React.Component<any, any> {
   static defaultProps = {
-    format: 'YYYY-wo',
+    format: 'gggg-wo',
     allowClear: true,
   };
 

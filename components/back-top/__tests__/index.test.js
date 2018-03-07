@@ -19,6 +19,6 @@ describe('BackTop', () => {
     jest.runAllTimers();
     wrapper.find('.ant-back-top').simulate('click');
     jest.runAllTimers();
-    expect(Math.round(document.documentElement.scrollTop)).toBe(0);
+    expect(Math.abs(Math.round(document.documentElement.scrollTop))).toBe(0);
   });
 });

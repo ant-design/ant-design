@@ -4,7 +4,7 @@ type: Data Entry
 title: Mention
 ---
 
-Mention component。
+Mention component.
 
 ## When To Use
 
