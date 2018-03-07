@@ -85,8 +85,8 @@ export default class MainContent extends React.Component {
     if (this.scroller) {
       this.scroller.disable();
     }
-    // eslint-disable-next-line
-    const scrollama = require('scrollama');
+    require('intersection-observer'); // eslint-disable-line
+    const scrollama = require('scrollama'); // eslint-disable-line
     this.scroller = scrollama();
     this.scroller
       .setup({
