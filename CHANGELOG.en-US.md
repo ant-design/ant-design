@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.2.3
+
+`2018-03-02`
+
+- 🐞 Fix props `onPopupScroll` ts define in `Select`. [#9475](https://github.com/ant-design/ant-design/pull/9475) [@twobin](https://github.com/twobin)
+- 🐞 Fix `Table` filter dropdown menu popup container. [#9209](https://github.com/ant-design/ant-design/issues/9209)
+- 🐞 Fix `Timeline` head custom style error in chrome. [#9429](https://github.com/ant-design/ant-design/pull/9429) [@vthinkxie](https://github.com/vthinkxie)
+- 🐞 Fix `Select` dropdown border. [82092c1](https://github.com/ant-design/ant-design/commit/82092c154ac1fa7ff2f89e1adbdf0aaf22e3ff53)
+- 🐞 Fix compatibility with less 3. [#7850](https://github.com/ant-design/ant-design/issues/7850)
+- 🐞 Fix `DatePicker.WeekPicker` year. [#9463](https://github.com/ant-design/ant-design/issues/9463)
+- 🐞 Fix `Button.Group` align issue in chrome. [#9457](https://github.com/ant-design/ant-design/issues/9457)
+
 ## 3.2.2
 
 `2018-02-24`

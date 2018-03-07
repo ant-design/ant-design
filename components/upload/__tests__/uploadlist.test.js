@@ -258,7 +258,7 @@ describe('Upload List', () => {
       </Upload>
     );
     wrapper.setState({});
-    await delay(0);
+    await delay(20);
     expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
   });
 });

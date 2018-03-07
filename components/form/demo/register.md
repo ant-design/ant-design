@@ -60,7 +60,7 @@ class RegistrationForm extends React.Component {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  checkPassword = (rule, value, callback) => {
+  compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
@@ -68,14 +68,13 @@ class RegistrationForm extends React.Component {
       callback();
     }
   }
-  checkConfirm = (rule, value, callback) => {
+  validateToNextPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });
     }
     callback();
   }
-
   handleWebsiteChange = (value) => {
     let autoCompleteResult;
     if (!value) {
@@ -85,7 +84,6 @@ class RegistrationForm extends React.Component {
     }
     this.setState({ autoCompleteResult });
   }
-
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -149,7 +147,7 @@ class RegistrationForm extends React.Component {
             rules: [{
               required: true, message: 'Please input your password!',
             }, {
-              validator: this.checkConfirm,
+              validator: this.validateToNextPassword,
             }],
           })(
             <Input type="password" />
@@ -163,7 +161,7 @@ class RegistrationForm extends React.Component {
             rules: [{
               required: true, message: 'Please confirm your password!',
             }, {
-              validator: this.checkPassword,
+              validator: this.compareToFirstPassword,
             }],
           })(
             <Input type="password" onBlur={this.handleConfirmBlur} />

@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
 
-export interface BasicProps {
-  style?: React.CSSProperties;
+export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
-  className?: string;
   hasSider?: boolean;
 }
 
