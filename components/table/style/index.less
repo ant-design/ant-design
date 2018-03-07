@@ -34,6 +34,14 @@
     font-weight: 500;
     border-bottom: @border-width-base @border-style-base @border-color-split;
 
+    &:first-child {
+      border-top-left-radius: @border-radius-base;
+    }
+
+    &:last-child {
+      border-top-right-radius: @border-radius-base;
+    }
+
     &[colspan] {
       text-align: center;
       border-bottom: 0;
@@ -540,6 +548,9 @@
     table {
       border-radius: @border-radius-base 0 0 0;
     }
+    .ant-table-thead > tr > th:last-child {
+      border-top-right-radius: 0;
+    }
   }
 
   &-fixed-right {
@@ -554,6 +565,9 @@
     .@{table-prefix-cls}-expanded-row {
       color: transparent;
       pointer-events: none;
+    }
+    .ant-table-thead > tr > th:first-child {
+      border-top-left-radius: 0;
     }
   }
 

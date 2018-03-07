@@ -11,7 +11,7 @@
 [![Dependency Status](https://img.shields.io/gemnasium/react-component/trigger.svg?style=flat-square)](https://gemnasium.com/ant-design/ant-design)
 
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-[![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd)
+[![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmcharts.com/compare/antd?minimal=true)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design.svg)](http://isitmaintained.com/project/ant-design/ant-design "Percentage of issues still open")
 [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
@@ -26,10 +26,10 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Features
 
-- An enterprise-class UI design language for web applications.
+- An enterprise-class UI design system for desktop applications.
 - A set of high-quality React components out of the box.
-- Written in TypeScript with complete define types.
-- A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
+- Written in TypeScript with predictable static types.
+- Work with great development and design resources and tools.
 
 ## Environment Support
 

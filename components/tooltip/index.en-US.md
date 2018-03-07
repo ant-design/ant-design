@@ -32,7 +32,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | overlayClassName | Class name of the tooltip card | string | - |
 | overlayStyle | Style of the tooltip card | object | - |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |
-| trigger | Tooltip trigger mode | `hover` \| `focus` \| `click` | `hover` |
+| trigger | Tooltip trigger mode | `hover` \| `focus` \| `click` \| `contextMenu` | `hover` |
 | visible | Whether the floating tooltip card is visible or not | boolean | `false` |
 | onVisibleChange | Callback executed when visibility of the tooltip card is changed | (visible) => void | - |
 

@@ -20,6 +20,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | allowClear | Whether allow clear | boolean | false |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |
 | disabled | Disabled or not | boolean | false |
+| dropdownClassName | className of dropdown menu | string | - |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width | boolean | true |
 | dropdownStyle | To set the style of the dropdown menu | object | - |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |
