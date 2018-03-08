@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
-import uniqBy from 'lodash.uniqby';
+import uniqBy from 'lodash/uniqBy';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
