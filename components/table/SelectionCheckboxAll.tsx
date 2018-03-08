@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Checkbox from '../checkbox';
+import Checkbox, { CheckboxChangeEvent } from '../checkbox';
 import Dropdown from '../dropdown';
 import Menu from '../menu';
 import Icon from '../icon';
@@ -113,7 +113,7 @@ export default class SelectionCheckboxAll<T> extends
     return indeterminate;
   }
 
-  handleSelectAllChagne = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleSelectAllChagne = (e: CheckboxChangeEvent) => {
     let checked = e.target.checked;
     this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
   }

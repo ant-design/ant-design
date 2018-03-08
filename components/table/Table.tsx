@@ -29,6 +29,8 @@ import {
   TableStateFilters,
   SelectionItemSelectFn,
 } from './interface';
+import { RadioChangeEvent } from '../radio';
+import { CheckboxChangeEvent } from '../checkbox';
 
 function noop() {
 }
@@ -442,7 +444,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     });
   }
 
-  handleSelect = (record: T, rowIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
+  handleSelect = (record: T, rowIndex: number, e: CheckboxChangeEvent) => {
     const checked = e.target.checked;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
@@ -462,7 +464,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     });
   }
 
-  handleRadioSelect = (record: T, rowIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
+  handleRadioSelect = (record: T, rowIndex: number, e: RadioChangeEvent) => {
     const checked = e.target.checked;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
@@ -587,7 +589,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return (_: any, record: T, index: number) => {
       let rowIndex = this.getRecordKey(record, index); // 从 1 开始
       const props = this.getCheckboxPropsByItem(record, index);
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const handleChange = (e: RadioChangeEvent | CheckboxChangeEvent) => {
         type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
                            this.handleSelect(record, rowIndex, e);
       };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
-import { RadioGroupProps, RadioGroupState } from './interface';
+import { RadioGroupProps, RadioGroupState, RadioChangeEvent } from './interface';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -73,7 +73,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
       !shallowEqual(this.state, nextState);
   }
 
-  onRadioChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+  onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = this.state.value;
     const { value } = ev.target;
     if (!('value' in this.props)) {
