@@ -1,5 +1,5 @@
 import * as React from 'react';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
