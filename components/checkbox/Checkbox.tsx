@@ -5,14 +5,14 @@ import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
 import CheckboxGroup, { CheckboxGroupContext } from './Group';
 
-export interface AbstractCheckboxProps {
+export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: (e: T) => void;
   onMouseEnter?: React.MouseEventHandler<any>;
   onMouseLeave?: React.MouseEventHandler<any>;
   onKeyPress?: React.KeyboardEventHandler<any>;
@@ -23,9 +23,22 @@ export interface AbstractCheckboxProps {
   children?: React.ReactNode;
 }
 
-export interface CheckboxProps extends AbstractCheckboxProps {
+export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
 }
+
+export interface AbstractCheckboxChangeEvent<T> {
+  target: T;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: MouseEvent;
+}
+
+export interface CheckboxChangeEventTarget extends CheckboxProps {
+  checked: boolean;
+}
+
+export type CheckboxChangeEvent = AbstractCheckboxChangeEvent<CheckboxChangeEventTarget>;
 
 export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;

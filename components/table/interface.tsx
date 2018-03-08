@@ -2,6 +2,8 @@ import * as React from 'react';
 import { PaginationProps } from '../pagination';
 import { SpinProps } from '../spin';
 import { Store } from './createStore';
+import { RadioChangeEvent } from '../radio';
+import { CheckboxChangeEvent } from '../checkbox';
 
 export type CompareFn<T> = ((a: T, b: T) => number);
 export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
@@ -155,7 +157,7 @@ export interface SelectionBoxProps {
   rowIndex: string;
   name?: string;
   disabled?: boolean;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: (e: RadioChangeEvent | CheckboxChangeEvent) => void;
 }
 
 export interface SelectionBoxState {

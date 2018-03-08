@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { AbstractCheckboxGroupProps } from '../checkbox/Group';
-import { AbstractCheckboxProps } from '../checkbox/Checkbox';
+import { AbstractCheckboxProps, AbstractCheckboxChangeEvent } from '../checkbox/Checkbox';
 
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any;
   value?: any;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: (e: RadioChangeEvent) => void;
   size?: 'large' | 'default' | 'small';
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -27,4 +27,10 @@ export interface RadioGroupContext {
   };
 }
 
-export type RadioProps = AbstractCheckboxProps;
+export type RadioProps = AbstractCheckboxProps<RadioChangeEvent>;
+
+export interface RadioChangeEventTarget extends RadioProps {
+  checked: boolean;
+}
+
+export type RadioChangeEvent = AbstractCheckboxChangeEvent<RadioChangeEventTarget>;

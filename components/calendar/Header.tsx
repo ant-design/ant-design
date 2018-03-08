@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
-import { Group, Button } from '../radio';
+import { Group, Button, RadioChangeEvent } from '../radio';
 const Option = Select.Option;
 
 export interface HeaderProps {
@@ -103,7 +103,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
   }
 
-  onTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  onTypeChange = (e: RadioChangeEvent) => {
     const onTypeChange = this.props.onTypeChange;
     if (onTypeChange) {
       onTypeChange(e.target.value);
