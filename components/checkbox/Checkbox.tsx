@@ -27,18 +27,16 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
   indeterminate?: boolean;
 }
 
-export interface AbstractCheckboxChangeEvent<T> {
-  target: T;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: MouseEvent;
-}
-
 export interface CheckboxChangeEventTarget extends CheckboxProps {
   checked: boolean;
 }
 
-export type CheckboxChangeEvent = AbstractCheckboxChangeEvent<CheckboxChangeEventTarget>;
+export interface CheckboxChangeEvent {
+  target: CheckboxChangeEventTarget;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: MouseEvent;
+}
 
 export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;

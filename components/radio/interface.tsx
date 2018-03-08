@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AbstractCheckboxGroupProps } from '../checkbox/Group';
-import { AbstractCheckboxProps, AbstractCheckboxChangeEvent } from '../checkbox/Checkbox';
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
 
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any;
@@ -33,4 +33,9 @@ export interface RadioChangeEventTarget extends RadioProps {
   checked: boolean;
 }
 
-export type RadioChangeEvent = AbstractCheckboxChangeEvent<RadioChangeEventTarget>;
+export interface RadioChangeEvent {
+  target: RadioChangeEventTarget;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: MouseEvent;
+}
