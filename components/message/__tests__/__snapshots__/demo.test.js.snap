@@ -61,3 +61,14 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`renders ./components/message/demo/transition.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Customized transitionName
+  </span>
+</button>
+`;

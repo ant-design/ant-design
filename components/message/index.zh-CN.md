@@ -49,3 +49,5 @@ message.config({
 | duration | 默认自动关闭延时，单位秒 | number | 3 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |
 | top | 消息距离顶部的位置 | number | 24px |
+| transitionName | 进场动画 | string | 'move-up' |
+

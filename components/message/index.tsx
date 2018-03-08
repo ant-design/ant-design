@@ -7,6 +7,7 @@ let defaultTop: number;
 let messageInstance: any;
 let key = 1;
 let prefixCls = 'ant-message';
+let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 
 function getMessageInstance(callback: (i: any) => void) {
@@ -16,7 +17,7 @@ function getMessageInstance(callback: (i: any) => void) {
   }
   Notification.newInstance({
     prefixCls,
-    transitionName: 'move-up',
+    transitionName,
     style: { top: defaultTop }, // 覆盖原来的样式
     getContainer,
   }, (instance: any) => {
@@ -81,6 +82,7 @@ export interface ConfigOptions {
   duration?: number;
   prefixCls?: string;
   getContainer?: () => HTMLElement;
+  transitionName?: string;
 }
 
 export default {
@@ -116,6 +118,10 @@ export default {
     }
     if (options.getContainer !== undefined) {
       getContainer = options.getContainer;
+    }
+    if (options.transitionName !== undefined) {
+      transitionName = options.transitionName;
+      messageInstance = null; // delete messageInstance for new transitionName
     }
   },
   destroy() {

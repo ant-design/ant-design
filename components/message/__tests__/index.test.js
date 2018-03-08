@@ -20,6 +20,7 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message')[0].style.top).toBe('100px');
   });
 
+
   it('should be able to config getContainer', () => {
     message.config({
       getContainer: () => {
