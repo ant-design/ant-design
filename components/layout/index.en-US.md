@@ -27,7 +27,7 @@ The first level navigation is inclined left near a logo, and the secondary menu 
 
 ## Visualization rules
 
- Style of a navigation should conform to the its level.
+ Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
