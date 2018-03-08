@@ -117,7 +117,7 @@ describe('Upload List', () => {
     });
   });
 
-  it('does not change filelist when beforeUpload returns false', () => {
+  it('does concat filelist when beforeUpload returns false', () => {
     const handleChange = jest.fn();
     const wrapper = mount(
       <Upload
@@ -138,8 +138,8 @@ describe('Upload List', () => {
       },
     });
 
-    expect(wrapper.state().fileList).toBe(fileList);
-    expect(handleChange.mock.calls[0][0].fileList).toHaveLength(1);
+    expect(wrapper.state().fileList.length).toBe(fileList.length + 1);
+    expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
   // https://github.com/ant-design/ant-design/issues/7762

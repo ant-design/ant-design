@@ -3,6 +3,20 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
 
+const fileList = [{
+  uid: -1,
+  name: 'xxx.png',
+  status: 'done',
+  url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+  thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+}, {
+  uid: -2,
+  name: 'yyy.png',
+  status: 'done',
+  url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+  thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+}];
+
 describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {

@@ -46,6 +46,7 @@
     "css-animation": "^1.2.5",
     "dom-closest": "^0.2.0",
     "lodash.debounce": "^4.0.8",
+    "lodash.uniqby": "^4.7.0",
     "moment": "^2.19.3",
     "omit.js": "^1.0.0",
     "prop-types": "^15.5.7",
