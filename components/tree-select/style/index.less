@@ -96,10 +96,9 @@
     }
   }
   li&-treenode-disabled {
-    > span,
+    > span:not(.@{select-tree-prefix-cls}-switcher),
     > .@{select-tree-prefix-cls}-node-content-wrapper,
-    > .@{select-tree-prefix-cls}-node-content-wrapper span,
-    > span.@{select-tree-prefix-cls}-switcher {
+    > .@{select-tree-prefix-cls}-node-content-wrapper span {
       color: @disabled-color;
       cursor: not-allowed;
     }
