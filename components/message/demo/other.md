@@ -21,7 +21,7 @@ const success = () => {
 };
 
 const error = () => {
-  message.error('This is a message of error');
+  message.error(<div><p>This is a</p><p> message of error</p><div>);
 };
 
 const warning = () => {
