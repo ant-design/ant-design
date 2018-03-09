@@ -6,7 +6,7 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 import warning from '../_util/warning';
-import callMoment from '../_util/callMoment';
+import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
 
 export interface RangePickerState {
@@ -75,8 +75,8 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     super(props);
     const value = props.value || props.defaultValue || [];
     if (
-      value[0] && !moment.isMoment(value[0]) ||
-      value[1] && !moment.isMoment(value[1])
+      value[0] && !interopDefault(moment).isMoment(value[0]) ||
+      value[1] && !interopDefault(moment).isMoment(value[1])
     ) {
       throw new Error(
         'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
@@ -86,7 +86,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;
     this.state = {
       value,
-      showDate: pickerValueAdapter(pickerValue || callMoment(moment)),
+      showDate: pickerValueAdapter(pickerValue || interopDefault(moment)()),
       open: props.open,
       hoverValue: [],
     };
