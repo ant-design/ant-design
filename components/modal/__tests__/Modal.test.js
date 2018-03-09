@@ -44,4 +44,13 @@ describe('Modal', () => {
     const wrapper = mount(<ModalTester footer={null} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('render with very long word fill in title', () => {
+    const wrapper = mount(
+      <ModalTester
+        title="Modal very long title:1:abcdefghijklmnopqrstuvwxyz:it:is:so:long:maybe:over:mask:view"
+      />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
