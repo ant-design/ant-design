@@ -48,5 +48,3 @@ message.config({
 | duration | time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
 | top | distance from top | number | 24px |
-| transitionName | approach animation | string | 'move-up'  |
-
