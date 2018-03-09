@@ -43,3 +43,4 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | value | The current selected date | [moment](http://momentjs.com/) | current date |
 | onPanelChange | Callback for when panel changes | function(date: moment, mode: string) | - |
 | onSelect | Callback for when a date is selected | function(date: moment） | - |
+| validRange | to set valid range | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |
