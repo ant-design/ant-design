@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import * as moment from 'moment';
+import moment from 'moment';
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
 
 export interface Locale {
