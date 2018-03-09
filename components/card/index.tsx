@@ -162,9 +162,11 @@ export default class Card extends React.Component<CardProps, {}> {
       </div>
     );
 
+    const hasActiveTabKey = activeTabKey !== undefined;
     const extraProps = {
-      [activeTabKey ? 'activeKey' : 'defaultActiveKey']:
-        activeTabKey || defaultActiveTabKey,
+      [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
+        ? activeTabKey
+        : defaultActiveTabKey,
     };
 
     let head;
