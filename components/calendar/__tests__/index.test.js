@@ -52,6 +52,18 @@ describe('Calendar', () => {
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
+  it('months other than in valid range should not be shown in header', () => {
+    const validRange = [Moment('2017-02-02'), Moment('2018-05-18')];
+    const wrapper = mount(
+      <Calendar validRange={validRange} />
+    );
+    wrapper.find('.ant-fullcalendar-year-select').hostNodes().simulate('click');
+    wrapper.find('.ant-select-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-fullcalendar-month-select').hostNodes().simulate('click');
+    // 2 years and 11 months
+    expect(wrapper.find('.ant-select-dropdown-menu-item').length).toBe(13);
+  });
+
   it('getDateRange should returns a disabledDate function', () => {
     const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
     const wrapper = mount(
