@@ -17,6 +17,13 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.13.13
+
+`2018-03-09`
+
+- 🐞 Fix `Upload` file list update logic when beforeUpload return false. [626ebf2](https://github.com/ant-design/ant-design/commit/ef6d7a5d9070c0b82deed837a7ebce7de9bc18aa)
+
+
 ## 2.13.12
 
 `2018-02-26`
