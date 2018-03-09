@@ -159,7 +159,7 @@ Properties for row selection.
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
 | onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |
-| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows) | - |
+| onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |
 

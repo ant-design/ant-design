@@ -226,7 +226,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  setSelectedRowKeys(selectedRowKeys: string[], { selectWay, record, checked, changeRowKeys }: any) {
+  setSelectedRowKeys(selectedRowKeys: string[], { selectWay, record, checked, changeRowKeys, nativeEvent }: any) {
     const { rowSelection = {} as any } = this.props;
     if (rowSelection && !('selectedRowKeys' in rowSelection)) {
       this.store.setState({ selectedRowKeys });
@@ -242,7 +242,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       rowSelection.onChange(selectedRowKeys, selectedRows);
     }
     if (selectWay === 'onSelect' && rowSelection.onSelect) {
-      rowSelection.onSelect(record, checked, selectedRows);
+      rowSelection.onSelect(record, checked, selectedRows, nativeEvent);
     } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
       const changeRows = data.filter(
         (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0,
@@ -445,6 +445,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   handleSelect = (record: T, rowIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const checked = e.target.checked;
+    const nativeEvent = e.nativeEvent;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
@@ -460,11 +461,14 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       selectWay: 'onSelect',
       record,
       checked,
+      changeRowKeys: void(0),
+      nativeEvent,
     });
   }
 
   handleRadioSelect = (record: T, rowIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const checked = e.target.checked;
+    const nativeEvent = e.nativeEvent;
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
@@ -476,6 +480,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       selectWay: 'onSelect',
       record,
       checked,
+      changeRowKeys: void(0),
+      nativeEvent,
     });
   }
 
