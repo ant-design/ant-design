@@ -3,6 +3,8 @@
     "strictNullChecks": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
