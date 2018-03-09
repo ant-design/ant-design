@@ -616,8 +616,8 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   />
                   <div
                     aria-disabled="false"
-                    aria-selected="true"
-                    class="ant-tabs-tab-active ant-tabs-tab"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
                     role="tab"
                   >
                     tab1
@@ -637,11 +637,11 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           class="ant-tabs-content ant-tabs-content-animated"
-          style="margin-left:0%"
+          style="display:none"
         >
           <div
-            aria-hidden="false"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            aria-hidden="true"
+            class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
             role="tabpanel"
           />
           <div
@@ -713,16 +713,16 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   />
                   <div
                     aria-disabled="false"
-                    aria-selected="true"
-                    class="ant-tabs-tab-active ant-tabs-tab"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
                     role="tab"
                   >
                     article
                   </div>
                   <div
                     aria-disabled="false"
-                    aria-selected="false"
-                    class=" ant-tabs-tab"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
                     role="tab"
                   >
                     app
@@ -742,16 +742,16 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           class="ant-tabs-content ant-tabs-content-animated"
-          style="margin-left:0%"
+          style="margin-left:-100%"
         >
-          <div
-            aria-hidden="false"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
-            role="tabpanel"
-          />
           <div
             aria-hidden="true"
             class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+            role="tabpanel"
+          />
+          <div
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
           />
           <div
@@ -766,7 +766,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
       class="ant-card-body"
     >
       <p>
-        article content
+        app content
       </p>
     </div>
   </div>
