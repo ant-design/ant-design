@@ -21,6 +21,8 @@ export interface AlertProps {
   description?: React.ReactNode;
   /** Callback when close Alert */
   onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+  /** Trigger when animation ending of Alert */
+  afterClose?: Function;
   /** Whether to show icon */
   showIcon?: boolean;
   iconType?: string;
@@ -56,6 +58,7 @@ export default class Alert extends React.Component<AlertProps, any> {
       closed: true,
       closing: true,
     });
+    (this.props.afterClose || noop)();
   }
   render() {
     let {
