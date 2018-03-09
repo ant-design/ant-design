@@ -17,6 +17,13 @@ timeline: true
 
 ---
 
+## 2.13.13
+
+`2018-03-09`
+
+- 🐞 修复 `Upload` 组件当 `beforeUpload` 返回 `false` 时文件列表的更新逻辑。 [626ebf2](https://github.com/ant-design/ant-design/commit/ef6d7a5d9070c0b82deed837a7ebce7de9bc18aa)
+
+
 ## 2.13.12
 
 `2018-02-26`
