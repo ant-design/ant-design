@@ -87,7 +87,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   beforeAll(() => {
-    MockDate.set(moment('2017-09-18T03:30:07.795Z').valueOf() + (new Date().getTimezoneOffset() * 60 * 1000));
+    MockDate.set(moment('2017-09-18T03:30:07.795'));
   });
 
   afterAll(() => {
