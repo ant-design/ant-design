@@ -13,6 +13,10 @@ const previewFile = (file: File, callback: Function) => {
   reader.readAsDataURL(file);
 };
 
+const isImageUrl = (url: string): boolean => {
+  return /^data:image\//.test(url) || /\.(webp|svg|png|gif|jpg|jpeg)$/.test(url);
+};
+
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
@@ -77,6 +81,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         } else if (!file.thumbUrl && !file.url) {
           icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
         } else {
+          let thumbnail = isImageUrl((file.thumbUrl || file.url) as string) ? (
+            <img src={file.thumbUrl || file.url} alt={file.name} />
+          ) : (
+            <Icon
+              type="file"
+              style={{ fontSize: 48, color: 'rgba(0,0,0,0.5)' }}
+            />
+          );
           icon = (
             <a
               className={`${prefixCls}-list-item-thumbnail`}
@@ -85,7 +97,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={file.thumbUrl || file.url} alt={file.name} />
+              {thumbnail}
             </a>
           );
         }
