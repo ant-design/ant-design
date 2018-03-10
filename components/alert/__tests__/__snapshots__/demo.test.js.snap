@@ -366,6 +366,34 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Alert Message Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+  <p>
+    placeholder text here
+  </p>
+</div>
+`;
+
 exports[`renders ./components/alert/demo/style.md correctly 1`] = `
 <div>
   <div

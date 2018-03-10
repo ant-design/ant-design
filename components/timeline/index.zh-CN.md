@@ -30,6 +30,7 @@ title: Timeline
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | pending | 指定最后一个幽灵节点是否存在或内容 | boolean\|string\|ReactNode | false |
+| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | \|string\|ReactNode | `<Icon type="loading" />` |
 
 ### Timeline.Item
 
