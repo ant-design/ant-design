@@ -49,7 +49,7 @@ const contentListNoTitle = {
 class TabsCard extends React.Component {
   state = {
     key: 'tab1',
-    noTitleKey: 'article',
+    noTitleKey: 'app',
   }
   onTabChange = (key, type) => {
     console.log(key, type);
@@ -71,6 +71,7 @@ class TabsCard extends React.Component {
         <Card
           style={{ width: '100%' }}
           tabList={tabListNoTitle}
+          activeTabKey={this.state.noTitleKey}
           onTabChange={(key) => { this.onTabChange(key, 'noTitleKey'); }}
         >
           {contentListNoTitle[this.state.noTitleKey]}
