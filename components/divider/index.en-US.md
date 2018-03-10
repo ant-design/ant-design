@@ -20,3 +20,4 @@ A divider line separates different content.
 | -------- | ----------- | ---- | ------- |
 | dashed | whether line is dashed | Boolean | false |
 | type | direction type of divider | enum: `horizontal` `vertical` | `horizontal` |
+| orientation | this is optional, if not set it will have the text in the center | enum: `left` `right` | `center` |

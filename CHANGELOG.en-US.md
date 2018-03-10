@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 3.3.0
+
+`2018-03-10`
+
+- 🌟 Add `afterClose` prop for `Alert` to achieve smooth unmount. [#9448](https://github.com/ant-design/ant-design/pull/9448) [@Hughen](https://github.com/Hughen)
+- 🌟 Add `validRange` prop for `Calendar` to set the date range. [71f65a0](https://github.com/ant-design/ant-design/commit/71f65a0be8e72a67f334c57e79ae3ff5fb640630) [@Rohanhacker](https://github.com/Rohanhacker)
+- `DatePicker`
+    - 🌟 Add `dropdownClassName` prop. [#7211](https://github.com/ant-design/ant-design/issues/7211)
+    - 🐞 Fix the error of resolving `moment` object. [#9539](https://github.com/ant-design/ant-design/pull/9539)
+- 🌟 Add `orientation` prop for `Divider` to set the alignment of text in divider. [#9275](https://github.com/ant-design/ant-design/pull/9275) [@jrvboesch](https://github.com/jrvboesch)
+- 🌟 Add `transitionName` prop for `Message` to set the display animation. [#9580](https://github.com/ant-design/ant-design/pull/9580) [@muzea](https://github.com/muzea)
+- 🌟 Add `keyboard` prop for `Modal` to set whether Modal could be closed by `Esc` key. [#8818](https://github.com/ant-design/ant-design/issues/8818)
+- `Radio` & `Checkbox`
+    - 🌟 Improve the TypeScript definition of `event` param in `onChange` prop. [#9574](https://github.com/ant-design/ant-design/issues/9574)
+    - 🐞 Fix `TS4029 error` by removing `AbstractCheckboxChangeEvent` in the TypeScript definition. [473872a](https://github.com/ant-design/ant-design/commit/473872af66dc1fcffeb6177713d0e7d31d773de8)
+- `Table`
+    - 🌟 Add `position` prop in `pagination` prop to set the position of pagination. [#9357](https://github.com/ant-design/ant-design/pull/9357) [@kanweiwei](https://github.com/kanweiwei)
+    - 🌟 Add event param of `onSelect` prop in `rowSelection` prop. [#9357](https://github.com/ant-design/ant-design/pull/9357) [@kanweiwei](https://github.com/kanweiwei)
+    - 🌟 Add `columnWidth` prop in `rowSelection` prop to set the column width of selection. [#9474](https://github.com/ant-design/ant-design/pull/9474) [@SimpleFrontend](https://github.com/SimpleFrontend)
+    - 🐞 Fix border radius issue in `Chrome` for `Table`. [af8e54f](https://github.com/ant-design/ant-design/commit/af8e54f1d6ac2891892e39b153cbe3e998370f61)
+- 🌟 Add `pendingDot` prop for `Timeline` to set icon of ghost node. [#9546](https://github.com/ant-design/ant-design/pull/9546) [@SimpleFrontend](https://github.com/SimpleFrontend)
+- 🌟 Add `inputReadOnly` prop for `TimePicker`. [4a69446](https://github.com/ant-design/ant-design/commit/4a69446be155c1c176b18cb2c31459f999aa5d5e) [@JesperWe](https://github.com/JesperWe)
+- 🌟 Add `dropdownClassName` prop for `TreeSelect`. [69b154f](https://github.com/ant-design/ant-design/commit/69b154f9a9cfa5f2d89a82b6ed730d4d8793de73) [56e4ce0](https://github.com/ant-design/ant-design/commit/56e4ce099d950601538d72243563021e8083776b)
+- 🐞 Fix font size for `Tabs`. [#9509](https://github.com/ant-design/ant-design/pull/9509)
+- 🐞 Fix the style of disabled TreeNode's switcher for `Tree` and `TreeSelect`. [#9539](https://github.com/ant-design/ant-design/pull/9539)
+
 ## 3.2.3
 
 `2018-03-02`

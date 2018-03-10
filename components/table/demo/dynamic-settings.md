@@ -65,15 +65,16 @@ const title = () => 'Here is title';
 const showHeader = true;
 const footer = () => 'Here is footer';
 const scroll = { y: 240 };
+const pagination = { position: 'both' };
 
 class Demo extends React.Component {
   state = {
     bordered: false,
     loading: false,
-    pagination: true,
+    pagination,
     size: 'default',
     expandedRowRender,
-    title,
+    title: false,
     showHeader,
     footer,
     rowSelection: {},
@@ -114,6 +115,10 @@ class Demo extends React.Component {
     this.setState({ scroll: enable ? scroll : undefined });
   }
 
+  handlePaginationChange = (enable) => {
+    this.setState({ pagination: enable ? pagination : false });
+  }
+
   render() {
     const state = this.state;
     return (
@@ -127,7 +132,7 @@ class Demo extends React.Component {
               <Switch checked={state.loading} onChange={this.handleToggle('loading')} />
             </FormItem>
             <FormItem label="Pagination">
-              <Switch checked={state.pagination} onChange={this.handleToggle('pagination')} />
+              <Switch checked={state.pagination} onChange={this.handlePaginationChange} />
             </FormItem>
             <FormItem label="Title">
               <Switch checked={!!state.title} onChange={this.handleTitleChange} />
