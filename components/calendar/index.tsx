@@ -37,6 +37,7 @@ export interface CalendarProps {
   onPanelChange?: (date?: moment.Moment, mode?: CalendarMode) => void;
   onSelect?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
+  validRange ?: [moment.Moment, moment.Moment];
 }
 
 export interface CalendarState {
@@ -166,6 +167,21 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     this.setValue(value, 'select');
   }
 
+  getDateRange = (
+    validRange: [moment.Moment, moment.Moment],
+    disabledDate?: (current: moment.Moment) => boolean,
+  ) => (current: moment.Moment) => {
+      if (!current) {
+        return false;
+      }
+      const [ startDate, endDate ] = validRange;
+      const inRange = !current.isBetween(startDate, endDate, 'days', '[]');
+      if (disabledDate) {
+        return (disabledDate(current) || inRange);
+      }
+      return inRange;
+    }
+
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
     const { value, mode } = state;
@@ -183,6 +199,12 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
 
+    let disabledDate = props.disabledDate;
+
+    if (props.validRange) {
+      disabledDate = this.getDateRange(props.validRange, disabledDate);
+    }
+
     return (
       <div className={cls} style={style}>
         <Header
@@ -193,9 +215,11 @@ export default class Calendar extends React.Component<CalendarProps, CalendarSta
           prefixCls={prefixCls}
           onTypeChange={this.onHeaderTypeChange}
           onValueChange={this.onHeaderValueChange}
+          validRange={props.validRange}
         />
         <FullCalendar
           {...props}
+          disabledDate={disabledDate}
           Select={noop}
           locale={locale.lang}
           type={type}
