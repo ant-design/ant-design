@@ -43,6 +43,7 @@ export interface TimePickerProps {
   minuteStep?: number;
   secondStep?: number;
   allowEmpty?: boolean;
+  inputReadOnly?: boolean;
   clearText?: string;
   defaultOpenValue?: moment.Moment;
   popupClassName?: string;
