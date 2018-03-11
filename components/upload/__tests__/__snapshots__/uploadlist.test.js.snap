@@ -221,3 +221,66 @@ exports[`Upload List should be uploading when upload a file 2`] = `
   </div>
 </span>
 `;
+
+exports[`Upload List should non-image format file preview 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button>
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class="ant-upload-list-item ant-upload-list-item-removed"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa.zip"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i
+              class="anticon anticon-file"
+              style="font-size: 48px; color: rgba(0, 0, 0, 0.5);"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa.zip"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="xxx.png"
+          >
+            xxx.png
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+  </div>
+</span>
+`;
