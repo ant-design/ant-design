@@ -261,4 +261,26 @@ describe('Upload List', () => {
     await delay(20);
     expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
   });
+
+  it('should non-image format file preview', () => {
+    const list = [
+      {
+        ...fileList[0],
+        uid: -3,
+        url: 'https://cdn.xxx.com/aaa.zip',
+        thumbUrl: 'data:application/zip;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
+        originFileObj: new File([], 'aaa.zip'),
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+      >
+        <button>upload</button>
+      </Upload>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
