@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input.Search should support custom Button 1`] = `
+<Search
+  enterButton={
+    <Button
+      ghost={false}
+      loading={false}
+      prefixCls="ant-btn"
+    >
+      ok
+    </Button>
+  }
+  inputPrefixCls="ant-input"
+  prefixCls="ant-input-search"
+>
+  <Input
+    className="ant-input-search ant-input-search-enter-button"
+    disabled={false}
+    onPressEnter={[Function]}
+    prefixCls="ant-input"
+    suffix={
+      <Button
+        className="ant-input-search-button"
+        ghost={false}
+        loading={false}
+        onClick={[Function]}
+        prefixCls="ant-btn"
+        size={undefined}
+        type="primary"
+      >
+        <Button
+          ghost={false}
+          loading={false}
+          prefixCls="ant-btn"
+        >
+          ok
+        </Button>
+      </Button>
+    }
+    type="text"
+  >
+    <span
+      className="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+      />
+      <span
+        className="ant-input-suffix"
+      >
+        <Button
+          className="ant-input-search-button"
+          ghost={false}
+          key="enterButton"
+          loading={false}
+          onClick={[Function]}
+          prefixCls="ant-btn"
+          type="primary"
+        >
+          <button
+            className="ant-btn ant-input-search-button ant-btn-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            <Button
+              ghost={false}
+              key=".0"
+              loading={false}
+              prefixCls="ant-btn"
+            >
+              <button
+                className="ant-btn"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  key=".0"
+                >
+                  ok
+                </span>
+              </button>
+            </Button>
+          </button>
+        </Button>
+      </span>
+    </span>
+  </Input>
+</Search>
+`;
+
+exports[`Input.Search should support custom button 1`] = `
+<Search
+  enterButton={
+    <button>
+      ok
+    </button>
+  }
+  inputPrefixCls="ant-input"
+  prefixCls="ant-input-search"
+>
+  <Input
+    className="ant-input-search ant-input-search-enter-button"
+    disabled={false}
+    onPressEnter={[Function]}
+    prefixCls="ant-input"
+    suffix={
+      <button
+        onClick={[Function]}
+      >
+        ok
+      </button>
+    }
+    type="text"
+  >
+    <span
+      className="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        disabled={false}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+      />
+      <span
+        className="ant-input-suffix"
+      >
+        <button
+          onClick={[Function]}
+        >
+          ok
+        </button>
+      </span>
+    </span>
+  </Input>
+</Search>
+`;
