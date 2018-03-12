@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Search from '../Search';
-import Button from '../../Button';
+import Button from '../../button';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('Input.Search', () => {
@@ -11,13 +11,13 @@ describe('Input.Search', () => {
     const wrapper = mount(
       <Search enterButton={<button>ok</button>} />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support custom Button', () => {
     const wrapper = mount(
       <Search enterButton={<Button>ok</Button>} />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
