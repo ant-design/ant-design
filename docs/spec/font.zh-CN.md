@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 视觉
-  en-US: Visual
+category: 视觉
 order: 3
-title:
-  zh-CN: 字体
-  en-US: Font
+title: 字体
 ---
 
 字体是体系化界面设计中最基本的构成之一。
