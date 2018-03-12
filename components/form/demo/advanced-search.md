@@ -107,8 +107,8 @@ ReactDOM.render(
   display: flex;
 }
 
-.ant-advanced-search-form .ant-form-item-label {
-  overflow: visible;
+.ant-advanced-search-form .ant-form-item-control-wrapper {
+  flex: 1;
 }
 ````
 
