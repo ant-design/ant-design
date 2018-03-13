@@ -22,7 +22,7 @@ export interface AlertProps {
   /** Callback when close Alert */
   onClose?: React.MouseEventHandler<HTMLAnchorElement>;
   /** Trigger when animation ending of Alert */
-  afterClose?: Function;
+  afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
   iconType?: string;
