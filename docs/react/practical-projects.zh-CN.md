@@ -71,7 +71,7 @@ $ npm install antd babel-plugin-import --save
 +  ],
 ```
 
-> 注：dva-cli 基于 roadhog 实现 build 和 dev，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
+> 注：dva-cli 基于 roadhog 实现 build 和 dev，更多 `.webpackrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
 
 ## 定义路由
 

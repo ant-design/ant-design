@@ -69,7 +69,7 @@ Edit `.webpackrc` to integrate `babel-plugin-import`.
 +  ],
 ```
 
-> Notice: dva-cli's build and dev is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
+> Notice: dva-cli's build and dev is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.webpackrc` Configuration.
 
 ## Define Router
 
