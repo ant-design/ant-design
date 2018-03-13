@@ -25,3 +25,4 @@ title: Alert
 | iconType | 自定义图标类型，`showIcon` 为 `true` 时有效 | string | - |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |
 | onClose | 关闭时触发的回调函数 | Function | 无 |
+| afterClose | 平滑、自然的卸载提示 | Function | 无 |

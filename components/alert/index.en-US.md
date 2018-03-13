@@ -24,3 +24,4 @@ Alert component for feedback.
 | iconType | Icon type, effective when `showIcon` is `true` | string | - |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |
 | onClose | Callback when Alert is closed | Function | - |
+| afterClose | Smoothly and unaffectedly unmount Alert | Function | - |
