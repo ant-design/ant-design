@@ -4,6 +4,7 @@ import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from './locale/en_US';
+import interopDefault from '../_util/interopDefault';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
@@ -74,7 +75,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
   constructor(props: TimePickerProps) {
     super(props);
     const value = props.value || props.defaultValue;
-    if (value && !moment.isMoment(value)) {
+    if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
         'see: https://u.ant.design/time-picker-value',
