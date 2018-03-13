@@ -29,10 +29,12 @@ const dimensionMap = {
   xxl: '1600px',
 };
 
+export type PositionType = 'left' | 'right';
 export type CollapseType = 'clickTrigger' | 'responsive';
 
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  position?: PositionType;
   collapsible?: boolean;
   collapsed?: boolean;
   defaultCollapsed?: boolean;
@@ -67,6 +69,7 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
 
   static defaultProps = {
     prefixCls: 'ant-layout-sider',
+    position: 'left' as PositionType,
     collapsible: false,
     defaultCollapsed: false,
     reverseArrow: false,
@@ -175,15 +178,19 @@ export default class Sider extends React.Component<SiderProps, SliderState> {
 
   render() {
     const { prefixCls, className,
-      collapsible, reverseArrow, trigger, style, width, collapsedWidth,
+      position, collapsible, reverseArrow, trigger, style, width, collapsedWidth,
       ...others,
     } = this.props;
     const divProps = omit(others, ['collapsed',
       'defaultCollapsed', 'onCollapse', 'breakpoint']);
     const siderWidth = this.state.collapsed ? collapsedWidth : width;
+    const zeroWidthTriggerClassName = position === 'left' ?
+      `${prefixCls}-zero-width-trigger ${prefixCls}-zero-width-trigger-left`
+      :
+      `${prefixCls}-zero-width-trigger ${prefixCls}-zero-width-trigger-right`;
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = collapsedWidth === 0 || collapsedWidth === '0' || collapsedWidth === '0px' ? (
-      <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
+      <span onClick={this.toggle} className={zeroWidthTriggerClassName}>
         <Icon type="bars" />
       </span>
     ) : null;

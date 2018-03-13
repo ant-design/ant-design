@@ -91,7 +91,6 @@
       &-trigger {
         position: absolute;
         top: @layout-header-height;
-        right: -@layout-zero-trigger-width;
         text-align: center;
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
@@ -102,6 +101,14 @@
         border-radius: 0 @border-radius-base @border-radius-base 0;
         cursor: pointer;
         transition: background .3s ease;
+
+        &-left {
+          right: -@layout-zero-trigger-width;
+        }
+
+        &-right {
+          left: -@layout-zero-trigger-width;
+        }
 
         &:hover {
           background: tint(@layout-sider-background, 10%);
