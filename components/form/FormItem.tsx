@@ -56,6 +56,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   context: FormItemContext;
 
+  state = { helpShow: false };
+
   componentDidMount() {
     warning(
       this.getControls(this.props.children, true).length <= 1,
@@ -89,7 +91,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
       const child = childrenArray[i] as React.ReactElement<any>;
       if (child.type &&
-          (child.type as any === FormItem || (child.type as any).displayName === 'FormItem')) {
+        (child.type as any === FormItem || (child.type as any).displayName === 'FormItem')) {
         continue;
       }
       if (!child.props) {
@@ -126,6 +128,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return this.getChildProp(FIELD_DATA_PROP);
   }
 
+  onHelpAnimEnd = (_key: string, helpShow: boolean) => {
+    this.setState({ helpShow });
+  }
+
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
@@ -135,7 +141,13 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       </div>
     ) : null;
     return (
-      <Animate transitionName="show-help" component="" transitionAppear key="help">
+      <Animate
+        transitionName="show-help"
+        component=""
+        transitionAppear
+        key="help"
+        onEnd={this.onHelpAnimEnd}
+      >
         {children}
       </Animate>
     );
@@ -298,7 +310,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const style = props.style;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
+      [`${prefixCls}-item-with-help`]: !!this.getHelpMsg() || this.state.helpShow,
       [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
