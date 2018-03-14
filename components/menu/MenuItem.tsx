@@ -18,13 +18,17 @@ class MenuItem extends React.Component<any, any> {
   render() {
     const { inlineCollapsed } = this.context;
     const props = this.props;
-    return <Tooltip
-      title={inlineCollapsed && props.level === 1 ? props.children : ''}
-      placement="right"
-      overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
-    >
-      <Item {...props} ref={this.saveMenuItem} />
-    </Tooltip>;
+    const item = <Item {...props} ref={this.saveMenuItem} />;
+    if (inlineCollapsed && props.level === 1) {
+      return <Tooltip
+        title={props.children}
+        placement="right"
+        overlayClassName={`${props.rootPrefixCls}-inline-collapsed-tooltip`}
+      >
+        {item}
+      </Tooltip>;
+    }
+    return item;
   }
 }
 
