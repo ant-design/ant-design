@@ -11,7 +11,6 @@
 .@{table-prefix-cls} {
   .reset-component;
   position: relative;
-  border-radius: @border-radius-base @border-radius-base 0 0;
   clear: both;
 
   &-body {
@@ -33,14 +32,6 @@
     color: @heading-color;
     font-weight: 500;
     border-bottom: @border-width-base @border-style-base @border-color-split;
-
-    &:first-child {
-      border-top-left-radius: @border-radius-base;
-    }
-
-    &:last-child {
-      border-top-right-radius: @border-radius-base;
-    }
 
     &[colspan] {
       text-align: center;
@@ -75,6 +66,16 @@
     // https://github.com/ant-design/ant-design/issues/8979
     &.@{table-prefix-cls}-column-has-filters {
       overflow: hidden;
+    }
+  }
+
+  &-thead > tr:first-child > th {
+    &:first-child {
+      border-top-left-radius: @border-radius-base;
+    }
+
+    &:last-child {
+      border-top-right-radius: @border-radius-base;
     }
   }
 
@@ -138,7 +139,8 @@
     overflow: hidden;
     .@{table-prefix-cls}-bordered & {
       &,
-      table {
+      table,
+      .@{table-prefix-cls}-thead > tr:first-child > th {
         border-radius: 0;
       }
     }
