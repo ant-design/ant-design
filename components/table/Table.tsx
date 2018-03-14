@@ -754,7 +754,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
       }
       column.title = (
-        <span>
+        <span key={key}>
           {column.title}
           {sortButton}
           {filterDropdown}
