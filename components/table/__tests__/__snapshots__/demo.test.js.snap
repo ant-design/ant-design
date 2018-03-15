@@ -1299,41 +1299,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         >
           <label
             class=""
-            title="Pagination"
-          >
-            Pagination
-          </label>
-        </div>
-        <div
-          class="ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <span
-                checked=""
-                class="ant-switch ant-switch-checked"
-                tabindex="0"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </span>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-row ant-form-item"
-      >
-        <div
-          class="ant-form-item-label"
-        >
-          <label
-            class=""
             title="Title"
           >
             Title
@@ -1622,6 +1587,113 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Pagination"
+          >
+            Pagination
+          </label>
+        </div>
+        <div
+          class="ant-form-item-control-wrapper"
+        >
+          <div
+            class="ant-form-item-control"
+          >
+            <span
+              class="ant-form-item-children"
+            >
+              <div
+                class="ant-radio-group"
+              >
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="top"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Top
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                >
+                  <span
+                    class="ant-radio-button ant-radio-button-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="bottom"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Bottom
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="both"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Both
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="none"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    None
+                  </span>
+                </label>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
   <div
@@ -1633,38 +1705,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <ul
-          class="ant-pagination ant-table-pagination"
-          unselectable="unselectable"
-        >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
         <div
           class="ant-table ant-table-default ant-table-scroll-position-left"
         >
