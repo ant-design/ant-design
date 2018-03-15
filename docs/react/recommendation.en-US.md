@@ -25,6 +25,7 @@ Code highlight | [react-syntax-highlighter](https://github.com/conorhastings/rea
 Markdown renderer | [react-markdown](http://rexxars.github.io/react-markdown/)
 Infinite Scroll | [react-virtualized](https://github.com/bvaughn/react-virtualized)
 Map | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap](https://github.com/ElemeFE/react-amap)
+Context Menu | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify)
 Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 
 <style>
