@@ -29,7 +29,7 @@ An enterprise-class UI design language and React-based implementation.
 - An enterprise-class UI design system for desktop applications.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with predictable static types.
-- Work with great development and design resources and tools.
+- The whole package of development and design resources and tools.
 
 ## Environment Support
 
