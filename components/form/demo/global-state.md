@@ -59,7 +59,7 @@ class Demo extends React.Component {
   };
   handleFormChange = (changedFields) => {
     this.setState(({ fields }) => ({
-      fields: { ...fields, ...changedFields }
+      fields: { ...fields, ...changedFields },
     }));
   }
   render() {
