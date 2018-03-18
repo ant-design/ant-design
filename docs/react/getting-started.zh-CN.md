@@ -5,24 +5,25 @@ title: 快速上手
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
+> 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v6.5 或以上。
+> 官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
+
 ---
 
-在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v6.5 或以上。
+## 在线演示
 
-## 第一个例子
-
-最简单的使用方式参照以下 CodeSandbox 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
+最简单的使用方式参照以下 CodeSandbox 演示，也推荐 Fork 本例来进行 `Bug Report`。
 
 - [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
-## 标准开发
+## 第一个本地实例
 
 实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
 我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装脚手架工具
 
-[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，真实项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli)。
+[antd-init](https://github.com/ant-design/antd-init/) 是一个用于演示 antd 如何使用的脚手架工具，实际业务项目建议使用 [dva-cli](https://github.com/dvajs/dva-cli) 和 [create-react-app](https://github.com/facebookincubator/create-react-app) 进行搭建。
 
 ```bash
 $ npm install antd-init -g
@@ -30,8 +31,9 @@ $ npm install antd-init -g
 
 更多功能请参考 [脚手架工具](https://github.com/ant-design/antd-init/) 和 [开发工具文档](http://ant-tool.github.io/)。
 
-> 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
+> 您也可以使用以下脚手架和范例：
 >
+>   - [Ant Design Pro](http://pro.ant.design/)
 >   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)

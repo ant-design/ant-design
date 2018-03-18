@@ -64,12 +64,14 @@ $ npm install antd babel-plugin-import --save
 Edit `.webpackrc` to integrate `babel-plugin-import`.
 
 ```diff
+{
 +  "extraBabelPlugins": [
 +    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
-+  ],
++  ]
+}
 ```
 
-> Notice: dva-cli's build and dev is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
+> Notice: dva-cli's build and dev is based on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.webpackrc` Configuration.
 
 ## Define Router
 
@@ -149,8 +151,6 @@ dva manages the domain model with `model`, with reducers for synchronous state u
 Let's create a model `models/products.js` by typing:
 
 ```javascript
-import dva from 'dva';
-
 export default {
   namespace: 'products',
   state: [],

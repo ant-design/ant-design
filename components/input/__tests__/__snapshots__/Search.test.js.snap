@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input.Search should support custom Button 1`] = `
+<span
+  class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+>
+  <input
+    class="ant-input"
+    type="text"
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button
+      class="ant-btn ant-input-search-button"
+      type="button"
+    >
+      <span>
+        ok
+      </span>
+    </button>
+  </span>
+</span>
+`;
+
+exports[`Input.Search should support custom button 1`] = `
+<span
+  class="ant-input-search ant-input-search-enter-button ant-input-affix-wrapper"
+>
+  <input
+    class="ant-input"
+    type="text"
+  />
+  <span
+    class="ant-input-suffix"
+  >
+    <button>
+      ok
+    </button>
+  </span>
+</span>
+`;

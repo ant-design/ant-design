@@ -23,7 +23,7 @@ You can use this [example](https://github.com/ant-design/antd-init/tree/master/e
 
 ### 1) Using `theme` property (recommended way)
 
-Specify the `theme` property in the `package.json` or `.roadhogrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
+Specify the `theme` property in the `package.json` or `.webpackrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
 - example of directly specifying the custom values as an object:
 ```js
 "theme": {
