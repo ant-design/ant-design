@@ -18,7 +18,7 @@ timeline: true
 
 `2018-03-18`
 
-- 💄 danger Button 的 `focus` 样式现在与 `hover` 相同
+- 💄 调整danger Button 的 `focus` 样式
 - 🐞 修复 enterButton 的值为 button 元素时显示错误的问题。 [#9639](https://github.com/ant-design/ant-design/issues/9639)
 - 🐞 修复 Table 中的 `column.title` 的缺少 key 的问题 [#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
 - 🐞 修复 `scroll: { x: true }` 在 `.ant-table-scroll table`宽度为 `auto`的情况下不工作的问题。[#9704](https://github.com/ant-design/ant-design/pull/9704)

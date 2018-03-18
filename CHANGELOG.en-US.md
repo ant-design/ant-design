@@ -18,7 +18,7 @@ timeline: true
 
 `2018-03-18`
 
-- 💄 danger Button's `focus` style is now the same as `hover`
+- 💄 Tweak danger button focus style
 - 🐞 Fix a show error when the value of enterButton is a button element.[#9639](https://github.com/ant-design/ant-design/issues/9639)
 - 🐞 Fix missing key of `column.title` in Table [#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
 - 🐞 Fix `scroll: { x: true }` not working if `.ant-table-scroll table` width is `auto` [#9704](https://github.com/ant-design/ant-design/pull/9704)
