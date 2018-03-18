@@ -1,6 +1,5 @@
 const locale = {
-    placeholder: 'Izberite čas',
-  };
-  
-  export default locale;
-  
+  placeholder: 'Izberite čas',
+};
+
+export default locale;
