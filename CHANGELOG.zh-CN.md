@@ -14,6 +14,15 @@ timeline: true
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+## 3.3.1
+
+`2018-03-18`
+
+- 💄 调整 danger button 的 focus 样式
+- 🌟 Search 新增 enterButton 属性。用于自定义 enterButton
+- 🐞 修复table 中的column.title的缺少 key 的问题 [#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
+- 🐞 修复`scroll: { x: true }` 在 设置 `.ant-table-scroll table` 宽度为 `auto` 时不工作 [#9704](https://github.com/ant-design/ant-design/pull/9704)
+- 🐞 修复 helper 消息消失的时候输入框会抖一下的问题 [#8831](https://github.com/ant-design/ant-design/issues/8831)
 
 ## 3.3.0
 

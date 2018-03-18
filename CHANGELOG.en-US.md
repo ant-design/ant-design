@@ -14,6 +14,15 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+## 3.3.1
+
+`2018-03-18`
+
+- 💄 Tweak danger button focus style
+- 🌟 Add `enterButton` prop for `Search` to custom enterButton
+- 🐞 Fix missing key of column.title in Table [#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
+- 🐞 Fix table scroll x no work  [#9704](https://github.com/ant-design/ant-design/pull/9704)
+- 🐞 Fix when the helper message disappears, the input box will shake [#8831](https://github.com/ant-design/ant-design/issues/8831)
 
 ## 3.3.0
 
