@@ -10,7 +10,7 @@ describe('Carousel', () => {
     expect(innerSlider).toBe(innerSliderFromRefs);
     expect(typeof innerSlider.slickNext).toBe('function');
   });
-  
+
   it('should have exposed slick methods', () => {
     const wrapper = mount(<Carousel><div /></Carousel>);
     const { next, prev, goTo } = wrapper.instance();
