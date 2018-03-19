@@ -14,7 +14,17 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+## 3.3.1
 
+`2018-03-18`
+
+- 💄 Tweak danger button focus style.
+- 🐞 Fix a show error when the value of enterButton is a button element.  [#9639](https://github.com/ant-design/ant-design/issues/9639)
+- 🐞 Fix missing key of `column.title` in Table .[#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
+- 🐞 Fix `scroll: { x: true }` not working if `.ant-table-scroll table` width is `auto`. [#9704](https://github.com/ant-design/ant-design/pull/9704)
+- 🐞 Fix when the helper message disappears, the input box will shake.  [#8831](https://github.com/ant-design/ant-design/issues/8831)
+- 🐞 Fix isMoment call in `TimePicker` will report error in parcel. [85c78e4](https://github.com/ant-design/ant-design/commit/85c78e49a91737c2841dc42621db21ca248b62b4)
+- 🐞 Tweak `Table` border radius. [#9674](https://github.com/ant-design/ant-design/pull/9674)
 ## 3.3.0
 
 `2018-03-12`
