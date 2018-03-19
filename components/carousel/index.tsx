@@ -83,6 +83,10 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
     });
+
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
+    this.goTo = this.goTo.bind(this);
   }
 
   componentDidMount() {
