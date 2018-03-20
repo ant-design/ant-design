@@ -14,6 +14,9 @@ export interface RangePickerState {
   showDate?: RangePickerValue;
   open?: boolean;
   hoverValue?: RangePickerValue;
+  comparedOption?: string;
+  comparedSelectedValue?: RangePickerValue;
+  footerOption?: number;
 }
 
 function getShowDateFromValue(value: RangePickerValue) {
@@ -89,6 +92,8 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       showDate: pickerValueAdapter(pickerValue || interopDefault(moment)()),
       open: props.open,
       hoverValue: [],
+      comparedSelectedValue: this.getComparedValueFromOption(props.comparedOptions[0].value),
+      comparedOption: props.comparedOptions[0].value,
     };
   }
 
@@ -125,6 +130,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
         showDate: getShowDateFromValue(value) || showDate,
       }));
     }
+    this.onComparedOptionChange(this.state.comparedOption, value);
     props.onChange(value, [
       formatValue(value[0], props.format),
       formatValue(value[1], props.format),
@@ -171,7 +177,8 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       value = value();
     }
 
-    this.setValue(value, true);
+    //this.setValue(value, true);
+    this.setValue(value);
 
     const { onOk } = this.props;
     if (onOk) {
@@ -182,7 +189,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
   setValue(value: RangePickerValue, hidePanel?: boolean) {
     this.handleChange(value);
     if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
-      this.setState({ open: false });
+      // this.setState({ open: false });
     }
   }
 
@@ -198,6 +205,44 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     this.picker = node;
   }
 
+  getInitialState() {
+    return {
+      comparedSelectedValue: this.getComparedValueFromOption(this.props.comparedOptions[0].value),
+    };
+  }
+
+  getComparedValueFromOption = (optionValue: string, value?: RangePickerValue) =>{
+    if(!value)
+        value = this.state && this.state.value? this.state.value: this.props.value || this.props.defaultValue;
+    var dataRange = moment(value[1]).diff(moment(value[0]), 'days');
+    var comparedSelectedValue = [moment(value[0]), moment(value[1])];
+    var options = this.state && this.state.options? this.state.options: this.props.comparedOptions;
+    for(var i = 0; i < options.length; i++){
+        if (options[i].value == optionValue) {
+        if (i == 0){
+            comparedSelectedValue[1] = moment(comparedSelectedValue[0]).subtract(1, 'day');
+            comparedSelectedValue[0] = moment(comparedSelectedValue[1]).subtract(dataRange, 'day');
+        } else if(i == 1){
+            comparedSelectedValue[1] = moment(comparedSelectedValue[1]).subtract(1, 'month');
+            comparedSelectedValue[0] = moment(comparedSelectedValue[0]).subtract(1, 'month');
+        } else if(i == 2){
+            comparedSelectedValue[1] = moment(comparedSelectedValue[1]).subtract(1, 'year');
+            comparedSelectedValue[0] = moment(comparedSelectedValue[0]).subtract(1, 'year');
+        }
+        }
+    }
+    return comparedSelectedValue;
+  }
+
+  onComparedOptionChange = (optionValue: string, value: RangePickerValue) =>{
+      var comparedSelectedValue = this.getComparedValueFromOption(optionValue, value);
+      this.setState({comparedSelectedValue: comparedSelectedValue, comparedOption: optionValue});
+  }
+
+  onSelect() {
+    this.setState({footerOption: -1});
+  }
+  
   renderFooter = (...args: any[]) => {
     const { prefixCls, ranges, renderExtraFooter } = this.props;
     if (!ranges && !renderExtraFooter) {
@@ -212,8 +257,11 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       const value = ranges[range];
       return (
         <a
+          className = {this.state.footerOption == range? 'selected': ''}
           key={range}
-          onClick={() => this.handleRangeClick(value)}
+          onClick={() => {
+            this.setState({footerOption: range});
+            return this.setValue(value, true);}}
           onMouseEnter={() => this.setState({ hoverValue: value })}
           onMouseLeave={this.handleRangeMouseLeave}
         >
@@ -231,13 +279,13 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
 
   render() {
     const { state, props } = this;
-    const { value, showDate, hoverValue, open } = state;
+    const { value, showDate, hoverValue, open, comparedSelectedValue } = state;
     const {
       prefixCls, popupStyle, style,
       disabledDate, disabledTime,
       showTime, showToday,
-      ranges, onOk, locale, localeCode, format,
-      dateRender, onCalendarChange,
+      ranges, onOk, locale, localeCode, format, comparedOptions, 
+      dateRender, onCalendarChange, isCompared
     } = props;
 
     fixLocale(value, localeCode);
@@ -274,6 +322,12 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const calendar = (
       <RangeCalendar
         {...calendarProps}
+        onSelect= {this.onSelect}
+        isCompared = {isCompared}
+        comparedOption= {comparedOption}
+        comparedSelectedValue= {comparedSelectedValue}
+        onComparedOptionChange= { this.onComparedOptionChange}
+        comparedOptions= { comparedOptions}
         onChange={onCalendarChange}
         format={format}
         prefixCls={prefixCls}
