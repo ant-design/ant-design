@@ -51,7 +51,7 @@
     "omit.js": "^1.0.0",
     "prop-types": "^15.5.7",
     "rc-animate": "^2.4.1",
-    "rc-calendar": "~9.6.0",
+    "rc-calendar": "qingbolove/calendar#522a5a1ad9d63674f103af14d31caab7166cbebf",
     "rc-cascader": "~0.12.0",
     "rc-checkbox": "~2.1.5",
     "rc-collapse": "~1.8.0",
