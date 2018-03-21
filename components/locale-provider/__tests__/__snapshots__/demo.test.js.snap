@@ -66,6 +66,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
         <li
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
+          tabindex="0"
           title="Previous Page"
         >
           <a
@@ -1553,6 +1554,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     <li
       aria-disabled="true"
       class="ant-pagination-disabled ant-pagination-prev"
+      tabindex="0"
       title="Previous Page"
     >
       <a

@@ -374,6 +374,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         <li
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
+          tabindex="0"
           title="Previous Page"
         >
           <a
@@ -392,6 +393,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         <li
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-next"
+          tabindex="0"
           title="Next Page"
         >
           <a
