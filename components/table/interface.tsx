@@ -13,6 +13,7 @@ export interface ColumnProps<T> {
   key?: React.Key;
   dataIndex?: string;
   render?: (text: any, record: T, index: number) => React.ReactNode;
+  align?: 'left' | 'right' | 'center';
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
