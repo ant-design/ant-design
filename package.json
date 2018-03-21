@@ -131,6 +131,7 @@
     "majo": "^0.4.1",
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
+    "postcss-less": "1.1.3",
     "pre-commit": "^1.2.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
