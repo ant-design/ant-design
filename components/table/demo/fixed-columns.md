@@ -15,7 +15,7 @@ title:
 
 ## en-US
 
-To fix some columns and scroll inside other columns, and you must set `scoll.x` meanwhile.
+To fix some columns and scroll inside other columns, and you must set `scroll.x` meanwhile.
 
 > Specify the width of columns if header and cell do not align properly.
 

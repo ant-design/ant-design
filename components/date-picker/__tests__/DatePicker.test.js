@@ -17,7 +17,7 @@ describe('DatePicker', () => {
   focusTest(DatePicker);
 
   beforeEach(() => {
-    MockDate.set(new Date('2016-11-22'));
+    MockDate.set(moment('2016-11-22'));
   });
 
   afterEach(() => {

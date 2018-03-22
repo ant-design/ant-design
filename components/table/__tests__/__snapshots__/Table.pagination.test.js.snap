@@ -79,7 +79,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
         <li
           aria-disabled="true"
           class="ant-pagination-disabled ant-pagination-prev"
-          tabindex="0"
           title="Previous Page"
         >
           <a

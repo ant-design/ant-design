@@ -25,6 +25,7 @@ title: 社区精选组件
 Markdown 渲染 | [react-markdown](http://rexxars.github.io/react-markdown/)
 无限滚动 | [react-virtualized](https://github.com/bvaughn/react-virtualized)
 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap)
+右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify)
 Emoji | [emoji-mart](https://github.com/missive/emoji-mart)
 
 <style>

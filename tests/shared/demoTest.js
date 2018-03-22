@@ -1,6 +1,7 @@
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
+import moment from 'moment';
 
 export default function demoTest(component, options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
@@ -11,7 +12,7 @@ export default function demoTest(component, options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(new Date('2016-11-22').getTime() + (new Date().getTimezoneOffset() * 60 * 1000));
+      MockDate.set(moment('2016-11-22'));
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
       expect(wrapper).toMatchSnapshot();

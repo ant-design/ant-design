@@ -327,6 +327,9 @@
     z-index: 2;
     line-height: 0;
     color: @input-color;
+    :not(.anticon) {
+      line-height: @line-height-base;
+    }
   }
 
   .@{inputClass}-prefix {

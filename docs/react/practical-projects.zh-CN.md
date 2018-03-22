@@ -66,12 +66,14 @@ $ npm install antd babel-plugin-import --save
 编辑 `.webpackrc`，使 `babel-plugin-import` 插件生效。
 
 ```diff
+{
 +  "extraBabelPlugins": [
 +    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
-+  ],
++  ]
+}
 ```
 
-> 注：dva-cli 基于 roadhog 实现 build 和 dev，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
+> 注：dva-cli 基于 roadhog 实现 build 和 dev，更多 `.webpackrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
 
 ## 定义路由
 
@@ -151,8 +153,6 @@ dva 通过 model 的概念把一个领域的模型管理起来，包含同步更
 新建 model `models/products.js` ：
 
 ```javascript
-import dva from 'dva';
-
 export default {
   namespace: 'products',
   state: [],
