@@ -93,12 +93,12 @@ const columns = [{
       onMouseEnter: () => {},  // 鼠标移入行
       onXxxx...
     };
-  )}
+  }}
   onHeaderRow={(column) => {
     return {
       onClick: () => {},        // 点击表头行
     };
-  )}
+  }}
 />
 ```
 

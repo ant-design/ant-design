@@ -91,12 +91,12 @@ Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
       onMouseEnter: () => {},  // mouse enter row
       onXxxx...
     };
-  )}
+  }}
   onHeaderRow={(column) => {
     return {
       onClick: () => {},        // click header row
     };
-  )}
+  }}
 />
 ```
 
