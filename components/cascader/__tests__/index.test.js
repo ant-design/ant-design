@@ -46,6 +46,16 @@ describe('Cascader', () => {
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
+  it('support controlled mode', () => {
+    const wrapper = mount(
+      <Cascader options={options} />
+    );
+    wrapper.setProps({
+      value: ['zhejiang', 'hangzhou', 'xihu'],
+    });
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('popup correctly with defaultValue', () => {
     const wrapper = mount(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />
