@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -78,7 +78,7 @@
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.12",
-    "react-slick": "~0.20.0",
+    "react-slick": "~0.21.0",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },
