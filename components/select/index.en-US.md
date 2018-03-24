@@ -40,7 +40,7 @@ Select component to select value from options.
 | mode | Set mode of Select (Support after 2.9) | 'default' \| 'multiple' \| 'tags' \| 'combobox' | 'default' |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |
-| optionLabelProp | Which prop value of option will render as content of select. | string | `children` |
+| optionLabelProp | Which prop value of option will render as content of select. | string | `value` for `combobox`, `children` for other modes |
 | placeholder | Placeholder of select | string\|ReactNode | - |
 | showSearch | Whether show search input in single mode. | boolean | false |
 | showArrow | Whether to show the drop-down arrow | boolean |  true |
