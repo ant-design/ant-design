@@ -30,7 +30,7 @@ title: Ant Design of React
 - 提炼自企业级中后台产品的交互语言和视觉风格。
 - 开箱即用的高质量 React 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
-- 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
+- 全链路开发和设计工具体系。
 
 ## 支持环境
 

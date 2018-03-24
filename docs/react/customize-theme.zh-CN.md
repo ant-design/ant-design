@@ -24,7 +24,7 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 
 ### 1) theme 属性（推荐）
 
-配置在 `package.json` 或 `.roadhogrc` 下的 `theme` 字段。theme 可以为配置为一个对象或文件路径。
+配置在 `package.json` 或 `.webpackrc` 下的 `theme` 字段。theme 可以配置为一个对象或文件路径。
 
 ```js
 "theme": {

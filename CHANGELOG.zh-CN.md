@@ -14,6 +14,28 @@ timeline: true
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+## 3.3.2
+
+`2018-03-24`
+
+- 🐞 `Carousel`: 升级 `react-slick` 版本以修复宽度计算错误。 [#3659](https://github.com/ant-design/ant-design/issues/3659)
+- 💄 `Rate`: 调整 `disabled` 样式。 [#9747](https://github.com/ant-design/ant-design/issues/9747)
+- 💄 `Modal`: 调整 `confirm-modal` 样式以修复标题多行展示问题。 [#9374](https://github.com/ant-design/ant-design/issues/9374)
+- 💄 `Menu`: 调整样式以修复鼠标事件范围。[#9666](https://github.com/ant-design/ant-design/pull/9666) [@dgeibi](https://github.com/dgeibi)
+- 🐞 `Upload`: 修复 `beforeUpload` 的 `file` 类型错误。 [#9775](https://github.com/ant-design/ant-design/issues/9775)
+- 🐞 `Button`: 修复文本改变时，空格插入没有重新计算 [4502ad8](https://github.com/ant-design/ant-design/commit/4502ad8376e536c450fa4f27d2a5855be5a153e7)
+
+## 3.3.1
+
+`2018-03-18`
+
+- 💄 调整 danger Button 的 `focus` 样式。
+- 🐞 修复 enterButton 的值为 button 元素时显示错误的问题。 [#9639](https://github.com/ant-design/ant-design/issues/9639)
+- 🐞 修复 Table 中的 `column.title` 的缺少 key 的问题。 [#9658](https://github.com/ant-design/ant-design/issues/9658) [@terence55](https://github.com/terence55)
+- 🐞 修复 `scroll: { x: true }` 在 `.ant-table-scroll table`宽度为 `auto`的情况下不工作的问题。[#9704](https://github.com/ant-design/ant-design/pull/9704)
+- 🐞 修复表单校验文字消失的时候输入框会抖一下的问题。 [#8831](https://github.com/ant-design/ant-design/issues/8831)
+- 🐞 修复 `TimePicker` 里的 isMoment 调用在 parcel 里会报错的问题。[85c78e4](https://github.com/ant-design/ant-design/commit/85c78e49a91737c2841dc42621db21ca248b62b4)
+- 💄 调整 Table 的圆角样式。 [#9674](https://github.com/ant-design/ant-design/pull/9674)
 
 ## 3.3.0
 

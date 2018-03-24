@@ -214,3 +214,29 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
   </div>
 </div>
 `;
+
+exports[`Cascader support controlled mode 1`] = `
+<span
+  class="ant-cascader-picker"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  >
+    Zhejiang / Hangzhou / West Lake
+  </span>
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    readonly=""
+    type="text"
+    value=""
+  />
+  <i
+    class="anticon anticon-cross-circle ant-cascader-picker-clear"
+  />
+  <i
+    class="anticon anticon-down ant-cascader-picker-arrow"
+  />
+</span>
+`;

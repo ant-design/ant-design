@@ -71,8 +71,8 @@
 
 // LINK
 @link-color             : @primary-color;
-@link-hover-color       : @primary-5;
-@link-active-color      : @primary-7;
+@link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
+@link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
 @link-decoration        : none;
 @link-hover-decoration  : none;
 
@@ -423,6 +423,7 @@
 // ---
 @switch-height: 22px;
 @switch-sm-height: 16px;
+@switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
 
@@ -431,6 +432,7 @@
 @pagination-item-size: 32px;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
+@pagination-font-weight-active: 500;
 
 // Breadcrumb
 // ---

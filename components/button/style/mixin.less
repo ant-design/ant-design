@@ -54,9 +54,12 @@
 .button-variant-danger(@color; @background; @border) {
   .button-color(@color; @background; @border);
 
-  &:hover,
-  &:focus {
+  &:hover {
     .button-color(@btn-primary-color; ~`colorPalette("@{color}", 5)`; ~`colorPalette("@{color}", 5)`);
+  }
+
+  &:focus {
+    .button-color(~`colorPalette("@{color}", 5)`; #fff; ~`colorPalette("@{color}", 5)`);
   }
 
   &:active,
@@ -202,6 +205,7 @@
   &:active,
   &.active {
     background: @btn-default-bg;
+    text-decoration: none;
   }
 }
 
