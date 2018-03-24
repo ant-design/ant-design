@@ -208,3 +208,4 @@ There are a lot of great boilerplates like create-react-app in the React communi
 - [react-boilerplate/react-boilerplate](https://github.com/ant-design/react-boilerplate)
 - [kriasoft/react-starter-kit](https://github.com/ant-design/react-starter-kit)
 - [next.js](https://github.com/zeit/next.js/tree/master/examples/with-ant-design)
+- [nwb](https://github.com/insin/nwb-examples/tree/master/react-app-antd)
