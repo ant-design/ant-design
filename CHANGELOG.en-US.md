@@ -14,6 +14,17 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+## 3.3.2
+
+`2018-03-24`
+
+- 🐞 `Carousel`: Upgrade `react-slick` version to fix width calculation. [#3659](https://github.com/ant-design/ant-design/issues/3659)
+- 💄 `Rate`: Adjust `disabled` style. [#9747](https://github.com/ant-design/ant-design/issues/9747)
+- 💄 `Modal`: Adjust `confirm-modal` style to fix multiple line display issue. [#9374](https://github.com/ant-design/ant-design/issues/9374)
+- 💄 `Menu`: Adjust style to fix mouse trigger event region. [#9666](https://github.com/ant-design/ant-design/pull/9666) [@dgeibi](https://github.com/dgeibi)
+- 🐞 `Upload`: Fix type of `file` on `beforeUpload` function. [#9775](https://github.com/ant-design/ant-design/issues/9775)
+- 🐞 `Button`: Fix `two-chinese-words` space not re-calculate when text changed. [4502ad8](https://github.com/ant-design/ant-design/commit/4502ad8376e536c450fa4f27d2a5855be5a153e7)
+
 ## 3.3.1
 
 `2018-03-18`
