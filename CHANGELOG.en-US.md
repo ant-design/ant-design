@@ -14,6 +14,13 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 3.3.3
+
+`2018-03-25`
+
+- Revert Upload `file` type change in previous version  which causes breaking change.
+
 ## 3.3.2
 
 `2018-03-24`
