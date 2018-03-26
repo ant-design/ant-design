@@ -5,7 +5,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="slick-initialized slick-slider"
+    class="regular slider slick-initialized slick-slider"
     dir="ltr"
   >
     <div
@@ -110,7 +110,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="slick-initialized slick-slider"
+    class="regular slider slick-initialized slick-slider"
     dir="ltr"
   >
     <div
@@ -215,7 +215,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="slick-initialized slick-slider"
+    class="regular slider slick-initialized slick-slider"
     dir="ltr"
   >
     <div
@@ -275,7 +275,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
   class="ant-carousel ant-carousel-vertical"
 >
   <div
-    class="slick-initialized slick-slider slick-vertical"
+    class="regular slider slick-initialized slick-slider slick-vertical"
     dir="ltr"
   >
     <div
