@@ -50,14 +50,12 @@ export default class Header extends React.Component {
     const { intl, router } = this.context;
     router.listen(this.handleHideMenu);
     const { searchInput } = this;
-    /* eslint-disable global-require */
     document.addEventListener('keyup', (event) => {
       if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
       }
     });
     initDocSearch(intl.locale);
-    /* eslint-enable global-require */
   }
 
   handleShowMenu = () => {
