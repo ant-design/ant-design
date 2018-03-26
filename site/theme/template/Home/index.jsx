@@ -27,7 +27,6 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child #search-box,
     #header .ant-row > div:last-child .ant-select,
     #header .ant-row > div:last-child .ant-menu,
     #header .nav-phone-icon {
@@ -36,24 +35,19 @@ function getStyle() {
     #header .ant-row > div:last-child .header-lang-button {
       margin-right: 0;
     }
-    #header .ant-row .ant-col-lg-19,
-    #header .ant-row .ant-col-xl-19 {
-      width: 50%;
-      float: right;
-    }
-    footer .footer-wrap{
+    footer .footer-wrap {
       width: 100%;
       padding: 0;
     }
-    footer .bottom-bar{
+    footer .bottom-bar {
       margin: auto;
       max-width: 1200px;
       padding: 16px 24px;
     }
-    footer  .bottom-bar{
+    footer  .bottom-bar {
       border-top: none;
     }
-    footer .footer-wrap .ant-row{
+    footer .footer-wrap .ant-row {
       width: 100%;
       max-width: 1200px;
       padding: 86px 24px 93px 24px;
