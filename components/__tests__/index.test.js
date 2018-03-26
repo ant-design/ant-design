@@ -7,8 +7,7 @@ describe('antd', () => {
   });
 
   it('should hint when import all components', () => {
-    expect(warnSpy.mock.calls).toHaveLength(1);
-    expect(warnSpy.mock.calls[0][0]).toMatch(
+    expect(warnSpy).toBeCalledWith(
       'You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.'
     );
     warnSpy.mockRestore();
