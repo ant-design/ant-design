@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
+import interopDefault from '../_util/interopDefault';
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
 
 export interface Locale {
@@ -24,9 +25,9 @@ export interface LocaleProviderProps {
 
 function setMomentLocale(locale: Locale) {
   if (locale && locale.locale) {
-    moment.locale(locale.locale);
+    interopDefault(moment).locale(locale.locale);
   } else {
-    moment.locale('en');
+    interopDefault(moment).locale('en');
   }
 }
 
