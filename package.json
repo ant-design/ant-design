@@ -160,7 +160,7 @@
     "scrollama": "^1.4.1",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.0.0",
-    "typescript": "~2.7.2",
+    "typescript": "~2.8.1",
     "unified": "^6.1.5",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
