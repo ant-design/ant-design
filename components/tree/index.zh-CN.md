@@ -22,9 +22,7 @@ subtitle: 树形控件
 | defaultCheckedKeys | 默认选中复选框的树节点 | string\[] | \[] |
 | defaultExpandAll | 默认展开所有树节点 | boolean | false |
 | defaultExpandedKeys | 默认展开指定的树节点 | string\[] | \[] |
-| defaultExpandParent | 默认展开父节点 | bool | true |
 | defaultSelectedKeys | 默认选中的树节点 | string\[] | \[] |
-| disabled | 将树禁用 | bool | false |
 | draggable | 设置节点可拖拽（IE>8） | boolean | false |
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |
 | filterTreeNode | 按需筛选树节点（高亮），返回true | function(node) | - |
@@ -50,7 +48,6 @@ subtitle: 树形控件
 | --- | --- | --- | --- |
 | disableCheckbox | 禁掉 checkbox | boolean | false |
 | disabled | 禁掉响应 | boolean | false |
-| icon | 自定义图标。可接收组件，props 为当前节点 props | element/Function(props):ReactNode | - |
 | isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
 | selectable | 设置节点是否可被选中 | boolean | true |
