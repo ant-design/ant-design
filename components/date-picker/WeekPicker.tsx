@@ -84,7 +84,6 @@ export default class WeekPicker extends React.Component<any, any> {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
-      style, onFocus, onBlur,
     } = this.props;
 
     const pickerValue = this.state.value;
@@ -124,9 +123,8 @@ export default class WeekPicker extends React.Component<any, any> {
             value={(value && value.format(format)) || ''}
             placeholder={placeholder}
             className={pickerInputClass}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            style={style}
+            onFocus={this.props.onFocus}
+            onBlur={this.props.onBlur}
           />
           {clearIcon}
           <span className={`${prefixCls}-picker-icon`} />
