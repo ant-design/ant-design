@@ -21,7 +21,9 @@ Almost anything can be represented in a tree structure. Examples include directo
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |
 | defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |
+| defaultExpandParent | auto expand parent treeNodes when init | bool | true |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |
+| disabled | whether disabled the tree | bool | false |
 | draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |
@@ -47,6 +49,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | -------- | ----------- | ---- | ------- |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disables the treeNode | boolean | false |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | element/Function(props):ReactNode | - |
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |
 | selectable | Set whether the treeNode can be selected | boolean | true |
