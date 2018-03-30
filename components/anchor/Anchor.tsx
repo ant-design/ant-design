@@ -8,11 +8,11 @@ import AnchorLink from './AnchorLink';
 import getScroll from '../_util/getScroll';
 import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
-function getDefaultTarget() {
+function getDefaultContainer() {
   return window;
 }
 
-function getOffsetTop(element: HTMLElement): number {
+function getOffsetTop(element: HTMLElement, container: AnchorContainer): number {
   if (!element) {
     return 0;
   }
@@ -24,9 +24,11 @@ function getOffsetTop(element: HTMLElement): number {
   const rect = element.getBoundingClientRect();
 
   if (rect.width || rect.height) {
-    const doc = element.ownerDocument;
-    const docElem = doc.documentElement;
-    return rect.top - docElem.clientTop;
+    if (container === window) {
+      container = element.ownerDocument.documentElement;
+      return rect.top - container.clientTop;
+    }
+    return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
 
   return rect.top;
@@ -43,21 +45,27 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 
 const reqAnimFrame = getRequestAnimationFrame();
 const sharpMatcherRegx = /#([^#]+)$/;
-function scrollTo(href: string, offsetTop = 0, target: () => Window | HTMLElement, callback = () => { }) {
-  const scrollTop = getScroll(target(), true);
+function scrollTo(href: string, offsetTop = 0, getContainer: () => AnchorContainer, callback = () => { }) {
+  const container = getContainer();
+  const scrollTop = getScroll(container, true);
   const sharpLinkMatch = sharpMatcherRegx.exec(href);
   if (!sharpLinkMatch) { return; }
   const targetElement = document.getElementById(sharpLinkMatch[1]);
   if (!targetElement) {
     return;
   }
-  const eleOffsetTop = getOffsetTop(targetElement);
+  const eleOffsetTop = getOffsetTop(targetElement, container);
   const targetScrollTop = scrollTop + eleOffsetTop - offsetTop;
   const startTime = Date.now();
   const frameFunc = () => {
     const timestamp = Date.now();
     const time = timestamp - startTime;
-    window.scrollTo(window.pageXOffset, easeInOutCubic(time, scrollTop, targetScrollTop, 450));
+    const nextScrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
+    if (container === window) {
+      window.scrollTo(window.pageXOffset, nextScrollTop);
+    } else {
+      (container as HTMLElement).scrollTop = nextScrollTop;
+    }
     if (time < 450) {
       reqAnimFrame(frameFunc);
     } else {
@@ -73,6 +81,8 @@ type Section = {
   top: number;
 };
 
+export type AnchorContainer =  HTMLElement | Window;
+
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
@@ -82,7 +92,14 @@ export interface AnchorProps {
   bounds?: number;
   affix?: boolean;
   showInkInFixed?: boolean;
-  target?: () => HTMLElement | Window;
+  getContainer?: () => AnchorContainer;
+}
+
+export interface AnchorDefaultProps extends AnchorProps {
+  prefixCls: string;
+  affix: boolean;
+  showInkInFixed: boolean;
+  getContainer: () => AnchorContainer;
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
@@ -92,6 +109,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     prefixCls: 'ant-anchor',
     affix: true,
     showInkInFixed: false,
+    getContainer: getDefaultContainer,
   };
 
   static childContextTypes = {
@@ -133,8 +151,8 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   componentDidMount() {
-    const getTarget = this.props.target || getDefaultTarget;
-    this.scrollEvent = addEventListener(getTarget(), 'scroll', this.handleScroll);
+    const { getContainer } = this.props as AnchorDefaultProps;
+    this.scrollEvent = addEventListener(getContainer(), 'scroll', this.handleScroll);
     this.handleScroll();
   }
 
@@ -159,10 +177,10 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, target = getDefaultTarget } = this.props;
+    const { offsetTop, getContainer } = this.props as AnchorDefaultProps;
     this.animating = true;
     this.setState({ activeLink: link });
-    scrollTo(link, offsetTop, target, () => {
+    scrollTo(link, offsetTop, getContainer, () => {
       this.animating = false;
     });
   }
@@ -174,16 +192,20 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }
 
     const linkSections: Array<Section> = [];
+    const { getContainer } = this.props as AnchorDefaultProps;
+    const container = getContainer();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
       if (!sharpLinkMatch) { return; }
       const target = document.getElementById(sharpLinkMatch[1]);
-      if (target && getOffsetTop(target) < offsetTop + bounds) {
-        const top = getOffsetTop(target);
-        linkSections.push({
-          link,
-          top,
-        });
+      if (target) {
+        const top = getOffsetTop(target, container);
+        if (top < offsetTop + bounds) {
+          linkSections.push({
+            link,
+            top,
+          });
+        }
       }
     });
 
