@@ -68,6 +68,85 @@ exports[`Modal render correctly 1`] = `
 </div>
 `;
 
+exports[`Modal render with very long word fill in title 1`] = `
+<div>
+  <div />
+  <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      aria-labelledby="rcDialogTitle2"
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
+      >
+        <div
+          class="ant-modal-content"
+        >
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+          >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-header"
+          >
+            <div
+              class="ant-modal-title"
+              id="rcDialogTitle2"
+            >
+              Modal very long title:1:abcdefghijklmnopqrstuvwxyz:it:is:so:long:maybe:over:mask:view
+            </div>
+          </div>
+          <div
+            class="ant-modal-body"
+          >
+            Here is content of Modal
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Modal render without footer 1`] = `
 <div>
   <div />
