@@ -35,13 +35,14 @@ import faIR from '../fa_IR';
 import elGR from '../el_GR';
 import nbNO from '../nb_NO';
 import srRS from '../sr_RS';
+import slSI from '../sl_SI';
 import isIS from '../is_IS';
 import arEG from '../ar_EG';
 import ukUA from '../uk_UA';
 import zhCN from '../zh_CN';
 import kuIQ from '../ku_IQ';
 
-const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, isIS, arEG, ukUA, zhCN, kuIQ];
+const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS, arEG, ukUA, zhCN, kuIQ];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;

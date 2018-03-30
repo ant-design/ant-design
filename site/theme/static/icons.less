@@ -10,18 +10,18 @@ ul.anticons-list {
     cursor: pointer;
     height: 100px;
     color: #555;
-    transition: all .3s;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
     position: relative;
     margin: 3px 0;
     border-radius: 4px;
     background-color: #fff;
     overflow: hidden;
     padding: 10px 0 0;
-
     .anticon {
       font-size: 24px;
       margin: 12px 0 16px;
-      transition: all .3s;
+      transition: transform .3s ease-in-out;
+      will-change: transform;
     }
 
     .anticon-class {
@@ -30,6 +30,9 @@ ul.anticons-list {
       transform: scale(0.83);
       font-family: "Lucida Console", Consolas;
       white-space: nowrap;
+      .ant-badge {
+        transition: color .3s ease-in-out;
+      }
     }
 
     &:hover {
@@ -37,6 +40,9 @@ ul.anticons-list {
       color: #fff;
       .anticon {
         transform: scale(1.4);
+      }
+      .ant-badge {
+        color: #fff;
       }
     }
 

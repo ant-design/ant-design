@@ -14,13 +14,20 @@ timeline: true
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+## 3.3.3
+
+`2018-03-25`
+
+- 回退上个版本 Upload 中 `file` 类型的修改。
+
 ## 3.3.2
 
 `2018-03-24`
 
 - 🐞 `Carousel`: 升级 `react-slick` 版本以修复宽度计算错误。 [#3659](https://github.com/ant-design/ant-design/issues/3659)
 - 💄 `Rate`: 调整 `disabled` 样式。 [#9747](https://github.com/ant-design/ant-design/issues/9747)
-- 💄 `Modal`: 调整 `confirm-modal` 样式以修复标题多行展示问题。 [#9374](https://github.com/ant-design/ant-design/issues/9374)
+- 💄 `Modal`: 调整 `confirm-modal` 样式以修复 content 内使用栅格会错位的问题。 [#9374](https://github.com/ant-design/ant-design/issues/9374)
 - 💄 `Menu`: 调整样式以修复鼠标事件范围。[#9666](https://github.com/ant-design/ant-design/pull/9666) [@dgeibi](https://github.com/dgeibi)
 - 🐞 `Upload`: 修复 `beforeUpload` 的 `file` 类型错误。 [#9775](https://github.com/ant-design/ant-design/issues/9775)
 - 🐞 `Button`: 修复文本改变时，空格插入没有重新计算 [4502ad8](https://github.com/ant-design/ant-design/commit/4502ad8376e536c450fa4f27d2a5855be5a153e7)

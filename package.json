@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -62,7 +62,7 @@
     "rc-input-number": "~4.0.0",
     "rc-menu": "~6.2.0",
     "rc-notification": "~3.0.0",
-    "rc-pagination": "~1.16.0",
+    "rc-pagination": "~1.16.1",
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.4.0",
     "rc-select": "~7.7.0",
@@ -78,7 +78,7 @@
     "rc-upload": "~2.4.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.12",
-    "react-slick": "~0.21.0",
+    "react-slick": "~0.22.3",
     "shallowequal": "^1.0.1",
     "warning": "~3.0.0"
   },
@@ -160,7 +160,7 @@
     "scrollama": "^1.4.1",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.0.0",
-    "typescript": "~2.7.2",
+    "typescript": "~2.8.1",
     "unified": "^6.1.5",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"

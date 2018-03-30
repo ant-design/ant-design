@@ -12,7 +12,6 @@ title: Work with Us
 const emails = [
   'momo.zxy#alipay.com',
   'lindong.lld#alipay.com',
-  'luli.fxx#alipay.com',
 ];
 ReactDOM.render(
   <p>作品和简历请投递：{emails[parseInt(Math.random() * emails.length, 10)]}</p>

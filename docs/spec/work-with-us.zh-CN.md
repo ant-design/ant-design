@@ -10,6 +10,7 @@ title: 加入我们
 
 ```__react
 const emails = [
+  'momo.zxy#alipay.com',
   'lindong.lld#alipay.com',
 ];
 ReactDOM.render(

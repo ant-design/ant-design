@@ -70,7 +70,7 @@ const columns = [{
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowSelection | 列表项是否可选择，[配置项](#rowSelection) | object | null |
-| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object | - |
+| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，建议为 `x` 设置一个数字，如果要设置为 `true`，需要配合样式 `.ant-table td { white-space: nowrap; }` | { x: number \| true, y: number } | - |
 | showHeader | 是否显示表头 | boolean | true |
 | size | 正常或迷你类型，`default` or `small` | string | default |
 | title | 表格标题 | Function(currentPageData) |  |

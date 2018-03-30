@@ -1,8 +1,4 @@
 <!--
-两会期间，如果遇到官网无法访问，请使用代理或者访问国内镜像 http://ant-design.gitee.io
--->
-
-<!--
 IMPORTANT: Please use the following link to create a new issue:
 
   http://new-issue.ant.design
