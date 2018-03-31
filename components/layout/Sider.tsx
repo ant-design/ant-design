@@ -44,13 +44,13 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 }
 
-export interface SliderState {
+export interface SiderState {
   collapsed?: boolean;
   below: boolean;
   belowShow?: boolean;
 }
 
-export interface SliderContext {
+export interface SiderContext {
   siderCollapsed: boolean;
 }
 
@@ -62,7 +62,7 @@ const generateId = (() => {
   };
 })();
 
-export default class Sider extends React.Component<SiderProps, SliderState> {
+export default class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
 
   static defaultProps = {

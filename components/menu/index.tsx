@@ -7,7 +7,7 @@ import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
-import { SliderContext } from '../layout/Sider';
+import { SiderContext } from '../layout/Sider';
 
 export interface SelectParam {
   key: string;
@@ -107,7 +107,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       antdMenuTheme: this.props.theme,
     };
   }
-  componentWillReceiveProps(nextProps: MenuProps, nextContext: SliderContext) {
+  componentWillReceiveProps(nextProps: MenuProps, nextContext: SiderContext) {
     const { prefixCls } = this.props;
     if (this.props.mode === 'inline' &&
         nextProps.mode !== 'inline') {
