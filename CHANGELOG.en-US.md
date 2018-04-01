@@ -20,7 +20,7 @@ timeline: true
 `2018-04-01`
 
 - Tree
-  - In this version, we refactored the underlying code of Tree to resolve some long living issues.
+  - 🛠 In this version, we refactored the underlying code of Tree to resolve some long living issues.
   - 🌟 Added `defaultExpandParent` for expanding parent at first render.
   - 🌟 Added `disabled` for disabling the whole tree.
   - 🌟 Added `TreeNode[icon]` to allow setting custom node icon.
