@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 3.4.0
+
+`2018-04-01`
+
+- Tree
+  - 🌟 Added `defaultExpandParent` for expanding parent at first render.
+  - 🌟 Added `disabled` for disabling the whole tree.
+  - 🌟 Added `TreeNode[icon]` to allow setting custom node icon.
+  - 🌟 Optimized the check logic for disabled TreeNode.
+- 🌟 Anchor added `getContainer` for setting the container of scroll content.
+- 🌟 Table added a new less variable `@table-expanded-row-bg`. [#9789](https://github.com/ant-design/ant-design/pull/9789)
+- 🐞 Fixed a less syntax error. [#9832](https://github.com/ant-design/ant-design/pull/9832) [@jojoLockLock](https://github.com/jojoLockLock)
+- 🐞 Fixed `moment.locale` invoking error in LocaleProvider. [#9853](https://github.com/ant-design/ant-design/pull/9853)
+- 🐞 Fixed issue resulting in `style` of WeekPicker not works. [#9848](https://github.com/ant-design/ant-design/issues/9848)
+- 💄 Optimized style of Modal for long contents. [#9592](https://github.com/ant-design/ant-design/pull/9592)
+- 🌟 Added new locale Slovenian.
+
 ## 3.3.3
 
 `2018-03-25`
