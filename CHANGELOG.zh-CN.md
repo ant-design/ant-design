@@ -19,7 +19,7 @@ timeline: true
 
 ## 2.13.14
 
-`2018-03-??`
+`2018-04-01`
 
 - 🐞 修复对 less 3 的兼容性问题。[#7850](https://github.com/ant-design/ant-design/issues/7850)
 
