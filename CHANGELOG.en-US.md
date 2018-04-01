@@ -30,7 +30,7 @@ timeline: true
 - 🐞 Fixed a less syntax error. [#9832](https://github.com/ant-design/ant-design/pull/9832) [@jojoLockLock](https://github.com/jojoLockLock)
 - 🐞 Fixed `moment.locale` invoking error in LocaleProvider. [#9853](https://github.com/ant-design/ant-design/pull/9853)
 - 🐞 Fixed issue resulting in `style` of WeekPicker not works. [#9848](https://github.com/ant-design/ant-design/issues/9848)
-- 🐞 Fixed type definition of  Layout.Sider. [#9885](https://github.com/ant-design/ant-design/pull/9885) [@zachguo](https://github.com/zachguo)
+- 🐞 Fixed type definition of Layout.Sider. [#9885](https://github.com/ant-design/ant-design/pull/9885) [@zachguo](https://github.com/zachguo)
 - 💄 Improved style of Modal for long contents. [#9592](https://github.com/ant-design/ant-design/pull/9592)
 - 🌟 Added new locale Slovenian.
 
