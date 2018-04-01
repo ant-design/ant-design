@@ -20,15 +20,17 @@ timeline: true
 `2018-04-01`
 
 - Tree
+  - 在这个版本里，我们重构了 Tree 底层的代码，以解决一些存在了很久的问题。
   - 🌟 新增 `defaultExpandParent` 用于在第一次渲染时自动展开父节点。
   - 🌟 新增 `disabled` 用于禁用整棵树。
   - 🌟 TreeNode 新增 `icon` 用于设置自定义图标。
   - 🌟 优化了 TreeNode 设置 `disabled` 时的勾选逻辑。
-- 🌟 Anchor 新增 `getCotainer` 用于指定内容滚动的容器。
+- 🌟 Anchor 新增 `getContainer` 用于指定内容滚动的容器。
 - 🌟 Table 新增 less 变量 `@table-expanded-row-bg`。[#9789](https://github.com/ant-design/ant-design/pull/9789)
 - 🐞 修复一处 less 语法错误。[#9832](https://github.com/ant-design/ant-design/pull/9832) [@jojoLockLock](https://github.com/jojoLockLock)
 - 🐞 修复 LocaleProvider 中 moment.locale 调用报错的问题。 [#9853](https://github.com/ant-design/ant-design/pull/9853)
 - 🐞 修复 WeekPicker 的 style 属性不生效的问题。[#9848](https://github.com/ant-design/ant-design/issues/9848)
+- 🐞 修复 Layout.Sider 的 TypeScript 定义。[#9885](https://github.com/ant-design/ant-design/pull/9885) [@zachguo](https://github.com/zachguo)
 - 💄 优化了 Modal 中超长内容的显示。[#9592](https://github.com/ant-design/ant-design/pull/9592)
 - 🌟 新增斯洛维尼亚语。
 
