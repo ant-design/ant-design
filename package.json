@@ -108,7 +108,7 @@
     "delegate": "^3.1.2",
     "docsearch.js": "^2.5.2",
     "dora-plugin-upload": "^0.3.1",
-    "enquire-js": "^0.1.2",
+    "enquire-js": "^0.2.1",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "^3.1.2",
