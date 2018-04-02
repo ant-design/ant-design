@@ -554,7 +554,11 @@ form {
 
 .@{ant-prefix}-advanced-search-form {
   .@{form-prefix-cls}-item {
-    margin-bottom: 24px;
+    margin-bottom: @form-item-margin-bottom;
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+    }
   }
 }
 
