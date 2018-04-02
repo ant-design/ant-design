@@ -501,8 +501,12 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
       title="parent 1"
     >
       <span
-        class="ant-tree-iconEle ant-tree-icon__open"
-      />
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-smile-o"
+        />
+      </span>
       <span
         class="ant-tree-title"
       >
@@ -524,8 +528,12 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
           title="leaf"
         >
           <span
-            class="ant-tree-iconEle ant-tree-icon__docu"
-          />
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-meh-o"
+            />
+          </span>
           <span
             class="ant-tree-title"
           >
@@ -544,8 +552,12 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
           title="leaf"
         >
           <span
-            class="ant-tree-iconEle ant-tree-icon__docu"
-          />
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-frown-o"
+            />
+          </span>
           <span
             class="ant-tree-title"
           >
