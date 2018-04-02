@@ -57,6 +57,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ## Note
 
+Before `3.4.0`:
 The number of treeNodes can be very large, but when `checkable=true`,
 it will increase the compute time. So, we cache some calculations (e.g. `this.treeNodesStates`)
 to avoid double computing. But, this brings some restrictions.
