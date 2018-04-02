@@ -105,6 +105,7 @@ export interface TableProps<T> {
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => any;
   onRow?: (record: T, index: number) => any;
+  onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
