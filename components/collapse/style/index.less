@@ -3,9 +3,6 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
-@collapse-header-bg: @background-color-light;
-@collapse-active-bg: @background-color-base;
-
 .collapse-close() {
   transform: rotate(0);
 }
@@ -15,7 +12,6 @@
 
 .@{collapse-prefix-cls} {
   .reset-component;
-  background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
@@ -32,7 +28,8 @@
 
     > .@{collapse-prefix-cls}-header {
       line-height: 22px;
-      padding: 12px 0 12px 40px;
+      padding: @collapse-header-padding;
+      background-color: @collapse-header-background-color;
       color: @heading-color;
       cursor: pointer;
       position: relative;
@@ -69,13 +66,12 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: 0 @padding-md;
-    background-color: @component-background;
+    padding: @collapse-content-padding;
+    background-color: @collapse-content-background-color;
     border-top: @border-width-base @border-style-base @border-color-base;
 
     & > &-box {
-      padding-top: @padding-md;
-      padding-bottom: @padding-md;
+      padding: @collapse-content-box-padding;
     }
 
     &-inactive {
