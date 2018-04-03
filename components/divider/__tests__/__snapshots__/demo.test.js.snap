@@ -29,13 +29,18 @@ exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
+</div>
+`;
+
+exports[`renders ./components/divider/demo/orientation.md correctly 1`] = `
+<div>
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
   >
     <span
       class="ant-divider-inner-text"
     >
-      With Text
+      Left Text
     </span>
   </div>
   <p>
@@ -47,7 +52,7 @@ exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
     <span
       class="ant-divider-inner-text"
     >
-      With Text
+      Right Text
     </span>
   </div>
   <p>
