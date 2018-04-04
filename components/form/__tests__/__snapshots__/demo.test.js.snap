@@ -20,7 +20,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-0"
               title="Field 0"
             >
@@ -61,7 +61,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-1"
               title="Field 1"
             >
@@ -102,7 +102,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-2"
               title="Field 2"
             >
@@ -143,7 +143,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-3"
               title="Field 3"
             >
@@ -184,7 +184,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-4"
               title="Field 4"
             >
@@ -225,7 +225,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-5"
               title="Field 5"
             >
@@ -266,7 +266,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-6"
               title="Field 6"
             >
@@ -307,7 +307,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-7"
               title="Field 7"
             >
@@ -348,7 +348,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-8"
               title="Field 8"
             >
@@ -389,7 +389,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-9"
               title="Field 9"
             >
