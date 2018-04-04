@@ -106,7 +106,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
     return createElement('span', {
       className: `${this.props.prefixCls}-only`,
       style: {
-        transition: removeTransition && 'none',
+        transition: removeTransition ? 'none' : undefined,
         msTransform: `translateY(${-position * 100}%)`,
         WebkitTransform: `translateY(${-position * 100}%)`,
         transform: `translateY(${-position * 100}%)`,
