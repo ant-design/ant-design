@@ -32,8 +32,7 @@
 
     > .@{collapse-prefix-cls}-header {
       line-height: 22px;
-      padding: @collapse-header-padding;
-      background-color: @collapse-header-background-color;
+      padding: 12px 0 12px 40px;
       color: @heading-color;
       cursor: pointer;
       position: relative;
@@ -75,7 +74,8 @@
     border-top: @border-width-base @border-style-base @border-color-base;
 
     & > &-box {
-      padding: @collapse-content-box-padding;
+      padding-top: @padding-md;
+      padding-bottom: @padding-md;
     }
 
     &-inactive {
