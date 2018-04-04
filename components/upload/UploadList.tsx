@@ -140,7 +140,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           {file.name}
         </span>
       );
-      const style = (file.url || file.thumbUrl) ? undefined : {
+      const style: React.CSSProperties = {
         pointerEvents: 'none',
         opacity: 0.5,
       };
@@ -149,7 +149,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           href={file.url || file.thumbUrl}
           target="_blank"
           rel="noopener noreferrer"
-          style={style}
+          style={(file.url || file.thumbUrl) ? undefined : style}
           onClick={e => this.handlePreview(file, e)}
           title={locale.previewFile}
         >
