@@ -486,7 +486,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 <ul
-  class="ant-tree ant-tree-show-line"
+  class="ant-tree"
   role="tree-node"
   unselectable="on"
 >
@@ -501,8 +501,12 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
       title="parent 1"
     >
       <span
-        class="ant-tree-iconEle ant-tree-icon__open"
-      />
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-smile-o"
+        />
+      </span>
       <span
         class="ant-tree-title"
       >
@@ -517,111 +521,25 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
         class=""
       >
         <span
-          class="ant-tree-switcher ant-tree-switcher_open"
+          class="ant-tree-switcher ant-tree-switcher-noop"
         />
         <span
-          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
-          title="parent 1-0"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+          title="leaf"
         >
           <span
-            class="ant-tree-iconEle ant-tree-icon__open"
-          />
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-meh-o"
+            />
+          </span>
           <span
             class="ant-tree-title"
           >
-            parent 1-0
+            leaf
           </span>
         </span>
-        <ul
-          class="ant-tree-child-tree ant-tree-child-tree-open"
-          data-expanded="true"
-        >
-          <li
-            class=""
-          >
-            <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
-            />
-            <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-              title="leaf"
-            >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
-                class="ant-tree-title"
-              >
-                leaf
-              </span>
-            </span>
-          </li>
-          <li
-            class=""
-          >
-            <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
-            />
-            <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-              title="leaf"
-            >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
-                class="ant-tree-title"
-              >
-                leaf
-              </span>
-            </span>
-          </li>
-        </ul>
-      </li>
-      <li
-        class=""
-      >
-        <span
-          class="ant-tree-switcher ant-tree-switcher_open"
-        />
-        <span
-          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
-          title="parent 1-1"
-        >
-          <span
-            class="ant-tree-iconEle ant-tree-icon__open"
-          />
-          <span
-            class="ant-tree-title"
-          >
-            parent 1-1
-          </span>
-        </span>
-        <ul
-          class="ant-tree-child-tree ant-tree-child-tree-open"
-          data-expanded="true"
-        >
-          <li
-            class=""
-          >
-            <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
-            />
-            <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-              title="leaf"
-            >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
-                class="ant-tree-title"
-              >
-                leaf
-              </span>
-            </span>
-          </li>
-        </ul>
       </li>
       <li
         class=""
@@ -634,8 +552,12 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
           title="leaf"
         >
           <span
-            class="ant-tree-iconEle ant-tree-icon__docu"
-          />
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-frown-o"
+            />
+          </span>
           <span
             class="ant-tree-title"
           >
