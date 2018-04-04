@@ -141,7 +141,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </span>
       );
       const style = (file.url || file.thumbUrl) ? undefined : {
-        pointerEvents: 'none',
+        pointerEvents: 'none' as 'all' | 'auto' | 'none' | 'visible' | 'inherit' | 'initial' | 'unset' | 'fill' |
+          'stroke' | 'painted' | 'visiblePainted' | 'visibleFill' | 'visibleStroke',
         opacity: 0.5,
       };
       const previewIcon = showPreviewIcon ? (
