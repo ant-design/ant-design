@@ -39,7 +39,7 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
         <div className={`${prefixCls}-item-tail`} />
         <div
           className={dotClassName}
-          style={{ borderColor: /blue|red|green/.test(color) ? undefined : color }}
+          style={{ borderColor: /blue|red|green/.test(color) ? null : color }}
         >
           {dot}
         </div>

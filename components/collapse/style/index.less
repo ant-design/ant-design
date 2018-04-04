@@ -3,6 +3,9 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
+@collapse-header-bg: @background-color-light;
+@collapse-active-bg: @background-color-base;
+
 .collapse-close() {
   transform: rotate(0);
 }
@@ -12,6 +15,7 @@
 
 .@{collapse-prefix-cls} {
   .reset-component;
+  background-color: @collapse-header-bg;
   border-radius: @border-radius-base;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
