@@ -17,6 +17,7 @@ export interface UploadFile {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
+  isNotImage?: boolean;
   originFileObj?: File;
   response?: any;
   error?: any;
