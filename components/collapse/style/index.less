@@ -3,6 +3,8 @@
 
 @collapse-prefix-cls: ~"@{ant-prefix}-collapse";
 
+@collapse-header-bg: @collapse-header-background-color;
+
 .collapse-close() {
   transform: rotate(0);
 }
@@ -29,7 +31,7 @@
     > .@{collapse-prefix-cls}-header {
       line-height: 22px;
       padding: @collapse-header-padding;
-      background-color: @collapse-header-background-color;
+      background-color: @collapse-header-bg;
       color: @heading-color;
       cursor: pointer;
       position: relative;
