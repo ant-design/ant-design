@@ -66,9 +66,14 @@
   &-content {
     overflow: hidden;
     color: @text-color;
-    padding: @collapse-content-padding;
+    padding: 0 @collapse-content-padding-right 0 @collapse-content-padding-left;
     background-color: @collapse-content-bg;
     border-top: @border-width-base @border-style-base @border-color-base;
+
+    & > &-box {
+      padding-top: @collapse-content-padding-top;
+      padding-bottom: @collapse-content-padding-bottom;
+    }
 
     &-inactive {
       display: none;
