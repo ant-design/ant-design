@@ -19,7 +19,7 @@ timeline: true
 
 `2018-04-08`
 
-- 🐞 修复了 Badge 代码中的错误类型。[#9931](https://github.com/ant-design/ant-design/issues/9931)
+- 🐞 修复了 Badge 代码错误引起的 TypeScript 类型报错。[#9931](https://github.com/ant-design/ant-design/issues/9931)
 - 💄 优化了 Card `actions` 点击区域的范围。[#9882](https://github.com/ant-design/ant-design/issues/9882)
 - 🐞 修复了 Divider 与浮动元素一起使用时的样式问题。[#9956](https://github.com/ant-design/ant-design/issues/9956)
 - 🐞 修复了 Form 高级搜索模式下的样式问题。[#9907](https://github.com/ant-design/ant-design/issues/9907)

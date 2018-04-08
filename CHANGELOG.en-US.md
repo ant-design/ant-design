@@ -19,7 +19,7 @@ timeline: true
 
 `2018-04-08`
 
-- 🐞 Fix type error of Badge. [#9931](https://github.com/ant-design/ant-design/issues/9931)
+- 🐞 Fix TypeScript type error caused by code error of Badge. [#9931](https://github.com/ant-design/ant-design/issues/9931)
 - 💄 Improve clicking region of Card `actions`. [#9882](https://github.com/ant-design/ant-design/issues/9882)
 - 🐞 Fix Divider style issue when used with float elements. [#9956](https://github.com/ant-design/ant-design/issues/9956)
 - 🐞 Fix style issue of Form in advanced-search mode. [#9907](https://github.com/ant-design/ant-design/issues/9907)
