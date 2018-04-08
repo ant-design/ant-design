@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.4.1
+
+`2018-04-08`
+
+- 🐞 Fix type error of Badge. [#9931](https://github.com/ant-design/ant-design/issues/9931)
+- 💄 Improve clicking region of Card `actions`. [#9882](https://github.com/ant-design/ant-design/issues/9882)
+- 🐞 Fix Divider style issue when used with float elements. [#9956](https://github.com/ant-design/ant-design/issues/9956)
+- 🐞 Fix style issue of Form in advanced-search mode. [#9907](https://github.com/ant-design/ant-design/issues/9907)
+- 🐞 Add `onHeaderRow` TypeScript type definitions for Table. [#9902](https://github.com/ant-design/ant-design/pull/9902) [@Nokecy](https://github.com/Nokecy)
+- 💄 Improve the customized-icon demo of Tree. [#9893](https://github.com/ant-design/ant-design/pull/9893)
+- 🐞 Fix image url display with non-image extention in Upload. [#9936](https://github.com/ant-design/ant-design/pull/9936)
+
 ## 3.4.0
 
 `2018-04-01`
