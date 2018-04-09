@@ -63,7 +63,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {
     prefixCls: 'ant-menu',
     className: '',
-    theme: 'light',  // or dark
+    theme: 'light' as 'light' | 'dark',  // or dark
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,
