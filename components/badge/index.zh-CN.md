@@ -32,3 +32,4 @@ title: Badge
 | showZero | 当数值为 0 时，是否展示 Badge | boolean | false |
 | status | 设置 Badge 为状态点 | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | string | '' |
+| title | 设置鼠标放在状态点上时显示的文字 | string | `count` |
