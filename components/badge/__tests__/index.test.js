@@ -11,4 +11,8 @@ describe('Badge', () => {
     const badge = mount(<Badge count={0} dot />);
     expect(badge.find('.ant-badge-dot').length).toBe(0);
   });
+  test('badge number to have overriden title attribute', () => {
+    const badge = mount(<Badge count={10} title="Custom title" />);
+    expect(badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value).toEqual('Custom title');
+  });
 });
