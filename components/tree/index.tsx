@@ -29,6 +29,7 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
   icon?: (treeNode: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
   children?: React.ReactNode;
+  icon?: React.ReactNode | React.ComponentType<any>;
 }
 
 export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
@@ -49,6 +50,7 @@ export interface AntTreeNodeMouseEvent {
 
 export interface TreeProps {
   showLine?: boolean;
+  showIcon?: boolean;
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
@@ -106,7 +108,7 @@ export interface TreeProps {
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = TreeNode;
+  static TreeNode: React.ComponentClass<AntTreeNodeProps> = TreeNode;
 
   static defaultProps = {
     prefixCls: 'ant-tree',
