@@ -35,7 +35,7 @@ class Demo extends React.Component {
     });
 
     // You can use any AJAX library you like
-    reqwest({
+    request({
       url: '//jsonplaceholder.typicode.com/posts/',
       method: 'post',
       processData: false,
