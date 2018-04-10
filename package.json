@@ -44,6 +44,7 @@
     "classnames": "~2.2.0",
     "create-react-class": "^15.6.0",
     "css-animation": "^1.2.5",
+    "create-react-context": "^0.2.1",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.1",
     "lodash": "^4.17.5",
