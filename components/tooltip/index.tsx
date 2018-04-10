@@ -12,6 +12,8 @@ export type TooltipPlacement =
   'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
   'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 
+export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
+
 export interface AbstractTooltipProps {
   prefixCls?: string;
   overlayClassName?: string;
@@ -25,7 +27,7 @@ export interface AbstractTooltipProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   transitionName?: string;
-  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu';
+  trigger?: TooltipTrigger;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -57,7 +59,7 @@ const splitObject = (obj: any, keys: string[]) => {
 export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
-    placement: 'top',
+    placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,

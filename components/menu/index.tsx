@@ -26,9 +26,11 @@ export interface ClickParam {
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
+export type MenuTheme = 'light' | 'dark';
+
 export interface MenuProps {
   id?: string;
-  theme?: 'light' | 'dark';
+  theme?: MenuTheme;
   mode?: MenuMode;
   selectable?: boolean;
   selectedKeys?: Array<string>;
@@ -63,7 +65,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {
     prefixCls: 'ant-menu',
     className: '',
-    theme: 'light',  // or dark
+    theme: 'light' as MenuTheme,  // or dark
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,
