@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 自定义提示
-  en-US: Customerize tooltip
+  en-US: Customize tooltip
 ---
 
 ## zh-CN
