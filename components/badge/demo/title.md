@@ -1,7 +1,7 @@
 ---
 order: 7
 title:
-  zh-CN:
+  zh-CN: Title
   en-US: Title
 ---
 
