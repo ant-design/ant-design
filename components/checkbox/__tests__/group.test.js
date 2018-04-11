@@ -51,4 +51,15 @@ describe('CheckboxGroup', () => {
     groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChangeGroup).toBeCalledWith(['Apple']);
   });
+
+  it('Checkbox[disabled] should have higher priority than Group[disabled]', () => {
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange', disabled: false },
+    ];
+    const wrapper = mount(
+      <Checkbox.Group options={options} disabled />
+    );
+    expect(wrapper.find('input').at(1).props().disabled).toBe(false);
+  });
 });
