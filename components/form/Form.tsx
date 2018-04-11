@@ -8,6 +8,7 @@ import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
+import { Omit } from '../_util/type';
 
 export interface FormCreateOption<T> {
   onFieldsChange?: (props: T, fields: Array<any>) => void;
@@ -112,10 +113,6 @@ export type WrappedFormUtils = {
 export interface FormComponentProps {
   form: WrappedFormUtils;
 }
-
-export type Diff<T extends string, U extends string> =
-  ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
-export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
 export interface ComponentDecorator {
   <P extends FormComponentProps>(

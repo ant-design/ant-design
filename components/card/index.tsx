@@ -7,6 +7,7 @@ import Meta from './Meta';
 import Tabs from '../tabs';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
+import { Omit } from '../_util/type';
 
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
@@ -18,7 +19,7 @@ export interface CardTabListType {
   tab: React.ReactNode;
 }
 
-export interface CardProps {
+export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
