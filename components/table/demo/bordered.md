@@ -19,7 +19,7 @@ import { Table } from 'antd';
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: 'Cash Assets',
   className: 'column-money',

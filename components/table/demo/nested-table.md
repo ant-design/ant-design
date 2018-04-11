@@ -41,10 +41,10 @@ function NestedTable() {
         key: 'operation',
         render: () => (
           <span className="table-operation">
-            <a href="#">Pause</a>
-            <a href="#">Stop</a>
+            <a href="javascript:;">Pause</a>
+            <a href="javascript:;">Stop</a>
             <Dropdown overlay={menu}>
-              <a href="#">
+              <a href="javascript:;">
                 More <Icon type="down" />
               </a>
             </Dropdown>
@@ -78,7 +78,7 @@ function NestedTable() {
     { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
     { title: 'Creator', dataIndex: 'creator', key: 'creator' },
     { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-    { title: 'Action', key: 'operation', render: () => <a href="#">Publish</a> },
+    { title: 'Action', key: 'operation', render: () => <a href="javascript:;">Publish</a> },
   ];
 
   const data = [];
