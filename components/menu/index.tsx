@@ -121,8 +121,9 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     }
     if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
         (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
+      const menuNode = findDOMNode(this) as Element;
       this.switchModeFromInline =
-        !!this.state.openKeys.length && !!findDOMNode(this).querySelectorAll(`.${prefixCls}-submenu-open`).length;
+        !!this.state.openKeys.length && !!menuNode.querySelectorAll(`.${prefixCls}-submenu-open`).length;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
