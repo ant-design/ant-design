@@ -85,7 +85,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
     const {
       prefixCls, closable, color, className, children, style,
       onTag = {}, onClose: _onClose, afterClose: _afterClose,
-      ...divProps
+      ...divProps,
     } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const isPresetColor = this.isPresetColor(color);

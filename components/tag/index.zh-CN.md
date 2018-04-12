@@ -30,3 +30,4 @@ title: Tag
 | --- | --- | --- | --- |
 | checked | 设置标签的选中状态 | boolean | false |
 | onChange | 点击标签时触发的回调 | (checked) => void | - |
+| onTag | 和 Tag 的 onTag 一样。 传递 onClick、role、contentEditable 等原生 DOM 属性  | DOM 属性对象 | {} |
