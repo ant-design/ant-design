@@ -22,6 +22,7 @@ Tag for categorizing or markup.
 | closable | Whether Tag can be closed | boolean | `false` |
 | color | Color of the Tag | string | - |
 | onClose | Callback executed when tag is closed | (e) => void | - |
+| onTag | Pass DOM attributes to Tag element | DOM attributes | {} |
 
 ### Tag.CheckableTag
 

@@ -22,6 +22,7 @@ title: Tag
 | closable | 标签是否可以关闭 | boolean | false |
 | color | 标签色 | string | - |
 | onClose | 关闭时的回调 | (e) => void | - |
+| onTag | 传递 onClick、role、contentEditable 等原生 DOM 属性  | DOM 属性对象 | {} |
 
 ### Tag.CheckableTag
 
