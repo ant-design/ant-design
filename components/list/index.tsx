@@ -101,7 +101,7 @@ export default class List extends React.Component<ListProps> {
     return renderItem(item, index);
   }
 
-  isSomethingAfterLastTtem() {
+  isSomethingAfterLastItem() {
     const { loadMore, pagination, footer } = this.props;
     return !!(loadMore || pagination || footer);
   }
@@ -160,7 +160,7 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: grid,
-      [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastTtem(),
+      [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
     });
 
     const paginationContent = (
