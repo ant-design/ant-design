@@ -170,7 +170,7 @@ export default class List extends React.Component<ListProps> {
     );
 
     let childrenContent;
-    childrenContent = isLoading && (<div style={{ minHeight: 53 }} />);
+    childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
     if (dataSource.length > 0) {
       const items = dataSource.map((item: any, index: number) => this.renderItem(item, index));
       const childrenList = React.Children.map(items, (child: any, index) => React.cloneElement(child, {
