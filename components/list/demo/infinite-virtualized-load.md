@@ -46,7 +46,7 @@ class VirtualizedExample extends React.Component {
       },
     });
   }
-  componentWillMount() {
+  componentDidMount() {
     this.getData((res) => {
       this.setState({
         data: res.results,
