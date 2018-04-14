@@ -53,7 +53,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     setMomentLocale(this.props.locale);
     this.componentDidUpdate();
   }
