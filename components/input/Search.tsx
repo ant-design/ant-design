@@ -40,7 +40,7 @@ export default class Search extends React.Component<SearchProps, any> {
   }
 
   getButtonOrIcon() {
-    const { enterButton, prefixCls, size } = this.props;
+    const { enterButton, prefixCls, size, disabled } = this.props;
     if (!enterButton) {
       return <Icon className={`${prefixCls}-icon`} type="search" key="searchIcon" />;
     }
@@ -59,6 +59,7 @@ export default class Search extends React.Component<SearchProps, any> {
         className={`${prefixCls}-button`}
         type="primary"
         size={size}
+        disabled={disabled}
         onClick={this.onSearch}
         key="enterButton"
       >
