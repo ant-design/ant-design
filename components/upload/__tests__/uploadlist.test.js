@@ -293,13 +293,13 @@ describe('Upload List', () => {
       {
         name: 'image',
         status: 'done',
-        uid: -6,
+        uid: -7,
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -6,
+        uid: -8,
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
         thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
       },
