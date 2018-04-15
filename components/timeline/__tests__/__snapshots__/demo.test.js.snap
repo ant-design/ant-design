@@ -50,7 +50,7 @@ exports[`renders ./components/timeline/demo/basic.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-last"
   >
     <div
       class="ant-timeline-item-tail"
@@ -125,7 +125,7 @@ exports[`renders ./components/timeline/demo/color.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-last"
   >
     <div
       class="ant-timeline-item-tail"
@@ -205,7 +205,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-last"
   >
     <div
       class="ant-timeline-item-tail"
@@ -223,83 +223,72 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
 `;
 
 exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
-<div>
-  <ul
-    class="ant-timeline ant-timeline-pending"
+<ul
+  class="ant-timeline ant-timeline-pending"
+>
+  <li
+    class="ant-timeline-item"
   >
-    <li
-      class="ant-timeline-item"
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
     >
-      <div
-        class="ant-timeline-item-tail"
-      />
-      <div
-        class="ant-timeline-item-head ant-timeline-item-head-blue"
-      />
-      <div
-        class="ant-timeline-item-content"
-      >
-        Create a services site 2015-09-01
-      </div>
-    </li>
-    <li
-      class="ant-timeline-item"
-    >
-      <div
-        class="ant-timeline-item-tail"
-      />
-      <div
-        class="ant-timeline-item-head ant-timeline-item-head-blue"
-      />
-      <div
-        class="ant-timeline-item-content"
-      >
-        Solve initial network problems 2015-09-01
-      </div>
-    </li>
-    <li
-      class="ant-timeline-item ant-timeline-item-last"
-    >
-      <div
-        class="ant-timeline-item-tail"
-      />
-      <div
-        class="ant-timeline-item-head ant-timeline-item-head-blue"
-      />
-      <div
-        class="ant-timeline-item-content"
-      >
-        Technical testing 2015-09-01
-      </div>
-    </li>
-    <li
-      class="ant-timeline-item ant-timeline-item-pending"
-    >
-      <div
-        class="ant-timeline-item-tail"
-      />
-      <div
-        class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
-      >
-        <i
-          class="anticon anticon-spin anticon-loading"
-        />
-      </div>
-      <div
-        class="ant-timeline-item-content"
-      >
-        Recording...
-      </div>
-    </li>
-  </ul>
-  <button
-    class="ant-btn"
-    style="margin-top:16px"
-    type="button"
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
   >
-    <span>
-      Reverse Toggle
-    </span>
-  </button>
-</div>
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-pending"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+    >
+      <i
+        class="anticon anticon-spin anticon-loading"
+      />
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Recording...
+    </div>
+  </li>
+</ul>
 `;
