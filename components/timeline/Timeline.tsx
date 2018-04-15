@@ -10,6 +10,7 @@ export interface TimelineProps {
   pending?: React.ReactNode;
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
+  reverse?: boolean;
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -19,30 +20,50 @@ export default class Timeline extends React.Component<TimelineProps, any> {
   };
 
   render() {
-    const { prefixCls, children, pending, pendingDot, className, ...restProps } = this.props;
+    const {
+      prefixCls,
+      pending = null, pendingDot = <Icon type="loading" />,
+      children, className, reverse = false,
+      ...ulProps,
+    } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
+      [`${prefixCls}-reverse`]: !!reverse,
     }, className);
-    // Remove falsy items
-    const falsylessItems = React.Children.toArray(children).filter(item => !!item);
-    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
-      React.cloneElement(ele, {
-        last: idx === (React.Children.count(falsylessItems) - 1),
-      }),
-    );
-    const pendingItem = (!!pending) ? (
+
+    const pendingItem = !!pending ? (
       <TimelineItem
         pending={!!pending}
-        dot={pendingDot || <Icon type="loading" />}
+        dot={pendingDot}
       >
         {pendingNode}
       </TimelineItem>
     ) : null;
+
+    const timeLineItems = !!reverse
+      ? [pendingItem, ...React.Children.toArray(children)]
+      : [...React.Children.toArray(children), pendingItem];
+
+    // Remove falsy items
+    const falsylessItems = timeLineItems.filter(item => !!item);
+    const itemsCount = React.Children.count(falsylessItems);
+    const lastCls = `${prefixCls}-item-last`;
+    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
+      React.cloneElement(ele, {
+        className: classNames([
+          ele.props.className,
+          !!reverse
+            ? (idx === itemsCount - 1) && lastCls
+            : !!pending ? (idx === itemsCount - 2) && lastCls
+            : '',
+        ]),
+      }),
+    );
+
     return (
-      <ul {...restProps} className={classString}>
+      <ul {...ulProps} className={classString}>
         {items}
-        {pendingItem}
       </ul>
     );
   }
