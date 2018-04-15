@@ -7,6 +7,7 @@ export interface TimeLineItemProps {
   color?: string;
   dot?: React.ReactNode;
   pending?: boolean;
+  last?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -14,14 +15,16 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
   static defaultProps = {
     prefixCls: 'ant-timeline',
     color: 'blue',
+    last: false,
     pending: false,
   };
 
   render() {
-    const { prefixCls, className, color = '', children, pending, dot, ...restProps } = this.props;
+    const { prefixCls, className, color = '', last, children, pending, dot, ...restProps } = this.props;
 
     const itemClassName = classNames({
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-last`]: last,
       [`${prefixCls}-item-pending`]: pending,
     }, className);
 
