@@ -14,11 +14,30 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ````jsx
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
+
+class LoadingCard extends React.Component {
+  state = {
+    loading: true,
+  }
+
+  handleClick = () => {
+    this.setState({ loading: !this.state.loading });
+  }
+
+  render() {
+    return (
+      <div>
+        <Card loading={this.state.loading} title="Card title">
+          Whatever content
+        </Card>
+        <Button onClick={this.handleClick} style={{ marginTop: 16 }}>Toggle loading</Button>
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
-  <Card loading title="Card title" style={{ width: '34%' }}>
-    Whatever content
-  </Card>
+  <LoadingCard />
 , mountNode);
 ````
