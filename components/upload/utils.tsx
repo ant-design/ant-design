@@ -1,4 +1,4 @@
-import { UploadFile } from './interface';
+import { RcFile, UploadFile } from './interface';
 
 export function T() {
   return true;
@@ -6,7 +6,7 @@ export function T() {
 
 // Fix IE file.status problem
 // via coping a new Object
-export function fileToObject(file: File | UploadFile): UploadFile {
+export function fileToObject(file: RcFile | UploadFile): UploadFile {
   if ((file as UploadFile).originFileObj) {
     return file as UploadFile;
   }
@@ -17,6 +17,7 @@ export function fileToObject(file: File | UploadFile): UploadFile {
     size: file.size,
     type: file.type,
     percent: 0,
+    uid: file.uid,
     originFileObj: file,
   } as UploadFile;
 }

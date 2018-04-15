@@ -86,7 +86,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -112,7 +112,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -134,7 +134,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -196,7 +196,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });

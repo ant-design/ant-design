@@ -7,6 +7,7 @@ import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
+  RcFile,
   UploadProps,
   UploadState,
   UploadFile,
@@ -187,7 +188,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     });
   }
 
-  beforeUpload = (file: File, fileList: File[]) => {
+  beforeUpload = (file: RcFile, fileList: RcFile[]) => {
     if (!this.props.beforeUpload) {
       return true;
     }
@@ -195,10 +196,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file: fileToObject(file),
-        fileList: uniqBy(
-          (fileList.map(fileToObject) as UploadFile[]).concat(this.state.fileList),
-          (item: any) => item.uid
-        ),
+        fileList: uniqBy(fileList.map(fileToObject).concat(this.state.fileList),  (item: UploadFile) => item.uid),
       });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {

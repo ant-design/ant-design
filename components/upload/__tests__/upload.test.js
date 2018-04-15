@@ -48,7 +48,7 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
     });
@@ -75,7 +75,7 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
     });
@@ -102,7 +102,7 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
     });
