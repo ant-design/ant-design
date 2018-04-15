@@ -57,9 +57,9 @@ export default class Card extends React.Component<CardProps, {}> {
     if ('noHovering' in this.props) {
       warning(
         !this.props.noHovering,
-        '`noHovering` of Card is deperated, you can remove it safely or use `hoverable` instead.',
+        '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
       );
-      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deperated, use `hoverable` instead.');
+      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
     }
   }
   componentWillUnmount() {
@@ -73,14 +73,14 @@ export default class Card extends React.Component<CardProps, {}> {
     if (!this.container) {
       return;
     }
-    // 936 is a magic card width pixer number indicated by designer
-    const WIDTH_BOUDARY_PX = 936;
-    if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
+    // 936 is a magic card width pixel number indicated by designer
+    const WIDTH_BOUNDARY_PX = 936;
+    if (this.container.offsetWidth >= WIDTH_BOUNDARY_PX && !this.state.widerPadding) {
       this.setState({ widerPadding: true }, () => {
         this.updateWiderPaddingCalled = true; // first render without css transition
       });
     }
-    if (this.container.offsetWidth < WIDTH_BOUDARY_PX && this.state.widerPadding) {
+    if (this.container.offsetWidth < WIDTH_BOUNDARY_PX && this.state.widerPadding) {
       this.setState({ widerPadding: false }, () => {
         this.updateWiderPaddingCalled = true; // first render without css transition
       });
