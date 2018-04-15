@@ -37,8 +37,6 @@ elif [ "$TEST_TYPE" = test:dom ]; then
   if [ "$REACT" = 16 ]; then
     bash <(curl -s https://codecov.io/bash)
   fi
-elif [ "$TEST_TYPE" = bisheng:build ]; then
-  npm run site
 elif [ "$TEST_TYPE" = test:node ]; then
   run_test_node
 fi
