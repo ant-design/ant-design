@@ -44,6 +44,12 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     antLocale: PropTypes.object,
   };
 
+  constructor(props: LocaleProviderProps) {
+    super(props);
+    setMomentLocale(props.locale);
+    changeConfirmLocale(props.locale && props.locale.Modal);
+  }
+
   getChildContext() {
     return {
       antLocale: {
@@ -51,11 +57,6 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
         exist: true,
       },
     };
-  }
-
-  componentDidMount() {
-    setMomentLocale(this.props.locale);
-    this.componentDidUpdate();
   }
 
   componentWillReceiveProps(nextProps: LocaleProviderProps) {
