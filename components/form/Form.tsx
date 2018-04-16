@@ -17,7 +17,7 @@ export interface FormCreateOption<T> {
   withRef?: boolean;
 }
 
-type FormLayout = 'horizontal' | 'inline' | 'vertical';
+export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps {
   layout?: FormLayout;

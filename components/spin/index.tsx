@@ -7,7 +7,7 @@ import omit from 'omit.js';
 
 export type SpinIndicator = React.ReactElement<any>;
 
-type SpinSize = 'small' | 'default' | 'large';
+export type SpinSize = 'small' | 'default' | 'large';
 
 export interface SpinProps {
   prefixCls?: string;

@@ -10,8 +10,8 @@ const statusColorMap = {
   success: '#87d068',
 };
 
-type ProgressType = 'line' | 'circle' | 'dashboard';
-type ProgressSize = 'default' | 'small';
+export type ProgressType = 'line' | 'circle' | 'dashboard';
+export type ProgressSize = 'default' | 'small';
 
 export interface ProgressProps {
   prefixCls?: string;
