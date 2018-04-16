@@ -6,7 +6,15 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
-import { UploadProps, UploadState, UploadFile, UploadLocale, UploadChangeParam } from './interface';
+import {
+  UploadProps,
+  UploadState,
+  UploadFile,
+  UploadLocale,
+  UploadChangeParam,
+  UploadType,
+  UploadListType,
+} from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 
 export { UploadProps };
@@ -16,14 +24,14 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
 
   static defaultProps = {
     prefixCls: 'ant-upload',
-    type: 'select',
+    type: 'select' as UploadType,
     multiple: false,
     action: '',
     data: {},
     accept: '',
     beforeUpload: T,
     showUploadList: true,
-    listType: 'text', // or pictrue
+    listType: 'text' as UploadListType, // or pictrue
     className: '',
     disabled: false,
     supportServerRender: true,
