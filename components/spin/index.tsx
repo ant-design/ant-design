@@ -8,8 +8,6 @@ import omit from 'omit.js';
 export type SpinSize = 'small' | 'default' | 'large';
 export type SpinIndicator = React.ReactElement<any>;
 
-export type SpinSize = 'small' | 'default' | 'large';
-
 export interface SpinProps {
   prefixCls?: string;
   className?: string;
