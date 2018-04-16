@@ -43,8 +43,11 @@ export interface UploadLocale {
   previewFile?: string;
 }
 
+export type UploadType = 'drag' | 'select';
+export type UploadListType = 'text' | 'picture' | 'picture-card';
+
 export interface UploadProps {
-  type?: 'drag' | 'select';
+  type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
@@ -56,7 +59,7 @@ export interface UploadProps {
   accept?: string;
   beforeUpload?: (file: UploadFile, FileList: UploadFile[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
-  listType?: 'text' | 'picture' | 'picture-card';
+  listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
@@ -75,7 +78,7 @@ export interface UploadState {
 }
 
 export interface UploadListProps {
-  listType?: 'text' | 'picture' | 'picture-card';
+  listType?: UploadListType;
   onPreview?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
   items?: Array<UploadFile>;
