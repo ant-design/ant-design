@@ -56,7 +56,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.clearProgressTimer();
   }
 
-  onStart = (file: UploadFile) => {
+  onStart = (file: RcFile) => {
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     targetItem = fileToObject(file);

@@ -15,7 +15,7 @@ export interface UploadFile {
   size: number;
   name: string;
   filename?: string;
-  lastModified?: string;
+  lastModified?: number;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;

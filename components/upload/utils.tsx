@@ -6,10 +6,7 @@ export function T() {
 
 // Fix IE file.status problem
 // via coping a new Object
-export function fileToObject(file: RcFile | UploadFile): UploadFile {
-  if ((file as UploadFile).originFileObj) {
-    return file as UploadFile;
-  }
+export function fileToObject(file: RcFile): UploadFile {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
