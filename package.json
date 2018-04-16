@@ -128,7 +128,7 @@
     "jsonml.js": "^0.1.0",
     "lint-staged": "^7.0.0",
     "lz-string": "^1.4.4",
-    "majo": "^0.4.1",
+    "majo": "^0.5.1",
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
     "pre-commit": "^1.2.2",
