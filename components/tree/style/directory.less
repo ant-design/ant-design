@@ -1,0 +1,12 @@
+@tree-prefix-cls: ~"@{ant-prefix}-tree";
+
+.@{tree-prefix-cls} {
+  &-directory {
+    > li,
+    .@{tree-prefix-cls}-child-tree > li {
+      .@{tree-prefix-cls}-node-content-wrapper {
+        width: calc(~"100% - 24px");
+      }
+    }
+  }
+}
