@@ -210,5 +210,6 @@
   },
   "pre-commit": [
     "lint-staged"
-  ]
+  ],
+  "sideEffects": false
 }
