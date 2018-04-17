@@ -45,6 +45,7 @@ export interface AntTreeNodeEvent {
   checkedNodes?: AntTreeNode[];
   selected?: boolean;
   selectedNodes?: AntTreeNode[];
+  nativeEvent?: MouseEvent;
 }
 
 export interface AntTreeNodeMouseEvent {
