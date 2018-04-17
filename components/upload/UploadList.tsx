@@ -25,7 +25,7 @@ const extname = (url: string) => {
 
 const isImageUrl = (url: string): boolean => {
   const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg)$/.test(extension)) {
+  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp)$/.test(extension)) {
     return true;
   } else if (/^data:/.test(url)) { // other file types of base64
     return false;
