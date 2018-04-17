@@ -303,6 +303,24 @@ describe('Upload List', () => {
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
         thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
       },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -9,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -10,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -11,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
+      },
     ];
 
     const wrapper = mount(
