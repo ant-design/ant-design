@@ -129,6 +129,7 @@ export default class List extends React.Component<ListProps> {
       header,
       footer,
       loading,
+      locale,
       ...rest,
     } = this.props;
 
