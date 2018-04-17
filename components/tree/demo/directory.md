@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-内置的目录树，`multiple` 模式支持 `ctrl` 复选。
+内置的目录树，`multiple` 模式支持 `ctrl(Windows)` / `command(Mac)` 复选。
 
 ## en-US
 
-Built-in directory tree. `multiple` support `ctrl` selection.
+Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` selection.
 
 ````jsx
 import { Tree } from 'antd';
@@ -30,9 +30,13 @@ class Demo extends React.Component {
         defaultExpandAll
         onSelect={this.onSelect}
       >
-        <TreeNode title="parent 1" key="0-0">
-          <TreeNode title="leaf" key="0-0-0" isLeaf />
-          <TreeNode title="leaf" key="0-0-1" isLeaf />
+        <TreeNode title="parent 0" key="0-0">
+          <TreeNode title="leaf 0-0" key="0-0-0" isLeaf />
+          <TreeNode title="leaf 0-1" key="0-0-1" isLeaf />
+        </TreeNode>
+        <TreeNode title="parent 1" key="0-1">
+          <TreeNode title="leaf 1-0" key="0-1-0" isLeaf />
+          <TreeNode title="leaf 1-1" key="0-1-1" isLeaf />
         </TreeNode>
       </DirectoryTree>
     );
