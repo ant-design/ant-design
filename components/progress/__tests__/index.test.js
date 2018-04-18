@@ -10,4 +10,19 @@ describe('Progress', () => {
     wrapper.setProps({ percent: 50, successPercent: 100 });
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
   });
+
+  it('render out-of-range progress', async () => {
+    const wrapper = mount(<Progress percent={120} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render negetive progress', async () => {
+    const wrapper = mount(<Progress percent={-20} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render negetive successPercent', async () => {
+    const wrapper = mount(<Progress percent={50} successPercent={-20} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

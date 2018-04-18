@@ -31,6 +31,15 @@ export interface ProgressProps {
   size?: ProgressSize;
 }
 
+const validProgress = (progress: number | undefined) => {
+  if (!progress || progress < 0) {
+    return 0;
+  } else if (progress > 100) {
+    return 100;
+  }
+  return progress;
+};
+
 export default class Progress extends React.Component<ProgressProps, {}> {
   static Line: any;
   static Circle: any;
@@ -84,11 +93,11 @@ export default class Progress extends React.Component<ProgressProps, {}> {
 
     if (type === 'line') {
       const percentStyle = {
-        width: `${percent}%`,
+        width: `${validProgress(percent)}%`,
         height: strokeWidth || (size === 'small' ? 6 : 8),
       };
       const successPercentStyle = {
-        width: `${successPercent}%`,
+        width: `${validProgress(successPercent)}%`,
         height: strokeWidth || (size === 'small' ? 6 : 8),
       };
       const successSegment = successPercent !== undefined
@@ -118,7 +127,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
           <Circle
-            percent={percent}
+            percent={validProgress(percent)}
             strokeWidth={circleWidth}
             trailWidth={circleWidth}
             strokeColor={(statusColorMap as any)[progressStatus]}
