@@ -38,14 +38,25 @@ export interface AntTreeNodeProps {
 
 export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
-export interface AntTreeNodeEvent {
-  event: 'check' | 'select';
+export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
+  nativeEvent: MouseEvent;
+}
+
+export interface AntTreeNodeCheckedEvent extends AntTreeNodeBaseEvent {
+  event: 'check';
   checked?: boolean;
   checkedNodes?: AntTreeNode[];
+}
+
+export interface AntTreeNodeSelectedEvent extends AntTreeNodeBaseEvent {
+  event: 'select';
   selected?: boolean;
   selectedNodes?: AntTreeNode[];
-  nativeEvent?: MouseEvent;
+}
+
+export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
+  expanded?: boolean;
 }
 
 export interface AntTreeNodeMouseEvent {
@@ -66,6 +77,8 @@ export interface TreeProps {
   checkable?: boolean;
   /** 默认展开所有树节点 */
   defaultExpandAll?: boolean;
+  /** 默认展开对应树节点 */
+  defaultExpandParent?: boolean;
   /** 默认展开指定的树节点 */
   defaultExpandedKeys?: string[];
   /** （受控）展开指定的树节点 */
@@ -79,14 +92,11 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: string[];
   /** 展开/收起节点时触发 */
-  onExpand?: (
-    expandedKeys: string[],
-    info: { node: AntTreeNode; expanded: boolean; },
-  ) => void | PromiseLike<any>;
+  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
   /** 点击复选框触发 */
-  onCheck?: (checkedKeys: string[], e: AntTreeNodeEvent) => void;
+  onCheck?: (checkedKeys: string[], e: AntTreeNodeCheckedEvent) => void;
   /** 点击树节点触发 */
-  onSelect?: (selectedKeys: string[], e: AntTreeNodeEvent) => void;
+  onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
   /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
@@ -110,6 +120,7 @@ export interface TreeProps {
   icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
+  children?: React.ReactNode | React.ReactNode[];
 }
 
 export default class Tree extends React.Component<TreeProps, any> {

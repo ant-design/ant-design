@@ -1,7 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Tree, { TreeProps, AntdTreeNodeAttribute, AntTreeNodeEvent, AntTreeNode } from './Tree';
+import { getFullKeyList, calcExpandedKeys } from 'rc-tree/es/util';
+
+import Tree, {
+  TreeProps, AntdTreeNodeAttribute,
+  AntTreeNodeExpandedEvent, AntTreeNodeSelectedEvent,
+} from './Tree';
+import { calcRangeKeys } from './util';
 import Icon from '../icon';
 
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
@@ -28,14 +34,26 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
   };
 
   state: DirectoryTreeState;
+  lastSelectKey?: string; // Used for shift click
 
   constructor(props: DirectoryTreeProps) {
     super(props);
 
+    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys } = props;
+
+    // Selected keys
     this.state = {
-      expandedKeys: props.expandedKeys || props.defaultExpandedKeys || [],
       selectedKeys: props.selectedKeys || props.defaultSelectedKeys || [],
     };
+
+    // Expanded keys
+    if (defaultExpandAll) {
+      this.state.expandedKeys = getFullKeyList(props.children);
+    } else if (defaultExpandParent) {
+      this.state.expandedKeys = calcExpandedKeys(expandedKeys || defaultExpandedKeys, props);
+    } else {
+      this.state.expandedKeys = defaultExpandedKeys;
+    }
   }
 
   componentWillReceiveProps(nextProps: DirectoryTreeProps) {
@@ -47,7 +65,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     }
   }
 
-  onExpand = (expandedKeys: string[], info: { node: AntTreeNode; expanded: boolean; }) => {
+  onExpand = (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => {
     const { onExpand } = this.props;
 
     this.setUncontrolledState({ expandedKeys });
@@ -56,25 +74,35 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     if (onExpand) {
       return onExpand(expandedKeys, info);
     }
+
     return undefined;
   }
 
-  onSelect = (keys: string[], event: AntTreeNodeEvent) => {
-    const { onSelect, multiple } = this.props;
+  onSelect = (keys: string[], event: AntTreeNodeSelectedEvent) => {
+    const { onSelect, onExpand, multiple, children } = this.props;
     const { expandedKeys = [], selectedKeys = [] } = this.state;
-    const { node, nativeEvent = { ctrlKey: false, metaKey: false } } = event;
+    const { node, nativeEvent } = event;
     const { isLeaf, eventKey = '', expanded } = node.props;
 
     const newState: DirectoryTreeState = {};
 
     // Windows / Mac single pick
     const ctrlPick: boolean = nativeEvent.ctrlKey || nativeEvent.metaKey;
+    const shiftPick: boolean = nativeEvent.shiftKey;
 
     // Generate new selected keys
     let newSelectedKeys = selectedKeys.slice();
     if (multiple && ctrlPick) {
+      // Control click
       newSelectedKeys = keys;
+    } else if (multiple && shiftPick) {
+      // Shift click
+      newSelectedKeys = Array.from(new Set([
+        ...selectedKeys,
+        ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectKey),
+      ]));
     } else {
+      // Single click
       newSelectedKeys = [eventKey];
     }
     newState.selectedKeys = newSelectedKeys;
@@ -84,7 +112,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     }
 
     // Trigger `onExpand`
-    if (!isLeaf) {
+    if (!isLeaf && (!multiple || (!ctrlPick && !shiftPick))) {
       let newExpandedKeys: string[] = expandedKeys.slice();
       const index = newExpandedKeys.indexOf(eventKey);
       if (expanded && index >= 0) {
@@ -93,8 +121,17 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
         newExpandedKeys.push(eventKey);
       }
       newState.expandedKeys = newExpandedKeys;
+
+      if (onExpand) {
+        onExpand(newExpandedKeys, {
+          node,
+          nativeEvent,
+          expanded: !expanded,
+        });
+      }
     }
 
+    this.lastSelectKey = eventKey;
     this.setUncontrolledState(newState);
   }
 

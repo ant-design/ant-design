@@ -20,7 +20,10 @@ const TreeNode = Tree.TreeNode;
 
 class Demo extends React.Component {
   onSelect = () => {
-    console.log('66666');
+    console.log('Trigger Select');
+  };
+  onExpand = () => {
+    console.log('Trigger Expand');
   };
 
   render() {
@@ -29,6 +32,7 @@ class Demo extends React.Component {
         multiple
         defaultExpandAll
         onSelect={this.onSelect}
+        onExpand={this.onExpand}
       >
         <TreeNode title="parent 0" key="0-0">
           <TreeNode title="leaf 0-0" key="0-0-0" isLeaf />

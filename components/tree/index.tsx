@@ -2,7 +2,7 @@ import Tree from './Tree';
 export {
   TreeProps,
   AntTreeNode,
-  AntTreeNodeEvent, AntTreeNodeMouseEvent,
+  AntTreeNodeMouseEvent, AntTreeNodeExpandedEvent, AntTreeNodeCheckedEvent, AntTreeNodeSelectedEvent,
   AntdTreeNodeAttribute, AntTreeNodeProps,
 } from './Tree';
 
