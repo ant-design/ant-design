@@ -113,6 +113,12 @@
     }
     > .@{menu-prefix-cls}-submenu-title {
       color: @disabled-color-dark !important;
+      > .@{menu-prefix-cls}-submenu-arrow {
+        &:before,
+        &:after {
+          background: @disabled-color-dark !important;
+        }
+      }
     }
   }
 }
