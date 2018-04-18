@@ -34,7 +34,10 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
   };
 
   state: DirectoryTreeState;
-  lastSelectKey?: string; // Used for shift click
+
+  // Shift click usage
+  lastSelectedKey?: string;
+  cachedSelectedKeys?: string[];
 
   constructor(props: DirectoryTreeProps) {
     super(props);
@@ -95,15 +98,19 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
+      this.lastSelectedKey = eventKey;
+      this.cachedSelectedKeys = newSelectedKeys;
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(new Set([
-        ...selectedKeys,
-        ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectKey),
+        ...this.cachedSelectedKeys || [],
+        ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectedKey),
       ]));
     } else {
       // Single click
       newSelectedKeys = [eventKey];
+      this.lastSelectedKey = eventKey;
+      this.cachedSelectedKeys = newSelectedKeys;
     }
     newState.selectedKeys = newSelectedKeys;
 
@@ -131,7 +138,6 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
       }
     }
 
-    this.lastSelectKey = eventKey;
     this.setUncontrolledState(newState);
   }
 
