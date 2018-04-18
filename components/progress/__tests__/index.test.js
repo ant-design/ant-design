@@ -16,6 +16,11 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render out-of-range progress with info', async () => {
+    const wrapper = mount(<Progress percent={120} showInfo />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('render negetive progress', async () => {
     const wrapper = mount(<Progress percent={-20} />);
     expect(wrapper.render()).toMatchSnapshot();
