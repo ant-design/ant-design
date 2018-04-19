@@ -164,11 +164,11 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
     });
 
-    const paginationContent = (
+    const paginationContent = pagination ? (
       <div className={`${prefixCls}-pagination`}>
         <Pagination {...pagination} />
       </div>
-    );
+    ) : null;
 
     let childrenContent;
     childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
@@ -193,20 +193,15 @@ export default class List extends React.Component<ListProps> {
       );
     }
 
-    const content = (
-      <div>
-        <Spin {...loadingProp}>{childrenContent}</Spin>
-        {loadMore}
-        {(!loadMore && pagination) ? paginationContent : null}
-      </div>
-    );
-
     return (
       <div className={classString} {...rest}>
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
-        {content}
-        {children}
+        <Spin {...loadingProp}>
+          {childrenContent}
+          {children}
+        </Spin>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {loadMore || paginationContent}
       </div>
     );
   }

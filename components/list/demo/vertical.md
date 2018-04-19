@@ -47,6 +47,7 @@ ReactDOM.render(
     size="large"
     pagination={pagination}
     dataSource={listData}
+    footer={<div><b>ant design</b> footer part</div>}
     renderItem={item => (
       <List.Item
         key={item.title}
