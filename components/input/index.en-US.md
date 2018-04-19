@@ -45,6 +45,7 @@ The rest of the props of Input are exactly the same as the original [input](http
 | defaultValue | The initial input content | string |  |
 | value | The input content value | string |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |
+| disabled | Whether the textarea is disabled. | boolean | false |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
