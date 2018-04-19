@@ -43,15 +43,13 @@
   force = false
 
 [[redirects]]
-  from = "/docs/pattern/*-cn"
-  to = "/docs/spec/overview-cn"
-  status = 301
-  force = false
-
-[[redirects]]
   from = "/docs/pattern/*"
   to = "/docs/spec/overview"
   status = 301
   force = false
 
-
+[[redirects]]
+  from = "/docs/pattern/*-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
