@@ -570,6 +570,169 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 </ul>
 `;
 
+exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
+<ul
+  class="ant-tree ant-tree-directory"
+  role="tree-node"
+  unselectable="on"
+>
+  <li
+    class=""
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+      title="parent 0"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        parent 0
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class=""
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="leaf 0-0"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-file"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            leaf 0-0
+          </span>
+        </span>
+      </li>
+      <li
+        class=""
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="leaf 0-1"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-file"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            leaf 0-1
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+  <li
+    class=""
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+      title="parent 1"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        parent 1
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class=""
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="leaf 1-0"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-file"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            leaf 1-0
+          </span>
+        </span>
+      </li>
+      <li
+        class=""
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="leaf 1-1"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-file"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            leaf 1-1
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <ul
   class="ant-tree draggable-tree"

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { getFullKeyList, calcExpandedKeys } from 'rc-tree/es/util';
+import { getFullKeyList, calcExpandedKeys } from 'rc-tree/lib/util';
 
 import Tree, {
   TreeProps, AntdTreeNodeAttribute,

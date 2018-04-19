@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { traverseTreeNodes } from 'rc-tree/es/util';
+import { traverseTreeNodes } from 'rc-tree/lib/util';
 
 export interface TraverseData {
   key: string,

@@ -43,7 +43,7 @@ declare module 'rc-menu';
 declare module 'rc-tabs*';
 
 declare module 'rc-tree';
-declare module 'rc-tree/es/util';
+declare module 'rc-tree/lib/util';
 
 declare module 'rc-tooltip*';
 
