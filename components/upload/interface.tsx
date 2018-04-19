@@ -6,12 +6,16 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
+export interface RcFile extends File {
+  uid: number;
+}
+
 export interface UploadFile {
   uid: number;
   size: number;
   name: string;
   filename?: string;
-  lastModified?: string;
+  lastModified?: number;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
@@ -57,7 +61,7 @@ export interface UploadProps {
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: UploadFile, FileList: UploadFile[]) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
