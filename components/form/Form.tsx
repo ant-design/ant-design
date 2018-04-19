@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
@@ -161,10 +160,6 @@ export default class Form extends React.Component<FormProps, any> {
     super(props);
 
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getChildContext() {
