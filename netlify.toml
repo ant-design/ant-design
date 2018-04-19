@@ -1,0 +1,8 @@
+[build]
+  publish = "_site"
+  command = "npm run site"
+
+[context.production]
+  command = ""
+  publish = "."
+
