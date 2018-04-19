@@ -10,10 +10,13 @@ const statusColorMap = {
   success: '#87d068',
 };
 
+export type ProgressType = 'line' | 'circle' | 'dashboard';
+export type ProgressSize = 'default' | 'small';
+
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
-  type?: 'line' | 'circle' | 'dashboard';
+  type?: ProgressType;
   percent?: number;
   successPercent?: number;
   format?: (percent: number) => string;
@@ -25,7 +28,7 @@ export interface ProgressProps {
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: 'default' | 'small';
+  size?: ProgressSize;
 }
 
 export default class Progress extends React.Component<ProgressProps, {}> {
@@ -33,12 +36,12 @@ export default class Progress extends React.Component<ProgressProps, {}> {
   static Circle: any;
 
   static defaultProps = {
-    type: 'line',
+    type: 'line' as ProgressType,
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
     prefixCls: 'ant-progress',
-    size: 'default',
+    size: 'default' as ProgressSize,
   };
 
   static propTypes = {

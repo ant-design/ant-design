@@ -17,8 +17,10 @@ export interface FormCreateOption<T> {
   withRef?: boolean;
 }
 
+export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+
 export interface FormProps {
-  layout?: 'horizontal' | 'inline' | 'vertical';
+  layout?: FormLayout;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
@@ -123,7 +125,7 @@ export interface ComponentDecorator {
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
-    layout: 'horizontal',
+    layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
