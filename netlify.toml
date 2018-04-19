@@ -43,13 +43,73 @@
   force = false
 
 [[redirects]]
-  from = "/docs/pattern/*"
+  from = "/docs/pattern/advanced-search"
   to = "/docs/spec/overview"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/docs/pattern/*-cn"
+  from = "/docs/pattern/advanced-search-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/complex-table"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/complex-table-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/form"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/form-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/list"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/list-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/navigation"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/navigation-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/table"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/table-cn"
   to = "/docs/spec/overview-cn"
   status = 301
   force = false
