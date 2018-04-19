@@ -1,6 +1,3 @@
-[Settings]
-  ID = "7b0f5d08-e5b9-4de9-94e9-dac3e33c3b75"
-
 [build]
   publish = "_site"
   command = "npm run site"
