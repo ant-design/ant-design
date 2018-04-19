@@ -3,6 +3,6 @@
   command = "npm run site"
 
 [context.production]
-  command = ""
+  command = "echo build"
   publish = "."
 
