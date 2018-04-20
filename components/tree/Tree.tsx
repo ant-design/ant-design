@@ -97,6 +97,10 @@ export interface TreeProps {
   onCheck?: (checkedKeys: string[], e: AntTreeNodeCheckedEvent) => void;
   /** 点击树节点触发 */
   onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
+  /** 单击树节点触发 */
+  onClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
+  /** 双击树节点触发 */
+  onDoubleClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
   /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
