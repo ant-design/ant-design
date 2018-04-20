@@ -221,14 +221,18 @@
 
   &-loading &-body {
     user-select: none;
-    padding: 0;
   }
 
   &-loading-content {
-    padding: @card-padding-base;
+    padding: 0;
+    animation: loading-entering .3s;
     p {
       margin: 0;
     }
+  }
+
+  &-wider-padding &-loading-content {
+    animation: wider-loading-entering .3s;
   }
 
   &-loading-block {
@@ -250,4 +254,22 @@
 	50% {
 		background-position: 100% 50%;
 	}
+}
+
+@keyframes loading-entering {
+  from {
+    padding: @card-padding-base;
+  }
+  to {
+    padding: 0;
+  }
+}
+
+@keyframes wider-loading-entering {
+  from {
+    padding: @card-padding-base @card-padding-wider;
+  }
+  to {
+    padding: 0;
+  }
 }
