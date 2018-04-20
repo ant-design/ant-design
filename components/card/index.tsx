@@ -5,6 +5,8 @@ import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs from '../tabs';
+import Row from '../row';
+import Col from '../col';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
@@ -148,24 +150,57 @@ export default class Card extends React.Component<CardProps, CardState> {
 
     const loadingBlock = (
       <div className={`${prefixCls}-loading-content`}>
-        <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
-        </p>
+        <Row gutter={8}>
+          <Col span={22}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={15}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={6}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={18}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={13}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={9}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={4}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={3}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={16}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={6}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
       </div>
     );
 

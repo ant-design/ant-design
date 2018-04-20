@@ -72,7 +72,7 @@
     .clearfix;
   }
 
-  &-contain-grid &-body {
+  &-contain-grid:not(&-loading) {
     margin: -1px 0 0 -1px;
     padding: 0;
   }
@@ -224,21 +224,14 @@
   }
 
   &-loading-content {
-    padding: 0;
-    animation: loading-entering .3s;
     p {
       margin: 0;
     }
   }
 
-  &-wider-padding &-loading-content {
-    animation: wider-loading-entering .3s;
-  }
-
   &-loading-block {
-    display: inline-block;
-    margin: 5px 2% 0 0;
     height: 14px;
+    margin: 4px 0;
     border-radius: @border-radius-sm;
     background: linear-gradient(90deg, rgba(207, 216, 220, .2), rgba(207, 216, 220, .4), rgba(207, 216, 220, .2));
     animation: card-loading 1.4s ease infinite;
@@ -254,22 +247,4 @@
 	50% {
 		background-position: 100% 50%;
 	}
-}
-
-@keyframes loading-entering {
-  from {
-    padding: @card-padding-base;
-  }
-  to {
-    padding: 0;
-  }
-}
-
-@keyframes wider-loading-entering {
-  from {
-    padding: @card-padding-base @card-padding-wider;
-  }
-  to {
-    padding: 0;
-  }
 }
