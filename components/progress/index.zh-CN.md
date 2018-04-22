@@ -18,7 +18,7 @@ title: Progress
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| format | 内容的模板函数 | function(percent) | `percent => percent + '%'` |
+| format | 内容的模板函数 | function(percent, successPercent) | `percent => percent + '%'` |
 | gapDegree `(type=circle)` | 圆形进度条缺口角度，可取值 0 ~ 360 | number | 0 |
 | gapPosition `(type=circle)` | 圆形进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` |
 | percent | 百分比 | number | 0 |
