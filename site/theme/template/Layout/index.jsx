@@ -48,10 +48,9 @@ export default class Layout extends React.Component {
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
 
-    const adBannerClosed = (
-      typeof window !== 'undefined' &&
-        window.localStorage &&
-        window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
+    const adBannerClosed = typeof window === 'undefined' ? true : (
+      window.localStorage &&
+      window.localStorage.getItem(`adBannerClosed-${promoteBannerImageUrl}`) === 'true'
     );
     this.state = {
       appLocale,
