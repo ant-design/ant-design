@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 3.4.2
+
+`2018-04-22`
+
+- 💄 部署网站到 [netlify](http://netlify.com/)，解决网站被墙的问题。
+- 🐞 修复和调整 Menu、Tooltip、Card、Anchor、Avatar、Form、Tabs、Transfer、Tree、AutoComplete 等组件的 TypeScript 定义。
+- 💄 增加 `sideEffects` 配置以优化 Tree Shaking 效果。[#10043](https://github.com/ant-design/ant-design/pull/10043) [@Aladdin-ADD](https://github.com/Aladdin-ADD)
+- List
+  - 🐞 修复多余边框问题。[#10028](https://github.com/ant-design/ant-design/issues/10028)
+  - 🐞 修复 `locale` 属性被传递给 div 的警告。[#10128](https://github.com/ant-design/ant-design/pull/10128) [@slonoed](https://github.com/slonoed)
+- 🐞 修复 Upload 的文件 url 带有参数时，图片预览效果失效的问题。[#10102](https://github.com/ant-design/ant-design/issues/10102)
+- 🐞 修复 Progress 的百分比越界时的展现。[0eb8357](https://github.com/ant-design/ant-design/commit/0eb835772dbaa7ed14babe03fc177821c5bd5ca5)
+- Menu
+  - 🐞 修复 SubMenu 的失效箭头样式。[#10113](https://github.com/ant-design/ant-design/issues/10113)
+  - 🐞 修复 `collapsedWidth` 为像素字符串 `40px` 菜单宽度失效的问题。[#10140](https://github.com/ant-design/ant-design/issues/10140)
+- 🐞 修复一个某些情况下 Form 内使用受控组件时无法编辑的问题。[#9790](https://github.com/ant-design/ant-design/issues/9790)
+- 🐞 修复 Card 切换 loading 状态时的内边距跳动问题。[#10052](https://github.com/ant-design/ant-design/pull/10052) [@zheeeng](https://github.com/zheeeng)
+- 🐞 修复 Avatar 图片加载失败时的文字没有正确缩放的问题。[#10184](https://github.com/ant-design/ant-design/pull/10184)
+- 🐞 修复 Table 的 `getCheckboxProps` 无法动态更新的问题。[#10133](https://github.com/ant-design/ant-design/issues/10133)
+- 🐞 修复 CheckGroup 指定 `prefixCls` 没有传递给 Checkbox 的问题。[#9950](https://github.com/ant-design/ant-design/issues/9950)
+
 ## 3.4.1
 
 `2018-04-08`

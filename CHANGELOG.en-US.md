@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 3.4.2
+
+`2018-04-22`
+
+- 💄 Deployed site by [netlify](http://netlify.com/) to avoid blocking by GFW.
+- 🐞 Fix TypeScript definitions of Menu, Tooltip, Card, Anchor, Avatar, Form, Tabs, Transfer, Tree, AutoComplete and etc.
+- 💄 Added `sideEffects` to `package.json` for better Tree-Shaking. [#10043](https://github.com/ant-design/ant-design/pull/10043) [@Aladdin-ADD](https://github.com/Aladdin-ADD)
+- List
+  - 🐞 Fix extra border. [#10028](https://github.com/ant-design/ant-design/issues/10028)
+  - 🐞 Fix extra prop warning of `locale`. [#10128](https://github.com/ant-design/ant-design/pull/10128) [@slonoed](https://github.com/slonoed)
+- 🐞 Fix wrong preview image of Upload list when file.url contains url params. [#10102](https://github.com/ant-design/ant-design/issues/10102)
+- 🐞 Fix Progress when percent is out of range. [0eb8357](https://github.com/ant-design/ant-design/commit/0eb835772dbaa7ed14babe03fc177821c5bd5ca5)
+- Menu
+  - 🐞 Fix arrow style of disabled SubMenu. [#10113](https://github.com/ant-design/ant-design/issues/10113)
+  - 🐞 Fix that menu width is wrong when `collapsedWidth` is assigned as px string like `40px`. [#10140](https://github.com/ant-design/ant-design/issues/10140)
+- 🐞 Fix that sometimes controlled input in Form cannot be edited. [#9790](https://github.com/ant-design/ant-design/issues/9790)
+- 🐞 Fix padding jumping issue of loading Card. [#10052](https://github.com/ant-design/ant-design/pull/10052) [@zheeeng](https://github.com/zheeeng)
+- 🐞 Fix that Avatar's fallback text don't scale as the text avatar does. [#10184](https://github.com/ant-design/ant-design/pull/10184)
+- 🐞 Fix Table `getCheckboxProps` cannot be updated as expected. [#10133](https://github.com/ant-design/ant-design/issues/10133)
+- 🐞 Fix CheckboxGroup `prefixCls` prop not passed to Checkbox. [#9950](https://github.com/ant-design/ant-design/issues/9950)
+
 ## 3.4.1
 
 `2018-04-08`
@@ -165,7 +186,7 @@ timeline: true
   - 🐞 Fix issue resulting date panel being closed without animation when click on the preset range. [#6364](https://github.com/ant-design/ant-design/issues/6364)
   - 🐞 Fix issue resulting `onOk` is not being trigged, when click on the preset range. [#7747](https://github.com/ant-design/ant-design/issues/7747)
 - Select
-  - 🌟 Improve `onChange`、`onDeselect`, they will receive selected `Option` as second paramteter.
+  - 🌟 Improve `onChange`, `onDeselect`, they will receive selected `Option` as second paramteter.
   - 🐞 Fix issue resulting in `onSelect` is not trigged when using automatic tokenization. [#9094](https://github.com/ant-design/ant-design/issues/9094)
   - 🐞 Fix the missing scrollbar in Chrome.
 - 🌟 Improve Table's `rowSelection[getCheckboxProps]` prop, now the all the properties returned by `getCheckboxProps` will be passed to checkbox. [#9054](https://github.com/ant-design/ant-design/pull/9054) [@mgrdevport](https://github.com/ant-design/ant-design/pull/9054)
@@ -430,7 +451,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🌟 `status` can use whith `children` now. [#8164](https://github.com/ant-design/ant-design/issues/8164)
 - Card
   - 🌟 Added new `inner` type. [Demo](https://ant.design/components/card/#components-card-demo-inner)。
-  - 🌟 Added `cover`、`actions` and a new `Meta` component. [Demo](https://ant.design/components/card/#components-card-demo-meta)。
+  - 🌟 Added `cover`, `actions` and a new `Meta` component. [Demo](https://ant.design/components/card/#components-card-demo-meta)。
 - DatePicker
   - 🌟 Added `mode` and `onPanelChange`，to allow controlling the panel mode. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-mode)。
   - 🌟 Added `WeekPicker` component. [Demo](https://ant.design/components/date-picker/#components-date-picker-demo-basic)
@@ -466,7 +487,7 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
   - 🌟 Added `column[defaultSortOrder]` to allow setting default sort order. [#8111](https://github.com/ant-design/ant-design/pull/8111) [@megawac](https://github.com/megawac)
   - 🌟 Added `rowSelection[fixed]` to allow fixing the selection column.。
   - 🙅 Deprecated `getBodyWrapper`, please use `components` instead.
-  - 🙅 Deprecated `onRowClick`，`onRowDoubleClick`、`onRowContextMenu`、`onRowMouseEnter`、`onRowMouseLeave`, please use `onRow` instead.
+  - 🙅 Deprecated `onRowClick`，`onRowDoubleClick`, `onRowContextMenu`, `onRowMouseEnter`, `onRowMouseLeave`, please use `onRow` instead.
     ```javascript
     <Table onRow={(record) => ({
       onClick: () => {},
