@@ -277,16 +277,16 @@
         border-bottom: 2px solid @menu-highlight-color;
         color: @menu-highlight-color;
       }
+    }
 
-      > a {
-        display: block;
-        color: @menu-item-color;
-        &:hover {
-          color: @menu-highlight-color;
-        }
-        &:before {
-          bottom: -2px;
-        }
+    > .@{menu-prefix-cls}-item > a {
+      display: block;
+      color: @menu-item-color;
+      &:hover {
+        color: @menu-highlight-color;
+      }
+      &:before {
+        bottom: -2px;
       }
     }
 
