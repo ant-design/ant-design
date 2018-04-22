@@ -46,7 +46,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
     if (prevProps.children !== this.props.children
-        || (prevState.scale !== this.state.scale && this.state.scale === 1)) {
+        || (prevState.scale !== this.state.scale && this.state.scale === 1)
+        || (prevState.isImgExist !== this.state.isImgExist)) {
       this.setScale();
     }
   }
