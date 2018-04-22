@@ -41,7 +41,7 @@ export interface CheckboxGroupContext {
 export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    prefixCls: 'ant-checkbox-group',
+    prefixCls: 'ant-checkbox',
   };
 
   static propTypes = {
@@ -115,23 +115,25 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   render() {
     const { props, state } = this;
     const { prefixCls, className, style, options } = props;
+    const groupPrefixCls = `${prefixCls}-group`;
     let children = props.children;
     if (options && options.length > 0) {
       children = this.getOptions().map(option => (
         <Checkbox
+          prefixCls={prefixCls}
           key={option.value}
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
           onChange={() => this.toggleOption(option)}
-          className={`${prefixCls}-item`}
+          className={`${groupPrefixCls}-item`}
         >
           {option.label}
         </Checkbox>
       ));
     }
 
-    const classString = classNames(prefixCls, className);
+    const classString = classNames(groupPrefixCls, className);
     return (
       <div className={classString} style={style}>
         {children}
