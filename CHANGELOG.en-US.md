@@ -34,6 +34,7 @@ timeline: true
 - 🐞 Fix padding jumping issue of loading Card. [#10052](https://github.com/ant-design/ant-design/pull/10052) [@zheeeng](https://github.com/zheeeng)
 - 🐞 Fix that Avatar's fallback text don't scale as the text avatar does. [#10184](https://github.com/ant-design/ant-design/pull/10184)
 - 🐞 Fix Table `getCheckboxProps` cannot be updated as expected. [#10133](https://github.com/ant-design/ant-design/issues/10133)
+- 🐞 Fix CheckboxGroup `prefixCls` prop not passed to Checkbox. [#9950](https://github.com/ant-design/ant-design/issues/9950)
 
 ## 3.4.1
 
