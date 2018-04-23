@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.4.3
+
+`2018-04-23`
+
+- 🐞 Fix style lose bug when use tree shaking in webpack@4. [#10197](https://github.com/ant-design/ant-design/pull/10197) [@Aladdin-ADD](https://github.com/Aladdin-ADD)
+- 🐞 Fix `Menu` item's clickable region in dark theme. [#10187](https://github.com/ant-design/ant-design/pull/10187) [@dgeibi ](https://github.com/dgeibi )
+
 ## 3.4.2
 
 `2018-04-22`
