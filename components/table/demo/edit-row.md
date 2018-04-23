@@ -28,8 +28,8 @@ for (let i = 0; i < 100; i++) {
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
-const EditableRow = props => (
-  <EditableContext.Provider value={props.form}>
+const EditableRow = ({ form, ...props }) => (
+  <EditableContext.Provider value={form}>
     <tr {...props} />
   </EditableContext.Provider>
 );
