@@ -25,10 +25,10 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       [`${prefixCls}-pending`]: !!pending,
     }, className);
     // Remove falsy items
-    const falsylessItems = React.Children.toArray(children).filter(item => !!item);
-    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
+    const truthyItems = React.Children.toArray(children).filter(item => !!item);
+    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
-        last: idx === (React.Children.count(falsylessItems) - 1),
+        last: idx === (React.Children.count(truthyItems) - 1),
       }),
     );
     const pendingItem = (!!pending) ? (
