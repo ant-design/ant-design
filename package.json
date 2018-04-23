@@ -212,5 +212,7 @@
   "pre-commit": [
     "lint-staged"
   ],
-  "sideEffects": false
+  "sideEffects": [
+    "es/**/style/*"
+  ]
 }
