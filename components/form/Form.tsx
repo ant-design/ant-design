@@ -11,7 +11,7 @@ import { Omit } from '../_util/type';
 
 export interface FormCreateOption<T> {
   onFieldsChange?: (props: T, fields: Array<any>) => void;
-  onValuesChange?: (props: T, values: any) => void;
+  onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   withRef?: boolean;
 }
