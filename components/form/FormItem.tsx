@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import Row from '../grid/row';
+import Row, { RowProps } from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import warning from '../_util/warning';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
@@ -15,6 +15,7 @@ export interface FormItemProps {
   label?: React.ReactNode;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
+  wrapperRow?: RowProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
@@ -43,6 +44,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     validateStatus: PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
     hasFeedback: PropTypes.bool,
     wrapperCol: PropTypes.object,
+    wrapperRow: PropTypes.object,
     className: PropTypes.string,
     id: PropTypes.string,
     children: PropTypes.node,
@@ -304,6 +306,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const props = this.props;
     const prefixCls = props.prefixCls;
     const style = props.style;
+    const wrapperRow = props.wrapperRow;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg() || this.state.helpShow,
@@ -312,7 +315,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     };
 
     return (
-      <Row className={classNames(itemClassName)} style={style}>
+      <Row {...wrapperRow} className={classNames(itemClassName)} style={style}>
         {children}
       </Row>
     );
