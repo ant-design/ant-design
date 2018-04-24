@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.4.4
+
+`2018-04-24`
+
+- 🐞 Fix style lose bug when use tree shaking in webpack@4. [#10217](https://github.com/ant-design/ant-design/pull/10217) [@whtsky](https://github.com/whtsky)
+
 ## 3.4.3
 
 `2018-04-23`
