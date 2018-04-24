@@ -15,6 +15,11 @@ timeline: true
 
 ---
 
+## 3.4.4
+
+`2018-04-24`
+
+- 🐞 修复了 webpack@4 下使用 Tree Shaking 样式丢失的问题。[#10217](https://github.com/ant-design/ant-design/pull/10217) [@whtsky](https://github.com/whtsky)
 
 ## 3.4.3
 
