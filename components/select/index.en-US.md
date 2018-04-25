@@ -26,7 +26,7 @@ Select component to select value from options.
 | allowClear | Show clear button. | boolean | false |
 | autoFocus | Get focus by default | boolean | false |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |
-| defaultValue | Initial selected option. | string\|number\|string\[]\|number\[] | - |
+| defaultValue | Initial selected option.Note:while setting default value in select inside form use [initialValue prop inside getFieldDecorator](http://ant.design/components/form/#components-form-demo-register) | string\|number\|string\[]\|number\[] | - |
 | disabled | Whether disabled select | boolean | false |
 | dropdownClassName | className of dropdown menu | string | - |
 | dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
