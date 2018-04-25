@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Set `okText` and `cancelText` props to customise the button's labels.
+Set `okText` and `cancelText` props to customize the button's labels.
 
 ````jsx
 import { Popconfirm } from 'antd';
