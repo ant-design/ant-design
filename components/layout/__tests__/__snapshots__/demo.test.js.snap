@@ -33,7 +33,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       class="ant-layout"
     >
       <div
-        class="ant-layout-sider"
+        class="ant-layout-sider ant-layout-sider-dark"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
@@ -71,7 +71,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         Content
       </div>
       <div
-        class="ant-layout-sider"
+        class="ant-layout-sider ant-layout-sider-dark"
         style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
@@ -91,7 +91,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
     class="ant-layout"
   >
     <div
-      class="ant-layout-sider"
+      class="ant-layout-sider ant-layout-sider-dark"
       style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
@@ -128,7 +128,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
   class="ant-layout"
 >
   <div
-    class="ant-layout-sider"
+    class="ant-layout-sider ant-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -302,7 +302,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
   class="ant-layout"
 >
   <div
-    class="ant-layout-sider"
+    class="ant-layout-sider ant-layout-sider-dark"
     style="overflow:auto;height:100vh;position:fixed;left:0;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -557,7 +557,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
   class="ant-layout"
 >
   <div
-    class="ant-layout-sider"
+    class="ant-layout-sider ant-layout-sider-dark"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -662,7 +662,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
   style="min-height:100vh"
 >
   <div
-    class="ant-layout-sider ant-layout-sider-has-trigger"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -1006,7 +1006,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="padding:24px 0;background:#fff"
     >
       <div
-        class="ant-layout-sider"
+        class="ant-layout-sider ant-layout-sider-dark"
         style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
@@ -1176,7 +1176,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     class="ant-layout"
   >
     <div
-      class="ant-layout-sider"
+      class="ant-layout-sider ant-layout-sider-dark"
       style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
