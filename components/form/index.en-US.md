@@ -65,6 +65,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | Method | Description | Type |
 | ------ | ----------- | ---- |
 | getFieldDecorator | Two-way binding for form, please read below for details. |  |
+| getFieldProps | Will create props which can be set on a input/InputComponent which support value and onChange interface. |  |
 | getFieldError | Get the error of a field. | Function(name) |
 | getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |
 | getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function(\[fieldNames: string\[]]) |
