@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import ColorPicker from './ColorPicker';
-import ColorPalettes from './ColorPatterns';
+import ColorPatterns from './ColorPatterns';
 
 // eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
@@ -24,7 +24,11 @@ export default class ColorPaletteTool extends Component {
             <FormattedMessage id="app.docs.color.pick-primary" />
             <div className="color-palette-picker">
               <span style={{ display: 'inline-block' }}>
-                <ColorPicker type="chrome" color={this.state.primaryColor} onChange={this.handleChangeColor} />
+                <ColorPicker
+                  type="chrome"
+                  color={this.state.primaryColor}
+                  onChange={this.handleChangeColor}
+                />
               </span>
               <div className="color-palette-picker-value">
                 {this.state.primaryColor}
@@ -32,7 +36,7 @@ export default class ColorPaletteTool extends Component {
             </div>
           </div>
           <div className="main-color">
-            <ColorPalettes color={this.state.primaryColor} />
+            <ColorPatterns color={this.state.primaryColor} />
           </div>
         </div>
       </div>
