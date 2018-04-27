@@ -52,7 +52,7 @@
     "prop-types": "^15.5.7",
     "rc-animate": "^2.4.1",
     "rc-calendar": "~9.6.0",
-    "rc-cascader": "~0.12.0",
+    "rc-cascader": "~0.13.0",
     "rc-checkbox": "~2.1.5",
     "rc-collapse": "~1.8.0",
     "rc-dialog": "~7.1.0",
