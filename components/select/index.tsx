@@ -17,7 +17,7 @@ export interface AbstractSelectProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   tabIndex?: number;
-  placeholder?: string;
+  placeholder?: string | React.ReactNode;
   defaultActiveFirstOption?: boolean;
   dropdownClassName?: string;
   dropdownStyle?: React.CSSProperties;
