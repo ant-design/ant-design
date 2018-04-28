@@ -8,13 +8,8 @@ export function T() {
 // via coping a new Object
 export function fileToObject(file: RcFile): UploadFile {
   return {
-    lastModified: file.lastModified,
-    lastModifiedDate: file.lastModifiedDate,
-    name: file.name,
-    size: file.size,
-    type: file.type,
+    ...file,
     percent: 0,
-    uid: file.uid,
     originFileObj: file,
   } as UploadFile;
 }

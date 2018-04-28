@@ -195,7 +195,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     const result = this.props.beforeUpload(file, fileList);
     if (result === false) {
       this.onChange({
-        file: fileToObject(file),
+        file,
         fileList: uniqBy(fileList.map(fileToObject).concat(this.state.fileList),  (item: UploadFile) => item.uid),
       });
       return false;
