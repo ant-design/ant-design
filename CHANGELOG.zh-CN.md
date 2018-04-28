@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.4.4
+
+`2018-04-28`
+
+- 🐞 修复 3.4.2 中引入的 Upload 中 onChange 参数 `{ file }` file 不是 File 实例的问题。[#10293](https://github.com/ant-design/ant-design/issues/10293)
+- 🐞 修复 webpack@4 下使用 Tree Shaking 样式丢失的问题。[#10217](https://github.com/ant-design/ant-design/pull/10217) [@whtsky](https://github.com/whtsky)
 
 ## 3.4.3
 
