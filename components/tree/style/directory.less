@@ -1,13 +1,32 @@
+@import "../../style/themes/default";
+
 @tree-prefix-cls: ~"@{ant-prefix}-tree";
 
 .@{tree-prefix-cls} {
-  &-directory {
+  &.@{tree-prefix-cls}-directory {
+    // Stretch selector width
     > li,
     .@{tree-prefix-cls}-child-tree > li {
+
       .@{tree-prefix-cls}-node-content-wrapper {
         width: calc(~"100% - 24px");
         user-select: none;
+        border-radius: 0;
+
+        &.@{tree-prefix-cls}-node-selected {
+          color: @tree-directory-selected-color;
+          background-color: @tree-directory-selected-bg;
+        }
       }
+    }
+
+    // Build-in css icon with color
+    .@{tree-prefix-cls}-directory-icon-folder-open,
+    .@{tree-prefix-cls}-directory-icon-folder {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background: blue;
     }
   }
 }
