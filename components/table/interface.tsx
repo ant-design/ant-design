@@ -99,7 +99,7 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: string[], sorter: Object) => any;
+  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: Record<keyof T, any>) => any;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
