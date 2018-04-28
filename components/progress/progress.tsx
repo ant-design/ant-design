@@ -82,9 +82,15 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       let text;
       const iconType = (type === 'circle' || type === 'dashboard') ? '' : '-circle';
       if (progressStatus === 'exception') {
-        text = format ? textFormatter(validProgress(percent), validProgress(successPercent)) : <Icon type={`cross${iconType}`} />;
+        text = format ?
+          textFormatter(validProgress(percent), validProgress(successPercent))
+          :
+          <Icon type={`cross${iconType}`} />;
       } else if (progressStatus === 'success') {
-        text = format ? textFormatter(validProgress(percent), validProgress(successPercent)) : <Icon type={`check${iconType}`} />;
+        text = format ?
+          textFormatter(validProgress(percent), validProgress(successPercent))
+          :
+          <Icon type={`check${iconType}`} />;
       } else {
         text = textFormatter(validProgress(percent), validProgress(successPercent));
       }

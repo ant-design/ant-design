@@ -73,7 +73,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>

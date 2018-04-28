@@ -68,7 +68,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>
@@ -110,7 +110,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>
@@ -242,7 +242,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -285,7 +285,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -399,7 +399,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -431,7 +431,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -468,7 +468,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -524,7 +524,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -548,7 +548,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           <div
             class="ant-select-selection__placeholder"
             style="display:block;user-select:none;-webkit-user-select:none"
-            unselectable="unselectable"
+            unselectable="on"
           >
             Email
           </div>
@@ -576,7 +576,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -614,7 +614,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
