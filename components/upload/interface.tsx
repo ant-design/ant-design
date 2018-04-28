@@ -16,7 +16,7 @@ export interface UploadFile {
   name: string;
   filename?: string;
   lastModified?: number;
-  lastModifiedDate?: Date;
+  lastModrcFlieifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
   percent?: number;
