@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.5.0
+
+`2018-04-28`
+
+- 🌟 Add `title` prop to `Badge` that shows when hovering it. [74d81c2](https://github.com/ant-design/ant-design/commit/74d81c2d078a3c84b3e44cbfbdd99b8f479ea71d) [@ludwigbacklund](https://github.com/ludwigbacklund)
+- 🌟 Support custom `Collapse` styles with less. [#9943](https://github.com/ant-design/ant-design/pull/9943) [@davidhatten](https://github.com/davidhatten)
+- 🌟 Update `rc-notification` to 3.1.0 so that `Notification` support set `maxCount`. [#10161](https://github.com/ant-design/ant-design/pull/10161) [@jzhangs](https://github.com/jzhangs)
+- 🌟 Add `successPercent` as `Progress[format]` argument. [#10096](https://github.com/ant-design/ant-design/issues/10096)
+- 🐞 Fix `Input.Search` not disable enter button when disabled prop is true. [#10040](https://github.com/ant-design/ant-design/issues/10040)
+- 🐞 Fix `List` integrate pagination functional. [#10135](https://github.com/ant-design/ant-design/pull/10135)
+- 🐞 Add `lib/**/style/*` as sideEffects to fix style import bug. [#10217](https://github.com/ant-design/ant-design/pull/10217) [@whtsky](https://github.com/whtsky)
+- 🐞 Fix dashed `Divider`. [#10216](https://github.com/ant-design/ant-design/issues/10216)
+- 🐞 fix typing for `Form.onValuesChange`. [#10231](https://github.com/ant-design/ant-design/pull/10231) [@whtsky](https://github.com/whtsky)
+- 🐞 Fix `Spin` container interaction. [#10227](https://github.com/ant-design/ant-design/issues/10227)
+- 🐞 Fix `Notification` icon hover color. [#10272](https://github.com/ant-design/ant-design/issues/10272)
+- 🐞 Fix less var naming convention. [#10275](https://github.com/ant-design/ant-design/issues/10275)
+- 🐞 Fix `Input.Group` align issue in Form. [#10281](https://github.com/ant-design/ant-design/issues/10281)
+- 🐞 Fix type for `placeholder` in `Select` component. [#10282](https://github.com/ant-design/ant-design/pull/10282) [@thomasthiebaud](https://github.com/thomasthiebaud)
+- 🐞 Fix `Upload` onChange arg type when beforeUpload return false. [#10293](https://github.com/ant-design/ant-design/issues/10293)
+
 ## 3.4.3
 
 `2018-04-23`
