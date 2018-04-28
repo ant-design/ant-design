@@ -74,6 +74,20 @@ describe('Table.sorter', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
+  it('provides sortOrder in the sorterFn', () => {
+    let actualSortOrder;
+    mount(createTable({ },
+      {
+        sortOrder: 'ascend',
+        sorter: (a, b, sortOrder) => {
+          actualSortOrder = sortOrder;
+          return sorterFn(a, b);
+        },
+      },
+    ));
+    expect(actualSortOrder).toEqual('ascend');
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
