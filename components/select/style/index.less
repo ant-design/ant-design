@@ -112,7 +112,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       max-width: 100%;
-      padding-right: 20px;
     }
   }
 
@@ -369,6 +368,10 @@
     .@{select-prefix-cls}-selection__clear {
       top: @input-height-base / 2;
     }
+  }
+
+  &-allow-clear &-selection--single &-selection-selected-value {
+    padding-right: 16px;
   }
 
   &-allow-clear &-selection--multiple &-selection__rendered {
