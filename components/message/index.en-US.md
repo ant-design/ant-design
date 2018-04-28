@@ -40,6 +40,7 @@ Methods for global configuration and destruction are also provided:
 message.config({
   top: 100,
   duration: 2,
+  maxCount: 3,
 });
 ```
 
@@ -48,3 +49,4 @@ message.config({
 | duration | time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
 | top | distance from top | number | 24px |
+| maxCount | max message show, drop oldest if exceed limit | number | - |
