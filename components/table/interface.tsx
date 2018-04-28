@@ -68,19 +68,20 @@ export interface TablePaginationConfig extends PaginationProps {
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: string[] | number[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => any;
+  onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
-  onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
-  onSelectInvert?: (selectedRows: Object[]) => any;
+  onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
+  onSelectInvert?: (selectedRows: Object[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
 }
+export type SortOrder = "descend" | "ascend"
 export interface SorterResult<T> {
   column: ColumnProps<T>;
-  order: "descend" | "ascend";
+  order: SortOrder;
   field: string;
   columnKey: string;
 }
@@ -104,11 +105,11 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: SorterResult<T>) => any;
+  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: SorterResult<T>) => void;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
-  onRowClick?: (record: T, index: number, event: Event) => any;
+  onRowClick?: (record: T, index: number, event: Event) => void;
   onRow?: (record: T, index: number) => any;
   onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
   useFixedHeader?: boolean;
@@ -132,7 +133,7 @@ export interface TableState<T> {
   pagination: TablePaginationConfig;
   filters: TableStateFilters;
   sortColumn: ColumnProps<T> | null;
-  sortOrder: string;
+  sortOrder: SortOrder;
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
