@@ -61,7 +61,6 @@ class Demo extends React.Component {
     selectedKeys: [],
   }
   onExpand = (expandedKeys) => {
-    console.log('onExpand', arguments);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
     this.setState({
