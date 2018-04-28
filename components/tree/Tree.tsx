@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import DirectoryTree from './DirectoryTree';
+import classNames from 'classnames';
 import animation from '../_util/openAnimation';
 
 export interface AntdTreeNodeAttribute {
@@ -140,12 +141,12 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   render() {
     const props = this.props;
-    const { prefixCls, className } = props;
+    const { prefixCls, className, showIcon } = props;
     let checkable = props.checkable;
     return (
       <RcTree
         {...props}
-        className={className}
+        className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       >
         {this.props.children}

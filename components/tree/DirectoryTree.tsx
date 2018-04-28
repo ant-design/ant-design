@@ -14,7 +14,6 @@ import Icon from '../icon';
 export type ExpandAction = false | 'click' | 'doubleClick';
 
 export interface DirectoryTreeProps extends TreeProps {
-  contextMenu?: (props: AntdTreeNodeAttribute) => React.ReactNode;
   expandAction?: ExpandAction;
 }
 
