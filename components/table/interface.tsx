@@ -78,11 +78,11 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
 }
-export interface SorterResult {
-  column: any;
-  order: any;
-  field: any;
-  columnKey: any;
+export interface SorterResult<T> {
+  column: ColumnProps<T>;
+  order: "descend" | "ascend";
+  field: string;
+  columnKey: string;
 }
 export interface TableProps<T> {
   prefixCls?: string;
@@ -104,7 +104,7 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: Record<keyof T, SorterResult>) => any;
+  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: SorterResult<T>) => any;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
