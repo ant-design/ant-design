@@ -47,10 +47,10 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       : [...React.Children.toArray(children), pendingItem];
 
     // Remove falsy items
-    const falsylessItems = timeLineItems.filter(item => !!item);
-    const itemsCount = React.Children.count(falsylessItems);
+    const truthyItems = timeLineItems.filter(item => !!item);
+    const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
-    const items = React.Children.map(falsylessItems, (ele: React.ReactElement<any>, idx) =>
+    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
         className: classNames([
           ele.props.className,

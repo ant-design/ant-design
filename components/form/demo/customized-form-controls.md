@@ -28,7 +28,7 @@ class PriceInput extends React.Component {
   constructor(props) {
     super(props);
 
-    const value = this.props.value || {};
+    const value = props.value || {};
     this.state = {
       number: value.number || 0,
       currency: value.currency || 'rmb',

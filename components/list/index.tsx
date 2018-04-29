@@ -161,6 +161,7 @@ export default class List extends React.Component<ListProps> {
       header,
       footer,
       loading,
+      locale,
       ...rest,
     } = this.props;
 
@@ -204,14 +205,14 @@ export default class List extends React.Component<ListProps> {
     if (paginationProps.current > largestPage) {
       paginationProps.current = largestPage;
     }
-    const paginationContent = (
+    const paginationContent = pagination ? (
       <div className={`${prefixCls}-pagination`}>
         <Pagination
           {...paginationProps}
           onChange={this.defaultPaginationProps.onChange}
         />
       </div>
-    );
+    ) : null;
 
     let splitDataSource = [...dataSource];
     if (pagination) {
@@ -254,20 +255,15 @@ export default class List extends React.Component<ListProps> {
       );
     }
 
-    const content = (
-      <div>
-        <Spin {...loadingProp}>{childrenContent}</Spin>
-        {loadMore}
-        {!loadMore && pagination ? paginationContent : null}
-      </div>
-    );
-
     return (
       <div className={classString} {...rest}>
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
-        {content}
-        {children}
+        <Spin {...loadingProp}>
+          {childrenContent}
+          {children}
+        </Spin>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {loadMore || paginationContent}
       </div>
     );
   }
