@@ -22,6 +22,15 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       showToday: true,
     };
 
+    static getDerivedStateFromProps(nextProps: PickerProps) {
+      if ('value' in nextProps) {
+        return {
+          value: nextProps.value,
+          showDate: nextProps.value,
+        };
+      }
+    }
+
     private input: any;
 
     constructor(props: any) {
@@ -37,15 +46,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         value,
         showDate: value,
       };
-    }
-
-    componentWillReceiveProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
-        this.setState({
-          value: nextProps.value,
-          showDate: nextProps.value,
-        });
-      }
     }
 
     renderFooter = (...args: any[]) => {

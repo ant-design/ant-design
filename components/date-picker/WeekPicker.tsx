@@ -16,6 +16,12 @@ export default class WeekPicker extends React.Component<any, any> {
     allowClear: true,
   };
 
+  static getDerivedStateFromProps(nextProps: any) {
+    if ('value' in nextProps) {
+      return { value: nextProps.value };
+    }
+  }
+
   private input: any;
 
   constructor(props: any) {
@@ -30,11 +36,6 @@ export default class WeekPicker extends React.Component<any, any> {
     this.state = {
       value,
     };
-  }
-  componentWillReceiveProps(nextProps: any) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value });
-    }
   }
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;

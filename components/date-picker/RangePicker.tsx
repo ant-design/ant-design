@@ -70,6 +70,24 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     showToday: false,
   };
 
+  static getDerivedStateFromProps(nextProps: any, prevState: any) {
+    let state = null;
+    if ('value' in nextProps) {
+      const value = nextProps.value || [];
+      state = {
+        value,
+        showDate: getShowDateFromValue(value) || prevState.showDate,
+      };
+    }
+    if ('open' in nextProps) {
+      state = {
+        ...state,
+        open: nextProps.open,
+      };
+    }
+    return state;
+  }
+
   private picker: HTMLSpanElement;
 
   constructor(props: any) {
@@ -91,22 +109,6 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
       open: props.open,
       hoverValue: [],
     };
-  }
-
-  componentWillReceiveProps(nextProps: any) {
-    if ('value' in nextProps) {
-      const state = this.state;
-      const value = nextProps.value || [];
-      this.setState({
-        value,
-        showDate: getShowDateFromValue(value) || state.showDate,
-      });
-    }
-    if ('open' in nextProps) {
-      this.setState({
-        open: nextProps.open,
-      });
-    }
   }
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
