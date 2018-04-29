@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Progress render format 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width: 50%; height: 8px;"
+        />
+        <div
+          class="ant-progress-success-bg"
+          style="width: 10%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+    >
+      50 10
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress render negetive progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
