@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Progress from '..';
 
 describe('Progress', () => {
-  it('successPercent should decide the progress status when it exists', async () => {
+  it('successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(<Progress percent={100} successPercent={50} />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
 
@@ -11,23 +11,34 @@ describe('Progress', () => {
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
   });
 
-  it('render out-of-range progress', async () => {
+  it('render out-of-range progress', () => {
     const wrapper = mount(<Progress percent={120} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render out-of-range progress with info', async () => {
+  it('render out-of-range progress with info', () => {
     const wrapper = mount(<Progress percent={120} showInfo />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive progress', async () => {
+  it('render negetive progress', () => {
     const wrapper = mount(<Progress percent={-20} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('render negetive successPercent', async () => {
+  it('render negetive successPercent', () => {
     const wrapper = mount(<Progress percent={50} successPercent={-20} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render format', () => {
+    const wrapper = mount(
+      <Progress
+        percent={50}
+        successPercent={10}
+        format={(percent, successPercent) => `${percent} ${successPercent}`}
+      />
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 });
