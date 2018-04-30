@@ -1,7 +1,19 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
+import createReactContext from "create-react-context";
+
+export interface ISiderHook {
+  addSider: (id: string) => void;
+  removeSider: (id: string) => void;
+}
+
+/**
+ * create  context 
+ *  In order to facilitate the import
+ */
+export const Context = createReactContext({});
+
 
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -34,12 +46,9 @@ class Basic extends React.Component<BasicProps, any> {
 }
 
 class BasicLayout extends React.Component<BasicProps, any> {
-  static childContextTypes = {
-    siderHook: PropTypes.object,
-  };
   state = { siders: [] };
 
-  getChildContext() {
+  getContext() {
     return {
       siderHook: {
         addSider: (id: string) => {
@@ -62,7 +71,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <Context.Provider value={this.getContext()}>
+        <div className={divCls} {...others}>{children}</div>
+      </Context.Provider>
     );
   }
 }
