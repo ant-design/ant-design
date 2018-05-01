@@ -156,9 +156,8 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   isNeedInserted() {
-    const { loading, icon, children } = this.props;
-    const iconType = loading ? 'loading' : icon;
-    return React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
+    const { icon, children } = this.props;
+    return React.Children.count(children) === 1 && !icon;
   }
 
   render() {
