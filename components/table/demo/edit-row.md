@@ -28,7 +28,7 @@ for (let i = 0; i < 100; i++) {
 const FormItem = Form.Item;
 const EditableContext = React.createContext();
 
-const EditableRow = ({ form, ...props }) => (
+const EditableRow = ({ form, index, ...props }) => (
   <EditableContext.Provider value={form}>
     <tr {...props} />
   </EditableContext.Provider>
@@ -50,6 +50,7 @@ class EditableCell extends React.Component {
       title,
       inputType,
       record,
+      index,
       ...restProps
     } = this.props;
     return (
