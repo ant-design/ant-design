@@ -1,3 +1,2 @@
-export type Diff<T extends string, U extends string> = ({ [P in T]: P } &
-  { [P in U]: never } & { [x: string]: never })[T];
-export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
+// https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#predefined-conditional-types
+export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
