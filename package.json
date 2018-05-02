@@ -83,7 +83,7 @@
     "rc-upload": "~2.5.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.12",
-    "react-lifecycles-compat": "^3.0.4",
+    "react-lifecycles-compat": "^3.0.2",
     "react-slick": "~0.23.1",
     "shallowequal": "^1.0.1",
     "warning": "~4.0.1"

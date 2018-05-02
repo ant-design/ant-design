@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -15,7 +16,7 @@ export interface PickerProps {
 }
 
 export default function createPicker(TheCalendar: React.ComponentClass): any {
-  return class CalenderWrapper extends React.Component<any, any> {
+  class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
@@ -195,5 +196,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         </span>
       );
     }
-  };
+  }
+  polyfill(CalenderWrapper);
+  return CalenderWrapper;
 }

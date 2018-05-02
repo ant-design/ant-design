@@ -1,6 +1,7 @@
 /* tslint:disable jsx-no-multiline-js */
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -63,7 +64,7 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
   }
 }
 
-export default class RangePicker extends React.Component<any, RangePickerState> {
+class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
@@ -368,3 +369,7 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     );
   }
 }
+
+polyfill(RangePicker);
+
+export default RangePicker;

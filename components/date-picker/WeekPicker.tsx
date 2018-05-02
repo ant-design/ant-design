@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import Calendar from 'rc-calendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -10,7 +11,7 @@ function formatValue(value: moment.Moment | null, format: string): string {
   return (value && value.format(format)) || '';
 }
 
-export default class WeekPicker extends React.Component<any, any> {
+class WeekPicker extends React.Component<any, any> {
   static defaultProps = {
     format: 'gggg-wo',
     allowClear: true,
@@ -150,3 +151,7 @@ export default class WeekPicker extends React.Component<any, any> {
     );
   }
 }
+
+polyfill(WeekPicker);
+
+export default WeekPicker;
