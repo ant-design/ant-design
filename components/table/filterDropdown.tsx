@@ -43,7 +43,15 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       selectedKeys: string[];
       visible: boolean;
     };
-    if ('selectedKeys' in nextProps) {
+
+    /**
+     * if the state is visible the component should ignore updates on selectedKeys prop to avoid
+     * that the user selection is lost
+     * this happens frequently when a table is connected on some sort of realtime data
+     * Fixes https://github.com/ant-design/ant-design/issues/10289 and
+     * https://github.com/ant-design/ant-design/issues/10209
+     */
+    if ('selectedKeys' in nextProps && !this.state.visible) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
