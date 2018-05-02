@@ -9,6 +9,7 @@ let key = 1;
 let prefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
+let maxCount: number;
 
 function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
@@ -20,6 +21,7 @@ function getMessageInstance(callback: (i: any) => void) {
     transitionName,
     style: { top: defaultTop }, // 覆盖原来的样式
     getContainer,
+    maxCount,
   }, (instance: any) => {
     if (messageInstance) {
       callback(messageInstance);
@@ -83,6 +85,7 @@ export interface ConfigOptions {
   prefixCls?: string;
   getContainer?: () => HTMLElement;
   transitionName?: string;
+  maxCount?: number;
 }
 
 export default {
@@ -122,6 +125,10 @@ export default {
     if (options.transitionName !== undefined) {
       transitionName = options.transitionName;
       messageInstance = null; // delete messageInstance for new transitionName
+    }
+    if (options.maxCount !== undefined) {
+      maxCount = options.maxCount;
+      messageInstance = null;
     }
   },
   destroy() {

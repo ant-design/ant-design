@@ -88,6 +88,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
+$ cd ant-design
 $ npm install
 $ npm start
 ```

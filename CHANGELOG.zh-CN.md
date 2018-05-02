@@ -15,6 +15,53 @@ timeline: true
 
 ---
 
+## 3.4.4
+
+`2018-04-28`
+
+- 🐞 修复 3.4.2 中引入的 Upload 中 onChange 参数 `{ file }` file 不是 File 实例的问题。[#10293](https://github.com/ant-design/ant-design/issues/10293)
+- 🐞 修复 webpack@4 下使用 Tree Shaking 样式丢失的问题。[#10217](https://github.com/ant-design/ant-design/pull/10217) [@whtsky](https://github.com/whtsky)
+
+## 3.4.3
+
+`2018-04-23`
+
+- 🐞 修复了 webpack@4 下使用 Tree Shaking 样式丢失的问题。[#10197](https://github.com/ant-design/ant-design/pull/10197) [@Aladdin-ADD](https://github.com/Aladdin-ADD)
+- 🐞 修复 `Menu` 组件在 `dark` 主题下点击区域的问题。[#10187](https://github.com/ant-design/ant-design/pull/10187) [@dgeibi](https://github.com/dgeibi)
+
+## 3.4.2
+
+`2018-04-22`
+
+- 💄 部署网站到 [netlify](http://netlify.com/)，解决网站被墙的问题。
+- 🐞 修复和调整 Menu、Tooltip、Card、Anchor、Avatar、Form、Tabs、Transfer、Tree、AutoComplete 等组件的 TypeScript 定义。
+- 💄 增加 `sideEffects` 配置以优化 Tree Shaking 效果。[#10043](https://github.com/ant-design/ant-design/pull/10043) [@Aladdin-ADD](https://github.com/Aladdin-ADD)
+- List
+  - 🐞 修复多余边框问题。[#10028](https://github.com/ant-design/ant-design/issues/10028)
+  - 🐞 修复 `locale` 属性被传递给 div 的警告。[#10128](https://github.com/ant-design/ant-design/pull/10128) [@slonoed](https://github.com/slonoed)
+- 🐞 修复 Upload 的文件 url 带有参数时，图片预览效果失效的问题。[#10102](https://github.com/ant-design/ant-design/issues/10102)
+- 🐞 修复 Progress 的百分比越界时的展现。[0eb8357](https://github.com/ant-design/ant-design/commit/0eb835772dbaa7ed14babe03fc177821c5bd5ca5)
+- Menu
+  - 🐞 修复 SubMenu 的失效箭头样式。[#10113](https://github.com/ant-design/ant-design/issues/10113)
+  - 🐞 修复 `collapsedWidth` 为像素字符串 `40px` 菜单宽度失效的问题。[#10140](https://github.com/ant-design/ant-design/issues/10140)
+- 🐞 修复一个某些情况下 Form 内使用受控组件时无法编辑的问题。[#9790](https://github.com/ant-design/ant-design/issues/9790)
+- 🐞 修复 Card 切换 loading 状态时的内边距跳动问题。[#10052](https://github.com/ant-design/ant-design/pull/10052) [@zheeeng](https://github.com/zheeeng)
+- 🐞 修复 Avatar 图片加载失败时的文字没有正确缩放的问题。[#10184](https://github.com/ant-design/ant-design/pull/10184)
+- 🐞 修复 Table 的 `getCheckboxProps` 无法动态更新的问题。[#10133](https://github.com/ant-design/ant-design/issues/10133)
+- 🐞 修复 CheckGroup 指定 `prefixCls` 没有传递给 Checkbox 的问题。[#9950](https://github.com/ant-design/ant-design/issues/9950)
+
+## 3.4.1
+
+`2018-04-08`
+
+- 🐞 修复了 Badge 代码错误引起的 TypeScript 类型报错。[#9931](https://github.com/ant-design/ant-design/issues/9931)
+- 💄 优化了 Card `actions` 点击区域的范围。[#9882](https://github.com/ant-design/ant-design/issues/9882)
+- 🐞 修复了 Divider 与浮动元素一起使用时的样式问题。[#9956](https://github.com/ant-design/ant-design/issues/9956)
+- 🐞 修复了 Form 高级搜索模式下的样式问题。[#9907](https://github.com/ant-design/ant-design/issues/9907)
+- 🐞 补充了 Table 缺失的 `onHeaderRow` TypeScript 定义。[#9902](https://github.com/ant-design/ant-design/pull/9902) [@Nokecy](https://github.com/Nokecy)
+- 💄 优化了 Tree 自定义图标示例。[#9893](https://github.com/ant-design/ant-design/pull/9893)
+- 🐞 修复了 Upload 对无扩展名图片地址的预览展示问题。[#9936](https://github.com/ant-design/ant-design/pull/9936)
+
 ## 3.4.0
 
 `2018-04-01`

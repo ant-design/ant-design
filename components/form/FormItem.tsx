@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import warning from '../_util/warning';
@@ -64,10 +63,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
       'while there are more than one `getFieldDecorator` in it.',
     );
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getHelpMsg() {
@@ -248,7 +243,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       if (typeof label === 'string') {
         e.preventDefault();
       }
-      const control = ReactDOM.findDOMNode(this).querySelector(`[id="${id}"]`) as HTMLElement;
+      const formItemNode = ReactDOM.findDOMNode(this) as Element;
+      const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
       if (control && control.focus) {
         control.focus();
       }

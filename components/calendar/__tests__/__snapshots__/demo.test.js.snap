@@ -33,7 +33,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -65,7 +65,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -1042,7 +1042,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           <span
             class="ant-select-arrow"
             style="user-select:none;-webkit-user-select:none"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <b />
           </span>
@@ -1074,7 +1074,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
           <span
             class="ant-select-arrow"
             style="user-select:none;-webkit-user-select:none"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <b />
           </span>
@@ -2049,7 +2049,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -2081,7 +2081,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
         <span
           class="ant-select-arrow"
           style="user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <b />
         </span>
@@ -3466,7 +3466,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           <span
             class="ant-select-arrow"
             style="user-select:none;-webkit-user-select:none"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <b />
           </span>
@@ -3498,7 +3498,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
           <span
             class="ant-select-arrow"
             style="user-select:none;-webkit-user-select:none"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <b />
           </span>

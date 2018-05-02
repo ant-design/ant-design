@@ -22,7 +22,7 @@ const columns = [{
   dataIndex: 'name',
   key: 'name',
   width: 150,
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
@@ -38,11 +38,11 @@ const columns = [{
   width: 360,
   render: (text, record) => (
     <span>
-      <a href="#">Action 一 {record.name}</a>
+      <a href="javascript:;">Action 一 {record.name}</a>
       <Divider type="vertical" />
-      <a href="#">Delete</a>
+      <a href="javascript:;">Delete</a>
       <Divider type="vertical" />
-      <a href="#" className="ant-dropdown-link">
+      <a href="javascript:;" className="ant-dropdown-link">
         More actions <Icon type="down" />
       </a>
     </span>

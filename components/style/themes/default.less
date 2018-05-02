@@ -322,6 +322,8 @@
 @menu-dark-arrow-color: #fff;
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
+@menu-dark-item-active-bg: @primary-color;
+// same as @menu-dark-item-active-bg, for naming downgrade compatible, should be deleted in next majoy version
 @menu-dark-item-selected-bg: @primary-color;
 
 // Spin
@@ -461,3 +463,10 @@
 @slider-dot-border-color-active:      tint(@primary-color, 50%);
 @slider-disabled-color:               @disabled-color;
 @slider-disabled-background-color:    @component-background;
+
+// Collapse
+// ---
+@collapse-header-padding:             12px 0 12px 40px;
+@collapse-header-bg:                  @background-color-light;
+@collapse-content-padding:            @padding-md;
+@collapse-content-bg:                 @component-background;

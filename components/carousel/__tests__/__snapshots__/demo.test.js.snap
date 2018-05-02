@@ -5,7 +5,7 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="regular slider slick-initialized slick-slider"
+    class="slick-slider slick-initialized"
     dir="ltr"
   >
     <div
@@ -13,94 +13,205 @@ exports[`renders ./components/carousel/demo/autoplay.md correctly 1`] = `
     >
       <div
         class="slick-track"
+        style="width:900%;left:-100%"
       >
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned slick-current"
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="1"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="2"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="3"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="5"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="6"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="7"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          3
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          4
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -110,7 +221,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="regular slider slick-initialized slick-slider"
+    class="slick-slider slick-initialized"
     dir="ltr"
   >
     <div
@@ -118,94 +229,205 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     >
       <div
         class="slick-track"
+        style="width:900%;left:-100%"
       >
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned slick-current"
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="1"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="2"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="3"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="5"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="6"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="7"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          3
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          4
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -215,7 +437,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
   class="ant-carousel"
 >
   <div
-    class="regular slider slick-initialized slick-slider"
+    class="slick-slider slick-initialized"
     dir="ltr"
   >
     <div
@@ -223,49 +445,115 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
     >
       <div
         class="slick-track"
+        style="width:900%;left:-100%"
       >
         <div
-          class="slick-slide slick-active slick-cloned slick-current"
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:0;opacity:1;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="1"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-11px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="2"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-22px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="3"
-          style="outline:none;position:relative;left:0;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
+          style="outline:none;width:11.11111111111111%;position:relative;left:-33px;opacity:0;transition:opacity 500ms ease, visibility 500ms ease;-webkit-transition:opacity 500ms ease, visibility 500ms ease"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          3
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          4
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -275,7 +563,7 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
   class="ant-carousel ant-carousel-vertical"
 >
   <div
-    class="regular slider slick-initialized slick-slider slick-vertical"
+    class="slick-slider slick-vertical slick-initialized"
     dir="ltr"
   >
     <div
@@ -283,94 +571,205 @@ exports[`renders ./components/carousel/demo/vertical.md correctly 1`] = `
     >
       <div
         class="slick-track"
+        style="width:900%;left:-100%"
       >
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="-1"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-active slick-cloned slick-current"
+          aria-hidden="false"
+          class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="1"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="2"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
-          class="slick-slide slick-cloned"
+          aria-hidden="true"
+          class="slick-slide"
           data-index="3"
-          style="outline:none"
+          style="outline:none;width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="4"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            1
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                1
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="5"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            2
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                2
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="6"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            3
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                3
+              </h3>
+            </div>
+          </div>
         </div>
         <div
+          aria-hidden="true"
           class="slick-slide slick-cloned"
           data-index="7"
+          style="width:11.11111111111111%"
           tabindex="-1"
         >
-          <h3>
-            4
-          </h3>
+          <div>
+            <div
+              style="width:100%;display:inline-block"
+              tabindex="-1"
+            >
+              <h3>
+                4
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <ul
+      class="slick-dots"
+      style="display:block"
+    >
+      <li
+        class="slick-active"
+      >
+        <button>
+          1
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          2
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          3
+        </button>
+      </li>
+      <li
+        class=""
+      >
+        <button>
+          4
+        </button>
+      </li>
+    </ul>
   </div>
 </div>
 `;

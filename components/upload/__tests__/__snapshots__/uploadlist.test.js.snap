@@ -448,6 +448,108 @@ exports[`Upload List should non-image format file preview 1`] = `
         title="Remove file"
       />
     </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
   </div>
 </span>
 `;

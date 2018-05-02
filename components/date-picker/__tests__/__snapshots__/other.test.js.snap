@@ -443,7 +443,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="1999年12月27日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       27
                     </div>
@@ -454,7 +454,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="1999年12月28日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       28
                     </div>
@@ -465,7 +465,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="1999年12月29日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       29
                     </div>
@@ -476,7 +476,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="1999年12月30日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       30
                     </div>
@@ -487,7 +487,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="1999年12月31日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       31
                     </div>
@@ -539,7 +539,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月3日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       3
                     </div>
@@ -550,7 +550,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月4日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       4
                     </div>
@@ -561,7 +561,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月5日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       5
                     </div>
@@ -572,7 +572,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月6日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       6
                     </div>
@@ -583,7 +583,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月7日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       7
                     </div>
@@ -594,7 +594,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月8日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       8
                     </div>
@@ -605,7 +605,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月9日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       9
                     </div>
@@ -627,7 +627,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月10日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       10
                     </div>
@@ -638,7 +638,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月11日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       11
                     </div>
@@ -649,7 +649,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月12日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       12
                     </div>
@@ -660,7 +660,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月13日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       13
                     </div>
@@ -671,7 +671,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月14日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       14
                     </div>
@@ -682,7 +682,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月15日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       15
                     </div>
@@ -693,7 +693,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月16日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       16
                     </div>
@@ -715,7 +715,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月17日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       17
                     </div>
@@ -726,7 +726,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月18日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       18
                     </div>
@@ -737,7 +737,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月19日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       19
                     </div>
@@ -748,7 +748,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月20日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       20
                     </div>
@@ -759,7 +759,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月21日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       21
                     </div>
@@ -770,7 +770,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月22日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       22
                     </div>
@@ -781,7 +781,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月23日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       23
                     </div>
@@ -803,7 +803,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月24日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       24
                     </div>
@@ -814,7 +814,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月25日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       25
                     </div>
@@ -825,7 +825,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月26日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       26
                     </div>
@@ -836,7 +836,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月27日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       27
                     </div>
@@ -847,7 +847,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月28日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       28
                     </div>
@@ -858,7 +858,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月29日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       29
                     </div>
@@ -869,7 +869,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月30日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       30
                     </div>
@@ -891,7 +891,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年1月31日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       31
                     </div>
@@ -902,7 +902,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月1日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       1
                     </div>
@@ -913,7 +913,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月2日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       2
                     </div>
@@ -924,7 +924,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月3日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       3
                     </div>
@@ -935,7 +935,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月4日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       4
                     </div>
@@ -946,7 +946,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月5日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       5
                     </div>
@@ -957,7 +957,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     title="2000年2月6日"
                   >
                     <div
-                      class="ant-calendar-calendar-date"
+                      class="ant-calendar-date"
                     >
                       6
                     </div>

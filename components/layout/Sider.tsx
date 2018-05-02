@@ -201,12 +201,15 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
         </div>
       ) : null
     );
+    // For collapsedWidth="40px"
+    // https://github.com/ant-design/ant-design/issues/10140
+    const siderWidthNumber = (siderWidth || 0).toString().replace(/px$/, '');
     const divStyle = {
       ...style,
-      flex: `0 0 ${siderWidth}px`,
-      maxWidth: `${siderWidth}px`, // Fix width transition bug in IE11
-      minWidth: `${siderWidth}px`, // https://github.com/ant-design/ant-design/issues/6349
-      width: `${siderWidth}px`,
+      flex: `0 0 ${siderWidthNumber}px`,
+      maxWidth: `${siderWidthNumber}px`, // Fix width transition bug in IE11
+      minWidth: `${siderWidthNumber}px`, // https://github.com/ant-design/ant-design/issues/6349
+      width: `${siderWidthNumber}px`,
     };
     const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
