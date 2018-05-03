@@ -43,6 +43,12 @@ timeline: true
 - 🐞 Fix `Upload` property `lastModifiedDate` name. [#10315](https://github.com/ant-design/ant-design/pull/10315) [@danielg2002](https://github.com/danielg2002)
 - 🐞 Fix less var naming convention. [#10275](https://github.com/ant-design/ant-design/issues/10275)
 
+## 3.4.5
+
+`2018-05-03`
+
+- 🐞 Fix file object is empty and file name not showing in Upload. [#10319](https://github.com/ant-design/ant-design/issues/10319)
+
 ## 3.4.4
 
 `2018-04-28`
