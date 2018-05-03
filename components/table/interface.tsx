@@ -18,7 +18,7 @@ export interface ColumnProps<T> {
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode;
+  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
