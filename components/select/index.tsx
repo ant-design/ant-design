@@ -31,7 +31,7 @@ export interface LabeledValue {
   label: React.ReactNode;
 }
 
-export type SelectValue = string | any[] | LabeledValue | LabeledValue[];
+export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
 
 export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
@@ -58,7 +58,7 @@ export interface SelectProps extends AbstractSelectProps {
 
 export interface OptionProps {
   disabled?: boolean;
-  value?: any;
+  value?: string | number;
   title?: string;
   children?: React.ReactNode;
 }
