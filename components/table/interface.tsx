@@ -5,7 +5,7 @@ import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 
-export type CompareFn<T> = ((a: T, b: T) => number);
+export type CompareFn<T> = ((a: T, b: T, sortOrder?: 'ascend' | 'descend') => number);
 export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
 
 export interface ColumnProps<T> {
@@ -28,7 +28,7 @@ export interface ColumnProps<T> {
   fixed?: boolean | ('left' | 'right');
   filterIcon?: React.ReactNode;
   filteredValue?: any[];
-  sortOrder?: boolean | ('ascend' | 'descend');
+  sortOrder?: 'ascend' | 'descend';
   children?: ColumnProps<T>[];
   onCellClick?: (record: T, event: any) => void;
   onCell?: (record: T) => any;
@@ -127,7 +127,7 @@ export interface TableState<T> {
   pagination: TablePaginationConfig;
   filters: TableStateFilters;
   sortColumn: ColumnProps<T> | null;
-  sortOrder: string;
+  sortOrder: 'ascend' | 'descend' | undefined;
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;

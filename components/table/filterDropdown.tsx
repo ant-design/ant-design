@@ -145,7 +145,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   handleMenuItemClick = (info: { keyPath: string, key: string }) => {
-    if (info.keyPath.length <= 1) {
+    if (!info.keyPath || info.keyPath.length <= 1) {
       return;
     }
     const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;

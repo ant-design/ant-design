@@ -2,12 +2,32 @@ import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import animation from '../_util/openAnimation';
 
+export interface AntdTreeNodeAttribute {
+  eventKey: string;
+  prefixCls: string;
+  className: string;
+  expanded: boolean;
+  selected: boolean;
+  checked: boolean;
+  halfChecked: boolean;
+  children: React.ReactNode;
+  title: React.ReactNode;
+  pos: string;
+  dragOver: boolean;
+  dragOverGapTop: boolean;
+  dragOverGapBottom: boolean;
+  isLeaf: boolean;
+  selectable: boolean;
+  disabled: boolean;
+  disableCheckbox: boolean;
+}
 export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
   key?: string;
   isLeaf?: boolean;
+  icon?: (treeNode: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -17,9 +37,9 @@ export interface AntTreeNodeEvent {
   event: 'check' | 'select';
   node: AntTreeNode;
   checked?: boolean;
-  checkedNodes?: Array<AntTreeNode>;
+  checkedNodes?: AntTreeNode[];
   selected?: boolean;
-  selectedNodes?: Array<AntTreeNode>;
+  selectedNodes?: AntTreeNode[];
 }
 
 export interface AntTreeNodeMouseEvent {
@@ -41,23 +61,26 @@ export interface TreeProps {
   /** 默认展开所有树节点 */
   defaultExpandAll?: boolean;
   /** 默认展开指定的树节点 */
-  defaultExpandedKeys?: Array<string>;
+  defaultExpandedKeys?: string[];
   /** （受控）展开指定的树节点 */
-  expandedKeys?: Array<string>;
+  expandedKeys?: string[];
   /** （受控）选中复选框的树节点 */
-  checkedKeys?: Array<string> | { checked: Array<string>, halfChecked: Array<string> };
+  checkedKeys?: string[] | { checked: string[]; halfChecked: string[] };
   /** 默认选中复选框的树节点 */
-  defaultCheckedKeys?: Array<string>;
+  defaultCheckedKeys?: string[];
   /** （受控）设置选中的树节点 */
-  selectedKeys?: Array<string>;
+  selectedKeys?: string[];
   /** 默认选中的树节点 */
-  defaultSelectedKeys?: Array<string>;
+  defaultSelectedKeys?: string[];
   /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: Array<string>, info: { node: AntTreeNode, expanded: boolean }) => void | PromiseLike<any>;
+  onExpand?: (
+    expandedKeys: string[],
+    info: { node: AntTreeNode; expanded: boolean; },
+  ) => void | PromiseLike<any>;
   /** 点击复选框触发 */
-  onCheck?: (checkedKeys: Array<string>, e: AntTreeNodeEvent) => void;
+  onCheck?: (checkedKeys: string[], e: AntTreeNodeEvent) => void;
   /** 点击树节点触发 */
-  onSelect?: (selectedKeys: Array<string>, e: AntTreeNodeEvent) => void;
+  onSelect?: (selectedKeys: string[], e: AntTreeNodeEvent) => void;
   /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
@@ -77,6 +100,7 @@ export interface TreeProps {
   /** drop 触发时调用 */
   onDrop?: (options: AntTreeNodeMouseEvent) => void;
   style?: React.CSSProperties;
+  showIcon?: boolean;
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
 }

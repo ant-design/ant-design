@@ -86,7 +86,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -112,7 +112,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -134,7 +134,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -196,7 +196,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -293,15 +293,33 @@ describe('Upload List', () => {
       {
         name: 'image',
         status: 'done',
-        uid: -6,
+        uid: -7,
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
       },
       {
         name: 'image',
         status: 'done',
-        uid: -6,
+        uid: -8,
         url: 'https://cdn.xxx.com/xx.xx/aaa.png',
         thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -9,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -10,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -11,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
       },
     ];
 

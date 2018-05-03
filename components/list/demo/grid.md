@@ -1,7 +1,7 @@
 ---
 order: 4
 title:
-  zh-CN: 栅格列表 
+  zh-CN: 栅格列表
   en-US: Grid
 ---
 

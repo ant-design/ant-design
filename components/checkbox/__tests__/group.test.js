@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
@@ -50,5 +50,18 @@ describe('CheckboxGroup', () => {
     expect(onChangeGroup).toBeCalledWith(['Apple']);
     groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
     expect(onChangeGroup).toBeCalledWith(['Apple']);
+  });
+
+  it('passes prefixCls down to checkbox', () => {
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
+
+    const wrapper = render(
+      <Checkbox.Group prefixCls="my-checkbox" options={options} />
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

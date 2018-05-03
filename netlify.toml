@@ -1,0 +1,115 @@
+[build]
+  publish = "_site"
+  command = "npm run site"
+
+[context.production]
+  command = "echo build"
+  publish = "."
+
+[[redirects]]
+  from = "/docs/resource/download"
+  to = "/docs/spec/download"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/resource/download-cn"
+  to = "/docs/spec/download-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/resource/reference"
+  to = "/docs/spec/reference"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/resource/reference-cn"
+  to = "/docs/spec/reference-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/spec/feature"
+  to = "/docs/spec/values"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/spec/feature-cn"
+  to = "/docs/spec/values-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/advanced-search"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/advanced-search-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/complex-table"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/complex-table-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/form"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/form-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/list"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/list-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/navigation"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/navigation-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/table"
+  to = "/docs/spec/overview"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/docs/pattern/table-cn"
+  to = "/docs/spec/overview-cn"
+  status = 301
+  force = false

@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import { fileToObject } from '../utils';
 
 describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
@@ -48,19 +49,23 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', (done) => {
+  it('should not stop upload when return value of beforeUpload is false', (done) => {
+    const mockFile = new File(['foo'], 'foo.png', {
+      type: 'image/png',
+    });
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
       beforeUpload: () => false,
       data,
-      onChange: () => {
+      onChange: ({ file }) => {
+        expect(file instanceof File).toBe(true);
         expect(data).not.toBeCalled();
         done();
       },
@@ -75,7 +80,7 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          mockFile,
         ],
       },
     });
@@ -102,9 +107,19 @@ describe('Upload', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
+    });
+  });
+
+  describe('util', () => {
+    it('should be able to copy file instance', () => {
+      const file = new File([], 'aaa.zip');
+      const copiedFile = fileToObject(file);
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
+        expect(key in copiedFile).toBe(true);
+      });
     });
   });
 });

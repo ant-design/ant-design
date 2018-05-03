@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Tooltip from '../tooltip';
-import { AbstractTooltipProps } from '../tooltip';
+import Tooltip, { AbstractTooltipProps, TooltipPlacement, TooltipTrigger } from '../tooltip';
 import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
@@ -11,9 +10,9 @@ export interface PopoverProps extends AbstractTooltipProps {
 export default class Popover extends React.Component<PopoverProps, {}> {
   static defaultProps = {
     prefixCls: 'ant-popover',
-    placement: 'top',
+    placement: 'top' as TooltipPlacement,
     transitionName: 'zoom-big',
-    trigger: 'hover',
+    trigger: 'hover' as TooltipTrigger,
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     overlayStyle: {},

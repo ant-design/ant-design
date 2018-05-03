@@ -36,6 +36,7 @@ title: Modal
 | width | 宽度 | string\|number | 520 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
+| keyboard | 是否支持键盘esc关闭 | boolean | true |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 | onOk | 点击确定回调 | function(e) | 无 |
 

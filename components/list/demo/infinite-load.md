@@ -38,7 +38,7 @@ class InfiniteListExample extends React.Component {
       },
     });
   }
-  componentWillMount() {
+  componentDidMount() {
     this.getData((res) => {
       this.setState({
         data: res.results,
@@ -89,7 +89,11 @@ class InfiniteListExample extends React.Component {
               </List.Item>
             )}
           >
-            {this.state.loading && this.state.hasMore && <Spin className="demo-loading" />}
+            {this.state.loading && this.state.hasMore && (
+              <div className="demo-loading-container">
+                <Spin />
+              </div>
+            )}
           </List>
         </InfiniteScroll>
       </div>
@@ -108,9 +112,10 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
   padding: 8px 24px;
   height: 300px;
 }
-.demo-loading {
+.demo-loading-container {
   position: absolute;
-  bottom: -40px;
-  left: 50%;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
 }
 ````

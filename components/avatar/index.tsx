@@ -46,7 +46,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
     if (prevProps.children !== this.props.children
-        || (prevState.scale !== this.state.scale && this.state.scale === 1)) {
+        || (prevState.scale !== this.state.scale && this.state.scale === 1)
+        || (prevState.isImgExist !== this.state.isImgExist)) {
       this.setScale();
     }
   }
@@ -55,7 +56,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     const childrenNode = this.avatarChildren;
     if (childrenNode) {
       const childrenWidth = childrenNode.offsetWidth;
-      const avatarWidth = ReactDOM.findDOMNode(this).getBoundingClientRect().width;
+      const avatarNode = ReactDOM.findDOMNode(this) as Element;
+      const avatarWidth = avatarNode.getBoundingClientRect().width;
       // add 4px gap for each side to get better performance
       if (avatarWidth - 8 < childrenWidth) {
         this.setState({

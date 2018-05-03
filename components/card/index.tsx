@@ -5,8 +5,11 @@ import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
 import Tabs from '../tabs';
+import Row from '../row';
+import Col from '../col';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 import warning from '../_util/warning';
+import { Omit } from '../_util/type';
 
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
@@ -18,7 +21,7 @@ export interface CardTabListType {
   tab: React.ReactNode;
 }
 
-export interface CardProps {
+export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
@@ -40,14 +43,20 @@ export interface CardProps {
   defaultActiveTabKey?: string;
 }
 
-export default class Card extends React.Component<CardProps, {}> {
+export interface CardState {
+  widerPadding: boolean;
+}
+
+export default class Card extends React.Component<CardProps, CardState> {
   static Grid: typeof Grid = Grid;
   static Meta: typeof Meta = Meta;
-  resizeEvent: any;
-  updateWiderPaddingCalled: boolean;
+
   state = {
     widerPadding: false,
   };
+
+  private resizeEvent: any;
+  private updateWiderPaddingCalled: boolean = false;
   private container: HTMLDivElement;
   componentDidMount() {
     this.updateWiderPadding();
@@ -56,9 +65,9 @@ export default class Card extends React.Component<CardProps, {}> {
     if ('noHovering' in this.props) {
       warning(
         !this.props.noHovering,
-        '`noHovering` of Card is deperated, you can remove it safely or use `hoverable` instead.',
+        '`noHovering` of Card is deprecated, you can remove it safely or use `hoverable` instead.',
       );
-      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deperated, use `hoverable` instead.');
+      warning(!!this.props.noHovering, '`noHovering={false}` of Card is deprecated, use `hoverable` instead.');
     }
   }
   componentWillUnmount() {
@@ -72,14 +81,14 @@ export default class Card extends React.Component<CardProps, {}> {
     if (!this.container) {
       return;
     }
-    // 936 is a magic card width pixer number indicated by designer
-    const WIDTH_BOUDARY_PX = 936;
-    if (this.container.offsetWidth >= WIDTH_BOUDARY_PX && !this.state.widerPadding) {
+    // 936 is a magic card width pixel number indicated by designer
+    const WIDTH_BOUNDARY_PX = 936;
+    if (this.container.offsetWidth >= WIDTH_BOUNDARY_PX && !this.state.widerPadding) {
       this.setState({ widerPadding: true }, () => {
         this.updateWiderPaddingCalled = true; // first render without css transition
       });
     }
-    if (this.container.offsetWidth < WIDTH_BOUDARY_PX && this.state.widerPadding) {
+    if (this.container.offsetWidth < WIDTH_BOUNDARY_PX && this.state.widerPadding) {
       this.setState({ widerPadding: false }, () => {
         this.updateWiderPaddingCalled = true; // first render without css transition
       });
@@ -124,7 +133,7 @@ export default class Card extends React.Component<CardProps, {}> {
   }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, hoverable, title, loading,
+      prefixCls = 'ant-card', className, extra, bodyStyle = {}, noHovering, hoverable, title, loading,
       bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others,
     } = this.props;
 
@@ -139,26 +148,65 @@ export default class Card extends React.Component<CardProps, {}> {
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
+    const loadingBlockStyle = (bodyStyle.padding === 0 || bodyStyle.padding === '0px')
+      ? { padding: 24 } : undefined;
+
     const loadingBlock = (
-      <div className={`${prefixCls}-loading-content`}>
-        <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
-        </p>
-        <p>
-          <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
-          <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
-        </p>
+      <div
+        className={`${prefixCls}-loading-content`}
+        style={loadingBlockStyle}
+      >
+        <Row gutter={8}>
+          <Col span={22}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={15}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={6}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={18}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={13}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={9}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={4}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={3}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={16}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
+        <Row gutter={8}>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={6}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+          <Col span={8}>
+            <div className={`${prefixCls}-loading-block`} />
+          </Col>
+        </Row>
       </div>
     );
 
