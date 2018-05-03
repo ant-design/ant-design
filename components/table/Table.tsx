@@ -179,20 +179,16 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       this.store.setState({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
-      const { rowSelection } = this.props;
-      if (rowSelection && (
-        nextProps.rowSelection.getCheckboxProps !== rowSelection.getCheckboxProps
-      )) {
-        this.CheckboxPropsCache = {};
-      }
     }
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
       this.store.setState({
         selectionDirty: false,
       });
-      this.CheckboxPropsCache = {};
     }
+
+    // https://github.com/ant-design/ant-design/issues/10133
+    this.CheckboxPropsCache = {};
 
     if (this.getSortOrderColumns(this.columns).length > 0) {
       const sortState = this.getSortStateFromColumns(this.columns);

@@ -54,6 +54,7 @@ const columns = [{
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |
+| childrenColumnName | 指定树形结构的列名 | string\[] | children |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |
 | components | 覆盖默认的 table 元素 | object | - |
 | dataSource | 数据数组 | any\[] |  |

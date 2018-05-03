@@ -138,13 +138,10 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         class="logo"
       />
       <ul
-        aria-activedescendant=""
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
-          aria-selected="true"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -157,7 +154,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -170,7 +166,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -218,28 +213,23 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       class="logo"
     />
     <ul
-      aria-activedescendant=""
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
       </li>
       <li
-        aria-selected="true"
         class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
       </li>
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
@@ -322,13 +312,10 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         class="logo"
       />
       <ul
-        aria-activedescendant=""
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -343,7 +330,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -358,7 +344,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -373,7 +358,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="true"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -388,7 +372,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -403,7 +386,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -418,7 +400,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -433,7 +414,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -587,13 +567,10 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         class="logo"
       />
       <ul
-        aria-activedescendant=""
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -608,7 +585,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -623,7 +599,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -638,7 +613,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="true"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -698,13 +672,10 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         class="logo"
       />
       <ul
-        aria-activedescendant=""
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
-          aria-selected="true"
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
           style="padding-left:24px"
@@ -717,7 +688,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -731,11 +701,11 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         </li>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
+          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
-            aria-owns="sub1$Menu"
             class="ant-menu-submenu-title"
             style="padding-left:24px"
           >
@@ -751,14 +721,15 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class="ant-menu-submenu-arrow"
             />
           </div>
+          <div />
         </li>
         <li
           class="ant-menu-submenu ant-menu-submenu-inline"
+          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
-            aria-owns="sub2$Menu"
             class="ant-menu-submenu-title"
             style="padding-left:24px"
           >
@@ -774,9 +745,9 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class="ant-menu-submenu-arrow"
             />
           </div>
+          <div />
         </li>
         <li
-          aria-selected="false"
           class="ant-menu-item"
           role="menuitem"
           style="padding-left:24px"
@@ -866,28 +837,23 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       class="logo"
     />
     <ul
-      aria-activedescendant=""
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
       </li>
       <li
-        aria-selected="true"
         class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
       </li>
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
@@ -966,28 +932,23 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       class="logo"
     />
     <ul
-      aria-activedescendant=""
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
       </li>
       <li
-        aria-selected="true"
         class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
       </li>
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
@@ -1052,14 +1013,13 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           class="ant-layout-sider-children"
         >
           <ul
-            aria-activedescendant=""
             class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
             role="menu"
             style="height:100%"
-            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+              role="menuitem"
             >
               <div
                 aria-expanded="true"
@@ -1079,13 +1039,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 />
               </div>
               <ul
-                aria-activedescendant=""
                 class="ant-menu  ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
                 role="menu"
               >
                 <li
-                  aria-selected="true"
                   class="ant-menu-item ant-menu-item-selected"
                   role="menuitem"
                   style="padding-left:48px"
@@ -1093,7 +1051,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   option1
                 </li>
                 <li
-                  aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
                   style="padding-left:48px"
@@ -1101,7 +1058,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   option2
                 </li>
                 <li
-                  aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
                   style="padding-left:48px"
@@ -1109,7 +1065,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   option3
                 </li>
                 <li
-                  aria-selected="false"
                   class="ant-menu-item"
                   role="menuitem"
                   style="padding-left:48px"
@@ -1120,11 +1075,11 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
+              role="menuitem"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
-                aria-owns="sub2$Menu"
                 class="ant-menu-submenu-title"
                 style="padding-left:24px"
               >
@@ -1138,14 +1093,15 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
+              <div />
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
+              role="menuitem"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
-                aria-owns="sub3$Menu"
                 class="ant-menu-submenu-title"
                 style="padding-left:24px"
               >
@@ -1159,6 +1115,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
+              <div />
             </li>
           </ul>
         </div>
@@ -1191,28 +1148,23 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       class="logo"
     />
     <ul
-      aria-activedescendant=""
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
         nav 1
       </li>
       <li
-        aria-selected="true"
         class="ant-menu-item ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
       </li>
       <li
-        aria-selected="false"
         class="ant-menu-item"
         role="menuitem"
       >
@@ -1231,14 +1183,13 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         class="ant-layout-sider-children"
       >
         <ul
-          aria-activedescendant=""
           class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
           role="menu"
           style="height:100%;border-right:0"
-          tabindex="0"
         >
           <li
             class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+            role="menuitem"
           >
             <div
               aria-expanded="true"
@@ -1258,13 +1209,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               />
             </div>
             <ul
-              aria-activedescendant=""
               class="ant-menu  ant-menu-sub ant-menu-inline"
               id="sub1$Menu"
               role="menu"
             >
               <li
-                aria-selected="true"
                 class="ant-menu-item ant-menu-item-selected"
                 role="menuitem"
                 style="padding-left:48px"
@@ -1272,7 +1221,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 option1
               </li>
               <li
-                aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
                 style="padding-left:48px"
@@ -1280,7 +1228,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 option2
               </li>
               <li
-                aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
                 style="padding-left:48px"
@@ -1288,7 +1235,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 option3
               </li>
               <li
-                aria-selected="false"
                 class="ant-menu-item"
                 role="menuitem"
                 style="padding-left:48px"
@@ -1299,11 +1245,11 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           </li>
           <li
             class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
           >
             <div
               aria-expanded="false"
               aria-haspopup="true"
-              aria-owns="sub2$Menu"
               class="ant-menu-submenu-title"
               style="padding-left:24px"
             >
@@ -1317,14 +1263,15 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 class="ant-menu-submenu-arrow"
               />
             </div>
+            <div />
           </li>
           <li
             class="ant-menu-submenu ant-menu-submenu-inline"
+            role="menuitem"
           >
             <div
               aria-expanded="false"
               aria-haspopup="true"
-              aria-owns="sub3$Menu"
               class="ant-menu-submenu-title"
               style="padding-left:24px"
             >
@@ -1338,6 +1285,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
                 class="ant-menu-submenu-arrow"
               />
             </div>
+            <div />
           </li>
         </ul>
       </div>

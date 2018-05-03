@@ -51,6 +51,7 @@ export interface MenuProps {
   inlineCollapsed?: boolean;
   subMenuCloseDelay?: number;
   subMenuOpenDelay?: number;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
 }
 
 export interface MenuState {
@@ -66,6 +67,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     prefixCls: 'ant-menu',
     className: '',
     theme: 'light' as MenuTheme,  // or dark
+    focusable: false,
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,

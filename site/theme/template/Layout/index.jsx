@@ -44,6 +44,7 @@ export default class Layout extends React.Component {
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
+
     this.state = {
       appLocale,
       isMobile,
@@ -78,6 +79,7 @@ export default class Layout extends React.Component {
   render() {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
+
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">

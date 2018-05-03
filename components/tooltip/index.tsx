@@ -46,14 +46,14 @@ export interface TooltipProps extends AbstractTooltipProps {
 
 const splitObject = (obj: any, keys: string[]) => {
   const picked: any = {};
-  const omited: any = { ...obj };
+  const omitted: any = { ...obj };
   keys.forEach(key => {
     if (obj && key in obj) {
       picked[key] = obj[key];
-      delete omited[key];
+      delete omitted[key];
     }
   });
-  return { picked, omited };
+  return { picked, omitted };
 };
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
@@ -125,7 +125,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         element.props.disabled && this.isHoverTrigger()) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-      const { picked, omited } = splitObject(
+      const { picked, omitted } = splitObject(
         element.props.style,
         ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
       );
@@ -135,7 +135,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         cursor: 'not-allowed',
       };
       const buttonStyle = {
-        ...omited,
+        ...omitted,
         pointerEvents: 'none',
       };
       const child = cloneElement(element, {

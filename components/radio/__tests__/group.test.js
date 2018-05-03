@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import Radio from '../radio';
 import RadioGroup from '../group';
 
@@ -111,5 +111,18 @@ describe('Radio', () => {
     expect(wrapper.find('input[type="radio"]').forEach((el) => {
       expect(el.props().name).toEqual(GROUP_NAME);
     }));
+  });
+
+  it('passes prefixCls down to radio', () => {
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
+
+    const wrapper = render(
+      <RadioGroup prefixCls="my-radio" options={options} />
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -6,7 +6,16 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
-import { UploadProps, UploadState, UploadFile, UploadLocale, UploadChangeParam } from './interface';
+import {
+  RcFile,
+  UploadProps,
+  UploadState,
+  UploadFile,
+  UploadLocale,
+  UploadChangeParam,
+  UploadType,
+  UploadListType,
+} from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 
 export { UploadProps };
@@ -16,14 +25,14 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
 
   static defaultProps = {
     prefixCls: 'ant-upload',
-    type: 'select',
+    type: 'select' as UploadType,
     multiple: false,
     action: '',
     data: {},
     accept: '',
     beforeUpload: T,
     showUploadList: true,
-    listType: 'text', // or pictrue
+    listType: 'text' as UploadListType, // or pictrue
     className: '',
     disabled: false,
     supportServerRender: true,
@@ -47,7 +56,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.clearProgressTimer();
   }
 
-  onStart = (file: UploadFile) => {
+  onStart = (file: RcFile) => {
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     targetItem = fileToObject(file);
@@ -179,7 +188,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     });
   }
 
-  beforeUpload = (file: UploadFile, fileList: UploadFile[]) => {
+  beforeUpload = (file: RcFile, fileList: RcFile[]) => {
     if (!this.props.beforeUpload) {
       return true;
     }
@@ -187,7 +196,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file,
-        fileList: uniqBy(fileList.concat(this.state.fileList), (item: any) => item.uid),
+        fileList: uniqBy(fileList.map(fileToObject).concat(this.state.fileList),  (item: UploadFile) => item.uid),
       });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {

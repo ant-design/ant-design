@@ -34,7 +34,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger';
+export type ButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'default' | 'large';
 
@@ -156,9 +156,8 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   isNeedInserted() {
-    const { loading, icon, children } = this.props;
-    const iconType = loading ? 'loading' : icon;
-    return React.Children.count(children) === 1 && (!iconType || iconType === 'loading');
+    const { icon, children } = this.props;
+    return React.Children.count(children) === 1 && !icon;
   }
 
   render() {

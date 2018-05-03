@@ -5,6 +5,7 @@ import Animate from 'rc-animate';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import omit from 'omit.js';
 
+export type SpinSize = 'small' | 'default' | 'large';
 export type SpinIndicator = React.ReactElement<any>;
 
 export interface SpinProps {
@@ -12,7 +13,7 @@ export interface SpinProps {
   className?: string;
   spinning?: boolean;
   style?: React.CSSProperties;
-  size?: 'small' | 'default' | 'large';
+  size?: SpinSize;
   tip?: string;
   delay?: number;
   wrapperClassName?: string;
@@ -28,7 +29,7 @@ export default class Spin extends React.Component<SpinProps, SpinState> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
-    size: 'default',
+    size: 'default' as SpinSize,
     wrapperClassName: '',
   };
 

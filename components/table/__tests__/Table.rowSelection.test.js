@@ -299,6 +299,34 @@ describe('Table.rowSelection', () => {
     });
   });
 
+  // https://github.com/ant-design/ant-design/issues/4245
+  it('should allow dynamic getCheckboxProps', () => {
+    class App extends React.Component {
+      state = {
+        disableName: 'Jack',
+      };
+      render() {
+        return (
+          <Table
+            columns={columns}
+            dataSource={data}
+            rowSelection={{
+              getCheckboxProps: record => ({ disabled: record.name === this.state.disableName }),
+            }}
+          />
+        );
+      }
+    }
+    const wrapper = mount(<App />);
+    let checkboxs = wrapper.find('input');
+    expect(checkboxs.at(1).props().disabled).toBe(true);
+    expect(checkboxs.at(2).props().disabled).toBe(false);
+    wrapper.setState({ disableName: 'Lucy' });
+    checkboxs = wrapper.find('input');
+    expect(checkboxs.at(1).props().disabled).toBe(false);
+    expect(checkboxs.at(2).props().disabled).toBe(true);
+  });
+
   // https://github.com/ant-design/ant-design/issues/4779
   it('should not switch pagination when select record', () => {
     const newData = [];

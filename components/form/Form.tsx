@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import createFormField from 'rc-form/lib/createFormField';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
 import warning from '../_util/warning';
 import FormItem from './FormItem';
@@ -12,13 +11,15 @@ import { Omit } from '../_util/type';
 
 export interface FormCreateOption<T> {
   onFieldsChange?: (props: T, fields: Array<any>) => void;
-  onValuesChange?: (props: T, values: any) => void;
+  onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   withRef?: boolean;
 }
 
+export type FormLayout = 'horizontal' | 'inline' | 'vertical';
+
 export interface FormProps {
-  layout?: 'horizontal' | 'inline' | 'vertical';
+  layout?: FormLayout;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
@@ -114,16 +115,20 @@ export interface FormComponentProps {
   form: WrappedFormUtils;
 }
 
+export interface RcBaseFormProps {
+   wrappedComponentRef?: any;
+}
+
 export interface ComponentDecorator {
   <P extends FormComponentProps>(
     component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<Omit<P, keyof FormComponentProps>>;
+  ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
-    layout: 'horizontal',
+    layout: 'horizontal' as FormLayout,
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();
@@ -159,10 +164,6 @@ export default class Form extends React.Component<FormProps, any> {
     super(props);
 
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getChildContext() {

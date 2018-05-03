@@ -9,13 +9,23 @@
   &-pick {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 8px;
+    margin: 0 0 20px;
   }
   &-picker {
-    margin: 12px 0 24px;
+    margin: 24px 0;
     &-value {
-      font-size: 13px;
+      font-size: 14px;
       font-family: Consolas;
+      margin-left: 16px;
+      position: relative;
+      top: -3px;
+    }
+    &-validation {
+      font-size: 13px;
+      color: @error-color;
+      margin-left: 16px;
+      position: relative;
+      top: -3px;
     }
   }
 }
