@@ -20,7 +20,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-0"
               title="Field 0"
             >
@@ -61,7 +61,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-1"
               title="Field 1"
             >
@@ -102,7 +102,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-2"
               title="Field 2"
             >
@@ -143,7 +143,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-3"
               title="Field 3"
             >
@@ -184,7 +184,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-4"
               title="Field 4"
             >
@@ -225,7 +225,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-5"
               title="Field 5"
             >
@@ -266,7 +266,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-6"
               title="Field 6"
             >
@@ -307,7 +307,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-7"
               title="Field 7"
             >
@@ -348,7 +348,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-8"
               title="Field 8"
             >
@@ -389,7 +389,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             class="ant-form-item-label"
           >
             <label
-              class=""
+              class="ant-form-item-required"
               for="field-9"
               title="Field 9"
             >
@@ -543,7 +543,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                 <div
                   class="ant-select-selection__placeholder"
                   style="display:block;user-select:none;-webkit-user-select:none"
-                  unselectable="unselectable"
+                  unselectable="on"
                 >
                   Select a option and change input text above
                 </div>
@@ -551,7 +551,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>
@@ -649,7 +649,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 <span
                   class="ant-select-arrow"
                   style="user-select:none;-webkit-user-select:none"
-                  unselectable="unselectable"
+                  unselectable="on"
                 >
                   <b />
                 </span>
@@ -1637,7 +1637,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     <span
                       class="ant-select-arrow"
                       style="user-select:none;-webkit-user-select:none"
-                      unselectable="unselectable"
+                      unselectable="on"
                     >
                       <b />
                     </span>
@@ -1698,7 +1698,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 <div
                   class="ant-select-selection__placeholder"
                   style="display:block;user-select:none;-webkit-user-select:none"
-                  unselectable="unselectable"
+                  unselectable="on"
                 >
                   website
                 </div>
@@ -1726,7 +1726,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>
@@ -2263,7 +2263,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 <div
                   class="ant-select-selection__placeholder"
                   style="display:block;user-select:none;-webkit-user-select:none"
-                  unselectable="unselectable"
+                  unselectable="on"
                 >
                   Please select a country
                 </div>
@@ -2271,7 +2271,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>
@@ -2321,7 +2321,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 <div
                   class="ant-select-selection__placeholder"
                   style="display:block;user-select:none;-webkit-user-select:none"
-                  unselectable="unselectable"
+                  unselectable="on"
                 >
                   Please select favourite colors
                 </div>
@@ -3340,7 +3340,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               <span
                 class="ant-select-arrow"
                 style="user-select:none;-webkit-user-select:none"
-                unselectable="unselectable"
+                unselectable="on"
               >
                 <b />
               </span>

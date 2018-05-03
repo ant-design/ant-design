@@ -53,6 +53,7 @@ const columns = [{
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | bordered | Whether to show all table borders | boolean | `false` |
+| childrenColumnName | The column contains children to display | string\[] | children |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
 | components | Override default table elements | object | - |
 | dataSource | Data record array to be displayed | any\[] | - |

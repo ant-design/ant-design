@@ -51,7 +51,7 @@ export default class WeekPicker extends React.Component<any, any> {
       );
     }
     return (
-      <div className={`${prefixCls}-calendar-date`}>
+      <div className={`${prefixCls}-date`}>
         {current.date()}
       </div>
     );

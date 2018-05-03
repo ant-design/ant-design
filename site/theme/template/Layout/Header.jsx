@@ -159,7 +159,7 @@ export default class Header extends React.Component {
             rel="noopener noreferrer"
           >
             <FormattedMessage id="app.header.menu.pro" />
-            <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 4 }}>
+            <span style={{ display: 'inline-block', position: 'relative', top: -2, width: 6, marginLeft: 8 }}>
               <Badge dot />
             </span>
           </a>

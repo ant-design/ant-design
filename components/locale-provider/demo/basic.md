@@ -15,7 +15,7 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 
 ````jsx
 import { Pagination, LocaleProvider } from 'antd';
-import enUS from 'antd/lib/locale-provider/en_US';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 const App = () => (
   <div>
@@ -24,7 +24,7 @@ const App = () => (
 );
 
 ReactDOM.render(
-  <LocaleProvider locale={enUS}>
+  <LocaleProvider locale={zhCN}>
     <App />
   </LocaleProvider>
 , mountNode);

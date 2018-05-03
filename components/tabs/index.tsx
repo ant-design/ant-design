@@ -79,7 +79,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   componentDidMount() {
     const NO_FLEX = ' no-flex';
-    const tabNode = ReactDOM.findDOMNode(this);
+    const tabNode = ReactDOM.findDOMNode(this) as Element;
     if (tabNode && !isFlexSupported() && tabNode.className.indexOf(NO_FLEX) === -1) {
       tabNode.className += NO_FLEX;
     }

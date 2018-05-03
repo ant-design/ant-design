@@ -33,6 +33,10 @@
     border-bottom: 0;
   }
 
+  &-dark&-horizontal > &-item > a:before {
+    bottom: 0;
+  }
+
   &-dark &-item,
   &-dark &-item-group-title,
   &-dark &-item > a {
@@ -113,6 +117,12 @@
     }
     > .@{menu-prefix-cls}-submenu-title {
       color: @disabled-color-dark !important;
+      > .@{menu-prefix-cls}-submenu-arrow {
+        &:before,
+        &:after {
+          background: @disabled-color-dark !important;
+        }
+      }
     }
   }
 }

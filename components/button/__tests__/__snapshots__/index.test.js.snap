@@ -66,6 +66,48 @@ exports[`Button renders Chinese characters correctly 3`] = `
 </button>
 `;
 
+exports[`Button renders Chinese characters correctly 4`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <i
+    class="anticon anticon-search"
+  />
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
+exports[`Button renders Chinese characters correctly 5`] = `
+<button
+  class="ant-btn ant-btn-loading"
+  type="button"
+>
+  <i
+    class="anticon anticon-spin anticon-loading"
+  />
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
+exports[`Button renders Chinese characters correctly 6`] = `
+<button
+  class="ant-btn ant-btn-loading"
+  type="button"
+>
+  <i
+    class="anticon anticon-spin anticon-loading"
+  />
+  <span>
+    按 钮
+  </span>
+</button>
+`;
+
 exports[`Button renders correctly 1`] = `
 <button
   class="ant-btn"

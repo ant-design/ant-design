@@ -125,8 +125,8 @@ class App extends React.Component {
       <div>
         <div className="change-locale">
           <span style={{ marginRight: 16 }}>Change locale of components: </span>
-          <Radio.Group defaultValue={null} onChange={this.changeLocale}>
-            <Radio.Button key="en" value={null}>English</Radio.Button>
+          <Radio.Group defaultValue={undefined} onChange={this.changeLocale}>
+            <Radio.Button key="en" value={undefined}>English</Radio.Button>
             <Radio.Button key="cn" value={zhCN}>中文</Radio.Button>
           </Radio.Group>
         </div>

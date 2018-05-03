@@ -49,7 +49,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | -------- | ----------- | ---- | ------- |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disables the treeNode | boolean | false |
-| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | element/Function(props):ReactNode | - |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |
 | selectable | Set whether the treeNode can be selected | boolean | true |
@@ -57,6 +57,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ## Note
 
+Before `3.4.0`:
 The number of treeNodes can be very large, but when `checkable=true`,
 it will increase the compute time. So, we cache some calculations (e.g. `this.treeNodesStates`)
 to avoid double computing. But, this brings some restrictions.

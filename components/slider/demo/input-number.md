@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Synchronize with [InptNumber](/components/input-number/) component.
+Synchronize with [InputNumber](/components/input-number/) component.
 
 ````jsx
 import { Slider, InputNumber, Row, Col } from 'antd';

@@ -86,7 +86,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -112,7 +112,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -134,7 +134,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -196,7 +196,7 @@ describe('Upload List', () => {
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { name: 'foo.png' },
         ],
       },
     });
@@ -258,18 +258,68 @@ describe('Upload List', () => {
       </Upload>
     );
     wrapper.setState({});
-    await delay(20);
+    await delay(200);
     expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
   });
 
   it('should non-image format file preview', () => {
     const list = [
       {
-        ...fileList[0],
+        name: 'not-image',
+        status: 'done',
         uid: -3,
         url: 'https://cdn.xxx.com/aaa.zip',
         thumbUrl: 'data:application/zip;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
         originFileObj: new File([], 'aaa.zip'),
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -4,
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'not-image',
+        status: 'done',
+        uid: -5,
+        url: 'https://cdn.xxx.com/aaa.xx',
+      },
+      {
+        name: 'not-image',
+        status: 'done',
+        uid: -6,
+        url: 'https://cdn.xxx.com/aaa.png/xx.xx',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -7,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -8,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png',
+        thumbUrl: 'data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -9,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=123',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -10,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png#anchor',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: -11,
+        url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
       },
     ];
 

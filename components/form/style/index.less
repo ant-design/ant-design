@@ -251,7 +251,9 @@ form {
   }
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
+  .@{ant-prefix}-input-group,
   .@{ant-prefix}-input-group-wrapper {
+    display: inline-block;
     vertical-align: middle;
     position: relative;
     top: -1px;
@@ -554,7 +556,11 @@ form {
 
 .@{ant-prefix}-advanced-search-form {
   .@{form-prefix-cls}-item {
-    margin-bottom: 24px;
+    margin-bottom: @form-item-margin-bottom;
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - @form-help-margin-top;
+    }
   }
 }
 

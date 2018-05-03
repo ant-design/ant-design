@@ -4,18 +4,16 @@ exports[`List renders empty list 1`] = `
 <div
   class="ant-list ant-list-split"
 >
-  <div>
+  <div
+    class="ant-spin-nested-loading"
+  >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-container"
     >
       <div
-        class="ant-spin-container"
+        class="ant-list-empty-text"
       >
-        <div
-          class="ant-list-empty-text"
-        >
-          No data
-        </div>
+        No data
       </div>
     </div>
   </div>

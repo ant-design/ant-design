@@ -212,7 +212,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -220,7 +220,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-background-ghost"
     disabled=""
     type="button"
   >

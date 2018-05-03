@@ -50,7 +50,7 @@ subtitle: 树形控件
 | --- | --- | --- | --- |
 | disableCheckbox | 禁掉 checkbox | boolean | false |
 | disabled | 禁掉响应 | boolean | false |
-| icon | 自定义图标。可接收组件，props 为当前节点 props | element/Function(props):ReactNode | - |
+| icon | 自定义图标。可接收组件，props 为当前节点 props | ReactNode/Function(props):ReactNode | - |
 | isLeaf | 设置为叶子节点(设置了`loadData`时有效) | boolean | false |
 | key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | string | 内部计算出的节点位置 |
 | selectable | 设置节点是否可被选中 | boolean | true |
@@ -58,6 +58,7 @@ subtitle: 树形控件
 
 ## 注意
 
+在 `3.4.0` 之前：
 树节点可以有很多，但在设置`checkable`时，将会花费更多的计算时间，因此我们缓存了一些计算结果（`this.treeNodesStates`）来复用，避免多次重复计算，以此提高性能。但这也带来了一些限制，当你异步加载树节点时，你需要这样渲染树：
 
 ```jsx
