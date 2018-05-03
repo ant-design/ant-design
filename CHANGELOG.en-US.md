@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.4.5
+
+`2018-05-03`
+
+- 🐞 Fix file object is empty and file name not showing in Upload. [#10319](https://github.com/ant-design/ant-design/issues/10319)
+
 ## 3.4.4
 
 `2018-04-28`
