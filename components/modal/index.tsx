@@ -30,11 +30,11 @@ const config = {
   },
 };
 
-Modal.info = (props: ModalFuncProps) => { confirm({ ...config.info, ...props }); };
-Modal.success = (props: ModalFuncProps) => { confirm({ ...config.success, ...props }); };
-Modal.error = (props: ModalFuncProps) => { confirm({ ...config.error, ...props }); };
-Modal.warning = (props: ModalFuncProps) => { confirm({ ...config.warning, ...props }); };
-Modal.warn = (props: ModalFuncProps) => { confirm({ ...config.warning, ...props }); };
-Modal.confirm = (props: ModalFuncProps) => { confirm({ ...config.confirm, ...props }); };
+Modal.info = function (props: ModalFuncProps) { return confirm({ ...config.info, ...props }); };
+Modal.success = function (props: ModalFuncProps) { return confirm({ ...config.success, ...props }); };
+Modal.error = function (props: ModalFuncProps) { return confirm({ ...config.error, ...props }); };
+Modal.warning = function (props: ModalFuncProps) { return confirm({ ...config.warning, ...props }); };
+Modal.warn = function (props: ModalFuncProps) { return confirm({ ...config.warning, ...props }); };
+Modal.confirm = function (props: ModalFuncProps) { return confirm({ ...config.confirm, ...props }); };
 
 export default Modal;
