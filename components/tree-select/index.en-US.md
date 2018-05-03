@@ -35,7 +35,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |
-| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, label, children, [disabled, disableCheckbox, selectable] }> | \[] |
+| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, label, children, [disabled, disableCheckbox, selectable] }>(when title is defined,label's value will be covered) | \[] |
 | treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', label:"test1",...},...], pId is parent node's id) | false\|Array&lt;{ id: string, pId: string, rootPId: null }> | false |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |
