@@ -2,7 +2,6 @@ import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
-export { ModalProps, ModalFuncProps } from './Modal';
 
 const config = {
   info: {
