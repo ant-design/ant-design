@@ -59,6 +59,7 @@ export interface ButtonProps {
   target?: string;
   href?: string;
   download?: string;
+  onSubmit?: Function;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
