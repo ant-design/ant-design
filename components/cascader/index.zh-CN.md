@@ -43,6 +43,7 @@ subtitle: 级联选择
 | value | 指定选中项 | string\[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | 显示/隐藏浮层的回调 | `(value) => void` | - |
+| filedNames | 自定义 options 中 label name children 的字段 | object | `{ label: 'label', value: 'value', children: 'children' }` |
 
 `showSearch` 为对象时，其中的字段：
 
