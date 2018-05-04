@@ -33,6 +33,10 @@
     font-weight: 500;
     border-bottom: @border-width-base @border-style-base @border-color-split;
 
+    &[colspan] {
+      text-align: center;
+    }
+
     .@{iconfont-css-prefix}-filter,
     .@{table-prefix-cls}-filter-icon {
       position: relative;
@@ -76,7 +80,6 @@
 
   &-thead > tr:not(:last-child) > th {
     &[colspan] {
-      text-align: center;
       border-bottom: 0;
     }
   }
