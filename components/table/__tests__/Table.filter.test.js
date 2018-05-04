@@ -106,6 +106,22 @@ describe('Table.filter', () => {
     expect(dropdown.props().visible).toBe(false);
   });
 
+  it('if the filter is visible it should ignore the selectedKeys changes', () => {
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filterDropdownVisible: true,
+      }],
+    }));
+
+    const filterMenu = wrapper.find('FilterMenu').instance();
+    expect(filterMenu.state.selectedKeys).toEqual([]);
+    wrapper.find('FilterMenu').find('input[type="checkbox"]').first().simulate('click');
+    expect(filterMenu.state.selectedKeys).toEqual(['boy']);
+    wrapper.setProps({ dataSource: [...data, { key: 999, name: 'Chris' }] });
+    expect(filterMenu.state.selectedKeys).toEqual(['boy']);
+  });
+
   it('fires change event when visible change', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({
