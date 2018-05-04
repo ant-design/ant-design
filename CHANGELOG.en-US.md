@@ -26,9 +26,9 @@ timeline: true
 - 🌟 Add ability to update `Notification` props by key. [react-component/notification#40](https://github.com/react-component/notification/pull/40) [@yevhen-hryhorevskyi](https://github.com/yevhen-hryhorevskyi)
 - 🌟 `List` support pagination by default. [#10135](https://github.com/ant-design/ant-design/pull/10135)
 - Table
-  - 🌟 Component `Table` column `sorter` function is passed `sortOrder` as param. [#10306](https://github.com/ant-design/ant-design/pull/10306) [@kumarashwin](https://github.com/kumarashwin)
-  - 🐞 Fix `Table` merged header cell border. [#10359](https://github.com/ant-design/ant-design/issues/10359)
-  - 🐞 Fix lost of user selection on `Table` data updates. [#10332](https://github.com/ant-design/ant-design/pull/10332) [@chrvadala](https://github.com/chrvadala)
+  - 🌟 Column `sorter` function is passed `sortOrder` as param. [#10306](https://github.com/ant-design/ant-design/pull/10306) [@kumarashwin](https://github.com/kumarashwin)
+  - 🐞 Fix merged header cell border. [#10359](https://github.com/ant-design/ant-design/issues/10359)
+  - 🐞 Fix lost of user selection on data updates. [#10332](https://github.com/ant-design/ant-design/pull/10332) [@chrvadala](https://github.com/chrvadala)
 - `Menu` upgrade `rc-menu` to `7.x` [#10305](https://github.com/ant-design/ant-design/pull/10305)
   - 🌟 Better aria-* attributes support. [react-component/menu#137](https://github.com/react-component/menu/pull/137)
   - 🌟 Improve Menu performance by avoiding unnecessary updates. [react-component/menu#133](https://github.com/react-component/menu/pull/133)
@@ -38,15 +38,15 @@ timeline: true
   - 🌟 Support custom `Collapse` styles with less. [#9943](https://github.com/ant-design/ant-design/pull/9943) [@davidhatten](https://github.com/davidhatten)
   - 🌟 Update `rc-collapse` to 1.9.0 to add `Collapse` keyboard support. [react-component/collapse#84](https://github.com/react-component/collapse/pull/84/)  [@kossel](https://github.com/kossel)
 - Select
-  - 🐞 Fix type for `placeholder` in `Select` component. [#10282](https://github.com/ant-design/ant-design/pull/10282) [@thomasthiebaud](https://github.com/thomasthiebaud)
-  - 🐞 Fix `Select` extra space taken up when arrow disabled. [#10296](https://github.com/ant-design/ant-design/pull/10296)
-  - 🐞 Fix `Select` property `value` typescript type. [#10336](https://github.com/ant-design/ant-design/pull/10336) [@paranoidjk](https://github.com/paranoidjk)
+  - 🐞 Fix type for `placeholder`. [#10282](https://github.com/ant-design/ant-design/pull/10282) [@thomasthiebaud](https://github.com/thomasthiebaud)
+  - 🐞 Fix extra space taken up when arrow disabled. [#10296](https://github.com/ant-design/ant-design/pull/10296)
+  - 🐞 Fix property `value` typescript type. [#10336](https://github.com/ant-design/ant-design/pull/10336) [@paranoidjk](https://github.com/paranoidjk)
 - Input
   - 🐞 Fix `Input.Search` not disable enter button when disabled prop is true. [#10040](https://github.com/ant-design/ant-design/issues/10040)
   - 🐞 Fix `Input.Group` align issue in Form. [#10281](https://github.com/ant-design/ant-design/issues/10281)
 - Form
   - 🐞 Fix typing for `Form.onValuesChange`. [#10231](https://github.com/ant-design/ant-design/pull/10231) [@whtsky](https://github.com/whtsky)
-  - 🐞 Fix `Form` typescript interface `ComponentDecorator`. [#10324](https://github.com/ant-design/ant-design/pull/10324) [@paranoidjk](https://github.com/paranoidjk)
+  - 🐞 Fix typescript interface `ComponentDecorator`. [#10324](https://github.com/ant-design/ant-design/pull/10324) [@paranoidjk](https://github.com/paranoidjk)
 - 🐞 Fix dashed `Divider`. [#10216](https://github.com/ant-design/ant-design/issues/10216)
 - 🐞 Fix `Spin` container interaction. [#10227](https://github.com/ant-design/ant-design/issues/10227)
 - 🐞 Fix `Notification` icon hover color. [#10272](https://github.com/ant-design/ant-design/issues/10272)
