@@ -23,6 +23,8 @@ timeline: true
 - 🌟 Add `successPercent` as `Progress[format]` argument. [#10096](https://github.com/ant-design/ant-design/issues/10096)
 - 🌟 Update `rc-notification` to 3.1.0 so that `Notification` support set `maxCount`. [#10161](https://github.com/ant-design/ant-design/pull/10161) [@jzhangs](https://github.com/jzhangs)
 - 🌟 Update `rc-cascader` to 1.13.0 so that `Cascader` support set `filedNames`. [react-component/cascader#23](https://github.com/react-component/cascader/pull/23) [@405go](https://github.com/405go)
+- 🌟 Add ability to update `Notification` props by key. [react-component/notification#40](https://github.com/react-component/notification/pull/40) [@yevhen-hryhorevskyi](https://github.com/yevhen-hryhorevskyi)
+- 🌟 `List` support pagination by default. [#10135](https://github.com/ant-design/ant-design/pull/10135)
 - Table
   - 🌟 Component `Table` column `sorter` function is passed `sortOrder` as param. [#10306](https://github.com/ant-design/ant-design/pull/10306) [@kumarashwin](https://github.com/kumarashwin)
   - 🐞 Fix `Table` merged header cell border. [#10359](https://github.com/ant-design/ant-design/issues/10359)
@@ -45,7 +47,6 @@ timeline: true
 - Form
   - 🐞 Fix typing for `Form.onValuesChange`. [#10231](https://github.com/ant-design/ant-design/pull/10231) [@whtsky](https://github.com/whtsky)
   - 🐞 Fix `Form` typescript interface `ComponentDecorator`. [#10324](https://github.com/ant-design/ant-design/pull/10324) [@paranoidjk](https://github.com/paranoidjk)
-- 🐞 Fix `List` integrate pagination functional. [#10135](https://github.com/ant-design/ant-design/pull/10135)
 - 🐞 Fix dashed `Divider`. [#10216](https://github.com/ant-design/ant-design/issues/10216)
 - 🐞 Fix `Spin` container interaction. [#10227](https://github.com/ant-design/ant-design/issues/10227)
 - 🐞 Fix `Notification` icon hover color. [#10272](https://github.com/ant-design/ant-design/issues/10272)
