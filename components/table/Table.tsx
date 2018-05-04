@@ -333,7 +333,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
 
     return (a: T, b: T) => {
-      const result = (sortColumn!.sorter as CompareFn<T>)(a, b);
+      const result = (sortColumn!.sorter as CompareFn<T>)(a, b, sortOrder);
       if (result !== 0) {
         return (sortOrder === 'descend') ? -result : result;
       }
@@ -341,7 +341,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  toggleSortOrder(order: string, column: ColumnProps<T>) {
+  toggleSortOrder(order: 'ascend'|'descend', column: ColumnProps<T>) {
     let { sortColumn, sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let isSortColumn = this.isSortColumn(column);
@@ -350,7 +350,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sortColumn = column;
     } else {                      // 当前列已排序
       if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = '';
+        sortOrder = undefined;
         sortColumn = null;
       } else {                    // 切换为排序状态
         sortOrder = order;
