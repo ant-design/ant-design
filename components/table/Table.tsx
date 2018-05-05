@@ -28,7 +28,7 @@ import {
   CompareFn,
   TableStateFilters,
   SelectionItemSelectFn,
-  TablePaginationConfig,
+  PaginationConfig,
 } from './interface';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
@@ -150,7 +150,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: TablePaginationConfig = props.pagination || {};
+    const pagination: PaginationConfig = props.pagination || {};
     return this.hasPagination(props) ?
       {
         ...defaultPagination,

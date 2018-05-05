@@ -29,6 +29,10 @@ export interface PaginationProps {
   itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
 }
 
+export interface PaginationConfig extends PaginationProps {
+  position?: 'top' | 'bottom' | 'both';
+}
+
 export type PaginationLocale = any;
 
 export default class Pagination extends React.Component<PaginationProps, {}> {
