@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Display
-title: List 
+title: List
 cols: 1
 ---
 
@@ -27,6 +27,16 @@ A list can be used to display content related to a single subject. The content c
 | loadMore | Shows a load more content | string\|ReactNode | - |
 | pagination | Pagination [config](https://ant.design/components/pagination/), hide it by setting it to false | boolean \| object | false |
 | split | Toggles rendering of the split under the list item | boolean | true |
+
+### pagination
+
+Properties for pagination.
+
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
+
+More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### List grid props
 
