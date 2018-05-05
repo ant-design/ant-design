@@ -60,4 +60,16 @@ describe('Directory Tree', () => {
     const wrapper = render(createTree({ defaultExpandParent: true }));
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('expandedKeys update', () => {
+    const wrapper = mount(createTree());
+    wrapper.setProps({ expandedKeys: ['0-1'] });
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('selectedKeys update', () => {
+    const wrapper = mount(createTree({ defaultExpandAll: true }));
+    wrapper.setProps({ selectedKeys: ['0-1-0'] });
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
