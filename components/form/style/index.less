@@ -251,7 +251,7 @@ form {
   }
 
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
-  .@{ant-prefix}-input-group,
+  :not(.@{ant-prefix}-input-group-wrapper) > .@{ant-prefix}-input-group,
   .@{ant-prefix}-input-group-wrapper {
     display: inline-block;
     vertical-align: middle;
