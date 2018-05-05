@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Tree from '../index';
 
 const DirectoryTree = Tree.DirectoryTree;
@@ -15,7 +15,7 @@ describe('Directory Tree', () => {
   });
 
   function createTree(props) {
-    return mount(
+    return (
       <DirectoryTree {...props}>
         <TreeNode key="0-0">
           <TreeNode key="0-0-0" />
@@ -31,7 +31,7 @@ describe('Directory Tree', () => {
 
   describe('expand', () => {
     it('click', () => {
-      const wrapper = createTree();
+      const wrapper = mount(createTree());
 
       wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('click');
       expect(wrapper.render()).toMatchSnapshot();
@@ -41,7 +41,7 @@ describe('Directory Tree', () => {
     });
 
     it('double click', () => {
-      const wrapper = createTree({ expandAction: 'doubleClick' });
+      const wrapper = mount(createTree({ expandAction: 'doubleClick' }));
 
       wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleClick');
       expect(wrapper.render()).toMatchSnapshot();
@@ -49,5 +49,15 @@ describe('Directory Tree', () => {
       wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleClick');
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('defaultExpandAll', () => {
+    const wrapper = render(createTree({ defaultExpandAll: true }));
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('defaultExpandParent', () => {
+    const wrapper = render(createTree({ defaultExpandParent: true }));
+    expect(wrapper).toMatchSnapshot();
   });
 });
