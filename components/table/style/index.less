@@ -35,7 +35,6 @@
 
     &[colspan] {
       text-align: center;
-      border-bottom: 0;
     }
 
     .@{iconfont-css-prefix}-filter,
@@ -76,6 +75,12 @@
 
     &:last-child {
       border-top-right-radius: @border-radius-base;
+    }
+  }
+
+  &-thead > tr:not(:last-child) > th {
+    &[colspan] {
+      border-bottom: 0;
     }
   }
 
@@ -321,7 +326,7 @@
       }
     }
 
-    .@{table-prefix-cls}-thead > tr > th {
+    .@{table-prefix-cls}-thead > tr:not(:last-child) > th {
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
