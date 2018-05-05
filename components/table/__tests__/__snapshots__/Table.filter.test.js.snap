@@ -132,11 +132,13 @@ exports[`Table.filter renders menu correctly 1`] = `
       class="ant-table-filter-dropdown"
     >
       <ul
+        aria-activedescendant=""
         class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
         <li
+          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -160,6 +162,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
+          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -184,11 +187,11 @@ exports[`Table.filter renders menu correctly 1`] = `
         </li>
         <li
           class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
+            aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
             title="Title"
           >
@@ -227,11 +230,13 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       class="ant-table-filter-dropdown"
     >
       <ul
+        aria-activedescendant=""
         class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
         <li
+          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -255,6 +260,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
+          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -279,11 +285,11 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         </li>
         <li
           class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
+            aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
             title="Title"
           >
