@@ -13,10 +13,18 @@
         &.@{tree-prefix-cls}-switcher {
           position: relative;
           z-index: 1;
+
+          &.@{tree-prefix-cls}-switcher-noop {
+            pointer-events: none;
+          }
+        }
+
+        &.@{tree-prefix-cls}-checkbox {
+          position: relative;
+          z-index: 1;
         }
 
         &.@{tree-prefix-cls}-node-content-wrapper {
-          width: calc(~"100% - 24px");
           user-select: none;
           border-radius: 0;
 
@@ -49,6 +57,26 @@
         > span {
           &.@{tree-prefix-cls}-switcher {
             color: @tree-directory-selected-color;
+          }
+
+          &.@{tree-prefix-cls}-checkbox {
+            .@{tree-prefix-cls}-checkbox-inner {
+              border-color: @primary-color;
+            }
+
+            &.@{tree-prefix-cls}-checkbox-checked {
+              &:after {
+                border-color: @checkbox-check-color;
+              }
+
+              .@{tree-prefix-cls}-checkbox-inner {
+                background: @checkbox-check-color;
+
+                &:after {
+                  border-color: @primary-color;
+                }
+              }
+            }
           }
 
           &.@{tree-prefix-cls}-node-content-wrapper {
