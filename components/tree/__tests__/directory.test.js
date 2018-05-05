@@ -72,4 +72,33 @@ describe('Directory Tree', () => {
     wrapper.setProps({ selectedKeys: ['0-1-0'] });
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it.only('group select', () => {
+    let nativeEventProto = null;
+    const wrapper = mount(createTree({
+      defaultExpandAll: true,
+      expandAction: 'doubleClick',
+      multiple: true,
+      onClick: (e) => {
+        nativeEventProto = Object.getPrototypeOf(e.nativeEvent);
+      },
+    }));
+
+    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('click');
+
+    // React not simulate full of NativeEvent. Hook it.
+    // Ref: https://github.com/facebook/react/blob/master/packages/react-dom/src/test-utils/ReactTestUtils.js#L360
+    nativeEventProto.ctrlKey = true;
+
+    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(1).simulate('click');
+    expect(wrapper.render()).toMatchSnapshot();
+
+    delete nativeEventProto.ctrlKey;
+    nativeEventProto.shiftKey = true;
+
+    wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(4).simulate('click');
+    expect(wrapper.render()).toMatchSnapshot();
+
+    delete nativeEventProto.shiftKey;
+  });
 });

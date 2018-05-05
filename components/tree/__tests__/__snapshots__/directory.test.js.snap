@@ -775,6 +775,332 @@ exports[`Directory Tree expandedKeys update 1`] = `
 </ul>
 `;
 
+exports[`Directory Tree group select 1`] = `
+<ul
+  class="ant-tree ant-tree-directory"
+  role="tree-node"
+  unselectable="on"
+>
+  <li
+    class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+      <li
+        class="ant-tree-treenode-switcher-open"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ant-tree-treenode-switcher-open"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class="ant-tree-treenode-switcher-open"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+      <li
+        class="ant-tree-treenode-switcher-open"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`Directory Tree group select 2`] = `
+<ul
+  class="ant-tree ant-tree-directory"
+  role="tree-node"
+  unselectable="on"
+>
+  <li
+    class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+      <li
+        class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+    >
+      <li
+        class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+      <li
+        class="ant-tree-treenode-switcher-open"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="---"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder-open"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            ---
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
 exports[`Directory Tree selectedKeys update 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
