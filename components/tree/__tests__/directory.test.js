@@ -73,7 +73,7 @@ describe('Directory Tree', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it.only('group select', () => {
+  it('group select', () => {
     let nativeEventProto = null;
     const wrapper = mount(createTree({
       defaultExpandAll: true,
