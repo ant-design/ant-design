@@ -24,11 +24,6 @@ describe('Form', () => {
     myForm.validateFields();
 
     wrapper.update();
-
-    expect(wrapper.find('.ant-form-explain').length).toBe(1);
-    expect(wrapper.find('.ant-form-explain').at(0).getDOMNode().textContent.trim()).toBe('Account does not exist, Forgot account?');
-    const link = wrapper.find('.ant-form-explain a').at(0).getDOMNode();
-    expect(link.textContent.trim()).toBe('Forgot account?');
-    expect(link.href).toBe('https://www.alipay.com/');
+    expect(wrapper).toMatchSnapshot();
   });
 });
