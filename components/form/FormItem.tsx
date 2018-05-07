@@ -70,7 +70,16 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const onlyControl = this.getOnlyControl();
     if (props.help === undefined && onlyControl) {
       const errors = this.getField().errors;
-      return errors ? errors.map((e: any) => e.message).join(', ') : '';
+      if (errors) {
+        return errors.map((e: any, index: number) => {
+          return <React.Fragment key={index}>
+            {index > 0 && ', '}
+            {e.message}
+          </React.Fragment>;
+        });
+      } else {
+        return '';
+      }
     }
 
     return props.help;
