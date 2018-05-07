@@ -18,6 +18,9 @@ import { Form, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.form.validateFields();
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -36,6 +39,7 @@ class App extends React.Component {
           wrapperCol={{ span: 12 }}
         >
           {getFieldDecorator('account', {
+            initialValue: 'antd',
             rules: [{
               required: true,
               message: 'Account is required',

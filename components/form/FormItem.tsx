@@ -70,13 +70,19 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const onlyControl = this.getOnlyControl();
     if (props.help === undefined && onlyControl) {
       const errors = this.getField().errors;
+      const messages: React.ReactNode[] = [];
       if (errors) {
-        return errors.map((e: any, index: number) => {
-          return <span key={index}>
-            {index > 0 && ', '}
-            {e.message}
-          </span>;
+        errors.forEach((e: any, index: number) => {
+          if (React.isValidElement(e.message)) {
+            messages.push(React.cloneElement(e.message, { key: index }));
+          } else {
+            messages.push(e.message);
+          }
+          if (index < errors.length - 1) {
+            messages.push(', ');
+          }
         });
+        return messages;
       } else {
         return '';
       }
