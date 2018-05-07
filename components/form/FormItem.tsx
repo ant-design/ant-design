@@ -72,10 +72,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       const errors = this.getField().errors;
       if (errors) {
         return errors.map((e: any, index: number) => {
-          return <React.Fragment key={index}>
+          return <span key={index}>
             {index > 0 && ', '}
             {e.message}
-          </React.Fragment>;
+          </span>;
         });
       } else {
         return '';
