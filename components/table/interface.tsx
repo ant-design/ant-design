@@ -59,11 +59,13 @@ export interface TableLocale {
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
-export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[]) => any;
+export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
 
 export interface TablePaginationConfig extends PaginationProps {
   position?: 'top' | 'bottom' | 'both';
 }
+
+export type TableSelectWay = 'onSelect' | 'onSelectAll' | 'onSelectInvert';
 
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
@@ -169,6 +171,14 @@ export interface SelectionBoxProps {
 
 export interface SelectionBoxState {
   checked?: boolean;
+}
+
+export interface SelectionInfo<T> {
+  selectWay: TableSelectWay;
+  record?: T;
+  checked?: boolean;
+  changeRowKeys?: React.Key[];
+  nativeEvent?: Event;
 }
 
 export interface FilterMenuProps<T> {
