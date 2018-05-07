@@ -35,7 +35,7 @@ exports[`Form should display custom message 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-enter"
+          class="ant-form-explain show-help-appear"
         >
           <span>
             Account does not exist, 
@@ -47,6 +47,51 @@ exports[`Form should display custom message 1`] = `
               Forgot account?
             </a>
           </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Form should display two message 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
+  >
+    <div
+      class="ant-form-item-label"
+    >
+      <label
+        class=""
+        for="account"
+        title="Account"
+      >
+        Account
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-error"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <input
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="account"
+            value="+=-/"
+          />
+        </span>
+        <div
+          class="ant-form-explain show-help-appear"
+        >
+          Error message 1 Error message 2
         </div>
       </div>
     </div>

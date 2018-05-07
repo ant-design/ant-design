@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import intersperse from 'intersperse';
 import Animate from 'rc-animate';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
@@ -65,30 +66,17 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  getHelpMsg() {
-    const props = this.props;
-    const onlyControl = this.getOnlyControl();
-    if (props.help === undefined && onlyControl) {
-      const errors = this.getField().errors;
-      const messages: React.ReactNode[] = [];
-      if (errors) {
-        errors.forEach((e: any, index: number) => {
-          if (React.isValidElement(e.message)) {
-            messages.push(React.cloneElement(e.message, { key: index }));
-          } else {
-            messages.push(e.message);
-          }
-          if (index < errors.length - 1) {
-            messages.push(', ');
-          }
-        });
-        return messages;
-      } else {
-        return '';
-      }
+  getHelpMessage() {
+    const { help } = this.props;
+    if (help === undefined && this.getOnlyControl()) {
+      const errors = this.getField().errors || [];
+      return intersperse(errors.map((e: any, index: number) => (
+        React.isValidElement(e.message)
+          ? React.cloneElement(e.message, { key: index })
+          : e.message
+      )), ' ');
     }
-
-    return props.help;
+    return help;
   }
 
   getControls(children: React.ReactNode, recursively: boolean) {
@@ -144,7 +132,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderHelp() {
     const prefixCls = this.props.prefixCls;
-    const help = this.getHelpMsg();
+    const help = this.getHelpMessage();
     const children = help ? (
       <div className={`${prefixCls}-explain`} key="help">
         {help}
@@ -321,7 +309,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const style = props.style;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: !!this.getHelpMsg() || this.state.helpShow,
+      [`${prefixCls}-item-with-help`]: !!this.getHelpMessage() || this.state.helpShow,
       [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
