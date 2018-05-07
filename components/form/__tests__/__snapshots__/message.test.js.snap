@@ -1,210 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form should display custom message 1`] = `
-<Form(WrappedComponent)>
-  <Component
-    form={
-      Object {
-        "getFieldDecorator": [Function],
-        "getFieldError": [Function],
-        "getFieldInstance": [Function],
-        "getFieldProps": [Function],
-        "getFieldValue": [Function],
-        "getFieldsError": [Function],
-        "getFieldsValue": [Function],
-        "isFieldTouched": [Function],
-        "isFieldValidating": [Function],
-        "isFieldsTouched": [Function],
-        "isFieldsValidating": [Function],
-        "isSubmitting": [Function],
-        "resetFields": [Function],
-        "setFields": [Function],
-        "setFieldsInitialValue": [Function],
-        "setFieldsValue": [Function],
-        "submit": [Function],
-        "validateFields": [Function],
-        "validateFieldsAndScroll": [Function],
-      }
-    }
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-with-help"
   >
-    <Form
-      hideRequiredMark={false}
-      layout="horizontal"
-      onSubmit={[Function]}
-      prefixCls="ant-form"
+    <div
+      class="ant-form-item-label"
     >
-      <form
-        className="ant-form ant-form-horizontal"
-        onSubmit={[Function]}
+      <label
+        class=""
+        for="account"
+        title="Account"
       >
-        <FormItem
-          colon={true}
-          hasFeedback={false}
-          label="Account"
-          prefixCls="ant-form"
+        Account
+      </label>
+    </div>
+    <div
+      class="ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control has-error"
+      >
+        <span
+          class="ant-form-item-children"
         >
-          <Row
-            className="ant-form-item ant-form-item-with-help"
-            gutter={0}
-          >
-            <div
-              className="ant-row ant-form-item ant-form-item-with-help"
+          <input
+            data-__field="[object Object]"
+            data-__meta="[object Object]"
+            id="account"
+            value="antd"
+          />
+        </span>
+        <div
+          class="ant-form-explain show-help-enter"
+        >
+          <span>
+            Account does not exist, 
+            <a
+              href="https://www.alipay.com/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <Col
-                className="ant-form-item-label"
-                key=".$label"
-              >
-                <div
-                  className="ant-form-item-label"
-                >
-                  <label
-                    className=""
-                    htmlFor="account"
-                    onClick={[Function]}
-                    title="Account"
-                  >
-                    Account
-                  </label>
-                </div>
-              </Col>
-              <Col
-                className="ant-form-item-control-wrapper"
-                key=".$wrapper"
-              >
-                <div
-                  className="ant-form-item-control-wrapper"
-                >
-                  <div
-                    className="ant-form-item-control has-error"
-                  >
-                    <span
-                      className="ant-form-item-children"
-                    >
-                      <input
-                        data-__field={
-                          Object {
-                            "dirty": false,
-                            "errors": Array [
-                              Object {
-                                "field": "account",
-                                "message": <span>
-                                  Account does not exist, 
-                                  <a
-                                    href="https://www.alipay.com/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                  >
-                                    Forgot account?
-                                  </a>
-                                </span>,
-                              },
-                            ],
-                            "name": "account",
-                            "validating": false,
-                            "value": "antd",
-                          }
-                        }
-                        data-__meta={
-                          Object {
-                            "initialValue": "antd",
-                            "name": "account",
-                            "originalProps": Object {},
-                            "ref": null,
-                            "rules": Array [
-                              Object {
-                                "message": <span>
-                                  Account does not exist, 
-                                  <a
-                                    href="https://www.alipay.com/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                  >
-                                    Forgot account?
-                                  </a>
-                                </span>,
-                                "pattern": /\\^\\$/,
-                              },
-                            ],
-                            "trigger": "onChange",
-                            "validate": Array [
-                              Object {
-                                "rules": Array [
-                                  Object {
-                                    "message": <span>
-                                      Account does not exist, 
-                                      <a
-                                        href="https://www.alipay.com/"
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                      >
-                                        Forgot account?
-                                      </a>
-                                    </span>,
-                                    "pattern": /\\^\\$/,
-                                  },
-                                ],
-                                "trigger": Array [
-                                  "onChange",
-                                ],
-                              },
-                            ],
-                            "valuePropName": "value",
-                          }
-                        }
-                        id="account"
-                        onChange={[Function]}
-                        value="antd"
-                      />
-                    </span>
-                    <Animate
-                      animation={Object {}}
-                      component=""
-                      componentProps={Object {}}
-                      key="help"
-                      onAppear={[Function]}
-                      onEnd={[Function]}
-                      onEnter={[Function]}
-                      onLeave={[Function]}
-                      transitionAppear={true}
-                      transitionEnter={true}
-                      transitionLeave={true}
-                      transitionName="show-help"
-                    >
-                      <AnimateChild
-                        animation={Object {}}
-                        key="help"
-                        transitionAppear={true}
-                        transitionEnter={true}
-                        transitionLeave={true}
-                        transitionName="show-help"
-                      >
-                        <div
-                          className="ant-form-explain"
-                          key="help"
-                        >
-                          <span
-                            key="0"
-                          >
-                            Account does not exist, 
-                            <a
-                              href="https://www.alipay.com/"
-                              rel="noopener noreferrer"
-                              target="_blank"
-                            >
-                              Forgot account?
-                            </a>
-                          </span>
-                        </div>
-                      </AnimateChild>
-                    </Animate>
-                  </div>
-                </div>
-              </Col>
-            </div>
-          </Row>
-        </FormItem>
-      </form>
-    </Form>
-  </Component>
-</Form(WrappedComponent)>
+              Forgot account?
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 `;

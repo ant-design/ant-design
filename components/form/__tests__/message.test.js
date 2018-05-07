@@ -24,6 +24,6 @@ describe('Form', () => {
     myForm.validateFields();
 
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
