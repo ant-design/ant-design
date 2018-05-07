@@ -67,6 +67,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 方法      | 说明                                     | 类型       |
 | ------- | -------------------------------------- | -------- |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |
+| getFieldProps | 类似`getFieldDecorator`直接作用于组件上 |  |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function(\[names: string\[]]) |
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function(\[fieldNames: string\[]]) |
