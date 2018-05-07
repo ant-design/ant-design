@@ -2896,9 +2896,15 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               class=""
             >
               <colgroup>
-                <col />
-                <col />
-                <col />
+                <col
+                  style="width:25%;min-width:25%"
+                />
+                <col
+                  style="width:15%;min-width:15%"
+                />
+                <col
+                  style="width:40%;min-width:40%"
+                />
                 <col />
               </colgroup>
               <thead
