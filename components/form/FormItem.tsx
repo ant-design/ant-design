@@ -69,12 +69,15 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   getHelpMessage() {
     const { help } = this.props;
     if (help === undefined && this.getOnlyControl()) {
-      const errors = this.getField().errors || [];
-      return intersperse(errors.map((e: any, index: number) => (
-        React.isValidElement(e.message)
-          ? React.cloneElement(e.message, { key: index })
-          : e.message
-      )), ' ');
+      const errors = this.getField().errors;
+      if (errors) {
+        return intersperse(errors.map((e: any, index: number) => (
+          React.isValidElement(e.message)
+            ? React.cloneElement(e.message, { key: index })
+            : e.message
+        )), ' ');
+      }
+      return '';
     }
     return help;
   }

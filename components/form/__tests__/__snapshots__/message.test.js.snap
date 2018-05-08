@@ -35,7 +35,7 @@ exports[`Form should display custom message 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-appear"
+          class="ant-form-explain show-help-enter"
         >
           <span>
             Account does not exist, 
@@ -89,7 +89,7 @@ exports[`Form should display two message 1`] = `
           />
         </span>
         <div
-          class="ant-form-explain show-help-appear"
+          class="ant-form-explain show-help-enter"
         >
           Error message 1 Error message 2
         </div>
