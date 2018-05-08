@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio should render correctly 1`] = `
+<label
+  class="customized ant-radio-wrapper"
+>
+  <span
+    class="ant-radio"
+  >
+    <input
+      class="ant-radio-input"
+      type="radio"
+    />
+    <span
+      class="ant-radio-inner"
+    />
+  </span>
+  <span>
+    Test
+  </span>
+</label>
+`;

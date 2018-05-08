@@ -1,0 +1,109 @@
+.@{table-prefix-cls}-middle {
+  > .@{table-prefix-cls}-title,
+  > .@{table-prefix-cls}-footer {
+    padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+  }
+  > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
+      > .@{table-prefix-cls}-thead > tr > th,
+      > .@{table-prefix-cls}-tbody > tr > td {
+        padding: @table-padding-vertical*3/4 @table-padding-horizontal/2;
+      }
+    }
+  }
+}
+
+.@{table-prefix-cls}-small {
+  border: @border-width-base @border-style-base @border-color-split;
+  border-radius: @border-radius-base;
+
+  > .@{table-prefix-cls}-title,
+  > .@{table-prefix-cls}-footer {
+    padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+  }
+
+  > .@{table-prefix-cls}-title {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    top: 0;
+  }
+
+  > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
+      border: 0;
+      padding: 0 @table-padding-horizontal/2;
+      > .@{table-prefix-cls}-thead > tr > th,
+      > .@{table-prefix-cls}-tbody > tr > td {
+        padding: @table-padding-vertical/2 @table-padding-horizontal/2;
+      }
+      > .@{table-prefix-cls}-thead > tr > th {
+        background: @component-background;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table,
+    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-body-outer > .@{table-prefix-cls}-body-inner > table {
+      padding: 0;
+    }
+
+    .@{table-prefix-cls}-header {
+      background: @component-background;
+    }
+
+    .@{table-prefix-cls}-placeholder,
+    .@{table-prefix-cls}-row:last-child td {
+      border-bottom: 0;
+    }
+  }
+
+  &.@{table-prefix-cls}-bordered {
+    border-right: 0;
+
+    .@{table-prefix-cls}-title {
+      border: 0;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+
+    .@{table-prefix-cls}-content {
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+
+    .@{table-prefix-cls}-footer {
+      border: 0;
+      border-top: @border-width-base @border-style-base @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
+      &:before {
+        display: none;
+      }
+    }
+
+    .@{table-prefix-cls}-placeholder {
+      border-left: 0;
+      border-bottom: 0;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th:last-child,
+    .@{table-prefix-cls}-tbody > tr > td:last-child {
+      border-right: none;
+    }
+  }
+}

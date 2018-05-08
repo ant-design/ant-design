@@ -1,0 +1,74 @@
+@import "../../style/mixins/index";
+
+@confirm-prefix-cls: ~"@{ant-prefix}-confirm";
+
+.@{confirm-prefix-cls} {
+  .@{ant-prefix}-modal-header {
+    display: none;
+  }
+
+  .@{ant-prefix}-modal-close {
+    display: none;
+  }
+
+  .@{ant-prefix}-modal-body {
+    padding: 32px 32px 24px;
+  }
+
+  &-body-wrapper {
+    .clearfix();
+  }
+
+  &-body {
+    .@{confirm-prefix-cls}-title {
+      color: @heading-color;
+      font-weight: 500;
+      font-size: @font-size-lg;
+      line-height: 22px;
+      display: block;
+      // create BFC to avoid
+      // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
+      overflow: auto;
+    }
+
+    .@{confirm-prefix-cls}-content {
+      margin-left: 38px;
+      font-size: @font-size-base;
+      color: @text-color;
+      margin-top: 8px;
+    }
+
+    > .@{iconfont-css-prefix} {
+      font-size: 22px;
+      margin-right: 16px;
+      float: left;
+    }
+  }
+
+  .@{confirm-prefix-cls}-btns {
+    margin-top: 24px;
+    float: right;
+
+    button + button {
+      margin-left: 8px;
+      margin-bottom: 0;
+    }
+  }
+
+  &-error &-body > .@{iconfont-css-prefix} {
+    color: @error-color;
+  }
+
+  &-warning &-body > .@{iconfont-css-prefix},
+  &-confirm &-body > .@{iconfont-css-prefix} {
+    color: @warning-color;
+  }
+
+  &-info &-body > .@{iconfont-css-prefix} {
+    color: @info-color;
+  }
+
+  &-success &-body > .@{iconfont-css-prefix} {
+    color: @success-color;
+  }
+}

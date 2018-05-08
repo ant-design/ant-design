@@ -1,0 +1,133 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: @font-family;
+  line-height: 1.5;
+  color: @site-text-color;
+  font-size: 14px;
+  background: #fff;
+  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow-x: hidden;
+}
+
+a {
+  transition: color .3s ease;
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
+}
+
+.main-wrapper {
+  background: #fff;
+  padding: 40px 0 0;
+  position: relative;
+}
+
+.main-container {
+  padding: 0 170px 144px 64px;
+  background: #fff;
+  min-height: 500px;
+  overflow: hidden;
+  border-left: 1px solid @site-border-color-split;
+  position: relative;
+  margin-left: -1px;
+}
+
+.main-menu {
+  z-index: 1;
+}
+
+.aside-container {
+  padding-bottom: 50px;
+  font-family: Lato, @font-family;
+
+  &.ant-menu-inline .ant-menu-submenu-title h4,
+  &.ant-menu-inline > .ant-menu-item,
+  &.ant-menu-inline .ant-menu-item a {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &.ant-menu-inline .ant-menu-item-group-title {
+    padding-left: 56px;
+  }
+
+  a[disabled] {
+    color: #ccc;
+  }
+
+  .menu-item-link-outside {
+    position: relative;
+    .anticon {
+      font-size: 12px;
+      color: @primary-color;
+      opacity: 0;
+      position: absolute;
+      right: -10px;
+      top: 16px;
+      transition: all .3s;
+    }
+    &:hover .anticon {
+      opacity: 1;
+    }
+  }
+}
+
+.aside-container .chinese {
+  font-size: 12px;
+  margin-left: 6px;
+  font-weight: normal;
+  opacity: .67;
+}
+
+.outside-link {
+  display: inline-block;
+}
+
+.outside-link:after {
+  content: '\e691';
+  font-family: 'anticon';
+  margin-left: 5px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.outside-link.internal {
+  display: none;
+}
+
+// reset menu text color
+.menu-site .ant-menu-item > a {
+  color: @site-text-color;
+}
+
+.menu-site .ant-menu-item-selected > a,
+.menu-site .ant-menu-item > a:hover {
+  color: @primary-color;
+}
+
+#react-content {
+  transition: transform .3s @ease-in-out-circ;
+  height: 100%;
+}
+.page-wrapper {
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  a {
+    text-decoration: none;
+  }
+}
+
+.drawer-content {
+  padding: 40px 0;
+}
+
+.drawer {
+  z-index: 1029;
+}

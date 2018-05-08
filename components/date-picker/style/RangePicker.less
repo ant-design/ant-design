@@ -1,0 +1,222 @@
+@input-box-height: 34px;
+
+.@{calendar-prefix-cls}-range-picker-input {
+  background-color: transparent;
+  border: 0;
+  height: 99%;
+  outline: 0;
+  width: 44%;
+  text-align: center;
+  .placeholder();
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.@{calendar-prefix-cls}-range-picker-separator {
+  color: @text-color-secondary;
+  width: 10px;
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+.@{calendar-prefix-cls}-range {
+  width: 552px;
+  overflow: hidden;
+
+  .@{calendar-prefix-cls}-date-panel {
+    &::after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  &-part {
+    width: 50%;
+    position: relative;
+  }
+
+  &-left {
+    float: left;
+    .@{calendar-prefix-cls} {
+      &-time-picker-inner {
+        border-right: 1.5px solid @border-color-split;
+      }
+    }
+  }
+
+  &-right {
+    float: right;
+    .@{calendar-prefix-cls} {
+      &-time-picker-inner {
+        border-left: 1.5px solid @border-color-split;
+      }
+    }
+  }
+
+  &-middle {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    margin-left: -132px;
+    text-align: center;
+    height: @input-box-height;
+    line-height: @input-box-height;
+    color: @text-color-secondary;
+  }
+
+  &-right .@{calendar-prefix-cls}-date-input-wrap {
+    margin-left: -118px;
+  }
+
+  &.@{calendar-prefix-cls}-time &-middle {
+    margin-left: -12px;
+  }
+
+  &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
+    margin-left: 0;
+  }
+
+  .@{calendar-prefix-cls}-input-wrap {
+    position: relative;
+    height: @input-box-height;
+  }
+
+  .@{calendar-prefix-cls}-input,
+  .@{calendar-timepicker-prefix-cls}-input {
+    .input;
+    height: @input-height-sm;
+    border: 0;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .@{calendar-timepicker-prefix-cls}-icon {
+    display: none;
+  }
+
+  &.@{calendar-prefix-cls}-week-number {
+    width: 574px;
+
+    .@{calendar-prefix-cls}-range-part {
+      width: 286px;
+    }
+  }
+
+  .@{calendar-prefix-cls}-year-panel,
+  .@{calendar-prefix-cls}-month-panel,
+  .@{calendar-prefix-cls}-decade-panel {
+    top: @input-box-height;
+  }
+  .@{calendar-prefix-cls}-month-panel .@{calendar-prefix-cls}-year-panel {
+    top: 0;
+  }
+  .@{calendar-prefix-cls}-decade-panel-table,
+  .@{calendar-prefix-cls}-year-panel-table,
+  .@{calendar-prefix-cls}-month-panel-table {
+    height: 208px;
+  }
+
+  .@{calendar-prefix-cls}-in-range-cell {
+    border-radius: 0;
+    position: relative;
+    > div {
+      position: relative;
+      z-index: 1;
+    }
+    &:before {
+      content: '';
+      display: block;
+      background: @item-active-bg;
+      border-radius: 0;
+      border: 0;
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  // `div` for selector specificity
+  div&-quick-selector {
+    text-align: left;
+
+    > a {
+      margin-right: 8px;
+    }
+  }
+
+  .@{calendar-prefix-cls},
+  .@{calendar-prefix-cls}-month-panel,
+  .@{calendar-prefix-cls}-year-panel {
+    &-header {
+      border-bottom: 0;
+    }
+    &-body {
+      border-top: @border-width-base @border-style-base @border-color-split;
+    }
+  }
+
+  &.@{calendar-prefix-cls}-time {
+    .@{calendar-timepicker-prefix-cls} {
+      height: 207px;
+      width: 100%;
+      top: 68px;
+      z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
+      &-panel {
+        height: 267px;
+        margin-top: -34px;
+      }
+
+      &-inner {
+        padding-top: 40px;
+        height: 100%;
+        background: none;
+      }
+
+      &-combobox {
+        display: inline-block;
+        height: 100%;
+        background-color: @component-background;
+        border-top: @border-width-base @border-style-base @border-color-split;
+      }
+      &-select {
+        height: 100%;
+        ul {
+          max-height: 100%;
+        }
+      }
+    }
+    .@{calendar-prefix-cls}-footer .@{calendar-prefix-cls}-time-picker-btn {
+      margin-right: 8px;
+    }
+    .@{calendar-prefix-cls}-today-btn {
+      margin: 8px 12px;
+      height: 22px;
+      line-height: 22px;
+    }
+  }
+
+  &-with-ranges.@{calendar-prefix-cls}-time .@{calendar-timepicker-prefix-cls} {
+    height: 247px;
+    &-panel {
+      height: 281px;
+    }
+  }
+}
+
+.@{calendar-prefix-cls}-range.@{calendar-prefix-cls}-show-time-picker {
+  .@{calendar-prefix-cls}-body {
+    border-top-color: transparent;
+  }
+}

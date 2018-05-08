@@ -1,0 +1,266 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@full-calendar-prefix-cls: ~"@{ant-prefix}-fullcalendar";
+
+.@{full-calendar-prefix-cls} {
+  .reset-component;
+  outline: none;
+  border-top: @border-width-base @border-style-base @border-color-base;
+
+  &-month-select {
+    margin-left: 5px;
+  }
+
+  &-header {
+    padding: 11px 16px 11px 0;
+    text-align: right;
+
+    .@{ant-prefix}-select-dropdown {
+      text-align: left;
+    }
+
+    .@{ant-prefix}-radio-group {
+      margin-left: 8px;
+      text-align: left;
+    }
+
+    label.@{ant-prefix}-radio-button {
+      height: 22px;
+      line-height: 20px;
+      padding: 0 10px;
+    }
+  }
+
+  &-date-panel {
+    position: relative;
+    outline: none;
+  }
+
+  &-calendar-body {
+    padding: 8px 12px;
+  }
+
+  table {
+    border-collapse: collapse;
+    max-width: 100%;
+    background-color: transparent;
+    width: 100%;
+    height: 256px;
+  }
+
+  table,
+  th,
+  td {
+    border: 0;
+  }
+
+  td {
+    position: relative;
+  }
+
+  &-calendar-table {
+    border-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  &-column-header {
+    line-height: 18px;
+    padding: 0;
+    width: 33px;
+    text-align: center;
+    .@{full-calendar-prefix-cls}-column-header-inner {
+      display: block;
+      font-weight: normal;
+    }
+  }
+
+  &-week-number-header {
+    .@{full-calendar-prefix-cls}-column-header-inner {
+      display: none;
+    }
+  }
+
+  &-month,
+  &-date {
+    text-align: center;
+    transition: all .3s;
+  }
+
+  &-value {
+    display: block;
+    margin: 0 auto;
+    color: @text-color;
+    border-radius: @border-radius-sm;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+    line-height: 24px;
+    transition: all .3s;
+
+    &:hover {
+      background: @item-hover-bg;
+      cursor: pointer;
+    }
+
+    &:active {
+      background: @primary-color;
+      color: #fff;
+    }
+  }
+
+  &-month-panel-cell &-value {
+    width: 48px;
+  }
+
+  &-today &-value,
+  &-month-panel-current-cell &-value {
+    box-shadow: 0 0 0 1px @primary-color inset;
+  }
+
+  &-selected-day &-value,
+  &-month-panel-selected-cell &-value {
+    background: @primary-color;
+    color: #fff;
+  }
+
+  &-disabled-cell-first-of-row &-value {
+    border-top-left-radius: @border-radius-base;
+    border-bottom-left-radius: @border-radius-base;
+  }
+
+  &-disabled-cell-last-of-row &-value {
+    border-top-right-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+  }
+
+  &-last-month-cell &-value,
+  &-next-month-btn-day &-value {
+    color: @disabled-color;
+  }
+
+  &-month-panel-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+  }
+
+  &-content {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -9px;
+  }
+
+  &-fullscreen {
+    border-top: 0;
+  }
+
+  &-fullscreen &-table {
+    table-layout: fixed;
+  }
+
+  &-fullscreen &-header {
+    .@{ant-prefix}-radio-group {
+      margin-left: 16px;
+    }
+    label.@{ant-prefix}-radio-button {
+      height: @input-height-base;
+      line-height: @input-height-base - 2px;
+    }
+  }
+
+  &-fullscreen &-month,
+  &-fullscreen &-date {
+    text-align: left;
+    margin: 0 4px;
+    display: block;
+    color: @text-color;
+    height: 116px;
+    padding: 4px 8px;
+    border-top: 2px solid @border-color-split;
+    transition: background .3s;
+
+    &:hover {
+      background: @item-hover-bg;
+      cursor: pointer;
+    }
+
+    &:active {
+      background: @primary-2;
+    }
+  }
+
+  &-fullscreen &-column-header {
+    text-align: right;
+    padding-right: 12px;
+    padding-bottom: 5px;
+  }
+
+  &-fullscreen &-value {
+    text-align: right;
+    background: transparent;
+    width: auto;
+  }
+
+  &-fullscreen &-today &-value {
+    color: @text-color;
+  }
+
+  &-fullscreen &-month-panel-current-cell &-month,
+  &-fullscreen &-today &-date {
+    border-top-color: @primary-color;
+    background: transparent;
+  }
+
+  &-fullscreen &-month-panel-current-cell &-value,
+  &-fullscreen &-today &-value {
+    box-shadow: none;
+  }
+
+  &-fullscreen &-month-panel-selected-cell &-month,
+  &-fullscreen &-selected-day &-date {
+    background: @primary-1;
+  }
+
+  &-fullscreen &-month-panel-selected-cell &-value,
+  &-fullscreen &-selected-day &-value {
+    color: @primary-color;
+  }
+
+  &-fullscreen &-last-month-cell &-date,
+  &-fullscreen &-next-month-btn-day &-date {
+    color: @disabled-color;
+  }
+
+  &-fullscreen &-content {
+    height: 90px;
+    overflow-y: auto;
+    position: static;
+    width: auto;
+    left: auto;
+    bottom: auto;
+  }
+
+  &-disabled-cell &-date {
+    &,
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  &-disabled-cell:not(&-today) &-date {
+    &,
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &-disabled-cell &-value {
+    color: @disabled-color;
+    border-radius: 0;
+    width: auto;
+    cursor: not-allowed;
+  }
+}

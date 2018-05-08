@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List.pagination renders pagination correctly 1`] = `
+<div
+  class="ant-list ant-list-vertical ant-list-split ant-list-something-after-last-item"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Jack
+        </div>
+      </div>
+      <div
+        class="ant-list-item"
+      >
+        <div
+          class="ant-list-item-content ant-list-item-content-single"
+        >
+          Lucy
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-list-pagination"
+  >
+    <ul
+      class="ant-pagination my-page"
+      unselectable="unselectable"
+    >
+      <li
+        aria-disabled="true"
+        class="ant-pagination-disabled ant-pagination-prev"
+        title="Previous Page"
+      >
+        <a
+          class="ant-pagination-item-link"
+        />
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+        tabindex="0"
+        title="1"
+      >
+        <a>
+          1
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-2"
+        tabindex="0"
+        title="2"
+      >
+        <a>
+          2
+        </a>
+      </li>
+      <li
+        aria-disabled="false"
+        class=" ant-pagination-next"
+        tabindex="0"
+        title="Next Page"
+      >
+        <a
+          class="ant-pagination-item-link"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;

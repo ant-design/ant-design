@@ -1,0 +1,128 @@
+.@{menu-prefix-cls} {
+  // dark theme
+  &-dark,
+  &-dark &-sub {
+    color: @menu-dark-color;
+    background: @menu-dark-bg;
+    .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
+      opacity: .45;
+      transition: all .3s;
+      &:after,
+      &:before {
+        background: @menu-dark-arrow-color;
+      }
+    }
+  }
+
+  &-dark&-submenu-popup {
+    background: transparent;
+  }
+
+  &-dark &-inline&-sub {
+    background: @menu-dark-submenu-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .45) inset;
+  }
+
+  &-dark&-horizontal {
+    border-bottom-color: @menu-dark-bg;
+  }
+
+  &-dark&-horizontal > &-item,
+  &-dark&-horizontal > &-submenu {
+    border-color: @menu-dark-bg;
+    border-bottom: 0;
+  }
+
+  &-dark&-horizontal > &-item > a:before {
+    bottom: 0;
+  }
+
+  &-dark &-item,
+  &-dark &-item-group-title,
+  &-dark &-item > a {
+    color: @menu-dark-color;
+  }
+
+  &-dark&-inline,
+  &-dark&-vertical,
+  &-dark&-vertical-left,
+  &-dark&-vertical-right {
+    border-right: 0;
+  }
+
+  &-dark&-inline &-item,
+  &-dark&-vertical &-item,
+  &-dark&-vertical-left &-item,
+  &-dark&-vertical-right &-item {
+    border-right: 0;
+    margin-left: 0;
+    left: 0;
+    &:after {
+      border-right: 0;
+    }
+  }
+
+  &-dark&-inline &-item,
+  &-dark&-inline &-submenu-title {
+    width: 100%;
+  }
+
+  &-dark &-item:hover,
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark &-submenu-open,
+  &-dark &-submenu-selected,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
+    color: @menu-dark-highlight-color;
+    > a {
+      color: @menu-dark-highlight-color;
+    }
+    > .@{menu-prefix-cls}-submenu-title,
+    > .@{menu-prefix-cls}-submenu-title:hover {
+      > .@{menu-prefix-cls}-submenu-arrow {
+        opacity: 1;
+        &:after,
+        &:before {
+          background: @menu-dark-highlight-color;
+        }
+      }
+    }
+  }
+
+  &-dark &-item-selected {
+    border-right: 0;
+    color: @menu-dark-highlight-color;
+    &:after {
+      border-right: 0;
+    }
+    > a,
+    > a:hover {
+      color: @menu-dark-highlight-color;
+    }
+  }
+
+  &&-dark &-item-selected,
+  &-submenu-popup&-dark &-item-selected {
+    background-color: @menu-dark-item-selected-bg;
+  }
+
+  // Disabled state sets text to dark gray and nukes hover/tab effects
+  &-dark &-item-disabled,
+  &-dark &-submenu-disabled {
+    &,
+    > a {
+      opacity: 0.8;
+      color: @disabled-color-dark !important;
+    }
+    > .@{menu-prefix-cls}-submenu-title {
+      color: @disabled-color-dark !important;
+      > .@{menu-prefix-cls}-submenu-arrow {
+        &:before,
+        &:after {
+          background: @disabled-color-dark !important;
+        }
+      }
+    }
+  }
+}

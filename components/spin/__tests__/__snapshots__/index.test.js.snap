@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spin should render custom indicator when it's set 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <div
+    class="custom-indicator ant-spin-dot"
+  />
+</div>
+`;

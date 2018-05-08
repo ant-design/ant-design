@@ -1,0 +1,178 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@popover-prefix-cls: ~"@{ant-prefix}-popover";
+
+.@{popover-prefix-cls} {
+  .reset-component;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @zindex-popover;
+  cursor: auto;
+  user-select: text;
+  white-space: normal;
+  font-weight: normal;
+  text-align: left;
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.01);
+  }
+
+  &-hidden {
+    display: none;
+  }
+
+  // Offset the popover to account for the popover arrow
+  &-placement-top,
+  &-placement-topLeft,
+  &-placement-topRight {
+    padding-bottom: @popover-distance;
+  }
+
+  &-placement-right,
+  &-placement-rightTop,
+  &-placement-rightBottom {
+    padding-left: @popover-distance;
+  }
+
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    padding-top: @popover-distance;
+  }
+
+  &-placement-left,
+  &-placement-leftTop,
+  &-placement-leftBottom {
+    padding-right: @popover-distance;
+  }
+
+  &-inner {
+    background-color: @popover-bg;
+    background-clip: padding-box;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+  }
+
+  &-title {
+    min-width: @popover-min-width;
+    margin: 0; // reset heading margin
+    padding: 5px @padding-md 4px;
+    min-height: 32px;
+    border-bottom: 1px solid @border-color-split;
+    color: @heading-color;
+    font-weight: 500;
+  }
+
+  &-inner-content {
+    padding: 12px @padding-md;
+    color: @popover-color;
+  }
+
+  &-message {
+    padding: 4px 0 12px;
+    font-size: @font-size-base;
+    color: @popover-color;
+    > .@{iconfont-css-prefix} {
+      color: @warning-color;
+      line-height: @line-height-base + 0.1;
+      position: absolute;
+    }
+    &-title {
+      padding-left: @font-size-base + 8px;
+    }
+  }
+
+  &-buttons {
+    text-align: right;
+    margin-bottom: 4px;
+    button {
+      margin-left: 8px;
+    }
+  }
+
+  // Arrows
+  // .popover-arrow is outer, .popover-arrow:after is inner
+
+  &-arrow {
+    background: @popover-bg;
+    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    transform: rotate(45deg);
+    position: absolute;
+    display: block;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  &-placement-top > &-content > &-arrow,
+  &-placement-topLeft > &-content >  &-arrow,
+  &-placement-topRight > &-content >  &-arrow {
+    bottom: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+  }
+  &-placement-top > &-content >  &-arrow {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  &-placement-topLeft > &-content >  &-arrow {
+    left: 16px;
+  }
+  &-placement-topRight > &-content >  &-arrow {
+    right: 16px;
+  }
+
+  &-placement-right > &-content >  &-arrow,
+  &-placement-rightTop > &-content >  &-arrow,
+  &-placement-rightBottom > &-content >  &-arrow {
+    left: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
+  }
+  &-placement-right > &-content >  &-arrow {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &-placement-rightTop > &-content >  &-arrow {
+    top: 12px;
+  }
+  &-placement-rightBottom > &-content >  &-arrow {
+    bottom: 12px;
+  }
+
+  &-placement-bottom > &-content >  &-arrow,
+  &-placement-bottomLeft > &-content >  &-arrow,
+  &-placement-bottomRight > &-content >  &-arrow {
+    top: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.06);
+  }
+  &-placement-bottom > &-content >  &-arrow {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  &-placement-bottomLeft > &-content >  &-arrow {
+    left: 16px;
+  }
+  &-placement-bottomRight > &-content >  &-arrow {
+    right: 16px;
+  }
+
+  &-placement-left > &-content >  &-arrow,
+  &-placement-leftTop > &-content >  &-arrow,
+  &-placement-leftBottom > &-content >  &-arrow {
+    right: @popover-distance - @popover-arrow-width + 2px;
+    box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
+  }
+  &-placement-left > &-content >  &-arrow {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &-placement-leftTop > &-content >  &-arrow {
+    top: 12px;
+  }
+  &-placement-leftBottom > &-content >  &-arrow {
+    bottom: 12px;
+  }
+}

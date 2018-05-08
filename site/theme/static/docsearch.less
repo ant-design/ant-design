@@ -1,0 +1,22 @@
+.algolia-autocomplete {
+  .ds-dropdown-menu {
+    border: none;
+    box-shadow: @box-shadow-base;
+
+    [class^="ds-dataset-"] {
+      border: none;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .algolia-docsearch-suggestion--title {
+    color: @site-text-color;
+  }
+
+  .algolia-docsearch-suggestion--highlight {
+    color: @primary-color;
+  }
+}

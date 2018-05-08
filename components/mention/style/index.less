@@ -1,0 +1,130 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import '../../input/style/mixin';
+
+@mention-prefix-cls: ~"@{ant-prefix}-mention";
+
+.@{mention-prefix-cls}-wrapper {
+  .reset-component;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+
+  .@{mention-prefix-cls}-editor {
+    .input;
+    min-height: @input-height-base;
+    height: auto; // To override height in .input mixin
+    line-height: @line-height-base;
+    padding: 0;
+    display: block;
+    &-wrapper {
+      overflow-y: auto;
+      height: auto;
+    }
+  }
+  &.@{mention-prefix-cls}-active:not(.disabled) .@{mention-prefix-cls}-editor {
+    .active;
+  }
+  &.disabled .@{mention-prefix-cls}-editor {
+    .disabled();
+  }
+  .public-DraftEditorPlaceholder-root {
+    position: absolute;
+    pointer-events: none;
+    .public-DraftEditorPlaceholder-inner {
+      color: @input-placeholder-color;
+      opacity: 1;
+      outline: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      height: auto;
+      padding: 5px @control-padding-horizontal - 1px;
+    }
+  }
+  .DraftEditor-editorContainer .public-DraftEditor-content {
+    height: auto;
+    padding: 5px @control-padding-horizontal - 1px;
+  }
+}
+
+.@{mention-prefix-cls}-dropdown {
+  .reset-component;
+  margin-top: 1.5em;
+  max-height: 250px;
+  min-width: 120px;
+  background-color: @component-background;
+  box-shadow: @box-shadow-base;
+  border-radius: @border-radius-base;
+  z-index: @zindex-dropdown;
+  left: -9999px;
+  top: -9999px;
+  position: absolute;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &-placement-top {
+    margin-top: -0.1em;
+  }
+
+  &-notfound&-item {
+    color: @disabled-color;
+
+    .@{iconfont-css-prefix}-loading {
+      color: @primary-color;
+      text-align: center;
+      display: block;
+    }
+  }
+  &-item {
+    position: relative;
+    display: block;
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
+    font-weight: normal;
+    color: @text-color;
+    white-space: nowrap;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: @item-hover-bg;
+    }
+
+    &.focus,
+    &-active {
+      background-color: @item-active-bg;
+    }
+
+    &-disabled {
+      color: @disabled-color;
+      cursor: not-allowed;
+
+      &:hover {
+        color: @disabled-color;
+        background-color: @component-background;
+        cursor: not-allowed;
+      }
+    }
+
+    &-selected {
+      &,
+      &:hover {
+        background-color: @background-color-base;
+        font-weight: bold;
+        color: @text-color;
+      }
+    }
+
+    &-divider {
+      height: 1px;
+      margin: 1px 0;
+      overflow: hidden;
+      background-color: @border-color-split;
+      line-height: 0;
+    }
+  }
+}

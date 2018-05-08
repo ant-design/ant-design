@@ -1,0 +1,33 @@
+.swing-motion(@className, @keyframeName) {
+  .@{className}-enter,
+  .@{className}-appear {
+    .motion-common();
+    animation-play-state: paused;
+  }
+  .@{className}-enter.@{className}-enter-active,
+  .@{className}-appear.@{className}-appear-active {
+    animation-name: ~"@{keyframeName}In";
+    animation-play-state: running;
+  }
+}
+
+.swing-motion(swing, antSwing);
+
+@keyframes antSwingIn {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}

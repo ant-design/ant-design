@@ -1,0 +1,214 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@cascader-prefix-cls: ~"@{ant-prefix}-cascader";
+
+.@{cascader-prefix-cls} {
+  .reset-component;
+
+  &-input.@{ant-prefix}-input {
+    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
+    // because input.less will compile after cascader.less
+    background-color: transparent !important;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+  }
+
+  &-picker {
+    .reset-component;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: @component-background;
+    border-radius: @border-radius-base;
+    outline: 0;
+
+    &-with-value &-label {
+      color: transparent;
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      background: @input-disabled-bg;
+      color: @disabled-color;
+      .@{cascader-prefix-cls}-input {
+        cursor: not-allowed;
+      }
+    }
+
+    &:focus .@{cascader-prefix-cls}-input {
+      .active;
+    }
+
+    &-label {
+      position: absolute;
+      left: 0;
+      height: 20px;
+      line-height: 20px;
+      top: 50%;
+      margin-top: -10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      padding: 0 @control-padding-horizontal;
+    }
+
+    &-clear {
+      opacity: 0;
+      position: absolute;
+      right: @control-padding-horizontal;
+      z-index: 2;
+      background: @component-background;
+      top: 50%;
+      font-size: @font-size-sm;
+      color: @disabled-color;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      line-height: 12px;
+      cursor: pointer;
+      transition: color 0.3s ease, opacity 0.15s ease;
+      &:hover {
+        color: @text-color-secondary;
+      }
+    }
+
+    &:hover &-clear {
+      opacity: 1;
+    }
+
+    // arrow
+    &-arrow {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      right: @control-padding-horizontal;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+      margin-top: -6px;
+      line-height: 12px;
+      color: @disabled-color;
+      &:before {
+        transition: transform .2s;
+      }
+      &&-expand {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &-picker-small &-picker-clear,
+  &-picker-small &-picker-arrow {
+    right: @control-padding-horizontal-sm;
+  }
+
+  &-menus {
+    font-size: @font-size-base;
+    background: @component-background;
+    position: absolute;
+    z-index: @zindex-dropdown;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    white-space: nowrap;
+
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-empty,
+    &-hidden {
+      display: none;
+    }
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+      animation-name: antSlideUpIn;
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+      animation-name: antSlideDownIn;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+      animation-name: antSlideUpOut;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+      animation-name: antSlideDownOut;
+    }
+  }
+  &-menu {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 111px;
+    height: 180px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: @border-width-base @border-style-base @border-color-split;
+    overflow: auto;
+    &:first-child {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+    &:last-child {
+      border-right-color: transparent;
+      margin-right: -1px;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+    &:only-child {
+      border-radius: @border-radius-base;
+    }
+  }
+  &-menu-item {
+    padding: 5px @control-padding-horizontal;
+    line-height: 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+    &:hover {
+      background: @item-hover-bg;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      color: @disabled-color;
+      &:hover {
+        background: transparent;
+      }
+    }
+    &-active:not(&-disabled) {
+      &,
+      &:hover {
+        background: @background-color-base;
+        font-weight: 600;
+      }
+    }
+    &-expand {
+      position: relative;
+      padding-right: 24px;
+      &:after {
+        .iconfont-font("\e61f");
+        .iconfont-size-under-12px(8px);
+        color: @text-color-secondary;
+        position: absolute;
+        right: @control-padding-horizontal;
+      }
+    }
+    &-loading:after {
+      .iconfont-font("\e64d");
+      animation: loadingCircle 1s infinite linear;
+    }
+
+    & &-keyword {
+      color: @highlight-color;
+    }
+  }
+}

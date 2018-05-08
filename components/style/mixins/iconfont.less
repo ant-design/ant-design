@@ -1,0 +1,37 @@
+.iconfont-mixin() {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:before {
+    display: block;
+    font-family: "anticon" !important;
+  }
+}
+
+.iconfont-font(@content) {
+  font-family: 'anticon';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: @content;
+}
+
+// for iconfont font size
+// fix chrome 12px bug, support ie
+.iconfont-size-under-12px(@size, @rotate: 0deg) {
+  display: inline-block;
+  @font-scale: unit(@size / 12px);
+  font-size: 12px;
+  // IE9
+  font-size: ~"@{size} \9"; // lesshint duplicateProperty: false
+  transform: scale(@font-scale) rotate(@rotate);
+  :root & {
+    font-size: @font-size-sm; // reset IE9 and above
+  }
+}

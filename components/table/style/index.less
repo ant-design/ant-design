@@ -1,0 +1,599 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@table-prefix-cls: ~"@{ant-prefix}-table";
+@table-header-icon-color: @text-color-secondary;
+
+.@{table-prefix-cls}-wrapper {
+  .clearfix;
+}
+
+.@{table-prefix-cls} {
+  .reset-component;
+  position: relative;
+  clear: both;
+
+  &-body {
+    transition: opacity .3s;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+  }
+
+  &-thead > tr > th {
+    background: @table-header-bg;
+    transition: background .3s ease;
+    text-align: left;
+    color: @heading-color;
+    font-weight: 500;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+
+    &[colspan] {
+      text-align: center;
+    }
+
+    .@{iconfont-css-prefix}-filter,
+    .@{table-prefix-cls}-filter-icon {
+      position: relative;
+      margin-left: 8px;
+      font-size: @font-size-base;
+      cursor: pointer;
+      color: @table-header-icon-color;
+      transition: all .3s;
+      width: 14px;
+      font-weight: normal;
+      vertical-align: text-bottom;
+
+      &:hover {
+        color: @text-color;
+      }
+    }
+
+    .@{table-prefix-cls}-column-sorter + .@{iconfont-css-prefix}-filter {
+      margin-left: 4px;
+    }
+
+    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
+      color: @primary-color;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/8979
+    &.@{table-prefix-cls}-column-has-filters {
+      overflow: hidden;
+    }
+  }
+
+  &-thead > tr:first-child > th {
+    &:first-child {
+      border-top-left-radius: @border-radius-base;
+    }
+
+    &:last-child {
+      border-top-right-radius: @border-radius-base;
+    }
+  }
+
+  &-thead > tr:not(:last-child) > th {
+    &[colspan] {
+      border-bottom: 0;
+    }
+  }
+
+  &-tbody > tr > td {
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    transition: all .3s;
+  }
+
+  &-thead > tr,
+  &-tbody > tr {
+    transition: all .3s;
+    &.@{table-prefix-cls}-row-hover,
+    &:hover {
+      & > td {
+        background: @table-row-hover-bg;
+      }
+    }
+  }
+
+  &-thead > tr:hover {
+    background: none;
+  }
+
+  &-footer {
+    padding: @table-padding-vertical @table-padding-horizontal;
+    background: @table-header-bg;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+    position: relative;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    &:before {
+      content: '';
+      height: 1px;
+      background: @table-header-bg;
+      position: absolute;
+      top: -1px;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &.@{table-prefix-cls}-bordered &-footer {
+    border: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-title {
+    padding: @table-padding-vertical 0;
+    position: relative;
+    top: 1px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+  }
+
+  &.@{table-prefix-cls}-bordered &-title {
+    border: @border-width-base @border-style-base @border-color-split;
+    padding-left: @table-padding-horizontal;
+    padding-right: @table-padding-horizontal;
+  }
+
+  &-title + &-content {
+    position: relative;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    overflow: hidden;
+    .@{table-prefix-cls}-bordered & {
+      &,
+      table,
+      .@{table-prefix-cls}-thead > tr:first-child > th {
+        border-radius: 0;
+      }
+    }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/4373
+  &-without-column-header &-title + &-content,
+  &-without-column-header table {
+    border-radius: 0;
+  }
+
+  &-tbody > tr.@{table-prefix-cls}-row-selected td {
+    background: @table-selected-row-bg;
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-column-sort {
+    background: @table-header-sort-bg;
+  }
+
+  &-thead > tr > th,
+  &-tbody > tr > td {
+    padding: @table-padding-vertical @table-padding-horizontal;
+    word-break: break-all;
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    padding-left: 16px;
+    padding-right: 0;
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+    min-width: 62px;
+    width: 62px;
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-expand-icon-th,
+  &-row-expand-icon-cell {
+    text-align: center;
+    min-width: 50px;
+    width: 50px;
+  }
+
+  &-header {
+    background: @table-header-bg;
+    overflow: hidden;
+  }
+
+  &-header table {
+    border-radius: @border-radius-base @border-radius-base 0 0;
+  }
+
+  &-loading {
+    position: relative;
+    .@{table-prefix-cls}-body {
+      background: @component-background;
+      opacity: 0.5;
+    }
+    .@{table-prefix-cls}-spin-holder {
+      height: 20px;
+      line-height: 20px;
+      left: 50%;
+      top: 50%;
+      margin-left: -30px;
+      position: absolute;
+    }
+    .@{table-prefix-cls}-with-pagination {
+      margin-top: -20px;
+    }
+    .@{table-prefix-cls}-without-pagination {
+      margin-top: 10px;
+    }
+  }
+
+  &-column-sorter {
+    position: relative;
+    margin-left: 8px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: normal;
+    color: @table-header-icon-color;
+
+    &-up,
+    &-down {
+      line-height: 6px;
+      display: block;
+      width: 14px;
+      height: 6px;
+      cursor: pointer;
+      position: relative;
+      &:hover .@{iconfont-css-prefix} {
+        color: @primary-4;
+      }
+      &.on {
+        .@{iconfont-css-prefix}-caret-up,
+        .@{iconfont-css-prefix}-caret-down {
+          color: @primary-color;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        height: 30px;
+        width: 14px;
+        left: 0;
+      }
+    }
+
+    &-up:after {
+      bottom: 0;
+    }
+
+    &-down:after {
+      top: 0;
+    }
+
+    .@{iconfont-css-prefix}-caret-up,
+    .@{iconfont-css-prefix}-caret-down {
+      .iconfont-size-under-12px(8px);
+      line-height: 4px;
+      height: 4px;
+      transition: all .3s;
+      position: relative;
+      display: block;
+    }
+
+    &-down {
+      margin-top: 1.5px;
+    }
+
+    .@{iconfont-css-prefix}-caret-up {
+      margin-top: 0.5px;
+    }
+  }
+
+  &-bordered {
+    .@{table-prefix-cls}-header > table,
+    .@{table-prefix-cls}-body > table,
+    .@{table-prefix-cls}-fixed-left table,
+    .@{table-prefix-cls}-fixed-right table {
+      border: @border-width-base @border-style-base @border-color-split;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    &.@{table-prefix-cls}-empty {
+      .@{table-prefix-cls}-placeholder {
+        border-left: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+
+    &.@{table-prefix-cls}-fixed-header {
+      .@{table-prefix-cls}-header > table {
+        border-bottom: 0;
+      }
+
+      .@{table-prefix-cls}-body > table {
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .@{table-prefix-cls}-body-inner > table {
+        border-top: 0;
+      }
+
+      .@{table-prefix-cls}-placeholder {
+        border: 0;
+      }
+    }
+
+    .@{table-prefix-cls}-thead > tr:not(:last-child) > th {
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th,
+    .@{table-prefix-cls}-tbody > tr > td {
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
+  }
+
+  &-placeholder {
+    position: relative;
+    padding: @table-padding-vertical @table-padding-horizontal;
+    background: @component-background;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    text-align: center;
+    font-size: @font-size-base;
+    color: @text-color-secondary;
+    z-index: 1;
+    .@{iconfont-css-prefix} {
+      margin-right: 4px;
+    }
+  }
+
+  &-pagination.@{ant-prefix}-pagination {
+    margin: 16px 0;
+    float: right;
+  }
+
+  &-filter-dropdown {
+    min-width: 96px;
+    margin-left: -8px;
+    background: @component-background;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+
+    .@{ant-prefix}-dropdown-menu {
+      border: 0;
+      box-shadow: none;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+
+      // https://github.com/ant-design/ant-design/issues/4916
+      &-without-submenu {
+        max-height: 400px;
+        overflow-x: hidden;
+      }
+
+      &-item > label + span {
+        padding-right: 0;
+      }
+
+      &-sub {
+        border-radius: @border-radius-base;
+        box-shadow: @box-shadow-base;
+      }
+
+      .@{ant-prefix}-dropdown-submenu-contain-selected {
+        .@{ant-prefix}-dropdown-menu-submenu-title:after {
+          color: @primary-color;
+          font-weight: bold;
+          text-shadow: 0 0 2px @primary-2;
+        }
+      }
+    }
+
+    .@{ant-prefix}-dropdown-menu-item {
+      overflow: hidden;
+    }
+
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-submenu:last-child .@{ant-prefix}-dropdown-menu-submenu-title {
+      border-radius: 0;
+    }
+
+    &-btns {
+      overflow: hidden;
+      padding: 7px 8px;
+      border-top: @border-width-base @border-style-base @border-color-split;
+    }
+
+    &-link {
+      color: @link-color;
+      &:hover {
+        color: @link-hover-color;
+      }
+      &:active {
+        color: @link-active-color;
+      }
+      &.confirm {
+        float: left;
+      }
+      &.clear {
+        float: right;
+      }
+    }
+  }
+
+  &-selection {
+    &-select-all-custom {
+      margin-right: 4px !important;
+    }
+
+    .@{iconfont-css-prefix}-down {
+      color: @table-header-icon-color;
+      transition: all .3s;
+    }
+
+    &-menu {
+      min-width: 96px;
+      margin-top: 5px;
+      margin-left: -30px;
+      background: @component-background;
+      border-radius: @border-radius-base;
+      box-shadow: @box-shadow-base;
+
+      .@{ant-prefix}-action-down {
+        color: @table-header-icon-color;
+      }
+    }
+
+    &-down {
+      cursor: pointer;
+      padding: 0;
+      display: inline-block;
+      line-height: 1;
+      &:hover .@{iconfont-css-prefix}-down {
+        color: #666;
+      }
+    }
+  }
+
+  &-row {
+    &-expand-icon {
+      cursor: pointer;
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      text-align: center;
+      line-height: 14px;
+      border: @border-width-base @border-style-base @border-color-split;
+      user-select: none;
+      background: @component-background;
+    }
+
+    &-expanded:after {
+      content: '-';
+    }
+
+    &-collapsed:after {
+      content: '+';
+    }
+
+    &-spaced {
+      visibility: hidden;
+      &:after {
+        content: '.';
+      }
+    }
+
+    &[class*="@{table-prefix-cls}-row-level-0"] .@{table-prefix-cls}-selection-column > span {
+      display: inline-block;
+    }
+  }
+
+  tr&-expanded-row {
+    &,
+    &:hover {
+      background: @table-expanded-row-bg;
+    }
+  }
+
+  .@{table-prefix-cls}-row-indent + .@{table-prefix-cls}-row-expand-icon {
+    margin-right: 8px;
+  }
+
+  &-scroll {
+    overflow: auto;
+    overflow-x: hidden;
+    table {
+      min-width: 100%;
+    }
+  }
+
+  &-body-inner {
+    height: 100%;
+  }
+
+  &-fixed-header > &-content > &-scroll > &-body {
+    position: relative;
+    background: @component-background;
+  }
+
+  &-fixed-header &-body-inner {
+    overflow: scroll;
+  }
+
+  &-fixed-header &-scroll &-header {
+    overflow: scroll;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
+  &-fixed-left,
+  &-fixed-right {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    transition: box-shadow .3s ease;
+    border-radius: 0;
+    table {
+      width: auto;
+      background: @component-background;
+    }
+  }
+
+  &-fixed-header &-fixed-left &-body-outer &-fixed,
+  &-fixed-header &-fixed-right &-body-outer &-fixed {
+    border-radius: 0;
+  }
+
+  &-fixed-left {
+    left: 0;
+    box-shadow: 6px 0 6px -4px @shadow-color;
+    .@{table-prefix-cls}-header {
+      overflow-y: hidden;
+    }
+    // hide scrollbar in left fixed columns
+    .@{table-prefix-cls}-body-inner {
+      margin-right: -20px;
+      padding-right: 20px;
+    }
+    .@{table-prefix-cls}-fixed-header & .@{table-prefix-cls}-body-inner {
+      padding-right: 0;
+    }
+    &,
+    table {
+      border-radius: @border-radius-base 0 0 0;
+    }
+    .ant-table-thead > tr > th:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+
+  &-fixed-right {
+    right: 0;
+    box-shadow: -6px 0 6px -4px @shadow-color;
+    &,
+    table {
+      border-radius: 0 @border-radius-base 0 0;
+    }
+    // hide expand row content in right-fixed Table
+    // https://github.com/ant-design/ant-design/issues/1898
+    .@{table-prefix-cls}-expanded-row {
+      color: transparent;
+      pointer-events: none;
+    }
+    .ant-table-thead > tr > th:first-child {
+      border-top-left-radius: 0;
+    }
+  }
+
+  &&-scroll-position-left &-fixed-left {
+    box-shadow: none;
+  }
+
+  &&-scroll-position-right &-fixed-right {
+    box-shadow: none;
+  }
+}
+
+@import './size';

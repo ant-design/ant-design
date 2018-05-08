@@ -1,0 +1,167 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@progress-prefix-cls: ~"@{ant-prefix}-progress";
+
+.@{progress-prefix-cls} {
+  .reset-component;
+  display: inline-block;
+
+  &-line {
+    width: 100%;
+    font-size: @font-size-base;
+    position: relative;
+  }
+
+  &-small&-line,
+  &-small&-line &-text .@{iconfont-css-prefix} {
+    font-size: @font-size-sm;
+  }
+
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    .@{progress-prefix-cls}-show-info & {
+      padding-right: ~"calc(2em + 8px)";
+      margin-right: ~"calc(-2em - 8px)";
+    }
+  }
+
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    background-color: @progress-remaining-color;
+    border-radius: 100px;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  &-circle-trail {
+    stroke: @progress-remaining-color;
+  }
+
+  &-circle-path {
+    stroke: @progress-default-color;
+    animation: ~"@{ant-prefix}-progress-appear" .3s;
+  }
+
+  &-success-bg,
+  &-bg {
+    border-radius: 100px;
+    background-color: @progress-default-color;
+    transition: all .4s @ease-out-circ 0s;
+    position: relative;
+  }
+
+  &-success-bg {
+    background-color: @success-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &-text {
+    word-break: normal;
+    width: 2em;
+    text-align: left;
+    font-size: 1em;
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    color: @text-color-secondary;
+    line-height: 1;
+    .@{iconfont-css-prefix} {
+      font-size: @font-size-base;
+    }
+  }
+
+  &-status-active {
+    .@{progress-prefix-cls}-bg:before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: @component-background;
+      border-radius: 10px;
+      animation: ~"@{ant-prefix}-progress-active" 2.4s @ease-out-quint infinite;
+    }
+  }
+
+  &-status-exception {
+    .@{progress-prefix-cls}-bg {
+      background-color: @error-color;
+    }
+    .@{progress-prefix-cls}-text {
+      color: @error-color;
+    }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @error-color;
+    }
+  }
+
+  &-status-success {
+    .@{progress-prefix-cls}-bg {
+      background-color: @success-color;
+    }
+    .@{progress-prefix-cls}-text {
+      color: @success-color;
+    }
+    .@{progress-prefix-cls}-circle-path {
+      stroke: @success-color;
+    }
+  }
+
+  &-circle &-inner {
+    position: relative;
+    line-height: 1;
+    background-color: transparent;
+  }
+
+  &-circle &-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin: 0;
+    color: @text-color;
+
+    .@{iconfont-css-prefix} {
+      font-size: 14 / 12em;
+    }
+  }
+
+  &-circle&-status-exception {
+    .@{progress-prefix-cls}-text {
+      color: @error-color;
+    }
+  }
+  &-circle&-status-success {
+    .@{progress-prefix-cls}-text {
+      color: @success-color;
+    }
+  }
+}
+
+@keyframes ~"@{ant-prefix}-progress-active" {
+  0% {
+    opacity: 0.1;
+    width: 0;
+  }
+  20% {
+    opacity: 0.5;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}

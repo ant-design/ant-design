@@ -1,0 +1,81 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@anchor-border-width: 2px;
+
+.@{ant-prefix}-anchor {
+  .reset-component;
+  position: relative;
+  padding-left: @anchor-border-width;
+
+  &-wrapper {
+    background-color: @component-background;
+    overflow: auto;
+    padding-left: 4px;
+    margin-left: -4px;
+  }
+
+  &-ink {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    &:before {
+      content: ' ';
+      position: relative;
+      width: @anchor-border-width;
+      height: 100%;
+      display: block;
+      background-color: @border-color-split;
+      margin: 0 auto;
+    }
+    &-ball {
+      display: none;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      border: 2px solid @primary-color;
+      background-color: @component-background;
+      left: 50%;
+      transition: top .3s ease-in-out;
+      transform: translateX(-50%);
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.fixed &-ink &-ink-ball {
+    display: none;
+  }
+
+  &-link {
+    padding: 8px 0 8px 16px;
+    line-height: 1;
+
+    &-title {
+      display: block;
+      position: relative;
+      transition: all .3s;
+      color: @text-color;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 8px;
+
+      &:only-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-active > &-title {
+      color: @primary-color;
+    }
+  }
+
+  &-link &-link {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}

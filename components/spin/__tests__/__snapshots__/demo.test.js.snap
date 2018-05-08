@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <span
+    class="ant-spin-dot ant-spin-dot-spin"
+  >
+    <i />
+    <i />
+    <i />
+    <i />
+  </span>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <i
+    class="anticon anticon-spin anticon-loading ant-spin-dot"
+    style="font-size:24px"
+  />
+</div>
+`;
+
+exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
+<div>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        data-show="true"
+      >
+        <span
+          class="ant-alert-message"
+        >
+          Alert message title
+        </span>
+        <span
+          class="ant-alert-description"
+        >
+          Further details about the context of this alert.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="margin-top:16px"
+  >
+    Loading state：
+    <span
+      class="ant-switch"
+      tabindex="0"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
+<div
+  class="example"
+>
+  <div
+    class="ant-spin ant-spin-spinning"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
+<div>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        data-show="true"
+      >
+        <span
+          class="ant-alert-message"
+        >
+          Alert message title
+        </span>
+        <span
+          class="ant-alert-description"
+        >
+          Further details about the context of this alert.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style="margin-top:16px"
+  >
+    Loading state：
+    <span
+      class="ant-switch"
+      tabindex="0"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-spin ant-spin-sm ant-spin-spinning"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
+  </div>
+  <div
+    class="ant-spin ant-spin-spinning"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
+  </div>
+  <div
+    class="ant-spin ant-spin-lg ant-spin-spinning"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i />
+      <i />
+      <i />
+      <i />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
+<div
+  class="ant-spin-nested-loading"
+>
+  <div>
+    <div
+      class="ant-spin ant-spin-spinning ant-spin-show-text"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i />
+        <i />
+        <i />
+        <i />
+      </span>
+      <div
+        class="ant-spin-text"
+      >
+        Loading...
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-spin-container ant-spin-blur"
+  >
+    <div
+      class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+      data-show="true"
+    >
+      <span
+        class="ant-alert-message"
+      >
+        Alert message title
+      </span>
+      <span
+        class="ant-alert-description"
+      >
+        Further details about the context of this alert.
+      </span>
+    </div>
+  </div>
+</div>
+`;

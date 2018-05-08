@@ -1,0 +1,79 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@input-prefix-cls: ~"@{ant-prefix}-input";
+@select-prefix-cls: ~"@{ant-prefix}-select";
+@autocomplete-prefix-cls: ~"@{select-prefix-cls}-auto-complete";
+
+.@{autocomplete-prefix-cls} {
+  .reset-component;
+
+  &.@{select-prefix-cls} {
+    .@{select-prefix-cls} {
+      &-selection {
+        border: 0;
+        box-shadow: none;
+        &__rendered {
+          margin-left: 0;
+          margin-right: 0;
+          height: 100%;
+          line-height: @input-height-base;
+        }
+        &__placeholder {
+          margin-left: (@input-padding-horizontal-base + 1px);
+          margin-right: (@input-padding-horizontal-base + 1px);
+        }
+
+        &--single {
+          height: auto;
+        }
+      }
+    }
+
+    // Fix https://github.com/ant-design/ant-design/issues/7800
+    .@{select-prefix-cls}-search--inline {
+      position: static;
+      float: left;
+    }
+
+    &-allow-clear {
+      .@{select-prefix-cls}-selection:hover .@{select-prefix-cls}-selection__rendered {
+        margin-right: 0 !important;
+      }
+    }
+
+    .@{input-prefix-cls} {
+      background: transparent;
+      border-width: @border-width-base;
+      line-height: @line-height-base;
+      height: @input-height-base;
+      &:focus,
+      &:hover {
+        .hover;
+      }
+    }
+
+    &-lg {
+      .@{select-prefix-cls}-selection__rendered {
+        line-height: @input-height-lg;
+      }
+      .@{input-prefix-cls} {
+        padding-top: @input-padding-vertical-lg;
+        padding-bottom: @input-padding-vertical-lg;
+        height: @input-height-lg;
+      }
+    }
+
+    &-sm {
+      .@{select-prefix-cls}-selection__rendered {
+        line-height: @input-height-sm;
+      }
+      .@{input-prefix-cls} {
+        padding-top: @input-padding-vertical-sm;
+        padding-bottom: @input-padding-vertical-sm;
+        height: @input-height-sm;
+      }
+    }
+  }
+}

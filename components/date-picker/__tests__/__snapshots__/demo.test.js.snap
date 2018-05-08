@@ -1,0 +1,824 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <span>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select week"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input ant-input-disabled"
+        disabled=""
+        placeholder="Select date"
+        readonly=""
+        value="2015-06-06"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input ant-input-disabled"
+        disabled=""
+        placeholder="Select date"
+        readonly=""
+        value="2015-06"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    tabindex="-1"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input ant-input-disabled"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        disabled=""
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value="2015-06-06"
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        disabled=""
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value="2015-06-06"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    style="width:350px"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <span
+    class="ant-calendar-picker"
+    style="width:350px"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value="2015/01/01"
+      />
+      <i
+        class="anticon anticon-cross-circle ant-calendar-picker-clear"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value="2015/01"
+      />
+      <i
+        class="anticon anticon-cross-circle ant-calendar-picker-clear"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value="2015/01/01"
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value="2015/01/01"
+      />
+      <i
+        class="anticon anticon-cross-circle ant-calendar-picker-clear"
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start month"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End month"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    style="width:350px"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group"
+  >
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="large"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="default"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+  </div>
+  <br />
+  <br />
+  <span
+    class="ant-calendar-picker ant-calendar-picker-default"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select date"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker ant-calendar-picker-default"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select Month"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker ant-calendar-picker-default"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End date"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker ant-calendar-picker-default"
+  >
+    <span>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select Week"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Start"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="End"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
+<div>
+  <span
+    class="ant-calendar-picker"
+  >
+    <div>
+      <input
+        class="ant-calendar-picker-input ant-input"
+        placeholder="Select Time"
+        readonly=""
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-calendar-picker"
+    style="width:350px"
+    tabindex="0"
+  >
+    <span
+      class="ant-calendar-picker-input ant-input"
+    >
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="Start Time"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-range-picker-separator"
+      >
+         ~ 
+      </span>
+      <input
+        class="ant-calendar-range-picker-input"
+        placeholder="End Time"
+        readonly=""
+        tabindex="-1"
+        value=""
+      />
+      <span
+        class="ant-calendar-picker-icon"
+      />
+    </span>
+  </span>
+</div>
+`;

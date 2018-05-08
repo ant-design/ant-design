@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Hover me 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
+<span
+  class="ant-dropdown-trigger"
+  style="user-select:none"
+>
+  Right Click on Me
+</span>
+`;
+
+exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
+<div>
+  <div
+    class="ant-btn-group ant-dropdown-button"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Dropdown
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      type="button"
+    >
+      <i
+        class="anticon anticon-down"
+      />
+    </button>
+  </div>
+  <div
+    class="ant-btn-group ant-dropdown-button"
+    style="margin-left:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Dropdown
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="anticon anticon-down"
+      />
+    </button>
+  </div>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    style="margin-left:8px"
+    type="button"
+  >
+    <span>
+      Button 
+    </span>
+    <i
+      class="anticon anticon-down"
+    />
+  </button>
+</div>
+`;
+
+exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Hover me, Click menu item 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Hover me 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Hover me 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomCenter
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topCenter
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Cascading menu 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Click me 
+  <i
+    class="anticon anticon-down"
+  />
+</a>
+`;

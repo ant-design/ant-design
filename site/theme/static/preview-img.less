@@ -1,0 +1,159 @@
+.preview-image-boxes {
+  display: flex;
+  float: right;
+  margin: 0 0 70px 64px;
+  width: 496px;
+  clear: both;
+
+  &-with-carousel {
+    width: 420px;
+
+    .preview-image-box img {
+      padding: 0;
+    }
+  }
+}
+
+.preview-image-boxes + .preview-image-boxes {
+  margin-top: -35px;
+}
+
+.preview-image-box {
+  width: 100%;
+  float: left;
+}
+
+.preview-image-box + .preview-image-box {
+  margin-left: 24px;
+}
+
+.preview-image-wrapper {
+  background: #f2f4f5;
+  padding: 16px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.preview-image-wrapper.video {
+  padding: 0;
+  background: 0;
+  display: block;
+}
+
+.preview-image-wrapper video {
+  width: 100%;
+  display: block;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.preview-image-wrapper.good:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: @primary-color;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.preview-image-wrapper.bad:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: @error-color;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.preview-image-title {
+  font-size: 12px;
+  margin-top: 5px;
+  color: @site-text-color;
+}
+
+.preview-image-description {
+  font-size: 12px;
+  margin-top: 2px;
+  color: @site-text-color-secondary;
+  line-height: 1.5;
+}
+
+.preview-image-description hr {
+  margin: 2px 0;
+  border: 0;
+  background: none;
+}
+
+.preview-image-box img {
+  cursor: pointer;
+  max-width: 100%;
+  transition: all .3s;
+  background: #fff;
+  padding: 12px;
+  border-radius: @border-radius-base;
+  &.no-padding {
+    padding: 0;
+    background: none;
+  }
+}
+
+.preview-image-boxes.preview-image-boxes-with-carousel img {
+  padding: 0;
+  box-shadow: 0 1px 0 0 #ddd, 0 3px 0 0 #fff, 0 4px 0 0 #ddd, 0 6px 0 0 #fff, 0 7px 0 0 #ddd;
+}
+
+.preview-image-box img:hover {
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.image-modal {
+  text-align: center;
+
+  &-container {
+    position: relative;
+    text-align: center;
+  }
+
+  .ant-carousel {
+    .slick-slider {
+      padding-bottom: 24px;
+      img {
+        display: inline;
+        max-width: 100%;
+      }
+    }
+    .slick-dots {
+      bottom: 4px;
+      li button {
+        background: #888;
+      }
+    }
+  }
+
+  .image-modal-single.slick-slider {
+    padding-bottom: 0;
+  }
+
+  .image-modal-single .slick-dots {
+    display: none !important;
+  }
+}
+
+.transition-video-player {
+  float: right;
+  padding: 0 0 70px 20px;
+  width: 600px;
+
+  .preview-image-wrapper {
+    padding: 0;
+  }
+}

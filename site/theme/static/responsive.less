@@ -1,0 +1,355 @@
+@import "../../../components/style/themes/default.less";
+
+.nav-phone-icon {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  z-index: 1;
+  width: 16px;
+  height: 22px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: @screen-xl) {
+  #search-box {
+    display: none;
+  }
+  #logo {
+    padding: 0 40px;
+  }
+  .banner-wrapper .banner-title-wrapper {
+    h1 {
+      font-size: 36px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767.99px) {
+  #header {
+    text-align: center;
+    #logo {
+      float: initial;
+    }
+  }
+  #search-box {
+    display: none;
+  }
+  .code-boxes-col-2-1, .code-boxes-col-1-1 {
+    float: none;
+    width: 100%;
+  }
+  .preview-image-boxes {
+    margin: 0 !important;
+    float: none;
+    width: 100%;
+  }
+  .preview-image-box {
+    padding-left: 0;
+    margin: 10px 0;
+  }
+
+  .image-wrapper {
+    display: none;
+  }
+
+  div.version {
+    display: block;
+    margin: 29px auto 16px;
+  }
+
+  .popover-menu {
+    width: 300px;
+    div.version {
+      margin: 16px auto;
+    }
+    .ant-popover-inner {
+      overflow: hidden;
+      &-content {
+        padding: 0;
+        .ant-select {
+          width: 60%;
+          display: block;
+        }
+        .ant-btn {
+          margin: 16px 8% 0 8px;
+        }
+      }
+    }
+    #nav a.header-link {
+      color: #333;
+    }
+  }
+
+  ul#nav,
+  ul#nav li {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  ul#nav li {
+    line-height: 40px;
+    height: 40px;
+    padding: 0 !important;
+    border: 0;
+    a {
+      color: #333;
+    }
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .nav-phone-icon {
+    display: block;
+  }
+
+  .nav-phone-icon:before {
+    content: "";
+    display: block;
+    border-radius: 2px;
+    width: 16px;
+    height: 2px;
+    background: #777;
+    box-shadow: 0 6px 0 0 #777, 0 12px 0 0 #777;
+    position: absolute;
+  }
+
+  .main {
+    height: calc(100% - 86px);
+  }
+
+  .aside-container {
+    float: none;
+    width: auto;
+    padding-bottom: 30px;
+    border-right: 0;
+  }
+
+  .main-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-right: 0;
+    > .markdown > * {
+      width: 100% !important;
+    }
+  }
+
+  .main-wrapper {
+    width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  #footer {
+    text-align: center;
+    .footer-wrap {
+      padding: 40px;
+      .ant-row {
+        padding: 0;
+        > div {
+          &:nth-child(2),
+          &:nth-child(4) {
+            display: none;
+          }
+          a {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    .footer-center {
+      text-align: center;
+    }
+    h2 {
+      margin-top: 16px;
+    }
+    .bottom-bar {
+      padding: 16px;
+
+      text-align: center;
+      .translate-button {
+        width: auto;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      > div > span {
+        display: block;
+        &:nth-child(1), &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .prev-next-nav {
+    margin-left: 16px;
+    width: ~"calc(100% - 32px)";
+  }
+
+  .drawer {
+    .ant-menu-inline .ant-menu-item:after,
+    .ant-menu-vertical .ant-menu-item:after {
+      left: 0;
+      right: auto;
+    }
+  }
+
+  #_hj_feedback_container {
+    display: none;
+  }
+  /** home 区块 **/
+  .home-page-wrapper {
+    .page {
+      h2 {
+        margin: 80px auto 64px;
+      }
+    }
+    .parallax-bg {
+      display: none;
+    }
+  }
+  .banner {
+    display: block;
+    height: 632px;
+    &-bg-wrapper {
+      display: none;
+    }
+    .img-wrapper,
+    .text-wrapper {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      margin: auto;
+      max-width: unset;
+      min-width: unset;
+    }
+    .img-wrapper {
+      position: initial;
+      margin-top: 48px;
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .text-wrapper {
+      margin-top: 48px;
+      min-height: 200px;
+      padding: 0 16px;
+      h1 {
+        display: none;
+      }
+      p {
+        font-size: 14px;
+        line-height: 28px;
+        color: @home-text-color;
+      }
+    }
+  }
+  .page1 {
+    min-height: 1538px;
+    .ant-row {
+      margin: 24px auto 64px;
+      >div {
+        margin-bottom: 48px;
+      }
+    }
+  }
+  .page2 {
+    min-height: 840px;
+    background: #fff;
+    &-content {
+      box-shadow: none;
+    }
+    &-components {
+      display: none;
+    }
+    &-product {
+      min-height: auto;
+      padding: 0 16px;
+      .product-block {
+        padding-bottom: 35px;
+        margin-bottom: 34px;
+        border-bottom: 1px solid #ebedf0;
+        &:last-child {
+          margin-bottom: 32px;
+          border-bottom: none;
+          .block-text-wrapper {
+            height: auto;
+          }
+        }
+        .block-image-wrapper {
+          height: 88px;
+          img {
+            height: 100%;
+          }
+        }
+        .block-text-wrapper {
+          border-bottom: none;
+          padding-bottom: 0;
+          h4 {
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 4px;
+          }
+          p {
+            font-size: 12px;
+            margin-bottom: 8px;
+            line-height: 20px;
+          }
+          a {
+            line-height: 20px;
+          }
+          .components-button-wrapper {
+            font-size: 12px;
+            margin-top: 16px;
+            a {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .page3 {
+    min-height: 688px;
+    background: url('https://gw.alipayobjects.com/zos/rmsportal/qICoJIqqQRMeRGhPHBBS.svg') no-repeat;
+    background-size: cover;
+    .ant-row {
+      margin: 0 8px;
+    }
+    .page3-block {
+      padding: 24px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 8px 16px rgba(174, 185, 193, 0.3);
+      margin-bottom: 32px;
+      &:nth-child(2) {
+        .page3-img-wrapper img {
+          width: 70%;
+          margin: auto;
+          display: block;
+        }
+      }
+      p {
+        font-size: 12px;
+      }
+      .page3-img-wrapper {
+        width: 20%;
+        img {
+          width: 100%;
+        }
+      }
+      .page3-text-wrapper {
+        width: 80%;
+        margin: 0;
+        max-width: initial;
+        padding-left: 16px;
+      }
+    }
+  }
+}

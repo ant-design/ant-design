@@ -1,0 +1,452 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-warning ant-alert-banner"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-exclamation-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Warning text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <br />
+  <div
+    class="ant-alert ant-alert-warning ant-alert-banner"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-exclamation-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Very long warning text warning text text text text text text text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+  <br />
+  <div
+    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Warning text without icon
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <br />
+  <div
+    class="ant-alert ant-alert-error ant-alert-banner"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-cross-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Error text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
+<div
+  class="ant-alert ant-alert-success ant-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  >
+    Success Text
+  </span>
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;
+
+exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+  <div
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Error Text
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Error Description Error Description Error Description Error Description Error Description Error Description
+    </span>
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
+<div
+  class="ant-alert ant-alert-info ant-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  >
+    Info Text
+  </span>
+  <span
+    class="ant-alert-description"
+  />
+  <a
+    class="ant-alert-close-icon"
+  >
+    Close Now
+  </a>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/description.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Success Text
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Success Description Success Description Success Description
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Info Text
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Info Description Info Description Info Description Info Description
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Warning Text
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Warning Description Warning Description Warning Description Warning Description
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Error Text
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Error Description Error Description Error Description Error Description
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-check-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Success Tips
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-info"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-info-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Informational Notes
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-warning"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-exclamation-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Warning
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-error"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-cross-circle ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Error
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-with-description"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-check-circle-o ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Success Tips
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Detailed description and advices about successful copywriting.
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-info ant-alert-with-description"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-info-circle-o ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Informational Notes
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      Additional description and informations about copywriting.
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-warning ant-alert-with-description"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-exclamation-circle-o ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Warning
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      This is a warning notice about copywriting.
+    </span>
+  </div>
+  <div
+    class="ant-alert ant-alert-error ant-alert-with-description"
+    data-show="true"
+  >
+    <i
+      class="anticon anticon-cross-circle-o ant-alert-icon"
+    />
+    <span
+      class="ant-alert-message"
+    >
+      Error
+    </span>
+    <span
+      class="ant-alert-description"
+    >
+      This is an error message about copywriting.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Alert Message Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+  <p>
+    placeholder text here
+  </p>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/style.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Success Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Info Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-warning ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Warning Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-alert ant-alert-error ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Error Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+</div>
+`;

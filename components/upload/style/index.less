@@ -1,0 +1,470 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@upload-prefix-cls: ~"@{ant-prefix}-upload";
+@upload-item: ~"@{ant-prefix}-upload-list-item";
+@upload-pictrue-card-size: 104px;
+
+.@{upload-prefix-cls} {
+  .reset-component;
+  outline: 0;
+
+  p {
+    margin: 0;
+  }
+
+  &-btn {
+    display: block;
+    width: 100%;
+    outline: none;
+  }
+
+  input[type="file"] {
+    cursor: pointer;
+  }
+
+  &&-select {
+    display: inline-block;
+  }
+
+  &&-select-picture-card {
+    border: @border-width-base dashed @border-color-base;
+    width: @upload-pictrue-card-size;
+    height: @upload-pictrue-card-size;
+    border-radius: @border-radius-base;
+    background-color: @background-color-light;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: table;
+
+    > .@{upload-prefix-cls} {
+      width: 100%;
+      height: 100%;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      padding: 8px;
+    }
+
+    &:hover {
+      border-color: @primary-color;
+    }
+  }
+
+  &&-drag {
+    border: @border-width-base dashed @border-color-base;
+    transition: border-color .3s;
+    cursor: pointer;
+    border-radius: @border-radius-base;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 16px 0;
+    background: @background-color-light;
+
+    &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
+      border: 2px dashed @primary-5;
+    }
+
+    &.@{upload-prefix-cls}-disabled {
+      cursor: not-allowed;
+    }
+
+    .@{upload-prefix-cls}-btn {
+      display: table;
+      height: 100%;
+    }
+
+    .@{upload-prefix-cls}-drag-container {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &:not(.@{upload-prefix-cls}-disabled):hover {
+      border-color: @primary-5;
+    }
+
+    p.@{upload-prefix-cls}-drag-icon {
+      .@{iconfont-css-prefix} {
+        font-size: 48px;
+        color: @primary-5;
+      }
+      margin-bottom: 20px;
+    }
+    p.@{upload-prefix-cls}-text {
+      font-size: @font-size-lg;
+      margin: 0 0 4px;
+      color: @heading-color;
+    }
+    p.@{upload-prefix-cls}-hint {
+      font-size: @font-size-base;
+      color: @text-color-secondary;
+    }
+    .@{iconfont-css-prefix}-plus {
+      font-size: 30px;
+      transition: all .3s;
+      color: @disabled-color;
+      &:hover {
+        color: @text-color-secondary;
+      }
+    }
+    &:hover .@{iconfont-css-prefix}-plus {
+      color: @text-color-secondary;
+    }
+  }
+}
+
+.@{upload-prefix-cls}-list {
+  .reset-component;
+  .clearfix;
+  &-item {
+    margin-top: 8px;
+    font-size: @font-size-base;
+    position: relative;
+    height: 22px;
+    &-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: @font-size-base + 8px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    &-info {
+      height: 100%;
+      padding: 0 12px 0 4px;
+      transition: background-color .3s;
+
+      > span {
+        display: block;
+      }
+
+      .@{iconfont-css-prefix}-loading,
+      .@{iconfont-css-prefix}-paper-clip {
+        font-size: @font-size-base;
+        color: @text-color-secondary;
+        position: absolute;
+        top: @font-size-base / 2 - 2px;
+      }
+    }
+
+    .@{iconfont-css-prefix}-cross {
+      .iconfont-size-under-12px(10px);
+      transition: all .3s;
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 4px;
+      color: @text-color-secondary;
+      line-height: 22px;
+      &:hover {
+        color: @text-color;
+      }
+    }
+
+    &:hover &-info {
+      background-color: @item-hover-bg;
+    }
+
+    &:hover .@{iconfont-css-prefix}-cross {
+      opacity: 1;
+    }
+
+    &-error,
+    &-error .@{iconfont-css-prefix}-paper-clip,
+    &-error &-name {
+      color: @error-color;
+    }
+
+    &-error .@{iconfont-css-prefix}-cross {
+      opacity: 1;
+      color: @error-color !important;
+    }
+
+    &-progress {
+      line-height: 0;
+      font-size: @font-size-base;
+      position: absolute;
+      width: 100%;
+      bottom: -12px;
+      padding-left: @font-size-base + 12px;
+    }
+  }
+
+  &-picture,
+  &-picture-card {
+    .@{upload-item} {
+      padding: 8px;
+      border-radius: @border-radius-base;
+      border: @border-width-base @border-style-base @border-color-base;
+      height: 66px;
+      position: relative;
+      &:hover {
+        background: transparent;
+      }
+      &-error {
+        border-color: @error-color;
+      }
+    }
+
+    .@{upload-item}-info {
+      padding: 0;
+    }
+
+    .@{upload-item}:hover .@{upload-item}-info {
+      background: transparent;
+    }
+
+    .@{upload-item}-uploading {
+      border-style: dashed;
+    }
+
+    .@{upload-item}-thumbnail {
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      text-align: center;
+    }
+
+    .@{upload-item}-icon {
+      color: @disabled-color;
+      font-size: 36px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -18px;
+      margin-left: -18px;
+    }
+
+    .@{upload-item}-thumbnail img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      overflow: hidden;
+    }
+
+    .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
+      line-height: 48px;
+      font-size: 24px;
+      color: @text-color-secondary;
+    }
+
+    .@{upload-item}-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 0 8px;
+      line-height: 44px;
+      transition: all .3s;
+      padding-left: 48px;
+      padding-right: 8px;
+      max-width: 100%;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+
+    .@{upload-item}-uploading .@{upload-item}-name {
+      line-height: 28px;
+    }
+
+    .@{upload-item}-progress {
+      padding-left: 56px;
+      margin-top: 0;
+      bottom: 14px;
+      width: ~"calc(100% - 24px)";
+    }
+
+    .@{iconfont-css-prefix}-cross {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      line-height: 1;
+    }
+  }
+
+  &-picture-card {
+    display: inline;
+
+    &.@{upload-prefix-cls}-list:after {
+      display: none;
+    }
+    .@{upload-item} {
+      float: left;
+      width: @upload-pictrue-card-size;
+      height: @upload-pictrue-card-size;
+      margin: 0 8px 8px 0;
+    }
+
+    .@{upload-item}-info {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+
+      &:before {
+        content: ' ';
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all .3s;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+    }
+
+    .@{upload-item}:hover .@{upload-item}-info:before {
+      opacity: 1;
+    }
+
+    .@{upload-item}-actions {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all .3s;
+
+      .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-delete {
+        z-index: 10;
+        transition: all .3s;
+        cursor: pointer;
+        font-size: 16px;
+        width: 16px;
+        color: @text-color-dark;
+        margin: 0 4px;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .@{upload-item}-info:hover + .@{upload-item}-actions,
+    .@{upload-item}-actions:hover {
+      opacity: 1;
+    }
+
+    .@{upload-item}-thumbnail,
+    .@{upload-item}-thumbnail img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: static;
+    }
+
+    .@{upload-item}-name {
+      margin: 8px 0 0;
+      padding: 0;
+      text-align: center;
+      line-height: @line-height-base;
+      display: none;
+    }
+
+    .anticon-picture + .@{upload-item}-name {
+      display: block;
+    }
+
+    .@{upload-item}-uploading {
+      &.@{upload-item} {
+        background-color: @background-color-light;
+      }
+
+      .@{upload-item}-info {
+        height: auto;
+        &:before,
+        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-delete {
+          display: none;
+        }
+      }
+
+      &-text {
+        margin-top: 18px;
+        color: @text-color-secondary;
+      }
+    }
+
+    .@{upload-item}-progress {
+      padding-left: 0;
+      bottom: 32px;
+    }
+  }
+
+  .@{upload-prefix-cls}-success-icon {
+    color: @success-color;
+    font-weight: bold;
+  }
+
+  .@{upload-prefix-cls}-animate-enter,
+  .@{upload-prefix-cls}-animate-leave,
+  .@{upload-prefix-cls}-animate-inline-enter,
+  .@{upload-prefix-cls}-animate-inline-leave {
+    animation-duration: .3s;
+    animation-fill-mode: @ease-in-out-circ;
+  }
+
+  .@{upload-prefix-cls}-animate-enter {
+    animation-name: uploadAnimateIn;
+  }
+
+  .@{upload-prefix-cls}-animate-leave {
+    animation-name: uploadAnimateOut;
+  }
+
+  .@{upload-prefix-cls}-animate-inline-enter {
+    animation-name: uploadAnimateInlineIn;
+  }
+
+  .@{upload-prefix-cls}-animate-inline-leave {
+    animation-name: uploadAnimateInlineOut;
+  }
+}
+
+@keyframes uploadAnimateIn {
+  from {
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateOut {
+  to {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes uploadAnimateInlineIn {
+  from {
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes uploadAnimateInlineOut {
+  to {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}

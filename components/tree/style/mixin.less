@@ -1,0 +1,27 @@
+@import "../../style/mixins/index";
+
+@tree-default-open-icon: "\e606";
+@tree-showline-open-icon: "\e621";
+@tree-showline-close-icon: "\e645";
+@tree-doc-icon: "\e664";
+
+.antTreeSwitcherIcon(@type: "tree-default-open-icon") {
+  &:after {
+    .iconfont-size-under-12px(7px);
+    display: inline-block;
+    .iconfont-font(@@type);
+    font-weight: bold;
+    transition: transform .3s;
+  }
+}
+
+.antTreeShowLineIcon(@type) {
+  &:after {
+    .iconfont-size-under-12px(12px);
+    display: inline-block;
+    .iconfont-font(@@type);
+    vertical-align: baseline;
+    font-weight: normal;
+    transition: transform .3s;
+  }
+}

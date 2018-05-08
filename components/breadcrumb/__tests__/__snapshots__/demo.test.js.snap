@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/breadcrumb/demo/basic.md correctly 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Home
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      <a
+        href=""
+      >
+        Application Center
+      </a>
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      <a
+        href=""
+      >
+        Application List
+      </a>
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      An Application
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/breadcrumb/demo/router.md correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    class="demo-nav"
+  >
+    <a
+      href="#/"
+    >
+      Home
+    </a>
+    <a
+      href="#/apps"
+    >
+      Application List
+    </a>
+  </div>
+  Home Page
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    style="margin:16px 0;"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Click the navigation above to switch:
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-breadcrumb"
+  >
+    <span>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          Home
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/breadcrumb/demo/router-4.md correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    class="demo-nav"
+  >
+    <a
+      href="#/"
+    >
+      Home
+    </a>
+    <a
+      href="#/apps"
+    >
+      Application List
+    </a>
+  </div>
+  Home Page
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    style="margin:16px 0;"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Click the navigation above to switch:
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+  </div>
+  <div
+    class="ant-breadcrumb"
+  />
+</div>
+`;
+
+exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Home
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </span>
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application Center
+    </a>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </span>
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application List
+    </a>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      An Application
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      &gt;
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      <i
+        class="anticon anticon-home"
+      />
+    </a>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      <i
+        class="anticon anticon-user"
+      />
+      <span>
+        Application List
+      </span>
+    </a>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Application
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
