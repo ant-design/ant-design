@@ -2,39 +2,55 @@ import Modal, { ModalFuncProps } from './Modal';
 import confirm from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
+export { ModalProps, ModalFuncProps } from './Modal';
 
-const config = {
-  info: {
+Modal.info = function (props: ModalFuncProps) {
+  const config = {
     type: 'info',
     iconType: 'info-circle',
     okCancel: false,
-  },
-  success: {
+    ...props,
+  };
+  return confirm(config);
+};
+
+Modal.success = function (props: ModalFuncProps) {
+  const config = {
     type: 'success',
     iconType: 'check-circle',
     okCancel: false,
-  },
-  error: {
+    ...props,
+  };
+  return confirm(config);
+};
+
+Modal.error = function (props: ModalFuncProps) {
+  const config = {
     type: 'error',
     iconType: 'cross-circle',
     okCancel: false,
-  },
-  warning: {
+    ...props,
+  };
+  return confirm(config);
+};
+
+Modal.warning = Modal.warn = function (props: ModalFuncProps) {
+  const config = {
     type: 'warning',
     iconType: 'exclamation-circle',
     okCancel: false,
-  },
-  confirm: {
-    type: 'confirm',
-    okCancel: true,
-  },
+    ...props,
+  };
+  return confirm(config);
 };
 
-Modal.info = function (props: ModalFuncProps) { return confirm({ ...config.info, ...props }); };
-Modal.success = function (props: ModalFuncProps) { return confirm({ ...config.success, ...props }); };
-Modal.error = function (props: ModalFuncProps) { return confirm({ ...config.error, ...props }); };
-Modal.warning = function (props: ModalFuncProps) { return confirm({ ...config.warning, ...props }); };
-Modal.warn = function (props: ModalFuncProps) { return confirm({ ...config.warning, ...props }); };
-Modal.confirm = function (props: ModalFuncProps) { return confirm({ ...config.confirm, ...props }); };
+Modal.confirm = function (props: ModalFuncProps) {
+  const config = {
+    type: 'confirm',
+    okCancel: true,
+    ...props,
+  };
+  return confirm(config);
+};
 
 export default Modal;
