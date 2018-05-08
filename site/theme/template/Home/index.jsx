@@ -27,7 +27,6 @@ function getStyle() {
     #header #logo {
       padding: 0;
     }
-    #header .ant-row > div:last-child .ant-select,
     #header .ant-row > div:last-child .ant-menu,
     #header .nav-phone-icon {
       display: none;
