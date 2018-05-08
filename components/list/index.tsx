@@ -196,9 +196,12 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
     });
 
-    this.defaultPaginationProps.total = dataSource.length;
-    this.defaultPaginationProps.current = paginationCurrent;
-    const paginationProps = { ...this.defaultPaginationProps, ...pagination };
+    const paginationProps = {
+      ...this.defaultPaginationProps,
+      total: dataSource.length,
+      current: paginationCurrent,
+      ...pagination,
+    };
     const largestPage = Math.ceil(
       paginationProps.total / paginationProps.pageSize,
     );

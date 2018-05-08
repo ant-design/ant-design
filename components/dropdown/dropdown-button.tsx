@@ -9,7 +9,7 @@ const ButtonGroup = Button.Group;
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: 'primary' | 'ghost' | 'dashed';
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<any>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: any;
 }
 
