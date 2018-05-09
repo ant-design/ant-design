@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -65,7 +65,7 @@
     "rc-pagination": "~1.16.1",
     "rc-progress": "~2.2.2",
     "rc-rate": "~2.4.0",
-    "rc-select": "~8.0.1",
+    "rc-select": "~8.0.7",
     "rc-slider": "~8.6.0",
     "rc-steps": "~3.1.0",
     "rc-switch": "~1.6.0",
