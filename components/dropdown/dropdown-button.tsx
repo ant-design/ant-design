@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Button from '../button';
 import { ButtonGroupProps } from '../button/button-group';
-import Icon from '../icon';
 import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
@@ -54,9 +53,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
-          <Button type={type}>
-            <Icon type="down" />
-          </Button>
+          <Button type={type} icon="ellipsis" />
         </Dropdown>
       </ButtonGroup>
     );
