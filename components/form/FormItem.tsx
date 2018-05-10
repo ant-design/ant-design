@@ -127,6 +127,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     this.setState({ helpShow });
   }
 
+  getHelpShow() {
+    const help = this.getHelpMsg();
+    if (help) {
+      return true;
+    }
+    return this.state.helpShow;
+  }
+
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
@@ -135,11 +143,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         {help}
       </div>
     ) : null;
-    if (children) {
-      // fix https://github.com/ant-design/ant-design/issues/10445;
-      // change state first in show;
-      this.state.helpShow = !!children;
-    }
     return (
       <Animate
         transitionName="show-help"
@@ -311,7 +314,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const style = props.style;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: this.state.helpShow,
+      [`${prefixCls}-item-with-help`]: this.getHelpShow(),
       [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
