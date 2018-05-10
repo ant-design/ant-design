@@ -55,8 +55,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   context: FormItemContext;
 
-  state = { helpShow: false };
-
   helpShow = false;
 
   componentDidMount() {
@@ -128,7 +126,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;
     if (!helpShow) {
-      this.setState({ helpShow });
+      this.setState({});
     }
   }
 
@@ -314,7 +312,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const style = props.style;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: this.helpShow || this.state.helpShow,
+      [`${prefixCls}-item-with-help`]: this.helpShow,
       [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
