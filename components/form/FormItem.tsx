@@ -127,7 +127,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;
-    this.setState({ helpShow });
+    if (!helpShow) {
+      this.setState({ helpShow });
+    }
   }
 
   renderHelp() {
