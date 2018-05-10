@@ -140,7 +140,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
           class="ant-menu-item ant-menu-item-selected"
@@ -217,7 +216,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
         class="ant-menu-item"
@@ -316,7 +314,6 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
           class="ant-menu-item"
@@ -572,7 +569,6 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
           class="ant-menu-item"
@@ -678,7 +674,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
         role="menu"
-        tabindex="0"
       >
         <li
           class="ant-menu-item ant-menu-item-selected"
@@ -845,7 +840,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
         class="ant-menu-item"
@@ -941,7 +935,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
         class="ant-menu-item"
@@ -1023,7 +1016,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
             class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
             role="menu"
             style="height:100%"
-            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
@@ -1159,7 +1151,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
       role="menu"
       style="line-height:64px"
-      tabindex="0"
     >
       <li
         class="ant-menu-item"
@@ -1195,7 +1186,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
           role="menu"
           style="height:100%;border-right:0"
-          tabindex="0"
         >
           <li
             class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"

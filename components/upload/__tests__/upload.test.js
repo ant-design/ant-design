@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import { fileToObject } from '../utils';
 
 describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
@@ -109,6 +110,16 @@ describe('Upload', () => {
           { file: 'foo.png' },
         ],
       },
+    });
+  });
+
+  describe('util', () => {
+    it('should be able to copy file instance', () => {
+      const file = new File([], 'aaa.zip');
+      const copiedFile = fileToObject(file);
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
+        expect(key in copiedFile).toBe(true);
+      });
     });
   });
 });

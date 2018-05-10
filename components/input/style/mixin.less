@@ -311,12 +311,12 @@
   display: inline-block;
   width: 100%;
 
-  .@{inputClass} {
-    z-index: 1;
-  }
-
   &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
+  }
+
+  .@{inputClass} {
+    position: static;
   }
 
   .@{inputClass}-prefix,
@@ -324,7 +324,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
     line-height: 0;
     color: @input-color;
     :not(.anticon) {

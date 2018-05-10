@@ -4,7 +4,6 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
   role="menu"
-  tabindex="0"
 >
   <li
     class="ant-menu-item ant-menu-item-selected"
@@ -65,7 +64,6 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
   role="menu"
   style="width:256px"
-  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
@@ -220,7 +218,6 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
     role="menu"
-    tabindex="0"
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
@@ -349,7 +346,6 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
   role="menu"
   style="width:256px"
-  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
@@ -490,7 +486,6 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
     class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
     role="menu"
     style="width:256px"
-    tabindex="0"
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
@@ -621,7 +616,6 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
     role="menu"
     style="width:256px"
-    tabindex="0"
   >
     <li
       class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
@@ -738,7 +732,6 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
   class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
   role="menu"
   style="width:256px"
-  tabindex="0"
 >
   <li
     class="ant-menu-submenu ant-menu-submenu-vertical"
