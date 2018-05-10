@@ -132,8 +132,9 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-extra {
   color: @text-color-secondary;
   line-height: @line-height-base;
-  transition: color .15s @ease-out;
+  transition: color .3s @ease-out;// sync input color transition;
   margin-top: @form-help-margin-top;
+  clear: both;
 }
 
 .@{form-prefix-cls}-extra {
@@ -569,14 +570,14 @@ form {
   .@{className}-enter,
   .@{className}-appear {
     opacity: 0;
-    animation-timing-function: @ease-in-out;
+    animation-timing-function: @ease-out;
   }
   .@{className}-leave {
     animation-timing-function: @ease-in-out;
   }
 }
 
-.show-help-motion(show-help, antShowHelp, 0.15s);
+.show-help-motion(show-help, antShowHelp, 0.3s);
 
 @keyframes antShowHelpIn {
   0% {
