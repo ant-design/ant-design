@@ -45,7 +45,7 @@ describe('Layout', () => {
     expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
     expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
-  
+
   it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
     const wrapper = mount(
       <Layout>
