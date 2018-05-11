@@ -2954,23 +2954,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 0
-                    </div>
+                    Edrward 0
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 0
-                    </div>
+                    London Park no. 0
                   </td>
                   <td
                     class=""
@@ -2994,23 +2988,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 1
-                    </div>
+                    Edrward 1
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 1
-                    </div>
+                    London Park no. 1
                   </td>
                   <td
                     class=""
@@ -3034,23 +3022,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 2
-                    </div>
+                    Edrward 2
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 2
-                    </div>
+                    London Park no. 2
                   </td>
                   <td
                     class=""
@@ -3074,23 +3056,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 3
-                    </div>
+                    Edrward 3
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 3
-                    </div>
+                    London Park no. 3
                   </td>
                   <td
                     class=""
@@ -3114,23 +3090,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 4
-                    </div>
+                    Edrward 4
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 4
-                    </div>
+                    London Park no. 4
                   </td>
                   <td
                     class=""
@@ -3154,23 +3124,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 5
-                    </div>
+                    Edrward 5
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 5
-                    </div>
+                    London Park no. 5
                   </td>
                   <td
                     class=""
@@ -3194,23 +3158,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 6
-                    </div>
+                    Edrward 6
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 6
-                    </div>
+                    London Park no. 6
                   </td>
                   <td
                     class=""
@@ -3234,23 +3192,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 7
-                    </div>
+                    Edrward 7
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 7
-                    </div>
+                    London Park no. 7
                   </td>
                   <td
                     class=""
@@ -3274,23 +3226,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 8
-                    </div>
+                    Edrward 8
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 8
-                    </div>
+                    London Park no. 8
                   </td>
                   <td
                     class=""
@@ -3314,23 +3260,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 9
-                    </div>
+                    Edrward 9
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      32
-                    </div>
+                    32
                   </td>
                   <td
                     class=""
                   >
-                    <div>
-                      London Park no. 9
-                    </div>
+                    London Park no. 9
                   </td>
                   <td
                     class=""

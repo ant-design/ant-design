@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 3.5.1
+
+`2018-05-09`
+
+- 🐞 Fixed broken style of Input.Group under Form. [#10371](https://github.com/ant-design/ant-design/issues/10371)
+- 🐞 Fixed overlay style of Select. [#10383](https://github.com/ant-design/ant-design/issues/10383)
+- 🐞 Remove focused style of Collapse.
+- 🐞 Remove unnecessary `z-index` of Input.Group and Checkbox. [#9840](https://github.com/ant-design/ant-design/issues/9840) [#10385](https://github.com/ant-design/ant-design/issues/10385)
+- 🐞 Fixed that monospaced font family can't be bold.
+- Table
+  - 💄 Rewrited the editable table demo. [#10119](https://github.com/ant-design/ant-design/pull/10119)
+  - 🐞 Fixed that table column overlay each other. [#9822](https://github.com/ant-design/ant-design/issues/9822)
+- TypeScript
+  - 🐞 Fixed Breadcrumb.Item type. [#10372](https://github.com/ant-design/ant-design/pull/10372) [@karol-majewski](https://github.com/karol-majewski)
+  - 🐞 Fixed Table `rowSelection` type。[#10374](https://github.com/ant-design/ant-design/issues/10374)
+
 ## 3.5.0
 
 `2018-05-04`

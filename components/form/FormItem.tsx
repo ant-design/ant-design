@@ -56,7 +56,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   context: FormItemContext;
 
-  state = { helpShow: false };
+  helpShow = false;
 
   componentDidMount() {
     warning(
@@ -130,7 +130,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
-    this.setState({ helpShow });
+    this.helpShow = helpShow;
+    if (!helpShow) {
+      this.setState({});
+    }
   }
 
   renderHelp() {
@@ -141,6 +144,9 @@ export default class FormItem extends React.Component<FormItemProps, any> {
         {help}
       </div>
     ) : null;
+    if (children) {
+      this.helpShow = !!children;
+    }
     return (
       <Animate
         transitionName="show-help"
@@ -316,7 +322,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
-
     return (
       <Row className={classNames(itemClassName)} style={style}>
         {children}

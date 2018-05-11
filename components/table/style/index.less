@@ -362,6 +362,10 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
 
+    .@{ant-prefix}-checkbox-input {
+      z-index: 1;
+    }
+
     .@{ant-prefix}-dropdown-menu {
       border: 0;
       box-shadow: none;
@@ -505,6 +509,7 @@
     overflow: auto;
     overflow-x: hidden;
     table {
+      width: auto;
       min-width: 100%;
     }
   }

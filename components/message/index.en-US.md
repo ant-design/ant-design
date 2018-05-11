@@ -48,5 +48,5 @@ message.config({
 | -------- | ----------- | ---- | ------- |
 | duration | time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
-| top | distance from top | number | 24px |
+| top | distance from top | number | 24 |
 | maxCount | max message show, drop oldest if exceed limit | number | - |

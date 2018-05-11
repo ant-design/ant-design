@@ -1,3 +1,5 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('table');
+demoTest('table', {
+  skip: process.env.REACT === '15' ? ['edit-row'] : [],
+});

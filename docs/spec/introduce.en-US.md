@@ -32,6 +32,7 @@ We supply a series of design principles, practical patterns and high quality des
 - <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 - <div class="outside-link"><a href="https://github.com/zzuu666/antue" target="_blank">antue (vue)</a></div>
+- <div class="outside-link"><a href="https://github.com/vueComponent/ant-design" target="_blank">vue-antd-ui - Ant Design of Vue.js 2.5.0+</a></div>
 
 ## Who's using Ant Design
 
