@@ -1,3 +1,4 @@
+/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
@@ -34,12 +35,17 @@ function getMessageInstance(callback: (i: any) => void) {
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
+interface MessageType {
+  then: (fill: any, reject: any) => Promise<any>;
+  hide: () => void;
+}
+
 function notice(
   content: React.ReactNode,
   duration: (() => void) | number = defaultDuration,
   type: NoticeType,
   onClose?: () => void,
-) {
+): MessageType {
   const iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -54,24 +60,35 @@ function notice(
   }
 
   const target = key++;
-  getMessageInstance((instance) => {
-    instance.notice({
-      key: target,
-      duration,
-      style: {},
-      content: (
-        <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
-          <Icon type={iconType} />
-          <span>{content}</span>
-        </div>
-      ),
-      onClose,
+  const result = new Promise((resolve) => {
+    const callback =  () => {
+      if (typeof onClose === 'function') {
+        onClose();
+      }
+      return resolve(true);
+    };
+    getMessageInstance((instance) => {
+      instance.notice({
+        key: target,
+        duration,
+        style: {},
+        content: (
+          <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
+            <Icon type={iconType} />
+            <span>{content}</span>
+          </div>
+        ),
+        onClose: callback,
+      });
     });
   });
-  return () => {
-    if (messageInstance) {
-      messageInstance.removeNotice(target);
-    }
+  return {
+    hide: () => {
+      if (messageInstance) {
+        messageInstance.removeNotice(target);
+      }
+    },
+    then: (onFullfilled, onRejected) => result.then(onFullfilled, onRejected),
   };
 }
 
