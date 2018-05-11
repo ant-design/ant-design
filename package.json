@@ -162,7 +162,7 @@
     "stylelint": "9.2.0",
     "stylelint-config-standard": "^18.0.0",
     "typescript": "~2.8.1",
-    "unified": "^6.1.5",
+    "unified": "^7.0.0",
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
   },
