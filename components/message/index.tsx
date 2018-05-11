@@ -41,6 +41,7 @@ interface ThenableArgument {
 interface MessageType {
   (): void;
   then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
+  promise: Promise<any>;
 }
 
 function notice(
@@ -91,6 +92,7 @@ function notice(
     }
   };
   result.then = (filled: ThenableArgument, rejected: ThenableArgument) => closePromise.then(filled, rejected);
+  result.promise = closePromise;
   return result;
 }
 

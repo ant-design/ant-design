@@ -16,7 +16,9 @@ title:
 import { message, Button } from 'antd';
 
 const success = () => {
-  message.loading('Action in progress..', 2.5).then(() => message.success('Loading finished'));
+  message.loading('Action in progress..', 2.5)
+    .then(() => message.success('Loading finished').promise)
+    .then(() => message.info('Loading finished is finished').promise);
 };
 
 ReactDOM.render(
