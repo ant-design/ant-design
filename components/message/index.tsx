@@ -39,7 +39,7 @@ function notice(
   duration: (() => void) | number = defaultDuration,
   type: NoticeType,
   onClose?: () => void,
-): Promise<void> {
+): Promise<() => void> {
   const iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -51,9 +51,6 @@ function notice(
   if (typeof duration === 'function') {
     onClose = duration;
     duration = defaultDuration;
-  }
-  if (onClose) {
-    return notice(content, duration, type).then(onClose);
   }
 
   const target = key++;
@@ -71,7 +68,7 @@ function notice(
       onClose,
     });
   });
-  return Promise.resolve().then(() => {
+  return Promise.resolve(() => {
     if (messageInstance) {
       messageInstance.removeNotice(target);
     }
