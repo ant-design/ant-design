@@ -35,6 +35,11 @@ title: Message
 - `message.config(options)`
 - `message.destroy()`
 
+组件同时提供 then 接口
+- `message[level](content, [duration] ).then(afterClose)`
+- `message[level](content, [duration], onClose ).then(afterClose)`
+其中`message[level]` 是组件已经提供的静态方法。
+
 ### message.config
 
 ```js
