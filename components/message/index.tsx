@@ -86,11 +86,11 @@ function notice(
     });
   });
   const result: any = () => {
-      if (messageInstance) {
-        messageInstance.removeNotice(target);
-      }
+    if (messageInstance) {
+      messageInstance.removeNotice(target);
     }
-  result.then = (onFullfilled: ThenableArgument, onRejected: ThenableArgument) : Promise<any> => closePromise.then(onFullfilled, onRejected);
+  };
+  result.then = (filled: ThenableArgument, rejected: ThenableArgument) => closePromise.then(filled, rejected);
   return result;
 }
 
