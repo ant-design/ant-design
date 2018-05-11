@@ -77,12 +77,11 @@ describe('message', () => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
-    const timerPromise = message.info('whatever', () => {
+    return message.info('whatever', () => {
       // calculate the approximately duration value
       const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
       expect(aboutDuration).toBe(defaultDuration);
-    });
-    return timerPromise;
+    }).then(() => true);
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
