@@ -182,9 +182,9 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       'defaultCollapsed', 'onCollapse', 'breakpoint']);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
-    const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : rawWidth;
+    const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : String(rawWidth || 0);
     // special trigger when collapsedWidth == 0
-    const zeroWidthTrigger = parseFloat(collapsedWidth || 0) === 0 ? (
+    const zeroWidthTrigger = parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>
         <Icon type="bars" />
       </span>
@@ -214,7 +214,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!this.state.below,
-      [`${prefixCls}-zero-width`]: parseFloat(siderWidth || 0) === 0,
+      [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
     });
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
