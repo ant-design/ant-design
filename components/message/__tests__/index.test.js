@@ -47,14 +47,14 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
-  it('should be able to hide manually', async () => {
+  it('should be able to hide manually', () => {
     const hide1 = message.info('whatever', 0);
     const hide2 = message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-    await hide1.then(h => h());
+    hide1();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    await hide2.then(h => h());
+    hide2();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
@@ -86,7 +86,7 @@ describe('message', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
-  it('should hide message correctly', async () => {
+  it('should hide message correctly', () => {
     let hide;
     class Test extends React.Component {
       componentDidMount() {
@@ -98,7 +98,7 @@ describe('message', () => {
     }
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    await hide.then(h => h());
+    hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
