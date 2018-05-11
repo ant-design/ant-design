@@ -61,9 +61,10 @@ function notice(
 
   const target = key++;
   const result = new Promise((resolve) => {
-    onClose = onClose ? onClose : () => undefined;
     const callback =  () => {
-      if (onClose) { onClose(); }
+      if (typeof onClose === 'function') {
+        onClose();
+      }
       return resolve(true);
     };
     getMessageInstance((instance) => {
@@ -77,7 +78,7 @@ function notice(
             <span>{content}</span>
           </div>
         ),
-        callback,
+        onClose: callback,
       });
     });
   });
