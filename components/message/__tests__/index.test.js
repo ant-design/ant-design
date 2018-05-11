@@ -51,10 +51,10 @@ describe('message', () => {
     const hide1 = message.info('whatever', 0);
     const hide2 = message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-    hide1.hide();
+    hide1();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    hide2.hide();
+    hide2();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
@@ -98,7 +98,7 @@ describe('message', () => {
     }
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    hide.hide();
+    hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });

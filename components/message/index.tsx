@@ -35,9 +35,12 @@ function getMessageInstance(callback: (i: any) => void) {
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
+interface ThenableArgument {
+  (_: any): any;
+}
 interface MessageType {
-  then: (fill: any, reject: any) => Promise<any>;
-  hide: () => void;
+  (): void;
+  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
 }
 
 function notice(
@@ -60,7 +63,7 @@ function notice(
   }
 
   const target = key++;
-  const result = new Promise((resolve) => {
+  const closePromise = new Promise((resolve) => {
     const callback =  () => {
       if (typeof onClose === 'function') {
         onClose();
@@ -82,14 +85,13 @@ function notice(
       });
     });
   });
-  return {
-    hide: () => {
+  const result: any = () => {
       if (messageInstance) {
         messageInstance.removeNotice(target);
       }
-    },
-    then: (onFullfilled, onRejected) => result.then(onFullfilled, onRejected),
-  };
+    }
+  result.then = (onFullfilled: ThenableArgument, onRejected: ThenableArgument) : Promise<any> => closePromise.then(onFullfilled, onRejected);
+  return result;
 }
 
 type ConfigContent = React.ReactNode | string;
