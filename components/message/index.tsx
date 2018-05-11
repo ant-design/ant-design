@@ -82,7 +82,7 @@ function notice(
     });
   });
   return {
-    hide : () => {
+    hide: () => {
       if (messageInstance) {
         messageInstance.removeNotice(target);
       }

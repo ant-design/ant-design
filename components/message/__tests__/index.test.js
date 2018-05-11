@@ -51,10 +51,10 @@ describe('message', () => {
     const hide1 = message.info('whatever', 0);
     const hide2 = message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-    hide1();
+    hide1.hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    hide2();
+    hide2.hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
@@ -73,16 +73,16 @@ describe('message', () => {
     message.info('whatever', () => {});
   });
 
-  it('should have the default duration when using the onClose arguments', (done) => {
+  it('should have the default duration when using the onClose arguments', () => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
-    message.info('whatever', () => {
+    const timerPromise = message.info('whatever', () => {
       // calculate the approximately duration value
       const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
       expect(aboutDuration).toBe(defaultDuration);
-      done();
     });
+    return timerPromise;
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
@@ -98,7 +98,7 @@ describe('message', () => {
     }
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    hide();
+    hide.hide();
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
