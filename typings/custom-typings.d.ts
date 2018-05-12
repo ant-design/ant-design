@@ -92,9 +92,9 @@ declare module "*.json" {
   export default value;
 }
 
-declare module "prop-types"
+declare module "prop-types";
 
-declare module "lodash/debounce"
+declare module "lodash/debounce";
 
 declare module "lodash/uniqBy"
 
