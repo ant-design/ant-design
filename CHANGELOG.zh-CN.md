@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.5.2
+
+`2018-05-13`
+
+- 🐞 修复 `Cascader` 的 displayRender 问题。[#10433](https://github.com/ant-design/ant-design/issues/10433)
+- 🐞 修复 `Button` ref 不兼容问题。[#10405](https://github.com/ant-design/ant-design/issues/10405)
+- 🐞 修复 `Table` 过滤器在复选框上不起作用。[#10452](https://github.com/ant-design/ant-design/issues/10452)
+- 🐞 修复 `Form` 表单项校验位置高度时出现抖动问题。[#10445](https://github.com/ant-design/ant-design/issues/10445)
+- 🌟 设置 `Layout` 宽度时，允许使用任何的 CSS 单位。 [#10479](https://github.com/ant-design/ant-design/pull/10479)
+
 ## 3.5.1
 
 `2018-05-09`

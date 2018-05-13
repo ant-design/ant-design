@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.5.2
+
+`2018-05-13`
+
+- 🐞 Fixed `Cascader` displayRender z-index issue. [#10433](https://github.com/ant-design/ant-design/issues/10433)
+- 🐞 Fixed `Button` Types of property 'ref' are incompatible. [#10405](https://github.com/ant-design/ant-design/issues/10405)
+- 🐞 Fixed `Table` filter doesn't work on checkbox click. [#10452](https://github.com/ant-design/ant-design/issues/10452)
+- 🐞 Fixed the height of `Form` item when checks position is dithered. [#10445](https://github.com/ant-design/ant-design/issues/10445)
+- 🌟 Allow to use any CSS units for `Layout` width. [#10479](https://github.com/ant-design/ant-design/pull/10479)
+
 ## 3.5.1
 
 `2018-05-09`
