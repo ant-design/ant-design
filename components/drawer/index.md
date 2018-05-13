@@ -11,6 +11,7 @@ subtitle: 抽屉
 | --- | --- | --- | --- |
 | className | 抽屉的类属性 | string | `drawer` |
 | openClassName | 打开抽屉时的类属性 | string | `drawer-open`|
+| bodyStyle | Drawer 面板 样式 | object | {} |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
