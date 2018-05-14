@@ -107,7 +107,7 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">Kitchen</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.kitchen" />
                 </div>
