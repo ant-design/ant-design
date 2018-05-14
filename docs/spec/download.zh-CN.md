@@ -49,7 +49,7 @@ title: 设计资源
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Kitchen</span>
-      <span class="resource-card-description">一个为设计师提效的 Sketch 工具集，让你的设计秀色可餐</span>
+      <span class="resource-card-description">Sketch 工具集</span>
     </div>
   </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">

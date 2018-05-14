@@ -49,7 +49,7 @@ Please find below some of the design resources and tools about Ant Design that w
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Kitchen</span>
-      <span class="resource-card-description">A Sketch plugin for designers with a collection of great tools</span>
+      <span class="resource-card-description">A Sketch plugin with a collection of great tools</span>
     </div>
   </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">

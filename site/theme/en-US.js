@@ -44,6 +44,7 @@ module.exports = {
     'app.footer.chinamirror': 'China Mirror 🇨🇳',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
+    'app.footer.kitchen': 'Sketch Toolkit',
     'app.footer.scaffolds': 'Scaffold Market',
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.dva': 'Framework',
