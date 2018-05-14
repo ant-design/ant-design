@@ -9,16 +9,8 @@ const options = {
   mainLessFile: path.join(__dirname, '../site/theme/static/index.less'),
   themeVariables: [
     '@primary-color',
-    '@secondary-color',
-    '@text-color',
-    '@text-color-secondary',
-    '@heading-color',
-    '@layout-body-background',
-    '@btn-primary-bg',
-    '@layout-header-background'
   ],
-  indexFileName: false,
-  outputFilePath: path.join(__dirname, '../_site/color.less')
+  outputFilePath: path.join(__dirname, '../_site/color.less'),
 };
 
 generateTheme(options);
