@@ -35,9 +35,10 @@ function getMessageInstance(callback: (i: any) => void) {
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-interface ThenableArgument {
+export interface ThenableArgument {
   (_: any): any;
 }
+
 export interface MessageType {
   (): void;
   then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
