@@ -27,7 +27,7 @@ class Demo extends React.Component {
     const { fileList } = this.state;
     const formData = new FormData();
     fileList.forEach((file) => {
-      formData.append('files[]', file);
+      formData.append('files[]', file.originFileObj);
     });
 
     this.setState({
