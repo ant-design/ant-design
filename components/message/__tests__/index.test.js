@@ -73,15 +73,27 @@ describe('message', () => {
     message.info('whatever', () => {});
   });
 
-  it('should have the default duration when using the onClose arguments', () => {
+  it('should have the default duration when using the onClose arguments', (done) => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
-    return message.info('whatever', () => {
+    message.info('whatever', () => {
       // calculate the approximately duration value
       const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
       expect(aboutDuration).toBe(defaultDuration);
-    }).then(() => true);
+      done();
+    });
+  });
+
+  it('should be called like promise', () => {
+    jest.useRealTimers();
+    const defaultDuration = 3;
+    const now = Date.now();
+    message.info('whatever').then(() => {
+      // calculate the approximately duration value
+      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      expect(aboutDuration).toBe(defaultDuration);
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/8201
