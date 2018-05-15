@@ -38,7 +38,7 @@ type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 interface ThenableArgument {
   (_: any): any;
 }
-interface MessageType {
+export interface MessageType {
   (): void;
   then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
   promise: Promise<any>;
