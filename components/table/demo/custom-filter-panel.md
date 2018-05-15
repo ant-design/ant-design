@@ -33,7 +33,7 @@ const data = [{
   address: 'Sidney No. 1 Lake Park',
 }, {
   key: '4',
-  name: 'Jim Redjim',
+  name: 'Jim Red',
   age: 32,
   address: 'London No. 2 Lake Park',
 }];
