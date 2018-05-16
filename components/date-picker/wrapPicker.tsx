@@ -25,7 +25,7 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
 export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFormat?: string): any {
   return class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
-      format: defaultFormat || 'YYYY-MM-DD',
+      format: defaultFormat,
       transitionName: 'slide-up',
       popupStyle: {},
       onChange() {
@@ -93,7 +93,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
 
     renderPicker = (locale: any, localeCode: string) => {
       const props = this.props;
-      const { prefixCls, inputPrefixCls } = props;
+      const { prefixCls, inputPrefixCls, format } = props;
       const pickerClass = classNames(`${prefixCls}-picker`, {
         [`${prefixCls}-picker-${props.size}`]: !!props.size,
       });
@@ -125,6 +125,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       return (
         <Picker
           {...props}
+          format={format ? format : locale.lang.dateFormat}
           ref={this.savePicker}
           pickerClass={pickerClass}
           pickerInputClass={pickerInputClass}
