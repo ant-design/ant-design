@@ -4,8 +4,8 @@ const { generateTheme } = require('antd-theme-generator');
 
 const options = {
   stylesDir: path.join(__dirname, '../site/theme/static'),
-  antDir: path.join(__dirname, '../node_modules/antd'),
-  varFile: path.join(__dirname, '../node_modules/antd/lib/style/themes/default.less'),
+  antdStylesDir: path.join(__dirname, '../components'),
+  varFile: path.join(__dirname, '../components/style/themes/default.less'),
   mainLessFile: path.join(__dirname, '../site/theme/static/index.less'),
   themeVariables: [
     '@primary-color',
