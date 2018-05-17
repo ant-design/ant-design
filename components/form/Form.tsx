@@ -18,7 +18,7 @@ export interface FormCreateOption<T> {
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-export interface FormProps {
+export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
