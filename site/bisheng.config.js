@@ -83,6 +83,7 @@ module.exports = {
   webpackConfig(config) {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
+      'antd/es': path.join(process.cwd(), 'components'),
       antd: path.join(process.cwd(), 'index'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',

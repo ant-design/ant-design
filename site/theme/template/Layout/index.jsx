@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import 'moment/locale/zh-cn';
+import { LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
@@ -82,11 +85,13 @@ export default class Layout extends React.Component {
 
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <div className="page-wrapper">
-          <Header {...restProps} />
-          {children}
-          <Footer {...restProps} />
-        </div>
+        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+            <Footer {...restProps} />
+          </div>
+        </LocaleProvider>
       </IntlProvider>
     );
   }
