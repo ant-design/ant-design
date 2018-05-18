@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Icon from '../icon';
-import { Omit } from '../_util/type';
 import Group from './button-group';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -39,7 +38,7 @@ export type ButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'default' | 'large';
 
-export interface BaseButtonProps<T> extends Omit<React.HTMLProps<T>, 'ref' | 'size'> {
+export interface BaseButtonProps {
   type?: ButtonType;
   htmlType?: string;
   icon?: string;
@@ -51,11 +50,9 @@ export interface BaseButtonProps<T> extends Omit<React.HTMLProps<T>, 'ref' | 'si
   ghost?: boolean;
 }
 
-export interface AnchorButtonProps extends BaseButtonProps<HTMLAnchorElement> {
-  href: string;
-}
+export type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export interface NativeButtonProps extends BaseButtonProps<HTMLButtonElement> {}
+export type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 

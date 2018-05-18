@@ -8,7 +8,7 @@ import CheckableTag from './CheckableTag';
 
 export { CheckableTagProps } from './CheckableTag';
 
-export interface TagProps {
+export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   color?: string;
