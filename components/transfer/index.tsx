@@ -89,10 +89,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
     lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
-  splitedDataSource: {
+  separatedDataSource: {
     leftDataSource: TransferItem[],
     rightDataSource: TransferItem[],
-  } | null;
+  } | null = null;
 
   constructor(props: TransferProps) {
     super(props);
@@ -111,11 +111,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
     if (nextProps.targetKeys !== this.props.targetKeys ||
       nextProps.dataSource !== this.props.dataSource) {
-      // clear cached splited dataSource
-      this.splitedDataSource = null;
+      // clear cached separated dataSource
+      this.separatedDataSource = null;
 
       if (!nextProps.selectedKeys) {
-        // clear key nolonger existed
+        // clear key no longer existed
         // clear checkedKeys according to targetKeys
         const { dataSource, targetKeys = [] } = nextProps;
 
@@ -145,9 +145,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
-  splitDataSource(props: TransferProps) {
-    if (this.splitedDataSource) {
-      return this.splitedDataSource;
+  separateDataSource(props: TransferProps) {
+    if (this.separatedDataSource) {
+      return this.separatedDataSource;
     }
 
     const { dataSource, rowKey, targetKeys = [] } = props;
@@ -169,12 +169,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
       }
     });
 
-    this.splitedDataSource = {
+    this.separatedDataSource = {
       leftDataSource,
       rightDataSource,
     };
 
-    return this.splitedDataSource;
+    return this.separatedDataSource;
   }
 
   moveTo = (direction: TransferDirection) => {
@@ -335,7 +335,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     } = this.props;
     const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
-    const { leftDataSource, rightDataSource } = this.splitDataSource(this.props);
+    const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
     const leftActive = targetSelectedKeys.length > 0;
     const rightActive = sourceSelectedKeys.length > 0;
 
