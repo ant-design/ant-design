@@ -92,7 +92,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   separatedDataSource: {
     leftDataSource: TransferItem[],
     rightDataSource: TransferItem[],
-  } | null;
+  } | null = null;
 
   constructor(props: TransferProps) {
     super(props);
