@@ -14,6 +14,19 @@ timeline: true
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+## 3.5.3
+
+`2018-05-20`
+
+- 🐞 修复  `Affix` 当 offsetTop === 0, 值将变为 `undefined` 的问题 [#10566](https://github.com/ant-design/ant-design/pull/10566)
+- 🐞 修复 `Menu` item 中的高亮链接颜色 [09d5e36](https://github.com/ant-design/ant-design/commit/09d5e36cfa27e371a7b4d4e68276a279698ea901)
+- 💄 删除多余的图标 [#10583](https://github.com/ant-design/ant-design/pull/10583)
+- 💄 统一 less 的变量命名 [12d3046](https://github.com/ant-design/ant-design/commit/12d3046687a0dcdb51fece08dd2bea64f185cc40)
+- 💄 修正了几处文档错漏
+- TypeScript
+  - 🐞 修复了 `Row` 中 gutter 属性的类型问题 [b7d508e](https://github.com/ant-design/ant-design/commit/b7d508e1662bf20a0cacbe6440a2ce31a65a8a59)
+  - 💄 改进了 `Form` 组件类型 [#10564](https://github.com/ant-design/ant-design/pull/10564)
+  - 💄 改进了 `Button` 和 `Tag` 类型 [1ed9fed](https://github.com/ant-design/ant-design/commit/1ed9fed2cf1c99b947359fafb101b2e58213cb48)
 
 ## 3.5.2
 
