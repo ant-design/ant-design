@@ -19,13 +19,11 @@ There are four kinds of picker:
 - RangePicker
 - WeekPicker
 
-### Localization Configuration
+### Localization
 
-The default locale is en-US,if you need to use other languages,
+The default locale is en-US,if you need to use other languages,Recommend using internationalized components provided by antd at the entrance. Look at: [LocaleProvider](http://ant.design/components/locale-provider/).
 
-Recommend using internationalized components provided by antd at the entrance. Look at: [LocaleProvider](http://ant.design/components/locale-provider/).
-
-If there are special needs (only modifying single component languages)，Please use the parameter: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
+If there are special needs (only modifying single component language)，Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
 // If an internationalized component is used at the entrance，It will cause the following configuration to be invalid
