@@ -359,6 +359,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
+      [`${prefixCls}-picker-show-search`]: !!showSearch,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
