@@ -14,7 +14,6 @@ export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInp
   step?: number | string;
   defaultValue?: number;
   tabIndex?: number;
-  onKeyDown?: React.FormEventHandler<any>;
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
