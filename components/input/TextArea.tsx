@@ -27,6 +27,7 @@ export interface AutoSizeType {
 export interface TextAreaProps extends AbstractInputProps {
   autosize?: boolean | AutoSizeType;
   onPressEnter?: React.FormEventHandler<any>;
+  disabled?: boolean;
 }
 
 export interface TextAreaState {
@@ -38,6 +39,7 @@ export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement
 export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, TextAreaState> {
   static defaultProps = {
     prefixCls: 'ant-input',
+    disabled: false
   };
 
   nextFrameActionId: number;
