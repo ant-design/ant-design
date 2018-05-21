@@ -2,7 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 
-export interface InputNumberProps {
+import { Omit } from '../_util/type';
+
+type OmitAttributes = 'defaultValue' | 'onChange' | 'size';
+
+export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttributes> {
   prefixCls?: string;
   min?: number;
   max?: number;
