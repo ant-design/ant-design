@@ -55,11 +55,16 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof window.ga !== 'undefined') {
-      this.context.router.listen((loc) => {
+    this.context.router.listen((loc) => {
+      if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
-      });
-    }
+      }
+      // eslint-disable-next-line
+      if (typeof window._hmt !== 'undefined') {
+        // eslint-disable-next-line
+        window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
+      }
+    });
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
