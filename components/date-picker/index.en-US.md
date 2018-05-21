@@ -26,7 +26,6 @@ The default locale is en-US, if you need to use other languages, recommend to us
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
-// If LocaleProvider is used at the entrance，it will cause the following configuration to be invalid.
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />
