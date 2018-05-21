@@ -4,9 +4,9 @@ import RcInputNumber from 'rc-input-number';
 
 import { Omit } from '../_util/type';
 
-type OmitAttributes = 'defaultValue' | 'onChange' | 'size';
+type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
 
-export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttributes> {
+export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
   min?: number;
   max?: number;
