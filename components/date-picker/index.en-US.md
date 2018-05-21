@@ -21,7 +21,7 @@ There are four kinds of picker:
 
 ### Localization
 
-The default locale is en-US, if you need to use other languages,Recommend using internationalized components provided by antd at the entrance. Look at: [LocaleProvider](http://ant.design/components/locale-provider/).
+The default locale is en-US, if you need to use other languages, Recommend using internationalized components provided by antd at the entrance. Look at: [LocaleProvider](http://ant.design/components/locale-provider/).
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
