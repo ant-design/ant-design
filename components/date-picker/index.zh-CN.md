@@ -20,6 +20,22 @@ subtitle: 日期选择框
 - RangePicker
 - WeekPicker
 
+### 国际化配置：
+
+默认配置为en-US，如果你需要设置其他语言，
+
+推荐在入口处使用antd提供的国际化组件 [LocaleProvider国际化](http://ant.design/components/locale-provider-cn/)
+
+如有特殊需求（仅修改单一组件的语言），请使用local参数 [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)
+
+```jsx
+// 如果在入口使用了国际化组件，将导致以下配置无效
+import locale from 'antd/lib/date-picker/locale/zh_CN.js';
+
+<DatePicker locale={locale} />
+```
+
+
 **注意：**DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
@@ -47,7 +63,8 @@ subtitle: 日期选择框
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
 | open | 控制弹层是否展开 | boolean | - |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |
-| popupStyle | 格外的弹出日历样式 | object | {} |
+| popupStyle | 额外的弹出日历样式 | object | {} |
+| dropdownClassName | 额外的弹出日历 className | string | - |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string | 无 |
 | style | 自定义输入框样式 | object | {} |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(status) | 无 |
@@ -73,6 +90,8 @@ subtitle: 日期选择框
 | value | 日期 | [moment](http://momentjs.com/) | 无 |
 | onChange | 时间发生变化的回调 | function(date: moment, dateString: string) | 无 |
 | onOk | 点击确定按钮的回调 | function() | - |
+| mode | 日期面板的状态 | `time|date|month|year` | 'date' |
+| onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |
 
 ### MonthPicker
 
