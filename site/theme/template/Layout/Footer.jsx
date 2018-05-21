@@ -107,6 +107,11 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.kitchen" />
+                </div>
+                <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.scaffolds" />
@@ -280,33 +285,12 @@ class Footer extends React.Component {
             </Col>
           </Row>
         </div>
-        <Row className="bottom-bar">
-          <Col md={4} sm={24} />
-          <Col md={20} sm={24}>
-            <span
-              style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
-            >
-              <a
-                href="https://docs.alipay.com/policies/privacy/antfin"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <FormattedMessage id="app.footer.privacy" />
-              </a>
-            </span>
-            <span style={{ marginRight: 24 }}>
-              <a
-                href="https://render.alipay.com/p/f/fd-izto3cem/index.html"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <FormattedMessage id="app.footer.commitment" />
-              </a>
-            </span>
-            <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
-            <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
-          </Col>
-        </Row>
+        <div className="bottom-bar">
+          Made with <span className="heart">❤</span> by
+          <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/afx/blog">
+            <FormattedMessage id="app.footer.company" />
+          </a>
+        </div>
       </footer>
     );
   }

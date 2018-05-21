@@ -38,8 +38,9 @@ export interface InputProps extends AbstractInputProps {
   onKeyUp?: React.FormEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onClick?: React.FormEventHandler<HTMLInputElement>;
-  onFocus?: React.FormEventHandler<HTMLInputElement>;
-  onBlur?: React.FormEventHandler<HTMLInputElement>;
+  onDoubleClick?: React.FormEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
   autoComplete?: string;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;

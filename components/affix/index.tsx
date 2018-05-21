@@ -145,7 +145,9 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     const targetNode = target();
 
     // Backwards support
-    offsetTop = offsetTop || offset;
+    // Fix: if offsetTop === 0, it will get undefined,
+    //   if offsetBottom is type of number, offsetMode will be { top: false, ... }
+    offsetTop = typeof offsetTop === 'undefined' ? offset : offsetTop;
     const scrollTop = getScroll(targetNode, true);
     const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
     const elemOffset = getOffset(affixNode, targetNode);

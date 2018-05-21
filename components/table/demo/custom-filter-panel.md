@@ -63,8 +63,9 @@ class App extends React.Component {
           ...record,
           name: (
             <span>
-              {record.name.split(reg).map((text, i) => (
-                i > 0 ? [<span className="highlight">{match[0]}</span>, text] : text
+              {record.name.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((text, i) => (
+                text.toLowerCase() === searchText.toLowerCase() ?
+                  <span key={i} className="highlight">{text}</span> : text // eslint-disable-line
               ))}
             </span>
           ),
