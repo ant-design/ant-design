@@ -27,7 +27,6 @@ subtitle: 日期选择框
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
 ```jsx
-// 如果在入口使用了国际化组件，将导致以下配置无效
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 
 <DatePicker locale={locale} />
