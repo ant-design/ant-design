@@ -4,7 +4,8 @@ import RcInputNumber from 'rc-input-number';
 
 import { Omit } from '../_util/type';
 
-type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
+// omitting this attrs because they conflicts with the ones defined in InputNumberProps
+export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
 
 export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
