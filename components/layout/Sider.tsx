@@ -42,6 +42,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: number | string;
   collapsedWidth?: number | string;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  onBreakpoint?: (broken: boolean) => void;
 }
 
 export interface SiderState {
@@ -147,6 +148,11 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
 
   responsiveHandler = (mql: MediaQueryList) => {
     this.setState({ below: mql.matches });
+    
+    const { onBreakpoint } = this.props;
+    if (onBreakpoint) {
+      onBreakpoint(mql.matches);
+    }    
     if (this.state.collapsed !== mql.matches) {
       this.setCollapsed(mql.matches, 'responsive');
     }
@@ -179,7 +185,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       ...others,
     } = this.props;
     const divProps = omit(others, ['collapsed',
-      'defaultCollapsed', 'onCollapse', 'breakpoint']);
+      'defaultCollapsed', 'onCollapse', 'breakpoint', 'onBreakpoint']);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
     const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : String(rawWidth || 0);
