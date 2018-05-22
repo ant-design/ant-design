@@ -79,7 +79,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.progressTimer = setInterval(() => {
       curPercent = getPercent(curPercent);
       this.onProgress({
-        percent: curPercent,
+        percent: curPercent * 100,
       }, file);
     }, 200);
   }
