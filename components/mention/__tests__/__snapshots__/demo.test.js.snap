@@ -23,7 +23,7 @@ exports[`renders ./components/mention/demo/async.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-45hsj"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -36,15 +36,15 @@ exports[`renders ./components/mention/demo/async.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="45hsj"
-                data-offset-key="73ap7-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="73ap7-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="73ap7-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -84,7 +84,7 @@ exports[`renders ./components/mention/demo/avatar.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-alcvr"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -97,15 +97,15 @@ exports[`renders ./components/mention/demo/avatar.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="alcvr"
-                data-offset-key="ev69k-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="ev69k-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="ev69k-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -145,7 +145,7 @@ exports[`renders ./components/mention/demo/basic.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-77f9q"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -158,16 +158,16 @@ exports[`renders ./components/mention/demo/basic.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="77f9q"
-                data-offset-key="4u84f-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="4u84f-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span>
                     <span
-                      data-offset-key="4u84f-0-0"
+                      data-offset-key="123-0-0"
                     >
                       <span
                         data-text="true"
@@ -207,7 +207,7 @@ exports[`renders ./components/mention/demo/controllder-simple.md correctly 1`] =
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-ddcl1"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -220,16 +220,16 @@ exports[`renders ./components/mention/demo/controllder-simple.md correctly 1`] =
               <div
                 class=""
                 data-block="true"
-                data-editor="ddcl1"
-                data-offset-key="dq5au-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="dq5au-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span>
                     <span
-                      data-offset-key="dq5au-0-0"
+                      data-offset-key="123-0-0"
                     >
                       <span
                         data-text="true"
@@ -295,7 +295,7 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
                     class="DraftEditor-editorContainer"
                   >
                     <div
-                      aria-describedby="placeholder-btd10"
+                      aria-describedby="placeholder-123"
                       class="notranslate public-DraftEditor-content"
                       contenteditable="true"
                       role="textbox"
@@ -308,16 +308,16 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
                         <div
                           class=""
                           data-block="true"
-                          data-editor="btd10"
-                          data-offset-key="50u81-0-0"
+                          data-editor="123"
+                          data-offset-key="123-0-0"
                         >
                           <div
                             class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                            data-offset-key="50u81-0-0"
+                            data-offset-key="123-0-0"
                           >
                             <span>
                               <span
-                                data-offset-key="50u81-0-0"
+                                data-offset-key="123-0-0"
                               >
                                 <span
                                   data-text="true"
@@ -399,7 +399,7 @@ exports[`renders ./components/mention/demo/custom-tag.md correctly 1`] = `
         >
           <div
             class="public-DraftEditorPlaceholder-inner"
-            id="placeholder-4rfl5"
+            id="placeholder-123"
             style="white-space:pre-wrap"
           >
             @someone
@@ -409,7 +409,7 @@ exports[`renders ./components/mention/demo/custom-tag.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-4rfl5"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -422,15 +422,15 @@ exports[`renders ./components/mention/demo/custom-tag.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="4rfl5"
-                data-offset-key="18dpo-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="18dpo-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="18dpo-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -470,7 +470,7 @@ exports[`renders ./components/mention/demo/multilines.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-8vflv"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -483,15 +483,15 @@ exports[`renders ./components/mention/demo/multilines.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="8vflv"
-                data-offset-key="2dqb5-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="2dqb5-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="2dqb5-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -532,7 +532,7 @@ exports[`renders ./components/mention/demo/multiple-trigger.md correctly 1`] = `
         >
           <div
             class="public-DraftEditorPlaceholder-inner"
-            id="placeholder-fv3s2"
+            id="placeholder-123"
             style="white-space:pre-wrap"
           >
             input @ to mention people, # to mention tag
@@ -542,7 +542,7 @@ exports[`renders ./components/mention/demo/multiple-trigger.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-fv3s2"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -555,15 +555,15 @@ exports[`renders ./components/mention/demo/multiple-trigger.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="fv3s2"
-                data-offset-key="b2p66-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="b2p66-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="b2p66-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -603,7 +603,7 @@ exports[`renders ./components/mention/demo/placement.md correctly 1`] = `
           class="DraftEditor-editorContainer"
         >
           <div
-            aria-describedby="placeholder-7mou3"
+            aria-describedby="placeholder-123"
             class="notranslate public-DraftEditor-content"
             contenteditable="true"
             role="textbox"
@@ -616,15 +616,15 @@ exports[`renders ./components/mention/demo/placement.md correctly 1`] = `
               <div
                 class=""
                 data-block="true"
-                data-editor="7mou3"
-                data-offset-key="955g3-0-0"
+                data-editor="123"
+                data-offset-key="123-0-0"
               >
                 <div
                   class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="955g3-0-0"
+                  data-offset-key="123-0-0"
                 >
                   <span
-                    data-offset-key="955g3-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <br
                       data-text="true"
@@ -680,7 +680,7 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
             >
               <div
                 class="public-DraftEditorPlaceholder-inner"
-                id="placeholder-diotb"
+                id="placeholder-123"
                 style="white-space:pre-wrap"
               >
                 this is disabled Mention
@@ -690,7 +690,7 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
               class="DraftEditor-editorContainer"
             >
               <div
-                aria-describedby="placeholder-diotb"
+                aria-describedby="placeholder-123"
                 class="public-DraftEditor-content"
                 contenteditable="false"
                 spellcheck="false"
@@ -702,15 +702,15 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
                   <div
                     class=""
                     data-block="true"
-                    data-editor="diotb"
-                    data-offset-key="c8imk-0-0"
+                    data-editor="123"
+                    data-offset-key="123-0-0"
                   >
                     <div
                       class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                      data-offset-key="c8imk-0-0"
+                      data-offset-key="123-0-0"
                     >
                       <span
-                        data-offset-key="c8imk-0-0"
+                        data-offset-key="123-0-0"
                       >
                         <br
                           data-text="true"
@@ -752,7 +752,7 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
           >
             <div
               class="public-DraftEditorPlaceholder-inner"
-              id="placeholder-2laoi"
+              id="placeholder-123"
               style="white-space:pre-wrap"
             >
               this is readOnly Mention
@@ -762,7 +762,7 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
             class="DraftEditor-editorContainer"
           >
             <div
-              aria-describedby="placeholder-2laoi"
+              aria-describedby="placeholder-123"
               class="public-DraftEditor-content"
               contenteditable="false"
               spellcheck="false"
@@ -774,15 +774,15 @@ exports[`renders ./components/mention/demo/readonly.md correctly 1`] = `
                 <div
                   class=""
                   data-block="true"
-                  data-editor="2laoi"
-                  data-offset-key="a4p12-0-0"
+                  data-editor="123"
+                  data-offset-key="123-0-0"
                 >
                   <div
                     class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                    data-offset-key="a4p12-0-0"
+                    data-offset-key="123-0-0"
                   >
                     <span
-                      data-offset-key="a4p12-0-0"
+                      data-offset-key="123-0-0"
                     >
                       <br
                         data-text="true"
