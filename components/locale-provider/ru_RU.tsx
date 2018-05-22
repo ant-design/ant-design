@@ -29,7 +29,7 @@ export default {
   Transfer: {
     notFoundContent: 'Ничего не найдено',
     searchPlaceholder: 'Введите название для поиска',
-    itemUnit: 'элемент',
+    itemUnit: 'элем.',
     itemsUnit: 'элем.',
   },
   Select: {
