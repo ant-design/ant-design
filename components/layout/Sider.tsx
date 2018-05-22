@@ -148,7 +148,6 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
 
   responsiveHandler = (mql: MediaQueryList) => {
     this.setState({ below: mql.matches });
-    
     const { onBreakpoint } = this.props;
     if (onBreakpoint) {
       onBreakpoint(mql.matches);
