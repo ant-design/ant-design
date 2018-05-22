@@ -43,18 +43,19 @@ describe('Mention', () => {
   });
 
   it('change suggestions', () => {
+    const container = mount(<div id="container" />);
     const wrapper = mount(
-      <Mention suggestions={['afc163', 'raohai']} />
+      <Mention suggestions={['afc163', 'raohai']} getSuggestionContainer={() => container.getDOMNode()} />
     );
     wrapper.find('DraftEditorContents').simulate('focus');
     const ed = wrapper.find('.public-DraftEditor-content');
     ed.simulate('beforeInput', { data: '@' });
     jest.runAllTimers();
-    expect(wrapper.find('Nav').length).toBe(2);
-    expect(wrapper.find('Nav').first().text()).toBe('afc163');
+    expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item').length).toBe(2);
+    expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item')[0].innerHTML).toBe('afc163');
     wrapper.setState({ suggestions: ['yesmeck', 'yiminghe', 'lucy'] });
     jest.runAllTimers();
-    expect(wrapper.find('Nav').length).toBe(3);
-    expect(wrapper.find('Nav').first().text()).toBe('yesmeck');
+    expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item').length).toBe(3);
+    expect(container.getDOMNode().querySelectorAll('.ant-mention-dropdown-item')[0].innerHTML).toBe('yesmeck');
   });
 });
