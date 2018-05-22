@@ -49,9 +49,11 @@ describe('Mention', () => {
     wrapper.find('DraftEditorContents').simulate('focus');
     const ed = wrapper.find('.public-DraftEditor-content');
     ed.simulate('beforeInput', { data: '@' });
+    jest.runAllTimers();
     expect(wrapper.find('Nav').length).toBe(2);
     expect(wrapper.find('Nav').first().text()).toBe('afc163');
     wrapper.setState({ suggestions: ['yesmeck', 'yiminghe', 'lucy'] });
+    jest.runAllTimers();
     expect(wrapper.find('Nav').length).toBe(3);
     expect(wrapper.find('Nav').first().text()).toBe('yesmeck');
   });
