@@ -151,7 +151,8 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     const { onBreakpoint } = this.props;
     if (onBreakpoint) {
       onBreakpoint(mql.matches);
-    }    
+    }
+    
     if (this.state.collapsed !== mql.matches) {
       this.setCollapsed(mql.matches, 'responsive');
     }
