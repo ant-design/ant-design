@@ -144,6 +144,7 @@
     "pre-commit": "^1.2.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
+    "prettier": "1.12.1",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.4.1",
     "rc-scroll-anim": "^2.2.1",
@@ -169,6 +170,7 @@
     "rimraf": "^2.5.4",
     "scrollama": "^1.4.1",
     "stylelint": "9.4.0",
+    "stylelint-config-prettier": "^3.0.4",
     "stylelint-config-standard": "^18.0.0",
     "typescript": "~2.9.1",
     "unified": "^7.0.0",
@@ -205,7 +207,8 @@
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
-    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
+    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
+    "prettier": "prettier --write ./components/**/*"
   },
   "lint-staged": {
     "components/**/*.tsx": [
