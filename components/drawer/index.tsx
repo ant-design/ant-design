@@ -113,7 +113,7 @@ export default class Drawer extends React.Component<
         showMask={this.props.mask}
         placement={this.props.placement}
       >
-      {this.renderBody()}
+        {this.renderBody()}
       </RcDrawer>
     );
   }

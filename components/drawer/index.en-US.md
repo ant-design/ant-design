@@ -28,5 +28,3 @@ Drawer container
 | zIndex | The `z-index` of the Drawer | Number | 1000 |
 | placement | The direction of the Drawer | 'left' | 'right' | 'left'
 | onClose | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |
-
-
