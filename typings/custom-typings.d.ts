@@ -40,6 +40,8 @@ declare module 'rc-progress';
 
 declare module 'rc-menu';
 
+declare module 'rc-drawer-menu';
+
 declare module 'rc-tabs*';
 
 declare module 'rc-tree';
