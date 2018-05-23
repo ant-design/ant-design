@@ -31,6 +31,8 @@ const dimensionMap = {
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 
+export type SiderTheme = 'light' | 'dark';
+
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   collapsible?: boolean;
@@ -42,6 +44,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: number | string;
   collapsedWidth?: number | string;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  theme?: SiderTheme;
 }
 
 export interface SiderState {
@@ -73,6 +76,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     width: 200,
     collapsedWidth: 80,
     style: {},
+    theme: 'dark' as SiderTheme,
   };
 
   static childContextTypes = {
@@ -174,7 +178,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
   }
 
   render() {
-    const { prefixCls, className,
+    const { prefixCls, className, theme,
       collapsible, reverseArrow, trigger, style, width, collapsedWidth,
       ...others,
     } = this.props;
@@ -210,7 +214,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       minWidth: siderWidth, // https://github.com/ant-design/ant-design/issues/6349
       width: siderWidth,
     };
-    const siderCls = classNames(className, prefixCls, {
+    const siderCls = classNames(className, prefixCls, `${prefixCls}-${theme}`, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!this.state.below,
