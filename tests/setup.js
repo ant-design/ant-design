@@ -5,6 +5,7 @@ if (typeof window !== 'undefined') {
     global.window.innerHeight = height || global.window.innerHeight;
     global.window.dispatchEvent(new Event('resize'));
   };
+  global.window.scrollTo = () => {};
 }
 
 // The built-in requestAnimationFrame and cancelAnimationFrame not working with jest.runFakeTimes()

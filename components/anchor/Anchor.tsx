@@ -6,7 +6,7 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
 import getScroll from '../_util/getScroll';
-import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
+import raf from 'raf';
 
 function getDefaultContainer() {
   return window;
@@ -43,7 +43,6 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
   return cc / 2 * ((t -= 2) * t * t + 2) + b;
 }
 
-const reqAnimFrame = getRequestAnimationFrame();
 const sharpMatcherRegx = /#([^#]+)$/;
 function scrollTo(href: string, offsetTop = 0, getContainer: () => AnchorContainer, callback = () => { }) {
   const container = getContainer();
@@ -67,12 +66,12 @@ function scrollTo(href: string, offsetTop = 0, getContainer: () => AnchorContain
       (container as HTMLElement).scrollTop = nextScrollTop;
     }
     if (time < 450) {
-      reqAnimFrame(frameFunc);
+      raf(frameFunc);
     } else {
       callback();
     }
   };
-  reqAnimFrame(frameFunc);
+  raf(frameFunc);
   history.pushState(null, '', href);
 }
 

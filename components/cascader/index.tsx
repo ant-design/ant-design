@@ -12,7 +12,6 @@ export interface CascaderOptionType {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Array<CascaderOptionType>;
-  __IS_FILTERED_OPTION?: boolean;
   [key: string]: any;
 }
 
@@ -90,7 +89,7 @@ export interface CascaderState {
   inputValue: string;
   value: string[];
   popupVisible: boolean | undefined;
-  flattenOptions: CascaderOptionType[][];
+  flattenOptions: CascaderOptionType[][] | undefined;
 }
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string | undefined) {
@@ -119,7 +118,9 @@ function defaultRenderFilteredOption(
   });
 }
 
-function defaultSortFilteredOption(a: any[], b: any[], inputValue: string, names: FilledFiledNamesType) {
+function defaultSortFilteredOption(
+  a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string, names: FilledFiledNamesType,
+) {
   function callback(elem: CascaderOptionType) {
     return (elem[names.label] as string).indexOf(inputValue) > -1;
   }
@@ -162,7 +163,8 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       inputValue: '',
       inputFocused: false,
       popupVisible: props.popupVisible,
-      flattenOptions: props.showSearch && this.flattenTree(props.options, props.changeOnSelect, props.filedNames),
+      flattenOptions:
+        props.showSearch ? this.flattenTree(props.options, props.changeOnSelect, props.filedNames) : undefined,
     };
   }
 
@@ -180,7 +182,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     }
   }
 
-  handleChange = (value: any, selectedOptions: any[]) => {
+  handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
     this.setState({ inputValue: '' });
     if (selectedOptions[0].__IS_FILTERED_OPTION) {
       const unwrappedValue = value[0];
@@ -232,7 +234,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     this.setState({ inputValue });
   }
 
-  setValue = (value: string[], selectedOptions: any[] = []) => {
+  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -271,9 +273,9 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     filedNames: FiledNamesType | undefined,
     ancestor: CascaderOptionType[] = [],
   ) {
-    const names: FiledNamesType = getFilledFieldNames(filedNames);
-    let flattenOptions: any = [];
-    let childrenName: any = names.children;
+    const names: FilledFiledNamesType = getFilledFieldNames(filedNames);
+    let flattenOptions = [] as CascaderOptionType[][];
+    let childrenName = names.children;
     options.forEach((option) => {
       const path = ancestor.concat(option);
       if (changeOnSelect || !option[childrenName] || !option[childrenName].length) {
@@ -301,18 +303,18 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       render = defaultRenderFilteredOption,
       sort = defaultSortFilteredOption,
     } = showSearch as ShowSearchType;
-    const { flattenOptions, inputValue } = this.state;
+    const { flattenOptions = [], inputValue } = this.state;
     const filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path, names))
       .sort((a, b) => sort(a, b, inputValue, names));
 
     if (filtered.length > 0) {
-      return filtered.map((path: any) => {
+      return filtered.map((path: CascaderOptionType[]) => {
         return {
           __IS_FILTERED_OPTION: true,
           path,
           [names.label]: render(inputValue, path, prefixCls, names),
           [names.value]: path.map((o: CascaderOptionType) => o[names.value]),
-          disabled: path.some((o: CascaderOptionType) => o.disabled),
+          disabled: path.some((o: CascaderOptionType) => !!o.disabled),
         } as CascaderOptionType;
       });
     }
@@ -359,6 +361,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
+      [`${prefixCls}-picker-show-search`]: !!showSearch,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004

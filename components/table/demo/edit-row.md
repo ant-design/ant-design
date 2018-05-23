@@ -39,9 +39,9 @@ const EditableFormRow = Form.create()(EditableRow);
 class EditableCell extends React.Component {
   getInput = () => {
     if (this.props.inputType === 'number') {
-      return <InputNumber size="small" />;
+      return <InputNumber />;
     }
-    return <Input size="small" />;
+    return <Input />;
   };
   render() {
     const {
@@ -60,20 +60,16 @@ class EditableCell extends React.Component {
           return (
             <td {...restProps}>
               {editing ? (
-                <FormItem>
+                <FormItem style={{ margin: 0 }}>
                   {getFieldDecorator(dataIndex, {
-                    rules: [
-                      {
-                        required: true,
-                        message: `Please Input ${title}!`,
-                      },
-                    ],
+                    rules: [{
+                      required: true,
+                      message: `Please Input ${title}!`,
+                    }],
                     initialValue: record[dataIndex],
                   })(this.getInput())}
                 </FormItem>
-              ) : (
-                restProps.children
-              )}
+              ) : restProps.children}
             </td>
           );
         }}
@@ -111,7 +107,7 @@ class EditableTable extends React.Component {
         render: (text, record) => {
           const editable = this.isEditing(record);
           return (
-            <div className="editable-row-operations">
+            <div>
               {editable ? (
                 <span>
                   <EditableContext.Consumer>
@@ -119,6 +115,7 @@ class EditableTable extends React.Component {
                       <a
                         href="javascript:;"
                         onClick={() => this.save(form, record.key)}
+                        style={{ marginRight: 8 }}
                       >
                         Save
                       </a>
@@ -146,8 +143,8 @@ class EditableTable extends React.Component {
   edit(key) {
     this.setState({ editingKey: key });
   }
-  save(from, key) {
-    from.validateFields((error, row) => {
+  save(form, key) {
+    form.validateFields((error, row) => {
       if (error) {
         return;
       }
@@ -199,6 +196,7 @@ class EditableTable extends React.Component {
         bordered
         dataSource={this.state.data}
         columns={columns}
+        rowClassName="editable-row"
       />
     );
   }
@@ -208,7 +206,9 @@ ReactDOM.render(<EditableTable />, mountNode);
 ```
 
 ```css
-.editable-row-operations a {
-  margin-right: 8px;
+.editable-row .ant-form-explain {
+  position: absolute;
+  font-size: 12px;
+  margin-top: -4px;
 }
 ```

@@ -2945,7 +2945,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -2969,9 +2969,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -2979,7 +2977,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3003,9 +3001,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3013,7 +3009,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3037,9 +3033,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3047,7 +3041,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3071,9 +3065,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3081,7 +3073,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3105,9 +3097,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3115,7 +3105,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3139,9 +3129,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3149,7 +3137,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3173,9 +3161,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3183,7 +3169,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3207,9 +3193,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3217,7 +3201,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3241,9 +3225,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
@@ -3251,7 +3233,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3275,9 +3257,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <div
-                      class="editable-row-operations"
-                    >
+                    <div>
                       <a>
                         Edit
                       </a>
