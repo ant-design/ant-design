@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 
@@ -12,10 +11,11 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   color?: string;
+  onTag?: React.DOMAttributes<HTMLDivElement>;
   /** 标签是否可以关闭 */
   closable?: boolean;
   /** 关闭时的回调 */
-  onClose?: Function;
+  onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   /** 动画关闭后的回调 */
   afterClose?: Function;
   style?: React.CSSProperties;
@@ -82,7 +82,11 @@ export default class Tag extends React.Component<TagProps, TagState> {
   }
 
   render() {
-    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
+    const {
+      prefixCls, closable, color, className, children, style,
+      onTag = {}, onClose: _onClose, afterClose: _afterClose,
+      ...divProps,
+    } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
@@ -90,11 +94,6 @@ export default class Tag extends React.Component<TagProps, TagState> {
       [`${prefixCls}-has-color`]: (color && !isPresetColor),
       [`${prefixCls}-close`]: this.state.closing,
     }, className);
-    // fix https://fb.me/react-unknown-prop
-    const divProps = omit(otherProps, [
-      'onClose',
-      'afterClose',
-    ]);
     const tagStyle = {
       backgroundColor: (color && !isPresetColor) ? color : null,
       ...style,
@@ -103,6 +102,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
       <div
         data-show={!this.state.closing}
         {...divProps}
+        {...onTag}
         className={classString}
         style={tagStyle}
       >
