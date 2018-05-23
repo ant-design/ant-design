@@ -146,8 +146,8 @@ class EditableTable extends React.Component {
   edit(key) {
     this.setState({ editingKey: key });
   }
-  save(from, key) {
-    from.validateFields((error, row) => {
+  save(form, key) {
+    form.validateFields((error, row) => {
       if (error) {
         return;
       }
