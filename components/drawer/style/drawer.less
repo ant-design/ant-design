@@ -1,4 +1,5 @@
 @dawer-prefix-cls: ~"@{ant-prefix}-drawer";
+@ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
 .@{dawer-prefix-cls} {
   position: fixed;
@@ -6,6 +7,10 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+
+  >* {
+    transition: all .3s @ease-in-out-circ;
+  }
 
   &-content-wrapper {
     position: absolute;
