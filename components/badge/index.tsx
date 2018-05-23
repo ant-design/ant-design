@@ -92,7 +92,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     // <Badge status="success" />
     if (!children && status) {
       return (
-        <span className={badgeCls} style={styleWithOffset}>
+        <span {...restProps} className={badgeCls} style={styleWithOffset}>
           <span className={statusCls} />
           <span className={`${prefixCls}-status-text`}>{text}</span>
         </span>
