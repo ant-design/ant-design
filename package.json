@@ -143,7 +143,7 @@
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "querystring": "^0.2.0",
-    "rc-drawer-menu": "^1.0.2",
+    "rc-drawer-menu": "^1.0.1",
     "rc-queue-anim": "^1.4.1",
     "rc-scroll-anim": "^2.2.1",
     "rc-tween-one": "^2.0.1",
