@@ -68,7 +68,7 @@ exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
   type="button"
 >
   <span>
-    Display a loading indicator
+    Display a sequence of message
   </span>
 </button>
 `;
