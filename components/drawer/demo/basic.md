@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-第一个对话框。
+第一个抽屉
 
 ## en-US
 
-Basic modal.
+Basic drawer.
 
 ```jsx
 import { Drawer, Button } from 'antd';
