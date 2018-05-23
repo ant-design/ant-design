@@ -28,5 +28,3 @@ title: Drawer
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
 | placement | 抽屉的方向 | 'left' | 'right' | 'left'
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
-
-
