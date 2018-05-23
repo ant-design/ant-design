@@ -20,13 +20,6 @@
     }
   }
   &-left {
-    .@{dawer-prefix-cls} {
-      &-handle {
-        right: -40px;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-        border-radius: 0 4px 4px 0;
-      }
-    }
     &.@{dawer-prefix-cls}-open {
       .@{dawer-prefix-cls} {
         &-wrapper {
@@ -39,11 +32,6 @@
     .@{dawer-prefix-cls} {
       &-content-wrapper {
         right: 0;
-      }
-      &-handle {
-        left: -40px;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
-        border-radius: 4px 0 0 4px;
       }
     }
     &.@{dawer-prefix-cls}-open {
@@ -60,22 +48,8 @@
     .@{dawer-prefix-cls}-content {
       width: 100%;
     }
-    .@{dawer-prefix-cls} {
-      &-handle {
-        left: 50%;
-        margin-left: -20px;
-      }
-    }
   }
   &-top {
-    .@{dawer-prefix-cls} {
-      &-handle {
-        top: auto;
-        bottom: -40px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        border-radius: 0 0 4px 4px;
-      }
-    }
     &.@{dawer-prefix-cls}-open {
       .@{dawer-prefix-cls} {
         &-wrapper {
@@ -88,11 +62,6 @@
     .@{dawer-prefix-cls} {
       &-content-wrapper {
         bottom: 0;
-      }
-      &-handle {
-        top: -40px;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
-        border-radius: 4px 4px 0 0;
       }
     }
     &.@{dawer-prefix-cls}-open {
@@ -111,17 +80,6 @@
       &-mask {
         opacity: 0.3;
         display: block;
-      }
-      &-handle {
-        &-icon {
-          background: transparent;
-          &:before {
-            transform: translateY(5px) rotate(45deg);
-          }
-          &:after {
-            transform: translateY(-5px) rotate(-45deg);
-          }
-        }
       }
     }
   }
