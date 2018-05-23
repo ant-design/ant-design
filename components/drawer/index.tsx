@@ -99,7 +99,7 @@ export default class Drawer extends React.Component<
       <div style={containerStyle} >
         {header}
         {closer}
-        <div className={`${prefixCls}-body`} style={this.props.style}>{this.props.children}</div>;
+        <div className={`${prefixCls}-body`} style={this.props.style}>{this.props.children}</div>
       </div >
     );
   }
