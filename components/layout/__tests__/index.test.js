@@ -55,4 +55,18 @@ describe('Layout', () => {
     );
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
   });
+
+  it('detect ant-layout-sider-dark as default theme', async () => {
+    const wrapper = mount(
+      <Sider>Sider</Sider>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark'));
+  });
+
+  it('detect ant-layout-sider-light when set light theme', async () => {
+    const wrapper = mount(
+      <Sider theme="light">Sider</Sider>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+  });
 });

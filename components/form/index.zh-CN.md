@@ -148,7 +148,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | enum | 枚举类型 | string | - |
 | len | 字段长度 | number | - |
 | max | 最大长度 | number | - |
-| message | 校验文案 | string | - |
+| message | 校验文案 | string\|ReactNode | - |
 | min | 最小长度 | number | - |
 | pattern | 正则表达式校验 | RegExp | - |
 | required | 是否必选 | boolean | `false` |

@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Display
-title: List 
+title: List
 subtitle: 列表
 cols: 1
 ---
@@ -29,6 +29,16 @@ cols: 1
 | pagination | 对应的 `pagination` 配置, 设置 `false` 不显示 | boolean\|object | false |
 | size | list 的尺寸 | `default` \| `middle` \| `small` | `default` |
 | split | 是否展示分割线 | boolean | true |
+
+### pagination
+
+分页的配置项。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
+
+更多配置项，请查看 [`Pagination`](/components/pagination/)。
 
 ### List grid props
 
