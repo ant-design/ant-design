@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
-import { Breadcrumb } from 'antd';
+import Breadcrumb from '../index';
 import { mount } from 'enzyme';
 
 const Apps = () => (
-  <ul className="app-list">
+  <ul className='app-list'>
     <li>
-      <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
+      <Link to='/apps/1'>Application1</Link>：<Link to='/apps/1/detail'>Detail</Link>
     </li>
     <li>
-      <Link to="/apps/2">Application2</Link>：<Link to="/apps/2/detail">Detail</Link>
+      <Link to='/apps/2'>Application2</Link>：<Link to='/apps/2/detail'>Detail</Link>
     </li>
   </ul>
 );
@@ -36,18 +36,18 @@ const Home = withRouter((props) => {
     );
   });
   const breadcrumbItems = [(
-    <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
+    <Breadcrumb.Item key='home'>
+      <Link to='/'>Home</Link>
     </Breadcrumb.Item>
   )].concat(extraBreadcrumbItems);
   return (
-    <div className="demo">
-      <div className="demo-nav">
+    <div className='demo'>
+      <div className='demo-nav'>
         <a onClick={() => history.push('/')}>Home</a>
         <a onClick={() => history.push('/apps')}>Application List</a>
       </div>
       <Switch>
-        <Route path="/apps" component={Apps} />
+        <Route path='/apps' component={Apps} />
         <Route render={() => <span>Home Page</span>} />
       </Switch>
       <Breadcrumb>
@@ -77,5 +77,74 @@ describe('react router', () => {
     wrapper.find('.demo-nav a').at(1).simulate('click');
     expect(wrapper.find('BreadcrumbItem').length).toBe(2);
     expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(1).text()).toBe('Application List');
+  });
+
+  it('react router 3', () => {
+    const routes = [{
+      name: 'home',
+      breadcrumbName: 'Home',
+      path: '/',
+      childRoutes: [
+        {
+          name: 'apps',
+          breadcrumbName: 'Application List',
+          path: 'apps',
+          childRoutes: [
+            {
+              name: 'app',
+              breadcrumbName: 'Application:id',
+              path: ':id',
+              childRoutes: [
+                {
+                  name: 'detail',
+                  breadcrumbName: 'Detail',
+                  path: 'detail',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'apps',
+      breadcrumbName: 'Application List',
+      path: 'apps',
+      childRoutes: [
+        {
+          name: 'app',
+          breadcrumbName: 'Application:id',
+          path: ':id',
+          childRoutes: [
+            {
+              name: 'detail',
+              breadcrumbName: 'Detail',
+              path: 'detail',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'app',
+      breadcrumbName: 'Application:id',
+      path: ':id',
+      childRoutes: [
+        {
+          name: 'detail',
+          breadcrumbName: 'Detail',
+          path: 'detail',
+        },
+      ],
+    },
+    {
+      name: 'detail',
+      breadcrumbName: 'Detail',
+      path: 'detail',
+    }];
+    const wrapper = mount(
+      <Breadcrumb routes={routes} params={{ id: 1 }} />
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });
