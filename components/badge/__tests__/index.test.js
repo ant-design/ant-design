@@ -38,4 +38,28 @@ describe('Badge', () => {
     jest.runAllTimers();
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
   });
+
+  it('should render when count is changed', () => {
+    const wrapper = mount(<Badge count={9} />);
+    wrapper.setProps({ count: 10 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ count: 11 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ count: 11 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ count: 10 });
+    jest.runAllTimers();
+    expect(wrapper).toMatchSnapshot();
+    jest.runAllTimers();
+    wrapper.setProps({ count: 9 });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should be compatible with borderColor style', () => {
+    const wrapper = mount(<Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
