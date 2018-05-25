@@ -81,7 +81,7 @@
     "react-lazy-load": "^3.0.12",
     "react-slick": "~0.23.1",
     "shallowequal": "^1.0.1",
-    "warning": "~3.0.0"
+    "warning": "~4.0.0"
   },
   "devDependencies": {
     "@babel/types": "7.0.0-beta.44",
