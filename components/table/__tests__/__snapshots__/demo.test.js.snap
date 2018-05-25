@@ -2671,11 +2671,12 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
 exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
 <div>
   <button
-    class="ant-btn editable-add-btn"
+    class="ant-btn ant-btn-primary"
+    style="margin-bottom:16px"
     type="button"
   >
     <span>
-      Add
+      Add a row
     </span>
   </button>
   <div
@@ -2758,7 +2759,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell"
                       >
                         <div
-                          class="editable-cell-text-wrapper"
+                          style="padding-right:24px"
                         >
                           Edward King 0
                           <i
@@ -2801,7 +2802,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell"
                       >
                         <div
-                          class="editable-cell-text-wrapper"
+                          style="padding-right:24px"
                         >
                           Edward King 1
                           <i
