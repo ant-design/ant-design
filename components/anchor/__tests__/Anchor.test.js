@@ -28,7 +28,7 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
-  it('Anchor render perfectly for complete href - scoll', () => {
+  it('Anchor render perfectly for complete href - scroll', () => {
     let root = document.getElementById('root');
     if (!root) {
       root = document.createElement('div', { id: 'root' });
