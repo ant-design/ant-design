@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer-menu';
-import { isNull } from 'util';
+import { isNull, isNumber } from 'util';
 
 type EventType =
   | React.MouseEvent<HTMLDivElement>
@@ -22,7 +22,7 @@ export interface IDrawerProps {
   // @todo  下一步增加
   zIndex?: number;
   prefixCls?: string;
-  placement?: 'left' | 'right' ;
+  placement?: 'left' | 'right';
   onClose?: (e: EventType) => void;
 }
 
@@ -96,14 +96,20 @@ export default class Drawer extends React.Component<
     }
     const containerStyle = { width: this.props.width };
     return (
-      <div style={containerStyle} >
+      <div style={containerStyle}>
         {header}
         {closer}
-        <div className={`${prefixCls}-body`} style={this.props.style}>{this.props.children}</div>
-      </div >
+        <div className={`${prefixCls}-body`} style={this.props.style}>
+          {this.props.children}
+        </div>
+      </div>
     );
   }
   render() {
+    let { width } = this.props;
+    if (isNumber(width)) {
+      width = `${width}px`;
+    }
     return (
       <RcDrawer
         {...this.props}
