@@ -83,4 +83,19 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')).toHaveLength(1);
     expect($$('.ant-btn')[0].innerHTML).toContain('OK');
   });
+
+  it('trigger onCancel once when click on cancel button', () => {
+    jest.useFakeTimers();
+    ['info', 'success', 'warning', 'error'].forEach((type) => {
+      Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      expect($$(`.ant-confirm-${type}`)).toHaveLength(1);
+      $$('.ant-btn')[0].click();
+      jest.runAllTimers();
+      expect($$(`.ant-confirm-${type}`)).toHaveLength(0);
+    });
+    jest.useRealTimers();
+  });
 });
