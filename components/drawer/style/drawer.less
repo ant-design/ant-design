@@ -1,5 +1,6 @@
+@import "../../style/themes/default";
+
 @dawer-prefix-cls: ~"@{ant-prefix}-drawer";
-@ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
 .@{dawer-prefix-cls} {
   position: fixed;
@@ -9,7 +10,7 @@
   pointer-events: none;
 
   >* {
-    transition: all .3s @ease-in-out-circ;
+    transition: transform .3s @ease-in-out-circ;
   }
 
   &-content-wrapper {
