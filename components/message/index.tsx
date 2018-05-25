@@ -1,3 +1,4 @@
+/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
@@ -34,12 +35,22 @@ function getMessageInstance(callback: (i: any) => void) {
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
+export interface ThenableArgument {
+  (_: any): any;
+}
+
+export interface MessageType {
+  (): void;
+  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
+  promise: Promise<any>;
+}
+
 function notice(
   content: React.ReactNode,
   duration: (() => void) | number = defaultDuration,
   type: NoticeType,
   onClose?: () => void,
-) {
+): MessageType {
   const iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -54,25 +65,36 @@ function notice(
   }
 
   const target = key++;
-  getMessageInstance((instance) => {
-    instance.notice({
-      key: target,
-      duration,
-      style: {},
-      content: (
-        <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
-          <Icon type={iconType} />
-          <span>{content}</span>
-        </div>
-      ),
-      onClose,
+  const closePromise = new Promise((resolve) => {
+    const callback =  () => {
+      if (typeof onClose === 'function') {
+        onClose();
+      }
+      return resolve(true);
+    };
+    getMessageInstance((instance) => {
+      instance.notice({
+        key: target,
+        duration,
+        style: {},
+        content: (
+          <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
+            <Icon type={iconType} />
+            <span>{content}</span>
+          </div>
+        ),
+        onClose: callback,
+      });
     });
   });
-  return () => {
+  const result: any = () => {
     if (messageInstance) {
       messageInstance.removeNotice(target);
     }
   };
+  result.then = (filled: ThenableArgument, rejected: ThenableArgument) => closePromise.then(filled, rejected);
+  result.promise = closePromise;
+  return result;
 }
 
 type ConfigContent = React.ReactNode | string;
