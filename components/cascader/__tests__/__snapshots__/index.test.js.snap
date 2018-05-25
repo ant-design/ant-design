@@ -215,6 +215,632 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 </div>
 `;
 
+exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
+<Popup
+  action={
+    Array [
+      "click",
+    ]
+  }
+  align={
+    Object {
+      "offset": Array [
+        0,
+        4,
+      ],
+      "overflow": Object {
+        "adjustX": 1,
+        "adjustY": 1,
+      },
+      "points": Array [
+        "tl",
+        "bl",
+      ],
+    }
+  }
+  className=""
+  destroyPopupOnHide={false}
+  getClassNameFromAlign={[Function]}
+  getRootDomNode={[Function]}
+  mask={false}
+  onAlign={[Function]}
+  prefixCls="ant-cascader-menus"
+  style={Object {}}
+  transitionName="slide-up"
+  visible={true}
+>
+  <div>
+    <Animate
+      animation={Object {}}
+      component=""
+      componentProps={Object {}}
+      exclusive={true}
+      onAppear={[Function]}
+      onEnd={[Function]}
+      onEnter={[Function]}
+      onLeave={[Function]}
+      showProp="xVisible"
+      transitionAppear={true}
+      transitionEnter={true}
+      transitionLeave={true}
+      transitionName="slide-up"
+    >
+      <AnimateChild
+        animation={Object {}}
+        key="popup"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName="slide-up"
+      >
+        <Align
+          align={
+            Object {
+              "offset": Array [
+                0,
+                4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tl",
+                "bl",
+              ],
+            }
+          }
+          childrenProps={
+            Object {
+              "visible": "xVisible",
+            }
+          }
+          disabled={false}
+          key="popup"
+          monitorBufferTime={50}
+          monitorWindowResize={true}
+          onAlign={[Function]}
+          target={[Function]}
+          xVisible={true}
+        >
+          <PopupInner
+            className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+            hiddenClassName="ant-cascader-menus-hidden"
+            prefixCls="ant-cascader-menus"
+            style={Object {}}
+            visible={true}
+          >
+            <div
+              className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+              style={Object {}}
+            >
+              <LazyRenderBox
+                className="ant-cascader-menus-content"
+                visible={true}
+              >
+                <Menus
+                  activeValue={Array []}
+                  allowClear={true}
+                  builtinPlacements={
+                    Object {
+                      "bottomLeft": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "bl",
+                        ],
+                      },
+                      "bottomRight": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "br",
+                        ],
+                      },
+                      "topLeft": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "tl",
+                        ],
+                      },
+                      "topRight": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "tr",
+                        ],
+                      },
+                    }
+                  }
+                  defaultFiledNames={
+                    Object {
+                      "children": "children",
+                      "label": "label",
+                      "value": "value",
+                    }
+                  }
+                  disabled={false}
+                  dropdownMenuColumnStyle={
+                    Object {
+                      "width": 0,
+                    }
+                  }
+                  expandTrigger="click"
+                  filedNames={
+                    Object {
+                      "children": "children",
+                      "label": "label",
+                      "value": "value",
+                    }
+                  }
+                  inputPrefixCls="ant-input"
+                  notFoundContent="Not Found"
+                  onChange={[Function]}
+                  onPopupVisibleChange={[Function]}
+                  onSelect={[Function]}
+                  options={
+                    Array [
+                      Object {
+                        "__IS_FILTERED_OPTION": true,
+                        "disabled": false,
+                        "label": Array [
+                          "Jiangsu",
+                          Array [
+                            " / ",
+                            "Nanjing",
+                          ],
+                          Array [
+                            " / ",
+                            "Zhong Hua Men",
+                          ],
+                        ],
+                        "path": Array [
+                          Object {
+                            "children": Array [
+                              Object {
+                                "children": Array [
+                                  Object {
+                                    "label": "Zhong Hua Men",
+                                    "value": "zhonghuamen",
+                                  },
+                                ],
+                                "label": "Nanjing",
+                                "value": "nanjing",
+                              },
+                            ],
+                            "label": "Jiangsu",
+                            "value": "jiangsu",
+                          },
+                          Object {
+                            "children": Array [
+                              Object {
+                                "label": "Zhong Hua Men",
+                                "value": "zhonghuamen",
+                              },
+                            ],
+                            "label": "Nanjing",
+                            "value": "nanjing",
+                          },
+                          Object {
+                            "label": "Zhong Hua Men",
+                            "value": "zhonghuamen",
+                          },
+                        ],
+                        "value": Array [
+                          "jiangsu",
+                          "nanjing",
+                          "zhonghuamen",
+                        ],
+                      },
+                      Object {
+                        "__IS_FILTERED_OPTION": true,
+                        "disabled": false,
+                        "label": Array [
+                          "Zhejiang",
+                          Array [
+                            " / ",
+                            Array [
+                              "Hang",
+                              Array [
+                                <span
+                                  className="ant-cascader-menu-item-keyword"
+                                >
+                                  z
+                                </span>,
+                                "hou",
+                              ],
+                            ],
+                          ],
+                          Array [
+                            " / ",
+                            "West Lake",
+                          ],
+                        ],
+                        "path": Array [
+                          Object {
+                            "children": Array [
+                              Object {
+                                "children": Array [
+                                  Object {
+                                    "label": "West Lake",
+                                    "value": "xihu",
+                                  },
+                                ],
+                                "label": "Hangzhou",
+                                "value": "hangzhou",
+                              },
+                            ],
+                            "label": "Zhejiang",
+                            "value": "zhejiang",
+                          },
+                          Object {
+                            "children": Array [
+                              Object {
+                                "label": "West Lake",
+                                "value": "xihu",
+                              },
+                            ],
+                            "label": "Hangzhou",
+                            "value": "hangzhou",
+                          },
+                          Object {
+                            "label": "West Lake",
+                            "value": "xihu",
+                          },
+                        ],
+                        "value": Array [
+                          "zhejiang",
+                          "hangzhou",
+                          "xihu",
+                        ],
+                      },
+                    ]
+                  }
+                  placeholder="Please select"
+                  popupClassName=""
+                  popupPlacement="bottomLeft"
+                  popupVisible={true}
+                  prefixCls="ant-cascader"
+                  showSearch={
+                    Object {
+                      "filter": [Function],
+                    }
+                  }
+                  transitionName="slide-up"
+                  value={Array []}
+                  visible={true}
+                >
+                  <div>
+                    <ul
+                      className="ant-cascader-menu"
+                      key="0"
+                      style={
+                        Object {
+                          "width": 0,
+                        }
+                      }
+                    >
+                      <li
+                        className="ant-cascader-menu-item"
+                        key="jiangsu,nanjing,zhonghuamen"
+                        onClick={[Function]}
+                        title=""
+                      >
+                        Jiangsu
+                         / 
+                        Nanjing
+                         / 
+                        Zhong Hua Men
+                      </li>
+                      <li
+                        className="ant-cascader-menu-item"
+                        key="zhejiang,hangzhou,xihu"
+                        onClick={[Function]}
+                        title=""
+                      >
+                        Zhejiang
+                         / 
+                        Hang
+                        <span
+                          className="ant-cascader-menu-item-keyword"
+                          key="seperator"
+                        >
+                          z
+                        </span>
+                        hou
+                         / 
+                        West Lake
+                      </li>
+                    </ul>
+                  </div>
+                </Menus>
+              </LazyRenderBox>
+            </div>
+          </PopupInner>
+        </Align>
+      </AnimateChild>
+    </Animate>
+  </div>
+</Popup>
+`;
+
+exports[`Cascader should render not found content 1`] = `
+<Popup
+  action={
+    Array [
+      "click",
+    ]
+  }
+  align={
+    Object {
+      "offset": Array [
+        0,
+        4,
+      ],
+      "overflow": Object {
+        "adjustX": 1,
+        "adjustY": 1,
+      },
+      "points": Array [
+        "tl",
+        "bl",
+      ],
+    }
+  }
+  className=""
+  destroyPopupOnHide={false}
+  getClassNameFromAlign={[Function]}
+  getRootDomNode={[Function]}
+  mask={false}
+  onAlign={[Function]}
+  prefixCls="ant-cascader-menus"
+  style={Object {}}
+  transitionName="slide-up"
+  visible={true}
+>
+  <div>
+    <Animate
+      animation={Object {}}
+      component=""
+      componentProps={Object {}}
+      exclusive={true}
+      onAppear={[Function]}
+      onEnd={[Function]}
+      onEnter={[Function]}
+      onLeave={[Function]}
+      showProp="xVisible"
+      transitionAppear={true}
+      transitionEnter={true}
+      transitionLeave={true}
+      transitionName="slide-up"
+    >
+      <AnimateChild
+        animation={Object {}}
+        key="popup"
+        transitionAppear={true}
+        transitionEnter={true}
+        transitionLeave={true}
+        transitionName="slide-up"
+      >
+        <Align
+          align={
+            Object {
+              "offset": Array [
+                0,
+                4,
+              ],
+              "overflow": Object {
+                "adjustX": 1,
+                "adjustY": 1,
+              },
+              "points": Array [
+                "tl",
+                "bl",
+              ],
+            }
+          }
+          childrenProps={
+            Object {
+              "visible": "xVisible",
+            }
+          }
+          disabled={false}
+          key="popup"
+          monitorBufferTime={50}
+          monitorWindowResize={true}
+          onAlign={[Function]}
+          target={[Function]}
+          xVisible={true}
+        >
+          <PopupInner
+            className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+            hiddenClassName="ant-cascader-menus-hidden"
+            prefixCls="ant-cascader-menus"
+            style={Object {}}
+            visible={true}
+          >
+            <div
+              className="ant-cascader-menus  ant-cascader-menus-placement-bottomLeft "
+              style={Object {}}
+            >
+              <LazyRenderBox
+                className="ant-cascader-menus-content"
+                visible={true}
+              >
+                <Menus
+                  activeValue={Array []}
+                  allowClear={true}
+                  builtinPlacements={
+                    Object {
+                      "bottomLeft": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tl",
+                          "bl",
+                        ],
+                      },
+                      "bottomRight": Object {
+                        "offset": Array [
+                          0,
+                          4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "tr",
+                          "br",
+                        ],
+                      },
+                      "topLeft": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "bl",
+                          "tl",
+                        ],
+                      },
+                      "topRight": Object {
+                        "offset": Array [
+                          0,
+                          -4,
+                        ],
+                        "overflow": Object {
+                          "adjustX": 1,
+                          "adjustY": 1,
+                        },
+                        "points": Array [
+                          "br",
+                          "tr",
+                        ],
+                      },
+                    }
+                  }
+                  defaultFiledNames={
+                    Object {
+                      "children": "children",
+                      "label": "label",
+                      "value": "value",
+                    }
+                  }
+                  disabled={false}
+                  dropdownMenuColumnStyle={
+                    Object {
+                      "height": "auto",
+                      "width": 0,
+                    }
+                  }
+                  expandTrigger="click"
+                  filedNames={
+                    Object {
+                      "children": "children",
+                      "label": "label",
+                      "value": "value",
+                    }
+                  }
+                  inputPrefixCls="ant-input"
+                  notFoundContent="Not Found"
+                  onChange={[Function]}
+                  onPopupVisibleChange={[Function]}
+                  onSelect={[Function]}
+                  options={
+                    Array [
+                      Object {
+                        "disabled": true,
+                        "label": "Not Found",
+                        "value": "ANT_CASCADER_NOT_FOUND",
+                      },
+                    ]
+                  }
+                  placeholder="Please select"
+                  popupClassName=""
+                  popupPlacement="bottomLeft"
+                  popupVisible={true}
+                  prefixCls="ant-cascader"
+                  showSearch={
+                    Object {
+                      "filter": [Function],
+                    }
+                  }
+                  transitionName="slide-up"
+                  value={Array []}
+                  visible={true}
+                >
+                  <div>
+                    <ul
+                      className="ant-cascader-menu"
+                      key="0"
+                      style={
+                        Object {
+                          "height": "auto",
+                          "width": 0,
+                        }
+                      }
+                    >
+                      <li
+                        className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+                        key="ANT_CASCADER_NOT_FOUND"
+                        onClick={[Function]}
+                        title="Not Found"
+                      >
+                        Not Found
+                      </li>
+                    </ul>
+                  </div>
+                </Menus>
+              </LazyRenderBox>
+            </div>
+          </PopupInner>
+        </Align>
+      </AnimateChild>
+    </Animate>
+  </div>
+</Popup>
+`;
+
 exports[`Cascader support controlled mode 1`] = `
 <span
   class="ant-cascader-picker"
