@@ -40,7 +40,6 @@ title: Select
 | maxTagCount | 最多显示多少个 tag | number | - |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
 | mode | 设置 Select 的模式（2.9 之后支持） | 'multiple' \| 'tags' \| 'combobox' | - |
-| multiple | 支持多选（2.9 之后废弃，请使用 `mode`） | boolean | false |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
