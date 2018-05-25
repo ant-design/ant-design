@@ -107,6 +107,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         count={displayCount}
         title={title || count}
         style={styleWithOffset}
+        key="scrollNumber"
       />
     );
 
