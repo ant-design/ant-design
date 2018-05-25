@@ -261,7 +261,7 @@ exports[`DatePicker prop locale should works 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-calendar-cell ant-calendar-last-month-cell"
+                      class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                       role="gridcell"
                       title="December 31, 1999"
                     >
@@ -689,7 +689,7 @@ exports[`DatePicker prop locale should works 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-calendar-cell"
+                      class="ant-calendar-cell ant-calendar-last-day-of-month"
                       role="gridcell"
                       title="January 31, 2000"
                     >
