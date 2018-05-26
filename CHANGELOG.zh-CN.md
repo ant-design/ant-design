@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.5.4
+
+`2018-05-26`
+
+- 🐞 修复 `Cascader` 的 `showSearch` 无效问题。[968488a2](https://github.com/ant-design/ant-design/commit/968488a2fac9bcb16bee9f0c248f49bca00dbec6)
+- 🐞 使 `Badge` 支持 `Tooltip`。[#10626](https://github.com/ant-design/ant-design/issues/10626)
+- 🐞 修复父元素使用 `text-align` 会影响 `Spin` 的问题。[#10643](https://github.com/ant-design/ant-design/pull/10643) [@wmzhong](https://github.com/wmzhong)
+- 💄 `Table` 换行从 `break-all` 改为 `break-word`。[#10655](https://github.com/ant-design/ant-design/pull/10655) [@clinyong](https://github.com/clinyong)
+- 🌟 `Search` 在未定义 `enterButton` 时，点击搜索图标将触发 `onSearch`。 [36ffe7e1](https://github.com/ant-design/ant-design/commit/36ffe7e1dc9d9473c8c68168ab79b7a03a604702)
+
 ## 3.5.3
 
 `2018-05-20`
