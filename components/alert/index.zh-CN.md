@@ -16,7 +16,7 @@ title: Alert
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| afterClose | 关闭动画结束后的回掉 | () => void | - |
+| afterClose | 关闭动画结束后触发的回调函数 | () => void | - |
 | banner | 是否用作顶部公告 | boolean | false |
 | closable | 默认不显示关闭按钮 | boolean | 无 |
 | closeText | 自定义关闭按钮 | string\|ReactNode | 无 |

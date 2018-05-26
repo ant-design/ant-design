@@ -62,14 +62,14 @@ class Banner extends React.PureComponent {
             <p key="p">
               <FormattedMessage id="app.home.introduce" />
             </p>
-            {!isMobile && (
-              <div className="banner-btns" key="buttons">
-                <Link className="banner-btn components" to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-                  <FormattedMessage id="app.home.getting-started" />
-                </Link>
-                <Link className="banner-btn language" to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
-                  <FormattedMessage id="app.home.design-language" />
-                </Link>
+            <div className="banner-btns" key="buttons">
+              <Link className="banner-btn components" to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                <FormattedMessage id="app.home.getting-started" />
+              </Link>
+              <Link className="banner-btn language" to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+                <FormattedMessage id="app.home.design-language" />
+              </Link>
+              {!isMobile && (
                 <GitHubButton
                   key="github-button"
                   size="large"
@@ -77,13 +77,14 @@ class Banner extends React.PureComponent {
                   namespace="ant-design"
                   repo="ant-design"
                 />
-              </div>
-            )}
+              )}
+            </div>
           </QueueAnim>
           {!isMobile && (
             <div className="img-wrapper" key="image">
               <ScrollParallax location="banner" component={BannerImage} animation={{ playScale: [1, 1.5], y: 80 }} />
-            </div>)}
+            </div>
+          )}
         </QueueAnim>
       </div>
     );

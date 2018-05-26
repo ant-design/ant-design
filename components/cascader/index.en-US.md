@@ -42,6 +42,7 @@ Cascade selection box.
 | value | selected value | string\[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
+| filedNames | custom field name for label and value and children | object | `{ label: 'label', value: 'value', children: 'children' }` |
 
 Fields in `showSearch`:
 

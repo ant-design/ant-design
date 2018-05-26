@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import { fileToObject } from '../utils';
 
 describe('Upload', () => {
   // https://github.com/react-component/upload/issues/36
@@ -85,6 +86,43 @@ describe('Upload', () => {
     });
   });
 
+  it('should increase percent automaticly when call autoUpdateProgress in IE', (done) => {
+    let uploadInstance;
+    let lastPercent = -1;
+    const props = {
+      action: 'http://jsonplaceholder.typicode.com/posts/',
+      onChange: ({ file }) => {
+        if (file.percent === 0 && file.status === 'uploading') {
+          // manually call it
+          uploadInstance.autoUpdateProgress(0, file);
+        }
+        if (file.status === 'uploading') {
+          expect(file.percent).toBeGreaterThan(lastPercent);
+          lastPercent = file.percent;
+        }
+        if (file.status === 'done' || file.status === 'error') {
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button>upload</button>
+      </Upload>
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { file: 'foo.png' },
+        ],
+      },
+    });
+
+    uploadInstance = wrapper.instance();
+  });
+
   it('should not stop upload when return value of beforeUpload is not false', (done) => {
     const data = jest.fn();
     const props = {
@@ -109,6 +147,16 @@ describe('Upload', () => {
           { file: 'foo.png' },
         ],
       },
+    });
+  });
+
+  describe('util', () => {
+    it('should be able to copy file instance', () => {
+      const file = new File([], 'aaa.zip');
+      const copiedFile = fileToObject(file);
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
+        expect(key in copiedFile).toBe(true);
+      });
     });
   });
 });

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Button from '../button';
 import { ButtonGroupProps } from '../button/button-group';
-import Icon from '../icon';
 import Dropdown, { DropDownProps } from './dropdown';
 import classNames from 'classnames';
 const ButtonGroup = Button.Group;
@@ -9,7 +8,7 @@ const ButtonGroup = Button.Group;
 export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   type?: 'primary' | 'ghost' | 'dashed';
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<any>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: any;
 }
 
@@ -36,9 +35,9 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       onVisibleChange,
       placement,
       getPopupContainer,
-    };
+    } as DropDownProps;
     if ('visible' in this.props) {
-      (dropdownProps as any).visible = visible;
+      dropdownProps.visible = visible;
     }
 
     return (
@@ -54,9 +53,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
-          <Button type={type}>
-            <Icon type="down" />
-          </Button>
+          <Button type={type} icon="ellipsis" />
         </Dropdown>
       </ButtonGroup>
     );

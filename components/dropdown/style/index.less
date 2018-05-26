@@ -38,7 +38,7 @@
     outline: none;
     position: relative;
     list-style-type: none;
-    padding: 0;
+    padding: 4px 0;
     margin: 0;
     text-align: left;
     background-color: @component-background;
@@ -102,26 +102,12 @@
         }
       }
 
-      &:first-child,
-      &:first-child > a {
-        border-radius: @border-radius-base @border-radius-base 0 0;
-      }
-
-      &:last-child,
-      &:last-child > a {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
-      }
-
-      &:only-child,
-      &:only-child > a {
-        border-radius: @border-radius-base;
-      }
-
       &-divider {
         height: 1px;
         overflow: hidden;
         background-color: @border-color-split;
         line-height: 0;
+        margin: 4px 0;
       }
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
@@ -138,10 +124,6 @@
 
     &-submenu-title {
       padding-right: 26px;
-      &:first-child,
-      &:last-child {
-        border-radius: 0;
-      }
     }
 
     &-submenu-vertical {
@@ -162,13 +144,6 @@
       .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
         color: @disabled-color;
       }
-    }
-    &-submenu:first-child &-submenu-title {
-      border-radius: @border-radius-base @border-radius-base 0 0;
-    }
-
-    &-submenu:last-child &-submenu-title {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
@@ -207,6 +182,9 @@
 .@{dropdown-prefix-cls}-link {
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
+  }
+  .@{iconfont-css-prefix}-ellipsis {
+    text-shadow: 0 0 currentColor;
   }
 }
 

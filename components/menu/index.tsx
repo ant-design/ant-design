@@ -67,6 +67,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     prefixCls: 'ant-menu',
     className: '',
     theme: 'light' as MenuTheme,  // or dark
+    focusable: false,
   };
   static childContextTypes = {
     inlineCollapsed: PropTypes.bool,

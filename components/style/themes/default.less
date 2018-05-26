@@ -323,8 +323,6 @@
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
-// same as @menu-dark-item-active-bg, for naming downgrade compatible, should be deleted in next majoy version
-@menu-dark-item-selected-bg: @primary-color;
 
 // Spin
 // ---
@@ -392,16 +390,16 @@
 @tabs-title-font-size: @font-size-base;
 @tabs-title-font-size-lg: @font-size-lg;
 @tabs-title-font-size-sm: @font-size-base;
-@tabs-ink-bar-bg-color: @primary-color;
-@tab-bar-margin: 0 0 16px 0;
-@tab-horizontal-margin: 0 32px 0 0;
-@tab-vertical-margin: 0 0 16px 0;
-@tab-horizontal-padding: 12px 16px;
-@tab-vertical-padding: 8px 24px;
-@tab-scrolling-size: 32px;
-@tab-highlight-color: @primary-color;
-@tab-hover-color: @primary-5;
-@tab-active-color: @primary-7;
+@tabs-ink-bar-color: @primary-color;
+@tabs-bar-margin: 0 0 16px 0;
+@tabs-horizontal-margin: 0 32px 0 0;
+@tabs-horizontal-padding: 12px 16px;
+@tabs-vertical-padding: 8px 24px;
+@tabs-vertical-margin: 0 0 16px 0;
+@tabs-scrolling-size: 32px;
+@tabs-highlight-color: @primary-color;
+@tabs-hover-color: @primary-5;
+@tabs-active-color: @primary-7;
 
 // BackTop
 // ---
@@ -470,3 +468,5 @@
 @collapse-header-bg:                  @background-color-light;
 @collapse-content-padding:            @padding-md;
 @collapse-content-bg:                 @component-background;
+
+@import "./default.deperated.less";

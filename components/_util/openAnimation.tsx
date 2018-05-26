@@ -1,7 +1,5 @@
 import cssAnimation from 'css-animation';
-import getRequestAnimationFrame, { cancelRequestAnimationFrame } from './getRequestAnimationFrame';
-
-const reqAnimFrame = getRequestAnimationFrame();
+import raf from 'raf';
 
 function animate(node: HTMLElement, show: boolean, done: () => void) {
   let height: number;
@@ -19,16 +17,16 @@ function animate(node: HTMLElement, show: boolean, done: () => void) {
     },
     active() {
       if (requestAnimationFrameId) {
-        cancelRequestAnimationFrame(requestAnimationFrameId);
+        raf.cancel(requestAnimationFrameId);
       }
-      requestAnimationFrameId = reqAnimFrame(() => {
+      requestAnimationFrameId = raf(() => {
         node.style.height = `${show ? height : 0}px`;
         node.style.opacity = show ? '1' : '0';
       });
     },
     end() {
       if (requestAnimationFrameId) {
-        cancelRequestAnimationFrame(requestAnimationFrameId);
+        raf.cancel(requestAnimationFrameId);
       }
       node.style.height = '';
       node.style.opacity = '';

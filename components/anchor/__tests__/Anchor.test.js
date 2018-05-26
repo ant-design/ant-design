@@ -28,7 +28,7 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
-  it('Anchor render perfectly for complete href - scoll', () => {
+  it('Anchor render perfectly for complete href - scroll', () => {
     let root = document.getElementById('root');
     if (!root) {
       root = document.createElement('div', { id: 'root' });
@@ -45,7 +45,8 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('http://www.example.com/#API');
   });
 
-  it('Anchor render perfectly for complete href - scollTo', () => {
+  it('Anchor render perfectly for complete href - scrollTo', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
     let root = document.getElementById('root');
     if (!root) {
       root = document.createElement('div', { id: 'root' });
@@ -60,5 +61,33 @@ describe('Anchor Render', () => {
     );
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
+    expect(scrollToSpy).not.toHaveBeenCalled();
+    await new Promise(resolve => setTimeout(resolve, 50));
+    expect(scrollToSpy).toHaveBeenCalled();
+    expect(wrapper.instance().animating).toBe(true);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    expect(wrapper.instance().animating).toBe(false);
+  });
+
+  it('should remove listener when unmount', async () => {
+    const wrapper = mount(
+      <Anchor>
+        <Link href="#API" title="API" />
+      </Anchor>
+    );
+    const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
+    wrapper.unmount();
+    expect(removeListenerSpy).toHaveBeenCalled();
+  });
+
+  it('should unregister link when unmount children', async () => {
+    const wrapper = mount(
+      <Anchor>
+        <Link href="#API" title="API" />
+      </Anchor>
+    );
+    expect(wrapper.instance().links).toEqual(['#API']);
+    wrapper.setProps({ children: null });
+    expect(wrapper.instance().links).toEqual([]);
   });
 });

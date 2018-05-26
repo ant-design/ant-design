@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Tab can be slide to left or right(up or down), which is used for a lot of tabs.
+In order to fit in more tabs, they can slide left and right (or up and down).
 
 ````jsx
 import { Tabs, Radio } from 'antd';

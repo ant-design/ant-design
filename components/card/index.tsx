@@ -133,7 +133,7 @@ export default class Card extends React.Component<CardProps, CardState> {
   }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle, noHovering, hoverable, title, loading,
+      prefixCls = 'ant-card', className, extra, bodyStyle = {}, noHovering, hoverable, title, loading,
       bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others,
     } = this.props;
 
@@ -148,8 +148,14 @@ export default class Card extends React.Component<CardProps, CardState> {
       [`${prefixCls}-type-${type}`]: !!type,
     });
 
+    const loadingBlockStyle = (bodyStyle.padding === 0 || bodyStyle.padding === '0px')
+      ? { padding: 24 } : undefined;
+
     const loadingBlock = (
-      <div className={`${prefixCls}-loading-content`}>
+      <div
+        className={`${prefixCls}-loading-content`}
+        style={loadingBlockStyle}
+      >
         <Row gutter={8}>
           <Col span={22}>
             <div className={`${prefixCls}-loading-block`} />

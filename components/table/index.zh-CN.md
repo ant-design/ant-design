@@ -213,7 +213,7 @@ class NameColumn extends Table.Column<IUser> {}
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 
-![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+![控制台警告](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
 // 比如你的数据主键是 uid

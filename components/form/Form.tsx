@@ -18,7 +18,7 @@ export interface FormCreateOption<T> {
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-export interface FormProps {
+export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
   onSubmit?: React.FormEventHandler<any>;
@@ -115,10 +115,14 @@ export interface FormComponentProps {
   form: WrappedFormUtils;
 }
 
+export interface RcBaseFormProps {
+   wrappedComponentRef?: any;
+}
+
 export interface ComponentDecorator {
   <P extends FormComponentProps>(
     component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<Omit<P, keyof FormComponentProps>>;
+  ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
 }
 
 export default class Form extends React.Component<FormProps, any> {

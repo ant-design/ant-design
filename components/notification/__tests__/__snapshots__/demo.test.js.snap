@@ -73,7 +73,7 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -88,6 +88,17 @@ exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
     </span>
   </button>
 </div>
+`;
+
+exports[`renders ./components/notification/demo/update.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the notification box
+  </span>
+</button>
 `;
 
 exports[`renders ./components/notification/demo/with-btn.md correctly 1`] = `

@@ -179,7 +179,7 @@ If you see logs like below screenshot, you might be importing all components by 
 You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
 ```
 
-> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+> ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
 However, we can import individual components on demand:
 

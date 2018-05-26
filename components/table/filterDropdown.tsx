@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
+import shallowequal from 'shallowequal';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
@@ -43,7 +44,15 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
       selectedKeys: string[];
       visible: boolean;
     };
-    if ('selectedKeys' in nextProps) {
+
+    /**
+     * if the state is visible the component should ignore updates on selectedKeys prop to avoid
+     * that the user selection is lost
+     * this happens frequently when a table is connected on some sort of realtime data
+     * Fixes https://github.com/ant-design/ant-design/issues/10289 and
+     * https://github.com/ant-design/ant-design/issues/10209
+     */
+    if ('selectedKeys' in nextProps && !shallowequal(this.props.selectedKeys, nextProps.selectedKeys)) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
@@ -106,12 +115,11 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
 
   renderMenuItem(item: ColumnFilterItem) {
     const { column } = this.props;
+    const { selectedKeys } = this.state;
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-    const input = multiple ? (
-      <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-    ) : (
-      <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-    );
+    const input = multiple
+      ? <Checkbox checked={selectedKeys.indexOf(item.value.toString()) >= 0} />
+      : <Radio checked={selectedKeys.indexOf(item.value.toString()) >= 0} />;
 
     return (
       <MenuItem key={item.value}>
@@ -145,7 +153,7 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   handleMenuItemClick = (info: { keyPath: string, key: string }) => {
-    if (info.keyPath.length <= 1) {
+    if (!info.keyPath || info.keyPath.length <= 1) {
       return;
     }
     const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;

@@ -22,17 +22,10 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-export type BreakpointMap = {
-  xs?: string;
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-  xxl?: string
-};
+export type BreakpointMap = Partial<Record<Breakpoint, string>>;
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-  gutter?: number | BreakpointMap;
+  gutter?: number | Partial<Record<Breakpoint, number>>;
   type?: 'flex';
   align?: 'top' | 'middle' | 'bottom';
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';

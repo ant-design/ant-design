@@ -213,7 +213,7 @@ According to [React documentation](https://facebook.github.io/react/docs/lists-a
 
 If `dataSource[i].key` is not provided, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
 
-![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+![console warning](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
 // primary key is uid

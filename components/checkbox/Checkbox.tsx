@@ -35,7 +35,7 @@ export interface CheckboxChangeEvent {
   target: CheckboxChangeEventTarget;
   stopPropagation: () => void;
   preventDefault: () => void;
-  nativeEvent: MouseEvent;
+  nativeEvent: Event;
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, {}> {

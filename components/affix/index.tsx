@@ -38,8 +38,7 @@ function getOffset(element: HTMLElement, target: HTMLElement | Window | null) {
 function noop() {}
 
 function getDefaultTarget() {
-  return typeof window !== 'undefined' ?
-    window : null;
+  return typeof window !== 'undefined' ? window : null;
 }
 
 // Affix
@@ -145,7 +144,9 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     const targetNode = target();
 
     // Backwards support
-    offsetTop = offsetTop || offset;
+    // Fix: if offsetTop === 0, it will get undefined,
+    //   if offsetBottom is type of number, offsetMode will be { top: false, ... }
+    offsetTop = typeof offsetTop === 'undefined' ? offset : offsetTop;
     const scrollTop = getScroll(targetNode, true);
     const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
     const elemOffset = getOffset(affixNode, targetNode);
@@ -162,9 +163,6 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
       offsetMode.top = true;
       offsetTop = 0;
-    } else {
-      offsetMode.top = typeof offsetTop === 'number';
-      offsetMode.bottom = typeof offsetBottom === 'number';
     }
 
     const targetRect = getTargetRect(targetNode);
