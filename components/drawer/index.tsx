@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer-menu';
 import { isNull, isNumber } from 'util';
+import PropTypes from 'prop-types';
 
 type EventType =
   | React.MouseEvent<HTMLDivElement>
@@ -8,7 +9,6 @@ type EventType =
 
 export interface IDrawerProps {
   closable?: boolean;
-  // @todo  下一步增加
   destroyOnClose?: boolean;
   getContainer?: HTMLElement;
   maskClosable?: boolean;
@@ -19,7 +19,6 @@ export interface IDrawerProps {
   visible?: boolean;
   width?: number | string;
   wrapClassName?: string;
-  // @todo  下一步增加
   zIndex?: number;
   prefixCls?: string;
   placement?: 'left' | 'right';
@@ -34,9 +33,26 @@ export default class Drawer extends React.Component<
   IDrawerProps,
   IDrawerState
 > {
+  static propTypes = {
+    closable: PropTypes.bool,
+    destroyOnClose: PropTypes.bool,
+    getContainer: HTMLElement,
+    maskClosable: PropTypes.bool,
+    mask: PropTypes.bool,
+    maskStyle: PropTypes.object,
+    style: PropTypes.object,
+    title: PropTypes.node,
+    visible: PropTypes.bool,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    wrapClassName: PropTypes.string,
+    zIndex: PropTypes.number,
+    prefixCls: PropTypes.string,
+    placement: PropTypes.string,
+    onClose: PropTypes.func,
+  };
   static defaultProps = {
     prefixCls: 'ant-drawer',
-    width: 325,
+    width: 256,
     closable: true,
   };
   static getDerivedStateFromProps(
@@ -73,6 +89,9 @@ export default class Drawer extends React.Component<
     this.close(e);
   }
   renderBody = () => {
+    if (this.props.destroyOnClose && this.props.visible) {
+      return null;
+    }
     const { prefixCls, title, closable } = this.props;
     let header;
     if (title) {
@@ -106,18 +125,19 @@ export default class Drawer extends React.Component<
     );
   }
   render() {
-    let { width } = this.props;
+    let { width, zIndex, style, ...rest } = this.props;
     if (isNumber(width)) {
       width = `${width}px`;
     }
     return (
       <RcDrawer
-        {...this.props}
+        {...rest}
         handleChild={false}
         open={this.state.visible}
         onMaskClick={this.close}
         showMask={this.props.mask}
         placement={this.props.placement}
+        style={{ zIndex: zIndex }}
       >
         {this.renderBody()}
       </RcDrawer>
