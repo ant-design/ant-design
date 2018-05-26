@@ -77,4 +77,14 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toBeCalledWith('search text');
   });
+
+  it('should trigger onSearch when press enter', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" onSearch={onSearch} />
+    );
+    wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
 });
