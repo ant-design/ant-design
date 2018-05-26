@@ -14,10 +14,10 @@ timeline: true
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
 ## 3.5.3
 
 `2018-05-20`
-
 
 - 🐞 修复了 `Affix` 当 `offsetTop === 0`, 值将变为 `undefined` 的问题 [#10566](https://github.com/ant-design/ant-design/pull/10566)
 - 🐞 修复了 `Menu` item 中的高亮链接颜色问题 [09d5e36](https://github.com/ant-design/ant-design/commit/09d5e36cfa27e371a7b4d4e68276a279698ea901)
@@ -459,11 +459,11 @@ timeline: true
 
 `2017-12-04`
 
-更多内容见 [Ant Design 3.0 发布公告](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)！
+更多内容见 [Ant Design 3.0 发布公告](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)。
 
 ### 主要变化
 
-- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes)，组件主色由 『`#108EE9`』 改为 『`#1890FF`』，新主色我们称之为『拂晓蓝』。
+- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes)，组件主色由『`#108EE9`』改为『`#1890FF`』，新主色我们称之为『拂晓蓝』。
 - 全新的视觉样式和组件尺寸，更现代更美观。
 - 基础字体大小由 `12px` 增大到 `14px`。
 - 默认语言由中文改为英文。
@@ -474,6 +474,8 @@ timeline: true
 - 新增 30 个[图标](https://ant.design/components/icon-cn/)。
 
 ### 不兼容改动
+
+> 如果你从 2.x 升级到 3.x，建议直接升级到 3.x 的最新版本。
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
 
@@ -521,7 +523,7 @@ timeline: true
 
 - Form 下的表单控件不再默认为 `size="large"`。
 - `Input.Search` 默认的 🔍 图标只作为装饰，不再响应用户交互。需要添加可交互按钮请使用 `enterButton`。
-- UMD 版本的  `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
+- UMD 版本的 `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
   ```diff
   <html>
     <head>

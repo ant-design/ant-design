@@ -14,6 +14,7 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
 ## 3.5.3
 
 `2018-05-20`
@@ -456,7 +457,7 @@ Happy 2018 !~ 2018 2018 2018 coming!~~~
 
 `2017-12-04`
 
-Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)!
+Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c).
 
 ### Major Changes
 
