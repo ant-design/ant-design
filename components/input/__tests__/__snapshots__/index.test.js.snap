@@ -34,6 +34,7 @@ exports[`Input.Search should support suffix 1`] = `
         "suffix",
         <Icon
           className="ant-input-search-icon"
+          onClick={[Function]}
           type="search"
         />,
       ]
@@ -57,10 +58,12 @@ exports[`Input.Search should support suffix 1`] = `
         <Icon
           className="ant-input-search-icon"
           key="searchIcon"
+          onClick={[Function]}
           type="search"
         >
           <i
             className="anticon anticon-search ant-input-search-icon"
+            onClick={[Function]}
           />
         </Icon>
       </span>

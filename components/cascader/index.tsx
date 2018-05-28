@@ -219,7 +219,9 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     // Prevent `Trigger` behaviour.
     if (inputFocused || popupVisible) {
       e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
+      if (e.nativeEvent.stopImmediatePropagation) {
+        e.nativeEvent.stopImmediatePropagation();
+      }
     }
   }
 

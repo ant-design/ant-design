@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Button from '../button';
 
-function noop() {
-}
-
 export interface TransferOperationProps {
   className?: string;
   leftArrowText?: string;
@@ -17,8 +14,8 @@ export interface TransferOperationProps {
 export default class Operation extends React.Component<TransferOperationProps, any> {
   render() {
     const {
-      moveToLeft = noop,
-      moveToRight = noop,
+      moveToLeft,
+      moveToRight,
       leftArrowText = '',
       rightArrowText = '',
       leftActive,

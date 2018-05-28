@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
-import { Breadcrumb } from 'antd';
 import { mount } from 'enzyme';
+import Breadcrumb from '../index';
 
 const Apps = () => (
   <ul className="app-list">
@@ -77,5 +77,74 @@ describe('react router', () => {
     wrapper.find('.demo-nav a').at(1).simulate('click');
     expect(wrapper.find('BreadcrumbItem').length).toBe(2);
     expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(1).text()).toBe('Application List');
+  });
+
+  it('react router 3', () => {
+    const routes = [{
+      name: 'home',
+      breadcrumbName: 'Home',
+      path: '/',
+      childRoutes: [
+        {
+          name: 'apps',
+          breadcrumbName: 'Application List',
+          path: 'apps',
+          childRoutes: [
+            {
+              name: 'app',
+              breadcrumbName: 'Application:id',
+              path: ':id',
+              childRoutes: [
+                {
+                  name: 'detail',
+                  breadcrumbName: 'Detail',
+                  path: 'detail',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'apps',
+      breadcrumbName: 'Application List',
+      path: 'apps',
+      childRoutes: [
+        {
+          name: 'app',
+          breadcrumbName: 'Application:id',
+          path: ':id',
+          childRoutes: [
+            {
+              name: 'detail',
+              breadcrumbName: 'Detail',
+              path: 'detail',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'app',
+      breadcrumbName: 'Application:id',
+      path: ':id',
+      childRoutes: [
+        {
+          name: 'detail',
+          breadcrumbName: 'Detail',
+          path: 'detail',
+        },
+      ],
+    },
+    {
+      name: 'detail',
+      breadcrumbName: 'Detail',
+      path: 'detail',
+    }];
+    const wrapper = mount(
+      <Breadcrumb routes={routes} params={{ id: 1 }} />
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

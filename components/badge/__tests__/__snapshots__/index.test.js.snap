@@ -196,7 +196,7 @@ exports[`Badge should render when count is changed 1`] = `
     >
       <AnimateChild
         animation={Object {}}
-        key="rc_animate_1527238793036"
+        key="scrollNumber"
         transitionAppear={true}
         transitionEnter={true}
         transitionLeave={true}
@@ -206,7 +206,7 @@ exports[`Badge should render when count is changed 1`] = `
           className="ant-badge-count ant-badge-multiple-words"
           count={10}
           data-show={true}
-          key="rc_animate_1527238793036"
+          key="scrollNumber"
           onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={10}
@@ -445,7 +445,7 @@ exports[`Badge should render when count is changed 2`] = `
     >
       <AnimateChild
         animation={Object {}}
-        key="rc_animate_1527238793036"
+        key="scrollNumber"
         transitionAppear={true}
         transitionEnter={true}
         transitionLeave={true}
@@ -455,7 +455,7 @@ exports[`Badge should render when count is changed 2`] = `
           className="ant-badge-count ant-badge-multiple-words"
           count={11}
           data-show={true}
-          key="rc_animate_1527238793036"
+          key="scrollNumber"
           onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
@@ -887,7 +887,7 @@ exports[`Badge should render when count is changed 3`] = `
     >
       <AnimateChild
         animation={Object {}}
-        key="rc_animate_1527238793036"
+        key="scrollNumber"
         transitionAppear={true}
         transitionEnter={true}
         transitionLeave={true}
@@ -897,7 +897,7 @@ exports[`Badge should render when count is changed 3`] = `
           className="ant-badge-count ant-badge-multiple-words"
           count={11}
           data-show={true}
-          key="rc_animate_1527238793036"
+          key="scrollNumber"
           onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={11}
@@ -1329,7 +1329,7 @@ exports[`Badge should render when count is changed 4`] = `
     >
       <AnimateChild
         animation={Object {}}
-        key="rc_animate_1527238793036"
+        key="scrollNumber"
         transitionAppear={true}
         transitionEnter={true}
         transitionLeave={true}
@@ -1339,7 +1339,7 @@ exports[`Badge should render when count is changed 4`] = `
           className="ant-badge-count ant-badge-multiple-words"
           count={10}
           data-show={true}
-          key="rc_animate_1527238793036"
+          key="scrollNumber"
           onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={10}
@@ -1771,7 +1771,7 @@ exports[`Badge should render when count is changed 5`] = `
     >
       <AnimateChild
         animation={Object {}}
-        key="rc_animate_1527238793036"
+        key="scrollNumber"
         transitionAppear={true}
         transitionEnter={true}
         transitionLeave={true}
@@ -1781,7 +1781,7 @@ exports[`Badge should render when count is changed 5`] = `
           className="ant-badge-count"
           count={9}
           data-show={true}
-          key="rc_animate_1527238793036"
+          key="scrollNumber"
           onAnimated={[Function]}
           prefixCls="ant-scroll-number"
           title={9}
