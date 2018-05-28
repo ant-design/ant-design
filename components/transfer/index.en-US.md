@@ -22,7 +22,9 @@ One or more elements can be selected from either column, one click on the proper
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean |  |
 | footer | A function used for rendering the footer. | (props): ReactNode |  |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |
+| style | A custom CSS style used for rendering wrapper element. | object |  |
 | listStyle | A custom CSS style used for rendering the transfer columns. | object |  |
+| operationStyle | A custom CSS style used for rendering the operations column. | object |  |
 | notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty' |
 | operations | A set of operations that are sorted from bottom to top. | string\[] | ['>', '<'] |
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | Function(record) |  |
