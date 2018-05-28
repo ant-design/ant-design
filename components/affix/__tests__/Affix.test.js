@@ -33,6 +33,7 @@ class AffixMounter extends React.Component {
           <Affix
             target={() => this.container}
             ref={ele => this.affix = ele}
+            {...this.props}
           >
             <Button type="primary" >
               Fixed at the top of container
@@ -82,5 +83,21 @@ describe('Affix Render', () => {
 
     scrollTo(0);
     expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+  });
+
+  it('support offsetBottom', () => {
+    document.body.innerHTML = '<div id="mounter" />';
+
+    wrapper = mount(<AffixMounter offsetBottom={0} />, { attachTo: document.getElementById('mounter') });
+    jest.runAllTimers();
+
+    scrollTo(0);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+
+    scrollTo(100);
+    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+
+    scrollTo(0);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
   });
 });
