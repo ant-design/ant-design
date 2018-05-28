@@ -35,6 +35,13 @@ title: Message
 - `message.config(options)`
 - `message.destroy()`
 
+组件同时提供 promise 接口
+
+- `message[level](content, [duration]).then(afterClose)`
+- `message[level](content, [duration], onClose).then(afterClose)`
+
+其中`message[level]` 是组件已经提供的静态方法。`then` 接口返回值是 Promise 。
+
 ### message.config
 
 ```js

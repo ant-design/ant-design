@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { PaginationProps } from '../pagination';
 import { SpinProps } from '../spin';
 import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
+import { PaginationConfig } from '../pagination';
+export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = ((a: T, b: T, sortOrder?: 'ascend' | 'descend') => number);
 export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
@@ -61,10 +62,6 @@ export interface TableLocale {
 export type RowSelectionType = 'checkbox' | 'radio';
 export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
 
-export interface TablePaginationConfig extends PaginationProps {
-  position?: 'top' | 'bottom' | 'both';
-}
-
 export type TableSelectWay = 'onSelect' | 'onSelectAll' | 'onSelectInvert';
 
 export interface TableRowSelection<T> {
@@ -85,7 +82,7 @@ export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
-  pagination?: TablePaginationConfig | false;
+  pagination?: PaginationConfig | false;
   size?: 'default' | 'middle' | 'small';
   dataSource?: T[];
   components?: TableComponents;
@@ -101,7 +98,7 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: string[], sorter: Object) => any;
+  onChange?: (pagination: PaginationConfig | boolean, filters: string[], sorter: Object) => any;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
@@ -126,7 +123,7 @@ export interface TableStateFilters {
 }
 
 export interface TableState<T> {
-  pagination: TablePaginationConfig;
+  pagination: PaginationConfig;
   filters: TableStateFilters;
   sortColumn: ColumnProps<T> | null;
   sortOrder: 'ascend' | 'descend' | undefined;
