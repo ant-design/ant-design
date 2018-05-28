@@ -19,9 +19,7 @@ timeline: true
 
 `2018-05-28`
 
-- 🐞 `warning` 降级回 3.0.0 [#10668](https://github.com/ant-design/ant-design/pull/10668)
-
-
+- 🐞 `warning` 降级回 3.0.0，以修复 minifying 时报错的问题。 [#10668](https://github.com/ant-design/ant-design/pull/10668)
 
 ## 3.5.4
 
