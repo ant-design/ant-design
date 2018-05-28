@@ -9,6 +9,7 @@ export interface TransferOperationProps {
   moveToRight?: React.FormEventHandler<HTMLButtonElement>;
   leftActive?: boolean;
   rightActive?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default class Operation extends React.Component<TransferOperationProps, any> {
