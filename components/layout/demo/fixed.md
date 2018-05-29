@@ -20,7 +20,7 @@ const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
   <Layout>
-    <Header style={{ position: 'fixed', width: '100%' }}>
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
       <Menu
         theme="dark"
