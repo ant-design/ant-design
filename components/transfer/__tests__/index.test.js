@@ -248,4 +248,30 @@ describe('Transfer', () => {
     const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should add custom styles when their props are provided', () => {
+    const style = {
+      backgroundColor: 'red',
+    };
+    const listStyle = {
+      backgroundColor: 'blue',
+    };
+    const operationStyle = {
+      backgroundColor: 'yellow',
+    };
+
+    const wrapper = render(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
+
+    const outterWrap = wrapper[0];
+    const listSource = outterWrap.children[0];
+    const operation = outterWrap.children[1];
+    const listTarget = outterWrap.children[2];
+
+    expect(outterWrap.attribs.style).toBe('background-color:red');
+    expect(listSource.attribs.style).toBe('background-color:blue');
+    expect(operation.attribs.style).toBe('background-color:yellow');
+    expect(listTarget.attribs.style).toBe('background-color:blue');
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
