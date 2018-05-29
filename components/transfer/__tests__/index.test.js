@@ -260,18 +260,16 @@ describe('Transfer', () => {
       backgroundColor: 'yellow',
     };
 
-    const wrapper = render(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
+    const component = mount(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
 
-    const outterWrap = wrapper[0];
-    const listSource = outterWrap.children[0];
-    const operation = outterWrap.children[1];
-    const listTarget = outterWrap.children[2];
+    const wrapper = component.find('.ant-transfer');
+    const listSource = component.find('.ant-transfer-list').first();
+    const listTarget = component.find('.ant-transfer-list').last();
+    const operation = component.find('.ant-transfer-operation').first();
 
-    expect(outterWrap.attribs.style).toBe('background-color:red');
-    expect(listSource.attribs.style).toBe('background-color:blue');
-    expect(operation.attribs.style).toBe('background-color:yellow');
-    expect(listTarget.attribs.style).toBe('background-color:blue');
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
+    expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
 });
