@@ -190,7 +190,7 @@ class DragSortingTable extends React.Component {
   }
 }
 
-const Demo = DragDropContext(HTML5Backend, { window })(DragSortingTable);
+const Demo = DragDropContext(HTML5Backend)(DragSortingTable);
 
 ReactDOM.render(<Demo />, mountNode);
 ````
