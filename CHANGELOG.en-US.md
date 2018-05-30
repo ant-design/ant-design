@@ -15,12 +15,6 @@ timeline: true
 
 ---
 
-## 3.5.5
-
-`2018-05-28`
-
-- 🐞 downgrade `warning` to 3.0.0. Fix minifying alert error message. [#10668](https://github.com/ant-design/ant-design/pull/10668)
-
 ## 3.5.4
 
 `2018-05-26`
