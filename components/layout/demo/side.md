@@ -33,6 +33,9 @@ class SiderDemo extends React.Component {
     console.log(collapsed);
     this.setState({ collapsed });
   }
+  onBreakpoint = (broken) => {
+    console.log(broken);
+  }
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -40,6 +43,7 @@ class SiderDemo extends React.Component {
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
+          onBreakpoint={this.onBreakpoint}
         >
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
