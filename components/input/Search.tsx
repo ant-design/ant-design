@@ -41,31 +41,31 @@ export default class Search extends React.Component<SearchProps, any> {
 
   getButtonOrIcon() {
     const { enterButton, prefixCls, size, disabled } = this.props;
-    if (!enterButton) {
-      return <Icon className={`${prefixCls}-icon`} type="search" key="searchIcon" />;
-    }
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
-    if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
-      return React.cloneElement(enterButtonAsElement, enterButtonAsElement.type === Button ? {
+    let node;
+    if (!enterButton) {
+      node = <Icon className={`${prefixCls}-icon`} type="search" key="searchIcon" />;
+    } else if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
+      node = React.cloneElement(enterButtonAsElement, enterButtonAsElement.type === Button ? {
         className: `${prefixCls}-button`,
         size,
-        onClick: this.onSearch,
-      } : {
-        onClick: this.onSearch,
-      });
+      } : {});
+    } else {
+      node = (
+        <Button
+          className={`${prefixCls}-button`}
+          type="primary"
+          size={size}
+          disabled={disabled}
+          key="enterButton"
+        >
+          {enterButton === true ? <Icon type="search" /> : enterButton}
+        </Button>
+      );
     }
-    return (
-      <Button
-        className={`${prefixCls}-button`}
-        type="primary"
-        size={size}
-        disabled={disabled}
-        onClick={this.onSearch}
-        key="enterButton"
-      >
-        {enterButton === true ? <Icon type="search" /> : enterButton}
-      </Button>
-    );
+    return React.cloneElement(node, {
+      onClick: this.onSearch,
+    });
   }
 
   render() {

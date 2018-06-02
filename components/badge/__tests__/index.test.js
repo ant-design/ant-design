@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 
@@ -59,7 +59,7 @@ describe('Badge', () => {
   });
 
   it('should be compatible with borderColor style', () => {
-    const wrapper = mount(<Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(<Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

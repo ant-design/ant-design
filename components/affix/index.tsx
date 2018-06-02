@@ -163,6 +163,9 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
     if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
       offsetMode.top = true;
       offsetTop = 0;
+    } else {
+      offsetMode.top = typeof offsetTop === 'number';
+      offsetMode.bottom = typeof offsetBottom === 'number';
     }
 
     const targetRect = getTargetRect(targetNode);

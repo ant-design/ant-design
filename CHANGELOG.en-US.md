@@ -14,6 +14,17 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+
+## 3.5.4
+
+`2018-05-26`
+
+- 🐞 Fix `showSearch` on `Cascader` not working.[968488a2](https://github.com/ant-design/ant-design/commit/968488a2fac9bcb16bee9f0c248f49bca00dbec6)
+- 🐞 `Badge[status]` support `Tooltip`.[#10626](https://github.com/ant-design/ant-design/issues/10626)
+- 🐞 Fix `text-align` on parent element affects `Spin`.[#10643](https://github.com/ant-design/ant-design/pull/10643) [@wmzhong](https://github.com/wmzhong)
+- 💄 `Table` break line style change from `break-all` to `break-word`.[#10655](https://github.com/ant-design/ant-design/pull/10655) [@clinyong](https://github.com/clinyong)
+- 🌟 When `Search` not define `enterButton`, click search icon will trigger `onSearch`. [36ffe7e1](https://github.com/ant-design/ant-design/commit/36ffe7e1dc9d9473c8c68168ab79b7a03a604702)
+
 ## 3.5.3
 
 `2018-05-20`
@@ -456,7 +467,7 @@ Happy 2018 !~ 2018 2018 2018 coming!~~~
 
 `2017-12-04`
 
-Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)!
+Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c).
 
 ### Major Changes
 

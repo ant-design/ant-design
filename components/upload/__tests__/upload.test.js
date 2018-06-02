@@ -3,8 +3,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
 import { fileToObject } from '../utils';
+import { setup, teardown } from './mock';
 
 describe('Upload', () => {
+  beforeEach(() => setup());
+  afterEach(() => teardown());
+
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref;
@@ -90,7 +94,7 @@ describe('Upload', () => {
     let uploadInstance;
     let lastPercent = -1;
     const props = {
-      action: 'http://jsonplaceholder.typicode.com/posts/',
+      action: 'http://upload.com',
       onChange: ({ file }) => {
         if (file.percent === 0 && file.status === 'uploading') {
           // manually call it

@@ -98,6 +98,7 @@ The sidebar.
 | trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode | - |
 | width | width of the sidebar | number\|string | 200 |
 | onCollapse | the callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
+| theme | color theme of the sidebar | string: `light` `dark` | `dark` |
 
 #### breakpoint width
 

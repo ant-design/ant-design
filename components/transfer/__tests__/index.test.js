@@ -248,4 +248,28 @@ describe('Transfer', () => {
     const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should add custom styles when their props are provided', () => {
+    const style = {
+      backgroundColor: 'red',
+    };
+    const listStyle = {
+      backgroundColor: 'blue',
+    };
+    const operationStyle = {
+      backgroundColor: 'yellow',
+    };
+
+    const component = mount(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
+
+    const wrapper = component.find('.ant-transfer');
+    const listSource = component.find('.ant-transfer-list').first();
+    const listTarget = component.find('.ant-transfer-list').last();
+    const operation = component.find('.ant-transfer-operation').first();
+
+    expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
+    expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
+  });
 });
