@@ -56,7 +56,7 @@ export default class Spin extends React.Component<SpinProps, SpinState> {
     return !!(this.props && this.props.children);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { spinning, delay } = this.props;
     if (spinning && delay && !isNaN(Number(delay))) {
       this.setState({ spinning: false });
