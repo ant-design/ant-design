@@ -59,7 +59,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       text,
       offset,
       title,
-      ...restProps,
+      ...restProps
     } = this.props;
     let displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
     const isZero = displayCount === '0' || displayCount === 0;

@@ -157,7 +157,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size, className, htmlType, children, icon, prefixCls, ghost, ...others,
+      type, shape, size, className, htmlType, children, icon, prefixCls, ghost, ...others
     } = this.props;
 
     const { loading, clicked, hasTwoCNChar } = this.state;

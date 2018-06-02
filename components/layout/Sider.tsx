@@ -180,7 +180,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
   render() {
     const { prefixCls, className, theme,
       collapsible, reverseArrow, trigger, style, width, collapsedWidth,
-      ...others,
+      ...others
     } = this.props;
     const divProps = omit(others, ['collapsed',
       'defaultCollapsed', 'onCollapse', 'breakpoint']);

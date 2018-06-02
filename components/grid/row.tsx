@@ -115,7 +115,7 @@ export default class Row extends React.Component<RowProps, RowState> {
   render() {
     const {
       type, justify, align, className, style, children,
-      prefixCls = 'ant-row', ...others,
+      prefixCls = 'ant-row', ...others
     } = this.props;
     const gutter = this.getGutter();
     const classes = classNames({

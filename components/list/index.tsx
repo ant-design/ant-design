@@ -162,7 +162,7 @@ export default class List extends React.Component<ListProps> {
       footer,
       loading,
       locale,
-      ...rest,
+      ...rest
     } = this.props;
 
     let loadingProp = loading;
