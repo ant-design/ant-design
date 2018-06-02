@@ -17,14 +17,14 @@ timeline: true
 
 ## 3.6.0
 `2018-06-02`
-* 🌟 `Form`'s error message now can be customized with react element (https://github.com/ant-design/ant-design/issues/10136) @lovekonakona
-* 🌟 `List` support customized configuration for position of pagination（https://github.com/ant-design/ant-design/pull/10581) @zheeeng
+* 🌟 `Form`'s error message now can be customized with react element (https://github.com/ant-design/ant-design/issues/10136) [@lovekonakona](https://github.com/lovekonakona)
+* 🌟 `List` support customized configuration for position of pagination（https://github.com/ant-design/ant-design/pull/10581) [@zheeeng](https://github.com/zheeeng)
 * 🌟 `Layout.Sider` now can be configured with `light` or `dark` theme (https://github.com/ant-design/ant-design/issues/10142) @pd4d10
 * 🌟 Ant-Design official site now supports offline mode (https://github.com/ant-design/ant-design/issues/10625)
-* 🌟 `Transfer` and `Transfer Operation` can accept style props for further customization. @eduludi
-* 🌟 `Message` adds a promisfied interface to handle callback (https://github.com/ant-design/ant-design/issues/10421)@zhujinxuan
-* 🐞 Fix compilation issue with typescript@v2.9.1 (https://github.com/ant-design/ant-design/issues/10729) @karol-majewski
-* 🐞 Fix a bug in `Menu` where outer menu item not highlighting while inner item is selected (https://github.com/ant-design/ant-design/issues/8666) @stonehank
+* 🌟 `Transfer` and `Transfer Operation` can accept style props for further customization. [@eduludi](https://github.com/eduludi)
+* 🌟 `Message` adds a promisfied interface to handle callback  (https://github.com/ant-design/ant-design/issues/10421) [@zhujinxuan](https://github.com/zhujinxuan)
+* 🐞 Fix compilation issue with typescript@v2.9.1 (https://github.com/ant-design/ant-design/issues/10729) [@karol-majewski](https://github.com/karol-majewski)
+* 🐞 Fix a bug in `Menu` where outer menu item not highlighting while inner item is selected (https://github.com/ant-design/ant-design/issues/8666) [@stonehank](https://github.com/stonehank)
 * 🐞 Fix offsetBottom causing `Affix` not 'fixed-able' (https://github.com/ant-design/ant-design/issues/10674)
 
 ## 3.5.4
