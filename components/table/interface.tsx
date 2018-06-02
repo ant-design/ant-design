@@ -110,7 +110,7 @@ export interface TableProps<T> {
   onChange?: (
     pagination: TablePaginationConfig | boolean,
     filters: Record<keyof T, string[]>,
-    sorter: SorterResult<T>
+    sorter: SorterResult<T>,
   ) => void;
   loading?: boolean | SpinProps;
   locale?: Object;
