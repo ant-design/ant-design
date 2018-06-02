@@ -105,7 +105,7 @@ export interface TableProps<T> {
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (
-    pagination: TablePaginationConfig | boolean,
+    pagination: PaginationConfig | boolean,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
   ) => void;
