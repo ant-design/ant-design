@@ -7,11 +7,12 @@ exports[`Badge should be compatible with borderColor style 1`] = `
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
+    style="background-color:#fff;color:#999;border-color:#d9d9d9;box-shadow:0 0 0 1px #d9d9d9 inset"
     title="4"
   >
     <span
       class="ant-scroll-number-only"
+      style="transition:none;-ms-transform:translateY(-1400%);-webkit-transform:translateY(-1400%);transform:translateY(-1400%)"
     >
       <p
         class=""
