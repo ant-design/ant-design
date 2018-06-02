@@ -134,7 +134,7 @@ export default class Card extends React.Component<CardProps, CardState> {
   render() {
     const {
       prefixCls = 'ant-card', className, extra, bodyStyle = {}, noHovering, hoverable, title, loading,
-      bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others,
+      bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
     } = this.props;
 
     const classString = classNames(prefixCls, className, {

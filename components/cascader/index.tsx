@@ -339,7 +339,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const { props, state } = this;
     const {
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch = false, ...otherProps,
+      className, style, allowClear, showSearch = false, ...otherProps
     } = props;
     const value = state.value;
 
