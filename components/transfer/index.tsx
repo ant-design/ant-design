@@ -34,6 +34,7 @@ export interface TransferProps {
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle?: React.CSSProperties;
+  operationStyle?: React.CSSProperties;
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
@@ -75,7 +76,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
     targetKeys: PropTypes.array,
     onChange: PropTypes.func,
     height: PropTypes.number,
+    style: PropTypes.object,
     listStyle: PropTypes.object,
+    operationStyle: PropTypes.object,
     className: PropTypes.string,
     titles: PropTypes.array,
     operations: PropTypes.array,
@@ -328,7 +331,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
       searchPlaceholder,
       body,
       footer,
+      style,
       listStyle,
+      operationStyle,
       filterOption,
       render,
       lazy,
@@ -343,7 +348,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
     const titles = this.getTitles(locale);
     return (
-      <div className={cls}>
+      <div className={cls} style={style}>
         <List
           prefixCls={`${prefixCls}-list`}
           titleText={titles[0]}
@@ -375,6 +380,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           leftActive={leftActive}
           leftArrowText={operations[1]}
           moveToLeft={this.moveToLeft}
+          style={operationStyle}
         />
         <List
           prefixCls={`${prefixCls}-list`}

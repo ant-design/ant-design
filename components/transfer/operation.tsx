@@ -9,6 +9,7 @@ export interface TransferOperationProps {
   moveToRight?: React.FormEventHandler<HTMLButtonElement>;
   leftActive?: boolean;
   rightActive?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default class Operation extends React.Component<TransferOperationProps, any> {
@@ -21,9 +22,10 @@ export default class Operation extends React.Component<TransferOperationProps, a
       leftActive,
       rightActive,
       className,
+      style,
     } = this.props;
     return (
-      <div className={className}>
+      <div className={className} style={style}>
         <Button
           type="primary"
           size="small"

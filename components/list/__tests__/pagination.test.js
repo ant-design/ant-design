@@ -126,4 +126,15 @@ describe('List.pagination', () => {
         .hasClass('ant-pagination-item-active')
     ).toBe(true);
   });
+
+  it('specify the position of pagination', () => {
+    const wrapper = mount(createList({ pagination: { position: 'top' } }));
+    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: 'bottom' } });
+    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
+    wrapper.setProps({ pagination: { position: 'both' } });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(2);
+    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
+  });
 });
