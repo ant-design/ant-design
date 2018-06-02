@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.6.0
+`2018-06-02`
+* 🌟 `Form`表单错误信息展示支持传入react组件 (https://github.com/ant-design/ant-design/issues/10136) @lovekonakona
+* 🌟 `List`组件支持指定分页器的位置（https://github.com/ant-design/ant-design/pull/10581) @zheeeng
+* 🌟 `Layout.Sider`支持dark/light主题定制 (https://github.com/ant-design/ant-design/issues/10142) @pd4d10
+* 🌟 支持antD站点的离线模式(https://github.com/ant-design/ant-design/issues/10625)
+* 🌟 `Transfer`支持通过style属性配置样式 @eduludi
+* 🌟 `Message`增加promise化的回调接口 (https://github.com/ant-design/ant-design/issues/10421)@zhujinxuan
+* 🐞 修复编译时typescript v2.9.1兼容性问题 (https://github.com/ant-design/ant-design/issues/10729) @karol-majewski
+* 🐞 修复`Menu`嵌套超过两层时选中最里层后对应最外层没有亮起问题 (https://github.com/ant-design/ant-design/issues/8666) @stonehank
+* 🐞 修复`Affix`组件offsetBottom无效问题 (https://github.com/ant-design/ant-design/issues/10674)
+
 ## 3.5.4
 
 `2018-05-26`
