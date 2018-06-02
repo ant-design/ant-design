@@ -80,7 +80,7 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
 }
-export type SortOrder = "descend" | "ascend"
+export type SortOrder = 'descend' | 'ascend';
 export interface SorterResult<T> {
   column: ColumnProps<T>;
   order: SortOrder;
@@ -107,7 +107,11 @@ export interface TableProps<T> {
   expandRowByClick?: boolean;
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: Record<keyof T, string[]>, sorter: SorterResult<T>) => void;
+  onChange?: (
+    pagination: TablePaginationConfig | boolean,
+    filters: Record<keyof T, string[]>,
+    sorter: SorterResult<T>
+  ) => void;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
