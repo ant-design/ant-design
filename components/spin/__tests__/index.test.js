@@ -20,4 +20,11 @@ describe('Spin', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should render with delay when it\'s mounted with spinning=true and delay', () => {
+    const wrapper = shallow(
+      <Spin spinning delay={500} />
+    );
+    expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(false);
+  });
 });
