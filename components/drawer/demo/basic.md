@@ -36,9 +36,7 @@ class App extends React.Component {
         </Button>
         <Drawer
           title="Basic Drawer"
-          width={400}
           placement="right"
-          zIndex={9999}
           onClose={this.onClose}
           visible={this.state.visible}
         >
