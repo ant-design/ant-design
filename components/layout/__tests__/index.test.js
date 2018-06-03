@@ -74,7 +74,13 @@ describe('Layout', () => {
 describe('Sider onBreakpoint', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => { return { matches: true }; }),
+      value: jest.fn(() => {
+        return {
+          matches: true,
+          addListener: () => {},
+          removeListener: () => {},
+        };
+      }),
     });
   });
 
