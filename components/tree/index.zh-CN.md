@@ -56,6 +56,13 @@ subtitle: 树形控件
 | selectable | 设置节点是否可被选中 | boolean | true |
 | title | 标题 | string\|ReactNode | '---' |
 
+### DirectoryTree props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| expandAction | 目录展开逻辑，可选 `false` `'click'` `'doubleClick'` | string | click |
+
+
 ## 注意
 
 在 `3.4.0` 之前：
