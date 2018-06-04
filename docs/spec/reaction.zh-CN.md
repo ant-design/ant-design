@@ -16,9 +16,9 @@ title: 即时反应
 
 ## 查询模式
 
-<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
+<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
 
-<img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
+<img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
 
 自动完成：用户输入时，下拉列表会随着输入的关键词显示匹配项。
 根据查询结果分类的多少，可以分为『确定类目』、『不确定类目』两种类型。
