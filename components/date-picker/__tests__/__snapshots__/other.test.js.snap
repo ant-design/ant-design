@@ -482,7 +482,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-calendar-cell ant-calendar-last-month-cell"
+                    class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                     role="gridcell"
                     title="1999年12月31日"
                   >
@@ -886,7 +886,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     5
                   </td>
                   <td
-                    class="ant-calendar-cell"
+                    class="ant-calendar-cell ant-calendar-last-day-of-month"
                     role="gridcell"
                     title="2000年1月31日"
                   >

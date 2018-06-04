@@ -38,6 +38,7 @@ export interface SelectProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox';
   optionLabelProp?: string;
+  firstActiveValue?: string | string[];
   onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
   onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
   onDeselect?: (value: SelectValue) => any;
@@ -129,7 +130,7 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
-      ...restProps,
+      ...restProps
     } = this.props;
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',

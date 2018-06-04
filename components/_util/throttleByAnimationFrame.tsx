@@ -1,6 +1,4 @@
-import getRequestAnimationFrame, { cancelRequestAnimationFrame } from '../_util/getRequestAnimationFrame';
-
-const reqAnimFrame = getRequestAnimationFrame();
+import raf from 'raf';
 
 export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
   let requestId: number | null;
@@ -12,11 +10,11 @@ export default function throttleByAnimationFrame(fn: (...args: any[]) => void) {
 
   const throttled = (...args: any[]) => {
     if (requestId == null) {
-      requestId = reqAnimFrame(later(args));
+      requestId = raf(later(args));
     }
   };
 
-  (throttled as any).cancel = () => cancelRequestAnimationFrame(requestId!);
+  (throttled as any).cancel = () => raf.cancel(requestId!);
 
   return throttled;
 }

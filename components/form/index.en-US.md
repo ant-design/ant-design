@@ -147,7 +147,7 @@ Note:
 | enum | validate a value from a list of possible values | string | - |
 | len | validate an exact length of a field | number | - |
 | max | validate a max length of a field | number | - |
-| message | validation error message | string | - |
+| message | validation error message | string\|ReactNode | - |
 | min | validate a min length of a field | number | - |
 | pattern | validate from a regular expression | RegExp | - |
 | required | indicates whether field is required | boolean | `false` |

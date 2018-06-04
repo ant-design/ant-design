@@ -1,6 +1,8 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
+const OfflinePlugin = require('offline-plugin');
 const replaceLib = require('antd-tools/lib/replaceLib');
+const getExternalResources = require('./getExternalResources');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -83,6 +85,7 @@ module.exports = {
   webpackConfig(config) {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
+      'antd/es': path.join(process.cwd(), 'components'),
       antd: path.join(process.cwd(), 'index'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
@@ -107,7 +110,35 @@ module.exports = {
 
     alertBabelConfig(config.module.rules);
 
-    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+    config.plugins.push(
+      new CSSSplitWebpackPlugin({ size: 4000 }),
+      new OfflinePlugin({
+        appShell: '/app-shell',
+        caches: {
+          main: [':rest:'],
+          additional: [':externals:'],
+        },
+        externals: [
+          '/app-shell',
+          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.woff',
+          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.eot',
+          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.svg',
+          'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.ttf',
+          'https://img.shields.io/npm/v/antd.svg?style=flat-square',
+          'https://badges.gitter.im/ant-design/ant-design-english.svg',
+          'https://badges.gitter.im/Join%20Chat.svg',
+        ].concat(getExternalResources()),
+        responseStrategy: 'network-first',
+        safeToUseOptionalCaches: true,
+        ServiceWorker: {
+          events: true,
+          prefetchRequest: {
+            mode: 'no-cors',
+          },
+        },
+        AppCache: false,
+      }),
+    );
 
     return config;
   },

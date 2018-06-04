@@ -39,7 +39,7 @@ export function genPercentAdd() {
     if (k < 0.001) {
       k = 0.001;
     }
-    return start * 100;
+    return start;
   };
 }
 

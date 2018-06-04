@@ -15,6 +15,73 @@ timeline: true
 
 ---
 
+## 3.6.0
+
+`2018-06-02`
+
+* 🌟 `Form` 表单错误信息展示支持传入 ReactNode。 [#10136](https://github.com/ant-design/ant-design/issues/10136) [@lovekonakona](https://github.com/lovekonakona)
+* 🌟 `List` 组件支持指定分页器的位置。 [#10581](https://github.com/ant-design/ant-design/pull/10581) [@zheeeng](https://github.com/zheeeng)
+* 🌟 `Layout.Sider` 支持 dark/light 主题定制。 [#10142](https://github.com/ant-design/ant-design/issues/10142) [@pd4d10](https://github.com/pd4d10)
+* 🌟 支持 Ant Design 站点的离线模式。 [#10625](https://github.com/ant-design/ant-design/issues/10625)
+* 🌟 `Transfer` 新增 `style` 以及 `operationStyle` 属性配置样式。 [@eduludi](https://github.com/eduludi)
+* 🌟 `Message` 增加 promise 化的回调接口。 [#10421](https://github.com/ant-design/ant-design/issues/10421) [@zhujinxuan](https://github.com/zhujinxuan)
+* 🐞 修复编译时 typescript v2.9.1兼容性问题。 [#10729](https://github.com/ant-design/ant-design/issues/10729) [@karol-majewski](https://github.com/karol-majewski)
+* 🐞 修复 `Menu` 嵌套超过两层时选中最里层后对应最外层没有亮起问题。 [#8666](https://github.com/ant-design/ant-design/issues/8666) [@stonehank](https://github.com/stonehank)
+* 🐞 修复 `Affix` 组件 offsetBottom 无效问题。 [#10674](https://github.com/ant-design/ant-design/issues/10674)
+
+## 3.5.4
+
+`2018-05-26`
+
+- 🐞 修复 `Cascader` 的 `showSearch` 无效问题。[968488a2](https://github.com/ant-design/ant-design/commit/968488a2fac9bcb16bee9f0c248f49bca00dbec6)
+- 🐞 使 `Badge[status]` 支持 `Tooltip`。[#10626](https://github.com/ant-design/ant-design/issues/10626)
+- 🐞 修复父元素使用 `text-align` 会影响 `Spin` 的问题。[#10643](https://github.com/ant-design/ant-design/pull/10643) [@wmzhong](https://github.com/wmzhong)
+- 💄 `Table` 换行从 `break-all` 改为 `break-word`。[#10655](https://github.com/ant-design/ant-design/pull/10655) [@clinyong](https://github.com/clinyong)
+- 🌟 `Search` 在未定义 `enterButton` 时，点击搜索图标将触发 `onSearch`。 [36ffe7e1](https://github.com/ant-design/ant-design/commit/36ffe7e1dc9d9473c8c68168ab79b7a03a604702)
+
+## 3.5.3
+
+`2018-05-20`
+
+- 🐞 修复了 `Affix` 当 `offsetTop === 0`, 值将变为 `undefined` 的问题 [#10566](https://github.com/ant-design/ant-design/pull/10566)
+- 🐞 修复了 `Menu` item 中的高亮链接颜色问题 [09d5e36](https://github.com/ant-design/ant-design/commit/09d5e36cfa27e371a7b4d4e68276a279698ea901)
+- 🐞 修复了 `Input.Group` 组件阴影被遮盖的问题 [#10230](https://github.com/ant-design/ant-design/issues/10230)
+- 🐞 修复了 `Transfer` 组件 checkbox 事件触发两次的问题 [`#10480`](https://github.com/ant-design/ant-design/issues/10480)
+- 💄 统一 less 的变量命名 [12d3046](https://github.com/ant-design/ant-design/commit/12d3046687a0dcdb51fece08dd2bea64f185cc40)
+- 💄 微调了 `Dropdown` 的样式 [8e2f72f](https://github.com/ant-design/ant-design/commit/8e2f72ffe0eb300f5997296726b02246bf990c8f)
+- 💄 现在中文文档的组件会用中文语言包进行演示。[9b17a94](https://github.com/ant-design/ant-design/commit/9b17a943f5d57d40d65041b7b0c247add09d2851)
+- 💄 主站主题切换 修改为 `antd-theme-generato` ，感谢 [@mzohaibqc](https://github.com/mzohaibqc) 的工作.
+- TypeScript
+  - 🐞 修复了 `Row` 中 gutter 属性的类型问题 [b7d508e](https://github.com/ant-design/ant-design/commit/b7d508e1662bf20a0cacbe6440a2ce31a65a8a59)
+  - 💄 改进了 `Form` 组件类型 [#10564](https://github.com/ant-design/ant-design/pull/10564)
+  - 💄 改进了 `Button` 和 `Tag` 类型 [1ed9fed](https://github.com/ant-design/ant-design/commit/1ed9fed2cf1c99b947359fafb101b2e58213cb48)
+
+## 3.5.2
+
+`2018-05-13`
+
+- 🐞 修复 `Table` 过滤器和 `Transfer` 复选框无法点击的问题。[#10452](https://github.com/ant-design/ant-design/issues/10452)
+- 🐞 修复 `Cascader` 的 `displayRender` 里的链接无法点击的问题。[#10433](https://github.com/ant-design/ant-design/issues/10433)
+- 🐞 修复 `Button` ref 不兼容问题。[#10405](https://github.com/ant-design/ant-design/issues/10405)
+- 🐞 修复 `Form` 表单项校验位置高度时出现抖动问题。[#10445](https://github.com/ant-design/ant-design/issues/10445)
+- 🌟 设置 `Layout` 宽度时，允许使用任何的 CSS 单位。 [#10479](https://github.com/ant-design/ant-design/pull/10479)
+
+## 3.5.1
+
+`2018-05-09`
+
+- 🐞 修复 Input.Group 在 Form 下样式错位的问题。[#10371](https://github.com/ant-design/ant-design/issues/10371)
+- 🐞 修复 Select 箭头和内容重叠的问题。[#10383](https://github.com/ant-design/ant-design/issues/10383)
+- 🐞 移除 Collapse 点击时的 focus 样式。
+- 🐞 移除 Input.Group 和 Checkbox 不必要的 `z-index`。[#9840](https://github.com/ant-design/ant-design/issues/9840) [#10385](https://github.com/ant-design/ant-design/issues/10385)
+- 🐞 修复一个数字等宽字体没有加粗的问题。
+- Table
+  - 💄 重写了可编辑表格的演示。[#10119](https://github.com/ant-design/ant-design/pull/10119)
+  - 🐞 修复一个表格列内容互相重叠的问题。[#9822](https://github.com/ant-design/ant-design/issues/9822)
+- TypeScript
+  - 🐞 调整 Breadcrumb.Item 的类型。[#10372](https://github.com/ant-design/ant-design/pull/10372) [@karol-majewski](https://github.com/karol-majewski)
+  - 🐞 修复 Table 的 `rowSelection` 的类型。[#10374](https://github.com/ant-design/ant-design/issues/10374)
+
 ## 3.5.0
 
 `2018-05-04`
@@ -416,11 +483,11 @@ timeline: true
 
 `2017-12-04`
 
-更多内容见 [Ant Design 3.0 发布公告](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)！
+更多内容见 [Ant Design 3.0 发布公告](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)。
 
 ### 主要变化
 
-- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes)，组件主色由 『`#108EE9`』 改为 『`#1890FF`』，新主色我们称之为『拂晓蓝』。
+- 全新的[色彩系统](https://ant.design/docs/spec/colors-cn#Color-Palettes)，组件主色由『`#108EE9`』改为『`#1890FF`』，新主色我们称之为『拂晓蓝』。
 - 全新的视觉样式和组件尺寸，更现代更美观。
 - 基础字体大小由 `12px` 增大到 `14px`。
 - 默认语言由中文改为英文。
@@ -431,6 +498,8 @@ timeline: true
 - 新增 30 个[图标](https://ant.design/components/icon-cn/)。
 
 ### 不兼容改动
+
+> 如果你从 2.x 升级到 3.x，建议直接升级到 3.x 的最新版本。
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。另外由于人肉查找代码中的废弃用法过于低效，所以我们提供了 [antd-migration-helper](https://github.com/ant-design/antd-migration-helper) 用于扫描代码中的废弃用法。
 
@@ -478,7 +547,7 @@ timeline: true
 
 - Form 下的表单控件不再默认为 `size="large"`。
 - `Input.Search` 默认的 🔍 图标只作为装饰，不再响应用户交互。需要添加可交互按钮请使用 `enterButton`。
-- UMD 版本的  `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
+- UMD 版本的 `dist/antd.js` 不再包含 moment，使用的时候需要自己引入 moment。
   ```diff
   <html>
     <head>

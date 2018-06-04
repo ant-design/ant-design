@@ -32,6 +32,7 @@ ReactDOM.render(
   - 爱 🐱。
 - 岗位职责：
   - 参与金融云、数据服务、人工智能以及金融核心等业务领域的设计工作；
+  - 参与[语雀](https://yuque.com/)、[云凤蝶](http://www.yunfengdie.com/intro)等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
 
 ## 前端工程师

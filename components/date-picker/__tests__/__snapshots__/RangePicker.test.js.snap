@@ -221,7 +221,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
+                        class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="1999年12月31日"
                       >
@@ -649,7 +649,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="row"
                     >
                       <td
-                        class="ant-calendar-cell"
+                        class="ant-calendar-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年1月31日"
                       >
@@ -902,7 +902,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                       role="row"
                     >
                       <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
+                        class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年1月31日"
                       >
@@ -1299,7 +1299,7 @@ exports[`RangePicker show month panel according to value 1`] = `
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell"
+                        class="ant-calendar-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年2月29日"
                       >
@@ -1489,7 +1489,7 @@ exports[`RangePicker show month panel according to value 1`] = `
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              Select time
+              select time
             </a>
             <a
               class="ant-calendar-ok-btn"
@@ -1726,7 +1726,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
+                        class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="1999年12月31日"
                       >
@@ -2154,7 +2154,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="row"
                     >
                       <td
-                        class="ant-calendar-cell"
+                        class="ant-calendar-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年1月31日"
                       >
@@ -2407,7 +2407,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                       role="row"
                     >
                       <td
-                        class="ant-calendar-cell ant-calendar-last-month-cell"
+                        class="ant-calendar-cell ant-calendar-last-month-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年1月31日"
                       >
@@ -2804,7 +2804,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
                         </div>
                       </td>
                       <td
-                        class="ant-calendar-cell"
+                        class="ant-calendar-cell ant-calendar-last-day-of-month"
                         role="gridcell"
                         title="2000年2月29日"
                       >
@@ -3001,7 +3001,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              Select time
+              select time
             </a>
             <a
               class="ant-calendar-ok-btn"

@@ -75,7 +75,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   render() {
     const {
-      prefixCls, shape, size, src, icon, className, ...others,
+      prefixCls, shape, size, src, icon, className, ...others
     } = this.props;
 
     const sizeCls = classNames({

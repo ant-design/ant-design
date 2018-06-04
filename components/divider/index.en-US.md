@@ -18,6 +18,8 @@ A divider line separates different content.
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| dashed | whether line is dashed | Boolean | false |
+| dashed | whether line is dashed | boolean | false |
 | type | direction type of divider | enum: `horizontal` `vertical` | `horizontal` |
 | orientation | position of title inside divider | enum: `left` `right` `center` | `center` |
+| className | className of container | string | - |
+| style | style object of container | object | - |

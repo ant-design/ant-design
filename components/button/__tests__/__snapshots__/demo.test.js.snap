@@ -212,24 +212,6 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-background-ghost"
-    type="button"
-  >
-    <span>
-      Ghost
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-background-ghost"
-    disabled=""
-    type="button"
-  >
-    <span>
-      Ghost(disabled)
-    </span>
-  </button>
-  <br />
-  <button
     class="ant-btn ant-btn-dashed"
     type="button"
   >
@@ -246,6 +228,27 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
       Dashed(disabled)
     </span>
   </button>
+  <div
+    style="padding:8px 8px 0 8px;background:rgb(190, 200, 200)"
+  >
+    <button
+      class="ant-btn ant-btn-background-ghost"
+      type="button"
+    >
+      <span>
+        Ghost
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-background-ghost"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Ghost(disabled)
+      </span>
+    </button>
+  </div>
 </div>
 `;
 

@@ -2,7 +2,12 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 
-export interface InputNumberProps {
+import { Omit } from '../_util/type';
+
+// omitting this attrs because they conflicts with the ones defined in InputNumberProps
+export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
+
+export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
   min?: number;
   max?: number;
@@ -10,7 +15,6 @@ export interface InputNumberProps {
   step?: number | string;
   defaultValue?: number;
   tabIndex?: number;
-  onKeyDown?: React.FormEventHandler<any>;
   onChange?: (value: number | string | undefined) => void;
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';

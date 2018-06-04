@@ -206,18 +206,22 @@
 @grid-gutter-width      : 0;
 
 // Layout
-@layout-body-background      : #f0f2f5;
-@layout-header-background    : #001529;
-@layout-footer-background    : @layout-body-background;
-@layout-header-height        : 64px;
-@layout-header-padding       : 0 50px;
-@layout-footer-padding       : 24px 50px;
-@layout-sider-background     : @layout-header-background;
-@layout-trigger-height       : 48px;
-@layout-trigger-background   : #002140;
-@layout-trigger-color        : #fff;
-@layout-zero-trigger-width   : 36px;
-@layout-zero-trigger-height  : 42px;
+@layout-body-background         : #f0f2f5;
+@layout-header-background       : #001529;
+@layout-footer-background       : @layout-body-background;
+@layout-header-height           : 64px;
+@layout-header-padding          : 0 50px;
+@layout-footer-padding          : 24px 50px;
+@layout-sider-background        : @layout-header-background;
+@layout-trigger-height          : 48px;
+@layout-trigger-background      : #002140;
+@layout-trigger-color           : #fff;
+@layout-zero-trigger-width      : 36px;
+@layout-zero-trigger-height     : 42px;
+// Layout light theme
+@layout-sider-background-light  : #fff;
+@layout-trigger-background-light: #fff;
+@layout-trigger-color-light     : @text-color;
 
 // z-index list
 @zindex-affix           : 10;
@@ -289,7 +293,7 @@
 //** Popover maximum width
 @popover-min-width: 177px;
 //** Popover arrow width
-@popover-arrow-width: 5px;
+@popover-arrow-width: 6px;
 //** Popover arrow color
 @popover-arrow-color: @popover-bg;
 //** Popover outer arrow width
@@ -324,8 +328,6 @@
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
-// same as @menu-dark-item-active-bg, for naming downgrade compatible, should be deleted in next majoy version
-@menu-dark-item-selected-bg: @primary-color;
 
 // Spin
 // ---
@@ -393,16 +395,16 @@
 @tabs-title-font-size: @font-size-base;
 @tabs-title-font-size-lg: @font-size-lg;
 @tabs-title-font-size-sm: @font-size-base;
-@tabs-ink-bar-bg-color: @primary-color;
-@tab-bar-margin: 0 0 16px 0;
-@tab-horizontal-margin: 0 32px 0 0;
-@tab-vertical-margin: 0 0 16px 0;
-@tab-horizontal-padding: 12px 16px;
-@tab-vertical-padding: 8px 24px;
-@tab-scrolling-size: 32px;
-@tab-highlight-color: @primary-color;
-@tab-hover-color: @primary-5;
-@tab-active-color: @primary-7;
+@tabs-ink-bar-color: @primary-color;
+@tabs-bar-margin: 0 0 16px 0;
+@tabs-horizontal-margin: 0 32px 0 0;
+@tabs-horizontal-padding: 12px 16px;
+@tabs-vertical-padding: 8px 24px;
+@tabs-vertical-margin: 0 0 16px 0;
+@tabs-scrolling-size: 32px;
+@tabs-highlight-color: @primary-color;
+@tabs-hover-color: @primary-5;
+@tabs-active-color: @primary-7;
 
 // BackTop
 // ---
@@ -478,3 +480,5 @@
 @collapse-header-bg:                  @background-color-light;
 @collapse-content-padding:            @padding-md;
 @collapse-content-bg:                 @component-background;
+
+@import "./default.deperated.less";

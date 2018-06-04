@@ -77,7 +77,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-disabled ant-select-allow-clear"
+    class="ant-select ant-select-disabled"
     style="width:120px"
   >
     <div
@@ -100,11 +100,6 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
           Lucy
         </div>
       </div>
-      <span
-        class="ant-select-selection__clear"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      />
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
@@ -450,7 +445,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
-  class="ant-select ant-select-combobox ant-select-enabled"
+  class="ant-select ant-select-combobox ant-select-enabled ant-select-no-arrow"
   style="width:200px"
 >
   <div

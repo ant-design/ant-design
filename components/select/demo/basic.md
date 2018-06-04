@@ -29,7 +29,7 @@ ReactDOM.render(
       <Option value="disabled" disabled>Disabled</Option>
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
-    <Select defaultValue="lucy" style={{ width: 120 }} allowClear disabled>
+    <Select defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
   </div>
