@@ -68,12 +68,16 @@ export default class SelectionCheckboxAll<T> extends
   setCheckState(props: SelectionCheckboxAllProps<T>) {
     const checked = this.getCheckState(props);
     const indeterminate = this.getIndeterminateState(props);
-    if (checked !== this.state.checked) {
-      this.setState({ checked });
-    }
-    if (indeterminate !== this.state.indeterminate) {
-      this.setState({ indeterminate });
-    }
+    this.setState((prevState) => {
+      let newState: SelectionCheckboxAllState = {};
+      if (indeterminate !== prevState.indeterminate) {
+        newState.indeterminate = indeterminate;
+      }
+      if (checked !== prevState.checked) {
+        newState.checked = checked;
+      }
+      return newState;
+    });
   }
 
   getCheckState(props: SelectionCheckboxAllProps<T>) {

@@ -162,8 +162,8 @@ export interface SelectionCheckboxAllProps<T> {
 }
 
 export interface SelectionCheckboxAllState {
-  checked: boolean;
-  indeterminate: boolean;
+  checked?: boolean;
+  indeterminate?: boolean;
 }
 
 export interface SelectionBoxProps {

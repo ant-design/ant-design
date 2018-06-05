@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Table from '..';
+import Checkbox from '../../checkbox';
 
 describe('Table.rowSelection', () => {
   const columns = [{
@@ -358,5 +359,34 @@ describe('Table.rowSelection', () => {
     }));
 
     expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/10629
+  it('should keep all checked state when remove item from dataSource', () => {
+    const wrapper = mount(
+      <Table
+        rowSelection={{
+          selectedRowKeys: [0, 1, 2, 3],
+        }}
+        columns={columns}
+        dataSource={data}
+      />
+    );
+    expect(wrapper.find(Checkbox).length).toBe(5);
+    wrapper.find(Checkbox).forEach((checkbox) => {
+      expect(checkbox.props().checked).toBe(true);
+      expect(checkbox.props().indeterminate).toBe(false);
+    });
+    wrapper.setProps({
+      dataSource: data.slice(1),
+      rowSelection: {
+        selectedRowKeys: [1, 2, 3],
+      },
+    });
+    expect(wrapper.find(Checkbox).length).toBe(4);
+    wrapper.find(Checkbox).forEach((checkbox) => {
+      expect(checkbox.props().checked).toBe(true);
+      expect(checkbox.props().indeterminate).toBe(false);
+    });
   });
 });
