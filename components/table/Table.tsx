@@ -954,7 +954,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     if ('expandIconColumnIndex' in restProps) {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
-
+    columns.push({
+      fixed: 'right',
+      title: ' ',
+      width: 10,
+    });
     return (
       <RcTable
         key="table"
@@ -972,9 +976,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       />
     );
   }
-
   render() {
     const { style, className, prefixCls } = this.props;
+    
     const data = this.getCurrentPageData();
 
     let loading = this.props.loading as SpinProps;
