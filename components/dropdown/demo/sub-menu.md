@@ -20,14 +20,14 @@ const SubMenu = Menu.SubMenu;
 const menu = (
   <Menu>
     <Menu.Item>1st menu item</Menu.Item>
-    <Menu.Item>2nd menu item</Menu.Item>
+    <Menu.Item>12nd menu item</Menu.Item>
     <SubMenu title="sub menu">
-      <Menu.Item>3rd menu item</Menu.Item>
-      <Menu.Item>4th menu item</Menu.Item>
+      <Menu.Item>13rd menu item</Menu.Item>
+      <Menu.Item>14th menu item</Menu.Item>
     </SubMenu>
     <SubMenu title="disabled sub menu" disabled>
-      <Menu.Item>5d menu item</Menu.Item>
-      <Menu.Item>6th menu item</Menu.Item>
+      <Menu.Item>15d menu item</Menu.Item>
+      <Menu.Item>16th menu item</Menu.Item>
     </SubMenu>
   </Menu>
 );
