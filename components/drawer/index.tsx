@@ -7,7 +7,7 @@ type EventType =
   | React.MouseEvent<HTMLDivElement>
   | React.MouseEvent<HTMLButtonElement>;
 
-export interface IDrawerProps {
+export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
   getContainer?: HTMLElement;
@@ -30,7 +30,7 @@ export interface IDrawerState {
 }
 
 export default class Drawer extends React.Component<
-  IDrawerProps,
+  DrawerProps,
   IDrawerState
 > {
   static propTypes = {
@@ -56,7 +56,7 @@ export default class Drawer extends React.Component<
     closable: true,
   };
   static getDerivedStateFromProps(
-    nextProps: IDrawerProps,
+    nextProps: DrawerProps,
     prevState: IDrawerState,
   ) {
     const nextState: IDrawerState = {};
@@ -65,7 +65,7 @@ export default class Drawer extends React.Component<
     }
     return nextState;
   }
-  constructor(props: IDrawerProps) {
+  constructor(props: DrawerProps) {
     super(props);
     this.state = {
       visible: false,
