@@ -513,7 +513,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:8px"
+            style="width:30%;height:8px;background:red"
           />
         </div>
       </div>
