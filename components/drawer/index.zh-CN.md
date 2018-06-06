@@ -8,6 +8,7 @@ title: Drawer
 抽屉是一种覆盖在父窗体上的面板，从父窗体边框外滑入，用来承载信息或操作集合。抽屉在不离开父窗体情况下进行互动，用户身处上下文环境中，能更方便清楚地处理任务。
 
 ## 何时使用
+
 * 创建或者编辑一个对象。
 * 承载子任务。为了让子任务仍然置于主任务的上下文环境中，子任务对气泡 Popover 来说又过于复杂时，使用大号的抽屉来承载。
 * 同一表单在多处使用
@@ -29,5 +30,5 @@ title: Drawer
 | width | 宽度 | string \| number | 256 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
-| placement | 抽屉的方向 | 'left' \| 'right' | 'left'
+| placement | 抽屉的方向 | 'left' \| 'right' | 'right'
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |

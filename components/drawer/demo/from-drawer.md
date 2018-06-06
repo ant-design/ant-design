@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 用户信息
-  en-US: User Profile
+  zh-CN: 表单抽屉
+  en-US: from drawer
 ---
 
 ## zh-CN
@@ -47,22 +47,22 @@ class App extends React.Component {
           <Form layout="vertical" hideRequiredMark>
             <Row gutter={16}>
               <Col span={12}>
-                <Form.Item label="名称">
+                <Form.Item label="Name">
                   {getFieldDecorator('name', {
-                    rules: [{ required: true, message: '请输入' }],
-                  })(<Input placeholder="请输入" />)}
+                    rules: [{ required: true, message: 'please enter user name' }],
+                  })(<Input placeholder="please enter user name" />)}
                 </Form.Item>
               </Col>
               <Col span={12}>
-                <Form.Item label="域名">
+                <Form.Item label="Url">
                   {getFieldDecorator('url', {
-                    rules: [{ required: true, message: '请选择' }],
+                    rules: [{ required: true, message: 'please enter url' }],
                   })(
                     <Input
                       style={{ width: '100%' }}
                       addonBefore="http://"
                       addonAfter=".com"
-                      placeholder="请输入"
+                      placeholder="please enter url"
                     />
                   )}
                 </Form.Item>
@@ -70,25 +70,25 @@ class App extends React.Component {
             </Row>
             <Row gutter={16}>
               <Col span={12}>
-                <Form.Item label="管理员">
+                <Form.Item label="Owner">
                   {getFieldDecorator('owner', {
-                    rules: [{ required: true, message: '请选择管理员' }],
+                    rules: [{ required: true, message: 'Please select an owner' }],
                   })(
-                    <Select placeholder="请选择管理员">
-                      <Option value="xiao">付晓晓</Option>
-                      <Option value="mao">周毛毛</Option>
+                    <Select placeholder="Please select an owner">
+                      <Option value="xiao">Xiaoxiao Fu</Option>
+                      <Option value="mao">Maomao Zhou</Option>
                     </Select>
                   )}
                 </Form.Item>
               </Col>
               <Col span={12}>
-                <Form.Item label="类型">
+                <Form.Item label="Type">
                   {getFieldDecorator('type', {
-                    rules: [{ required: true, message: '请选择仓库类型' }],
+                    rules: [{ required: true, message: 'Please choose the type' }],
                   })(
-                    <Select placeholder="请选择类型">
-                      <Option value="private">私密</Option>
-                      <Option value="public">公开</Option>
+                    <Select placeholder="Please choose the type">
+                      <Option value="private">Private</Option>
+                      <Option value="public">Public</Option>
                     </Select>
                   )}
                 </Form.Item>
@@ -96,21 +96,21 @@ class App extends React.Component {
             </Row>
             <Row gutter={16}>
               <Col span={12}>
-                <Form.Item label="审批人">
+                <Form.Item label="Approver">
                   {getFieldDecorator('approver', {
-                    rules: [{ required: true, message: '请选择审批员' }],
+                    rules: [{ required: true, message: 'Please choose the approver' }],
                   })(
-                    <Select placeholder="请选择审批员">
-                      <Option value="xiao">付晓晓</Option>
-                      <Option value="mao">周毛毛</Option>
+                    <Select placeholder="Please choose the approver">
+                      <Option value="jack">Jack Ma</Option>
+                      <Option value="tom">Tom Liu</Option>
                     </Select>
                   )}
                 </Form.Item>
               </Col>
               <Col span={12}>
-                <Form.Item label="生效日期">
+                <Form.Item label="DateTime">
                   {getFieldDecorator('dateTime', {
-                    rules: [{ required: true, message: '请输入' }],
+                    rules: [{ required: true, message: 'Please choose the dateTime' }],
                   })(
                     <DatePicker.RangePicker
                       style={{ width: '100%' }}
@@ -122,10 +122,10 @@ class App extends React.Component {
             </Row>
             <Row gutter={16}>
               <Col span={24}>
-                <Form.Item label="描述">
-                  {getFieldDecorator('type', {
-                    rules: [{ required: true, message: '请输入描述' }],
-                  })(<Input.TextArea rows={4} placeholder="请输入描述" />)}
+                <Form.Item label="description">
+                  {getFieldDecorator('description', {
+                    rules: [{ required: true, message: 'please enter url description' }],
+                  })(<Input.TextArea rows={4} placeholder="please enter url description" />)}
                 </Form.Item>
               </Col>
             </Row>
