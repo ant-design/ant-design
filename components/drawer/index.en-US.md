@@ -1,14 +1,17 @@
 ---
 type: Feedback
 category: Components
-subtitle: Drawer
+subtitle: 
 title: Drawer
 ---
 
-Drawer container
+A drawer is a panel that is overlaid on a parent form and slides in from the outside of the parent form's border to carry information or action collections. The drawer interacts without leaving the parent form, and the user is in context and can handle tasks more easily and clearly.
 
 ## When To Use
 
+* Create or edit an object.
+* Carrying subtasks. In order to keep the subtasks still in the context of the main task, the subtasks are too complex for the Bubble Popover to use large drawers to carry.
+* Use the same form in multiple places
 
 ## API
 
@@ -26,5 +29,5 @@ Drawer container
 | width | Width of the Drawer dialog | string\|number | 520 |
 | wrapClassName | The class name of the container of the Drawer dialog | string | - |
 | zIndex | The `z-index` of the Drawer | Number | 1000 |
-| placement | The direction of the Drawer | 'left' | 'right' | 'left'
+| placement | The direction of the Drawer | 'left' \| 'right' | 'right'
 | onClose | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |

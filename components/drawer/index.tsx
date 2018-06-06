@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcDrawer from 'rc-drawer-menu';
+import RcDrawer from 'rc-drawer';
 import { isNull, isNumber } from 'util';
 import PropTypes from 'prop-types';
 
@@ -131,6 +131,7 @@ export default class Drawer extends React.Component<
     }
     return (
       <RcDrawer
+        level={null}
         {...rest}
         handleChild={false}
         open={this.state.visible}
@@ -138,6 +139,7 @@ export default class Drawer extends React.Component<
         showMask={this.props.mask}
         placement={this.props.placement}
         style={{ zIndex: zIndex }}
+
       >
         {this.renderBody()}
       </RcDrawer>
