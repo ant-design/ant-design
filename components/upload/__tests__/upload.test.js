@@ -60,16 +60,22 @@ describe('Upload', () => {
   });
 
   it('should not stop upload when return value of beforeUpload is false', (done) => {
+    const fileList = [{
+      uid: 'bar',
+      name: 'bar.png',
+    }];
     const mockFile = new File(['foo'], 'foo.png', {
       type: 'image/png',
     });
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
+      fileList,
       beforeUpload: () => false,
       data,
-      onChange: ({ file }) => {
+      onChange: ({ file, fileList: updatedFileList }) => {
         expect(file instanceof File).toBe(true);
+        expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toBeCalled();
         done();
       },
