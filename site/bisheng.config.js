@@ -124,17 +124,11 @@ module.exports = {
           'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.eot',
           'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.svg',
           'https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i.ttf',
-          'https://img.shields.io/npm/v/antd.svg?style=flat-square',
-          'https://badges.gitter.im/ant-design/ant-design-english.svg',
-          'https://badges.gitter.im/Join%20Chat.svg',
         ].concat(getExternalResources()),
         responseStrategy: 'network-first',
         safeToUseOptionalCaches: true,
         ServiceWorker: {
           events: true,
-          prefetchRequest: {
-            mode: 'no-cors',
-          },
         },
         AppCache: false,
       }),
