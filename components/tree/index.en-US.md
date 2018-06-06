@@ -55,6 +55,13 @@ Almost anything can be represented in a tree structure. Examples include directo
 | selectable | Set whether the treeNode can be selected | boolean | true |
 | title | Title | string\|ReactNode | '---' |
 
+### DirectoryTree props
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click |
+
+
 ## Note
 
 Before `3.4.0`:
