@@ -20,3 +20,8 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 | spinning | whether Spin is spinning | boolean | true |
 | tip | customize description content when Spin has children | string | - |
 | wrapperClassName | className of wrapper when Spin has children | string | - |
+
+### Static Method
+
+- `Spin.setDefaultIndicator(indicator: ReactElement)`  
+  As `indicator`, you can define the global default spin element
