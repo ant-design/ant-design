@@ -59,7 +59,7 @@ export default class Drawer extends React.Component<
     prevState: IDrawerState,
   ) {
     const nextState: IDrawerState = {};
-    if (nextProps.visible !== null && nextProps.visible !== prevState.visible) {
+    if (nextProps.visible !== undefined && nextProps.visible !== prevState.visible) {
       nextState.visible = nextProps.visible;
     }
     return nextState;
@@ -71,7 +71,7 @@ export default class Drawer extends React.Component<
     };
   }
   close = (e: EventType) => {
-    if (this.props.visible !== null) {
+    if (this.props.visible !== undefined) {
       if (this.props.onClose) {
         this.props.onClose(e);
       }
