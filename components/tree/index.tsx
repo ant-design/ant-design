@@ -27,7 +27,7 @@ export interface AntTreeNodeProps {
   title?: string | React.ReactNode;
   key?: string;
   isLeaf?: boolean;
-  icon?: (treeNode: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
+  icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
 }
 
