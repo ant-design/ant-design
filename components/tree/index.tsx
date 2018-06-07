@@ -106,7 +106,7 @@ export interface TreeProps {
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = TreeNode;
+  static TreeNode: React.ComponentType<AntTreeNodeProps> = TreeNode;
 
   static defaultProps = {
     prefixCls: 'ant-tree',
