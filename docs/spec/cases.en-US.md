@@ -29,7 +29,7 @@ OceanBase Cloud is a distributed relational database in a real sense, and OceanB
 
 [Visit](http://oceanbase.alipay.com)
 
-![OceanBase Cloud Platform](https://gw.alipayobjects.com/zos/rmsportal/hhtmRPAtPsUhwHpULFuu.png)
+![OceanBase Cloud Platform](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 
 ---
 
