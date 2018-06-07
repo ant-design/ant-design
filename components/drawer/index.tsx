@@ -137,8 +137,7 @@ export default class Drawer extends React.Component<
         onMaskClick={this.close}
         showMask={this.props.mask}
         placement={this.props.placement}
-        style={{ zIndex: zIndex }}
-
+        style={{ zIndex }}
       >
         {this.renderBody()}
       </RcDrawer>

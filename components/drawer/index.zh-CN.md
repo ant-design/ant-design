@@ -25,8 +25,8 @@ title: Drawer
 | mask | 是否展示遮罩 | Boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
 | style | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - |
-| title | 标题 | string \| ReactNode | 无 |
-| visible | Drawer 是否可见 | boolean | 无 |
+| title | 标题 | string \| ReactNode | - |
+| visible | Drawer 是否可见 | boolean | - |
 | width | 宽度 | string \| number | 256 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 |
