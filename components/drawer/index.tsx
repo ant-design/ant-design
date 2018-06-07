@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import { isNull, isNumber } from 'util';
 import PropTypes from 'prop-types';
 
 type EventType =
@@ -60,7 +59,7 @@ export default class Drawer extends React.Component<
     prevState: IDrawerState,
   ) {
     const nextState: IDrawerState = {};
-    if (!isNull(nextProps.visible) && nextProps.visible !== prevState.visible) {
+    if (nextProps.visible !== null && nextProps.visible !== prevState.visible) {
       nextState.visible = nextProps.visible;
     }
     return nextState;
@@ -72,7 +71,7 @@ export default class Drawer extends React.Component<
     };
   }
   close = (e: EventType) => {
-    if (!isNull(this.props.visible)) {
+    if (this.props.visible !== null) {
       if (this.props.onClose) {
         this.props.onClose(e);
       }
@@ -126,7 +125,7 @@ export default class Drawer extends React.Component<
   }
   render() {
     let { width, zIndex, style, ...rest } = this.props;
-    if (isNumber(width)) {
+    if (typeof width === 'number') {
       width = `${width}px`;
     }
     return (
