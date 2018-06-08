@@ -28,6 +28,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |
 | loadData | Load data asynchronously | function(node) | - |
+| loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |
 | multiple | Allows selecting multiple treeNodes | boolean | false |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |
@@ -40,6 +41,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
 | onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |
+| onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 

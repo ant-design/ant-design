@@ -29,6 +29,7 @@ subtitle: 树形控件
 | expandedKeys | （受控）展开指定的树节点 | string\[] | \[] |
 | filterTreeNode | 按需筛选树节点（高亮），返回true | function(node) | - |
 | loadData | 异步加载数据 | function(node) | - |
+| loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |
@@ -41,6 +42,7 @@ subtitle: 树形控件
 | onDragStart | 开始拖拽时调用 | function({event, node}) | - |
 | onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
 | onExpand | 展开/收起节点时触发 | function(expandedKeys, {expanded: bool, node}) | - |
+| onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |
 | onRightClick | 响应右键点击 | function({event, node}) | - |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 
