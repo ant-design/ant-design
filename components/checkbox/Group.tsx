@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Checkbox from './Checkbox';
 
-export type CheckboxValueType = string | number;
+export type CheckboxValueType = string | number | boolean;
 
 export interface CheckboxOptionType {
   label: string;
