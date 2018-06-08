@@ -271,14 +271,14 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Full Name
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Age
@@ -341,7 +341,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Action
