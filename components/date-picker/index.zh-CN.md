@@ -36,9 +36,9 @@ import locale from 'antd/lib/date-picker/locale/zh_CN';
 
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
+import moment from 'moment';
+import 'moment/src/locale/zh-cn';
+// import 'moment/locale/zh-cn'; if you are using webpack 1
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
