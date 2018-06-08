@@ -15,12 +15,6 @@ timeline: true
 
 ---
 
-## 3.6.1
-
-`2018-06-02`
-
-* 🐞 Fixing a Typescript compilation error.
-
 ## 3.6.0
 
 `2018-06-02`
