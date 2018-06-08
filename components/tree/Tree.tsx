@@ -33,7 +33,7 @@ export interface AntTreeNodeProps {
   checked?: boolean;
   expanded?: boolean;
   selected?: boolean;
-  icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
+  icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -129,7 +129,7 @@ export interface TreeProps {
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = TreeNode;
+  static TreeNode: React.ComponentType<AntTreeNodeProps> = TreeNode;
   static DirectoryTree = DirectoryTree;
 
   static defaultProps = {

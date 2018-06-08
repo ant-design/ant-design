@@ -22,6 +22,7 @@ export interface AbstractSelectProps {
   dropdownClassName?: string;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
+  dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
 }
@@ -48,7 +49,6 @@ export interface SelectProps extends AbstractSelectProps {
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
-  dropdownMatchSelectWidth?: boolean;
   optionFilterProp?: string;
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
