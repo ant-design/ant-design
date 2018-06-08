@@ -1,7 +1,6 @@
 /* tslint:disable jsx-no-multiline-js */
 import * as React from 'react';
 import * as moment from 'moment';
-import isEqual from 'lodash/isEqual';
 import { polyfill } from 'react-lifecycles-compat';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
@@ -74,7 +73,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
     let state = null;
-    if (('value' in nextProps) && !isEqual(nextProps.value,prevState.value)) {
+    if ('value' in nextProps) {
       const value = nextProps.value || [];
       state = {
         value,
