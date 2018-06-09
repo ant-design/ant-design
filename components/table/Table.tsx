@@ -28,7 +28,10 @@ import {
   CompareFn,
   TableStateFilters,
   SelectionItemSelectFn,
-  TablePaginationConfig,
+  SelectionInfo,
+  TableSelectWay,
+  TableRowSelection,
+  PaginationConfig,
 } from './interface';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
@@ -41,6 +44,10 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
   if (e.nativeEvent.stopImmediatePropagation) {
     e.nativeEvent.stopImmediatePropagation();
   }
+}
+
+function getRowSelection<T>(props: TableProps<T>): TableRowSelection<T> {
+  return props.rowSelection || {};
 }
 
 const defaultPagination = {
@@ -80,7 +87,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     dataSource: [],
     prefixCls: 'ant-table',
     useFixedHeader: false,
-    rowSelection: null,
     className: '',
     size: 'large',
     loading: false,
@@ -121,13 +127,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     this.CheckboxPropsCache = {};
 
     this.store = createStore({
-      selectedRowKeys: (props.rowSelection || {}).selectedRowKeys || [],
+      selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
       selectionDirty: false,
     });
   }
 
   getCheckboxPropsByItem = (item: T, index: number) => {
-    const { rowSelection = {} } = this.props;
+    const  rowSelection = getRowSelection(this.props);
     if (!rowSelection.getCheckboxProps) {
       return {};
     }
@@ -140,7 +146,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultSelection() {
-    const { rowSelection = {} } = this.props;
+    const rowSelection = getRowSelection(this.props);
     if (!rowSelection.getCheckboxProps) {
       return [];
     }
@@ -150,7 +156,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   getDefaultPagination(props: TableProps<T>) {
-    const pagination: TablePaginationConfig = props.pagination || {};
+    const pagination: PaginationConfig = props.pagination || {};
     return this.hasPagination(props) ?
       {
         ...defaultPagination,
@@ -224,8 +230,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  setSelectedRowKeys(selectedRowKeys: string[], { selectWay, record, checked, changeRowKeys, nativeEvent }: any) {
-    const { rowSelection = {} as any } = this.props;
+  setSelectedRowKeys(selectedRowKeys: string[], selectionInfo: SelectionInfo<T>) {
+    const { selectWay, record, checked, changeRowKeys, nativeEvent } = selectionInfo;
+    const rowSelection = getRowSelection(this.props);
     if (rowSelection && !('selectedRowKeys' in rowSelection)) {
       this.store.setState({ selectedRowKeys });
     }
@@ -240,12 +247,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       rowSelection.onChange(selectedRowKeys, selectedRows);
     }
     if (selectWay === 'onSelect' && rowSelection.onSelect) {
-      rowSelection.onSelect(record, checked, selectedRows, nativeEvent);
+      rowSelection.onSelect(record!, checked!, selectedRows, nativeEvent!);
     } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
       const changeRows = data.filter(
-        (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0,
+        (row, i) => changeRowKeys!.indexOf(this.getRecordKey(row, i)) >= 0,
       );
-      rowSelection.onSelectAll(checked, selectedRows, changeRows);
+      rowSelection.onSelectAll(checked!, selectedRows, changeRows);
     } else if (selectWay === 'onSelectInvert' && rowSelection.onSelectInvert) {
       rowSelection.onSelectInvert(selectedRowKeys);
     }
@@ -333,7 +340,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
 
     return (a: T, b: T) => {
-      const result = (sortColumn!.sorter as CompareFn<T>)(a, b);
+      const result = (sortColumn!.sorter as CompareFn<T>)(a, b, sortOrder);
       if (result !== 0) {
         return (sortOrder === 'descend') ? -result : result;
       }
@@ -341,7 +348,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  toggleSortOrder(order: string, column: ColumnProps<T>) {
+  toggleSortOrder(order: 'ascend'|'descend', column: ColumnProps<T>) {
     let { sortColumn, sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let isSortColumn = this.isSortColumn(column);
@@ -350,7 +357,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       sortColumn = column;
     } else {                      // 当前列已排序
       if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = '';
+        sortOrder = undefined;
         sortColumn = null;
       } else {                    // 切换为排序状态
         sortOrder = order;
@@ -492,7 +499,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       .map((item, i) => this.getRecordKey(item, i));
 
     let changeRowKeys: string[] = [];
-    let selectWay = '';
+    let selectWay: TableSelectWay = 'onSelectAll';
     let checked;
     // handle default selection
     switch (selectionKey) {
@@ -544,7 +551,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       return onSelectFunc(changeableRowKeys);
     }
     this.setSelectedRowKeys(selectedRowKeys, {
-      selectWay: selectWay,
+      selectWay,
       checked,
       changeRowKeys,
     });

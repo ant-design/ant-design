@@ -7,7 +7,6 @@ const events = {};
 
 class AffixMounter extends React.Component {
   componentDidMount() {
-    this.container.scrollTop = 100;
     this.container.addEventListener = jest.fn().mockImplementation((event, cb) => {
       events[event] = cb;
     });
@@ -34,6 +33,7 @@ class AffixMounter extends React.Component {
           <Affix
             target={() => this.container}
             ref={ele => this.affix = ele}
+            {...this.props}
           >
             <Button type="primary" >
               Fixed at the top of container
@@ -46,6 +46,8 @@ class AffixMounter extends React.Component {
 }
 
 describe('Affix Render', () => {
+  let wrapper;
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -54,23 +56,48 @@ describe('Affix Render', () => {
     jest.useRealTimers();
   });
 
-  it('Anchor render perfectly', () => {
-    document.body.innerHTML = '<div id="mounter" />';
-
-    const wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
-    jest.runAllTimers();
-
+  const scrollTo = (top) => {
     wrapper.instance().affix.fixedNode.parentNode.getBoundingClientRect = jest.fn(() => {
       return {
-        bottom: 100, height: 28, left: 0, right: 0, top: -50, width: 195,
+        bottom: 100, height: 28, left: 0, right: 0, top: 50 - top, width: 195,
       };
     });
-
+    wrapper.instance().container.scrollTop = top;
     events.scroll({
       type: 'scroll',
     });
-
     jest.runAllTimers();
+  };
+
+  it('Anchor render perfectly', () => {
+    document.body.innerHTML = '<div id="mounter" />';
+
+    wrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
+    jest.runAllTimers();
+
+    scrollTo(0);
+    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+
+    scrollTo(100);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+
+    scrollTo(0);
+    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+  });
+
+  it('support offsetBottom', () => {
+    document.body.innerHTML = '<div id="mounter" />';
+
+    wrapper = mount(<AffixMounter offsetBottom={0} />, { attachTo: document.getElementById('mounter') });
+    jest.runAllTimers();
+
+    scrollTo(0);
+    expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
+
+    scrollTo(100);
+    expect(wrapper.instance().affix.state.affixStyle).toBe(null);
+
+    scrollTo(0);
     expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
   });
 });

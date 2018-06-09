@@ -15,6 +15,117 @@ timeline: true
 
 ---
 
+## 3.6.0
+
+`2018-06-02`
+
+* 🌟 `Form`'s error message now can be customized with ReactNode. [#10136](https://github.com/ant-design/ant-design/issues/10136) [@lovekonakona](https://github.com/lovekonakona)
+* 🌟 `List` support customized configuration for position of pagination. [#10581](https://github.com/ant-design/ant-design/pull/10581) [@zheeeng](https://github.com/zheeeng)
+* 🌟 `Layout.Sider` now can be configured with `light` or `dark` theme. [#10142](https://github.com/ant-design/ant-design/issues/10142) [@pd4d10](https://github.com/pd4d10)
+* 🌟 Ant Design official site now supports offline mode. [#10625](https://github.com/ant-design/ant-design/issues/10625)
+* 🌟 `Transfer` adding `style` and `operationStyle` props for further customization. [@eduludi](https://github.com/eduludi)
+* 🌟 `Message` adds a promisfied interface to handle callback. [#10421](https://github.com/ant-design/ant-design/issues/10421) [@zhujinxuan](https://github.com/zhujinxuan)
+* 🐞 Fix compilation issue with typescript@v2.9.1 . [#10729](https://github.com/ant-design/ant-design/issues/10729) [@karol-majewski](https://github.com/karol-majewski)
+* 🐞 Fix a bug in `Menu` where outer menu item not highlighting while inner item is selected. [#8666](https://github.com/ant-design/ant-design/issues/8666) [@stonehank](https://github.com/stonehank)
+* 🐞 Affix `offsetBottom` not working. [#10674](https://github.com/ant-design/ant-design/issues/10674)
+
+## 3.5.4
+
+`2018-05-26`
+
+- 🐞 Fix `showSearch` on `Cascader` not working.[968488a2](https://github.com/ant-design/ant-design/commit/968488a2fac9bcb16bee9f0c248f49bca00dbec6)
+- 🐞 `Badge[status]` support `Tooltip`.[#10626](https://github.com/ant-design/ant-design/issues/10626)
+- 🐞 Fix `text-align` on parent element affects `Spin`.[#10643](https://github.com/ant-design/ant-design/pull/10643) [@wmzhong](https://github.com/wmzhong)
+- 💄 `Table` break line style change from `break-all` to `break-word`.[#10655](https://github.com/ant-design/ant-design/pull/10655) [@clinyong](https://github.com/clinyong)
+- 🌟 When `Search` not define `enterButton`, click search icon will trigger `onSearch`. [36ffe7e1](https://github.com/ant-design/ant-design/commit/36ffe7e1dc9d9473c8c68168ab79b7a03a604702)
+
+## 3.5.3
+
+`2018-05-20`
+
+- 🐞 Fix `Affix` with offsetTop === 0, value becomes `undefined` problem [#10566](https://github.com/ant-design/ant-design/pull/10566)
+- 🐞 Fixed issue with shaded `Input.Group` component shadows[#10230](https://github.com/ant-design/ant-design/issues/10230)
+- 🐞 Fixed issue where the `Transfer` component checkbox event fired twice [#10480](https://github.com/ant-design/ant-design/issues/10480)
+- 💄 Unifying the name of the variable [12d3046](https://github.com/ant-design/ant-design/commit/12d3046687a0dcdb51fece08dd2bea64f185cc40)
+- 💄 Fine-tuned the style of `Dropdown` [8e2f72f](https://github.com/ant-design/ant-design/commit/8e2f72ffe0eb300f5997296726b02246bf990c8f)
+- 💄 The components of the Chinese document will now be demonstrated using Chinese language packages. [9b17a94](https://github.com/ant-design/ant-design/commit/9b17a943f5d57d40d65041b7b0c247add09d2851)
+- 💄 The main theme switch was changed to `antd-theme-generato`, thanks to the work of [@mzohaibqc](https://github.com/mzohaibqc).
+- TypeScript
+  - 🐞 Fixed an issue with the type of gutter attribute in `Row` [b7d508e](https://github.com/ant-design/ant-design/commit/b7d508e1662bf20a0cacbe6440a2ce31a65a8a59)
+  - 💄 Improved the `Form` component type [#10564](https://github.com/ant-design/ant-design/pull/10564)
+  - 💄 Improved the `Button` and `Tag` types[1ed9fed](https://github.com/ant-design/ant-design/commit/1ed9fed2cf1c99b947359fafb101b2e58213cb48)
+
+## 3.5.2
+
+`2018-05-13`
+
+- 🐞 Fixed `Table` filter doesn't work when click checkbox. [#10452](https://github.com/ant-design/ant-design/issues/10452)
+- 🐞 Fixed `Cascader` displayRender z-index issue. [#10433](https://github.com/ant-design/ant-design/issues/10433)
+- 🐞 Fixed `Button` Types of property 'ref' are incompatible. [#10405](https://github.com/ant-design/ant-design/issues/10405)
+- 🐞 Fixed the height of `Form` item when checks position is dithered. [#10445](https://github.com/ant-design/ant-design/issues/10445)
+- 🌟 Allow to use any CSS units for `Layout` width. [#10479](https://github.com/ant-design/ant-design/pull/10479)
+
+## 3.5.1
+
+`2018-05-09`
+
+- 🐞 Fixed broken style of Input.Group under Form. [#10371](https://github.com/ant-design/ant-design/issues/10371)
+- 🐞 Fixed overlay style of Select. [#10383](https://github.com/ant-design/ant-design/issues/10383)
+- 🐞 Remove focused style of Collapse.
+- 🐞 Remove unnecessary `z-index` of Input.Group and Checkbox. [#9840](https://github.com/ant-design/ant-design/issues/9840) [#10385](https://github.com/ant-design/ant-design/issues/10385)
+- 🐞 Fixed that monospaced font family can't be bold.
+- Table
+  - 💄 Rewrited the editable table demo. [#10119](https://github.com/ant-design/ant-design/pull/10119)
+  - 🐞 Fixed that table column overlay each other. [#9822](https://github.com/ant-design/ant-design/issues/9822)
+- TypeScript
+  - 🐞 Fixed Breadcrumb.Item type. [#10372](https://github.com/ant-design/ant-design/pull/10372) [@karol-majewski](https://github.com/karol-majewski)
+  - 🐞 Fixed Table `rowSelection` type。[#10374](https://github.com/ant-design/ant-design/issues/10374)
+
+## 3.5.0
+
+`2018-05-04`
+
+- 🌟 Add `title` prop to `Badge` that shows when hovering it. [74d81c2](https://github.com/ant-design/ant-design/commit/74d81c2d078a3c84b3e44cbfbdd99b8f479ea71d) [@ludwigbacklund](https://github.com/ludwigbacklund)
+- 🌟 Add `successPercent` as `Progress[format]` argument. [#10096](https://github.com/ant-design/ant-design/issues/10096)
+- 🌟 Update `rc-notification` to 3.1.0 so that `Notification` support set `maxCount`. [#10161](https://github.com/ant-design/ant-design/pull/10161) [@jzhangs](https://github.com/jzhangs)
+- 🌟 Update `rc-cascader` to 1.13.0 so that `Cascader` support set `filedNames`. [react-component/cascader#23](https://github.com/react-component/cascader/pull/23) [@405go](https://github.com/405go)
+- 🌟 Add ability to update `Notification` props by key. [react-component/notification#40](https://github.com/react-component/notification/pull/40) [@yevhen-hryhorevskyi](https://github.com/yevhen-hryhorevskyi)
+- 🌟 `List` support pagination by default. [#10135](https://github.com/ant-design/ant-design/pull/10135)
+- Table
+  - 🌟 Column `sorter` function is passed `sortOrder` as param. [#10306](https://github.com/ant-design/ant-design/pull/10306) [@kumarashwin](https://github.com/kumarashwin)
+  - 🐞 Fix merged header cell border. [#10359](https://github.com/ant-design/ant-design/issues/10359)
+  - 🐞 Fix lost of user selection on data updates. [#10332](https://github.com/ant-design/ant-design/pull/10332) [@chrvadala](https://github.com/chrvadala)
+- `Menu` upgrade `rc-menu` to `7.x` [#10305](https://github.com/ant-design/ant-design/pull/10305)
+  - 🌟 Better aria-* attributes support. [react-component/menu#137](https://github.com/react-component/menu/pull/137)
+  - 🌟 Improve Menu performance by avoiding unnecessary updates. [react-component/menu#133](https://github.com/react-component/menu/pull/133)
+  - 🌟 Support passing props through to MenuItem list item. [react-component/menu#135](https://github.com/react-component/menu/pull/135)
+  - 🐞 Minor key shortcut bug fixes. [react-component/menu#132](https://github.com/react-component/menu/pull/132)
+- Collapse
+  - 🌟 Support custom `Collapse` styles with less. [#9943](https://github.com/ant-design/ant-design/pull/9943) [@davidhatten](https://github.com/davidhatten)
+  - 🌟 Update `rc-collapse` to 1.9.0 to add `Collapse` keyboard support. [react-component/collapse#84](https://github.com/react-component/collapse/pull/84/)  [@kossel](https://github.com/kossel)
+- Select
+  - 🐞 Fix type for `placeholder`. [#10282](https://github.com/ant-design/ant-design/pull/10282) [@thomasthiebaud](https://github.com/thomasthiebaud)
+  - 🐞 Fix extra space taken up when arrow disabled. [#10296](https://github.com/ant-design/ant-design/pull/10296)
+  - 🐞 Fix property `value` typescript type. [#10336](https://github.com/ant-design/ant-design/pull/10336) [@paranoidjk](https://github.com/paranoidjk)
+- Input
+  - 🐞 Fix `Input.Search` not disable enter button when disabled prop is true. [#10040](https://github.com/ant-design/ant-design/issues/10040)
+  - 🐞 Fix `Input.Group` align issue in Form. [#10281](https://github.com/ant-design/ant-design/issues/10281)
+- Form
+  - 🐞 Fix typing for `Form.onValuesChange`. [#10231](https://github.com/ant-design/ant-design/pull/10231) [@whtsky](https://github.com/whtsky)
+  - 🐞 Fix typescript interface `ComponentDecorator`. [#10324](https://github.com/ant-design/ant-design/pull/10324) [@paranoidjk](https://github.com/paranoidjk)
+- 🐞 Fix dashed `Divider`. [#10216](https://github.com/ant-design/ant-design/issues/10216)
+- 🐞 Fix `Spin` container interaction. [#10227](https://github.com/ant-design/ant-design/issues/10227)
+- 🐞 Fix `Notification` icon hover color. [#10272](https://github.com/ant-design/ant-design/issues/10272)
+- 🐞 Fix `Upload` property `lastModifiedDate` name. [#10315](https://github.com/ant-design/ant-design/pull/10315) [@danielg2002](https://github.com/danielg2002)
+- 🐞 Fix `Button` props type, use `React.HTMLProps`. [#10229](https://github.com/ant-design/ant-design/pull/10229) [@whtsky](https://github.com/whtsky)
+- 🐞 Fix less var naming convention. [#10275](https://github.com/ant-design/ant-design/issues/10275)
+
+## 3.4.5
+
+`2018-05-03`
+
+- 🐞 Fix file object is empty and file name not showing in Upload. [#10319](https://github.com/ant-design/ant-design/issues/10319)
+
 ## 3.4.4
 
 `2018-04-28`
@@ -370,7 +481,7 @@ Happy 2018 !~ 2018 2018 2018 coming!~~~
 
 `2017-12-04`
 
-Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c)!
+Learn more in the [Ant Design 3.0 announcement post](https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c).
 
 ### Major Changes
 

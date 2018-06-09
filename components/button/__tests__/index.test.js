@@ -26,6 +26,21 @@ describe('Button', () => {
       <Button><Icon type="search" />按钮</Button>
     );
     expect(wrapper2).toMatchSnapshot();
+    // should not insert space when there is icon
+    const wrapper3 = render(
+      <Button icon="search">按钮</Button>
+    );
+    expect(wrapper3).toMatchSnapshot();
+    // should not insert space when there is icon while loading
+    const wrapper4 = render(
+      <Button icon="search" loading>按钮</Button>
+    );
+    expect(wrapper4).toMatchSnapshot();
+    // should insert space while loading
+    const wrapper5 = render(
+      <Button loading>按钮</Button>
+    );
+    expect(wrapper5).toMatchSnapshot();
   });
 
   it('renders Chinese characters correctly in HOC', () => {

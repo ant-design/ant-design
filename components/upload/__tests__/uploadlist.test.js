@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Upload from '..';
 import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
+import { setup, teardown } from './mock';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -21,6 +22,9 @@ const fileList = [{
 }];
 
 describe('Upload List', () => {
+  beforeEach(() => setup());
+  afterEach(() => teardown());
+
   // https://github.com/ant-design/ant-design/issues/4653
   it('should use file.thumbUrl for <img /> in priority', () => {
     const wrapper = mount(

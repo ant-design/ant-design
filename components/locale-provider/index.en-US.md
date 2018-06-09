@@ -14,7 +14,8 @@ title: LocaleProvider
 ```jsx
 import { LocaleProvider } from 'antd';
 import fr_FR from 'antd/lib/locale-provider/fr_FR';
-import 'moment/locale/fr';
+import 'moment/src/locale/fr';
+// import 'moment/locale/fr'; if you are using webpack 1
 
 ...
 

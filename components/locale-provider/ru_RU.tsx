@@ -29,8 +29,8 @@ export default {
   Transfer: {
     notFoundContent: 'Ничего не найдено',
     searchPlaceholder: 'Введите название для поиска',
-    itemUnit: 'item',
-    itemsUnit: 'items',
+    itemUnit: 'элем.',
+    itemsUnit: 'элем.',
   },
   Select: {
     notFoundContent: 'Ничего не найдено',

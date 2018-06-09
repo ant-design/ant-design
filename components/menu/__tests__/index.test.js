@@ -14,6 +14,23 @@ describe('Menu', () => {
     jest.useRealTimers();
   });
 
+  it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
+    const wrapper = mount(
+      <Menu defaultSelectedKeys={['1-3-2']} mode="vertical">
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="1-1">Option 1</Menu.Item>
+          <Menu.Item key="1-2">Option 2</Menu.Item>
+          <SubMenu key="1-3" title="submenu1-3">
+            <Menu.Item key="1-3-1">Option 3</Menu.Item>
+            <Menu.Item key="1-3-2">Option 4</Menu.Item>
+          </SubMenu>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>
+    );
+    expect(wrapper.find('.ant-menu-submenu-selected').length).toBe(1);
+  });
+
   it('should accept defaultOpenKeys in mode horizontal', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="horizontal">
@@ -133,14 +150,14 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ mode: 'vertical' });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
     wrapper.setProps({ mode: 'inline' });
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
-  it('should always follow openKeys when mode is switched', () => {
+  it('should always follow openKeys when inlineCollapsed is switched', () => {
     const wrapper = mount(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <Menu.Item key="menu1">
@@ -157,24 +174,23 @@ describe('Menu', () => {
         </SubMenu>
       </Menu>
     );
-
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
 
     wrapper.setProps({ inlineCollapsed: true });
     // 动画结束后套样式;
     jest.runAllTimers();
     wrapper.update();
 
-    expect(wrapper.find('.ant-menu').at(0).hasClass('ant-menu-vertical')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    expect(wrapper.find('ul.ant-menu-root').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').length).toBe(0);
 
     wrapper.setProps({ inlineCollapsed: false });
     jest.runAllTimers();
     wrapper.update();
 
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-inline')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
@@ -203,8 +219,8 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-vertical')).toBe(true);
     expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-open')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   describe('open submenu when click submenu title', () => {

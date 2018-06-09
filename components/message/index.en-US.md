@@ -34,6 +34,12 @@ Methods for global configuration and destruction are also provided:
 - `message.config(options)`
 - `message.destroy()`
 
+`afterClose` can be called in then-able interface:
+- `message[level](content, [duration]).then(afterClose)`
+- `message[level](content, [duration], onClose).then(afterClose)`
+
+where `level` refers one static methods of `message`. The result of `then` method will be a Promise.
+
 ### message.config
 
 ```js
@@ -48,5 +54,5 @@ message.config({
 | -------- | ----------- | ---- | ------- |
 | duration | time before auto-dismiss, in seconds | number | 1.5 |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |
-| top | distance from top | number | 24px |
+| top | distance from top | number | 24 |
 | maxCount | max message show, drop oldest if exceed limit | number | - |

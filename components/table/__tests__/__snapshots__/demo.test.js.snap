@@ -2671,11 +2671,12 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
 exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
 <div>
   <button
-    class="ant-btn editable-add-btn"
+    class="ant-btn ant-btn-primary"
+    style="margin-bottom:16px"
     type="button"
   >
     <span>
-      Add
+      Add a row
     </span>
   </button>
   <div
@@ -2758,7 +2759,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell"
                       >
                         <div
-                          class="editable-cell-text-wrapper"
+                          style="padding-right:24px"
                         >
                           Edward King 0
                           <i
@@ -2801,7 +2802,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell"
                       >
                         <div
-                          class="editable-cell-text-wrapper"
+                          style="padding-right:24px"
                         >
                           Edward King 1
                           <i
@@ -2945,7 +2946,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -2954,30 +2955,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 0
-                    </div>
+                    Edrward 0
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 0
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 0
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -2985,7 +2978,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -2994,30 +2987,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 1
-                    </div>
+                    Edrward 1
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 1
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 1
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3025,7 +3010,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3034,30 +3019,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 2
-                    </div>
+                    Edrward 2
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 2
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 2
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3065,7 +3042,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3074,30 +3051,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 3
-                    </div>
+                    Edrward 3
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 3
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 3
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3105,7 +3074,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3114,30 +3083,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 4
-                    </div>
+                    Edrward 4
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 4
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 4
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3145,7 +3106,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3154,30 +3115,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 5
-                    </div>
+                    Edrward 5
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 5
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 5
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3185,7 +3138,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3194,30 +3147,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 6
-                    </div>
+                    Edrward 6
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 6
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 6
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3225,7 +3170,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3234,30 +3179,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 7
-                    </div>
+                    Edrward 7
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 7
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 7
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3265,7 +3202,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3274,30 +3211,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 8
-                    </div>
+                    Edrward 8
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 8
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 8
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3305,7 +3234,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row  ant-table-row-level-0"
+                  class="ant-table-row editable-row ant-table-row-level-0"
                 >
                   <td
                     class=""
@@ -3314,30 +3243,22 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <div>
-                      Edrward 9
-                    </div>
+                    Edrward 9
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class=""
+                  >
+                    London Park no. 9
                   </td>
                   <td
                     class=""
                   >
                     <div>
-                      32
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div>
-                      London Park no. 9
-                    </div>
-                  </td>
-                  <td
-                    class=""
-                  >
-                    <div
-                      class="editable-row-operations"
-                    >
                       <a>
                         Edit
                       </a>
@@ -3905,7 +3826,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           >
             <div
               class="ant-table-body"
-              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0)"
+              style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0)"
             >
               <table
                 class="ant-table-fixed"
@@ -4489,7 +4410,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             </div>
             <div
               class="ant-table-body"
-              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0);max-height:300px;overflow-y:scroll"
+              style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0);max-height:300px;overflow-y:scroll"
             >
               <table
                 class="ant-table-fixed"
@@ -7195,7 +7116,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             </div>
             <div
               class="ant-table-body"
-              style="overflow-x:auto;-webkit-transform:translate3d (0, 0, 0);max-height:240px;overflow-y:scroll"
+              style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0);max-height:240px;overflow-y:scroll"
             >
               <table
                 class="ant-table-fixed"

@@ -47,7 +47,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
       className,
       children,
       style,
-      ...restProps,
+      ...restProps
     } = props;
     const { radioGroup } = context;
     let radioProps: RadioProps = { ...restProps };

@@ -6,7 +6,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 
 import Spin from '../spin';
-import Pagination from '../pagination';
+import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 
 import Item from './Item';
@@ -49,7 +49,7 @@ export interface ListProps {
   itemLayout?: string;
   loading?: boolean | SpinProps;
   loadMore?: React.ReactNode;
-  pagination?: any;
+  pagination?: PaginationConfig;
   prefixCls?: string;
   rowKey?: any;
   renderItem: any;
@@ -162,7 +162,7 @@ export default class List extends React.Component<ListProps> {
       footer,
       loading,
       locale,
-      ...rest,
+      ...rest
     } = this.props;
 
     let loadingProp = loading;
@@ -196,9 +196,13 @@ export default class List extends React.Component<ListProps> {
       [`${prefixCls}-something-after-last-item`]: this.isSomethingAfterLastItem(),
     });
 
-    this.defaultPaginationProps.total = dataSource.length;
-    this.defaultPaginationProps.current = paginationCurrent;
-    const paginationProps = { ...this.defaultPaginationProps, ...pagination };
+    const paginationProps = {
+      ...this.defaultPaginationProps,
+      total: dataSource.length,
+      current: paginationCurrent,
+      ...pagination || {},
+    };
+
     const largestPage = Math.ceil(
       paginationProps.total / paginationProps.pageSize,
     );
@@ -255,15 +259,18 @@ export default class List extends React.Component<ListProps> {
       );
     }
 
+    const paginationPosition = paginationProps.position || 'bottom';
+
     return (
       <div className={classString} {...rest}>
+        {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
         {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-        {loadMore || paginationContent}
+        {loadMore || (paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent}
       </div>
     );
   }

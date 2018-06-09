@@ -70,14 +70,14 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
     </div>
   </div>
   <div
-    class="ant-select ant-select-disabled ant-select-allow-clear"
+    class="ant-select ant-select-disabled"
     style="width:120px"
   >
     <div
@@ -101,14 +101,9 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <span
-        class="ant-select-selection__clear"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
-      />
-      <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -136,7 +131,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         Enter the account name
       </div>
@@ -164,7 +159,7 @@ exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <b />
     </span>
@@ -201,7 +196,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -234,7 +229,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -271,7 +266,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <b />
     </span>
@@ -298,7 +293,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:none;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         Please select
       </div>
@@ -307,7 +302,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
           class="ant-select-selection__choice"
           style="user-select:none;-webkit-user-select:none"
           title="a10"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <div
             class="ant-select-selection__choice__content"
@@ -322,7 +317,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
           class="ant-select-selection__choice"
           style="user-select:none;-webkit-user-select:none"
           title="c12"
-          unselectable="unselectable"
+          unselectable="on"
         >
           <div
             class="ant-select-selection__choice__content"
@@ -385,7 +380,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <b />
     </span>
@@ -413,7 +408,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         Select a person
       </div>
@@ -440,7 +435,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
     <span
       class="ant-select-arrow"
       style="user-select:none;-webkit-user-select:none"
-      unselectable="unselectable"
+      unselectable="on"
     >
       <b />
     </span>
@@ -450,7 +445,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
-  class="ant-select ant-select-combobox ant-select-enabled"
+  class="ant-select ant-select-combobox ant-select-enabled ant-select-no-arrow"
   style="width:200px"
 >
   <div
@@ -467,7 +462,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         input search text
       </div>
@@ -515,7 +510,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         Select users
       </div>
@@ -637,7 +632,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -683,7 +678,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
       <span
         class="ant-select-arrow"
         style="user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         <b />
       </span>
@@ -708,7 +703,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <div
           class="ant-select-selection__placeholder"
           style="display:none;user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           Please select
         </div>
@@ -717,7 +712,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             class="ant-select-selection__choice"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <div
               class="ant-select-selection__choice__content"
@@ -732,7 +727,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             class="ant-select-selection__choice"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <div
               class="ant-select-selection__choice__content"
@@ -784,7 +779,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         <div
           class="ant-select-selection__placeholder"
           style="display:none;user-select:none;-webkit-user-select:none"
-          unselectable="unselectable"
+          unselectable="on"
         >
           Please select
         </div>
@@ -793,7 +788,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             class="ant-select-selection__choice"
             style="user-select:none;-webkit-user-select:none"
             title="a10"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <div
               class="ant-select-selection__choice__content"
@@ -808,7 +803,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             class="ant-select-selection__choice"
             style="user-select:none;-webkit-user-select:none"
             title="c12"
-            unselectable="unselectable"
+            unselectable="on"
           >
             <div
               class="ant-select-selection__choice__content"
@@ -863,7 +858,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
       <div
         class="ant-select-selection__placeholder"
         style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="unselectable"
+        unselectable="on"
       >
         Tags Mode
       </div>

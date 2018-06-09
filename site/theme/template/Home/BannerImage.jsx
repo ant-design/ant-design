@@ -66,12 +66,12 @@ export default function BannerImage() {
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(0, 30)">
         <g id="Group-7" transform="translate(56.000000, 124)">
           <TweenOneG animation={animate.rotateY}>
-            <image id="cc2" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/DJWUmdpxcQakQHwhPjzf.png" width="124px" height="130px" />
+            <image id="cc2" alt="globe" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/DJWUmdpxcQakQHwhPjzf.png" width="124px" height="130px" />
           </TweenOneG>
         </g>
         <g id="Group-8" transform="translate(127.000000, 82)">
           <TweenOneG animation={animate.rotateR}>
-            <image id="cc1" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/DEaRdiYbAyVNRelJpwXx.png" width="195px" height="163px" />
+            <image id="cc1" alt="globe" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/DEaRdiYbAyVNRelJpwXx.png" width="195px" height="163px" />
           </TweenOneG>
         </g>
         <g id="Group-13" transform="translate(0.000000, 41.000000)">
@@ -104,18 +104,18 @@ export default function BannerImage() {
           </g>
           <g id="Group-9" transform="translate(322.000000, 107.000000)">
             <TweenOneG style={{ transformOrigin: '50px 40px' }} animation={animate.rotateR}>
-              <image id="cc3" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/cCmuVrmQIJYlrhFjiPDZ.png" width="160px" height="66px" />
+              <image id="cc3" alt="globe" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/cCmuVrmQIJYlrhFjiPDZ.png" width="160px" height="66px" />
             </TweenOneG>
           </g>
           <g id="Group-12" transform="translate(271.000000, 2)">
             <TweenOneG style={{ transformOrigin: '125px 200px' }} animation={animate.rotate}>
-              <image id="cc0" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/TOElddMOrCWlgZvWTJna.png" width="184px" height="293px" />
+              <image id="cc0" alt="globe" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/TOElddMOrCWlgZvWTJna.png" width="184px" height="293px" />
             </TweenOneG>
           </g>
         </TweenOneG>
         <g id="Group-14" transform="translate(150.000000, 230.000000)">
           <g id="Group-22" transform="translate(62.000000, 7.000000)">
-            <image id="cc4" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/FpKOqFadwoFFIZFExjaf.png" width="151px" height="234px" />
+            <image id="cc4" alt="globe" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/FpKOqFadwoFFIZFExjaf.png" width="151px" height="234px" />
           </g>
           <mask id="mask-2">
             <use xlinkHref="#mask" fill="white" transform="translate(-42, -33)" />
@@ -127,7 +127,7 @@ export default function BannerImage() {
                   <path d="M83.1700911,35.9320015 C63.5256194,37.9279025 44.419492,43.1766434 25.8517088,51.6782243 C14.3939956,57.7126276 7.77167019,64.8449292 7.77167019,72.4866248 C7.77167019,94.1920145 61.1993389,111.787709 127.105708,111.787709 C193.012078,111.787709 246.439746,94.1920145 246.439746,72.4866248 C246.439746,55.2822262 212.872939,40.6598106 166.13127,35.3351955" id="line-s" stroke="#0D1A26" strokeWidth="1.35" strokeLinecap="round" transform="translate(127.105708, 73.561453) rotate(-16.000000) translate(-127.105708, -73.561453) " />
                 </g>
                 <TweenOneG animation={animate.path}>
-                  <image id="id2" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/IauKICnGjGnotJBEyCRK.png" x="16" y="62" width="26px" height="26px" />
+                  <image alt="globe" id="id2" xlinkHref="https://gw.alipayobjects.com/zos/rmsportal/IauKICnGjGnotJBEyCRK.png" x="16" y="62" width="26px" height="26px" />
                 </TweenOneG>
               </g>
             </TweenOneG>

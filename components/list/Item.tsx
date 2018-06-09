@@ -31,7 +31,7 @@ export const Meta = (props: ListItemMetaProps) => {
     avatar,
     title,
     description,
-    ...others,
+    ...others
   } = props;
 
   const classString = classNames(`${prefixCls}-item-meta`, className);

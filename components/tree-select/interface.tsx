@@ -17,7 +17,6 @@ export interface TreeSelectProps extends AbstractSelectProps {
   onSearch?: (value: any) => void;
   searchPlaceholder?: string;
   dropdownStyle?: React.CSSProperties;
-  dropdownMatchSelectWidth?: boolean;
   treeDefaultExpandAll?: boolean;
   treeCheckable?: boolean | React.ReactNode;
   treeDefaultExpandedKeys?: Array<string>;

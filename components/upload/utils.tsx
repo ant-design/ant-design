@@ -9,6 +9,12 @@ export function T() {
 export function fileToObject(file: RcFile): UploadFile {
   return {
     ...file,
+    lastModified: file.lastModified,
+    lastModifiedDate: file.lastModifiedDate,
+    name: file.name,
+    size: file.size,
+    type: file.type,
+    uid: file.uid,
     percent: 0,
     originFileObj: file,
   } as UploadFile;
@@ -33,7 +39,7 @@ export function genPercentAdd() {
     if (k < 0.001) {
       k = 0.001;
     }
-    return start * 100;
+    return start;
   };
 }
 

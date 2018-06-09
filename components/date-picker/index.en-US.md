@@ -19,13 +19,25 @@ There are four kinds of picker:
 - RangePicker
 - WeekPicker
 
+### Localization
+
+The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [LocaleProvider](http://ant.design/components/locale-provider/).
+
+If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
+
+```jsx
+import locale from 'antd/lib/date-picker/locale/zh_CN';
+
+<DatePicker locale={locale} />
+```
+
 **Note:** Part of locale of DatePicker, MonthPicker, RangePicker, WeekPicker is read from value. So, please set the locale of moment correctly.
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globaly.
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
+import moment from 'moment';
+import 'moment/src/locale/zh-cn';
+// import 'moment/locale/zh-cn'; if you are using webpack 1
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```

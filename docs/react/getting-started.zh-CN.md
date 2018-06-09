@@ -179,7 +179,7 @@ IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016
 You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
 ```
 
-> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+> ![控制台警告](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
 可以通过以下的写法来按需加载组件。
 

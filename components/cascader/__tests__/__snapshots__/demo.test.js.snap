@@ -143,6 +143,28 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/cascader/demo/fileds-name.md correctly 1`] = `
+<span
+  class="ant-cascader-picker"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    placeholder="Please select"
+    readonly=""
+    type="text"
+    value=""
+  />
+  <i
+    class="anticon anticon-down ant-cascader-picker-arrow"
+  />
+</span>
+`;
+
 exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
 <span
   class="ant-cascader-picker"
@@ -189,7 +211,7 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
 
 exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
 <span
-  class="ant-cascader-picker"
+  class="ant-cascader-picker ant-cascader-picker-show-search"
   tabindex="0"
 >
   <span

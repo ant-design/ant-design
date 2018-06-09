@@ -27,7 +27,7 @@ export interface AntTreeNodeProps {
   title?: string | React.ReactNode;
   key?: string;
   isLeaf?: boolean;
-  icon?: (treeNode: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
+  icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -106,7 +106,7 @@ export interface TreeProps {
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = TreeNode;
+  static TreeNode: React.ComponentType<AntTreeNodeProps> = TreeNode;
 
   static defaultProps = {
     prefixCls: 'ant-tree',

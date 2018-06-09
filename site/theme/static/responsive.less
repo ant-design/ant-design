@@ -168,22 +168,6 @@
     h2 {
       margin-top: 16px;
     }
-    .bottom-bar {
-      padding: 16px;
-
-      text-align: center;
-      .translate-button {
-        width: auto;
-        text-align: center;
-        margin-bottom: 16px;
-      }
-      > div > span {
-        display: block;
-        &:nth-child(1), &:nth-child(2) {
-          display: none;
-        }
-      }
-    }
   }
 
   .prev-next-nav {
@@ -230,10 +214,13 @@
     }
     .img-wrapper {
       position: initial;
-      margin-top: 48px;
+      margin-top: 32px;
+      text-align: center;
       svg {
         width: 100%;
         height: auto;
+        margin: 0 auto;
+        max-width: 360px;
       }
     }
     .text-wrapper {
@@ -247,6 +234,12 @@
         font-size: 14px;
         line-height: 28px;
         color: @home-text-color;
+      }
+      .banner-btns {
+        display: block;
+        text-align: center;
+        min-width: 100%;
+        white-space: nowrap;
       }
     }
   }

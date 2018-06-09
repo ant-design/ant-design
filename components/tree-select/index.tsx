@@ -52,7 +52,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       notFoundContent,
       dropdownStyle,
       dropdownClassName,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     const cls = classNames({

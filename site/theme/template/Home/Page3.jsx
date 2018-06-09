@@ -24,6 +24,7 @@ const page3Data = [
     title: <FormattedMessage id="app.home.tool-kitchen-title" />,
     content: <FormattedMessage id="app.home.tool-kitchen-content" />,
     img: 'https://gw.alipayobjects.com/zos/rmsportal/vUxYuDdsbBBcMDxSGmwc.svg',
+    link: 'http://kitchen.alipay.com/',
   },
 ];
 
