@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import Checkbox from './Checkbox';
 
-export type CheckboxValueType = string | number;
+export type CheckboxValueType = string | number | boolean;
 
 export interface CheckboxOptionType {
   label: string;
@@ -121,7 +121,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       children = this.getOptions().map(option => (
         <Checkbox
           prefixCls={prefixCls}
-          key={option.value}
+          key={option.value.toString()}
           disabled={'disabled' in option ? option.disabled : props.disabled}
           value={option.value}
           checked={state.value.indexOf(option.value) !== -1}
