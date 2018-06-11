@@ -1,4 +1,5 @@
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import getDataAttributes from '../getDataAttributes';
 
 describe('Test utils function', () => {
   beforeAll(() => {
@@ -31,5 +32,21 @@ describe('Test utils function', () => {
 
     jest.runAllTimers();
     expect(callback).not.toBeCalled();
+  });
+
+  describe('getDataAttributes', () => {
+    it('returns all data-* properties from an object', () => {
+      const props = {
+        onClick: () => {},
+        isOpen: true,
+        'data-test': 'test-id',
+        'data-id': 1234,
+      };
+      const results = getDataAttributes(props);
+      expect(results).toEqual({
+        'data-test': 'test-id',
+        'data-id': 1234,
+      });
+    });
   });
 });
