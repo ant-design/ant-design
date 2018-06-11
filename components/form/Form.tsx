@@ -10,7 +10,7 @@ import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { Omit } from '../_util/type';
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: Array<any>) => void;
+  onFieldsChange?: (props: T, fields: Array<any>, allFields: any, add: string) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   withRef?: boolean;
