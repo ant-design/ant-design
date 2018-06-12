@@ -48,6 +48,7 @@ const data = [{
 
 class App extends React.Component {
   state = {
+    dataSourceLength: data.length,
     filteredInfo: null,
     sortedInfo: null,
   };
@@ -57,6 +58,9 @@ class App extends React.Component {
       filteredInfo: filters,
       sortedInfo: sorter,
     });
+  }
+  onFilter = (filteredDataSource) => {
+    this.setState({ dataSourceLength: filteredDataSource.length });
   }
   clearFilters = () => {
     this.setState({ filteredInfo: null });
@@ -76,6 +80,7 @@ class App extends React.Component {
     });
   }
   render() {
+    const { dataSourceLength } = this.state;
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
@@ -113,11 +118,17 @@ class App extends React.Component {
     return (
       <div>
         <div className="table-operations">
+          <p>This table has {dataSourceLength} row(s)</p><br />
           <Button onClick={this.setAgeSort}>Sort age</Button>
           <Button onClick={this.clearFilters}>Clear filters</Button>
           <Button onClick={this.clearAll}>Clear filters and sorters</Button>
         </div>
-        <Table columns={columns} dataSource={data} onChange={this.handleChange} />
+        <Table
+          columns={columns}
+          dataSource={data}
+          onChange={this.handleChange}
+          onFilter={this.onFilter}
+        />
       </div>
     );
   }
