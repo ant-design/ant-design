@@ -60,7 +60,7 @@ const columns = [{
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
-| expandedRowRender | Expanded container render for each row | Function(record):ReactNode | - |
+| expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
@@ -213,7 +213,7 @@ According to [React documentation](https://facebook.github.io/react/docs/lists-a
 
 If `dataSource[i].key` is not provided, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
 
-![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+![console warning](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
 // primary key is uid

@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import 'moment/locale/zh-cn';
+import { LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import OfflineRuntime from 'offline-plugin/runtime';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+
+if (typeof window !== 'undefined') {
+  OfflineRuntime.install();
+}
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
@@ -52,11 +60,16 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof window.ga !== 'undefined') {
-      this.context.router.listen((loc) => {
+    this.context.router.listen((loc) => {
+      if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
-      });
-    }
+      }
+      // eslint-disable-next-line
+      if (typeof window._hmt !== 'undefined') {
+        // eslint-disable-next-line
+        window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
+      }
+    });
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
@@ -82,11 +95,13 @@ export default class Layout extends React.Component {
 
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <div className="page-wrapper">
-          <Header {...restProps} />
-          {children}
-          <Footer {...restProps} />
-        </div>
+        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+            <Footer {...restProps} />
+          </div>
+        </LocaleProvider>
       </IntlProvider>
     );
   }

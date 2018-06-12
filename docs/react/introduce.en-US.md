@@ -8,7 +8,7 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 <div class="pic-plus">
   <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   <span>+</span>
-  <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
+  <img width="160" src="https://gw.alipayobjects.com/zos/rmsportal/tXlLQhLvkEelMstLyHiN.svg">
 </div>
 
 <style>

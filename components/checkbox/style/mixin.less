@@ -48,7 +48,7 @@
       height: @checkbox-size;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-sm;
-      background-color: #fff;
+      background-color: @checkbox-check-color;
       transition: all .3s;
 
       &:after {
@@ -61,7 +61,7 @@
         display: table;
         width: @check-width;
         height: @check-height;
-        border: 2px solid #fff;
+        border: 2px solid @checkbox-check-color;
         border-top: 0;
         border-left: 0;
         content: ' ';
@@ -72,6 +72,7 @@
     &-input {
       position: absolute;
       left: 0;
+      z-index: 1;
       cursor: pointer;
       opacity: 0;
       top: 0;
@@ -104,7 +105,7 @@
     transform: rotate(45deg) scale(1);
     position: absolute;
     display: table;
-    border: 2px solid #fff;
+    border: 2px solid @checkbox-check-color;
     border-top: 0;
     border-left: 0;
     content: ' ';

@@ -25,7 +25,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       prefixCls,
       pending = null, pendingDot,
       children, className, reverse,
-      ...restProps,
+      ...restProps
     } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames(prefixCls, {

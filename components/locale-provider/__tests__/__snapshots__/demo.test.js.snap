@@ -703,7 +703,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell"
+                    class="ant-fullcalendar-cell ant-fullcalendar-last-month-cell ant-fullcalendar-last-day-of-month"
                     role="gridcell"
                     title="October 31, 2016"
                   >
@@ -1263,7 +1263,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-fullcalendar-cell"
+                    class="ant-fullcalendar-cell ant-fullcalendar-last-day-of-month"
                     role="gridcell"
                     title="November 30, 2016"
                   >

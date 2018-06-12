@@ -61,7 +61,7 @@ const columns = [{
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
-| expandedRowRender | 额外的展开行 | Function(record):ReactNode | - |
+| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
@@ -213,7 +213,7 @@ class NameColumn extends Table.Column<IUser> {}
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 
-![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+![控制台警告](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
 // 比如你的数据主键是 uid

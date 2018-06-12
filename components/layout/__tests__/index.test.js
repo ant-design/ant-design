@@ -34,4 +34,62 @@ describe('Layout', () => {
     );
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-has-trigger')).toBe(true);
   });
+
+  it('should have 50% width of sidebar', async () => {
+    const wrapper = mount(
+      <Layout>
+        <div><Sider width="50%">Sider</Sider></div>
+        <Content>Content</Content>
+      </Layout>
+    );
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
+  });
+
+  it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
+    const wrapper = mount(
+      <Layout>
+        <div><Sider width="0%">Sider</Sider></div>
+        <Content>Content</Content>
+      </Layout>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
+  });
+
+  it('detect ant-layout-sider-dark as default theme', async () => {
+    const wrapper = mount(
+      <Sider>Sider</Sider>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark'));
+  });
+
+  it('detect ant-layout-sider-light when set light theme', async () => {
+    const wrapper = mount(
+      <Sider theme="light">Sider</Sider>
+    );
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+  });
+});
+
+describe('Sider onBreakpoint', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => {
+        return {
+          matches: true,
+          addListener: () => {},
+          removeListener: () => {},
+        };
+      }),
+    });
+  });
+
+  it('should trigger onBreakpoint', async () => {
+    const onBreakpoint = jest.fn();
+
+    mount(
+      <Sider breakpoint="md" onBreakpoint={onBreakpoint}>Sider</Sider>
+    );
+    expect(onBreakpoint).toBeCalledWith(true);
+  });
 });

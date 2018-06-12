@@ -24,7 +24,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       type, disabled, onClick, children,
       prefixCls, className, overlay, trigger, align,
       visible, onVisibleChange, placement, getPopupContainer,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     const dropdownProps = {
@@ -35,9 +35,9 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       onVisibleChange,
       placement,
       getPopupContainer,
-    };
+    } as DropDownProps;
     if ('visible' in this.props) {
-      (dropdownProps as any).visible = visible;
+      dropdownProps.visible = visible;
     }
 
     return (

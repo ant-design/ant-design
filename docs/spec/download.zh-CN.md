@@ -43,15 +43,15 @@ title: 设计资源
       <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
     </div>
   </a>
-  <span class="resource-card">
+  <a target="_blank" href="http://kitchen.alipay.com" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Kitchen（敬请期待）</span>
-      <span class="resource-card-description">一个为设计师提效的 Sketch 工具集，让你的设计秀色可餐</span>
+      <span class="resource-card-title">Kitchen</span>
+      <span class="resource-card-description">Sketch 工具集</span>
     </div>
-  </span>
+  </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">
     <div class="resource-card-icon">
       <img width="64" src="https://gw.alipayobjects.com/zos/rmsportal/yMULSUQQyhoEGrCXlovN.png">

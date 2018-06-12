@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 智能提示
   en-US: Automatic completion

@@ -85,6 +85,17 @@ describe('message', () => {
     });
   });
 
+  it('should be called like promise', () => {
+    jest.useRealTimers();
+    const defaultDuration = 3;
+    const now = Date.now();
+    message.info('whatever').then(() => {
+      // calculate the approximately duration value
+      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      expect(aboutDuration).toBe(defaultDuration);
+    });
+  });
+
   // https://github.com/ant-design/ant-design/issues/8201
   it('should hide message correctly', () => {
     let hide;

@@ -1,3 +1,5 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('mention', { skip: true });
+jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
+
+demoTest('mention', { skip: process.env.LIB_DIR === 'dist' });

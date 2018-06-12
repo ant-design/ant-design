@@ -79,7 +79,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     this.progressTimer = setInterval(() => {
       curPercent = getPercent(curPercent);
       this.onProgress({
-        percent: curPercent,
+        percent: curPercent * 100,
       }, file);
     }, 200);
   }
@@ -196,7 +196,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file,
-        fileList: uniqBy(fileList.map(fileToObject).concat(this.state.fileList),  (item: UploadFile) => item.uid),
+        fileList: uniqBy(this.state.fileList.concat(fileList.map(fileToObject)),  (item: UploadFile) => item.uid),
       });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {

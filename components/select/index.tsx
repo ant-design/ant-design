@@ -22,6 +22,7 @@ export interface AbstractSelectProps {
   dropdownClassName?: string;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
+  dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
 }
@@ -38,6 +39,7 @@ export interface SelectProps extends AbstractSelectProps {
   defaultValue?: SelectValue;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox';
   optionLabelProp?: string;
+  firstActiveValue?: string | string[];
   onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
   onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
   onDeselect?: (value: SelectValue) => any;
@@ -47,7 +49,6 @@ export interface SelectProps extends AbstractSelectProps {
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
-  dropdownMatchSelectWidth?: boolean;
   optionFilterProp?: string;
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
@@ -129,7 +130,7 @@ export default class Select extends React.Component<SelectProps, {}> {
       className = '',
       size,
       mode,
-      ...restProps,
+      ...restProps
     } = this.props;
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',

@@ -7,8 +7,12 @@
 
 .@{search-prefix} {
   &-icon {
-    pointer-events: none;
     color: @text-color-secondary;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+      color: #333;
+    }
   }
 
   &:not(&-small) > .@{ant-prefix}-input-suffix {

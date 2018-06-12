@@ -43,15 +43,15 @@ Please find below some of the design resources and tools about Ant Design that w
       <span class="resource-card-description">A powerful Axure library of Ant Design</span>
     </div>
   </a>
-  <span class="resource-card">
+  <a target="_blank" href="http://kitchen.alipay.com" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Kitchen（coming soon）</span>
-      <span class="resource-card-description">A Sketch plugin for designers，make your design beautiful</span>
+      <span class="resource-card-title">Kitchen</span>
+      <span class="resource-card-description">A Sketch plugin with a collection of great tools</span>
     </div>
-  </span>
+  </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">
     <div class="resource-card-icon">
       <img width="64" src="https://gw.alipayobjects.com/zos/rmsportal/yMULSUQQyhoEGrCXlovN.png">

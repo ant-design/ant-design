@@ -23,6 +23,7 @@
   &-nested-loading {
     position: relative;
     > div > .@{spin-prefix-cls} {
+      display: block;
       position: absolute;
       height: 100%;
       max-height: 320px;
@@ -116,6 +117,8 @@
   &-dot {
     position: relative;
     display: inline-block;
+    font-size: @spin-dot-size;
+
     .square(@spin-dot-size);
 
     i {
@@ -158,8 +161,11 @@
 
   // Sizes
   // ------------------------------
+
   // small
   &-sm &-dot {
+    font-size: @spin-dot-size-sm;
+
     .square(@spin-dot-size-sm);
     i {
       width: 6px;
@@ -169,6 +175,8 @@
 
   // large
   &-lg &-dot {
+    font-size: @spin-dot-size-lg;
+
     .square(@spin-dot-size-lg);
     i {
       width: 14px;

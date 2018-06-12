@@ -279,14 +279,19 @@
       }
     }
 
-    > .@{menu-prefix-cls}-item > a {
-      display: block;
-      color: @menu-item-color;
-      &:hover {
-        color: @menu-highlight-color;
+    > .@{menu-prefix-cls}-item {
+      > a {
+        display: block;
+        color: @menu-item-color;
+        &:hover {
+          color: @menu-highlight-color;
+        }
+        &:before {
+          bottom: -2px;
+        }
       }
-      &:before {
-        bottom: -2px;
+      &-selected > a {
+        color: @menu-highlight-color;
       }
     }
 

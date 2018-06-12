@@ -27,4 +27,64 @@ describe('Input.Search', () => {
     );
     expect(wrapper.find('.ant-btn-primary[disabled]')).toHaveLength(1);
   });
+
+  it('should trigger onSearch when click search icon', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" onSearch={onSearch} />
+    );
+    wrapper.find('Icon').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
+
+  it('should trigger onSearch when click search button', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" enterButton onSearch={onSearch} />
+    );
+    wrapper.find('Button').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
+
+  it('should trigger onSearch when click search button with text', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" enterButton="button text" onSearch={onSearch} />
+    );
+    wrapper.find('Button').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
+
+  it('should trigger onSearch when click search button with customize button', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" enterButton={<Button>antd button</Button>} onSearch={onSearch} />
+    );
+    wrapper.find('Button').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
+
+  it('should trigger onSearch when click search button of native', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" enterButton={<button>antd button</button>} onSearch={onSearch} />
+    );
+    wrapper.find('button').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
+
+  it('should trigger onSearch when press enter', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <Search defaultValue="search text" onSearch={onSearch} />
+    );
+    wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toBeCalledWith('search text');
+  });
 });
