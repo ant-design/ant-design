@@ -68,11 +68,19 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       selectable,
       focusable,
     });
+
+    const triggerActions = disabled ? [] : trigger;
+    let alignPoint;
+    if (triggerActions && triggerActions.indexOf('contextMenu') !== -1) {
+      alignPoint = true;
+    }
+
     return (
       <RcDropdown
+        alignPoint={alignPoint}
         {...this.props}
         transitionName={this.getTransitionName()}
-        trigger={disabled ? [] : trigger}
+        trigger={triggerActions}
         overlay={fixedModeOverlay}
       >
         {dropdownTrigger}
