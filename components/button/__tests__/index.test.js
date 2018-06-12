@@ -61,7 +61,7 @@ describe('Button', () => {
     expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
   });
 
-  it('have static perperty for type detecting', () => {
+  it('have static property for type detecting', () => {
     const wrapper = mount(
       <Button>Button Text</Button>
     );

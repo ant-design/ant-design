@@ -9,10 +9,20 @@ import FormItem from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { Omit } from '../_util/type';
 
+type FormCreateOptionMessagesCallback = (...args: any[]) => string;
+
+interface FormCreateOptionMessages {
+  [messageId: string]:
+    | string
+    | FormCreateOptionMessagesCallback
+    | FormCreateOptionMessages;
+}
+
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: Array<any>) => void;
+  onFieldsChange?: (props: T, fields: Array<any>, allFields: any, add: string) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
+  validateMessages?: FormCreateOptionMessages;
   withRef?: boolean;
 }
 

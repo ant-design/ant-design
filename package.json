@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.6.1",
+  "version": "3.6.2",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -122,7 +122,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-markdown": "~1.0.0-beta.4",
-    "eslint-plugin-react": "7.8.2",
+    "eslint-plugin-react": "7.9.1",
     "eslint-tinker": "^0.4.0",
     "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",

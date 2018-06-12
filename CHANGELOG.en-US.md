@@ -15,11 +15,23 @@ timeline: true
 
 ---
 
-## 3.6.1
+## 3.6.2
 
-`2018-06-02`
+`2018-06-09`
 
-* 🐞 Fixing a Typescript compilation error.
+- 🐞 Fix the wrong status of check all checkbox in Table when data change. [#10629](https://github.com/ant-design/ant-design/issues/10629)
+- 🐞 Fix border style of Button.Group.
+- 🐞 Fix file list being reversed when `beforeUpload` returns `false` in Upload component. [#10681](https://github.com/ant-design/ant-design/issues/10681)
+- 🐞 Fix overflow of cell content in Calendar. [#10808](https://github.com/ant-design/ant-design/pull/10808) [@Yangzhedi](https://github.com/ant-design/Yangzhedi)
+- 🐞 Fix the processing color of Badge not follows the `primary-color`.
+- Spin
+  - 🐞 Fix custom icon does not follow the value of `size`. [#10786](https://github.com/ant-design/ant-design/issues/10786)
+  - 🐞 Fix no `delay` issue when sets `spinning` to `true` as default.[#10727](https://github.com/ant-design/ant-design/pull/10727) [@dreamerblue](https://github.com/dreamerblue)
+- TypeScript
+  - 🐞 Fix Menu type definition. [#10773](https://github.com/ant-design/ant-design/issues/10773)
+  - 🐞 Fix AutoComplete type definition. [#10745](https://github.com/ant-design/ant-design/issues/10745) [#10619](https://github.com/ant-design/ant-design/issues/10619)
+  - 🐞 Fix Tree type definition. [#10841](https://github.com/ant-design/ant-design/pull/10841) [@Voronar](https://github.com/Voronar)
+  - 🐞 Fix Checkbox.Group definition. [#10677](https://github.com/ant-design/ant-design/pull/10677)
 
 ## 3.6.0
 
