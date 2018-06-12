@@ -212,7 +212,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         newFilters[key] = filtersFromColumns[key];
       });
       if (this.isFiltersChanged(newFilters)) {
-        this.setState({ filters: newFilters });
+        this.setState({ filters: newFilters }, () => {
+          const onFilter = this.props.onFilter;
+          if (onFilter) {
+            onFilter.apply(null, [this.getLocalData(), this.state.filters]);
+          }
+        });
       }
     }
 
