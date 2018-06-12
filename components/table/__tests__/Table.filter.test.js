@@ -183,6 +183,41 @@ describe('Table.filter', () => {
     expect(handleChange).toBeCalledWith({}, { name: ['boy'] }, {});
   });
 
+  it('fires onFilter event', () => {
+    const onFilter = jest.fn();
+    const wrapper = mount(createTable({ onFilter }));
+
+    expect(wrapper.find('tbody tr').length).toBe(4);
+    wrapper.setProps({
+      columns: [{
+        ...column,
+        filteredValue: ['Lucy'],
+      }],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(onFilter).toBeCalledWith([{ key: 1, name: 'Lucy' }], { name: ['Lucy'] });
+  });
+
+  it('fires onFilter event and returns correct number of rows with pagination enabled', () => {
+    const onFilter = jest.fn();
+    const wrapper = mount(createTable({ onFilter, pagination: { pageSize: 2 } }));
+
+    expect(wrapper.find('tbody tr').length).toBe(2);
+    wrapper.setProps({
+      columns: [{
+        ...column,
+        filteredValue: ['Lucy', 'Tom', 'Jerry'],
+      }],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(2);
+    expect(onFilter).toBeCalledWith(
+      [
+        { key: 1, name: 'Lucy' },
+        { key: 2, name: 'Tom' },
+        { key: 3, name: 'Jerry' },
+      ], { name: ['Lucy', 'Tom', 'Jerry'] });
+  });
+
   it('three levels menu', () => {
     const filters = [
       { text: 'Upper', value: 'Upper' },

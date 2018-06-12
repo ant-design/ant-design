@@ -8915,6 +8915,10 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
   <div
     class="table-operations"
   >
+    <p>
+      This table has 4 row(s)
+    </p>
+    <br />
     <button
       class="ant-btn"
       type="button"
