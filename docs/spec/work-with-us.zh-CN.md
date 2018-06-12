@@ -8,14 +8,7 @@ title: 加入我们
 
 ## UI/UE 设计师
 
-```__react
-const emails = [
-  'lindong.lld#alipay.com',
-];
-ReactDOM.render(
-  <p>作品和简历请投递：{emails[parseInt(Math.random() * emails.length, 10)]}</p>
-, mountNode)
-```
+简历和作品集请投递：lindong.lld#alipay.com
 
 > 注明简历来自 ant.design 官网
 
