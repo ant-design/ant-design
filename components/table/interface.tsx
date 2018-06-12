@@ -109,6 +109,7 @@ export interface TableProps<T> {
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
   ) => void;
+  onFilter?: (filteredDataSource: T[], filters: Record<keyof T, string[]>) => void;
   loading?: boolean | SpinProps;
   locale?: Object;
   indentSize?: number;
