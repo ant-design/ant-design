@@ -75,6 +75,7 @@ const columns = [{
 | size | Size of table | `default` \| `middle` \| `small` | `default` |
 | title | Table title renderer | Function(currentPageData) |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter) |  |
+| onFilter | Callback executed when filters change | Function(filteredDataSource, filters) |  |
 | onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |

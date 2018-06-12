@@ -76,6 +76,7 @@ const columns = [{
 | size | 正常或迷你类型，`default` or `small` | string | default |
 | title | 表格标题 | Function(currentPageData) |  |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
+| onFilter | 过滤器更改时执行回调 | Function(filteredDataSource, filters) |  |
 | onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
