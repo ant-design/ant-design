@@ -8,3 +8,10 @@ exports[`Tag can be controlled by visible 1`] = `
 `;
 
 exports[`Tag can be controlled by visible 2`] = `null`;
+
+exports[`Tag can be controlled by visible 3`] = `
+<div
+  class="ant-tag"
+  data-show="true"
+/>
+`;

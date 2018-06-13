@@ -47,5 +47,8 @@ describe('Tag', () => {
     wrapper.setProps({ visible: false });
     jest.runAllTimers();
     expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ visible: true });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
