@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 
@@ -28,7 +29,7 @@ export interface TagState {
   visible: boolean;
 }
 
-export default class Tag extends React.Component<TagProps, TagState> {
+class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
     prefixCls: 'ant-tag',
@@ -152,3 +153,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
     );
   }
 }
+
+polyfill(Tag);
+
+export default Tag;
