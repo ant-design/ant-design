@@ -2,7 +2,6 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import Icon from '../icon';
 import Group from './button-group';
 
@@ -37,10 +36,10 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
 export type ButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'danger';
 export type ButtonShape = 'circle' | 'circle-outline';
 export type ButtonSize = 'small' | 'default' | 'large';
+export type ButtonHTMLType = 'submit' | 'button' | 'reset';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  htmlType?: string;
   icon?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
@@ -50,9 +49,16 @@ export interface BaseButtonProps {
   ghost?: boolean;
 }
 
-export type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+export type AnchorButtonProps = {
+  href: string;
+  target?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+} & BaseButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type NativeButtonProps = {
+  htmlType?: ButtonHTMLType;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+} & BaseButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
@@ -138,7 +144,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     }
   }
 
-  handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
     // Add click effect
     this.setState({ clicked: true });
     clearTimeout(this.timeout);
@@ -146,7 +152,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const onClick = this.props.onClick;
     if (onClick) {
-      (onClick as (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void)(e);
+      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
   }
 
@@ -157,7 +163,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size, className, htmlType, children, icon, prefixCls, ghost, ...others
+      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, ...rest
     } = this.props;
 
     const { loading, clicked, hasTwoCNChar } = this.state;
@@ -175,8 +181,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         break;
     }
 
-    const ComponentProp = (others as AnchorButtonProps).href ? 'a' : 'button';
-
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
@@ -193,15 +197,30 @@ export default class Button extends React.Component<ButtonProps, any> {
     const kids = (children || children === 0)
       ? React.Children.map(children, child => insertSpace(child, this.isNeedInserted())) : null;
 
-    return (
-      <ComponentProp
-        {...omit(others, ['loading'])}
-        type={(others as AnchorButtonProps).href ? undefined : (htmlType || 'button')}
-        className={classes}
-        onClick={this.handleClick}
-      >
-        {iconNode}{kids}
-      </ComponentProp>
-    );
+    if ('href' in rest) {
+      return (
+        <a
+          {...rest}
+          className={classes}
+          onClick={this.handleClick}
+        >
+          {iconNode}{kids}
+        </a>
+      );
+    } else {
+      // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+      const { htmlType, ...otherProps } = rest;
+
+      return (
+        <button
+          {...otherProps}
+          type={htmlType || 'button'}
+          className={classes}
+          onClick={this.handleClick}
+        >
+          {iconNode}{kids}
+        </button>
+      );
+    }
   }
 }
