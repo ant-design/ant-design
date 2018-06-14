@@ -36,6 +36,8 @@ const dataSource = ['12345', '23456', '34567'];
 | onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |
 | onSearch | Called when searching items. | function(value) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | - |
+| onBlur | Called when leaving the component. | function() | - |
+| onFocus | Called when entering the component | function() | - |
 
 ## Methods
 
