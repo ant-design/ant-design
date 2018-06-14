@@ -50,6 +50,7 @@ export interface ModalProps {
   maskStyle?: React.CSSProperties;
   mask?: boolean;
   keyboard?: boolean;
+  wrapProps?: any;
 }
 
 export interface ModalFuncProps {
