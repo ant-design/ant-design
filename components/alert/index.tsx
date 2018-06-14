@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
-import getDataAttributes from '../_util/getDataAttributes';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 function noop() { }
 
@@ -115,7 +115,7 @@ export default class Alert extends React.Component<AlertProps, any> {
       </a>
     ) : null;
 
-    const dataAttributeProps = getDataAttributes(this.props);
+    const dataOrAriaProps = getDataOrAriaProps(this.props);
 
     return this.state.closed ? null : (
       <Animate
@@ -124,7 +124,7 @@ export default class Alert extends React.Component<AlertProps, any> {
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={this.state.closing} className={alertCls} style={style} {...dataAttributeProps}>
+        <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
           {showIcon ? <Icon className={`${prefixCls}-icon`} type={iconType} /> : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
