@@ -24,7 +24,6 @@ title: Dropdown
 | trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
 | visible | 菜单是否显示 | boolean | - |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function(visible) | - |
-| alignPoint | 菜单是否跟随鼠标位置 | bool | - |
 
 `overlay` 菜单使用 [Menu](/components/menu/)，还包括菜单项 `Menu.Item`，分割线 `Menu.Divider`。
 

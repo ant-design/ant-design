@@ -23,7 +23,6 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 | trigger | the trigger mode which executes the drop-down action | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
 | visible | whether the dropdown menu is visible | boolean | - |
 | onVisibleChange | a callback function takes an argument: `visible`, is executed when the visible state is changed | Function(visible) | - |
-| alignPoint | whether the dropdown menu follow the mouse position | bool | - |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 

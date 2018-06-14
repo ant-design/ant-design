@@ -25,7 +25,7 @@ const menu = (
 );
 
 ReactDOM.render(
-  <Dropdown overlay={menu} trigger={['contextMenu']} alignPoint>
+  <Dropdown overlay={menu} trigger={['contextMenu']}>
     <span style={{ userSelect: 'none' }}>Right Click on Me</span>
   </Dropdown>
 , mountNode);
