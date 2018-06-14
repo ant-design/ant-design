@@ -9029,7 +9029,7 @@ exports[`renders ./components/table/demo/override-filter-panel.md correctly 1`] 
                         class="ant-dropdown-link"
                         href="javascript:;"
                       >
-                        More actions
+                        More actions 
                         <i
                           class="anticon anticon-down"
                         />
@@ -9087,7 +9087,7 @@ exports[`renders ./components/table/demo/override-filter-panel.md correctly 1`] 
                         class="ant-dropdown-link"
                         href="javascript:;"
                       >
-                        More actions
+                        More actions 
                         <i
                           class="anticon anticon-down"
                         />
@@ -9145,7 +9145,7 @@ exports[`renders ./components/table/demo/override-filter-panel.md correctly 1`] 
                         class="ant-dropdown-link"
                         href="javascript:;"
                       >
-                        More actions
+                        More actions 
                         <i
                           class="anticon anticon-down"
                         />
