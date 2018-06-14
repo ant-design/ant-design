@@ -82,7 +82,6 @@
     "react-lazy-load": "^3.0.12",
     "react-slick": "~0.23.1",
     "shallowequal": "^1.0.1",
-    "tslint": "^5.10.0",
     "warning": "~4.0.1"
   },
   "devDependencies": {
@@ -168,7 +167,6 @@
     "scrollama": "^1.4.1",
     "stylelint": "9.2.1",
     "stylelint-config-standard": "^18.0.0",
-    "ts-jest": "^22.4.6",
     "typescript": "~2.9.1",
     "unified": "^7.0.0",
     "values.js": "^1.0.3",
