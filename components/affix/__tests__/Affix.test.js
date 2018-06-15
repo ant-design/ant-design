@@ -100,4 +100,19 @@ describe('Affix Render', () => {
     scrollTo(0);
     expect(wrapper.instance().affix.state.affixStyle).not.toBe(null);
   });
+
+  it('updatePosition when offsetTop changed', () => {
+    document.body.innerHTML = '<div id="mounter" />';
+
+    wrapper = mount(<AffixMounter offsetTop={0} />, { attachTo: document.getElementById('mounter') });
+    jest.runAllTimers();
+
+    scrollTo(100);
+    expect(wrapper.instance().affix.state.affixStyle.top).toBe(0);
+    wrapper.setProps({
+      offsetTop: 10,
+    });
+    jest.runAllTimers();
+    expect(wrapper.instance().affix.state.affixStyle.top).toBe(10);
+  });
 });
