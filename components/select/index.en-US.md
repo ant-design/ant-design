@@ -29,7 +29,7 @@ Select component to select value from options.
 | defaultValue | Initial selected option. | string\|number\|string\[]\|number\[] | - |
 | disabled | Whether disabled select | boolean | false |
 | dropdownClassName | className of dropdown menu | string | - |
-| dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
+| dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |
 | dropdownStyle | style of dropdown menu | object | - |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |
 | firstActiveValue | Value of action option by default | string\|string\[] | - |
