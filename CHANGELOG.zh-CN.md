@@ -22,6 +22,7 @@ timeline: true
 - 🐞 修复 Upload 图片文件后缀名为大写时无法正确识别的问题。[#10928](https://github.com/ant-design/ant-design/pull/10928) [@sliwey](https://github.com/sliwey)
 - 🐞 修复 InputNumber 在浏览器缩放时边框样式丢失的问题。[#10562](https://github.com/ant-design/ant-design/issues/10562)
 - 🐞 修复 Spin 内使用 `position: fixed` 的元素无法固定的问题。[#10196](https://github.com/ant-design/ant-design/issues/10196)
+- 🐞 修复小号表格下固定列的边框样式问题。[#9754](https://github.com/ant-design/ant-design/issues/9754)
 - TypeScript
   - 🐞 修复 TreeSelect `TS2339` 错误。[#10868](https://github.com/ant-design/ant-design/issues/10868)
   - 🌟 补充 Form 的 `validateMessages` 和 `onFieldsChange` 参数的定义。
