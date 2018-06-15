@@ -19,9 +19,10 @@ Tag for categorizing or markup.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | afterClose | Callback executed when close animation is completed | () => void | - |
-| closable | Whether Tag can be closed | boolean | `false` |
+| closable | Whether the Tag can be closed | boolean | `false` |
 | color | Color of the Tag | string | - |
 | onClose | Callback executed when tag is closed | (e) => void | - |
+| visible | Whether the Tag is closed or not | boolean | `true` |
 
 ### Tag.CheckableTag
 
