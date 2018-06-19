@@ -233,6 +233,12 @@ export default class Affix extends React.Component<AffixProps, AffixState> {
       // Mock Event object.
       this.updatePosition({});
     }
+    if (
+      this.props.offsetTop !== nextProps.offsetTop ||
+      this.props.offsetBottom !== nextProps.offsetBottom
+    ) {
+      this.updatePosition({});
+    }
   }
 
   componentWillUnmount() {

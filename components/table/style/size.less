@@ -105,5 +105,16 @@
     .@{table-prefix-cls}-tbody > tr > td:last-child {
       border-right: none;
     }
+
+    .@{table-prefix-cls}-fixed-left {
+      .@{table-prefix-cls}-thead > tr > th:last-child,
+      .@{table-prefix-cls}-tbody > tr > td:last-child {
+        border-right: @border-width-base @border-style-base @border-color-split;
+      }
+    }
+
+    .@{table-prefix-cls}-fixed-right {
+      border-right: @border-width-base @border-style-base @border-color-split;
+    }
   }
 }
