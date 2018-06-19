@@ -90,8 +90,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Table columns={columns}
-        rowKey={record => record.registered}
+      <Table
+        columns={columns}
+        rowKey={record => record.login.uuid}
         dataSource={this.state.data}
         pagination={this.state.pagination}
         loading={this.state.loading}
