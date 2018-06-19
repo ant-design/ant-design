@@ -4,6 +4,7 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
+import warning from 'warning';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -76,7 +77,6 @@ const SelectPropTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   size: PropTypes.oneOf(['default', 'large', 'small']),
-  combobox: PropTypes.bool,
   notFoundContent: PropTypes.any,
   showSearch: PropTypes.bool,
   optionLabelProp: PropTypes.string,
@@ -101,6 +101,12 @@ export default class Select extends React.Component<SelectProps, {}> {
   static propTypes = SelectPropTypes;
 
   private rcSelect: any;
+
+  constructor(props: SelectProps) {
+    super(props);
+
+    warning(props.mode !== 'combobox', 'The combobox mode of Select is deprecated, please use AutoComplete instead.');
+  }
 
   focus() {
     this.rcSelect.focus();
