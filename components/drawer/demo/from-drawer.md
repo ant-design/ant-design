@@ -124,12 +124,38 @@ class App extends React.Component {
               <Col span={24}>
                 <Form.Item label="description">
                   {getFieldDecorator('description', {
-                    rules: [{ required: true, message: 'please enter url description' }],
+                    rules: [
+                      {
+                        required: true,
+                        message: 'please enter url description',
+                      },
+                    ],
                   })(<Input.TextArea rows={4} placeholder="please enter url description" />)}
                 </Form.Item>
               </Col>
             </Row>
           </Form>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              width: '100%',
+              borderTop: '1px solid #e8e8e8',
+              padding: '10px 16px',
+              textAlign: 'right',
+              left: 0,
+              borderRadius: '0 0 4px 4px',
+            }}
+          >
+            <Button
+              style={{
+                marginRight: 8,
+              }}
+            >
+              取消
+            </Button>
+            <Button type="primary">提交</Button>
+          </div>
         </Drawer>
       </div>
     );
