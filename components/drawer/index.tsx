@@ -6,10 +6,12 @@ type EventType =
   | React.MouseEvent<HTMLDivElement>
   | React.MouseEvent<HTMLButtonElement>;
 
+type getContainerfunc = () => HTMLElement;
+
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
-  getContainer?: HTMLElement;
+  getContainer?: string | HTMLElement | getContainerfunc;
   maskClosable?: boolean;
   mask?: boolean;
   maskStyle?: React.CSSProperties;
@@ -35,7 +37,7 @@ export default class Drawer extends React.Component<
   static propTypes = {
     closable: PropTypes.bool,
     destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.object,
+    getContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]),
     maskClosable: PropTypes.bool,
     mask: PropTypes.bool,
     maskStyle: PropTypes.object,

@@ -16,12 +16,12 @@ class DrawerTester extends React.Component {
     this.container = container;
   }
   getContainer = () => {
-    return 'DrawerTester';
+    return this.container;
   }
   render() {
     return (
       <div>
-        <div id="DrawerTester" />
+        <div ref={this.saveContainer} />
         <Drawer
           {...this.props}
           visible={this.state.visible}

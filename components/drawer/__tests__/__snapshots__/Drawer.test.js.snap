@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer render correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="ant-drawer ant-drawer-left ant-drawer-open"
+      >
+        <div
+          class="ant-drawer-mask"
+        />
+        <div
+          class="ant-drawer-content-wrapper"
+        >
+          <div
+            class="ant-drawer-content"
+          >
+            <div
+              style="width: 256px;"
+            >
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+              >
+                <span
+                  class="ant-drawer-close-x"
+                />
+              </button>
+              <div
+                class="ant-drawer-body"
+              >
+                Here is content of Drawer
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
