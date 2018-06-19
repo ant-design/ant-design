@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 3.6.3
+
+`2018-06-17`
+
+- 🐞 Fixed that capitalized extension of Upload image url couldn't be recognaized. [#10928](https://github.com/ant-design/ant-design/pull/10928) [@sliwey](https://github.com/sliwey)
+- 🐞 Fixed missing border of InputNumber when browser is zoomed in. [#10562](https://github.com/ant-design/ant-design/issues/10562)
+- 🐞 Fixed that fixed element inside Spin cannot be fixed. [#10196](https://github.com/ant-design/ant-design/issues/10196)
+- 🐞 Fixed broken border style of small table. [#9754](https://github.com/ant-design/ant-design/issues/9754)
+- 🐞 Fixed missing `className` prop of Table's `filterIcon`. [#10937](https://github.com/ant-design/ant-design/issues/10937)
+- 🐞 Fixed that Affix `offsetTop` and `offsetBottom` cannot be updated. [#10874](https://github.com/ant-design/ant-design/issues/10874)
+- TypeScript
+  - 🐞 Fixed TreeSelect `TS2339` error. [#10868](https://github.com/ant-design/ant-design/issues/10868)
+  - 🌟 Added Form arguments definitions of `validateMessages` and `onFieldsChange`.
+  - 🌟 Improved Button prop definitions. [#10877](https://github.com/ant-design/ant-design/pull/10877) [@zheeeng](https://github.com/zheeeng)
+  - 🌟 Added `backfill` prop for AutoComplete. [#10909](https://github.com/ant-design/ant-design/pull/10909) [@zhanba](https://github.com/zhanba)
+
 ## 3.6.2
 
 `2018-06-09`
