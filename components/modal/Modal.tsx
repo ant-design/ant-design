@@ -36,6 +36,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
+  okButtonDisabled?: boolean;
+  cancelButtonDisabled?: boolean;
   destroyOnClose?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
@@ -98,6 +100,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
     confirmLoading: false,
     visible: false,
     okType: 'primary' as ButtonType,
+    okButtonDisabled: false,
+    cancelButtonDisabled: false,
   };
 
   static propTypes = {
@@ -152,12 +156,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <div>
         <Button
+          disabled={this.props.cancelButtonDisabled}
           onClick={this.handleCancel}
         >
           {cancelText || locale.cancelText}
         </Button>
         <Button
           type={okType}
+          disabled={this.props.okButtonDisabled}
           loading={confirmLoading}
           onClick={this.handleOk}
         >
