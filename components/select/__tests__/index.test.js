@@ -37,7 +37,7 @@ describe('Select', () => {
 
   it('should not have default notFoundContent when mode is combobox', () => {
     const wrapper = mount(
-      <Select mode="combobox" />
+      <Select mode={Select.COMBOBOX_MODE} />
     );
     wrapper.find('.ant-select').simulate('click');
     jest.runAllTimers();
@@ -47,7 +47,7 @@ describe('Select', () => {
 
   it('should not have notFoundContent when mode is combobox and notFoundContent is set', () => {
     const wrapper = mount(
-      <Select mode="combobox" notFoundContent="not at all" />
+      <Select mode={Select.COMBOBOX_MODE} notFoundContent="not at all" />
     );
     wrapper.find('.ant-select').simulate('click');
     jest.runAllTimers();
