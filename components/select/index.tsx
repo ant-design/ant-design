@@ -38,7 +38,7 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
-  mode?: 'default' | 'multiple' | 'tags' | 'combobox';
+  mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
   onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
@@ -91,6 +91,8 @@ export default class Select extends React.Component<SelectProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
+  static COMBOBOX_MODE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+
   static defaultProps = {
     prefixCls: 'ant-select',
     showSearch: false,
@@ -105,7 +107,12 @@ export default class Select extends React.Component<SelectProps, {}> {
   constructor(props: SelectProps) {
     super(props);
 
-    warning(props.mode !== 'combobox', 'The combobox mode of Select is deprecated, please use AutoComplete instead.');
+    warning(
+      props.mode !== 'combobox',
+      'The combobox mode of Select is deprecated,' +
+      'it will be removed in next major version,' +
+      'please use AutoComplete instead',
+    );
   }
 
   focus() {
@@ -121,13 +128,17 @@ export default class Select extends React.Component<SelectProps, {}> {
   }
 
   getNotFoundContent(locale: SelectLocale) {
-    const { notFoundContent, mode } = this.props;
-    const isCombobox = mode === 'combobox';
-    if (isCombobox) {
+    const { notFoundContent } = this.props;
+    if (this.isCombobox()) {
       // AutoComplete don't have notFoundContent defaultly
       return notFoundContent === undefined ? null : notFoundContent;
     }
     return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
+  }
+
+  isCombobox() {
+    const { mode } = this.props;
+    return mode === 'combobox' || mode === Select.COMBOBOX_MODE;
   }
 
   renderSelect = (locale: SelectLocale) => {
@@ -144,8 +155,7 @@ export default class Select extends React.Component<SelectProps, {}> {
     }, className);
 
     let { optionLabelProp } = this.props;
-    const isCombobox = mode === 'combobox';
-    if (isCombobox) {
+    if (this.isCombobox()) {
       // children 带 dom 结构时，无法填入输入框
       optionLabelProp = optionLabelProp || 'value';
     }
@@ -153,7 +163,7 @@ export default class Select extends React.Component<SelectProps, {}> {
     const modeConfig = {
       multiple: mode === 'multiple',
       tags: mode === 'tags',
-      combobox: isCombobox,
+      combobox: this.isCombobox(),
     };
 
     return (
