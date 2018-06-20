@@ -22,7 +22,7 @@ export interface AntdTreeNodeAttribute {
   disableCheckbox: boolean;
 }
 export interface AntTreeNodeProps {
-  className: string;
+  className?: string;
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
