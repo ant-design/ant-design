@@ -3,7 +3,7 @@ import Dialog from 'rc-dialog';
 import PropTypes from 'prop-types';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
-import { ButtonType } from '../button/button';
+import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getConfirmLocale } from './locale';
 
@@ -36,8 +36,8 @@ export interface ModalProps {
   cancelText?: string;
   /** 点击蒙层是否允许关闭*/
   maskClosable?: boolean;
-  okButtonDisabled?: boolean;
-  cancelButtonDisabled?: boolean;
+  okButtonProps?: NativeButtonProps;
+  cancelButtonProps?: NativeButtonProps;
   destroyOnClose?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
@@ -156,16 +156,16 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <div>
         <Button
-          disabled={this.props.cancelButtonDisabled}
           onClick={this.handleCancel}
+          {...this.props.cancelButtonProps}
         >
           {cancelText || locale.cancelText}
         </Button>
         <Button
           type={okType}
-          disabled={this.props.okButtonDisabled}
           loading={confirmLoading}
           onClick={this.handleOk}
+          {...this.props.okButtonProps}
         >
           {okText || locale.okText}
         </Button>

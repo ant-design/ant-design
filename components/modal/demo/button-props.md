@@ -1,17 +1,17 @@
 ---
 order: 11
 title:
-  zh-CN: 禁用页脚按钮
-  en-US: Footer buttons disable
+  zh-CN: 自定义页脚按钮属性
+  en-US: Customize footer buttons props
 ---
 
 ## zh-CN
 
-使用 `okButtonDisabled` 和 `cancelButtonDisabled` 可分别禁用确定按钮和取消按钮。
+传入 `okButtonProps` 和 `cancelButtonProps` 可分别自定义确定按钮和取消按钮的 props。
 
 ## en-US
 
-Using `okButtonDisabled` and `cancelButtonDisabled` can disable the ok button and cancel button.
+Passing `okButtonProps` and `cancelButtonProps` can customize the ok button and cancel button props.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -44,8 +44,8 @@ class App extends React.Component {
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
-          okButtonDisabled
-          cancelButtonDisabled
+          okButtonProps={{ disabled: true }}
+          cancelButtonProps={{ disabled: true }}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>
