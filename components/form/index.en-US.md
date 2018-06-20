@@ -59,7 +59,7 @@ The following `options` are available:
 | onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
 | withRef | Whether `refs` contain `wrappedComponent` | boolean |
 
-If you want to get `ref` after `Form.create`, you can use `withRef` or `wrappedComponentRef` provided by `rc-form`，[details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)。
+If you want to get `ref` after `Form.create`, you can use `withRef` or `wrappedComponentRef` provided by `rc-form`，[details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).
 
 ```jsx
 class CustomizedForm extends React.Component { ... }
