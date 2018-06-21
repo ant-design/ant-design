@@ -35,7 +35,7 @@ class DrawerTester extends React.Component {
 
 describe('Drawer', () => {
   it('render correctly', () => {
-    const wrapper = mount(<DrawerTester />);
+    const wrapper = mount(<DrawerTester width={400} />);
     const content = wrapper.find('.ant-drawer-body').getDOMNode().innerHTML;
     expect(content).toBe('Here is content of Drawer');
     expect(wrapper.render()).toMatchSnapshot();
@@ -47,20 +47,17 @@ describe('Drawer', () => {
     expect(title).toBe('Test Title');
     const closable = wrapper.find('.ant-drawer-close').exists();
     expect(closable).toBe(true);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('closable is false', () => {
     const wrapper = mount(<DrawerTester closable={false} />);
     const closable = wrapper.find('.ant-drawer-close').exists();
     expect(closable).toBe(false);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('destroyOnClose is true', () => {
     const wrapper = mount(<DrawerTester destroyOnClose visible={false} />);
     const body = wrapper.find('.ant-drawer-body').exists();
     expect(body).toBe(false);
-    expect(wrapper.render()).toMatchSnapshot();
   });
 });
