@@ -55,23 +55,8 @@ export default class Drawer extends React.Component<
     prefixCls: 'ant-drawer',
     width: 256,
     closable: true,
+    maskClosable: true,
   };
-  static getDerivedStateFromProps(
-    nextProps: DrawerProps,
-    prevState: IDrawerState,
-  ) {
-    const nextState: IDrawerState = {};
-    if (nextProps.visible !== undefined && nextProps.visible !== prevState.visible) {
-      nextState.visible = nextProps.visible;
-    }
-    return nextState;
-  }
-  constructor(props: DrawerProps) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
   close = (e: EventType) => {
     if (this.props.visible !== undefined) {
       if (this.props.onClose) {
@@ -79,9 +64,6 @@ export default class Drawer extends React.Component<
       }
       return;
     }
-    this.setState({
-      visible: false,
-    });
   }
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
@@ -90,7 +72,7 @@ export default class Drawer extends React.Component<
     this.close(e);
   }
   renderBody = () => {
-    if (this.props.destroyOnClose && this.props.visible) {
+    if (this.props.destroyOnClose && !this.props.visible) {
       return null;
     }
     const { prefixCls, title, closable } = this.props;
@@ -135,8 +117,8 @@ export default class Drawer extends React.Component<
         level={null}
         {...rest}
         handleChild={false}
-        open={this.state.visible}
-        onMaskClick={this.close}
+        open={this.props.visible}
+        onMaskClick={this.onMaskClick}
         showMask={this.props.mask}
         placement={this.props.placement}
         style={{ zIndex }}
