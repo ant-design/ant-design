@@ -74,6 +74,7 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: string[];
   /** 展开/收起节点时触发 */
+  selectable?: boolean;
   onExpand?: (
     expandedKeys: string[],
     info: { node: AntTreeNode; expanded: boolean; },
