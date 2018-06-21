@@ -57,17 +57,11 @@ The following `options` are available:
 | validateMessages | Default validate message. And its format is similar with [newMessages](https://github.com/yiminghe/async-validator/blob/master/src/messages.js)'s returned value | Object { [nested.path]&#x3A; String } |
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
 | onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
-| withRef | Whether `refs` contain `wrappedComponent` | boolean |
 
-If you want to get `ref` after `Form.create`, you can use `withRef` or `wrappedComponentRef` provided by `rc-form`，[details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).
+If you want to get `ref` after `Form.create`, you can use `wrappedComponentRef` provided by `rc-form`，[details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).
 
 ```jsx
 class CustomizedForm extends React.Component { ... }
-
-// use withRef
-const EnhancedForm = Form.create({ withRef: true })(CustomizedForm);
-<EnhancedForm ref={(form) => this.form = form} />
-this.form.refs.wrappedComponent // => The instance of CustomizedForm
 
 // use wrappedComponentRef
 const EnhancedForm =  Form.create()(CustomizedForm);
