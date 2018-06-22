@@ -1,20 +1,24 @@
 ---
 order: 0
 title:
-  zh-CN: 用户信息
-  en-US: User Profile
+  zh-CN: 信息预览抽屉
+  en-US: Preview drawer
 ---
 
 ## zh-CN
 
-展示用户的详细信息
+用于信息预览的抽屉，点击遮罩区关闭。
+
+- 需要快速预览对象概要时使用。如列表条目预览。
 
 ## en-US
 
-Display user details
+Drawer for information preview, click mask area off.
+
+- Use when you need to quickly preview the outline of the object. Such as list item preview.
 
 ```jsx
-import { Drawer, Divider, Button, Col, Row } from 'antd';
+import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
 
 const pStyle = {
   fontSize: 16,
@@ -63,23 +67,28 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Button
-          ghost
-          type="primary"
-          onClick={this.showDrawer}
-          style={{
-            height: 80,
-            width: 80,
-          }}
-        >
-          <img
-            src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
-            width={32}
-            alt="logo"
-          />
-          <br />
-          <span>Lily</span>
-        </Button>
+        <List
+          dataSource={[
+            {
+              name: 'Lily',
+            },
+            {
+              name: 'Lily',
+            },
+          ]}
+          bordered
+          renderItem={item => (
+            <List.Item key={item.id} actions={[<a onClick={this.showDrawer}>View Profile</a>]}>
+              <List.Item.Meta
+                avatar={
+                  <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
+                }
+                title={item.name}
+                description="Progresser AFX"
+              />
+            </List.Item>
+          )}
+        />
         <Drawer
           width={640}
           placement="right"
@@ -136,7 +145,7 @@ class App extends React.Component {
               <DescriptionItem title="Department" content="AFX" />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Superior" content={<a>Lin</a>} />
+              <DescriptionItem title="Supervisor" content={<a>Lin</a>} />
             </Col>
           </Row>
           <Row>
