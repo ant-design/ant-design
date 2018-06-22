@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.6.4",
+  "version": "3.6.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -117,7 +117,7 @@
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "^3.1.2",
     "eslint": "^4.8.0",
-    "eslint-config-airbnb": "latest",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
