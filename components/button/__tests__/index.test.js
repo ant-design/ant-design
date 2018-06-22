@@ -75,14 +75,14 @@ Follow
     wrapper.setProps({
       children: <Text>
 大按钮
-                </Text>,
+      </Text>,
     });
     wrapper.update();
     expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(false);
     wrapper.setProps({
       children: <Text>
 按钮
-                </Text>,
+      </Text>,
     });
     wrapper.update();
     expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);

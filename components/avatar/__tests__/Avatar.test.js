@@ -6,7 +6,7 @@ describe('Avatar Render', () => {
   it('Render long string correctly', () => {
     const wrapper = mount(<Avatar>
 TestString
-                          </Avatar>);
+    </Avatar>);
     const children = wrapper.find('.ant-avatar-string');
     expect(children.length).toBe(1);
   });
@@ -17,7 +17,7 @@ TestString
 
     const wrapper = mount(<Avatar src="http://error.url">
 Fallback
-                          </Avatar>, { attachTo: div });
+    </Avatar>, { attachTo: div });
     wrapper.instance().setScale = jest.fn(() => wrapper.instance().setState({ scale: 0.5 }));
     wrapper.setState({ isImgExist: false });
 

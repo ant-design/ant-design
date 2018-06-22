@@ -66,12 +66,12 @@ export default class Article extends React.Component {
     if (temp.length > 0) {
       timelineItems.push(<Timeline.Item key={i}>
         {temp}
-                         </Timeline.Item>);
+      </Timeline.Item>);
     }
     return cloneElement(article, {
       children: <Timeline>
         {timelineItems}
-                </Timeline>,
+      </Timeline>,
     });
   }
 

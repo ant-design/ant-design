@@ -9,7 +9,7 @@ describe('Radio', () => {
   it('should render correctly', () => {
     const wrapper = render(<Radio className="customized">
 Test
-                           </Radio>);
+    </Radio>);
     expect(wrapper).toMatchSnapshot();
   });
 

@@ -14,7 +14,7 @@ describe('Carousel', () => {
   it('should has innerSlider', () => {
     const wrapper = mount(<Carousel>
       <div />
-                          </Carousel>);
+    </Carousel>);
     const { innerSlider } = wrapper.instance();
     const innerSliderFromRefs = wrapper.instance().slick.innerSlider;
     expect(innerSlider).toBe(innerSliderFromRefs);
@@ -32,7 +32,7 @@ describe('Carousel', () => {
       <div>
 3
       </div>
-                          </Carousel>);
+    </Carousel>);
     const { prev, next, goTo } = wrapper.instance();
     expect(typeof prev).toBe('function');
     expect(typeof next).toBe('function');
@@ -61,7 +61,7 @@ describe('Carousel', () => {
       <div>
 3
       </div>
-                          </Carousel>);
+    </Carousel>);
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
     expect(spy).not.toBeCalled();
@@ -80,7 +80,7 @@ describe('Carousel', () => {
       <div>
 3
       </div>
-                          </Carousel>);
+    </Carousel>);
     const onWindowResized = wrapper.instance().onWindowResized;
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
