@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import DatePicker from '../';
+import DatePicker from '..';
 
 const { RangePicker } = DatePicker;
 

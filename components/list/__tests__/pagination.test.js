@@ -19,7 +19,7 @@ describe('List.pagination', () => {
         pagination={pagination}
         dataSource={data}
         renderItem={item => (
-          <List.Item key={item.key} >
+          <List.Item key={item.key}>
             {item.name}
           </List.Item>
         )}

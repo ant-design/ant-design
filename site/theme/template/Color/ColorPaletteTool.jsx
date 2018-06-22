@@ -36,24 +36,25 @@ export default class ColorPaletteTool extends Component {
   }
 
   render() {
+    const { primaryColor } = this.state;
     return (
       <div className="color-palette-horizontal">
         <div className="color-palette-pick">
           <FormattedMessage id="app.docs.color.pick-primary" />
         </div>
         <div className="main-color">
-          <ColorPatterns color={this.state.primaryColor} />
+          <ColorPatterns color={primaryColor} />
         </div>
         <div className="color-palette-picker">
           <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
             <ColorPicker
               type="chrome"
-              color={this.state.primaryColor}
+              color={primaryColor}
               onChange={this.handleChangeColor}
             />
           </span>
           <span className="color-palette-picker-value">
-            {this.state.primaryColor}
+            {primaryColor}
           </span>
           {this.renderColorValidation()}
         </div>

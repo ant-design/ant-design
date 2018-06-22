@@ -239,6 +239,7 @@ describe('Table.filter', () => {
       }
 
       render() {
+        const { filters } = this.state;
         return (
           <Table dataSource={data} onChange={this.handleChange}>
             <Column
@@ -249,7 +250,7 @@ describe('Table.filter', () => {
                 { text: 'Jack', value: 'Jack' },
                 { text: 'Lucy', value: 'Lucy' },
               ]}
-              filteredValue={this.state.filters.name}
+              filteredValue={filters.name}
               onFilter={filterFn}
             />
           </Table>

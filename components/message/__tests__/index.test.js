@@ -103,6 +103,7 @@ describe('message', () => {
       componentDidMount() {
         hide = message.loading('Action in progress..', 0);
       }
+
       render() {
         return <div>test</div>;
       }
@@ -123,6 +124,7 @@ describe('message', () => {
         message.loading('Action in progress2..', 0);
         setTimeout(() => message.destroy(), 1000);
       }
+
       render() {
         return <div>test</div>;
       }

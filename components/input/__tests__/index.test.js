@@ -60,10 +60,12 @@ describe('As Form Control', () => {
   it('should be reset when wrapped in form.getFieldDecorator without initialValue', () => {
     class Demo extends React.Component {
       reset = () => {
-        this.props.form.resetFields();
+        const { form } = this.props;
+        form.resetFields();
       }
+
       render() {
-        const { getFieldDecorator } = this.props.form;
+        const { form: { getFieldDecorator } } = this.props;
         return (
           <Form>
             <Form.Item>
@@ -72,7 +74,7 @@ describe('As Form Control', () => {
             <Form.Item>
               {getFieldDecorator('textarea')(<Input.TextArea />)}
             </Form.Item>
-            <button onClick={this.reset}>reset</button>
+            <button type="button" onClick={this.reset}>reset</button>
           </Form>
         );
       }

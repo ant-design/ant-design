@@ -78,7 +78,7 @@ describe('DatePicker', () => {
       }
 
       onChange = (value) => {
-        let cleared = this.state.cleared;
+        let { cleared } = this.state;
 
         if (cleared) {
           value = moment(moment(value).format('YYYY-MM-DD 12:12:12'));
@@ -93,10 +93,11 @@ describe('DatePicker', () => {
       }
 
       render() {
+        const { value } = this.state;
         return (
           <DatePicker
             showTime
-            value={this.state.value}
+            value={value}
             format="YYYY-MM-DD HH:mm:ss"
             onChange={this.onChange}
           />
