@@ -7,11 +7,11 @@ if (process.env.REACT === '15') {
   const render = ActualTrigger.prototype.render;
 
   ActualTrigger.prototype.render = function () {
-    const { popupVisible } = this.state;
+    const { popupVisible } = this.state; // eslint-disable-line
     let component;
 
     if (popupVisible || this._component) { // eslint-disable-line
-      component = this.getComponent();
+      component = this.getComponent(); // eslint-disable-line
     }
 
     return (

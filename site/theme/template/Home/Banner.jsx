@@ -19,15 +19,18 @@ class Banner extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   }
+
   static propTypes = {
     className: PropTypes.string,
   }
+
   static defaultProps = {
     className: 'banner',
   }
+
   render() {
     const { className, isMobile } = this.props;
-    const { locale } = this.context.intl;
+    const { intl: { locale } } = this.context;
     const isZhCN = locale === 'zh-CN';
     return (
       <div className="home-page-wrapper banner-wrapper" id="banner">

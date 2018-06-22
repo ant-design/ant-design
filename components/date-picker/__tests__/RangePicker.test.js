@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
-import DatePicker from '../';
+import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import { selectDate } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
@@ -211,8 +211,8 @@ describe('RangePicker', () => {
     selectDate(wrapper, moment('2017-09-18'), 0);
     selectDate(wrapper, moment('2017-10-18'), 1);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    expect(() =>
+    expect(() => (
       wrapper.find('.ant-calendar-input').at(1).simulate('change', { target: { value: '2016-01-01' } })
-    ).not.toThrow();
+    )).not.toThrow();
   });
 });

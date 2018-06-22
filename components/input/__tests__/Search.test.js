@@ -9,7 +9,7 @@ describe('Input.Search', () => {
 
   it('should support custom button', () => {
     const wrapper = mount(
-      <Search enterButton={<button>ok</button>} />
+      <Search enterButton={<button type="button">ok</button>} />
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -71,7 +71,7 @@ describe('Input.Search', () => {
   it('should trigger onSearch when click search button of native', () => {
     const onSearch = jest.fn();
     const wrapper = mount(
-      <Search defaultValue="search text" enterButton={<button>antd button</button>} onSearch={onSearch} />
+      <Search defaultValue="search text" enterButton={<button type="button">antd button</button>} onSearch={onSearch} />
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);

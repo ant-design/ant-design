@@ -84,7 +84,7 @@ export default class Header extends React.Component {
   }
 
   handleLangChange = () => {
-    const { pathname } = this.props.location;
+    const { location: { pathname } } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.substr(currentProtocol.length);
 
@@ -113,7 +113,7 @@ export default class Header extends React.Component {
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
-    const { locale } = this.context.intl;
+    const { intl: { locale } } = this.context;
     const isZhCN = locale === 'zh-CN';
 
     const headerClassName = classNames({
