@@ -63,11 +63,12 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     // menu cannot be selectable in dropdown defaultly
     // menu should be focusable in dropdown defaultly
     const { selectable = false, focusable = true }  = overlay.props;
-    const fixedModeOverlay = React.cloneElement(overlay, {
-      mode: 'vertical',
-      selectable,
-      focusable,
-    });
+    const fixedModeOverlay = typeof overlay.type === 'string'
+      ? overlay : React.cloneElement(overlay, {
+        mode: 'vertical',
+        selectable,
+        focusable,
+      });
     return (
       <RcDropdown
         {...this.props}
