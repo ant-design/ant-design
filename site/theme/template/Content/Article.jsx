@@ -10,7 +10,7 @@ import { ping } from '../utils';
 
 export default class Article extends React.Component {
   static contextTypes = {
-    intl: PropTypes.object.isRequired,
+    intl: PropTypes.any.isRequired,
   }
 
   componentDidMount() {
