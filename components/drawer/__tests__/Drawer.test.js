@@ -6,10 +6,9 @@ import Drawer from '..';
 class DrawerTester extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { visible: false };
+    this.state = { visible: true };
   }
   componentDidMount() {
-    this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
   }
   saveContainer = (container) => {
     this.container = container;
@@ -34,7 +33,7 @@ class DrawerTester extends React.Component {
 }
 
 describe('Drawer', () => {
-  it('render correctly', () => {
+  fit('render correctly', () => {
     const wrapper = mount(<DrawerTester width={400} />);
     const content = wrapper.find('.ant-drawer-body').getDOMNode().innerHTML;
     expect(content).toBe('Here is content of Drawer');

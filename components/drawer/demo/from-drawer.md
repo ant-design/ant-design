@@ -1,17 +1,17 @@
 ---
 order: 0
 title:
-  zh-CN: 表单抽屉
-  en-US: from drawer
+  zh-CN: 任务抽屉
+  en-US: Task drawer
 ---
 
 ## zh-CN
 
-展示用户的详细信息
+用于承载任务相关操作，需要点击关闭按钮关闭。
 
 ## en-US
 
-Display user details
+sed to carry tasks related operations, need to close by clicking the close button.
 
 ```jsx
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
@@ -42,6 +42,7 @@ class App extends React.Component {
           width={720}
           placement="right"
           onClose={this.onClose}
+          maskClosable={false}
           visible={this.state.visible}
         >
           <Form layout="vertical" hideRequiredMark>
@@ -122,7 +123,7 @@ class App extends React.Component {
             </Row>
             <Row gutter={16}>
               <Col span={24}>
-                <Form.Item label="description">
+                <Form.Item label="Description">
                   {getFieldDecorator('description', {
                     rules: [
                       {
