@@ -49,6 +49,7 @@ const eslintrc = {
     'react/button-has-type': 1,
     'react/destructuring-assignment': 1,
     'react/jsx-closing-tag-location': 1,
+    'react/forbid-prop-types': 1,
   },
 };
 

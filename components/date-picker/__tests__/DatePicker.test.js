@@ -78,7 +78,7 @@ describe('DatePicker', () => {
       }
 
       onChange = (value) => {
-        let cleared = this.state.cleared;
+        let cleared = this.state.cleared;  // eslint-disable-line
 
         if (cleared) {
           value = moment(moment(value).format('YYYY-MM-DD 12:12:12'));

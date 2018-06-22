@@ -65,7 +65,7 @@ export default class Demo extends React.Component {
   }
 
   handleCodeExpand = () => {
-    this.setState({ codeExpand: !this.state.codeExpand });
+    this.setState({ codeExpand: !this.state.codeExpand }); // eslint-disable-line
   }
 
   saveAnchor = (anchor) => {

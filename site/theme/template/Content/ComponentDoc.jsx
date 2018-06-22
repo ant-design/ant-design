@@ -23,7 +23,7 @@ export default class ComponentDoc extends React.Component {
 
   handleExpandToggle = () => {
     this.setState({
-      expandAll: !this.state.expandAll,
+      expandAll: !this.state.expandAll, // eslint-disable-line
     });
   }
 
