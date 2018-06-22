@@ -11,10 +11,12 @@ export default class ColorBlock extends Component {
       fontWeight: index === 6 ? 'bold' : 'normal',
     };
   }
+
   onCopied = () => {
     const { color } = this.props;
     message.success(`Copied: ${color}`);
   }
+
   render() {
     const { color, index } = this.props;
     return (
@@ -27,7 +29,8 @@ export default class ColorBlock extends Component {
           className="main-color-item"
           style={this.getTextStyle()}
         >
-          color-{index}
+          color-
+          {index}
           <span className="main-color-value">
             {color.toLowerCase()}
           </span>

@@ -16,6 +16,7 @@ describe('Upload', () => {
       componentDidMount() {
         ref = this.refs.input;
       }
+
       render() {
         return (
           <Upload supportServerRender={false}>
@@ -32,8 +33,7 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve =>
-        setTimeout(() => resolve('success'), 100)
+      beforeUpload: () => new Promise(resolve => setTimeout(() => resolve('success'), 100)
       ),
       data,
       onChange: ({ file }) => {
@@ -46,7 +46,9 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button>
+upload
+        </button>
       </Upload>
     );
 
@@ -83,7 +85,9 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button>
+upload
+        </button>
       </Upload>
     );
 
@@ -118,7 +122,9 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button>
+upload
+        </button>
       </Upload>
     );
 
@@ -147,7 +153,9 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button>
+upload
+        </button>
       </Upload>
     );
 

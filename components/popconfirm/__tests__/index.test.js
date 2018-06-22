@@ -8,14 +8,20 @@ describe('Popconfirm', () => {
 
     const wrapper = mount(
       <Popconfirm
-        title={<span className="popconfirm-test">Are you sure delete this task?</span>}
+        title={(
+          <span className="popconfirm-test">
+Are you sure delete this task?
+          </span>
+)}
         okText="Yes"
         cancelText="No"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
       >
-        <span>Delete</span>
+        <span>
+Delete
+        </span>
       </Popconfirm>
     );
 
@@ -31,7 +37,9 @@ describe('Popconfirm', () => {
   it('should show overlay when trigger is clicked', () => {
     const popconfirm = mount(
       <Popconfirm title="code">
-        <span>show me your code</span>
+        <span>
+show me your code
+        </span>
       </Popconfirm>
     );
 
@@ -50,7 +58,9 @@ describe('Popconfirm', () => {
     jest.useFakeTimers();
     const popconfirm = mount(
       <Popconfirm title="code">
-        <span>show me your code</span>
+        <span>
+show me your code
+        </span>
       </Popconfirm>
     );
     expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
@@ -69,7 +79,9 @@ describe('Popconfirm', () => {
     const onVisibleChange = jest.fn();
     const popconfirm = mount(
       <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onVisibleChange={onVisibleChange}>
-        <span>show me your code</span>
+        <span>
+show me your code
+        </span>
       </Popconfirm>
     );
     const triggerNode = popconfirm.find('span').at(0);

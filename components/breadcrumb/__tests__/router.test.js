@@ -6,10 +6,22 @@ import Breadcrumb from '../index';
 const Apps = () => (
   <ul className="app-list">
     <li>
-      <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
+      <Link to="/apps/1">
+Application1
+      </Link>
+：
+      <Link to="/apps/1/detail">
+Detail
+      </Link>
     </li>
     <li>
-      <Link to="/apps/2">Application2</Link>：<Link to="/apps/2/detail">Detail</Link>
+      <Link to="/apps/2">
+Application2
+      </Link>
+：
+      <Link to="/apps/2/detail">
+Detail
+      </Link>
     </li>
   </ul>
 );
@@ -37,18 +49,29 @@ const Home = withRouter((props) => {
   });
   const breadcrumbItems = [(
     <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
+      <Link to="/">
+Home
+      </Link>
     </Breadcrumb.Item>
   )].concat(extraBreadcrumbItems);
   return (
     <div className="demo">
       <div className="demo-nav">
-        <a onClick={() => history.push('/')}>Home</a>
-        <a onClick={() => history.push('/apps')}>Application List</a>
+        <a onClick={() => history.push('/')}>
+Home
+        </a>
+        <a onClick={() => history.push('/apps')}>
+Application List
+        </a>
       </div>
       <Switch>
         <Route path="/apps" component={Apps} />
-        <Route render={() => <span>Home Page</span>} />
+        <Route render={() => (
+          <span>
+Home Page
+          </span>
+        )}
+        />
       </Switch>
       <Breadcrumb>
         {breadcrumbItems}

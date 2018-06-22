@@ -25,8 +25,8 @@ class Footer extends React.Component {
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
     if (
-      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true' &&
-        Date.now() < new Date('2017/12/20').getTime()
+      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true'
+        && Date.now() < new Date('2017/12/20').getTime()
     ) {
       this.infoNewVersion();
     }
@@ -67,10 +67,14 @@ class Footer extends React.Component {
           <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="Ant Design" />
           <p>
             {messages['app.publish.greeting']}
-            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@3.0.0</a>
+            <a target="_blank" rel="noopener noreferrer" href="/changelog">
+antd@3.0.0
+            </a>
             {messages['app.publish.intro']}
             {messages['app.publish.old-version-guide']}
-            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">2x.ant.design</a>
+            <a target="_blank" rel="noopener noreferrer" href="http://2x.ant.design">
+2x.ant.design
+            </a>
             {messages['app.publish.old-version-tips']}
           </p>
         </div>
@@ -89,16 +93,28 @@ class Footer extends React.Component {
           <Row>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.resources" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.resources" />
+                </h2>
                 <div>
-                  <a href="http://pro.ant.design">Ant Design Pro</a>
+                  <a href="http://pro.ant.design">
+Ant Design Pro
+                  </a>
                 </div>
                 <div>
-                  <a href="http://mobile.ant.design">Ant Design Mobile</a>
+                  <a href="http://mobile.ant.design">
+Ant Design Mobile
+                  </a>
                 </div>
                 <div>
-                  <a href="http://ng.ant.design">NG-ZORRO</a>
-                  <span> - </span>
+                  <a href="http://ng.ant.design">
+NG-ZORRO
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   Ant Design of Angular
                 </div>
                 <div>
@@ -107,31 +123,66 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
+Kitchen
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.kitchen" />
                 </div>
                 <div>
-                  <a href="http://scaffold.ant.design">Scaffolds</a>
-                  <span> - </span>
+                  <a href="http://scaffold.ant.design">
+Scaffolds
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">
+dva
+                  </a>
+                  {' '}
+-
+                  <FormattedMessage id="app.footer.dva" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">Ant Motion</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">
+Ant Motion
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">Axure Library</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">
+Axure Library
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">Ant UX</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">
+Ant UX
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.antux" />
                 </div>
                 <div>
@@ -143,7 +194,9 @@ class Footer extends React.Component {
             </Col>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.community" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.community" />
+                </h2>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="http://zhuanlan.zhihu.com/antdesign">
                     <FormattedMessage id="app.footer.zhihu" />
@@ -168,14 +221,20 @@ class Footer extends React.Component {
                   <a target="_blank" rel="noopener noreferrer" href="http://seeconf.alipay.com/">
                     SEE Conf
                   </a>
-                  <span> - </span>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.seeconf" />
                 </div>
               </div>
             </Col>
             <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.help" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.help" />
+                </h2>
                 <div>
                   <a target="_blank " href="https://github.com/ant-design/ant-design">
                     GitHub
@@ -233,24 +292,44 @@ class Footer extends React.Component {
                   <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/">
                     <FormattedMessage id="app.footer.yuque" />
                   </a>
-                  <span> - </span>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.yuque.slogan" />
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://yunfengdie.com/">
                     <FormattedMessage id="app.footer.fengdie" />
                   </a>
-                  <span> - </span>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.fengdie.slogan" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">
+AntV
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.data-vis" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
-                  <span> - </span>
+                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">
+Egg
+                  </a>
+                  <span>
+                    {' '}
+-
+                    {' '}
+                  </span>
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>
                 <div>
@@ -286,7 +365,13 @@ class Footer extends React.Component {
           </Row>
         </div>
         <div className="bottom-bar">
-          Made with <span className="heart">❤</span> by
+          Made with
+          {' '}
+          <span className="heart">
+❤
+          </span>
+          {' '}
+by
           <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/afx/blog">
             <FormattedMessage id="app.footer.company" />
           </a>

@@ -104,7 +104,11 @@ export default class Demo extends React.Component {
     } = props;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe
-        ? <BrowserFrame><iframe src={src} height={meta.iframe} title="demo" /></BrowserFrame>
+        ? (
+          <BrowserFrame>
+            <iframe src={src} height={meta.iframe} title="demo" />
+          </BrowserFrame>
+        )
         : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;
@@ -186,9 +190,9 @@ ${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')'
         <section className="code-box-demo">
           {this.liveDemo}
           {
-            style ?
-              <style dangerouslySetInnerHTML={{ __html: style }} /> :
-              null
+            style
+              ? <style dangerouslySetInnerHTML={{ __html: style }} />
+              : null
           }
         </section>
         <section className="code-box-meta markdown">
@@ -249,11 +253,11 @@ ${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')'
                 <Tooltip
                   visible={state.copyTooltipVisible}
                   onVisibleChange={this.onCopyTooltipVisibleChange}
-                  title={
+                  title={(
                     <FormattedMessage
                       id={`app.demo.${state.copied ? 'copied' : 'copy'}`}
                     />
-                  }
+)}
                 >
                   <Icon
                     type={(state.copied && state.copyTooltipVisible) ? 'check' : 'copy'}
@@ -265,13 +269,15 @@ ${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')'
             {props.utils.toReactComponent(highlightedCode)}
           </div>
           {
-            highlightedStyle ?
-              <div key="style" className="highlight">
-                <pre>
-                  <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-                </pre>
-              </div> :
-              null
+            highlightedStyle
+              ? (
+                <div key="style" className="highlight">
+                  <pre>
+                    <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
+                  </pre>
+                </div>
+              )
+              : null
           }
         </section>
       </section>

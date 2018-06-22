@@ -7,7 +7,9 @@ describe('Radio', () => {
   focusTest(Radio);
 
   it('should render correctly', () => {
-    const wrapper = render(<Radio className="customized">Test</Radio>);
+    const wrapper = render(<Radio className="customized">
+Test
+                           </Radio>);
     expect(wrapper).toMatchSnapshot();
   });
 

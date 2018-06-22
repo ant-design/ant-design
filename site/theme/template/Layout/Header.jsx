@@ -107,7 +107,11 @@ export default class Header extends React.Component {
     } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions)
-      .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
+      .map(version => (
+        <Option value={docVersions[version]} key={version}>
+          {version}
+        </Option>
+      ));
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {

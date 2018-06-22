@@ -35,7 +35,7 @@ const page2Data = [
 
 const svgBgChild = [
   (
-    <svg width="100%" height="100%" viewBox="0 0 1401 1109" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" preserveAspectRatio="xMidYMid slice" >
+    <svg width="100%" height="100%" viewBox="0 0 1401 1109" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" preserveAspectRatio="xMidYMid slice">
       <g transform="translate(-79.000000, -21.000000)">
         <circle id="Oval-13" stroke="none" fill="#EBEDF0" fillRule="evenodd" cx="98.5" cy="98.5" r="98.5" />
         <rect id="Rectangle-33" stroke="none" fill="#EBEDF0" fillRule="evenodd" transform="translate(1261.132034, 1217.132034) rotate(45.000000) translate(-1261.132034, -1217.132034) " x="1111.13203" y="1007.13203" width="300" height="300" rx="1" />
@@ -74,10 +74,14 @@ export default function Page2({ isMobile, locale }) {
   const componentButton = (
     <div key="b" className="components-button-wrapper">
       <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-        Ant Design of React <Icon type="right" />
+        Ant Design of React
+        {' '}
+        <Icon type="right" />
       </Link>
       <a href="https://ng.ant.design/" target="_black">
-        Ant Design of Angular <Icon type="right" />
+        Ant Design of Angular
+        {' '}
+        <Icon type="right" />
       </a>
     </div>
   );
@@ -86,8 +90,14 @@ export default function Page2({ isMobile, locale }) {
       return null;
     }
     const content = isMobile && !i ? componentButton : [
-      <p key="p">{item.slogan}</p>,
-      <span className="more" key="a"><FormattedMessage id="app.home.more" /> <Icon type="right" /></span>,
+      <p key="p">
+        {item.slogan}
+      </p>,
+      <span className="more" key="a">
+        <FormattedMessage id="app.home.more" />
+        {' '}
+        <Icon type="right" />
+      </span>,
     ];
     return (
       <a className="product-block" key={item.name} href={item.link} style={{ display: 'block' }}>
@@ -100,7 +110,9 @@ export default function Page2({ isMobile, locale }) {
             <img src={item.img} style={isMobile && i === 2 ? { marginLeft: 16 } : {}} alt="icon" />
           </Col>
           <Col xs={16} md={i === 2 ? 18 : 16} className="block-text-wrapper">
-            <h4>{item.name}</h4>
+            <h4>
+              {item.name}
+            </h4>
             {content}
           </Col>
         </Row>
@@ -109,8 +121,10 @@ export default function Page2({ isMobile, locale }) {
   });
   return (
     <div className="home-page-wrapper page2" id="page2">
-      <div className="page" >
-        <h2><FormattedMessage id="app.home.solution" /></h2>
+      <div className="page">
+        <h2>
+          <FormattedMessage id="app.home.solution" />
+        </h2>
         <ScrollOverPack component={Row} className="page2-content" playScale="0.4">
           <QueueAnim
             component={Col}
@@ -120,8 +134,12 @@ export default function Page2({ isMobile, locale }) {
             type="bottom"
             leaveReverse
           >
-            <h3 key="h1">Ant Design Components</h3>
-            <p key="p"><FormattedMessage id="app.home.components-explain" /></p>
+            <h3 key="h1">
+Ant Design Components
+            </h3>
+            <p key="p">
+              <FormattedMessage id="app.home.components-explain" />
+            </p>
             {componentButton}
           </QueueAnim>
           <QueueAnim
@@ -136,10 +154,10 @@ export default function Page2({ isMobile, locale }) {
           </QueueAnim>
         </ScrollOverPack>
       </div>
-      <div className="parallax-bg bottom" >
+      <div className="parallax-bg bottom">
         {svgBgChildArray[0]}
       </div>
-      <div className="parallax-bg top" >
+      <div className="parallax-bg top">
         {svgBgChildArray[1]}
       </div>
     </div>

@@ -124,16 +124,19 @@ export default class Page1 extends React.PureComponent {
   state = {
     hoverKey: null,
   }
+
   onMouseOver = (key) => {
     this.setState({
       hoverKey: key,
     });
   }
+
   onMouseOut = () => {
     this.setState({
       hoverKey: null,
     });
   }
+
   getEnter = (i, e) => {
     const ii = e.index;
     const r = (Math.random() * 2) - 1;
@@ -153,6 +156,7 @@ export default class Page1 extends React.PureComponent {
       },
     ];
   };
+
   getSvgChild = child => child.map((item, i) => {
     const props = { ...item.props };
     if (item.type === 'g') {
@@ -165,14 +169,16 @@ export default class Page1 extends React.PureComponent {
       });
     }
     return (
-      <g key={i.toString()} >
+      <g key={i.toString()}>
         {React.cloneElement(item, props)}
       </g>
     );
   });
+
   leave = {
     opacity: 0, duration: 300, x: 100, y: 150, ease: 'easeInBack',
   };
+
   render() {
     const isZhCN = this.props.locale === 'zh-CN';
     const children = page1Data.map((item, i) => {
@@ -200,15 +206,19 @@ export default class Page1 extends React.PureComponent {
             <div className="page1-image">
               <img src={item.img} alt="icon" />
             </div>
-            <h3 >{isZhCN ? item.name : item.nameEn}</h3>
+            <h3>
+              {isZhCN ? item.name : item.nameEn}
+            </h3>
           </QueueAnim>
         </Col>
       );
     });
     return (
       <div className="home-page-wrapper page1">
-        <div className="page" >
-          <h2><FormattedMessage id="app.home.design-language" /></h2>
+        <div className="page">
+          <h2>
+            <FormattedMessage id="app.home.design-language" />
+          </h2>
           <ScrollOverPack playScale="0.3">
             <QueueAnim
               component={Row}

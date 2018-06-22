@@ -9,15 +9,19 @@ class ModalTester extends React.Component {
     super(props);
     this.state = { visible: false };
   }
+
   componentDidMount() {
     this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
   }
+
   saveContainer = (container) => {
     this.container = container;
   }
+
   getContainer = () => {
     return this.container;
   }
+
   render() {
     return (
       <div>

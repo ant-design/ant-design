@@ -306,6 +306,7 @@ describe('Table.rowSelection', () => {
       state = {
         disableName: 'Jack',
       };
+
       render() {
         return (
           <Table

@@ -9,4 +9,3 @@ $('dist')
 
 // eslint-disable-next-line
 console.log('`dist` directory is valid.');
-

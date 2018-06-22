@@ -6,7 +6,9 @@ describe('Popover', () => {
   it('should show overlay when trigger is clicked', () => {
     const popover = mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">
-        <span>show me your code</span>
+        <span>
+show me your code
+        </span>
       </Popover>
     );
 

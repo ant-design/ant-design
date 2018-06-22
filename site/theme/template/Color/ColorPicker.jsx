@@ -22,23 +22,29 @@ export default class ColorPicker extends Component {
       color: props.color,
     };
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ color: nextProps.color });
   }
+
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
   };
+
   handleClose = () => {
     this.setState({ displayColorPicker: false });
   };
+
   handleChange = (color) => {
     this.setState({ color: color.hex });
     this.props.onChange(color.hex, color);
   };
+
   handleChangeComplete = (color) => {
     this.setState({ color: color.hex });
     this.props.onChangeComplete(color.hex);
   };
+
   render() {
     const { small, type, position } = this.props;
 
@@ -101,8 +107,18 @@ export default class ColorPicker extends Component {
     ) : null;
 
     if (position === 'top') {
-      return <div>{picker}{swatch}</div>;
+      return (
+        <div>
+          {picker}
+          {swatch}
+        </div>
+      );
     }
-    return <div>{swatch}{picker}</div>;
+    return (
+      <div>
+        {swatch}
+        {picker}
+      </div>
+    );
   }
 }

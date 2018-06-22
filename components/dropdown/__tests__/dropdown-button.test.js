@@ -11,7 +11,9 @@ describe('DropdownButton', () => {
       },
       overlay: (
         <Menu>
-          <Menu.Item>foo</Menu.Item>
+          <Menu.Item>
+foo
+          </Menu.Item>
         </Menu>
       ),
       disabled: false,

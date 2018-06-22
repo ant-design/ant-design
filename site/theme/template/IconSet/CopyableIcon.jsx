@@ -6,6 +6,7 @@ export default class CopyableIcon extends React.Component {
   state = {
     justCopied: false,
   };
+
   onCopied = () => {
     this.setState({ justCopied: true }, () => {
       setTimeout(() => {
@@ -13,6 +14,7 @@ export default class CopyableIcon extends React.Component {
       }, 2000);
     });
   }
+
   render() {
     const { type, isNew } = this.props;
     const text = `<Icon type="${type}" />`;

@@ -24,7 +24,9 @@ describe('Card', () => {
   }
 
   testMethod('resize card will trigger different padding', () => {
-    const wrapper = mount(<Card title="xxx">xxx</Card>);
+    const wrapper = mount(<Card title="xxx">
+xxx
+                          </Card>);
     fakeResizeWindowTo(wrapper, 1000);
     jest.runAllTimers();
     wrapper.update();
@@ -36,7 +38,9 @@ describe('Card', () => {
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
-    const wrapper = mount(<Card loading bodyStyle={{ padding: 0 }}>xxx</Card>);
+    const wrapper = mount(<Card loading bodyStyle={{ padding: 0 }}>
+xxx
+                          </Card>);
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

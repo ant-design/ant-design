@@ -38,7 +38,7 @@ exports[`Form should display custom message 1`] = `
           class="ant-form-explain show-help-enter"
         >
           <span>
-            Account does not exist, 
+            Account does not exist,
             <a
               href="https://www.alipay.com/"
               rel="noopener noreferrer"

@@ -26,6 +26,7 @@ export default class Palette extends React.Component {
     });
     this.forceUpdate();
   }
+
   render() {
     this.colorNodes = this.colorNodes || {};
     const { showTitle, direction } = this.props;
@@ -51,9 +52,15 @@ export default class Palette extends React.Component {
             }}
             title="click to copy color"
           >
-            <span className="main-color-text">{colorText}</span>
+            <span className="main-color-text">
+              {colorText}
+            </span>
             {this.hexColors
-              ? <span className="main-color-value">{this.hexColors[colorText]}</span>
+              ? (
+                <span className="main-color-value">
+                  {this.hexColors[colorText]}
+                </span>
+              )
               : null}
           </div>
         </CopyToClipboard>
@@ -64,10 +71,14 @@ export default class Palette extends React.Component {
         {showTitle && (
           <div className="color-title">
             {colorName}
-            <span className="color-description">{description}</span>
+            <span className="color-description">
+              {description}
+            </span>
           </div>
         )}
-        <div className="main-color">{colors}</div>
+        <div className="main-color">
+          {colors}
+        </div>
       </div>
     );
   }

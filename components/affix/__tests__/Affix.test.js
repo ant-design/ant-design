@@ -11,9 +11,11 @@ class AffixMounter extends React.Component {
       events[event] = cb;
     });
   }
+
   getTarget = () => {
     return this.container;
   }
+
   render() {
     return (
       <div
@@ -35,7 +37,7 @@ class AffixMounter extends React.Component {
             ref={ele => this.affix = ele}
             {...this.props}
           >
-            <Button type="primary" >
+            <Button type="primary">
               Fixed at the top of container
             </Button>
           </Affix>
