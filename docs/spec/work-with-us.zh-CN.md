@@ -8,15 +8,7 @@ title: 加入我们
 
 ## UI/UE 设计师
 
-```__react
-const emails = [
-  'momo.zxy#alipay.com',
-  'lindong.lld#alipay.com',
-];
-ReactDOM.render(
-  <p>作品和简历请投递：{emails[parseInt(Math.random() * emails.length, 10)]}</p>
-, mountNode)
-```
+简历和作品集请投递：lindong.lld#alipay.com
 
 > 注明简历来自 ant.design 官网
 
@@ -28,12 +20,13 @@ ReactDOM.render(
   - 沟通能力佳，善于自我管理；
   - 有企业级设计实战经验，加分；
   - 有良好的英文能力和国际视眼，加分；
-  - 深度了解 SAP、Salesforce、Google 等设计体系，加分。
+  - 深度理解 SAP、Salesforce、Google 等设计体系，能提出自己见解并落实到实践中，加加加分。
   - 爱 🐱。
 - 岗位职责：
   - 参与金融云、数据服务、人工智能以及金融核心等业务领域的设计工作；
-  - 参与[语雀](https://yuque.com/)、[云凤蝶](http://www.yunfengdie.com/intro)等创新产品的设计工作；
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
+- One More Thing：
+  - 你们总是为世界带去美好，但总是忘却你们也需要美好。我们正在努力打造[Kitchen](https://kitchen.alipay.com/)、[语雀画板](https://yuque.com/)等专属设计师的产品，让设计真正变成财富。期待志同道合的你，一道给设计行业带来「微小而美好的改变」。
 
 ## 前端工程师
 

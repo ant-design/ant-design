@@ -5,8 +5,8 @@ export interface TransferOperationProps {
   className?: string;
   leftArrowText?: string;
   rightArrowText?: string;
-  moveToLeft?: React.FormEventHandler<HTMLButtonElement>;
-  moveToRight?: React.FormEventHandler<HTMLButtonElement>;
+  moveToLeft?: React.MouseEventHandler<HTMLButtonElement>;
+  moveToRight?: React.MouseEventHandler<HTMLButtonElement>;
   leftActive?: boolean;
   rightActive?: boolean;
   style?: React.CSSProperties;

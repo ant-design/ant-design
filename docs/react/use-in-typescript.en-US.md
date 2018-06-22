@@ -39,15 +39,15 @@ Open browser at http://localhost:3000/, it renders a header saying "Welcome to R
 $ yarn add antd
 ```
 
-Modify `src/App.js`, import Button component from `antd`.
+Modify `src/App.tsx`, import Button component from `antd`.
 
 ```jsx
+import { Button } from 'antd';
 import * as React from 'react';
-import Button from 'antd/lib/button';
 import './App.css';
 
 class App extends React.Component {
-  render() {
+  public render() {
     return (
       <div className="App">
         <Button type="primary">Button</Button>
