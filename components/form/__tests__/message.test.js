@@ -33,7 +33,12 @@ describe('Form', () => {
   it('should display custom message', () => {
     const rules = [{
       pattern: /^$/,
-      message: (<span>Account does not exist, <a rel="noopener noreferrer" href="https://www.alipay.com/" target="_blank">Forgot account?</a></span>),
+      message: (<span>
+Account does not exist,
+        <a rel="noopener noreferrer" href="https://www.alipay.com/" target="_blank">
+Forgot account?
+        </a>
+      </span>),
     }];
     let myForm;
     const Form1 = Form.create()(({ form }) => {

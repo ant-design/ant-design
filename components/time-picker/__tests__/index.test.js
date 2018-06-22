@@ -8,7 +8,11 @@ describe('TimePicker', () => {
   focusTest(TimePicker);
 
   it('renders addon correctly', () => {
-    const addon = () => (<button>Ok</button>);
+    const addon = () => (
+      <button>
+Ok
+      </button>
+    );
     const wrapper = mount(<TimePicker addon={addon} />);
     const rcTimePicker = wrapper.find(RcTimePicker);
     const addonWrapper = render(rcTimePicker.props().addon());

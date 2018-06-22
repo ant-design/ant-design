@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
-import DatePicker from '../';
+import DatePicker from '..';
 
 const { MonthPicker, WeekPicker } = DatePicker;
 

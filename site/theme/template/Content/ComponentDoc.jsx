@@ -23,7 +23,7 @@ export default class ComponentDoc extends React.Component {
 
   handleExpandToggle = () => {
     this.setState({
-      expandAll: !this.state.expandAll,
+      expandAll: !this.state.expandAll, // eslint-disable-line
     });
   }
 
@@ -38,8 +38,8 @@ export default class ComponentDoc extends React.Component {
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demos.some(demo => demo.meta.only) ?
-      demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    const showedDemo = demos.some(demo => demo.meta.only)
+      ? demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (
@@ -87,7 +87,11 @@ export default class ComponentDoc extends React.Component {
             <h1>
               {title[locale] || title}
               {
-                !subtitle ? null : <span className="subtitle">{subtitle}</span>
+                !subtitle ? null : (
+                  <span className="subtitle">
+                    {subtitle}
+                  </span>
+                )
               }
               <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
             </h1>
@@ -109,15 +113,19 @@ export default class ComponentDoc extends React.Component {
           </section>
           <Row gutter={16}>
             <Col span={isSingleCol ? '24' : '12'}
-              className={isSingleCol ?
-                'code-boxes-col-1-1' :
-                'code-boxes-col-2-1'
+              className={isSingleCol
+                ? 'code-boxes-col-1-1'
+                : 'code-boxes-col-2-1'
               }
             >
               {leftChildren}
             </Col>
             {
-              isSingleCol ? null : <Col className="code-boxes-col-2-1" span={12}>{rightChildren}</Col>
+              isSingleCol ? null : (
+                <Col className="code-boxes-col-2-1" span={12}>
+                  {rightChildren}
+                </Col>
+              )
             }
           </Row>
           {

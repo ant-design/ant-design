@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-  Popconfirm, Table, Modal, Select, Transfer } from '../../';
+  Popconfirm, Table, Modal, Select, Transfer } from '../..';
 import enGB from '../en_GB';
 import frFR from '../fr_FR';
 import nlBE from '../nl_BE';
@@ -63,14 +63,20 @@ const App = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
     <Select showSearch style={{ width: 200 }}>
-      <Option value="jack">jack</Option>
-      <Option value="lucy">lucy</Option>
+      <Option value="jack">
+jack
+      </Option>
+      <Option value="lucy">
+lucy
+      </Option>
     </Select>
     <DatePicker open />
     <TimePicker open defaultOpenValue={moment()} />
     <RangePicker open style={{ width: 200 }} />
     <Popconfirm title="Question?" visible>
-      <a>Click to confirm</a>
+      <a>
+Click to confirm
+      </a>
     </Popconfirm>
     <Transfer
       dataSource={[]}
@@ -81,7 +87,9 @@ const App = () => (
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" visible>
-      <p>Locale Modal</p>
+      <p>
+Locale Modal
+      </p>
     </Modal>
   </div>
 );
@@ -113,6 +121,7 @@ describe('Locale Provider', () => {
           title: 'Hello World!',
         });
       }
+
       render() {
         return null;
       }

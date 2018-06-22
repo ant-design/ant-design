@@ -62,6 +62,7 @@ describe('As Form Control', () => {
       reset = () => {
         this.props.form.resetFields();
       }
+
       render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -72,7 +73,9 @@ describe('As Form Control', () => {
             <Form.Item>
               {getFieldDecorator('textarea')(<Input.TextArea />)}
             </Form.Item>
-            <button onClick={this.reset}>reset</button>
+            <button onClick={this.reset}>
+reset
+            </button>
           </Form>
         );
       }

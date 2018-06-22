@@ -9,14 +9,24 @@ describe('Input.Search', () => {
 
   it('should support custom button', () => {
     const wrapper = mount(
-      <Search enterButton={<button>ok</button>} />
+      <Search enterButton={(
+        <button>
+ok
+        </button>
+)}
+      />
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support custom Button', () => {
     const wrapper = mount(
-      <Search enterButton={<Button>ok</Button>} />
+      <Search enterButton={(
+        <Button>
+ok
+        </Button>
+)}
+      />
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -61,7 +71,14 @@ describe('Input.Search', () => {
   it('should trigger onSearch when click search button with customize button', () => {
     const onSearch = jest.fn();
     const wrapper = mount(
-      <Search defaultValue="search text" enterButton={<Button>antd button</Button>} onSearch={onSearch} />
+      <Search defaultValue="search text"
+        enterButton={(
+          <Button>
+antd button
+          </Button>
+)}
+        onSearch={onSearch}
+      />
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
@@ -71,7 +88,14 @@ describe('Input.Search', () => {
   it('should trigger onSearch when click search button of native', () => {
     const onSearch = jest.fn();
     const wrapper = mount(
-      <Search defaultValue="search text" enterButton={<button>antd button</button>} onSearch={onSearch} />
+      <Search defaultValue="search text"
+        enterButton={(
+          <button>
+antd button
+          </button>
+)}
+        onSearch={onSearch}
+      />
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);

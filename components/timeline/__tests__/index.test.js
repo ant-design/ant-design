@@ -6,9 +6,15 @@ const { Item } = TimeLine;
 
 const wrapperFactory = (timeLineProps = {}) => mount(
   <TimeLine type="editable-card" {...timeLineProps}>
-    <Item key="1">foo</Item>
-    <Item key="2">bar</Item>
-    <Item key="3">baz</Item>
+    <Item key="1">
+foo
+    </Item>
+    <Item key="2">
+bar
+    </Item>
+    <Item key="3">
+baz
+    </Item>
   </TimeLine>
 );
 
@@ -30,8 +36,16 @@ describe('TimeLine', () => {
   });
 
   describe('renders pending item', () => {
-    const pending = <div>pending...</div>;
-    const pendingDot = <i>dot</i>;
+    const pending = (
+      <div>
+pending...
+      </div>
+    );
+    const pendingDot = (
+      <i>
+dot
+      </i>
+    );
 
     it('has one extra timeline item', () => {
       const wrapper = wrapperFactory({ pending });
@@ -88,7 +102,11 @@ describe('TimeLine', () => {
   });
 
   describe('renders items reversely and with pending item', () => {
-    const pending = <div>pending...</div>;
+    const pending = (
+      <div>
+pending...
+      </div>
+    );
 
     it('its last item is marked as the last item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });

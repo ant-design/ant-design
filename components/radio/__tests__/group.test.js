@@ -9,9 +9,15 @@ describe('Radio', () => {
       <RadioGroup
         {...props}
       >
-        <Radio value="A">A</Radio>
-        <Radio value="B">B</Radio>
-        <Radio value="C">C</Radio>
+        <Radio value="A">
+A
+        </Radio>
+        <Radio value="B">
+B
+        </Radio>
+        <Radio value="C">
+C
+        </Radio>
       </RadioGroup>
     );
   }

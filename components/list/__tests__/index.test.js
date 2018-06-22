@@ -7,7 +7,11 @@ const ListItem = List.Item;
 describe('List', () => {
   it('locale not passed to internal div', async () => {
     const locale = { emptyText: 'Custom text' };
-    const renderItem = item => <ListItem>{item}</ListItem>;
+    const renderItem = item => (
+      <ListItem>
+        {item}
+      </ListItem>
+    );
     const dataSource = [];
 
     const wrapper = mount(

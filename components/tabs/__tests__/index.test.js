@@ -13,7 +13,9 @@ describe('Tabs', () => {
       handleEdit = jest.fn();
       wrapper = mount(
         <Tabs type="editable-card" onEdit={handleEdit}>
-          <TabPane tab="foo" key="1">foo</TabPane>
+          <TabPane tab="foo" key="1">
+foo
+          </TabPane>
         </Tabs>
       );
     });
@@ -33,7 +35,9 @@ describe('Tabs', () => {
     it('remove card', () => {
       const wrapper = mount(
         <Tabs tabPosition="left" tabBarExtraContent="xxx">
-          <TabPane tab="foo" key="1">foo</TabPane>
+          <TabPane tab="foo" key="1">
+foo
+          </TabPane>
         </Tabs>
       );
       expect(wrapper).toMatchSnapshot();

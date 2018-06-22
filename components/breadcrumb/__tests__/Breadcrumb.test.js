@@ -15,7 +15,11 @@ describe('Breadcrumb', () => {
 
   // https://github.com/airbnb/enzyme/issues/875
   it('warns on non-Breadcrumb.Item children', () => {
-    const MyCom = () => <div>foo</div>;
+    const MyCom = () => (
+      <div>
+foo
+      </div>
+    );
     mount(
       <Breadcrumb>
         <MyCom />
@@ -32,7 +36,9 @@ describe('Breadcrumb', () => {
     const wrapper = render(
       <Breadcrumb>
         {null}
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>
+Home
+        </Breadcrumb.Item>
         {undefined}
       </Breadcrumb>
     );
@@ -45,8 +51,12 @@ describe('Breadcrumb', () => {
     const wrapper = render(
       <Breadcrumb>
         <Breadcrumb.Item />
-        <Breadcrumb.Item>xxx</Breadcrumb.Item>
-        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+        <Breadcrumb.Item>
+xxx
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+yyy
+        </Breadcrumb.Item>
       </Breadcrumb>
     );
     expect(wrapper).toMatchSnapshot();

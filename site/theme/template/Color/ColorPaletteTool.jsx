@@ -32,7 +32,11 @@ export default class ColorPaletteTool extends Component {
         text += ` 亮度建议不低于${primaryMinBrightness}（现在 ${(primaryColorInstance.hsv.v * 100).toFixed(2)}）`;
       }
     }
-    return <span className="color-palette-picker-validation">{text.trim()}</span>;
+    return (
+      <span className="color-palette-picker-validation">
+        {text.trim()}
+      </span>
+    );
   }
 
   render() {

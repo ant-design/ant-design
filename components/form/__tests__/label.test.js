@@ -6,8 +6,12 @@ describe('Form', () => {
   it('should remove duplicated user input colon', () => {
     const wrapper = mount(
       <Form>
-        <Form.Item label="label:">input</Form.Item>
-        <Form.Item label="label：">input</Form.Item>
+        <Form.Item label="label:">
+input
+        </Form.Item>
+        <Form.Item label="label：">
+input
+        </Form.Item>
       </Form>
     );
     expect(wrapper.find('.ant-form-item-label label').at(0).text()).not.toContain(':');
@@ -17,8 +21,12 @@ describe('Form', () => {
   it('should not remove duplicated user input colon when props colon is false', () => {
     const wrapper = mount(
       <Form>
-        <Form.Item label="label:" colon={false}>input</Form.Item>
-        <Form.Item label="label：" colon={false}>input</Form.Item>
+        <Form.Item label="label:" colon={false}>
+input
+        </Form.Item>
+        <Form.Item label="label：" colon={false}>
+input
+        </Form.Item>
       </Form>
     );
     expect(wrapper.find('.ant-form-item-label label').at(0).text()).toContain(':');
@@ -28,8 +36,12 @@ describe('Form', () => {
   it('should not remove duplicated user input colon when layout is vertical', () => {
     const wrapper = mount(
       <Form layout="vertical">
-        <Form.Item label="label:">input</Form.Item>
-        <Form.Item label="label：">input</Form.Item>
+        <Form.Item label="label:">
+input
+        </Form.Item>
+        <Form.Item label="label：">
+input
+        </Form.Item>
       </Form>
     );
     expect(wrapper.find('.ant-form-item-label label').at(0).text()).toContain(':');
@@ -43,8 +55,12 @@ describe('Form', () => {
     };
     const wrapper = mount(
       <Form>
-        <Form.Item {...formItemLayout}>input</Form.Item>
-        <Form.Item>input</Form.Item>
+        <Form.Item {...formItemLayout}>
+input
+        </Form.Item>
+        <Form.Item>
+input
+        </Form.Item>
       </Form>
     );
     expect(wrapper.find('.ant-form-item-control-wrapper').hostNodes().length).toBe(2);
@@ -67,7 +83,10 @@ describe('Form', () => {
         </Form.Item>
       </Form>
     ));
-    const wrapper = mount(<div><Form1 /><Form2 /></div>);
+    const wrapper = mount(<div>
+      <Form1 />
+      <Form2 />
+    </div>);
     wrapper.find('Form label').at(0).simulate('click');
     expect(wrapper.find('Form input').at(0).getDOMNode()).toBe(document.activeElement);
     wrapper.find('Form label').at(1).simulate('click');

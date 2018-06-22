@@ -6,7 +6,9 @@ describe('Spin', () => {
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const wrapper = shallow(
       <Spin style={{ background: 'red' }}>
-        <div>content</div>
+        <div>
+content
+        </div>
       </Spin>
     );
     expect(wrapper.find('.ant-spin-nested-loading').at(0).prop('style')).toBe(null);
