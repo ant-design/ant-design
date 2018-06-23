@@ -21,6 +21,7 @@ timeline: true
 
 - 🐞 Fixed `Steps` theme `@process-icon-color`. [#10973](https://github.com/ant-design/ant-design/issues/10973)
 - 🐞 Fixed style of RangePicker with preset ranges. [#10986](https://github.com/ant-design/ant-design/issues/10986)
+- 🐞 Fixed `Dropdown` non-boolean attribute warning. [#7798](https://github.com/ant-design/ant-design/issues/7798)
 - TypeScript
   - 🌟 Add `Tree` prop `className` definition. [#10950](https://github.com/ant-design/ant-design/issues/10950)
   - 🌟 Add `Tree` prop `selectable` definition. [3fb478e](https://github.com/ant-design/ant-design/commit/3fb478e743f3bad23dc300f501df11e5423468ba)
