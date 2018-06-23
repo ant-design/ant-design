@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.6.4
 
-`2018-06-22`
+`2018-06-23`
 
 - 🐞 修复 `Steps` 组件的 `@process-icon-color` 样式定义。[#10973](https://github.com/ant-design/ant-design/issues/10973)
 - 🐞 修复 `RangePicker` 组件使用预置范围时的样式问题。[#10986](https://github.com/ant-design/ant-design/issues/10986)

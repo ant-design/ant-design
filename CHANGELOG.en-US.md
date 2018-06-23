@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.6.4
 
-`2018-06-22`
+`2018-06-23`
 
 - 🐞 Fixed `Steps` theme `@process-icon-color`. [#10973](https://github.com/ant-design/ant-design/issues/10973)
 - 🐞 Fixed style of RangePicker with preset ranges. [#10986](https://github.com/ant-design/ant-design/issues/10986)
