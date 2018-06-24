@@ -37,6 +37,8 @@ const dataSource = ['12345', '23456', '34567'];
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |
 | onSearch | 搜索补全项的时候调用 | function(value) | 无 |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无 |
+| onBlur | 获取焦点时的回调 | function() | - |
+| onFocus | 失去焦点时的回调 | function() | - |
 
 ## 方法
 
