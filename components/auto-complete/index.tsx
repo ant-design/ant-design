@@ -121,7 +121,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
       <Select
         {...this.props}
         className={cls}
-        mode={Select.COMBOBOX_MODE}
+        mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE}
         optionLabelProp={optionLabelProp}
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
