@@ -7,9 +7,11 @@ class DrawerTester extends React.Component {
   saveContainer = (container) => {
     this.container = container;
   }
+
   getContainer = () => {
     return this.container;
   }
+
   render() {
     return (
       <div>
