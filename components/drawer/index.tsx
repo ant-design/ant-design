@@ -51,12 +51,14 @@ export default class Drawer extends React.Component<
     placement: PropTypes.string,
     onClose: PropTypes.func,
   };
+
   static defaultProps = {
     prefixCls: 'ant-drawer',
     width: 256,
     closable: true,
     maskClosable: true,
   };
+
   close = (e: EventType) => {
     if (this.props.visible !== undefined) {
       if (this.props.onClose) {
@@ -65,12 +67,14 @@ export default class Drawer extends React.Component<
       return;
     }
   }
+  
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
     }
     this.close(e);
   }
+
   renderBody = () => {
     if (this.props.destroyOnClose && !this.props.visible) {
       return null;
@@ -107,6 +111,7 @@ export default class Drawer extends React.Component<
       </div>
     );
   }
+
   render() {
     let { width, zIndex, style, ...rest } = this.props;
     if (typeof width === 'number') {

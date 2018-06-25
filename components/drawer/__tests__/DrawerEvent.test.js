@@ -8,32 +8,39 @@ class DrawerEventTester extends React.Component {
     super(props);
     this.state = { visible: false };
   }
+
   componentDidMount() {
     this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
   }
+
   saveContainer = (container) => {
     this.container = container;
   };
+
   getContainer = () => {
     return this.container;
   };
+
   onClose = () => {
     this.setState({
       visible: false,
     });
   };
+
   open = () => {
     this.setState({
       visible: true,
     });
   }
+
   render() {
+    const { visible } = this.state;
     return (
       <div>
         <Button onClick={this.open}>open</Button>
         <div ref={this.saveContainer} />
         <Drawer
-          visible={this.state.visible}
+          visible={visible}
           onClose={this.onClose}
           destroyOnClose
           getContainer={this.getContainer}
