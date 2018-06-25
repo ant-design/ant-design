@@ -91,7 +91,7 @@ export default class Select extends React.Component<SelectProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
-  static COMBOBOX_MODE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
   static defaultProps = {
     prefixCls: 'ant-select',
@@ -138,7 +138,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
   isCombobox() {
     const { mode } = this.props;
-    return mode === 'combobox' || mode === Select.COMBOBOX_MODE;
+    return mode === 'combobox' || mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE;
   }
 
   renderSelect = (locale: SelectLocale) => {
