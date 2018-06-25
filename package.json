@@ -157,7 +157,7 @@
     "react-intl": "^2.0.1",
     "react-router-dom": "^4.2.2",
     "react-sublime-video": "^0.2.0",
-    "react-virtualized": "~9.19.0",
+    "react-virtualized": "~9.20.0",
     "remark-frontmatter": "^1.1.0",
     "remark-parse": "^5.0.0",
     "remark-stringify": "^5.0.0",
