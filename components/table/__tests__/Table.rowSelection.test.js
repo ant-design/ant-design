@@ -306,13 +306,15 @@ describe('Table.rowSelection', () => {
       state = {
         disableName: 'Jack',
       };
+
       render() {
+        const { disableName } = this.state;
         return (
           <Table
             columns={columns}
             dataSource={data}
             rowSelection={{
-              getCheckboxProps: record => ({ disabled: record.name === this.state.disableName }),
+              getCheckboxProps: record => ({ disabled: record.name === disableName }),
             }}
           />
         );

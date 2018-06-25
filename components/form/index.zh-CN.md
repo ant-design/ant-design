@@ -60,6 +60,17 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
 | onValuesChange | 任一表单域的值发生改变时的回调 | (props, changedValues, allValues) => void |
 
+经过 `Form.create` 之后如果要拿到 `ref`，可以使用 `rc-form` 提供的 `wrappedComponentRef`，[详细内容可以查看这里](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)。
+
+```jsx
+class CustomizedForm extends React.Component { ... }
+
+// use wrappedComponentRef
+const EnhancedForm =  Form.create()(CustomizedForm);
+<EnhancedForm wrappedComponentRef={(form) => this.form = form} />
+this.form // => The instance of CustomizedForm
+```
+
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。

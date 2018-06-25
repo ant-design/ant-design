@@ -58,6 +58,17 @@ The following `options` are available:
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
 | onValuesChange | A handler while value of any field is changed | (props, changedValues, allValues) => void |
 
+If you want to get `ref` after `Form.create`, you can use `wrappedComponentRef` provided by `rc-form`，[details can be viewed here](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140).
+
+```jsx
+class CustomizedForm extends React.Component { ... }
+
+// use wrappedComponentRef
+const EnhancedForm =  Form.create()(CustomizedForm);
+<EnhancedForm wrappedComponentRef={(form) => this.form = form} />
+this.form // => The instance of CustomizedForm
+```
+
 If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
 
 > Note: Before using `getFieldsValue` `getFieldValue` `setFieldsValue` and so on, please make sure that corresponding field had been registered with `getFieldDecorator`.

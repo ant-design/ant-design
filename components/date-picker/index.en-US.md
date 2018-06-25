@@ -54,16 +54,16 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | dateRender | custom rendering function for date cells | function(currentDate: moment, today: moment) => React.ReactNode | - |
 | disabled | determine whether the DatePicker is disabled | boolean | false |
 | disabledDate | specify the date that cannot be selected | (currentDate: moment) => boolean | - |
+| dropdownClassName | to customize the className of the popup calendar | string | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |
+| mode | picker panel mode | `time|date|month|year` | 'date' |
 | open | open state of picker | boolean | - |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |
 | popupStyle | to customize the style of the popup calendar | object | {} |
-| dropdownClassName | to customize the className of the popup calendar  | string | - |
 | size | determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | string | - |
 | style | to customize the style of the input box | object | {} |
 | onOpenChange | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
-| mode | picker panel mode | `time|date|month|year` | 'date' |
 | onPanelChange | callback when picker panel mode is changed | function(value, mode) | - |
 
 ### Common Methods
@@ -116,7 +116,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | format | to set the date format | string | "YYYY-MM-DD HH:mm:ss" |
-| ranges | preseted ranges for quick selection | { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } \| () => { \[range: string\]&#x3A; [moment](http://momentjs.com/)\[] } | - |
+| ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| () => { \[range: string]: [moment](http://momentjs.com/)\[] } | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
 | showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |

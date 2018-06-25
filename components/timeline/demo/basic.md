@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本用法
   en-US: Basic
 ---
@@ -9,7 +9,7 @@ title:
 
 基本的时间轴。
 
-## en-US 
+## en-US
 
 Basic timeline.
 

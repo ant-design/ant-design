@@ -81,7 +81,6 @@ const columns = [{
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |
 | onRow | 设置行属性 | Function(record, index) | - |
 
-
 #### onRow 用法
 
 适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
@@ -109,6 +108,7 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| align | 设置列内容的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
 | className | 列的 className | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
@@ -122,7 +122,6 @@ const columns = [{
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
-| align | 设置列内容的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | title | 列头显示文字 | string\|ReactNode | - |
@@ -154,11 +153,11 @@ const columns = [{
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| columnWidth | 自定义列表选择框宽度 | string\|number | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
 | hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
-| columnWidth | 自定义列表选择框宽度 | string\|number | - |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | - |

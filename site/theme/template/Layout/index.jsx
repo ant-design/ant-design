@@ -37,14 +37,14 @@ export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
   }
+
   static childContextTypes = {
     isMobile: PropTypes.bool,
   };
 
   getChildContext() {
-    return {
-      isMobile: this.state.isMobile,
-    };
+    const { isMobile: mobile } = this.state;
+    return { isMobile: mobile };
   }
 
   constructor(props) {
@@ -60,7 +60,8 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
-    this.context.router.listen((loc) => {
+    const { router } = this.context;
+    router.listen((loc) => {
       if (typeof window.ga !== 'undefined') {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       }

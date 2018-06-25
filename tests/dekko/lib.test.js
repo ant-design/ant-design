@@ -7,13 +7,11 @@ $('lib')
 
 $('lib/*')
   .filter((filename) => {
-    return !filename.endsWith('index.js') &&
-      !filename.endsWith('index.d.ts');
+    return !filename.endsWith('index.js') && !filename.endsWith('index.d.ts');
   })
   .isDirectory()
   .filter((filename) => {
-    return !filename.endsWith('style') &&
-      !filename.endsWith('_util');
+    return !filename.endsWith('style') && !filename.endsWith('_util');
   })
   .hasFile('index.js')
   .hasFile('index.d.ts')
@@ -28,4 +26,3 @@ $('lib/style')
 
 // eslint-disable-next-line
 console.log('`lib` directory is valid.');
-

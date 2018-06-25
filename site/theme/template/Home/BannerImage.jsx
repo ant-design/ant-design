@@ -59,7 +59,7 @@ function TweenOneG(props) {
 
 export default function BannerImage() {
   return (
-    <svg width="482px" height="500px" viewBox="0 0 482 500" >
+    <svg width="482px" height="500px" viewBox="0 0 482 500">
       <defs>
         <path d="M151,55 C129.666667,62.6666667 116,74.3333333 110,90 C104,105.666667 103,118.5 107,128.5 L225.5,96 C219.833333,79 209.666667,67 195,60 C180.333333,53 165.666667,51.3333333 151,55 L137,0 L306.5,6.5 L306.5,156 L227,187.5 L61.5,191 C4.5,175 -12.6666667,147.833333 10,109.5 C32.6666667,71.1666667 75,34.6666667 137,0 L151,55 Z" id="mask" />
       </defs>
@@ -122,7 +122,7 @@ export default function BannerImage() {
           </mask>
           <g mask="url(#mask-2)">
             <TweenOneG animation={animate.track} style={{ transformOrigin: '122.7px 58px' }}>
-              <g transform="translate(-16, -52)" >
+              <g transform="translate(-16, -52)">
                 <g transform="translate(16, 52)">
                   <path d="M83.1700911,35.9320015 C63.5256194,37.9279025 44.419492,43.1766434 25.8517088,51.6782243 C14.3939956,57.7126276 7.77167019,64.8449292 7.77167019,72.4866248 C7.77167019,94.1920145 61.1993389,111.787709 127.105708,111.787709 C193.012078,111.787709 246.439746,94.1920145 246.439746,72.4866248 C246.439746,55.2822262 212.872939,40.6598106 166.13127,35.3351955" id="line-s" stroke="#0D1A26" strokeWidth="1.35" strokeLinecap="round" transform="translate(127.105708, 73.561453) rotate(-16.000000) translate(-127.105708, -73.561453) " />
                 </g>
@@ -134,6 +134,6 @@ export default function BannerImage() {
           </g>
         </g>
       </g>
-    </svg >
+    </svg>
   );
 }

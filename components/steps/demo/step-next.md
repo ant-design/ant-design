@@ -50,20 +50,20 @@ class App extends React.Component {
         <Steps current={current}>
           {steps.map(item => <Step key={item.title} title={item.title} />)}
         </Steps>
-        <div className="steps-content">{steps[this.state.current].content}</div>
+        <div className="steps-content">{steps[current].content}</div>
         <div className="steps-action">
           {
-            this.state.current < steps.length - 1
+            current < steps.length - 1
             &&
             <Button type="primary" onClick={() => this.next()}>Next</Button>
           }
           {
-            this.state.current === steps.length - 1
+            current === steps.length - 1
             &&
             <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
           }
           {
-            this.state.current > 0
+            current > 0
             &&
             <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
               Previous

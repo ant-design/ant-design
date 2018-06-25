@@ -50,7 +50,7 @@ class Demo extends React.Component {
     value: ['0-0-0'],
   }
   onChange = (value) => {
-    console.log('onChange ', value, arguments);
+    console.log('onChange ', value);
     this.setState({ value });
   }
   render() {

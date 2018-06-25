@@ -22,8 +22,9 @@ export default class ComponentDoc extends React.Component {
   }
 
   handleExpandToggle = () => {
+    const { expandAll } = this.state;
     this.setState({
-      expandAll: !this.state.expandAll,
+      expandAll: !expandAll,
     });
   }
 
@@ -31,15 +32,15 @@ export default class ComponentDoc extends React.Component {
     const { props } = this;
     const { doc, location } = props;
     const { content, meta } = doc;
-    const { locale } = this.context.intl;
+    const { intl: { locale } } = this.context;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const expand = this.state.expandAll;
+    const { expandAll: { expand } } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demos.some(demo => demo.meta.only) ?
-      demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    const showedDemo = demos.some(demo => demo.meta.only)
+      ? demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (
@@ -109,9 +110,10 @@ export default class ComponentDoc extends React.Component {
           </section>
           <Row gutter={16}>
             <Col span={isSingleCol ? '24' : '12'}
-              className={isSingleCol ?
-                'code-boxes-col-1-1' :
-                'code-boxes-col-2-1'
+              className={
+                isSingleCol
+                  ? 'code-boxes-col-1-1'
+                  : 'code-boxes-col-2-1'
               }
             >
               {leftChildren}

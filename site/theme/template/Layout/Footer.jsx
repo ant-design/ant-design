@@ -25,8 +25,8 @@ class Footer extends React.Component {
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
     if (
-      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true' &&
-        Date.now() < new Date('2017/12/20').getTime()
+      localStorage.getItem('antd@3.0.0-notification-sent') !== 'true'
+        && Date.now() < new Date('2017/12/20').getTime()
     ) {
       this.infoNewVersion();
     }
@@ -34,7 +34,7 @@ class Footer extends React.Component {
 
   handleColorChange = (color) => {
     const changeColor = () => {
-      const { messages } = this.props.intl;
+      const { intl: { messages } } = this.props;
       window.less.modifyVars({
         '@primary-color': color,
       }).then(() => {
@@ -59,7 +59,7 @@ class Footer extends React.Component {
   }
 
   infoNewVersion() {
-    const { messages } = this.props.intl;
+    const { intl: { messages } } = this.props;
     Modal.info({
       title: messages['app.publish.title'],
       content: (
@@ -83,6 +83,7 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { color } = this.state;
     return (
       <footer id="footer">
         <div className="footer-wrap">
@@ -262,7 +263,7 @@ class Footer extends React.Component {
                   <ColorPicker
                     type="sketch"
                     small
-                    color={this.state.color}
+                    color={color}
                     position="top"
                     presetColors={[
                       '#F5222D',

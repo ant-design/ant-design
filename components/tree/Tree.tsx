@@ -24,6 +24,7 @@ export interface AntdTreeNodeAttribute {
   disableCheckbox: boolean;
 }
 export interface AntTreeNodeProps {
+  className?: string;
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
@@ -92,6 +93,7 @@ export interface TreeProps {
   selectedKeys?: string[];
   /** 默认选中的树节点 */
   defaultSelectedKeys?: string[];
+  selectable?: boolean;
   /** 展开/收起节点时触发 */
   onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
   /** 点击复选框触发 */
