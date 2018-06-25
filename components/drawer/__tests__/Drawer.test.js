@@ -4,12 +4,6 @@ import Drawer from '..';
 
 
 class DrawerTester extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { visible: true };
-  }
-  componentDidMount() {
-  }
   saveContainer = (container) => {
     this.container = container;
   }
@@ -21,7 +15,7 @@ class DrawerTester extends React.Component {
       <div>
         <div ref={this.saveContainer} />
         <Drawer
-          visible={this.state.visible}
+          visible
           getContainer={this.getContainer}
           {...this.props}
         >
@@ -33,7 +27,7 @@ class DrawerTester extends React.Component {
 }
 
 describe('Drawer', () => {
-  fit('render correctly', () => {
+  it('render correctly', () => {
     const wrapper = mount(<DrawerTester width={400} />);
     const content = wrapper.find('.ant-drawer-body').getDOMNode().innerHTML;
     expect(content).toBe('Here is content of Drawer');
