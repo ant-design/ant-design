@@ -10,36 +10,36 @@ exports[`Drawer render correctly 1`] = `
       open
     </span>
   </button>
-  <div>
-    <div>
+  <div
+    class=""
+  >
+    <div
+      class="ant-drawer ant-drawer-left ant-drawer-open"
+    >
       <div
-        class="ant-drawer ant-drawer-left ant-drawer-open"
+        class="ant-drawer-mask"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
       >
         <div
-          class="ant-drawer-mask"
-        />
-        <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content"
         >
           <div
-            class="ant-drawer-content"
+            style="width: 256px;"
           >
-            <div
-              style="width: 256px;"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
             >
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-              >
-                <span
-                  class="ant-drawer-close-x"
-                />
-              </button>
-              <div
-                class="ant-drawer-body"
-              >
-                Here is content of Drawer
-              </div>
+              <span
+                class="ant-drawer-close-x"
+              />
+            </button>
+            <div
+              class="ant-drawer-body"
+            >
+              Here is content of Drawer
             </div>
           </div>
         </div>

@@ -13,14 +13,6 @@ class DrawerEventTester extends React.Component {
     this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
   }
 
-  saveContainer = (container) => {
-    this.container = container;
-  };
-
-  getContainer = () => {
-    return this.container;
-  };
-
   onClose = () => {
     this.setState({
       visible: false,
@@ -38,12 +30,11 @@ class DrawerEventTester extends React.Component {
     return (
       <div>
         <Button onClick={this.open}>open</Button>
-        <div ref={this.saveContainer} />
         <Drawer
           visible={visible}
           onClose={this.onClose}
           destroyOnClose
-          getContainer={this.getContainer}
+          getContainer={false}
           {...this.props}
         >
           Here is content of Drawer

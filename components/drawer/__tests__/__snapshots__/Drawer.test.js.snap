@@ -1,30 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer closable is false 1`] = `
-<div>
-  <div>
-    <div>
+<div
+  class=""
+>
+  <div
+    class="ant-drawer ant-drawer-left ant-drawer-open"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+    >
       <div
-        class="ant-drawer ant-drawer-left ant-drawer-open"
+        class="ant-drawer-content"
       >
         <div
-          class="ant-drawer-mask"
-        />
-        <div
-          class="ant-drawer-content-wrapper"
+          style="width: 256px;"
         >
           <div
-            class="ant-drawer-content"
+            class="ant-drawer-body"
           >
-            <div
-              style="width: 256px;"
-            >
-              <div
-                class="ant-drawer-body"
-              >
-                Here is content of Drawer
-              </div>
-            </div>
+            Here is content of Drawer
           </div>
         </div>
       </div>
@@ -34,53 +32,66 @@ exports[`Drawer closable is false 1`] = `
 `;
 
 exports[`Drawer destroyOnClose is true 1`] = `
-<div>
-  <div />
+<div
+  class=""
+>
+  <div
+    class="ant-drawer ant-drawer-left"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+    >
+      <div
+        class="ant-drawer-content"
+      />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Drawer have a title 1`] = `
-<div>
-  <div>
-    <div>
+<div
+  class=""
+>
+  <div
+    class="ant-drawer ant-drawer-left ant-drawer-open"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+    >
       <div
-        class="ant-drawer ant-drawer-left ant-drawer-open"
+        class="ant-drawer-content"
       >
         <div
-          class="ant-drawer-mask"
-        />
-        <div
-          class="ant-drawer-content-wrapper"
+          style="width: 256px;"
         >
           <div
-            class="ant-drawer-content"
+            class="ant-drawer-header"
           >
             <div
-              style="width: 256px;"
+              class="ant-drawer-title"
             >
-              <div
-                class="ant-drawer-header"
-              >
-                <div
-                  class="ant-drawer-title"
-                >
-                  Test Title
-                </div>
-              </div>
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-              >
-                <span
-                  class="ant-drawer-close-x"
-                />
-              </button>
-              <div
-                class="ant-drawer-body"
-              >
-                Here is content of Drawer
-              </div>
+              Test Title
             </div>
+          </div>
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+          >
+            <span
+              class="ant-drawer-close-x"
+            />
+          </button>
+          <div
+            class="ant-drawer-body"
+          >
+            Here is content of Drawer
           </div>
         </div>
       </div>
@@ -90,38 +101,36 @@ exports[`Drawer have a title 1`] = `
 `;
 
 exports[`Drawer render correctly 1`] = `
-<div>
-  <div>
-    <div>
+<div
+  class=""
+>
+  <div
+    class="ant-drawer ant-drawer-left ant-drawer-open"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+    >
       <div
-        class="ant-drawer ant-drawer-left ant-drawer-open"
+        class="ant-drawer-content"
       >
         <div
-          class="ant-drawer-mask"
-        />
-        <div
-          class="ant-drawer-content-wrapper"
+          style="width: 400px;"
         >
-          <div
-            class="ant-drawer-content"
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
           >
-            <div
-              style="width: 400px;"
-            >
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-              >
-                <span
-                  class="ant-drawer-close-x"
-                />
-              </button>
-              <div
-                class="ant-drawer-body"
-              >
-                Here is content of Drawer
-              </div>
-            </div>
+            <span
+              class="ant-drawer-close-x"
+            />
+          </button>
+          <div
+            class="ant-drawer-body"
+          >
+            Here is content of Drawer
           </div>
         </div>
       </div>
