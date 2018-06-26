@@ -80,7 +80,7 @@ class App extends React.Component {
                 avatar={
                   <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                 }
-                title={item.name}
+                title={<a href="https://ant.design/index-cn">{item.name}</a>}
                 description="Progresser AFX"
               />
             </List.Item>
