@@ -70,6 +70,7 @@ export interface ModalFuncProps {
   style?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
+  autoFocusOk?: boolean;
 }
 
 export type ModalFunc = (props: ModalFuncProps) => {
