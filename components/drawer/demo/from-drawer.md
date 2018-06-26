@@ -1,17 +1,17 @@
 ---
 order: 0
 title:
-  zh-CN: 任务抽屉
-  en-US: Task drawer
+  zh-CN: 对象编辑
+  en-US: From drawer
 ---
 
 ## zh-CN
 
-用于承载任务相关操作，需要点击关闭按钮关闭。
+用于承载编辑相关操作，需要点击关闭按钮关闭。
 
 ## en-US
 
-sed to carry tasks related operations, need to close by clicking the close button.
+sed to carry edit related operations, need to close by clicking the close button.
 
 ```jsx
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
