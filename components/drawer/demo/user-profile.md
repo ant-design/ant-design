@@ -7,15 +7,12 @@ title:
 
 ## zh-CN
 
-用于信息预览的抽屉，点击遮罩区关闭。
+需要快速预览对象概要时使用，点击遮罩区关闭。
 
-- 需要快速预览对象概要时使用。如列表条目预览。
 
 ## en-US
 
-Drawer for information preview, click mask area off.
-
-- Use when you need to quickly preview the outline of the object. Such as list item preview.
+Use when you need to quickly preview the outline of the object. Such as list item preview.
 
 ```jsx
 import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
