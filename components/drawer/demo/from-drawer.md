@@ -152,6 +152,7 @@ class App extends React.Component {
               style={{
                 marginRight: 8,
               }}
+              onClick={this.onClose}
             >
               取消
             </Button>
