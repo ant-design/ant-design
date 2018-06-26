@@ -37,7 +37,7 @@ export default class Drawer extends React.Component<
   static propTypes = {
     closable: PropTypes.bool,
     destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]),
+    getContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func, PropTypes.bool]),
     maskClosable: PropTypes.bool,
     mask: PropTypes.bool,
     maskStyle: PropTypes.object,
