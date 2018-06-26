@@ -67,7 +67,7 @@ export default class Drawer extends React.Component<
       return;
     }
   }
-  
+
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
