@@ -27,7 +27,7 @@ exports[`Table.filter renders filter correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"

@@ -84,12 +84,13 @@ export interface SorterResult<T> {
   field: string;
   columnKey: string;
 }
+export type TableSize = 'default' | 'middle' | 'small';
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
   pagination?: PaginationConfig | false;
-  size?: 'default' | 'middle' | 'small';
+  size?: TableSize;
   dataSource?: T[];
   components?: TableComponents;
   columns?: ColumnProps<T>[];
