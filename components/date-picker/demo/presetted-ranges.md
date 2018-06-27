@@ -16,6 +16,7 @@ We can set presetted ranges to RangePicker to improve user experience.
 ````jsx
 import { DatePicker } from 'antd';
 import moment from 'moment';
+
 const RangePicker = DatePicker.RangePicker;
 
 function onChange(dates, dateStrings) {

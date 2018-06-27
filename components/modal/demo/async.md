@@ -23,11 +23,13 @@ class App extends React.Component {
     visible: false,
     confirmLoading: false,
   }
+
   showModal = () => {
     this.setState({
       visible: true,
     });
   }
+
   handleOk = () => {
     this.setState({
       ModalText: 'The modal will be closed after two seconds',
@@ -40,12 +42,14 @@ class App extends React.Component {
       });
     }, 2000);
   }
+
   handleCancel = () => {
     console.log('Clicked cancel button');
     this.setState({
       visible: false,
     });
   }
+
   render() {
     const { visible, confirmLoading, ModalText } = this.state;
     return (

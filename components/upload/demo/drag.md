@@ -19,6 +19,7 @@ We can upload serveral files at once in modern browsers by giving the input the 
 
 ````jsx
 import { Upload, Icon, message } from 'antd';
+
 const Dragger = Upload.Dragger;
 
 const props = {
@@ -45,6 +46,6 @@ ReactDOM.render(
     </p>
     <p className="ant-upload-text">Click or drag file to this area to upload</p>
     <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
-  </Dragger>
-, mountNode);
+  </Dragger>,
+  mountNode);
 ````

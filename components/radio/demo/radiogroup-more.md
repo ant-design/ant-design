@@ -15,18 +15,21 @@ Vertical RadioGroup, with more radios.
 
 ```jsx
 import { Radio, Input } from 'antd';
+
 const RadioGroup = Radio.Group;
 
 class App extends React.Component {
   state = {
     value: 1,
   }
+
   onChange = (e) => {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
   }
+
   render() {
     const radioStyle = {
       display: 'block',

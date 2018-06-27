@@ -21,8 +21,8 @@ ReactDOM.render(
     <Badge count={5} title="Custom hover text">
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

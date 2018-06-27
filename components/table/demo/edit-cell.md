@@ -21,19 +21,23 @@ class EditableCell extends React.Component {
     value: this.props.value,
     editable: false,
   }
+
   handleChange = (e) => {
     const value = e.target.value;
     this.setState({ value });
   }
+
   check = () => {
     this.setState({ editable: false });
     if (this.props.onChange) {
       this.props.onChange(this.state.value);
     }
   }
+
   edit = () => {
     this.setState({ editable: true });
   }
+
   render() {
     const { value, editable } = this.state;
     return (
@@ -44,13 +48,13 @@ class EditableCell extends React.Component {
               value={value}
               onChange={this.handleChange}
               onPressEnter={this.check}
-              suffix={
+              suffix={(
                 <Icon
                   type="check"
                   className="editable-cell-icon-check"
                   onClick={this.check}
                 />
-              }
+)}
             />
           ) : (
             <div style={{ paddingRight: 24 }}>
@@ -92,12 +96,12 @@ class EditableTable extends React.Component {
       dataIndex: 'operation',
       render: (text, record) => {
         return (
-          this.state.dataSource.length > 1 ?
-          (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(record.key)}>
-              <a href="javascript:;">Delete</a>
-            </Popconfirm>
-          ) : null
+          this.state.dataSource.length > 1
+            ? (
+              <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(record.key)}>
+                <a href="javascript:;">Delete</a>
+              </Popconfirm>
+            ) : null
         );
       },
     }];
@@ -117,6 +121,7 @@ class EditableTable extends React.Component {
       count: 2,
     };
   }
+
   onCellChange = (key, dataIndex) => {
     return (value) => {
       const dataSource = [...this.state.dataSource];
@@ -127,10 +132,12 @@ class EditableTable extends React.Component {
       }
     };
   }
+
   onDelete = (key) => {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   }
+
   handleAdd = () => {
     const { count, dataSource } = this.state;
     const newData = {
@@ -144,6 +151,7 @@ class EditableTable extends React.Component {
       count: count + 1,
     });
   }
+
   render() {
     const { dataSource } = this.state;
     const columns = this.columns;

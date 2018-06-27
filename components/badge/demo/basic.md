@@ -24,8 +24,8 @@ ReactDOM.render(
     <Badge count={0} showZero>
       <a href="#" className="head-example" />
     </Badge>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

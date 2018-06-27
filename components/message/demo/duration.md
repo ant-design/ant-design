@@ -21,6 +21,6 @@ const success = () => {
 };
 
 ReactDOM.render(
-  <Button onClick={success}>Customized display duration</Button>
-, mountNode);
+  <Button onClick={success}>Customized display duration</Button>,
+  mountNode);
 ````

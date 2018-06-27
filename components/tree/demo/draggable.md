@@ -15,6 +15,7 @@ Drag treeNode to insert after the other treeNode or insert into the other parent
 
 ````jsx
 import { Tree } from 'antd';
+
 const TreeNode = Tree.TreeNode;
 
 const x = 3;
@@ -50,6 +51,7 @@ class Demo extends React.Component {
     gData,
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
   }
+
   onDragEnter = (info) => {
     console.log(info);
     // expandedKeys 需要受控时设置
@@ -57,6 +59,7 @@ class Demo extends React.Component {
     //   expandedKeys: info.expandedKeys,
     // });
   }
+
   onDrop = (info) => {
     console.log(info);
     const dropKey = info.node.props.eventKey;
@@ -103,6 +106,7 @@ class Demo extends React.Component {
       gData: data,
     });
   }
+
   render() {
     const loop = data => data.map((item) => {
       if (item.children && item.children.length) {

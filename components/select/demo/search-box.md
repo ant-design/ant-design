@@ -17,6 +17,7 @@ Search with remote data.
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
+
 const Option = Select.Option;
 
 let timeout;
@@ -59,12 +60,15 @@ class SearchInput extends React.Component {
     data: [],
     value: '',
   }
+
   handleSearch = (value) => {
     fetch(value, data => this.setState({ data }));
   }
+
   handleChange = (value) => {
     this.setState({ value });
   }
+
   render() {
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
@@ -87,6 +91,6 @@ class SearchInput extends React.Component {
 }
 
 ReactDOM.render(
-  <SearchInput placeholder="input search text" style={{ width: 200 }} />
-, mountNode);
+  <SearchInput placeholder="input search text" style={{ width: 200 }} />,
+  mountNode);
 ````

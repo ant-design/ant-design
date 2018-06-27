@@ -58,8 +58,8 @@ ReactDOM.render(
         <Icon type="upload" /> upload
       </Button>
     </Upload>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 ````css

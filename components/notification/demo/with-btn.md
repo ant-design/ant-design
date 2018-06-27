@@ -39,6 +39,6 @@ const openNotification = () => {
 ReactDOM.render(
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>
-, mountNode);
+  </Button>,
+  mountNode);
 ````

@@ -51,10 +51,12 @@ class TabsCard extends React.Component {
     key: 'tab1',
     noTitleKey: 'app',
   }
+
   onTabChange = (key, type) => {
     console.log(key, type);
     this.setState({ [type]: key });
   }
+
   render() {
     return (
       <div>
@@ -82,6 +84,6 @@ class TabsCard extends React.Component {
 }
 
 ReactDOM.render(
-  <TabsCard />
-, mountNode);
+  <TabsCard />,
+  mountNode);
 ````
