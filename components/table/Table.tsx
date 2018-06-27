@@ -20,6 +20,7 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import { SpinProps } from '../spin';
 import {
   TableProps,
+  TableSize,
   TableState,
   TableComponents,
   RowSelectionType,
@@ -88,7 +89,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     prefixCls: 'ant-table',
     useFixedHeader: false,
     className: '',
-    size: 'large',
+    size: 'default' as TableSize,
     loading: false,
     bordered: false,
     indentSize: 20,
