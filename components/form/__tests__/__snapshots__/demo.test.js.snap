@@ -2417,6 +2417,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <input
                 autocomplete="off"
                 class="ant-input-number-input"
+                data-__field="[object Object]"
+                data-__meta="[object Object]"
                 id="input-number"
                 max="10"
                 min="1"
