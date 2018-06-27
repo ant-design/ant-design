@@ -51,8 +51,8 @@ ReactDOM.render(
         </Route>
       </Route>
     </Route>
-  </Router>
-, mountNode);
+  </Router>,
+  mountNode);
 ````
 
 ````css

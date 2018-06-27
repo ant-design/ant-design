@@ -27,6 +27,7 @@ class LoadMoreList extends React.Component {
     showLoadingMore: true,
     data: [],
   }
+
   componentDidMount() {
     this.getData((res) => {
       this.setState({
@@ -35,6 +36,7 @@ class LoadMoreList extends React.Component {
       });
     });
   }
+
   getData = (callback) => {
     reqwest({
       url: fakeDataUrl,
@@ -46,6 +48,7 @@ class LoadMoreList extends React.Component {
       },
     });
   }
+
   onLoadMore = () => {
     this.setState({
       loadingMore: true,
@@ -63,6 +66,7 @@ class LoadMoreList extends React.Component {
       });
     });
   }
+
   render() {
     const { loading, loadingMore, showLoadingMore, data } = this.state;
     const loadMore = showLoadingMore ? (

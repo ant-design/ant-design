@@ -23,6 +23,6 @@ ReactDOM.render(
       description="Further details about the context of this alert."
       type="info"
     />
-  </Spin>
-, mountNode);
+  </Spin>,
+  mountNode);
 ````

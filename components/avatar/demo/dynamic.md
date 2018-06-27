@@ -27,6 +27,7 @@ class Autoset extends React.Component {
       color: colorList[0],
     };
   }
+
   changeUser = () => {
     const index = UserList.indexOf(this.state.user);
     this.setState({
@@ -34,6 +35,7 @@ class Autoset extends React.Component {
       color: index < colorList.length - 1 ? colorList[index + 1] : colorList[0],
     });
   }
+
   render() {
     return (
       <div>
@@ -48,6 +50,6 @@ class Autoset extends React.Component {
   }
 }
 
-ReactDOM.render(<Autoset />
-, mountNode);
+ReactDOM.render(<Autoset />,
+  mountNode);
 ````

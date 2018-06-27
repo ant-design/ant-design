@@ -19,6 +19,7 @@ The label of the selected item will be packed as an object for passing to the on
 
 ````jsx
 import { Select } from 'antd';
+
 const Option = Select.Option;
 
 function handleChange(value) {
@@ -29,6 +30,6 @@ ReactDOM.render(
   <Select labelInValue defaultValue={{ key: 'lucy' }} style={{ width: 120 }} onChange={handleChange}>
     <Option value="jack">Jack (100)</Option>
     <Option value="lucy">Lucy (101)</Option>
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode);
 ````

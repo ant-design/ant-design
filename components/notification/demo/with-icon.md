@@ -29,8 +29,8 @@ ReactDOM.render(
     <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
     <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
     <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

@@ -16,6 +16,7 @@ Fixed Header is generally used to fix the top navigation to facilitate page swit
 
 ````jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
+
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
@@ -44,8 +45,8 @@ ReactDOM.render(
     <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2016 Created by Ant UED
     </Footer>
-  </Layout>
-, mountNode);
+  </Layout>,
+  mountNode);
 ````
 
 ````css

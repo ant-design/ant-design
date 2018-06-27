@@ -81,12 +81,14 @@ class SearchTree extends React.Component {
     searchValue: '',
     autoExpandParent: true,
   }
+
   onExpand = (expandedKeys) => {
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
   }
+
   onChange = (e) => {
     const value = e.target.value;
     const expandedKeys = dataList.map((item) => {
@@ -101,6 +103,7 @@ class SearchTree extends React.Component {
       autoExpandParent: true,
     });
   }
+
   render() {
     const { searchValue, expandedKeys, autoExpandParent } = this.state;
     const loop = data => data.map((item) => {

@@ -42,6 +42,7 @@ class Avatar extends React.Component {
   state = {
     loading: false,
   };
+
   handleChange = (info) => {
     if (info.file.status === 'uploading') {
       this.setState({ loading: true });
@@ -55,6 +56,7 @@ class Avatar extends React.Component {
       }));
     }
   }
+
   render() {
     const uploadButton = (
       <div>

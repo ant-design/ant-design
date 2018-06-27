@@ -16,6 +16,7 @@ The Tab with Icon.
 
 ````jsx
 import { Tabs, Icon } from 'antd';
+
 const TabPane = Tabs.TabPane;
 
 ReactDOM.render(
@@ -26,6 +27,6 @@ ReactDOM.render(
     <TabPane tab={<span><Icon type="android" />Tab 2</span>} key="2">
       Tab 2
     </TabPane>
-  </Tabs>
-, mountNode);
+  </Tabs>,
+  mountNode);
 ````

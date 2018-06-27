@@ -23,8 +23,8 @@ ReactDOM.render(
     <Input size="large" placeholder="large size" />
     <Input placeholder="default size" />
     <Input size="small" placeholder="small size" />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 ````css

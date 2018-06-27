@@ -46,6 +46,6 @@ ReactDOM.render(
       type="error"
       showIcon
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

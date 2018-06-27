@@ -21,6 +21,7 @@ class App extends React.Component {
     checked: true,
     disabled: false,
   };
+
   render() {
     const label = `${this.state.checked ? 'Checked' : 'Unchecked'}-${this.state.disabled ? 'Disabled' : 'Enabled'}`;
     return (
@@ -54,12 +55,15 @@ class App extends React.Component {
       </div>
     );
   }
+
   toggleChecked = () => {
     this.setState({ checked: !this.state.checked });
   }
+
   toggleDisable = () => {
     this.setState({ disabled: !this.state.disabled });
   }
+
   onChange = (e) => {
     console.log('checked = ', e.target.checked);
     this.setState({

@@ -23,9 +23,11 @@ class App extends React.Component {
     mockData: [],
     targetKeys: [],
   }
+
   componentDidMount() {
     this.getMock();
   }
+
   getMock = () => {
     const targetKeys = [];
     const mockData = [];
@@ -43,9 +45,11 @@ class App extends React.Component {
     }
     this.setState({ mockData, targetKeys });
   }
+
   handleChange = (targetKeys) => {
     this.setState({ targetKeys });
   }
+
   renderFooter = () => {
     return (
       <Button
@@ -57,6 +61,7 @@ class App extends React.Component {
       </Button>
     );
   }
+
   render() {
     return (
       <Transfer

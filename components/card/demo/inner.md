@@ -43,6 +43,6 @@ ReactDOM.render(
     >
       Inner Card content
     </Card>
-  </Card>
-, mountNode);
+  </Card>,
+  mountNode);
 ````

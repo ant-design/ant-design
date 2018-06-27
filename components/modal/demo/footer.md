@@ -27,20 +27,24 @@ class App extends React.Component {
     loading: false,
     visible: false,
   }
+
   showModal = () => {
     this.setState({
       visible: true,
     });
   }
+
   handleOk = () => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
   }
+
   handleCancel = () => {
     this.setState({ visible: false });
   }
+
   render() {
     const { visible, loading } = this.state;
     return (

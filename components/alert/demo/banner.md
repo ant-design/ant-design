@@ -26,6 +26,6 @@ ReactDOM.render(
     <Alert showIcon={false} message="Warning text without icon" banner />
     <br />
     <Alert type="error" message="Error text" banner />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

@@ -27,6 +27,7 @@ class InfiniteListExample extends React.Component {
     loading: false,
     hasMore: true,
   }
+
   getData = (callback) => {
     reqwest({
       url: fakeDataUrl,
@@ -38,6 +39,7 @@ class InfiniteListExample extends React.Component {
       },
     });
   }
+
   componentDidMount() {
     this.getData((res) => {
       this.setState({
@@ -45,6 +47,7 @@ class InfiniteListExample extends React.Component {
       });
     });
   }
+
   handleInfiniteOnLoad = () => {
     let data = this.state.data;
     this.setState({
@@ -66,6 +69,7 @@ class InfiniteListExample extends React.Component {
       });
     });
   }
+
   render() {
     return (
       <div className="demo-infinite-container">

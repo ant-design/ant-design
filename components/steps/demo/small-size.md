@@ -15,6 +15,7 @@ By setting like this: `<Steps size="small">`, you can get a mini version.
 
 ````jsx
 import { Steps } from 'antd';
+
 const Step = Steps.Step;
 
 ReactDOM.render(
@@ -22,6 +23,6 @@ ReactDOM.render(
     <Step title="Finished" />
     <Step title="In Progress" />
     <Step title="Waiting" />
-  </Steps>
-, mountNode);
+  </Steps>,
+  mountNode);
 ````

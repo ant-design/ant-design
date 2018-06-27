@@ -22,6 +22,7 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
 
 ````jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
+
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
@@ -50,8 +51,8 @@ ReactDOM.render(
     <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2016 Created by Ant UED
     </Footer>
-  </Layout>
-, mountNode);
+  </Layout>,
+  mountNode);
 ````
 
 ````css

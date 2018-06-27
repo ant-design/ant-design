@@ -15,6 +15,7 @@ Basic use case. Users can select or input a date in panel.
 
 ````jsx
 import { DatePicker } from 'antd';
+
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 
 function onChange(date, dateString) {
@@ -30,6 +31,6 @@ ReactDOM.render(
     <RangePicker onChange={onChange} />
     <br />
     <WeekPicker onChange={onChange} placeholder="Select week" />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
