@@ -43,6 +43,7 @@ declare module 'rc-menu';
 declare module 'rc-tabs*';
 
 declare module 'rc-tree';
+declare module 'rc-tree/lib/util';
 
 declare module 'rc-tooltip*';
 
@@ -101,3 +102,5 @@ declare module "lodash/uniqBy";
 declare module 'intersperse';
 
 declare module "raf";
+
+declare module "react-lifecycles-compat";

@@ -95,7 +95,7 @@ export interface TableProps<T> {
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: any;
+  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];

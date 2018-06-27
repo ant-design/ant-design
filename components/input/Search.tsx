@@ -6,7 +6,7 @@ import Button from '../button';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
-  onSearch?: (value: string) => any;
+  onSearch?: (value: string, event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => any;
   enterButton?: boolean | React.ReactNode;
 }
 
@@ -19,10 +19,10 @@ export default class Search extends React.Component<SearchProps, any> {
 
   private input: Input;
 
-  onSearch = () => {
+  onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
     if (onSearch) {
-      onSearch(this.input.input.value);
+      onSearch(this.input.input.value, e);
     }
     this.input.focus();
   }

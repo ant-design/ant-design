@@ -3856,14 +3856,14 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Full Name
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Age
@@ -3926,7 +3926,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Action
@@ -3941,7 +3941,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -3950,7 +3950,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -3995,7 +3995,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       New York Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4008,7 +4008,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4017,7 +4017,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       Jim Green
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       40
                     </td>
@@ -4062,7 +4062,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       London Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4328,14 +4328,14 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Full Name
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Age
@@ -4398,7 +4398,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span>
                         Action
@@ -4456,7 +4456,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4465,7 +4465,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 0
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4510,7 +4510,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 0
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4523,7 +4523,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4532,7 +4532,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 1
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4577,7 +4577,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 1
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4590,7 +4590,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4599,7 +4599,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 2
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4644,7 +4644,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 2
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4657,7 +4657,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4666,7 +4666,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 3
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4711,7 +4711,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 3
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4724,7 +4724,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4733,7 +4733,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 4
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4778,7 +4778,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 4
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4791,7 +4791,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4800,7 +4800,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 5
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4845,7 +4845,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 5
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4858,7 +4858,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4867,7 +4867,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 6
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4912,7 +4912,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 6
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4925,7 +4925,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4934,7 +4934,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 7
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -4979,7 +4979,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 7
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -4992,7 +4992,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -5001,7 +5001,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 8
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -5046,7 +5046,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 8
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -5059,7 +5059,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -5068,7 +5068,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 9
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       32
                     </td>
@@ -5113,7 +5113,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 9
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       <a
                         href="javascript:;"
@@ -6987,7 +6987,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                       rowspan="4"
                     >
                       <span>
@@ -7015,7 +7015,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                       rowspan="4"
                     >
                       <span>
@@ -7151,7 +7151,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7190,7 +7190,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7199,7 +7199,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7238,7 +7238,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7247,7 +7247,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7286,7 +7286,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7295,7 +7295,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7334,7 +7334,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7343,7 +7343,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7382,7 +7382,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7391,7 +7391,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7430,7 +7430,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7439,7 +7439,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7478,7 +7478,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7487,7 +7487,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7526,7 +7526,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7535,7 +7535,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7574,7 +7574,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>
@@ -7583,7 +7583,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7622,7 +7622,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class=""
+                      class="ant-table-fixed-columns-in-body"
                     >
                       M
                     </td>

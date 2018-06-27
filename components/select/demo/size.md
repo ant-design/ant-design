@@ -55,16 +55,6 @@ class SelectSizesDemo extends React.Component {
         </Select>
         <br />
         <Select
-          mode="combobox"
-          size={size}
-          defaultValue="a1"
-          onChange={handleChange}
-          style={{ width: 200 }}
-        >
-          {children}
-        </Select>
-        <br />
-        <Select
           mode="multiple"
           size={size}
           placeholder="Please select"

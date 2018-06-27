@@ -31,6 +31,8 @@ and so on.
 | maskStyle | Style for modal's mask element. | object | {} |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
+| okButtonProps | The ok button props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | The cancel button props | [ButtonProps](/components/button) | - |
 | style | Style of floating layer, typically used at least for adjusting the position. | object | - |
 | title | The modal dialog's title | string\|ReactNode | - |
 | visible | Whether the modal dialog is visible or not | boolean | false |

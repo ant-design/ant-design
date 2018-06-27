@@ -70,3 +70,26 @@ describe('Layout', () => {
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
   });
 });
+
+describe('Sider onBreakpoint', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => {
+        return {
+          matches: true,
+          addListener: () => {},
+          removeListener: () => {},
+        };
+      }),
+    });
+  });
+
+  it('should trigger onBreakpoint', async () => {
+    const onBreakpoint = jest.fn();
+
+    mount(
+      <Sider breakpoint="md" onBreakpoint={onBreakpoint}>Sider</Sider>
+    );
+    expect(onBreakpoint).toBeCalledWith(true);
+  });
+});
