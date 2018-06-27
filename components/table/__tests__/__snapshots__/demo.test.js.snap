@@ -11,7 +11,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -110,7 +110,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -391,7 +391,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-bordered ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-bordered ant-table-scroll-position-left"
       >
         <div
           class="ant-table-title"
@@ -581,7 +581,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-bordered ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-bordered ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -852,7 +852,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -1052,7 +1052,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -2689,7 +2689,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-large ant-table-bordered ant-table-scroll-position-left"
+          class="ant-table ant-table-default ant-table-bordered ant-table-scroll-position-left"
         >
           <div
             class="ant-table-content"
@@ -2885,7 +2885,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-bordered ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-bordered ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -3373,7 +3373,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -3593,7 +3593,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -3816,7 +3816,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -4275,7 +4275,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -5660,7 +5660,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -8068,7 +8068,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -8327,7 +8327,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -8632,7 +8632,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -8950,7 +8950,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-large ant-table-scroll-position-left"
+          class="ant-table ant-table-default ant-table-scroll-position-left"
         >
           <div
             class="ant-table-content"
@@ -9210,7 +9210,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -9549,7 +9549,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-large ant-table-scroll-position-left"
+          class="ant-table ant-table-default ant-table-scroll-position-left"
         >
           <div
             class="ant-table-content"
@@ -10152,7 +10152,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
