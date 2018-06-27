@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 对象编辑
-  en-US: From drawer
+  en-US: Edit item in drawer
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-sed to carry edit related operations, need to close by clicking the close button.
+A drawer containing an editable form which needs to be collapsed by clicking the close button.
 
 ```jsx
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
