@@ -15,6 +15,7 @@ Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` sel
 
 ````jsx
 import { Tree } from 'antd';
+
 const DirectoryTree = Tree.DirectoryTree;
 const TreeNode = Tree.TreeNode;
 
@@ -22,6 +23,7 @@ class Demo extends React.Component {
   onSelect = () => {
     console.log('Trigger Select');
   };
+
   onExpand = () => {
     console.log('Trigger Expand');
   };

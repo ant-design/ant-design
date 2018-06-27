@@ -21,6 +21,6 @@ ReactDOM.render(
     <Button>
       <Icon type="upload" /> Upload Directory
     </Button>
-  </Upload>
-, mountNode);
+  </Upload>,
+  mountNode);
 ````
