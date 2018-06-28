@@ -58,6 +58,11 @@ class App extends React.Component {
           onClose={this.onClose}
           maskClosable={false}
           visible={this.state.visible}
+          style={{
+            height: 'calc(100% - 55px)',
+            overflow: 'auto',
+            paddingBottom: 53,
+          }}
         >
           <Form layout="vertical" hideRequiredMark>
             <Row gutter={16}>
@@ -159,6 +164,7 @@ class App extends React.Component {
               padding: '10px 16px',
               textAlign: 'right',
               left: 0,
+              background: '#fff',
               borderRadius: '0 0 4px 4px',
             }}
           >
