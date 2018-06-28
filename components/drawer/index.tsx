@@ -76,7 +76,8 @@ export default class Drawer extends React.Component<
   }
 
   renderBody = () => {
-    if (this.props.destroyOnClose && !this.props.visible) {
+    const { destroyOnClose , visible, width, placement } = this.props;
+    if (destroyOnClose && !visible) {
       return null;
     }
     const { prefixCls, title, closable } = this.props;
@@ -100,7 +101,14 @@ export default class Drawer extends React.Component<
         </button>
       );
     }
-    const containerStyle = { width: this.props.width };
+    let containerStyle: React.CSSProperties = { width };
+    if (placement === 'left' || placement === 'right') {
+      containerStyle = {
+        overflow: 'auto',
+        height: '100%',
+        width,
+      };
+    }
     return (
       <div style={containerStyle}>
         {header}
