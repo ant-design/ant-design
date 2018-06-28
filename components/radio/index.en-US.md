@@ -36,6 +36,7 @@ radio group，wrap a group of `Radio`。
 | size | Size, only on radio style | string | `large` `default` `small` | `default` |
 | value | Used for setting the currently selected value. | any | none | none |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | none | none |
+| buttonStyle | style type of radio button | `outline` \| `solid` | | `outline` |
 
 ## Methods
 
