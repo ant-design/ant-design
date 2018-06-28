@@ -96,19 +96,16 @@ export default class Transfer extends React.Component<TransferProps, any> {
     leftDataSource: TransferItem[],
     rightDataSource: TransferItem[],
   } | null = null;
-
-  constructor(props: TransferProps) {
-    super(props);
-
-    const { selectedKeys = [], targetKeys = [] } = props;
-    this.state = {
+  readonly state = this.generateState();
+  generateState() {
+    const { selectedKeys = [], targetKeys = [] } = this.props;
+    return {
       leftFilter: '',
       rightFilter: '',
       sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
       targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
     };
   }
-
   componentWillReceiveProps(nextProps: TransferProps) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 

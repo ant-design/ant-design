@@ -10,7 +10,10 @@ export default class SelectionCheckboxAll<T> extends
   React.Component<SelectionCheckboxAllProps<T>, SelectionCheckboxAllState> {
   unsubscribe: () => void;
   defaultSelections: SelectionItem[];
-
+  readonly state = {
+    checked: this.getCheckState(this.props),
+    indeterminate: this.getIndeterminateState(this.props),
+  };
   constructor(props: SelectionCheckboxAllProps<T>) {
     super(props);
 
@@ -23,11 +26,6 @@ export default class SelectionCheckboxAll<T> extends
       text: props.locale.selectInvert,
       onSelect: () => {},
     }];
-
-    this.state = {
-      checked: this.getCheckState(props),
-      indeterminate: this.getIndeterminateState(props),
-    };
   }
 
   componentDidMount() {

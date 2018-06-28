@@ -43,15 +43,9 @@ export default class Spin extends React.Component<SpinProps, SpinState> {
 
   debounceTimeout: number;
   delayTimeout: number;
-
-  constructor(props: SpinProps) {
-    super(props);
-    const spinning = props.spinning;
-    this.state = {
-      spinning,
-    };
-  }
-
+  readonly state: SpinState = {
+    spinning: this.props.spinning,
+  };
   isNestedPattern() {
     return !!(this.props && this.props.children);
   }

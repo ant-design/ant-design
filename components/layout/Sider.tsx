@@ -87,7 +87,10 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
   static contextTypes = {
     siderHook: PropTypes.object,
   };
-
+  readonly state: SiderState = {
+    below: false,
+    collapsed: this.getCollapsed(),
+  };
   private mql: MediaQueryList;
   private uniqueId: string;
 
@@ -101,16 +104,14 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
     if (matchMedia && props.breakpoint && props.breakpoint in dimensionMap) {
       this.mql = matchMedia(`(max-width: ${dimensionMap[props.breakpoint]})`);
     }
-    let collapsed;
-    if ('collapsed' in props) {
-      collapsed = props.collapsed;
+  }
+
+  getCollapsed() {
+    if ('collapsed' in this.props) {
+      return this.props.collapsed;
     } else {
-      collapsed = props.defaultCollapsed;
+      return  this.props.defaultCollapsed;
     }
-    this.state = {
-      collapsed,
-      below: false,
-    };
   }
 
   getChildContext() {

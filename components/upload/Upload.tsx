@@ -40,18 +40,11 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
-
+  readonly state = {
+    fileList: this.props.fileList || this.props.defaultFileList || [],
+    dragState: 'drop',
+  };
   private upload: any;
-
-  constructor(props: UploadProps) {
-    super(props);
-
-    this.state = {
-      fileList: props.fileList || props.defaultFileList || [],
-      dragState: 'drop',
-    };
-  }
-
   componentWillUnmount() {
     this.clearProgressTimer();
   }

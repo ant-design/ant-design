@@ -81,9 +81,9 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   switchModeFromInline: boolean;
   leaveAnimationExecutedWhenInlineCollapsed: boolean;
   inlineOpenKeys: string[] = [];
-  constructor(props: MenuProps) {
-    super(props);
-
+  readonly state: MenuState = this.generateState();
+  generateState() {
+    const props = this.props;
     warning(
       !('onOpen' in props || 'onClose' in props),
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
@@ -101,8 +101,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     } else if ('openKeys' in props) {
       openKeys = props.openKeys;
     }
-
-    this.state = {
+    return {
       openKeys: openKeys || [],
     };
   }

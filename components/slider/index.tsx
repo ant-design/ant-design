@@ -53,15 +53,10 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
       return value.toString();
     },
   };
-
+  readonly state: SliderState = {
+    visibles: {},
+  };
   private rcSlider: any;
-
-  constructor(props: SliderProps) {
-    super(props);
-    this.state = {
-      visibles: {},
-    };
-  }
 
   toggleTooltipVisible = (index: number, visible: boolean) => {
     this.setState(({ visibles }) => ({

@@ -105,6 +105,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   columns: ColumnProps<T>[];
   components: TableComponents;
 
+  readonly state: TableState<T>  = {
+    ...this.getDefaultSortOrder(this.columns),
+    // 减少状态
+    filters: this.getFiltersFromColumns(),
+    pagination: this.getDefaultPagination(this.props),
+  };
+
   constructor(props: TableProps<T>) {
     super(props);
 
@@ -117,13 +124,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
     this.createComponents(props.components);
-
-    this.state = {
-      ...this.getDefaultSortOrder(this.columns),
-      // 减少状态
-      filters: this.getFiltersFromColumns(),
-      pagination: this.getDefaultPagination(props),
-    };
 
     this.CheckboxPropsCache = {};
 

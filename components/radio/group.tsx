@@ -26,9 +26,9 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
   static childContextTypes = {
     radioGroup: PropTypes.any,
   };
-
-  constructor(props: RadioGroupProps) {
-    super(props);
+  readonly state: RadioGroupState = this.generateState();
+  generateState() {
+    const props = this.props;
     let value;
     if ('value' in props) {
       value = props.value;
@@ -38,11 +38,10 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
       const checkedValue = getCheckedValue(props.children);
       value = checkedValue && checkedValue.value;
     }
-    this.state = {
+    return {
       value,
     };
   }
-
   getChildContext() {
     return {
       radioGroup: {
