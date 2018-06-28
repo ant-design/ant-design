@@ -15,6 +15,7 @@ export interface AbstractSelectProps {
   showSearch?: boolean;
   allowClear?: boolean;
   disabled?: boolean;
+  showArrow?: boolean;
   style?: React.CSSProperties;
   tabIndex?: number;
   placeholder?: string | React.ReactNode;
