@@ -12,6 +12,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   name?: string;
   children?: React.ReactNode;
   id?: string;
+  buttonStyle?: 'outline' | 'solid';
 }
 
 export interface RadioGroupState {
