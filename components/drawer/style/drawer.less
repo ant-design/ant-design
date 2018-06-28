@@ -54,7 +54,6 @@
     .@{dawer-prefix-cls} {
       &-mask {
         opacity: 0.3;
-        display: block;
       }
     }
   }
@@ -73,6 +72,7 @@
     border: 0;
     background-clip: padding-box;
     box-shadow: @shadow-2;
+    z-index: 1;
   }
 
   &-close {
@@ -131,22 +131,16 @@
     word-wrap: break-word;
   }
 
-  &.zoom-enter,
-  &.zoom-appear {
-    animation-duration: @animation-duration-slow;
-    transform: none; // reset scale avoid mousePosition bug
-    opacity: 0;
-  }
-
   &-mask {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    display: none;
-    background-color: @modal-mask-bg; // lesshint duplicateProperty: false
+    opacity: 0;
+    background-color: @modal-mask-bg;
     height: 100%;
+    transition: opacity .3s  @ease-in-out-circ;
     filter: ~"alpha(opacity=50)";
   }
 

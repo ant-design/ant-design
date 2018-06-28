@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 4
 title:
   zh-CN: 信息预览抽屉
   en-US: Preview drawer
@@ -8,7 +8,6 @@ title:
 ## zh-CN
 
 需要快速预览对象概要时使用，点击遮罩区关闭。
-
 
 ## en-US
 
@@ -49,17 +48,70 @@ const DescriptionItem = ({ title, content }) => {
   );
 };
 
-class App extends React.Component {
+class MiniDrawer extends React.Component {
   state = { visible: false };
   showDrawer = () => {
     this.setState({
-      visible: !this.state.visible,
+      visible: true,
     });
   };
   onClose = () => {
     this.setState({
       visible: false,
     });
+  };
+  render() {
+    return (
+      <div>
+        <a onClick={this.showDrawer}>View Profile</a>
+        <Drawer
+          width={640}
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+        >
+          <p style={{ ...pStyle, marginBottom: 24 }}>User Profile</p>
+          <p style={pStyle}>Personal</p>
+          <Row>
+            <Col span={12}>
+              <DescriptionItem title="Full Name" content="Lily" />{' '}
+            </Col>
+            <Col span={12}>
+              <DescriptionItem title="Account" content="AntDesign@example.com" />
+            </Col>
+          </Row>
+        </Drawer>
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  state = { visible: false };
+  toogerHotjar = () => {
+    const hotjar = document.getElementById('_hj_feedback_container');
+    if (hotjar.style.display === 'none') {
+      hotjar.style.display = '';
+    } else {
+      hotjar.style.display = 'none';
+    }
+  };
+  showDrawer = () => {
+    this.toogerHotjar();
+    this.setState({
+      visible: true,
+    });
+  };
+  onClose = () => {
+    this.setState(
+      {
+        visible: false,
+      },
+      () => {
+        this.toogerHotjar();
+      }
+    );
   };
   render() {
     return (
@@ -95,6 +147,7 @@ class App extends React.Component {
         >
           <p style={{ ...pStyle, marginBottom: 24 }}>User Profile</p>
           <p style={pStyle}>Personal</p>
+          <MiniDrawer />
           <Row>
             <Col span={12}>
               <DescriptionItem title="Full Name" content="Lily" />{' '}
