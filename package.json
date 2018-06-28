@@ -76,7 +76,7 @@
     "rc-time-picker": "~3.3.0",
     "rc-tooltip": "~3.7.0",
     "rc-tree": "~1.12.0",
-    "rc-tree-select": "~1.12.0",
+    "rc-tree-select": "~2.0.1",
     "rc-upload": "~2.5.0",
     "rc-util": "^4.0.4",
     "react-lazy-load": "^3.0.12",
