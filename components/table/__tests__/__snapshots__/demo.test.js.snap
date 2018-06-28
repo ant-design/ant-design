@@ -1522,7 +1522,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-form-item-children"
             >
               <div
-                class="ant-radio-group ant-radio-group-default"
+                class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1610,7 +1610,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-form-item-children"
             >
               <div
-                class="ant-radio-group"
+                class="ant-radio-group ant-radio-group-outline"
               >
                 <label
                   class="ant-radio-button-wrapper"

@@ -11,7 +11,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
       Change locale of components: 
     </span>
     <div
-      class="ant-radio-group"
+      class="ant-radio-group ant-radio-group-outline"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -539,7 +539,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             </div>
           </div>
           <div
-            class="ant-radio-group ant-radio-group-small"
+            class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
