@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 3
 title:
   zh-CN: 对象编辑
   en-US: Edit item in drawer
@@ -20,15 +20,29 @@ const { Option } = Select;
 
 class App extends React.Component {
   state = { visible: false };
+  toogerHotjar = () => {
+    const hotjar = document.getElementById('_hj_feedback_container');
+    if (hotjar.style.display === 'none') {
+      hotjar.style.display = '';
+    } else {
+      hotjar.style.display = 'none';
+    }
+  };
   showDrawer = () => {
+    this.toogerHotjar();
     this.setState({
-      visible: !this.state.visible,
+      visible: true,
     });
   };
   onClose = () => {
-    this.setState({
-      visible: false,
-    });
+    this.setState(
+      {
+        visible: false,
+      },
+      () => {
+        this.toogerHotjar();
+      }
+    );
   };
   render() {
     const { getFieldDecorator } = this.props.form;
