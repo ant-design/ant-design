@@ -18,10 +18,11 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | Whether allow clear | boolean | false |
+| autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |
 | disabled | Disabled or not | boolean | false |
 | dropdownClassName | className of dropdown menu | string | - |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width | boolean | true |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. | boolean | true |
 | dropdownStyle | To set the style of the dropdown menu | object | - |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | boolean\|Function(inputValue: string, treeNode: TreeNode) (should return boolean) | Function |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
@@ -30,6 +31,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | boolean | false |
 | placeholder | Placeholder of the select input | string | - |
 | searchPlaceholder | Placeholder of the search input | string | - |
+| searchValue | work with `onSearch` to make search value controlled. | string | - |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |
