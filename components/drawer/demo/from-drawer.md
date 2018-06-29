@@ -20,16 +20,7 @@ const { Option } = Select;
 
 class App extends React.Component {
   state = { visible: false };
-  toogerHotjar = () => {
-    const hotjar = document.getElementById('_hj_feedback_container');
-    if (hotjar.style.display === 'none') {
-      hotjar.style.display = '';
-    } else {
-      hotjar.style.display = 'none';
-    }
-  };
   showDrawer = () => {
-    this.toogerHotjar();
     this.setState({
       visible: true,
     });
@@ -38,9 +29,6 @@ class App extends React.Component {
     this.setState(
       {
         visible: false,
-      },
-      () => {
-        this.toogerHotjar();
       }
     );
   };
@@ -187,3 +175,9 @@ const WarpApp = Form.create()(App);
 
 ReactDOM.render(<WarpApp />, mountNode);
 ```
+
+<style>
+#_hj_feedback_container{
+  display:none
+}
+</style>

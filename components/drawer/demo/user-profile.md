@@ -50,29 +50,15 @@ const DescriptionItem = ({ title, content }) => {
 
 class App extends React.Component {
   state = { visible: false };
-  toogerHotjar = () => {
-    const hotjar = document.getElementById('_hj_feedback_container');
-    if (hotjar.style.display === 'none') {
-      hotjar.style.display = '';
-    } else {
-      hotjar.style.display = 'none';
-    }
-  };
   showDrawer = () => {
-    this.toogerHotjar();
     this.setState({
       visible: true,
     });
   };
   onClose = () => {
-    this.setState(
-      {
-        visible: false,
-      },
-      () => {
-        this.toogerHotjar();
-      }
-    );
+    this.setState({
+      visible: false,
+    });
   };
   render() {
     return (
@@ -196,3 +182,9 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+<style>
+#_hj_feedback_container{
+  display:none
+}
+</style>
