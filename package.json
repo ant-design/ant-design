@@ -136,7 +136,7 @@
     "majo": "^0.6.2",
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
-    "offline-plugin": "^5.0.5",
+    "offline-plugin": "yesmeck/offline-plugin#fix-cache-key",
     "pre-commit": "^1.2.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
