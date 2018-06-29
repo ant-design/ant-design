@@ -129,7 +129,7 @@ export default class Drawer extends React.Component<
       <RcDrawer
         level={null}
         {...rest}
-        handleChild={false}
+        handler={false}
         open={this.props.visible}
         onMaskClick={this.onMaskClick}
         showMask={this.props.mask}
