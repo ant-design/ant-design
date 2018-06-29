@@ -171,7 +171,7 @@ this.form // => The instance of CustomizedForm
 更多高级用法可研究 [async-validator](https://github.com/yiminghe/async-validator)。
 
  ## 自定义校验规则
-  [这里](https://codesandbox.io/s/4xm083k6v0)有一个简单的关于[#11084](https://github.com/ant-design/ant-design/issues/11084)的例子
+   关于<b>自定义校验返回的参数格式</b>, [这里](https://codesandbox.io/s/4xm083k6v0)有一个简单的例子可供参考
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
