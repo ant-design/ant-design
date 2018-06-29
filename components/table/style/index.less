@@ -229,7 +229,7 @@
     margin-left: 8px;
     display: inline-block;
     width: 14px;
-    height: 14px;
+    height: @font-size-base;
     vertical-align: middle;
     text-align: center;
     font-weight: normal;
@@ -237,10 +237,10 @@
 
     &-up,
     &-down {
-      line-height: 6px;
       display: block;
       width: 14px;
-      height: 6px;
+      height: @font-size-base / 2 - 1px;
+      line-height: @font-size-base / 2 - 1px;
       cursor: pointer;
       position: relative;
       &:hover .@{iconfont-css-prefix} {
