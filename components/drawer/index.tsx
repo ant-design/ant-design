@@ -56,6 +56,7 @@ export default class Drawer extends React.Component<
     prefixCls: 'ant-drawer',
     width: 256,
     closable: true,
+    placement: 'right',
     maskClosable: true,
   };
 
