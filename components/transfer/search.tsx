@@ -16,7 +16,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
   };
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange) {
       onChange(e);
     }
@@ -24,8 +24,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
 
   handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-
-    const handleClear = this.props.handleClear;
+    const { handleClear } = this.props;
     if (handleClear) {
       handleClear(e);
     }
