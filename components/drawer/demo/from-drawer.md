@@ -162,9 +162,9 @@ class App extends React.Component {
               }}
               onClick={this.onClose}
             >
-              取消
+              Cancel
             </Button>
-            <Button type="primary">提交</Button>
+            <Button onClick={this.onClose} type="primary">Submit</Button>
           </div>
         </Drawer>
       </div>
