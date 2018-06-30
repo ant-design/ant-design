@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 从数据直接生成
-  en-US: Generate form tree data
+  en-US: Generate from tree data
 ---
 
 ## zh-CN
