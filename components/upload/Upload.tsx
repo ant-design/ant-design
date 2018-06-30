@@ -198,7 +198,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
         file,
         fileList: uniqBy(
           this.state.fileList.concat(fileList.map(fileToObject)),
-          (item: UploadFile) => item.uid !== undefined
+          (item: UploadFile) => item.uid !== undefined,
         ),
       });
       return false;
