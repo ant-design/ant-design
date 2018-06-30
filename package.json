@@ -123,7 +123,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-markdown": "~1.0.0-beta.4",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-tinker-antd": "^0.5.0",
+    "eslint-tinker": "^0.5.0",
     "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",
     "immutability-helper": "^2.5.0",
