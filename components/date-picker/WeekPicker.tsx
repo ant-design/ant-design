@@ -15,19 +15,18 @@ export default class WeekPicker extends React.Component<any, any> {
     format: 'gggg-wo',
     allowClear: true,
   };
-
+  readonly state = this.generateState();
   private input: any;
 
-  constructor(props: any) {
-    super(props);
-    const value = props.value || props.defaultValue;
+  generateState() {
+    const value = this.props.value || this.props.defaultValue;
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of DatePicker or MonthPicker must be ' +
         'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
       );
     }
-    this.state = {
+    return  {
       value,
     };
   }

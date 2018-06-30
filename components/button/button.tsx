@@ -82,18 +82,13 @@ export default class Button extends React.Component<ButtonProps, any> {
     className: PropTypes.string,
     icon: PropTypes.string,
   };
-
+  readonly state = {
+    loading: this.props.loading,
+    clicked: false,
+    hasTwoCNChar: false,
+  };
   timeout: number;
   delayTimeout: number;
-
-  constructor(props: ButtonProps) {
-    super(props);
-    this.state = {
-      loading: props.loading,
-      clicked: false,
-      hasTwoCNChar: false,
-    };
-  }
 
   componentDidMount() {
     this.fixTwoCNChar();

@@ -32,15 +32,10 @@ export default class Tag extends React.Component<TagProps, TagState> {
     prefixCls: 'ant-tag',
     closable: false,
   };
-
-  constructor(props: TagProps) {
-    super(props);
-
-    this.state = {
-      closing: false,
-      closed: false,
-    };
-  }
+  readonly state = {
+    closing: false,
+    closed: false,
+  };
 
   close = (e: React.MouseEvent<HTMLElement>) => {
     const onClose = this.props.onClose;

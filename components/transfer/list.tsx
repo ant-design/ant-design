@@ -52,14 +52,9 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   timer: number;
   triggerScrollTimer: number;
-
-  constructor(props: TransferListProps) {
-    super(props);
-    this.state = {
-      mounted: false,
-    };
-  }
-
+  readonly state = {
+    mounted: false,
+  };
   componentDidMount() {
     this.timer = window.setTimeout(() => {
       this.setState({

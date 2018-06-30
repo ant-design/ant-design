@@ -69,23 +69,20 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     transitionName: 'slide-up',
     focusOnOpen: true,
   };
-
+  readonly state = this.generateState();
   private timePickerRef: typeof RcTimePicker;
-
-  constructor(props: TimePickerProps) {
-    super(props);
-    const value = props.value || props.defaultValue;
+  generateState () {
+    const value = this.props.value || this.props.defaultValue;
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of TimePicker must be a moment object after `antd@2.0`, ' +
         'see: https://u.ant.design/time-picker-value',
       );
     }
-    this.state = {
+    return {
       value,
     };
   }
-
   componentWillReceiveProps(nextProps: TimePickerProps) {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value });

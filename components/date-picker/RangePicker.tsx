@@ -68,12 +68,11 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     allowClear: true,
     showToday: false,
   };
-
+  readonly state: RangePickerState  = this.generateState();
   private picker: HTMLSpanElement;
 
-  constructor(props: any) {
-    super(props);
-    const value = props.value || props.defaultValue || [];
+  generateState() {
+    const value = this.props.value || this.props.defaultValue || [];
     if (
       value[0] && !interopDefault(moment).isMoment(value[0]) ||
       value[1] && !interopDefault(moment).isMoment(value[1])
@@ -83,11 +82,11 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
         'see: https://u.ant.design/date-picker-value',
       );
     }
-    const pickerValue = !value || isEmptyArray(value) ? props.defaultPickerValue : value;
-    this.state = {
+    const pickerValue = !value || isEmptyArray(value) ? this.props.defaultPickerValue : value;
+    return {
       value,
       showDate: pickerValueAdapter(pickerValue || interopDefault(moment)()),
-      open: props.open,
+      open: this.props.open,
       hoverValue: [],
     };
   }

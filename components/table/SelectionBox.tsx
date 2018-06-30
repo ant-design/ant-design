@@ -6,13 +6,9 @@ import { SelectionBoxProps, SelectionBoxState } from './interface';
 export default class SelectionBox extends React.Component<SelectionBoxProps, SelectionBoxState> {
   unsubscribe: () => void;
 
-  constructor(props: SelectionBoxProps) {
-    super(props);
-
-    this.state = {
-      checked: this.getCheckState(props),
-    };
-  }
+  readonly state = {
+    checked: this.getCheckState(this.props),
+  };
 
   componentDidMount() {
     this.subscribe();

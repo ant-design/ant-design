@@ -54,13 +54,9 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   static childContextTypes = {
     checkboxGroup: PropTypes.any,
   };
-
-  constructor(props: CheckboxGroupProps) {
-    super(props);
-    this.state = {
-      value: props.value || props.defaultValue || [],
-     };
-  }
+  readonly state = {
+    value: this.props.value || this.props.defaultValue || [],
+  };
 
   getChildContext() {
     return {

@@ -35,14 +35,10 @@ export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNum
   };
 
   lastCount: any;
-
-  constructor(props: ScrollNumberProps) {
-    super(props);
-    this.state = {
-      animateStarted: true,
-      count: props.count,
-    };
-  }
+  readonly state = {
+    animateStarted: true,
+    count: this.props.count,
+  };
 
   getPositionByNum(num: number, i: number) {
     if (this.state.animateStarted) {

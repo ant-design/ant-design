@@ -16,17 +16,15 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     handleFilter() {},
     column: {},
   };
-
+  readonly state: FilterMenuState = this.generateState();
   neverShown: boolean;
 
-  constructor(props: FilterMenuProps<T>) {
-    super(props);
+  generateState() {
+    const visible = ('filterDropdownVisible' in this.props.column) ?
+    this.props.column.filterDropdownVisible : false;
 
-    const visible = ('filterDropdownVisible' in props.column) ?
-      props.column.filterDropdownVisible : false;
-
-    this.state = {
-      selectedKeys: props.selectedKeys,
+    return {
+      selectedKeys: this.props.selectedKeys,
       keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
       visible,
     };

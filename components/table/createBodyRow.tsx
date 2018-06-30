@@ -18,20 +18,16 @@ export interface BodyRowClass extends React.ComponentClass {}
 
 export default function createTableRow(Component = 'tr') {
   class BodyRow extends React.Component<BodyRowProps, BodyRowState> {
+    readonly state = this.generateState();
     private store: Store;
     private unsubscribe: () => void;
-
-    constructor(props: BodyRowProps) {
-      super(props);
-
-      this.store = props.store;
+    generateState() {
+      this.store = this.props.store;
       const { selectedRowKeys } = this.store.getState();
-
-      this.state = {
-        selected: selectedRowKeys.indexOf(props.rowKey) >= 0,
+      return{
+        selected: selectedRowKeys.indexOf(this.props.rowKey) >= 0,
       };
     }
-
     componentDidMount() {
       this.subscribe();
     }

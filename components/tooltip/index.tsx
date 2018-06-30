@@ -66,16 +66,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     arrowPointAtCenter: false,
     autoAdjustOverflow: true,
   };
-
+  readonly state = {
+    visible: !!this.props.visible || !!this.props.defaultVisible,
+  };
   private tooltip: typeof RcTooltip;
-
-  constructor(props: TooltipProps) {
-    super(props);
-
-    this.state = {
-      visible: !!props.visible || !!props.defaultVisible,
-    };
-  }
 
   componentWillReceiveProps(nextProps: TooltipProps) {
     if ('visible' in nextProps) {
