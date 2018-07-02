@@ -42,6 +42,26 @@ exports[`Table.filter renders custom content correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter renders custom filter icon correctly 1`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  filtered
+</span>
+`;
+
+exports[`Table.filter renders custom filter icon correctly 2`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  unfiltered
+</span>
+`;
+
 exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper"

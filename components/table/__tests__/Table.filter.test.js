@@ -368,4 +368,23 @@ describe('Table.filter', () => {
 
     expect(handleChange).toBeCalled();
   });
+
+  it('renders custom filter icon correctly', () => {
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filterIcon: filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>,
+      }],
+    }));
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(wrapper.find('.ant-table-filter-icon').render()).toMatchSnapshot();
+
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    wrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(wrapper.find('.ant-table-filter-icon').render()).toMatchSnapshot();
+  });
 });

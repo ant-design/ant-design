@@ -169,8 +169,12 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
 
   renderFilterIcon = () => {
     const { column, locale, prefixCls } = this.props;
-    const filterIcon = column.filterIcon as any;
-    const dropdownSelectedClass = this.props.selectedKeys.length > 0 ? `${prefixCls}-selected` : '';
+    const filterd = this.props.selectedKeys.length > 0;
+    let filterIcon = column.filterIcon as any;
+    if (typeof filterIcon === 'function') {
+      filterIcon = filterIcon(filterd);
+    }
+    const dropdownSelectedClass =  filterd ? `${prefixCls}-selected` : '';
 
     return filterIcon ? React.cloneElement(filterIcon as any, {
       title: locale.filterTitle,
