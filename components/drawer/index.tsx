@@ -58,6 +58,7 @@ export default class Drawer extends React.Component<
     closable: true,
     placement: 'right',
     maskClosable: true,
+    level: null,
   };
 
   close = (e: EventType) => {
@@ -128,7 +129,6 @@ export default class Drawer extends React.Component<
     }
     return (
       <RcDrawer
-        level={null}
         {...rest}
         handler={false}
         open={this.props.visible}

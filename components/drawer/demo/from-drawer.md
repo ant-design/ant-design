@@ -18,7 +18,7 @@ import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd'
 
 const { Option } = Select;
 
-class App extends React.Component {
+class DrawerForm extends React.Component {
   state = { visible: false };
   showDrawer = () => {
     this.setState({
@@ -171,9 +171,9 @@ class App extends React.Component {
     );
   }
 }
-const WarpApp = Form.create()(App);
+const App = Form.create()(DrawerForm);
 
-ReactDOM.render(<WarpApp />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
