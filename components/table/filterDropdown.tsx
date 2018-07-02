@@ -184,9 +184,22 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
     const dropdownMenuClass = classNames({
       [`${dropdownPrefixCls}-menu-without-submenu`]: !this.hasSubMenu(),
     });
-    const menus = column.filterDropdown ? (
+    let { filterDropdown } = column;
+    if (filterDropdown && typeof filterDropdown === 'function') {
+      filterDropdown = filterDropdown({
+        prefixCls: `${dropdownPrefixCls}-custom`,
+        setSelectedKeys: (selectedKeys: Array<any>) => this.setSelectedKeys({ selectedKeys }),
+        selectedKeys: this.state.selectedKeys,
+        confirm: this.handleConfirm,
+        clearFilters: this.handleClearFilters,
+        filters: column.filters,
+        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode,
+      });
+    }
+
+    const menus = filterDropdown ? (
       <FilterDropdownMenuWrapper>
-        {column.filterDropdown}
+        {filterDropdown}
       </FilterDropdownMenuWrapper>
     ) : (
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
