@@ -182,6 +182,7 @@ $ yarn add react-app-rewire-less --dev
 -   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
 +   config = injectBabelPlugin(['import', { libraryName: 'antd', style: true }], config);
 +   config = rewireLess.withLoaderOptions({
++     javascriptEnabled: true,
 +     modifyVars: { "@primary-color": "#1DA57A" },
 +   })(config, env);
     return config;
