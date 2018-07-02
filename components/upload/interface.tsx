@@ -59,7 +59,7 @@ export interface UploadProps {
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
-  customUploadListElement?: typeof React.Component;
+  itemRender?: (uploadListProps: UploadListProps) => JSX.Element;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<any>;
@@ -91,5 +91,5 @@ export interface UploadListProps {
   prefixCls?: string;
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
-  locale: UploadLocale;
+  locale?: UploadLocale;
 }

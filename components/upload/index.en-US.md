@@ -33,7 +33,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |
 | name | The name of uploading file | string | 'file' |
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
-|  customUploadListElement | To set your own component for rendering list of uploaded files | typeof React.Component | -
+| itemRender | Custom function for rendering list of upload files | (props: UploadListProps) => JSX.Element | -
 | supportServerRender | Need to be turned on while the server side is rendering. | boolean | false |
 | withCredentials | ajax upload with cookie sent | boolean | false |
 | onChange | A callback function, can be executed when uploading state is changing. See [onChange](#onChange) | Function | - |

@@ -196,7 +196,7 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
     if (result === false) {
       this.onChange({
         file,
-        fileList: uniqBy(this.state.fileList.concat(fileList.map(fileToObject)),  (item: UploadFile) => item.uid),
+        fileList: uniqBy(this.state.fileList.concat(fileList.map(fileToObject)), (item: UploadFile) => item.uid),
       });
       return false;
     } else if (result && (result as PromiseLike<any>).then) {
@@ -214,21 +214,8 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
   }
 
   renderUploadList = (locale: UploadLocale) => {
-    const { showUploadList, listType, onPreview, customUploadListElement: CustomUploadListElement } = this.props;
+    const { showUploadList, listType, onPreview } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
-    if (CustomUploadListElement) {
-      return (
-        <CustomUploadListElement
-          listType={listType}
-          items={this.state.fileList}
-          onPreview={onPreview}
-          onRemove={this.handleManualRemove}
-          showRemoveIcon={showRemoveIcon}
-          showPreviewIcon={showPreviewIcon}
-          locale={{ ...locale, ...this.props.locale }}
-        />
-      );
-    }
     return (
       <UploadList
         listType={listType}
@@ -264,14 +251,23 @@ export default class Upload extends React.Component<UploadProps, UploadState> {
 
     delete rcUploadProps.className;
 
-    const uploadList = showUploadList ? (
-      <LocaleReceiver
-        componentName="Upload"
-        defaultLocale={defaultLocale.Upload}
-      >
-        {this.renderUploadList}
-      </LocaleReceiver>
-    ) : null;
+    const uploadList = showUploadList ? this.props.itemRender ? (
+      this.props.itemRender({
+        listType: this.props.listType,
+        items: this.state.fileList,
+        onPreview: this.props.onPreview,
+        onRemove: this.handleManualRemove,
+        showRemoveIcon: (this.props.showUploadList as any).showRemoveIcon,
+        showPreviewIcon: (this.props.showUploadList as any).showPreviewIcon,
+      })
+    ) : (
+        <LocaleReceiver
+          componentName="Upload"
+          defaultLocale={defaultLocale.Upload}
+        >
+          {this.renderUploadList}
+        </LocaleReceiver>
+      ) : null;
 
     if (type === 'drag') {
       const dragCls = classNames(prefixCls, {

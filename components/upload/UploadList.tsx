@@ -4,7 +4,7 @@ import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
-import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { UploadListProps, UploadFile, UploadListType, UploadLocale } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file: File, callback: Function) => {
@@ -95,7 +95,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
-          icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
+          icon = <div className={`${prefixCls}-list-item-uploading-text`}>{(locale as UploadLocale).uploading}</div>;
         } else if (!file.thumbUrl && !file.url) {
           icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
         } else {
@@ -164,16 +164,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           rel="noopener noreferrer"
           style={(file.url || file.thumbUrl) ? undefined : style}
           onClick={e => this.handlePreview(file, e)}
-          title={locale.previewFile}
+          title={(locale as UploadLocale).previewFile}
         >
           <Icon type="eye-o" />
         </a>
       ) : null;
       const removeIcon = showRemoveIcon ? (
-        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <Icon type="delete" title={(locale as UploadLocale).removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const removeIconCross = showRemoveIcon ? (
-        <Icon type="cross" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <Icon type="cross" title={(locale as UploadLocale).removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const actions = (listType === 'picture-card' && file.status !== 'uploading')
         ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
@@ -182,7 +182,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       if (file.response && typeof file.response === 'string') {
         message = file.response;
       } else {
-        message = (file.error && file.error.statusText) || locale.uploadError;
+        message = (file.error && file.error.statusText) || (locale as UploadLocale).uploadError;
       }
       const iconAndPreview = (file.status === 'error')
         ? <Tooltip title={message}>{icon}{preview}</Tooltip>
