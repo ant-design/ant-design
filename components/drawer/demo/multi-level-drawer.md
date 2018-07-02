@@ -18,18 +18,16 @@ import { Drawer, List, Form, Button, Input, Tag } from 'antd';
 
 const vegetables = ['asparagus', 'bamboo', 'potato', 'carrot', 'cilantro', 'potato', 'eggplant'];
 
-const TagList = ({ value, onChange, show }) => {
+const TagList = ({ value, show }) => {
   return (
     <div>
-      {value.map(item => {
-        return <Tag>{item}</Tag>;
-      })}
+      {value.map(item => <Tag>{item}</Tag>)}
       <Tag onClick={() => show()}>+</Tag>
     </div>
   );
 };
 
-class App extends React.Component {
+class DrawerForm extends React.Component {
   state = { visible: false, childrenDrawer: false };
   showDrawer = () => {
     this.setState({
@@ -126,9 +124,9 @@ class App extends React.Component {
     );
   }
 }
-const WarpApp = Form.create()(App);
+const App = Form.create()(DrawerForm);
 
-ReactDOM.render(<WarpApp />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
