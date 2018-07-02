@@ -21,7 +21,7 @@ const vegetables = ['asparagus', 'bamboo', 'potato', 'carrot', 'cilantro', 'pota
 const TagList = ({ value, show }) => {
   return (
     <div>
-      {value.map(item => <Tag>{item}</Tag>)}
+      {value.map(item => <Tag key={item}>{item}</Tag>)}
       <Tag onClick={() => show()}>+</Tag>
     </div>
   );
@@ -61,8 +61,8 @@ class DrawerForm extends React.Component {
           width={520}
           closable={false}
           onClose={this.onClose}
-          wrapperClassName="cookbook"
           visible={this.state.visible}
+          push={this.state.childrenDrawer}
         >
           <Form hideRequiredMark>
             <Form.Item label="Name">
@@ -81,11 +81,8 @@ class DrawerForm extends React.Component {
             title="Food"
             width={320}
             closable={false}
-            wrapperClassName="cookbook_children"
             onClose={this.onChildrenDrawerClose}
             visible={this.state.childrenDrawer}
-            levelMove={250}
-            level=".cookbook"
           >
             <List
               size="small"
@@ -132,13 +129,5 @@ ReactDOM.render(<App />, mountNode);
 <style>
 #_hj_feedback_container{
   display:none
-}
-.cookbook,.cookbook_children{
-   position: fixed;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   z-index: 9999;
-   pointer-events: none;
 }
 </style>

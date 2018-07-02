@@ -1,6 +1,9 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
+import createReactContext, { Context } from 'create-react-context';
+
+const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
 type EventType =
   | React.MouseEvent<HTMLDivElement>
@@ -22,22 +25,25 @@ export interface DrawerProps {
   wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
+  push?: boolean;
   placement?: 'left' | 'right';
   onClose?: (e: EventType) => void;
 }
 
 export interface IDrawerState {
-  visible?: boolean;
+  push?: boolean;
 }
 
-export default class Drawer extends React.Component<
-  DrawerProps,
-  IDrawerState
-> {
+export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   static propTypes = {
     closable: PropTypes.bool,
     destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func, PropTypes.bool]),
+    getContainer: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.func,
+      PropTypes.bool,
+    ]),
     maskClosable: PropTypes.bool,
     mask: PropTypes.bool,
     maskStyle: PropTypes.object,
@@ -61,6 +67,20 @@ export default class Drawer extends React.Component<
     level: null,
   };
 
+  readonly state = {
+    push: false,
+  };
+
+  praentDrawer: Drawer;
+  public componentDidUpdate(preProps: DrawerProps) {
+    if (preProps.visible !== this.props.visible && this.praentDrawer) {
+      if (this.props.visible) {
+        this.praentDrawer.push();
+      } else {
+        this.praentDrawer.pull();
+      }
+    }
+  }
   close = (e: EventType) => {
     if (this.props.visible !== undefined) {
       if (this.props.onClose) {
@@ -69,16 +89,24 @@ export default class Drawer extends React.Component<
       return;
     }
   }
-
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
     }
     this.close(e);
   }
-
+  push = () => {
+    this.setState({
+      push: true,
+    });
+  }
+  pull = () => {
+    this.setState({
+      push: false,
+    });
+  }
   renderBody = () => {
-    const { destroyOnClose , visible, width, placement } = this.props;
+    const { destroyOnClose, visible, width, placement } = this.props;
     if (destroyOnClose && !visible) {
       return null;
     }
@@ -121,24 +149,37 @@ export default class Drawer extends React.Component<
       </div>
     );
   }
-
-  render() {
-    let { width, zIndex, style, ...rest } = this.props;
+  renderProvider = (value: Drawer) => {
+    let { width, zIndex, style, placement, ...rest } = this.props;
     if (typeof width === 'number') {
       width = `${width}px`;
     }
+    const RcDrawerStyle = this.state.push
+      ? {
+          zIndex,
+          transform: `translateX(${placement === 'left' ? 180 : -180}px)`,
+        }
+      : { zIndex };
+    this.praentDrawer = value;
     return (
-      <RcDrawer
-        {...rest}
-        handler={false}
-        open={this.props.visible}
-        onMaskClick={this.onMaskClick}
-        showMask={this.props.mask}
-        placement={this.props.placement}
-        style={{ zIndex }}
-      >
-        {this.renderBody()}
-      </RcDrawer>
+      <DrawerContext.Provider value={this}>
+        <RcDrawer
+          {...rest}
+          handler={false}
+          open={this.props.visible}
+          onMaskClick={this.onMaskClick}
+          showMask={this.props.mask}
+          placement={placement}
+          style={RcDrawerStyle}
+        >
+          {this.renderBody()}
+        </RcDrawer>
+      </DrawerContext.Provider>
+    );
+  }
+  render() {
+    return (
+      <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>
     );
   }
 }

@@ -5,19 +5,20 @@ exports[`Drawer closable is false 1`] = `
   class=""
 >
   <div
-    class="ant-drawer ant-drawer-left ant-drawer-open"
+    class="ant-drawer ant-drawer-right ant-drawer-open"
   >
     <div
       class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"
       >
         <div
-          style="width: 256px;"
+          style="overflow: auto; height: 100%; width: 256px;"
         >
           <div
             class="ant-drawer-body"
@@ -36,13 +37,14 @@ exports[`Drawer destroyOnClose is true 1`] = `
   class=""
 >
   <div
-    class="ant-drawer ant-drawer-left"
+    class="ant-drawer ant-drawer-right"
   >
     <div
       class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
+      style="transform: translateX(100%);"
     >
       <div
         class="ant-drawer-content"
@@ -57,19 +59,20 @@ exports[`Drawer have a title 1`] = `
   class=""
 >
   <div
-    class="ant-drawer ant-drawer-left ant-drawer-open"
+    class="ant-drawer ant-drawer-right ant-drawer-open"
   >
     <div
       class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"
       >
         <div
-          style="width: 256px;"
+          style="overflow: auto; height: 100%; width: 256px;"
         >
           <div
             class="ant-drawer-header"
@@ -105,19 +108,20 @@ exports[`Drawer render correctly 1`] = `
   class=""
 >
   <div
-    class="ant-drawer ant-drawer-left ant-drawer-open"
+    class="ant-drawer ant-drawer-right ant-drawer-open"
   >
     <div
       class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"
       >
         <div
-          style="width: 400px;"
+          style="overflow: auto; height: 100%; width: 400px;"
         >
           <button
             aria-label="Close"
