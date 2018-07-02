@@ -214,13 +214,15 @@
     background: tint(@primary-color, 80%);
   }
 
-  &-selected-date &-date {
-    background: @primary-color;
-    color: #fff;
-    border: @border-width-base @border-style-base transparent;
-
-    &:hover {
+  &-selected-date, &-selected-start-date, &-selected-end-date {
+    .@{calendar-prefix-cls}-date {
       background: @primary-color;
+      color: #fff;
+      border: @border-width-base @border-style-base transparent;
+
+      &:hover {
+        background: @primary-color;
+      }
     }
   }
 
