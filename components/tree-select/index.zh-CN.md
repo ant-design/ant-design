@@ -28,6 +28,8 @@ title: TreeSelect
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 `{value: string, label: ReactNode, halfChecked(treeCheckStrictly 时有效): string[] }` 的格式 | boolean | false |
 | loadData | 异步加载数据 | function(node) | - |
+| maxTagCount | 最多显示多少个 tag | number | - |
+| maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode/function(omittedValues) | - |
 | multiple | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
 | placeholder | 选择框默认文字 | string | - |
 | searchPlaceholder | 搜索框默认文字 | string | - |
