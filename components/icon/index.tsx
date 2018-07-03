@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { symbols, prefix } from 'antd-icons';
+import { symbols, prefix as antdIconPrefix } from 'antd-icons';
+import { Omit } from "../_util/type";
 
 export interface IconProps {
   type: string;
@@ -10,6 +11,7 @@ export interface IconProps {
   onClick?: React.MouseEventHandler<any>;
   spin?: boolean;
   style?: React.CSSProperties;
+  prefix?: string;
 }
 
 export interface SvgIconProps {
@@ -20,14 +22,25 @@ export interface SvgIconProps {
   children?: React.ReactNode;
 }
 
+export interface CustomIconOptions {
+  prefix: string;
+  namespace: string;
+  scriptLink?: string;
+}
+
+const svgIconNormalizeProps = {
+  width: '1em',
+  height: '1em',
+  fill: 'currentColor'
+};
+
 class Icon extends React.PureComponent<IconProps> {
   componentDidMount() {
     if (document) {
       const idName = '__DO_NOT_MANUALLY_USE_ANTD_SVG_SPRITE_NODE__';
       const spriteNode = document.getElementById(idName);
       const mountNode = document.body;
-      if(!spriteNode && mountNode) {
-        console.log('!!!!!mounted');
+      if (!spriteNode && mountNode) {
         mountNode.insertAdjacentHTML('afterbegin', `
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +58,7 @@ class Icon extends React.PureComponent<IconProps> {
   }
 
   render() {
-    const { type, className = '', spin } = this.props;
+    const { type, className = '', spin, prefix = antdIconPrefix } = this.props;
     const classString = classNames({
       anticon: true,
       'anticon-spin': !!spin || type === 'loading'
@@ -53,7 +66,7 @@ class Icon extends React.PureComponent<IconProps> {
 
     return (
       <i {...omit(this.props, ['type', 'spin'])} className={classString}>
-        <svg width={'1em'} height={'1em'} fill={'currentColor'}>
+        <svg {...svgIconNormalizeProps}>
           <use xlinkHref={`#${prefix}${type}`}/>
         </svg>
       </i>
@@ -68,11 +81,43 @@ class Icon extends React.PureComponent<IconProps> {
     }, className);
     return (
       <i {...omit(props, ['spin'])} className={classString}>
-        <svg width={'1em'} height={'1em'} fill={'currentColor'}>
+        <svg {...svgIconNormalizeProps}>
           {props.children}
         </svg>
       </i>
     );
+  }
+
+  static CustomCache: { [key: string]: boolean } = {};
+
+  static create({ prefix, namespace, scriptLink }: CustomIconOptions) {
+    return class CustomIcon extends React.PureComponent<Omit<IconProps, 'prefix'>> {
+
+      componentDidMount() {
+        if (document && window && !Icon.CustomCache[namespace] && scriptLink) {
+          const script = document.createElement('script');
+          script.src = scriptLink;
+          Icon.CustomCache[namespace] = true;
+          document.body.appendChild(script);
+        }
+      }
+
+      render() {
+        const { type, className = '', spin } = this.props;
+        const classString = classNames({
+          anticon: true,
+          'anticon-spin': !!spin || type === 'loading'
+        }, className);
+
+        return (
+          <i {...omit(this.props, ['type', 'spin'])} className={classString}>
+            <svg {...svgIconNormalizeProps}>
+              <use xlinkHref={`#${prefix}${type}`}/>
+            </svg>
+          </i>
+        );
+      }
+    }
   }
 }
 
