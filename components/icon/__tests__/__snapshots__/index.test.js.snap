@@ -5,3 +5,9 @@ exports[`Icon should render to a <i class="xxx"></i> 1`] = `
   class="anticon anticon-appstore my-icon-classname"
 />
 `;
+
+exports[`Icon should render to a <i class="xxx"><svg><use xlink:href="antd-icon-TYPENAME"/></svg></i> 1`] = `
+<i
+  class="anticon anticon-zhihu other-class-name"
+/>
+`;
