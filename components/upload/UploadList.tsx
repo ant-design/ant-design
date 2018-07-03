@@ -5,6 +5,7 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { isPlainObject, isFunction } from 'lodash';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file: File, callback: Function) => {
@@ -63,6 +64,25 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   }
 
+   onItem = (file: UploadFile, onItem: any) => {
+    let newItem: {[key: number]: any} = {};
+    if (!isPlainObject(onItem)) {
+      return newItem;
+    }
+    const items = Object.keys(onItem);
+    for (let key in items) {
+      if (!items.hasOwnProperty(key)) {
+        continue;
+      }
+      const value = items[key];
+      if (!isFunction(value)) {
+        throw new Error ('Please check if your onItem property is a function!');
+      }
+      newItem[key] = value.bind(this, file);
+    }
+    return newItem;
+  }
+
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -88,11 +108,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale } = this.props;
+    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon, locale, onItem } = this.props;
+    const _this = this;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
-
+      const itemEvents = _this.onItem(file, onItem);
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
@@ -104,6 +125,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             : <Icon type="file" className={`${prefixCls}-list-item-icon`} />;
           icon = (
             <a
+              {...itemEvents}
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url || file.thumbUrl}
@@ -135,6 +157,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const preview = file.url ? (
         <a
           {...file.linkProps}
+          {...itemEvents}
           href={file.url}
           target="_blank"
           rel="noopener noreferrer"
@@ -146,6 +169,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </a>
       ) : (
         <span
+          {...itemEvents}
           className={`${prefixCls}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
           title={file.name}
@@ -159,6 +183,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       };
       const previewIcon = showPreviewIcon ? (
         <a
+          {...itemEvents}
           href={file.url || file.thumbUrl}
           target="_blank"
           rel="noopener noreferrer"
