@@ -23,6 +23,7 @@ A content area which can be collapsed and expanded.
 | bordered | Toggles rendering of the border around the collapse block | boolean | `true` |
 | defaultActiveKey | Key of the initial active panel | string | - |
 | onChange | Callback function executed when active panel is changed | Function | - |
+| destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |
 
 ### Collapse.Panel
 
