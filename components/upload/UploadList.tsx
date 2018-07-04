@@ -5,7 +5,7 @@ import Tooltip from '../tooltip';
 import Progress from '../progress';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
-import { isPlainObject, isFunction } from 'lodash';
+import { isPlainObject } from 'lodash';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file: File, callback: Function) => {
@@ -75,9 +75,6 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         continue;
       }
       const value = onItem[events[event]];
-      if (!isFunction(value)) {
-        throw new Error ('Please check if your onItem property is not a function.~');
-      }
       newEvents[events[event]] = value.bind(this, file);
     }
     return newEvents;
