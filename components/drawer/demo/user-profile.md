@@ -50,16 +50,19 @@ const DescriptionItem = ({ title, content }) => {
 
 class App extends React.Component {
   state = { visible: false };
+
   showDrawer = () => {
     this.setState({
       visible: true,
     });
   };
+
   onClose = () => {
     this.setState({
       visible: false,
     });
   };
+
   render() {
     return (
       <div>
