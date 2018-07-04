@@ -29,26 +29,31 @@ const TagList = ({ value, show }) => {
 
 class DrawerForm extends React.Component {
   state = { visible: false, childrenDrawer: false };
+
   showDrawer = () => {
     this.setState({
       visible: true,
     });
   };
+
   onClose = () => {
     this.setState({
       visible: false,
     });
   };
+
   showChildrenDrawer = () => {
     this.setState({
       childrenDrawer: true,
     });
   };
+
   onChildrenDrawerClose = () => {
     this.setState({
       childrenDrawer: false,
     });
   };
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (

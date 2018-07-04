@@ -20,11 +20,13 @@ const { Option } = Select;
 
 class DrawerForm extends React.Component {
   state = { visible: false };
+
   showDrawer = () => {
     this.setState({
       visible: true,
     });
   };
+
   onClose = () => {
     this.setState(
       {
@@ -32,6 +34,7 @@ class DrawerForm extends React.Component {
       }
     );
   };
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
