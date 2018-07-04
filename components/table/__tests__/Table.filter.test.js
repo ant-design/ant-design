@@ -105,7 +105,7 @@ describe('Table.filter', () => {
     const filterMenu = wrapper.find('FilterMenu').instance();
 
     // check if renderer well
-    wrapper.find('Trigger').simulate('click');
+    wrapper.find('i.ant-dropdown-trigger').simulate('click');
     expect(wrapper.find('#customFilter')).toMatchSnapshot();
 
     // try to use reset btn
@@ -116,7 +116,7 @@ describe('Table.filter', () => {
     expect(filterMenu.state.selectedKeys).toEqual([]);
 
     // try to use confirm btn
-    wrapper.find('Trigger').simulate('click');
+    wrapper.find('i.ant-dropdown-trigger').simulate('click');
     wrapper.find('#setSelectedKeys').simulate('click');
     expect(filterMenu.state.visible).toBe(true);
     wrapper.find('#confirm').simulate('click');
