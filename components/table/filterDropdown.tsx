@@ -4,6 +4,7 @@ import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
+import isEmpty from 'lodash/isEmpty';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
@@ -108,9 +109,15 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   confirmFilter() {
-    if (this.state.selectedKeys !== this.props.selectedKeys) {
-      this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    const { selectedKeys } = this.state;
+
+    if (this.hasSelectedKeys() && !shallowequal(selectedKeys, this.props.selectedKeys)) {
+      this.props.confirmFilter(this.props.column, selectedKeys);
     }
+  }
+
+  hasSelectedKeys() {
+    return !isEmpty(this.state.selectedKeys) || !isEmpty(this.props.selectedKeys);
   }
 
   renderMenuItem(item: ColumnFilterItem) {
