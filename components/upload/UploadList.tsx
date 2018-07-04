@@ -65,22 +65,22 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
    onItem = (file: UploadFile, onItem: any) => {
-    let newItem: {[key: number]: any} = {};
+    let newEvents: {[key: string]: any} = {};
     if (!isPlainObject(onItem)) {
-      return newItem;
+      return newEvents;
     }
-    const items = Object.keys(onItem);
-    for (let key in items) {
-      if (!items.hasOwnProperty(key)) {
+    const events = Object.keys(onItem);
+    for (const event in events) {
+      if (!events.hasOwnProperty(event)) {
         continue;
       }
-      const value = items[key];
+      const value = onItem[events[event]];
       if (!isFunction(value)) {
-        throw new Error ('Please check if your onItem property is a function!');
+        throw new Error ('Please check if your onItem property is not a function.~');
       }
-      newItem[key] = value.bind(this, file);
+      newEvents[events[event]] = value.bind(this, file);
     }
-    return newItem;
+    return newEvents;
   }
 
   componentDidUpdate() {

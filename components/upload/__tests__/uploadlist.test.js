@@ -336,4 +336,31 @@ describe('Upload List', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('should support js Events', () => {
+    let eventName;
+    const triggerEvent = (file, e) => {
+      expect(e.type).toBe(eventName);
+    };
+    const events = ['onClick', 'onDoubleClick', 'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onDrop', 'onDrag', 'onDragEnd', 'onDragEnter', 'onDragLeave', 'onDragOver', 'onDragStart', 'onTouchCancel', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onKeyDown', 'onKeyPress', 'onKeyUp', 'onCopy', 'onCut', 'onPaste', 'onFocus', 'onBlur'];
+    const eventsObj = {};
+    events.forEach((val) => {
+      eventsObj[val] = triggerEvent;
+    });
+
+    const wrapper = mount(
+      <Upload
+        defaultFileList={fileList}
+        listType="picture"
+        onItem={eventsObj}
+      >
+        <button type="button">upload</button>
+      </Upload>
+    );
+
+    events.forEach((item) => {
+      eventName = item.replace('on', '').toLowerCase();
+      wrapper.find('.ant-upload-list-item-thumbnail').at(0).simulate(eventName);
+    });
+  });
 });
