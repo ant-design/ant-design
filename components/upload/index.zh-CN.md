@@ -40,6 +40,7 @@ title: Upload
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |
+| onItem   | 配置uploadList属性          | object | 无 |
 
 ### onChange
 
@@ -59,7 +60,7 @@ title: Upload
 
    ```js
    {
-      uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
+      uid: 'uid',      // 文件唯一标识，建议置为负数，防止和内部产生的 id 冲突
       name: 'xx.png'   // 文件名
       status: 'done', // 状态有：uploading done error removed
       response: '{"status": "success"}', // 服务端响应内容

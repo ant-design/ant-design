@@ -67,6 +67,7 @@ export interface UploadProps {
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
+  onItem?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
@@ -85,6 +86,7 @@ export interface UploadState {
 export interface UploadListProps {
   listType?: UploadListType;
   onPreview?: (file: UploadFile) => void;
+  onItem?: Object;
   onRemove?: (file: UploadFile) => void | boolean;
   items?: Array<UploadFile>;
   progressAttr?: Object;
