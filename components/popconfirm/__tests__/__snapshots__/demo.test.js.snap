@@ -29,6 +29,14 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
 </div>
 `;
 
+exports[`renders ./components/popconfirm/demo/icon.md correctly 1`] = `
+<a
+  href="#"
+>
+  Delete
+</a>
+`;
+
 exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `
 <a
   href="#"

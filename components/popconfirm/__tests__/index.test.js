@@ -82,4 +82,16 @@ describe('Popconfirm', () => {
     expect(cancel).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
   });
+
+  it('should support customize icon', () => {
+    const wrapper = mount(
+      <Popconfirm title="code" icon={<span className="customize-icon">custom-icon</span>}>
+        <span>show me your code</span>
+      </Popconfirm>
+    );
+
+    const triggerNode = wrapper.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(wrapper.find('.customize-icon').length).toBe(1);
+  });
 });
