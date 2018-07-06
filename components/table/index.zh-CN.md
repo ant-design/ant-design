@@ -116,7 +116,7 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |
-| filterIcon | 自定义 fiter 图标。 | ReactNode | false |
+| filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |
 | filterMultiple | 是否多选 | boolean | true |
 | filters | 表头的筛选菜单项 | object\[] | - |
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |

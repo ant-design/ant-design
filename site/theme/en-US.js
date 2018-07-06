@@ -17,6 +17,8 @@ module.exports = {
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
     'app.component.examples': 'Examples',
+    'app.component.examples.expand': 'Expand all code',
+    'app.component.examples.collpse': 'Collpse all code',
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',
     'app.demo.codepen': 'Open in CodePen',
