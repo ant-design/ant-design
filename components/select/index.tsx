@@ -26,6 +26,7 @@ export interface AbstractSelectProps {
   dropdownMatchSelectWidth?: boolean;
   onSearch?: (value: string) => any;
   filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
+  id?: string;
 }
 
 export interface LabeledValue {
@@ -56,6 +57,7 @@ export interface SelectProps extends AbstractSelectProps {
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
+  id?: string;
 }
 
 export interface OptionProps {
@@ -83,6 +85,7 @@ const SelectPropTypes = {
   optionLabelProp: PropTypes.string,
   transitionName: PropTypes.string,
   choiceTransitionName: PropTypes.string,
+  id: PropTypes.string,
 };
 
 // => It is needless to export the declaration of below two inner components.
