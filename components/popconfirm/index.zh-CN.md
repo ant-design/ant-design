@@ -23,6 +23,7 @@ title: Popconfirm
 | title | 确认框的描述 | string\|ReactNode | 无 |
 | onCancel | 点击取消的回调 | function(e) | 无 |
 | onConfirm | 点击确认的回调 | function(e) | 无 |
+| icon | 自定义弹出气泡 Icon 图标 | ReactNode | &lt;Icon type="exclamation-circle" /&gt; |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 
