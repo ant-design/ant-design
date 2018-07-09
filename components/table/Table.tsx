@@ -79,6 +79,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       PropTypes.object,
     ]),
     bordered: PropTypes.bool,
+    stripe: PropTypes.bool,
     onChange: PropTypes.func,
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
@@ -92,6 +93,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     size: 'default' as TableSize,
     loading: false,
     bordered: false,
+    stripe: false,
     indentSize: 20,
     locale: {},
     rowKey: 'key',
@@ -940,6 +942,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const classString = classNames({
       [`${prefixCls}-${this.props.size}`]: true,
       [`${prefixCls}-bordered`]: this.props.bordered,
+      [`${prefixCls}-stripe`]: this.props.stripe,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
     });

@@ -93,6 +93,22 @@
     transition: all .3s;
   }
 
+  &-stripe &-body,
+  &-stripe &-fixed-left,
+  &-stripe &-fixed-right {
+    tr:nth-child(2n) {
+      td {
+        background-color: @table-row-stripe-bg;
+      }
+      &.@{table-prefix-cls}-row-hover,
+      &:hover {
+        & > td {
+          background-color: @table-row-hover-bg;
+        }
+      }
+    }
+
+  }
   &-thead > tr,
   &-tbody > tr {
     transition: all .3s;
