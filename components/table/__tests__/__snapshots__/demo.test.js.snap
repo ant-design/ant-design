@@ -2746,26 +2746,20 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   class="ant-table-tbody"
                 >
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row editable-row ant-table-row-level-0"
                   >
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       <div
-                        class="editable-cell"
+                        class="editable-cell-value-wrap"
+                        style="padding-right:24px"
                       >
-                        <div
-                          style="padding-right:24px"
-                        >
-                          Edward King 0
-                          <i
-                            class="anticon anticon-edit editable-cell-icon"
-                          />
-                        </div>
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px"
+                        />
+                        Edward King 0
                       </div>
                     </td>
                     <td
@@ -2789,26 +2783,20 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     </td>
                   </tr>
                   <tr
-                    class="ant-table-row  ant-table-row-level-0"
+                    class="ant-table-row editable-row ant-table-row-level-0"
                   >
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       <div
-                        class="editable-cell"
+                        class="editable-cell-value-wrap"
+                        style="padding-right:24px"
                       >
-                        <div
-                          style="padding-right:24px"
-                        >
-                          Edward King 1
-                          <i
-                            class="anticon anticon-edit editable-cell-icon"
-                          />
-                        </div>
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px"
+                        />
+                        Edward King 1
                       </div>
                     </td>
                     <td
