@@ -89,6 +89,8 @@ export { default as Row } from './row';
 
 export { default as Select } from './select';
 
+export { default as Skeleton } from './skeleton';
+
 export { default as Slider } from './slider';
 
 export { default as Spin } from './spin';
