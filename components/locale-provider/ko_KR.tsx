@@ -14,6 +14,8 @@ export default {
     filterConfirm: '확인',
     filterReset: '초기화',
     emptyText: '데이터 없음',
+    selectAll: '모두 선택',
+    selectInvert: '선택 반전',
   },
   Modal: {
     okText: '확인',
