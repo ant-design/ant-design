@@ -14,7 +14,8 @@ Ensure your system has installed latest version of [yarn](https://yarnpkg.com) o
 Create a new project named `antd-demo-ts` using yarn.
 
 ```bash
-$ yarn create react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ yarn global add create-react-app
+$ create-react-app antd-demo-ts --scripts-version=react-scripts-ts
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
@@ -90,11 +91,11 @@ $ yarn add react-app-rewired --dev
 ```diff
 /* package.json */
 "scripts": {
--   "start": "react-scripts start",
+-   "start": "react-scripts-ts start",
 +   "start": "react-app-rewired start --scripts-version react-scripts-ts",
--   "build": "react-scripts build",
+-   "build": "react-scripts-ts build",
 +   "build": "react-app-rewired build --scripts-version react-scripts-ts",
--   "test": "react-scripts test --env=jsdom",
+-   "test": "react-scripts-ts test --env=jsdom",
 +   "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
 }
 ```
