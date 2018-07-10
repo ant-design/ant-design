@@ -8,6 +8,7 @@
 
 .@{skeleton-prefix-cls} {
   display: flex;
+  width: 100%;
 
   & &-header {
     flex: none;
@@ -74,7 +75,10 @@
   width: @size;
   height: @size;
   line-height: @size;
-  border-radius: @size / 2;
+
+  &.@{skeleton-avatar-prefix-cls}-circle {
+    border-radius: @size / 2;
+  }
 }
 
 .skeleton-color() {

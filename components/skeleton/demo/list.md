@@ -1,22 +1,38 @@
 ---
-order: 0
+order: 2
 title:
-  zh-CN: 基本使用
-  en-US: Basic Usage
+  zh-CN: 列表样例
+  en-US: List Sample
 ---
 
 ## zh-CN
 
-在卡片组件中使用加载占位符。
+在列表组件中使用加载占位符。
 
 ## en-US
 
-Use skeleton in card component.
+Use skeleton in list component.
 
 ````jsx
-import { Skeleton, Switch, Card, Icon, Avatar } from 'antd';
+import { Skeleton, Switch, List, Avatar, Icon } from 'antd';
 
-const { Meta } = Card;
+const listData = [];
+for (let i = 0; i < 3; i++) {
+  listData.push({
+    href: 'http://ant.design',
+    title: `ant design part ${i}`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+  });
+}
+
+const IconText = ({ type, text }) => (
+  <span>
+    <Icon type={type} style={{ marginRight: 8 }} />
+    {text}
+  </span>
+);
 
 class App extends React.Component {
   state = {
@@ -34,18 +50,27 @@ class App extends React.Component {
       <div>
         <Switch checked={!loading} onChange={this.onChange} />
 
-        <Card
-          style={{ width: 300, marginTop: 16 }}
-          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-        >
-          <Skeleton loading={loading} avatar>
-            <Meta
-              avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-              title="Card title"
-              description="This is the description"
-            />
-          </Skeleton>
-        </Card>
+        <List
+          itemLayout="vertical"
+          size="large"
+          dataSource={listData}
+          renderItem={item => (
+            <List.Item
+              key={item.title}
+              actions={!loading && [<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
+              extra={!loading && <img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
+            >
+              <Skeleton loading={loading}>
+                <List.Item.Meta
+                  avatar={<Avatar src={item.avatar} />}
+                  title={<a href={item.href}>{item.title}</a>}
+                  description={item.description}
+                />
+                {item.content}
+              </Skeleton>
+            </List.Item>
+          )}
+        />
       </div>
     );
   }

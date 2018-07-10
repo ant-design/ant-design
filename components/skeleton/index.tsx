@@ -21,6 +21,14 @@ function getComponentProps<T>(prop: T | boolean | undefined): T | {}  {
   return {};
 }
 
+function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): SkeletonAvatarProps {
+  if (hasTitle && !hasParagraph) {
+    return { shape: 'square' };
+  }
+
+  return { shape: 'circle' };
+}
+
 function getTitleBasicProps(hasAvatar: boolean, hasParagraph: boolean): SkeletonTitleProps {
   if (!hasAvatar && hasParagraph) {
     return { width: '40%' };
@@ -54,7 +62,6 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 }
 
 class Skeleton extends React.Component<SkeletonProps, any> {
-
   static defaultProps: Partial<SkeletonProps> = {
     prefixCls: 'ant-skeleton',
     avatar: false,
@@ -77,7 +84,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       let $avatar;
       if (hasAvatar) {
         const avatarProps: SkeletonAvatarProps = {
-          size: 'large',
+          ...getAvatarBasicProps(hasTitle, hasParagraph),
           ...getComponentProps(avatar),
         };
 
@@ -88,29 +95,39 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
-      // Title
-      let $title;
-      if (hasTitle) {
-        const titleProps: SkeletonTitleProps = {
-          ...getTitleBasicProps(hasAvatar, hasParagraph),
-          ...getComponentProps(title),
-        };
+      let $content;
+      if (hasTitle || hasParagraph) {
+        // Title
+        let $title;
+        if (hasTitle) {
+          const titleProps: SkeletonTitleProps = {
+            ...getTitleBasicProps(hasAvatar, hasParagraph),
+            ...getComponentProps(title),
+          };
 
-        $title = (
-          <Title {...titleProps} />
-        );
-      }
+          $title = (
+            <Title {...titleProps} />
+          );
+        }
 
-      // Paragraph
-      let $paragraph;
-      if (hasParagraph) {
-        const paragraphProps: SkeletonParagraphProps = {
-          ...getParagraphBasicProps(hasAvatar, hasTitle),
-          ...getComponentProps(paragraph),
-        };
+        // Paragraph
+        let $paragraph;
+        if (hasParagraph) {
+          const paragraphProps: SkeletonParagraphProps = {
+            ...getParagraphBasicProps(hasAvatar, hasTitle),
+            ...getComponentProps(paragraph),
+          };
 
-        $paragraph = (
-          <Paragraph {...paragraphProps} />
+          $paragraph = (
+            <Paragraph {...paragraphProps} />
+          );
+        }
+
+        $content = (
+          <div className={`${prefixCls}-content`}>
+            {$title}
+            {$paragraph}
+          </div>
         );
       }
 
@@ -119,10 +136,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
           className={classNames(prefixCls, className, { [`${prefixCls}-with-avatar`]: hasAvatar })}
         >
           {$avatar}
-          <div className={`${prefixCls}-content`}>
-            {$title}
-            {$paragraph}
-          </div>
+          {$content}
         </div>
       );
     }

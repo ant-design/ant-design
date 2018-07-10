@@ -7,8 +7,8 @@ type widthUnit = number | string;
 export interface SkeletonParagraphProps {
   prefixCls?: string;
   className?: string;
-  width?: widthUnit | Array<widthUnit>;
   style?: object;
+  width?: widthUnit | Array<widthUnit>;
   rows?: number;
 }
 

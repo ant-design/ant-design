@@ -4,8 +4,8 @@ import classNames from 'classnames';
 export interface SkeletonTitleProps {
   prefixCls?: string;
   className?: string;
-  width?: number | string;
   style?: object;
+  width?: number | string;
 }
 
 class Title extends React.Component<SkeletonTitleProps, any> {
