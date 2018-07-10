@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 左侧滑出
-  en-US: Left Silder
+  en-US: Left Slider
 ---
 
 ## zh-CN

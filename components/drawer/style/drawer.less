@@ -72,7 +72,6 @@
     background-color: @component-background;
     border: 0;
     background-clip: padding-box;
-    box-shadow: @shadow-2;
     z-index: 1;
   }
 
@@ -147,12 +146,9 @@
 
   &-open {
     overflow: hidden;
+    &-content {
+      box-shadow: @shadow-2;
+    }
   }
 }
 
-@media (max-width: @screen-md) {
-  .@{dawer-prefix-cls} {
-    width: auto !important;
-    margin: 10px;
-  }
-}

@@ -14,20 +14,9 @@ title:
 Open a new drawer on top of an existing drawer to handle multi branch tasks
 
 ```jsx
-import { Drawer, List, Form, Button, Input, Tag } from 'antd';
+import { Drawer, Button } from 'antd';
 
-const vegetables = ['asparagus', 'bamboo', 'potato', 'carrot', 'cilantro', 'potato', 'eggplant'];
-
-const TagList = ({ value, show }) => {
-  return (
-    <div>
-      {value.map(item => <Tag key={item}>{item}</Tag>)}
-      <Tag onClick={() => show()}>+</Tag>
-    </div>
-  );
-};
-
-class DrawerForm extends React.Component {
+class App extends React.Component {
   state = { visible: false, childrenDrawer: false };
 
   showDrawer = () => {
@@ -55,33 +44,22 @@ class DrawerForm extends React.Component {
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
     return (
       <div>
         <Button type="primary" onClick={this.showDrawer}>
-          New Cookbook
+          Open drawer
         </Button>
         <Drawer
-          title="Cookbook"
+          title="Multi-level drawer"
           width={520}
           closable={false}
           onClose={this.onClose}
           visible={this.state.visible}
           push={this.state.childrenDrawer}
         >
-          <Form hideRequiredMark>
-            <Form.Item label="Name">
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: 'please enter cookbook name' }],
-              })(<Input placeholder="please enter cookbook name" />)}
-            </Form.Item>
-            <Form.Item label="Food">
-              {getFieldDecorator('Food', {
-                rules: [{ required: true, message: 'please enter food' }],
-                initialValue: ['potato', 'eggplant'],
-              })(<TagList show={this.showChildrenDrawer} />)}
-            </Form.Item>
-          </Form>
+          <Button type="primary" onClick={this.showChildrenDrawer}>
+              Two-level drawer
+          </Button>
           <Drawer
             title="Food"
             width={320}
@@ -89,12 +67,7 @@ class DrawerForm extends React.Component {
             onClose={this.onChildrenDrawerClose}
             visible={this.state.childrenDrawer}
           >
-            <List
-              size="small"
-              header={<div>Vegetables</div>}
-              dataSource={vegetables}
-              renderItem={item => <List.Item>{item}</List.Item>}
-            />
+            This is two-level drawer
           </Drawer>
           <div
             style={{
@@ -126,7 +99,6 @@ class DrawerForm extends React.Component {
     );
   }
 }
-const App = Form.create()(DrawerForm);
 
 ReactDOM.render(<App />, mountNode);
 ```
