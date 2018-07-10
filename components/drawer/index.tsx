@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
+import isNumeric from '../_util/isNumeric';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -151,7 +152,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   }
   renderProvider = (value: Drawer) => {
     let { width, zIndex, style, placement, ...rest } = this.props;
-    if (typeof width === 'number') {
+    if (isNumeric(width)) {
       width = `${width}px`;
     }
     const RcDrawerStyle = this.state.push
