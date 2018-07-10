@@ -21,8 +21,8 @@ cols: 1
 | --- | --- | --- | --- |
 | loading | 为 `true` 时，显示占位图。反之则直接展示子组件 | boolean | - |
 | avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
-| title | 是否显示标题占位图，配置见下 | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
-| paragraph | 是否显示段落占位图，配置见下 | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
+| title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
 
 ### SkeletonAvatarProps
 | 属性 | 说明 | 类型 | 默认值 |

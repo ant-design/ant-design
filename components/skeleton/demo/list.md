@@ -60,7 +60,7 @@ class App extends React.Component {
               actions={!loading && [<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
               extra={!loading && <img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
             >
-              <Skeleton loading={loading}>
+              <Skeleton loading={loading} paragraph={{ width: ['100%', '80%', '90%'] }}>
                 <List.Item.Meta
                   avatar={<Avatar src={item.avatar} />}
                   title={<a href={item.href}>{item.title}</a>}
