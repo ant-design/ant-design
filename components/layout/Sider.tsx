@@ -66,6 +66,10 @@ const generateId = (() => {
   };
 })();
 
+const isNumeric = (n: any) => {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
 export default class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
 
@@ -191,7 +195,7 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       'defaultCollapsed', 'onCollapse', 'breakpoint', 'onBreakpoint']);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
-    const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : String(rawWidth || 0);
+    const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>

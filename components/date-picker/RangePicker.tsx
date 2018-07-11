@@ -5,6 +5,7 @@ import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
+import Tag from '../tag';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
@@ -211,14 +212,15 @@ export default class RangePicker extends React.Component<any, RangePickerState> 
     const operations = Object.keys(ranges || {}).map((range) => {
       const value = ranges[range];
       return (
-        <a
+        <Tag
           key={range}
+          color="blue"
           onClick={() => this.handleRangeClick(value)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
           onMouseLeave={this.handleRangeMouseLeave}
         >
           {range}
-        </a>
+        </Tag>
       );
     });
     const rangeNode = (

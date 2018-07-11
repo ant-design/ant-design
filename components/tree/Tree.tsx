@@ -77,6 +77,8 @@ export interface TreeProps {
   checkStrictly?: boolean;
   /** 是否支持选中 */
   checkable?: boolean;
+  /** 是否禁用树 */
+  disabled?: boolean;
   /** 默认展开所有树节点 */
   defaultExpandAll?: boolean;
   /** 默认展开对应树节点 */
