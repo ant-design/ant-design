@@ -14,8 +14,7 @@ title: 在 TypeScript 中使用
 使用 yarn 创建项目。
 
 ```bash
-$ yarn global add create-react-app
-$ create-react-app antd-demo-ts --scripts-version=react-scripts-ts
+$ yarn create react-app antd-demo-ts --scripts-version=react-scripts-ts
 ```
 
 如果你使用的是 npm（接下来我们都会用 yarn 作为例子，如果你习惯用 npm 也没问题）。
