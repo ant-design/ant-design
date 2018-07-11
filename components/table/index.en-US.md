@@ -144,6 +144,7 @@ Properties for pagination.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
+| align | specify the alignment of `Pagination` | 'left' \| 'right' \| 'center' | 'right' |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 

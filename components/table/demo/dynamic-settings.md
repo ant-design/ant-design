@@ -66,7 +66,7 @@ const title = () => 'Here is title';
 const showHeader = true;
 const footer = () => 'Here is footer';
 const scroll = { y: 240 };
-const pagination = { position: 'bottom' };
+const pagination = { position: 'bottom', align: 'right' };
 
 class Demo extends React.Component {
   state = {
@@ -116,10 +116,20 @@ class Demo extends React.Component {
     this.setState({ scroll: enable ? scroll : undefined });
   }
 
-  handlePaginationChange = (e) => {
+  handlePaginationPositionChange = (e) => {
     const { value } = e.target;
     this.setState({
-      pagination: value === 'none' ? false : { position: value },
+      pagination: value === 'none' ? false : { ...this.state.pagination, position: value },
+    });
+  }
+
+  handlePaginationAlignChange = (e) => {
+    const { value } = e.target;
+    this.setState({
+      pagination: {
+        ...this.state.pagination,
+        align: value,
+      },
     });
   }
 
@@ -160,15 +170,25 @@ class Demo extends React.Component {
                 <Radio.Button value="small">Small</Radio.Button>
               </Radio.Group>
             </FormItem>
-            <FormItem label="Pagination">
+            <FormItem label="Pagination Position">
               <Radio.Group
                 value={state.pagination ? state.pagination.position : 'none'}
-                onChange={this.handlePaginationChange}
+                onChange={this.handlePaginationPositionChange}
               >
                 <Radio.Button value="top">Top</Radio.Button>
                 <Radio.Button value="bottom">Bottom</Radio.Button>
                 <Radio.Button value="both">Both</Radio.Button>
                 <Radio.Button value="none">None</Radio.Button>
+              </Radio.Group>
+            </FormItem>
+            <FormItem label="Pagination Align">
+              <Radio.Group
+                value={state.pagination ? state.pagination.align : 'right'}
+                onChange={this.handlePaginationAlignChange}
+              >
+                <Radio.Button value="left">Left</Radio.Button>
+                <Radio.Button value="center">Center</Radio.Button>
+                <Radio.Button value="right">Right</Radio.Button>
               </Radio.Group>
             </FormItem>
           </Form>

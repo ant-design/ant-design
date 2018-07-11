@@ -792,7 +792,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
   }
 
-  renderPagination(paginationPosition: string) {
+  renderPagination(paginationPosition: string, paginationAlign: string) {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
@@ -806,17 +806,22 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     let position = pagination.position || 'bottom';
     let total = pagination.total || this.getLocalData().length;
+    const paginationContainerClass = classNames(`${this.props.prefixCls}-pagination-container`, {
+      [`${this.props.prefixCls}-pagination-container-center`]: paginationAlign === 'center',
+    });
     return (total > 0 && (position === paginationPosition || position === 'both')) ? (
-      <Pagination
-        key={`pagination-${paginationPosition}`}
-        {...pagination}
-        className={classNames(pagination.className, `${this.props.prefixCls}-pagination`)}
-        onChange={this.handlePageChange}
-        total={total}
-        size={size}
-        current={this.getMaxCurrent(total)}
-        onShowSizeChange={this.handleShowSizeChange}
-      />
+      <div className={paginationContainerClass}>
+        <Pagination
+          key={`pagination-${paginationPosition}`}
+          {...pagination}
+          className={classNames(pagination.className, `${this.props.prefixCls}-pagination-${paginationAlign}`)}
+          onChange={this.handlePageChange}
+          total={total}
+          size={size}
+          current={this.getMaxCurrent(total)}
+          onShowSizeChange={this.handleShowSizeChange}
+        />
+      </div>
     ) : null;
   }
 
@@ -975,8 +980,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }
 
   render() {
-    const { style, className, prefixCls } = this.props;
+    const { style, className, prefixCls, pagination } = this.props;
     const data = this.getCurrentPageData();
+    const paginationAlign = (pagination && pagination.align) || 'right';
 
     let loading = this.props.loading as SpinProps;
     if (typeof loading === 'boolean') {
@@ -1008,9 +1014,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
-          {this.renderPagination('top')}
+          {this.renderPagination('top', paginationAlign)}
           {table}
-          {this.renderPagination('bottom')}
+          {this.renderPagination('bottom', paginationAlign)}
         </Spin>
       </div>
     );

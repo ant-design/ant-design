@@ -144,4 +144,17 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-spin-container').childAt(0).find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-spin-container').childAt(2).find('.ant-pagination')).toHaveLength(1);
   });
+
+  it('specify the alignment of pagination', () => {
+    const wrapper = mount(createTable());
+    expect(wrapper.find('.ant-table-pagination-container')).toHaveLength(1);
+    expect(wrapper.find('ul.ant-table-pagination-right')).toHaveLength(1);
+    wrapper.setProps({ pagination: { align: 'left' } });
+    expect(wrapper.find('.ant-table-pagination-container')).toHaveLength(1);
+    expect(wrapper.find('ul.ant-table-pagination-left')).toHaveLength(1);
+    wrapper.setProps({ pagination: { align: 'center' } });
+    expect(wrapper.find('.ant-table-pagination-container')).toHaveLength(1);
+    expect(wrapper.find('.ant-table-pagination-container-center')).toHaveLength(1);
+    expect(wrapper.find('ul.ant-table-pagination-center')).toHaveLength(1);
+  });
 });

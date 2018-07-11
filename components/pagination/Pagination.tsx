@@ -31,6 +31,7 @@ export interface PaginationProps {
 
 export interface PaginationConfig extends PaginationProps {
   position?: 'top' | 'bottom' | 'both';
+  align?: 'left' | 'right' | 'center';
 }
 
 export type PaginationLocale = any;

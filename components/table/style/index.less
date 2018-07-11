@@ -354,9 +354,25 @@
     }
   }
 
-  &-pagination.@{ant-prefix}-pagination {
-    margin: 16px 0;
-    float: right;
+  &-pagination-container {
+    .@{table-prefix-cls}-pagination-left.@{ant-prefix}-pagination {
+      margin: 16px 0;
+      float: left;
+    }
+
+    .@{table-prefix-cls}-pagination-right.@{ant-prefix}-pagination {
+      margin: 16px 0;
+      float: right;
+    }
+
+    .@{table-prefix-cls}-pagination-center.@{ant-prefix}-pagination {
+      margin: 16px 0;
+      display: inline-block;
+    }
+  }
+
+  &-pagination-container-center {
+    text-align: center;
   }
 
   &-filter-dropdown {
