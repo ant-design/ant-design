@@ -3,7 +3,6 @@ order: 22
 title:
   en-US: Editable Cells
   zh-CN: 可编辑单元格
-only: true
 ---
 
 ## zh-CN
