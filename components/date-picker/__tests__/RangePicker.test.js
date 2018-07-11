@@ -50,7 +50,7 @@ describe('RangePicker', () => {
     );
 
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
       .simulate('click');
     expect(render(wrapper.find('Trigger').instance().getComponent()))
       .toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('RangePicker', () => {
     );
 
     let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
       .simulate('mouseEnter');
     rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
@@ -152,7 +152,7 @@ describe('RangePicker', () => {
         />
       );
       wrapper.find('.ant-calendar-picker-input').simulate('click');
-      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
         wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
       ).toBe(range[0].format(format));
@@ -171,7 +171,7 @@ describe('RangePicker', () => {
         />
       );
       wrapper.find('.ant-calendar-picker-input').simulate('click');
-      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
         wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
       ).toBe(range[0].format(format));
@@ -200,7 +200,7 @@ describe('RangePicker', () => {
       />
     );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+    wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
     expect(handleOk).toBeCalledWith(range);
   });
 
