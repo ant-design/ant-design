@@ -7,7 +7,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -34,7 +34,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
       data-expanded="true"
     >
       <li
-        class="ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
+        class="ant-tree-treenode-disabled"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -61,7 +61,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -85,7 +85,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -111,7 +111,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
         </ul>
       </li>
       <li
-        class="ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -138,7 +138,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -179,7 +179,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -206,7 +206,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
       data-expanded="true"
     >
       <li
-        class="ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -233,7 +233,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -257,7 +257,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -281,7 +281,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -307,7 +307,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
         </ul>
       </li>
       <li
-        class="ant-tree-treenode-switcher-open"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -334,7 +334,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -358,7 +358,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -382,7 +382,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -408,7 +408,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
         </ul>
       </li>
       <li
-        class="ant-tree-treenode-switcher-close"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -434,7 +434,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
     </ul>
   </li>
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -458,7 +458,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
     </span>
   </li>
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher-noop"
@@ -491,7 +491,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -518,7 +518,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
       data-expanded="true"
     >
       <li
-        class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -542,7 +542,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
         </span>
       </li>
       <li
-        class="ant-tree-treenode-switcher-open"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -577,7 +577,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -654,7 +654,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
     </ul>
   </li>
   <li
-    class="ant-tree-treenode-switcher-open"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -740,7 +740,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -762,7 +762,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
       data-expanded="true"
     >
       <li
-        class="ant-tree-treenode-switcher-open"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -784,7 +784,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-open"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -803,7 +803,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -822,7 +822,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -843,7 +843,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
         </ul>
       </li>
       <li
-        class="ant-tree-treenode-switcher-close"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_close"
@@ -862,7 +862,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
         </span>
       </li>
       <li
-        class="ant-tree-treenode-switcher-close"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -883,7 +883,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
     </ul>
   </li>
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -902,7 +902,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
     </span>
   </li>
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher-noop"
@@ -930,7 +930,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -947,7 +947,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
     </span>
   </li>
   <li
-    class="ant-tree-treenode-switcher-close"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -990,7 +990,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
   unselectable="on"
 >
   <li
-    class="ant-tree-treenode-switcher-open"
+    class=""
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1010,7 +1010,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       data-expanded="true"
     >
       <li
-        class="ant-tree-treenode-switcher-open"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_open"
@@ -1030,7 +1030,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
           data-expanded="true"
         >
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1047,7 +1047,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1064,7 +1064,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             </span>
           </li>
           <li
-            class="ant-tree-treenode-switcher-close"
+            class=""
           >
             <span
               class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1083,7 +1083,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
         </ul>
       </li>
       <li
-        class="ant-tree-treenode-switcher-close"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_close"
@@ -1100,7 +1100,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
         </span>
       </li>
       <li
-        class="ant-tree-treenode-switcher-close"
+        class=""
       >
         <span
           class="ant-tree-switcher ant-tree-switcher_close"
@@ -1146,7 +1146,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
     unselectable="on"
   >
     <li
-      class="ant-tree-treenode-switcher-close"
+      class=""
     >
       <span
         class="ant-tree-switcher ant-tree-switcher_close"
@@ -1168,7 +1168,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       </span>
     </li>
     <li
-      class="ant-tree-treenode-switcher-close"
+      class=""
     >
       <span
         class="ant-tree-switcher ant-tree-switcher_close"
@@ -1190,7 +1190,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       </span>
     </li>
     <li
-      class="ant-tree-treenode-switcher-close"
+      class=""
     >
       <span
         class="ant-tree-switcher ant-tree-switcher-noop"

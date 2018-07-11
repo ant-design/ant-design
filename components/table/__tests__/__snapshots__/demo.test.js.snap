@@ -343,38 +343,42 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -533,38 +537,42 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -804,38 +812,42 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -1004,38 +1016,42 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -1178,38 +1194,42 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -1595,9 +1615,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
         >
           <label
             class=""
-            title="Pagination"
+            title="Pagination Position"
           >
-            Pagination
+            Pagination Position
           </label>
         </div>
         <div
@@ -1687,6 +1707,94 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </span>
                   <span>
                     None
+                  </span>
+                </label>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Pagination Align"
+          >
+            Pagination Align
+          </label>
+        </div>
+        <div
+          class="ant-form-item-control-wrapper"
+        >
+          <div
+            class="ant-form-item-control"
+          >
+            <span
+              class="ant-form-item-children"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+              >
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="left"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Left
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="center"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Center
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                >
+                  <span
+                    class="ant-radio-button ant-radio-button-checked"
+                  >
+                    <input
+                      checked=""
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="right"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Right
                   </span>
                 </label>
               </div>
@@ -2630,38 +2738,42 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-next"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -2836,38 +2948,42 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-next"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -3270,93 +3386,97 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
-          title="2"
-        >
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
-          title="3"
-        >
-          <a>
-            3
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
-          title="4"
-        >
-          <a>
-            4
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-          tabindex="0"
-          title="5"
-        >
-          <a>
-            5
-          </a>
-        </li>
-        <li
-          class="ant-pagination-jump-next"
-          tabindex="0"
-          title="Next 5 Pages"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-10"
-          tabindex="0"
-          title="10"
-        >
-          <a>
-            10
-          </a>
-        </li>
-        <li
-          aria-disabled="false"
-          class=" ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a>
+              2
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-3"
+            tabindex="0"
+            title="3"
+          >
+            <a>
+              3
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-4"
+            tabindex="0"
+            title="4"
+          >
+            <a>
+              4
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+            tabindex="0"
+            title="5"
+          >
+            <a>
+              5
+            </a>
+          </li>
+          <li
+            class="ant-pagination-jump-next"
+            tabindex="0"
+            title="Next 5 Pages"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-10"
+            tabindex="0"
+            title="10"
+          >
+            <a>
+              10
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class=" ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -3545,38 +3665,42 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -3768,38 +3892,42 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -3856,14 +3984,14 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Full Name
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Age
@@ -3926,7 +4054,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Action
@@ -3941,7 +4069,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -3950,7 +4078,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       John Brown
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -3995,7 +4123,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       New York Park
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4008,7 +4136,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4017,7 +4145,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       Jim Green
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       40
                     </td>
@@ -4062,7 +4190,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       London Park
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4227,38 +4355,42 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -4328,14 +4460,14 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Full Name
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Age
@@ -4398,7 +4530,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span>
                         Action
@@ -4456,7 +4588,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4465,7 +4597,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 0
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4510,7 +4642,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 0
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4523,7 +4655,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4532,7 +4664,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 1
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4577,7 +4709,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 1
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4590,7 +4722,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4599,7 +4731,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 2
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4644,7 +4776,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 2
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4657,7 +4789,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4666,7 +4798,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 3
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4711,7 +4843,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 3
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4724,7 +4856,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4733,7 +4865,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 4
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4778,7 +4910,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 4
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4791,7 +4923,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4800,7 +4932,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 5
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4845,7 +4977,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 5
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4858,7 +4990,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4867,7 +4999,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 6
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4912,7 +5044,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 6
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4925,7 +5057,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -4934,7 +5066,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 7
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -4979,7 +5111,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 7
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -4992,7 +5124,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -5001,7 +5133,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 8
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -5046,7 +5178,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 8
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -5059,7 +5191,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -5068,7 +5200,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       Edrward 9
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       32
                     </td>
@@ -5113,7 +5245,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 9
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       <a
                         href="javascript:;"
@@ -5557,93 +5689,97 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
-          title="2"
-        >
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
-          title="3"
-        >
-          <a>
-            3
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
-          title="4"
-        >
-          <a>
-            4
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-          tabindex="0"
-          title="5"
-        >
-          <a>
-            5
-          </a>
-        </li>
-        <li
-          class="ant-pagination-jump-next"
-          tabindex="0"
-          title="Next 5 Pages"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-10"
-          tabindex="0"
-          title="10"
-        >
-          <a>
-            10
-          </a>
-        </li>
-        <li
-          aria-disabled="false"
-          class=" ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a>
+              2
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-3"
+            tabindex="0"
+            title="3"
+          >
+            <a>
+              3
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-4"
+            tabindex="0"
+            title="4"
+          >
+            <a>
+              4
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+            tabindex="0"
+            title="5"
+          >
+            <a>
+              5
+            </a>
+          </li>
+          <li
+            class="ant-pagination-jump-next"
+            tabindex="0"
+            title="Next 5 Pages"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-10"
+            tabindex="0"
+            title="10"
+          >
+            <a>
+              10
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class=" ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -6887,48 +7023,52 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
-          title="2"
-        >
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          aria-disabled="false"
-          class=" ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a>
+              2
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class=" ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -6987,7 +7127,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                       rowspan="4"
                     >
                       <span>
@@ -7015,7 +7155,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                       rowspan="4"
                     >
                       <span>
@@ -7151,7 +7291,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7190,7 +7330,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7199,7 +7339,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7238,7 +7378,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7247,7 +7387,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7286,7 +7426,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7295,7 +7435,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7334,7 +7474,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7343,7 +7483,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7382,7 +7522,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7391,7 +7531,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7430,7 +7570,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7439,7 +7579,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7478,7 +7618,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7487,7 +7627,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7526,7 +7666,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7535,7 +7675,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7574,7 +7714,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7583,7 +7723,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-filters"
+                      class="ant-table-column-has-filters"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
@@ -7622,7 +7762,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class=""
                     >
                       M
                     </td>
@@ -7965,93 +8105,97 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination mini"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right mini"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
-          title="2"
-        >
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
-          title="3"
-        >
-          <a>
-            3
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
-          title="4"
-        >
-          <a>
-            4
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
-          tabindex="0"
-          title="5"
-        >
-          <a>
-            5
-          </a>
-        </li>
-        <li
-          class="ant-pagination-jump-next"
-          tabindex="0"
-          title="Next 5 Pages"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-10"
-          tabindex="0"
-          title="10"
-        >
-          <a>
-            10
-          </a>
-        </li>
-        <li
-          aria-disabled="false"
-          class=" ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a>
+              2
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-3"
+            tabindex="0"
+            title="3"
+          >
+            <a>
+              3
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-4"
+            tabindex="0"
+            title="4"
+          >
+            <a>
+              4
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+            tabindex="0"
+            title="5"
+          >
+            <a>
+              5
+            </a>
+          </li>
+          <li
+            class="ant-pagination-jump-next"
+            tabindex="0"
+            title="Next 5 Pages"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-10"
+            tabindex="0"
+            title="10"
+          >
+            <a>
+              10
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class=" ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -8279,38 +8423,42 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -8584,38 +8732,42 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -8873,38 +9025,42 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -9161,38 +9317,42 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-next"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -9484,38 +9644,42 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-next"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -10066,75 +10230,79 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-2"
-            tabindex="0"
-            title="2"
-          >
-            <a>
-              2
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-3"
-            tabindex="0"
-            title="3"
-          >
-            <a>
-              3
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-4"
-            tabindex="0"
-            title="4"
-          >
-            <a>
-              4
-            </a>
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-5"
-            tabindex="0"
-            title="5"
-          >
-            <a>
-              5
-            </a>
-          </li>
-          <li
-            aria-disabled="false"
-            class=" ant-pagination-next"
-            tabindex="0"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-2"
+              tabindex="0"
+              title="2"
+            >
+              <a>
+                2
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-3"
+              tabindex="0"
+              title="3"
+            >
+              <a>
+                3
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-4"
+              tabindex="0"
+              title="4"
+            >
+              <a>
+                4
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-5"
+              tabindex="0"
+              title="5"
+            >
+              <a>
+                5
+              </a>
+            </li>
+            <li
+              aria-disabled="false"
+              class=" ant-pagination-next"
+              tabindex="0"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -10676,75 +10844,79 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
           </div>
         </div>
       </div>
-      <ul
-        class="ant-pagination ant-table-pagination"
-        unselectable="unselectable"
+      <div
+        class="ant-table-pagination-container"
       >
-        <li
-          aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
-          title="Previous Page"
+        <ul
+          class="ant-pagination ant-table-pagination-right"
+          unselectable="unselectable"
         >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-          tabindex="0"
-          title="1"
-        >
-          <a>
-            1
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-2"
-          tabindex="0"
-          title="2"
-        >
-          <a>
-            2
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-3"
-          tabindex="0"
-          title="3"
-        >
-          <a>
-            3
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-4"
-          tabindex="0"
-          title="4"
-        >
-          <a>
-            4
-          </a>
-        </li>
-        <li
-          class="ant-pagination-item ant-pagination-item-5"
-          tabindex="0"
-          title="5"
-        >
-          <a>
-            5
-          </a>
-        </li>
-        <li
-          aria-disabled="false"
-          class=" ant-pagination-next"
-          tabindex="0"
-          title="Next Page"
-        >
-          <a
-            class="ant-pagination-item-link"
-          />
-        </li>
-      </ul>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-disabled ant-pagination-prev"
+            title="Previous Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a>
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a>
+              2
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-3"
+            tabindex="0"
+            title="3"
+          >
+            <a>
+              3
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-4"
+            tabindex="0"
+            title="4"
+          >
+            <a>
+              4
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-5"
+            tabindex="0"
+            title="5"
+          >
+            <a>
+              5
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class=" ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <a
+              class="ant-pagination-item-link"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -10885,38 +11057,42 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination mini"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right mini"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-next"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -11053,38 +11229,42 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <ul
-          class="ant-pagination ant-table-pagination mini"
-          unselectable="unselectable"
+        <div
+          class="ant-table-pagination-container"
         >
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-prev"
-            title="Previous Page"
+          <ul
+            class="ant-pagination ant-table-pagination-right mini"
+            unselectable="unselectable"
           >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-          <li
-            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-            tabindex="0"
-            title="1"
-          >
-            <a>
-              1
-            </a>
-          </li>
-          <li
-            aria-disabled="true"
-            class="ant-pagination-disabled ant-pagination-next"
-            title="Next Page"
-          >
-            <a
-              class="ant-pagination-item-link"
-            />
-          </li>
-        </ul>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-prev"
+              title="Previous Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a>
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-disabled ant-pagination-next"
+              title="Next Page"
+            >
+              <a
+                class="ant-pagination-item-link"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
