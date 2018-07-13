@@ -18,7 +18,7 @@ export interface AvatarProps {
   children?: any;
   alt?: string;
   /* callback when img load error */
-  /* return true to prevent Avatar show default fallback behavior, then you can do fallback by your self*/
+  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self*/
   onError?: () => boolean;
 }
 
