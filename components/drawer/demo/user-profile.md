@@ -169,11 +169,11 @@ class App extends React.Component {
             <Col span={24}>
               <DescriptionItem
                 title="Github"
-                content={
+                content={(
                   <a href="http://github.com/ant-design/ant-design/">
                     github.com/ant-design/ant-design/
                   </a>
-                }
+                )}
               />
             </Col>
           </Row>
