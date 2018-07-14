@@ -16,14 +16,12 @@ timeline: true
 ---
 
 ## 3.7.0
-3.7.0 is a heavy update that brings a lot of exciting changes and new features.
-
+3.7.0 is a heavy update that brings a lot of exciting changes and new features.  
 Here are some highlights ✨:
 
-- 🌟 Add new component : Drawer, demo is [here](https://ant.design/components/drawer-cn/). [#10791](https://github.com/ant-design/ant-design/pull/10791)
-- 🌟 horizontal menu automatically collapses when there is no enough space.[#11234](https://github.com/ant-design/ant-design/pull/11234)
-![demo](https://user-images.githubusercontent.com/1731837/42550555-0fef7878-8505-11e8-9d2f-f708fec66b44.gif
-)
+- 🌟 Add drawer component : [Drawer](https://ant.design/components/drawer-cn/). [#10791](https://github.com/ant-design/ant-design/pull/10791)
+- 🌟 Horizontal menu automatically collapses when there is no enough space.[#11234](https://github.com/ant-design/ant-design/pull/11234)
+![demo](https://user-images.githubusercontent.com/1731837/42550555-0fef7878-8505-11e8-9d2f-f708fec66b44.gif)
 - 🌟 Add `Tree.DirectoryTree` component as the built-in directory tree. [#7749](https://github.com/ant-design/ant-design/issues/7749)
 
 Component Fixes / Enhancements:
@@ -36,16 +34,16 @@ Component Fixes / Enhancements:
   - 🌟 Search input now supports case sensitive search.[#10990](https://github.com/ant-design/ant-design/issues/10990)
   - 🗑 Remove `label` prop and use `title` prop instead in the `treeData`.
 - Upgrade `rc-upload` to `2.5.0` for Upload. 
-	- 🌟 Add `directory` prop to support folder uploading. [#7315](https://github.com/ant-design/ant-design/issues/7315)
-	- 🌟 `action` prop supports to be the a function which returns a Promise object. [fd96967](https://github.com/ant-design/ant-design/commit/fd96967c872600b79bb608e9ddf9f8c38814a704)
+  - 🌟 Add `directory` prop to support folder uploading. [#7315](https://github.com/ant-design/ant-design/issues/7315)
+  - 🌟 `action` prop supports to be the a function which returns a Promise object. [fd96967](https://github.com/ant-design/ant-design/commit/fd96967c872600b79bb608e9ddf9f8c38814a704)
 - Dropdown
-	- 🌟 Provide default margin for icon in the menu item. [8e60a59](https://github.com/ant-design/ant-design/commit/8e60a591fd24f644de4f67d69c2210e9270be9cc)
-	- 🌟 Be able to adjust the menu position for the trigger mode of `contextMenu` automatically. [16e4260](https://github.com/ant-design/ant-design/commit/16e42601d6772fc0830ee237a1e751a38a118676)
+  - 🌟 Provide default margin for icon in the menu item. [8e60a59](https://github.com/ant-design/ant-design/commit/8e60a591fd24f644de4f67d69c2210e9270be9cc)
+  - 🌟 Be able to adjust the menu position for the trigger mode of `contextMenu` automatically. [16e4260](https://github.com/ant-design/ant-design/commit/16e42601d6772fc0830ee237a1e751a38a118676)
 - Upgrade `rc-table` to `6.2.2` for Table. [f2fddff](https://github.com/ant-design/ant-design/commit/f2fddff3fd0d6b36e8e6d8ee06bfcbcc85ead4f0)
-	- 🌟 Add `expanded` as the fourth param of `expandedRowRender` prop to get the expanded state of current row. [#10379](https://github.com/ant-design/ant-design/issues/10379)
-	- 🌟 Add the ability to override the filter menu without the fully controlled component. [59cc3a8](https://github.com/ant-design/ant-design/commit/59cc3a8b6c643f7206feedf2dc2c7154296ba3e3) [@chrvadala](https://github.com/chrvadala)
-	- 🌟 `filterIcon` prop  supports to be a render function which returns ReactNode. [1af4392](https://github.com/ant-design/ant-design/commit/1af4392ae9fbdaa6fcfbf2f0de5413100ef4a84a)
-	- 🐞 Fix the row dislocation problem when the column is fixed. [#10392](https://github.com/ant-design/ant-design/issues/10392)
+  - 🌟 Add `expanded` as the fourth param of `expandedRowRender` prop to get the expanded state of current row. [#10379](https://github.com/ant-design/ant-design/issues/10379)
+  - 🌟 Add the ability to override the filter menu without the fully controlled component. [59cc3a8](https://github.com/ant-design/ant-design/commit/59cc3a8b6c643f7206feedf2dc2c7154296ba3e3) [@chrvadala](https://github.com/chrvadala)
+  - 🌟 `filterIcon` prop  supports to be a render function which returns ReactNode. [1af4392](https://github.com/ant-design/ant-design/commit/1af4392ae9fbdaa6fcfbf2f0de5413100ef4a84a)
+  - 🐞 Fix the row dislocation problem when the column is fixed. [#10392](https://github.com/ant-design/ant-design/issues/10392)
 - 🌟 Allow to pass `data-*`, `aria-*` and `role-*` props to the inner for Alert. [f0b684d](https://github.com/ant-design/ant-design/commit/f0b684de6a7c422f0de56e1ef72aeb35ab25a858)
 - 🌟 Add `alt` prop for Avatar to set the text when the image is unable to display. [#10798](https://github.com/ant-design/ant-design/pull/10798)
 - 🌟 Allow to pass `data-*`, `aria-*` and `role-*` props to the inner Input for DatePicker. [e63f9d4](https://github.com/ant-design/ant-design/commit/e63f9d4beb440de92c0b0ce8e6e83f7e24fef792)
@@ -57,8 +55,8 @@ Component Fixes / Enhancements:
 - 🌟 Add `setDefaultIndicator` static function to set global indicator for Spin. [#10787](https://github.com/ant-design/ant-design/issues/10787)
 - 🌟 Add `visible` prop to set the visibility for `Tag`. [4ac0277](https://github.com/ant-design/ant-design/commit/4ac027781372dda08a5458bc73836fbc14dfe51f)
 - Upgrade `rc-tree` to `1.12.0` for Tree
-	- 🌟 Add `loadedKeys` prop to set the loaded nodes，which usually works with loadData prop. [#10666](https://github.com/ant-design/ant-design/issues/10666)
-	- 🌟 Add `onLoad` prop to be the callback function when all the nodes are loaded. [c488aca](https://github.com/ant-design/ant-design/commit/c488aca05e11d942d77c1b6bff45d12bbb1a2bd6)
+  - 🌟 Add `loadedKeys` prop to set the loaded nodes，which usually works with loadData prop. [#10666](https://github.com/ant-design/ant-design/issues/10666)
+  - 🌟 Add `onLoad` prop to be the callback function when all the nodes are loaded. [c488aca](https://github.com/ant-design/ant-design/commit/c488aca05e11d942d77c1b6bff45d12bbb1a2bd6)
 - 🗑 Deprecate `combobox` value for `Select[mode]` and please replace it with `AutoComplete`. [53046a4](https://github.com/ant-design/ant-design/commit/53046a454ad83ca03dc313e63f56474ed1173002)
 - 🐞 Cascader filedNames change into fieldNames.[db4a5ed](https://github.com/ant-design/ant-design/commit/db4a5edf8e97a8a0e6c8d97fced2b9180bc15cd2)
 - 🐞 Fix Timeline dot not working with Tooltip. [0e3b67e](https://github.com/ant-design/ant-design/commit/0e3b67e9999d867cc304f3be61a8a042a2ab92ee)
