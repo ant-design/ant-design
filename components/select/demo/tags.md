@@ -15,6 +15,7 @@ Select with tags, transform input to tag (scroll the menu)
 
 ````jsx
 import { Select } from 'antd';
+
 const Option = Select.Option;
 
 const children = [];
@@ -34,6 +35,6 @@ ReactDOM.render(
     onChange={handleChange}
   >
     {children}
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode);
 ````

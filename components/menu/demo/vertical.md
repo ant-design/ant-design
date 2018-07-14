@@ -15,6 +15,7 @@ Submenus open as pop-ups.
 
 ````jsx
 import { Menu, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -48,6 +49,6 @@ ReactDOM.render(
       <Menu.Item key="11">Option 11</Menu.Item>
       <Menu.Item key="12">Option 12</Menu.Item>
     </SubMenu>
-  </Menu>
-, mountNode);
+  </Menu>,
+  mountNode);
 ````

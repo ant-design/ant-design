@@ -15,6 +15,7 @@ Multiple and checkable.
 
 ````jsx
 import { TreeSelect } from 'antd';
+
 const SHOW_PARENT = TreeSelect.SHOW_PARENT;
 
 const treeData = [{
@@ -49,10 +50,12 @@ class Demo extends React.Component {
   state = {
     value: ['0-0-0'],
   }
+
   onChange = (value) => {
-    console.log('onChange ', value, arguments);
+    console.log('onChange ', value);
     this.setState({ value });
   }
+
   render() {
     const tProps = {
       treeData,

@@ -120,6 +120,6 @@ const data = [{
   address: 'Dublin No. 2 Lake Park',
 }];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} bordered />
-, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} bordered />,
+  mountNode);
 ````

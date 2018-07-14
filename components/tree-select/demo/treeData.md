@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 从数据直接生成
-  en-US: Generate form tree data
+  en-US: Generate from tree data
 ---
 
 ## zh-CN
@@ -40,10 +40,12 @@ class Demo extends React.Component {
   state = {
     value: undefined,
   }
+
   onChange = (value) => {
-    console.log(arguments);
+    console.log(value);
     this.setState({ value });
   }
+
   render() {
     return (
       <TreeSelect

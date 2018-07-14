@@ -63,13 +63,13 @@ The properties of the object are follows:
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
 | iconType | Icon `type` of the Icon component | string | `question-circle` |
+| keyboard | Whether support press esc to close | Boolean | true |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |
 | okText | Text of the OK button | string | `OK` |
 | okType | Button `type` of the OK button | string | `primary` |
 | title | Title | string\|ReactNode | - |
 | width | Width of the modal dialog | string\|number | 416 |
 | zIndex | The `z-index` of the Modal | Number | 1000 |
-| keyboard | Whether support press esc to close | Boolean | true |
 | onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
 | onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
 

@@ -23,6 +23,6 @@ ReactDOM.render(
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
     <Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="cross" />} defaultChecked />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

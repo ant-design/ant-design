@@ -72,8 +72,8 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popover>
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

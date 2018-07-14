@@ -34,7 +34,9 @@ class VirtualizedExample extends React.Component {
     data: [],
     loading: false,
   }
+
   loadedRowsMap = {}
+
   getData = (callback) => {
     reqwest({
       url: fakeDataUrl,
@@ -46,6 +48,7 @@ class VirtualizedExample extends React.Component {
       },
     });
   }
+
   componentDidMount() {
     this.getData((res) => {
       this.setState({
@@ -53,6 +56,7 @@ class VirtualizedExample extends React.Component {
       });
     });
   }
+
   handleInfiniteOnLoad = ({ startIndex, stopIndex }) => {
     let data = this.state.data;
     this.setState({
@@ -77,9 +81,11 @@ class VirtualizedExample extends React.Component {
       });
     });
   }
+
   isRowLoaded = ({ index }) => {
     return !!this.loadedRowsMap[index];
   }
+
   renderItem = ({ index, key, style }) => {
     const { data } = this.state;
     const item = data[index];
@@ -94,6 +100,7 @@ class VirtualizedExample extends React.Component {
       </List.Item>
     );
   }
+
   render() {
     const { data } = this.state;
     const vlist = ({ height, isScrolling, onChildScroll, scrollTop, onRowsRendered, width }) => (

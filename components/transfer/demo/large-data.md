@@ -22,9 +22,11 @@ class App extends React.Component {
     mockData: [],
     targetKeys: [],
   }
+
   componentDidMount() {
     this.getMock();
   }
+
   getMock = () => {
     const targetKeys = [];
     const mockData = [];
@@ -42,10 +44,12 @@ class App extends React.Component {
     }
     this.setState({ mockData, targetKeys });
   }
+
   handleChange = (targetKeys, direction, moveKeys) => {
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
   }
+
   render() {
     return (
       <Transfer

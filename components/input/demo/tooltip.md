@@ -40,6 +40,7 @@ class NumericInput extends React.Component {
       this.props.onChange(value);
     }
   }
+
   // '.' at the end or only '-' in the input box.
   onBlur = () => {
     const { value, onBlur, onChange } = this.props;
@@ -50,6 +51,7 @@ class NumericInput extends React.Component {
       onBlur();
     }
   }
+
   render() {
     const { value } = this.props;
     const title = value ? (
@@ -81,9 +83,11 @@ class NumericInputDemo extends React.Component {
     super(props);
     this.state = { value: '' };
   }
+
   onChange = (value) => {
     this.setState({ value });
   }
+
   render() {
     return <NumericInput style={{ width: 120 }} value={this.state.value} onChange={this.onChange} />;
   }

@@ -19,6 +19,7 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 
 ````jsx
 import { Form, Input } from 'antd';
+
 const FormItem = Form.Item;
 
 const CustomizedForm = Form.create({
@@ -57,11 +58,13 @@ class Demo extends React.Component {
       },
     },
   };
+
   handleFormChange = (changedFields) => {
     this.setState(({ fields }) => ({
       fields: { ...fields, ...changedFields },
     }));
   }
+
   render() {
     const fields = this.state.fields;
     return (

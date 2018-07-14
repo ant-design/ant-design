@@ -20,11 +20,13 @@ class App extends React.Component {
   state = {
     disabled: true,
   }
+
   toggleDisabled = () => {
     this.setState({
       disabled: !this.state.disabled,
     });
   }
+
   render() {
     return (
       <div>

@@ -15,6 +15,7 @@ Classic page layouts.
 
 ````jsx
 import { Layout } from 'antd';
+
 const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
@@ -51,8 +52,8 @@ ReactDOM.render(
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

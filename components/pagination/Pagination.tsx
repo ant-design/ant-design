@@ -41,8 +41,9 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
     selectPrefixCls: 'ant-select',
   };
 
-  renderPagination = (locale: PaginationLocale) => {
-    const { className, size, ...restProps } = this.props;
+  renderPagination = (contextLocale: PaginationLocale) => {
+    const { className, size, locale: customLocale,  ...restProps } = this.props;
+    const locale = { ...contextLocale, ...customLocale };
     const isSmall = size === 'small';
     return (
       <RcPagination

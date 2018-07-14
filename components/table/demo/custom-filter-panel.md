@@ -45,9 +45,11 @@ class App extends React.Component {
     searchText: '',
     filtered: false,
   };
+
   onInputChange = (e) => {
     this.setState({ searchText: e.target.value });
   }
+
   onSearch = () => {
     const { searchText } = this.state;
     const reg = new RegExp(searchText, 'gi');
@@ -64,8 +66,8 @@ class App extends React.Component {
           name: (
             <span>
               {record.name.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((text, i) => (
-                text.toLowerCase() === searchText.toLowerCase() ?
-                  <span key={i} className="highlight">{text}</span> : text // eslint-disable-line
+                text.toLowerCase() === searchText.toLowerCase()
+                  ? <span key={i} className="highlight">{text}</span> : text // eslint-disable-line
               ))}
             </span>
           ),
@@ -73,6 +75,7 @@ class App extends React.Component {
       }).filter(record => !!record),
     });
   }
+
   render() {
     const columns = [{
       title: 'Name',

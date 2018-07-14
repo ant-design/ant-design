@@ -100,6 +100,41 @@ this.form // => The instance of CustomizedForm
 | options.force | 对已经校验过的表单域，在 validateTrigger 再次被触发时是否再次校验 | boolean | false |
 | options.scroll | 定义 validateFieldsAndScroll 的滚动行为，详细配置见 [dom-scroll-into-view config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
 
+#### validateFields 的 callback 参数示例
+
+- `errors`:
+
+   ```js
+   {
+     "userName": {
+       "errors": [
+         {
+           "message": "Please input your username!",
+           "field": "userName"
+         }
+       ]
+     },
+     "password": {
+       "errors": [
+         {
+           "message": "Please input your Password!",
+           "field": "password"
+         }
+       ]
+     }
+   }
+   ```
+
+- `values`:
+
+   ```js
+   {
+     "userName": "username",
+     "password": "password",
+   }
+   ```
+
+
 ### Form.createFormField
 
 用于标记 `mapPropsToFields` 返回的表单域数据，[例子](#components-form-demo-global-state)。

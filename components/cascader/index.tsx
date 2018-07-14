@@ -341,7 +341,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       prefixCls, inputPrefixCls, children, placeholder, size, disabled,
       className, style, allowClear, showSearch = false, ...otherProps
     } = props;
-    const value = state.value;
+    const { value, inputFocused } = state;
 
     const sizeCls = classNames({
       [`${inputPrefixCls}-lg`]: size === 'large',
@@ -364,6 +364,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
       [`${prefixCls}-picker-show-search`]: !!showSearch,
+      [`${prefixCls}-picker-focused`]: inputFocused,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004

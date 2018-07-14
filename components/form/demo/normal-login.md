@@ -15,6 +15,7 @@ Normal login form which can contain more elements.
 
 ````jsx
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
@@ -26,6 +27,7 @@ class NormalLoginForm extends React.Component {
       }
     });
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (

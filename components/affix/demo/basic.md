@@ -21,6 +21,7 @@ class Demo extends React.Component {
     top: 10,
     bottom: 10,
   }
+
   render() {
     return (
       <div>
@@ -54,8 +55,5 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Demo />,
-  mountNode
-);
+ReactDOM.render(<Demo />, mountNode);
 ````

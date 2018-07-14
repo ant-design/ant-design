@@ -15,6 +15,7 @@ Select different settings to see the result.
 
 ````jsx
 import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+
 const FormItem = Form.Item;
 
 const columns = [{

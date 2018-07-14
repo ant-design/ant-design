@@ -81,6 +81,6 @@ ReactDOM.render(
         </span>
       )}
     />
-  </Table>
-, mountNode);
+  </Table>,
+  mountNode);
 ````

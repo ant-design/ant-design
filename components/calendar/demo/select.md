@@ -22,15 +22,18 @@ class App extends React.Component {
     value: moment('2017-01-25'),
     selectedValue: moment('2017-01-25'),
   }
+
   onSelect = (value) => {
     this.setState({
       value,
       selectedValue: value,
     });
   }
+
   onPanelChange = (value) => {
     this.setState({ value });
   }
+
   render() {
     const { value, selectedValue } = this.state;
     return (

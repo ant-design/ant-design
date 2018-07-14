@@ -15,6 +15,7 @@ This property provide an additional time selection. When `showTime` is an Object
 
 ````jsx
 import { DatePicker } from 'antd';
+
 const { RangePicker } = DatePicker;
 
 function onChange(value, dateString) {
@@ -43,6 +44,6 @@ ReactDOM.render(
       onChange={onChange}
       onOk={onOk}
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

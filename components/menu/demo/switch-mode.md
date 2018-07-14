@@ -15,6 +15,7 @@ Show the dynamic switching mode (between 'inline' and 'vertical').
 
 ````jsx
 import { Menu, Icon, Switch } from 'antd';
+
 const { SubMenu } = Menu;
 
 class Sider extends React.Component {
@@ -22,16 +23,19 @@ class Sider extends React.Component {
     mode: 'inline',
     theme: 'light',
   }
+
   changeMode = (value) => {
     this.setState({
       mode: value ? 'vertical' : 'inline',
     });
   }
+
   changeTheme = (value) => {
     this.setState({
       theme: value ? 'dark' : 'light',
     });
   }
+
   render() {
     return (
       <div>

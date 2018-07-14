@@ -33,6 +33,6 @@ ReactDOM.render(
     <Badge status="processing" text="Processing" />
     <br />
     <Badge status="warning" text="Warning" />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

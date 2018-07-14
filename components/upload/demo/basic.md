@@ -39,6 +39,6 @@ ReactDOM.render(
     <Button>
       <Icon type="upload" /> Click to Upload
     </Button>
-  </Upload>
-, mountNode);
+  </Upload>,
+  mountNode);
 ````

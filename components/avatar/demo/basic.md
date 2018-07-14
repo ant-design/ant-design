@@ -28,8 +28,8 @@ ReactDOM.render(
       <Avatar shape="square" icon="user" />
       <Avatar shape="square" size="small" icon="user" />
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

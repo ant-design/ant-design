@@ -20,6 +20,7 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import { SpinProps } from '../spin';
 import {
   TableProps,
+  TableSize,
   TableState,
   TableComponents,
   RowSelectionType,
@@ -88,7 +89,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     prefixCls: 'ant-table',
     useFixedHeader: false,
     className: '',
-    size: 'large',
+    size: 'default' as TableSize,
     loading: false,
     bordered: false,
     indentSize: 20,
@@ -103,6 +104,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   store: Store;
   columns: ColumnProps<T>[];
   components: TableComponents;
+  row: React.ComponentType<any>;
 
   constructor(props: TableProps<T>) {
     super(props);
@@ -921,13 +923,16 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   createComponents(components: TableComponents = {}, prevComponents?: TableComponents) {
     const bodyRow = components && components.body && components.body.row;
     const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-    if (!this.components || bodyRow !== preBodyRow) {
-      this.components = { ...components };
-      this.components.body = {
-        ...components.body,
-        row: createBodyRow(bodyRow),
-      };
+    if (!this.row || bodyRow !== preBodyRow) {
+      this.row = createBodyRow(bodyRow);
     }
+    this.components = {
+      ...components,
+      body: {
+        ...components.body,
+        row: this.row,
+      },
+    };
   }
 
   renderTable = (contextLocale: TableLocale, loading: SpinProps) => {

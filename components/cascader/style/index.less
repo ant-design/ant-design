@@ -13,7 +13,6 @@
     background-color: transparent !important;
     cursor: pointer;
     width: 100%;
-    display: block;
     position: static;
   }
 
@@ -29,6 +28,7 @@
     background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
+    transition: color .3s;
 
     &-with-value &-label {
       color: transparent;
@@ -45,6 +45,10 @@
 
     &:focus .@{cascader-prefix-cls}-input {
       .active;
+    }
+
+    &-show-search&-focused {
+      color: @disabled-color;
     }
 
     &-label {

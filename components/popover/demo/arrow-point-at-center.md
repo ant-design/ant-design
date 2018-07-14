@@ -32,6 +32,6 @@ ReactDOM.render(
     <Popover placement="topLeft" title={text} content={content} arrowPointAtCenter>
       <Button>Arrow points to center / 箭头指向中心</Button>
     </Popover>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
