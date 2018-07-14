@@ -37,7 +37,6 @@ class App extends React.Component {
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
-        triggerSubMenuAction="click"
       >
         <Menu.Item key="mail">
           <Icon type="mail" />Navigation One
