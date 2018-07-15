@@ -60,7 +60,7 @@ const columns = [{
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
-| expandedRowRender | Expanded container render for each row | Function(record):ReactNode | - |
+| expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
 | footer | Table footer renderer | Function(currentPageData) |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |
@@ -116,7 +116,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |
-| filterIcon | Customized filter icon | ReactNode | `false` |
+| filterIcon | Customized filter icon | ReactNode\|(filtered: boolean) => ReactNode | `false` |
 | filterMultiple | Whether multiple filters can be selected | boolean | `true` |
 | filters | Filter menu config | object\[] | - |
 | fixed | Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | `false` |

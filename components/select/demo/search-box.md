@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-自动补全和远程数据结合。
+搜索和远程数据结合。
 
 ## en-US
 
-Autocomplete with remote ajax data.
+Search with remote data.
 
 ````jsx
 import { Select } from 'antd';
@@ -61,23 +61,28 @@ class SearchInput extends React.Component {
     value: '',
   }
 
+  handleSearch = (value) => {
+    fetch(value, data => this.setState({ data }));
+  }
+
   handleChange = (value) => {
     this.setState({ value });
-    fetch(value, data => this.setState({ data }));
   }
 
   render() {
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
       <Select
-        mode="combobox"
+        showSearch
         value={this.state.value}
         placeholder={this.props.placeholder}
         style={this.props.style}
         defaultActiveFirstOption={false}
         showArrow={false}
         filterOption={false}
+        onSearch={this.handleSearch}
         onChange={this.handleChange}
+        notFoundContent={null}
       >
         {options}
       </Select>

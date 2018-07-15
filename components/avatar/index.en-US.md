@@ -14,3 +14,4 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | shape | the shape of avatar | `circle` \| `square` | `circle` |
 | size | the size of the avatar | `large` \| `small` \| `default` | `default` |
 | src | the address of the image for an image avatar | string | - |
+| alt | This attribute defines the alternative text describing the image | string | - |

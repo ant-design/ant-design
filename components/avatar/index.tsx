@@ -16,6 +16,7 @@ export interface AvatarProps {
   prefixCls?: string;
   className?: string;
   children?: any;
+  alt?: string;
 }
 
 export interface AvatarState {
@@ -75,7 +76,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   render() {
     const {
-      prefixCls, shape, size, src, icon, className, ...others
+      prefixCls, shape, size, src, icon, className, alt, ...others
     } = this.props;
 
     const sizeCls = classNames({
@@ -95,6 +96,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         <img
           src={src}
           onError={this.handleImgLoadError}
+          alt={alt}
         />
       );
     } else if (icon) {

@@ -35,7 +35,10 @@ describe('Input.Search', () => {
     );
     wrapper.find('Icon').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'click',
+      preventDefault: expect.any(Function),
+    }));
   });
 
   it('should trigger onSearch when click search button', () => {
@@ -45,7 +48,10 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'click',
+      preventDefault: expect.any(Function),
+    }));
   });
 
   it('should trigger onSearch when click search button with text', () => {
@@ -55,7 +61,10 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'click',
+      preventDefault: expect.any(Function),
+    }));
   });
 
   it('should trigger onSearch when click search button with customize button', () => {
@@ -65,7 +74,10 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'click',
+      preventDefault: expect.any(Function),
+    }));
   });
 
   it('should trigger onSearch when click search button of native', () => {
@@ -75,7 +87,10 @@ describe('Input.Search', () => {
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'click',
+      preventDefault: expect.any(Function),
+    }));
   });
 
   it('should trigger onSearch when press enter', () => {
@@ -85,6 +100,9 @@ describe('Input.Search', () => {
     );
     wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith('search text');
+    expect(onSearch).toBeCalledWith('search text', expect.objectContaining({
+      type: 'keydown',
+      preventDefault: expect.any(Function),
+    }));
   });
 });

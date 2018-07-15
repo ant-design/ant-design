@@ -20,7 +20,7 @@
 .active(@color: @outline-color) {
   border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
-  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
   border-right-width: 1px !important;
 }
 
