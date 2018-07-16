@@ -34,7 +34,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <div
@@ -74,7 +74,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -108,7 +108,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -142,7 +142,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -176,7 +176,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     class="ant-table-row  ant-table-row-level-0"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label

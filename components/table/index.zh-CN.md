@@ -61,7 +61,7 @@ const columns = [{
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - |
-| expandedRowRender | 额外的展开行 | Function(record):ReactNode | - |
+| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
 | footer | 表格尾部 | Function(currentPageData) |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
@@ -116,7 +116,7 @@ const columns = [{
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |
-| filterIcon | 自定义 fiter 图标。 | ReactNode | false |
+| filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |
 | filterMultiple | 是否多选 | boolean | true |
 | filters | 表头的筛选菜单项 | object\[] | - |
 | fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |

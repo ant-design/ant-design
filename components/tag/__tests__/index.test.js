@@ -38,4 +38,17 @@ describe('Tag', () => {
     jest.runAllTimers();
     expect(wrapper.find('.ant-tag').length).toBe(1);
   });
+
+  it('can be controlled by visible', () => {
+    const wrapper = mount(
+      <Tag visible />
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ visible: false });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setProps({ visible: true });
+    jest.runAllTimers();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

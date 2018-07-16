@@ -18,7 +18,7 @@ export interface ColumnProps<T> {
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode;
+  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
@@ -96,7 +96,7 @@ export interface TableProps<T> {
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: any;
+  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];

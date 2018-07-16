@@ -21,6 +21,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
   static defaultProps = {
     disabled: false,
     prefixCls: 'ant-radio',
+    buttonStyle: 'outline',
   };
 
   static childContextTypes = {
@@ -90,9 +91,9 @@ export default class RadioGroup extends React.Component<RadioGroupProps, RadioGr
   }
   render() {
     const props = this.props;
-    const { prefixCls, className = '', options } = props;
+    const { prefixCls, className = '', options, buttonStyle } = props;
     const groupPrefixCls = `${prefixCls}-group`;
-    const classString = classNames(groupPrefixCls, {
+    const classString = classNames(groupPrefixCls, `${groupPrefixCls}-${buttonStyle}`, {
       [`${groupPrefixCls}-${props.size}`]: props.size,
     }, className);
 

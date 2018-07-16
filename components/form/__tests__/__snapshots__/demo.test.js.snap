@@ -1081,7 +1081,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             class="ant-form-item-children"
           >
             <div
-              class="ant-radio-group"
+              class="ant-radio-group ant-radio-group-outline"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -2614,7 +2614,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <div
-            class="ant-radio-group"
+            class="ant-radio-group ant-radio-group-outline"
             id="radio-group"
           >
             <label
@@ -2703,7 +2703,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <div
-            class="ant-radio-group"
+            class="ant-radio-group ant-radio-group-outline"
             id="radio-button"
           >
             <label

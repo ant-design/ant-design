@@ -21,3 +21,8 @@ subtitle: 加载中
 | spinning | 是否旋转 | boolean | true |
 | tip | 当作为包裹元素时，可以自定义描述文案 | string | - |
 | wrapperClassName | 包装器的类属性 | string | - |
+
+### 静态方法
+
+- `Spin.setDefaultIndicator(indicator: ReactElement)`  
+  同上 `indicator`，你可以自定义全局默认元素

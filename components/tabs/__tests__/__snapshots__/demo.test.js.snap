@@ -941,7 +941,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:16px"
   >
     <label
@@ -1100,7 +1100,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:8px"
   >
     <label

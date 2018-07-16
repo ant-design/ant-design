@@ -77,4 +77,12 @@ describe('Table', () => {
     wrapper.update();
     expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
+
+  it('renders custom components correctly when it changes', () => {
+    const BodyWrapper1 = props => <tbody id="wrapper1" {...props} />;
+    const BodyWrapper2 = props => <tbody id="wrapper2" {...props} />;
+    const wrapper = mount(<Table components={{ body: { wrapper: BodyWrapper1 } }} />);
+    wrapper.setProps({ components: { body: { wrapper: BodyWrapper2 } } });
+    expect(wrapper.find('tbody').props().id).toBe('wrapper2');
+  });
 });

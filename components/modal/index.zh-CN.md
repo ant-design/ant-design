@@ -31,6 +31,8 @@ title: Modal
 | maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object | - |
 | title | 标题 | string\|ReactNode | 无 |
 | visible | 对话框是否可见 | boolean | 无 |

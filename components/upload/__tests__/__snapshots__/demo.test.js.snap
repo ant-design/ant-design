@@ -118,6 +118,20 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 </span>
 `;
 
+exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:"
+  />
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
+`;
+
 exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
 <span
   class=""
