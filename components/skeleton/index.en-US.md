@@ -5,13 +5,13 @@ title: Skeleton
 cols: 1
 ---
 
-Let user to have the anticipation for waiting.
-Which helps to make the loading process more smooth.
+Let user to have the anticipation for waiting
+, which helps to make the loading process more smooth.
 
 ## When To Use
 
-- When resource need long time loading, like low network speed
-- The component contains much information. Such as List or Card
+- When resource needs long time to load, like low network speed.
+- The component contains much information. Such as List or Card.
 
 
 ## API

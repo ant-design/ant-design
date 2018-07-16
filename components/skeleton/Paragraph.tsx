@@ -17,7 +17,7 @@ interface SkeletonParagraphState {
   widthList: Array<widthUnit>;
 }
 
-class Paragraph extends React.Component<SkeletonParagraphProps, any> {
+class Paragraph extends React.Component<SkeletonParagraphProps, SkeletonParagraphState> {
   static defaultProps: Partial<SkeletonParagraphProps> = {
     prefixCls: 'ant-skeleton-paragraph',
   };

@@ -3,14 +3,6 @@ import { mount } from 'enzyme';
 import Skeleton from '..';
 
 describe('Skeleton', () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
   const genSkeleton = props => mount(
     <Skeleton loading {...props}>
       Bamboo
