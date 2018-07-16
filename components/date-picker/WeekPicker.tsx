@@ -21,6 +21,7 @@ class WeekPicker extends React.Component<any, any> {
     if ('value' in nextProps) {
       return { value: nextProps.value };
     }
+    return null;
   }
 
   private input: any;
