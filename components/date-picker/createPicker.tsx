@@ -7,6 +7,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -156,6 +157,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         />
       ) : null;
 
+      const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
           <input
@@ -165,6 +167,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             value={(inputValue && inputValue.format(props.format)) || ''}
             placeholder={placeholder}
             className={props.pickerInputClass}
+            {...dataOrAriaProps}
           />
           {clearIcon}
           <span className={`${prefixCls}-picker-icon`} />

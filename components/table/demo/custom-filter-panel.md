@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过 `filterDropdown`、`filterDropdownVisible` 和 `filterDropdownVisibleChange` 定义自定义的列筛选功能，并实现一个搜索列的示例。
+通过 `filterDropdown` 自定义的列筛选功能，并实现一个搜索列的示例。
 
 ## en-US
 
-Implement a customized column search example via `filterDropdown`, `filterDropdownVisible` and `filterDropdownVisibleChange`.
+Implement a customized column search example via `filterDropdown`.
 
 ````jsx
 import { Table, Input, Button, Icon } from 'antd';
@@ -40,40 +40,17 @@ const data = [{
 
 class App extends React.Component {
   state = {
-    filterDropdownVisible: false,
-    data,
     searchText: '',
-    filtered: false,
   };
 
-  onInputChange = (e) => {
-    this.setState({ searchText: e.target.value });
+  handleSearch = (selectedKeys, confirm) => () => {
+    confirm();
+    this.setState({ searchText: selectedKeys[0] });
   }
 
-  onSearch = () => {
-    const { searchText } = this.state;
-    const reg = new RegExp(searchText, 'gi');
-    this.setState({
-      filterDropdownVisible: false,
-      filtered: !!searchText,
-      data: data.map((record) => {
-        const match = record.name.match(reg);
-        if (!match) {
-          return null;
-        }
-        return {
-          ...record,
-          name: (
-            <span>
-              {record.name.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((text, i) => (
-                text.toLowerCase() === searchText.toLowerCase()
-                  ? <span key={i} className="highlight">{text}</span> : text // eslint-disable-line
-              ))}
-            </span>
-          ),
-        };
-      }).filter(record => !!record),
-    });
+  handleReset = clearFilters => () => {
+    clearFilters();
+    this.setState({ searchText: '' });
   }
 
   render() {
@@ -81,24 +58,38 @@ class App extends React.Component {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      filterDropdown: (
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
         <div className="custom-filter-dropdown">
           <Input
             ref={ele => this.searchInput = ele}
             placeholder="Search name"
-            value={this.state.searchText}
-            onChange={this.onInputChange}
-            onPressEnter={this.onSearch}
+            value={selectedKeys[0]}
+            onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+            onPressEnter={this.handleSearch(selectedKeys, confirm)}
           />
-          <Button type="primary" onClick={this.onSearch}>Search</Button>
+          <Button type="primary" onClick={this.handleSearch(selectedKeys, confirm)}>Search</Button>
+          <Button onClick={this.handleReset(clearFilters)}>Reset</Button>
         </div>
       ),
-      filterIcon: <Icon type="smile-o" style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />,
-      filterDropdownVisible: this.state.filterDropdownVisible,
+      filterIcon: filtered => <Icon type="smile-o" style={{ color: filtered ? '#108ee9' : '#aaa' }} />,
+      onFilter: (value, record) => record.name.toLowerCase().includes(value.toLowerCase()),
       onFilterDropdownVisibleChange: (visible) => {
-        this.setState({
-          filterDropdownVisible: visible,
-        }, () => this.searchInput && this.searchInput.focus());
+        if (visible) {
+          setTimeout(() => {
+            this.searchInput.focus();
+          });
+        }
+      },
+      render: (text) => {
+        const { searchText } = this.state;
+        return searchText ? (
+          <span>
+            {text.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((fragment, i) => (
+              fragment.toLowerCase() === searchText.toLowerCase()
+                ? <span key={i} className="highlight">{fragment}</span> : fragment // eslint-disable-line
+            ))}
+          </span>
+        ) : text;
       },
     }, {
       title: 'Age',
@@ -117,7 +108,7 @@ class App extends React.Component {
       }],
       onFilter: (value, record) => record.address.indexOf(value) === 0,
     }];
-    return <Table columns={columns} dataSource={this.state.data} />;
+    return <Table columns={columns} dataSource={data} />;
   }
 }
 
@@ -134,6 +125,10 @@ ReactDOM.render(<App />, mountNode);
 
 .custom-filter-dropdown input {
   width: 130px;
+  margin-right: 8px;
+}
+
+.custom-filter-dropdown button {
   margin-right: 8px;
 }
 

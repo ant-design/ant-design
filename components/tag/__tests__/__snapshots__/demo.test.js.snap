@@ -211,6 +211,29 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true"
+  >
+    Movies
+    <i
+      class="anticon anticon-cross"
+    />
+  </div>
+  <br />
+  <button
+    class="ant-btn ant-btn-sm"
+    type="button"
+  >
+    <span>
+      Toggle
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
   <h6

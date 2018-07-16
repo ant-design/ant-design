@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title:
   zh-CN: 图片列表样式
   en-US: Pictures with list style

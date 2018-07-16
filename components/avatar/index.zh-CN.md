@@ -15,3 +15,4 @@ title: Avatar
 | shape | 指定头像的形状 | Enum{ 'circle', 'square' } | `circle` |
 | size | 设置头像的大小 | Enum{ 'large', 'small', 'default' } | `default` |
 | src | 图片类头像的资源地址 | string | - |
+| alt | 图像无法显示时的替代文本 | string | - |
