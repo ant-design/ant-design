@@ -15,7 +15,8 @@ describe('Avatar Render', () => {
 
     const wrapper = mount(<Avatar src="http://error.url">Fallback</Avatar>, { attachTo: div });
     wrapper.instance().setScale = jest.fn(() => wrapper.instance().setState({ scale: 0.5 }));
-    wrapper.setState({ isImgExist: false });
+
+    wrapper.find('img').simulate('error');
 
     const children = wrapper.find('.ant-avatar-string');
     expect(children.length).toBe(1);
