@@ -33,9 +33,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
       aria-haspopup="true"
       class="ant-menu-submenu-title"
     >
-      <span
-        class="submenu-title-wrapper"
-      >
+      <span>
         <i
           class="anticon anticon-setting"
         />
