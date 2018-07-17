@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:40%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li
+        style="width:100%"
+      />
+      <li
+        style="width:100%"
+      />
+      <li
+        style="width:60%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/skeleton/demo/card.md correctly 1`] = `
 <div>
   <span
@@ -82,6 +110,17 @@ exports[`renders ./components/skeleton/demo/card.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Show Skeleton
+  </span>
+</button>
+`;
+
 exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
 <div>
   <span
@@ -108,7 +147,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
             class="ant-list-item-content ant-list-item-content-single"
           >
             <div
-              class="ant-skeleton"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -141,7 +180,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
             class="ant-list-item-content ant-list-item-content-single"
           >
             <div
-              class="ant-skeleton"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
@@ -174,7 +213,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
             class="ant-list-item-content ant-list-item-content-single"
           >
             <div
-              class="ant-skeleton"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"

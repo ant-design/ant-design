@@ -20,10 +20,11 @@ Provide the placeholder to prevent space shake when loading.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| loading | Display the skeleton when `true` | boolean | - |
+| active | Show animation effect | boolean | false |
 | avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#SkeletonAvatarProps) | false |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
+| loading | Display the skeleton when `true` | boolean | - |
 | paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#SkeletonParagraphProps) | true |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#SkeletonTitleProps) | true |
 
 ### SkeletonAvatarProps
 

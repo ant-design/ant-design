@@ -76,7 +76,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       avatar, title, paragraph, active,
     } = this.props;
 
-    if (loading) {
+    if (loading || !('loading' in this.props)) {
       const hasAvatar = !!avatar;
       const hasTitle = !!title;
       const hasParagraph = !!paragraph;
