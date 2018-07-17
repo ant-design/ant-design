@@ -5,6 +5,7 @@ import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 
 export interface SkeletonProps {
+  active?: boolean;
   loading?: boolean;
   prefixCls?: string;
   className?: string;
@@ -72,7 +73,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
   render() {
     const {
       loading, prefixCls, className, children,
-      avatar, title, paragraph,
+      avatar, title, paragraph, active,
     } = this.props;
 
     if (loading) {
@@ -131,10 +132,16 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
+      const cls = classNames(
+        prefixCls,
+        className, {
+          [`${prefixCls}-with-avatar`]: hasAvatar,
+          [`${prefixCls}-active`]: active,
+        },
+      );
+
       return (
-        <div
-          className={classNames(prefixCls, className, { [`${prefixCls}-with-avatar`]: hasAvatar })}
-        >
+        <div className={cls}>
           {$avatar}
           {$content}
         </div>

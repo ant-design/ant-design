@@ -39,7 +39,7 @@
     .@{skeleton-title-prefix-cls} {
       height: 16px;
       width: 100%;
-      .skeleton-color();
+      background: @skeleton-from-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
         margin-top: 40px;
@@ -50,7 +50,7 @@
   .@{skeleton-paragraph-prefix-cls} {
     > li {
       height: 16px;
-      .skeleton-color();
+      background: @skeleton-from-color;
 
       + li {
         margin-top: 16px;
@@ -69,6 +69,16 @@
       }
     }
   }
+
+  // With active animation
+  &.@{skeleton-prefix-cls}-active {
+    & .@{skeleton-prefix-cls}-content {
+      .@{skeleton-title-prefix-cls},
+      .@{skeleton-paragraph-prefix-cls} > li {
+        .skeleton-color();
+      }
+    }
+  }
 }
 
 .avatar-size(@size) {
@@ -77,18 +87,17 @@
   line-height: @size;
 
   &.@{skeleton-avatar-prefix-cls}-circle {
-    border-radius: @size / 2;
+    border-radius: 50%;
   }
 }
 
 .skeleton-color() {
-  background: @skeleton-from-color;
   background: linear-gradient(90deg, @skeleton-from-color 25%, @skeleton-to-color 37%, @skeleton-from-color 63%);
-  animation: skeleton-loading 1.4s ease infinite;
+  animation: ~"@{skeleton-prefix-cls}-loading" 1.4s ease infinite;
   background-size: 400% 100%;
 }
 
-@keyframes skeleton-loading {
+@keyframes ~"@{skeleton-prefix-cls}-loading" {
   0% {
     background-position: 0 50%;
   }
