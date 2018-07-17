@@ -15,6 +15,7 @@ You can customize the display for Steps with progress dot style.
 
 ````jsx
 import { Steps, Popover } from 'antd';
+
 const Step = Steps.Step;
 
 const customDot = (dot, { status, index }) => (
@@ -29,6 +30,6 @@ ReactDOM.render(
     <Step title="In Progress" description="You can hover on the dot." />
     <Step title="Waiting" description="You can hover on the dot." />
     <Step title="Waiting" description="You can hover on the dot." />
-  </Steps>
-, mountNode);
+  </Steps>,
+  mountNode);
 ````

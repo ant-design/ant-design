@@ -1,4 +1,3 @@
-
 export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = [];
@@ -51,9 +50,11 @@ export function getLocalizedPathname(path, zhCN) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
   if (!zhCN) { // to enUS
     return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
-  } else if (pathname === '/') {
+  }
+  if (pathname === '/') {
     return '/index-cn';
-  } else if (pathname.endsWith('/')) {
+  }
+  if (pathname.endsWith('/')) {
     return pathname.replace(/\/$/, '-cn/');
   }
   return `${pathname}-cn`;
@@ -99,4 +100,3 @@ export function loadScript(src) {
     document.head.appendChild(script);
   });
 }
-

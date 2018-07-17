@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本用法
   en-US: Basic
 ---
@@ -9,7 +9,7 @@ title:
 
 基本的时间轴。
 
-## en-US 
+## en-US
 
 Basic timeline.
 
@@ -22,6 +22,6 @@ ReactDOM.render(
     <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
     <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
     <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-  </Timeline>
-, mountNode);
+  </Timeline>,
+  mountNode);
 ````

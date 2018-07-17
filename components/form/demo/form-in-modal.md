@@ -15,6 +15,7 @@ When user visit a page with a list of items, and want to create a new item. The 
 
 ````jsx
 import { Button, Modal, Form, Input, Radio } from 'antd';
+
 const FormItem = Form.Item;
 
 const CollectionCreateForm = Form.create()(
@@ -62,12 +63,15 @@ class CollectionsPage extends React.Component {
   state = {
     visible: false,
   };
+
   showModal = () => {
     this.setState({ visible: true });
   }
+
   handleCancel = () => {
     this.setState({ visible: false });
   }
+
   handleCreate = () => {
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
@@ -80,9 +84,11 @@ class CollectionsPage extends React.Component {
       this.setState({ visible: false });
     });
   }
+
   saveFormRef = (formRef) => {
     this.formRef = formRef;
   }
+
   render() {
     return (
       <div>

@@ -214,12 +214,12 @@ describe('Transfer', () => {
   });
 
   it('should check correctly when there is a search text', () => {
-    const props = { ...listCommonProps };
-    delete props.targetKeys;
-    delete props.selectedKeys;
+    const newProps = { ...listCommonProps };
+    delete newProps.targetKeys;
+    delete newProps.selectedKeys;
     const handleSelectChange = jest.fn();
     const wrapper = mount(
-      <Transfer {...props} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
+      <Transfer {...newProps} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
     );
     wrapper.find(TransferItem).filterWhere(n => n.prop('item').key === 'b').simulate('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);

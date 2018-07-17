@@ -45,6 +45,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   collapsedWidth?: number | string;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   theme?: SiderTheme;
+  onBreakpoint?: (broken: boolean) => void;
 }
 
 export interface SiderState {
@@ -64,6 +65,10 @@ const generateId = (() => {
     return `${prefix}${i}`;
   };
 })();
+
+const isNumeric = (n: any) => {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
 
 export default class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;
@@ -151,6 +156,10 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
 
   responsiveHandler = (mql: MediaQueryList) => {
     this.setState({ below: mql.matches });
+    const { onBreakpoint } = this.props;
+    if (onBreakpoint) {
+      onBreakpoint(mql.matches);
+    }
     if (this.state.collapsed !== mql.matches) {
       this.setCollapsed(mql.matches, 'responsive');
     }
@@ -183,10 +192,10 @@ export default class Sider extends React.Component<SiderProps, SiderState> {
       ...others
     } = this.props;
     const divProps = omit(others, ['collapsed',
-      'defaultCollapsed', 'onCollapse', 'breakpoint']);
+      'defaultCollapsed', 'onCollapse', 'breakpoint', 'onBreakpoint']);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
-    const siderWidth = typeof rawWidth === 'number' ? `${rawWidth}px` : String(rawWidth || 0);
+    const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span onClick={this.toggle} className={`${prefixCls}-zero-width-trigger`}>

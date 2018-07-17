@@ -17,7 +17,9 @@ exports[`Upload List handle error 1`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -91,7 +93,9 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -165,7 +169,9 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -239,7 +245,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>

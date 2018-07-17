@@ -23,6 +23,7 @@ export interface ProgressProps {
   status?: 'success' | 'active' | 'exception';
   showInfo?: boolean;
   strokeWidth?: number;
+  strokeColor?: string;
   trailColor?: string;
   width?: number;
   style?: React.CSSProperties;
@@ -60,6 +61,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     percent: PropTypes.number,
     width: PropTypes.number,
     strokeWidth: PropTypes.number,
+    strokeColor: PropTypes.string,
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
@@ -70,7 +72,8 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     const props = this.props;
     const {
       prefixCls, className, percent = 0, status, format, trailColor, size, successPercent,
-      type, strokeWidth, width, showInfo, gapDegree = 0, gapPosition, ...restProps
+      type, strokeWidth, width, showInfo, gapDegree = 0, gapPosition, strokeColor,
+      ...restProps
     } = props;
     const progressStatus = parseInt((successPercent ? successPercent.toString() : percent.toString()), 10) >= 100 &&
     !('status' in props) ? 'success' : (status || 'normal');
@@ -95,6 +98,7 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       const percentStyle = {
         width: `${validProgress(percent)}%`,
         height: strokeWidth || (size === 'small' ? 6 : 8),
+        background: strokeColor,
       };
       const successPercentStyle = {
         width: `${validProgress(successPercent)}%`,

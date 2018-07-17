@@ -48,6 +48,7 @@ class App extends React.Component {
     pagination: {},
     loading: false,
   };
+
   handleTableChange = (pagination, filters, sorter) => {
     const pager = { ...this.state.pagination };
     pager.current = pagination.current;
@@ -62,6 +63,7 @@ class App extends React.Component {
       ...filters,
     });
   }
+
   fetch = (params = {}) => {
     console.log('params:', params);
     this.setState({ loading: true });
@@ -85,9 +87,11 @@ class App extends React.Component {
       });
     });
   }
+
   componentDidMount() {
     this.fetch();
   }
+
   render() {
     return (
       <Table

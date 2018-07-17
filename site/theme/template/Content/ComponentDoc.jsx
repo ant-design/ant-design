@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix } from 'antd';
+import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -22,8 +22,9 @@ export default class ComponentDoc extends React.Component {
   }
 
   handleExpandToggle = () => {
+    const { expandAll } = this.state;
     this.setState({
-      expandAll: !this.state.expandAll,
+      expandAll: !expandAll,
     });
   }
 
@@ -31,15 +32,15 @@ export default class ComponentDoc extends React.Component {
     const { props } = this;
     const { doc, location } = props;
     const { content, meta } = doc;
-    const { locale } = this.context.intl;
+    const { intl: { locale } } = this.context;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const expand = this.state.expandAll;
+    const { expandAll } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demos.some(demo => demo.meta.only) ?
-      demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    const showedDemo = demos.some(demo => demo.meta.only)
+      ? demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (
@@ -47,7 +48,7 @@ export default class ComponentDoc extends React.Component {
             {...demoData}
             key={demoData.meta.filename}
             utils={props.utils}
-            expand={expand}
+            expand={expandAll}
             location={location}
           />
         );
@@ -59,7 +60,7 @@ export default class ComponentDoc extends React.Component {
       });
     const expandTriggerClass = classNames({
       'code-box-expand-trigger': true,
-      'code-box-expand-trigger-active': expand,
+      'code-box-expand-trigger-active': expandAll,
     });
 
     const jumper = showedDemo.map((demo) => {
@@ -99,19 +100,23 @@ export default class ComponentDoc extends React.Component {
             }
             <h2>
               <FormattedMessage id="app.component.examples" />
-              <Icon
-                type="appstore"
-                className={expandTriggerClass}
-                title={expand ? '收起全部代码' : '展开全部代码'}
-                onClick={this.handleExpandToggle}
-              />
+              <Tooltip
+                title={<FormattedMessage id={`app.component.examples.${expandAll ? 'collpse' : 'expand'}`} />}
+              >
+                <Icon
+                  type={`${expandAll ? 'appstore' : 'appstore-o'}`}
+                  className={expandTriggerClass}
+                  onClick={this.handleExpandToggle}
+                />
+              </Tooltip>
             </h2>
           </section>
           <Row gutter={16}>
             <Col span={isSingleCol ? '24' : '12'}
-              className={isSingleCol ?
-                'code-boxes-col-1-1' :
-                'code-boxes-col-2-1'
+              className={
+                isSingleCol
+                  ? 'code-boxes-col-1-1'
+                  : 'code-boxes-col-2-1'
               }
             >
               {leftChildren}

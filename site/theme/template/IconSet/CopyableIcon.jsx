@@ -6,6 +6,7 @@ export default class CopyableIcon extends React.Component {
   state = {
     justCopied: false,
   };
+
   onCopied = () => {
     this.setState({ justCopied: true }, () => {
       setTimeout(() => {
@@ -13,12 +14,14 @@ export default class CopyableIcon extends React.Component {
       }, 2000);
     });
   }
+
   render() {
     const { type, isNew } = this.props;
+    const { justCopied } = this.state;
     const text = `<Icon type="${type}" />`;
     return (
       <CopyToClipboard text={text} onCopy={this.onCopied}>
-        <li className={this.state.justCopied ? 'copied' : ''}>
+        <li className={justCopied ? 'copied' : ''}>
           <Icon type={type} />
           <span className="anticon-class">
             <Badge dot={isNew}>

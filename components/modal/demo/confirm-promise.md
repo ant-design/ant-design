@@ -16,6 +16,7 @@ delay closing the dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
+
 const confirm = Modal.confirm;
 
 function showConfirm() {
@@ -34,6 +35,6 @@ function showConfirm() {
 ReactDOM.render(
   <Button onClick={showConfirm}>
     Confirm
-  </Button>
-, mountNode);
+  </Button>,
+  mountNode);
 ````

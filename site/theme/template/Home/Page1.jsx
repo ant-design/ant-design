@@ -124,16 +124,19 @@ export default class Page1 extends React.PureComponent {
   state = {
     hoverKey: null,
   }
+
   onMouseOver = (key) => {
     this.setState({
       hoverKey: key,
     });
   }
+
   onMouseOut = () => {
     this.setState({
       hoverKey: null,
     });
   }
+
   getEnter = (i, e) => {
     const ii = e.index;
     const r = (Math.random() * 2) - 1;
@@ -153,6 +156,7 @@ export default class Page1 extends React.PureComponent {
       },
     ];
   };
+
   getSvgChild = child => child.map((item, i) => {
     const props = { ...item.props };
     if (item.type === 'g') {
@@ -165,18 +169,22 @@ export default class Page1 extends React.PureComponent {
       });
     }
     return (
-      <g key={i.toString()} >
+      <g key={i.toString()}>
         {React.cloneElement(item, props)}
       </g>
     );
   });
+
   leave = {
     opacity: 0, duration: 300, x: 100, y: 150, ease: 'easeInBack',
   };
+
   render() {
-    const isZhCN = this.props.locale === 'zh-CN';
+    const { locale, isMobile } = this.props;
+    const { hoverKey } = this.state;
+    const isZhCN = locale === 'zh-CN';
     const children = page1Data.map((item, i) => {
-      const isHover = item.nameEn === this.state.hoverKey;
+      const isHover = item.nameEn === hoverKey;
       return (
         <Col key={item.nameEn} md={6} xs={24}>
           <TweenOneGroup
@@ -187,7 +195,7 @@ export default class Page1 extends React.PureComponent {
             component="svg"
             resetStyleBool={false}
           >
-            {(this.props.isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
+            {(isMobile || isHover) && this.getSvgChild(item.svgBg.props.children)}
           </TweenOneGroup>
           <QueueAnim
             className="page1-block"
@@ -200,14 +208,14 @@ export default class Page1 extends React.PureComponent {
             <div className="page1-image">
               <img src={item.img} alt="icon" />
             </div>
-            <h3 >{isZhCN ? item.name : item.nameEn}</h3>
+            <h3>{isZhCN ? item.name : item.nameEn}</h3>
           </QueueAnim>
         </Col>
       );
     });
     return (
       <div className="home-page-wrapper page1">
-        <div className="page" >
+        <div className="page">
           <h2><FormattedMessage id="app.home.design-language" /></h2>
           <ScrollOverPack playScale="0.3">
             <QueueAnim

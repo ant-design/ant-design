@@ -1,0 +1,95 @@
+@import "../../style/themes/default";
+
+@tree-prefix-cls: ~"@{ant-prefix}-tree";
+
+.@{tree-prefix-cls} {
+  &.@{tree-prefix-cls}-directory {
+    position: relative;
+
+    // Stretch selector width
+    > li,
+    .@{tree-prefix-cls}-child-tree > li {
+      span {
+        &.@{tree-prefix-cls}-switcher {
+          position: relative;
+          z-index: 1;
+
+          &.@{tree-prefix-cls}-switcher-noop {
+            pointer-events: none;
+          }
+        }
+
+        &.@{tree-prefix-cls}-checkbox {
+          position: relative;
+          z-index: 1;
+        }
+
+        &.@{tree-prefix-cls}-node-content-wrapper {
+          user-select: none;
+          border-radius: 0;
+
+          &:hover {
+            background: transparent;
+
+            &:before {
+              background: @item-hover-bg;
+            }
+          }
+
+          &.@{tree-prefix-cls}-node-selected {
+            color: @tree-directory-selected-color;
+            background: transparent;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: @tree-title-height;
+            transition: all .3s;
+          }
+
+          > span {
+            position: relative;
+            z-index: 1;
+          }
+        }
+      }
+
+      &.@{tree-prefix-cls}-treenode-selected {
+        > span {
+          &.@{tree-prefix-cls}-switcher {
+            color: @tree-directory-selected-color;
+          }
+
+          &.@{tree-prefix-cls}-checkbox {
+            .@{tree-prefix-cls}-checkbox-inner {
+              border-color: @primary-color;
+            }
+
+            &.@{tree-prefix-cls}-checkbox-checked {
+              &:after {
+                border-color: @checkbox-check-color;
+              }
+
+              .@{tree-prefix-cls}-checkbox-inner {
+                background: @checkbox-check-color;
+
+                &:after {
+                  border-color: @primary-color;
+                }
+              }
+            }
+          }
+
+          &.@{tree-prefix-cls}-node-content-wrapper {
+            &:before {
+              background: @tree-directory-selected-bg;
+            }
+          }
+        }
+      }
+    }
+  }
+}

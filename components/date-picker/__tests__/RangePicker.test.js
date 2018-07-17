@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
-import DatePicker from '../';
+import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import { selectDate } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
@@ -50,7 +50,7 @@ describe('RangePicker', () => {
     );
 
     const rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
       .simulate('click');
     expect(render(wrapper.find('Trigger').instance().getComponent()))
       .toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('RangePicker', () => {
     );
 
     let rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector a')
+    rangeCalendarWrapper.find('.ant-calendar-range-quick-selector Tag')
       .simulate('mouseEnter');
     rangeCalendarWrapper = mount(wrapper.find('Trigger').instance().getComponent());
     expect(rangeCalendarWrapper.find('.ant-calendar-selected-day').length).toBe(2);
@@ -152,7 +152,7 @@ describe('RangePicker', () => {
         />
       );
       wrapper.find('.ant-calendar-picker-input').simulate('click');
-      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
         wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
       ).toBe(range[0].format(format));
@@ -171,7 +171,7 @@ describe('RangePicker', () => {
         />
       );
       wrapper.find('.ant-calendar-picker-input').simulate('click');
-      wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+      wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
       expect(
         wrapper.find('.ant-calendar-range-picker-input').first().getDOMNode().value
       ).toBe(range[0].format(format));
@@ -200,7 +200,7 @@ describe('RangePicker', () => {
       />
     );
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    wrapper.find('.ant-calendar-range-quick-selector a').simulate('click');
+    wrapper.find('.ant-calendar-range-quick-selector Tag').simulate('click');
     expect(handleOk).toBeCalledWith(range);
   });
 
@@ -211,8 +211,8 @@ describe('RangePicker', () => {
     selectDate(wrapper, moment('2017-09-18'), 0);
     selectDate(wrapper, moment('2017-10-18'), 1);
     wrapper.find('.ant-calendar-picker-input').simulate('click');
-    expect(() =>
+    expect(() => (
       wrapper.find('.ant-calendar-input').at(1).simulate('change', { target: { value: '2016-01-01' } })
-    ).not.toThrow();
+    )).not.toThrow();
   });
 });

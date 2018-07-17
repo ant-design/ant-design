@@ -15,6 +15,7 @@ Do not change state when page is scrolling.
 
 ```jsx
 import { Anchor } from 'antd';
+
 const { Link } = Anchor;
 
 ReactDOM.render(
@@ -25,6 +26,6 @@ ReactDOM.render(
       <Link href="#Anchor-Props" title="Anchor Props" />
       <Link href="#Link-Props" title="Link Props" />
     </Link>
-  </Anchor>
-, mountNode);
+  </Anchor>,
+  mountNode);
 ```

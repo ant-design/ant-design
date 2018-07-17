@@ -244,6 +244,22 @@ span.@{radio-prefix-cls} + * {
     }
   }
 
+  .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
+    background: @radio-dot-color;
+    border-color: @radio-dot-color;
+    color: #fff;
+    &:hover {
+      border-color: @radio-button-hover-color;
+      background: @radio-button-hover-color;
+      color: #fff;
+    }
+    &:active {
+      border-color: @radio-button-active-color;
+      background: @radio-button-active-color;
+      color: #fff;
+    }
+  }
+
   &-disabled {
     border-color: @border-color-base;
     background-color: @input-disabled-bg;

@@ -16,6 +16,7 @@ You can use `Card.Meta` to support more flexible content.
 
 ````jsx
 import { Card } from 'antd';
+
 const { Meta } = Card;
 
 ReactDOM.render(
@@ -28,6 +29,6 @@ ReactDOM.render(
       title="Europe Street beat"
       description="www.instagram.com"
     />
-  </Card>
-, mountNode);
+  </Card>,
+  mountNode);
 ````

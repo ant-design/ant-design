@@ -2,16 +2,14 @@
 
 exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 <span
+  aria-haspopup="listbox"
   class="ant-select ant-select-enabled ant-select-allow-clear"
+  role="combobox"
   style="width:300px"
+  tabindex="0"
 >
   <span
-    aria-autocomplete="list"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
-    tabindex="0"
+    class="ant-select-selection ant-select-selection--single"
   >
     <span
       class="ant-select-selection__rendered"
@@ -34,21 +32,21 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 <span
+  aria-haspopup="listbox"
   class="ant-select ant-select-enabled"
+  role="combobox"
   style="width:300px"
+  tabindex="-1"
 >
   <span
-    aria-autocomplete="list"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--multiple"
-    role="combobox"
+    class="ant-select-selection ant-select-selection--multiple"
   >
     <ul
       class="ant-select-selection__rendered"
     >
       <li
         class="ant-select-selection__choice"
+        role="menuitem"
         style="user-select:none;-webkit-user-select:none"
         title="Node1"
         unselectable="unselectable"
@@ -69,8 +67,11 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
           class="ant-select-search__field__wrap"
         >
           <input
+            aria-autocomplete="list"
+            aria-label="filter select"
+            aria-multiline="false"
             class="ant-select-search__field"
-            role="textbox"
+            type="text"
             value=""
           />
           <span
@@ -93,15 +94,14 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 
 exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 <span
+  aria-haspopup="listbox"
   class="ant-select ant-select-enabled ant-select-allow-clear"
+  role="combobox"
   style="width:300px"
+  tabindex="-1"
 >
   <span
-    aria-autocomplete="list"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--multiple"
-    role="combobox"
+    class="ant-select-selection ant-select-selection--multiple"
   >
     <ul
       class="ant-select-selection__rendered"
@@ -113,8 +113,11 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
           class="ant-select-search__field__wrap"
         >
           <input
+            aria-autocomplete="list"
+            aria-label="filter select"
+            aria-multiline="false"
             class="ant-select-search__field"
-            role="textbox"
+            type="text"
             value=""
           />
           <span
@@ -137,16 +140,14 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 
 exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
 <span
+  aria-haspopup="listbox"
   class="ant-select ant-select-enabled"
+  role="combobox"
   style="width:300px"
+  tabindex="0"
 >
   <span
-    aria-autocomplete="list"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
-    tabindex="0"
+    class="ant-select-selection ant-select-selection--single"
   >
     <span
       class="ant-select-selection__rendered"

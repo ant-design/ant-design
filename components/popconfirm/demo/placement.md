@@ -68,8 +68,8 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popconfirm>
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>

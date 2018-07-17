@@ -15,6 +15,7 @@ We can customize the rendering of date cells in the calendar by providing a `dat
 
 ````jsx
 import { DatePicker } from 'antd';
+
 const { RangePicker } = DatePicker;
 
 ReactDOM.render(
@@ -47,6 +48,6 @@ ReactDOM.render(
         );
       }}
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

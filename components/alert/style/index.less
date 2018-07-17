@@ -5,6 +5,7 @@
 
 @alert-message-color: @heading-color;
 @alert-text-color: @text-color;
+@alert-close-color: @text-color-secondary;
 
 .@{alert-prefix-cls} {
   .reset-component;
@@ -70,7 +71,7 @@
     cursor: pointer;
 
     .@{iconfont-css-prefix}-cross {
-      color: @text-color-secondary;
+      color: @alert-close-color;
       transition: color .3s;
       &:hover {
         color: #404040;
@@ -87,7 +88,7 @@
     padding: 15px 15px 15px 64px;
     position: relative;
     border-radius: @border-radius-base;
-    color: @text-color;
+    color: @alert-text-color;
     line-height: @line-height-base;
   }
 

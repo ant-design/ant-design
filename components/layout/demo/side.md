@@ -22,6 +22,7 @@ The level of the aisde navigation is scalable. The first, second, and third leve
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -29,10 +30,12 @@ class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   };
+
   onCollapse = (collapsed) => {
     console.log(collapsed);
     this.setState({ collapsed });
   }
+
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>

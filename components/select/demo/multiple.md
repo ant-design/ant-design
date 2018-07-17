@@ -15,6 +15,7 @@ Multiple selection, selecting from existing items (scroll the menu).
 
 ````jsx
 import { Select } from 'antd';
+
 const Option = Select.Option;
 
 const children = [];
@@ -35,6 +36,6 @@ ReactDOM.render(
     onChange={handleChange}
   >
     {children}
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode);
 ````

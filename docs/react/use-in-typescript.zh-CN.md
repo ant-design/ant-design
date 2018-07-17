@@ -89,11 +89,11 @@ $ yarn add react-app-rewired --dev
 ```diff
 /* package.json */
 "scripts": {
--   "start": "react-scripts start",
+-   "start": "react-scripts-ts start",
 +   "start": "react-app-rewired start --scripts-version react-scripts-ts",
--   "build": "react-scripts build",
+-   "build": "react-scripts-ts build",
 +   "build": "react-app-rewired build --scripts-version react-scripts-ts",
--   "test": "react-scripts test --env=jsdom",
+-   "test": "react-scripts-ts test --env=jsdom",
 +   "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
 }
 ```

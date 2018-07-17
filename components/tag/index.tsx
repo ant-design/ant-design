@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
 
@@ -14,6 +15,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
+  visible?: boolean;
   /** 关闭时的回调 */
   onClose?: Function;
   /** 动画关闭后的回调 */
@@ -24,30 +26,47 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
 export interface TagState {
   closing: boolean;
   closed: boolean;
+  visible: boolean;
 }
 
-export default class Tag extends React.Component<TagProps, TagState> {
+class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
   };
 
-  constructor(props: TagProps) {
-    super(props);
-
-    this.state = {
-      closing: false,
-      closed: false,
-    };
+  static getDerivedStateFromProps(nextProps: TagProps) {
+    return  ('visible' in nextProps) ? { visible: nextProps.visible } : null;
   }
 
-  close = (e: React.MouseEvent<HTMLElement>) => {
+  state = {
+    closing: false,
+    closed: false,
+    visible: true,
+  };
+
+  componentDidUpdate(_prevProps: TagProps, prevState: TagState) {
+    if (prevState.visible && !this.state.visible) {
+      this.close();
+    } else if (!prevState.visible && this.state.visible) {
+      this.show();
+    }
+  }
+
+  handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
     const onClose = this.props.onClose;
     if (onClose) {
       onClose(e);
     }
-    if (e.defaultPrevented) {
+    if (e.defaultPrevented || 'visible' in this.props) {
+      return;
+    }
+    this.setState({ visible: false });
+  }
+
+  close = () => {
+    if (this.state.closing || this.state.closed) {
       return;
     }
     const dom = ReactDOM.findDOMNode(this) as HTMLElement;
@@ -56,6 +75,12 @@ export default class Tag extends React.Component<TagProps, TagState> {
     dom.style.width = `${dom.getBoundingClientRect().width}px`;
     this.setState({
       closing: true,
+    });
+  }
+
+  show = () => {
+    this.setState({
+      closed: false,
     });
   }
 
@@ -70,6 +95,10 @@ export default class Tag extends React.Component<TagProps, TagState> {
       if (afterClose) {
         afterClose();
       }
+    } else {
+      this.setState({
+        closed: false,
+      });
     }
   }
 
@@ -83,7 +112,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
 
   render() {
     const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
-    const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
+    const closeIcon = closable ? <Icon type="cross" onClick={this.handleIconClick} /> : '';
     const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: isPresetColor,
@@ -94,6 +123,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
     const divProps = omit(otherProps, [
       'onClose',
       'afterClose',
+      'visible',
     ]);
     const tagStyle = {
       backgroundColor: (color && !isPresetColor) ? color : null,
@@ -123,3 +153,7 @@ export default class Tag extends React.Component<TagProps, TagState> {
     );
   }
 }
+
+polyfill(Tag);
+
+export default Tag;

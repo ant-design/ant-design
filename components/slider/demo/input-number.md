@@ -20,11 +20,13 @@ class IntegerStep extends React.Component {
   state = {
     inputValue: 1,
   }
+
   onChange = (value) => {
     this.setState({
       inputValue: value,
     });
   }
+
   render() {
     return (
       <Row>
@@ -49,11 +51,13 @@ class DecimalStep extends React.Component {
   state = {
     inputValue: 0,
   }
+
   onChange = (value) => {
     this.setState({
       inputValue: value,
     });
   }
+
   render() {
     return (
       <Row>
@@ -79,6 +83,6 @@ ReactDOM.render(
   <div>
     <IntegerStep />
     <DecimalStep />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

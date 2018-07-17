@@ -99,6 +99,40 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | options.force | Should validate validated field again when `validateTrigger` is been triggered again | boolean | false |
 | options.scroll | Config scroll behavior of `validateFieldsAndScroll`, more: [dom-scroll-into-view's config](https://github.com/yiminghe/dom-scroll-into-view#function-parameter) | Object | {} |
 
+#### Callback arguments example of validateFields
+
+- `errors`:
+
+   ```js
+   {
+     "userName": {
+       "errors": [
+         {
+           "message": "Please input your username!",
+           "field": "userName"
+         }
+       ]
+     },
+     "password": {
+       "errors": [
+         {
+           "message": "Please input your Password!",
+           "field": "password"
+         }
+       ]
+     }
+   }
+   ```
+
+- `values`:
+
+   ```js
+   {
+     "userName": "username",
+     "password": "password",
+   }
+   ```
+
 ### Form.createFormField
 
 To mark the returned fields data in `mapPropsToFields`, [demo](#components-form-demo-global-state).

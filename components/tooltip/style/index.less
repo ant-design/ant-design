@@ -10,6 +10,7 @@
   z-index: @zindex-tooltip;
   display: block;
   visibility: visible;
+  max-width: @tooltip-max-width;
 
   &-hidden {
     display: none;
@@ -38,7 +39,6 @@
 
   // Wrapper for the tooltip content
   &-inner {
-    max-width: @tooltip-max-width;
     padding: 6px 8px;
     color: @tooltip-color;
     text-align: left;

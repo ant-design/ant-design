@@ -34,6 +34,6 @@ ReactDOM.render(
     <Popover content={content} title="Title" trigger="click">
       <Button>Click me</Button>
     </Popover>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

@@ -19,6 +19,7 @@ The `size` can be set to `large`, `small` or left unset resulting in a default s
 
 ````jsx
 import { Button, Icon } from 'antd';
+
 const ButtonGroup = Button.Group;
 
 ReactDOM.render(

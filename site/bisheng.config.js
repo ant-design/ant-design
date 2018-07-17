@@ -13,9 +13,9 @@ function alertBabelConfig(rules) {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
-      rule.options.plugins = rule.options.plugins.filter(plugin =>
+      rule.options.plugins = rule.options.plugins.filter(plugin => (
         !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
-      );
+      ));
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }

@@ -20,9 +20,11 @@ class IconSlider extends React.Component {
   state = {
     value: 0,
   }
+
   handleChange = (value) => {
     this.setState({ value });
   }
+
   render() {
     const { max, min } = this.props;
     const { value } = this.state;
