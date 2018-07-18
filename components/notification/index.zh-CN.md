@@ -23,6 +23,7 @@ subtitle: 通知提醒框
 - `notification.info(config)`
 - `notification.warning(config)`
 - `notification.warn(config)`
+- `notification.open(config)`
 - `notification.close(key: String)`
 - `notification.destroy()`
 
