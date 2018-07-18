@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { library, antDesignIcons } from 'antd-icons/esm';
-import AntdIcon from 'react-antd-icons/esm';
+import { library, antDesignIcons } from 'antd-icons';
+import AntdIcon from 'react-antd-icons';
 
 library.add(...antDesignIcons);
 

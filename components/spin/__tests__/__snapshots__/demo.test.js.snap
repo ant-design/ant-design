@@ -18,12 +18,7 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
 exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
 <div
   class="ant-spin ant-spin-spinning"
->
-  <i
-    class="anticon anticon-spin anticon-loading ant-spin-dot"
-    style="font-size:24px"
-  />
-</div>
+/>
 `;
 
 exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `

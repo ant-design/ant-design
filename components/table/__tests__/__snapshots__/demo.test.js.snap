@@ -46,19 +46,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         <span
                           class="ant-table-column-sorter-up off"
                           title="↑"
-                        >
-                          <i
-                            class="anticon anticon-caret-up"
-                          />
-                        </span>
+                        />
                         <span
                           class="ant-table-column-sorter-down off"
                           title="↓"
-                        >
-                          <i
-                            class="anticon anticon-caret-down"
-                          />
-                        </span>
+                        />
                       </div>
                     </span>
                   </th>
@@ -67,10 +59,23 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   >
                     <span>
                       Gender
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
+                      <svg
+                        class="anticon ant-dropdown-trigger"
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
                         title="Filter menu"
-                      />
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          class="st0"
+                          d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                        />
+                        <path
+                          d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                        />
+                      </svg>
                     </span>
                   </th>
                   <th
@@ -215,9 +220,18 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -273,9 +287,18 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -331,9 +354,18 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -877,11 +909,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   >
                     <span>
                       Name
-                      <i
-                        class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
-                        style="color:#aaa"
-                        title="Filter menu"
-                      />
                     </span>
                   </th>
                   <th
@@ -896,10 +923,23 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   >
                     <span>
                       Address
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
+                      <svg
+                        class="anticon ant-dropdown-trigger"
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
                         title="Filter menu"
-                      />
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          class="st0"
+                          d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                        />
+                        <path
+                          d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                        />
+                      </svg>
                     </span>
                   </th>
                 </tr>
@@ -1875,9 +1915,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -1957,9 +2006,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2039,9 +2097,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2121,9 +2188,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2203,9 +2279,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2285,9 +2370,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2367,9 +2461,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2449,9 +2552,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2531,9 +2643,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -2613,9 +2734,18 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           href="javascript:;"
                         >
                           More actions 
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </a>
                       </span>
                     </td>
@@ -6980,10 +7110,23 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <span>
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
+                        <svg
+                          class="anticon ant-dropdown-trigger"
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
                           title="Filter menu"
-                        />
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            class="st0"
+                            d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                          />
+                          <path
+                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                          />
+                        </svg>
                       </span>
                     </th>
                     <th
@@ -7024,19 +7167,11 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           <span
                             class="ant-table-column-sorter-up off"
                             title="↑"
-                          >
-                            <i
-                              class="anticon anticon-caret-up"
-                            />
-                          </span>
+                          />
                           <span
                             class="ant-table-column-sorter-down off"
                             title="↓"
-                          >
-                            <i
-                              class="anticon anticon-caret-down"
-                            />
-                          </span>
+                          />
                         </div>
                       </span>
                     </th>
@@ -7643,10 +7778,23 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     >
                       <span>
                         Name
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
+                        <svg
+                          class="anticon ant-dropdown-trigger"
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
                           title="Filter menu"
-                        />
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            class="st0"
+                            d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                          />
+                          <path
+                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                          />
+                        </svg>
                       </span>
                     </th>
                   </tr>
@@ -8087,24 +8235,29 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         <span
                           class="ant-table-column-sorter-up off"
                           title="↑"
-                        >
-                          <i
-                            class="anticon anticon-caret-up"
-                          />
-                        </span>
+                        />
                         <span
                           class="ant-table-column-sorter-down off"
                           title="↓"
-                        >
-                          <i
-                            class="anticon anticon-caret-down"
-                          />
-                        </span>
+                        />
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
+                      <svg
+                        class="anticon ant-dropdown-trigger"
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
                         title="Filter menu"
-                      />
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          class="st0"
+                          d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                        />
+                        <path
+                          d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                        />
+                      </svg>
                     </span>
                   </th>
                   <th
@@ -8118,19 +8271,11 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         <span
                           class="ant-table-column-sorter-up off"
                           title="↑"
-                        >
-                          <i
-                            class="anticon anticon-caret-up"
-                          />
-                        </span>
+                        />
                         <span
                           class="ant-table-column-sorter-down on"
                           title="↓"
-                        >
-                          <i
-                            class="anticon anticon-caret-down"
-                          />
-                        </span>
+                        />
                       </div>
                     </span>
                   </th>
@@ -8145,24 +8290,29 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         <span
                           class="ant-table-column-sorter-up off"
                           title="↑"
-                        >
-                          <i
-                            class="anticon anticon-caret-up"
-                          />
-                        </span>
+                        />
                         <span
                           class="ant-table-column-sorter-down off"
                           title="↓"
-                        >
-                          <i
-                            class="anticon anticon-caret-down"
-                          />
-                        </span>
+                        />
                       </div>
-                      <i
-                        class="anticon anticon-filter ant-dropdown-trigger"
+                      <svg
+                        class="anticon ant-dropdown-trigger"
+                        data-icon="filter"
+                        fill="currentColor"
+                        height="1em"
                         title="Filter menu"
-                      />
+                        viewBox="0 0 1024 1024"
+                        width="1em"
+                      >
+                        <path
+                          class="st0"
+                          d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                        />
+                        <path
+                          d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                        />
+                      </svg>
                     </span>
                   </th>
                 </tr>
@@ -8442,9 +8592,18 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -8501,9 +8660,18 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -8560,9 +8728,18 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
+                        <svg
+                          class="anticon"
+                          data-icon="down"
+                          fill="currentColor"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
                       </a>
                     </span>
                   </td>
@@ -8969,24 +9146,29 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           <span
                             class="ant-table-column-sorter-up off"
                             title="↑"
-                          >
-                            <i
-                              class="anticon anticon-caret-up"
-                            />
-                          </span>
+                          />
                           <span
                             class="ant-table-column-sorter-down off"
                             title="↓"
-                          >
-                            <i
-                              class="anticon anticon-caret-down"
-                            />
-                          </span>
+                          />
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
+                        <svg
+                          class="anticon ant-dropdown-trigger"
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
                           title="Filter menu"
-                        />
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            class="st0"
+                            d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                          />
+                          <path
+                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                          />
+                        </svg>
                       </span>
                     </th>
                     <th
@@ -9000,19 +9182,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           <span
                             class="ant-table-column-sorter-up off"
                             title="↑"
-                          >
-                            <i
-                              class="anticon anticon-caret-up"
-                            />
-                          </span>
+                          />
                           <span
                             class="ant-table-column-sorter-down off"
                             title="↓"
-                          >
-                            <i
-                              class="anticon anticon-caret-down"
-                            />
-                          </span>
+                          />
                         </div>
                       </span>
                     </th>
@@ -9027,24 +9201,29 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           <span
                             class="ant-table-column-sorter-up off"
                             title="↑"
-                          >
-                            <i
-                              class="anticon anticon-caret-up"
-                            />
-                          </span>
+                          />
                           <span
                             class="ant-table-column-sorter-down off"
                             title="↓"
-                          >
-                            <i
-                              class="anticon anticon-caret-down"
-                            />
-                          </span>
+                          />
                         </div>
-                        <i
-                          class="anticon anticon-filter ant-dropdown-trigger"
+                        <svg
+                          class="anticon ant-dropdown-trigger"
+                          data-icon="filter"
+                          fill="currentColor"
+                          height="1em"
                           title="Filter menu"
-                        />
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            class="st0"
+                            d="M411 561.4l9.5 16.6h183l9.5-16.6L811.3 226H212.7zM420.6 642h182.9v156H420.6z"
+                          />
+                          <path
+                            d="M880.1 154H143.9c-24.5 0-39.8 26.7-27.5 48L349 597.4V838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V597.4L907.7 202c12.2-21.3-3.1-48-27.6-48zM603.4 798H420.6V642h182.9v156zm9.6-236.6l-9.5 16.6h-183l-9.5-16.6L212.7 226h598.6L613 561.4z"
+                          />
+                        </svg>
                       </span>
                     </th>
                   </tr>
@@ -10186,9 +10365,18 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <div
                           class="ant-table-selection-down ant-dropdown-trigger"
                         >
-                          <i
-                            class="anticon anticon-down"
-                          />
+                          <svg
+                            class="anticon"
+                            data-icon="down"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </span>

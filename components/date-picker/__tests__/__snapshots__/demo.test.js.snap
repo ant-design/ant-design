@@ -401,9 +401,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         readonly=""
         value="2015/01/01"
       />
-      <i
-        class="anticon anticon-cross-circle ant-calendar-picker-clear"
-      />
       <span
         class="ant-calendar-picker-icon"
       />
@@ -419,9 +416,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         placeholder="Select date"
         readonly=""
         value="2015/01"
-      />
-      <i
-        class="anticon anticon-cross-circle ant-calendar-picker-clear"
       />
       <span
         class="ant-calendar-picker-icon"
@@ -454,9 +448,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
         readonly=""
         tabindex="-1"
         value="2015/01/01"
-      />
-      <i
-        class="anticon anticon-cross-circle ant-calendar-picker-clear"
       />
       <span
         class="ant-calendar-picker-icon"

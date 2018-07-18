@@ -13,9 +13,6 @@ exports[`DatePicker prop locale should works 1`] = `
       readonly=""
       value="2000-01-01"
     />
-    <i
-      class="anticon anticon-cross-circle ant-calendar-picker-clear"
-    />
     <span
       class="ant-calendar-picker-icon"
     />

@@ -19,9 +19,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -46,9 +63,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -70,9 +104,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -96,9 +147,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -123,9 +191,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -147,9 +232,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -182,9 +284,22 @@ exports[`Directory Tree defaultExpandParent 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -206,9 +321,22 @@ exports[`Directory Tree defaultExpandParent 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -239,9 +367,26 @@ exports[`Directory Tree expand click 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -267,9 +412,22 @@ exports[`Directory Tree expand click 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -291,9 +449,22 @@ exports[`Directory Tree expand click 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -317,9 +488,22 @@ exports[`Directory Tree expand click 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -350,9 +534,22 @@ exports[`Directory Tree expand click 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -378,9 +575,22 @@ exports[`Directory Tree expand click 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -402,9 +612,22 @@ exports[`Directory Tree expand click 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -428,9 +651,22 @@ exports[`Directory Tree expand click 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -461,9 +697,26 @@ exports[`Directory Tree expand double click 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -489,9 +742,22 @@ exports[`Directory Tree expand double click 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -513,9 +779,22 @@ exports[`Directory Tree expand double click 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -539,9 +818,22 @@ exports[`Directory Tree expand double click 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -572,9 +864,22 @@ exports[`Directory Tree expand double click 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -600,9 +905,22 @@ exports[`Directory Tree expand double click 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -624,9 +942,22 @@ exports[`Directory Tree expand double click 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -650,9 +981,22 @@ exports[`Directory Tree expand double click 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -683,9 +1027,22 @@ exports[`Directory Tree expandedKeys update 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M372.5 256H184v512h656V370.4H492.1z"
+            fill="none"
+          />
+          <path
+            d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -707,9 +1064,26 @@ exports[`Directory Tree expandedKeys update 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -735,9 +1109,22 @@ exports[`Directory Tree expandedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -759,9 +1146,22 @@ exports[`Directory Tree expandedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M372.5 256H184v512h656V370.4H492.1z"
+                fill="none"
+              />
+              <path
+                d="M880 298.4H521L403.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -794,9 +1194,26 @@ exports[`Directory Tree group select 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -821,9 +1238,26 @@ exports[`Directory Tree group select 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -845,9 +1279,26 @@ exports[`Directory Tree group select 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -871,9 +1322,26 @@ exports[`Directory Tree group select 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -898,9 +1366,26 @@ exports[`Directory Tree group select 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -922,9 +1407,26 @@ exports[`Directory Tree group select 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -957,9 +1459,26 @@ exports[`Directory Tree group select 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -984,9 +1503,26 @@ exports[`Directory Tree group select 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1008,9 +1544,26 @@ exports[`Directory Tree group select 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1034,9 +1587,26 @@ exports[`Directory Tree group select 2`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -1061,9 +1631,26 @@ exports[`Directory Tree group select 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1085,9 +1672,26 @@ exports[`Directory Tree group select 2`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1120,9 +1724,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -1147,9 +1768,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1171,9 +1809,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1197,9 +1852,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
       <span
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
-        <i
-          class="anticon anticon-folder-open"
-        />
+        <svg
+          class="anticon"
+          data-icon="folder-open"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            class="st0"
+            d="M159 768h612.3l103.3-256H262.3z"
+          />
+          <path
+            class="st0"
+            d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+          />
+          <path
+            d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+          />
+        </svg>
       </span>
       <span
         class="ant-tree-title"
@@ -1224,9 +1896,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"
@@ -1248,9 +1937,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           <span
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
-            <i
-              class="anticon anticon-folder-open"
-            />
+            <svg
+              class="anticon"
+              data-icon="folder-open"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M159 768h612.3l103.3-256H262.3z"
+              />
+              <path
+                class="st0"
+                d="M238 444h510v-73.6H444.1L324.5 256H136v387.2L208.3 464c4.9-12.1 16.7-20 29.7-20z"
+              />
+              <path
+                d="M928 444H820V330.4c0-17.7-14.3-32-32-32H473L355.7 186.2c-1.5-1.4-3.5-2.2-5.5-2.2H96c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h698c13 0 24.8-7.9 29.7-20l134-332c1.5-3.8 2.3-7.9 2.3-12 0-17.7-14.3-32-32-32zM136 256h188.5l119.6 114.4H748V444H238c-13 0-24.8 7.9-29.7 20L136 643.2V256zm635.3 512H159l103.3-256h612.4L771.3 768z"
+              />
+            </svg>
           </span>
           <span
             class="ant-tree-title"

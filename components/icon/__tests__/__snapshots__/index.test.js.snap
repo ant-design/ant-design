@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon should render to a <i class="xxx"></i> 1`] = `
-<i
-  class="anticon anticon-appstore my-icon-classname"
-/>
-`;
+exports[`Icon should render to a <i class="xxx"></i> 1`] = `null`;

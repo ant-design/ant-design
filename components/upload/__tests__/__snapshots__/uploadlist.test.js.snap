@@ -34,9 +34,6 @@ exports[`Upload List handle error 1`] = `
         class="ant-upload-list-item-info"
       >
         <span>
-          <i
-            class="anticon anticon-paper-clip"
-          />
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -45,10 +42,6 @@ exports[`Upload List handle error 1`] = `
           </span>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
@@ -110,9 +103,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         class="ant-upload-list-item-info"
       >
         <span>
-          <i
-            class="anticon anticon-spin anticon-loading"
-          />
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -121,10 +111,6 @@ exports[`Upload List should be uploading when upload a file 1`] = `
           </span>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
       <div
         class="ant-upload-list-item-progress"
       >
@@ -186,9 +172,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         class="ant-upload-list-item-info"
       >
         <span>
-          <i
-            class="anticon anticon-paper-clip"
-          />
           <span
             class="ant-upload-list-item-name"
             title="foo.png"
@@ -197,10 +180,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
           </span>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
@@ -268,9 +247,26 @@ exports[`Upload List should non-image format file preview 1`] = `
             rel="noopener noreferrer"
             target="_blank"
           >
-            <i
-              class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            <svg
+              class="anticon ant-upload-list-item-icon"
+              data-icon="file"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M534 352V136H232v752h560V394H576c-23.2 0-42-18.8-42-42z"
+              />
+              <path
+                class="st0"
+                d="M602 326h188.2L602 137.8z"
+              />
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
+              />
+            </svg>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -283,10 +279,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -317,10 +309,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -335,9 +323,26 @@ exports[`Upload List should non-image format file preview 1`] = `
             rel="noopener noreferrer"
             target="_blank"
           >
-            <i
-              class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            <svg
+              class="anticon ant-upload-list-item-icon"
+              data-icon="file"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M534 352V136H232v752h560V394H576c-23.2 0-42-18.8-42-42z"
+              />
+              <path
+                class="st0"
+                d="M602 326h188.2L602 137.8z"
+              />
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
+              />
+            </svg>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -350,10 +355,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -368,9 +369,26 @@ exports[`Upload List should non-image format file preview 1`] = `
             rel="noopener noreferrer"
             target="_blank"
           >
-            <i
-              class="anticon anticon-file ant-upload-list-item-icon"
-            />
+            <svg
+              class="anticon ant-upload-list-item-icon"
+              data-icon="file"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                class="st0"
+                d="M534 352V136H232v752h560V394H576c-23.2 0-42-18.8-42-42z"
+              />
+              <path
+                class="st0"
+                d="M602 326h188.2L602 137.8z"
+              />
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216c0 23.2 18.8 42 42 42h216v494z"
+              />
+            </svg>
           </a>
           <a
             class="ant-upload-list-item-name"
@@ -383,10 +401,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -417,10 +431,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -451,10 +461,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -485,10 +491,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -519,10 +521,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
     <div
       class="ant-upload-list-item ant-upload-list-item-done"
@@ -553,10 +551,6 @@ exports[`Upload List should non-image format file preview 1`] = `
           </a>
         </span>
       </div>
-      <i
-        class="anticon anticon-cross"
-        title="Remove file"
-      />
     </div>
   </div>
 </span>
