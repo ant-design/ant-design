@@ -58,7 +58,7 @@ function fetch(value, callback) {
 class SearchInput extends React.Component {
   state = {
     data: [],
-    value: '',
+    value: undefined,
   }
 
   handleSearch = (value) => {
