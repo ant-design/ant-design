@@ -33,9 +33,8 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve => (
-        setTimeout(() => resolve('success'), 100)
-      )),
+      beforeUpload: () => new Promise(resolve => setTimeout(() => resolve('success'), 100)
+      ),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
@@ -138,7 +137,7 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload() {},
+      beforeUpload() { },
       data,
       onChange: () => {
         expect(data).toBeCalled();
@@ -159,6 +158,23 @@ describe('Upload', () => {
         ],
       },
     });
+  });
+
+  it('should use itemRender function to render if it\'s set up', () => {
+    const data = jest.fn();
+    const props = {
+      action: 'http://upload.com',
+      data,
+      itemRender: jest.fn(),
+    };
+
+    mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>
+    );
+    const { itemRender } = props;
+    expect(itemRender.mock.calls.length).toBe(1);
   });
 
   describe('util', () => {

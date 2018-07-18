@@ -21,7 +21,9 @@ const eslintrc = {
     'react/jsx-first-prop-new-line': 0,
     'react/jsx-one-expression-per-line': 0,
     'react/forbid-prop-types': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.md'] }],
+    'react/jsx-filename-extension': [1, {
+      extensions: ['.js', '.jsx', '.md'],
+    }],
     'import/extensions': 0,
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
