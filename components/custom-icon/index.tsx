@@ -44,4 +44,63 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   );
 };
 
-export default CustomIcon;
+const customCache = new Set<string>();
+
+export type CustomIconType = React.SFC<CustomIconProps> & { create: typeof create };
+
+(CustomIcon as CustomIconType)
+  .create = create;
+
+export interface CustomIconOptions {
+  namespace?: string;
+  prefix?: string;
+  scriptLink?: string;
+}
+
+function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
+  const { namespace, prefix = '', scriptLink } = options;
+
+  class Custom extends React.Component<IconProps> {
+    render() {
+      const { type, className = '', spin } = this.props;
+      const classString = classNames({
+        anticon: true,
+        'anticon-spin': !!spin || type === 'loading',
+      }, className);
+      return (
+        <svg
+          {...omit(this.props, ['type', 'spin'])}
+          className={classString}
+          width={'1em'}
+          height={'1em'}
+          fill={'currentColor'}
+          aria-hidden={'true'}
+        >
+          <use xlinkHref={`#${prefix}${type}`} />
+        </svg>
+      );
+    }
+
+    componentDidMount() {
+      /**
+       * The Custom Icon will create a <script/>
+       * that loads SVG symbols and insert the SVG Element into the document body.
+       */
+      if (document && window
+        && typeof scriptLink === 'string' && scriptLink.length
+        && typeof namespace === 'string' && namespace.length
+        && !customCache.has(namespace)
+      ) {
+        const script = document.createElement('script');
+        script.setAttribute('src', scriptLink);
+        script.setAttribute('data-namespace', namespace);
+        customCache.add(namespace);
+        document.body.appendChild(script);
+      }
+    }
+  }
+
+  return Custom;
+}
+
+export default CustomIcon as CustomIconType;
