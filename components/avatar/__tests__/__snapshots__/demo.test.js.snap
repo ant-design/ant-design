@@ -12,6 +12,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         class="ant-avatar ant-avatar-square ant-avatar-icon"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="user"
           fill="currentColor"
@@ -199,6 +200,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         class="ant-avatar ant-avatar-square ant-avatar-icon"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="user"
           fill="currentColor"
@@ -231,6 +233,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -251,6 +254,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -271,6 +275,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -293,6 +298,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -313,6 +319,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-square ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -333,6 +340,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="user"
         fill="currentColor"
@@ -383,6 +391,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="user"
       fill="currentColor"
@@ -439,6 +448,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     style="background-color:#87d068"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="user"
       fill="currentColor"

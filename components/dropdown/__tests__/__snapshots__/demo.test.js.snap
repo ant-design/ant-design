@@ -7,6 +7,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 >
   Hover me 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"
@@ -48,6 +49,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="ellipsis"
         fill="currentColor"
@@ -92,6 +94,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="ellipsis"
         fill="currentColor"
@@ -126,6 +129,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       Button 
     </span>
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="down"
       fill="currentColor"
@@ -148,6 +152,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 >
   Hover me, Click menu item 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"
@@ -169,6 +174,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 >
   Hover me 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"
@@ -190,6 +196,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 >
   Hover me 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"
@@ -265,6 +272,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 >
   Cascading menu 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"
@@ -286,6 +294,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 >
   Click me 
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="down"
     fill="currentColor"

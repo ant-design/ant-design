@@ -132,6 +132,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -155,6 +156,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
         Go forward
       </span>
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -176,6 +178,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="cloud"
         fill="currentColor"
@@ -197,6 +200,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="cloud-download"
         fill="currentColor"
@@ -341,6 +345,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -362,6 +367,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -386,6 +392,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -407,6 +414,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -432,6 +440,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -453,6 +462,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -477,6 +487,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -498,6 +509,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="search"
       fill="currentColor"
@@ -552,6 +564,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="poweroff"
       fill="currentColor"
@@ -608,6 +621,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
       Actions 
     </span>
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="down"
       fill="currentColor"
@@ -727,6 +741,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="download"
       fill="currentColor"
@@ -747,6 +762,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="download"
       fill="currentColor"
@@ -774,6 +790,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -797,6 +814,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         Forward
       </span>
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"

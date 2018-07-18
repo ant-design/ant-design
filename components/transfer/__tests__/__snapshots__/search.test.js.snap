@@ -35,6 +35,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
           type="search"
         >
           <svg
+            aria-hidden="true"
             className="anticon"
             data-icon="search"
             fill="currentColor"

@@ -10,6 +10,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     role="menuitem"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="mail"
       fill="currentColor"
@@ -55,6 +56,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         class="submenu-title-wrapper"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="setting"
           fill="currentColor"
@@ -118,6 +120,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="mail"
           fill="currentColor"
@@ -245,6 +248,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="setting"
           fill="currentColor"
@@ -299,6 +303,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       style="padding-left:24px"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="pie-chart"
         fill="currentColor"
@@ -331,6 +336,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       style="padding-left:24px"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="desktop"
         fill="currentColor"
@@ -372,6 +378,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <span>
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="mail"
             fill="currentColor"
@@ -482,6 +489,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="mail"
           fill="currentColor"
@@ -581,6 +589,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="setting"
           fill="currentColor"
@@ -653,6 +662,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       style="padding-left:24px"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="mail"
         fill="currentColor"
@@ -684,6 +694,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       style="padding-left:24px"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="calendar"
         fill="currentColor"
@@ -772,6 +783,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <span>
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="setting"
             fill="currentColor"
@@ -841,6 +853,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       >
         <span>
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="mail"
             fill="currentColor"
@@ -940,6 +953,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       >
         <span>
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="setting"
             fill="currentColor"
@@ -993,6 +1007,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="mail"
           fill="currentColor"
@@ -1055,6 +1070,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="setting"
           fill="currentColor"

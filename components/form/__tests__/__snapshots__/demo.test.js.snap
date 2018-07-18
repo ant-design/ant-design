@@ -449,6 +449,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         >
           Collapse 
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="down"
             fill="currentColor"
@@ -718,6 +719,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             type="button"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="plus"
               fill="currentColor"
@@ -989,6 +991,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="user"
                 fill="currentColor"
@@ -1039,6 +1042,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="lock"
                 fill="currentColor"
@@ -1306,6 +1310,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="user"
                 fill="currentColor"
@@ -1356,6 +1361,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="lock"
                 fill="currentColor"
@@ -1640,6 +1646,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               value=""
             />
             <svg
+              aria-hidden="true"
               class="anticon ant-cascader-picker-arrow"
               data-icon="down"
               fill="currentColor"
@@ -2881,6 +2888,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -2901,6 +2909,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -2925,6 +2934,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -2945,6 +2955,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -2969,6 +2980,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -2989,6 +3001,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -3013,6 +3026,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -3033,6 +3047,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -3057,6 +3072,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -3077,6 +3093,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="star"
                   fill="currentColor"
@@ -3598,6 +3615,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               value=""
             />
             <svg
+              aria-hidden="true"
               class="anticon ant-cascader-picker-arrow"
               data-icon="down"
               fill="currentColor"

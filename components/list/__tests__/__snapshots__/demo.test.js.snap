@@ -949,6 +949,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="message"
                     fill="currentColor"
@@ -1065,6 +1066,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="message"
                     fill="currentColor"
@@ -1181,6 +1183,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="message"
                     fill="currentColor"

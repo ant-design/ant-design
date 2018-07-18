@@ -369,6 +369,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="minus"
           fill="currentColor"
@@ -386,6 +387,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="plus"
           fill="currentColor"
@@ -434,6 +436,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     class="ant-badge"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="notification"
       fill="currentColor"
@@ -458,6 +461,7 @@ exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
     class="ant-badge"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="notification"
       fill="currentColor"

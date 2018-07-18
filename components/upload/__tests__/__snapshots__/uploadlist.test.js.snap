@@ -248,6 +248,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <svg
+              aria-hidden="true"
               class="anticon ant-upload-list-item-icon"
               data-icon="file"
               fill="currentColor"
@@ -324,6 +325,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <svg
+              aria-hidden="true"
               class="anticon ant-upload-list-item-icon"
               data-icon="file"
               fill="currentColor"
@@ -370,6 +372,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <svg
+              aria-hidden="true"
               class="anticon ant-upload-list-item-icon"
               data-icon="file"
               fill="currentColor"

@@ -101,6 +101,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                   class="ant-input-suffix"
                 >
                   <svg
+                    aria-hidden="true"
                     class="anticon certain-category-icon"
                     data-icon="search"
                     fill="currentColor"
@@ -347,6 +348,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                     type="button"
                   >
                     <svg
+                      aria-hidden="true"
                       class="anticon"
                       data-icon="search"
                       fill="currentColor"

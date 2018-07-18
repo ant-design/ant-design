@@ -354,6 +354,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                 <div>
                   Tab 1
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="close"
                     fill="currentColor"
@@ -376,6 +377,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                 <div>
                   Tab 2
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="close"
                     fill="currentColor"
@@ -523,6 +525,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon ant-tabs-new-tab"
           data-icon="plus"
           fill="currentColor"
@@ -576,6 +579,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               <div>
                 Tab 1
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="close"
                   fill="currentColor"
@@ -598,6 +602,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               <div>
                 Tab 2
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="close"
                   fill="currentColor"
@@ -807,6 +812,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
             >
               <span>
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="apple"
                   fill="currentColor"
@@ -836,6 +842,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
             >
               <span>
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="android"
                   fill="currentColor"

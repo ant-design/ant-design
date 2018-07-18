@@ -54,6 +54,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="search"
               fill="currentColor"
@@ -104,6 +105,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -125,6 +127,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -191,6 +194,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="search"
               fill="currentColor"
@@ -352,6 +356,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -370,6 +375,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -517,6 +523,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -535,6 +542,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -655,6 +663,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -673,6 +682,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -787,6 +797,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="search"
               fill="currentColor"
@@ -824,6 +835,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -842,6 +854,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="right"
         fill="currentColor"
@@ -904,6 +917,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="search"
               fill="currentColor"

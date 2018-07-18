@@ -859,6 +859,7 @@ exports[`Cascader support controlled mode 1`] = `
     value=""
   />
   <svg
+    aria-hidden="true"
     class="anticon ant-cascader-picker-arrow"
     data-icon="down"
     fill="currentColor"

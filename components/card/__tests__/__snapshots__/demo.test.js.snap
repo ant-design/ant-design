@@ -597,6 +597,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="setting"
           fill="currentColor"
@@ -626,6 +627,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="edit"
           fill="currentColor"
@@ -648,6 +650,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="ellipsis"
           fill="currentColor"

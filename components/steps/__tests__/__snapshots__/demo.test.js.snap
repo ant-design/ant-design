@@ -245,6 +245,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="user"
           fill="currentColor"
@@ -285,6 +286,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="solution"
           fill="currentColor"

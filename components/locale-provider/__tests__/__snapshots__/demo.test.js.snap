@@ -362,6 +362,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="search"
                     fill="currentColor"
@@ -399,6 +400,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="left"
               fill="currentColor"
@@ -417,6 +419,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="right"
               fill="currentColor"
@@ -479,6 +482,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="search"
                     fill="currentColor"
@@ -1554,6 +1558,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                           <span>
                             Name
                             <svg
+                              aria-hidden="true"
                               class="anticon ant-dropdown-trigger"
                               data-icon="filter"
                               fill="currentColor"

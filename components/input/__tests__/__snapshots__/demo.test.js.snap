@@ -138,6 +138,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="setting"
             fill="currentColor"
@@ -657,6 +658,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         value=""
       />
       <svg
+        aria-hidden="true"
         class="anticon ant-cascader-picker-arrow"
         data-icon="down"
         fill="currentColor"
@@ -681,6 +683,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     class="ant-input-prefix"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="user"
       fill="currentColor"
@@ -722,6 +725,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input-suffix"
     >
       <svg
+        aria-hidden="true"
         class="anticon ant-input-search-icon"
         data-icon="search"
         fill="currentColor"
@@ -757,6 +761,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         type="button"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="search"
           fill="currentColor"

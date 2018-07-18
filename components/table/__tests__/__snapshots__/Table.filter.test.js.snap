@@ -97,6 +97,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                     <span>
                       Name
                       <svg
+                        aria-hidden="true"
                         class="anticon ant-dropdown-trigger"
                         data-icon="filter"
                         fill="currentColor"

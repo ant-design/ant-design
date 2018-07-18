@@ -109,6 +109,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
       class="ant-switch-inner"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="check"
         fill="currentColor"

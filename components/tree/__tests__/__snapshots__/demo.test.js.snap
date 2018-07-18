@@ -578,6 +578,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="folder-open"
           fill="currentColor"
@@ -622,6 +623,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="file"
               fill="currentColor"
@@ -663,6 +665,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="file"
               fill="currentColor"
@@ -706,6 +709,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="folder-open"
           fill="currentColor"
@@ -750,6 +754,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="file"
               fill="currentColor"
@@ -791,6 +796,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <svg
+              aria-hidden="true"
               class="anticon"
               data-icon="file"
               fill="currentColor"
@@ -1226,6 +1232,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       class="ant-input-suffix"
     >
       <svg
+        aria-hidden="true"
         class="anticon ant-input-search-icon"
         data-icon="search"
         fill="currentColor"

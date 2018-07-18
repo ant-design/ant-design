@@ -60,6 +60,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     <span>
                       Gender
                       <svg
+                        aria-hidden="true"
                         class="anticon ant-dropdown-trigger"
                         data-icon="filter"
                         fill="currentColor"
@@ -221,6 +222,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -288,6 +290,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -355,6 +358,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -924,6 +928,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <span>
                       Address
                       <svg
+                        aria-hidden="true"
                         class="anticon ant-dropdown-trigger"
                         data-icon="filter"
                         fill="currentColor"
@@ -1916,6 +1921,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2007,6 +2013,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2098,6 +2105,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2189,6 +2197,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2280,6 +2289,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2371,6 +2381,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2462,6 +2473,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2553,6 +2565,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2644,6 +2657,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -2735,6 +2749,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"
@@ -7111,6 +7126,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <span>
                         Name
                         <svg
+                          aria-hidden="true"
                           class="anticon ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
@@ -7779,6 +7795,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <span>
                         Name
                         <svg
+                          aria-hidden="true"
                           class="anticon ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
@@ -8242,6 +8259,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         />
                       </div>
                       <svg
+                        aria-hidden="true"
                         class="anticon ant-dropdown-trigger"
                         data-icon="filter"
                         fill="currentColor"
@@ -8297,6 +8315,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         />
                       </div>
                       <svg
+                        aria-hidden="true"
                         class="anticon ant-dropdown-trigger"
                         data-icon="filter"
                         fill="currentColor"
@@ -8593,6 +8612,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -8661,6 +8681,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -8729,6 +8750,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <svg
+                          aria-hidden="true"
                           class="anticon"
                           data-icon="down"
                           fill="currentColor"
@@ -9153,6 +9175,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           />
                         </div>
                         <svg
+                          aria-hidden="true"
                           class="anticon ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
@@ -9208,6 +9231,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           />
                         </div>
                         <svg
+                          aria-hidden="true"
                           class="anticon ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
@@ -10366,6 +10390,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           class="ant-table-selection-down ant-dropdown-trigger"
                         >
                           <svg
+                            aria-hidden="true"
                             class="anticon"
                             data-icon="down"
                             fill="currentColor"

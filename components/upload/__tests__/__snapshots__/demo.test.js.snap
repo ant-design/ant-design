@@ -207,6 +207,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           />
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="delete"
             fill="currentColor"

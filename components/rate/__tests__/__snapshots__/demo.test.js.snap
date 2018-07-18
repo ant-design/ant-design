@@ -12,6 +12,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -32,6 +33,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -56,6 +58,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -76,6 +79,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -100,6 +104,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -120,6 +125,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -144,6 +150,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -164,6 +171,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -188,6 +196,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -208,6 +217,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -241,6 +251,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -261,6 +272,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -285,6 +297,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -305,6 +318,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -329,6 +343,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -349,6 +364,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -373,6 +389,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -393,6 +410,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -417,6 +435,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -437,6 +456,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="heart"
           fill="currentColor"
@@ -624,6 +644,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -644,6 +665,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -668,6 +690,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -688,6 +711,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -712,6 +736,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -732,6 +757,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -756,6 +782,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -776,6 +803,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -800,6 +828,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -820,6 +849,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -851,6 +881,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -871,6 +902,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -895,6 +927,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -915,6 +948,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -939,6 +973,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -959,6 +994,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -983,6 +1019,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1003,6 +1040,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1027,6 +1065,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1047,6 +1086,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1081,6 +1121,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1101,6 +1142,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1125,6 +1167,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1145,6 +1188,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1169,6 +1213,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1189,6 +1234,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1213,6 +1259,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1233,6 +1280,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1257,6 +1305,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1277,6 +1326,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1309,6 +1359,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1329,6 +1380,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1353,6 +1405,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1373,6 +1426,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1397,6 +1451,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1417,6 +1472,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1441,6 +1497,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1461,6 +1518,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1485,6 +1543,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-first"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1505,6 +1564,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
       class="ant-rate-star-second"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="star"
         fill="currentColor"
@@ -1538,6 +1598,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1558,6 +1619,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1582,6 +1644,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1602,6 +1665,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1626,6 +1690,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1646,6 +1711,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1670,6 +1736,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1690,6 +1757,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1714,6 +1782,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"
@@ -1734,6 +1803,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="star"
           fill="currentColor"

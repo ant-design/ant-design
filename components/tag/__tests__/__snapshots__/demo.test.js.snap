@@ -192,6 +192,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     style="background:#fff;border-style:dashed"
   >
     <svg
+      aria-hidden="true"
       class="anticon"
       data-icon="plus"
       fill="currentColor"

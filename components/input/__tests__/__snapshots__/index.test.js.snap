@@ -67,6 +67,7 @@ exports[`Input.Search should support suffix 1`] = `
             type="search"
           >
             <svg
+              aria-hidden="true"
               className="anticon ant-input-search-icon"
               data-icon="search"
               fill="currentColor"

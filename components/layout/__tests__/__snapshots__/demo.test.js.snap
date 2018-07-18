@@ -147,6 +147,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="user"
             fill="currentColor"
@@ -181,6 +182,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="upload"
             fill="currentColor"
@@ -339,6 +341,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="user"
             fill="currentColor"
@@ -377,6 +380,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="upload"
             fill="currentColor"
@@ -403,6 +407,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="bar-chart"
             fill="currentColor"
@@ -451,6 +456,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="team"
             fill="currentColor"
@@ -481,6 +487,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="shop"
             fill="currentColor"
@@ -655,6 +662,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="user"
             fill="currentColor"
@@ -693,6 +701,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="upload"
             fill="currentColor"
@@ -719,6 +728,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="user"
             fill="currentColor"
@@ -795,6 +805,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="pie-chart"
             fill="currentColor"
@@ -827,6 +838,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="desktop"
             fill="currentColor"
@@ -858,6 +870,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="user"
                 fill="currentColor"
@@ -895,6 +908,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <svg
+                aria-hidden="true"
                 class="anticon"
                 data-icon="team"
                 fill="currentColor"
@@ -929,6 +943,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <svg
+            aria-hidden="true"
             class="anticon"
             data-icon="file"
             fill="currentColor"
@@ -959,6 +974,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       style="width:200px"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="left"
         fill="currentColor"
@@ -1232,6 +1248,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="user"
                     fill="currentColor"
@@ -1300,6 +1317,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="laptop"
                     fill="currentColor"
@@ -1339,6 +1357,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <svg
+                    aria-hidden="true"
                     class="anticon"
                     data-icon="notification"
                     fill="currentColor"
@@ -1445,6 +1464,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="user"
                   fill="currentColor"
@@ -1513,6 +1533,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="laptop"
                   fill="currentColor"
@@ -1552,6 +1573,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <svg
+                  aria-hidden="true"
                   class="anticon"
                   data-icon="notification"
                   fill="currentColor"

@@ -44,6 +44,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
   type="button"
 >
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="search"
     fill="currentColor"
@@ -71,6 +72,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
   type="button"
 >
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="search"
     fill="currentColor"
@@ -98,6 +100,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
   type="button"
 >
   <svg
+    aria-hidden="true"
     class="anticon"
     data-icon="search"
     fill="currentColor"

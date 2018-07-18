@@ -117,6 +117,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         class="ant-progress-text"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="check"
           fill="currentColor"
@@ -184,6 +185,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="minus"
         fill="currentColor"
@@ -201,6 +203,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="plus"
         fill="currentColor"
@@ -334,6 +337,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         class="ant-progress-text"
       >
         <svg
+          aria-hidden="true"
           class="anticon"
           data-icon="check"
           fill="currentColor"
@@ -427,6 +431,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="minus"
         fill="currentColor"
@@ -444,6 +449,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       type="button"
     >
       <svg
+        aria-hidden="true"
         class="anticon"
         data-icon="plus"
         fill="currentColor"
