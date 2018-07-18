@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { library, antDesignIcons } from 'antd-icons/esm';
+import AntdIcon from 'react-antd-icons/esm';
+
+library.add(...antDesignIcons);
 
 export interface IconProps {
   type: string;
@@ -16,9 +20,8 @@ const Icon = (props: IconProps) => {
   const classString = classNames({
     anticon: true,
     'anticon-spin': !!spin || type === 'loading',
-    [`anticon-${type}`]: true,
   }, className);
-  return <i {...omit(props, ['type', 'spin'])} className={classString} />;
+  return <AntdIcon {...omit(props, ['spin'])} className={classString} />;
 };
 
 export default Icon;
