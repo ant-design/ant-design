@@ -17,12 +17,10 @@ timeline: true
 
 ## 3.7.0
 
-3.7.0是一个重磅更新，带来了很多激动人心的变化和新特性。  
+3.7.0是一个重磅更新，带来了很多激动人心的变化和新特性。
 以下是一些亮点✨：
 
 - 🔥 增加抽屉组件 : [`Drawer`](https://ant.design/components/drawer-cn/) [#10791](https://github.com/ant-design/ant-design/pull/10791)
-- 🔥 Menu 增加一个横向菜单在空间不足时溢出部分自动收起的特性。[#11234](https://github.com/ant-design/ant-design/pull/11234)
-![demo](https://user-images.githubusercontent.com/1731837/42550555-0fef7878-8505-11e8-9d2f-f708fec66b44.gif)
 - 🔥 新增 `Tree.DirectoryTree` 组件，作为内置的目录树。[#7749](https://github.com/ant-design/ant-design/issues/7749)
 
 组件修复/功能增强：
@@ -64,7 +62,7 @@ timeline: true
 - 🌟 增加 `okButtonDisabled` and `cancelButtonDisabled` 属性用于禁用确定和取消按钮。[#10955](https://github.com/ant-design/ant-design/pull/10955)
 - 🌟 Cascader 新增 fieldNames 并废弃拼写错误的 filedNames。 [#10896](https://github.com/ant-design/ant-design/issues/10896)
 - 🐞 修复时间轴不能与`Tooltip`一起使用的问题。 [0e3b67e](https://github.com/ant-design/ant-design/commit/0e3b67e9999d867cc304f3be61a8a042a2ab92ee)
-- 🐞 修复当 Avata 自定义大小时，圆角不改变的问题。[e1e6523](https://github.com/ant-design/ant-design/commit/e1e6523452286ba56f20b73abad762a58ea7d7bc)
+- 🐞 修复当 Avatar 自定义大小时，圆角不改变的问题。[e1e6523](https://github.com/ant-design/ant-design/commit/e1e6523452286ba56f20b73abad762a58ea7d7bc)
 
 ## 3.6.6
 
