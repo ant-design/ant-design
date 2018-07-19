@@ -27,7 +27,6 @@ toc: false
 <Icon type="link" />
 ```
 
-## 自定义图标
 
 ## 图标列表
 
@@ -74,3 +73,10 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 | spin | 是否有旋转动画 | boolean | false |
 | style | 设置图标的样式，例如 fontSize 和 color | object | - |
 | type | 图标类型 | string | - |
+
+<style>
+[id^="components-icon-demo-"] .code-box-demo .anticon {
+  font-size: 18px;
+  margin-right: 6px;
+}
+</style>
