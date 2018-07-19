@@ -5,7 +5,7 @@ import { antDesignIcons } from '@ant-design/icons';
 import AntdIcon from '@ant-design/icons-react';
 import CustomIcon, { create } from './CustomIcon';
 
-AntdIcon.library.add(...antDesignIcons);
+AntdIcon.add(...antDesignIcons);
 
 export interface IconProps {
   type: string;
