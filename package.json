@@ -39,7 +39,8 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "antd-icons": "^0.1.0-alpha.1",
+    "@ant-design/icons": "^0.1.0-alpha.2",
+    "@ant-design/icons-react": "^0.1.0-alpha.5",
     "array-tree-filter": "^2.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
@@ -83,7 +84,6 @@
     "rc-trigger": "^2.5.4",
     "rc-upload": "~2.5.0",
     "rc-util": "^4.0.4",
-    "react-antd-icons": "^0.1.0-alpha.5",
     "react-lazy-load": "^3.0.12",
     "react-lifecycles-compat": "^3.0.4",
     "react-slick": "~0.23.1",

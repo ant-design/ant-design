@@ -1,10 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { library, antDesignIcons } from 'antd-icons';
-import AntdIcon from 'react-antd-icons';
+import { antDesignIcons } from '@ant-design/icons';
+import AntdIcon from '@ant-design/icons-react';
+import CustomIcon, { create } from './CustomIcon';
 
-library.add(...antDesignIcons);
+AntdIcon.library.add(...antDesignIcons);
 
 export interface IconProps {
   type: string;
@@ -15,13 +16,21 @@ export interface IconProps {
   style?: React.CSSProperties;
 }
 
-const Icon = (props: IconProps) => {
+const Icon: React.SFC<IconProps> = (props: IconProps) => {
   const { type, className = '', spin } = props;
   const classString = classNames({
     anticon: true,
     'anticon-spin': !!spin || type === 'loading',
   }, className);
-  return <AntdIcon {...omit(props, ['spin'])} className={classString} />;
+  return <AntdIcon {...omit(props, ['spin'])} className={classString}/>;
 };
 
-export default Icon;
+export type IconType = React.SFC<IconProps> & {
+  CustomIcon: typeof CustomIcon;
+  create: typeof create;
+};
+
+(Icon as IconType).CustomIcon = CustomIcon;
+(Icon as IconType).create = create;
+
+export default Icon as IconType;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Omit } from '../_util/type';
 import omit from 'omit.js';
-import { IconProps } from '../icon';
+import { Omit } from '../_util/type';
+import { IconProps } from './index';
 
 export interface CustomIconProps extends Omit<IconProps, 'type'> {
   src?: string;
@@ -46,18 +46,13 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
 
 const customCache = new Set<string>();
 
-export type CustomIconType = React.SFC<CustomIconProps> & { create: typeof create };
-
-(CustomIcon as CustomIconType)
-  .create = create;
-
 export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
   scriptLink?: string;
 }
 
-function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
+export function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
   const { namespace, prefix = '', scriptLink } = options;
 
   class Custom extends React.Component<IconProps> {
@@ -83,6 +78,7 @@ function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps
 
     componentDidMount() {
       /**
+       * DOM API required.
        * The Custom Icon will create a <script/>
        * that loads SVG symbols and insert the SVG Element into the document body.
        */
@@ -103,4 +99,4 @@ function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps
   return Custom;
 }
 
-export default CustomIcon as CustomIconType;
+export default CustomIcon;
