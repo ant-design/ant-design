@@ -67,6 +67,7 @@ export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
   scriptLink?: string;
+
   [key: string]: any;
 }
 
@@ -90,7 +91,7 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
             fill={'currentColor'}
             aria-hidden={'true'}
           >
-            <use xlinkHref={`#${prefix}${type}`} />
+            <use xlinkHref={`#${prefix}${type}`}/>
           </svg>
         </i>
       );
@@ -99,10 +100,12 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
     componentDidMount() {
       /**
        * DOM API required.
+       * Make sure in browser environment.
        * The Custom Icon will create a <script/>
        * that loads SVG symbols and insert the SVG Element into the document body.
        */
-      if (document && window
+      if (typeof document === 'object' && typeof window === 'object'
+        && typeof document.createElement === 'function'
         && typeof scriptLink === 'string' && scriptLink.length
         && typeof namespace === 'string' && namespace.length
         && !customCache.has(namespace)
