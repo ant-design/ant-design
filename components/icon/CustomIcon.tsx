@@ -5,28 +5,40 @@ import { Omit } from '../_util/type';
 import { IconProps } from './index';
 
 export interface CustomIconProps extends Omit<IconProps, 'type'> {
-  src?: string;
+  viewBox?: string;
+  component?: React.ComponentType<CustomIconComponentProps>;
+}
+
+export interface CustomIconComponentProps extends Omit<CustomIconProps, 'component'> {
 }
 
 const CustomIcon: React.SFC<CustomIconProps> = (props) => {
-  const { className = '', spin, src, children } = props;
+  const {
+    className = '',
+    spin,
+    viewBox = '0 0 24 24',
+    children,
+    component: Component,
+  } = props;
+
   const classString = classNames({
     anticon: true,
     'anticon-spin': !!spin,
   }, className);
 
-  if (typeof src === 'string' && src.length) {
+  if (Component) {
     return (
-      <object
-        {...omit(props, ['spin'])}
+      <Component
+        {...omit(props, ['component'])}
         className={classString}
         width={'1em'}
         height={'1em'}
         fill={'currentColor'}
-        type={'image/svg+xml'}
         aria-hidden={'true'}
-        data={src}
-      />
+        viewBox={viewBox}
+      >
+        {children}
+      </Component>
     );
   }
 
@@ -38,6 +50,7 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
       height={'1em'}
       fill={'currentColor'}
       aria-hidden={'true'}
+      viewBox={viewBox}
     >
       {children}
     </svg>
@@ -50,10 +63,11 @@ export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
   scriptLink?: string;
+  [key: string]: any;
 }
 
 export function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
-  const { namespace, prefix = '', scriptLink } = options;
+  const { namespace, prefix = '', scriptLink, ...extraCommonProps } = options;
 
   class Custom extends React.Component<IconProps> {
     render() {
@@ -64,6 +78,7 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
       }, className);
       return (
         <svg
+          {...extraCommonProps}
           {...omit(this.props, ['type', 'spin'])}
           className={classString}
           width={'1em'}
