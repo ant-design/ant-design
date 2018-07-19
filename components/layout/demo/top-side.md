@@ -81,7 +81,7 @@ ReactDOM.render(
 ````
 
 ````css
-#components-layout-demo-top-side .logo {
+.header .logo {
   width: 120px;
   height: 31px;
   background: rgba(255,255,255,.2);  
