@@ -18,7 +18,7 @@ import { Icon } from 'antd';
 
 const DemoIcon = Icon.create({
   prefix: 'demo-',
-  viewBox: '0 0 1024 1024'
+  viewBox: '0 0 1024 1024',
 });
 
 const svgSpriteRenderer = (nodeId, contents) => `
@@ -37,7 +37,7 @@ const messageSymbol = `
 </symbol>`;
 
 // insert SVG symbols into document.body
-if(document) {
+if (document) {
   const nodeId = '__SVG_SPRITE_NODE__';
   const spriteContent = svgSpriteRenderer(nodeId, messageSymbol);
   const existing = document.getElementById(nodeId);

@@ -19,7 +19,7 @@ import { Icon } from 'antd';
 const FooIcon = Icon.create({
   namespace: 'foo',
   scriptLink: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-  prefix: 'icon-'
+  prefix: 'icon-',
 });
 
 ReactDOM.render(

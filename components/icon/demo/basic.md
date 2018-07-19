@@ -18,9 +18,9 @@ import { Icon } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Icon type="home"/>
-    <Icon type="setting"/>
-    <Icon type="smile"/>
+    <Icon type="home" />
+    <Icon type="setting" />
+    <Icon type="smile" />
   </div>,
   mountNode
 );
