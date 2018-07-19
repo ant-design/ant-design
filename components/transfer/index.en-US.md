@@ -21,6 +21,8 @@ One or more elements can be selected from either column, one click on the proper
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop. | [TransferItem](https://git.io/vMM64)\[] | \[] |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean |  |
 | footer | A function used for rendering the footer. | (props): ReactNode |  |
+| itemUnit | Item unit of header text. (e.g. `x/1 item`) | string | 'item' |
+| itemsUnit | Items unit of header text. (e.g. `x/xx items`) | string | 'items' |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |
 | listStyle | A custom CSS style used for rendering the transfer columns. | object |  |
 | notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty' |
