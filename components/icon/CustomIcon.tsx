@@ -84,7 +84,7 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
         <i className={classString}>
           <svg
             {...extraCommonProps}
-            {...omit(this.props, ['type', 'spin', 'viewBox'])}
+            {...omit(this.props, ['type', 'spin'])}
             width={'1em'}
             height={'1em'}
             fill={'currentColor'}
