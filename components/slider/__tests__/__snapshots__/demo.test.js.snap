@@ -151,6 +151,9 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
 <div
   class="icon-wrapper"
 >
+  <i
+    class="anticon"
+  />
   <div
     class="ant-slider"
   >
@@ -178,6 +181,9 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class="ant-slider-mark"
     />
   </div>
+  <i
+    class="anticon"
+  />
 </div>
 `;
 

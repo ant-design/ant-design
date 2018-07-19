@@ -16,11 +16,19 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
           <span
             class="ant-table-column-sorter-up off"
             title="↑"
-          />
+          >
+            <i
+              class="anticon"
+            />
+          </span>
           <span
             class="ant-table-column-sorter-down off"
             title="↓"
-          />
+          >
+            <i
+              class="anticon"
+            />
+          </span>
         </div>
       </span>
     </th>

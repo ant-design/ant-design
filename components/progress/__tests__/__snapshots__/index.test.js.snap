@@ -105,7 +105,11 @@ exports[`Progress render out-of-range progress 1`] = `
     </div>
     <span
       class="ant-progress-text"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </span>
   </div>
 </div>
 `;
@@ -129,7 +133,11 @@ exports[`Progress render out-of-range progress with info 1`] = `
     </div>
     <span
       class="ant-progress-text"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </span>
   </div>
 </div>
 `;

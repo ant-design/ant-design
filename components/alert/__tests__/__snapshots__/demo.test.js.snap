@@ -6,6 +6,9 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -20,6 +23,9 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -30,7 +36,11 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     />
     <a
       class="ant-alert-close-icon"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </a>
   </div>
   <br />
   <div
@@ -51,6 +61,9 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     class="ant-alert ant-alert-error ant-alert-banner"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -95,7 +108,11 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     />
     <a
       class="ant-alert-close-icon"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </a>
   </div>
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
@@ -113,7 +130,11 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     </span>
     <a
       class="ant-alert-close-icon"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </a>
   </div>
 </div>
 `;
@@ -210,6 +231,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-success"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -223,31 +247,35 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-info"
     data-show="true"
   >
-    <svg
-      aria-hidden="true"
+    <i
       class="anticon ant-alert-icon"
-      data-icon="info-circle"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
     >
-      <path
-        d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"
-        fill="none"
-      />
-      <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-      />
-      <circle
-        cx="512"
-        cy="336"
-        r="48"
-      />
-      <path
-        d="M536 448h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-      />
-    </svg>
+      <svg
+        aria-hidden="true"
+        class="ant-alert-icon"
+        data-icon="info-circle"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"
+          fill="none"
+        />
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+        />
+        <circle
+          cx="512"
+          cy="336"
+          r="48"
+        />
+        <path
+          d="M536 448h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
     <span
       class="ant-alert-message"
     >
@@ -261,6 +289,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-warning"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -274,6 +305,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-error"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -287,6 +321,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-success ant-alert-with-description"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -302,6 +339,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-info ant-alert-with-description"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -317,6 +357,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-warning ant-alert-with-description"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -332,6 +375,9 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     class="ant-alert ant-alert-error ant-alert-with-description"
     data-show="true"
   >
+    <i
+      class="anticon ant-alert-icon"
+    />
     <span
       class="ant-alert-message"
     >
@@ -362,7 +408,11 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
     />
     <a
       class="ant-alert-close-icon"
-    />
+    >
+      <i
+        class="anticon"
+      />
+    </a>
   </div>
   <p>
     placeholder text here

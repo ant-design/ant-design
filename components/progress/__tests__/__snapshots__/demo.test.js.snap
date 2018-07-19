@@ -77,7 +77,11 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
   <div
@@ -116,19 +120,22 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
       <span
         class="ant-progress-text"
       >
-        <svg
-          aria-hidden="true"
+        <i
           class="anticon"
-          data-icon="check"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
         >
-          <path
-            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474c-6.1-7.7-15.3-12.2-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="check"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474c-6.1-7.7-15.3-12.2-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
   </div>
@@ -184,37 +191,43 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       class="ant-btn ant-btn-icon-only"
       type="button"
     >
-      <svg
-        aria-hidden="true"
+      <i
         class="anticon"
-        data-icon="minus"
-        fill="currentColor"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
       >
-        <path
-          d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="minus"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
     </button>
     <button
       class="ant-btn ant-btn-icon-only"
       type="button"
     >
-      <svg
-        aria-hidden="true"
+      <i
         class="anticon"
-        data-icon="plus"
-        fill="currentColor"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
       >
-        <path
-          d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="plus"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
     </button>
   </div>
 </div>
@@ -297,7 +310,11 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       </svg>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
   <div
@@ -336,19 +353,22 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
       <span
         class="ant-progress-text"
       >
-        <svg
-          aria-hidden="true"
+        <i
           class="anticon"
-          data-icon="check"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
         >
-          <path
-            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474c-6.1-7.7-15.3-12.2-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="check"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474c-6.1-7.7-15.3-12.2-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+            />
+          </svg>
+        </i>
       </span>
     </div>
   </div>
@@ -430,37 +450,43 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       class="ant-btn ant-btn-icon-only"
       type="button"
     >
-      <svg
-        aria-hidden="true"
+      <i
         class="anticon"
-        data-icon="minus"
-        fill="currentColor"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
       >
-        <path
-          d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="minus"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
     </button>
     <button
       class="ant-btn ant-btn-icon-only"
       type="button"
     >
-      <svg
-        aria-hidden="true"
+      <i
         class="anticon"
-        data-icon="plus"
-        fill="currentColor"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
       >
-        <path
-          d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="plus"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          />
+        </svg>
+      </i>
     </button>
   </div>
 </div>
@@ -617,7 +643,11 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
   <div
@@ -638,7 +668,11 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
   <div
@@ -730,7 +764,11 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
   <div
@@ -751,7 +789,11 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
       </div>
       <span
         class="ant-progress-text"
-      />
+      >
+        <i
+          class="anticon"
+        />
+      </span>
     </div>
   </div>
 </div>
