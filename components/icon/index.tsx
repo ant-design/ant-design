@@ -22,7 +22,11 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
     anticon: true,
     'anticon-spin': !!spin || type === 'loading',
   }, className);
-  return <AntdIcon {...omit(props, ['spin'])} className={classString}/>;
+  return (
+    <i className={classString}>
+      <AntdIcon {...omit(props, ['type', 'spin'])} type={type} />
+    </i>
+  );
 };
 
 export type IconType = React.SFC<IconProps> & {

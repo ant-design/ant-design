@@ -26,11 +26,23 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
     'anticon-spin': !!spin,
   }, className);
 
+  let content = (
+    <svg
+      {...omit(props, ['type', 'spin'])}
+      width={'1em'}
+      height={'1em'}
+      fill={'currentColor'}
+      aria-hidden={'true'}
+      viewBox={viewBox}
+    >
+      {children}
+    </svg>
+  );
+
   if (Component) {
-    return (
+    content = (
       <Component
-        {...omit(props, ['component'])}
-        className={classString}
+        {...omit(props, ['type', 'spin', 'component'])}
         width={'1em'}
         height={'1em'}
         fill={'currentColor'}
@@ -43,17 +55,9 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   }
 
   return (
-    <svg
-      {...omit(props, ['spin'])}
-      className={classString}
-      width={'1em'}
-      height={'1em'}
-      fill={'currentColor'}
-      aria-hidden={'true'}
-      viewBox={viewBox}
-    >
-      {children}
-    </svg>
+    <i className={classString}>
+      {content}
+    </i>
   );
 };
 
@@ -77,17 +81,18 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
         'anticon-spin': !!spin || type === 'loading',
       }, className);
       return (
-        <svg
-          {...extraCommonProps}
-          {...omit(this.props, ['type', 'spin'])}
-          className={classString}
-          width={'1em'}
-          height={'1em'}
-          fill={'currentColor'}
-          aria-hidden={'true'}
-        >
-          <use xlinkHref={`#${prefix}${type}`} />
-        </svg>
+        <i className={classString}>
+          <svg
+            {...extraCommonProps}
+            {...omit(this.props, ['type', 'spin', 'viewBox'])}
+            width={'1em'}
+            height={'1em'}
+            fill={'currentColor'}
+            aria-hidden={'true'}
+          >
+            <use xlinkHref={`#${prefix}${type}`} />
+          </svg>
+        </i>
       );
     }
 

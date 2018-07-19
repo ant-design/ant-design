@@ -25,6 +25,7 @@ const StarIcon = (props) => (
 
 const CoolStarIcon = (props) => (
   <StarIcon
+    {...props}
     component={(svgProps) => (
       <svg {...svgProps}>
         <defs>
