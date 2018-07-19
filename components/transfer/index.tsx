@@ -41,6 +41,8 @@ export interface TransferProps {
   filterOption?: (inputValue: any, item: any) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
+  itemUnit?: string;
+  itemsUnit?: string;
   footer?: (props: TransferListProps) => React.ReactNode;
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
@@ -86,6 +88,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
     filterOption: PropTypes.func,
     searchPlaceholder: PropTypes.string,
     notFoundContent: PropTypes.node,
+    itemUnit: PropTypes.string,
+    itemsUnit: PropTypes.string,
     body: PropTypes.func,
     footer: PropTypes.func,
     rowKey: PropTypes.func,
@@ -327,6 +331,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
       className,
       operations = [],
       showSearch,
+      itemUnit,
+      itemsUnit,
       notFoundContent,
       searchPlaceholder,
       body,
@@ -365,8 +371,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
           notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={locale.itemUnit}
-          itemsUnit={locale.itemsUnit}
+          itemUnit={itemUnit || locale.itemUnit}
+          itemsUnit={itemsUnit || locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}
@@ -398,8 +404,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
           notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={locale.itemUnit}
-          itemsUnit={locale.itemsUnit}
+          itemUnit={itemUnit || locale.itemUnit}
+          itemsUnit={itemsUnit || locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}

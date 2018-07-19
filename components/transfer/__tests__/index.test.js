@@ -148,6 +148,13 @@ describe('Transfer', () => {
     expect(wrapper.find(TransferList).at(0).find(TransferItem).find(Checkbox)).toHaveLength(1);
   });
 
+  const headerText = wrapper => wrapper
+    .find(TransferList).at(0)
+    .find('.ant-transfer-list-header-selected > span').at(0)
+    .first()
+    .text()
+    .trim();
+
   it('should display the correct count of items when filter by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
@@ -160,10 +167,20 @@ describe('Transfer', () => {
       />
     );
     wrapper.find(TransferSearch).at(0).find('input').simulate('change', { target: { value: 'content2' } });
-    expect(wrapper.find(TransferList).at(0).find('.ant-transfer-list-header-selected > span').at(0)
-      .first()
-      .text()
-      .trim()).toEqual('1 items');
+    expect(headerText(wrapper)).toEqual('1 items');
+  });
+
+  it('should display the correct item unit', () => {
+    const oneList = [{ key: 'a', title: 'a' }];
+    const wrapper = mount(<Transfer {...listCommonProps} dataSource={oneList} itemUnit="Person" />);
+
+    expect(headerText(wrapper)).toEqual('1/1 Person');
+  });
+
+  it('should display the correct items unit', () => {
+    const wrapper = mount(<Transfer {...listCommonProps} itemsUnit="People" />);
+
+    expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
   it('should just check the filtered item when click on check all after search by input', () => {
