@@ -6,7 +6,7 @@ import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
-import OfflineRuntime from 'offline-plugin/runtime';
+import OfflineRuntime from '@yesmeck/offline-plugin/runtime';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
