@@ -1,6 +1,6 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const OfflinePlugin = require('offline-plugin');
+const OfflinePlugin = require('@yesmeck/offline-plugin');
 const replaceLib = require('antd-tools/lib/replaceLib');
 const getExternalResources = require('./getExternalResources');
 
