@@ -29,20 +29,20 @@ export default class Operation extends React.Component<TransferOperationProps, a
         <Button
           type="primary"
           size="small"
-          disabled={!leftActive}
-          onClick={moveToLeft}
-          icon="left"
-        >
-          {leftArrowText}
-        </Button>
-        <Button
-          type="primary"
-          size="small"
           disabled={!rightActive}
           onClick={moveToRight}
           icon="right"
         >
           {rightArrowText}
+        </Button>
+        <Button
+          type="primary"
+          size="small"
+          disabled={!leftActive}
+          onClick={moveToLeft}
+          icon="left"
+        >
+          {leftArrowText}
         </Button>
       </div>
     );
