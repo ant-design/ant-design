@@ -19,12 +19,13 @@ exports[`Drawer render correctly 1`] = `
       />
       <div
         class="ant-drawer-content-wrapper"
+        style="width: 256px;"
       >
         <div
           class="ant-drawer-content"
         >
           <div
-            style="overflow: auto; height: 100%; width: 256px;"
+            style="overflow: auto; height: 100%;"
           >
             <button
               aria-label="Close"
