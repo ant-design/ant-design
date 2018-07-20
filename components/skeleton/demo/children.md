@@ -30,12 +30,27 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <Skeleton loading={this.state.loading} active>
-        <Button onClick={this.showSkeleton}>Show Skeleton</Button>
-      </Skeleton>
+      <div className="article">
+        <Skeleton loading={this.state.loading}>
+          <h4>Ant Design, a design language</h4>
+          <p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
+        </Skeleton>
+        <Button onClick={this.showSkeleton} disabled={this.state.loading}>
+          Show Skeleton
+        </Button>
+      </div>
     );
   }
 }
 
 ReactDOM.render(<Demo />, mountNode);
 ````
+
+<style>
+.article h4 {
+  margin-bottom: 16px;
+}
+.article button {
+  margin-top: 16px;
+}
+</style>
