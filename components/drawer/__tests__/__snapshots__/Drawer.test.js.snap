@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer closable is false 1`] = `
-<div
-  class=""
->
+<div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open"
   >
@@ -12,6 +10,7 @@ exports[`Drawer closable is false 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"
@@ -32,9 +31,7 @@ exports[`Drawer closable is false 1`] = `
 `;
 
 exports[`Drawer destroyOnClose is true 1`] = `
-<div
-  class=""
->
+<div>
   <div
     class="ant-drawer ant-drawer-right"
   >
@@ -43,6 +40,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
+      style="transform: translateX(100%);"
     >
       <div
         class="ant-drawer-content"
@@ -57,9 +55,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
 `;
 
 exports[`Drawer have a title 1`] = `
-<div
-  class=""
->
+<div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open"
   >
@@ -68,6 +64,7 @@ exports[`Drawer have a title 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"
@@ -105,9 +102,7 @@ exports[`Drawer have a title 1`] = `
 `;
 
 exports[`Drawer render correctly 1`] = `
-<div
-  class=""
->
+<div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open"
   >
@@ -116,6 +111,7 @@ exports[`Drawer render correctly 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
+      style=""
     >
       <div
         class="ant-drawer-content"

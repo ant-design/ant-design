@@ -10,9 +10,7 @@ exports[`Drawer render correctly 1`] = `
       open
     </span>
   </button>
-  <div
-    class=""
-  >
+  <div>
     <div
       class="ant-drawer ant-drawer-right ant-drawer-open"
     >
@@ -21,6 +19,7 @@ exports[`Drawer render correctly 1`] = `
       />
       <div
         class="ant-drawer-content-wrapper"
+        style=""
       >
         <div
           class="ant-drawer-content"
