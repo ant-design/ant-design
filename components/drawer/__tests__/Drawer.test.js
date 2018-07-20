@@ -1,10 +1,49 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'enzyme';
 import Drawer from '..';
 
 describe('Drawer', () => {
+  it('render correctly', () => {
+    const wrapper = render(
+      <Drawer
+        visible
+        width={400}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('have a title', () => {
+    const wrapper = render(
+      <Drawer
+        visible
+        title="Test Title"
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('closable is false', () => {
+    const wrapper = render(
+      <Drawer
+        visible
+        closable={false}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('destroyOnClose is true', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Drawer
         destroyOnClose
         visible={false}
@@ -13,6 +52,6 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });
