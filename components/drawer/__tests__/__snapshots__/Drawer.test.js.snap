@@ -10,7 +10,6 @@ exports[`Drawer closable is false 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style=""
     >
       <div
         class="ant-drawer-content"
@@ -40,7 +39,6 @@ exports[`Drawer destroyOnClose is true 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="transform: translateX(100%);"
     >
       <div
         class="ant-drawer-content"
@@ -64,7 +62,6 @@ exports[`Drawer have a title 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style=""
     >
       <div
         class="ant-drawer-content"
@@ -111,7 +108,6 @@ exports[`Drawer render correctly 1`] = `
     />
     <div
       class="ant-drawer-content-wrapper"
-      style=""
     >
       <div
         class="ant-drawer-content"
