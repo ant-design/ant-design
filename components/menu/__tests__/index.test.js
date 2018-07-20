@@ -85,7 +85,6 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
@@ -104,7 +103,6 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 
@@ -123,7 +121,6 @@ describe('Menu', () => {
     wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).toBe(true);
     wrapper.setProps({ openKeys: ['1'] });
-    wrapper.update();
     expect(wrapper.find('.ant-menu-sub').hostNodes().at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
 

@@ -13,6 +13,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 export interface PopconfirmState {
@@ -31,6 +32,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     placement: 'top',
     trigger: 'click',
     okType: 'primary',
+    icon: <Icon type="exclamation-circle" />,
   };
 
   private tooltip: any;
@@ -92,12 +94,12 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
   }
 
   renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
-    const { prefixCls, title, cancelText, okText, okType } = this.props;
+    const { prefixCls, title, cancelText, okText, okType, icon } = this.props;
     return (
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
-            <Icon type="exclamation-circle" />
+            {icon}
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>

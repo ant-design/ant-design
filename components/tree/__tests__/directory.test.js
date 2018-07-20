@@ -49,6 +49,42 @@ describe('Directory Tree', () => {
       wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate('doubleClick');
       expect(wrapper.render()).toMatchSnapshot();
     });
+
+    describe('with state control', () => {
+      class StateDirTree extends React.Component {
+        state = {
+          expandedKeys: [],
+        };
+
+        onExpand = (expandedKeys) => {
+          this.setState({ expandedKeys });
+        };
+
+        render() {
+          const { expandedKeys } = this.state;
+
+          return (
+            <DirectoryTree expandedKeys={expandedKeys} onExpand={this.onExpand} {...this.props}>
+              <TreeNode key="0-0" title="parent">
+                <TreeNode key="0-0-0" title="children" />
+              </TreeNode>
+            </DirectoryTree>
+          );
+        }
+      }
+
+      ['click', 'doubleClick'].forEach((action) => {
+        it(action, () => {
+          const wrapper = mount(
+            <StateDirTree expandAction={action} />
+          );
+
+          wrapper.find(TreeNode).find('.ant-tree-node-content-wrapper').at(0).simulate(action);
+          jest.runAllTimers();
+          expect(wrapper.render()).toMatchSnapshot();
+        });
+      });
+    });
   });
 
   it('defaultExpandAll', () => {

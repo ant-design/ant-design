@@ -27,6 +27,14 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     this.context.antAnchor.registerLink(this.props.href);
   }
 
+  componentWillReceiveProps(nextProps: AnchorLinkProps) {
+    const { href } = nextProps;
+    if (this.props.href !== href) {
+      this.context.antAnchor.unregisterLink(this.props.href);
+      this.context.antAnchor.registerLink(href);
+    }
+  }
+
   componentWillUnmount() {
     this.context.antAnchor.unregisterLink(this.props.href);
   }

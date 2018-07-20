@@ -81,7 +81,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | format | to set the date format, refer to [moment.js](http://momentjs.com/) | string | "YYYY-MM-DD" |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
-| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
+| showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
 | showToday | whether to show "Today" button | boolean | true |
 | value | to set date | [moment](http://momentjs.com/) | - |
 | onCalendarChange | a callback function, can be executed when the start time or the end time of the range is changing | function(dates: [moment, moment], dateStrings: [string, string]) | 无 |
@@ -118,7 +118,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| () => { \[range: string]: [moment](http://momentjs.com/)\[] } | - |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |
 | showTime | to provide an additional time selection | object\|boolean | [TimePicker Options](/components/time-picker/#API) |
-| showTime.defaultValue | to set default time of selected date, [demo](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
+| showTime.defaultValue | to set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)\[] | [moment(), moment()] |
 | value | to set date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |
 | onChange | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | - |
 | onOk | callback when click ok button | function() | - |

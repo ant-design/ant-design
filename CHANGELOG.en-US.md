@@ -17,12 +17,10 @@ timeline: true
 
 ## 3.7.0
 
-3.7.0 is a heavy update that brings a lot of exciting changes and new features.  
+3.7.0 is a heavy update that brings a lot of exciting changes and new features.
 Here are some highlights ✨:
 
 - 🌟 Add drawer component : [Drawer](https://ant.design/components/drawer-cn/). [#10791](https://github.com/ant-design/ant-design/pull/10791)
-- 🌟 Horizontal menu automatically collapses when there is no enough space. [#11234](https://github.com/ant-design/ant-design/pull/11234)
-![demo](https://user-images.githubusercontent.com/1731837/42550555-0fef7878-8505-11e8-9d2f-f708fec66b44.gif)
 - 🌟 Add `Tree.DirectoryTree` component as the built-in directory tree. [#7749](https://github.com/ant-design/ant-design/issues/7749)
 
 Component Fixes / Enhancements:
@@ -33,8 +31,8 @@ Component Fixes / Enhancements:
   - 🌟 Add `maxTagCount` prop to set the max count of visible tags. [fb96c9d](https://github.com/ant-design/ant-design/commit/fb96c9db351e44a202f64f780470c6319a8a9626)
   - 🌟 Add `maxTagPlaceholder` prop to set the content when the tag is hidden. [fb96c9d](https://github.com/ant-design/ant-design/commit/fb96c9db351e44a202f64f780470c6319a8a9626)
   - 🌟 Search input now supports case sensitive search. [#10990](https://github.com/ant-design/ant-design/issues/10990)
-  - 🗑 Remove `label` prop and use `title` prop instead in the `treeData`. 
-- Upgrade `rc-upload` to `2.5.0` for Upload. 
+  - 🗑 Remove `label` prop and use `title` prop instead in the `treeData`.
+- Upgrade `rc-upload` to `2.5.0` for Upload.
   - 🌟 Add `directory` prop to support folder uploading. [#7315](https://github.com/ant-design/ant-design/issues/7315)
   - 🌟 `action` prop supports to be the a function which returns a Promise object. [fd96967](https://github.com/ant-design/ant-design/commit/fd96967c872600b79bb608e9ddf9f8c38814a704)
 - Dropdown
