@@ -10,10 +10,10 @@ export interface CustomIconProps extends Omit<IconProps, 'type'> {
 }
 
 export interface CustomIconComponentProps {
-  width: string;
-  height: string;
-  fill: string;
-  viewBox: string;
+  width: Readonly<string | number>;
+  height: Readonly<string | number>;
+  fill: Readonly<string>;
+  viewBox: Readonly<string>;
 }
 
 // These props make sure that the SVG behaviours like general text.
@@ -42,7 +42,7 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   }, className);
 
   let content = (
-    <svg {...omit(props, ['type', 'spin'])} {...svgBaseProps} viewBox={viewBox}>
+    <svg {...omit(props, ['spin'])} {...svgBaseProps} viewBox={viewBox}>
       {children}
     </svg>
   );
@@ -64,11 +64,11 @@ export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
   scriptUrl?: string;
-  [key: string]: any;
+  extraCommonProps?: { [key: string]: any };
 }
 
 export function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
-  const { namespace, prefix = '', scriptUrl, ...extraCommonProps } = options;
+  const { namespace, prefix = '', scriptUrl, extraCommonProps = {} } = options;
 
   class Custom extends React.Component<IconProps> {
     render() {
@@ -84,7 +84,7 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
             {...omit(this.props, ['type', 'spin'])}
             {...svgBaseProps}
           >
-            <use xlinkHref={`#${prefix}${type}`} />
+            <use xlinkHref={`#${prefix}${type}`}/>
           </svg>
         </i>
       );
