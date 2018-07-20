@@ -10,7 +10,9 @@ exports[`Drawer render correctly 1`] = `
       open
     </span>
   </button>
-  <div>
+  <div
+    class=""
+  >
     <div
       class="ant-drawer ant-drawer-right ant-drawer-open"
     >

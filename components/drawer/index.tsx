@@ -107,8 +107,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     });
   }
   onDestoryTransitionEnd = () => {
-    const { destroyOnClose, visible } = this.props;
-    const isDestroyOnClose = destroyOnClose && !visible;
+    const isDestroyOnClose = this.getDestoryOnClose();
     if (!isDestroyOnClose) {
       return;
     }
@@ -117,20 +116,23 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       this.forceUpdate();
     }
   }
+
+  getDestoryOnClose = () => (this.props.destroyOnClose && !this.props.visible);
+
   renderBody = () => {
     if (this.destoryClose && !this.props.visible) {
       return null;
     }
     this.destoryClose = false;
-    const { destroyOnClose, visible, placement } = this.props;
+    const { placement } = this.props;
     const containerStyle: React.CSSProperties = placement === 'left'
       || placement === 'right' ? {
         overflow: 'auto',
         height: '100%',
       } : {};
-    const isDestroyOnClose = destroyOnClose && !visible;
+    const isDestroyOnClose = this.getDestoryOnClose();
     if (isDestroyOnClose) {
-      // 增加透明渐变，跟关闭的动画时间相同，在关闭后删除子元素；
+      // Increase the opacity transition, delete children after closing.
       containerStyle.opacity = 0;
       containerStyle.transition = 'opacity .3s';
     }
