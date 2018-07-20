@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as moment from 'moment';
+import { polyfill } from 'react-lifecycles-compat';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -15,12 +16,21 @@ export interface PickerProps {
 }
 
 export default function createPicker(TheCalendar: React.ComponentClass): any {
-  return class CalenderWrapper extends React.Component<any, any> {
+  class CalenderWrapper extends React.Component<any, any> {
     static defaultProps = {
       prefixCls: 'ant-calendar',
       allowClear: true,
       showToday: true,
     };
+
+    static getDerivedStateFromProps(nextProps: PickerProps) {
+      if ('value' in nextProps) {
+        return {
+          value: nextProps.value,
+          showDate: nextProps.value,
+        };
+      }
+    }
 
     private input: any;
 
@@ -37,15 +47,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         value,
         showDate: value,
       };
-    }
-
-    componentWillReceiveProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
-        this.setState({
-          value: nextProps.value,
-          showDate: nextProps.value,
-        });
-      }
     }
 
     renderFooter = (...args: any[]) => {
@@ -195,5 +196,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         </span>
       );
     }
-  };
+  }
+  polyfill(CalenderWrapper);
+  return CalenderWrapper;
 }

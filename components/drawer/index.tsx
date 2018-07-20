@@ -108,8 +108,16 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   }
   renderBody = () => {
     const { destroyOnClose, visible, width, placement } = this.props;
+    let containerStyle: React.CSSProperties = { width };
+    if (placement === 'left' || placement === 'right') {
+      containerStyle = {
+        overflow: 'auto',
+        height: '100%',
+        width,
+      };
+    }
     if (destroyOnClose && !visible) {
-      return null;
+      return  <div style={containerStyle}/>;
     }
     const { prefixCls, title, closable } = this.props;
     let header;
@@ -132,14 +140,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </button>
       );
     }
-    let containerStyle: React.CSSProperties = { width };
-    if (placement === 'left' || placement === 'right') {
-      containerStyle = {
-        overflow: 'auto',
-        height: '100%',
-        width,
-      };
-    }
+
     return (
       <div style={containerStyle}>
         {header}
@@ -172,6 +173,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={RcDrawerStyle}
+          class={this.props.wrapClassName}
         >
           {this.renderBody()}
         </RcDrawer>
