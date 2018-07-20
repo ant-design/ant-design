@@ -158,6 +158,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
 
   expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => {
     const { expandedKeys = [] } = this.state;
+    const { onExpand } = this.props;
     const { eventKey = '', expanded, isLeaf } = node.props;
 
     if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
@@ -176,6 +177,14 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     this.setUncontrolledState({
       expandedKeys: newExpandedKeys,
     });
+
+    if (onExpand) {
+      onExpand(newExpandedKeys, {
+        expanded: !expanded,
+        node,
+        nativeEvent: event.nativeEvent,
+      });
+    }
   }
 
   setUncontrolledState = (state: DirectoryTreeState) => {
