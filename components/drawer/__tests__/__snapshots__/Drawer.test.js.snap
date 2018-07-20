@@ -18,6 +18,7 @@ exports[`Drawer closable is false 1`] = `
         class="ant-drawer-content"
       >
         <div
+          class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
           <div
@@ -50,6 +51,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
         class="ant-drawer-content"
       >
         <div
+          class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
         >
           <button
@@ -90,6 +92,7 @@ exports[`Drawer have a title 1`] = `
         class="ant-drawer-content"
       >
         <div
+          class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
           <div
@@ -139,6 +142,7 @@ exports[`Drawer render correctly 1`] = `
         class="ant-drawer-content"
       >
         <div
+          class="ant-drawer-wrapper-body"
           style="overflow:auto;height:100%"
         >
           <button
