@@ -55,7 +55,6 @@ class App extends React.Component {
           closable={false}
           onClose={this.onClose}
           visible={this.state.visible}
-          push={this.state.childrenDrawer}
         >
           <Button type="primary" onClick={this.showChildrenDrawer}>
               Two-level drawer

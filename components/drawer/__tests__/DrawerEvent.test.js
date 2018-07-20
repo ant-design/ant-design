@@ -33,7 +33,6 @@ class DrawerEventTester extends React.Component {
         <Drawer
           visible={visible}
           onClose={this.onClose}
-          destroyOnClose
           getContainer={false}
           {...this.props}
         >
@@ -87,5 +86,25 @@ describe('Drawer', () => {
 
     wrapper.find('.ant-drawer-mask').simulate('click');
     expect(wrapper.instance().state.visible).toBe(true);
+  });
+
+  it('destroyOnClose is true onClose', () => {
+    const wrapper = mount(<DrawerEventTester destroyOnClose />);
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setState({
+      visible: false,
+    });
+    wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('no mask and no closable', () => {
+    const wrapper = mount(<DrawerEventTester destroyOnClose />);
+
+    wrapper.find('button.ant-btn').simulate('click');
+    expect(wrapper.instance().state.visible).toBe(true);
+
+    wrapper.find('.ant-drawer-close').simulate('click');
+    expect(wrapper.instance().state.visible).toBe(false);
   });
 });

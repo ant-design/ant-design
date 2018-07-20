@@ -160,6 +160,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
 
     return (
       <div
+        className={`${prefixCls}-wrapper-body`}
         style={containerStyle}
         onTransitionEnd={this.onDestoryTransitionEnd}
       >

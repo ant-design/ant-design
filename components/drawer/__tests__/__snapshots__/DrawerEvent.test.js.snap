@@ -1,5 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Drawer destroyOnClose is true onClose 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      open
+    </span>
+  </button>
+  <div>
+    <div
+      class="ant-drawer ant-drawer-right ant-drawer-open"
+    >
+      <div
+        class="ant-drawer-mask"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 256px;"
+      >
+        <div
+          class="ant-drawer-content"
+        >
+          <div
+            class="ant-drawer-wrapper-body"
+            style="overflow: auto; height: 100%;"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+            >
+              <span
+                class="ant-drawer-close-x"
+              />
+            </button>
+            <div
+              class="ant-drawer-body"
+            >
+              Here is content of Drawer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer destroyOnClose is true onClose 2`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      open
+    </span>
+  </button>
+  <div>
+    <div
+      class="ant-drawer ant-drawer-right"
+    >
+      <div
+        class="ant-drawer-mask"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 256px; transform: translateX(100%);"
+      >
+        <div
+          class="ant-drawer-content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Drawer render correctly 1`] = `
 <div>
   <button
@@ -27,6 +106,7 @@ exports[`Drawer render correctly 1`] = `
           class="ant-drawer-content"
         >
           <div
+            class="ant-drawer-wrapper-body"
             style="overflow: auto; height: 100%;"
           >
             <button
