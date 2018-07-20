@@ -27,6 +27,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   title?: React.ReactNode;
   extra?: React.ReactNode;
   bordered?: boolean;
+  headStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
@@ -134,7 +135,7 @@ export default class Card extends React.Component<CardProps, CardState> {
   }
   render() {
     const {
-      prefixCls = 'ant-card', className, extra, bodyStyle = {}, noHovering, hoverable, title, loading,
+      prefixCls = 'ant-card', className, extra, headStyle = {}, bodyStyle = {}, noHovering, hoverable, title, loading,
       bordered = true, type, cover, actions, tabList, children, activeTabKey, defaultActiveTabKey, ...others
     } = this.props;
 
@@ -231,7 +232,7 @@ export default class Card extends React.Component<CardProps, CardState> {
     ) : null;
     if (title || extra || tabs) {
       head = (
-        <div className={`${prefixCls}-head`}>
+        <div className={`${prefixCls}-head`} style={headStyle}>
           <div className={`${prefixCls}-head-wrapper`}>
             {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
             {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
