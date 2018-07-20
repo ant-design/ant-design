@@ -9,14 +9,29 @@ export interface CustomIconProps extends Omit<IconProps, 'type'> {
   component?: React.ComponentType<CustomIconComponentProps>;
 }
 
-export interface CustomIconComponentProps extends Omit<CustomIconProps, 'component'> {
+export interface CustomIconComponentProps {
+  width: string;
+  height: string;
+  fill: string;
+  viewBox: string;
 }
+
+// These props make sure that the SVG behaviours like general text.
+// Reference: https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
+const svgBaseProps = {
+  width: '1em',
+  height: '1em',
+  fill: 'currentColor',
+  ['aria-hidden']: 'true',
+};
 
 const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   const {
     className = '',
     spin,
-    viewBox = '0 0 24 24',
+    // ⬇️ Todo, what's the best default value?
+    // ⬇️       "0 0 24 24" for material-ui or "0 0 1024 1024" for ant-design
+    viewBox = '0 0 1024 1024',
     children,
     component: Component,
   } = props;
@@ -27,31 +42,13 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   }, className);
 
   let content = (
-    <svg
-      {...omit(props, ['type', 'spin'])}
-      width={'1em'}
-      height={'1em'}
-      fill={'currentColor'}
-      aria-hidden={'true'}
-      viewBox={viewBox}
-    >
+    <svg {...omit(props, ['type', 'spin'])} {...svgBaseProps} viewBox={viewBox}>
       {children}
     </svg>
   );
 
   if (Component) {
-    content = (
-      <Component
-        {...omit(props, ['type', 'spin', 'component'])}
-        width={'1em'}
-        height={'1em'}
-        fill={'currentColor'}
-        aria-hidden={'true'}
-        viewBox={viewBox}
-      >
-        {children}
-      </Component>
-    );
+    content = <Component {...svgBaseProps} viewBox={viewBox}>{children}</Component>;
   }
 
   return (
@@ -66,13 +63,12 @@ const customCache = new Set<string>();
 export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
-  scriptLink?: string;
-
+  scriptUrl?: string;
   [key: string]: any;
 }
 
 export function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
-  const { namespace, prefix = '', scriptLink, ...extraCommonProps } = options;
+  const { namespace, prefix = '', scriptUrl, ...extraCommonProps } = options;
 
   class Custom extends React.Component<IconProps> {
     render() {
@@ -86,12 +82,9 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
           <svg
             {...extraCommonProps}
             {...omit(this.props, ['type', 'spin'])}
-            width={'1em'}
-            height={'1em'}
-            fill={'currentColor'}
-            aria-hidden={'true'}
+            {...svgBaseProps}
           >
-            <use xlinkHref={`#${prefix}${type}`}/>
+            <use xlinkHref={`#${prefix}${type}`} />
           </svg>
         </i>
       );
@@ -104,14 +97,14 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
        * The Custom Icon will create a <script/>
        * that loads SVG symbols and insert the SVG Element into the document body.
        */
-      if (typeof document === 'object' && typeof window === 'object'
+      if (typeof document !== 'undefined' && typeof window !== 'undefined'
         && typeof document.createElement === 'function'
-        && typeof scriptLink === 'string' && scriptLink.length
+        && typeof scriptUrl === 'string' && scriptUrl.length
         && typeof namespace === 'string' && namespace.length
         && !customCache.has(namespace)
       ) {
         const script = document.createElement('script');
-        script.setAttribute('src', scriptLink);
+        script.setAttribute('src', scriptUrl);
         script.setAttribute('data-namespace', namespace);
         customCache.add(namespace);
         document.body.appendChild(script);

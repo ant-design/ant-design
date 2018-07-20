@@ -21,6 +21,7 @@ ReactDOM.render(
     <Icon type="home" />
     <Icon type="setting" />
     <Icon type="smile" />
+    <Icon type="reload" spin />
   </div>,
   mountNode
 );

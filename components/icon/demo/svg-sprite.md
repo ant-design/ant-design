@@ -37,7 +37,7 @@ const messageSymbol = `
 </symbol>`;
 
 // insert SVG symbols into document.body
-if (typeof document === 'object') {
+if (typeof document !== 'undefined') {
   const nodeId = '__SVG_SPRITE_NODE__';
   const spriteContent = svgSpriteRenderer(nodeId, messageSymbol);
   const existing = document.getElementById(nodeId);
