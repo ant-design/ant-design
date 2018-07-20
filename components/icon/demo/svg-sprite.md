@@ -18,7 +18,7 @@ import { Icon } from 'antd';
 
 const DemoIcon = Icon.create({
   prefix: 'demo-',
-  viewBox: '0 0 1024 1024',
+  extraCommonProps: { viewBox: '0 0 1024 1024' },
 });
 
 const svgSpriteRenderer = (nodeId, contents) => `
