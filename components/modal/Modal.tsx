@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
@@ -24,6 +25,8 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
   afterClose?: () => void;
+  /** 居中 */
+  centered?: boolean;
   /** 宽度*/
   width?: string | number;
   /** 底部内容*/
@@ -61,6 +64,7 @@ export interface ModalFuncProps {
   content?: React.ReactNode;
   onOk?: (...args: any[]) => any | PromiseLike<any>;
   onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  centered?: boolean;
   width?: string | number;
   iconClassName?: string;
   okText?: string;
@@ -111,6 +115,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     onCancel: PropTypes.func,
     okText: PropTypes.node,
     cancelText: PropTypes.node,
+    centered: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
     visible: PropTypes.bool,
@@ -175,7 +180,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-    const { footer, visible } = this.props;
+    const { footer, visible, className, centered, ...restProps } = this.props;
 
     const defaultFooter = (
       <LocaleReceiver
@@ -188,7 +193,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     return (
       <Dialog
-        {...this.props}
+        {...restProps}
+        className={classNames({ 'vertical-center-modal': centered }, className)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}

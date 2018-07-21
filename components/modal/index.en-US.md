@@ -62,6 +62,7 @@ The properties of the object are follows:
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | cancelText | Text of the Cancel button | string | `Cancel` |
+| centered | Centered Modal | Boolean | `false`
 | className | className of container | string | - |
 | content | Content | string\|ReactNode | - |
 | iconType | Icon `type` of the Icon component | string | `question-circle` |
