@@ -62,6 +62,7 @@ export interface ModalFuncProps {
   content?: React.ReactNode;
   onOk?: (...args: any[]) => any | PromiseLike<any>;
   onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  centered?: boolean;
   width?: string | number;
   iconClassName?: string;
   okText?: string;
@@ -112,6 +113,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     onCancel: PropTypes.func,
     okText: PropTypes.node,
     cancelText: PropTypes.node,
+    centered: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
     visible: PropTypes.bool,
