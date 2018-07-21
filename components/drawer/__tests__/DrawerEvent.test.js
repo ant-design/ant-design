@@ -90,12 +90,14 @@ describe('Drawer', () => {
 
   it('destroyOnClose is true onClose', () => {
     const wrapper = mount(<DrawerEventTester destroyOnClose />);
-    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.find('button.ant-btn').simulate('click');
+    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+
     wrapper.setState({
       visible: false,
     });
     wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(false);
   });
 
   it('no mask and no closable', () => {
