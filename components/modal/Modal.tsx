@@ -25,6 +25,8 @@ export interface ModalProps {
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
   onCancel?: (e: React.MouseEvent<any>) => void;
   afterClose?: () => void;
+  /** 居中 */
+  centered?: boolean;
   /** 宽度*/
   width?: string | number;
   /** 底部内容*/
@@ -192,9 +194,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <Dialog
         {...restProps}
-        className={classNames({
-          'vertical-center-modal': centered
-        }, className)}
+        className={classNames({ 'vertical-center-modal': centered }, className)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}
