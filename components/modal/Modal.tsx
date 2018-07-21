@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
@@ -175,7 +176,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-    const { footer, visible } = this.props;
+    const { footer, visible, className, centered, ...restProps } = this.props;
 
     const defaultFooter = (
       <LocaleReceiver
@@ -188,7 +189,10 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     return (
       <Dialog
-        {...this.props}
+        {...restProps}
+        className={classNames({
+          'vertical-center-modal': centered
+        }, className)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}

@@ -1,4 +1,5 @@
 @dialog-prefix-cls: ~"@{ant-prefix}-modal";
+@table-prefix-cls: ~"@{ant-prefix}-table";
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -132,6 +133,42 @@
     overflow: hidden;
   }
 }
+
+.vertical-center-modal {
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+  }
+  .@{dialog-prefix-cls} {
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    text-align: left;
+  }
+  .@{table-prefix-cls} {
+    &-body {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+  }
+}
+
+/*
+// Use flex which not working in IE
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-center-modal .ant-modal {
+  top: 0;
+}
+*/
 
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
