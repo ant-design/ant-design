@@ -12,6 +12,7 @@ let mousePosition: { x: number, y: number } | null;
 let mousePositionEventBinded: boolean;
 
 export interface ModalProps {
+  prefixCls?: string;
   /** 对话框是否可见*/
   visible?: boolean;
   /** 确定按钮 loading*/
@@ -180,7 +181,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-    const { footer, visible, className, centered, ...restProps } = this.props;
+    const { footer, visible, className, centered, prefixCls, ...restProps } = this.props;
 
     const defaultFooter = (
       <LocaleReceiver
@@ -194,7 +195,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <Dialog
         {...restProps}
-        className={classNames({ 'vertical-center-modal': centered }, className)}
+        className={classNames({ [`${prefixCls}-centered`]: centered }, className)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}
