@@ -62,7 +62,7 @@ export interface TableLocale {
 export type RowSelectionType = 'checkbox' | 'radio';
 export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
 
-export type TableSelectWay = 'onSelect' | 'onSelectAll' | 'onSelectInvert';
+export type TableSelectWay = 'onSelect' | 'onSelectMulti' | 'onSelectAll' | 'onSelectInvert';
 
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
@@ -70,12 +70,14 @@ export interface TableRowSelection<T> {
   onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
+  onSelectMulti?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
   onSelectInvert?: (selectedRows: Object[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
+  selectWay?: TableSelectWay;
 }
 export type SortOrder = 'descend' | 'ascend';
 export interface SorterResult<T> {
@@ -138,6 +140,7 @@ export interface TableState<T> {
   filters: TableStateFilters;
   sortColumn: ColumnProps<T> | null;
   sortOrder?: SortOrder;
+  pivot?: number;
 }
 
 export type SelectionItemSelectFn = (key: string[]) => any;
