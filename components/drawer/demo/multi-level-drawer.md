@@ -52,6 +52,7 @@ class App extends React.Component {
         <Drawer
           title="Multi-level drawer"
           width={520}
+          wrapClassName="test_drawer"
           closable={false}
           onClose={this.onClose}
           visible={this.state.visible}
@@ -60,7 +61,7 @@ class App extends React.Component {
               Two-level drawer
           </Button>
           <Drawer
-            title="Food"
+            title="Two-level Drawer"
             width={320}
             closable={false}
             onClose={this.onChildrenDrawerClose}
