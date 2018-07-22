@@ -10,7 +10,9 @@ exports[`Drawer render correctly 1`] = `
       open
     </span>
   </button>
-  <div>
+  <div
+    class=""
+  >
     <div
       class="ant-drawer ant-drawer-right ant-drawer-open"
     >
@@ -19,12 +21,14 @@ exports[`Drawer render correctly 1`] = `
       />
       <div
         class="ant-drawer-content-wrapper"
+        style="width: 256px;"
       >
         <div
           class="ant-drawer-content"
         >
           <div
-            style="overflow: auto; height: 100%; width: 256px;"
+            class="ant-drawer-wrapper-body"
+            style="overflow: auto; height: 100%;"
           >
             <button
               aria-label="Close"
