@@ -134,7 +134,7 @@
   }
 }
 
-.vertical-center-modal {
+.@{dialog-prefix-cls}-centered {
   text-align: center;
   &:before {
     content: '';
@@ -157,25 +157,12 @@
   }
 }
 
-/*
-// Use flex which not working in IE
-.vertical-center-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vertical-center-modal .ant-modal {
-  top: 0;
-}
-*/
-
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
     width: auto !important;
     margin: 10px;
   }
-  .vertical-center-modal {
+  .@{dialog-prefix-cls}-centered {
     .@{dialog-prefix-cls} {
       flex: 1;
     }
