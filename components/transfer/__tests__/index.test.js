@@ -93,14 +93,14 @@ describe('Transfer', () => {
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to right list
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
@@ -209,7 +209,7 @@ describe('Transfer', () => {
       .simulate('change', { target: { value: 'content2' } });
     wrapper.find(TransferList).at(0).find('.ant-transfer-list-header input[type="checkbox"]').filterWhere(n => !n.prop('checked'))
       .simulate('change');
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click');
+    wrapper.find(TransferOperation).find(Button).at(0).simulate('click');
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 

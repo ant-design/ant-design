@@ -91,10 +91,10 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
       <span>
-        to left
+        to right
       </span>
     </button>
     <button
@@ -103,10 +103,10 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
       <span>
-        to right
+        to left
       </span>
     </button>
   </div>
@@ -308,7 +308,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
     </button>
     <button
@@ -317,7 +317,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
     </button>
   </div>
@@ -455,7 +455,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
     </button>
     <button
@@ -464,7 +464,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
     </button>
   </div>
@@ -575,7 +575,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
     </button>
     <button
@@ -584,7 +584,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
     </button>
   </div>
@@ -713,7 +713,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
     </button>
     <button
@@ -722,7 +722,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
     </button>
   </div>
