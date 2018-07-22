@@ -125,11 +125,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     }
     this.destoryClose = false;
     const { placement } = this.props;
+
     const containerStyle: React.CSSProperties = placement === 'left'
       || placement === 'right' ? {
         overflow: 'auto',
         height: '100%',
       } : {};
+
     const isDestroyOnClose = this.getDestoryOnClose();
     if (isDestroyOnClose) {
       // Increase the opacity transition, delete children after closing.
@@ -191,7 +193,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={RcDrawerStyle}
-          class={this.props.wrapClassName}
+          className={this.props.wrapClassName}
         >
           {this.renderBody()}
         </RcDrawer>

@@ -54,4 +54,18 @@ describe('Drawer', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('wrapClassName is test_drawer', () => {
+    const wrapper = render(
+      <Drawer
+        destroyOnClose
+        visible={false}
+        wrapClassName="test_drawer"
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
