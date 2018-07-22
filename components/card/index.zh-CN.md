@@ -24,6 +24,7 @@ cols: 1
 | --- | --- | --- | --- |
 | actions | 卡片操作组，位置在卡片底部 | Array<ReactNode> | - |
 | activeTabKey | 当前激活页签的 key | string | - |
+| headStyle | 自定义标题区域样式 | object | - |
 | bodyStyle | 内容区域自定义样式 | object | - |
 | bordered | 是否有边框 | boolean | true |
 | cover | 卡片封面 | ReactNode | - |

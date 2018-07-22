@@ -24,7 +24,7 @@ module.exports = {
     'app.demo.codepen': 'Open in CodePen',
     'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.demo.riddle': 'Open in Riddle',
-    'app.home.slogan': 'A UI Design Language',
+    'app.home.slogan': 'The world\'s second most popular React UI framework',
     'app.home.introduce': 'A design system with values of Nature and Determinacy for better user experience of enterprise applications',
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',

@@ -202,20 +202,31 @@
 .markdown.api-container table {
   font-size: @font-size-base;
   line-height: @line-height-base;
+  font-family: @code-family;
+  border-width: 0;
+  margin: 2em 0;
+  th, td {
+    padding: 14px 16px;
+    border-width: 1px 0;
+    border-color: @border-color-split;
+  }
+  th {
+    border-width: 0 0 2px 0;
+  }
   td:first-child {
     font-weight: 500;
     width: 20%;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    color: @blue-9;
   }
   td:nth-child(3) {
     width: 22%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
+    color: @magenta-7;
+    word-break: break-all;
   }
   td:last-child {
     width: 13%;
-    font-size: 12px;
-    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: @font-size-base - 1px;
   }
 }
 
