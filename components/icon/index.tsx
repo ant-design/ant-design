@@ -24,7 +24,7 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
   }, className);
   return (
     <i className={classString}>
-      <AntdIcon {...omit(props, ['type', 'spin'])} type={type} />
+      <AntdIcon {...omit(props, ['type', 'spin', 'className', 'style'])} type={type} />
     </i>
   );
 };

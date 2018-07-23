@@ -42,7 +42,7 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   }, className);
 
   let content = (
-    <svg {...omit(props, ['spin'])} {...svgBaseProps} viewBox={viewBox}>
+    <svg {...omit(props, ['type', 'spin', 'className', 'style'])} {...svgBaseProps} viewBox={viewBox}>
       {children}
     </svg>
   );
@@ -81,7 +81,7 @@ export function create(options: CustomIconOptions = {}): React.ComponentClass<Ic
         <i className={classString}>
           <svg
             {...extraCommonProps}
-            {...omit(this.props, ['type', 'spin'])}
+            {...omit(this.props, ['type', 'spin', 'className', 'style'])}
             {...svgBaseProps}
           >
             <use xlinkHref={`#${prefix}${type}`}/>
