@@ -22,121 +22,195 @@ references:
       key: npm-cache
 
   install_react: &install_react
-    run: ./scripts/install-react.sh
+    run: REACT=15 ./scripts/install-react.sh
+
+  react_15: &react_15
+    environment:
+      REACT: 15
+
+  react_16: &react_16
+    environment:
+      REACT: 16
 
 jobs:
   setup:
     <<: *container_config
     steps:
+      - checkout
       - *restore_cache
-      - run: npm install
       - run: node -v
       - run: npm -v
+      - run: npm install
+      - run:
+          command: |
+            set +eo
+            npm ls
+            true
       - *save_cache
       - persist_to_workspace:
           root: ~/ant-design
           paths:
-            - ./*
+            - node_modules
+
+  dist:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run dist
+      - run: node ./tests/dekko/dist.test.js
+      - persist_to_workspace:
+          root: ~/ant-design
+          paths:
+            - dist
+
+  compile:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run compile
+      - run: node ./tests/dekko/lib.test.js
+      - persist_to_workspace:
+          root: ~/ant-design
+          paths:
+            - lib
+            - es
 
   lint:
     <<: *container_config
     steps:
+      - checkout
       - *attach_workspace
       - run: npm run lint
 
   test_dist:
     <<: *container_config
+    <<: *react_16
     steps:
+      - checkout
       - *attach_workspace
-      - run: npm run dist
-      - run: node ./tests/dekko/dist.test.js
-      - run: REACT=16 LIB_DIR=dist npm test
+      - run:
+          command: npm test -- -w 2
+          environment:
+            LIB_DIR: dist
 
   test_lib:
     <<: *container_config
+    <<: *react_16
     steps:
+      - checkout
       - *attach_workspace
-      - run: npm run compile
-      - run: node ./tests/dekko/lib.test.js
-      - run: REACT=16 LIB_DIR=lib npm test
+      - run:
+          command: npm test -- -w 2
+          environment:
+            LIB_DIR: lib
 
   test_es:
     <<: *container_config
+    <<: *react_16
     steps:
+      - checkout
       - *attach_workspace
-      - run: npm run compile
-      - run: REACT=16 LIB_DIR=es npm test
+      - run:
+          command: npm test -- -w 2
+          environment:
+            LIB_DIR: es
 
   test_dom:
     <<: *container_config
+    <<: *react_16
     steps:
+      - checkout
       - *attach_workspace
-      - run: REACT=16 npm test -- --coverage
+      - run: npm test -- -w 2 --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
   test_node:
     <<: *container_config
+    <<: *react_16
     steps:
+      - checkout
       - *attach_workspace
-      - run: REACT=16 npm run test-node
+      - run: npm run test-node -- -w 2
 
   test_dist_15:
     <<: *container_config
+    <<: *react_15
     steps:
+      - checkout
       - *attach_workspace
       - *install_react
-      - run: node ./tests/dekko/dist.test.js
-      - run: REACT=15 LIB_DIR=dist npm test -u
+      - run:
+          command: npm test -- -w 2 -u
+          environment:
+            LIB_DIR: dist
 
   test_lib_15:
     <<: *container_config
+    <<: *react_15
     steps:
+      - checkout
       - *attach_workspace
       - *install_react
-      - run: npm run compile
-      - run: node ./tests/dekko/lib.test.js
-      - run: REACT=15 LIB_DIR=lib npm test
+      - run:
+          command: npm test -- -w 2 -u
+          environment:
+            LIB_DIR: lib
 
   test_es_15:
     <<: *container_config
+    <<: *react_15
     steps:
+      - checkout
       - *attach_workspace
       - *install_react
-      - run: npm run compile
-      - run: REACT=15 LIB_DIR=es npm test
+      - run:
+          command: npm test -- -w 2 -u
+          environment:
+            LIB_DIR: es
 
   test_dom_15:
     <<: *container_config
+    <<: *react_15
     steps:
+      - checkout
       - *attach_workspace
       - *install_react
-      - run: REACT=15 npm test -- --coverage
-      - run: bash <(curl -s https://codecov.io/bash)
+      - run: npm test -- -w 2 -u
 
   test_node_15:
     <<: *container_config
+    <<: *react_15
     steps:
+      - checkout
       - *attach_workspace
       - *install_react
-      - run: REACT=15 npm run test-node
+      - run: npm run test-node -- -w 2 -u
 
 workflows:
   version: 2
   build-test:
     jobs:
       - setup
+      - dist:
+          requires:
+          - setup
+      - compile:
+          requires:
+          - setup
       - lint:
           requires:
             - setup
       - test_dist:
           requires:
-            - setup
+            - dist
       - test_lib:
           requires:
-            - setup
+            - compile
       - test_es:
           requires:
-            - setup
+            - compile
       - test_dom:
           requires:
             - setup
@@ -145,13 +219,13 @@ workflows:
             - setup
       - test_dist_15:
           requires:
-            - setup
+            - dist
       - test_lib_15:
           requires:
-            - setup
+            - compile
       - test_es_15:
           requires:
-            - setup
+            - compile
       - test_dom_15:
           requires:
             - setup
