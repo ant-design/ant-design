@@ -8,4 +8,13 @@ if (!React.createContext) {
   };
 }
 
+if (!React.createRef) {
+  React.createRef = () => {
+    const ref = function setRef(node) {
+      ref.current = node;
+    };
+    return ref;
+  };
+}
+
 module.exports = React;
