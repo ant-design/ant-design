@@ -3,11 +3,8 @@ version: 2
 jobs:
   setup:
     docker:
-      # specify the version you desire here
       - image: circleci/node:8
-
     working_directory: ~/ant-design
-
     steps:
       - checkout
 
@@ -27,63 +24,101 @@ jobs:
           key: npm-cache
 
   install-react:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - ./scripts/install-react.sh
 
   lint:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
+    docker:
+      - image: circleci/node:8
     steps:
       # run tests!
       - run: npm run lint
 
   test-dist:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=16 LIB_DIR=dist npm test
 
   test-lib:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
       - run: REACT=16 LIB_DIR=lib npm test
 
   test-es:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run compile
       - run: REACT=16 LIB_DIR=es npm test
 
   test-dom:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: REACT=16 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
   test-node:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: REACT=16 npm run test-node
 
   test-dist-15:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=15 LIB_DIR=dist npm test -u
 
   test-lib-15:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
       - run: REACT=15 LIB_DIR=lib npm test
 
   test-es-15:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: npm run compile
       - run: REACT=15 LIB_DIR=es npm test
 
   test-dom-15:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: REACT=15 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
   test-node-15:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/ant-design
     steps:
       - run: REACT=15 npm run test-node
 
