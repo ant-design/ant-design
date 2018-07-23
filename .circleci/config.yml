@@ -128,33 +128,33 @@ workflows:
       - lint:
           requires:
             - setup
-      - test-dist:
+      - test_dist:
           requires:
             - setup
-      - test-lib:
+      - test_lib:
           requires:
             - setup
-      - test-es:
+      - test_es:
           requires:
             - setup
-      - test-dom:
+      - test_dom:
           requires:
             - setup
-      - test-node:
+      - test_node:
           requires:
             - setup
-      - test-dist-15:
+      - test_dist_15:
           requires:
             - setup
-      - test-lib-15:
+      - test_lib_15:
           requires:
             - setup
-      - test-es-15:
+      - test_es_15:
           requires:
             - setup
-      - test-dom-15:
+      - test_dom_15:
           requires:
             - setup
-      - test-node-15:
+      - test_node_15:
           requires:
             - setup
