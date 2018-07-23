@@ -28,7 +28,7 @@ jobs:
       - image: circleci/node:8
     working_directory: ~/ant-design
     steps:
-      - ./scripts/install-react.sh
+      - run: ./scripts/install-react.sh
 
   lint:
     docker:
