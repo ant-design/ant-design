@@ -6,6 +6,10 @@ references:
       - image: circleci/node:8
     working_directory: ~/ant-design
 
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: ~/ant-design
+
   restore_cache: &restore_cache
     restore_cache:
       keys:
@@ -21,26 +25,27 @@ references:
     run: ./scripts/install-react.sh
 
 jobs:
-  lint:
+  setup:
     <<: *container_config
     steps:
-      - checkout
       - *restore_cache
       - run: npm install
       - run: node -v
       - run: npm -v
       - *save_cache
+      - persist_to_workspace:
+          root: ~/ant-design
+
+  lint:
+    <<: *container_config
+    steps:
+      - *attach_workspace
       - run: npm run lint
 
   test_dist:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=16 LIB_DIR=dist npm test
@@ -48,12 +53,7 @@ jobs:
   test_lib:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
       - run: REACT=16 LIB_DIR=lib npm test
@@ -61,47 +61,27 @@ jobs:
   test_es:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - run: npm run compile
       - run: REACT=16 LIB_DIR=es npm test
 
   test_dom:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - run: REACT=16 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
   test_node:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - run: REACT=16 npm run test-node
 
   test_dist_15:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - *install_react
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=15 LIB_DIR=dist npm test -u
@@ -109,12 +89,7 @@ jobs:
   test_lib_15:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - *install_react
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
@@ -123,12 +98,7 @@ jobs:
   test_es_15:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - *install_react
       - run: npm run compile
       - run: REACT=15 LIB_DIR=es npm test
@@ -136,12 +106,7 @@ jobs:
   test_dom_15:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - *install_react
       - run: REACT=15 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
@@ -149,12 +114,7 @@ jobs:
   test_node_15:
     <<: *container_config
     steps:
-      - checkout
-      - *restore_cache
-      - run: npm install
-      - run: node -v
-      - run: npm -v
-      - *save_cache
+      - *attach_workspace
       - *install_react
       - run: REACT=15 npm run test-node
 
@@ -162,14 +122,37 @@ workflows:
   version: 2
   build-test:
     jobs:
+      - setup
       - lint:
+          requires:
+            - setup
       - test-dist:
+          requires:
+            - setup
       - test-lib:
+          requires:
+            - setup
       - test-es:
+          requires:
+            - setup
       - test-dom:
+          requires:
+            - setup
       - test-node:
+          requires:
+            - setup
       - test-dist-15:
+          requires:
+            - setup
       - test-lib-15:
+          requires:
+            - setup
       - test-es-15:
+          requires:
+            - setup
       - test-dom-15:
+          requires:
+            - setup
       - test-node-15:
+          requires:
+            - setup
