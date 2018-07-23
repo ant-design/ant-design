@@ -124,7 +124,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
-      pivot: void(0),
+      pivot: undefined,
     };
 
     this.CheckboxPropsCache = {};
