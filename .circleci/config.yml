@@ -35,6 +35,8 @@ jobs:
       - *save_cache
       - persist_to_workspace:
           root: ~/ant-design
+          paths:
+            - ./*
 
   lint:
     <<: *container_config
