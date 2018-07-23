@@ -6,6 +6,8 @@
 @skeleton-title-prefix-cls: ~"@{skeleton-prefix-cls}-title";
 @skeleton-paragraph-prefix-cls: ~"@{skeleton-prefix-cls}-paragraph";
 
+@skeleton-to-color: shade(@skeleton-color, 5%);
+
 .@{skeleton-prefix-cls} {
   display: table;
   width: 100%;
@@ -19,7 +21,7 @@
     .@{skeleton-avatar-prefix-cls} {
       display: inline-block;
       vertical-align: top;
-      background: @skeleton-from-color;
+      background: @skeleton-color;
 
       .avatar-size(@avatar-size-base);
 
@@ -43,7 +45,7 @@
       margin-top: 16px;
       height: 16px;
       width: 100%;
-      background: @skeleton-from-color;
+      background: @skeleton-color;
 
       + .@{skeleton-paragraph-prefix-cls} {
         margin-top: 24px;
@@ -51,15 +53,15 @@
     }
 
     // paragraph
-  .@{skeleton-paragraph-prefix-cls} {
-    > li {
-      height: 16px;
-      background: @skeleton-from-color;
+    .@{skeleton-paragraph-prefix-cls} {
+      > li {
+        height: 16px;
+        background: @skeleton-color;
 
-      + li {
-        margin-top: 16px;
+        + li {
+          margin-top: 16px;
+        }
       }
-    }
     }
   }
 
@@ -96,7 +98,7 @@
 }
 
 .skeleton-color() {
-  background: linear-gradient(90deg, @skeleton-from-color 25%, @skeleton-to-color 37%, @skeleton-from-color 63%);
+  background: linear-gradient(90deg, @skeleton-color 25%, @skeleton-to-color 37%, @skeleton-color 63%);
   animation: ~"@{skeleton-prefix-cls}-loading" 1.4s ease infinite;
   background-size: 400% 100%;
 }
