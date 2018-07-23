@@ -25,7 +25,7 @@ timeline: true
 - 🐞 Fix Drawer component don't have animation when `destroyOnClose` is set.[#11307](https://github.com/ant-design/ant-design/issues/11307)
 - 🐞 Fix DirectoryTree can't expand when `expandedKeys` is in control.[#11366](https://github.com/ant-design/ant-design/issues/11366)
 - 🐞 Fix Button with Tooltip under ButtonGroup style issue when Button is `disabled`.[11321](https://github.com/ant-design/ant-design/pull/11321) [@tangjinzhou](https://github.com/tangjinzhou)
-- 🐞 Adjust `z-index` style of Drawer component.[#11304](https://github.com/ant-design/ant-design/issues/11304)
+- 🐞 Fix popup content can't display in Drawer component.[#11304](https://github.com/ant-design/ant-design/issues/11304)
 
 ## 3.7.0
 
