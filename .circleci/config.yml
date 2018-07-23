@@ -1,0 +1,133 @@
+version: 2
+
+jobs:
+  setup:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8
+
+    working_directory: ~/ant-design
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - npm-cache
+          # fallback to using the latest cache if no exact match is found
+
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+
+      - save_cache:
+          paths:
+            - ~/.npm
+          key: npm-cache
+
+  install-react:
+    steps:
+      - ./scripts/install-react.sh
+
+  lint:
+    steps:
+      # run tests!
+      - run: npm run lint
+
+  test-dist:
+    steps:
+      - run: npm run dist
+      - run: node ./tests/dekko/dist.test.js
+      - run: REACT=16 LIB_DIR=dist npm test
+
+  test-lib:
+    steps:
+      - run: npm run compile
+      - run: node ./tests/dekko/lib.test.js
+      - run: REACT=16 LIB_DIR=lib npm test
+
+  test-es:
+    steps:
+      - run: npm run compile
+      - run: REACT=16 LIB_DIR=es npm test
+
+  test-dom:
+    steps:
+      - run: REACT=16 npm test -- --coverage
+      - run: bash <(curl -s https://codecov.io/bash)
+
+  test-node:
+    steps:
+      - run: REACT=16 npm run test-node
+
+  test-dist-15:
+    steps:
+      - run: npm run dist
+      - run: node ./tests/dekko/dist.test.js
+      - run: REACT=15 LIB_DIR=dist npm test -u
+
+  test-lib-15:
+    steps:
+      - run: npm run compile
+      - run: node ./tests/dekko/lib.test.js
+      - run: REACT=15 LIB_DIR=lib npm test
+
+  test-es-15:
+    steps:
+      - run: npm run compile
+      - run: REACT=15 LIB_DIR=es npm test
+
+  test-dom-15:
+    steps:
+      - run: REACT=15 npm test -- --coverage
+      - run: bash <(curl -s https://codecov.io/bash)
+
+  test-node-15:
+    steps:
+      - run: REACT=15 npm run test-node
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - setup
+      - install-react
+      - lint:
+          requires:
+            - setup
+      - test-dist:
+          requires:
+            - setup
+      - test-lib:
+          requires:
+            - setup
+      - test-es:
+          requires:
+            - setup
+      - test-dom:
+          requires:
+            - setup
+      - test-node:
+          requires:
+            - setup
+      - test-dist-15:
+          requires:
+            - setup
+            - install-react
+      - test-lib-15:
+          requires:
+            - setup
+            - install-react
+      - test-es-15:
+          requires:
+            - setup
+            - install-react
+      - test-dom-15:
+          requires:
+            - setup
+            - install-react
+      - test-node-15:
+          requires:
+            - setup
+            - install-react
