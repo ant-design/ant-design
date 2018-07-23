@@ -5,10 +5,7 @@ title: Skeleton
 cols: 1
 ---
 
-Let user to have the anticipation for waiting
-, which helps to make the loading process more smooth.
-Provide the placeholder to prevent space shake when loading.
-
+Provide a placeholder at the place which need waiting for loading.
 ## When To Use
 
 - When resource needs long time to load, like low network speed.
