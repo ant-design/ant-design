@@ -179,10 +179,6 @@
       position: absolute;
       border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
-
-      .submenu-title-wrapper {
-        padding-right: 20px;
-      }
     }
 
     > .@{menu-prefix-cls} {
@@ -266,13 +262,12 @@
     border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     line-height: 46px;
-    white-space: nowrap;
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
       position: relative;
       top: 1px;
-      display: inline-block;
+      float: left;
       border-bottom: 2px solid transparent;
 
       &:hover,

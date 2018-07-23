@@ -1104,6 +1104,132 @@ exports[`Directory Tree expand double click 2`] = `
 </ul>
 `;
 
+exports[`Directory Tree expand with state control click 1`] = `
+<ul
+  class="ant-tree ant-tree-directory"
+  role="tree-node"
+  unselectable="on"
+>
+  <li
+    class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+      title="parent"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        parent
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+      style=""
+    >
+      <li
+        class="ant-tree-treenode-switcher-close"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="children"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            children
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`Directory Tree expand with state control doubleClick 1`] = `
+<ul
+  class="ant-tree ant-tree-directory"
+  role="tree-node"
+  unselectable="on"
+>
+  <li
+    class="ant-tree-treenode-switcher-open"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_open"
+    />
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+      title="parent"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        <i
+          class="anticon anticon-folder-open"
+        />
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        parent
+      </span>
+    </span>
+    <ul
+      class="ant-tree-child-tree ant-tree-child-tree-open"
+      data-expanded="true"
+      style=""
+    >
+      <li
+        class="ant-tree-treenode-switcher-close"
+      >
+        <span
+          class="ant-tree-switcher ant-tree-switcher-noop"
+        />
+        <span
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+          title="children"
+        >
+          <span
+            class="ant-tree-iconEle ant-tree-icon__customize"
+          >
+            <i
+              class="anticon anticon-folder"
+            />
+          </span>
+          <span
+            class="ant-tree-title"
+          >
+            children
+          </span>
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
 exports[`Directory Tree expandedKeys update 1`] = `
 <ul
   class="ant-tree ant-tree-directory"

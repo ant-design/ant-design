@@ -34,9 +34,9 @@ const dataSource = ['12345', '23456', '34567'];
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` |
 | placeholder | 输入框提示 | string | - |
 | value | 指定当前选中的条目 | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | 无 |
-| onBlur | 获取焦点时的回调 | function() | - |
+| onBlur | 失去焦点时的回调 | function() | - |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |
-| onFocus | 失去焦点时的回调 | function() | - |
+| onFocus | 获得焦点时的回调 | function() | - |
 | onSearch | 搜索补全项的时候调用 | function(value) | 无 |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无 |
 
