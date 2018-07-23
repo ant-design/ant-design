@@ -338,7 +338,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
             tabIndex={-1}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </span>
       );
     };

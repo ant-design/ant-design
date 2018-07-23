@@ -171,7 +171,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             {...dataOrAriaProps}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </div>
       );
 

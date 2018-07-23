@@ -132,7 +132,7 @@ class WeekPicker extends React.Component<any, any> {
             style={style}
           />
           {clearIcon}
-          <span className={`${prefixCls}-picker-icon`} />
+          <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
         </span>
       );
     };
