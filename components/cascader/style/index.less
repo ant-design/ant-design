@@ -101,13 +101,11 @@
       margin-top: -6px;
       line-height: 12px;
       color: @disabled-color;
-      &:before {
+      & {
         transition: transform .2s;
       }
       &&-expand {
-        &:before {
-          transform: rotate(180deg);
-        }
+        transform: rotate(180deg);
       }
     }
   }
