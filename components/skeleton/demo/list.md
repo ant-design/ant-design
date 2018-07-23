@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-  zh-CN: 列表样例
-  en-US: List Sample
+  zh-CN: 列表
+  en-US: List
 ---
 
 ## zh-CN

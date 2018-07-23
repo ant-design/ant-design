@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-最简单的用法
+最简单的用法。
 
 ## en-US
 
-Basic usage
+Basic usage.
 
 ````jsx
 import { Skeleton } from 'antd';

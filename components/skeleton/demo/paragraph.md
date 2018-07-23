@@ -1,8 +1,8 @@
 ---
 order: 3
 title:
-  zh-CN: 基础列表样例
-  en-US: Basic List Sample
+  zh-CN: 基础列表
+  en-US: Basic List
 ---
 
 ## zh-CN
