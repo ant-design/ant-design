@@ -15,4 +15,4 @@ if (!React.createRef) {
   };
 }
 
-module.exports = React;
+Object.assign(module.exports, React);
