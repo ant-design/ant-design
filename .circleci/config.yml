@@ -1,168 +1,175 @@
 version: 2
 
-jobs:
-  setup:
+references:
+  container_config: &container_config
     docker:
       - image: circleci/node:8
     working_directory: ~/ant-design
+
+  restore_cache: &restore_cache
+    restore_cache:
+      keys:
+        - npm-cache
+
+  save_cache: &save_cache
+    save_cache:
+      paths:
+        - ~/.npm
+      key: npm-cache
+
+  install_react: &install_react
+    run: ./scripts/install-react.sh
+
+jobs:
+  lint:
+    <<: *container_config
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - npm-cache
-          # fallback to using the latest cache if no exact match is found
-
+      - *restore_cache
       - run: npm install
       - run: node -v
       - run: npm -v
-
-      - save_cache:
-          paths:
-            - ~/.npm
-          key: npm-cache
-
-  install-react:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
-    steps:
-      - run: ./scripts/install-react.sh
-
-  lint:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
-    docker:
-      - image: circleci/node:8
-    steps:
-      # run tests!
+      - *save_cache
       - run: npm run lint
 
-  test-dist:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_dist:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=16 LIB_DIR=dist npm test
 
-  test-lib:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_lib:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
       - run: REACT=16 LIB_DIR=lib npm test
 
-  test-es:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_es:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
       - run: npm run compile
       - run: REACT=16 LIB_DIR=es npm test
 
-  test-dom:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_dom:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
       - run: REACT=16 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
-  test-node:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_node:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
       - run: REACT=16 npm run test-node
 
-  test-dist-15:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_dist_15:
+    <<: *container_config
     steps:
-      - run: npm run dist
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
+      - *install_react
       - run: node ./tests/dekko/dist.test.js
       - run: REACT=15 LIB_DIR=dist npm test -u
 
-  test-lib-15:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_lib_15:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
+      - *install_react
       - run: npm run compile
       - run: node ./tests/dekko/lib.test.js
       - run: REACT=15 LIB_DIR=lib npm test
 
-  test-es-15:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_es_15:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
+      - *install_react
       - run: npm run compile
       - run: REACT=15 LIB_DIR=es npm test
 
-  test-dom-15:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_dom_15:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
+      - *install_react
       - run: REACT=15 npm test -- --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
-  test-node-15:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/ant-design
+  test_node_15:
+    <<: *container_config
     steps:
+      - checkout
+      - *restore_cache
+      - run: npm install
+      - run: node -v
+      - run: npm -v
+      - *save_cache
+      - *install_react
       - run: REACT=15 npm run test-node
 
 workflows:
   version: 2
   build-test:
     jobs:
-      - setup
-      - install-react
       - lint:
-          requires:
-            - setup
       - test-dist:
-          requires:
-            - setup
       - test-lib:
-          requires:
-            - setup
       - test-es:
-          requires:
-            - setup
       - test-dom:
-          requires:
-            - setup
       - test-node:
-          requires:
-            - setup
       - test-dist-15:
-          requires:
-            - setup
-            - install-react
       - test-lib-15:
-          requires:
-            - setup
-            - install-react
       - test-es-15:
-          requires:
-            - setup
-            - install-react
       - test-dom-15:
-          requires:
-            - setup
-            - install-react
       - test-node-15:
-          requires:
-            - setup
-            - install-react
