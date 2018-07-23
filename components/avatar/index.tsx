@@ -132,7 +132,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
           <span
             className={`${prefixCls}-string`}
             ref={span => this.avatarChildren = span}
-            style={{ ...childrenStyle, ...sizeChildrenStyle }}
+            style={{ ...sizeChildrenStyle, ...childrenStyle }}
           >
             {children}
           </span>
