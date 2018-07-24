@@ -160,7 +160,7 @@ const columns = [{
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |
-| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | - |
+| onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |
 | onSelect | 用户手动选择/取消选择某列的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
 | onSelectAll | 用户手动选择/取消选择所有列的回调 | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
