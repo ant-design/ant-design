@@ -407,16 +407,11 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
     >
       <div
         class="ant-select-selection__placeholder"
-        style="display:none;user-select:none;-webkit-user-select:none"
+        style="display:block;user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
         input search text
       </div>
-      <div
-        class="ant-select-selection-selected-value"
-        style="display:block;opacity:1"
-        title=""
-      />
       <div
         class="ant-select-search ant-select-search--inline"
         style="display:none"

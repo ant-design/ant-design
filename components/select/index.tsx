@@ -49,6 +49,8 @@ export interface SelectProps extends AbstractSelectProps {
   onFocus?: () => any;
   onPopupScroll?: () => any;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
+  onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
   maxTagCount?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: SelectValue[]) => React.ReactNode);
   optionFilterProp?: string;

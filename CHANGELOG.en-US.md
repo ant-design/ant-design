@@ -15,14 +15,24 @@ timeline: true
 
 ---
 
+## 3.7.1
+
+`2018-07-21`
+
+- 🐞 Fix popup content can't display in Drawer component.[#11304](https://github.com/ant-design/ant-design/issues/11304)
+- 🐞 Card using `tabList` support `disabled` prop.[#11212](https://github.com/ant-design/ant-design/issues/11212)
+- 🐞 Fix Link of Anchor not sync when `href` update.[#11287](https://github.com/ant-design/ant-design/pull/11287/files) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🐞 Fix Menu component style.[#11299](https://github.com/ant-design/ant-design/issues/11299)
+- 🐞 Fix Drawer component don't have animation when `destroyOnClose` is set.[#11307](https://github.com/ant-design/ant-design/issues/11307)
+- 🐞 Fix DirectoryTree can't expand when `expandedKeys` is in control.[#11366](https://github.com/ant-design/ant-design/issues/11366)
+- 🐞 Fix Button with Tooltip under ButtonGroup style issue when Button is `disabled`.[11321](https://github.com/ant-design/ant-design/pull/11321) [@tangjinzhou](https://github.com/tangjinzhou)
+
 ## 3.7.0
 
-3.7.0 is a heavy update that brings a lot of exciting changes and new features.  
+3.7.0 is a heavy update that brings a lot of exciting changes and new features.
 Here are some highlights ✨:
 
 - 🌟 Add drawer component : [Drawer](https://ant.design/components/drawer-cn/). [#10791](https://github.com/ant-design/ant-design/pull/10791)
-- 🌟 Horizontal menu automatically collapses when there is no enough space. [#11234](https://github.com/ant-design/ant-design/pull/11234)
-![demo](https://user-images.githubusercontent.com/1731837/42550555-0fef7878-8505-11e8-9d2f-f708fec66b44.gif)
 - 🌟 Add `Tree.DirectoryTree` component as the built-in directory tree. [#7749](https://github.com/ant-design/ant-design/issues/7749)
 
 Component Fixes / Enhancements:
@@ -33,8 +43,8 @@ Component Fixes / Enhancements:
   - 🌟 Add `maxTagCount` prop to set the max count of visible tags. [fb96c9d](https://github.com/ant-design/ant-design/commit/fb96c9db351e44a202f64f780470c6319a8a9626)
   - 🌟 Add `maxTagPlaceholder` prop to set the content when the tag is hidden. [fb96c9d](https://github.com/ant-design/ant-design/commit/fb96c9db351e44a202f64f780470c6319a8a9626)
   - 🌟 Search input now supports case sensitive search. [#10990](https://github.com/ant-design/ant-design/issues/10990)
-  - 🗑 Remove `label` prop and use `title` prop instead in the `treeData`. 
-- Upgrade `rc-upload` to `2.5.0` for Upload. 
+  - 🗑 Remove `label` prop and use `title` prop instead in the `treeData`.
+- Upgrade `rc-upload` to `2.5.0` for Upload.
   - 🌟 Add `directory` prop to support folder uploading. [#7315](https://github.com/ant-design/ant-design/issues/7315)
   - 🌟 `action` prop supports to be the a function which returns a Promise object. [fd96967](https://github.com/ant-design/ant-design/commit/fd96967c872600b79bb608e9ddf9f8c38814a704)
 - Dropdown

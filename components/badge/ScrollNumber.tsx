@@ -3,7 +3,7 @@ import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 
-function getNumberArray(num: string | number | undefined) {
+function getNumberArray(num: string | number | undefined | null) {
   return num ?
     num.toString()
       .split('')
@@ -14,16 +14,16 @@ function getNumberArray(num: string | number | undefined) {
 export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
-  count?: string | number;
+  count?: string | number | null;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
-  title?: string | number;
+  title?: string | number | null;
 }
 
 export interface ScrollNumberState {
   animateStarted?: boolean;
-  count?: string | number;
+  count?: string | number | null;
 }
 
 export default class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {

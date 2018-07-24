@@ -4,7 +4,7 @@ type: Data Entry
 title: Checkbox
 ---
 
-Checkbox.
+Checkbox component.
 
 ## When To Use
 

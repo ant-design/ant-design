@@ -38,6 +38,7 @@
   .reset-component;
   display: inline-block;
   position: relative;
+  outline: 0;
 
   ul,
   ol {
@@ -478,6 +479,11 @@
       height: 32px;
       line-height: 32px;
       font-size: @font-size-sm;
+    }
+
+    &-item-group-list &-item:first-child:not(:last-child),
+    &-item-group:not(:last-child) &-item-group-list &-item:last-child {
+      border-radius: 0;
     }
 
     &-item {
