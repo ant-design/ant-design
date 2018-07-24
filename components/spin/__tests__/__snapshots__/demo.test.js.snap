@@ -5,13 +5,24 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
   class="ant-spin ant-spin-spinning"
 >
   <span
-    class="ant-spin-dot"
+    class="ant-spin-dot ant-spin-dot-spin"
   >
     <i />
     <i />
     <i />
     <i />
   </span>
+</div>
+`;
+
+exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
+<div
+  class="ant-spin ant-spin-spinning"
+>
+  <i
+    class="anticon anticon-spin anticon-loading ant-spin-dot"
+    style="font-size:24px"
+  />
 </div>
 `;
 
@@ -26,7 +37,6 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
         data-show="true"
-        style="margin-bottom:16px;"
       >
         <span
           class="ant-alert-message"
@@ -41,15 +51,19 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       </div>
     </div>
   </div>
-  Loading state：
-  <span
-    class="ant-switch"
-    tabindex="0"
+  <div
+    style="margin-top:16px"
   >
+    Loading state：
     <span
-      class="ant-switch-inner"
-    />
-  </span>
+      class="ant-switch"
+      tabindex="0"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </span>
+  </div>
 </div>
 `;
 
@@ -61,7 +75,7 @@ exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
     class="ant-spin ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot"
+      class="ant-spin-dot ant-spin-dot-spin"
     >
       <i />
       <i />
@@ -98,7 +112,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top:16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <span
@@ -119,7 +133,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     class="ant-spin ant-spin-sm ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot"
+      class="ant-spin-dot ant-spin-dot-spin"
     >
       <i />
       <i />
@@ -131,7 +145,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     class="ant-spin ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot"
+      class="ant-spin-dot ant-spin-dot-spin"
     >
       <i />
       <i />
@@ -143,7 +157,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     class="ant-spin ant-spin-lg ant-spin-spinning"
   >
     <span
-      class="ant-spin-dot"
+      class="ant-spin-dot ant-spin-dot-spin"
     >
       <i />
       <i />
@@ -163,7 +177,7 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
       class="ant-spin ant-spin-spinning ant-spin-show-text"
     >
       <span
-        class="ant-spin-dot"
+        class="ant-spin-dot ant-spin-dot-spin"
       >
         <i />
         <i />

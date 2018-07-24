@@ -21,17 +21,21 @@ class App extends React.Component {
     visible: false,
     condition: true, // Whether meet the condition, if not show popconfirm.
   }
+
   changeCondition = (value) => {
     this.setState({ condition: value });
   }
+
   confirm = () => {
     this.setState({ visible: false });
     message.success('Next step.');
   }
+
   cancel = () => {
     this.setState({ visible: false });
     message.error('Click on cancel.');
   }
+
   handleVisibleChange = (visible) => {
     if (!visible) {
       this.setState({ visible });
@@ -45,6 +49,7 @@ class App extends React.Component {
       this.setState({ visible }); // show the popconfirm
     }
   }
+
   render() {
     return (
       <div>

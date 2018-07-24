@@ -1,16 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
 
-export interface BasicProps {
-  style?: React.CSSProperties;
+export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
-  className?: string;
+  hasSider?: boolean;
 }
 
-function generator(props) {
-  return (BasicComponent): any => {
+function generator(props: BasicProps) {
+  return (BasicComponent: React.ComponentClass<BasicProps>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
@@ -58,9 +57,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
   }
 
   render() {
-    const { prefixCls, className, children, ...others } = this.props;
+    const { prefixCls, className, children, hasSider, ...others } = this.props;
     const divCls = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]: this.state.siders.length > 0,
+      [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
       <div className={divCls} {...others}>{children}</div>

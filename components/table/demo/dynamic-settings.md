@@ -1,5 +1,5 @@
 ---
-order: 25
+order: 26
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性
@@ -14,7 +14,8 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Switch, Radio, Form } from 'antd';
+import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+
 const FormItem = Form.Item;
 
 const columns = [{
@@ -22,7 +23,7 @@ const columns = [{
   dataIndex: 'name',
   key: 'name',
   width: 150,
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
@@ -38,11 +39,11 @@ const columns = [{
   width: 360,
   render: (text, record) => (
     <span>
-      <a href="#">Action 一 {record.name}</a>
-      <span className="ant-divider" />
-      <a href="#">Delete</a>
-      <span className="ant-divider" />
-      <a href="#" className="ant-dropdown-link">
+      <a href="javascript:;">Action 一 {record.name}</a>
+      <Divider type="vertical" />
+      <a href="javascript:;">Delete</a>
+      <Divider type="vertical" />
+      <a href="javascript:;" className="ant-dropdown-link">
         More actions <Icon type="down" />
       </a>
     </span>
@@ -65,15 +66,16 @@ const title = () => 'Here is title';
 const showHeader = true;
 const footer = () => 'Here is footer';
 const scroll = { y: 240 };
+const pagination = { position: 'bottom' };
 
 class Demo extends React.Component {
   state = {
     bordered: false,
     loading: false,
-    pagination: true,
+    pagination,
     size: 'default',
     expandedRowRender,
-    title,
+    title: undefined,
     showHeader,
     footer,
     rowSelection: {},
@@ -114,6 +116,13 @@ class Demo extends React.Component {
     this.setState({ scroll: enable ? scroll : undefined });
   }
 
+  handlePaginationChange = (e) => {
+    const { value } = e.target;
+    this.setState({
+      pagination: value === 'none' ? false : { position: value },
+    });
+  }
+
   render() {
     const state = this.state;
     return (
@@ -125,9 +134,6 @@ class Demo extends React.Component {
             </FormItem>
             <FormItem label="loading">
               <Switch checked={state.loading} onChange={this.handleToggle('loading')} />
-            </FormItem>
-            <FormItem label="Pagination">
-              <Switch checked={state.pagination} onChange={this.handleToggle('pagination')} />
             </FormItem>
             <FormItem label="Title">
               <Switch checked={!!state.title} onChange={this.handleTitleChange} />
@@ -152,6 +158,17 @@ class Demo extends React.Component {
                 <Radio.Button value="default">Default</Radio.Button>
                 <Radio.Button value="middle">Middle</Radio.Button>
                 <Radio.Button value="small">Small</Radio.Button>
+              </Radio.Group>
+            </FormItem>
+            <FormItem label="Pagination">
+              <Radio.Group
+                value={state.pagination ? state.pagination.position : 'none'}
+                onChange={this.handlePaginationChange}
+              >
+                <Radio.Button value="top">Top</Radio.Button>
+                <Radio.Button value="bottom">Bottom</Radio.Button>
+                <Radio.Button value="both">Both</Radio.Button>
+                <Radio.Button value="none">None</Radio.Button>
               </Radio.Group>
             </FormItem>
           </Form>

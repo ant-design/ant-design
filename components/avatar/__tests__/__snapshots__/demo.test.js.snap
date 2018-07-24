@@ -3,7 +3,7 @@
 exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
 <div>
   <span
-    style="margin-right:24px;"
+    style="margin-right:24px"
   >
     <span
       class="ant-badge"
@@ -22,7 +22,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
       >
         <span
           class="ant-scroll-number-only"
-          style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%);"
+          style="transition:none;-ms-transform:translateY(-1100%);-webkit-transform:translateY(-1100%);transform:translateY(-1100%)"
         >
           <p
             class=""
@@ -253,7 +253,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 <div>
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    style="background-color:#f56a00;"
+    style="background-color:#f56a00;vertical-align:middle"
   >
     <span
       class="ant-avatar-string"
@@ -263,7 +263,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
   </span>
   <button
     class="ant-btn ant-btn-sm"
-    style="margin-left:16px;"
+    style="margin-left:16px;vertical-align:middle"
     type="button"
   >
     <span>
@@ -309,7 +309,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
   </span>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="color:#f56a00;background-color:#fde3cf;"
+    style="color:#f56a00;background-color:#fde3cf"
   >
     <span
       class="ant-avatar-string"
@@ -319,7 +319,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
   </span>
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
-    style="background-color:#87d068;"
+    style="background-color:#87d068"
   >
     <i
       class="anticon anticon-user"

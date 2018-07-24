@@ -5,11 +5,10 @@
 @transfer-prefix-cls: ~"@{ant-prefix}-transfer";
 
 .@{transfer-prefix-cls} {
+  .reset-component;
   position: relative;
-  line-height: @line-height-base;
 
   &-list {
-    font-size: @font-size-base;
     border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;
@@ -17,13 +16,14 @@
     position: relative;
     width: 180px;
     height: 200px;
-    padding-top: 33px;
+    padding-top: 34px;
 
     &-with-footer {
-      padding-bottom: 33px;
+      padding-bottom: 34px;
     }
 
     &-search {
+      padding: 0 @control-padding-horizontal-sm;
       &-action {
         color: @disabled-color;
         position: absolute;
@@ -31,12 +31,10 @@
         right: 4px;
         bottom: 4px;
         width: 28px;
-        line-height: 26px;
+        line-height: @input-height-base;
         text-align: center;
-        font-size: @font-size-lg;
         .@{iconfont-css-prefix} {
           transition: all .3s;
-          font-size: @font-size-base;
           color: @disabled-color;
           &:hover {
             color: @text-color-secondary;
@@ -49,7 +47,7 @@
     }
 
     &-header {
-      padding: 7px 15px;
+      padding: 6px @control-padding-horizontal;
       border-radius: @border-radius-base @border-radius-base 0 0;
       background: @component-background;
       color: @text-color;
@@ -62,7 +60,7 @@
 
       &-title {
         position: absolute;
-        right: 15px;
+        right: 12px;
       }
     }
 
@@ -81,12 +79,15 @@
     }
 
     &-body-with-search {
-      padding-top: 34px;
+      padding-top: @input-height-base + 8px;
     }
 
     &-content {
       height: 100%;
       overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       > .LazyLoad {
         animation: transferHighlightIn 1s;
       }
@@ -95,9 +96,12 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 7px 15px;
+        padding: 6px @control-padding-horizontal;
         min-height: 32px;
         transition: all .3s;
+        > span {
+          padding-right: 0;
+        }
       }
 
       &-item:not(&-item-disabled):hover {
@@ -150,7 +154,7 @@
       }
 
       .@{iconfont-css-prefix} {
-        .iconfont-size-under-12px(10px);
+        font-size: 12px;
       }
     }
   }

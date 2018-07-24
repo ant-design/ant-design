@@ -37,9 +37,15 @@ module.exports = {
     '!components/style/index.tsx',
     '!components/*/locale/index.tsx',
     '!components/*/__tests__/**/type.tsx',
+    '!components/**/*/interface.{ts,tsx}',
   ],
   transformIgnorePatterns,
   snapshotSerializers: [
     'enzyme-to-json/serializer',
   ],
+  globals: {
+    'ts-jest': {
+      tsConfigFile: './tsconfig.test.json',
+    }
+  },
 };

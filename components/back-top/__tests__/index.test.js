@@ -15,10 +15,10 @@ describe('BackTop', () => {
     const wrapper = mount(<BackTop visibilityHeight={-1} />);
     document.documentElement.scrollTop = 400;
     // trigger scroll manually
-    wrapper.node.handleScroll();
+    wrapper.instance().handleScroll();
     jest.runAllTimers();
     wrapper.find('.ant-back-top').simulate('click');
     jest.runAllTimers();
-    expect(Math.round(document.documentElement.scrollTop)).toBe(0);
+    expect(Math.abs(Math.round(document.documentElement.scrollTop))).toBe(0);
   });
 });

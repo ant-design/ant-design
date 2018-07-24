@@ -1,6 +1,3 @@
-import moment from 'moment';
-moment.locale('fa');
-
 import Pagination from 'rc-pagination/lib/locale/fa_IR';
 import DatePicker from '../date-picker/locale/fa_IR';
 import TimePicker from '../time-picker/locale/fa_IR';

@@ -27,6 +27,7 @@ class Autoset extends React.Component {
       color: colorList[0],
     };
   }
+
   changeUser = () => {
     const index = UserList.indexOf(this.state.user);
     this.setState({
@@ -34,16 +35,21 @@ class Autoset extends React.Component {
       color: index < colorList.length - 1 ? colorList[index + 1] : colorList[0],
     });
   }
+
   render() {
     return (
       <div>
-        <Avatar style={{ backgroundColor: this.state.color }} size="large">{this.state.user}</Avatar>
-        <Button size="small" style={{ marginLeft: 16 }} onClick={this.changeUser}>Change</Button>
+        <Avatar style={{ backgroundColor: this.state.color, verticalAlign: 'middle' }} size="large">
+          {this.state.user}
+        </Avatar>
+        <Button size="small" style={{ marginLeft: 16, verticalAlign: 'middle' }} onClick={this.changeUser}>
+          Change
+        </Button>
       </div>
     );
   }
 }
 
-ReactDOM.render(<Autoset />
-, mountNode);
+ReactDOM.render(<Autoset />,
+  mountNode);
 ````

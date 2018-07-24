@@ -3,6 +3,7 @@
 exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 <div
   class="ant-collapse"
+  role="tablist"
 >
   <div
     class="ant-collapse-item"
@@ -11,6 +12,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -25,6 +27,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -39,6 +42,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -59,7 +63,8 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     <div
       aria-expanded="true"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -68,7 +73,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
-      role="tabpanel"
     >
       <div
         class="ant-collapse-content-box"
@@ -89,7 +93,8 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -103,7 +108,8 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="-1"
     >
       <i
         class="arrow"
@@ -124,7 +130,8 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     <div
       aria-expanded="true"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -133,17 +140,14 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
-      role="tabpanel"
     >
       <div
         class="ant-collapse-content-box"
       >
-        <p>
-          
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-
+        <p
+          style="padding-left:24px"
+        >
+          A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>
       </div>
     </div>
@@ -154,7 +158,8 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -168,7 +173,8 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -185,12 +191,13 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="true"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -199,7 +206,6 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
-      role="tabpanel"
     >
       <div
         class="ant-collapse-content-box"
@@ -216,12 +222,13 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -231,12 +238,13 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden;"
+    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
   >
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -257,7 +265,8 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -271,7 +280,8 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
@@ -285,12 +295,62 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
     <div
       aria-expanded="false"
       class="ant-collapse-header"
-      role="tab"
+      role="button"
+      tabindex="0"
     >
       <i
         class="arrow"
       />
       This is panel header 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
+<div
+  class="ant-collapse"
+>
+  <div
+    class="ant-collapse-item ant-collapse-item-active"
+  >
+    <div
+      aria-expanded="true"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      <i
+        class="arrow"
+      />
+      This is panel header with arrow icon
+    </div>
+    <div
+      class="ant-collapse-content ant-collapse-content-active"
+    >
+      <div
+        class="ant-collapse-content-box"
+      >
+        <p>
+          
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-collapse-item ant-collapse-no-arrow"
+  >
+    <div
+      aria-expanded="false"
+      class="ant-collapse-header"
+      role="button"
+      tabindex="0"
+    >
+      This is panel header with no arrow icon
     </div>
   </div>
 </div>

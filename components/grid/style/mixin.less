@@ -53,6 +53,7 @@
 .loop-grid-columns(@index, @class) when (@index > 0) {
   .@{ant-prefix}-col@{class}-@{index} {
     display: block;
+    box-sizing: border-box;
     width: percentage((@index / @grid-columns));
   }
   .@{ant-prefix}-col@{class}-push-@{index} {

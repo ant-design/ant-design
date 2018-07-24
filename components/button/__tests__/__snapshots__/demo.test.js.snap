@@ -212,24 +212,6 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      Ghost
-    </span>
-  </button>
-  <button
-    class="ant-btn"
-    disabled=""
-    type="button"
-  >
-    <span>
-      Ghost(disabled)
-    </span>
-  </button>
-  <br />
-  <button
     class="ant-btn ant-btn-dashed"
     type="button"
   >
@@ -246,12 +228,33 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
       Dashed(disabled)
     </span>
   </button>
+  <div
+    style="padding:8px 8px 0 8px;background:rgb(190, 200, 200)"
+  >
+    <button
+      class="ant-btn ant-btn-background-ghost"
+      type="button"
+    >
+      <span>
+        Ghost
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-background-ghost"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Ghost(disabled)
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
-  style="background:rgb(190, 200, 200);padding:26px 16px 16px;"
+  style="background:rgb(190, 200, 200);padding:26px 16px 16px"
 >
   <button
     class="ant-btn ant-btn-primary ant-btn-background-ghost"
@@ -469,7 +472,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
 exports[`renders ./components/button/demo/size.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -481,6 +484,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
           checked=""
           class="ant-radio-button-input"
           type="radio"
+          value="large"
         />
         <span
           class="ant-radio-button-inner"
@@ -499,6 +503,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="default"
         />
         <span
           class="ant-radio-button-inner"
@@ -517,6 +522,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
+          value="small"
         />
         <span
           class="ant-radio-button-inner"

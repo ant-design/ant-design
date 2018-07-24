@@ -301,7 +301,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-message"
     >
-      success tips
+      Success Tips
     </span>
     <span
       class="ant-alert-description"
@@ -363,6 +363,34 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
       This is an error message about copywriting.
     </span>
   </div>
+</div>
+`;
+
+exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
+<div>
+  <div
+    class="ant-alert ant-alert-success ant-alert-no-icon"
+    data-show="true"
+  >
+    <span
+      class="ant-alert-message"
+    >
+      Alert Message Text
+    </span>
+    <span
+      class="ant-alert-description"
+    />
+    <a
+      class="ant-alert-close-icon"
+    >
+      <i
+        class="anticon anticon-cross"
+      />
+    </a>
+  </div>
+  <p>
+    placeholder text here
+  </p>
 </div>
 `;
 

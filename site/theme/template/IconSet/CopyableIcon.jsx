@@ -1,14 +1,11 @@
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Icon } from 'antd';
+import { Icon, Badge } from 'antd';
 
 export default class CopyableIcon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      justCopied: false,
-    };
-  }
+  state = {
+    justCopied: false,
+  };
 
   onCopied = () => {
     this.setState({ justCopied: true }, () => {
@@ -19,12 +16,18 @@ export default class CopyableIcon extends React.Component {
   }
 
   render() {
-    const text = `<Icon type="${this.props.type}" />`;
+    const { type, isNew } = this.props;
+    const { justCopied } = this.state;
+    const text = `<Icon type="${type}" />`;
     return (
       <CopyToClipboard text={text} onCopy={this.onCopied}>
-        <li className={this.state.justCopied ? 'copied' : ''}>
-          <Icon type={this.props.type} />
-          <span className="anticon-class">{this.props.type}</span>
+        <li className={justCopied ? 'copied' : ''}>
+          <Icon type={type} />
+          <span className="anticon-class">
+            <Badge dot={isNew}>
+              {type}
+            </Badge>
+          </span>
         </li>
       </CopyToClipboard>
     );

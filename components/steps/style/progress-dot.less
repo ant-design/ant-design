@@ -1,0 +1,75 @@
+.@{steps-prefix-cls}-dot {
+  .@{steps-prefix-cls}-item {
+    &-title {
+      line-height: @line-height-base;
+    }
+    &-tail {
+      width: 100%;
+      top: 2px;
+      margin: 0 0 0 @steps-desciption-max-width / 2;
+      padding: 0;
+      &:after {
+        height: 3px;
+        width: ~"calc(100% - 20px)";
+        margin-left: 12px;
+      }
+    }
+    &:first-child .@{steps-prefix-cls}-icon-dot {
+      left: 2px;
+    }
+    &-icon {
+      padding-right: 0;
+      width: @steps-dot-size;
+      height: @steps-dot-size;
+      line-height: @steps-dot-size;
+      border: 0;
+      margin-left: 67px;
+      background: transparent;
+      .@{steps-prefix-cls}-icon-dot {
+        float: left;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        position: relative;
+        transition: all .3s;
+        /* expand hover area */
+        &:after {
+          content: "";
+          background: rgba(0, 0, 0, .001);
+          width: 60px;
+          height: 32px;
+          position: absolute;
+          top: -12px;
+          left: -26px;
+        }
+      }
+    }
+    &-process .@{steps-prefix-cls}-item-icon {
+      width: @steps-current-dot-size;
+      height: @steps-current-dot-size;
+      line-height: @steps-current-dot-size;
+      .@{steps-prefix-cls}-icon-dot {
+        top: -1px;
+      }
+    }
+  }
+}
+
+.@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-dot {
+  .@{steps-prefix-cls}-item-icon {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .@{steps-prefix-cls}-item-tail {
+    margin: 0;
+    left: -9px;
+    top: 2px;
+    padding: 22px 0 4px;
+  }
+  .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
+    left: 0;
+  }
+  .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
+    left: -2px;
+  }
+}

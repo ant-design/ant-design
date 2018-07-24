@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
@@ -6,18 +6,27 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
+export interface RcFile extends File {
+  uid: number;
+}
+
 export interface UploadFile {
   uid: number;
   size: number;
   name: string;
+  filename?: string;
+  lastModified?: number;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
+  isNotImage?: boolean;
   originFileObj?: File;
   response?: any;
   error?: any;
+  linkProps?: any;
+  type: string;
 }
 
 export interface UploadChangeParam {
@@ -38,20 +47,24 @@ export interface UploadLocale {
   previewFile?: string;
 }
 
+export type UploadType = 'drag' | 'select';
+export type UploadListType = 'text' | 'picture' | 'picture-card';
+
 export interface UploadProps {
-  type?: 'drag' | 'select';
+  type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile>;
   fileList?: Array<UploadFile>;
-  action?: string;
+  action?: string | ((file: UploadFile) => PromiseLike<any>);
+  directory?: boolean;
   data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: UploadFile, FileList: UploadFile[]) => boolean | PromiseLike<any>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
-  listType?: 'text' | 'picture' | 'picture-card';
+  listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
@@ -64,8 +77,13 @@ export interface UploadProps {
   locale?: UploadLocale;
 }
 
+export interface UploadState {
+  fileList: UploadFile[];
+  dragState: string;
+}
+
 export interface UploadListProps {
-  listType?: 'text' | 'picture' | 'picture-card';
+  listType?: UploadListType;
   onPreview?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
   items?: Array<UploadFile>;

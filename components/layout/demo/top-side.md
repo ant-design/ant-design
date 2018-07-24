@@ -15,6 +15,7 @@ Both the top navigation and the sidebar, commonly used in documentation site.
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -75,16 +76,15 @@ ReactDOM.render(
     <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2016 Created by Ant UED
     </Footer>
-  </Layout>
-, mountNode);
+  </Layout>,
+  mountNode);
 ````
 
 ````css
 #components-layout-demo-top-side .logo {
   width: 120px;
   height: 31px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255,255,255,.2);  
   margin: 16px 28px 16px 0;
   float: left;
 }

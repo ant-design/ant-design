@@ -1,23 +1,19 @@
 .toc {
-  font-size: 14px;
-  margin: 24px 0;
-  border-left: 1px solid #e9e9e9;
+  font-size: 12px;
+  margin: 16px 0;
+  padding-left: 0;
+  border-left: 1px solid #ebedf0;
   list-style: none;
 }
 
-.markdown .toc {
-  background: #fbfbfb;
-  border-left: 2px solid #eee;
-}
-
-.toc > ul {
-  padding: 8px 0;
+ul.toc > li {
   list-style: none;
-}
-
-.toc > ul li {
-  list-style: none;
-  margin: 0;
+  margin-left: 0;
+  padding-left: 0;
+  line-height: 1.5;
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
 }
 
 .toc li > ul {
@@ -32,7 +28,11 @@
   transition: all 0.3s ease;
   white-space: nowrap;
   overflow: hidden;
-  color: @text-color;
+  text-overflow: ellipsis;
+  color: @site-text-color;
+  width: 110px;
+  border-left: 1px solid transparent;
+  margin-left: -1px;
 }
 
 .toc a:hover {
@@ -48,19 +48,17 @@
   position: absolute;
   top: 8px;
   right: 20px;
+  .ant-affix {
+    background: #fff;
+    overflow: auto;
+    max-height: ~"calc(100vh - 16px)";
+  }
 }
-
-.demos-anchor {
-  color: #aaa;
-  font-size: 12px;
-  margin-top: -4px;
-  background-color: #fff;
-  a {
-    padding-left: 8px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 110px;
+.toc-affix-bottom {
+  position: absolute;
+  bottom: 88px;
+  right: 20px;
+  .ant-affix {
+    background: #fff;
   }
 }

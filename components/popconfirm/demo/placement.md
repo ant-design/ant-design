@@ -68,11 +68,14 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popconfirm>
     </div>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 <style>
+.code-box-demo .demo {
+  overflow: auto;
+}
 .code-box-demo .ant-popover-wrap > a {
   margin-right: 8px;
 }
@@ -82,5 +85,7 @@ ReactDOM.render(
 }
 #components-popconfirm-demo-placement .ant-btn {
   width: 70px;
+  text-align: center;
+  padding: 0;
 }
 </style>

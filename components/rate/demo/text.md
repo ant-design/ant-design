@@ -20,9 +20,11 @@ class Rater extends React.Component {
   state = {
     value: 3,
   }
+
   handleChange = (value) => {
     this.setState({ value });
   }
+
   render() {
     const { value } = this.state;
     return (

@@ -15,6 +15,7 @@ Vertical menu with inline submenus.
 
 ````jsx
 import { Menu, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -22,11 +23,12 @@ class Sider extends React.Component {
   handleClick = (e) => {
     console.log('click ', e);
   }
+
   render() {
     return (
       <Menu
         onClick={this.handleClick}
-        style={{ width: 240 }}
+        style={{ width: 256 }}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         mode="inline"

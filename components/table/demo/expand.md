@@ -20,7 +20,7 @@ const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   { title: 'Age', dataIndex: 'age', key: 'age' },
   { title: 'Address', dataIndex: 'address', key: 'address' },
-  { title: 'Action', dataIndex: '', key: 'x', render: () => <a href="#">Delete</a> },
+  { title: 'Action', dataIndex: '', key: 'x', render: () => <a href="javascript:;">Delete</a> },
 ];
 
 const data = [
@@ -32,8 +32,8 @@ const data = [
 ReactDOM.render(
   <Table
     columns={columns}
-    expandedRowRender={record => <p>{record.description}</p>}
+    expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
     dataSource={data}
-  />
-, mountNode);
+  />,
+  mountNode);
 ````

@@ -64,7 +64,7 @@ ReactDOM.render(
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
     displayRender={displayRender}
-    style={{ width: 270 }}
-  />
-, mountNode);
+    style={{ width: '100%' }}
+  />,
+  mountNode);
 ````

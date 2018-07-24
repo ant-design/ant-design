@@ -38,6 +38,6 @@ ReactDOM.render(
       description="Error Description Error Description Error Description Error Description"
       type="error"
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

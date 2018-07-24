@@ -55,6 +55,6 @@ ReactDOM.render(
     expandTrigger="hover"
     displayRender={displayRender}
     onChange={onChange}
-  />
-, mountNode);
+  />,
+  mountNode);
 ````

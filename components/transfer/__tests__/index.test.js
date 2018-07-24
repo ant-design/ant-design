@@ -163,7 +163,7 @@ describe('Transfer', () => {
     expect(wrapper.find(TransferList).at(0).find('.ant-transfer-list-header-selected > span').at(0)
       .first()
       .text()
-      .trim()).toEqual('1');
+      .trim()).toEqual('1 items');
   });
 
   it('should just check the filtered item when click on check all after search by input', () => {
@@ -214,12 +214,12 @@ describe('Transfer', () => {
   });
 
   it('should check correctly when there is a search text', () => {
-    const props = { ...listCommonProps };
-    delete props.targetKeys;
-    delete props.selectedKeys;
+    const newProps = { ...listCommonProps };
+    delete newProps.targetKeys;
+    delete newProps.selectedKeys;
     const handleSelectChange = jest.fn();
     const wrapper = mount(
-      <Transfer {...props} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
+      <Transfer {...newProps} showSearch onSelectChange={handleSelectChange} render={item => item.title} />
     );
     wrapper.find(TransferItem).filterWhere(n => n.prop('item').key === 'b').simulate('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
@@ -247,5 +247,29 @@ describe('Transfer', () => {
     };
     const wrapper = render(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should add custom styles when their props are provided', () => {
+    const style = {
+      backgroundColor: 'red',
+    };
+    const listStyle = {
+      backgroundColor: 'blue',
+    };
+    const operationStyle = {
+      backgroundColor: 'yellow',
+    };
+
+    const component = mount(<Transfer {...listCommonProps} style={style} listStyle={listStyle} operationStyle={operationStyle} />);
+
+    const wrapper = component.find('.ant-transfer');
+    const listSource = component.find('.ant-transfer-list').first();
+    const listTarget = component.find('.ant-transfer-list').last();
+    const operation = component.find('.ant-transfer-operation').first();
+
+    expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
+    expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
 });

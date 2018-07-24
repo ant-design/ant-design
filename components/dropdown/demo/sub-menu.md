@@ -15,6 +15,7 @@ The menu has multiple levels.
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 
 const menu = (
@@ -37,6 +38,6 @@ ReactDOM.render(
     <a className="ant-dropdown-link" href="#">
       Cascading menu <Icon type="down" />
     </a>
-  </Dropdown>
-, mountNode);
+  </Dropdown>,
+  mountNode);
 ````

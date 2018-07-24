@@ -35,6 +35,6 @@ ReactDOM.render(
       closable
       onClose={onClose}
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

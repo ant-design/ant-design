@@ -8,9 +8,10 @@
 @primary-color          : @blue-6;
 @info-color             : @blue-6;
 @success-color          : @green-6;
+@processing-color       : @blue-6;
 @error-color            : @red-6;
 @highlight-color        : @red-6;
-@warning-color          : @yellow-6;
+@warning-color          : @gold-6;
 @normal-color           : #d9d9d9;
 
 // Color used by default to control hover and active backgrounds and for
@@ -33,20 +34,31 @@
 @body-background        : #fff;
 // Base background color for most components
 @component-background   : #fff;
-@font-family-no-number  : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family            : "Helvetica Neue For Number", @font-family-no-number;
+@font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family            : "Monospaced Number", @font-family-no-number;
 @code-family            : Consolas, Menlo, Courier, monospace;
 @heading-color          : fade(#000, 85%);
 @text-color             : fade(#000, 65%);
-@text-color-secondary   : fade(#000, 43%);
-@heading-color-dark     : fade(#fff, 97%);
-@text-color-dark        : fade(#fff, 91%);
-@text-color-secondary-dark: fade(#fff, 67%);
-@font-size-base         : 12px;
+@text-color-secondary   : fade(#000, 45%);
+@heading-color-dark     : fade(#fff, 100%);
+@text-color-dark        : fade(#fff, 85%);
+@text-color-secondary-dark: fade(#fff, 65%);
+@font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
+@font-size-sm           : 12px;
 @line-height-base       : 1.5;
 @border-radius-base     : 4px;
 @border-radius-sm       : 2px;
+
+// vertical paddings
+@padding-lg    : 24px; // containers
+@padding-md    : 16px; // small containers and buttons
+@padding-sm    : 12px; // Form controls and items
+@padding-xs    : 8px;  // small items
+
+// vertical padding for all form controls
+@control-padding-horizontal: @padding-sm;
+@control-padding-horizontal-sm: @padding-xs;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
@@ -55,12 +67,12 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_zck90zmlh7hf47vi";
+@icon-url               : "https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i";
 
 // LINK
 @link-color             : @primary-color;
-@link-hover-color       : @primary-5;
-@link-active-color      : @primary-7;
+@link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
+@link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
 @link-decoration        : none;
 @link-hover-decoration  : none;
 
@@ -79,8 +91,8 @@
 @ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base      : #d9d9d9;        // base border outline a component
-@border-color-split     : #e9e9e9;        // split border inside a component
+@border-color-base      : hsv(0, 0, 85%);  // base border outline a component
+@border-color-split     : hsv(0, 0, 91%);  // split border inside a component
 @border-width-base      : 1px;            // width of the border for a component
 @border-style-base      : solid;          // style of a components border
 
@@ -89,10 +101,8 @@
 @outline-width          : 2px;
 @outline-color          : @primary-color;
 
-// Default background color for disabled states, Collapse wrappers,
-// and several active and hover states.
-@background-color-base  : #f7f7f7;
-@background-color-active: #eee;
+@background-color-light : hsv(0, 0, 98%);  // background of header and selected item
+@background-color-base  : hsv(0, 0, 96%);  // Default grey background color
 
 // Disabled states
 @disabled-color         : fade(#000, 25%);
@@ -100,16 +110,16 @@
 @disabled-color-dark    : fade(#fff, 35%);
 
 // Shadow
-@shadow-color           : rgba(0, 0, 0, .2);
+@shadow-color           : rgba(0, 0, 0, .15);
 @box-shadow-base        : @shadow-1-down;
-@shadow-1-up            : 0 -1px 6px @shadow-color;
-@shadow-1-down          : 0 1px 6px @shadow-color;
-@shadow-1-left          : -1px 0 6px @shadow-color;
-@shadow-1-right         : 1px 0 6px @shadow-color;
-@shadow-2               : 0 2px 8px @shadow-color;
+@shadow-1-up            : 0 2px 8px @shadow-color;
+@shadow-1-down          : 0 2px 8px @shadow-color;
+@shadow-1-left          : -2px 0 8px @shadow-color;
+@shadow-1-right         : 2px 0 8px @shadow-color;
+@shadow-2               : 0 4px 12px @shadow-color;
 
 // Buttons
-@btn-font-weight        : 500;
+@btn-font-weight        : 400;
 @btn-border-radius-base : @border-radius-base;
 @btn-border-radius-sm   : @border-radius-base;
 
@@ -128,27 +138,36 @@
 @btn-disable-bg         : @disabled-bg;
 @btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 0 15px;
+@btn-padding-base       : 0 @padding-md - 1px;
 @btn-font-size-lg       : @font-size-lg;
+@btn-font-size-sm       : @font-size-base;
 @btn-padding-lg         : @btn-padding-base;
-@btn-padding-sm         : 0 7px;
+@btn-padding-sm         : 0 @padding-xs - 1px;
 
-@btn-height-base        : 28px;
-@btn-height-lg          : 32px;
-@btn-height-sm          : 22px;
+@btn-height-base        : 32px;
+@btn-height-lg          : 40px;
+@btn-height-sm          : 24px;
 
 @btn-circle-size        : @btn-height-base;
 @btn-circle-size-lg     : @btn-height-lg;
 @btn-circle-size-sm     : @btn-height-sm;
 
-@btn-group-border       : @primary-7;
+@btn-group-border       : @primary-5;
 
 // Checkbox
-@checkbox-size          : 14px;
+@checkbox-size          : 16px;
+@checkbox-color         : @primary-color;
+@checkbox-check-color   : #fff;
+
+// Radio
+@radio-size             : 16px;
+@radio-dot-color        : @primary-color;
 
 // Radio buttons
-@radio-button-bg        : @btn-default-bg;
-@radio-button-color     : @btn-default-color;
+@radio-button-bg           : @btn-default-bg;
+@radio-button-color        : @btn-default-color;
+@radio-button-hover-color  : @primary-5;
+@radio-button-active-color : @primary-7;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -156,44 +175,53 @@
 @screen-xs-min          : @screen-xs;
 
 // Small screen / tablet
-@screen-sm              : 768px;
+@screen-sm              : 576px;
 @screen-sm-min          : @screen-sm;
 
 // Medium screen / desktop
-@screen-md              : 992px;
+@screen-md              : 768px;
 @screen-md-min          : @screen-md;
 
 // Large screen / wide desktop
-@screen-lg              : 1200px;
+@screen-lg              : 992px;
 @screen-lg-min          : @screen-lg;
 
-// Extra Large screen / full hd
-@screen-xl              : 1600px;
+// Extra large screen / full hd
+@screen-xl              : 1200px;
 @screen-xl-min          : @screen-xl;
+
+// Extra extra large screen / large descktop
+@screen-xxl              : 1600px;
+@screen-xxl-min          : @screen-xxl;
 
 // provide a maximum
 @screen-xs-max          : (@screen-sm-min - 1px);
 @screen-sm-max          : (@screen-md-min - 1px);
 @screen-md-max          : (@screen-lg-min - 1px);
 @screen-lg-max          : (@screen-xl-min - 1px);
+@screen-xl-max          : (@screen-xxl-min - 1px);
 
 // Grid system
 @grid-columns           : 24;
 @grid-gutter-width      : 0;
 
 // Layout
-@layout-body-background      : #ececec;
-@layout-header-background    : #404040;
-@layout-footer-background    : @layout-body-background;
-@layout-header-height        : 64px;
-@layout-header-padding       : 0 50px;
-@layout-footer-padding       : 24px 50px;
-@layout-sider-background     : @layout-header-background;
-@layout-trigger-height       : 48px;
-@layout-trigger-background   : tint(@heading-color, 20%);
-@layout-trigger-color        : #fff;
-@layout-zero-trigger-width   : 36px;
-@layout-zero-trigger-height  : 42px;
+@layout-body-background         : #f0f2f5;
+@layout-header-background       : #001529;
+@layout-footer-background       : @layout-body-background;
+@layout-header-height           : 64px;
+@layout-header-padding          : 0 50px;
+@layout-footer-padding          : 24px 50px;
+@layout-sider-background        : @layout-header-background;
+@layout-trigger-height          : 48px;
+@layout-trigger-background      : #002140;
+@layout-trigger-color           : #fff;
+@layout-zero-trigger-width      : 36px;
+@layout-zero-trigger-height     : 42px;
+// Layout light theme
+@layout-sider-background-light  : #fff;
+@layout-trigger-background-light: #fff;
+@layout-trigger-color-light     : @text-color;
 
 // z-index list
 @zindex-affix           : 10;
@@ -223,23 +251,24 @@
 
 // Input
 // ---
-@input-height-base               : 28px;
-@input-height-lg                 : 32px;
-@input-height-sm                 : 22px;
-@input-padding-horizontal        : 7px;
-@input-padding-horizontal-base   : @input-padding-horizontal;
-@input-padding-horizontal-sm     : @input-padding-horizontal;
-@input-padding-horizontal-lg     : @input-padding-horizontal;
-@input-padding-vertical-base     : 4px;
-@input-padding-vertical-sm       : 1px;
-@input-padding-vertical-lg       : 6px;
-@input-placeholder-color         : hsv(0, 0, 75%);
-@input-color                     : @text-color;
-@input-border-color              : @border-color-base;
-@input-bg                        : #fff;
-@input-addon-bg                  : #eee;
-@input-hover-border-color        : @primary-color;
-@input-disabled-bg               : @disabled-bg;
+@input-height-base           : 32px;
+@input-height-lg             : 40px;
+@input-height-sm             : 24px;
+@input-padding-horizontal    : @control-padding-horizontal - 1px;
+@input-padding-horizontal-base: @input-padding-horizontal;
+@input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-lg : @input-padding-horizontal;
+@input-padding-vertical-base : 4px;
+@input-padding-vertical-sm   : 1px;
+@input-padding-vertical-lg   : 6px;
+@input-placeholder-color     : hsv(0, 0, 75%);
+@input-color                 : @text-color;
+@input-border-color          : @border-color-base;
+@input-bg                    : #fff;
+@input-addon-bg              : @background-color-light;
+@input-hover-border-color    : @primary-color;
+@input-disabled-bg           : @disabled-bg;
+@input-outline-offset        : 0 0;
 
 // Tooltip
 // ---
@@ -265,30 +294,41 @@
 //** Popover maximum width
 @popover-min-width: 177px;
 //** Popover arrow width
-@popover-arrow-width: 4px;
+@popover-arrow-width: 6px;
 //** Popover arrow color
 @popover-arrow-color: @popover-bg;
 //** Popover outer arrow width
-@popover-arrow-outer-width: (@popover-arrow-width + 1px);
 //** Popover outer arrow color
-@popover-arrow-outer-color: fadeout(@border-color-base, 30%);
+@popover-arrow-outer-color: @popover-bg;
 //** Popover distance with trigger
 @popover-distance: @popover-arrow-width + 4px;
 
 // Modal
 // --
-@modal-mask-bg: rgba(55, 55, 55, 0.6);
+@modal-mask-bg: rgba(0, 0, 0, 0.65);
 
 // Progress
 // --
-@progress-default-color: @primary-color;
+@progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
 
 // Menu
 // ---
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: 40px;
+@menu-collapsed-width: 80px;
+@menu-bg: @component-background;
+@menu-item-color: @text-color;
+@menu-highlight-color: @primary-color;
+@menu-item-active-bg: @item-active-bg;
+@menu-item-group-title-color: @text-color-secondary;
+// dark theme
+@menu-dark-color: @text-color-secondary-dark;
 @menu-dark-bg: @layout-header-background;
-@menu-dark-submenu-bg: #333;
-@menu-collapsed-width: 64px;
+@menu-dark-arrow-color: #fff;
+@menu-dark-submenu-bg: #000c17;
+@menu-dark-highlight-color: #fff;
+@menu-dark-item-active-bg: @primary-color;
 
 // Spin
 // ---
@@ -298,18 +338,19 @@
 
 // Table
 // --
-@table-header-bg: @background-color-base;
-@table-header-sort-bg: @background-color-active;
+@table-header-bg: @background-color-light;
+@table-header-sort-bg: @background-color-base;
 @table-row-hover-bg: @primary-1;
 @table-selected-row-bg: #fafafa;
+@table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
-@table-padding-horizontal: 8px;
+@table-padding-horizontal: 16px;
 
 // Tag
 // --
-@tag-default-bg: #f3f3f3;
+@tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
-@tag-font-size: @font-size-base;
+@tag-font-size: @font-size-sm;
 
 // TimePicker
 // ---
@@ -326,31 +367,54 @@
 // Badge
 // ---
 @badge-height: 20px;
-@badge-dot-size: 8px;
-@badge-font-size: @font-size-base;
+@badge-dot-size: 6px;
+@badge-font-size: @font-size-sm;
+@badge-font-weight: normal;
+@badge-status-size: 6px;
 
 // Rate
 // ---
-@rate-star-color: #f5a623;
-@rate-star-bg: #e9e9e9;
+@rate-star-color: @yellow-6;
+@rate-star-bg: @border-color-split;
 
 // Card
 // ---
-@card-head-height: 48px;
 @card-head-color: @heading-color;
-@card-head-background: @component-background;
+@card-head-background: transparent;
+@card-head-padding: 16px;
+@card-inner-head-padding: 12px;
+@card-padding-base: 24px;
+@card-padding-wider: 32px;
+@card-actions-background: @background-color-light;
+@card-shadow: 0 2px 8px rgba(0, 0, 0, .09);
 
 // Tabs
 // ---
-@tabs-card-head-background: #f9f9f9;
-@tabs-title-font-size: @font-size-lg;
+@tabs-card-head-background: @background-color-light;
+@tabs-card-height: 40px;
+@tabs-card-active-color: @primary-color;
+@tabs-title-font-size: @font-size-base;
+@tabs-title-font-size-lg: @font-size-lg;
+@tabs-title-font-size-sm: @font-size-base;
+@tabs-ink-bar-color: @primary-color;
+@tabs-bar-margin: 0 0 16px 0;
+@tabs-horizontal-margin: 0 32px 0 0;
+@tabs-horizontal-padding: 12px 16px;
+@tabs-vertical-padding: 8px 24px;
+@tabs-vertical-margin: 0 0 16px 0;
+@tabs-scrolling-size: 32px;
+@tabs-highlight-color: @primary-color;
+@tabs-hover-color: @primary-5;
+@tabs-active-color: @primary-7;
 
 // BackTop
+// ---
 @back-top-color: #fff;
-@back-top-bg: rgba(64, 64, 64, 0.4);
-@back-top-hover-bg: rgba(64, 64, 64, 0.6);
+@back-top-bg: @text-color-secondary;
+@back-top-hover-bg: @text-color;
 
 // Avatar
+// ---
 @avatar-size-base: 32px;
 @avatar-size-lg: 40px;
 @avatar-size-sm: 24px;
@@ -360,3 +424,66 @@
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
+
+// Switch
+// ---
+@switch-height: 22px;
+@switch-sm-height: 16px;
+@switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
+@switch-disabled-opacity: 0.4;
+@switch-color: @primary-color;
+
+// Pagination
+// ---
+@pagination-item-size: 32px;
+@pagination-item-size-sm: 24px;
+@pagination-font-family: Arial;
+@pagination-font-weight-active: 500;
+
+// Breadcrumb
+// ---
+@breadcrumb-base-color:        @text-color-secondary;
+@breadcrumb-last-item-color:   @text-color;
+@breadcrumb-font-size:         @font-size-base;
+@breadcrumb-icon-font-size:    @font-size-sm;
+@breadcrumb-link-color:        @text-color-secondary;
+@breadcrumb-link-color-hover:  @primary-5;
+@breadcrumb-separator-color:   @text-color-secondary;
+@breadcrumb-separator-margin:  0 @padding-xs;
+
+// Slider
+// ---
+@slider-margin:                       14px 6px 10px;
+@slider-rail-background-color:        @background-color-base;
+@slider-rail-background-color-hover:  #e1e1e1;
+@slider-track-background-color:       @primary-3;
+@slider-track-background-color-hover: @primary-4;
+@slider-handle-color:                 @primary-3;
+@slider-handle-color-hover:           @primary-4;
+@slider-handle-color-focus:           tint(@primary-color, 20%);
+@slider-handle-color-focus-shadow:    tint(@primary-color, 50%);
+@slider-handle-color-tooltip-open:    @primary-color;
+@slider-dot-border-color:             @border-color-split;
+@slider-dot-border-color-active:      tint(@primary-color, 50%);
+@slider-disabled-color:               @disabled-color;
+@slider-disabled-background-color:    @component-background;
+
+// Tree
+// ---
+@tree-title-height:                   24px;
+@tree-child-padding:                  18px;
+@tree-directory-selected-color:       #fff;
+@tree-directory-selected-bg:          @primary-color;
+
+// Collapse
+// ---
+@collapse-header-padding:             12px 0 12px 40px;
+@collapse-header-bg:                  @background-color-light;
+@collapse-content-padding:            @padding-md;
+@collapse-content-bg:                 @component-background;
+
+// Message
+// ---
+@message-notice-content-padding:      10px 16px;
+
+@import "./default.deperated.less";

@@ -8,7 +8,7 @@ Vertical display timeline.
 
 ## When To Use
 
-- When a series of information needs to be ordered from top to bottom by time.
+- When a series of information needs to be ordered by time (ascend or descend).
 - When you need a timeline to make a visual connection.
 
 ## API
@@ -29,6 +29,8 @@ Timeline
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |
+| pendingDot | Set the dot of the last ghost node when pending is true | \|string\|ReactNode | `<Icon type="loading" />` |
+| reverse | reverse nodes or not | boolean | false |
 
 ### Timeline.Item
 

@@ -16,8 +16,9 @@ Demostration for validataion configuration for form controls which are not show 
 ````jsx
 import {
   Form, Select, InputNumber, Switch, Radio,
-  Slider, Button, Upload, Icon,
+  Slider, Button, Upload, Icon, Rate,
 } from 'antd';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
@@ -32,6 +33,7 @@ class Demo extends React.Component {
       }
     });
   }
+
   normFile = (e) => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
@@ -39,6 +41,7 @@ class Demo extends React.Component {
     }
     return e && e.fileList;
   }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -143,6 +146,17 @@ class Demo extends React.Component {
 
         <FormItem
           {...formItemLayout}
+          label="Rate"
+        >
+          {getFieldDecorator('rate', {
+            initialValue: 3.5,
+          })(
+            <Rate />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
           label="Upload"
           extra="longgggggggggggggggggggggggggggggggggg"
         >
@@ -172,7 +186,7 @@ class Demo extends React.Component {
                   <Icon type="inbox" />
                 </p>
                 <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
               </Upload.Dragger>
             )}
           </div>

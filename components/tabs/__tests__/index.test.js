@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Tabs from '..';
 
 const { TabPane } = Tabs;
@@ -19,7 +19,7 @@ describe('Tabs', () => {
     });
 
     it('add card', () => {
-      wrapper.find('.ant-tabs-new-tab').simulate('click');
+      wrapper.find('.ant-tabs-new-tab').hostNodes().simulate('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
@@ -31,7 +31,7 @@ describe('Tabs', () => {
 
   describe('tabPosition', () => {
     it('remove card', () => {
-      const wrapper = mount(
+      const wrapper = render(
         <Tabs tabPosition="left" tabBarExtraContent="xxx">
           <TabPane tab="foo" key="1">foo</TabPane>
         </Tabs>

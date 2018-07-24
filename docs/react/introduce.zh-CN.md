@@ -6,9 +6,9 @@ title: Ant Design of React
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
 
 <div class="pic-plus">
-  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <img width="150" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   <span>+</span>
-  <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
+  <img width="160" src="https://gw.alipayobjects.com/zos/rmsportal/tXlLQhLvkEelMstLyHiN.svg">
 </div>
 
 <style>
@@ -30,7 +30,7 @@ title: Ant Design of React
 - 提炼自企业级中后台产品的交互语言和视觉风格。
 - 开箱即用的高质量 React 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
-- 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
+- 全链路开发和设计工具体系。
 
 ## 支持环境
 
@@ -41,7 +41,6 @@ title: Ant Design of React
 ## 版本
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- 预览版：[![npm (next)](https://img.shields.io/npm/v/antd/next.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
 
@@ -70,6 +69,8 @@ $ yarn add antd
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
+> 注意：3.0 之后引入 antd.js 前你需要自行引入 [moment](http://momentjs.com/)。
+
 ## 示例
 
 ```jsx
@@ -93,10 +94,12 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { "libraryName": "antd", "style": "css" }] // `style: true` 会加载 less 文件
+       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
      ]
    }
    ```
+
+   > 注意：webpack 1 无需设置 `libraryDirectory`。
 
    然后只需从 antd 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
 
@@ -113,23 +116,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    // import 'antd/lib/date-picker/style';         // 加载 LESS
    ```
 
-### TypeScript
-
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
-
-> 注意：
-> - 设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
-> - 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
-
 ## 链接
 
 - [首页](http://ant.design/)
@@ -144,13 +130,13 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](/docs/react/customize-theme)
 
 ## 谁在使用
 
-- [蚂蚁金服](http://www.antgroup.com/)
+- [蚂蚁金服](http://www.antfin.com/)
 - [阿里巴巴](http://www.alibaba.com/)
 - [腾讯](http://www.tencent.com)
 - [百度](http://www.baidu.com)
@@ -174,6 +160,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
 1. [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd)（English）
-2. [<img alt="Segment Fault" src="http://static.segmentfault.com/global/img/logo.svg" width="100" />](https://segmentfault.com/t/antd)（中文）
+2. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/antd)（中文）
 3. [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
 4. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）

@@ -17,11 +17,10 @@ title: Calendar
 **注意：**Calendar 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
-import moment from 'moment';
-
-// 推荐在入口文件全局设置 locale
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+// 默认语言为 en-US，所以如果需要使用其他语言，推荐在入口文件全局设置 locale
+// import moment from 'moment';
+// import 'moment/locale/zh-cn';
+// moment.locale('zh-cn');
 
 <Calendar
   dateCellRender={dateCellRender}
@@ -42,6 +41,7 @@ moment.locale('zh-cn');
 | mode | 初始模式，`month/year` | string | month |
 | monthCellRender | 自定义渲染月单元格，返回内容会被追加到单元格 | function(date: moment): ReactNode | 无 |
 | monthFullCellRender | 自定义渲染月单元格，返回内容覆盖单元格 | function(date: moment): ReactNode | 无 |
+| validRange | 设置可以显示的日期 | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | 无 |
 | value | 展示日期 | [moment](http://momentjs.com/) | 当前日期 |
 | onPanelChange | 日期面板变化回调 | function(date: moment, mode: string) | 无 |
 | onSelect | 点击选择日期回调 | function(date: moment） | 无 |

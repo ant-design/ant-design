@@ -16,6 +16,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 ````jsx
 import moment from 'moment';
 import { DatePicker } from 'antd';
+
 const { MonthPicker, RangePicker } = DatePicker;
 
 function range(start, end) {
@@ -28,7 +29,7 @@ function range(start, end) {
 
 function disabledDate(current) {
   // Can not select days before today and today
-  return current && current.valueOf() < Date.now();
+  return current && current < moment().endOf('day');
 }
 
 function disabledDateTime() {

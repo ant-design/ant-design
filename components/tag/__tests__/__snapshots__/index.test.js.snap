@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag can be controlled by visible 1`] = `
+<div
+  class="ant-tag ant-tag-zoom-appear"
+  data-show="true"
+/>
+`;
+
+exports[`Tag can be controlled by visible 2`] = `null`;
+
+exports[`Tag can be controlled by visible 3`] = `
+<div
+  class="ant-tag"
+  data-show="true"
+/>
+`;

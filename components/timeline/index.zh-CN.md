@@ -9,8 +9,8 @@ title: Timeline
 
 ## 何时使用
 
-- 当有一系列信息需要从上至下按时间排列时；
-- 需要有一条时间轴进行视觉上的串联时；
+- 当有一系列信息需按时间排列时，可正序和倒序。
+- 需要有一条时间轴进行视觉上的串联时。
 
 ## API
 
@@ -30,6 +30,8 @@ title: Timeline
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | pending | 指定最后一个幽灵节点是否存在或内容 | boolean\|string\|ReactNode | false |
+| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | \|string\|ReactNode | `<Icon type="loading" />` |
+| reverse | 节点排序 | boolean | false |
 
 ### Timeline.Item
 

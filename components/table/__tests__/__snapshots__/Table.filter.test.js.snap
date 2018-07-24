@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table.filter override custom filter correctly 1`] = `
+<div
+  className="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setSelectedKeys"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="confirm"
+    onClick={[Function]}
+  >
+    Confirm
+  </span>
+  <span
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+</div>
+`;
+
 exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
@@ -16,6 +42,26 @@ exports[`Table.filter renders custom content correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter renders custom filter icon correctly 1`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  filtered
+</span>
+`;
+
+exports[`Table.filter renders custom filter icon correctly 2`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  unfiltered
+</span>
+`;
+
 exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -27,7 +73,7 @@ exports[`Table.filter renders filter correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -46,13 +92,13 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span>
                       Name
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
-                        title="筛选"
+                        title="Filter menu"
                       />
                     </span>
                   </th>
@@ -63,52 +109,56 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jack
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Lucy
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Tom
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
-                    class=""
+                    class="ant-table-column-has-filters"
                   >
                     <span
                       class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px;"
+                      style="padding-left:0px"
                     />
                     Jerry
                   </td>
@@ -132,13 +182,11 @@ exports[`Table.filter renders menu correctly 1`] = `
       class="ant-table-filter-dropdown"
     >
       <ul
-        aria-activedescendant=""
-        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
         <li
-          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -162,7 +210,6 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -186,16 +233,19 @@ exports[`Table.filter renders menu correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
-            aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -205,12 +255,12 @@ exports[`Table.filter renders menu correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>
@@ -227,13 +277,11 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       class="ant-table-filter-dropdown"
     >
       <ul
-        aria-activedescendant=""
-        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
         role="menu"
         tabindex="0"
       >
         <li
-          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -257,7 +305,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
-          aria-selected="false"
           class="ant-dropdown-menu-item"
           role="menuitem"
         >
@@ -281,16 +328,19 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu"
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+          role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
-            aria-owns="title$Menu"
             class="ant-dropdown-menu-submenu-title"
             title="Title"
           >
             Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
           </div>
         </li>
       </ul>
@@ -300,12 +350,12 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         <a
           class="ant-table-filter-dropdown-link confirm"
         >
-          确定
+          OK
         </a>
         <a
           class="ant-table-filter-dropdown-link clear"
         >
-          重置
+          Reset
         </a>
       </div>
     </div>

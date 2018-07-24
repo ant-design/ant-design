@@ -15,6 +15,7 @@ The count will be animated as it changes.
 
 ````jsx
 import { Badge, Button, Icon, Switch } from 'antd';
+
 const ButtonGroup = Button.Group;
 
 class Demo extends React.Component {

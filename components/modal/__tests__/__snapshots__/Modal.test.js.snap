@@ -2,64 +2,65 @@
 
 exports[`Modal render correctly 1`] = `
 <div>
+  <div />
   <div>
-    <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
       <div
-        class="ant-modal-mask fade-appear"
-      />
-      <div
-        class="ant-modal-wrap "
-        role="dialog"
-        tabindex="-1"
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
       >
         <div
-          class="ant-modal zoom-appear"
-          role="document"
-          style="width: 520px;"
+          class="ant-modal-content"
         >
-          <div
-            class="ant-modal-content"
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
           >
-            <button
-              aria-label="Close"
-              class="ant-modal-close"
-            >
-              <span
-                class="ant-modal-close-x"
-              />
-            </button>
-            <div
-              class="ant-modal-body"
-            >
-              Here is content of Modal
-            </div>
-            <div
-              class="ant-modal-footer"
-            >
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
+          <div
+            class="ant-modal-body"
+          >
+            Here is content of Modal
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <div>
               <button
-                class="ant-btn ant-btn-lg"
+                class="ant-btn"
                 type="button"
               >
                 <span>
-                  取 消
+                  Cancel
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary ant-btn-lg"
+                class="ant-btn ant-btn-primary"
                 type="button"
               >
                 <span>
-                  确 定
+                  OK
                 </span>
               </button>
             </div>
           </div>
-          <div
-            style="width: 0px; height: 0px; overflow: hidden;"
-            tabindex="0"
-          >
-            sentinel
-          </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
         </div>
       </div>
     </div>
@@ -69,44 +70,43 @@ exports[`Modal render correctly 1`] = `
 
 exports[`Modal render without footer 1`] = `
 <div>
+  <div />
   <div>
-    <div>
+    <div
+      class="ant-modal-mask fade-appear"
+    />
+    <div
+      class="ant-modal-wrap "
+      role="dialog"
+      tabindex="-1"
+    >
       <div
-        class="ant-modal-mask fade-appear"
-      />
-      <div
-        class="ant-modal-wrap "
-        role="dialog"
-        tabindex="-1"
+        class="ant-modal zoom-appear"
+        role="document"
+        style="width: 520px;"
       >
         <div
-          class="ant-modal zoom-appear"
-          role="document"
-          style="width: 520px;"
+          class="ant-modal-content"
         >
-          <div
-            class="ant-modal-content"
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
           >
-            <button
-              aria-label="Close"
-              class="ant-modal-close"
-            >
-              <span
-                class="ant-modal-close-x"
-              />
-            </button>
-            <div
-              class="ant-modal-body"
-            >
-              Here is content of Modal
-            </div>
-          </div>
+            <span
+              class="ant-modal-close-x"
+            />
+          </button>
           <div
-            style="width: 0px; height: 0px; overflow: hidden;"
-            tabindex="0"
+            class="ant-modal-body"
           >
-            sentinel
+            Here is content of Modal
           </div>
+        </div>
+        <div
+          style="width: 0px; height: 0px; overflow: hidden;"
+          tabindex="0"
+        >
+          sentinel
         </div>
       </div>
     </div>

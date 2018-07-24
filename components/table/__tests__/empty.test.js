@@ -62,4 +62,11 @@ describe('Table', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders empty table without emptyText when loading', () => {
+    const wrapper = render(
+      <Table dataSource={[]} columns={columns} loading />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

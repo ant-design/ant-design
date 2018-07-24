@@ -1,4 +1,4 @@
-export default function triggerEvent(el, type) {
+export default function triggerEvent(el: Element, type: string) {
   if ('createEvent' in document) {
     // modern browsers, IE9+
     const e = document.createEvent('HTMLEvents');

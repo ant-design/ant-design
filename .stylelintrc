@@ -16,6 +16,8 @@
     "selector-list-comma-newline-after": null,
     "selector-pseudo-element-colon-notation": null,
     "unit-no-unknown": null,
-    "value-list-max-empty-lines": null
+    "value-list-max-empty-lines": null,
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null
   }
 }

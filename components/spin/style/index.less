@@ -5,13 +5,13 @@
 @spin-dot-default: @text-color-secondary;
 
 .@{spin-prefix-cls} {
+  .reset-component;
   color: @primary-color;
   vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
   transition: transform 0.3s @ease-in-out-circ;
-  font-size: @font-size-base;
   display: none;
 
   &-spinning {
@@ -22,10 +22,8 @@
 
   &-nested-loading {
     position: relative;
-  }
-
-  &-nested-loading {
     > div > .@{spin-prefix-cls} {
+      display: block;
       position: absolute;
       height: 100%;
       max-height: 320px;
@@ -42,6 +40,7 @@
         top: 50%;
         width: 100%;
         padding-top: (@spin-dot-size - @font-size-base) / 2 + 2px;
+        text-shadow: 0 1px 2px #fff;
       }
       &.@{spin-prefix-cls}-show-text .@{spin-prefix-cls}-dot {
         margin-top: -@spin-dot-size / 2 - 10px;
@@ -75,9 +74,12 @@
 
   &-container {
     position: relative;
+    .clearfix;
   }
 
   &-blur {
+    pointer-events: none;
+    user-select: none;
     overflow: hidden;
     opacity: 0.7;
     -webkit-filter: blur(0.5px);
@@ -85,10 +87,7 @@
 
     /* autoprefixer: off */
     filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)";
-    // workround for a strange style bug in safari:
-    // https://github.com/ant-design/ant-design/issues/4622
-    // have no clue why this works
-    -webkit-transform: translateZ(0);
+
     &:after {
       content: '';
       position: absolute;
@@ -115,9 +114,10 @@
   &-dot {
     position: relative;
     display: inline-block;
+    font-size: @spin-dot-size;
+
     .square(@spin-dot-size);
-    transform: rotate(45deg);
-    animation: antRotate 1.2s infinite linear;
+
     i {
       width: 9px;
       height: 9px;
@@ -149,12 +149,20 @@
         animation-delay: 1.2s;
       }
     }
+
+    &-spin {
+      transform: rotate(45deg);
+      animation: antRotate 1.2s infinite linear;
+    }
   }
 
   // Sizes
   // ------------------------------
+
   // small
   &-sm &-dot {
+    font-size: @spin-dot-size-sm;
+
     .square(@spin-dot-size-sm);
     i {
       width: 6px;
@@ -164,6 +172,8 @@
 
   // large
   &-lg &-dot {
+    font-size: @spin-dot-size-lg;
+
     .square(@spin-dot-size-lg);
     i {
       width: 14px;

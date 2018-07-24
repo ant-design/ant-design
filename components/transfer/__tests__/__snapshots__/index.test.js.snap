@@ -30,7 +30,7 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1/2 
+          1/2 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -97,25 +97,21 @@ exports[`Transfer should render correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
@@ -143,7 +139,7 @@ exports[`Transfer should render correctly 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1 
+          1 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -216,7 +212,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          1 
+          1 item
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -264,26 +260,22 @@ exports[`Transfer should show sorted targetkey 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-left"
-        />
-      </span>
+      <i
+        class="anticon anticon-left"
+      />
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
-      <span>
-        <i
-          class="anticon anticon-right"
-        />
-      </span>
+      <i
+        class="anticon anticon-right"
+      />
     </button>
   </div>
   <div
@@ -311,7 +303,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         class="ant-transfer-list-header-selected"
       >
         <span>
-          2 
+          2 items
         </span>
         <span
           class="ant-transfer-list-header-title"

@@ -4,11 +4,11 @@ export interface Store {
   subscribe: (listener: () => void) => () => void;
 }
 
-export default function createStore(initialState): Store {
+export default function createStore(initialState: object): Store {
   let state = initialState;
   const listeners: any[] = [];
 
-  function setState(partial) {
+  function setState(partial: object) {
     state = {
       ...state,
       ...partial,
@@ -22,7 +22,7 @@ export default function createStore(initialState): Store {
     return state;
   }
 
-  function subscribe(listener) {
+  function subscribe(listener: () => any) {
     listeners.push(listener);
 
     return function unsubscribe() {

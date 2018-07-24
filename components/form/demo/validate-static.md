@@ -23,6 +23,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 
 ````jsx
 import { Form, Input, DatePicker, Col, TimePicker, Select, Cascader, InputNumber } from 'antd';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -164,6 +165,6 @@ ReactDOM.render(
     >
       <InputNumber style={{ width: '100%' }} />
     </FormItem>
-  </Form>
-, mountNode);
+  </Form>,
+  mountNode);
 ````

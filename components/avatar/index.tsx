@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Icon from '../icon';
 import classNames from 'classnames';
 
@@ -16,6 +16,7 @@ export interface AvatarProps {
   prefixCls?: string;
   className?: string;
   children?: any;
+  alt?: string;
 }
 
 export interface AvatarState {
@@ -46,7 +47,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
     if (prevProps.children !== this.props.children
-        || (prevState.scale !== this.state.scale && this.state.scale === 1)) {
+        || (prevState.scale !== this.state.scale && this.state.scale === 1)
+        || (prevState.isImgExist !== this.state.isImgExist)) {
       this.setScale();
     }
   }
@@ -55,7 +57,8 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     const childrenNode = this.avatarChildren;
     if (childrenNode) {
       const childrenWidth = childrenNode.offsetWidth;
-      const avatarWidth = ReactDOM.findDOMNode(this).getBoundingClientRect().width;
+      const avatarNode = ReactDOM.findDOMNode(this) as Element;
+      const avatarWidth = avatarNode.getBoundingClientRect().width;
       // add 4px gap for each side to get better performance
       if (avatarWidth - 8 < childrenWidth) {
         this.setState({
@@ -73,7 +76,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   render() {
     const {
-      prefixCls, shape, size, src, icon, className, ...others,
+      prefixCls, shape, size, src, icon, className, alt, ...others
     } = this.props;
 
     const sizeCls = classNames({
@@ -83,7 +86,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
     const classString = classNames(prefixCls, className, sizeCls, {
       [`${prefixCls}-${shape}`]: shape,
-      [`${prefixCls}-image`]: src,
+      [`${prefixCls}-image`]: src && this.state.isImgExist,
       [`${prefixCls}-icon`]: icon,
     });
 
@@ -93,6 +96,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         <img
           src={src}
           onError={this.handleImgLoadError}
+          alt={alt}
         />
       );
     } else if (icon) {

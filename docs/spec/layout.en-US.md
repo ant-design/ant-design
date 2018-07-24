@@ -1,114 +1,71 @@
 ---
-order: 7
+category: Visual
+order: 2
 title: Layout
 ---
 
-Layout is the prerequisite for a webpage. It's also the foundation of follow-up interactive and visual design. In order to guarantee consistency among similar products, Ant Design provides some common layout templates. Before choosing one of these templates, you need to have a clear mind about:
+Spatial layout is the starting point of systematic visual design. The difference from traditional graphic design is that the layout space of UI interface should be based on the dynamic and systematic perspective. We were inspired by the architectural ethic of the architect Le Corbusier and explored the dynamic spatial order in UI design and formed the interface layout of Ant Design based on the principle of 'beauty of order', making it possible for designers to create spatial layout that comes with rational beauty.
 
-- The main tasks that a user needs to accomplish and all necessary information for making such decisions.
-- The priorities and features of those tasks and information, so as to select a reasonable layout
+While defining the layout system in a visual system, we propose to start from the following 5 aspects:：
 
----
+1. Unified Canvas Dimension
+2. Adaptation
+3. Grid Unit
+4. Raster
+5. Common Scales
 
-## Commonly used layout
+## Unified Design Board Dimension
 
-Through a large number of practices, Ant Design summarized six commonly used layout templates. There are home page, dashboard, list page, table page, details page and form page. Knowing these templates helps to find out a suitable layout for your product quickly.
+In order to minimize communication cost, it is necessary to unify the size of the design board within the organization. E.g., the unified design board width of the ant design team is 1440.
 
-### Home page
+## Adaptation
 
+In the design process, the designer also needs to establish the concept of adaptation. Decision needs to made for things like whether a system needs to be adapted depends on the specific situation, and/or what are the blocks that needs dynamic layout. According to statistics, mainstream screen resolution includes  1920, 1440, and 1366. Some devices still have resolution of 1280.
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/olHkTiGQqfwThlgPIXzx.png">
+Ant Design's two typical adaptation type:
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/uxbNrsFCmPFjYdhDowky.png">
+### 1. Left-Right Layout
 
-Home page is usually the first step for a user to understand a website or the products. Generally, home page consists of product drawings, brief product introductions, and user login interfaces. In the design, we recommend you to:
+Commonly used in design schemes for left and right layouts, the common practice is to fix the left navigation bar and dynamically scale the right work area.
 
-- Keep the copywriting clear and simply, which helps you better express the ideas.
-- Use intuitive pictures for a product, which helps to deepen a user's understanding and impression.
+![Left-Right Layout](https://gw.alipayobjects.com/zos/rmsportal/vSqMhPolCtINKLvVVdLt.png)
 
-### Dashboard
+### 2. Top-Bottom Layout
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/fCVwqOiItdbzyZkQOOiQ.png">
+Common used in design schemes for top and bottom layouts. The practice is to define the minimum value for the marginal areas on both sides. After the blanking area reaches the limit value, the intermediate main content area is dynamically scaled.
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/LvYKhbKsPzIRLGsBxUJA.png">
+![Top-Bottom Layout](https://gw.alipayobjects.com/zos/rmsportal/VQEiJqtZfvvdyZSKcEsE.png)
 
-Dashboard collects a variety of information, such as digitals, graphics, copywriting, etc. Key information should be clearly represented and easily understood. Thus, displaying the complex information in a clear way is important in the design. For this propose, we recommend you to:
+The above are just two simple adaptation ideas, the actual design of a perfect adaptation program requires the designer to have front end perspective, plane composition perspective and interactive perspective.
 
-- Organize the page layout according to the importance of information, so as to highlight key points.
-- Visualize the data, which allows users to understand key information as well as the overall situation in an intuitive way.
-- Use color and grid layout logically, which helps to reduce a user's visual fatigue.
+## Grid Unit
 
+Ant Design uses the grid system to achieve the order of the visual system. The base unit of the grid is 8, which not only matches the even number of ideas but also matches most mainstream display devices. Grid system thinking can help designers quickly achieve design decisions in the layout space while simplifying communication between designers developers.
 
-### List page
+## Raster
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/GSIyiSRJmxUhmxpMoyrj.png">
+Ant Design uses a 24-grid architecture. Taking the structure of the 1440 top-bottom layout as an example, the content area with a width of 1168 is divided into 24 grids, as shown in the following picture. We set the value of the Gutter of the grid in the page, such that when the browser expands or shrinks in a certain range, the column width of the grid will expand or shrink accordingly, but the width of Gutter is always fixed.
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/VyFWYXzkQYYzMzqBXfzO.png">
+![Raster layout](https://gw.alipayobjects.com/zos/rmsportal/YPUZpPCzFgQHVxXCIAzq.png)
 
-List is a way to display information in parallel. A well designed list can be helpful for users to read basic information and perform corresponding operations quickly. Therefore, the "readability" and "operability" of a list are the keys to the design. For this propose, we recommend you to:
+For developers, the grid is a way to achieve dynamic layout, however the designer's understanding of the grid is derived from the grid in the graphic design. Differences of the perspectives are likely to cause deviations that ultimately affect the degree of visual restoration, which in turn increases communication costs.
 
-- Identify the importance of information accordingly and show nothing but key information as well as the corresponding operations.
-- Fold secondary information or put it into the details page. It allows a user to access information in a progressive way when the content is too complex.
+Ant Design's designers keep the following 4 things in mind in the communication with engineers:
 
-### Table page
+1. Clear definition of dynamic layout area
+2. Try to always use even numbers
+3. Delivery of critical numbers (Gutter、Column)
+4. Always use beginning column and ending column to define blocks.
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/ArRESSbBrLJWhjscKiZh.png">
+## Common Scales
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/gDwAZagDBphbcePRDnBZ.png">
+AntFin's projects cover a large number of products of different types and even different orders of magnitude. In order to help designers of various levels to have consistency and similar rhythm in designing page layout, to unify designing language and reduce the restoration losses, Ant Design proposed the concept of UI common scales. From a large amount of practices, we have extracted a set of arrays that can be used as dimensions for UI layout decision. All the numbers are multiples of 8 and have a dynamic sense of rhythm. After verification, it can help us to achieve a faster and better design decision making of layout design.
 
-Table is a carrier for multi-dimensional information. It can make complex information to be read and understood easily. Its readability, convenience and operability play an essential role in the user experience. Therefore, we should pay attention to the following points in the design:
+![The two arrays](https://gw.alipayobjects.com/zos/rmsportal/ZBeDQMLMHLRfmUlUaaII.png)
 
-- Construct a clear table layout. It can be helpful for a user to receive and understand information.
-- Highlight key information through some visual adjustments.
-- Use the horizontal or vertical zebra strip smartly when there is a large multi-row table or there are multiple columns in each row. By doing so, information is more distinguishable and easier to be understood.
+![Common Usages](https://gw.alipayobjects.com/zos/rmsportal/QWsZUeuqYGQJqJxIPHOx.png)
 
-### Details page
+## Inspiration, But Not Limitation
 
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/wRdLpkIoTNfxOvNOqKyf.png">
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/IWXpmErtdIHzDYbtNohi.png">
-
-Details page usually carries a large amount of basic information, extended information as well as status information. It's important to identify priorities of the information. A clear layout can be helpful for a user to get key information at a glance and make decisions efficiently. In the design, it's worth noting that:
-
-- Layout format, text size and text spacing, are the key factors that affect a user's efficiency to access information.
-- Text with graphic can be better understood than pure text.
-
-### Form page
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/AVxFnNgjBPIaxLnCOxJv.png">
-
-<img class="preview-img no-padding" align="right" src="https://zos.alipayobjects.com/rmsportal/sqeTZuWlqiGboOITncCh.png">
-
-Form page is often used for tasks such as login, register, booking, comment, etc. Form page is indispensable when you need to record the user information. Therefore, a well designed form page can guide the user to complete the data recording workflow behind the form efficiently. We recommended you to:
-
-- Provide a clear user's view path, in consideration of how a user will browse the information;
-- Simplify the content of a form (try to avoid redundant inputs)
-- Name the tags that can be easy to read and understand. Avoid confusions caused by ambiguous descriptions;
-- Place eye-catching submit buttons on the end of a user's view path, which makes it more conducive for a user to complete all the operations.
-
----
-
-## Grid
-
-There are `Grid` and `Gutter` in AntD layout. During the design, you can make an assumption that the "total page width is 1440px, and the "content area width is 1208px". Based on this assumption, you can design the page in 24 evenly divided columns.
-
-![](https://os.alipayobjects.com/rmsportal/bohSixChLxFkwsOEiNaF.png)
-
-It is recommended that the number of blocks arranged in the horizontal direction be at most four, at least one, so as to guarantee the comfort of view.
-
-![](https://os.alipayobjects.com/rmsportal/JmrNLpHxwcLebVpBIGqD.png)
-
-> Note: The gray parts are called "Column", and the white parts are called "Gutter".
-
-### Grid formula
-
-<img class="preview-img no-padding" align="right" src="https://os.alipayobjects.com/rmsportal/htXqyMPydaagYLdAGEJK.png">
-
-The `Gutter` value in ant design is fixed. When the width of a browser decrease or increase within a certain range, the width of `grids` will be changed accordingly, but the width of `Gutter` remains unchanged.
-
-There are two `Gutter`s in Ant Design
-
-- 24px width `Gutter`, which is used in home page and Dashboard
-- 16px width `Gutter`, which is used in list Page, table page, details page and form page.
-
-> [tips for setting the grid ](https://zos.alipayobjects.com/rmsportal/cbxeMLaFnqQEvFgmhSTS.png).
+The result of Ant Design in layout space is not to limit design output, but to guide designers to do it better. The two 8-fold array can be made into a myriad of possibilities by permutations and combinations, but there is a difference between "simply applying a permutation" and "really well designed". We need to consider availability in the pursuit of beauty, and we're still on our way to achieve a design system that is both reasonable and elegant. There are still plenty of things to explore for enterprise-level application interface layout.
+translate-layout

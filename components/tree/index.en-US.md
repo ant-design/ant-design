@@ -21,11 +21,14 @@ Almost anything can be represented in a tree structure. Examples include directo
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |
 | defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |
+| defaultExpandParent | auto expand parent treeNodes when init | bool | true |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |
+| disabled | whether disabled the tree | bool | false |
 | draggable | Specifies whether this Tree is draggable (IE > 8) | boolean | false |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |
 | loadData | Load data asynchronously | function(node) | - |
+| loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |
 | multiple | Allows selecting multiple treeNodes | boolean | false |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |
@@ -38,6 +41,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
 | onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |
+| onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 
@@ -47,13 +51,22 @@ Almost anything can be represented in a tree structure. Examples include directo
 | -------- | ----------- | ---- | ------- |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disables the treeNode | boolean | false |
-| selectable | Set whether the treeNode can be selected | boolean | true |
+| icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |
 | isLeaf | Determines if this is a leaf node(effective when `loadData` is specified) | boolean | false |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |
+| selectable | Set whether the treeNode can be selected | boolean | true |
 | title | Title | string\|ReactNode | '---' |
+
+### DirectoryTree props
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| expandAction | Directory open logic, optional `false` `'click'` `'doubleClick'` | string | click |
+
 
 ## Note
 
+Before `3.4.0`:
 The number of treeNodes can be very large, but when `checkable=true`,
 it will increase the compute time. So, we cache some calculations (e.g. `this.treeNodesStates`)
 to avoid double computing. But, this brings some restrictions.

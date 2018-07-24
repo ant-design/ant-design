@@ -13,10 +13,11 @@ title:
 
 ## en-US
 
-Customize suggestions
+Customize suggestions.
 
 ````jsx
-import { Mention } from 'antd';
+import { Mention, Avatar } from 'antd';
+
 const Nav = Mention.Nav;
 
 const webFrameworks = [
@@ -30,10 +31,10 @@ class CustomNavMention extends React.Component {
   state = {
     suggestions: [],
   }
+
   onSearchChange = (value) => {
     const searchValue = value.toLowerCase();
-    const filtered = webFrameworks.filter(item =>
-      item.name.toLowerCase().indexOf(searchValue) !== -1
+    const filtered = webFrameworks.filter(item => item.name.toLowerCase().indexOf(searchValue) !== -1
     );
     const suggestions = filtered.map(suggestion => (
       <Nav
@@ -41,14 +42,17 @@ class CustomNavMention extends React.Component {
         data={suggestion}
         disabled={suggestion.disabled}
       >
-        <span>
-          <img alt={suggestion.name} style={{ height: 16, width: 16, marginRight: 5, float: 'left' }} src={suggestion.icon} />
-          {suggestion.name} - {suggestion.type}
-        </span>
+        <Avatar
+          src={suggestion.icon}
+          size="small"
+          style={{ width: 14, height: 14, marginRight: 8, top: 2, position: 'relative' }}
+        />
+        {suggestion.name} - {suggestion.type}
       </Nav>
     ));
     this.setState({ suggestions });
   }
+
   render() {
     const { suggestions } = this.state;
     return (

@@ -27,8 +27,8 @@ for (let i = 0; i < 20; i++) {
 }
 
 const targetKeys = mockData
-        .filter(item => +item.key % 3 > 1)
-        .map(item => item.key);
+  .filter(item => +item.key % 3 > 1)
+  .map(item => item.key);
 
 class App extends React.Component {
   state = {

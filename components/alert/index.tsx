@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
+import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
 function noop() { }
 
@@ -21,8 +22,11 @@ export interface AlertProps {
   description?: React.ReactNode;
   /** Callback when close Alert */
   onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+  /** Trigger when animation ending of Alert */
+  afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
+  iconType?: string;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -55,11 +59,12 @@ export default class Alert extends React.Component<AlertProps, any> {
       closed: true,
       closing: true,
     });
+    (this.props.afterClose || noop)();
   }
   render() {
     let {
       closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
-      className = '', style,
+      className = '', style, iconType,
     } = this.props;
 
     // banner模式默认有 Icon
@@ -67,27 +72,28 @@ export default class Alert extends React.Component<AlertProps, any> {
     // banner模式默认为警告
     type = banner && type === undefined ? 'warning' : type || 'info';
 
-    let iconType = '';
-    switch (type) {
-      case 'success':
-        iconType = 'check-circle';
-        break;
-      case 'info':
-        iconType = 'info-circle';
-        break;
-      case 'error':
-        iconType = 'cross-circle';
-        break;
-      case 'warning':
-        iconType = 'exclamation-circle';
-        break;
-      default:
-        iconType = 'default';
-    }
+    if (!iconType) {
+      switch (type) {
+        case 'success':
+          iconType = 'check-circle';
+          break;
+        case 'info':
+          iconType = 'info-circle';
+          break;
+        case 'error':
+          iconType = 'cross-circle';
+          break;
+        case 'warning':
+          iconType = 'exclamation-circle';
+          break;
+        default:
+          iconType = 'default';
+      }
 
-    // use outline icon in alert with description
-    if (!!description) {
-      iconType += '-o';
+      // use outline icon in alert with description
+      if (!!description) {
+        iconType += '-o';
+      }
     }
 
     let alertCls = classNames(prefixCls, {
@@ -109,6 +115,8 @@ export default class Alert extends React.Component<AlertProps, any> {
       </a>
     ) : null;
 
+    const dataOrAriaProps = getDataOrAriaProps(this.props);
+
     return this.state.closed ? null : (
       <Animate
         component=""
@@ -116,7 +124,7 @@ export default class Alert extends React.Component<AlertProps, any> {
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={this.state.closing} className={alertCls} style={style}>
+        <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
           {showIcon ? <Icon className={`${prefixCls}-icon`} type={iconType} /> : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>

@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
-export function flatArray(data: Object[] = [], childrenName = 'children') {
-  const result: Object[] = [];
-  const loop = (array) => {
+export function flatArray(data: any[] = [], childrenName = 'children') {
+  const result: any[] = [];
+  const loop = (array: any[]) => {
     array.forEach(item => {
       if (item[childrenName]) {
         const newItem = { ...item };
@@ -20,14 +20,14 @@ export function flatArray(data: Object[] = [], childrenName = 'children') {
   return result;
 }
 
-export function treeMap(tree: Object[], mapper: Function, childrenName = 'children') {
-  return tree.map((node, index) => {
-    const extra = {};
+export function treeMap<Node>(tree: Node[], mapper: (node: Node, index: number) => any, childrenName = 'children') {
+  return tree.map((node: any, index) => {
+    const extra: any = {};
     if (node[childrenName]) {
       extra[childrenName] = treeMap(node[childrenName], mapper, childrenName);
     }
     return {
-      ...mapper(node, index),
+      ...mapper(node as Node, index),
       ...extra,
     };
   });
@@ -46,7 +46,7 @@ export function flatFilter(tree: any[], callback: Function) {
   }, []);
 }
 
-export function normalizeColumns(elements) {
+export function normalizeColumns(elements: React.ReactChildren) {
   const columns: any[] = [];
   React.Children.forEach(elements, (element) => {
     if (!React.isValidElement(element)) {

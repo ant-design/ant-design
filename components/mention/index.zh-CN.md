@@ -25,21 +25,22 @@ title: Mention
 | API | 说明 | 类型 |
 | --- | --- | --- |
 | getMentions | 获取当前 contentState 中提到的人的列表 | Function(contentState: ContentState): string\[] |
-| toContentState(推荐) | 把字符串转成 ContentState | Function(value: string): ContentState |
-| toEditorState(兼容) | 把字符串转成 ContentState | Function(value: string): ContentState |
+| toContentState | 把字符串转成 ContentState | Function(value: string): ContentState |
 | toString | 把 ContentState 转成字符串 | Function(contentState: ContentState): string |
 
 ### Mention
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 或 `Mention.toEditorState(text)`  把文字转换成 ContentState | null |
+| autoFocus | 自动获取焦点 | boolean | false |
+| defaultValue | 默认值 | ContentState, 可以用 `Mention.toContentState(text)` 把文字转换成 ContentState | null |
 | disabled | 是否禁用状态. | boolean | false |
 | getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | function() | () => document.body |
 | loading | 加载中 | boolean | false |
 | multiLines | 多行模式 | boolean | false |
 | notFoundContent | 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | 输入框默认文字 | string | null |
+| placement | 建议框位置，可选 `top` `bottom` | string | 'bottom' |
 | prefix | 触发弹出下拉框的字符 | string or Array<string> | '@' |
 | readOnly | 是否只读. | boolean | false |
 | suggestions | 建议内容 | Array&lt;string\|Mention.Nav> | \[] |
@@ -51,11 +52,12 @@ title: Mention
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:string, trigger: string) | \[] |
 | onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null |
 
-### Mention methods
+### Mention 方法
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| focus | 强制获得焦点. | - | - |
+| 名称 | 描述 |
+| --- | --- |
+| blur() | 移除焦点 |
+| focus() | 获取焦点 |
 
 ### Nav
 

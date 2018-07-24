@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 分组
   en-US: Option Group
@@ -15,6 +15,7 @@ Using `OptGroup` to group the options.
 
 ````jsx
 import { Select } from 'antd';
+
 const { Option, OptGroup } = Select;
 
 function handleChange(value) {
@@ -34,6 +35,6 @@ ReactDOM.render(
     <OptGroup label="Engineer">
       <Option value="Yiminghe">yiminghe</Option>
     </OptGroup>
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode);
 ````

@@ -2,8 +2,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
+import { fileToObject } from '../utils';
+import { setup, teardown } from './mock';
 
 describe('Upload', () => {
+  beforeEach(() => setup());
+  afterEach(() => teardown());
+
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
     let ref;
@@ -11,6 +16,7 @@ describe('Upload', () => {
       componentDidMount() {
         ref = this.refs.input;
       }
+
       render() {
         return (
           <Upload supportServerRender={false}>
@@ -27,9 +33,9 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload: () => new Promise(resolve =>
+      beforeUpload: () => new Promise(resolve => (
         setTimeout(() => resolve('success'), 100)
-      ),
+      )),
       data,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
@@ -41,26 +47,36 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button type="button">upload</button>
       </Upload>
     );
 
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
     });
   });
 
-  it('should not stop upload when return value of beforeUpload is not false', (done) => {
+  it('should not stop upload when return value of beforeUpload is false', (done) => {
+    const fileList = [{
+      uid: 'bar',
+      name: 'bar.png',
+    }];
+    const mockFile = new File(['foo'], 'foo.png', {
+      type: 'image/png',
+    });
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
+      fileList,
       beforeUpload: () => false,
       data,
-      onChange: () => {
+      onChange: ({ file, fileList: updatedFileList }) => {
+        expect(file instanceof File).toBe(true);
+        expect(updatedFileList.map(f => f.name)).toEqual(['bar.png', 'foo.png']);
         expect(data).not.toBeCalled();
         done();
       },
@@ -68,17 +84,54 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button type="button">upload</button>
       </Upload>
     );
 
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          mockFile,
         ],
       },
     });
+  });
+
+  it('should increase percent automaticly when call autoUpdateProgress in IE', (done) => {
+    let uploadInstance;
+    let lastPercent = -1;
+    const props = {
+      action: 'http://upload.com',
+      onChange: ({ file }) => {
+        if (file.percent === 0 && file.status === 'uploading') {
+          // manually call it
+          uploadInstance.autoUpdateProgress(0, file);
+        }
+        if (file.status === 'uploading') {
+          expect(file.percent).toBeGreaterThan(lastPercent);
+          lastPercent = file.percent;
+        }
+        if (file.status === 'done' || file.status === 'error') {
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [
+          { file: 'foo.png' },
+        ],
+      },
+    });
+
+    uploadInstance = wrapper.instance();
   });
 
   it('should not stop upload when return value of beforeUpload is not false', (done) => {
@@ -95,16 +148,26 @@ describe('Upload', () => {
 
     const wrapper = mount(
       <Upload {...props}>
-        <button>upload</button>
+        <button type="button">upload</button>
       </Upload>
     );
 
     wrapper.find('input').simulate('change', {
       target: {
         files: [
-          { filename: 'foo.png' },
+          { file: 'foo.png' },
         ],
       },
+    });
+  });
+
+  describe('util', () => {
+    it('should be able to copy file instance', () => {
+      const file = new File([], 'aaa.zip');
+      const copiedFile = fileToObject(file);
+      ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach((key) => {
+        expect(key in copiedFile).toBe(true);
+      });
     });
   });
 });

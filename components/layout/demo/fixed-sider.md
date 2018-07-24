@@ -16,6 +16,7 @@ When dealing with long content, a fixed sider can provide a better user experien
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
@@ -80,15 +81,14 @@ ReactDOM.render(
         Ant Design ©2016 Created by Ant UED
       </Footer>
     </Layout>
-  </Layout>
-, mountNode);
+  </Layout>,
+  mountNode);
 ````
 
 ````css
 #components-layout-demo-fixed-sider .logo {
   height: 32px;
-  background: #333;
-  border-radius: 6px;
+  background: rgba(255,255,255,.2);
   margin: 16px;
 }
 ````

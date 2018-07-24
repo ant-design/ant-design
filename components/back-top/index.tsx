@@ -1,13 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Icon from '../icon';
 import getScroll from '../_util/getScroll';
-import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
-
-const reqAnimFrame = getRequestAnimationFrame();
+import raf from 'raf';
 
 const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   const cc = c - b;
@@ -65,10 +62,10 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       const time = timestamp - startTime;
       this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
       if (time < 450) {
-        reqAnimFrame(frameFunc);
+        raf(frameFunc);
       }
     };
-    reqAnimFrame(frameFunc);
+    raf(frameFunc);
     (this.props.onClick || noop)(e);
   }
 
@@ -109,7 +106,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
     const defaultElement = (
       <div className={`${prefixCls}-content`}>
-        <Icon className={`${prefixCls}-icon`} type="to-top" />
+        <div className={`${prefixCls}-icon`} />
       </div>
     );
 
@@ -119,6 +116,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       'className',
       'children',
       'visibilityHeight',
+      'target',
     ]);
 
     const backTopBtn = this.state.visible ? (

@@ -21,12 +21,14 @@ Cascade selection box.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | allowClear | whether allow clear | boolean | true |
+| autoFocus | get focus when component mounted | boolean | false |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
 | className | additional css class | string | - |
-| defaultValue | initial selected value | [CascaderOptionType](https://git.io/vMMoK)\[] | \[] |
+| defaultValue | initial selected value | string\[] | \[] |
 | disabled | whether disabled select | boolean | false |
 | displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
+| fieldNames | custom field name for label and value and children | object | `{ label: 'label', value: 'value', children: 'children' }` |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
 | loadData | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void` | - |
 | notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
@@ -34,13 +36,13 @@ Cascade selection box.
 | placeholder | input placeholder | string | 'Please select' |
 | popupClassName | additional className of popup overlay | string | - |
 | popupPlacement | use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
+| popupVisible | set visible of cascader popup | boolean | - |
 | showSearch | Whether show search input in single mode. | boolean\|object | false |
 | size | input size, one of `large` `default` `small` | string | `default` |
 | style | additional style | string | - |
-| value | selected value | [CascaderOptionType](https://git.io/vMMoK)\[] | - |
+| value | selected value | string\[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | onPopupVisibleChange | callback when popup shown or hidden | `(value) => void` | - |
-| popupVisible | set visible of cascader popup | boolean | - |
 
 Fields in `showSearch`:
 
@@ -51,8 +53,15 @@ Fields in `showSearch`:
 | render | Used to render filtered options. | `function(inputValue, path): ReactNode` |  |
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` |  |
 
+## Methods
+
+| Name | Description |
+| ---- | ----------- |
+| blur() | remove focus |
+| focus() | get focus |
+
 <style>
 .ant-cascader-picker {
-  width: 220px;
+  width: 300px;
 }
 </style>

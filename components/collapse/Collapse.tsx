@@ -1,38 +1,28 @@
-import React from 'react';
+import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
+import CollapsePanel from './CollapsePanel';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;
   defaultActiveKey?: Array<string>;
   /** 手风琴效果 */
   accordion?: boolean;
-  onChange?: (key: string | string[]) => void;
+  onChange?: (key: string | string[]) => void;
   style?: React.CSSProperties;
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
 }
 
-export interface CollapsePanelProps {
-  key: string;
-  header: React.ReactNode;
-  disabled?: boolean;
-  className?: string;
-  style?: React.CSSProperties;
-}
-
-export class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
-}
-
 export default class Collapse extends React.Component<CollapseProps, any> {
-  static Panel: typeof CollapsePanel = RcCollapse.Panel;
+  static Panel = CollapsePanel;
 
   static defaultProps = {
     prefixCls: 'ant-collapse',
     bordered: true,
-    openAnimation: { ...animation, appear() {} },
+    openAnimation: { ...animation, appear() { } },
   };
 
   render() {

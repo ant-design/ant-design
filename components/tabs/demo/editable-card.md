@@ -17,6 +17,7 @@ Only card type Tabs support adding & closable.
 
 ````jsx
 import { Tabs } from 'antd';
+
 const TabPane = Tabs.TabPane;
 
 class Demo extends React.Component {
@@ -24,8 +25,9 @@ class Demo extends React.Component {
     super(props);
     this.newTabIndex = 0;
     const panes = [
-      { title: 'Tab 1', content: 'Content of Tab 1', key: '1', closable: false },
+      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
       { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
+      { title: 'Tab 3', content: 'Content of Tab 3', key: '3', closable: false },
     ];
     this.state = {
       activeKey: panes[0].key,
@@ -36,15 +38,18 @@ class Demo extends React.Component {
   onChange = (activeKey) => {
     this.setState({ activeKey });
   }
+
   onEdit = (targetKey, action) => {
     this[action](targetKey);
   }
+
   add = () => {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
     panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
     this.setState({ panes, activeKey });
   }
+
   remove = (targetKey) => {
     let activeKey = this.state.activeKey;
     let lastIndex;
@@ -59,6 +64,7 @@ class Demo extends React.Component {
     }
     this.setState({ panes, activeKey });
   }
+
   render() {
     return (
       <Tabs

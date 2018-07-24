@@ -23,6 +23,7 @@ A long list can be divided into several pages by `Pagination`, and only one page
 | current | current page number | number | - |
 | defaultCurrent | default initial page number | number | 1 |
 | defaultPageSize | default number of data items per page | number | 10 |
+| hideOnSinglePage | Whether to hide pager on single page | boolean | false |
 | itemRender | to customize item innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |
 | pageSize | number of data items per page | number | - |
 | pageSizeOptions | specify the sizeChanger options | string\[] | ['10', '20', '30', '40'] |

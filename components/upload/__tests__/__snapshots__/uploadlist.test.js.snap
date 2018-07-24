@@ -17,7 +17,9 @@ exports[`Upload List handle error 1`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -45,13 +47,13 @@ exports[`Upload List handle error 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div
@@ -91,7 +93,9 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -119,13 +123,13 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div
@@ -165,7 +169,9 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         style="display: none;"
         type="file"
       />
-      <button>
+      <button
+        type="button"
+      >
         upload
       </button>
     </span>
@@ -193,13 +199,13 @@ exports[`Upload List should be uploading when upload a file 2`] = `
       </div>
       <i
         class="anticon anticon-cross"
-        title="删除文件"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
         >
           <div>
             <div
@@ -217,6 +223,340 @@ exports[`Upload List should be uploading when upload a file 2`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`Upload List should non-image format file preview 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa.zip"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i
+              class="anticon anticon-file ant-upload-list-item-icon"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa.zip"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="not-image"
+          >
+            not-image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/aaa"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa.xx"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i
+              class="anticon anticon-file ant-upload-list-item-icon"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa.xx"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="not-image"
+          >
+            not-image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa.png/xx.xx"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <i
+              class="anticon anticon-file ant-upload-list-item-icon"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa.png/xx.xx"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="not-image"
+          >
+            not-image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
     </div>
   </div>
 </span>

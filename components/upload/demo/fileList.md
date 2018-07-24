@@ -37,6 +37,7 @@ class MyUpload extends React.Component {
       url: 'http://www.baidu.com/xxx.png',
     }],
   }
+
   handleChange = (info) => {
     let fileList = info.fileList;
 
@@ -63,6 +64,7 @@ class MyUpload extends React.Component {
 
     this.setState({ fileList });
   }
+
   render() {
     const props = {
       action: '//jsonplaceholder.typicode.com/posts/',

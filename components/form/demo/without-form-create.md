@@ -15,6 +15,7 @@ title:
 
 ````jsx
 import { Form, InputNumber } from 'antd';
+
 const FormItem = Form.Item;
 
 function validatePrimeNumber(number) {
@@ -36,6 +37,7 @@ class RawForm extends React.Component {
       value: 11,
     },
   };
+
   handleNumberChange = (value) => {
     this.setState({
       number: {
@@ -44,6 +46,7 @@ class RawForm extends React.Component {
       },
     });
   }
+
   render() {
     const formItemLayout = {
       labelCol: { span: 7 },

@@ -19,20 +19,23 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 
 ````jsx
 import { Menu, Icon, Button } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 
 class App extends React.Component {
   state = {
     collapsed: false,
   }
+
   toggleCollapsed = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
   }
+
   render() {
     return (
-      <div style={{ width: 240 }}>
+      <div style={{ width: 256 }}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
           <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
         </Button>

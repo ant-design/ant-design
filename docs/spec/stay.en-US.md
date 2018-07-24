@@ -14,18 +14,18 @@ Solve most of problems on the same page and avoid a new one, because the page re
 
 ## Overlays
 
-<img class="preview-img" align="right" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://os.alipayobjects.com/rmsportal/woHOTIZeXCYmtkv.png" good>
+<img class="preview-img" align="right" alt="good example" description="As the user clicks delete, a success message and an undo button are displayed. When the user does nothing within one minute or click the undo button, the message and the button disappear." src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
 
-<img class="preview-img" align="right" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://os.alipayobjects.com/rmsportal/hDlhNscVtHdvvgu.png" good>
+<img class="preview-img" align="right" alt="good example (special case)" description="If the undo operation is invalid, the Popconfirm is displayed after clicking the delete button. The user can stay on the page to double confirm." src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
 
 <img class="preview-img" align="right" alt="bad example" description="
-Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user’s flow, nor allow the user to undo the change." src="https://os.alipayobjects.com/rmsportal/JEcWKBYlMcYIowX.png" bad>
+Abusing the Modal can neither bring the context into the popup, which is prone to interrupt the user’s flow, nor allow the user to undo the change." src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
 
 Double-confirm overlay: Using the Modal to double confirm should be avoided, while affording an opportunity to undo is preferred.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Detail Overlay " description="Click the eye icon to see more information." src="https://os.alipayobjects.com/rmsportal/WIhhhXExyQBsZwj.png">
+<img class="preview-img" align="right" alt="example of Detail Overlay " description="Click the eye icon to see more information." src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
 
 Detail Overlay: Allows an overlay to present additional information when the user clicks or hovers over a link or section of content.
 
@@ -34,7 +34,7 @@ Detail Overlay: Allows an overlay to present additional information when the use
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Input Overlay" description="Click the edit icon to trigger the Input Overlay. Click the outside of it to preserve the input and close it." src="https://os.alipayobjects.com/rmsportal/YehbrRkldqWsezo.png">
+<img class="preview-img" align="right" alt="example of Input Overlay" description="Click the edit icon to trigger the Input Overlay. Click the outside of it to preserve the input and close it." src="https://gw.alipayobjects.com/zos/rmsportal/lLhJKFcaJnIPxFCjvUKY.png">
 
 Input Overlay: Let the user enter small amounts of text on the overlay.
 
@@ -44,13 +44,13 @@ Input Overlay: Let the user enter small amounts of text on the overlay.
 
 ## Inlays
 
-<img class="preview-img" align="right" alt="example of List Inlay" src="https://os.alipayobjects.com/rmsportal/bHCqDMqXhZvKbve.png">
+<img class="preview-img" align="right" alt="example of List Inlay" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
 
 List Inlay: Works as an effective way to hide detail until needed — while at the same time preserving space on the page for high-level overview information.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Tabs" src="https://os.alipayobjects.com/rmsportal/MsVyvEIJtlxZWBL.png">
+<img class="preview-img" align="right" alt="example of Tabs" src="https://gw.alipayobjects.com/zos/rmsportal/CKwQXddFJnJHsyFAifsg.png">
 
 Tabs: Provides additional panels of information accessible by tab controls.
 
@@ -60,11 +60,7 @@ Tabs: Provides additional panels of information accessible by tab controls.
 
 ## Virtual Pages
 
-In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the cur- rent page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page. 
-
-Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](/docs/pattern/list#显示长列表)
-
-Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图片)
+In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the cur- rent page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page.
 
 <br>
 
@@ -76,19 +72,19 @@ It has long been common practice on the Web to turn each step into a separate pa
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Responsive Disclosure" src="https://os.alipayobjects.com/rmsportal/xpynnwXnfCpGHvn.png">
+<img class="preview-img" align="right" alt="example of Responsive Disclosure" src="https://gw.alipayobjects.com/zos/rmsportal/OIxzAapqoGokUSIuFOWC.png">
 
 Responsive Disclosure: Make the experience for selecting painless by providing disclosures as quickly as possible, and doing it all in a single-page interface.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Configurator Process" src="https://os.alipayobjects.com/rmsportal/EBVLFAwHHjiXtIJ.png">
+<img class="preview-img" align="right" alt="example of Configurator Process" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
 
 Configurator Process: Provides a configurator that allows users to help them accomplish the task or build their own product.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Dialog Overlay Process" src="https://os.alipayobjects.com/rmsportal/xcYosQncDPuFxhS.png">
+<img class="preview-img" align="right" alt="example of Dialog Overlay Process" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
 
 Dialog Overlay Process: Any page switch is an interruption to the user’s mental flow. In addition, any context switch is a chance for a user to leave the site. But sometimes the step-by-step flow is necessary.
 

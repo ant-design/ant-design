@@ -40,9 +40,12 @@ declare module 'rc-progress';
 
 declare module 'rc-menu';
 
+declare module 'rc-drawer';
+
 declare module 'rc-tabs*';
 
 declare module 'rc-tree';
+declare module 'rc-tree/lib/util';
 
 declare module 'rc-tooltip*';
 
@@ -62,6 +65,12 @@ declare module 'rc-queue-anim';
 
 declare module 'rc-slider';
 
+declare module 'rc-slider/lib/Slider';
+
+declare module 'rc-slider/lib/Range';
+
+declare module 'rc-slider/lib/Handle';
+
 declare module 'rc-steps';
 
 declare module 'rc-switch';
@@ -78,11 +87,7 @@ declare module 'rc-form*';
 
 declare module 'react-lazy-load';
 
-declare var process: {
-  env: {
-    NODE_ENV: string
-  }
-};
+declare module 'dom-closest';
 
 declare module "*.json" {
   const value: any;
@@ -90,6 +95,14 @@ declare module "*.json" {
   export default value;
 }
 
-declare module "prop-types"
+declare module "prop-types";
 
-declare function require(name: string): any;
+declare module "lodash/debounce";
+
+declare module "lodash/uniqBy";
+
+declare module 'intersperse';
+
+declare module "raf";
+
+declare module "react-lifecycles-compat";

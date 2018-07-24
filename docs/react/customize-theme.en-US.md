@@ -5,7 +5,7 @@ title: Customize Theme
 
 Ant Design allows you to customize some basic design aspects in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
 
-![](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
+![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
 ## Less variables
 
@@ -23,7 +23,7 @@ You can use this [example](https://github.com/ant-design/antd-init/tree/master/e
 
 ### 1) Using `theme` property (recommended way)
 
-Specify the `theme` property in the `package.json` or `.roadhogrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
+Specify the `theme` property in the `package.json` or `.webpackrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
 - example of directly specifying the custom values as an object:
 ```js
 "theme": {
@@ -60,4 +60,8 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ## Related Articles
 
+- [Using Ant Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)
 - [How to Customize Ant Design with React & Webpack… the Missing Guide](https://medium.com/@GeoffMiller/how-to-customize-ant-design-with-react-webpack-the-missing-guide-c6430f2db10f)
+- [Theming Ant Design with Sass and Webpack](https://gist.github.com/Kruemelkatze/057f01b8e15216ae707dc7e6c9061ef7)
+- [Using Sass/Scss with React App (create-react-app)](https://medium.com/@mzohaib.qc/using-sass-scss-with-react-app-create-react-app-d03072083ef8)
+- [Dynamic Theming in Browser using Ant Design](https://medium.com/@mzohaib.qc/ant-design-dynamic-runtime-theme-1f9a1a030ba0)

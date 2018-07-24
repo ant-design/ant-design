@@ -15,7 +15,8 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 
 ````jsx
 import { Select, Spin } from 'antd';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
+
 const Option = Select.Option;
 
 class UserRemoteSelect extends React.Component {
@@ -24,16 +25,18 @@ class UserRemoteSelect extends React.Component {
     this.lastFetchId = 0;
     this.fetchUser = debounce(this.fetchUser, 800);
   }
+
   state = {
     data: [],
     value: [],
     fetching: false,
   }
+
   fetchUser = (value) => {
     console.log('fetching user', value);
     this.lastFetchId += 1;
     const fetchId = this.lastFetchId;
-    this.setState({ fetching: true });
+    this.setState({ data: [], fetching: true });
     fetch('https://randomuser.me/api/?results=5')
       .then(response => response.json())
       .then((body) => {
@@ -43,11 +46,11 @@ class UserRemoteSelect extends React.Component {
         const data = body.results.map(user => ({
           text: `${user.name.first} ${user.name.last}`,
           value: user.login.username,
-          fetching: false,
         }));
-        this.setState({ data });
+        this.setState({ data, fetching: false });
       });
   }
+
   handleChange = (value) => {
     this.setState({
       value,
@@ -55,6 +58,7 @@ class UserRemoteSelect extends React.Component {
       fetching: false,
     });
   }
+
   render() {
     const { fetching, data, value } = this.state;
     return (

@@ -22,12 +22,15 @@ class App extends React.Component {
     modal1Visible: false,
     modal2Visible: false,
   }
+
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
   }
+
   setModal2Visible(modal2Visible) {
     this.setState({ modal2Visible });
   }
+
   render() {
     return (
       <div>

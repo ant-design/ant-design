@@ -15,14 +15,17 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 
 ````jsx
 import { Menu, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 
 class Sider extends React.Component {
   // submenu keys of first level
   rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+
   state = {
     openKeys: ['sub1'],
   };
+
   onOpenChange = (openKeys) => {
     const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -33,13 +36,14 @@ class Sider extends React.Component {
       });
     }
   }
+
   render() {
     return (
       <Menu
         mode="inline"
         openKeys={this.state.openKeys}
         onOpenChange={this.onOpenChange}
-        style={{ width: 240 }}
+        style={{ width: 256 }}
       >
         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
           <Menu.Item key="1">Option 1</Menu.Item>

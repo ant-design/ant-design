@@ -15,6 +15,7 @@ Submenus open as pop-ups.
 
 ````jsx
 import { Menu, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -23,7 +24,7 @@ function handleClick(e) {
 }
 
 ReactDOM.render(
-  <Menu onClick={handleClick} style={{ width: 240 }} mode="vertical">
+  <Menu onClick={handleClick} style={{ width: 256 }} mode="vertical">
     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
       <MenuItemGroup title="Item 1">
         <Menu.Item key="1">Option 1</Menu.Item>
@@ -48,6 +49,6 @@ ReactDOM.render(
       <Menu.Item key="11">Option 11</Menu.Item>
       <Menu.Item key="12">Option 12</Menu.Item>
     </SubMenu>
-  </Menu>
-, mountNode);
+  </Menu>,
+  mountNode);
 ````

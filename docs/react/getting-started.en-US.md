@@ -5,25 +5,23 @@ title: Getting Started
 
 Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you had installed [Node.js](https://nodejs.org/)(> v6.5) correctly.
 
+> Before delving into Ant Design React, a good knowledge base of [React](http://facebook.github.io/react/) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+
 ---
 
-Before delving into Ant Design React, a good knowledge of [React](http://facebook.github.io/react/) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+## Playground
 
-## First Example
+The following CodeSandbox demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug.
 
-The following CodePen demo is the simplest use case, and it's also a good habit to fork this demo to provide a re-producible demo while reporting a bug. Please don't use this demo as a scaffold in production.
+- [antd CodeSandbox](https://u.ant.design/codesandbox-repro)
 
-- [antd CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001)
-
-## Standard Development Flow
+## First Local Development
 
 During development, you may need to compile and debug JSX and ES2015 code, and even proxy some of the requests to mock data or other external services. All of these can be done with quick feedback provided through hot reloading of changes.
 
-Such features, together with packaging the production version, are covered in this work flow.
-
 ### 1. Installation
 
-[antd-init](https://github.com/ant-design/antd-init/) is a demo only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) is our recommendation.
+[antd-init](https://github.com/ant-design/antd-init/) is a demo-only scaffold tool. If you want to create real world projects, [dva-cli](https://github.com/dvajs/dva-cli) and [create-react-app](https://github.com/facebookincubator/create-react-app) is our recommendation.
 
 ```bash
 $ npm install antd-init -g
@@ -31,8 +29,9 @@ $ npm install antd-init -g
 
 Read [the documentation of `antd-init`](https://github.com/ant-design/antd-init/) and [the documentation of `ant-tool`](http://ant-tool.github.io/) to explore more features.
 
-> Also, you can use scaffold/demo which is provided by community:
+> Also, you can try other scaffolds which is provided below:
 >
+>   - [Ant Design Pro](http://pro.ant.design/)
 >   - [antd-admin](https://github.com/zuiidea/antd-admin)
 >   - [reactSPA](https://github.com/JasonBai007/reactSPA)
 >   - [react-redux-antd by Justin-lu](https://github.com/Justin-lu/react-redux-antd)
@@ -64,7 +63,13 @@ As you can see, there is no difference between antd's components and usual React
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DatePicker, message } from 'antd';
+import { LocaleProvider, DatePicker, message } from 'antd';
+// The default locale is en-US, but we can change it to other language
+import frFR from 'antd/lib/locale-provider/fr_FR';
+import moment from 'moment';
+import 'moment/locale/fr';
+
+moment.locale('fr');
 
 class App extends React.Component {
   constructor(props) {
@@ -74,15 +79,17 @@ class App extends React.Component {
     };
   }
   handleChange(date) {
-    message.info('Selected Date: ' + date.toString());
+    message.info('Selected Date: ' + (date ? date.toString() : ''));
     this.setState({ date });
   }
   render() {
     return (
-      <div style={{ width: 400, margin: '100px auto' }}>
-        <DatePicker onChange={value => this.handleChange(value)} />
-        <div style={{ marginTop: 20 }}>Date: {this.state.date.toString()}</div>
-      </div>
+      <LocaleProvider locale={frFR}>
+        <div style={{ width: 400, margin: '100px auto' }}>
+          <DatePicker onChange={value => this.handleChange(value)} />
+          <div style={{ marginTop: 20 }}>Date: {this.state.date && this.state.date.toString()}</div>
+        </div>
+      </LocaleProvider>
     );
   }
 }
@@ -94,7 +101,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. Development & Debugging
 
-Run your project and visit http://127.0.0.1:8001
+Run your project and visit http://127.0.0.1:8000
 
 ```bash
 $ npm start
@@ -159,7 +166,10 @@ If you want to customize your work flow, we recommend using [webpack](http://web
 
 Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in the React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
 
-There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) which have already integrated antd, so you can try and start with one of these, and even contribute.
+If you are trying [parcel](https://parceljs.org), here is [a demo repository](https://github.com/ant-design/parcel-antd).
+
+There are some [scaffolds](http://scaffold.ant.design/) which have already integrated antd, so you can try and start with one of these, and even contribute.
+
 
 ## Import on Demand
 
@@ -169,7 +179,7 @@ If you see logs like below screenshot, you might be importing all components by 
 You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.
 ```
 
-> ![](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
+> ![console warning](https://zos.alipayobjects.com/rmsportal/GHIRszVcmjccgZRakJDQ.png)
 
 However, we can import individual components on demand:
 

@@ -6,6 +6,7 @@
 .@{ant-prefix}-row {
   .make-row();
   display: block;
+  box-sizing: border-box;
 }
 
 .@{ant-prefix}-row-flex {
@@ -104,4 +105,12 @@
 
 @media (min-width: @screen-xl-min) {
   .make-grid(-xl);
+}
+
+// Extra Extra Large grid
+//
+// Columns, offsets, pushes, and pulls for the full hd device range.
+
+@media (min-width: @screen-xxl-min) {
+  .make-grid(-xxl);
 }

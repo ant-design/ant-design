@@ -40,7 +40,7 @@
 
   &:hover,
   &:focus {
-    .button-color(@primary-color; @background; @primary-color);
+    .button-color(@primary-5; @background; @primary-5);
   }
 
   &:active,
@@ -54,14 +54,17 @@
 .button-variant-danger(@color; @background; @border) {
   .button-color(@color; @background; @border);
 
-  &:hover,
+  &:hover {
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 5)`; ~`colorPalette("@{color}", 5)`);
+  }
+
   &:focus {
-    .button-color(@btn-primary-color; @color; @color;);
+    .button-color(~`colorPalette("@{color}", 5)`; #fff; ~`colorPalette("@{color}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`;);
+    .button-color(@btn-primary-color; ~`colorPalette("@{color}", 7)`; ~`colorPalette("@{color}", 7)`);
   }
 
   .button-disabled();
@@ -106,9 +109,10 @@
 .button-group-base(@btnClassName) {
   position: relative;
   display: inline-block;
-  > .@{btnClassName} {
+  > .@{btnClassName},
+  > span > .@{btnClassName} {
     position: relative;
-    z-index: 1;
+    line-height: @btn-height-base - 2px;
 
     &:hover,
     &:focus,
@@ -123,12 +127,16 @@
   }
 
   // size
-  &-lg > .@{btnClassName} {
-    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
+  &-lg > .@{btnClassName},
+  &-lg > span > .@{btnClassName} {
+    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
+    line-height: @btn-height-lg - 2px;
   }
 
-  &-sm > .@{btnClassName} {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+  &-sm > .@{btnClassName},
+  &-sm > span > .@{btnClassName} {
+    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
+    line-height: @btn-height-sm - 2px;
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -139,7 +147,6 @@
 // --------------------------------------------------
 .btn() {
   display: inline-block;
-  margin-bottom: 0;
   font-weight: @btn-font-weight;
   text-align: center;
   touch-action: manipulation;
@@ -147,7 +154,6 @@
   background-image: none;
   border: @border-width-base @border-style-base transparent;
   white-space: nowrap;
-  line-height: 1.15; // https://github.com/ant-design/ant-design/issues/7070
   .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
   user-select: none;
   transition: all .3s @ease-in-out;
@@ -185,7 +191,7 @@
   }
 
   &-sm {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-height-sm; @btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm);
   }
 }
 
@@ -201,7 +207,8 @@
   &:focus,
   &:active,
   &.active {
-    background: #fff;
+    background: @btn-default-bg;
+    text-decoration: none;
   }
 }
 
@@ -244,30 +251,62 @@
 
   .@{btnClassName} + .@{btnClassName},
   .@{btnClassName} + &,
+  span + .@{btnClassName},
+  .@{btnClassName} + span,
+  > span + span,
   & + .@{btnClassName},
   & + & {
     margin-left: -1px;
   }
 
-  .@{btnClassName}:not(:first-child):not(:last-child) {
+  .@{btnClassName}-primary + .@{btnClassName}:not(.@{btnClassName}-primary):not([disabled]) {
+    border-left-color: transparent;
+  }
+
+  .@{btnClassName} {
     border-radius: 0;
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
-  > .@{btnClassName}:first-child {
+  > .@{btnClassName}:first-child,
+  > span:first-child > .@{btnClassName} {
     margin-left: 0;
-    &:not(:last-child) {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      padding-right: 8px;
-    }
+  }
+  > .@{btnClassName}:only-child {
+    border-radius: @btn-border-radius-base;
+  }
+  > span:only-child > .@{btnClassName} {
+    border-radius: @btn-border-radius-base;
   }
 
-  > .@{btnClassName}:last-child:not(:first-child) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding-left: 8px;
+  > .@{btnClassName}:first-child:not(:last-child),
+  > span:first-child:not(:last-child) > .@{btnClassName} {
+    border-bottom-left-radius: @btn-border-radius-base;
+    border-top-left-radius: @btn-border-radius-base;
+  }
+
+  > .@{btnClassName}:last-child:not(:first-child),
+  > span:last-child:not(:first-child) > .@{btnClassName} {
+    border-bottom-right-radius: @btn-border-radius-base;
+    border-top-right-radius: @btn-border-radius-base;
+  }
+
+  &-sm {
+    > .@{btnClassName}:only-child {
+      border-radius: @btn-border-radius-sm;
+    }
+    > span:only-child > .@{btnClassName} {
+      border-radius: @btn-border-radius-sm;
+    }
+    > .@{btnClassName}:first-child:not(:last-child),
+    > span:first-child:not(:last-child) > .@{btnClassName} {
+      border-bottom-left-radius: @btn-border-radius-sm;
+      border-top-left-radius: @btn-border-radius-sm;
+    }
+    > .@{btnClassName}:last-child:not(:first-child),
+    > span:last-child:not(:first-child) > .@{btnClassName} {
+      border-bottom-right-radius: @btn-border-radius-sm;
+      border-top-right-radius: @btn-border-radius-sm;
+    }
   }
 
   & > & {

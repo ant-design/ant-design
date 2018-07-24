@@ -23,7 +23,7 @@ ReactDOM.render(
     <Alert message="Warning" type="warning" showIcon />
     <Alert message="Error" type="error" showIcon />
     <Alert
-      message="success tips"
+      message="Success Tips"
       description="Detailed description and advices about successful copywriting."
       type="success"
       showIcon
@@ -46,6 +46,6 @@ ReactDOM.render(
       type="error"
       showIcon
     />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

@@ -21,7 +21,7 @@ function onChange(checkedValues) {
 }
 
 ReactDOM.render(
-  <Checkbox.Group onChange={onChange}>
+  <Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
     <Row>
       <Col span={8}><Checkbox value="A">A</Checkbox></Col>
       <Col span={8}><Checkbox value="B">B</Checkbox></Col>

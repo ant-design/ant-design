@@ -14,13 +14,13 @@ title:
 Simple table with actions.
 
 ````jsx
-import { Table, Icon } from 'antd';
+import { Table, Icon, Divider } from 'antd';
 
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
-  render: text => <a href="#">{text}</a>,
+  render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
@@ -34,11 +34,11 @@ const columns = [{
   key: 'action',
   render: (text, record) => (
     <span>
-      <a href="#">Action 一 {record.name}</a>
-      <span className="ant-divider" />
-      <a href="#">Delete</a>
-      <span className="ant-divider" />
-      <a href="#" className="ant-dropdown-link">
+      <a href="javascript:;">Action 一 {record.name}</a>
+      <Divider type="vertical" />
+      <a href="javascript:;">Delete</a>
+      <Divider type="vertical" />
+      <a href="javascript:;" className="ant-dropdown-link">
         More actions <Icon type="down" />
       </a>
     </span>

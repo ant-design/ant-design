@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="320" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+    <img width="230" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
   </a>
 </p>
 
@@ -8,10 +8,11 @@
 
 [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design)
 [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master)
-[![Dependency Status](https://img.shields.io/gemnasium/react-component/trigger.svg?style=flat-square)](https://gemnasium.com/ant-design/ant-design)
+[![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg)](https://david-dm.org/ant-design/ant-design)
+[![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg)](https://david-dm.org/ant-design/ant-design?type=dev)
 
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-[![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd)
+[![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://www.npmtrends.com/antd)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design.svg)](http://isitmaintained.com/project/ant-design/ant-design "Percentage of issues still open")
 [![Gitter](https://badges.gitter.im/ant-design/ant-design-english.svg)](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) (English)
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)（中文）
@@ -25,7 +26,7 @@
 - 提炼自企业级中后台产品的交互语言和视觉风格。
 - 开箱即用的高质量 React 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
-- 基于 npm + webpack + [dva](https://github.com/dvajs/dva) 的企业级开发框架。
+- 全链路开发和设计工具体系。
 
 ## 支持环境
 
@@ -33,14 +34,18 @@
 * 支持服务端渲染。
 * [Electron](http://electron.atom.io/)
 
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+| IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
 ## 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` 是一个开源项目，我们欢迎社区参与共建。如果你对此项目感兴趣，有 [很多方式](https://opensource.guide/how-to-contribute/) 进行参与。你可以 watch 这个仓库，加入 [issue 中的讨论](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion)，以及尝试实现一些 [已接受的特性](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22)。我们会给予有活跃贡献的社区成员 [collaborator 权限](https://github.com/ant-design/ant-design/issues/3222)。
+请参考[贡献指南](https://ant.design/docs/react/contributing-cn).
 
 ## 安装
 
 ```bash
-npm install antd
+npm install antd --save
 ```
 
 ## 示例
@@ -56,28 +61,15 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用 Babel 插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，或使用 TypeScript 插件 [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin)。
+你也可以[按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
 ## TypeScript
 
-```js
-// tsconfig.json
-{
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowSyntheticDefaultImports": true
-  }
-}
-```
-
-> 注意：
-> - 设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
-> - 不要使用 @types/antd, antd 已经自带了 TypeScript 定义。
+参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
 
 ## 国际化
 
-参考 [国际化文档](http://ant.design/docs/react/i18n)。
+参考 [国际化文档](http://ant.design/docs/react/i18n-cn)。
 
 ## 链接
 
@@ -93,7 +85,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
 - [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [CodeSandbox 模板](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [定制主题](http://ant.design/docs/react/customize-theme-cn)
 
@@ -101,15 +93,16 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
+$ cd ant-design
 $ npm install
 $ npm start
 ```
 
-打开浏览器访问 http://127.0.0.1:8001 ，更多本地开发文档参见: https://github.com/ant-design/ant-design/wiki/Development 。
+打开浏览器访问 http://127.0.0.1:8001 ，更多[本地开发文档](https://github.com/ant-design/ant-design/wiki/Development)。
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或给我们 [报告 Bug](http://new-issue.ant.design/)。
+阅读我们的[贡献指南](./.github/CONTRIBUTING.md).
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
 

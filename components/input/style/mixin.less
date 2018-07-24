@@ -1,12 +1,13 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-affix-width: 17px;
+@input-affix-width: 19px;
 
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   height: @input-height-lg;
+  font-size: @font-size-lg;
 }
 
 .input-sm() {
@@ -19,12 +20,14 @@
 .active(@color: @outline-color) {
   border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
-  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
+  border-right-width: 1px !important;
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
   border-color: ~`colorPalette("@{color}", 5)`;
+  border-right-width: 1px !important;
 }
 
 .disabled() {
@@ -72,6 +75,7 @@
     height: auto;
     vertical-align: bottom;
     transition: all .3s, height 0s;
+    min-height: @input-height-base;
   }
 
   // Size
@@ -133,11 +137,16 @@
     margin-bottom: 0;
     &:focus {
       z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+      border-right-width: 1px;
+    }
+    &:hover {
+      z-index: 1;
+      border-right-width: 1px;
     }
   }
 
   &-addon {
-    padding: @input-padding-vertical-base @input-padding-horizontal-base;
+    padding: 0 @input-padding-horizontal-base;
     font-size: @font-size-base;
     font-weight: normal;
     line-height: 1;
@@ -265,7 +274,6 @@
     // Undo float for .ant-input-group .ant-input
     .@{inputClass} {
       float: none;
-      z-index: auto;
     }
 
     // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker
@@ -309,12 +317,12 @@
   display: inline-block;
   width: 100%;
 
-  .@{inputClass} {
-    z-index: 1;
-  }
-
   &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
     .hover();
+  }
+
+  .@{inputClass} {
+    position: static;
   }
 
   .@{inputClass}-prefix,
@@ -322,17 +330,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
     line-height: 0;
     color: @input-color;
+    :not(.anticon) {
+      line-height: @line-height-base;
+    }
   }
 
   .@{inputClass}-prefix {
-    left: @input-padding-horizontal-base;
+    left: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}-suffix {
-    right: @input-padding-horizontal-base;
+    right: @input-padding-horizontal-base + 1px;
   }
 
   .@{inputClass}:not(:first-child) {

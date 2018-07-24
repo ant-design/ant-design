@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -25,6 +25,14 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
 
   componentDidMount() {
     this.context.antAnchor.registerLink(this.props.href);
+  }
+
+  componentWillReceiveProps(nextProps: AnchorLinkProps) {
+    const { href } = nextProps;
+    if (this.props.href !== href) {
+      this.context.antAnchor.unregisterLink(this.props.href);
+      this.context.antAnchor.registerLink(href);
+    }
   }
 
   componentWillUnmount() {

@@ -18,10 +18,10 @@ title: Dropdown
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | disabled | 菜单是否禁用 | boolean | - |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | `() => document.body` |
 | overlay | 菜单 | [Menu](/components/menu) | - |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
-| trigger | 触发下拉的行为 | Array&lt;'click'\|'hover'> | ['hover'] |
+| trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
 | visible | 菜单是否显示 | boolean | - |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function(visible) | - |
 
@@ -39,7 +39,7 @@ title: Dropdown
 | overlay | 菜单 | [Menu](/components/menu/) | - |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 | size | 按钮大小，和 [Button](/components/button/) 一致 | string | 'default' |
-| trigger | 触发下拉的行为 | Array&lt;'click'\|'hover'> | ['hover'] |
+| trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |
 | type | 按钮类型，和 [Button](/components/button/) 一致 | string | 'default' |
 | visible | 菜单是否显示 | boolean | - |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function | - |

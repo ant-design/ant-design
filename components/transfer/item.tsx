@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Lazyload from 'react-lazy-load';
 import Checkbox from '../checkbox';
 
 export default class Item extends React.Component<any, any> {
-  shouldComponentUpdate(...args) {
+  shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {

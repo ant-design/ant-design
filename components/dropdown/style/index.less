@@ -4,14 +4,12 @@
 @dropdown-prefix-cls: ~"@{ant-prefix}-dropdown";
 
 .@{dropdown-prefix-cls} {
+  .reset-component;
   position: absolute;
   left: -9999px;
   top: -9999px;
   z-index: @zindex-dropdown;
   display: block;
-  font-size: @font-size-base;
-  font-weight: normal;
-  line-height: 1.5;
 
   &-wrap {
     position: relative;
@@ -21,7 +19,7 @@
     }
 
     .@{iconfont-css-prefix}-down:before {
-      transition: transform 0.2s ease;
+      transition: transform .2s;
     }
   }
 
@@ -40,7 +38,7 @@
     outline: none;
     position: relative;
     list-style-type: none;
-    padding: 0;
+    padding: 4px 0;
     margin: 0;
     text-align: left;
     background-color: @component-background;
@@ -50,13 +48,18 @@
 
     &-item-group-title {
       color: @text-color-secondary;
-      padding: 6px 8px;
+      padding: 5px @control-padding-horizontal;
       transition: all .3s;
+    }
+
+    &-submenu-popup {
+      position: absolute;
+      z-index: @zindex-dropdown;
     }
 
     &-item,
     &-submenu-title {
-      padding: 7px 8px;
+      padding: 5px @control-padding-horizontal;
       margin: 0;
       clear: both;
       font-size: @font-size-base;
@@ -65,12 +68,18 @@
       white-space: nowrap;
       cursor: pointer;
       transition: all .3s;
+      line-height: 22px;
+
+      > .anticon:first-child {
+        min-width: 12px;
+        margin-right: 8px;
+      }
 
       > a {
         color: @text-color;
         display: block;
-        padding: 7px 8px;
-        margin: -7px -8px;
+        padding: 5px @control-padding-horizontal;
+        margin: -5px -@control-padding-horizontal;
         transition: all .3s;
         &:focus {
           text-decoration: none;
@@ -98,36 +107,28 @@
         }
       }
 
-      &:first-child,
-      &:first-child > a {
-        border-radius: @border-radius-base @border-radius-base 0 0;
-      }
-
-      &:last-child,
-      &:last-child > a {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
-      }
-
-      &:only-child,
-      &:only-child > a {
-        border-radius: @border-radius-base;
-      }
-
       &-divider {
         height: 1px;
         overflow: hidden;
         background-color: @border-color-split;
         line-height: 0;
+        margin: 4px 0;
+      }
+      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+        position: absolute;
+        right: @padding-xs;
+        &:after {
+          font-family: "anticon" !important;
+          font-style: normal;
+          content: "\e61f";
+          color: @text-color-secondary;
+          .iconfont-size-under-12px(10px);
+        }
       }
     }
 
-    &-submenu-title:after {
-      font-family: "anticon" !important;
-      position: absolute;
-      content: "\e61f";
-      right: 8px;
-      color: @text-color-secondary;
-      .iconfont-size-under-12px(10px);
+    &-submenu-title {
+      padding-right: 26px;
     }
 
     &-submenu-vertical {
@@ -145,16 +146,9 @@
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
-      &:after {
+      .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
         color: @disabled-color;
       }
-    }
-    &-submenu:first-child &-submenu-title {
-      border-radius: @border-radius-base @border-radius-base 0 0;
-    }
-
-    &-submenu:last-child &-submenu-title {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
     }
   }
 
@@ -194,13 +188,17 @@
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
   }
+  .@{iconfont-css-prefix}-ellipsis {
+    text-shadow: 0 0 currentColor;
+  }
 }
 
 .@{dropdown-prefix-cls}-button {
   white-space: nowrap;
 
   &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
-    padding-right: 8px;
+    padding-left: @padding-xs;
+    padding-right: @padding-xs;
   }
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(10px);
@@ -217,7 +215,7 @@
   .@{dropdown-prefix-cls}-menu-submenu-title,
   .@{dropdown-prefix-cls}-menu-item > a {
     color: @text-color-secondary-dark;
-    &:after {
+    .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
       color: @text-color-secondary-dark;
     }
     &:hover {

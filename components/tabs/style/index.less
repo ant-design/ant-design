@@ -1,15 +1,15 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
-@tab-prefix-cls: ~"@{ant-prefix}-tabs";
 
 @import "./card-style";
 
+@tab-prefix-cls: ~"@{ant-prefix}-tabs";
+
 .@{tab-prefix-cls} {
-  box-sizing: border-box;
+  .reset-component;
   position: relative;
   overflow: hidden;
   .clearfix;
-  color: @text-color;
 
   &-ink-bar {
     z-index: 1;
@@ -18,13 +18,13 @@
     bottom: 1px;
     box-sizing: border-box;
     height: 2px;
-    background-color: @primary-color;
+    background-color: @tabs-ink-bar-bg-color;
     transform-origin: 0 0;
   }
 
   &-bar {
-    border-bottom: @border-width-base @border-style-base @border-color-base;
-    margin-bottom: 16px;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+    margin: @tab-bar-margin;
     outline: none;
     transition: padding .3s @ease-in-out;
   }
@@ -41,9 +41,25 @@
     .clearfix;
 
     &-scrolling {
-      padding-left: 32px;
-      padding-right: 32px;
+      padding-left: @tab-scrolling-size;
+      padding-right: @tab-scrolling-size;
     }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/9104
+  &-bottom &-bar {
+    border-bottom: none;
+    border-top: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-bottom &-ink-bar {
+    bottom: auto;
+    top: 1px;
+  }
+
+  &-bottom &-nav-container {
+    margin-bottom: 0;
+    margin-top: -1px;
   }
 
   &-tab-prev,
@@ -52,7 +68,6 @@
     z-index: 2;
     width: 0;
     height: 100%;
-    line-height: 32px;
     cursor: pointer;
     border: 0;
     background-color: transparent;
@@ -65,7 +80,7 @@
 
     &.@{tab-prefix-cls}-tab-arrow-show {
       opacity: 1;
-      width: 32px;
+      width: @tab-scrolling-size;
       height: 100%;
       pointer-events: auto;
     }
@@ -159,7 +174,8 @@
     .@{tab-prefix-cls}-tab {
       display: inline-block;
       height: 100%;
-      margin-right: 24px;
+      margin: @tab-horizontal-margin;
+      padding: @tab-horizontal-padding;
       box-sizing: border-box;
       position: relative;
 
@@ -167,36 +183,42 @@
         margin-right: 0;
       }
 
-      padding: 8px 20px;
       transition: color 0.3s @ease-in-out;
       cursor: pointer;
       text-decoration: none;
 
       &:hover {
-        color: @primary-5;
+        color: @tab-hover-color;
       }
 
       &:active {
-        color: @primary-7;
+        color: @tab-active-color;
       }
+
       .@{iconfont-css-prefix} {
-        width: 14px;
-        height: 14px;
         margin-right: 8px;
       }
     }
 
     .@{tab-prefix-cls}-tab-active {
-      color: @primary-color;
+      color: @tab-highlight-color;
+      font-weight: 500;
     }
   }
 
-  &-mini &-nav-container {
-    font-size: @font-size-base;
+  &-large &-nav-container {
+    font-size: @tabs-title-font-size-lg;
   }
 
-  &-mini &-tab {
-    margin-right: 0;
+  &-large &-tab {
+    padding: 16px;
+  }
+
+  &-small &-nav-container {
+    font-size: @tabs-title-font-size-sm;
+  }
+
+  &-small &-tab {
     padding: 8px 16px;
   }
 
@@ -231,22 +253,21 @@
       border-bottom: 0;
       height: 100%;
       &-tab-prev, &-tab-next {
-        width: 32px;
+        width: @tab-scrolling-size;
         height: 0;
         transition: height .3s @ease-in-out, opacity .3s @ease-in-out, color .3s @ease-in-out;
       }
       &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
       &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
         width: 100%;
-        height: 32px;
+        height: @tab-scrolling-size;
       }
 
       .@{tab-prefix-cls}-tab {
         float: none;
-        margin-right: 0;
-        margin-bottom: 16px;
+        margin: @tab-vertical-margin;
+        padding: @tab-vertical-padding;
         display: block;
-        padding: 8px 24px;
 
         &:last-child {
           margin-bottom: 0;
@@ -270,7 +291,7 @@
         margin-bottom: 0;
 
         &.@{tab-prefix-cls}-nav-container-scrolling {
-          padding: 32px 0;
+          padding: @tab-scrolling-size 0;
         }
       }
 
@@ -288,19 +309,11 @@
         height: auto;
         top: 0;
       }
-    }
 
-    > .@{tab-prefix-cls}-content {
-      overflow: hidden;
-      width: auto;
-      margin-top: 0 !important;
-    }
-
-    > .@{tab-prefix-cls}-bar {
       .@{tab-prefix-cls}-tab-next {
         width: 100%;
         bottom: 0;
-        height: 32px;
+        height: @tab-scrolling-size;
         &-icon:before {
           content: "\e61d";
         }
@@ -309,11 +322,17 @@
       .@{tab-prefix-cls}-tab-prev {
         top: 0;
         width: 100%;
-        height: 32px;
+        height: @tab-scrolling-size;
         &-icon:before {
           content: "\e61e";
         }
       }
+    }
+
+    > .@{tab-prefix-cls}-content {
+      overflow: hidden;
+      width: auto;
+      margin-top: 0 !important;
     }
   }
 

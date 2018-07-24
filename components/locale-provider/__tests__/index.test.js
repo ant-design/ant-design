@@ -1,8 +1,10 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import MockDate from 'mockdate';
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-  Popconfirm, Table, Modal, Select, Transfer } from '../../';
+  Popconfirm, Table, Modal, Select, Transfer } from '../..';
 import enGB from '../en_GB';
 import frFR from '../fr_FR';
 import nlBE from '../nl_BE';
@@ -33,8 +35,14 @@ import faIR from '../fa_IR';
 import elGR from '../el_GR';
 import nbNO from '../nb_NO';
 import srRS from '../sr_RS';
+import slSI from '../sl_SI';
+import isIS from '../is_IS';
+import arEG from '../ar_EG';
+import ukUA from '../uk_UA';
+import zhCN from '../zh_CN';
+import kuIQ from '../ku_IQ';
 
-const locales = [enUS, ptPT, ptBR, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS];
+const locales = [enUS, ptBR, ptPT, ruRU, esES, svSE, frBE, deDE, nlNL, caES, csCZ, koKR, etEE, skSK, jaJP, trTR, zhTW, fiFI, plPL, bgBG, enGB, frFR, nlBE, itIT, viVN, thTH, faIR, elGR, nbNO, srRS, slSI, isIS, arEG, ukUA, zhCN, kuIQ];
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -58,9 +66,9 @@ const App = () => (
       <Option value="jack">jack</Option>
       <Option value="lucy">lucy</Option>
     </Select>
-    <DatePicker />
-    <TimePicker />
-    <RangePicker style={{ width: 200 }} />
+    <DatePicker open />
+    <TimePicker open defaultOpenValue={moment()} />
+    <RangePicker open style={{ width: 200 }} />
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
     </Popconfirm>
@@ -79,15 +87,22 @@ const App = () => (
 );
 
 describe('Locale Provider', () => {
-  it('should display the text as locale changed', () => {
-    locales.forEach((locale) => {
+  beforeAll(() => {
+    MockDate.set(moment('2017-09-18T03:30:07.795'));
+  });
+
+  afterAll(() => {
+    MockDate.reset();
+  });
+
+  locales.forEach((locale) => {
+    it(`should display the text as ${locale.locale}`, () => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
         </LocaleProvider>
       );
-      const DatePickerPlaceholder = wrapper.find('.ant-calendar-picker-input').at(0).node.getAttribute('placeholder');
-      expect(DatePickerPlaceholder).toBe(locale.DatePicker.lang.placeholder);
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -98,6 +113,7 @@ describe('Locale Provider', () => {
           title: 'Hello World!',
         });
       }
+
       render() {
         return null;
       }
@@ -109,10 +125,39 @@ describe('Locale Provider', () => {
         </LocaleProvider>
       );
       const currentConfirmNode = document.querySelectorAll('.ant-confirm')[document.querySelectorAll('.ant-confirm').length - 1];
-      const cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
-      const okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
+      let cancelButtonText = currentConfirmNode.querySelectorAll('.ant-btn:not(.ant-btn-primary) span')[0].innerHTML;
+      let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
+      if (locale.locale === 'zh-cn') {
+        cancelButtonText = cancelButtonText.replace(' ', '');
+        okButtonText = okButtonText.replace(' ', '');
+      }
       expect(cancelButtonText).toBe(locale.Modal.cancelText);
       expect(okButtonText).toBe(locale.Modal.okText);
     });
+  });
+
+  it('set moment locale when locale changes', () => {
+    class Test extends React.Component {
+      state = {
+        locale: zhCN,
+      }
+
+      render() {
+        const { locale } = this.state;
+        return (
+          <LocaleProvider locale={locale}>
+            <div>
+              <DatePicker defaultValue={moment()} open />
+            </div>
+          </LocaleProvider>
+        );
+      }
+    }
+    const wrapper = mount(<Test />);
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setState({ locale: frFR });
+    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.setState({ locale: null });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

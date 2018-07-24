@@ -4,7 +4,7 @@ type: Data Entry
 title: Mention
 ---
 
-Mention component。
+Mention component.
 
 ## When To Use
 
@@ -24,21 +24,22 @@ When need to mention someone or something.
 | API | Description | Type |
 | --- | ----------- | ---- |
 | getMentions | get mentioned people in current contentState | Function(ContentState: contentState): string\[] |
-| toContentState (recommended) | convert string to ContentState | Function(value: string): ContentState |
-| toEditorState (Backward compatible) | convert string to ContentState | Function(value: string): ContentState |
+| toContentState | convert string to ContentState | Function(value: string): ContentState |
 | toString | convert ContentState to string | Function(contentState: ContentState): string |
 
 ### Mention
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
-| defaultValue | default value | ContentState, you can use `Mention.toContentState` or `Mention.toEditorState` to convert text to `ContentState` | null |
+| autoFocus | get focus when component mounted | boolean | false |
+| defaultValue | default value | ContentState, you can use `Mention.toContentState` to convert text to `ContentState` | null |
 | disabled | Tell if the input is disabled. | boolean | false |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. | function | () => document.body |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
 | notFoundContent | suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | placeholder | placeholder of input | string | null |
+| placement | The position of the suggestion relative to the target, which can be one of `top` and `bottom` | string | 'bottom'. |
 | prefix | character which will trigger Mention to show mention list | string or Array<string> | '@' |
 | readOnly | Tell if the input is readonly. | boolean | false |
 | suggestions | suggestion content | Array&lt;string\|Mention.Nav> | \[] |
@@ -52,9 +53,10 @@ When need to mention someone or something.
 
 ### Mention methods
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| focus | Force focus back onto the editor node. | - | - |
+| Name | Description |
+| ---- | ----------- |
+| blur() | remove focus |
+| focus() | get focus |
 
 ### Nav
 

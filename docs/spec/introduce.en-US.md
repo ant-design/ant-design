@@ -1,10 +1,11 @@
 ---
+category: Ant Design
 order: 0
-title: Ant Design
+title: Introduction
 ---
 
-<div style="text-align:center;background:#FBFBFB;margin:40px 0;">
-  <img style="width: 600px" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
+<div style="text-align:center;margin:40px 0;">
+  <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/lcamFWetlMgLkLmDUgmZ.png">
 </div>
 
 In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development. After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.
@@ -23,7 +24,7 @@ We supply a series of design principles, practical patterns and high quality des
 
 ## Front-end Implementation
 
-[React](http://facebook.github.io/react/) is used to encapsulate a library of Ant Design components. Any other version of frameworks to implement is also welcome.
+[React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
 
 - [Ant Design of React](/docs/react/introduce) (official implementation)
 - <div class="outside-link"><a href="http://ng.ant.design" target="_blank">NG-ZORRO - Ant Design of Angular</a></div>
@@ -31,6 +32,7 @@ We supply a series of design principles, practical patterns and high quality des
 - <div class="outside-link"><a href="https://github.com/priornix/antizer" target="_blank">antizer (ClojureScript)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 - <div class="outside-link"><a href="https://github.com/zzuu666/antue" target="_blank">antue (vue)</a></div>
+- <div class="outside-link"><a href="https://github.com/vueComponent/ant-design" target="_blank">vue-antd-ui - Ant Design of Vue.js 2.5.0+</a></div>
 
 ## Who's using Ant Design
 
@@ -43,8 +45,8 @@ We supply a series of design principles, practical patterns and high quality des
 - [Didi](http://www.xiaojukeji.com/)
 - [Eleme](https://www.ele.me/)
 
-> If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
+> If your company or products use Ant Design, and you'd like to be added to this growing list, click [here](https://github.com/ant-design/ant-design/issues/477) to leave us a message.
 
 ## How to Contribute
 
-Welcome to contribute to Ant Design on Github. If you have any suggestions for improvement, questions,or concerns, do not hesitate to advice us [here](https://github.com/ant-design/ant-design/issues).
+Contributions to Ant Design on Github are welcomed! Whether you have questions, concerns, or suggestions for improving Ant Design - please don't hesitate to reach out to us [here](https://github.com/ant-design/ant-design/issues).

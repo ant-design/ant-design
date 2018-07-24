@@ -101,6 +101,6 @@ ReactDOM.render(
     bordered
     size="middle"
     scroll={{ x: '130%', y: 240 }}
-  />
-, mountNode);
+  />,
+  mountNode);
 ```

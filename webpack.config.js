@@ -19,13 +19,22 @@ function addLocales(webpackConfig) {
   webpackConfig.output.filename = '[name].js';
 }
 
-module.exports = function (webpackConfig) {
-  webpackConfig = getWebpackConfig(webpackConfig, true);
-  if (process.env.RUN_ENV === 'PRODUCTION') {
-    webpackConfig.forEach((config) => {
-      ignoreMomentLocale(config);
-      addLocales(config);
-    });
-  }
-  return webpackConfig;
-};
+function externalMoment(config) {
+  config.externals.moment = {
+    root: 'moment',
+    commonjs2: 'moment',
+    commonjs: 'moment',
+    amd: 'moment',
+  };
+}
+
+const webpackConfig = getWebpackConfig(false);
+if (process.env.RUN_ENV === 'PRODUCTION') {
+  webpackConfig.forEach((config) => {
+    ignoreMomentLocale(config);
+    externalMoment(config);
+    addLocales(config);
+  });
+}
+
+module.exports = webpackConfig;
