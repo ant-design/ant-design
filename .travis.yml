@@ -8,7 +8,6 @@ node_js:
 cache:
   directories:
     - $HOME/.npm
-    - node_modules
 
 matrix:
   fast_finish: true

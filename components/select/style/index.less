@@ -481,6 +481,11 @@
       font-size: @font-size-sm;
     }
 
+    &-item-group-list &-item:first-child:not(:last-child),
+    &-item-group:not(:last-child) &-item-group-list &-item:last-child {
+      border-radius: 0;
+    }
+
     &-item {
       position: relative;
       display: block;

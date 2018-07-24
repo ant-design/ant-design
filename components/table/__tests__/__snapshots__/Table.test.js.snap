@@ -70,6 +70,7 @@ exports[`Table renders JSX correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class=""
@@ -93,6 +94,7 @@ exports[`Table renders JSX correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class=""
