@@ -101,6 +101,8 @@ declare module "lodash/debounce";
 
 declare module "lodash/uniqBy";
 
+declare module "lodash/isEmpty";
+
 declare module 'intersperse';
 
 declare module "raf";
