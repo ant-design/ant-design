@@ -10,17 +10,6 @@ references:
     attach_workspace:
       at: ~/ant-design
 
-  restore_cache: &restore_cache
-    restore_cache:
-      keys:
-        - npm-cache
-
-  save_cache: &save_cache
-    save_cache:
-      paths:
-        - ~/.npm
-      key: npm-cache
-
   install_react: &install_react
     run: REACT=15 ./scripts/install-react.sh
 
@@ -37,7 +26,6 @@ jobs:
     <<: *container_config
     steps:
       - checkout
-      - *restore_cache
       - run: node -v
       - run: npm -v
       - run: npm install
@@ -46,7 +34,6 @@ jobs:
             set +eo
             npm ls
             true
-      - *save_cache
       - persist_to_workspace:
           root: ~/ant-design
           paths:
