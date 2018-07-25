@@ -30,6 +30,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           showDate: nextProps.value,
         };
       }
+      return null;
     }
 
     private input: any;

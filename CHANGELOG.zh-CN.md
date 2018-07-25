@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.7.1
+
+`2018-07-21`
+
+- 🐞 修复 Drawer 内无法显示弹层组件的问题。[#11304](https://github.com/ant-design/ant-design/issues/11304)
+- 🐞 带页签的卡片页签支持 disabled 属性。[#11212](https://github.com/ant-design/ant-design/issues/11212)
+- 🐞 修复锚点链接组件 href 改变不更新的问题。 [#11287](https://github.com/ant-design/ant-design/pull/11287/files) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🐞 修复 Menu 样式细节问题。[#11299](https://github.com/ant-design/ant-design/issues/11299)
+- 🐞 修复 Drawer 组件设置 `destroyOnClose` 后关闭动画消失。[#11307](https://github.com/ant-design/ant-design/issues/11307)
+- 🐞 修复 DirectoryTree 在 `expandedKeys` 属性可控时点击无法展开的问题。[#11366](https://github.com/ant-design/ant-design/issues/11366)
+- 🐞 修复 ButtonGroup 中使用 Tooltip 的 Button 在 `disabled` 时样式不正确的问题。[11321](https://github.com/ant-design/ant-design/pull/11321) [@tangjinzhou](https://github.com/tangjinzhou)
+
 ## 3.7.0
 
 3.7.0是一个重磅更新，带来了很多激动人心的变化和新特性。

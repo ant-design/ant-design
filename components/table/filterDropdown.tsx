@@ -108,8 +108,10 @@ export default class FilterMenu<T> extends React.Component<FilterMenuProps<T>, F
   }
 
   confirmFilter() {
-    if (this.state.selectedKeys !== this.props.selectedKeys) {
-      this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    const { selectedKeys } = this.state;
+
+    if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
+      this.props.confirmFilter(this.props.column, selectedKeys);
     }
   }
 

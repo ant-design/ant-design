@@ -162,6 +162,7 @@ Properties for row selection.
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
 | onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |
 | onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |
+| onSelectMulti | Callback executed when multiple rows are selected/unselected | Function(selected, selectedRows, changeRows) | - |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |
 

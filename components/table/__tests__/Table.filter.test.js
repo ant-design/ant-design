@@ -223,6 +223,16 @@ describe('Table.filter', () => {
     expect(handleChange).toBeCalledWith({}, { name: ['boy'] }, {});
   });
 
+  it('should not fire change event on close filterDropdown without changing anything', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(createTable({ onChange: handleChange }));
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+
+    dropdownWrapper.find('.clear').simulate('click');
+
+    expect(handleChange).not.toHaveBeenCalled();
+  });
+
   it('three levels menu', () => {
     const filters = [
       { text: 'Upper', value: 'Upper' },

@@ -27,7 +27,7 @@ title: Select
 | allowClear | 支持清除 | boolean | false |
 | autoFocus | 默认获取焦点 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |
-| defaultValue | 指定默认选中的条目 | string\|string\[]\|number\|number\[] | - |
+| defaultValue | 指定默认选中的条目 | string\|string\[]<br />number\|number\[] | - |
 | disabled | 是否禁用 | boolean | false |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |

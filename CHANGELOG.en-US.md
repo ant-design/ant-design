@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.7.1
+
+`2018-07-21`
+
+- 🐞 Fix popup content can't display in Drawer component.[#11304](https://github.com/ant-design/ant-design/issues/11304)
+- 🐞 Card using `tabList` support `disabled` prop.[#11212](https://github.com/ant-design/ant-design/issues/11212)
+- 🐞 Fix Link of Anchor not sync when `href` update.[#11287](https://github.com/ant-design/ant-design/pull/11287/files) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🐞 Fix Menu component style.[#11299](https://github.com/ant-design/ant-design/issues/11299)
+- 🐞 Fix Drawer component don't have animation when `destroyOnClose` is set.[#11307](https://github.com/ant-design/ant-design/issues/11307)
+- 🐞 Fix DirectoryTree can't expand when `expandedKeys` is in control.[#11366](https://github.com/ant-design/ant-design/issues/11366)
+- 🐞 Fix Button with Tooltip under ButtonGroup style issue when Button is `disabled`.[11321](https://github.com/ant-design/ant-design/pull/11321) [@tangjinzhou](https://github.com/tangjinzhou)
+
 ## 3.7.0
 
 3.7.0 is a heavy update that brings a lot of exciting changes and new features.

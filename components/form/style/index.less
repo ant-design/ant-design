@@ -236,8 +236,13 @@ form {
     margin-left: 0;
   }
 
-  .@{ant-prefix}-input-number + .@{form-prefix-cls}-text {
-    margin-left: 8px;
+  .@{ant-prefix}-input-number {
+    + .@{form-prefix-cls}-text {
+      margin-left: 8px;
+    }
+    &-handler-wrap {
+      z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
+    }
   }
 
   .@{ant-prefix}-select,
