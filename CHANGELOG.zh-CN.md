@@ -19,6 +19,9 @@ timeline: true
 
 `2018-07-25`
 
+- DatePicker
+  - 🐞 **修复在受控模式下不能切换年月的问题。**[b9992f4](https://github.com/ant-design/ant-design/commit/b9992f4a08574efb47b6e6cd80eb1e888b9a1ede)
+  - 🐞 修复在 `getDerivedStateFromProp` 的警告。[#11398](https://github.com/ant-design/ant-design/pull/11398) [@yoyo837](https://github.com/yoyo837)
 - Drawer
   - 🐞 修复使用 `destroyOnClose` 时没有关闭动画的问题。[#11307](https://github.com/ant-design/ant-design/issues/11307)
   - 🐞 修复 `width` 以 `vw` 为单位时的显示错误。[#11326](https://github.com/ant-design/ant-design/issues/11326)
@@ -29,9 +32,6 @@ timeline: true
 - 🐞 修复 Select 使用分组时 Option 的圆角显示错误。[6cb6f5c](https://github.com/ant-design/ant-design/commit/6cb6f5c83ed634e67d5b5d0816d11aa0788a74d8)
 - 🐞 修复 Table 第一次点击过滤按钮的时候 `onChange` 会被触发两次的问题。[#11164](https://github.com/ant-design/ant-design/issues/11164) [@adybionka](https://github.com/adybionka)
 - 🐞 修复 Model.confirm 的标题在 Firefox 下会显示滚动条的问题。[#11432](https://github.com/ant-design/ant-design/issues/11432)
-- DatePicker
-  - 🐞 修复在 `getDerivedStateFromProp` 的警告。[#11398](https://github.com/ant-design/ant-design/pull/11398) [@yoyo837](https://github.com/yoyo837)
-  - 🐞 修复在受控模式下不能切换年月的问题。[b9992f4](https://github.com/ant-design/ant-design/commit/b9992f4a08574efb47b6e6cd80eb1e888b9a1ede)
 - TypeScript
   - 🐞 修复 Radio.Group 类型定义。[#11409](https://github.com/ant-design/ant-design/pull/11409) [@eddiemoore](https://github.com/eddiemoore)
   - 🐞 修复 TreeSelect 类型定义。[#11442](https://github.com/ant-design/ant-design/pull/11442) [@JribiBelhassen](https://github.com/JribiBelhassen)

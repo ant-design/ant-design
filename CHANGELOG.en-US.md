@@ -19,6 +19,9 @@ timeline: true
 
 `2018-07-25`
 
+- DatePicker
+  - 🐞 **Fix issue resulting in year and month can not be changed in control mode.** [b9992f4](https://github.com/ant-design/ant-design/commit/b9992f4a08574efb47b6e6cd80eb1e888b9a1ede)
+  - 🐞 Fix warning of `getDerivedStateFromProp`. [#11398](https://github.com/ant-design/ant-design/pull/11398) [@yoyo837](https://github.com/yoyo837)
 - Drawer
   - 🐞 Fix close animation when setting `destroyOnClose`. [#11307](https://github.com/ant-design/ant-design/issues/11307)
   - 🐞 Fix display issue when using a `vw` value as `width`. [#11326](https://github.com/ant-design/ant-design/issues/11326)
@@ -29,9 +32,6 @@ timeline: true
 - 🐞 Fix issue resulting in Select.Option shows wrong border radius in Select.OptGroup. [6cb6f5c](https://github.com/ant-design/ant-design/commit/6cb6f5c83ed634e67d5b5d0816d11aa0788a74d8)
 - 🐞 Fix issue resulting in `onChange` was trigged twice when click the filter icon of Table. [#11164](https://github.com/ant-design/ant-design/issues/11164) [@adybionka](https://github.com/adybionka)
 - 🐞 Fix issue resulting title of Model.confirm shows scrollbar on Firefox. [#11432](https://github.com/ant-design/ant-design/issues/11432)
-- DatePicker
-  - 🐞 Fix warning of `getDerivedStateFromProp`. [#11398](https://github.com/ant-design/ant-design/pull/11398) [@yoyo837](https://github.com/yoyo837)
-  - 🐞 Fix issue resulting in year and month can not be changed in control mode. [b9992f4](https://github.com/ant-design/ant-design/commit/b9992f4a08574efb47b6e6cd80eb1e888b9a1ede)
 - TypeScript
   - 🐞 Fix type definition of Radio.Group. [#11409](https://github.com/ant-design/ant-design/pull/11409) [@eddiemoore](https://github.com/eddiemoore)
   - 🐞 Fix type definition of TreeSelect. [#11442](https://github.com/ant-design/ant-design/pull/11442) [@JribiBelhassen](https://github.com/JribiBelhassen)
