@@ -170,15 +170,30 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('1 items');
   });
 
-  it('should display the correct item unit', () => {
-    const oneList = [{ key: 'a', title: 'a' }];
-    const wrapper = mount(<Transfer {...listCommonProps} dataSource={oneList} itemUnit="Person" />);
+  it('should display the correct locale', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing', searchPlaceholder: 'Search' };
+    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} showSearch locale={locale} />);
 
-    expect(headerText(wrapper)).toEqual('1/1 Person');
+    expect(headerText(wrapper)).toEqual('0 Person');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-search').at(0)
+        .prop('placeholder')
+    ).toEqual('Search');
+
+    expect(
+      wrapper
+        .find(TransferList).at(0)
+        .find('.ant-transfer-list-body-not-found').at(0)
+        .text()
+    ).toEqual('Nothing');
   });
 
   it('should display the correct items unit', () => {
-    const wrapper = mount(<Transfer {...listCommonProps} itemsUnit="People" />);
+    const wrapper = mount(<Transfer {...listCommonProps} locale={{ itemsUnit: 'People' }} />);
 
     expect(headerText(wrapper)).toEqual('1/2 People');
   });

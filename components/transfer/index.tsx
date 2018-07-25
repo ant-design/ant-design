@@ -39,10 +39,7 @@ export interface TransferProps {
   operations?: string[];
   showSearch?: boolean;
   filterOption?: (inputValue: any, item: any) => boolean;
-  searchPlaceholder?: string;
-  notFoundContent?: React.ReactNode;
-  itemUnit?: string;
-  itemsUnit?: string;
+  locale?: {};
   footer?: (props: TransferListProps) => React.ReactNode;
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
@@ -68,6 +65,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static defaultProps = {
     dataSource: [],
     render: noop,
+    locale: {},
     showSearch: false,
   };
 
@@ -86,10 +84,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     operations: PropTypes.array,
     showSearch: PropTypes.bool,
     filterOption: PropTypes.func,
-    searchPlaceholder: PropTypes.string,
-    notFoundContent: PropTypes.node,
-    itemUnit: PropTypes.string,
-    itemsUnit: PropTypes.string,
+    locale: PropTypes.object,
     body: PropTypes.func,
     footer: PropTypes.func,
     rowKey: PropTypes.func,
@@ -325,16 +320,12 @@ export default class Transfer extends React.Component<TransferProps, any> {
     return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
 
-  renderTransfer = (locale: TransferLocale) => {
+  renderTransfer = (transferLocale: TransferLocale) => {
     const {
       prefixCls = 'ant-transfer',
       className,
       operations = [],
       showSearch,
-      itemUnit,
-      itemsUnit,
-      notFoundContent,
-      searchPlaceholder,
       body,
       footer,
       style,
@@ -344,6 +335,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       render,
       lazy,
     } = this.props;
+    const locale = { ...transferLocale, ...this.props.locale };
     const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
@@ -369,14 +361,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleLeftSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
-          notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={itemUnit || locale.itemUnit}
-          itemsUnit={itemsUnit || locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}
           onScroll={this.handleLeftScroll}
+          {...locale}
         />
         <Operation
           className={`${prefixCls}-operation`}
@@ -402,14 +391,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
           handleSelectAll={this.handleRightSelectAll}
           render={render}
           showSearch={showSearch}
-          searchPlaceholder={searchPlaceholder || locale.searchPlaceholder}
-          notFoundContent={notFoundContent || locale.notFoundContent}
-          itemUnit={itemUnit || locale.itemUnit}
-          itemsUnit={itemsUnit || locale.itemsUnit}
           body={body}
           footer={footer}
           lazy={lazy}
           onScroll={this.handleRightScroll}
+          {...locale}
         />
       </div>
     );
