@@ -72,7 +72,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
-                    data-row-key="0"
                   >
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
@@ -107,7 +106,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
-                    data-row-key="1"
                   >
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
@@ -142,7 +140,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
-                    data-row-key="2"
                   >
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
@@ -177,7 +174,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
-                    data-row-key="3"
                   >
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-selection-column"
@@ -266,7 +262,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   >
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
-                      data-row-key="0"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -292,7 +287,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
-                      data-row-key="1"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -318,7 +312,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
-                      data-row-key="2"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -344,7 +337,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
-                      data-row-key="3"
                     >
                       <td
                         class="ant-table-selection-column"

@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
+import Icon from '../icon';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -155,7 +156,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           aria-label="Close"
           className={`${prefixCls}-close`}
         >
-          <span className={`${prefixCls}-close-x`} />
+          <span className={`${prefixCls}-close-x`}>
+            <Icon type="close"/>
+          </span>
         </button>
       );
     }
