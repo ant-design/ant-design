@@ -1674,7 +1674,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ant-cascader-picker-arrow"
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -2020,9 +2019,26 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 readonly=""
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </div>
           </span>
         </span>
@@ -2063,9 +2079,26 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 readonly=""
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </div>
           </span>
         </span>
@@ -2106,9 +2139,26 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 readonly=""
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </div>
           </span>
         </span>
@@ -2165,9 +2215,26 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 tabindex="-1"
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </span>
           </span>
         </span>
@@ -2225,9 +2292,26 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 tabindex="-1"
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </span>
           </span>
         </span>
@@ -3386,6 +3470,26 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             placeholder="I'm the content is being validated"
             type="text"
           />
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="reload"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5c-4.1-1.4-8.6.7-10.1 4.8-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4-31.6 31.6-68.4 56.4-109.3 73.8-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27-40.9-17.3-77.7-42.1-109.3-73.8-31.6-31.6-56.4-68.4-73.7-109.4-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27 40.9 17.3 77.7 42.1 109.3 73.8 9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47c-5.3 4.1-3.5 12.5 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-form-explain"
@@ -3423,6 +3527,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             placeholder="I'm the content"
             type="text"
           />
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="check-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M699 353h-46.9c-10.3 0-19.9 5-25.9 13.3L469 584.3l-71.2-98.8c-6-8.4-15.7-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.7 172.8c12.7 17.7 39 17.7 51.7 0l210.6-292c3.8-5.3 0-12.7-6.5-12.7z"
+                  fill="none"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292c-12.7 17.7-39 17.7-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
       </div>
     </div>
@@ -3455,6 +3583,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             placeholder="Warning"
             type="text"
           />
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="info-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  class="st0"
+                  d="M536 448h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8zM512 288c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
       </div>
     </div>
@@ -3487,6 +3639,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             placeholder="unavailable choice"
             type="text"
           />
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M553.5 514l129.9-154.9c1.2-1.5 1.9-3.3 1.9-5.2 0-4.5-3.6-8-8-8l-66 .3L512 464.6l-99.3-118.5-66.1-.3c-4.4 0-8 3.6-8 8 0 1.9.7 3.7 1.9 5.2l130.1 154.9-130.1 155c-1.2 1.5-1.9 3.3-1.9 5.2 0 4.5 3.6 8 8 8l66.1-.3L512 563.4l99.4 118.5 66 .3c4.4 0 8-3.6 8-8 0-1.9-.7-3.7-1.9-5.2l-130-155z"
+                  fill="none"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359c-1.2-1.5-1.9-3.3-1.9-5.2 0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-form-explain"
@@ -3529,10 +3705,51 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 readonly=""
                 value=""
               />
-              <span
-                class="ant-calendar-picker-icon"
-              />
+              <i
+                class="anticon ant-calendar-picker-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    class="st0"
+                    d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                  />
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </i>
             </div>
+          </span>
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="check-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M699 353h-46.9c-10.3 0-19.9 5-25.9 13.3L469 584.3l-71.2-98.8c-6-8.4-15.7-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.7 172.8c12.7 17.7 39 17.7 51.7 0l210.6-292c3.8-5.3 0-12.7-6.5-12.7z"
+                  fill="none"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292c-12.7 17.7-39 17.7-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                />
+              </svg>
+            </i>
           </span>
         </span>
       </div>
@@ -3573,6 +3790,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             <span
               class="ant-time-picker-icon"
             />
+          </span>
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="info-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  class="st0"
+                  d="M536 448h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8zM512 288c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"
+                />
+              </svg>
+            </i>
           </span>
         </span>
       </div>
@@ -3632,6 +3873,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </span>
             </div>
           </div>
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M553.5 514l129.9-154.9c1.2-1.5 1.9-3.3 1.9-5.2 0-4.5-3.6-8-8-8l-66 .3L512 464.6l-99.3-118.5-66.1-.3c-4.4 0-8 3.6-8 8 0 1.9.7 3.7 1.9 5.2l130.1 154.9-130.1 155c-1.2 1.5-1.9 3.3-1.9 5.2 0 4.5 3.6 8 8 8l66.1-.3L512 563.4l99.4 118.5 66 .3c4.4 0 8-3.6 8-8 0-1.9-.7-3.7-1.9-5.2l-130-155z"
+                  fill="none"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359c-1.2-1.5-1.9-3.3-1.9-5.2 0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
       </div>
     </div>
@@ -3680,7 +3945,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ant-cascader-picker-arrow"
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -3689,6 +3953,26 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               >
                 <path
                   d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="reload"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5c-4.1-1.4-8.6.7-10.1 4.8-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4-31.6 31.6-68.4 56.4-109.3 73.8-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27-40.9-17.3-77.7-42.1-109.3-73.8-31.6-31.6-56.4-68.4-73.7-109.4-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27 40.9 17.3 77.7 42.1 109.3 73.8 9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47c-5.3 4.1-3.5 12.5 3 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
                 />
               </svg>
             </i>
@@ -3749,9 +4033,26 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           readonly=""
                           value=""
                         />
-                        <span
-                          class="ant-calendar-picker-icon"
-                        />
+                        <i
+                          class="anticon ant-calendar-picker-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="calendar"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              class="st0"
+                              d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                            />
+                            <path
+                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                            />
+                          </svg>
+                        </i>
                       </div>
                     </span>
                   </span>
@@ -3798,9 +4099,26 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           readonly=""
                           value=""
                         />
-                        <span
-                          class="ant-calendar-picker-icon"
-                        />
+                        <i
+                          class="anticon ant-calendar-picker-icon"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="calendar"
+                            fill="currentColor"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              class="st0"
+                              d="M184 460h656v380H184zM712 256v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H384v48c0 4.4-3.6 8-8 8h-56c-4.4 0-8-3.6-8-8v-48H184v136h656V256H712z"
+                            />
+                            <path
+                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                            />
+                          </svg>
+                        </i>
                       </div>
                     </span>
                   </span>
@@ -3880,6 +4198,30 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               />
             </div>
           </div>
+          <span
+            class="ant-form-item-children-icon"
+          >
+            <i
+              class="anticon"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="check-circle-fill"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M699 353h-46.9c-10.3 0-19.9 5-25.9 13.3L469 584.3l-71.2-98.8c-6-8.4-15.7-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.7 172.8c12.7 17.7 39 17.7 51.7 0l210.6-292c3.8-5.3 0-12.7-6.5-12.7z"
+                  fill="none"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292c-12.7 17.7-39 17.7-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
       </div>
     </div>

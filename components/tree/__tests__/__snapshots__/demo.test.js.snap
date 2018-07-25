@@ -1266,7 +1266,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="ant-input-search-icon"
           data-icon="search"
           fill="currentColor"
           height="1em"

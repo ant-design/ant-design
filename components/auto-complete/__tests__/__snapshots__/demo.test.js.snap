@@ -105,7 +105,6 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                   >
                     <svg
                       aria-hidden="true"
-                      class="certain-category-icon"
                       data-icon="search"
                       fill="currentColor"
                       height="1em"

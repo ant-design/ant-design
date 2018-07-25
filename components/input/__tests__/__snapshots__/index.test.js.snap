@@ -65,13 +65,11 @@ exports[`Input.Search should support suffix 1`] = `
             className="anticon ant-input-search-icon"
           >
             <AntdIcon
-              className="ant-input-search-icon"
               onClick={[Function]}
               type="search"
             >
               <svg
                 aria-hidden="true"
-                className="ant-input-search-icon"
                 data-icon="search"
                 fill="currentColor"
                 height="1em"

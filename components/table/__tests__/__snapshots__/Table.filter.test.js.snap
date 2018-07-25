@@ -77,7 +77,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"

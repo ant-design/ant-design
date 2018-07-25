@@ -72,7 +72,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -956,7 +955,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       >
                         <svg
                           aria-hidden="true"
-                          class="ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -7188,7 +7186,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="ant-dropdown-trigger"
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -7869,7 +7866,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="ant-dropdown-trigger"
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -8345,7 +8341,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -8421,7 +8416,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="ant-dropdown-trigger"
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -9302,7 +9296,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="ant-dropdown-trigger"
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -9378,7 +9371,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="ant-dropdown-trigger"
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"

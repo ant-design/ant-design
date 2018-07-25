@@ -535,7 +535,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="ant-tabs-new-tab"
             data-icon="plus"
             fill="currentColor"
             height="1em"

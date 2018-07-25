@@ -252,7 +252,6 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ant-alert-icon"
         data-icon="info-circle"
         fill="currentColor"
         height="1em"
