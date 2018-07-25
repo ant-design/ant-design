@@ -401,7 +401,7 @@ form {
 .has-warning,
 .has-error,
 .is-validating {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     position: absolute;
     top: 50%;
     right: 0;
@@ -420,9 +420,8 @@ form {
 }
 
 .has-success {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     animation-name: diffZoomIn1 !important;
-    content: '\e630';
     color: @success-color;
   }
 }
@@ -430,8 +429,7 @@ form {
 .has-warning {
   .form-control-validation(@warning-color; @warning-color;);
 
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
-    content: '\e62c';
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @warning-color;
     animation-name: diffZoomIn3 !important;
   }
@@ -477,8 +475,7 @@ form {
 .has-error {
   .form-control-validation(@error-color; @error-color;);
 
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
-    content: '\e62e';
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @error-color;
     animation-name: diffZoomIn2 !important;
   }
@@ -547,10 +544,9 @@ form {
 }
 
 .is-validating {
-  &.has-feedback .@{form-prefix-cls}-item-children:after {
+  &.has-feedback .@{form-prefix-cls}-item-children-icon {
     display: inline-block;
     animation: loadingCircle 1s infinite linear;
-    content: "\e64d";
     color: @primary-color;
   }
 }
