@@ -27,8 +27,6 @@ export interface PaginationProps {
   prefixCls?: string;
   selectPrefixCls?: string;
   itemRender?: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next') => React.ReactNode;
-  'data-*'?: string | number | boolean;
-  'aria-*'?: string | number | boolean;
   role?: string;
 }
 
