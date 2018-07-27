@@ -57,7 +57,6 @@ export interface SelectProps extends AbstractSelectProps {
   tokenSeparators?: string[];
   getInputElement?: () => React.ReactElement<any>;
   autoFocus?: boolean;
-  id?: string;
 }
 
 export interface OptionProps {
