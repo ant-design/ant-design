@@ -135,6 +135,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         const closeIcon = closable ? (
            <Icon
              type="close"
+             className={`${prefixCls}-close-x`}
              onClick={e => this.removeTab(child.key as string, e)}
            />
         ) : null;
