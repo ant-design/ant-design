@@ -45,3 +45,4 @@ title: Calendar
 | value | 展示日期 | [moment](http://momentjs.com/) | 当前日期 |
 | onPanelChange | 日期面板变化回调 | function(date: moment, mode: string) | 无 |
 | onSelect | 点击选择日期回调 | function(date: moment） | 无 |
+| onChange | 日期变化回调 | function(date: moment） | 无 |
