@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-After release `1.0`,  Modal's `align` prop was removed. You can use `style.top` or other styles to
+After release `1.0`, Modal's `align` prop was removed. You can use `style.top` or other styles to
 set position of modal dialog.
 
 ````jsx

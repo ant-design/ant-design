@@ -7,6 +7,18 @@ export default class IconSet extends React.Component {
     icons: [],
   }
 
+  state = {
+    justCopied: null,
+  };
+
+  onCopied = (type) => {
+    this.setState({ justCopied: type }, () => {
+      setTimeout(() => {
+        this.setState({ justCopied: null });
+      }, 2000);
+    });
+  }
+
   icons = {
     direction: ['step-backward', 'step-forward', 'fast-backward', 'fast-forward', 'shrink', 'arrows-alt', 'down', 'up', 'left', 'right', 'caret-up', 'caret-down', 'caret-left', 'caret-right', 'up-circle', 'down-circle', 'left-circle', 'right-circle', 'up-circle-o', 'down-circle-o', 'right-circle-o', 'left-circle-o', 'double-right', 'double-left', 'verticle-left', 'verticle-right', 'forward', 'backward', 'rollback', 'enter', 'retweet', 'swap', 'swap-left', 'swap-right', 'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'play-circle', 'play-circle-o', 'up-square', 'down-square', 'left-square', 'right-square', 'up-square-o', 'down-square-o', 'left-square-o', 'right-square-o', 'login', 'logout', 'menu-fold', 'menu-unfold'],
     suggestion: ['question', 'question-circle-o', 'question-circle', 'plus', 'plus-circle-o', 'plus-circle', 'pause', 'pause-circle-o', 'pause-circle', 'minus', 'minus-circle-o', 'minus-circle', 'plus-square', 'plus-square-o', 'minus-square', 'minus-square-o', 'info', 'info-circle-o', 'info-circle', 'exclamation', 'exclamation-circle-o', 'exclamation-circle', 'close', 'close-circle', 'close-circle-o', 'close-square', 'close-square-o', 'check', 'check-circle', 'check-circle-o', 'check-square', 'check-square-o', 'clock-circle-o', 'clock-circle', 'warning'],
@@ -24,6 +36,7 @@ export default class IconSet extends React.Component {
   ];
 
   render() {
+    const { justCopied } = this.state;
     const { className, catigory } = this.props;
     const listClassName = classNames({
       'anticons-list': true,
@@ -33,7 +46,13 @@ export default class IconSet extends React.Component {
     return (
       <ul className={listClassName}>
         {this.icons[catigory].map(type => (
-          <CopyableIcon key={type} type={type} isNew={this.newIcons.indexOf(type) >= 0} />
+          <CopyableIcon
+            key={type}
+            type={type}
+            isNew={this.newIcons.indexOf(type) >= 0}
+            justCopied={justCopied}
+            onCopied={this.onCopied}
+          />
         ))}
       </ul>
     );
