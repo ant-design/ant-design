@@ -252,6 +252,43 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/button/demo/fitContainer.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-fit"
+    type="button"
+  >
+    <span>
+      Primary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-fit"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-fit"
+    type="button"
+  >
+    <span>
+      Dashed
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-danger ant-btn-fit"
+    type="button"
+  >
+    <span>
+      danger
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
   style="background:rgb(190, 200, 200);padding:26px 16px 16px"
@@ -460,7 +497,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     type="button"
   >
     <span>
-      Actions 
+      Actions
     </span>
     <i
       class="anticon anticon-down"
