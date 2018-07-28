@@ -43,7 +43,7 @@ ReactDOM.render(
       <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>Content</div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2016 Created by Ant UED
+      Ant Design ©2018 Created by Ant UED
     </Footer>
   </Layout>,
   mountNode);
@@ -53,7 +53,7 @@ ReactDOM.render(
 #components-layout-demo-fixed .logo {
   width: 120px;
   height: 31px;
-  background: rgba(255,255,255,.2);  
+  background: rgba(255,255,255,.2);
   margin: 16px 24px 16px 0;
   float: left;
 }
