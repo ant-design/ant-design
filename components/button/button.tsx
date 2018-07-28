@@ -47,6 +47,7 @@ export interface BaseButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  fitContainer?: boolean;
 }
 
 export type AnchorButtonProps = {
@@ -70,6 +71,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     prefixCls: 'ant-btn',
     loading: false,
     ghost: false,
+    fitContainer: false,
   };
 
   static propTypes = {
@@ -163,7 +165,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, ...rest
+      type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, fitContainer, ...rest
     } = this.props;
 
     const { loading, clicked, hasTwoCNChar } = this.state;
@@ -190,6 +192,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
+      [`${prefixCls}-fit`]: fitContainer,
     });
 
     const iconType = loading ? 'loading' : icon;
