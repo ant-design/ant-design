@@ -13,7 +13,6 @@ title:
 
 The Tab with Icon.
 
-
 ````jsx
 import { Tabs, Icon } from 'antd';
 
