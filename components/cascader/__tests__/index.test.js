@@ -215,12 +215,15 @@ describe('Cascader', () => {
         }],
       }],
     }];
-    const wrapper = mount(<Cascader options={customerOptions} fieldNames={{
-      children: 'items',
-      label: 'name',
-      value: 'code',
-    }} />);
-    wrapper.instance().handleChange(["zhejiang", "hangzhou", "xihu"], customerOptions);
+    const wrapper = mount(<Cascader
+      options={customerOptions}
+      fieldNames={{
+        children: 'items',
+        label: 'name',
+        value: 'code',
+      }}
+    />);
+    wrapper.instance().handleChange(['zhejiang', 'hangzhou', 'xihu'], customerOptions);
     expect(wrapper.find('.ant-cascader-picker-label').text().split('/').length).toBe(3);
   });
 });
