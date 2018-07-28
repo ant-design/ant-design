@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-You can custom text format by setting `format`.
+You can set a custom text by setting the `format` prop.
 
 ````jsx
 import { Progress } from 'antd';

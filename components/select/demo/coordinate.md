@@ -17,7 +17,6 @@ Coordinating the selection of provinces and cities is a common use case and demo
 
 Using the [Cascader](/components/cascader) component is strongly recommended instead as it is more flexible and capable.
 
-
 ````jsx
 import { Select } from 'antd';
 
