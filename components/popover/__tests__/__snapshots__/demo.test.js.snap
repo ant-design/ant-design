@@ -43,6 +43,17 @@ exports[`renders ./components/popover/demo/control.md correctly 1`] = `
 </button>
 `;
 
+exports[`renders ./components/popover/demo/hover-with-click.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    Hover and click / 悬停并单击
+  </span>
+</button>
+`;
+
 exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 <div
   class="demo"
