@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   zh-CN: fitContainer 按钮
   en-US: fitContainer Button
