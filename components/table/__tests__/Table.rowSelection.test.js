@@ -421,4 +421,25 @@ describe('Table.rowSelection', () => {
       expect(checkbox.props().indeterminate).toBe(false);
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/11042
+  it('add columnTitle for rowSelection', () => {
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          columnTitle: '多选',
+        }}
+      />
+    );
+    expect(wrapper.find('thead tr span').at(0).text()).toBe('多选');
+    wrapper.setProps({
+      rowSelection: {
+        type: 'radio',
+        columnTitle: '单选',
+      },
+    });
+    expect(wrapper.find('thead tr span').at(0).text()).toBe('单选');
+  });
 });

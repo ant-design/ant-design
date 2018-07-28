@@ -154,6 +154,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | columnWidth | Set the width of the selection column | string\|number | - |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |

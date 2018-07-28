@@ -78,6 +78,7 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
   selectWay?: TableSelectWay;
+  columnTitle?: string | React.ReactNode;
 }
 export type SortOrder = 'descend' | 'ascend';
 export interface SorterResult<T> {
