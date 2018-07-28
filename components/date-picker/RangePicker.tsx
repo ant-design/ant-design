@@ -352,6 +352,8 @@ class RangePicker extends React.Component<any, RangePickerState> {
         tabIndex={props.disabled ? -1 : 0}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
       >
         <RcDatePicker
           {...props}
