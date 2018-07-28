@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 5
 title:
   zh-CN: 悬停点击弹出窗口
   en-US: Hover with click popover
