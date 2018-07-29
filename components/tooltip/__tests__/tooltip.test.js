@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from '..';
 import Button from '../../button';
+import DatePicker from '../../date-picker';
 
 describe('Tooltip', () => {
   it('check `onVisibleChange` arguments', () => {
@@ -173,5 +174,30 @@ describe('Tooltip', () => {
     };
 
     jest.dontMock('rc-trigger', suit);
+  });
+
+  it('should works for date picker', () => {
+    const onVisibleChange = jest.fn();
+
+    const wrapper = mount(
+      <Tooltip
+        title=""
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <DatePicker />
+      </Tooltip>
+    );
+
+    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
+    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    picker.simulate('mouseenter');
+    expect(onVisibleChange).toBeCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
+
+    picker.simulate('mouseleave');
+    expect(onVisibleChange).toBeCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 });
