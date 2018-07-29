@@ -709,8 +709,8 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                 >
                   <div
                     aria-disabled="false"
-                    aria-selected="false"
-                    class=" ant-tabs-tab"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
                     role="tab"
                   >
                     tab1
@@ -733,11 +733,11 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           class="ant-tabs-content ant-tabs-content-animated"
-          style="display:none"
+          style="margin-left:0%"
         >
           <div
-            aria-hidden="true"
-            class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
           />
           <div
