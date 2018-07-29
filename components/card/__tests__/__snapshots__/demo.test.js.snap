@@ -708,9 +708,6 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   class="ant-tabs-nav ant-tabs-nav-animated"
                 >
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  />
-                  <div
                     aria-disabled="false"
                     aria-selected="false"
                     class=" ant-tabs-tab"
@@ -726,6 +723,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   >
                     tab2
                   </div>
+                  <div
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  />
                 </div>
               </div>
             </div>
@@ -805,9 +805,6 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   class="ant-tabs-nav ant-tabs-nav-animated"
                 >
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  />
-                  <div
                     aria-disabled="false"
                     aria-selected="false"
                     class=" ant-tabs-tab"
@@ -831,6 +828,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   >
                     project
                   </div>
+                  <div
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  />
                 </div>
               </div>
             </div>
