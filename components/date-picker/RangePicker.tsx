@@ -5,6 +5,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
+import shallowequal from 'shallowequal';
 import Icon from '../icon';
 import Tag from '../tag';
 import warning from '../_util/warning';
@@ -77,8 +78,13 @@ class RangePicker extends React.Component<any, RangePickerState> {
       const value = nextProps.value || [];
       state = {
         value,
-        showDate: getShowDateFromValue(value) || prevState.showDate,
       };
+      if (!shallowequal(nextProps.value, prevState.value)) {
+        state = {
+          ...state,
+          showDate: getShowDateFromValue(value) || prevState.showDate,
+        };
+      }
     }
     if (('open' in nextProps) && prevState.open !== nextProps.open) {
       state = {

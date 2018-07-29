@@ -18,7 +18,7 @@ When a numeric value needs to be provided.
 | defaultValue | initial value | number |  |
 | disabled | disable the input | boolean | false |
 | formatter | Specifies the format of the value presented | function(value: number \| string): string | - |
-| max | max vale | number | Infinity |
+| max | max value | number | Infinity |
 | min | min value | number | -Infinity |
 | parser | Specifies the value extracted from formatter | function( string): number | - |
 | precision | precision of input value | number | - |

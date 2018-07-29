@@ -165,4 +165,15 @@ describe('DatePicker', () => {
     const input = wrapper.find('.ant-calendar-picker-input').getDOMNode();
     expect(input.getAttribute('role')).toBe('search');
   });
+
+  it('changes year/month when under control', () => {
+    const wrapper = mount(
+      <DatePicker value={moment('2018-07-01')} />
+    );
+    openPanel(wrapper);
+    expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jul2018');
+    wrapper.find('.ant-calendar-prev-year-btn').simulate('click');
+    wrapper.find('.ant-calendar-prev-month-btn').simulate('click');
+    expect(wrapper.find('.ant-calendar-my-select').text()).toBe('Jun2017');
+  });
 });
