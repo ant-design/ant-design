@@ -16,29 +16,16 @@ The following example shows how to create a popover which can be hovered and cli
 ````jsx
 import { Popover, Button } from 'antd';
 
-const hoverContent = (
-  <div>
-    This is hover content.
-  </div>
-);
-
-const clickContent = (
-  <div>
-    This is click content.
-  </div>
-);
-
-const initalState = {
-  clicked: false,
-  hovered: false,
-};
-
 class App extends React.Component {
-  state = initalState;
+  state = {
+    clicked: false,
+    hovered: false,
+  };
 
   hide = () => {
     this.setState({
-      ...initalState,
+      clicked: false,
+      hovered: false,
     });
   }
 
@@ -57,9 +44,18 @@ class App extends React.Component {
   }
 
   render() {
+    const hoverContent = (
+      <div>
+        This is hover content.
+      </div>
+    );
+    const clickContent = (
+      <div>
+        This is click content.
+      </div>
+    );
     return (
       <Popover
-        key="1"
         style={{ width: 500 }}
         content={hoverContent}
         title="Hover title"
@@ -68,8 +64,12 @@ class App extends React.Component {
         onVisibleChange={this.handleHoverChange}
       >
         <Popover
-          key="2"
-          content={[clickContent, <a onClick={this.hide}>Close</a>]}
+          content={(
+            <div>
+              {clickContent}
+              <a onClick={this.hide}>Close</a>
+            </div>
+          )}
           title="Click title"
           trigger="click"
           visible={this.state.clicked}
