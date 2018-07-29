@@ -4,6 +4,8 @@ import Tooltip from '..';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 
+const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+
 describe('Tooltip', () => {
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
@@ -176,14 +178,12 @@ describe('Tooltip', () => {
     jest.dontMock('rc-trigger', suit);
   });
 
-  it('should works for date picker', () => {
+  it('should works for date picker', async () => {
     const onVisibleChange = jest.fn();
 
     const wrapper = mount(
       <Tooltip
-        title=""
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
+        title="date picker"
         onVisibleChange={onVisibleChange}
       >
         <DatePicker />
@@ -193,10 +193,12 @@ describe('Tooltip', () => {
     expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
     const picker = wrapper.find('span.ant-calendar-picker').at(0);
     picker.simulate('mouseenter');
+    await delay(100);
     expect(onVisibleChange).toBeCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     picker.simulate('mouseleave');
+    await delay(100);
     expect(onVisibleChange).toBeCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
