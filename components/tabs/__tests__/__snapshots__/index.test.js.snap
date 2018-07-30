@@ -38,9 +38,6 @@ exports[`Tabs tabPosition remove card 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -48,6 +45,9 @@ exports[`Tabs tabPosition remove card 1`] = `
             >
               foo
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>

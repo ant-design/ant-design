@@ -67,6 +67,20 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       }
     }
 
+    handleMouseEnter = (e: React.MouseEventHandler<HTMLInputElement>) => {
+      const { onMouseEnter } = this.props;
+      if (onMouseEnter) {
+        onMouseEnter(e);
+      }
+    }
+
+    handleMouseLeave = (e: React.MouseEventHandler<HTMLInputElement>) => {
+      const { onMouseLeave } = this.props;
+      if (onMouseLeave) {
+        onMouseLeave(e);
+      }
+    }
+
     focus() {
       this.picker.focus();
     }
@@ -134,6 +148,8 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
           onOpenChange={this.handleOpenChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
         />
       );
     }

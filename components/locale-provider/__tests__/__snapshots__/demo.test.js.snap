@@ -386,7 +386,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              class="anticon anticon-left"
+              class="anticon anticon-right"
             />
           </button>
           <button
@@ -395,7 +395,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              class="anticon anticon-right"
+              class="anticon anticon-left"
             />
           </button>
         </div>

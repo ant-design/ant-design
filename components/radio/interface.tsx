@@ -40,5 +40,5 @@ export interface RadioChangeEvent {
   target: RadioChangeEventTarget;
   stopPropagation: () => void;
   preventDefault: () => void;
-  nativeEvent: Event;
+  nativeEvent: MouseEvent;
 }

@@ -154,6 +154,7 @@ const columns = [{
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | columnWidth | 自定义列表选择框宽度 | string\|number | - |
+| columnTitle | 自定义列表选择框标题 | string\|React.ReactNode | - |
 | fixed | 把选择框列固定在左边 | boolean | - |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |
 | hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
