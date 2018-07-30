@@ -1,10 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'enzyme';
 import Drawer from '..';
 
 describe('Drawer', () => {
   it('render correctly', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Drawer
         visible
         width={400}
@@ -13,11 +13,11 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('have a title', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Drawer
         visible
         title="Test Title"
@@ -26,11 +26,11 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('closable is false', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Drawer
         visible
         closable={false}
@@ -39,11 +39,11 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('destroyOnClose is true', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Drawer
         destroyOnClose
         visible={false}
@@ -52,6 +52,20 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('wrapClassName is test_drawer', () => {
+    const wrapper = render(
+      <Drawer
+        destroyOnClose
+        visible={false}
+        wrapClassName="test_drawer"
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

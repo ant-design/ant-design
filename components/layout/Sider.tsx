@@ -19,6 +19,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import PropTypes from 'prop-types';
 import Icon from '../icon';
+import isNumeric from '../_util/isNumeric';
 
 const dimensionMap = {
   xs: '480px',
@@ -65,10 +66,6 @@ const generateId = (() => {
     return `${prefix}${i}`;
   };
 })();
-
-const isNumeric = (n: any) => {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
 
 export default class Sider extends React.Component<SiderProps, SiderState> {
   static __ANT_LAYOUT_SIDER: any = true;

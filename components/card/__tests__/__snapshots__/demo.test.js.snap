@@ -617,12 +617,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   class="ant-tabs-nav ant-tabs-nav-animated"
                 >
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  />
-                  <div
                     aria-disabled="false"
-                    aria-selected="false"
-                    class=" ant-tabs-tab"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
                     role="tab"
                   >
                     tab1
@@ -635,6 +632,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   >
                     tab2
                   </div>
+                  <div
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  />
                 </div>
               </div>
             </div>
@@ -642,11 +642,11 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
         <div
           class="ant-tabs-content ant-tabs-content-animated"
-          style="display:none"
+          style="margin-left:0%"
         >
           <div
-            aria-hidden="true"
-            class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
             role="tabpanel"
           />
           <div
@@ -714,9 +714,6 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   class="ant-tabs-nav ant-tabs-nav-animated"
                 >
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  />
-                  <div
                     aria-disabled="false"
                     aria-selected="false"
                     class=" ant-tabs-tab"
@@ -740,6 +737,9 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                   >
                     project
                   </div>
+                  <div
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  />
                 </div>
               </div>
             </div>

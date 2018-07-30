@@ -3,7 +3,7 @@ import { mount, render } from 'enzyme';
 import moment from 'moment';
 import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
-import { selectDate } from './utils';
+import { selectDate, openPanel } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
 
 const { RangePicker } = DatePicker;
@@ -214,5 +214,14 @@ describe('RangePicker', () => {
     expect(() => (
       wrapper.find('.ant-calendar-input').at(1).simulate('change', { target: { value: '2016-01-01' } })
     )).not.toThrow();
+  });
+
+  it('changes year/month when under control', () => {
+    const wrapper = mount(<RangePicker value={[moment('2018-07-01'), moment('2018-07-02')]} />);
+    openPanel(wrapper);
+    expect(wrapper.find('.ant-calendar-my-select').first().text()).toBe('Jul2018');
+    wrapper.find('.ant-calendar-prev-year-btn').first().simulate('click');
+    wrapper.find('.ant-calendar-prev-month-btn').first().simulate('click');
+    expect(wrapper.find('.ant-calendar-my-select').first().text()).toBe('Jun2017');
   });
 });

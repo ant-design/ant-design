@@ -253,6 +253,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
     const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
     const selectedOptions: CascaderOptionType[] = arrayTreeFilter(options,
       (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
+      { childrenKeyName: names.children },
     );
     const label = selectedOptions.map(o => o[names.label]);
     return displayRender(label, selectedOptions);

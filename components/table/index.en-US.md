@@ -154,6 +154,7 @@ Properties for row selection.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | columnWidth | Set the width of the selection column | string\|number | - |
+| columnTitle | Set the title of the selection column | string\|React.ReactNode | - |
 | fixed | Fixed selection column on the left | boolean | - |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections | boolean | `false` |
@@ -162,6 +163,7 @@ Properties for row selection.
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |
 | onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |
 | onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |
+| onSelectMulti | Callback executed when multiple rows are selected/unselected | Function(selected, selectedRows, changeRows) | - |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |
 

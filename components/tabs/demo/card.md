@@ -13,7 +13,6 @@ title:
 
 Another type Tabs, which doesn't support vertical mode.
 
-
 ````jsx
 import { Tabs } from 'antd';
 

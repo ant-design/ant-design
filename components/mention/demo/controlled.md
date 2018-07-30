@@ -33,7 +33,7 @@ class App extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
-        console.log('Errors in form!!!');
+        console.log('Errors in the form!!!');
         return;
       }
       console.log('Submit!!!');

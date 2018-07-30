@@ -15,6 +15,50 @@ timeline: true
 
 ---
 
+## 3.7.3
+
+`2018-07-28`
+
+- 🐞 Fix issue resulting in title not vertical align with icon when setting `labelPlacement` to `vertical` in Steps. [#11426](https://github.com/ant-design/ant-design/pull/11426) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix issue resulting in the children field specified in `fieldName` could not be read correctly in Cascader. [#11311](https://github.com/ant-design/ant-design/pull/11311) [@405go](https://github.com/405go)
+- TypeScript
+  - 🐞 Fix type definition of Pagination. [#11474](https://github.com/ant-design/ant-design/pull/11474) [@kagd](https://github.com/kagd)
+  - 🐞 Fix type definition of Select. [#11189](https://github.com/ant-design/ant-design/pull/11189<Paste>) [@thisJJ](https://github.com/thisJJ)
+
+## 3.7.2
+
+`2018-07-25`
+
+- DatePicker
+  - 🐞 **Fix issue resulting in year and month can not be changed in control mode.** [b9992f4](https://github.com/ant-design/ant-design/commit/b9992f4a08574efb47b6e6cd80eb1e888b9a1ede)
+  - 🐞 Fix warning of `getDerivedStateFromProp`. [#11398](https://github.com/ant-design/ant-design/pull/11398) [@yoyo837](https://github.com/yoyo837)
+- Drawer
+  - 🐞 Fix close animation when setting `destroyOnClose`. [#11307](https://github.com/ant-design/ant-design/issues/11307)
+  - 🐞 Fix display issue when using a `vw` value as `width`. [#11326](https://github.com/ant-design/ant-design/issues/11326)
+  - 🐞 Fix `wrapClassName` now working.
+- 🐞 Fix text overflow of Tooltip. [#11402](https://github.com/ant-design/ant-design/pull/11402) [@weidapao](https://github.com/weidapao)
+- 🐞 Fix style issue of dark theme Menu in Layout.Header. [#11400](https://github.com/ant-design/ant-design/pull/11400) [@hongxuWei](https://github.com/hongxuWei)
+- 🐞 Fix the arrow buttons of InputNumber showing wrong positon in a fixed table. [#11408](https://github.com/ant-design/ant-design/issues/11408)
+- 🐞 Fix issue resulting in Select.Option shows wrong border radius in Select.OptGroup. [6cb6f5c](https://github.com/ant-design/ant-design/commit/6cb6f5c83ed634e67d5b5d0816d11aa0788a74d8)
+- 🐞 Fix issue resulting in `onChange` was trigged twice when click the filter icon of Table. [#11164](https://github.com/ant-design/ant-design/issues/11164) [@adybionka](https://github.com/adybionka)
+- 🐞 Fix issue resulting title of Model.confirm shows scrollbar on Firefox. [#11432](https://github.com/ant-design/ant-design/issues/11432)
+- TypeScript
+  - 🐞 Fix type definition of Radio.Group. [#11409](https://github.com/ant-design/ant-design/pull/11409) [@eddiemoore](https://github.com/eddiemoore)
+  - 🐞 Fix type definition of TreeSelect. [#11442](https://github.com/ant-design/ant-design/pull/11442) [@JribiBelhassen](https://github.com/JribiBelhassen)
+  - 🐞 Fix type definition of Badge. [#11421](https://github.com/ant-design/ant-design/pull/11421) [@zongzi531](https://github.com/zongzi531)
+
+## 3.7.1
+
+`2018-07-21`
+
+- 🐞 Fix popup content can't display in Drawer component.[#11304](https://github.com/ant-design/ant-design/issues/11304)
+- 🐞 Card using `tabList` support `disabled` prop.[#11212](https://github.com/ant-design/ant-design/issues/11212)
+- 🐞 Fix Link of Anchor not sync when `href` update.[#11287](https://github.com/ant-design/ant-design/pull/11287/files) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🐞 Fix Menu component style.[#11299](https://github.com/ant-design/ant-design/issues/11299)
+- 🐞 Fix Drawer component don't have animation when `destroyOnClose` is set.[#11307](https://github.com/ant-design/ant-design/issues/11307)
+- 🐞 Fix DirectoryTree can't expand when `expandedKeys` is in control.[#11366](https://github.com/ant-design/ant-design/issues/11366)
+- 🐞 Fix Button with Tooltip under ButtonGroup style issue when Button is `disabled`.[11321](https://github.com/ant-design/ant-design/pull/11321) [@tangjinzhou](https://github.com/tangjinzhou)
+
 ## 3.7.0
 
 3.7.0 is a heavy update that brings a lot of exciting changes and new features.
