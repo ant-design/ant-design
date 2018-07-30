@@ -38,17 +38,24 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
   const cc = c - b;
   t /= d / 2;
   if (t < 1) {
-    return cc / 2 * t * t * t + b;
+    return (cc / 2) * t * t * t + b;
   }
-  return cc / 2 * ((t -= 2) * t * t + 2) + b;
+  return (cc / 2) * ((t -= 2) * t * t + 2) + b;
 }
 
 const sharpMatcherRegx = /#([^#]+)$/;
-function scrollTo(href: string, offsetTop = 0, getContainer: () => AnchorContainer, callback = () => { }) {
+function scrollTo(
+  href: string,
+  offsetTop = 0,
+  getContainer: () => AnchorContainer,
+  callback = () => {},
+) {
   const container = getContainer();
   const scrollTop = getScroll(container, true);
   const sharpLinkMatch = sharpMatcherRegx.exec(href);
-  if (!sharpLinkMatch) { return; }
+  if (!sharpLinkMatch) {
+    return;
+  }
   const targetElement = document.getElementById(sharpLinkMatch[1]);
   if (!targetElement) {
     return;
@@ -80,7 +87,7 @@ type Section = {
   top: number;
 };
 
-export type AnchorContainer =  HTMLElement | Window;
+export type AnchorContainer = HTMLElement | Window;
 
 export interface AnchorProps {
   prefixCls?: string;
@@ -173,7 +180,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     this.setState({
       activeLink: this.getCurrentAnchor(offsetTop, bounds),
     });
-  }
+  };
 
   handleScrollTo = (link: string) => {
     const { offsetTop, getContainer } = this.props as AnchorDefaultProps;
@@ -182,7 +189,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     scrollTo(link, offsetTop, getContainer, () => {
       this.animating = false;
     });
-  }
+  };
 
   getCurrentAnchor(offsetTop = 0, bounds = 5) {
     let activeLink = '';
@@ -195,7 +202,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     const container = getContainer();
     this.links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
-      if (!sharpLinkMatch) { return; }
+      if (!sharpLinkMatch) {
+        return;
+      }
       const target = document.getElementById(sharpLinkMatch[1]);
       if (target) {
         const top = getOffsetTop(target, container);
@@ -209,7 +218,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     });
 
     if (linkSections.length) {
-      const maxSection = linkSections.reduce((prev, curr) => curr.top > prev.top ? curr : prev);
+      const maxSection = linkSections.reduce((prev, curr) => (curr.top > prev.top ? curr : prev));
       return maxSection.link;
     }
     return '';
@@ -225,11 +234,11 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     if (linkNode) {
       this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
-  }
+  };
 
   saveInkNode = (node: HTMLSpanElement) => {
     this.inkNode = node;
-  }
+  };
 
   render() {
     const {
@@ -250,7 +259,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     const wrapperClass = classNames(className, `${prefixCls}-wrapper`);
 
     const anchorClass = classNames(prefixCls, {
-      'fixed': !affix && !showInkInFixed,
+      fixed: !affix && !showInkInFixed,
     });
 
     const wrapperStyle = {
@@ -259,12 +268,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     };
 
     const anchorContent = (
-      <div
-        className={wrapperClass}
-        style={wrapperStyle}
-      >
+      <div className={wrapperClass} style={wrapperStyle}>
         <div className={anchorClass}>
-          <div className={`${prefixCls}-ink`} >
+          <div className={`${prefixCls}-ink`}>
             <span className={inkClass} ref={this.saveInkNode} />
           </div>
           {children}
@@ -272,10 +278,6 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       </div>
     );
 
-    return !affix ? anchorContent : (
-      <Affix offsetTop={offsetTop}>
-        {anchorContent}
-      </Affix>
-    );
+    return !affix ? anchorContent : <Affix offsetTop={offsetTop}>{anchorContent}</Affix>;
   }
 }

@@ -17,20 +17,23 @@ function getMessageInstance(callback: (i: any) => void) {
     callback(messageInstance);
     return;
   }
-  Notification.newInstance({
-    prefixCls,
-    transitionName,
-    style: { top: defaultTop }, // 覆盖原来的样式
-    getContainer,
-    maxCount,
-  }, (instance: any) => {
-    if (messageInstance) {
-      callback(messageInstance);
-      return;
-    }
-    messageInstance = instance;
-    callback(instance);
-  });
+  Notification.newInstance(
+    {
+      prefixCls,
+      transitionName,
+      style: { top: defaultTop }, // 覆盖原来的样式
+      getContainer,
+      maxCount,
+    },
+    (instance: any) => {
+      if (messageInstance) {
+        callback(messageInstance);
+        return;
+      }
+      messageInstance = instance;
+      callback(instance);
+    },
+  );
 }
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
@@ -51,13 +54,13 @@ function notice(
   type: NoticeType,
   onClose?: () => void,
 ): MessageType {
-  const iconType = ({
+  const iconType = {
     info: 'info-circle',
     success: 'check-circle',
     error: 'cross-circle',
     warning: 'exclamation-circle',
     loading: 'loading',
-  })[type];
+  }[type];
 
   if (typeof duration === 'function') {
     onClose = duration;
@@ -65,14 +68,14 @@ function notice(
   }
 
   const target = key++;
-  const closePromise = new Promise((resolve) => {
-    const callback =  () => {
+  const closePromise = new Promise(resolve => {
+    const callback = () => {
       if (typeof onClose === 'function') {
         onClose();
       }
       return resolve(true);
     };
-    getMessageInstance((instance) => {
+    getMessageInstance(instance => {
       instance.notice({
         key: target,
         duration,
@@ -92,7 +95,8 @@ function notice(
       messageInstance.removeNotice(target);
     }
   };
-  result.then = (filled: ThenableArgument, rejected: ThenableArgument) => closePromise.then(filled, rejected);
+  result.then = (filled: ThenableArgument, rejected: ThenableArgument) =>
+    closePromise.then(filled, rejected);
   result.promise = closePromise;
   return result;
 }

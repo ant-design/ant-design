@@ -20,7 +20,7 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     if (onChange) {
       onChange(e);
     }
-  }
+  };
 
   handleClear = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -28,17 +28,20 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     if (handleClear) {
       handleClear(e);
     }
-  }
+  };
 
   render() {
     const { placeholder, value, prefixCls } = this.props;
-    const icon = (value && value.length > 0) ? (
-      <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-        <Icon type="cross-circle" />
-      </a>
-    ) : (
-      <span className={`${prefixCls}-action`}><Icon type="search" /></span>
-    );
+    const icon =
+      value && value.length > 0 ? (
+        <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
+          <Icon type="cross-circle" />
+        </a>
+      ) : (
+        <span className={`${prefixCls}-action`}>
+          <Icon type="search" />
+        </span>
+      );
 
     return (
       <div>

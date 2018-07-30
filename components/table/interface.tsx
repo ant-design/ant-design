@@ -7,7 +7,7 @@ import { PaginationConfig } from '../pagination';
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = ((a: T, b: T, sortOrder?: 'ascend' | 'descend') => number);
-export type ColumnFilterItem = { text: string; value: string, children?: ColumnFilterItem[] };
+export type ColumnFilterItem = { text: string; value: string; children?: ColumnFilterItem[] };
 
 export interface ColumnProps<T> {
   title?: React.ReactNode;
@@ -60,7 +60,12 @@ export interface TableLocale {
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
-export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
+export type SelectionSelectFn<T> = (
+  record: T,
+  selected: boolean,
+  selectedRows: Object[],
+  nativeEvent: Event,
+) => any;
 
 export type TableSelectWay = 'onSelect' | 'onSelectAll' | 'onSelectInvert';
 
@@ -96,7 +101,12 @@ export interface TableProps<T> {
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
+  expandedRowRender?: (
+    record: T,
+    index: number,
+    indent: number,
+    expanded: boolean,
+  ) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];
@@ -121,7 +131,7 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
+  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;

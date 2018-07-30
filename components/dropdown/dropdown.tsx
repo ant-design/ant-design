@@ -5,7 +5,7 @@ import DropdownButton from './dropdown-button';
 import warning from '../_util/warning';
 
 export interface DropDownProps {
-  trigger?: ('click' | 'hover'| 'contextMenu')[];
+  trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode;
   onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
@@ -62,14 +62,16 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     });
     // menu cannot be selectable in dropdown defaultly
     // menu should be focusable in dropdown defaultly
-    const { selectable = false, focusable = true }  = overlay.props;
+    const { selectable = false, focusable = true } = overlay.props;
 
-    const fixedModeOverlay = typeof overlay.type === 'string'
-      ? overlay : React.cloneElement(overlay, {
-        mode: 'vertical',
-        selectable,
-        focusable,
-      });
+    const fixedModeOverlay =
+      typeof overlay.type === 'string'
+        ? overlay
+        : React.cloneElement(overlay, {
+            mode: 'vertical',
+            selectable,
+            focusable,
+          });
 
     const triggerActions = disabled ? [] : trigger;
     let alignPoint;

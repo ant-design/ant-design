@@ -2,6 +2,7 @@
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "rules": {
     "comment-empty-line-before": null,
+    "no-missing-end-of-source-newline":null,
     "declaration-empty-line-before": null,
     "function-comma-newline-after": null,
     "function-name-case": null,

@@ -28,7 +28,9 @@ class Basic extends React.Component<BasicProps, any> {
     const { prefixCls, className, children, ...others } = this.props;
     const divCls = classNames(className, prefixCls);
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }
@@ -62,7 +64,9 @@ class BasicLayout extends React.Component<BasicProps, any> {
       [`${prefixCls}-has-sider`]: hasSider || this.state.siders.length > 0,
     });
     return (
-      <div className={divCls} {...others}>{children}</div>
+      <div className={divCls} {...others}>
+        {children}
+      </div>
     );
   }
 }

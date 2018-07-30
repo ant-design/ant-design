@@ -105,7 +105,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "bezier-easing": "^2.0.3",
-    "bisheng": "^0.28.0",
+    "bisheng": "^0.29.0",
     "bisheng-plugin-antd": "^0.16.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.6.0",
@@ -123,6 +123,7 @@
     "enzyme-to-json": "^3.1.2",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "6.1.1",
@@ -144,7 +145,7 @@
     "pre-commit": "^1.2.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
-    "prettier": "1.12.1",
+    "prettier": "1.14.0",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.4.1",
     "rc-scroll-anim": "^2.2.1",
@@ -172,6 +173,7 @@
     "stylelint": "9.4.0",
     "stylelint-config-prettier": "^3.0.4",
     "stylelint-config-standard": "^18.0.0",
+    "tslint-config-prettier": "^1.14.0",
     "typescript": "~2.9.1",
     "unified": "^7.0.0",
     "values.js": "^1.0.3",
@@ -216,6 +218,10 @@
     ],
     "{tests,site,scripts,components}/**/*.{js,jsx}": [
       "npm run lint-staged:es"
+    ],
+    "**/*.{js,jsx,less}": [
+      "prettier --write",
+      "git add"
     ],
     "{site,components}/**/*.less": "stylelint --syntax less",
     "components/*/demo/*.md": [

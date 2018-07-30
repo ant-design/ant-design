@@ -87,12 +87,12 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     warning(
       !('onOpen' in props || 'onClose' in props),
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
-      'see: https://u.ant.design/menu-on-open-change.',
+        'see: https://u.ant.design/menu-on-open-change.',
     );
 
     warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
-      '`inlineCollapsed` should only be used when Menu\'s `mode` is inline.',
+      "`inlineCollapsed` should only be used when Menu's `mode` is inline.",
     );
 
     let openKeys;
@@ -114,24 +114,28 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   }
   componentWillReceiveProps(nextProps: MenuProps, nextContext: SiderContext) {
     const { prefixCls } = this.props;
-    if (this.props.mode === 'inline' &&
-        nextProps.mode !== 'inline') {
+    if (this.props.mode === 'inline' && nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
     }
     if ('openKeys' in nextProps) {
       this.setState({ openKeys: nextProps.openKeys! });
       return;
     }
-    if ((nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
-        (nextContext.siderCollapsed && !this.context.siderCollapsed)) {
+    if (
+      (nextProps.inlineCollapsed && !this.props.inlineCollapsed) ||
+      (nextContext.siderCollapsed && !this.context.siderCollapsed)
+    ) {
       const menuNode = findDOMNode(this) as Element;
       this.switchModeFromInline =
-        !!this.state.openKeys.length && !!menuNode.querySelectorAll(`.${prefixCls}-submenu-open`).length;
+        !!this.state.openKeys.length &&
+        !!menuNode.querySelectorAll(`.${prefixCls}-submenu-open`).length;
       this.inlineOpenKeys = this.state.openKeys;
       this.setState({ openKeys: [] });
     }
-    if ((!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
-        (!nextContext.siderCollapsed && this.context.siderCollapsed)) {
+    if (
+      (!nextProps.inlineCollapsed && this.props.inlineCollapsed) ||
+      (!nextContext.siderCollapsed && this.context.siderCollapsed)
+    ) {
       this.setState({ openKeys: this.inlineOpenKeys });
       this.inlineOpenKeys = [];
     }
@@ -143,7 +147,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     if (onClick) {
       onClick(e);
     }
-  }
+  };
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
@@ -151,7 +155,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     if (onOpenChange) {
       onOpenChange(openKeys);
     }
-  }
+  };
   setOpenKeys(openKeys: string[]) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
@@ -195,17 +199,18 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         case 'inline':
           menuOpenAnimation = {
             ...animation,
-            leave: (node: HTMLElement, done: () => void) => animation.leave(node, () => {
-              // Make sure inline menu leave animation finished before mode is switched
-              this.switchModeFromInline = false;
-              this.setState({});
-              // when inlineCollapsed change false to true, all submenu will be unmounted,
-              // so that we don't need handle animation leaving.
-              if (this.getRealMenuMode() === 'vertical') {
-                return;
-              }
-              done();
-            }),
+            leave: (node: HTMLElement, done: () => void) =>
+              animation.leave(node, () => {
+                // Make sure inline menu leave animation finished before mode is switched
+                this.switchModeFromInline = false;
+                this.setState({});
+                // when inlineCollapsed change false to true, all submenu will be unmounted,
+                // so that we don't need handle animation leaving.
+                if (this.getRealMenuMode() === 'vertical') {
+                  return;
+                }
+                done();
+              }),
           };
           break;
         default:

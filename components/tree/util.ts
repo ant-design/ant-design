@@ -2,7 +2,7 @@ import * as React from 'react';
 import { traverseTreeNodes } from 'rc-tree/lib/util';
 
 export interface TraverseData {
-  key: string,
+  key: string;
 }
 
 enum Record {
@@ -12,7 +12,12 @@ enum Record {
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
-export function calcRangeKeys(nodeList: React.ReactNode | React.ReactNode[], expandedKeys: string[], startKey?: string, endKey?: string): string[] {
+export function calcRangeKeys(
+  nodeList: React.ReactNode | React.ReactNode[],
+  expandedKeys: string[],
+  startKey?: string,
+  endKey?: string,
+): string[] {
   const keys: string[] = [];
   let record: Record = Record.None;
 

@@ -13,11 +13,14 @@ export interface IconProps {
 
 const Icon = (props: IconProps) => {
   const { type, className = '', spin } = props;
-  const classString = classNames({
-    anticon: true,
-    'anticon-spin': !!spin || type === 'loading',
-    [`anticon-${type}`]: true,
-  }, className);
+  const classString = classNames(
+    {
+      anticon: true,
+      'anticon-spin': !!spin || type === 'loading',
+      [`anticon-${type}`]: true,
+    },
+    className,
+  );
   return <i {...omit(props, ['type', 'spin'])} className={classString} />;
 };
 

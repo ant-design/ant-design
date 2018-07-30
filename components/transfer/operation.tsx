@@ -26,13 +26,7 @@ export default class Operation extends React.Component<TransferOperationProps, a
     } = this.props;
     return (
       <div className={className} style={style}>
-        <Button
-          type="primary"
-          size="small"
-          disabled={!leftActive}
-          onClick={moveToLeft}
-          icon="left"
-        >
+        <Button type="primary" size="small" disabled={!leftActive} onClick={moveToLeft} icon="left">
           {leftArrowText}
         </Button>
         <Button

@@ -8,9 +8,18 @@ import Button from '../button/index';
 export { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
-  'top' | 'left' | 'right' | 'bottom' |
-  'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
-  'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomRight'
+  | 'leftTop'
+  | 'leftBottom'
+  | 'rightTop'
+  | 'rightBottom';
 
 export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
@@ -91,7 +100,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     if (onVisibleChange && !this.isNoTitle()) {
       onVisibleChange(visible);
     }
-  }
+  };
 
   getPopupDomNode() {
     return this.tooltip.getPopupDomNode();
@@ -99,11 +108,14 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   getPlacements() {
     const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = this.props;
-    return builtinPlacements || getPlacements({
-      arrowPointAtCenter,
-      verticalArrowShift: 8,
-      autoAdjustOverflow,
-    });
+    return (
+      builtinPlacements ||
+      getPlacements({
+        arrowPointAtCenter,
+        verticalArrowShift: 8,
+        autoAdjustOverflow,
+      })
+    );
   }
 
   isHoverTrigger() {
@@ -121,16 +133,25 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   // mouse events don't trigger at disabled button in Chrome
   // https://github.com/react-component/tooltip/issues/18
   getDisabledCompatibleChildren(element: React.ReactElement<any>) {
-    if (((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
-        element.props.disabled && this.isHoverTrigger()) {
+    if (
+      ((element.type as typeof Button).__ANT_BUTTON || element.type === 'button') &&
+      element.props.disabled &&
+      this.isHoverTrigger()
+    ) {
       // Pick some layout related style properties up to span
       // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-      const { picked, omitted } = splitObject(
-        element.props.style,
-        ['position', 'left', 'right', 'top', 'bottom', 'float', 'display', 'zIndex'],
-      );
+      const { picked, omitted } = splitObject(element.props.style, [
+        'position',
+        'left',
+        'right',
+        'top',
+        'bottom',
+        'float',
+        'display',
+        'zIndex',
+      ]);
       const spanStyle = {
-        display: 'inline-block',  // default inline-block is important
+        display: 'inline-block', // default inline-block is important
         ...picked,
         cursor: 'not-allowed',
       };
@@ -153,7 +174,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   isNoTitle() {
     const { title, overlay } = this.props;
-    return !title && !overlay;  // overlay for old version compatibility
+    return !title && !overlay; // overlay for old version compatibility
   }
 
   // 动态设置动画点
@@ -161,10 +182,9 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     const placements: any = this.getPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).filter(
-      key => (
+      key =>
         placements[key].points[0] === align.points[0] &&
-        placements[key].points[1] === align.points[1]
-      ),
+        placements[key].points[1] === align.points[1],
     )[0];
     if (!placement) {
       return;
@@ -186,15 +206,22 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       transformOrigin.left = `${-align.offset[0]}px`;
     }
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-  }
+  };
 
   saveTooltip = (node: typeof RcTooltip) => {
     this.tooltip = node;
-  }
+  };
 
   render() {
     const { props, state } = this;
-    const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
+    const {
+      prefixCls,
+      title,
+      overlay,
+      openClassName,
+      getPopupContainer,
+      getTooltipContainer,
+    } = props;
     const children = props.children as React.ReactElement<any>;
     let visible = state.visible;
     // Hide tooltip when there is no title

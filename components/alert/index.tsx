@@ -5,7 +5,7 @@ import Icon from '../icon';
 import classNames from 'classnames';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
-function noop() { }
+function noop() {}
 
 export interface AlertProps {
   /**
@@ -53,18 +53,27 @@ export default class Alert extends React.Component<AlertProps, any> {
       closing: false,
     });
     (this.props.onClose || noop)(e);
-  }
+  };
   animationEnd = () => {
     this.setState({
       closed: true,
       closing: true,
     });
     (this.props.afterClose || noop)();
-  }
+  };
   render() {
     let {
-      closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
-      className = '', style, iconType,
+      closable,
+      description,
+      type,
+      prefixCls = 'ant-alert',
+      message,
+      closeText,
+      showIcon,
+      banner,
+      className = '',
+      style,
+      iconType,
     } = this.props;
 
     // banner模式默认有 Icon
@@ -96,13 +105,17 @@ export default class Alert extends React.Component<AlertProps, any> {
       }
     }
 
-    let alertCls = classNames(prefixCls, {
-      [`${prefixCls}-${type}`]: true,
-      [`${prefixCls}-close`]: !this.state.closing,
-      [`${prefixCls}-with-description`]: !!description,
-      [`${prefixCls}-no-icon`]: !showIcon,
-      [`${prefixCls}-banner`]: !!banner,
-    }, className);
+    let alertCls = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-${type}`]: true,
+        [`${prefixCls}-close`]: !this.state.closing,
+        [`${prefixCls}-with-description`]: !!description,
+        [`${prefixCls}-no-icon`]: !showIcon,
+        [`${prefixCls}-banner`]: !!banner,
+      },
+      className,
+    );
 
     // closeable when closeText is assigned
     if (closeText) {

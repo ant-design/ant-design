@@ -29,8 +29,6 @@ export default class Steps extends React.Component<StepsProps, any> {
   };
 
   render() {
-    return (
-      <RcSteps {...this.props} />
-    );
+    return <RcSteps {...this.props} />;
   }
 }

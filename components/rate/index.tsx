@@ -41,7 +41,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
   saveRate = (node: any) => {
     this.rcRate = node;
-  }
+  };
 
   render() {
     return <RcRate ref={this.saveRate} {...this.props} />;
