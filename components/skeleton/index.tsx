@@ -82,21 +82,21 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       const hasParagraph = !!paragraph;
 
       // Avatar
-      let $avatar;
+      let avatarNode;
       if (hasAvatar) {
         const avatarProps: SkeletonAvatarProps = {
           ...getAvatarBasicProps(hasTitle, hasParagraph),
           ...getComponentProps(avatar),
         };
 
-        $avatar = (
+        avatarNode = (
           <div className={`${prefixCls}-header`}>
             <Avatar {...avatarProps} />
           </div>
         );
       }
 
-      let $content;
+      let contentNode;
       if (hasTitle || hasParagraph) {
         // Title
         let $title;
@@ -112,22 +112,22 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         }
 
         // Paragraph
-        let $paragraph;
+        let paragraphNode;
         if (hasParagraph) {
           const paragraphProps: SkeletonParagraphProps = {
             ...getParagraphBasicProps(hasAvatar, hasTitle),
             ...getComponentProps(paragraph),
           };
 
-          $paragraph = (
+          paragraphNode = (
             <Paragraph {...paragraphProps} />
           );
         }
 
-        $content = (
+        contentNode = (
           <div className={`${prefixCls}-content`}>
             {$title}
-            {$paragraph}
+            {paragraphNode}
           </div>
         );
       }
@@ -142,8 +142,8 @@ class Skeleton extends React.Component<SkeletonProps, any> {
 
       return (
         <div className={cls}>
-          {$avatar}
-          {$content}
+          {avatarNode}
+          {contentNode}
         </div>
       );
     }
