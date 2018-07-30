@@ -37,6 +37,43 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/button/demo/block.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-block"
+    type="button"
+  >
+    <span>
+      Primary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-block"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-block"
+    type="button"
+  >
+    <span>
+      Dashed
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-danger ant-btn-block"
+    type="button"
+  >
+    <span>
+      danger
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
 <div>
   <h4>
@@ -252,43 +289,6 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/button/demo/block.md correctly 1`] = `
-<div>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-block"
-    type="button"
-  >
-    <span>
-      Primary
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-block"
-    type="button"
-  >
-    <span>
-      Default
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-dashed ant-btn-block"
-    type="button"
-  >
-    <span>
-      Dashed
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-danger ant-btn-block"
-    type="button"
-  >
-    <span>
-      danger
-    </span>
-  </button>
-</div>
-`;
-
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
   style="background:rgb(190, 200, 200);padding:26px 16px 16px"
@@ -497,7 +497,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     type="button"
   >
     <span>
-      Actions
+      Actions 
     </span>
     <i
       class="anticon anticon-down"
