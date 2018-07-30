@@ -9283,6 +9283,259 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-bordered ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col
+                  style="width:200px;min-width:200px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="react-resizable"
+                  >
+                    <span>
+                      Date
+                    </span>
+                    <span
+                      class="react-resizable-handle"
+                      style="touch-action:none"
+                    />
+                  </th>
+                  <th
+                    class="react-resizable"
+                  >
+                    <span>
+                      Amount
+                    </span>
+                    <span
+                      class="react-resizable-handle"
+                      style="touch-action:none"
+                    />
+                  </th>
+                  <th
+                    class="react-resizable"
+                  >
+                    <span>
+                      Type
+                    </span>
+                    <span
+                      class="react-resizable-handle"
+                      style="touch-action:none"
+                    />
+                  </th>
+                  <th
+                    class="react-resizable"
+                  >
+                    <span>
+                      Note
+                    </span>
+                    <span
+                      class="react-resizable-handle"
+                      style="touch-action:none"
+                    />
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Action
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    2018-02-11
+                  </td>
+                  <td
+                    class=""
+                  >
+                    120
+                  </td>
+                  <td
+                    class=""
+                  >
+                    income
+                  </td>
+                  <td
+                    class=""
+                  >
+                    transfer
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <a
+                      href="javascript:;"
+                    >
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    2018-03-11
+                  </td>
+                  <td
+                    class=""
+                  >
+                    243
+                  </td>
+                  <td
+                    class=""
+                  >
+                    income
+                  </td>
+                  <td
+                    class=""
+                  >
+                    transfer
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <a
+                      href="javascript:;"
+                    >
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class=""
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left:0px"
+                    />
+                    2018-04-11
+                  </td>
+                  <td
+                    class=""
+                  >
+                    98
+                  </td>
+                  <td
+                    class=""
+                  >
+                    income
+                  </td>
+                  <td
+                    class=""
+                  >
+                    transfer
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <a
+                      href="javascript:;"
+                    >
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-disabled ant-pagination-prev"
+          title="Previous Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+          />
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-disabled ant-pagination-next"
+          title="Next Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
 <div
   class="ant-table-wrapper"
