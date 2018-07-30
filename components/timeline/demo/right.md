@@ -1,13 +1,13 @@
 ---
 order: 4
 title:
-  zh-CN: 自定义时间轴点
+  zh-CN: 右侧时间轴点
   en-US: Right alternate
 ---
 
 ## zh-CN
 
-可以设置为图标或其他自定义元素。
+时间轴点可以在内容的右边。
 
 ## en-US
 
