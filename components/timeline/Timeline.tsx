@@ -35,7 +35,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       [`${prefixCls}-pending`]: !!pending,
       [`${prefixCls}-reverse`]: !!reverse,
     }, className,
-    mode);
+    `${prefixCls}-${mode}`);
 
     const pendingItem = !!pending ? (
       <TimelineItem
