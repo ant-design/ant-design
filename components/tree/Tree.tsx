@@ -142,7 +142,10 @@ export default class Tree extends React.Component<TreeProps, any> {
     prefixCls: 'ant-tree',
     checkable: false,
     showIcon: false,
-    openAnimation: animation,
+    openAnimation: {
+      ...animation,
+      appear: null,
+    },
   };
 
   render() {
