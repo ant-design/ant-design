@@ -1,4 +1,117 @@
 @import "../../style/themes/default";
 @import "./mixin";
 
+@checkbox-prefix-cls: ~"@{ant-prefix}-checkbox";
+@checkbox-group-prefix-cls: ~"@{checkbox-prefix-cls}-group";
+@checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
+@checkbox-duration: .3s;
+
 .antCheckboxFn();
+
+.@{checkbox-prefix-cls}-button-wrapper {
+  margin: 0;
+  height: @btn-height-base;
+  line-height: @btn-height-base - 2px;
+  color: @checkbox-button-color;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-left: 0;
+  // strange align fix for chrome but works
+  // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
+  border-top-width: @border-width-base + 0.02px;
+  background: @checkbox-button-bg;
+  padding: 0 @padding-md - 1px;
+  position: relative;
+
+  a {
+    color: @checkbox-button-color;
+  }
+
+  > .@{checkbox-prefix-cls}-button {
+    margin-left: 0;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+
+  .@{checkbox-group-prefix-cls}-large & {
+    height: @input-height-lg;
+    line-height: @input-height-lg - 2px;
+    font-size: @font-size-lg;
+  }
+
+  .@{checkbox-group-prefix-cls}-small & {
+    height: @input-height-sm;
+    line-height: @input-height-sm - 2px;
+    padding: 0 @control-padding-horizontal-sm - 1px;
+  }
+
+  &:not(:first-child) {
+    &::before {
+      content: "";
+      display: block;
+      top: 0;
+      left: -1px;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      background-color: @border-color-base;
+    }
+  }
+  &:first-child {
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+    border-left: @border-width-base @border-style-base @border-color-base;
+  }
+
+  &:last-child {
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+  }
+
+  &:first-child:last-child {
+    border-radius: @border-radius-base;
+  }
+
+  &:hover,
+  &-focused {
+    color: @checkbox-color;
+    position: relative;
+  }
+
+  .@{checkbox-prefix-cls}-inner,
+  input[type="checkbox"],
+  input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &-checked {
+    background: @checkbox-button-bg;
+    border-color: @checkbox-color;
+    color: @checkbox-color;
+    box-shadow: -1px 0 0 0 @radio-dot-color;
+    z-index: 1;
+    &::before {
+      background-color: @checkbox-color !important;
+      opacity: 0.1;
+    }
+    &:first-child {
+      border-color: @checkbox-color;
+      box-shadow: none !important;
+    }
+
+    &:hover {
+      border-color: @checkbox-button-hover-color;
+      box-shadow: -1px 0 0 0 @checkbox-button-hover-color;
+      color: @checkbox-button-hover-color;
+    }
+
+    &:active {
+      border-color: @checkbox-button-active-color;
+      box-shadow: -1px 0 0 0 @checkbox-button-active-color;
+      color: @checkbox-button-active-color;
+    }
+  }
+}
