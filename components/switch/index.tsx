@@ -42,7 +42,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   saveSwitch = (node: typeof RcSwitch) => {
     this.rcSwitch = node;
-  }
+  };
 
   render() {
     const { prefixCls, size, loading, className = '' } = this.props;
@@ -51,11 +51,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-loading`]: loading,
     });
     return (
-      <RcSwitch
-        {...omit(this.props, ['loading'])}
-        className={classes}
-        ref={this.saveSwitch}
-      />
+      <RcSwitch {...omit(this.props, ['loading'])} className={classes} ref={this.saveSwitch} />
     );
   }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Tooltip, { AbstractTooltipProps }  from '../tooltip';
+import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import { ButtonType } from '../button/button';
@@ -60,7 +60,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     if (onConfirm) {
       onConfirm.call(this, e);
     }
-  }
+  };
 
   onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setVisible(false);
@@ -69,11 +69,11 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     if (onCancel) {
       onCancel.call(this, e);
     }
-  }
+  };
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
-  }
+  };
 
   setVisible(visible: boolean) {
     const props = this.props;
@@ -89,7 +89,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
 
   saveTooltip = (node: any) => {
     this.tooltip = node;
-  }
+  };
 
   renderOverlay = (popconfirmLocale: PopconfirmLocale) => {
     const { prefixCls, title, cancelText, okText, okType } = this.props;
@@ -111,16 +111,13 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
         </div>
       </div>
     );
-  }
+  };
 
   render() {
     const { prefixCls, placement, ...restProps } = this.props;
 
     const overlay = (
-      <LocaleReceiver
-        componentName="Popconfirm"
-        defaultLocale={defaultLocale.Popconfirm}
-      >
+      <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
         {this.renderOverlay}
       </LocaleReceiver>
     );

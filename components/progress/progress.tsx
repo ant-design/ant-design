@@ -71,19 +71,35 @@ export default class Progress extends React.Component<ProgressProps, {}> {
   render() {
     const props = this.props;
     const {
-      prefixCls, className, percent = 0, status, format, trailColor, size, successPercent,
-      type, strokeWidth, width, showInfo, gapDegree = 0, gapPosition, strokeColor,
+      prefixCls,
+      className,
+      percent = 0,
+      status,
+      format,
+      trailColor,
+      size,
+      successPercent,
+      type,
+      strokeWidth,
+      width,
+      showInfo,
+      gapDegree = 0,
+      gapPosition,
+      strokeColor,
       ...restProps
     } = props;
-    const progressStatus = parseInt((successPercent ? successPercent.toString() : percent.toString()), 10) >= 100 &&
-    !('status' in props) ? 'success' : (status || 'normal');
+    const progressStatus =
+      parseInt(successPercent ? successPercent.toString() : percent.toString(), 10) >= 100 &&
+      !('status' in props)
+        ? 'success'
+        : status || 'normal';
     let progressInfo;
     let progress;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
 
     if (showInfo) {
       let text;
-      const iconType = (type === 'circle' || type === 'dashboard') ? '' : '-circle';
+      const iconType = type === 'circle' || type === 'dashboard' ? '' : '-circle';
       if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
         text = textFormatter(validProgress(percent), validProgress(successPercent));
       } else if (progressStatus === 'exception') {
@@ -104,9 +120,10 @@ export default class Progress extends React.Component<ProgressProps, {}> {
         width: `${validProgress(successPercent)}%`,
         height: strokeWidth || (size === 'small' ? 6 : 8),
       };
-      const successSegment = successPercent !== undefined
-        ? <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-        : null;
+      const successSegment =
+        successPercent !== undefined ? (
+          <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+        ) : null;
       progress = (
         <div>
           <div className={`${prefixCls}-outer`}>
@@ -126,8 +143,8 @@ export default class Progress extends React.Component<ProgressProps, {}> {
         fontSize: circleSize * 0.15 + 6,
       };
       const circleWidth = strokeWidth || 6;
-      const gapPos = gapPosition || type === 'dashboard' && 'bottom' || 'top';
-      const gapDeg = gapDegree || type === 'dashboard' && 75;
+      const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
+      const gapDeg = gapDegree || (type === 'dashboard' && 75);
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
           <Circle
@@ -145,12 +162,16 @@ export default class Progress extends React.Component<ProgressProps, {}> {
       );
     }
 
-    const classString = classNames(prefixCls, {
-      [`${prefixCls}-${type === 'dashboard' && 'circle' || type}`]: true,
-      [`${prefixCls}-status-${progressStatus}`]: true,
-      [`${prefixCls}-show-info`]: showInfo,
-      [`${prefixCls}-${size}`]: size,
-    }, className);
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: true,
+        [`${prefixCls}-status-${progressStatus}`]: true,
+        [`${prefixCls}-show-info`]: showInfo,
+        [`${prefixCls}-${size}`]: size,
+      },
+      className,
+    );
 
     return (
       <div {...restProps} className={classString}>

@@ -46,9 +46,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   }
 
   componentDidUpdate(prevProps: AvatarProps, prevState: AvatarState) {
-    if (prevProps.children !== this.props.children
-        || (prevState.scale !== this.state.scale && this.state.scale === 1)
-        || (prevState.isImgExist !== this.state.isImgExist)) {
+    if (
+      prevProps.children !== this.props.children ||
+      (prevState.scale !== this.state.scale && this.state.scale === 1) ||
+      prevState.isImgExist !== this.state.isImgExist
+    ) {
       this.setScale();
     }
   }
@@ -70,14 +72,12 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         });
       }
     }
-  }
+  };
 
   handleImgLoadError = () => this.setState({ isImgExist: false });
 
   render() {
-    const {
-      prefixCls, shape, size, src, icon, className, alt, ...others
-    } = this.props;
+    const { prefixCls, shape, size, src, icon, className, alt, ...others } = this.props;
 
     const sizeCls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -92,13 +92,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
     let children = this.props.children;
     if (src && this.state.isImgExist) {
-      children = (
-        <img
-          src={src}
-          onError={this.handleImgLoadError}
-          alt={alt}
-        />
-      );
+      children = <img src={src} onError={this.handleImgLoadError} alt={alt} />;
     } else if (icon) {
       children = <Icon type={icon} />;
     } else {
@@ -115,7 +109,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         children = (
           <span
             className={`${prefixCls}-string`}
-            ref={span => this.avatarChildren = span}
+            ref={span => (this.avatarChildren = span)}
             style={childrenStyle}
           >
             {children}
@@ -123,10 +117,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
         );
       } else {
         children = (
-          <span
-            className={`${prefixCls}-string`}
-            ref={span => this.avatarChildren = span}
-          >
+          <span className={`${prefixCls}-string`} ref={span => (this.avatarChildren = span)}>
             {children}
           </span>
         );

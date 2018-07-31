@@ -1,5 +1,5 @@
 const eslintrc = {
-  extends: ['eslint-config-airbnb'],
+  extends: ['eslint-config-airbnb', 'prettier'],
   env: {
     browser: true,
     node: true,
@@ -8,11 +8,7 @@ const eslintrc = {
     es6: true,
   },
   parser: 'babel-eslint',
-  plugins: [
-    'markdown',
-    'react',
-    'babel',
-  ],
+  plugins: ['markdown', 'react', 'babel'],
   rules: {
     'func-names': 0,
     'arrow-body-style': 0,

@@ -7,7 +7,8 @@ import { Omit } from '../_util/type';
 // omitting this attrs because they conflicts with the ones defined in InputNumberProps
 export type OmitAttrs = 'defaultValue' | 'onChange' | 'size';
 
-export interface InputNumberProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
+export interface InputNumberProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, OmitAttrs> {
   prefixCls?: string;
   min?: number;
   max?: number;
@@ -38,12 +39,21 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
   render() {
     const { className, size, ...others } = this.props;
-    const inputNumberClass = classNames({
-      [`${this.props.prefixCls}-lg`]: size === 'large',
-      [`${this.props.prefixCls}-sm`]: size === 'small',
-    }, className);
+    const inputNumberClass = classNames(
+      {
+        [`${this.props.prefixCls}-lg`]: size === 'large',
+        [`${this.props.prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
 
-    return <RcInputNumber ref={(c: any) => this.inputNumberRef = c} className={inputNumberClass} {...others} />;
+    return (
+      <RcInputNumber
+        ref={(c: any) => (this.inputNumberRef = c)}
+        className={inputNumberClass}
+        {...others}
+      />
+    );
   }
 
   focus() {

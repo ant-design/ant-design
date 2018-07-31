@@ -43,7 +43,10 @@ export interface SelectProps extends AbstractSelectProps {
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (value: SelectValue, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
+  onChange?: (
+    value: SelectValue,
+    option: React.ReactElement<any> | React.ReactElement<any>[],
+  ) => void;
   onSelect?: (value: SelectValue, option: React.ReactElement<any>) => any;
   onDeselect?: (value: SelectValue) => any;
   onBlur?: () => any;
@@ -115,8 +118,8 @@ export default class Select extends React.Component<SelectProps, {}> {
     warning(
       props.mode !== 'combobox',
       'The combobox mode of Select is deprecated,' +
-      'it will be removed in next major version,' +
-      'please use AutoComplete instead',
+        'it will be removed in next major version,' +
+        'please use AutoComplete instead',
     );
   }
 
@@ -130,7 +133,7 @@ export default class Select extends React.Component<SelectProps, {}> {
 
   saveSelect = (node: any) => {
     this.rcSelect = node;
-  }
+  };
 
   getNotFoundContent(locale: SelectLocale) {
     const { notFoundContent } = this.props;
@@ -147,17 +150,14 @@ export default class Select extends React.Component<SelectProps, {}> {
   }
 
   renderSelect = (locale: SelectLocale) => {
-    const {
-      prefixCls,
-      className = '',
-      size,
-      mode,
-      ...restProps
-    } = this.props;
-    const cls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    }, className);
+    const { prefixCls, className = '', size, mode, ...restProps } = this.props;
+    const cls = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
 
     let { optionLabelProp } = this.props;
     if (this.isCombobox()) {
@@ -182,14 +182,11 @@ export default class Select extends React.Component<SelectProps, {}> {
         ref={this.saveSelect}
       />
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Select"
-        defaultLocale={defaultLocale.Select}
-      >
+      <LocaleReceiver componentName="Select" defaultLocale={defaultLocale.Select}>
         {this.renderSelect}
       </LocaleReceiver>
     );

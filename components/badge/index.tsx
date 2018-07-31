@@ -35,10 +35,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   static propTypes = {
-    count: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
+    count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     showZero: PropTypes.bool,
     dot: PropTypes.bool,
     overflowCount: PropTypes.number,
@@ -77,18 +74,21 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
-      [`${prefixCls}-multiple-words`]: !isDot && count && count.toString && count.toString().length > 1,
+      [`${prefixCls}-multiple-words`]:
+        !isDot && count && count.toString && count.toString().length > 1,
       [`${prefixCls}-status-${status}`]: !!status,
     });
     const badgeCls = classNames(className, prefixCls, {
       [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
-    const styleWithOffset = offset ? {
-      marginTop: offset[0],
-      marginLeft: offset[1],
-      ...style,
-    } : style;
+    const styleWithOffset = offset
+      ? {
+          marginTop: offset[0],
+          marginLeft: offset[1],
+          ...style,
+        }
+      : style;
     // <Badge status="success" />
     if (!children && status) {
       return (
@@ -111,9 +111,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
       />
     );
 
-    const statusText = (hidden || !text) ? null : (
-      <span className={`${prefixCls}-status-text`}>{text}</span>
-    );
+    const statusText =
+      hidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
 
     return (
       <span {...restProps} className={badgeCls}>

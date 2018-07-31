@@ -22,14 +22,17 @@ export default class Collapse extends React.Component<CollapseProps, any> {
   static defaultProps = {
     prefixCls: 'ant-collapse',
     bordered: true,
-    openAnimation: { ...animation, appear() { } },
+    openAnimation: { ...animation, appear() {} },
   };
 
   render() {
     const { prefixCls, className = '', bordered } = this.props;
-    const collapseClassName = classNames({
-      [`${prefixCls}-borderless`]: !bordered,
-    }, className);
+    const collapseClassName = classNames(
+      {
+        [`${prefixCls}-borderless`]: !bordered,
+      },
+      className,
+    );
     return <RcCollapse {...this.props} className={collapseClassName} />;
   }
 }

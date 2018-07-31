@@ -35,7 +35,10 @@ export interface TextAreaState {
 
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, TextAreaState> {
+export default class TextArea extends React.Component<
+  TextAreaProps & HTMLTextareaProps,
+  TextAreaState
+> {
   static defaultProps = {
     prefixCls: 'ant-input',
   };
@@ -79,7 +82,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
-  }
+  };
 
   getTextAreaClassName() {
     const { prefixCls, className, disabled } = this.props;
@@ -96,7 +99,7 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     if (onChange) {
       onChange(e);
     }
-  }
+  };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { onPressEnter, onKeyDown } = this.props;
@@ -106,19 +109,15 @@ export default class TextArea extends React.Component<TextAreaProps & HTMLTextar
     if (onKeyDown) {
       onKeyDown(e);
     }
-  }
+  };
 
   saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
     this.textAreaRef = textArea;
-  }
+  };
 
   render() {
     const props = this.props;
-    const otherProps = omit(props, [
-      'prefixCls',
-      'onPressEnter',
-      'autosize',
-    ]);
+    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
     const style = {
       ...props.style,
       ...this.state.textareaStyles,

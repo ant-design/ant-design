@@ -19,21 +19,16 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-confirm';
   // 默认为 true，保持向下兼容
-  const okCancel = ('okCancel' in props) ? props.okCancel! : true;
+  const okCancel = 'okCancel' in props ? props.okCancel! : true;
   const width = props.width || 416;
   const style = props.style || {};
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
   const runtimeLocale = getConfirmLocale();
-  const okText = props.okText ||
-    (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
+  const okText = props.okText || (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   const cancelText = props.cancelText || runtimeLocale.cancelText;
 
-  const classString = classNames(
-    prefixCls,
-    `${prefixCls}-${props.type}`,
-    props.className,
-  );
+  const classString = classNames(prefixCls, `${prefixCls}-${props.type}`, props.className);
 
   const cancelButton = okCancel && (
     <ActionButton actionFn={onCancel} closeModal={close}>
@@ -91,8 +86,7 @@ export default function confirm(config: ModalFuncProps) {
     if (unmountResult && div.parentNode) {
       div.parentNode.removeChild(div);
     }
-    const triggerCancel = args && args.length &&
-      args.some(param => param && param.triggerCancel);
+    const triggerCancel = args && args.length && args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }

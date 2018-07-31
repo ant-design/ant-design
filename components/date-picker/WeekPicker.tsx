@@ -32,7 +32,7 @@ class WeekPicker extends React.Component<any, any> {
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
         'The value/defaultValue of DatePicker or MonthPicker must be ' +
-        'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
+          'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
       );
     }
     this.state = {
@@ -42,34 +42,30 @@ class WeekPicker extends React.Component<any, any> {
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
     const { prefixCls } = this.props;
-    if (selectedValue &&
+    if (
+      selectedValue &&
       current.year() === selectedValue.year() &&
-      current.week() === selectedValue.week()) {
+      current.week() === selectedValue.week()
+    ) {
       return (
         <div className={`${prefixCls}-selected-day`}>
-          <div className={`${prefixCls}-date`}>
-            {current.date()}
-          </div>
+          <div className={`${prefixCls}-date`}>{current.date()}</div>
         </div>
       );
     }
-    return (
-      <div className={`${prefixCls}-date`}>
-        {current.date()}
-      </div>
-    );
-  }
+    return <div className={`${prefixCls}-date`}>{current.date()}</div>;
+  };
   handleChange = (value: moment.Moment | null) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     this.props.onChange(value, formatValue(value, this.props.format));
-  }
+  };
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     this.handleChange(null);
-  }
+  };
 
   focus() {
     this.input.focus();
@@ -81,13 +77,24 @@ class WeekPicker extends React.Component<any, any> {
 
   saveInput = (node: any) => {
     this.input = node;
-  }
+  };
 
   render() {
     const {
-      prefixCls, className, disabled, pickerClass, popupStyle,
-      pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
-      style, onFocus, onBlur,
+      prefixCls,
+      className,
+      disabled,
+      pickerClass,
+      popupStyle,
+      pickerInputClass,
+      format,
+      allowClear,
+      locale,
+      localeCode,
+      disabledDate,
+      style,
+      onFocus,
+      onBlur,
     } = this.props;
 
     const pickerValue = this.state.value;
@@ -95,8 +102,8 @@ class WeekPicker extends React.Component<any, any> {
       pickerValue.locale(localeCode);
     }
 
-    const placeholder = ('placeholder' in this.props)
-      ? this.props.placeholder : locale.lang.placeholder;
+    const placeholder =
+      'placeholder' in this.props ? this.props.placeholder : locale.lang.placeholder;
 
     const calendar = (
       <Calendar
@@ -110,14 +117,15 @@ class WeekPicker extends React.Component<any, any> {
         disabledDate={disabledDate}
       />
     );
-    const clearIcon = (!disabled && allowClear && this.state.value) ? (
-      <Icon
-        type="cross-circle"
-        className={`${prefixCls}-picker-clear`}
-        onClick={this.clearSelection}
-      />
-    ) : null;
-    const input = ({ value }: {  value: moment.Moment | undefined }) => {
+    const clearIcon =
+      !disabled && allowClear && this.state.value ? (
+        <Icon
+          type="cross-circle"
+          className={`${prefixCls}-picker-clear`}
+          onClick={this.clearSelection}
+        />
+      ) : null;
+    const input = ({ value }: { value: moment.Moment | undefined }) => {
       return (
         <span>
           <input

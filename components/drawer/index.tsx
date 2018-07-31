@@ -5,9 +5,7 @@ import createReactContext, { Context } from 'create-react-context';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
-type EventType =
-  | React.MouseEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLButtonElement>;
+type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
 
 type getContainerfunc = () => HTMLElement;
 
@@ -89,23 +87,23 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       return;
     }
-  }
+  };
   onMaskClick = (e: EventType) => {
     if (!this.props.maskClosable) {
       return;
     }
     this.close(e);
-  }
+  };
   push = () => {
     this.setState({
       push: true,
     });
-  }
+  };
   pull = () => {
     this.setState({
       push: false,
     });
-  }
+  };
   onDestoryTransitionEnd = () => {
     const isDestroyOnClose = this.getDestoryOnClose();
     if (!isDestroyOnClose) {
@@ -115,9 +113,9 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       this.destoryClose = true;
       this.forceUpdate();
     }
-  }
+  };
 
-  getDestoryOnClose = () => (this.props.destroyOnClose && !this.props.visible);
+  getDestoryOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
   renderBody = () => {
     if (this.destoryClose && !this.props.visible) {
@@ -126,11 +124,13 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     this.destoryClose = false;
     const { placement } = this.props;
 
-    const containerStyle: React.CSSProperties = placement === 'left'
-      || placement === 'right' ? {
-        overflow: 'auto',
-        height: '100%',
-      } : {};
+    const containerStyle: React.CSSProperties =
+      placement === 'left' || placement === 'right'
+        ? {
+            overflow: 'auto',
+            height: '100%',
+          }
+        : {};
 
     const isDestroyOnClose = this.getDestoryOnClose();
     if (isDestroyOnClose) {
@@ -150,11 +150,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     let closer;
     if (closable) {
       closer = (
-        <button
-          onClick={this.close}
-          aria-label="Close"
-          className={`${prefixCls}-close`}
-        >
+        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
           <span className={`${prefixCls}-close-x`} />
         </button>
       );
@@ -173,14 +169,14 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </div>
       </div>
     );
-  }
+  };
   renderProvider = (value: Drawer) => {
     let { zIndex, style, placement, ...rest } = this.props;
     const RcDrawerStyle = this.state.push
       ? {
-        zIndex,
-        transform: `translateX(${placement === 'left' ? 180 : -180}px)`,
-      }
+          zIndex,
+          transform: `translateX(${placement === 'left' ? 180 : -180}px)`,
+        }
       : { zIndex };
     this.praentDrawer = value;
     return (
@@ -199,10 +195,8 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
         </RcDrawer>
       </DrawerContext.Provider>
     );
-  }
+  };
   render() {
-    return (
-      <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>
-    );
+    return <DrawerContext.Consumer>{this.renderProvider}</DrawerContext.Consumer>;
   }
 }

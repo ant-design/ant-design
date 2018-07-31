@@ -17,10 +17,7 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
 
   static propTypes = {
     prefixCls: PropTypes.string,
-    separator: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element,
-    ]),
+    separator: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     href: PropTypes.string,
   };
 
@@ -28,9 +25,17 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
     const { prefixCls, separator, children, ...restProps } = this.props;
     let link;
     if ('href' in this.props) {
-      link = <a className={`${prefixCls}-link`} {...restProps}>{children}</a>;
+      link = (
+        <a className={`${prefixCls}-link`} {...restProps}>
+          {children}
+        </a>
+      );
     } else {
-      link = <span className={`${prefixCls}-link`} {...restProps}>{children}</span>;
+      link = (
+        <span className={`${prefixCls}-link`} {...restProps}>
+          {children}
+        </span>
+      );
     }
     if (children) {
       return (

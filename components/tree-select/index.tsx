@@ -42,7 +42,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
   saveTreeSelect = (node: typeof RcTreeSelect) => {
     this.rcTreeSelect = node;
-  }
+  };
 
   renderTreeSelect = (locale: SelectLocale) => {
     const {
@@ -55,10 +55,13 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       ...restProps
     } = this.props;
 
-    const cls = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
-    }, className);
+    const cls = classNames(
+      {
+        [`${prefixCls}-lg`]: size === 'large',
+        [`${prefixCls}-sm`]: size === 'small',
+      },
+      className,
+    );
 
     let checkable = restProps.treeCheckable;
     if (checkable) {
@@ -76,14 +79,11 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         ref={this.saveTreeSelect}
       />
     );
-  }
+  };
 
   render() {
     return (
-      <LocaleReceiver
-        componentName="Select"
-        defaultLocale={{}}
-      >
+      <LocaleReceiver componentName="Select" defaultLocale={{}}>
         {this.renderTreeSelect}
       </LocaleReceiver>
     );

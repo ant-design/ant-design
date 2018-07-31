@@ -23,8 +23,6 @@ export default class RadioButton extends React.Component<RadioButtonProps, any> 
       radioProps.disabled = this.props.disabled || this.context.radioGroup.disabled;
     }
 
-    return (
-      <Radio {...radioProps} />
-    );
+    return <Radio {...radioProps} />;
   }
 }
