@@ -23,7 +23,6 @@ export interface AutoSizeType {
   maxRows?: number;
 }
 
-
 export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export interface TextAreaProps extends HTMLTextareaProps {
