@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
 import CheckboxGroup, { CheckboxGroupContext } from './Group';
+import CheckboxButton from './checkboxButton';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -40,6 +41,7 @@ export interface CheckboxChangeEvent {
 
 export default class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
+  static Button: typeof CheckboxButton;
   static defaultProps = {
     prefixCls: 'ant-checkbox',
     indeterminate: false,
@@ -53,8 +55,8 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
 
   shouldComponentUpdate(nextProps: CheckboxProps, nextState: {}, nextContext: CheckboxGroupContext) {
     return !shallowEqual(this.props, nextProps) ||
-           !shallowEqual(this.state, nextState) ||
-           !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup);
   }
 
   focus() {
@@ -90,6 +92,8 @@ export default class Checkbox extends React.Component<CheckboxProps, {}> {
     }
     const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
+      [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     });
     const checkboxClass = classNames({
       [`${prefixCls}-indeterminate`]: indeterminate,
