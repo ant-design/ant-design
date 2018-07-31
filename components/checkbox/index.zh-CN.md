@@ -37,6 +37,10 @@ title: Checkbox
 | value | 指定选中的选项 | string\[] | \[] |
 | onChange | 变化时回调函数 | Function(checkedValue) | - |
 
+#### Checkbox Group
+
+按钮样式的Checkbox
+
 ### 方法
 
 #### Checkbox

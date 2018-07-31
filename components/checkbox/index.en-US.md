@@ -36,6 +36,10 @@ Checkbox component.
 | value | Used for setting the currently selected value. | string\[] | \[] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |
 
+#### Checkbox Group
+
+Button Style Checkbox
+
 ### Methods
 
 #### Checkbox

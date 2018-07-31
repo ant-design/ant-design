@@ -25,10 +25,9 @@ function onChange(checkedValues) {
 ReactDOM.render(
   <div>
     <CheckboxGroup onChange={onChange} defaultValue={['Apple']}>
-        <CheckboxButton value="Apple">Apple</CheckboxButton>
-        <CheckboxButton value="Pear">Pear</CheckboxButton>
-        <CheckboxButton value="Orange">Orange</CheckboxButton>
+      <CheckboxButton value="Apple">Apple</CheckboxButton>
+      <CheckboxButton value="Pear">Pear</CheckboxButton>
+      <CheckboxButton value="Orange">Orange</CheckboxButton>
     </CheckboxGroup>
-  </div>
-, mountNode);
+  </div>, mountNode);
 ```

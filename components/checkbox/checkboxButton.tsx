@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Checkbox, { AbstractCheckboxProps, CheckboxChangeEvent } from './Checkbox';
 
-
 export type CheckboxButtonProps = AbstractCheckboxProps<CheckboxChangeEvent>;
 
 export default class CheckboxButton extends React.Component<CheckboxButtonProps, any> {
