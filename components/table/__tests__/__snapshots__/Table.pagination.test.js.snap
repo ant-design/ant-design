@@ -43,6 +43,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class=""
@@ -56,6 +57,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class=""

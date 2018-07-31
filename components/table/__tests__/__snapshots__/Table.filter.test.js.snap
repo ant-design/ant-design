@@ -109,6 +109,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -122,6 +123,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -135,6 +137,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -148,6 +151,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-column-has-filters"
