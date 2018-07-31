@@ -189,6 +189,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           style={props.style}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
         >
           <RcDatePicker
             {...props}
