@@ -38,9 +38,6 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -64,6 +61,9 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             >
               Tab 3
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -132,9 +132,6 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -158,6 +155,9 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
             >
               Tab 3
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -228,9 +228,6 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-              <div
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
@@ -254,6 +251,9 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
               >
                 Tab Title 3
               </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
             </div>
           </div>
         </div>
@@ -343,9 +343,6 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-              <div
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
@@ -397,6 +394,9 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   </i>
                 </div>
               </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
             </div>
           </div>
         </div>
@@ -460,9 +460,6 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -486,6 +483,9 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
             >
               Tab 3
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -577,9 +577,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -643,6 +640,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 Tab 3
               </div>
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -723,9 +723,6 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
-            <div
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-active ant-tabs-tab"
@@ -749,6 +746,9 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
             >
               Tab 3
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -816,9 +816,6 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-            />
             <div
               aria-disabled="false"
               aria-selected="false"
@@ -888,6 +885,9 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
                 Tab 2
               </span>
             </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
           </div>
         </div>
       </div>
@@ -989,9 +989,6 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-              <div
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
@@ -1015,6 +1012,9 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
               >
                 Tab 3
               </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
             </div>
           </div>
         </div>
@@ -1148,9 +1148,6 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-              <div
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
@@ -1174,6 +1171,9 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
               >
                 Tab 3
               </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
             </div>
           </div>
         </div>
@@ -1289,9 +1289,6 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-              <div
                 aria-disabled="false"
                 aria-selected="true"
                 class="ant-tabs-tab-active ant-tabs-tab"
@@ -1379,6 +1376,9 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
               >
                 Tab 11
               </div>
+              <div
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              />
             </div>
           </div>
         </div>

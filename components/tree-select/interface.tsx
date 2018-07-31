@@ -4,7 +4,11 @@ import { AbstractSelectProps } from '../select';
 export interface TreeData {
   key: string;
   value: string;
-  label: React.ReactNode;
+  /**
+   * @deprecated Please use `title` instead.
+   */
+  label?: React.ReactNode;
+  title?: React.ReactNode;
   children?: TreeData[];
 }
 

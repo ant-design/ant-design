@@ -2,13 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
-import { getFullKeyList, calcExpandedKeys } from 'rc-tree/lib/util';
+import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
 
 import Tree, {
   TreeProps, AntdTreeNodeAttribute,
   AntTreeNodeExpandedEvent, AntTreeNodeSelectedEvent, AntTreeNode,
 } from './Tree';
-import { calcRangeKeys } from './util';
+import { calcRangeKeys, getFullKeyList } from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -47,7 +47,8 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
   constructor(props: DirectoryTreeProps) {
     super(props);
 
-    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys } = props;
+    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys, children } = props;
+    const { keyEntities } = convertTreeToEntities(children);
 
     // Selected keys
     this.state = {
@@ -58,7 +59,7 @@ export default class DirectoryTree extends React.Component<DirectoryTreeProps, D
     if (defaultExpandAll) {
       this.state.expandedKeys = getFullKeyList(props.children);
     } else if (defaultExpandParent) {
-      this.state.expandedKeys = calcExpandedKeys(expandedKeys || defaultExpandedKeys, props);
+      this.state.expandedKeys = conductExpandParent(expandedKeys || defaultExpandedKeys, keyEntities);
     } else {
       this.state.expandedKeys = defaultExpandedKeys;
     }

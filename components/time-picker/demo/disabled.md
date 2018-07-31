@@ -13,7 +13,6 @@ title:
 
 A disabled state of the `TimePicker`.
 
-
 ````jsx
 import { TimePicker } from 'antd';
 import moment from 'moment';

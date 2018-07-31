@@ -31,10 +31,11 @@
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
-      margin-top: -2px;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
+
+      line-height: @tree-title-height - 4px;
     }
     &.drag-over {
       > span[draggable] {

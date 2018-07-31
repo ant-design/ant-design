@@ -540,6 +540,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
+            id="gender"
           >
             <div
               aria-autocomplete="list"
@@ -547,6 +548,8 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
               aria-haspopup="true"
               class="ant-select-selection
             ant-select-selection--single"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
               role="combobox"
               tabindex="0"
             >
@@ -1725,6 +1728,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               >
                 <div
                   class="ant-select ant-select-enabled"
+                  id="prefix"
                   style="width:70px"
                 >
                   <div
@@ -1733,6 +1737,8 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     aria-haspopup="true"
                     class="ant-select-selection
             ant-select-selection--single"
+                    data-__field="[object Object]"
+                    data-__meta="[object Object]"
                     role="combobox"
                     tabindex="0"
                   >
@@ -1796,6 +1802,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         >
           <div
             class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+            id="website"
           >
             <div
               aria-autocomplete="list"
@@ -1803,6 +1810,8 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               aria-haspopup="true"
               class="ant-select-selection
             ant-select-selection--single"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
               role="combobox"
             >
               <div
@@ -2445,6 +2454,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
+            id="select"
           >
             <div
               aria-autocomplete="list"
@@ -2452,6 +2462,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               aria-haspopup="true"
               class="ant-select-selection
             ant-select-selection--single"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
               role="combobox"
               tabindex="0"
             >
@@ -2504,6 +2516,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-enabled"
+            id="select-multiple"
           >
             <div
               aria-autocomplete="list"
@@ -2511,6 +2524,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               aria-haspopup="true"
               class="ant-select-selection
             ant-select-selection--multiple"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
               role="combobox"
             >
               <div

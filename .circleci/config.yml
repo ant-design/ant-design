@@ -21,6 +21,52 @@ references:
     environment:
       REACT: 16
 
+  workflow: &workflow
+    jobs:
+      - setup:
+          filters:
+            branches:
+              ignore: gh-pages
+      - dist:
+          requires:
+          - setup
+      - compile:
+          requires:
+          - setup
+      - lint:
+          requires:
+            - setup
+      - test_dist:
+          requires:
+            - dist
+      - test_lib:
+          requires:
+            - compile
+      - test_es:
+          requires:
+            - compile
+      - test_dom:
+          requires:
+            - setup
+      - test_node:
+          requires:
+            - setup
+      - test_dist_15:
+          requires:
+            - dist
+      - test_lib_15:
+          requires:
+            - compile
+      - test_es_15:
+          requires:
+            - compile
+      - test_dom_15:
+          requires:
+            - setup
+      - test_node_15:
+          requires:
+            - setup
+
 jobs:
   setup:
     <<: *container_config
@@ -177,45 +223,14 @@ jobs:
 
 workflows:
   version: 2
-  build-test:
-    jobs:
-      - setup
-      - dist:
-          requires:
-          - setup
-      - compile:
-          requires:
-          - setup
-      - lint:
-          requires:
-            - setup
-      - test_dist:
-          requires:
-            - dist
-      - test_lib:
-          requires:
-            - compile
-      - test_es:
-          requires:
-            - compile
-      - test_dom:
-          requires:
-            - setup
-      - test_node:
-          requires:
-            - setup
-      - test_dist_15:
-          requires:
-            - dist
-      - test_lib_15:
-          requires:
-            - compile
-      - test_es_15:
-          requires:
-            - compile
-      - test_dom_15:
-          requires:
-            - setup
-      - test_node_15:
-          requires:
-            - setup
+  build_test:
+    <<: *workflow
+  nightly:
+    <<: *workflow
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master

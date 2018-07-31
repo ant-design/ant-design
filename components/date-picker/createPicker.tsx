@@ -23,14 +23,20 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       showToday: true,
     };
 
-    static getDerivedStateFromProps(nextProps: PickerProps) {
+    static getDerivedStateFromProps(nextProps: PickerProps, prevState: any) {
+      let state = null;
       if ('value' in nextProps) {
-        return {
+        state = {
           value: nextProps.value,
-          showDate: nextProps.value,
         };
+        if (nextProps.value !== prevState.value) {
+          state = {
+            ...state,
+            showDate: nextProps.value,
+          };
+        }
       }
-      return null;
+      return state;
     }
 
     private input: any;
@@ -183,6 +189,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           style={props.style}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
         >
           <RcDatePicker
             {...props}

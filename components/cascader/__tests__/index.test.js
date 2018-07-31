@@ -190,4 +190,40 @@ describe('Cascader', () => {
     wrapper.setProps({ options: [options[0]] });
     expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
   });
+
+  it('can use fieldNames', () => {
+    const customerOptions = [{
+      code: 'zhejiang',
+      name: 'Zhejiang',
+      items: [{
+        code: 'hangzhou',
+        name: 'Hangzhou',
+        items: [{
+          code: 'xihu',
+          name: 'West Lake',
+        }],
+      }],
+    }, {
+      code: 'jiangsu',
+      name: 'Jiangsu',
+      items: [{
+        code: 'nanjing',
+        name: 'Nanjing',
+        items: [{
+          code: 'zhonghuamen',
+          name: 'Zhong Hua Men',
+        }],
+      }],
+    }];
+    const wrapper = mount(<Cascader
+      options={customerOptions}
+      fieldNames={{
+        children: 'items',
+        label: 'name',
+        value: 'code',
+      }}
+    />);
+    wrapper.instance().handleChange(['zhejiang', 'hangzhou', 'xihu'], customerOptions);
+    expect(wrapper.find('.ant-cascader-picker-label').text().split('/').length).toBe(3);
+  });
 });
