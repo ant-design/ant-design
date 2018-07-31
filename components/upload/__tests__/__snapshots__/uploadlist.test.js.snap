@@ -64,7 +64,7 @@ exports[`Upload List handle error 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px;"
+                  style="width: 0%; height: 2px; border-radius: 100px;"
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px;"
+                  style="width: 0%; height: 2px; border-radius: 100px;"
                 />
               </div>
             </div>
@@ -216,7 +216,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px;"
+                  style="width: 0%; height: 2px; border-radius: 100px;"
                 />
               </div>
             </div>
