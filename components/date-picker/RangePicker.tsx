@@ -68,6 +68,7 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string) {
 class RangePicker extends React.Component<any, RangePickerState> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
+    tagPrefixCls: 'ant-tag',
     allowClear: true,
     showToday: false,
   };
@@ -209,7 +210,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   renderFooter = (...args: any[]) => {
-    const { prefixCls, ranges, renderExtraFooter } = this.props;
+    const { prefixCls, ranges, renderExtraFooter, tagPrefixCls } = this.props;
     if (!ranges && !renderExtraFooter) {
       return null;
     }
@@ -223,6 +224,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       return (
         <Tag
           key={range}
+          prefixCls={tagPrefixCls}
           color="blue"
           onClick={() => this.handleRangeClick(value)}
           onMouseEnter={() => this.setState({ hoverValue: value })}
