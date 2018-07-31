@@ -196,7 +196,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       <Dialog
         {...restProps}
         prefixCls={prefixCls}
-        className={classNames({ [`${prefixCls}-centered`]: centered }, className)}
+        className={classNames({ [`${prefixCls}-centered`]: !!centered }, className)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}

@@ -33,7 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     prefixCls,
     `${prefixCls}-${props.type}`,
     {
-      [`${prefixCls}-centered`]: props.centered,
+      [`${prefixCls}-centered`]: !!props.centered,
     },
     props.className,
   );
