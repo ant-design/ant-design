@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-`1.0` 之后，Modal 的 `align` 属性被移除，您可以直接使用 `style.top` 或配合其他样式来设置对话框位置。
+`1.0` 之后，Modal 的 `align` 属性被移除，您可以直接使用 `centered` 或类似 `style.top` 等样式来设置对话框位置。
 
 ## en-US
 
-After release `1.0`,  Modal's `align` prop was removed. You can use `style.top` or other styles to
+After release `1.0`, Modal's `align` prop was removed. You can use `centered`、`style.top` or other styles to
 set position of modal dialog.
 
 ````jsx
@@ -50,7 +50,7 @@ class App extends React.Component {
         <Button type="primary" onClick={() => this.setModal2Visible(true)}>Vertically centered modal dialog</Button>
         <Modal
           title="Vertically centered modal dialog"
-          wrapClassName="vertical-center-modal"
+          centered
           visible={this.state.modal2Visible}
           onOk={() => this.setModal2Visible(false)}
           onCancel={() => this.setModal2Visible(false)}
@@ -65,40 +65,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
-
-````css
-/* use css to set position of modal */
-.vertical-center-modal {
-  text-align: center;
-  white-space: nowrap;
-}
-
-.vertical-center-modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  width: 0;
-}
-
-.vertical-center-modal .ant-modal {
-  display: inline-block;
-  vertical-align: middle;
-  top: 0;
-  text-align: left;
-}
-
-/*
-// Use flex which not working in IE
-.vertical-center-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.vertical-center-modal .ant-modal {
-  top: 0;
-}
-*/
 ````

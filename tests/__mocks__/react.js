@@ -1,11 +1,18 @@
+import createReactContext from 'create-react-context/lib/implementation';
+
 const React = require.requireActual('react');
 
 if (!React.createContext) {
-  React.createContext = () => {
-    const Provider = ({ children }) => children;
-    const Consumer = ({ children }) => children();
-    return { Provider, Consumer };
+  React.createContext = createReactContext;
+}
+
+if (!React.createRef) {
+  React.createRef = () => {
+    const ref = function setRef(node) {
+      ref.current = node;
+    };
+    return ref;
   };
 }
 
-module.exports = React;
+Object.assign(module.exports, React);

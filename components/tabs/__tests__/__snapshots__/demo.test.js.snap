@@ -37,33 +37,35 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              Tab 1
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 2
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 3
-            </div>
           </div>
         </div>
       </div>
@@ -131,33 +133,35 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              Tab 1
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 2
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 3
-            </div>
           </div>
         </div>
       </div>
@@ -227,33 +231,35 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             <div
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab Title 1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab Title 2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab Title 3
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                Tab Title 1
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab Title 2
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab Title 3
-              </div>
             </div>
           </div>
         </div>
@@ -342,35 +348,37 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             <div
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  <div>
+                    Tab 1
+                    <i
+                      class="anticon anticon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  <div>
+                    Tab 2
+                    <i
+                      class="anticon anticon-close"
+                    />
+                  </div>
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                <div>
-                  Tab 1
-                  <i
-                    class="anticon anticon-close"
-                  />
-                </div>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                <div>
-                  Tab 2
-                  <i
-                    class="anticon anticon-close"
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -433,33 +441,35 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="true"
+                aria-selected="false"
+                class=" ant-tabs-tab ant-tabs-tab-disabled"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              Tab 1
-            </div>
-            <div
-              aria-disabled="true"
-              aria-selected="false"
-              class=" ant-tabs-tab ant-tabs-tab-disabled"
-              role="tab"
-            >
-              Tab 2
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 3
-            </div>
           </div>
         </div>
       </div>
@@ -537,47 +547,49 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                <div>
+                  Tab 1
+                  <i
+                    class="anticon anticon-close"
+                  />
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                <div>
+                  Tab 2
+                  <i
+                    class="anticon anticon-close"
+                  />
+                </div>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                <div
+                  class="ant-tabs-tab-unclosable"
+                >
+                  Tab 3
+                </div>
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              <div>
-                Tab 1
-                <i
-                  class="anticon anticon-close"
-                />
-              </div>
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              <div>
-                Tab 2
-                <i
-                  class="anticon anticon-close"
-                />
-              </div>
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              <div
-                class="ant-tabs-tab-unclosable"
-              >
-                Tab 3
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -657,33 +669,35 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                Tab 1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                Tab 3
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              Tab 1
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 2
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              Tab 3
-            </div>
           </div>
         </div>
       </div>
@@ -751,35 +765,37 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           <div
             class="ant-tabs-nav ant-tabs-nav-animated"
           >
+            <div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" ant-tabs-tab"
+                role="tab"
+              >
+                <span>
+                  <i
+                    class="anticon anticon-apple"
+                  />
+                  Tab 1
+                </span>
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="ant-tabs-tab-active ant-tabs-tab"
+                role="tab"
+              >
+                <span>
+                  <i
+                    class="anticon anticon-android"
+                  />
+                  Tab 2
+                </span>
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
-            <div
-              aria-disabled="false"
-              aria-selected="false"
-              class=" ant-tabs-tab"
-              role="tab"
-            >
-              <span>
-                <i
-                  class="anticon anticon-apple"
-                />
-                Tab 1
-              </span>
-            </div>
-            <div
-              aria-disabled="false"
-              aria-selected="true"
-              class="ant-tabs-tab-active ant-tabs-tab"
-              role="tab"
-            >
-              <span>
-                <i
-                  class="anticon anticon-android"
-                />
-                Tab 2
-              </span>
-            </div>
           </div>
         </div>
       </div>
@@ -880,33 +896,35 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             <div
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 3
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                Tab 1
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 2
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 3
-              </div>
             </div>
           </div>
         </div>
@@ -1039,33 +1057,35 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             <div
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 3
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                Tab 1
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 2
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 3
-              </div>
             </div>
           </div>
         </div>
@@ -1180,97 +1200,99 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             <div
               class="ant-tabs-nav ant-tabs-nav-animated"
             >
+              <div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-active ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 1
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 2
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 3
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 4
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 5
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 6
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 7
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 8
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 9
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 10
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab 11
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
-              <div
-                aria-disabled="false"
-                aria-selected="true"
-                class="ant-tabs-tab-active ant-tabs-tab"
-                role="tab"
-              >
-                Tab 1
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 2
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 3
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 4
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 5
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 6
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 7
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 8
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 9
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 10
-              </div>
-              <div
-                aria-disabled="false"
-                aria-selected="false"
-                class=" ant-tabs-tab"
-                role="tab"
-              >
-                Tab 11
-              </div>
             </div>
           </div>
         </div>

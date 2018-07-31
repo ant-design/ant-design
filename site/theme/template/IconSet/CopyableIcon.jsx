@@ -2,34 +2,20 @@ import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Icon, Badge } from 'antd';
 
-export default class CopyableIcon extends React.Component {
-  state = {
-    justCopied: false,
-  };
+const CopyableIcon = ({ type, isNew, justCopied, onCopied }) => (
+  <CopyToClipboard
+    text={`<Icon type="${type}" />`}
+    onCopy={() => onCopied(type)}
+  >
+    <li className={justCopied === type ? 'copied' : ''}>
+      <Icon type={type} />
+      <span className="anticon-class">
+        <Badge dot={isNew}>
+          {type}
+        </Badge>
+      </span>
+    </li>
+  </CopyToClipboard>
+);
 
-  onCopied = () => {
-    this.setState({ justCopied: true }, () => {
-      setTimeout(() => {
-        this.setState({ justCopied: false });
-      }, 2000);
-    });
-  }
-
-  render() {
-    const { type, isNew } = this.props;
-    const { justCopied } = this.state;
-    const text = `<Icon type="${type}" />`;
-    return (
-      <CopyToClipboard text={text} onCopy={this.onCopied}>
-        <li className={justCopied ? 'copied' : ''}>
-          <Icon type={type} />
-          <span className="anticon-class">
-            <Badge dot={isNew}>
-              {type}
-            </Badge>
-          </span>
-        </li>
-      </CopyToClipboard>
-    );
-  }
-}
+export default CopyableIcon;

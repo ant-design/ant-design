@@ -50,4 +50,5 @@ module.exports = {
       tsConfigFile: './tsconfig.test.json',
     }
   },
+  testURL: 'http://localhost',
 };

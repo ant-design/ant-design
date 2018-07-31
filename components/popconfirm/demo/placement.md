@@ -16,10 +16,10 @@ There are 12 `placement` options available. Use `arrowPointAtCenter` if you want
 ````jsx
 import { Popconfirm, message, Button } from 'antd';
 
-const text = 'Are you sure delete this task?';
+const text = 'Are you sure to delete this task?';
 
 function confirm() {
-  message.info('Click on Yes.');
+  message.info('Clicked on Yes.');
 }
 
 ReactDOM.render(

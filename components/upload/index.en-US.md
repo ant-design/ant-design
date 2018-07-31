@@ -42,7 +42,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ### onChange
 
-> The function will be called when uploading is in progress, completed or  failed
+> The function will be called when uploading is in progress, completed or failed
 
 When uploading state change, it returns:
 

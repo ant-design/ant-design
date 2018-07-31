@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { traverseTreeNodes } from 'rc-tree/lib/util';
-
-export interface TraverseData {
-  key: string,
-}
+import { getNodeChildren, convertTreeToEntities } from 'rc-tree/lib/util';
+import { AntTreeNodeProps } from './Tree';
 
 enum Record {
   None,
@@ -11,8 +8,27 @@ enum Record {
   End,
 }
 
+// TODO: Move this logic into `rc-tree`
+function traverseNodesKey(rootChildren: React.ReactNode | React.ReactNode[], callback: (key: string | number | null) => boolean) {
+  const nodeList:React.ReactNode[] = getNodeChildren(rootChildren) || [];
+
+  function processNode(node: React.ReactElement<AntTreeNodeProps>) {
+    const { key, props: { children } } = node;
+    if (callback(key) !== false) {
+      traverseNodesKey(children, callback);
+    }
+  }
+
+  nodeList.forEach(processNode);
+}
+
+export function getFullKeyList(children: React.ReactNode | React.ReactNode[]) {
+  const { keyEntities } = convertTreeToEntities(children);
+  return Object.keys(keyEntities);
+}
+
 /** 计算选中范围，只考虑expanded情况以优化性能 */
-export function calcRangeKeys(nodeList: React.ReactNode | React.ReactNode[], expandedKeys: string[], startKey?: string, endKey?: string): string[] {
+export function calcRangeKeys(rootChildren: React.ReactNode | React.ReactNode[], expandedKeys: string[], startKey?: string, endKey?: string): string[] {
   const keys: string[] = [];
   let record: Record = Record.None;
 
@@ -27,7 +43,7 @@ export function calcRangeKeys(nodeList: React.ReactNode | React.ReactNode[], exp
     return key === startKey || key === endKey;
   }
 
-  traverseTreeNodes(nodeList, ({ key }: TraverseData) => {
+  traverseNodesKey(rootChildren, (key: string) => {
     if (record === Record.End) {
       return false;
     }
@@ -50,6 +66,8 @@ export function calcRangeKeys(nodeList: React.ReactNode | React.ReactNode[], exp
     if (expandedKeys.indexOf(key) === -1) {
       return false;
     }
+
+    return true;
   });
 
   return keys;
