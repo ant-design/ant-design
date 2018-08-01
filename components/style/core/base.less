@@ -7,20 +7,6 @@
 //
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
-// http://stackoverflow.com/a/13611748/3040605
-@font-face {
-  font-family: "Monospaced Number";
-  src: local("Tahoma");
-  unicode-range: U+30-39;
-}
-
-@font-face {
-  font-family: "Monospaced Number";
-  font-weight: bold;
-  src: local("Tahoma-Bold");
-  unicode-range: U+30-39;
-}
-
 @font-face {
   font-family: "Chinese Quote";
   src: local("PingFang SC"), local("SimSun");
@@ -79,6 +65,7 @@ body {
   margin: 0; // 1
   font-family: @font-family;
   font-size: @font-size-base;
+  font-variant: tabular-nums;
   line-height: @line-height-base;
   color: @text-color;
   background-color: @body-background; // 2
