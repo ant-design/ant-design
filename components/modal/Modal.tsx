@@ -181,7 +181,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-    const { footer, visible, className, centered, prefixCls, ...restProps } = this.props;
+    const { footer, visible, wrapClassName, centered, prefixCls, ...restProps } = this.props;
 
     const defaultFooter = (
       <LocaleReceiver
@@ -196,7 +196,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       <Dialog
         {...restProps}
         prefixCls={prefixCls}
-        className={classNames({ [`${prefixCls}-centered`]: !!centered }, className)}
+        wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}
