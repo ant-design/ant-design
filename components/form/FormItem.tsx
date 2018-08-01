@@ -98,7 +98,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       if (!child.props) {
         continue;
       }
-      if (FIELD_META_PROP in child.props) { // And means FIELD_DATA_PROP in chidl.props, too.
+      if (FIELD_META_PROP in child.props) { // And means FIELD_DATA_PROP in child.props, too.
         controls.push(child);
       } else if (child.props.children) {
         controls = controls.concat(this.getControls(child.props.children, recursively));
