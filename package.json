@@ -92,6 +92,7 @@
   },
   "devDependencies": {
     "@babel/types": "7.0.0-beta.44",
+    "@types/classnames": "^2.2.6",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "@yesmeck/offline-plugin": "^5.0.5",
@@ -173,7 +174,7 @@
     "scrollama": "^1.4.1",
     "stylelint": "9.4.0",
     "stylelint-config-standard": "^18.0.0",
-    "typescript": "~2.9.1",
+    "typescript": "~3.0.1",
     "unified": "^7.0.0",
     "values.js": "^1.0.3",
     "xhr-mock": "^2.4.0",

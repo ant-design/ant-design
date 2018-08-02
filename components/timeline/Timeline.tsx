@@ -11,6 +11,7 @@ export interface TimelineProps {
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
   reverse?: boolean;
+  mode?: 'left' | 'alternate' | 'right';
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -18,6 +19,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
   static defaultProps = {
     prefixCls: 'ant-timeline',
     reverse: false,
+    mode: '',
   };
 
   render() {
@@ -25,12 +27,14 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       prefixCls,
       pending = null, pendingDot,
       children, className, reverse,
+      mode,
       ...restProps
     } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
       [`${prefixCls}-reverse`]: !!reverse,
+      [`${prefixCls}-${mode}`]: !!mode,
     }, className);
 
     const pendingItem = !!pending ? (
@@ -57,6 +61,9 @@ export default class Timeline extends React.Component<TimelineProps, any> {
           (!reverse && !!pending)
             ? (idx === itemsCount - 2) ? lastCls : ''
             : (idx === itemsCount - 1) ? lastCls : '',
+          (mode === 'alternate')
+            ? (idx % 2 === 0) ? `${prefixCls}-item-left` : `${prefixCls}-item-right`
+            : (mode === 'right') ? `${prefixCls}-item-right` : '',
         ]),
       }),
     );

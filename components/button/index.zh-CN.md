@@ -30,6 +30,7 @@ subtitle: 按钮
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |
 | type | 设置按钮类型，可选值为 `primary` `dashed` `danger`(版本 2.7 中增加) 或者不设 | string | - |
 | onClick | `click` 事件的 handler | function | - |
+| block | 将按钮宽度调整为其父宽度的选项 | boolean | `false` |
 
 `<Button>Hello world!</Button>` 最终会被渲染为 `<button><span>Hello world!</span></button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
 

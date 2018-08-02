@@ -8,6 +8,7 @@ export interface HttpRequestHeader {
 
 export interface RcFile extends File {
   uid: number;
+  lastModifiedDate?: Date;
 }
 
 export interface UploadFile {

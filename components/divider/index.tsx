@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export interface DividerProps {
   prefixCls?: string;
   type?: 'horizontal' | 'vertical';
-  orientation?: 'left' | 'right';
+  orientation?: 'left' | 'right' | '';
   className?: string;
   children?: React.ReactNode;
   dashed?: boolean;

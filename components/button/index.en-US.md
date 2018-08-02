@@ -27,6 +27,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | target | same as target attribute of a, works when href is specified | string | - |
 | type | can be set to `primary` `ghost` `dashed` `danger`(added in 2.7) or omitted (meaning `default`) | string | `default` |
 | onClick | set the handler to handle `click` event | function | - |
+| block | option to fit button width to its parent width | boolean | `false` |
 
 `<Button>Hello world!</Button>` will be rendered into `<button><span>Hello world!</span></button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
 
