@@ -12,6 +12,8 @@
 @error-color            : @red-6;
 @highlight-color        : @red-6;
 @warning-color          : @gold-6;
+@white                  : #fff;
+@black                  : #000;
 @normal-color           : #d9d9d9;
 
 // Color used by default to control hover and active backgrounds and for
@@ -37,12 +39,14 @@
 @font-family  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @code-family            : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-@heading-color          : fade(#000, 85%);
-@text-color             : fade(#000, 65%);
-@text-color-secondary   : fade(#000, 45%);
-@heading-color-dark     : fade(#fff, 100%);
-@text-color-dark        : fade(#fff, 85%);
-@text-color-secondary-dark: fade(#fff, 65%);
+@heading-color          : fade(@black, 85%);
+@text-color             : fade(@black, 65%);
+@text-color-secondary   : fade(@black, 45%);
+@text-color-inverse     : #fff;
+@icon-color-hover       : fade(@black, 75%);
+@heading-color-dark     : fade(@white, 100%);
+@text-color-dark        : fade(@white, 85%);
+@text-color-secondary-dark: fade(@white, 65%);
 @font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
 @font-size-sm           : 12px;
@@ -93,6 +97,7 @@
 // Border color
 @border-color-base      : hsv(0, 0, 85%);  // base border outline a component
 @border-color-split     : hsv(0, 0, 91%);  // split border inside a component
+@border-color-inverse   : @white;
 @border-width-base      : 1px;            // width of the border for a component
 @border-style-base      : solid;          // style of a components border
 
@@ -110,7 +115,8 @@
 @disabled-color-dark    : fade(#fff, 35%);
 
 // Shadow
-@shadow-color           : rgba(0, 0, 0, .15);
+@shadow-color           : fade(@black, 15%);
+@shadow-color-inverse   : @component-background;
 @box-shadow-base        : @shadow-1-down;
 @shadow-1-up            : 0 2px 8px @shadow-color;
 @shadow-1-down          : 0 2px 8px @shadow-color;
@@ -251,24 +257,25 @@
 
 // Input
 // ---
-@input-height-base           : 32px;
-@input-height-lg             : 40px;
-@input-height-sm             : 24px;
-@input-padding-horizontal    : @control-padding-horizontal - 1px;
-@input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
-@input-padding-horizontal-lg : @input-padding-horizontal;
-@input-padding-vertical-base : 4px;
-@input-padding-vertical-sm   : 1px;
-@input-padding-vertical-lg   : 6px;
-@input-placeholder-color     : hsv(0, 0, 75%);
-@input-color                 : @text-color;
-@input-border-color          : @border-color-base;
-@input-bg                    : #fff;
-@input-addon-bg              : @background-color-light;
-@input-hover-border-color    : @primary-color;
-@input-disabled-bg           : @disabled-bg;
-@input-outline-offset        : 0 0;
+@input-height-base              : 32px;
+@input-height-lg                : 40px;
+@input-height-sm                : 24px;
+@input-padding-horizontal       : @control-padding-horizontal - 1px;
+@input-padding-horizontal-base  : @input-padding-horizontal;
+@input-padding-horizontal-sm    : @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-lg    : @input-padding-horizontal;
+@input-padding-vertical-base    : 4px;
+@input-padding-vertical-sm      : 1px;
+@input-padding-vertical-lg      : 6px;
+@input-placeholder-color        : hsv(0, 0, 75%);
+@input-color                    : @text-color;
+@input-border-color             : @border-color-base;
+@input-bg                       : #fff;
+@input-number-handler-active-bg : #f4f4f4;
+@input-addon-bg                 : @background-color-light;
+@input-hover-border-color       : @primary-color;
+@input-disabled-bg              : @disabled-bg;
+@input-outline-offset           : 0 0;
 
 // Tooltip
 // ---
@@ -277,7 +284,7 @@
 //** Tooltip text color
 @tooltip-color: #fff;
 //** Tooltip background color
-@tooltip-bg: rgba(0, 0, 0, .75);
+@tooltip-bg: fade(@black, 75%);
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
@@ -305,7 +312,7 @@
 
 // Modal
 // --
-@modal-mask-bg: rgba(0, 0, 0, 0.65);
+@modal-mask-bg: fade(@black, 65%);
 
 // Progress
 // --
@@ -371,6 +378,7 @@
 @badge-font-size: @font-size-sm;
 @badge-font-weight: normal;
 @badge-status-size: 6px;
+@badge-text-color: @component-background;
 
 // Rate
 // ---
@@ -386,7 +394,8 @@
 @card-padding-base: 24px;
 @card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
-@card-shadow: 0 2px 8px rgba(0, 0, 0, .09);
+@card-shadow: 0 2px 8px fade(@black, 9%);
+@card-background: #cfd8dc;
 
 // Tabs
 // ---
@@ -432,6 +441,7 @@
 @switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
+@switch-shadow-color: fade(#00230b, 20%);
 
 // Pagination
 // ---
