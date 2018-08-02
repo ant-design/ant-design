@@ -23,17 +23,13 @@ export default class Demo extends React.Component {
     intl: PropTypes.object,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      codeExpand: false,
-      sourceCode: '',
-      copied: false,
-      copyTooltipVisible: false,
-      showRiddleButton: false,
-    };
-  }
+  state = {
+    codeExpand: false,
+    sourceCode: '',
+    copied: false,
+    copyTooltipVisible: false,
+    showRiddleButton: false,
+  };
 
   componentWillReceiveProps(nextProps) {
     const { highlightedCode } = nextProps;
