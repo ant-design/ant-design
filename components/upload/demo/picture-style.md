@@ -17,13 +17,13 @@ If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not suppor
 import { Upload, Button, Icon } from 'antd';
 
 const fileList = [{
-  uid: -1,
+  uid: '-1',
   name: 'xxx.png',
   status: 'done',
   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
 }, {
-  uid: -2,
+  uid: '-2',
   name: 'yyy.png',
   status: 'done',
   url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
