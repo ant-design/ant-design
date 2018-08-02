@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { Alert } from 'antd';
 
 export default class ErrorBoundary extends React.Component {
