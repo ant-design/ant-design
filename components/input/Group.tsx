@@ -6,6 +6,10 @@ export interface GroupProps {
   size?: 'large' | 'small' | 'default';
   children?: any;
   style?: React.CSSProperties;
+  onMouseEnter?: React.MouseEventHandler<HTMLSpanElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>;
+  onFocus?: React.FocusEventHandler<HTMLSpanElement>;
+  onBlur?: React.FocusEventHandler<HTMLSpanElement>;
   prefixCls?: string;
   compact?: boolean;
 }
@@ -18,7 +22,14 @@ const Group: React.StatelessComponent<GroupProps> = (props) => {
     [`${prefixCls}-compact`]: props.compact,
   }, className);
   return (
-    <span className={cls} style={props.style}>
+    <span
+      className={cls}
+      style={props.style}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
+    >
       {props.children}
     </span>
   );
