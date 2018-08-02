@@ -1,0 +1,149 @@
+@import "../../style/themes/default";
+
+@dawer-prefix-cls: ~"@{ant-prefix}-drawer";
+
+.@{dawer-prefix-cls} {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: @zindex-modal;
+  transition: transform 0.3s @ease-in-out-circ;
+  > * {
+    transition: transform 0.3s @ease-in-out-circ;
+  }
+
+  &-content-wrapper {
+    position: absolute;
+  }
+
+  &-left,
+  &-right {
+    .@{dawer-prefix-cls}-content-wrapper,
+    .@{dawer-prefix-cls}-content {
+      height: 100%;
+    }
+  }
+  &-left {
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-right;
+      }
+    }
+  }
+  &-right {
+    .@{dawer-prefix-cls} {
+      &-content-wrapper {
+        right: 0;
+      }
+    }
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-left;
+      }
+    }
+  }
+  &.@{dawer-prefix-cls}-open {
+    > * {
+      pointer-events: auto;
+    }
+    .@{dawer-prefix-cls} {
+      &-mask {
+        opacity: 0.3;
+      }
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-size: @font-size-lg;
+    line-height: 22px;
+    font-weight: 500;
+    color: @heading-color;
+  }
+
+  &-content {
+    position: relative;
+    background-color: @component-background;
+    border: 0;
+    background-clip: padding-box;
+    z-index: 1;
+  }
+
+  &-close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.3s;
+    color: @text-color-secondary;
+    outline: 0;
+    padding: 0;
+
+    &-x {
+      display: block;
+      font-style: normal;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      width: 56px;
+      height: 56px;
+      line-height: 56px;
+      font-size: @font-size-lg;
+
+      &:before {
+        content: "\e633";
+        display: block;
+        font-family: "anticon" !important;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      color: #444;
+      text-decoration: none;
+    }
+  }
+
+  &-header {
+    padding: 16px 24px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    background: @component-background;
+    color: @text-color;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-body {
+    padding: 24px;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    word-wrap: break-word;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: @modal-mask-bg;
+    height: 100%;
+    transition: opacity 0.3s @ease-in-out-circ;
+    filter: ~"alpha(opacity=50)";
+  }
+
+  &-open {
+    overflow: hidden;
+    &-content {
+      box-shadow: @shadow-2;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title:
   zh-CN: 图片列表样式
   en-US: Pictures with list style
@@ -12,7 +12,6 @@ title:
 ## en-US
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
-
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';
@@ -48,18 +47,18 @@ ReactDOM.render(
   <div>
     <Upload {...props}>
       <Button>
-        <Icon type="upload" /> upload
+        <Icon type="upload" /> Upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props2}>
       <Button>
-        <Icon type="upload" /> upload
+        <Icon type="upload" /> Upload
       </Button>
     </Upload>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
 
 ````css

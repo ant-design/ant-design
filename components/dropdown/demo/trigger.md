@@ -34,6 +34,6 @@ ReactDOM.render(
     <a className="ant-dropdown-link" href="#">
       Click me <Icon type="down" />
     </a>
-  </Dropdown>
-, mountNode);
+  </Dropdown>,
+  mountNode);
 ````

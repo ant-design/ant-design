@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table.filter override custom filter correctly 1`] = `
+<div
+  className="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setSelectedKeys"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="confirm"
+    onClick={[Function]}
+  >
+    Confirm
+  </span>
+  <span
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+</div>
+`;
+
 exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
@@ -16,6 +42,26 @@ exports[`Table.filter renders custom content correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter renders custom filter icon correctly 1`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  filtered
+</span>
+`;
+
+exports[`Table.filter renders custom filter icon correctly 2`] = `
+<span
+  class="ant-table-filter-icon ant-dropdown-trigger"
+  style=""
+  title="Filter menu"
+>
+  unfiltered
+</span>
+`;
+
 exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -27,7 +73,7 @@ exports[`Table.filter renders filter correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -63,6 +109,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -76,6 +123,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -89,6 +137,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -102,6 +151,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-column-has-filters"

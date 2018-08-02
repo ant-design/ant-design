@@ -18,7 +18,7 @@ export interface ColumnProps<T> {
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode;
+  filterDropdown?: React.ReactNode | ((props: Object) => React.ReactNode);
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
   sorter?: boolean | CompareFn<T>;
@@ -84,18 +84,19 @@ export interface SorterResult<T> {
   field: string;
   columnKey: string;
 }
+export type TableSize = 'default' | 'middle' | 'small';
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
   pagination?: PaginationConfig | false;
-  size?: 'default' | 'middle' | 'small';
+  size?: TableSize;
   dataSource?: T[];
   components?: TableComponents;
   columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: any;
+  expandedRowRender?: (record: T, index: number, indent: number, expanded: boolean) => React.ReactNode;
   defaultExpandAllRows?: boolean;
   defaultExpandedRowKeys?: string[] | number[];
   expandedRowKeys?: string[] | number[];
@@ -105,7 +106,7 @@ export interface TableProps<T> {
   onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (
-    pagination: PaginationConfig | boolean,
+    pagination: PaginationConfig,
     filters: Record<keyof T, string[]>,
     sorter: SorterResult<T>,
   ) => void;

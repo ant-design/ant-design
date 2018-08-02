@@ -112,61 +112,6 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/combobox.md correctly 1`] = `
-<div
-  class="ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px"
->
-  <div
-    aria-autocomplete="list"
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
-  >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <div
-        class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        Enter the account name
-      </div>
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <input
-              autocomplete="off"
-              class="ant-select-search__field"
-              value=""
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <b />
-    </span>
-  </div>
-</div>
-`;
-
 exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 <div>
   <div
@@ -445,7 +390,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
-  class="ant-select ant-select-combobox ant-select-enabled ant-select-no-arrow"
+  class="ant-select ant-select-enabled ant-select-no-arrow"
   style="width:200px"
 >
   <div
@@ -455,6 +400,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
     class="ant-select-selection
             ant-select-selection--single"
     role="combobox"
+    tabindex="0"
   >
     <div
       class="ant-select-selection__rendered"
@@ -466,26 +412,25 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
       >
         input search text
       </div>
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
+      <div
+        class="ant-select-search ant-select-search--inline"
+        style="display:none"
+      >
+        <div
+          class="ant-select-search__field__wrap"
         >
-          <div
-            class="ant-select-search__field__wrap"
+          <input
+            autocomplete="off"
+            class="ant-select-search__field"
+            value=""
+          />
+          <span
+            class="ant-select-search__field__mirror"
           >
-            <input
-              autocomplete="off"
-              class="ant-select-search__field"
-              value=""
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
+             
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -542,7 +487,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 exports[`renders ./components/select/demo/size.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
   >
     <label
       class="ant-radio-button-wrapper"
@@ -628,52 +573,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         >
           a1
         </div>
-      </div>
-      <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <b />
-      </span>
-    </div>
-  </div>
-  <br />
-  <div
-    class="ant-select ant-select-combobox ant-select-enabled"
-    style="width:200px"
-  >
-    <div
-      aria-autocomplete="list"
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
-    >
-      <div
-        class="ant-select-selection__rendered"
-      >
-        <ul>
-          <li
-            class="ant-select-search ant-select-search--inline"
-          >
-            <div
-              class="ant-select-search__field__wrap"
-            >
-              <input
-                autocomplete="off"
-                class="ant-select-search__field"
-                value="a1"
-              />
-              <span
-                class="ant-select-search__field__mirror"
-              >
-                a1 
-              </span>
-            </div>
-          </li>
-        </ul>
       </div>
       <span
         class="ant-select-arrow"

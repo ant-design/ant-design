@@ -2,7 +2,7 @@
 
 exports[`Radio passes prefixCls down to radio 1`] = `
 <div
-  class="my-radio-group"
+  class="my-radio-group my-radio-group-outline"
 >
   <label
     class="my-radio-wrapper"

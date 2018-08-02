@@ -19,13 +19,13 @@ const extname = (url: string) => {
   }
   const temp = url.split('/');
   const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/\#|\?/)[0];
+  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
 
 const isImageUrl = (url: string): boolean => {
   const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp)$/.test(extension)) {
+  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp)$/i.test(extension)) {
     return true;
   } else if (/^data:/.test(url)) { // other file types of base64
     return false;

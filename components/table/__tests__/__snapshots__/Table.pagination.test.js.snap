@@ -11,7 +11,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -43,6 +43,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class=""
@@ -56,6 +57,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class=""

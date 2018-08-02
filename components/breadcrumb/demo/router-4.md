@@ -76,8 +76,8 @@ const Home = withRouter((props) => {
 ReactDOM.render(
   <Router>
     <Home />
-  </Router>
-, mountNode);
+  </Router>,
+  mountNode);
 ````
 
 ````css

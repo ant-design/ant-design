@@ -77,7 +77,6 @@
     border: 0;
     border-radius: @border-radius-base;
     padding: 0 @control-padding-horizontal - 1px;
-    display: block;
     .placeholder();
   }
 
@@ -103,14 +102,13 @@
     border-left: @border-width-base @border-style-base @border-color-base;
     width: 22px;
     height: 100%;
-    background: transparent;
+    background: @component-background;
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
-    z-index: 2; // https://github.com/ant-design/ant-design/issues/6289
   }
 
   &-handler-wrap:hover &-handler {

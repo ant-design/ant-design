@@ -11,8 +11,9 @@ export default class Portal extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
     if (this.container) {
-      return this.props.children;
+      return children;
     }
     return null;
   }

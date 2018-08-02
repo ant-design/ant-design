@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Layout from '..';
 
 const { Sider, Content } = Layout;
@@ -68,5 +68,35 @@ describe('Layout', () => {
       <Sider theme="light">Sider</Sider>
     );
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light'));
+  });
+
+  it('renders string width correctly', () => {
+    const wrapper = render(
+      <Sider width="200">Sider</Sider>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+});
+
+describe('Sider onBreakpoint', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn(() => {
+        return {
+          matches: true,
+          addListener: () => {},
+          removeListener: () => {},
+        };
+      }),
+    });
+  });
+
+  it('should trigger onBreakpoint', async () => {
+    const onBreakpoint = jest.fn();
+
+    mount(
+      <Sider breakpoint="md" onBreakpoint={onBreakpoint}>Sider</Sider>
+    );
+    expect(onBreakpoint).toBeCalledWith(true);
   });
 });

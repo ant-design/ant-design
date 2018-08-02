@@ -41,7 +41,7 @@
 @text-color             : fade(#000, 65%);
 @text-color-secondary   : fade(#000, 45%);
 @heading-color-dark     : fade(#fff, 100%);
-@text-color-dark        : fade(#fff,85%);
+@text-color-dark        : fade(#fff, 85%);
 @text-color-secondary-dark: fade(#fff, 65%);
 @font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
@@ -157,6 +157,7 @@
 // Checkbox
 @checkbox-size          : 16px;
 @checkbox-color         : @primary-color;
+@checkbox-check-color   : #fff;
 
 // Radio
 @radio-size             : 16px;
@@ -267,6 +268,7 @@
 @input-addon-bg              : @background-color-light;
 @input-hover-border-color    : @primary-color;
 @input-disabled-bg           : @disabled-bg;
+@input-outline-offset        : 0 0;
 
 // Tooltip
 // ---
@@ -378,7 +380,7 @@
 // Card
 // ---
 @card-head-color: @heading-color;
-@card-head-background: @component-background;
+@card-head-background: transparent;
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
@@ -466,11 +468,22 @@
 @slider-disabled-color:               @disabled-color;
 @slider-disabled-background-color:    @component-background;
 
+// Tree
+// ---
+@tree-title-height:                   24px;
+@tree-child-padding:                  18px;
+@tree-directory-selected-color:       #fff;
+@tree-directory-selected-bg:          @primary-color;
+
 // Collapse
 // ---
 @collapse-header-padding:             12px 0 12px 40px;
 @collapse-header-bg:                  @background-color-light;
 @collapse-content-padding:            @padding-md;
 @collapse-content-bg:                 @component-background;
+
+// Message
+// ---
+@message-notice-content-padding:      10px 16px;
 
 @import "./default.deperated.less";

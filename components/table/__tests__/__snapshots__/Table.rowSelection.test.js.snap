@@ -11,7 +11,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -34,7 +34,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <div
@@ -72,9 +72,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
+                    data-row-key="0"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -106,9 +107,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -140,9 +142,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -174,9 +177,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row  ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
-                      class="ant-table-selection-column"
+                      class="ant-table-fixed-columns-in-body ant-table-selection-column"
                     >
                       <span>
                         <label
@@ -262,6 +266,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   >
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      data-row-key="0"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -287,6 +292,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      data-row-key="1"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -312,6 +318,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      data-row-key="2"
                     >
                       <td
                         class="ant-table-selection-column"
@@ -337,6 +344,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     </tr>
                     <tr
                       class="ant-table-row  ant-table-row-level-0"
+                      data-row-key="3"
                     >
                       <td
                         class="ant-table-selection-column"

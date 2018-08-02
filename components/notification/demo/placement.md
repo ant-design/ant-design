@@ -44,6 +44,6 @@ ReactDOM.render(
     >
       Open the notification box
     </Button>
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````

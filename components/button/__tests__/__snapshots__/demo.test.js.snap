@@ -472,7 +472,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
 exports[`renders ./components/button/demo/size.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"

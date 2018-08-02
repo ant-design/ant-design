@@ -19,6 +19,7 @@ export type CardType = 'inner';
 export interface CardTabListType {
   key: string;
   tab: React.ReactNode;
+  disabled?: boolean;
 }
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -225,7 +226,7 @@ export default class Card extends React.Component<CardProps, CardState> {
         size="large"
         onChange={this.onTabChange}
       >
-        {tabList.map(item => <Tabs.TabPane tab={item.tab} key={item.key} />)}
+        {tabList.map(item => <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />)}
       </Tabs>
     ) : null;
     if (title || extra || tabs) {

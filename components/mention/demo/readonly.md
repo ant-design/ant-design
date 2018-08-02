@@ -15,6 +15,7 @@ Configurate `disabled` and `readOnly`.
 
 ````jsx
 import { Mention } from 'antd';
+
 const { toString } = Mention;
 
 function onChange(editorState) {
@@ -48,6 +49,6 @@ function App() {
 
 
 ReactDOM.render(
-  <App />
-, mountNode);
+  <App />,
+  mountNode);
 ````

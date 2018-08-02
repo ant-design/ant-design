@@ -2,6 +2,7 @@
 @import "../../style/mixins/index";
 @import "../../checkbox/style/mixin";
 @import "./mixin";
+@import "./directory";
 
 @tree-prefix-cls: ~"@{ant-prefix}-tree";
 @tree-showline-icon-color: @text-color-secondary;
@@ -30,10 +31,11 @@
       user-select: none;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
-      margin-top: -2px;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
+
+      line-height: @tree-title-height - 4px;
     }
     &.drag-over {
       > span[draggable] {
@@ -58,9 +60,37 @@
         font-weight: 500 !important;
       }
     }
+
+    // When node is loading
+    &.@{tree-prefix-cls}-treenode-loading {
+      span {
+        &.@{tree-prefix-cls}-switcher {
+          &.@{tree-prefix-cls}-switcher_open,
+          &.@{tree-prefix-cls}-switcher_close {
+            &:before {
+              display: inline-block;
+              position: absolute;
+              left: 0;
+              width: 24px;
+              height: 24px;
+              .iconfont-font("\E64D");
+              animation: loadingCircle 1s infinite linear;
+              color: @primary-color;
+              transform: none;
+              font-size: 14px;
+            }
+
+            :root &:after {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
     ul {
       margin: 0;
-      padding: 0 0 0 18px;
+      padding: 0 0 0 @tree-child-padding;
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
@@ -72,9 +102,8 @@
       vertical-align: top;
       color: @text-color;
       transition: all .3s;
-      position: relative;
-      height: 24px;
-      line-height: 24px;
+      height: @tree-title-height;
+      line-height: @tree-title-height;
       &:hover {
         background-color: @item-hover-bg;
       }
@@ -91,7 +120,7 @@
         margin: 0;
         width: 24px;
         height: 24px;
-        line-height: 24px;
+        line-height: @tree-title-height;
         display: inline-block;
         vertical-align: top;
         border: 0 none;
@@ -99,21 +128,10 @@
         outline: none;
         text-align: center;
       }
-      &.@{tree-prefix-cls}-icon_loading {
-        position: absolute;
-        left: 0;
-        top: 1px;
-        background: #fff;
-        transform: translateX(-100%);
-        transition: all .3s;
-        &:after {
-          display: inline-block;
-          .iconfont-font("\E64D");
-          animation: loadingCircle 1s infinite linear;
-          color: @primary-color;
-        }
-      }
+
       &.@{tree-prefix-cls}-switcher {
+        position: relative;
+
         &.@{tree-prefix-cls}-switcher-noop {
           cursor: default;
         }
@@ -137,6 +155,7 @@
       }
     }
   }
+
   > li {
     &:first-child {
       padding-top: 7px;
@@ -198,6 +217,14 @@
       position: absolute;
       left: 12px;
       margin: 22px 0;
+    }
+  }
+
+  &.@{tree-prefix-cls}-icon-hide {
+    .@{tree-prefix-cls}-treenode-loading {
+      .@{tree-prefix-cls}-iconEle {
+        display: none;
+      }
     }
   }
 }

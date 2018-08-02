@@ -590,7 +590,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
 exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group"
+    class="ant-radio-group ant-radio-group-outline"
   >
     <label
       class="ant-radio-button-wrapper"

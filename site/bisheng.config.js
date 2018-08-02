@@ -1,6 +1,6 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const OfflinePlugin = require('offline-plugin');
+const OfflinePlugin = require('@yesmeck/offline-plugin');
 const replaceLib = require('antd-tools/lib/replaceLib');
 const getExternalResources = require('./getExternalResources');
 
@@ -13,9 +13,9 @@ function alertBabelConfig(rules) {
       if (rule.options.plugins.indexOf(replaceLib) === -1) {
         rule.options.plugins.push(replaceLib);
       }
-      rule.options.plugins = rule.options.plugins.filter(plugin =>
+      rule.options.plugins = rule.options.plugins.filter(plugin => (
         !plugin.indexOf || plugin.indexOf('babel-plugin-add-module-exports') === -1
-      );
+      ));
     } else if (rule.use) {
       alertBabelConfig(rule.use);
     }

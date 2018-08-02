@@ -38,6 +38,6 @@ class LoadingCard extends React.Component {
 }
 
 ReactDOM.render(
-  <LoadingCard />
-, mountNode);
+  <LoadingCard />,
+  mountNode);
 ````

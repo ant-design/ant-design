@@ -104,21 +104,14 @@
   }
 
   &-small&-checked {
-    &:before,
-    &:after {
+    &:before {
       left: 100%;
       margin-left: @switch-sm-checked-margin-left;
     }
-
     .@{switch-prefix-cls}-inner {
       margin-left: 3px;
       margin-right: 18px;
     }
-  }
-
-  &-small:active&-checked:before,
-  &-small:active&-checked:after {
-    margin-left: -16.5px;
   }
 
   &-small&-loading:before {
@@ -134,15 +127,15 @@
       margin-right: 24px;
     }
 
-    &:before,
-    &:after {
+    &:before {
       left: 100%;
       margin-left: -19px;
     }
 
-    &:active:before,
-    &:active:after {
-      margin-left: -25px;
+    &:after {
+      left: 100%;
+      transform: translateX(-100%);
+      margin-left: -1px;
     }
   }
 

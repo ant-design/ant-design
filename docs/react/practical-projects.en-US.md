@@ -268,9 +268,9 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-- Visit [dva official website](https://github.com/dvajs/dva).
-- Be familiar with the [8 Concepts](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and understand how they are connected together
-- Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
-- Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
+- Visit [dva official website](https://dvajs.com/).
+- Be familiar with the [8 Concepts](https://dvajs.com/guide/concepts.html), and understand how they are connected together
+- Know all [dva APIs](https://dvajs.com/api/)
+- Checkout [dva knowledgemap](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva
 - Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
 - If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#configuration)

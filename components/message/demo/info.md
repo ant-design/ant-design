@@ -21,6 +21,6 @@ const info = () => {
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={info}>Display normal message</Button>
-, mountNode);
+  <Button type="primary" onClick={info}>Display normal message</Button>,
+  mountNode);
 ````

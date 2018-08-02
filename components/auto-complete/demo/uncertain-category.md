@@ -16,6 +16,7 @@ Basic Usage, set datasource of autocomplete with `dataSource` property.
 
 ````jsx
 import { Icon, Button, Input, AutoComplete } from 'antd';
+
 const Option = AutoComplete.Option;
 
 function onSelect(value) {

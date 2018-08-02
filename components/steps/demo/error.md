@@ -15,6 +15,7 @@ By using `status` of `Steps`, you can specify the state for current step.
 
 ````jsx
 import { Steps } from 'antd';
+
 const Step = Steps.Step;
 
 ReactDOM.render(
@@ -22,6 +23,6 @@ ReactDOM.render(
     <Step title="Finished" description="This is a description" />
     <Step title="In Process" description="This is a description" />
     <Step title="Waiting" description="This is a description" />
-  </Steps>
-, mountNode);
+  </Steps>,
+  mountNode);
 ````

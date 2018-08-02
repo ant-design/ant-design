@@ -61,11 +61,12 @@ class Home extends React.Component {
     intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   }
+
   render() {
     const { isMobile, intl } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
-      <DocumentTitle title={`Ant Design - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
+      <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="main-wrapper">
           <Banner {...childProps} />
           <Page1 {...childProps} />

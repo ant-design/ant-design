@@ -25,18 +25,20 @@ title: Modal
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string\|ReactNode | 确定取消按钮 |
 | getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
+| keyboard | 是否支持键盘esc关闭 | boolean | true |
 | mask | 是否展示遮罩 | Boolean | true |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |
 | maskStyle | 遮罩样式 | object | {} |
 | okText | 确认按钮文字 | string | 确定 |
 | okType | 确认按钮类型 | string | primary |
+| okButtonProps | ok 按钮 props | [ButtonProps](/components/button) | - |
+| cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button) | - |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object | - |
 | title | 标题 | string\|ReactNode | 无 |
 | visible | 对话框是否可见 | boolean | 无 |
 | width | 宽度 | string\|number | 520 |
 | wrapClassName | 对话框外层容器的类名 | string | - |
 | zIndex | 设置 Modal 的 `z-index` | Number | 1000 |
-| keyboard | 是否支持键盘esc关闭 | boolean | true |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 |
 | onOk | 点击确定回调 | function(e) | 无 |
 

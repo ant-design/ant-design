@@ -109,7 +109,8 @@
 .button-group-base(@btnClassName) {
   position: relative;
   display: inline-block;
-  > .@{btnClassName} {
+  > .@{btnClassName},
+  > span > .@{btnClassName} {
     position: relative;
     line-height: @btn-height-base - 2px;
 
@@ -126,13 +127,15 @@
   }
 
   // size
-  &-lg > .@{btnClassName} {
-    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
+  &-lg > .@{btnClassName},
+  &-lg > span > .@{btnClassName} {
+    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
     line-height: @btn-height-lg - 2px;
   }
 
-  &-sm > .@{btnClassName} {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+  &-sm > .@{btnClassName},
+  &-sm > span > .@{btnClassName} {
+    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
     line-height: @btn-height-sm - 2px;
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
@@ -260,7 +263,7 @@
     border-left-color: transparent;
   }
 
-  .@{btnClassName}:not(:first-child):not(:last-child) {
+  .@{btnClassName} {
     border-radius: 0;
   }
 
@@ -268,17 +271,42 @@
   > span:first-child > .@{btnClassName} {
     margin-left: 0;
   }
+  > .@{btnClassName}:only-child {
+    border-radius: @btn-border-radius-base;
+  }
+  > span:only-child > .@{btnClassName} {
+    border-radius: @btn-border-radius-base;
+  }
 
   > .@{btnClassName}:first-child:not(:last-child),
   > span:first-child:not(:last-child) > .@{btnClassName} {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+    border-bottom-left-radius: @btn-border-radius-base;
+    border-top-left-radius: @btn-border-radius-base;
   }
 
   > .@{btnClassName}:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .@{btnClassName} {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+    border-bottom-right-radius: @btn-border-radius-base;
+    border-top-right-radius: @btn-border-radius-base;
+  }
+
+  &-sm {
+    > .@{btnClassName}:only-child {
+      border-radius: @btn-border-radius-sm;
+    }
+    > span:only-child > .@{btnClassName} {
+      border-radius: @btn-border-radius-sm;
+    }
+    > .@{btnClassName}:first-child:not(:last-child),
+    > span:first-child:not(:last-child) > .@{btnClassName} {
+      border-bottom-left-radius: @btn-border-radius-sm;
+      border-top-left-radius: @btn-border-radius-sm;
+    }
+    > .@{btnClassName}:last-child:not(:first-child),
+    > span:last-child:not(:first-child) > .@{btnClassName} {
+      border-bottom-right-radius: @btn-border-radius-sm;
+      border-top-right-radius: @btn-border-radius-sm;
+    }
   }
 
   & > & {

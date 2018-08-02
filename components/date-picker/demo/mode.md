@@ -15,6 +15,7 @@ Determing which panel to show with `mode` and `onPanelChange`.
 
 ````jsx
 import { DatePicker } from 'antd';
+
 const { RangePicker } = DatePicker;
 
 class ControlledDatePicker extends React.Component {
@@ -77,6 +78,6 @@ ReactDOM.render(
     <ControlledDatePicker />
     <br />
     <ControlledRangePicker />
-  </div>
-, mountNode);
+  </div>,
+  mountNode);
 ````
