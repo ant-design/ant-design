@@ -312,9 +312,10 @@ class Demo extends React.Component {
               </div>
               {selectedRowKeys.length > 0 && (
                 <Alert
+                  className="select-info"
                   message={(
                     <span>
-                      Selected {selectedRowKeys.length} items <a href="#" onClick={this.handleUndo}>undo</a>
+                      Selected {selectedRowKeys.length} items, <a href="#" onClick={this.handleUndo}>undo</a>
                     </span>
                   )}
                   type="info"
@@ -376,6 +377,7 @@ ReactDOM.render(<Demo />, mountNode);
 #components-table-demo-configurable-table .toolbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -423,7 +425,12 @@ ReactDOM.render(<Demo />, mountNode);
 }
 
 #components-table-demo-configurable-table .select-info {
-  width: 200px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#components-table-demo-configurable-table .select-info .ant-alert-icon {
+  top: 9px;
 }
 
 #components-table-demo-configurable-table .table-container {
@@ -436,7 +443,7 @@ ReactDOM.render(<Demo />, mountNode);
 }
 
 #components-table-demo-configurable-table .table-container.full-viewport .batch-actions {
-  padding: 16px;
+  padding-left: 16px;
 }
 
 #components-table-demo-configurable-table .table-container.full-viewport .shrink-btn {
