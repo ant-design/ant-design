@@ -144,7 +144,7 @@
 
   &-disabled &-selection--multiple &-selection__choice {
     background: @background-color-base;
-    color: fade(@alternate-color, 33%);
+    color: fade(@black, 33%);
     padding-right: 10px;
     &__remove {
       display: none;
@@ -364,7 +364,7 @@
       position: absolute;
       right: 4px;
       &:hover {
-        color: @icon-color;
+        color: @icon-color-hover;
       }
       &:before {
         content: "\e633";
@@ -561,7 +561,7 @@
       }
 
       &:hover:after {
-        color: fade(@alternate-color, 87%);
+        color: fade(@black, 87%);
       }
 
       &-disabled:after {

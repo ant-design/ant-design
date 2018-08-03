@@ -12,8 +12,8 @@
 @error-color            : @red-6;
 @highlight-color        : @red-6;
 @warning-color          : @gold-6;
-@default-color          : #fff;
-@alternate-color        : #000;
+@white                  : #fff;
+@black                  : #000;
 @normal-color           : #d9d9d9;
 
 // Color used by default to control hover and active backgrounds and for
@@ -39,14 +39,14 @@
 @font-family-no-number  : "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family            : "Monospaced Number", @font-family-no-number;
 @code-family            : Consolas, Menlo, Courier, monospace;
-@heading-color          : fade(@alternate-color, 85%);
-@text-color             : fade(@alternate-color, 65%);
-@text-color-secondary   : fade(@alternate-color, 45%);
-@text-color-inverse   : #fff;
-@icon-color             : fade(@alternate-color, 75%);
-@heading-color-dark     : fade(@default-color, 100%);
-@text-color-dark        : fade(@default-color, 85%);
-@text-color-secondary-dark: fade(@default-color, 65%);
+@heading-color          : fade(@black, 85%);
+@text-color             : fade(@black, 65%);
+@text-color-secondary   : fade(@black, 45%);
+@text-color-inverse     : #fff;
+@icon-color-hover       : fade(@black, 75%);
+@heading-color-dark     : fade(@white, 100%);
+@text-color-dark        : fade(@white, 85%);
+@text-color-secondary-dark: fade(@white, 65%);
 @font-size-base         : 14px;
 @font-size-lg           : @font-size-base + 2px;
 @font-size-sm           : 12px;
@@ -97,7 +97,7 @@
 // Border color
 @border-color-base      : hsv(0, 0, 85%);  // base border outline a component
 @border-color-split     : hsv(0, 0, 91%);  // split border inside a component
-@alternate-border-color : @default-color;
+@alternate-border-color : @white;
 @border-width-base      : 1px;            // width of the border for a component
 @border-style-base      : solid;          // style of a components border
 
@@ -115,8 +115,8 @@
 @disabled-color-dark    : fade(#fff, 35%);
 
 // Shadow
-@shadow-color           : fade(@alternate-color, 15%);
-@alternate-shadow-color : @component-background;
+@shadow-color           : fade(@black, 15%);
+@shadow-color-inverse : @component-background;
 @box-shadow-base        : @shadow-1-down;
 @shadow-1-up            : 0 2px 8px @shadow-color;
 @shadow-1-down          : 0 2px 8px @shadow-color;
@@ -284,7 +284,7 @@
 //** Tooltip text color
 @tooltip-color: #fff;
 //** Tooltip background color
-@tooltip-bg: fade(@alternate-color, 75%);
+@tooltip-bg: fade(@black, 75%);
 //** Tooltip arrow width
 @tooltip-arrow-width: 5px;
 //** Tooltip distance with trigger
@@ -312,7 +312,7 @@
 
 // Modal
 // --
-@modal-mask-bg: fade(@alternate-color, 65%);
+@modal-mask-bg: fade(@black, 65%);
 
 // Progress
 // --
@@ -394,7 +394,7 @@
 @card-padding-base: 24px;
 @card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
-@card-shadow: 0 2px 8px fade(@alternate-color, 9%);
+@card-shadow: 0 2px 8px fade(@black, 9%);
 @card-background: #cfd8dc;
 
 // Tabs
