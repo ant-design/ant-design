@@ -26,6 +26,7 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];
+  autoFocus?: boolean;
   backfill?: boolean;
   optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;

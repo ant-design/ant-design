@@ -40,7 +40,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;{ value, title, children, [disabled, disableCheckbox, selectable] }> | \[] |
-| treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', title:"test1",...},...], pId is parent node's id) | false\|Array&lt;{ id: string, pId: string, rootPId: null }> | false |
+| treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: [{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | false\|Array&lt;{ id: string, pId: string, rootPId: null }> | false |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value' |
@@ -66,6 +66,6 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |
 | disabled | Disabled or not | boolean | false |
 | isLeaf | Leaf node or not | boolean | false |
-| key | Required property, should be unique in the tree | string | - |
+| key | Required property (unless using `treeDataSimpleMode`), should be unique in the tree | string | - |
 | title | Content showed on the treeNodes | string\|ReactNode | '---' |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |

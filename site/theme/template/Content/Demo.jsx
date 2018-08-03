@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Icon, Tooltip } from 'antd';
 import EditButton from './EditButton';
+import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';
 import { ping } from '../utils';
 
@@ -23,17 +24,13 @@ export default class Demo extends React.Component {
     intl: PropTypes.object,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      codeExpand: false,
-      sourceCode: '',
-      copied: false,
-      copyTooltipVisible: false,
-      showRiddleButton: false,
-    };
-  }
+  state = {
+    codeExpand: false,
+    sourceCode: '',
+    copied: false,
+    copyTooltipVisible: false,
+    showRiddleButton: false,
+  };
 
   componentWillReceiveProps(nextProps) {
     const { highlightedCode } = nextProps;
@@ -187,7 +184,9 @@ ${state.sourceCode.replace('mountNode', 'document.getElementById(\'container\')'
     return (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
-          {this.liveDemo}
+          <ErrorBoundary>
+            {this.liveDemo}
+          </ErrorBoundary>
           {
             style
               ? <style dangerouslySetInnerHTML={{ __html: style }} />

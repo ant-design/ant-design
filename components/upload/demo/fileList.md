@@ -31,7 +31,7 @@ import { Upload, Button, Icon } from 'antd';
 class MyUpload extends React.Component {
   state = {
     fileList: [{
-      uid: -1,
+      uid: '-1',
       name: 'xxx.png',
       status: 'done',
       url: 'http://www.baidu.com/xxx.png',
