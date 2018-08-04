@@ -62,7 +62,7 @@ export interface TableLocale {
 export type RowSelectionType = 'checkbox' | 'radio';
 export type SelectionSelectFn<T> = (record: T, selected: boolean, selectedRows: Object[], nativeEvent: Event) => any;
 
-export type TableSelectWay = 'onSelect' | 'onSelectMulti' | 'onSelectAll' | 'onSelectInvert';
+export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
@@ -70,7 +70,7 @@ export interface TableRowSelection<T> {
   onChange?: (selectedRowKeys: string[] | number[], selectedRows: Object[]) => void;
   getCheckboxProps?: (record: T) => Object;
   onSelect?: SelectionSelectFn<T>;
-  onSelectMulti?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
+  onSelectMultiple?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => void;
   onSelectInvert?: (selectedRows: Object[]) => void;
   selections?: SelectionItem[] | boolean;
