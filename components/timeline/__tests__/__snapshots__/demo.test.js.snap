@@ -1,5 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
+<ul
+  class="ant-timeline ant-timeline-alternate"
+>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-green"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+    >
+      <i
+        class="anticon anticon-clock-circle-o"
+        style="font-size:16px"
+      />
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-red"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-left"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
+    >
+      <i
+        class="anticon anticon-clock-circle-o"
+        style="font-size:16px"
+      />
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
 exports[`renders ./components/timeline/demo/basic.md correctly 1`] = `
 <ul
   class="ant-timeline"
@@ -302,4 +409,76 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
     </span>
   </button>
 </div>
+`;
+
+exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
+<ul
+  class="ant-timeline ant-timeline-right"
+>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
+    >
+      <i
+        class="anticon anticon-clock-circle-o"
+        style="font-size:16px"
+      />
+    </div>
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-right"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
 `;

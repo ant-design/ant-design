@@ -20,6 +20,7 @@ title: Modal
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 | bodyStyle | Modal body 样式 | object | {} |
 | cancelText | 取消按钮文字 | string | 取消 |
+| centered | 垂直居中展示 Modal | Boolean | `false` |
 | closable | 是否显示右上角的关闭按钮 | boolean | true |
 | confirmLoading | 确定按钮 loading | boolean | 无 |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |

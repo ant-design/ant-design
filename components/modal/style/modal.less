@@ -1,4 +1,5 @@
 @dialog-prefix-cls: ~"@{ant-prefix}-modal";
+@table-prefix-cls: ~"@{ant-prefix}-table";
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -133,12 +134,35 @@
   }
 }
 
+.@{dialog-prefix-cls}-centered {
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+  }
+  .@{dialog-prefix-cls} {
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    text-align: left;
+  }
+  .@{table-prefix-cls} {
+    &-body {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+  }
+}
+
 @media (max-width: @screen-sm-max) {
   .@{dialog-prefix-cls} {
     width: auto !important;
     margin: 10px;
   }
-  .vertical-center-modal {
+  .@{dialog-prefix-cls}-centered {
     .@{dialog-prefix-cls} {
       flex: 1;
     }

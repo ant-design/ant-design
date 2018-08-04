@@ -98,19 +98,19 @@ exports[`Transfer should render correctly 1`] = `
   >
     <button
       class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      type="button"
+    >
+      <i
+        class="anticon anticon-right"
+      />
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
       <i
         class="anticon anticon-left"
-      />
-    </button>
-    <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-      type="button"
-    >
-      <i
-        class="anticon anticon-right"
       />
     </button>
   </div>
@@ -265,7 +265,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-left"
+        class="anticon anticon-right"
       />
     </button>
     <button
@@ -274,7 +274,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
-        class="anticon anticon-right"
+        class="anticon anticon-left"
       />
     </button>
   </div>

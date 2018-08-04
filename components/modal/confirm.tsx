@@ -44,6 +44,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   return (
     <Dialog
       className={classString}
+      wrapClassName={classNames({ [`${prefixCls}-centered`]: !!props.centered })}
       onCancel={close.bind(this, { triggerCancel: true })}
       visible={visible}
       title=""
