@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
+import classNames from 'classnames';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -28,6 +29,7 @@ export interface DrawerProps {
   push?: boolean;
   placement?: 'left' | 'right';
   onClose?: (e: EventType) => void;
+  className?: string;
 }
 
 export interface IDrawerState {
@@ -56,6 +58,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
     onClose: PropTypes.func,
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -175,7 +178,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     );
   }
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, ...rest } = this.props;
+    let { zIndex, style, placement, className, ...rest } = this.props;
     const RcDrawerStyle = this.state.push
       ? {
         zIndex,
@@ -183,6 +186,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       : { zIndex };
     this.praentDrawer = value;
+    const drawerClassNames = classNames(this.props.wrapClassName, className);
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
@@ -193,7 +197,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={RcDrawerStyle}
-          className={this.props.wrapClassName}
+          className={drawerClassNames}
         >
           {this.renderBody()}
         </RcDrawer>
