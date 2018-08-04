@@ -1,0 +1,35 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@icon-prefix-cls: ~"@{ant-prefix}-icon";
+
+@step-forward: 15;
+
+.generate-rotation(@count, @i: @step-forward) when (@i <= @count) {
+  &-@{i} {
+    transform: rotate(~'@{i}deg');
+  }
+  .generate-rotation(@count, (@i + @step-forward));
+}
+
+.@{icon-prefix-cls} {
+  &-rotate {
+    .generate-rotation(360);
+  }
+
+  &-flip {
+    &-horizontal {
+      transform: scaleX(-1);
+    }
+    &-vertical {
+      transform: scaleY(-1);
+    }
+    &-both {
+      transform: scaleX(-1) scaleY(-1);
+    }
+  }
+  &-fixed-width {
+    width: 1.25em;
+    text-align: center;
+  }
+}

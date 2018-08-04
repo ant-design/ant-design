@@ -18,9 +18,11 @@ import { Icon } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Icon type="home" />
+    <Icon type="home" fixedWidth/>
+    <Icon type="message" flip="vertical" rotate={90}/>
     <Icon type="setting" />
     <Icon type="smile" />
+    <Icon type="smile" rotate={180}/>
     <Icon type="reload" spin />
   </div>,
   mountNode
