@@ -15,6 +15,41 @@ timeline: true
 
 ---
 
+## 3.8.0
+
+`2018-08-04`
+
+- 支持 TypeScript@3，并优化了大量组件定义。
+- 使用 [font-variant-numeric](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric) 优化了等宽数字的实现方式，解决了数字字体和其他字体不一致的问题。[#11567](https://github.com/ant-design/ant-design/pull/11567) @tibdex
+- Card 新增 `headStyle` 属性用于定制标题样式。[#11407](https://github.com/ant-design/ant-design/pull/11407) [@emersonlaurentino](https://github.com/emersonlaurentino)
+- Avatar
+  - 新增 `onError` 属性，作为图片加载失败时的回调。[#11285](https://github.com/ant-design/ant-design/pull/11285/) @paranoidjk
+  - 新增 `size` 属性，方便自定义头像大小。[#11256](https://github.com/ant-design/ant-design/issues/11256) @ emersonlaurentino
+- 修复 Tooltip 等组件在 DatePicker 上失效的问题。[#11451](https://github.com/ant-design/ant-design/issues/11451) @yociduo
+- 修复一个 DatePicker 中时间面板 hover 时数字跳动的问题。[#11460](https://github.com/ant-design/ant-design/issues/11460)
+- Tabs 修复了一个切换焦点异常的问题。[#11261](https://github.com/ant-design/ant-design/issues/11261)
+- Select
+  - 支持 `data-*` 属性。
+  - 修复一个选中项在列表中没有聚焦的问题。[#11268](https://github.com/ant-design/ant-design/issues/11268)
+- Tree
+  - 优化了组件可访问性。
+  - 修复一个拖拽后节点失踪的问题。[#11492](https://github.com/ant-design/ant-design/issues/11492)
+  - 修复一个在拖拽后节点位置没有垂直居中的问题。[#11458](https://github.com/ant-design/ant-design/issues/11458)
+- Table
+  - 新增了一个[可拖拽改变列宽的例子](/components/table/#components-table-demo-resizable-column)。
+  - 新增 `rowSelection.columnTitle` 可以定制选择列的列标题。[#11042](https://github.com/ant-design/ant-design/issues/11042) @littleLane
+  - 支持按住 shift 进行多选。[#11404](https://github.com/ant-design/ant-design/issues/11404) @RaphaelChauveau
+- Calendar 新增了 `onChange` 作为日期改变的回调。[#11476](https://github.com/ant-design/ant-design/pull/11476) @tangjinzhou
+- Popconfirm 新增 `icon` 支持自定义图标。[#11191](https://github.com/ant-design/ant-design/pull/11191) @nuintun
+- Button 增加 `block` 属性用于撑满父容器宽度。[#11500](https://github.com/ant-design/ant-design/pull/11500) @ilanus
+- Modal
+  - 新增 `centered` 属性用于设置对话框垂直居中。[#11537](https://github.com/ant-design/ant-design/pull/11537) @yoyo837
+  - 修复了多个对话框会被 ESC 一次性全部关掉的问题。[#11394](https://github.com/ant-design/ant-design/issues/11394) @yoyo837
+  - 再次修复 Model.confirm 的标题区域某些情况下会显示滚动条的问题。[#11568](https://github.com/ant-design/ant-design/pull/11568) @cheshireoctopus
+- Timeline 现在支持左/右/交替三种布局形式。[#11490](https://github.com/ant-design/ant-design/pull/11490) @jrvboesch
+- 修复 Input.Group 上无法使用 Tooltip 的问题。[#11532](https://github.com/ant-design/ant-design/issues/11532) @yociduo
+- Progress 新增 `strokeLinecap` 属性用于调整边缘形状。[#11547](https://github.com/ant-design/ant-design/pull/11547) @blatinier
+
 ## 3.7.3
 
 `2018-07-28`
