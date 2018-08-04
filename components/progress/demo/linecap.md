@@ -1,13 +1,13 @@
 ---
 order: 10
 title:
-  zh-CN:
+  zh-CN: 圆角/方角边缘
   en-US: Square linecaps
 ---
 
 ## zh-CN
 
-`strokeLinecap="square"`
+`strokeLinecap="square|round"` 可以调整进度条边缘的形状。
 
 ## en-US
 
