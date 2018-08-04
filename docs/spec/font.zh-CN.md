@@ -22,16 +22,15 @@ title: 字体
 优秀的字体系统首先是要选择合适的字体家族。Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-             "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-             SimSun, sans-serif;
+font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+ "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 ```
 
-> 参考自：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+> 参考自 https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ 和 http://markdotto.com/2018/02/07/github-system-fonts/
 
-另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体设置为 `Tahoma`，使其为等宽字体。
+另外，在中后台系统中，数字经常需要进行纵向对比展示，我们单独将数字的字体 [font-variant-numeric](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) 设置为 `tabular-nums`，使其为等宽字体。
 
-> 技术方案：http://stackoverflow.com/questions/13611420/set-a-font-specifically-for-all-numbers-on-the-page
+> 参考 https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
 
 ## 主字体
 
