@@ -97,7 +97,7 @@
 // Border color
 @border-color-base      : hsv(0, 0, 85%);  // base border outline a component
 @border-color-split     : hsv(0, 0, 91%);  // split border inside a component
-@alternate-border-color : @white;
+@border-color-inverse   : @white;
 @border-width-base      : 1px;            // width of the border for a component
 @border-style-base      : solid;          // style of a components border
 
@@ -116,7 +116,7 @@
 
 // Shadow
 @shadow-color           : fade(@black, 15%);
-@shadow-color-inverse : @component-background;
+@shadow-color-inverse   : @component-background;
 @box-shadow-base        : @shadow-1-down;
 @shadow-1-up            : 0 2px 8px @shadow-color;
 @shadow-1-down          : 0 2px 8px @shadow-color;
@@ -257,25 +257,25 @@
 
 // Input
 // ---
-@input-height-base           : 32px;
-@input-height-lg             : 40px;
-@input-height-sm             : 24px;
-@input-padding-horizontal    : @control-padding-horizontal - 1px;
-@input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm : @control-padding-horizontal-sm - 1px;
-@input-padding-horizontal-lg : @input-padding-horizontal;
-@input-padding-vertical-base : 4px;
-@input-padding-vertical-sm   : 1px;
-@input-padding-vertical-lg   : 6px;
-@input-placeholder-color     : hsv(0, 0, 75%);
-@input-color                 : @text-color;
-@input-border-color          : @border-color-base;
-@input-bg                    : #fff;
-@input-active-bg             : #f4f4f4;
-@input-addon-bg              : @background-color-light;
-@input-hover-border-color    : @primary-color;
-@input-disabled-bg           : @disabled-bg;
-@input-outline-offset        : 0 0;
+@input-height-base              : 32px;
+@input-height-lg                : 40px;
+@input-height-sm                : 24px;
+@input-padding-horizontal       : @control-padding-horizontal - 1px;
+@input-padding-horizontal-base  : @input-padding-horizontal;
+@input-padding-horizontal-sm    : @control-padding-horizontal-sm - 1px;
+@input-padding-horizontal-lg    : @input-padding-horizontal;
+@input-padding-vertical-base    : 4px;
+@input-padding-vertical-sm      : 1px;
+@input-padding-vertical-lg      : 6px;
+@input-placeholder-color        : hsv(0, 0, 75%);
+@input-color                    : @text-color;
+@input-border-color             : @border-color-base;
+@input-bg                       : #fff;
+@input-number-handler-active-bg : #f4f4f4;
+@input-addon-bg                 : @background-color-light;
+@input-hover-border-color       : @primary-color;
+@input-disabled-bg              : @disabled-bg;
+@input-outline-offset           : 0 0;
 
 // Tooltip
 // ---
