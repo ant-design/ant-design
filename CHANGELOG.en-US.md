@@ -21,37 +21,37 @@ timeline: true
 
 Thanks to 24 contributors who send pull request to 3.8.0!
 
-- Support TypeScript 3 and improve lots of definitions.
-- Use [tabular-nums font variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric) instead of monospaced numberic font family Tahoma. [#11567](https://github.com/ant-design/ant-design/pull/11567) [@tibdex](https://github.com/tibdex)
-- Timeline support `mode="left|right|alternate"` now. [#11490](https://github.com/ant-design/ant-design/pull/11490) [@jrvboesch](https://github.com/jrvboesch)
-- Button added `block` prop which allow to fit parent container. [#11500](https://github.com/ant-design/ant-design/pull/11500) [@ilanus](https://github.com/ilanus)
+- 💄 Support TypeScript 3 and improve lots of definitions.
+- 💄 Use [tabular-nums font variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric) instead of monospaced numberic font family Tahoma. [#11567](https://github.com/ant-design/ant-design/pull/11567) [@tibdex](https://github.com/tibdex)
+- 🌟 Timeline support `mode="left|right|alternate"` now. [#11490](https://github.com/ant-design/ant-design/pull/11490) [@jrvboesch](https://github.com/jrvboesch)
+- 🌟 Button added `block` prop which allow to fit parent container. [#11500](https://github.com/ant-design/ant-design/pull/11500) [@ilanus](https://github.com/ilanus)
 - Tree
-  - Better accessibility support.
-  - Fixed that some tree nodes disapear after dragged. [#11492](https://github.com/ant-design/ant-design/issues/11492)
-  - Fixed a vertical align style issue of draggable tree. [#11458](https://github.com/ant-design/ant-design/issues/11458)
+  - 💄 Better accessibility support.
+  - 🐞 Fixed that some tree nodes disapear after dragged. [#11492](https://github.com/ant-design/ant-design/issues/11492)
+  - 🐞 Fixed a vertical align style issue of draggable tree. [#11458](https://github.com/ant-design/ant-design/issues/11458)
 - Table
-  - Added demo of [resizable columns](/components/table/#components-table-demo-resizable-column)。
-  - Added `rowSelection.columnTitle` to customize selection column title. [#11042](https://github.com/ant-design/ant-design/issues/11042) [@littleLane](https://github.com/littleLane)
-  - Support to select multiple rows when pressing `shift`. [#11404](https://github.com/ant-design/ant-design/issues/11404) [@RaphaelChauveau](https://github.com/RaphaelChauveau)
+  - 🌟 Added `rowSelection.columnTitle` to customize selection column title. [#11042](https://github.com/ant-design/ant-design/issues/11042) [@littleLane](https://github.com/littleLane)
+  - 💄 Added demo of [resizable columns](/components/table/#components-table-demo-resizable-column)。
+  - 💄 Support to select multiple rows when pressing `shift`. [#11404](https://github.com/ant-design/ant-design/issues/11404) [@RaphaelChauveau](https://github.com/RaphaelChauveau)
 - Avatar
-  - Added `onError` prop that is callback when image loading fail. [#11285](https://github.com/ant-design/ant-design/pull/11285/) [@paranoidjk](https://github.com/paranoidjk)
-  - Added `size` prop for customize size of Avatar. [#11256](https://github.com/ant-design/ant-design/issues/11256) [@emersonlaurentino](https://github.com/emersonlaurentino)
-- Card added `headStyle` prop. [#11407](https://github.com/ant-design/ant-design/pull/11407) [@emersonlaurentino](https://github.com/emersonlaurentino)
-- Fixed that Tooltip not working with DatePicker. [#11451](https://github.com/ant-design/ant-design/issues/11451) [@yociduo](https://github.com/yociduo)
-- Fixed that Tooltip not working with Input.Group. [#11532](https://github.com/ant-design/ant-design/issues/11532) [@yociduo](https://github.com/yociduo)
-- Fixed that DatePicker time panel text jumping when hovering. [#11460](https://github.com/ant-design/ant-design/issues/11460)
-- Fixed Tabs display issue when switch focus elements bettween panels. [#11261](https://github.com/ant-design/ant-design/issues/11261)
+  - 🌟 Added `onError` prop that is callback when image loading fail. [#11285](https://github.com/ant-design/ant-design/pull/11285/) [@paranoidjk](https://github.com/paranoidjk)
+  - 🌟 Added `size` prop for customize size of Avatar. [#11256](https://github.com/ant-design/ant-design/issues/11256) [@emersonlaurentino](https://github.com/emersonlaurentino)
+- 🌟 Card added `headStyle` prop. [#11407](https://github.com/ant-design/ant-design/pull/11407) [@emersonlaurentino](https://github.com/emersonlaurentino)
+- 🐞 Fixed that Tooltip not working with DatePicker. [#11451](https://github.com/ant-design/ant-design/issues/11451) [@yociduo](https://github.com/yociduo)
+- 🐞 Fixed that Tooltip not working with Input.Group. [#11532](https://github.com/ant-design/ant-design/issues/11532) [@yociduo](https://github.com/yociduo)
+- 🐞 Fixed that DatePicker time panel text jumping when hovering. [#11460](https://github.com/ant-design/ant-design/issues/11460)
+- 🐞 Fixed Tabs display issue when switch focus elements bettween panels. [#11261](https://github.com/ant-design/ant-design/issues/11261)
 - Select
-  - Support `data-*` attributes.
-  - Fixed that selected item don't display correct position in dropdown menu items. [#11268](https://github.com/ant-design/ant-design/issues/11268)
-- Calendar added `onChange` prop. [#11476](https://github.com/ant-design/ant-design/pull/11476) [@tangjinzhou](https://github.com/tangjinzhou)
-- Popconfirm added `icon` prop. [#11191](https://github.com/ant-design/ant-design/pull/11191) [@nuintun](https://github.com/nuintun)
+  - 💄 Support `data-*` attributes.
+  - 🐞 Fixed that selected item don't display correct position in dropdown menu items. [#11268](https://github.com/ant-design/ant-design/issues/11268)
+- 🌟 Calendar added `onChange` prop. [#11476](https://github.com/ant-design/ant-design/pull/11476) [@tangjinzhou](https://github.com/tangjinzhou)
+- 🌟 Popconfirm added `icon` prop. [#11191](https://github.com/ant-design/ant-design/pull/11191) [@nuintun](https://github.com/nuintun)
 - Modal
-  - Added `centered` prop to set vertical center position of modal. [#11537](https://github.com/ant-design/ant-design/pull/11537) [@yoyo837](https://github.com/yoyo837)
-  - Fixed that closing all modals when pressing `ESC` once, now they will be closed one by one. [#11394](https://github.com/ant-design/ant-design/issues/11394) [@yoyo837](https://github.com/yoyo837)
-  - Fix issue resulting title of Model.confirm shows scrollbar again. [#11568](https://github.com/ant-design/ant-design/pull/11568) [@cheshireoctopus](https://github.com/cheshireoctopus)
-- Progress added `strokeLinecap` to customize shape of edge. [#11547](https://github.com/ant-design/ant-design/pull/11547) [@blatinier](https://github.com/blatinier)
-- Drawer added `className` and deprecated `wrapClassName`. [#11609](https://github.com/ant-design/ant-design/pull/11609) [@fergiar](https://github.com/fergiar)
+  - 🌟 Added `centered` prop to set vertical center position of modal. [#11537](https://github.com/ant-design/ant-design/pull/11537) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fixed that closing all modals when pressing `ESC` once, now they will be closed one by one. [#11394](https://github.com/ant-design/ant-design/issues/11394) [@yoyo837](https://github.com/yoyo837)
+  - 🐞 Fixed issue resulting title of Model.confirm shows scrollbar again. [#11568](https://github.com/ant-design/ant-design/pull/11568) [@cheshireoctopus](https://github.com/cheshireoctopus)
+- 🌟 Progress added `strokeLinecap` to customize shape of edge. [#11547](https://github.com/ant-design/ant-design/pull/11547) [@blatinier](https://github.com/blatinier)
+- 🌟 Drawer added `className` and deprecated `wrapClassName`. [#11609](https://github.com/ant-design/ant-design/pull/11609) [@fergiar](https://github.com/fergiar)
 
 ## 3.7.3
 
