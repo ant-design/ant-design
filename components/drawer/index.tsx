@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
+import warning from 'warning';
 import classNames from 'classnames';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
@@ -23,6 +24,7 @@ export interface DrawerProps {
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
+  /* deprecated, use className instead */
   wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
@@ -53,7 +55,6 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     title: PropTypes.node,
     visible: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    wrapClassName: PropTypes.string,
     zIndex: PropTypes.number,
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
@@ -178,7 +179,8 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     );
   }
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, className, ...rest } = this.props;
+    let { zIndex, style, placement, className, wrapClassName, ...rest } = this.props;
+    warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const RcDrawerStyle = this.state.push
       ? {
         zIndex,
@@ -186,7 +188,6 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       : { zIndex };
     this.praentDrawer = value;
-    const drawerClassNames = classNames(this.props.wrapClassName, className);
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
@@ -197,7 +198,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={RcDrawerStyle}
-          className={drawerClassNames}
+          className={classNames(wrapClassName, className)}
         >
           {this.renderBody()}
         </RcDrawer>
