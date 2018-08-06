@@ -193,8 +193,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
       offsetStyle.width = width;
-    }
-    if (placement === 'top' || placement === 'bottom') {
+    } else {
       offsetStyle.height = height;
     }
     return (
