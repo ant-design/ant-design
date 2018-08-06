@@ -46,7 +46,7 @@ class App extends React.Component {
         >
           <p>Some contents...</p>
           <p>Some contents...</p>
-          <p style={{ height: '2000px' }}>Some contents...</p>
+          <p>Some contents...</p>
         </Drawer>
       </div>
     );
