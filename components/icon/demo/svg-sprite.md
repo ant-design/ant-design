@@ -18,16 +18,8 @@ import { Icon } from 'antd';
 const CustomIcon = Icon.CustomIcon;
 
 const DemoIcon = (props) => {
-  return <CustomIcon {...props} viewBox="0 0 1024 1024" />
+  return <CustomIcon {...props} viewBox="0 0 1024 1024" />;
 };
-
-// import svg sprites
-importSvgSpritesWithDomApi();
-
-ReactDOM.render(
-  <DemoIcon type="icon-message" />,
-  mountNode
-);
 
 function importSvgSpritesWithDomApi() {
   const svgSpriteRenderer = (nodeId, contents) => `
@@ -55,4 +47,12 @@ function importSvgSpritesWithDomApi() {
     }
   }
 }
+
+// import svg sprites
+importSvgSpritesWithDomApi();
+
+ReactDOM.render(
+  <DemoIcon type="icon-message" />,
+  mountNode
+);
 ```
