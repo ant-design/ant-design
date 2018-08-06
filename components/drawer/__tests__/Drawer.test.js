@@ -55,12 +55,12 @@ describe('Drawer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('wrapClassName is test_drawer', () => {
+  it('className is test_drawer', () => {
     const wrapper = render(
       <Drawer
         destroyOnClose
         visible={false}
-        wrapClassName="test_drawer"
+        className="test_drawer"
         getContainer={false}
       >
         Here is content of Drawer

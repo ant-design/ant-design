@@ -22,16 +22,15 @@ While defining the font system for a visual system, we propose to start from the
 In order to implement a good font system, the first thing is to choose an appropriate font family. Ant Design prefers the system default font family and then also provides a set of alternative font libraries to maintain readability for screens on different platforms and browsers and to make sure it's always user friendly, stable and professional to end user.
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-             "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-             SimSun, sans-serif;
+font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+ "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 ```
 
-> References：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+> References：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ and http://markdotto.com/2018/02/07/github-system-fonts/
 
-In addition, in a lot of applications, numbers often need to be displayed vertically. We set the numeric font to `Tahoma` specifically to make it a monospaced font.
+In addition, in a lot of applications, numbers often need to be displayed vertically. We set the CSS property `font-variant-numeric` to `tabular-nums;` to use [tabular figures](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures).
 
-> References：http://stackoverflow.com/questions/13611420/set-a-font-specifically-for-all-numbers-on-the-page
+> References：https://stackoverflow.com/questions/32660748/how-to-use-apples-new-san-francisco-font-on-a-webpage#comment78509178_32660790
 
 ## Base Font Size
 

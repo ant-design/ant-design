@@ -40,7 +40,7 @@ class MultiDrawer extends React.Component {
         </Button>
         <Drawer
           title="Multi-level drawer"
-          wrapClassName="test_drawer"
+          className="test_drawer"
           width={520}
           closable={false}
           onClose={this.onClose}

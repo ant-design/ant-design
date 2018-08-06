@@ -167,7 +167,7 @@ describe('Table.rowSelection', () => {
     const handleSelect = jest.fn();
     const rowSelection = {
       onSelect: handleSelect,
-      onSelectMulti: handleSelectMulti,
+      onSelectMultiple: handleSelectMulti,
     };
     const wrapper = mount(createTable({ rowSelection }));
 

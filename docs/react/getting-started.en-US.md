@@ -188,6 +188,8 @@ import Button from 'antd/lib/button';
 import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
 ```
 
+> `antd/es/button` to import es version module for tree shaking.
+
 We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
 
 ```jsx

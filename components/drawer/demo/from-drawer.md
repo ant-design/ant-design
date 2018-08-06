@@ -28,11 +28,9 @@ class DrawerForm extends React.Component {
   };
 
   onClose = () => {
-    this.setState(
-      {
-        visible: false,
-      }
-    );
+    this.setState({
+      visible: false,
+    });
   };
 
   render() {
@@ -174,13 +172,8 @@ class DrawerForm extends React.Component {
     );
   }
 }
+
 const App = Form.create()(DrawerForm);
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-#_hj_feedback_container{
-  display:none
-}
-</style>

@@ -251,11 +251,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     if (selectWay === 'onSelect' && rowSelection.onSelect) {
       rowSelection.onSelect(record!, checked!, selectedRows, nativeEvent!);
-    } else if (selectWay === 'onSelectMulti' && rowSelection.onSelectMulti) {
+    } else if (selectWay === 'onSelectMultiple' && rowSelection.onSelectMultiple) {
       const changeRows = data.filter(
         (row, i) => changeRowKeys!.indexOf(this.getRecordKey(row, i)) >= 0,
       );
-      rowSelection.onSelectMulti(checked!, selectedRows, changeRows);
+      rowSelection.onSelectMultiple(checked!, selectedRows, changeRows);
     } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
       const changeRows = data.filter(
         (row, i) => changeRowKeys!.indexOf(this.getRecordKey(row, i)) >= 0,
@@ -498,7 +498,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         selectionDirty: true,
       });
       this.setSelectedRowKeys(selectedRowKeys, {
-        selectWay: 'onSelectMulti',
+        selectWay: 'onSelectMultiple',
         record,
         checked,
         changeRowKeys,
