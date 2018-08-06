@@ -190,12 +190,18 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       : { zIndex };
     this.praentDrawer = value;
+    const offsetStyle: any = {};
+    if (placement === 'left' || placement === 'right') {
+      offsetStyle.width = width;
+    }
+    if (placement === 'top' || placement === 'bottom') {
+      offsetStyle.height = height;
+    }
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
           {...rest}
-          width={(placement === 'left' || placement === 'right') && width}
-          height={(placement === 'top' || placement === 'bottom') && height}
+          {...offsetStyle}
           handler={false}
           open={this.props.visible}
           onMaskClick={this.onMaskClick}
