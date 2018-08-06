@@ -1,24 +1,33 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'omit.js';
 import { Omit } from '../_util/type';
 import { IconProps } from './index';
 
 export interface CustomIconProps extends Omit<IconProps, 'type'> {
+  type?: string | SpriteSvgIcon;
   viewBox?: string;
   component?: React.ComponentType<CustomIconComponentProps>;
 }
 
 export interface CustomIconComponentProps {
-  width: Readonly<string | number>;
-  height: Readonly<string | number>;
-  fill: Readonly<string>;
-  viewBox: Readonly<string>;
+  width: string | number;
+  height: string | number;
+  fill: string;
+  viewBox: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export interface SpriteSvgIcon {
+  id: string;
+  viewBox?: string;
+
+  [key: string]: any;
 }
 
 // These props make sure that the SVG behaviours like general text.
 // Reference: https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
-const svgBaseProps = {
+export const svgBaseProps = {
   width: '1em',
   height: '1em',
   fill: 'currentColor',
@@ -27,12 +36,20 @@ const svgBaseProps = {
 
 const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   const {
+    type: spriteSvgIcon,
     className = '',
     spin,
     // ⬇️ Todo, what's the best default value?
     // ⬇️       "0 0 24 24" for material-ui or "0 0 1024 1024" for ant-design
     viewBox = '0 0 1024 1024',
     children,
+    svgClassName,
+    rotate,
+    flip,
+    style,
+    svgStyle = {},
+    tag = 'i',
+    onClick,
     component: Component,
   } = props;
 
@@ -41,78 +58,67 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
     'anticon-spin': !!spin,
   }, className);
 
+  const svgClassString = classNames(
+    svgClassName,
+  );
+
+  const computedSvgStyle: React.CSSProperties = {
+    transform: `${rotate ? `rotate(${rotate}deg)` : ''} `
+      + `${(flip === 'horizontal' || flip === 'both') ? `scaleX(-1)` : ''} `
+      + `${(flip === 'vertical' || flip === 'both') ? `scaleY(-1)` : ''}`,
+    ...svgStyle,
+  };
+
+  const innerSvgProps = {
+    ...svgBaseProps,
+    viewBox,
+    className: svgClassString,
+    style: computedSvgStyle,
+  };
+
   let content = (
-    <svg {...omit(props, ['type', 'spin', 'className'])} {...svgBaseProps} viewBox={viewBox}>
+    <svg {...innerSvgProps}>
       {children}
     </svg>
   );
 
-  if (Component) {
-    content = <Component {...svgBaseProps} viewBox={viewBox}>{children}</Component>;
+  if (spriteSvgIcon) {
+    if (isSVGSpriteObject(spriteSvgIcon)) {
+      content = (
+        <svg {...innerSvgProps} viewBox={spriteSvgIcon.viewBox || viewBox}>
+          <use xlinkHref={`#${spriteSvgIcon.id}`}/>
+        </svg>
+      );
+    } else { // typeof spriteSvgIcon === 'string'
+      content = (
+        <svg {...innerSvgProps} viewBox={viewBox}>
+          <use xlinkHref={`#${spriteSvgIcon}`}/>
+        </svg>
+      );
+    }
   }
 
-  return (
-    <i className={classString}>
-      {content}
-    </i>
+  if (Component) {
+    content = (
+      <Component {...innerSvgProps}>
+        {children}
+      </Component>
+    );
+  }
+
+  return React.createElement(
+    tag,
+    {
+      className: classString,
+      style,
+      onClick,
+    },
+    content,
   );
 };
 
-const customCache = new Set<string>();
-
-export interface CustomIconOptions {
-  namespace?: string;
-  prefix?: string;
-  scriptUrl?: string;
-  extraCommonProps?: { [key: string]: any };
-}
-
-export function create(options: CustomIconOptions = {}): React.ComponentClass<IconProps> {
-  const { namespace, prefix = '', scriptUrl, extraCommonProps = {} } = options;
-
-  class Custom extends React.Component<IconProps> {
-    render() {
-      const { type, className = '', spin } = this.props;
-      const classString = classNames({
-        anticon: true,
-        'anticon-spin': !!spin || type === 'loading',
-      }, className);
-      return (
-        <i className={classString}>
-          <svg
-            {...extraCommonProps}
-            {...omit(this.props, ['type', 'spin', 'className'])}
-            {...svgBaseProps}
-          >
-            <use xlinkHref={`#${prefix}${type}`}/>
-          </svg>
-        </i>
-      );
-    }
-
-    componentDidMount() {
-      /**
-       * DOM API required.
-       * Make sure in browser environment.
-       * The Custom Icon will create a <script/>
-       * that loads SVG symbols and insert the SVG Element into the document body.
-       */
-      if (typeof document !== 'undefined' && typeof window !== 'undefined'
-        && typeof document.createElement === 'function'
-        && typeof scriptUrl === 'string' && scriptUrl.length
-        && typeof namespace === 'string' && namespace.length
-        && !customCache.has(namespace)
-      ) {
-        const script = document.createElement('script');
-        script.setAttribute('src', scriptUrl);
-        script.setAttribute('data-namespace', namespace);
-        customCache.add(namespace);
-        document.body.appendChild(script);
-      }
-    }
-  }
-
-  return Custom;
+function isSVGSpriteObject(obj: any): obj is SpriteSvgIcon {
+  return typeof obj.id === 'string';
 }
 
 export default CustomIcon;

@@ -30,12 +30,12 @@ const CoolStarIcon = (props) => {
     return (
       <svg {...svgProps}>
         <defs>
-          <linearGradient id="Gradient01">
+          <linearGradient id="Gradient-1">
             <stop offset="20%" stopColor="#39F" />
             <stop offset="90%" stopColor="#F3F" />
           </linearGradient>
         </defs>
-        {React.cloneElement(svgProps.children, { fill: 'url(#Gradient01)' })}
+        {React.cloneElement(svgProps.children, { fill: 'url(#Gradient-1)' })}
       </svg>
     );
   };
@@ -45,7 +45,6 @@ const CoolStarIcon = (props) => {
 ReactDOM.render(
   <div>
     <StarIcon />
-    <StarIcon style={{ color: 'pink' }} />
     <CoolStarIcon />
   </div>,
   mountNode

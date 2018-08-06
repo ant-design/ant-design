@@ -2,13 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { antDesignIcons } from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
-import CustomIcon, { create } from './CustomIcon';
+import CustomIcon from './CustomIcon';
+import create from './IconFont';
 
 ReactIcon.add(...antDesignIcons);
-
-export type IconRotateNumber = 15 | 30 | 45 | 60 | 75
-  | 90 | 105 | 120 | 135 | 150 | 165 | 180 | 195 | 210
-  | 225 | 240 | 270 | 285 | 300 | 315 | 330 | 345 | 360;
 
 export interface IconProps {
   type: string;
@@ -19,18 +16,25 @@ export interface IconProps {
   style?: React.CSSProperties;
   svgStyle?: React.CSSProperties;
   svgClassName?: string;
-  rotate?: IconRotateNumber;
+  rotate?: number;
   flip?: 'horizontal' | 'vertical' | 'both';
-  fixedWidth?: true;
+  tag?: string;
   prefixCls?: string;
 }
 
 const Icon: React.SFC<IconProps> = (props: IconProps) => {
   const {
-    prefixCls = 'ant-icon',
-    type, className = '', spin, flip, fixedWidth,
+    // prefixCls = 'ant-icon',
+    type,
+    className = '',
+    spin,
+    flip,
     svgClassName,
-    onClick, style, rotate = 0, svgStyle = {},
+    tag = 'i',
+    onClick,
+    style,
+    rotate = 0,
+    svgStyle = {},
   } = props;
   const classString = classNames(
     {
@@ -42,22 +46,28 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
   );
 
   const svgClassString = classNames(
-    {
-      [`${prefixCls}-rotate-${rotate}`]: rotate,
-      [`${prefixCls}-flip-${flip}`]: flip,
-      [`${prefixCls}-fixed-width`]: fixedWidth,
-    },
     svgClassName,
   );
-  return (
-    <i className={classString} style={style}>
-      <ReactIcon
-        className={svgClassString}
-        type={type}
-        onClick={onClick}
-        style={svgStyle}
-      />
-    </i>
+
+  const computedSvgStyle: React.CSSProperties = {
+    transform: `${rotate ? `rotate(${rotate}deg)` : ''} `
+      + `${(flip === 'horizontal' || flip === 'both') ? `scaleX(-1)` : ''} `
+      + `${(flip === 'vertical' || flip === 'both') ? `scaleY(-1)` : ''}`,
+    ...svgStyle,
+  };
+
+  return React.createElement(
+    tag,
+    {
+      className: classString,
+      style,
+      onClick,
+    },
+    <ReactIcon
+      className={svgClassString}
+      type={type}
+      style={computedSvgStyle}
+    />,
   );
 };
 
