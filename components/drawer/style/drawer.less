@@ -5,21 +5,24 @@
 .@{dawer-prefix-cls} {
   position: fixed;
   top: 0;
-  pointer-events: none;
   z-index: @zindex-modal;
-  transition: transform @animation-duration-slow @ease-in-out-circ;
+  transition: transform @animation-duration-slow @ease;
   > * {
-    transition: transform @animation-duration-slow @ease-in-out-circ;
+    transition: transform @animation-duration-slow @ease;
   }
 
   &-content-wrapper {
     position: fixed;
   }
-
+  .@{dawer-prefix-cls}-content {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity @animation-duration-slow linear;
+  }
   &-left,
   &-right {
-    .@{dawer-prefix-cls}-content-wrapper,
-    .@{dawer-prefix-cls}-content {
+    .@{dawer-prefix-cls}-content-wrapper {
       height: 100%;
     }
   }
@@ -42,14 +45,43 @@
       }
     }
   }
-  &.@{dawer-prefix-cls}-open {
-    > * {
-      pointer-events: auto;
+
+  &-top,
+  &-bottom {
+    .@{dawer-prefix-cls}-content-wrapper,
+    .@{dawer-prefix-cls}-content {
+      width: 100%;
     }
+  }
+  &-top {
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-down;
+      }
+    }
+  }
+  &-bottom {
     .@{dawer-prefix-cls} {
+      &-content-wrapper {
+        bottom: 0;
+      }
+    }
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-up;
+      }
+    }
+  }
+
+  &.@{dawer-prefix-cls}-open {
+    .@{dawer-prefix-cls} {
+      &-content {
+        opacity: 1;
+      }
       &-mask {
         opacity: 0.3;
-        animation: antdDrawerFadeIn @animation-duration-slow @ease-in-out-circ;
+        height: 100%;
+        animation: antdDrawerFadeIn @animation-duration-slow @ease;
         transition: none;
       }
     }
@@ -129,19 +161,14 @@
 
   &-mask {
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    width: 100%;
+    height: 0;
     opacity: 0;
     background-color: @modal-mask-bg;
-    height: 100%;
-    transition: opacity @animation-duration-slow @ease-in-out-circ;
     filter: ~"alpha(opacity=50)";
+    transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
-
   &-open {
-    overflow: hidden;
     &-content {
       box-shadow: @shadow-2;
     }
