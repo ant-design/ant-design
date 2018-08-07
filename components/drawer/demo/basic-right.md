@@ -55,10 +55,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-
-<style>
-#_hj_feedback_container{
-  display:none
-}
-</style>

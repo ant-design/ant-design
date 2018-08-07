@@ -3,11 +3,12 @@
 exports[`Directory Tree defaultExpandAll 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -32,9 +33,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -59,6 +62,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -85,6 +89,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -109,9 +114,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -136,6 +143,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -166,11 +174,12 @@ exports[`Directory Tree defaultExpandAll 1`] = `
 exports[`Directory Tree defaultExpandParent 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -195,6 +204,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -223,11 +233,12 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 exports[`Directory Tree expand click 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -252,10 +263,12 @@ exports[`Directory Tree expand click 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open ant-motion-collapse"
       data-expanded="true"
+      role="group"
       style="height: 0px; opacity: 0;"
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -280,6 +293,7 @@ exports[`Directory Tree expand click 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -306,6 +320,7 @@ exports[`Directory Tree expand click 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -334,11 +349,12 @@ exports[`Directory Tree expand click 1`] = `
 exports[`Directory Tree expand click 2`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-close ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -363,10 +379,12 @@ exports[`Directory Tree expand click 2`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open ant-motion-collapse"
       data-expanded="true"
+      role="group"
       style="height: 0px; opacity: 1;"
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -391,6 +409,7 @@ exports[`Directory Tree expand click 2`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -417,6 +436,7 @@ exports[`Directory Tree expand click 2`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -445,11 +465,12 @@ exports[`Directory Tree expand click 2`] = `
 exports[`Directory Tree expand double click 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -474,10 +495,12 @@ exports[`Directory Tree expand double click 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open ant-motion-collapse"
       data-expanded="true"
+      role="group"
       style="height: 0px; opacity: 0;"
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -502,6 +525,7 @@ exports[`Directory Tree expand double click 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -528,6 +552,7 @@ exports[`Directory Tree expand double click 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -556,11 +581,12 @@ exports[`Directory Tree expand double click 1`] = `
 exports[`Directory Tree expand double click 2`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -585,10 +611,12 @@ exports[`Directory Tree expand double click 2`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open ant-motion-collapse"
       data-expanded="true"
+      role="group"
       style="height: 0px; opacity: 1;"
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -613,6 +641,7 @@ exports[`Directory Tree expand double click 2`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -639,6 +668,7 @@ exports[`Directory Tree expand double click 2`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -667,11 +697,12 @@ exports[`Directory Tree expand double click 2`] = `
 exports[`Directory Tree expand with state control click 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -696,10 +727,12 @@ exports[`Directory Tree expand with state control click 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
       style=""
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -730,11 +763,12 @@ exports[`Directory Tree expand with state control click 1`] = `
 exports[`Directory Tree expand with state control doubleClick 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -759,10 +793,12 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
       style=""
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -793,11 +829,12 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 exports[`Directory Tree expandedKeys update 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-close"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
@@ -822,6 +859,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -846,10 +884,12 @@ exports[`Directory Tree expandedKeys update 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open ant-motion-collapse"
       data-expanded="true"
+      role="group"
       style="height: 0px; opacity: 0;"
     >
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -874,6 +914,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-close"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -904,11 +945,12 @@ exports[`Directory Tree expandedKeys update 1`] = `
 exports[`Directory Tree group select 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -933,9 +975,11 @@ exports[`Directory Tree group select 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -960,6 +1004,7 @@ exports[`Directory Tree group select 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -986,6 +1031,7 @@ exports[`Directory Tree group select 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1010,9 +1056,11 @@ exports[`Directory Tree group select 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1037,6 +1085,7 @@ exports[`Directory Tree group select 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1067,11 +1116,12 @@ exports[`Directory Tree group select 1`] = `
 exports[`Directory Tree group select 2`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1096,9 +1146,11 @@ exports[`Directory Tree group select 2`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1123,6 +1175,7 @@ exports[`Directory Tree group select 2`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1149,6 +1202,7 @@ exports[`Directory Tree group select 2`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1173,9 +1227,11 @@ exports[`Directory Tree group select 2`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1200,6 +1256,7 @@ exports[`Directory Tree group select 2`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1230,11 +1287,12 @@ exports[`Directory Tree group select 2`] = `
 exports[`Directory Tree selectedKeys update 1`] = `
 <ul
   class="ant-tree ant-tree-directory"
-  role="tree-node"
+  role="tree"
   unselectable="on"
 >
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1259,9 +1317,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1286,6 +1346,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1312,6 +1373,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
   </li>
   <li
     class="ant-tree-treenode-switcher-open"
+    role="treeitem"
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
@@ -1336,9 +1398,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
     <ul
       class="ant-tree-child-tree ant-tree-child-tree-open"
       data-expanded="true"
+      role="group"
     >
       <li
         class="ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1363,6 +1427,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
       </li>
       <li
         class="ant-tree-treenode-switcher-open"
+        role="treeitem"
       >
         <span
           class="ant-tree-switcher ant-tree-switcher-noop"

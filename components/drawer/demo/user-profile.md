@@ -24,29 +24,27 @@ const pStyle = {
   marginBottom: 16,
 };
 
-const DescriptionItem = ({ title, content }) => {
-  return (
-    <div
+const DescriptionItem = ({ title, content }) => (
+  <div
+    style={{
+      fontSize: 14,
+      lineHeight: '22px',
+      marginBottom: 7,
+      color: 'rgba(0,0,0,0.65)',
+    }}
+  >
+    <p
       style={{
-        fontSize: 14,
-        lineHeight: '22px',
-        marginBottom: 7,
-        color: 'rgba(0,0,0,0.65)',
+        marginRight: 8,
+        display: 'inline-block',
+        color: 'rgba(0,0,0,0.85)',
       }}
     >
-      <p
-        style={{
-          marginRight: 8,
-          display: 'inline-block',
-          color: 'rgba(0,0,0,0.85)',
-        }}
-      >
-        {title}:
-      </p>
-      {content}
-    </div>
-  );
-};
+      {title}:
+    </p>
+    {content}
+  </div>
+);
 
 class App extends React.Component {
   state = { visible: false };
@@ -185,9 +183,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-#_hj_feedback_container{
-  display:none
-}
-</style>

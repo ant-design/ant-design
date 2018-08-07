@@ -202,6 +202,14 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
 <div>
   <div>
     <span
+      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      style="width:64px;height:64px;line-height:64px;font-size:32px"
+    >
+      <i
+        class="anticon anticon-user"
+      />
+    </span>
+    <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
     >
       <i
@@ -224,6 +232,14 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
     </span>
   </div>
   <div>
+    <span
+      class="ant-avatar ant-avatar-square ant-avatar-icon"
+      style="width:64px;height:64px;line-height:64px;font-size:32px"
+    >
+      <i
+        class="anticon anticon-user"
+      />
+    </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
     >

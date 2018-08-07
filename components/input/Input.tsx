@@ -128,25 +128,16 @@ export default class Input extends React.Component<InputProps, any> {
 
     // Need another wrapper for changing display:table to display:inline-block
     // and put style prop in wrapper
-    if (addonBefore || addonAfter) {
-      return (
-        <span
-          className={groupClassName}
-          style={props.style}
-        >
-          <span className={className}>
-            {addonBefore}
-            {React.cloneElement(children, { style: null })}
-            {addonAfter}
-          </span>
-        </span>
-      );
-    }
     return (
-      <span className={className}>
-        {addonBefore}
-        {children}
-        {addonAfter}
+      <span
+        className={groupClassName}
+        style={props.style}
+      >
+        <span className={className}>
+          {addonBefore}
+          {React.cloneElement(children, { style: null })}
+          {addonAfter}
+        </span>
       </span>
     );
   }

@@ -1,7 +1,7 @@
 ---
 type: Feedback
 category: Components
-subtitle: 
+subtitle:
 title: Drawer
 ---
 
@@ -27,7 +27,13 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | title | The title for Drawer. | string\|ReactNode | - |
 | visible | Whether the Drawer dialog is visible or not. | boolean | false |
 | width | Width of the Drawer dialog. | string\|number | 256 |
-| wrapClassName | The class name of the container of the Drawer dialog. | string | - |
+| className | The class name of the container of the Drawer dialog. | string | - |
 | zIndex | The `z-index` of the Drawer. | Number | 1000 |
 | placement | The placement of the Drawer. | 'left' \| 'right' | 'right'
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button. | function(e) | - |
+
+<style>
+#_hj_feedback_container {
+  display: none;
+}
+</style>

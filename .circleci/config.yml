@@ -21,6 +21,52 @@ references:
     environment:
       REACT: 16
 
+  workflow: &workflow
+    jobs:
+      - setup:
+          filters:
+            branches:
+              ignore: gh-pages
+      - dist:
+          requires:
+          - setup
+      - compile:
+          requires:
+          - setup
+      - lint:
+          requires:
+            - setup
+      - test_dist:
+          requires:
+            - dist
+      - test_lib:
+          requires:
+            - compile
+      - test_es:
+          requires:
+            - compile
+      - test_dom:
+          requires:
+            - setup
+      - test_node:
+          requires:
+            - setup
+      - test_dist_15:
+          requires:
+            - dist
+      - test_lib_15:
+          requires:
+            - compile
+      - test_es_15:
+          requires:
+            - compile
+      - test_dom_15:
+          requires:
+            - setup
+      - test_node_15:
+          requires:
+            - setup
+
 jobs:
   setup:
     <<: *container_config
@@ -78,7 +124,7 @@ jobs:
       - checkout
       - *attach_workspace
       - run:
-          command: npm test -- -w 2
+          command: npm test -- -w 1
           environment:
             LIB_DIR: dist
 
@@ -89,7 +135,7 @@ jobs:
       - checkout
       - *attach_workspace
       - run:
-          command: npm test -- -w 2
+          command: npm test -- -w 1
           environment:
             LIB_DIR: lib
 
@@ -100,7 +146,7 @@ jobs:
       - checkout
       - *attach_workspace
       - run:
-          command: npm test -- -w 2
+          command: npm test -- -w 1
           environment:
             LIB_DIR: es
 
@@ -110,7 +156,7 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - run: npm test -- -w 2 --coverage
+      - run: npm test -- -w 1 --coverage
       - run: bash <(curl -s https://codecov.io/bash)
 
   test_node:
@@ -119,7 +165,7 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - run: npm run test-node -- -w 2
+      - run: npm run test-node -- -w 1
 
   test_dist_15:
     <<: *container_config
@@ -129,7 +175,7 @@ jobs:
       - *attach_workspace
       - *install_react
       - run:
-          command: npm test -- -w 2 -u
+          command: npm test -- -w 1 -u
           environment:
             LIB_DIR: dist
 
@@ -141,7 +187,7 @@ jobs:
       - *attach_workspace
       - *install_react
       - run:
-          command: npm test -- -w 2 -u
+          command: npm test -- -w 1 -u
           environment:
             LIB_DIR: lib
 
@@ -153,7 +199,7 @@ jobs:
       - *attach_workspace
       - *install_react
       - run:
-          command: npm test -- -w 2 -u
+          command: npm test -- -w 1 -u
           environment:
             LIB_DIR: es
 
@@ -164,7 +210,7 @@ jobs:
       - checkout
       - *attach_workspace
       - *install_react
-      - run: npm test -- -w 2 -u
+      - run: npm test -- -w 1 -u
 
   test_node_15:
     <<: *container_config
@@ -173,49 +219,18 @@ jobs:
       - checkout
       - *attach_workspace
       - *install_react
-      - run: npm run test-node -- -w 2 -u
+      - run: npm run test-node -- -w 1 -u
 
 workflows:
   version: 2
-  build-test:
-    jobs:
-      - setup
-      - dist:
-          requires:
-          - setup
-      - compile:
-          requires:
-          - setup
-      - lint:
-          requires:
-            - setup
-      - test_dist:
-          requires:
-            - dist
-      - test_lib:
-          requires:
-            - compile
-      - test_es:
-          requires:
-            - compile
-      - test_dom:
-          requires:
-            - setup
-      - test_node:
-          requires:
-            - setup
-      - test_dist_15:
-          requires:
-            - dist
-      - test_lib_15:
-          requires:
-            - compile
-      - test_es_15:
-          requires:
-            - compile
-      - test_dom_15:
-          requires:
-            - setup
-      - test_node_15:
-          requires:
-            - setup
+  build_test:
+    <<: *workflow
+  nightly:
+    <<: *workflow
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master

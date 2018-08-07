@@ -2,6 +2,8 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
+import warning from 'warning';
+import classNames from 'classnames';
 
 const DrawerContext: Context<Drawer | null> = createReactContext(null);
 
@@ -22,12 +24,14 @@ export interface DrawerProps {
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
+  /* deprecated, use className instead */
   wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
   push?: boolean;
   placement?: 'left' | 'right';
   onClose?: (e: EventType) => void;
+  className?: string;
 }
 
 export interface IDrawerState {
@@ -51,11 +55,11 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     title: PropTypes.node,
     visible: PropTypes.bool,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    wrapClassName: PropTypes.string,
     zIndex: PropTypes.number,
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
     onClose: PropTypes.func,
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -175,7 +179,8 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     );
   }
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, ...rest } = this.props;
+    let { zIndex, style, placement, className, wrapClassName, ...rest } = this.props;
+    warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const RcDrawerStyle = this.state.push
       ? {
         zIndex,
@@ -193,7 +198,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
           showMask={this.props.mask}
           placement={placement}
           style={RcDrawerStyle}
-          className={this.props.wrapClassName}
+          className={classNames(wrapClassName, className)}
         >
           {this.renderBody()}
         </RcDrawer>

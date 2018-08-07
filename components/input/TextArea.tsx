@@ -23,7 +23,9 @@ export interface AutoSizeType {
   maxRows?: number;
 }
 
-export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export interface TextAreaProps extends HTMLTextareaProps {
   prefixCls?: string;
   autosize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
@@ -33,9 +35,7 @@ export interface TextAreaState {
   textareaStyles?: React.CSSProperties;
 }
 
-export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-
-export default class TextArea extends React.Component<TextAreaProps & HTMLTextareaProps, TextAreaState> {
+export default class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   static defaultProps = {
     prefixCls: 'ant-input',
   };

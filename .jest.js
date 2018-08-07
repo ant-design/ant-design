@@ -6,6 +6,8 @@ const transformIgnorePatterns = [
 ];
 
 module.exports = {
+  verbose: true,
+  testURL: "http://localhost/",
   setupFiles: [
     './tests/setup.js',
   ],
