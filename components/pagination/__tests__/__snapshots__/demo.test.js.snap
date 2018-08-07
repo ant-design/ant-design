@@ -191,7 +191,9 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
           style="user-select:none;-webkit-user-select:none"
           unselectable="on"
         >
-          <b />
+          <i
+            class="ant-select-arrow-icon"
+          />
         </span>
       </div>
     </div>
@@ -636,7 +638,9 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
-            <b />
+            <i
+              class="ant-select-arrow-icon"
+            />
           </span>
         </div>
       </div>

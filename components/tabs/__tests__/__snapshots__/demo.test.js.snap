@@ -855,7 +855,9 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           style="user-select:none;-webkit-user-select:none"
           unselectable="on"
         >
-          <b />
+          <i
+            class="ant-select-arrow-icon"
+          />
         </span>
       </div>
     </div>

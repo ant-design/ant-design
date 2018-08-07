@@ -9,7 +9,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
 <div class="resource-cards">
   <a target="_blank" href="http://as.wiley.com/WileyCDA/WileyTitle/productCd-1118766571.html" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://media.wiley.com/product_data/coverImage300/71/11187665/1118766571.jpg">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/HJstCPuYGIrazrMAmhNK.jpg">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">About Face</span>
@@ -19,7 +19,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="http://shop.oreilly.com/product/9780596516253.do" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://akamaicovers.oreilly.com/images/9780596516253/cat.gif">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/XiifUfeQjuSovafhDkjO.gif">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Designing Web Interfaces</span>
@@ -29,7 +29,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="http://shop.oreilly.com/product/0636920000556.do" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://akamaicovers.oreilly.com/images/0636920000556/cat.gif">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/LstmXRKzPTtIEwoltxYt.gif">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Designing Interfaces</span>
@@ -39,7 +39,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="http://www.peachpit.com/store/non-designers-design-book-9780133966152" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://www.peachpit.com/ShowCover.aspx?isbn=9780133966152&type=f">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/gfgFaAsDZtdsAGuncBIP.jpeg">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Non-Designer's Design Book</span>
@@ -49,7 +49,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="http://www.jnd.org/books/design-of-everyday-things-revised.html" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://www.jnd.org/assets/images/the-design-of-everyday-things2.jpg">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/rOfwJaScZsvNXvcoZhot.jpg">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">The Design of Everyday Things</span>
@@ -59,7 +59,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="https://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367" class="resource-card">
     <div class="resource-card-cover">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/41tEBlukEtL._SX328_BO1,204,203,200_.jpg">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/qEYOzzydzyZRRxjfVBKj.jpg">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Emotional Design</span>
@@ -69,7 +69,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
   </a>
   <a target="_blank" href="http://rosenfeldmedia.com/books/web-form-design/" class="resource-card">
     <div class="resource-card-cover">
-      <img src="http://rosenfeldmedia.com/wp-content/uploads/2014/11/2456180445_932e3749f4_o-640x960.jpg">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/rFFScFeWuEHtFuWNvtZd.jpg">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Web Form Design</span>

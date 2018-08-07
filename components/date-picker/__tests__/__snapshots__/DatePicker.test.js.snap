@@ -45,10 +45,13 @@ exports[`DatePicker prop locale should works 1`] = `
               />
             </div>
             <a
-              class="ant-calendar-clear-btn"
               role="button"
               title="Изчистване"
-            />
+            >
+              <span
+                class="ant-calendar-clear-btn"
+              />
+            </a>
           </div>
           <div
             class="ant-calendar-date-panel"
