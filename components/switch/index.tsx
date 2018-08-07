@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import Icon from '../icon';
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -50,11 +51,19 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
+    const loadingIcon = loading ? (
+      <Icon
+        type="reload"
+        className={`${prefixCls}-loading-icon`}
+        svgClassName={`${prefixCls}-loading-icon-svg`}
+      />
+    ) : null;
     return (
       <RcSwitch
         {...omit(this.props, ['loading'])}
         className={classes}
         ref={this.saveSwitch}
+        loadingIcon={loadingIcon}
       />
     );
   }
