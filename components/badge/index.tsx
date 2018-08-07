@@ -85,8 +85,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
     const styleWithOffset = offset ? {
-      marginTop: offset[0],
-      marginLeft: offset[1],
+      marginLeft: offset[0],
+      marginTop: offset[1],
       ...style,
     } : style;
     // <Badge status="success" />
