@@ -2,6 +2,7 @@ import { IconProps } from './index';
 import * as React from 'react';
 import classNames from 'classnames';
 import { svgBaseProps } from './CustomIcon';
+import { getComputedSvgStyle } from './utils';
 
 const customCache = new Set<string>();
 
@@ -43,22 +44,11 @@ export default function create(options: CustomIconOptions = {}): React.Component
         className,
       );
 
-      const computedSvgStyle: React.CSSProperties = {
-        transform: `${rotate ? `rotate(${rotate}deg)` : ''} `
-          + `${(flip === 'horizontal' || flip === 'both') ? `scaleX(-1)` : ''} `
-          + `${(flip === 'vertical' || flip === 'both') ? `scaleY(-1)` : ''}`,
-        ...svgStyle,
-      };
-
-      const svgClassString = classNames(
-        svgClassName,
-      );
-
       const innerSvgProps = {
         ...svgBaseProps,
         viewBox,
-        className: svgClassString,
-        style: computedSvgStyle,
+        className: svgClassName,
+        style: getComputedSvgStyle({ rotate, flip }, svgStyle),
       };
 
       return React.createElement(

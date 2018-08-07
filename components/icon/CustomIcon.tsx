@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Omit } from '../_util/type';
 import { IconProps } from './index';
+import { getComputedSvgStyle } from './utils';
 
 export interface CustomIconProps extends Omit<IconProps, 'type'> {
   type?: string | SpriteSvgIcon;
@@ -58,22 +59,11 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
     'anticon-spin': !!spin,
   }, className);
 
-  const svgClassString = classNames(
-    svgClassName,
-  );
-
-  const computedSvgStyle: React.CSSProperties = {
-    transform: `${rotate ? `rotate(${rotate}deg)` : ''} `
-      + `${(flip === 'horizontal' || flip === 'both') ? `scaleX(-1)` : ''} `
-      + `${(flip === 'vertical' || flip === 'both') ? `scaleY(-1)` : ''}`,
-    ...svgStyle,
-  };
-
   const innerSvgProps = {
     ...svgBaseProps,
     viewBox,
-    className: svgClassString,
-    style: computedSvgStyle,
+    className: svgClassName,
+    style: getComputedSvgStyle({ rotate, flip }, svgStyle),
   };
 
   let content = (

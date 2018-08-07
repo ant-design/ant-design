@@ -4,6 +4,7 @@ import { antDesignIcons } from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import CustomIcon from './CustomIcon';
 import create from './IconFont';
+import { getComputedSvgStyle } from './utils';
 
 ReactIcon.add(...antDesignIcons);
 
@@ -45,17 +46,6 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
     className,
   );
 
-  const svgClassString = classNames(
-    svgClassName,
-  );
-
-  const computedSvgStyle: React.CSSProperties = {
-    transform: `${rotate ? `rotate(${rotate}deg)` : ''} `
-      + `${(flip === 'horizontal' || flip === 'both') ? `scaleX(-1)` : ''} `
-      + `${(flip === 'vertical' || flip === 'both') ? `scaleY(-1)` : ''}`,
-    ...svgStyle,
-  };
-
   return React.createElement(
     tag,
     {
@@ -64,9 +54,9 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
       onClick,
     },
     <ReactIcon
-      className={svgClassString}
+      className={svgClassName}
       type={type}
-      style={computedSvgStyle}
+      style={getComputedSvgStyle({ rotate, flip }, svgStyle)}
     />,
   );
 };
