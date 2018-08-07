@@ -228,6 +228,7 @@
     "lint-staged"
   ],
   "sideEffects": [
+    "dist/*",
     "es/**/style/*",
     "lib/**/style/*"
   ]
