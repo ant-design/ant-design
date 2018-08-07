@@ -105,7 +105,7 @@ describe('Drawer', () => {
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
   });
 
-  it('render right MultiDrawer', () => {
+  it('render left MultiDrawer', () => {
     const wrapper = mount(<MultiDrawer placement="left" />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
