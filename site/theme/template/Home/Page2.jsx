@@ -79,6 +79,9 @@ export default function Page2({ isMobile, locale }) {
       <a href="https://ng.ant.design/" target="_black">
         Ant Design of Angular <Icon type="right" />
       </a>
+      <a href="https://vuecomponent.github.io/ant-design-vue" target="_black">
+        Ant Design of Vue <Icon type="right" />
+      </a>
     </div>
   );
   const children = page2Data.map((item, i) => {

@@ -103,6 +103,11 @@ class Footer extends React.Component {
                   Ant Design of Angular
                 </div>
                 <div>
+                  <a href="https://vuecomponent.github.io/ant-design-vue">ant-design-vue</a>
+                  <span> - </span>
+                  Ant Design of Vue
+                </div>
+                <div>
                   <a target="_blank " href="https://github.com/websemantics/awesome-ant-design">
                     <FormattedMessage id="app.footer.awesome" />
                   </a>
