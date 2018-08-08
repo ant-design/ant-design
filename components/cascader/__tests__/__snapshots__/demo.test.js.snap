@@ -143,7 +143,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
 </span>
 `;
 
-exports[`renders ./components/cascader/demo/fileds-name.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
 <span
   class="ant-cascader-picker"
   tabindex="0"
