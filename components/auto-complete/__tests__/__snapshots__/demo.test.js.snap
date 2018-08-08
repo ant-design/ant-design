@@ -49,7 +49,9 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -119,7 +121,9 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -168,7 +172,9 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -223,7 +229,9 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -278,7 +286,9 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -353,7 +363,9 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>

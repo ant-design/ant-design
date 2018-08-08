@@ -72,7 +72,9 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -105,7 +107,9 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -143,7 +147,9 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -176,7 +182,9 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -213,7 +221,9 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -256,7 +266,13 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
           </div>
           <span
             class="ant-select-selection__choice__remove"
-          />
+          >
+            <i
+              class="ant-select-selection__choice__remove-icon"
+            >
+              ×
+            </i>
+          </span>
         </li>
         <li
           class="ant-select-selection__choice"
@@ -271,7 +287,13 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
           </div>
           <span
             class="ant-select-selection__choice__remove"
-          />
+          >
+            <i
+              class="ant-select-selection__choice__remove-icon"
+            >
+              ×
+            </i>
+          </span>
         </li>
         <li
           class="ant-select-search ant-select-search--inline"
@@ -327,7 +349,9 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -382,7 +406,9 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
-      <b />
+      <i
+        class="ant-select-arrow-icon"
+      />
     </span>
   </div>
 </div>
@@ -579,7 +605,9 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        <b />
+        <i
+          class="ant-select-arrow-icon"
+        />
       </span>
     </div>
   </div>
@@ -620,7 +648,13 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             </div>
             <span
               class="ant-select-selection__choice__remove"
-            />
+            >
+              <i
+                class="ant-select-selection__choice__remove-icon"
+              >
+                ×
+              </i>
+            </span>
           </li>
           <li
             class="ant-select-selection__choice"
@@ -635,7 +669,13 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             </div>
             <span
               class="ant-select-selection__choice__remove"
-            />
+            >
+              <i
+                class="ant-select-selection__choice__remove-icon"
+              >
+                ×
+              </i>
+            </span>
           </li>
           <li
             class="ant-select-search ant-select-search--inline"
@@ -696,7 +736,13 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             </div>
             <span
               class="ant-select-selection__choice__remove"
-            />
+            >
+              <i
+                class="ant-select-selection__choice__remove-icon"
+              >
+                ×
+              </i>
+            </span>
           </li>
           <li
             class="ant-select-selection__choice"
@@ -711,7 +757,13 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             </div>
             <span
               class="ant-select-selection__choice__remove"
-            />
+            >
+              <i
+                class="ant-select-selection__choice__remove-icon"
+              >
+                ×
+              </i>
+            </span>
           </li>
           <li
             class="ant-select-search ant-select-search--inline"

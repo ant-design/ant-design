@@ -556,7 +556,9 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -654,7 +656,9 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                   style="user-select:none;-webkit-user-select:none"
                   unselectable="on"
                 >
-                  <b />
+                  <i
+                    class="ant-select-arrow-icon"
+                  />
                 </span>
               </div>
             </div>
@@ -1645,7 +1649,9 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                       style="user-select:none;-webkit-user-select:none"
                       unselectable="on"
                     >
-                      <b />
+                      <i
+                        class="ant-select-arrow-icon"
+                      />
                     </span>
                   </div>
                 </div>
@@ -1737,7 +1743,9 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -2285,7 +2293,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -3359,7 +3369,9 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
