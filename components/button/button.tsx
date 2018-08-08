@@ -2,6 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import clickAnimation from './clickAnimation';
 import Icon from '../icon';
 import Group from './button-group';
 
@@ -86,20 +87,22 @@ export default class Button extends React.Component<ButtonProps, any> {
     block: PropTypes.bool,
   };
 
-  timeout: number;
   delayTimeout: number;
+  clickAnimation: {
+    cancel: () => void;
+  };
 
   constructor(props: ButtonProps) {
     super(props);
     this.state = {
       loading: props.loading,
-      clicked: false,
       hasTwoCNChar: false,
     };
   }
 
   componentDidMount() {
     this.fixTwoCNChar();
+    this.clickAnimation = clickAnimation(findDOMNode(this) as HTMLElement);
   }
 
   componentWillReceiveProps(nextProps: ButtonProps) {
@@ -122,11 +125,11 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   componentWillUnmount() {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
     if (this.delayTimeout) {
       clearTimeout(this.delayTimeout);
+    }
+    if (this.clickAnimation) {
+      this.clickAnimation.cancel();
     }
   }
 
@@ -148,12 +151,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    // Add click effect
-    this.setState({ clicked: true });
-    clearTimeout(this.timeout);
-    this.timeout = window.setTimeout(() => this.setState({ clicked: false }), 500);
-
-    const onClick = this.props.onClick;
+    const { onClick } = this.props;
     if (onClick) {
       (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
     }
@@ -169,7 +167,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       type, shape, size, className, children, icon, prefixCls, ghost, loading: _loadingProp, block, ...rest
     } = this.props;
 
-    const { loading, clicked, hasTwoCNChar } = this.state;
+    const { loading, hasTwoCNChar } = this.state;
 
     // large => lg
     // small => sm
@@ -190,7 +188,6 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-clicked`]: clicked,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar,
       [`${prefixCls}-block`]: block,

@@ -16,7 +16,7 @@ declare module 'shallowequal';
 
 declare module 'warning';
 
-declare module 'css-animation';
+declare module 'css-animation*';
 
 declare module 'rc-select';
 

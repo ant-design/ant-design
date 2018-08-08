@@ -8,6 +8,7 @@
 @btn-ghost-color: @text-color;
 @btn-ghost-bg: transparent;
 @btn-ghost-border: @border-color-base;
+@btn-animation-width: 6px;
 
 // Button styles
 // -----------------------------
@@ -131,21 +132,7 @@
     margin-left: 8px;
   }
 
-  &-clicked:after {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    bottom: -1px;
-    right: -1px;
-    border-radius: inherit;
-    border: 0 solid @primary-color;
-    opacity: 0.4;
-    animation: buttonEffect .4s;
-    display: block;
-  }
-
-  &-danger&-clicked:after {
+  &-danger[ant-click-animating]:after {
     border-color: @btn-danger-color;
   }
 
@@ -180,11 +167,11 @@
 @keyframes buttonEffect {
   to {
     opacity: 0;
-    top: -6px;
-    left: -6px;
-    bottom: -6px;
-    right: -6px;
-    border-width: 6px;
+    top: -@btn-animation-width;
+    left: -@btn-animation-width;
+    bottom: -@btn-animation-width;
+    right: -@btn-animation-width;
+    border-width: @btn-animation-width;
   }
 }
 
@@ -196,4 +183,18 @@ a.@{btn-prefix-cls} {
   &-sm {
     line-height: @btn-height-sm - 2px;
   }
+}
+
+[ant-click-animating]:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  border-radius: inherit;
+  border: 0 solid @primary-color;
+  opacity: 0.4;
+  animation: buttonEffect .4s cubic-bezier(.25, .8, .25, 1);
+  display: block;
 }
