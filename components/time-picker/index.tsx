@@ -70,6 +70,13 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     focusOnOpen: true,
   };
 
+  static getDerivedStateFromProps(nextProps: TimePickerProps) {
+    if ('value' in nextProps) {
+      return { value: nextProps.value };
+    }
+    return null;
+  }
+
   private timePickerRef: typeof RcTimePicker;
 
   constructor(props: TimePickerProps) {
@@ -84,12 +91,6 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     this.state = {
       value,
     };
-  }
-
-  componentWillReceiveProps(nextProps: TimePickerProps) {
-    if ('value' in nextProps) {
-      this.setState({ value: nextProps.value });
-    }
   }
 
   handleChange = (value: moment.Moment) => {
