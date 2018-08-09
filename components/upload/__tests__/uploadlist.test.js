@@ -324,6 +324,13 @@ describe('Upload List', () => {
         uid: '-11',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
       },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-12',
+        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        type: 'image',
+      },
     ];
 
     const wrapper = mount(
