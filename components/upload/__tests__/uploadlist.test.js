@@ -261,8 +261,8 @@ describe('Upload List', () => {
       </Upload>
     );
     wrapper.setState({});
-    await delay(200);
-    expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
+    await delay(0);
+    expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
   });
 
   it('should non-image format file preview', () => {
