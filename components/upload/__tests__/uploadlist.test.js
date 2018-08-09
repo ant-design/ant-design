@@ -6,7 +6,6 @@ import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 const fileList = [{
   uid: '-1',
   name: 'xxx.png',
@@ -20,11 +19,9 @@ const fileList = [{
   url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
   thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
 }];
-
 describe('Upload List', () => {
   beforeEach(() => setup());
   afterEach(() => teardown());
-
   // https://github.com/ant-design/ant-design/issues/4653
   it('should use file.thumbUrl for <img /> in priority', () => {
     const wrapper = mount(
@@ -39,7 +36,6 @@ describe('Upload List', () => {
       expect(imgNode.prop('src')).toBe(file.thumbUrl);
     });
   });
-
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
     const list = [{
@@ -66,7 +62,6 @@ describe('Upload List', () => {
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
-
   it('should be uploading when upload a file', (done) => {
     let wrapper;
     const onChange = ({ file }) => {
@@ -95,7 +90,6 @@ describe('Upload List', () => {
       },
     });
   });
-
   it('handle error', (done) => {
     let wrapper;
     const onChange = ({ file }) => {
@@ -121,7 +115,6 @@ describe('Upload List', () => {
       },
     });
   });
-
   it('does concat filelist when beforeUpload returns false', () => {
     const handleChange = jest.fn();
     const wrapper = mount(
@@ -134,7 +127,6 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>
     );
-
     wrapper.find('input').simulate('change', {
       target: {
         files: [
@@ -142,11 +134,9 @@ describe('Upload List', () => {
         ],
       },
     });
-
     expect(wrapper.state().fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
-
   // https://github.com/ant-design/ant-design/issues/7762
   it('work with form validation', () => {
     let errors;
@@ -190,12 +180,10 @@ describe('Upload List', () => {
         );
       }
     }
-
     const App = Form.create()(TestForm);
     const wrapper = mount(<App />);
     wrapper.find(Form).simulate('submit');
     expect(errors.file.errors).toEqual([{ message: 'file required', field: 'file' }]);
-
     wrapper.find('input').simulate('change', {
       target: {
         files: [
@@ -206,7 +194,6 @@ describe('Upload List', () => {
     wrapper.find(Form).simulate('submit');
     expect(errors).toBeNull();
   });
-
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
     const wrapper = mount(
@@ -223,7 +210,6 @@ describe('Upload List', () => {
     wrapper.find('.anticon-eye-o').at(1).simulate('click');
     expect(handlePreview).toBeCalledWith(fileList[1]);
   });
-
   it('should support onRemove', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
@@ -244,7 +230,6 @@ describe('Upload List', () => {
     await delay(0);
     expect(handleChange.mock.calls.length).toBe(2);
   });
-
   it('should generate thumbUrl from file', async () => {
     const handlePreview = jest.fn();
     const newFileList = [...fileList];
@@ -264,7 +249,6 @@ describe('Upload List', () => {
     await delay(200);
     expect(wrapper.state().fileList[2].thumbUrl).not.toBeFalsy();
   });
-
   it('should non-image format file preview', () => {
     const list = [
       {
@@ -324,8 +308,14 @@ describe('Upload List', () => {
         uid: '-11',
         url: 'https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot',
       },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-12',
+        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        type: 'image',
+      },
     ];
-
     const wrapper = mount(
       <Upload
         listType="picture"
