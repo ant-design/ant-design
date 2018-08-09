@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import warning from 'warning';
+import Icon from '../icon';
 
 export interface AbstractSelectProps {
   prefixCls?: string;
@@ -171,6 +172,14 @@ export default class Select extends React.Component<SelectProps, {}> {
       combobox: this.isCombobox(),
     };
 
+    const inputIcon = (
+      <Icon type="arrowdown" className={`${prefixCls}-arrow-icon`} />
+    );
+
+    const removeIcon = (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
+
     return (
       <RcSelect
         {...restProps}
@@ -179,6 +188,8 @@ export default class Select extends React.Component<SelectProps, {}> {
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={this.getNotFoundContent(locale)}
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
         ref={this.saveSelect}
       />
     );

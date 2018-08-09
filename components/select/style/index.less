@@ -64,12 +64,7 @@
     color: @disabled-color;
     font-size: @font-size-sm;
 
-    * {
-      display: none;
-    }
-
-    &:before {
-      content: '\e61d';
+    & &-icon {
       transition: transform .3s;
     }
   }
@@ -366,9 +361,6 @@
       &:hover {
         color: #404040;
       }
-      &:before {
-        content: "\e633";
-      }
     }
 
     .@{select-prefix-cls}-selection__clear {
@@ -385,8 +377,10 @@
   }
 
   &-open {
-    .@{select-prefix-cls}-arrow:before {
-      transform: rotate(180deg);
+    .@{select-prefix-cls}-arrow {
+      &-icon {
+        transform: rotate(180deg);
+      }
     }
     .@{select-prefix-cls}-selection {
       .active();
