@@ -158,7 +158,9 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -209,7 +211,9 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
-            <b />
+            <i
+              class="ant-select-arrow-icon"
+            />
           </span>
         </div>
       </div>
@@ -502,7 +506,9 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -534,7 +540,9 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <b />
+                <i
+                  class="ant-select-arrow-icon"
+                />
               </span>
             </div>
           </div>
@@ -1645,7 +1653,9 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
             style="user-select:none;-webkit-user-select:none"
             unselectable="on"
           >
-            <b />
+            <i
+              class="ant-select-arrow-icon"
+            />
           </span>
         </div>
       </div>
