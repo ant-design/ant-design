@@ -192,7 +192,7 @@
     "lint:style": "stylelint \"{site,components}/**/*.less\" --syntax less",
     "lint-fix:ts": "npm run tsc && antd-tools run ts-lint-fix",
     "lint-fix": "npm run lint-fix:code && npm run lint-fix:demo",
-    "lint-fix:code": "eslint --fix tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
+    "lint-fix:code": "eslint --fix tests site scripts components ./.*.js ./webpack.config.js --ext '.js,.jsx'",
     "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
     "sort-api": "node ./scripts/sort-api-table.js",
     "dist": "antd-tools run dist",
@@ -209,7 +209,7 @@
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
-    "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
+    "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },
   "lint-staged": {
