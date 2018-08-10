@@ -6,8 +6,6 @@ declare module 'rc-time-picker*';
 
 declare module 'rc-pagination*';
 
-declare module "object-assign";
-
 declare module "omit.js";
 
 declare module 'rc-animate';
@@ -18,11 +16,9 @@ declare module 'shallowequal';
 
 declare module 'warning';
 
-declare module 'css-animation';
+declare module 'css-animation*';
 
 declare module 'rc-select';
-
-declare module 'react-slick';
 
 declare module 'rc-cascader';
 
@@ -94,8 +90,6 @@ declare module "*.json" {
   export const version: string;
   export default value;
 }
-
-declare module "prop-types";
 
 declare module "lodash/debounce";
 
