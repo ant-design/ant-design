@@ -2,12 +2,11 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [
   '/dist/',
-  'node_modules\/[^/]+?\/(?!(es|node_modules)\/)', // Ignore modules without es dir
+  'node_modules/[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
 ];
 
 module.exports = {
   verbose: true,
-  testURL: "http://localhost/",
   setupFiles: [
     './tests/setup.js',
   ],
@@ -48,7 +47,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',
-    }
+    },
   },
   testURL: 'http://localhost',
 };
