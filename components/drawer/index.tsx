@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import createReactContext, { Context } from 'create-react-context';
 import warning from 'warning';
 import classNames from 'classnames';
@@ -24,12 +24,13 @@ export interface DrawerProps {
   title?: React.ReactNode;
   visible?: boolean;
   width?: number | string;
+  height?: number | string;
   /* deprecated, use className instead */
   wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
   push?: boolean;
-  placement?: 'left' | 'right';
+  placement?: 'top' | 'right' | 'bottom' | 'left';
   onClose?: (e: EventType) => void;
   className?: string;
 }
@@ -65,6 +66,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
   static defaultProps = {
     prefixCls: 'ant-drawer',
     width: 256,
+    height: 256,
     closable: true,
     placement: 'right',
     maskClosable: true,
@@ -179,7 +181,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     );
   }
   renderProvider = (value: Drawer) => {
-    let { zIndex, style, placement, className, wrapClassName, ...rest } = this.props;
+    let { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
     const RcDrawerStyle = this.state.push
       ? {
@@ -188,10 +190,17 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
       }
       : { zIndex };
     this.praentDrawer = value;
+    const offsetStyle: any = {};
+    if (placement === 'left' || placement === 'right') {
+      offsetStyle.width = width;
+    } else {
+      offsetStyle.height = height;
+    }
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
           {...rest}
+          {...offsetStyle}
           handler={false}
           open={this.props.visible}
           onMaskClick={this.onMaskClick}
