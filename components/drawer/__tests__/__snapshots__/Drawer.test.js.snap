@@ -205,3 +205,43 @@ exports[`Drawer render correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Drawer render top drawer 1`] = `
+<div
+  class=""
+>
+  <div
+    class="ant-drawer ant-drawer-top"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="transform:translateY(-100%);-ms-transform:translateY(-100%);height:400px"
+    >
+      <div
+        class="ant-drawer-content"
+      >
+        <div
+          class="ant-drawer-wrapper-body"
+        >
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+          >
+            <span
+              class="ant-drawer-close-x"
+            />
+          </button>
+          <div
+            class="ant-drawer-body"
+          >
+            Here is content of Drawer
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

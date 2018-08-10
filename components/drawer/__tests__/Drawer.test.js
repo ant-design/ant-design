@@ -16,6 +16,20 @@ describe('Drawer', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('render top drawer', () => {
+    const wrapper = render(
+      <Drawer
+        visible
+        height={400}
+        placement="top"
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('have a title', () => {
     const wrapper = render(
       <Drawer
