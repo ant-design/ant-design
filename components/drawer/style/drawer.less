@@ -5,6 +5,8 @@
 .@{dawer-prefix-cls} {
   position: fixed;
   top: 0;
+  width: 0%;
+  height: 100%;
   z-index: @zindex-modal;
   transition: transform @animation-duration-slow @ease-base-in;
   > * {
@@ -53,9 +55,13 @@
 
   &-top,
   &-bottom {
-    .@{dawer-prefix-cls}-content-wrapper,
-    .@{dawer-prefix-cls}-content {
+    width: 100%;
+    height: 0%;
+    .@{dawer-prefix-cls}-content-wrapper {
       width: 100%;
+    }
+    &.@{dawer-prefix-cls}-open {
+      height: 100%;
     }
   }
   &-top {
