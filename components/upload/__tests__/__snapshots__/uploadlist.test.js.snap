@@ -558,6 +558,40 @@ exports[`Upload List should non-image format file preview 1`] = `
         title="Remove file"
       />
     </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              src="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <i
+        class="anticon anticon-cross"
+        title="Remove file"
+      />
+    </div>
   </div>
 </span>
 `;
