@@ -65,7 +65,7 @@ describe('Anchor Render', () => {
     await new Promise(resolve => setTimeout(resolve, 50));
     expect(scrollToSpy).toHaveBeenCalled();
     expect(wrapper.instance().animating).toBe(true);
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     expect(wrapper.instance().animating).toBe(false);
   });
 

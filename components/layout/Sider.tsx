@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import Icon from '../icon';
 import isNumeric from '../_util/isNumeric';
 

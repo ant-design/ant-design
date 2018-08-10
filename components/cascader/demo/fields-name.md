@@ -2,7 +2,7 @@
 order: 10
 title:
   zh-CN: 自定义字段名
-  en-US: Custom Filed Names
+  en-US: Custom Field Names
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Custom filed names.
+Custom field names.
 
 ````jsx
 import { Cascader } from 'antd';
