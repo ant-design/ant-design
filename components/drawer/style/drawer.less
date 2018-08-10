@@ -6,9 +6,9 @@
   position: fixed;
   top: 0;
   z-index: @zindex-modal;
-  transition: transform @animation-duration-slow @ease;
+  transition: transform @animation-duration-slow @drawer-easing;
   > * {
-    transition: transform @animation-duration-slow @ease;
+    transition: transform @animation-duration-slow @drawer-easing;
   }
 
   &-content-wrapper {
@@ -81,7 +81,7 @@
       &-mask {
         opacity: 0.3;
         height: 100%;
-        animation: antdDrawerFadeIn @animation-duration-slow @ease;
+        animation: antdDrawerFadeIn @animation-duration-slow @drawer-easing;
         transition: none;
       }
     }
