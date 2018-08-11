@@ -18,6 +18,9 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   onClick = (node: HTMLElement) => {
+    if (node.className.indexOf('-leave') >= 0) {
+      return;
+    }
     this.removeExtraStyleNode();
     const { insertExtraNode } = this.props;
     const extraNode = document.createElement('div');

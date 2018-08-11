@@ -142,17 +142,17 @@ class Tag extends React.Component<TagProps, TagState> {
       </div>
     );
     return (
-      <Animate
-        component=""
-        showProp="data-show"
-        transitionName={`${prefixCls}-zoom`}
-        transitionAppear
-        onEnd={this.animationEnd}
-      >
-        <Wave>
+      <Wave>
+        <Animate
+          component=""
+          showProp="data-show"
+          transitionName={`${prefixCls}-zoom`}
+          transitionAppear
+          onEnd={this.animationEnd}
+        >
           {tag}
-        </Wave>
-      </Animate>
+        </Animate>
+      </Wave>
     );
   }
 }
