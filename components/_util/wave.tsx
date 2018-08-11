@@ -11,7 +11,6 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
 
   isNotGrey(color: string) {
     const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
-    console.log(match);
     if (match && match[1] && match[2] && match[3]) {
       return !(match[1] === match[2] && match[2] === match[3]);
     }
