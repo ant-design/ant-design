@@ -62,10 +62,7 @@ describe('Anchor Render', () => {
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
     expect(scrollToSpy).not.toHaveBeenCalled();
-    await new Promise(resolve => setTimeout(resolve, 100));
-    expect(wrapper.instance().animating).toBe(true);
     await new Promise(resolve => setTimeout(resolve, 1000));
-    expect(wrapper.instance().animating).toBe(false);
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
