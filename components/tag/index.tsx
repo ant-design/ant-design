@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
+import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -148,7 +149,9 @@ class Tag extends React.Component<TagProps, TagState> {
         transitionAppear
         onEnd={this.animationEnd}
       >
-        {tag}
+        <Wave>
+          {tag}
+        </Wave>
       </Animate>
     );
   }
