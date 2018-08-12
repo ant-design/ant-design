@@ -6,9 +6,9 @@
   position: fixed;
   top: 0;
   z-index: @zindex-modal;
-  transition: transform @animation-duration-slow @drawer-easing;
+  transition: transform @animation-duration-slow @ease-base-in;
   > * {
-    transition: transform @animation-duration-slow @drawer-easing;
+    transition: transform @animation-duration-slow @ease-base-in;
   }
 
   &-content-wrapper {
@@ -81,7 +81,7 @@
       &-mask {
         opacity: 0.3;
         height: 100%;
-        animation: antdDrawerFadeIn @animation-duration-slow @drawer-easing;
+        animation: antdDrawerFadeIn @animation-duration-slow  @ease-base-out;
         transition: none;
       }
     }
@@ -169,6 +169,10 @@
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
   &-open {
+    transition: transform @animation-duration-slow @ease-base-out;
+    > * {
+      transition: transform @animation-duration-slow @ease-base-out;
+    }
     &-content {
       box-shadow: @shadow-2;
     }
