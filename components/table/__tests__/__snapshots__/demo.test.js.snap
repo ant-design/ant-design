@@ -7019,7 +7019,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col />
                   <col />
                   <col
-                    style="width:60px;min-width:60px"
+                    style="width:80px;min-width:80px"
                   />
                 </colgroup>
                 <thead
@@ -7181,7 +7181,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <col />
                   <col />
                   <col
-                    style="width:60px;min-width:60px"
+                    style="width:80px;min-width:80px"
                   />
                 </colgroup>
                 <tbody
@@ -7890,7 +7890,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    style="width:60px;min-width:60px"
+                    style="width:80px;min-width:80px"
                   />
                 </colgroup>
                 <thead
@@ -7922,7 +7922,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <colgroup>
                     <col
-                      style="width:60px;min-width:60px"
+                      style="width:80px;min-width:80px"
                     />
                   </colgroup>
                   <tbody
