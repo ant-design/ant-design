@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.8.1
 
-`2018-08-11`
+`2018-08-12`
 
 - 🐞 Fixed TimePicker unexpected long width. [80f8267](https://github.com/ant-design/ant-design/commit/80f82674fb63b068d047651ccba772999139f1b7)
 - 🐞 Fixed Tabs that focusable element in inactive panel cause tabs disappear. [#11261](https://github.com/ant-design/ant-design/issues/11261)

@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.8.1
 
-`2018-08-11`
+`2018-08-12`
 
 - 🐞 修复 TimePicker 面板输入框宽度过长的问题。[80f8267](https://github.com/ant-design/ant-design/commit/80f82674fb63b068d047651ccba772999139f1b7)
 - 🐞 修复 Tabs 中隐藏的输入框可能被聚焦的问题。[#11261](https://github.com/ant-design/ant-design/issues/11261)
