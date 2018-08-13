@@ -388,7 +388,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-with-avatar"
+        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
       >
         <div
           class="ant-skeleton-header"
