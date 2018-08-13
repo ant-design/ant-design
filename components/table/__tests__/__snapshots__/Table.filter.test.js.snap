@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table.filter override custom filter correctly 1`] = `null`;
+exports[`Table.filter override custom filter correctly 1`] = `
+<div
+  className="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setSelectedKeys"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="confirm"
+    onClick={[Function]}
+  >
+    Confirm
+  </span>
+  <span
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+</div>
+`;
 
 exports[`Table.filter renders custom content correctly 1`] = `
 <div>
@@ -80,7 +104,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
-                          title="Filter menu"
                           viewBox="0 0 1024 1024"
                           width="1em"
                         >
@@ -102,6 +125,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -115,6 +139,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -128,6 +153,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-column-has-filters"
@@ -141,6 +167,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row  ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-column-has-filters"

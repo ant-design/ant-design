@@ -242,7 +242,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               data-icon="delete"
               fill="currentColor"
               height="1em"
-              title="Remove file"
               viewBox="0 0 1024 1024"
               width="1em"
             >

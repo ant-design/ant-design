@@ -639,8 +639,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon anticon-cross"
-        title="Remove file"
+        class="anticon"
       />
     </div>
   </div>

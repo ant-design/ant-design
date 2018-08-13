@@ -934,6 +934,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -945,6 +946,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -956,13 +958,13 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   >
                     <svg
                       aria-hidden="true"
                       data-icon="message"
                       fill="currentColor"
                       height="1em"
-                      style="margin-right:8px"
                       viewBox="0 0 1024 1024"
                       width="1em"
                     >
@@ -1060,6 +1062,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -1071,6 +1074,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -1082,13 +1086,13 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   >
                     <svg
                       aria-hidden="true"
                       data-icon="message"
                       fill="currentColor"
                       height="1em"
-                      style="margin-right:8px"
                       viewBox="0 0 1024 1024"
                       width="1em"
                     >
@@ -1186,6 +1190,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -1197,6 +1202,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   />
                   156
                 </span>
@@ -1208,13 +1214,13 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 <span>
                   <i
                     class="anticon"
+                    style="margin-right:8px"
                   >
                     <svg
                       aria-hidden="true"
                       data-icon="message"
                       fill="currentColor"
                       height="1em"
-                      style="margin-right:8px"
                       viewBox="0 0 1024 1024"
                       width="1em"
                     >

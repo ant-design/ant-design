@@ -63,9 +63,10 @@ exports[`Input.Search should support suffix 1`] = `
         >
           <i
             className="anticon ant-input-search-icon"
+            onClick={[Function]}
           >
-            <AntdIcon
-              onClick={[Function]}
+            <IconReact
+              style={Object {}}
               type="search"
             >
               <svg
@@ -73,7 +74,7 @@ exports[`Input.Search should support suffix 1`] = `
                 data-icon="search"
                 fill="currentColor"
                 height="1em"
-                onClick={[Function]}
+                style={Object {}}
                 viewBox="0 0 1024 1024"
                 width="1em"
               >
@@ -87,7 +88,7 @@ exports[`Input.Search should support suffix 1`] = `
                   key="path-1"
                 />
               </svg>
-            </AntdIcon>
+            </IconReact>
           </i>
         </Icon>
       </span>
