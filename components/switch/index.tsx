@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';

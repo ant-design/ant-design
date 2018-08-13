@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
@@ -240,6 +240,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       affix,
       showInkInFixed,
       children,
+      getContainer,
     } = this.props;
     const { activeLink } = this.state;
 
@@ -273,7 +274,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     );
 
     return !affix ? anchorContent : (
-      <Affix offsetTop={offsetTop}>
+      <Affix offsetTop={offsetTop} target={getContainer}>
         {anchorContent}
       </Affix>
     );

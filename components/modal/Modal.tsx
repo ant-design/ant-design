@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';

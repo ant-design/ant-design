@@ -16,11 +16,11 @@ module.exports = {
   testRegex: 'demo\\.test\\.js$',
   testEnvironment: 'node',
   snapshotSerializers: [
-    'enzyme-to-json/serializer'
+    'enzyme-to-json/serializer',
   ],
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',
-    }
+    },
   },
 };

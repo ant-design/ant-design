@@ -9,6 +9,7 @@ export interface CollapseProps {
   defaultActiveKey?: Array<string>;
   /** 手风琴效果 */
   accordion?: boolean;
+  destroyInactivePanel?: boolean;
   onChange?: (key: string | string[]) => void;
   style?: React.CSSProperties;
   className?: string;

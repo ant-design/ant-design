@@ -3,7 +3,7 @@
 exports[`Drawer render correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-clicked"
+    class="ant-btn"
     type="button"
   >
     <span>
