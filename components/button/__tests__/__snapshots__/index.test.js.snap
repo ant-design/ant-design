@@ -44,7 +44,7 @@ exports[`Button renders Chinese characters correctly 2`] = `
   type="button"
 >
   <i
-    class="anticon"
+    class="anticon anticon-search"
   >
     <svg
       aria-hidden="true"
@@ -75,7 +75,7 @@ exports[`Button renders Chinese characters correctly 3`] = `
   type="button"
 >
   <i
-    class="anticon"
+    class="anticon anticon-search"
   >
     <svg
       aria-hidden="true"
@@ -106,7 +106,7 @@ exports[`Button renders Chinese characters correctly 4`] = `
   type="button"
 >
   <i
-    class="anticon"
+    class="anticon anticon-search"
   >
     <svg
       aria-hidden="true"
@@ -137,7 +137,7 @@ exports[`Button renders Chinese characters correctly 5`] = `
   type="button"
 >
   <i
-    class="anticon anticon-spin"
+    class="anticon anticon-spin anticon-loading"
   />
   <span>
     按钮
@@ -151,7 +151,7 @@ exports[`Button renders Chinese characters correctly 6`] = `
   type="button"
 >
   <i
-    class="anticon anticon-spin"
+    class="anticon anticon-spin anticon-loading"
   />
   <span>
     按 钮

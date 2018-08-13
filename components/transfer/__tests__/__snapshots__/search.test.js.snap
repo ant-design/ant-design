@@ -31,7 +31,7 @@ exports[`Search should show cross icon when input value exists 1`] = `
         type="search"
       >
         <i
-          className="anticon"
+          className="anticon anticon-search"
         >
           <IconReact
             style={Object {}}
@@ -97,7 +97,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
         type="cross-circle"
       >
         <i
-          className="anticon"
+          className="anticon anticon-cross-circle"
         >
           <IconReact
             style={Object {}}

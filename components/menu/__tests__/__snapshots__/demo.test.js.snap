@@ -10,7 +10,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     role="menuitem"
   >
     <i
-      class="anticon"
+      class="anticon anticon-mail"
     >
       <svg
         aria-hidden="true"
@@ -45,7 +45,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     role="menuitem"
   >
     <i
-      class="anticon"
+      class="anticon anticon-appstore"
     />
     Navigation Two
   </li>
@@ -60,7 +60,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-setting"
         >
           <svg
             aria-hidden="true"
@@ -127,7 +127,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-mail"
         >
           <svg
             aria-hidden="true"
@@ -237,7 +237,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-appstore"
         />
         <span>
           Navigation Two
@@ -261,7 +261,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-setting"
         >
           <svg
             aria-hidden="true"
@@ -310,7 +310,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-menu-fold"
     />
   </button>
   <ul
@@ -323,7 +323,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       style="padding-left:24px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-pie-chart"
       >
         <svg
           aria-hidden="true"
@@ -359,7 +359,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       style="padding-left:24px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-desktop"
       >
         <svg
           aria-hidden="true"
@@ -388,7 +388,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       style="padding-left:24px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-inbox"
       />
       <span>
         Option 3
@@ -407,7 +407,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-mail"
           >
             <svg
               aria-hidden="true"
@@ -489,7 +489,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-appstore"
           />
           <span>
             Navigation Two
@@ -524,7 +524,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-mail"
         >
           <svg
             aria-hidden="true"
@@ -606,7 +606,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-appstore"
         />
         <span>
           Navigation Two
@@ -630,7 +630,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-setting"
         >
           <svg
             aria-hidden="true"
@@ -706,7 +706,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       style="padding-left:24px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-mail"
       >
         <svg
           aria-hidden="true"
@@ -741,7 +741,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       style="padding-left:24px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-calendar"
       >
         <svg
           aria-hidden="true"
@@ -775,7 +775,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-appstore"
           />
           <span>
             Navigation Three
@@ -836,7 +836,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-setting"
           >
             <svg
               aria-hidden="true"
@@ -909,7 +909,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-mail"
           >
             <svg
               aria-hidden="true"
@@ -991,7 +991,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-appstore"
           />
           <span>
             Navigtion Two
@@ -1015,7 +1015,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-setting"
           >
             <svg
               aria-hidden="true"
@@ -1072,7 +1072,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-mail"
         >
           <svg
             aria-hidden="true"
@@ -1119,7 +1119,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-appstore"
         />
         <span>
           Navigation Two
@@ -1141,7 +1141,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-setting"
         >
           <svg
             aria-hidden="true"

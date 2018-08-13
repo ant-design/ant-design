@@ -933,7 +933,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-star-o"
                     style="margin-right:8px"
                   />
                   156
@@ -945,7 +945,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-like-o"
                     style="margin-right:8px"
                   />
                   156
@@ -957,7 +957,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-message"
                     style="margin-right:8px"
                   >
                     <svg
@@ -1061,7 +1061,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-star-o"
                     style="margin-right:8px"
                   />
                   156
@@ -1073,7 +1073,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-like-o"
                     style="margin-right:8px"
                   />
                   156
@@ -1085,7 +1085,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-message"
                     style="margin-right:8px"
                   >
                     <svg
@@ -1189,7 +1189,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-star-o"
                     style="margin-right:8px"
                   />
                   156
@@ -1201,7 +1201,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-like-o"
                     style="margin-right:8px"
                   />
                   156
@@ -1213,7 +1213,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-message"
                     style="margin-right:8px"
                   >
                     <svg

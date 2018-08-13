@@ -147,7 +147,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-user"
           >
             <svg
               aria-hidden="true"
@@ -176,7 +176,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-video-camera"
           />
           <span>
             nav 2
@@ -188,7 +188,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-upload"
           >
             <svg
               aria-hidden="true"
@@ -221,7 +221,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       style="background:#fff;padding:0"
     >
       <i
-        class="anticon trigger"
+        class="anticon anticon-menu-fold trigger"
       />
     </div>
     <div
@@ -354,7 +354,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-user"
           >
             <svg
               aria-hidden="true"
@@ -385,7 +385,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-video-camera"
           />
           <span
             class="nav-text"
@@ -399,7 +399,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-upload"
           >
             <svg
               aria-hidden="true"
@@ -429,7 +429,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-bar-chart"
           >
             <svg
               aria-hidden="true"
@@ -459,7 +459,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-cloud-o"
           />
           <span
             class="nav-text"
@@ -473,7 +473,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-appstore-o"
           />
           <span
             class="nav-text"
@@ -487,7 +487,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-team"
           >
             <svg
               aria-hidden="true"
@@ -521,7 +521,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-shop"
           >
             <svg
               aria-hidden="true"
@@ -699,7 +699,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-user"
           >
             <svg
               aria-hidden="true"
@@ -730,7 +730,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-video-camera"
           />
           <span
             class="nav-text"
@@ -744,7 +744,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-upload"
           >
             <svg
               aria-hidden="true"
@@ -774,7 +774,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-user"
           >
             <svg
               aria-hidden="true"
@@ -854,7 +854,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-pie-chart"
           >
             <svg
               aria-hidden="true"
@@ -890,7 +890,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-desktop"
           >
             <svg
               aria-hidden="true"
@@ -925,7 +925,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
-                class="anticon"
+                class="anticon anticon-user"
               >
                 <svg
                   aria-hidden="true"
@@ -966,7 +966,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           >
             <span>
               <i
-                class="anticon"
+                class="anticon anticon-team"
               >
                 <svg
                   aria-hidden="true"
@@ -1004,7 +1004,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           style="padding-left:24px"
         >
           <i
-            class="anticon"
+            class="anticon anticon-file"
           >
             <svg
               aria-hidden="true"
@@ -1038,7 +1038,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       style="width:200px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -1315,7 +1315,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-user"
                   >
                     <svg
                       aria-hidden="true"
@@ -1387,7 +1387,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-laptop"
                   >
                     <svg
                       aria-hidden="true"
@@ -1430,7 +1430,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               >
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-notification"
                   >
                     <svg
                       aria-hidden="true"
@@ -1540,7 +1540,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
-                  class="anticon"
+                  class="anticon anticon-user"
                 >
                   <svg
                     aria-hidden="true"
@@ -1612,7 +1612,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
-                  class="anticon"
+                  class="anticon anticon-laptop"
                 >
                   <svg
                     aria-hidden="true"
@@ -1655,7 +1655,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             >
               <span>
                 <i
-                  class="anticon"
+                  class="anticon anticon-notification"
                 >
                   <svg
                     aria-hidden="true"

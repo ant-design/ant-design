@@ -54,7 +54,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <i
-              class="anticon"
+              class="anticon anticon-search"
             >
               <svg
                 aria-hidden="true"
@@ -108,7 +108,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -133,7 +133,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -203,7 +203,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <i
-              class="anticon"
+              class="anticon anticon-search"
             >
               <svg
                 aria-hidden="true"
@@ -368,7 +368,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -390,7 +390,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -541,7 +541,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -563,7 +563,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -687,7 +687,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -709,7 +709,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -827,7 +827,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <i
-              class="anticon"
+              class="anticon anticon-search"
             >
               <svg
                 aria-hidden="true"
@@ -868,7 +868,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -890,7 +890,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -956,7 +956,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-search-action"
           >
             <i
-              class="anticon"
+              class="anticon anticon-search"
             >
               <svg
                 aria-hidden="true"

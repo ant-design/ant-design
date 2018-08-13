@@ -12,7 +12,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         class="ant-avatar ant-avatar-square ant-avatar-icon"
       >
         <i
-          class="anticon"
+          class="anticon anticon-user"
         >
           <svg
             aria-hidden="true"
@@ -203,7 +203,7 @@ exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
         class="ant-avatar ant-avatar-square ant-avatar-icon"
       >
         <i
-          class="anticon"
+          class="anticon anticon-user"
         >
           <svg
             aria-hidden="true"
@@ -240,7 +240,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -264,7 +264,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -288,7 +288,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -312,7 +312,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -339,7 +339,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -363,7 +363,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -387,7 +387,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-square ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -411,7 +411,7 @@ exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
       class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
     >
       <i
-        class="anticon"
+        class="anticon anticon-user"
       >
         <svg
           aria-hidden="true"
@@ -465,7 +465,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
   >
     <i
-      class="anticon"
+      class="anticon anticon-user"
     >
       <svg
         aria-hidden="true"
@@ -525,7 +525,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
     style="background-color:#87d068"
   >
     <i
-      class="anticon"
+      class="anticon anticon-user"
     >
       <svg
         aria-hidden="true"

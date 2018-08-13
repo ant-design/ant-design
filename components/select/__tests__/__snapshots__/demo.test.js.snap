@@ -73,7 +73,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -121,7 +121,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -174,7 +174,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -222,7 +222,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -274,7 +274,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -333,7 +333,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
-              class="anticon ant-select-remove-icon"
+              class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
                 aria-hidden="true"
@@ -365,7 +365,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             class="ant-select-selection__choice__remove"
           >
             <i
-              class="anticon ant-select-remove-icon"
+              class="anticon anticon-close ant-select-remove-icon"
             >
               <svg
                 aria-hidden="true"
@@ -437,7 +437,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -507,7 +507,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -719,7 +719,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -776,7 +776,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
-                class="anticon ant-select-remove-icon"
+                class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -808,7 +808,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
-                class="anticon ant-select-remove-icon"
+                class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -886,7 +886,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
-                class="anticon ant-select-remove-icon"
+                class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -918,7 +918,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               class="ant-select-selection__choice__remove"
             >
               <i
-                class="anticon ant-select-remove-icon"
+                class="anticon anticon-close ant-select-remove-icon"
               >
                 <svg
                   aria-hidden="true"

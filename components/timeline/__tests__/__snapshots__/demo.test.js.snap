@@ -44,7 +44,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
-        class="anticon"
+        class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       />
     </div>
@@ -94,7 +94,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
       <i
-        class="anticon"
+        class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       />
     </div>
@@ -301,7 +301,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
-        class="anticon"
+        class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       />
     </div>
@@ -389,7 +389,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
         class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
       >
         <i
-          class="anticon anticon-spin"
+          class="anticon anticon-spin anticon-loading"
         />
       </div>
       <div
@@ -455,7 +455,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
       <i
-        class="anticon"
+        class="anticon anticon-clock-circle-o"
         style="font-size:16px"
       />
     </div>

@@ -35,7 +35,7 @@ exports[`Upload List handle error 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <span
             class="ant-upload-list-item-name"
@@ -46,7 +46,7 @@ exports[`Upload List handle error 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
@@ -110,7 +110,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       >
         <span>
           <i
-            class="anticon anticon-spin"
+            class="anticon anticon-spin anticon-loading"
           />
           <span
             class="ant-upload-list-item-name"
@@ -121,7 +121,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
       <div
         class="ant-upload-list-item-progress"
@@ -185,7 +185,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <span
             class="ant-upload-list-item-name"
@@ -196,7 +196,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
@@ -266,7 +266,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <i
-              class="anticon ant-upload-list-item-icon"
+              class="anticon anticon-file ant-upload-list-item-icon"
             >
               <svg
                 aria-hidden="true"
@@ -302,7 +302,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -335,7 +335,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -352,7 +352,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <i
-              class="anticon ant-upload-list-item-icon"
+              class="anticon anticon-file ant-upload-list-item-icon"
             >
               <svg
                 aria-hidden="true"
@@ -388,7 +388,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -405,7 +405,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             target="_blank"
           >
             <i
-              class="anticon ant-upload-list-item-icon"
+              class="anticon anticon-file ant-upload-list-item-icon"
             >
               <svg
                 aria-hidden="true"
@@ -441,7 +441,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -474,7 +474,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -507,7 +507,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -540,7 +540,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -573,7 +573,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -606,7 +606,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -639,7 +639,7 @@ exports[`Upload List should non-image format file preview 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
   </div>

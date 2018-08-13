@@ -28,7 +28,7 @@ exports[`Modal render correctly 1`] = `
               class="ant-modal-close-x"
             >
               <i
-                class="anticon ant-modal-close-icon"
+                class="anticon anticon-close ant-modal-close-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -113,7 +113,7 @@ exports[`Modal render without footer 1`] = `
               class="ant-modal-close-x"
             >
               <i
-                class="anticon ant-modal-close-icon"
+                class="anticon anticon-close ant-modal-close-icon"
               >
                 <svg
                   aria-hidden="true"

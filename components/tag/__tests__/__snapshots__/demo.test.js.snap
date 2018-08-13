@@ -24,7 +24,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   >
     Tag 2
     <i
-      class="anticon"
+      class="anticon anticon-cross"
     />
   </div>
   <div
@@ -33,7 +33,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
   >
     Prevent Default
     <i
-      class="anticon"
+      class="anticon anticon-cross"
     />
   </div>
 </div>
@@ -186,7 +186,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   >
     Tag 2
     <i
-      class="anticon"
+      class="anticon anticon-cross"
     />
   </div>
   <div
@@ -195,7 +195,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
   >
     Tag 3
     <i
-      class="anticon"
+      class="anticon anticon-cross"
     />
   </div>
   <div
@@ -204,7 +204,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     style="background:#fff;border-style:dashed"
   >
     <i
-      class="anticon"
+      class="anticon anticon-plus"
     >
       <svg
         aria-hidden="true"
@@ -232,7 +232,7 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
   >
     Movies
     <i
-      class="anticon"
+      class="anticon anticon-cross"
     />
   </div>
   <br />

@@ -473,7 +473,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
-          class="anticon"
+          class="anticon anticon-smile-o"
         />
       </span>
       <span
@@ -502,7 +502,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-meh-o"
             />
           </span>
           <span
@@ -527,7 +527,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-frown-o"
             />
           </span>
           <span
@@ -563,7 +563,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
-          class="anticon"
+          class="anticon anticon-folder-open"
         >
           <svg
             aria-hidden="true"
@@ -613,7 +613,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-file"
             >
               <svg
                 aria-hidden="true"
@@ -659,7 +659,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-file"
             >
               <svg
                 aria-hidden="true"
@@ -707,7 +707,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         class="ant-tree-iconEle ant-tree-icon__customize"
       >
         <i
-          class="anticon"
+          class="anticon anticon-folder-open"
         >
           <svg
             aria-hidden="true"
@@ -757,7 +757,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-file"
             >
               <svg
                 aria-hidden="true"
@@ -803,7 +803,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             class="ant-tree-iconEle ant-tree-icon__customize"
           >
             <i
-              class="anticon"
+              class="anticon anticon-file"
             >
               <svg
                 aria-hidden="true"
@@ -1265,7 +1265,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       class="ant-input-suffix"
     >
       <i
-        class="anticon ant-input-search-icon"
+        class="anticon anticon-search ant-input-search-icon"
       >
         <svg
           aria-hidden="true"

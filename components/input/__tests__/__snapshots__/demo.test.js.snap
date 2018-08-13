@@ -71,7 +71,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -128,7 +128,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -168,7 +168,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <i
-            class="anticon"
+            class="anticon anticon-setting"
           >
             <svg
               aria-hidden="true"
@@ -299,7 +299,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -357,7 +357,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -395,7 +395,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="unselectable"
         >
           <i
-            class="anticon ant-input-number-handler-up-inner"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
           >
             <svg
               aria-hidden="true"
@@ -419,7 +419,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="unselectable"
         >
           <i
-            class="anticon ant-input-number-handler-down-inner"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
           >
             <svg
               aria-hidden="true"
@@ -472,7 +472,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           value=""
         />
         <i
-          class="anticon ant-calendar-picker-icon"
+          class="anticon anticon-calendar ant-calendar-picker-icon"
         >
           <svg
             aria-hidden="true"
@@ -527,7 +527,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -574,7 +574,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -626,7 +626,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -697,7 +697,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -764,7 +764,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -817,7 +817,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -852,7 +852,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         value=""
       />
       <i
-        class="anticon ant-cascader-picker-arrow"
+        class="anticon anticon-down ant-cascader-picker-arrow"
       >
         <svg
           aria-hidden="true"
@@ -880,7 +880,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     class="ant-input-prefix"
   >
     <i
-      class="anticon"
+      class="anticon anticon-user"
       style="color:rgba(0,0,0,.25)"
     >
       <svg
@@ -925,7 +925,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       class="ant-input-suffix"
     >
       <i
-        class="anticon ant-input-search-icon"
+        class="anticon anticon-search ant-input-search-icon"
       >
         <svg
           aria-hidden="true"
@@ -964,7 +964,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         type="button"
       >
         <i
-          class="anticon"
+          class="anticon anticon-search"
         >
           <svg
             aria-hidden="true"

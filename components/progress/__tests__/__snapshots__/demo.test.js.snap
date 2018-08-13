@@ -79,7 +79,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </span>
     </div>
@@ -121,7 +121,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-check"
         >
           <svg
             aria-hidden="true"
@@ -192,7 +192,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-minus"
       >
         <svg
           aria-hidden="true"
@@ -213,7 +213,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-plus"
       >
         <svg
           aria-hidden="true"
@@ -312,7 +312,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </span>
     </div>
@@ -354,7 +354,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-check"
         >
           <svg
             aria-hidden="true"
@@ -451,7 +451,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-minus"
       >
         <svg
           aria-hidden="true"
@@ -472,7 +472,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-plus"
       >
         <svg
           aria-hidden="true"
@@ -645,7 +645,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-cross-circle"
         />
       </span>
     </div>
@@ -670,7 +670,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-check-circle"
         />
       </span>
     </div>
@@ -766,7 +766,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-cross-circle"
         />
       </span>
     </div>
@@ -791,7 +791,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         class="ant-progress-text"
       >
         <i
-          class="anticon"
+          class="anticon anticon-check-circle"
         />
       </span>
     </div>

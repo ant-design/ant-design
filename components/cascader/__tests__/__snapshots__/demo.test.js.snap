@@ -17,7 +17,7 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -52,7 +52,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -101,7 +101,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-clear"
+    class="anticon anticon-close ant-cascader-picker-clear"
   >
     <svg
       aria-hidden="true"
@@ -117,7 +117,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
     </svg>
   </i>
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -165,7 +165,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-clear"
+    class="anticon anticon-close ant-cascader-picker-clear"
   >
     <svg
       aria-hidden="true"
@@ -181,7 +181,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
     </svg>
   </i>
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -216,7 +216,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -251,7 +251,7 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -286,7 +286,7 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -321,7 +321,7 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -355,7 +355,7 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
     value=""
   />
   <i
-    class="anticon ant-cascader-picker-arrow"
+    class="anticon anticon-down ant-cascader-picker-arrow"
   >
     <svg
       aria-hidden="true"
@@ -391,7 +391,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       value=""
     />
     <i
-      class="anticon ant-cascader-picker-arrow"
+      class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
         aria-hidden="true"
@@ -425,7 +425,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       value=""
     />
     <i
-      class="anticon ant-cascader-picker-arrow"
+      class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
         aria-hidden="true"
@@ -459,7 +459,7 @@ exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
       value=""
     />
     <i
-      class="anticon ant-cascader-picker-arrow"
+      class="anticon anticon-down ant-cascader-picker-arrow"
     >
       <svg
         aria-hidden="true"

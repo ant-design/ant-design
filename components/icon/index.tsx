@@ -25,7 +25,6 @@ export interface IconProps {
 
 const Icon: React.SFC<IconProps> = (props: IconProps) => {
   const {
-    // prefixCls = 'ant-icon',
     type,
     className = '',
     spin,
@@ -41,7 +40,7 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
     {
       [`anticon`]: true,
       [`anticon-spin`]: !!spin || type === 'loading',
-
+      [`anticon-${type}`]: true,
     },
     className,
   );

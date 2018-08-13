@@ -50,7 +50,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -116,7 +116,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                   class="ant-input-suffix"
                 >
                   <i
-                    class="anticon certain-category-icon"
+                    class="anticon anticon-search certain-category-icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -152,7 +152,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"
@@ -216,7 +216,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -286,7 +286,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -356,7 +356,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
       unselectable="on"
     >
       <i
-        class="anticon ant-select-arrow-icon"
+        class="anticon anticon-down ant-select-arrow-icon"
       >
         <svg
           aria-hidden="true"
@@ -426,7 +426,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                     type="button"
                   >
                     <i
-                      class="anticon"
+                      class="anticon anticon-search"
                     >
                       <svg
                         aria-hidden="true"
@@ -463,7 +463,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
         unselectable="on"
       >
         <i
-          class="anticon ant-select-arrow-icon"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
           <svg
             aria-hidden="true"

@@ -15,7 +15,7 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       unselectable="unselectable"
     >
       <i
-        class="anticon ant-input-number-handler-up-inner"
+        class="anticon anticon-up ant-input-number-handler-up-inner"
       >
         <svg
           aria-hidden="true"
@@ -39,7 +39,7 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       unselectable="unselectable"
     >
       <i
-        class="anticon ant-input-number-handler-down-inner"
+        class="anticon anticon-down ant-input-number-handler-down-inner"
       >
         <svg
           aria-hidden="true"
@@ -90,7 +90,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       unselectable="unselectable"
     >
       <i
-        class="anticon ant-input-number-handler-up-inner"
+        class="anticon anticon-up ant-input-number-handler-up-inner"
       >
         <svg
           aria-hidden="true"
@@ -114,7 +114,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       unselectable="unselectable"
     >
       <i
-        class="anticon ant-input-number-handler-down-inner"
+        class="anticon anticon-down ant-input-number-handler-down-inner"
       >
         <svg
           aria-hidden="true"
@@ -165,7 +165,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -189,7 +189,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"
@@ -255,7 +255,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -279,7 +279,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"
@@ -325,7 +325,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -349,7 +349,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"
@@ -402,7 +402,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -426,7 +426,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"
@@ -474,7 +474,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -498,7 +498,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"
@@ -546,7 +546,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-up-inner"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
         >
           <svg
             aria-hidden="true"
@@ -570,7 +570,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         unselectable="unselectable"
       >
         <i
-          class="anticon ant-input-number-handler-down-inner"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
         >
           <svg
             aria-hidden="true"

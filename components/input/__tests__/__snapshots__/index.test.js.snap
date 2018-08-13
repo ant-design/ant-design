@@ -62,7 +62,7 @@ exports[`Input.Search should support suffix 1`] = `
           type="search"
         >
           <i
-            className="anticon ant-input-search-icon"
+            className="anticon anticon-search ant-input-search-icon"
             onClick={[Function]}
           >
             <IconReact

@@ -36,7 +36,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -83,7 +83,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -1075,7 +1075,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -1122,7 +1122,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -2112,7 +2112,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -2159,7 +2159,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"
@@ -3559,7 +3559,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -3606,7 +3606,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"

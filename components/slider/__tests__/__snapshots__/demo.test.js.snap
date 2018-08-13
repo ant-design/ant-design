@@ -152,7 +152,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
   class="icon-wrapper"
 >
   <i
-    class="anticon"
+    class="anticon anticon-frown-o"
     style="color:rgba(0, 0, 0, .45)"
   />
   <div
@@ -183,7 +183,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     />
   </div>
   <i
-    class="anticon"
+    class="anticon anticon-smile-o"
     style="color:"
   />
 </div>
@@ -243,7 +243,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
-              class="anticon ant-input-number-handler-up-inner"
+              class="anticon anticon-up ant-input-number-handler-up-inner"
             >
               <svg
                 aria-hidden="true"
@@ -267,7 +267,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
-              class="anticon ant-input-number-handler-down-inner"
+              class="anticon anticon-down ant-input-number-handler-down-inner"
             >
               <svg
                 aria-hidden="true"
@@ -355,7 +355,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
-              class="anticon ant-input-number-handler-up-inner"
+              class="anticon anticon-up ant-input-number-handler-up-inner"
             >
               <svg
                 aria-hidden="true"
@@ -379,7 +379,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             unselectable="unselectable"
           >
             <i
-              class="anticon ant-input-number-handler-down-inner"
+              class="anticon anticon-down ant-input-number-handler-down-inner"
             >
               <svg
                 aria-hidden="true"

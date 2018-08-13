@@ -597,7 +597,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-setting"
         >
           <svg
             aria-hidden="true"
@@ -630,7 +630,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-edit"
         >
           <svg
             aria-hidden="true"
@@ -656,7 +656,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon"
+          class="anticon anticon-ellipsis"
         >
           <svg
             aria-hidden="true"

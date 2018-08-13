@@ -2,7 +2,7 @@
 
 exports[`Icon should render to a <i class="xxx"><svg>...</svg></i> 1`] = `
 <i
-  class="anticon my-icon-classname"
+  class="anticon anticon-message my-icon-classname"
 >
   <svg
     aria-hidden="true"

@@ -29,7 +29,7 @@ exports[`Drawer className is test_drawer 1`] = `
               class="ant-drawer-close-x"
             >
               <i
-                class="anticon"
+                class="anticon anticon-close"
               >
                 <svg
                   aria-hidden="true"
@@ -120,7 +120,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
               class="ant-drawer-close-x"
             >
               <i
-                class="anticon"
+                class="anticon anticon-close"
               >
                 <svg
                   aria-hidden="true"
@@ -187,7 +187,7 @@ exports[`Drawer have a title 1`] = `
               class="ant-drawer-close-x"
             >
               <i
-                class="anticon"
+                class="anticon anticon-close"
               >
                 <svg
                   aria-hidden="true"
@@ -245,7 +245,7 @@ exports[`Drawer render correctly 1`] = `
               class="ant-drawer-close-x"
             >
               <i
-                class="anticon"
+                class="anticon anticon-close"
               >
                 <svg
                   aria-hidden="true"

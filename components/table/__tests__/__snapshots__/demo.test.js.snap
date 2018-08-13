@@ -48,7 +48,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           title="↑"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-up"
                           />
                         </span>
                         <span
@@ -56,7 +56,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                           title="↓"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-down"
                           />
                         </span>
                       </div>
@@ -68,7 +68,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     <span>
                       Gender
                       <i
-                        class="anticon ant-dropdown-trigger"
+                        class="anticon anticon-filter ant-dropdown-trigger"
                       >
                         <svg
                           aria-hidden="true"
@@ -233,7 +233,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -305,7 +305,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -377,7 +377,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -944,7 +944,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <span>
                       Name
                       <i
-                        class="anticon ant-table-filter-icon ant-dropdown-trigger"
+                        class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
                         style="color:#aaa"
                       />
                     </span>
@@ -962,7 +962,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     <span>
                       Address
                       <i
-                        class="anticon ant-dropdown-trigger"
+                        class="anticon anticon-filter ant-dropdown-trigger"
                       >
                         <svg
                           aria-hidden="true"
@@ -1886,7 +1886,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -1982,7 +1982,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2078,7 +2078,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2174,7 +2174,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2270,7 +2270,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2366,7 +2366,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2462,7 +2462,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2558,7 +2558,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2654,7 +2654,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -2750,7 +2750,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         >
                           More actions 
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"
@@ -7233,7 +7233,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <span>
                         Name
                         <i
-                          class="anticon ant-dropdown-trigger"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                         >
                           <svg
                             aria-hidden="true"
@@ -7294,7 +7294,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             title="↑"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-up"
                             />
                           </span>
                           <span
@@ -7302,7 +7302,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                             title="↓"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-down"
                             />
                           </span>
                         </div>
@@ -7922,7 +7922,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <span>
                         Name
                         <i
-                          class="anticon ant-dropdown-trigger"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                         >
                           <svg
                             aria-hidden="true"
@@ -8403,7 +8403,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↑"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-up"
                           />
                         </span>
                         <span
@@ -8411,12 +8411,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↓"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-down"
                           />
                         </span>
                       </div>
                       <i
-                        class="anticon ant-dropdown-trigger"
+                        class="anticon anticon-filter ant-dropdown-trigger"
                       >
                         <svg
                           aria-hidden="true"
@@ -8450,7 +8450,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↑"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-up"
                           />
                         </span>
                         <span
@@ -8458,7 +8458,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↓"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-down"
                           />
                         </span>
                       </div>
@@ -8477,7 +8477,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↑"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-up"
                           />
                         </span>
                         <span
@@ -8485,12 +8485,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           title="↓"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-caret-down"
                           />
                         </span>
                       </div>
                       <i
-                        class="anticon ant-dropdown-trigger"
+                        class="anticon anticon-filter ant-dropdown-trigger"
                       >
                         <svg
                           aria-hidden="true"
@@ -8794,7 +8794,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -8867,7 +8867,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -8940,7 +8940,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       >
                         More actions 
                         <i
-                          class="anticon"
+                          class="anticon anticon-down"
                         >
                           <svg
                             aria-hidden="true"
@@ -9366,7 +9366,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↑"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-up"
                             />
                           </span>
                           <span
@@ -9374,12 +9374,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↓"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-down"
                             />
                           </span>
                         </div>
                         <i
-                          class="anticon ant-dropdown-trigger"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                         >
                           <svg
                             aria-hidden="true"
@@ -9413,7 +9413,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↑"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-up"
                             />
                           </span>
                           <span
@@ -9421,7 +9421,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↓"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-down"
                             />
                           </span>
                         </div>
@@ -9440,7 +9440,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↑"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-up"
                             />
                           </span>
                           <span
@@ -9448,12 +9448,12 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                             title="↓"
                           >
                             <i
-                              class="anticon"
+                              class="anticon anticon-caret-down"
                             />
                           </span>
                         </div>
                         <i
-                          class="anticon ant-dropdown-trigger"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                         >
                           <svg
                             aria-hidden="true"
@@ -10885,7 +10885,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           class="ant-table-selection-down ant-dropdown-trigger"
                         >
                           <i
-                            class="anticon"
+                            class="anticon anticon-down"
                           >
                             <svg
                               aria-hidden="true"

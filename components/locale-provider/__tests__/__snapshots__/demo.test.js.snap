@@ -159,7 +159,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -225,7 +225,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"
@@ -254,7 +254,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             value=""
           />
           <i
-            class="anticon ant-calendar-picker-icon"
+            class="anticon anticon-calendar ant-calendar-picker-icon"
           >
             <svg
               aria-hidden="true"
@@ -316,7 +316,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             value=""
           />
           <i
-            class="anticon ant-calendar-picker-icon"
+            class="anticon anticon-calendar ant-calendar-picker-icon"
           >
             <svg
               aria-hidden="true"
@@ -426,7 +426,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <i
-                    class="anticon"
+                    class="anticon anticon-search"
                   >
                     <svg
                       aria-hidden="true"
@@ -467,7 +467,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              class="anticon"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
@@ -489,7 +489,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button"
           >
             <i
-              class="anticon"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
@@ -555,7 +555,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   class="ant-transfer-list-search-action"
                 >
                   <i
-                    class="anticon"
+                    class="anticon anticon-search"
                   >
                     <svg
                       aria-hidden="true"
@@ -627,7 +627,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -674,7 +674,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -1664,7 +1664,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                           <span>
                             Name
                             <i
-                              class="anticon ant-dropdown-trigger"
+                              class="anticon anticon-filter ant-dropdown-trigger"
                             >
                               <svg
                                 aria-hidden="true"
@@ -1816,7 +1816,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
             unselectable="on"
           >
             <i
-              class="anticon ant-select-arrow-icon"
+              class="anticon anticon-down ant-select-arrow-icon"
             >
               <svg
                 aria-hidden="true"

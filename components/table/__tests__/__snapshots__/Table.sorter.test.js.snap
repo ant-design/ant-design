@@ -18,7 +18,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
             title="↑"
           >
             <i
-              class="anticon"
+              class="anticon anticon-caret-up"
             />
           </span>
           <span
@@ -26,7 +26,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
             title="↓"
           >
             <i
-              class="anticon"
+              class="anticon anticon-caret-down"
             />
           </span>
         </div>

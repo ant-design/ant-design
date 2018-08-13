@@ -449,7 +449,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         >
           Collapse 
           <i
-            class="anticon"
+            class="anticon anticon-down"
           >
             <svg
               aria-hidden="true"
@@ -570,7 +570,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -683,7 +683,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                   unselectable="on"
                 >
                   <i
-                    class="anticon ant-select-arrow-icon"
+                    class="anticon anticon-down ant-select-arrow-icon"
                   >
                     <svg
                       aria-hidden="true"
@@ -755,7 +755,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             type="button"
           >
             <i
-              class="anticon"
+              class="anticon anticon-plus"
             >
               <svg
                 aria-hidden="true"
@@ -1030,7 +1030,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
-                class="anticon"
+                class="anticon anticon-user"
                 style="color:rgba(0,0,0,.25)"
               >
                 <svg
@@ -1084,7 +1084,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
-                class="anticon"
+                class="anticon anticon-lock"
                 style="color:rgba(0,0,0,.25)"
               >
                 <svg
@@ -1355,7 +1355,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
-                class="anticon"
+                class="anticon anticon-user"
                 style="color:rgba(0,0,0,.25)"
               >
                 <svg
@@ -1409,7 +1409,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
-                class="anticon"
+                class="anticon anticon-lock"
                 style="color:rgba(0,0,0,.25)"
               >
                 <svg
@@ -1631,7 +1631,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span>
           Nickname 
           <i
-            class="anticon"
+            class="anticon anticon-question-circle-o"
           />
         </span>
       </label>
@@ -1700,7 +1700,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               value=""
             />
             <i
-              class="anticon ant-cascader-picker-clear"
+              class="anticon anticon-close ant-cascader-picker-clear"
             >
               <svg
                 aria-hidden="true"
@@ -1716,7 +1716,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               </svg>
             </i>
             <i
-              class="anticon ant-cascader-picker-arrow"
+              class="anticon anticon-down ant-cascader-picker-arrow"
             >
               <svg
                 aria-hidden="true"
@@ -1802,7 +1802,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                       unselectable="on"
                     >
                       <i
-                        class="anticon ant-select-arrow-icon"
+                        class="anticon anticon-down ant-select-arrow-icon"
                       >
                         <svg
                           aria-hidden="true"
@@ -1909,7 +1909,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -2102,7 +2102,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -2162,7 +2162,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -2222,7 +2222,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -2298,7 +2298,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -2375,7 +2375,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -2557,7 +2557,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -2691,7 +2691,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-up-inner"
+                  class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
                     aria-hidden="true"
@@ -2715,7 +2715,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-down-inner"
+                  class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
                     aria-hidden="true"
@@ -3133,7 +3133,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3157,7 +3157,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3190,7 +3190,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3214,7 +3214,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3247,7 +3247,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3271,7 +3271,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3304,7 +3304,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3328,7 +3328,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3361,7 +3361,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-first"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3385,7 +3385,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-rate-star-second"
               >
                 <i
-                  class="anticon"
+                  class="anticon anticon-star"
                 >
                   <svg
                     aria-hidden="true"
@@ -3627,7 +3627,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-reload"
             >
               <svg
                 aria-hidden="true"
@@ -3684,7 +3684,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-check-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -3740,7 +3740,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-info-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -3796,7 +3796,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-close-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -3859,7 +3859,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 value=""
               />
               <i
-                class="anticon ant-calendar-picker-icon"
+                class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
                   aria-hidden="true"
@@ -3884,7 +3884,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-check-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -3948,7 +3948,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-info-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -4023,7 +4023,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
-                  class="anticon ant-select-arrow-icon"
+                  class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
                     aria-hidden="true"
@@ -4045,7 +4045,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-close-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -4106,7 +4106,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               value=""
             />
             <i
-              class="anticon ant-cascader-picker-clear"
+              class="anticon anticon-close ant-cascader-picker-clear"
             >
               <svg
                 aria-hidden="true"
@@ -4122,7 +4122,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </svg>
             </i>
             <i
-              class="anticon ant-cascader-picker-arrow"
+              class="anticon anticon-down ant-cascader-picker-arrow"
             >
               <svg
                 aria-hidden="true"
@@ -4142,7 +4142,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-reload"
             >
               <svg
                 aria-hidden="true"
@@ -4215,7 +4215,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           value=""
                         />
                         <i
-                          class="anticon ant-calendar-picker-icon"
+                          class="anticon anticon-calendar ant-calendar-picker-icon"
                         >
                           <svg
                             aria-hidden="true"
@@ -4281,7 +4281,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           value=""
                         />
                         <i
-                          class="anticon ant-calendar-picker-icon"
+                          class="anticon anticon-calendar ant-calendar-picker-icon"
                         >
                           <svg
                             aria-hidden="true"
@@ -4348,7 +4348,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-up-inner"
+                  class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
                     aria-hidden="true"
@@ -4372,7 +4372,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-down-inner"
+                  class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
                     aria-hidden="true"
@@ -4407,7 +4407,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
-              class="anticon"
+              class="anticon anticon-check-circle-fill"
             >
               <svg
                 aria-hidden="true"
@@ -4474,7 +4474,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-up-inner"
+                  class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
                     aria-hidden="true"
@@ -4498,7 +4498,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
-                  class="anticon ant-input-number-handler-down-inner"
+                  class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
                     aria-hidden="true"

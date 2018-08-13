@@ -358,7 +358,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 1
                     <i
-                      class="anticon ant-tabs-close-x"
+                      class="anticon anticon-close ant-tabs-close-x"
                     >
                       <svg
                         aria-hidden="true"
@@ -384,7 +384,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                   <div>
                     Tab 2
                     <i
-                      class="anticon ant-tabs-close-x"
+                      class="anticon anticon-close ant-tabs-close-x"
                     >
                       <svg
                         aria-hidden="true"
@@ -541,7 +541,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <span>
         <i
-          class="anticon ant-tabs-new-tab"
+          class="anticon anticon-plus ant-tabs-new-tab"
         >
           <svg
             aria-hidden="true"
@@ -596,7 +596,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 1
                   <i
-                    class="anticon ant-tabs-close-x"
+                    class="anticon anticon-close ant-tabs-close-x"
                   >
                     <svg
                       aria-hidden="true"
@@ -622,7 +622,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                 <div>
                   Tab 2
                   <i
-                    class="anticon ant-tabs-close-x"
+                    class="anticon anticon-close ant-tabs-close-x"
                   >
                     <svg
                       aria-hidden="true"
@@ -839,7 +839,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-apple"
                   >
                     <svg
                       aria-hidden="true"
@@ -872,7 +872,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               >
                 <span>
                   <i
-                    class="anticon"
+                    class="anticon anticon-android"
                   >
                     <svg
                       aria-hidden="true"
@@ -964,7 +964,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           unselectable="on"
         >
           <i
-            class="anticon ant-select-arrow-icon"
+            class="anticon anticon-down ant-select-arrow-icon"
           >
             <svg
               aria-hidden="true"

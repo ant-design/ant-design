@@ -169,7 +169,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -196,7 +196,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
         Go forward
       </span>
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -221,7 +221,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-cloud"
       >
         <svg
           aria-hidden="true"
@@ -246,7 +246,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-cloud-download"
       >
         <svg
           aria-hidden="true"
@@ -394,7 +394,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -419,7 +419,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -447,7 +447,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -472,7 +472,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -501,7 +501,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -526,7 +526,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -554,7 +554,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -579,7 +579,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-search"
     >
       <svg
         aria-hidden="true"
@@ -612,7 +612,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin"
+      class="anticon anticon-spin anticon-loading"
     />
     <span>
       Loading
@@ -623,7 +623,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin"
+      class="anticon anticon-spin anticon-loading"
     />
     <span>
       Loading
@@ -643,7 +643,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-poweroff"
     >
       <svg
         aria-hidden="true"
@@ -671,7 +671,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin"
+      class="anticon anticon-spin anticon-loading"
     />
   </button>
   <button
@@ -679,7 +679,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin"
+      class="anticon anticon-spin anticon-loading"
     />
   </button>
 </span>
@@ -711,7 +711,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
       Actions 
     </span>
     <i
-      class="anticon"
+      class="anticon anticon-down"
     >
       <svg
         aria-hidden="true"
@@ -834,7 +834,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-download"
     >
       <svg
         aria-hidden="true"
@@ -858,7 +858,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon"
+      class="anticon anticon-download"
     >
       <svg
         aria-hidden="true"
@@ -889,7 +889,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -916,7 +916,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         Forward
       </span>
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"

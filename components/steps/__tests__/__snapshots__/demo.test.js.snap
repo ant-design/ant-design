@@ -245,7 +245,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon"
+          class="anticon anticon-user"
         >
           <svg
             aria-hidden="true"
@@ -289,7 +289,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon"
+          class="anticon anticon-solution"
         >
           <svg
             aria-hidden="true"
@@ -341,7 +341,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon anticon-spin"
+          class="anticon anticon-spin anticon-loading"
         />
       </span>
     </div>
@@ -368,7 +368,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon"
+          class="anticon anticon-smile-o"
         />
       </span>
     </div>

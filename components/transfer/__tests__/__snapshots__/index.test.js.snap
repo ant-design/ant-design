@@ -101,7 +101,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -123,7 +123,7 @@ exports[`Transfer should render correctly 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"
@@ -291,7 +291,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-right"
       >
         <svg
           aria-hidden="true"
@@ -313,7 +313,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       type="button"
     >
       <i
-        class="anticon"
+        class="anticon anticon-left"
       >
         <svg
           aria-hidden="true"

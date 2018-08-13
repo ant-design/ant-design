@@ -13,7 +13,7 @@ exports[`WeekPicker should support style prop 1`] = `
       value=""
     />
     <i
-      class="anticon ant-calendar-picker-icon"
+      class="anticon anticon-calendar ant-calendar-picker-icon"
     >
       <svg
         aria-hidden="true"

@@ -44,7 +44,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <a
             class="ant-upload-list-item-name"
@@ -58,7 +58,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -69,7 +69,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <a
             class="ant-upload-list-item-name"
@@ -83,7 +83,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
     <div
@@ -94,7 +94,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <a
             class="ant-upload-list-item-name"
@@ -108,7 +108,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
   </div>
@@ -161,7 +161,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       >
         <span>
           <i
-            class="anticon"
+            class="anticon anticon-paper-clip"
           />
           <a
             class="ant-upload-list-item-name"
@@ -175,7 +175,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
         </span>
       </div>
       <i
-        class="anticon"
+        class="anticon anticon-cross"
       />
     </div>
   </div>
@@ -231,11 +231,11 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             title="Preview file"
           >
             <i
-              class="anticon"
+              class="anticon anticon-eye-o"
             />
           </a>
           <i
-            class="anticon"
+            class="anticon anticon-delete"
           >
             <svg
               aria-hidden="true"
@@ -311,7 +311,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </div>
       <div
@@ -344,7 +344,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </div>
     </div>
@@ -391,7 +391,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </div>
       <div
@@ -424,7 +424,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </span>
         </div>
         <i
-          class="anticon"
+          class="anticon anticon-cross"
         />
       </div>
     </div>
