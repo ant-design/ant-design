@@ -38,7 +38,7 @@ class App extends React.Component {
           style={{ width: 300, marginTop: 16 }}
           actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
         >
-          <Skeleton loading={loading} avatar>
+          <Skeleton loading={loading} avatar active>
             <Meta
               avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
               title="Card title"
