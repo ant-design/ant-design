@@ -173,7 +173,7 @@ export default class Select extends React.Component<SelectProps, {}> {
     };
 
     const inputIcon = (
-      <Icon type="arrowdown" className={`${prefixCls}-arrow-icon`} />
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
     );
 
     const removeIcon = (
