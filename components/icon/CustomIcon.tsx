@@ -5,7 +5,7 @@ import { IconProps } from './index';
 import { getComputedSvgStyle } from './utils';
 
 export interface CustomIconProps extends Omit<IconProps, 'type'> {
-  type?: string | SpriteSvgIcon;
+  svgType?: string | SpriteSvgIcon;
   viewBox?: string;
   component?: React.ComponentType<CustomIconComponentProps>;
 }
@@ -22,7 +22,6 @@ export interface CustomIconComponentProps {
 export interface SpriteSvgIcon {
   id: string;
   viewBox?: string;
-
   [key: string]: any;
 }
 
@@ -37,7 +36,7 @@ export const svgBaseProps = {
 
 const CustomIcon: React.SFC<CustomIconProps> = (props) => {
   const {
-    type: spriteSvgIcon,
+    svgType: spriteSvgIcon,
     className = '',
     spin,
     // ⬇️ Todo, what's the best default value?

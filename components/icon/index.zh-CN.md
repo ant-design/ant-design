@@ -21,7 +21,35 @@ toc: false
 
 ## 图标列表
 
-请参阅 [Ant Design 图标库](#)。
+> Click the icon and copy the code。
+
+### Directional Icons
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
+```
+
+### Suggested Icons
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
+```
+
+### Application Icons
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
+```
+
+### Brand and Logos
+
+```__react
+import IconSet from 'site/theme/template/IconSet';
+ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
+```
 
 ## API
 
@@ -48,7 +76,7 @@ toc: false
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 图标类型，可以是图标符号的 `id` 或者是一个包含图标符号信息的对象 | string \| SpriteSvgIcon | - |
+| svgType | 图标类型，可以是图标符号的 `id` 或者是一个包含图标符号信息的对象 | string \| SpriteSvgIcon | - |
 | viewBox | 设置图标[视图容器盒](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/viewBox)的大小 | string | '0 0 1024 1024' |
 | component | 控制如何渲染图标，通常是一个渲染为 `<svg>` 标签的 `React` 组件 | ComponentType<CustomIconComponentProps\> | - |
 | rotate | 设置图标顺时针旋转的角度，使用角度制 | number | - |
@@ -66,7 +94,7 @@ toc: false
 {
   test: /\.svg$/,
   use: [
-    { loader: 'svg-sprite-loader', options: { ... } },
+    { loader: 'svg-sprite-loader' },
   ]
 }
 ```
@@ -76,24 +104,21 @@ toc: false
 
 ```jsx
 import { Icon } from 'antd';
-import MessageSvg from './assets/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
 const DemoIcon = (props) => {
   return <Icon.CustomIcon {...props} viewBox="0 0 1024 1024" />
 };
 
 ReactDOM.render(
-  <DemoIcon type={MessageSvg} />,
+  <DemoIcon svgType={MessageSvg} />,
   mountNode
 );
 ```
 
-
-`component` 属性类似 `react-router v4` 中 `<Route />` 组件的 `component` 属性，描述了图标的如何渲染，对其渲染过程拥有很强的编程控制力。
-
 #### SpriteSvgIcon
 
-`Icon.CustomIcon` 中的 `type` 可传入的 `SpriteSvgIcon` 对象的部分属性如下：
+`Icon.CustomIcon` 中的 `svgType` 可传入的 `SpriteSvgIcon` 对象的部分属性如下：
 
 | 字段 | 说明 | 类型 | 只读值 |
 | --- | --- | --- | --- |
@@ -141,10 +166,3 @@ ReactDOM.render(<MyIcon type="example" />, mountedNode);
 在 `namespace` 和 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
 见 [iconfont.cn 使用帮助](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) 查看如何生成 `js` 地址。
-
-<style>
-[id^="components-icon-demo-"] .code-box-demo .anticon {
-  font-size: 18px;
-  margin-right: 6px;
-}
-</style>

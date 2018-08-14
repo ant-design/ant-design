@@ -17,14 +17,19 @@ Use tag `<Icon />` to create an icon and set its type in the `type` prop.
 import { Icon } from 'antd';
 
 ReactDOM.render(
-  <div>
+  <div className="icons-list">
     <Icon type="home" />
     <Icon type="setting" />
     <Icon type="smile" />
-    <Icon type="smile" rotate={45} />
-    <Icon type="smile" flip="vertical" />
+    <Icon type="smile" rotate={90} />
     <Icon type="reload" spin />
   </div>,
   mountNode
 );
 ````
+
+```css
+.icons-list > .anticon {
+  margin-right: 6px;
+}
+```

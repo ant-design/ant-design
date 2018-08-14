@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title:
   zh-CN: 使用 iconfont.cn
   en-US: Use iconfont.cn
@@ -23,7 +23,7 @@ const FooIcon = Icon.create({
 });
 
 ReactDOM.render(
-  <div>
+  <div className="icons-list">
     <FooIcon type="tuichu" />
     <FooIcon type="facebook" />
     <FooIcon type="twitter" />
@@ -31,3 +31,9 @@ ReactDOM.render(
   mountNode
 );
 ````
+
+```css
+.icons-list > .anticon {
+  margin-right: 6px;
+}
+```
