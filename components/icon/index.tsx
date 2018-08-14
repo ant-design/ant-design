@@ -39,11 +39,15 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
   const classString = classNames(
     {
       [`anticon`]: true,
-      [`anticon-spin`]: !!spin || type === 'loading',
       [`anticon-${type}`]: true,
     },
     className,
   );
+
+  const svgClassString = classNames({
+    svgClassName,
+    [`anticon-spin`]: !!spin || type === 'loading',
+  });
 
   return React.createElement(
     tag,
@@ -53,7 +57,7 @@ const Icon: React.SFC<IconProps> = (props: IconProps) => {
       onClick,
     },
     <ReactIcon
-      className={svgClassName}
+      className={svgClassString}
       type={type}
       style={getComputedSvgStyle({ rotate, flip }, svgStyle)}
     />,

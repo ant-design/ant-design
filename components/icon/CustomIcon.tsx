@@ -56,13 +56,17 @@ const CustomIcon: React.SFC<CustomIconProps> = (props) => {
 
   const classString = classNames({
     anticon: true,
-    'anticon-spin': !!spin,
   }, className);
+
+  const svgClassString = classNames({
+    svgClassName,
+    [`anticon-spin`]: !!spin,
+  });
 
   const innerSvgProps = {
     ...svgBaseProps,
     viewBox,
-    className: svgClassName,
+    className: svgClassString,
     style: getComputedSvgStyle({ rotate, flip }, svgStyle),
   };
 

@@ -39,15 +39,19 @@ export default function create(options: CustomIconOptions = {}): React.Component
       const classString = classNames(
         {
           anticon: true,
-          'anticon-spin': spin || type === 'loading',
         },
         className,
       );
 
+      const svgClassString = classNames({
+        svgClassName,
+        [`anticon-spin`]: !!spin,
+      });
+
       const innerSvgProps = {
         ...svgBaseProps,
         viewBox,
-        className: svgClassName,
+        className: svgClassString,
         style: getComputedSvgStyle({ rotate, flip }, svgStyle),
       };
 
