@@ -32,7 +32,7 @@ function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): Skeleton
 
 function getTitleBasicProps(hasAvatar: boolean, hasParagraph: boolean): SkeletonTitleProps {
   if (!hasAvatar && hasParagraph) {
-    return { width: '40%' };
+    return { width: '38%' };
   }
 
   if (hasAvatar && hasParagraph) {
@@ -49,7 +49,7 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
   if (hasAvatar && hasTitle) {
     basicProps.width = '100%';
   } else {
-    basicProps.width = '60%';
+    basicProps.width = '61%';
   }
 
   // Rows

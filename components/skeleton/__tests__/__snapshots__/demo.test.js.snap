@@ -9,7 +9,7 @@ exports[`renders ./components/skeleton/demo/active.md correctly 1`] = `
   >
     <h3
       class="ant-skeleton-title"
-      style="width:40%"
+      style="width:38%"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -21,7 +21,7 @@ exports[`renders ./components/skeleton/demo/active.md correctly 1`] = `
         style="width:100%"
       />
       <li
-        style="width:60%"
+        style="width:61%"
       />
     </ul>
   </div>
@@ -37,7 +37,7 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
   >
     <h3
       class="ant-skeleton-title"
-      style="width:40%"
+      style="width:38%"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -49,7 +49,7 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
         style="width:100%"
       />
       <li
-        style="width:60%"
+        style="width:61%"
       />
     </ul>
   </div>
@@ -112,7 +112,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width:40%"
+                  style="width:38%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"
@@ -124,7 +124,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                     style="width:100%"
                   />
                   <li
-                    style="width:60%"
+                    style="width:61%"
                   />
                 </ul>
               </div>
@@ -145,7 +145,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width:40%"
+                  style="width:38%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"
@@ -157,7 +157,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                     style="width:100%"
                   />
                   <li
-                    style="width:60%"
+                    style="width:61%"
                   />
                 </ul>
               </div>
@@ -178,7 +178,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width:40%"
+                  style="width:38%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"
@@ -190,7 +190,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                     style="width:100%"
                   />
                   <li
-                    style="width:60%"
+                    style="width:61%"
                   />
                 </ul>
               </div>

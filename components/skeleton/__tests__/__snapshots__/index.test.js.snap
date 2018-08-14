@@ -169,7 +169,7 @@ exports[`Skeleton paragraph rows 1`] = `
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 40%;"
+      style="width: 38%;"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -187,7 +187,7 @@ exports[`Skeleton paragraph rows 1`] = `
         style="width: 100%;"
       />
       <li
-        style="width: 60%;"
+        style="width: 61%;"
       />
     </ul>
   </div>
@@ -203,7 +203,7 @@ exports[`Skeleton paragraph width 1`] = `
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 40%;"
+      style="width: 38%;"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -231,7 +231,7 @@ exports[`Skeleton paragraph width 2`] = `
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 40%;"
+      style="width: 38%;"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -271,7 +271,7 @@ exports[`Skeleton title width 1`] = `
         style="width: 100%;"
       />
       <li
-        style="width: 60%;"
+        style="width: 61%;"
       />
     </ul>
   </div>
