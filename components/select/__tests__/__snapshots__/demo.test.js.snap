@@ -77,6 +77,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -125,6 +126,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -178,6 +180,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -226,6 +229,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -278,6 +282,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -337,6 +342,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="close"
                 fill="currentColor"
                 height="1em"
@@ -369,6 +375,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="close"
                 fill="currentColor"
                 height="1em"
@@ -441,6 +448,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -511,6 +519,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -723,6 +732,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -780,6 +790,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -812,6 +823,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -890,6 +902,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -922,6 +935,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"

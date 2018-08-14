@@ -601,6 +601,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="setting"
             fill="currentColor"
             height="1em"
@@ -634,6 +635,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="edit"
             fill="currentColor"
             height="1em"
@@ -660,6 +662,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="ellipsis"
             fill="currentColor"
             height="1em"

@@ -42,6 +42,7 @@ exports[`Drawer render correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="close"
                     fill="currentColor"
                     height="1em"

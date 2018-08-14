@@ -33,6 +33,7 @@ exports[`Drawer className is test_drawer 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -124,6 +125,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -191,6 +193,7 @@ exports[`Drawer have a title 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"
@@ -249,6 +252,7 @@ exports[`Drawer render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
+                  class=""
                   data-icon="close"
                   fill="currentColor"
                   height="1em"

@@ -567,6 +567,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -617,6 +618,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -663,6 +665,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -711,6 +714,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -761,6 +765,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -807,6 +812,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -1269,6 +1275,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="search"
           fill="currentColor"
           height="1em"

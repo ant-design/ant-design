@@ -163,6 +163,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="down"
                     fill="currentColor"
                     height="1em"
@@ -229,6 +230,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -258,6 +260,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="calendar"
               fill="currentColor"
               height="1em"
@@ -293,6 +296,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="time-circle"
               fill="currentColor"
               height="1em"
@@ -345,6 +349,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="calendar"
               fill="currentColor"
               height="1em"
@@ -455,6 +460,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="search"
                       fill="currentColor"
                       height="1em"
@@ -496,6 +502,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -518,6 +525,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="left"
                 fill="currentColor"
                 height="1em"
@@ -584,6 +592,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="search"
                       fill="currentColor"
                       height="1em"
@@ -656,6 +665,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="down"
                     fill="currentColor"
                     height="1em"
@@ -703,6 +713,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="down"
                     fill="currentColor"
                     height="1em"
@@ -1693,6 +1704,7 @@ exports[`renders ./components/locale-provider/demo/all.md correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
+                                class=""
                                 data-icon="filter"
                                 fill="currentColor"
                                 height="1em"
@@ -1845,6 +1857,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"

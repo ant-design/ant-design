@@ -40,6 +40,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -87,6 +88,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -1079,6 +1081,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -1126,6 +1129,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -2116,6 +2120,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -2163,6 +2168,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -3563,6 +3569,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -3610,6 +3617,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"

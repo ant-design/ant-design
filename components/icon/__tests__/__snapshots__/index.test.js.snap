@@ -6,6 +6,7 @@ exports[`Icon should render to a <i class="xxx"><svg>...</svg></i> 1`] = `
 >
   <svg
     aria-hidden="true"
+    class=""
     data-icon="message"
     fill="currentColor"
     height="1em"

@@ -44,7 +44,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ant-switch-loading-icon-svg"
+        class="svgClassName"
         data-icon="reload"
         fill="currentColor"
         height="1em"
@@ -70,7 +70,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ant-switch-loading-icon-svg"
+        class="svgClassName"
         data-icon="reload"
         fill="currentColor"
         height="1em"
@@ -147,6 +147,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="check"
           fill="currentColor"
           height="1em"

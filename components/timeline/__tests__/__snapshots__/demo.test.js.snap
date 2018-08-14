@@ -389,7 +389,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
         class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
       >
         <i
-          class="anticon anticon-spin anticon-loading"
+          class="anticon anticon-loading"
         />
       </div>
       <div

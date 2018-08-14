@@ -22,6 +22,7 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -48,6 +49,7 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -78,6 +80,7 @@ exports[`Cascader can be selected 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -119,6 +122,7 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -145,6 +149,7 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -175,6 +180,7 @@ exports[`Cascader can be selected 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -226,6 +232,7 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -252,6 +259,7 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -282,6 +290,7 @@ exports[`Cascader can be selected 3`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -343,6 +352,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -369,6 +379,7 @@ exports[`Cascader popup correctly when panel is open 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -410,6 +421,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -436,6 +448,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -466,6 +479,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="right"
                 fill="currentColor"
                 height="1em"
@@ -1153,6 +1167,7 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="close"
       fill="currentColor"
       height="1em"
@@ -1169,6 +1184,7 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"

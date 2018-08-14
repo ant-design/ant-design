@@ -247,6 +247,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="up"
                 fill="currentColor"
                 height="1em"
@@ -271,6 +272,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"
@@ -359,6 +361,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="up"
                 fill="currentColor"
                 height="1em"
@@ -383,6 +386,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"

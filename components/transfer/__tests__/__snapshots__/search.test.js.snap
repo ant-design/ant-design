@@ -34,11 +34,13 @@ exports[`Search should show cross icon when input value exists 1`] = `
           className="anticon anticon-search"
         >
           <IconReact
+            className=""
             style={Object {}}
             type="search"
           >
             <svg
               aria-hidden="true"
+              className=""
               data-icon="search"
               fill="currentColor"
               height="1em"
@@ -100,6 +102,7 @@ exports[`Search should show cross icon when input value exists 2`] = `
           className="anticon anticon-cross-circle"
         >
           <IconReact
+            className=""
             style={Object {}}
             type="cross-circle"
           />

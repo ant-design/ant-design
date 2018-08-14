@@ -196,6 +196,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -656,6 +657,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="down"
                 fill="currentColor"
                 height="1em"

@@ -239,6 +239,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="delete"
               fill="currentColor"
               height="1em"

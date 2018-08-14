@@ -75,6 +75,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="down"
                     fill="currentColor"
                     height="1em"
@@ -132,6 +133,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
+                    class=""
                     data-icon="down"
                     fill="currentColor"
                     height="1em"
@@ -172,6 +174,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="setting"
               fill="currentColor"
               height="1em"
@@ -303,6 +306,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -361,6 +365,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -399,6 +404,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="up"
               fill="currentColor"
               height="1em"
@@ -423,6 +429,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -476,6 +483,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="calendar"
             fill="currentColor"
             height="1em"
@@ -531,6 +539,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -578,6 +587,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -630,6 +640,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -701,6 +712,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -768,6 +780,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -821,6 +834,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"
@@ -856,6 +870,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -885,6 +900,7 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="user"
         fill="currentColor"
         height="1em"
@@ -929,6 +945,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="search"
           fill="currentColor"
           height="1em"
@@ -968,6 +985,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="search"
             fill="currentColor"
             height="1em"

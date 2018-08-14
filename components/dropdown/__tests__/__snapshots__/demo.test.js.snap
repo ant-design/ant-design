@@ -11,6 +11,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"
@@ -56,6 +57,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="ellipsis"
           fill="currentColor"
           height="1em"
@@ -104,6 +106,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="ellipsis"
           fill="currentColor"
           height="1em"
@@ -142,6 +145,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="down"
         fill="currentColor"
         height="1em"
@@ -168,6 +172,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"
@@ -193,6 +198,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"
@@ -218,6 +224,7 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"
@@ -297,6 +304,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"
@@ -322,6 +330,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
+      class=""
       data-icon="down"
       fill="currentColor"
       height="1em"

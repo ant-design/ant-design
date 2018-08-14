@@ -54,6 +54,7 @@ exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -120,6 +121,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="search"
                       fill="currentColor"
                       height="1em"
@@ -156,6 +158,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"
@@ -220,6 +223,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -290,6 +294,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -360,6 +365,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="down"
           fill="currentColor"
           height="1em"
@@ -430,6 +436,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
                     >
                       <svg
                         aria-hidden="true"
+                        class=""
                         data-icon="search"
                         fill="currentColor"
                         height="1em"
@@ -467,6 +474,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="down"
             fill="currentColor"
             height="1em"

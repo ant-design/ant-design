@@ -962,6 +962,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="message"
                       fill="currentColor"
                       height="1em"
@@ -1090,6 +1091,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="message"
                       fill="currentColor"
                       height="1em"
@@ -1218,6 +1220,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="message"
                       fill="currentColor"
                       height="1em"

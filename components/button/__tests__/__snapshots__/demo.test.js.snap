@@ -173,6 +173,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -200,6 +201,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -225,6 +227,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="cloud"
           fill="currentColor"
           height="1em"
@@ -250,6 +253,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="cloud-download"
           fill="currentColor"
           height="1em"
@@ -398,6 +402,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -423,6 +428,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -451,6 +457,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -476,6 +483,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -505,6 +513,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -530,6 +539,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -558,6 +568,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -583,6 +594,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="search"
         fill="currentColor"
         height="1em"
@@ -612,7 +624,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin anticon-loading"
+      class="anticon anticon-loading"
     />
     <span>
       Loading
@@ -623,7 +635,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin anticon-loading"
+      class="anticon anticon-loading"
     />
     <span>
       Loading
@@ -647,6 +659,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="poweroff"
         fill="currentColor"
         height="1em"
@@ -671,7 +684,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin anticon-loading"
+      class="anticon anticon-loading"
     />
   </button>
   <button
@@ -679,7 +692,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
-      class="anticon anticon-spin anticon-loading"
+      class="anticon anticon-loading"
     />
   </button>
 </span>
@@ -715,6 +728,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="down"
         fill="currentColor"
         height="1em"
@@ -838,6 +852,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="download"
         fill="currentColor"
         height="1em"
@@ -862,6 +877,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="download"
         fill="currentColor"
         height="1em"
@@ -893,6 +909,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -920,6 +937,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"

@@ -17,6 +17,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -50,6 +51,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -99,6 +101,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -132,6 +135,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -169,6 +173,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -217,6 +222,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -255,6 +261,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -289,6 +296,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -340,6 +348,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -377,6 +386,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -410,6 +420,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -460,6 +471,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -497,6 +509,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -529,6 +542,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -577,6 +591,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -626,6 +641,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -658,6 +674,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -698,6 +715,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -734,6 +752,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -786,6 +805,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -823,6 +843,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -872,6 +893,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -925,6 +947,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -975,6 +998,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1076,6 +1100,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1109,6 +1134,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1158,6 +1184,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1191,6 +1218,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1228,6 +1256,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1260,6 +1289,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1297,6 +1327,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -1347,6 +1378,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"

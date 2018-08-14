@@ -362,6 +362,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
+                        class=""
                         data-icon="close"
                         fill="currentColor"
                         height="1em"
@@ -388,6 +389,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
+                        class=""
                         data-icon="close"
                         fill="currentColor"
                         height="1em"
@@ -545,6 +547,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="plus"
             fill="currentColor"
             height="1em"
@@ -600,6 +603,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="close"
                       fill="currentColor"
                       height="1em"
@@ -626,6 +630,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="close"
                       fill="currentColor"
                       height="1em"
@@ -843,6 +848,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="apple"
                       fill="currentColor"
                       height="1em"
@@ -876,6 +882,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
+                      class=""
                       data-icon="android"
                       fill="currentColor"
                       height="1em"
@@ -968,6 +975,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="down"
               fill="currentColor"
               height="1em"

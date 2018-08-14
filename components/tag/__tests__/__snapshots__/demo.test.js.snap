@@ -208,6 +208,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="plus"
         fill="currentColor"
         height="1em"

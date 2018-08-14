@@ -105,6 +105,7 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -127,6 +128,7 @@ exports[`Transfer should render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -295,6 +297,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -317,6 +320,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"

@@ -20,6 +20,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -58,6 +59,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -96,6 +98,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -138,6 +141,7 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"
@@ -179,6 +183,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"
@@ -221,6 +226,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"
@@ -262,6 +268,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"
@@ -303,6 +310,7 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"
@@ -345,6 +353,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -383,6 +392,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -421,6 +431,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="time-circle"
           fill="currentColor"
           height="1em"
@@ -463,6 +474,7 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="time-circle"
         fill="currentColor"
         height="1em"

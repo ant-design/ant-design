@@ -72,6 +72,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
+                          class=""
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -237,6 +238,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -309,6 +311,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -381,6 +384,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -966,6 +970,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       >
                         <svg
                           aria-hidden="true"
+                          class=""
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -1890,6 +1895,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -1986,6 +1992,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2082,6 +2089,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2178,6 +2186,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2274,6 +2283,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2370,6 +2380,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2466,6 +2477,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2562,6 +2574,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2658,6 +2671,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -2754,6 +2768,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"
@@ -7237,6 +7252,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -7926,6 +7942,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -8420,6 +8437,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
+                          class=""
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -8494,6 +8512,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
+                          class=""
                           data-icon="filter"
                           fill="currentColor"
                           height="1em"
@@ -8798,6 +8817,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -8871,6 +8891,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -8944,6 +8965,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="down"
                             fill="currentColor"
                             height="1em"
@@ -9383,6 +9405,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -9457,6 +9480,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
+                            class=""
                             data-icon="filter"
                             fill="currentColor"
                             height="1em"
@@ -10889,6 +10913,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           >
                             <svg
                               aria-hidden="true"
+                              class=""
                               data-icon="down"
                               fill="currentColor"
                               height="1em"

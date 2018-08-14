@@ -125,6 +125,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="check"
             fill="currentColor"
             height="1em"
@@ -196,6 +197,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="minus"
           fill="currentColor"
           height="1em"
@@ -217,6 +219,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="plus"
           fill="currentColor"
           height="1em"
@@ -358,6 +361,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="check"
             fill="currentColor"
             height="1em"
@@ -455,6 +459,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="minus"
           fill="currentColor"
           height="1em"
@@ -476,6 +481,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="plus"
           fill="currentColor"
           height="1em"

@@ -58,6 +58,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="search"
                 fill="currentColor"
                 height="1em"
@@ -112,6 +113,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -137,6 +139,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -207,6 +210,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="search"
                 fill="currentColor"
                 height="1em"
@@ -372,6 +376,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -394,6 +399,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -545,6 +551,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -567,6 +574,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -691,6 +699,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -713,6 +722,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -831,6 +841,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="search"
                 fill="currentColor"
                 height="1em"
@@ -872,6 +883,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="right"
           fill="currentColor"
           height="1em"
@@ -894,6 +906,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="left"
           fill="currentColor"
           height="1em"
@@ -960,6 +973,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="search"
                 fill="currentColor"
                 height="1em"

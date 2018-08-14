@@ -249,6 +249,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="user"
             fill="currentColor"
             height="1em"
@@ -293,6 +294,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="solution"
             fill="currentColor"
             height="1em"
@@ -341,7 +343,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
         class="ant-steps-icon"
       >
         <i
-          class="anticon anticon-spin anticon-loading"
+          class="anticon anticon-loading"
         />
       </span>
     </div>

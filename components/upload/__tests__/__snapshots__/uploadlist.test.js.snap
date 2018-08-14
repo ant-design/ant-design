@@ -110,7 +110,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       >
         <span>
           <i
-            class="anticon anticon-spin anticon-loading"
+            class="anticon anticon-loading"
           />
           <span
             class="ant-upload-list-item-name"
@@ -270,6 +270,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -356,6 +357,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"
@@ -409,6 +411,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="file"
                 fill="currentColor"
                 height="1em"

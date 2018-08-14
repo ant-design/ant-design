@@ -14,6 +14,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     >
       <svg
         aria-hidden="true"
+        class=""
         data-icon="mail"
         fill="currentColor"
         height="1em"
@@ -64,6 +65,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="setting"
             fill="currentColor"
             height="1em"
@@ -131,6 +133,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="mail"
             fill="currentColor"
             height="1em"
@@ -265,6 +268,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="setting"
             fill="currentColor"
             height="1em"
@@ -327,6 +331,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="pie-chart"
           fill="currentColor"
           height="1em"
@@ -363,6 +368,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="desktop"
           fill="currentColor"
           height="1em"
@@ -411,6 +417,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="mail"
               fill="currentColor"
               height="1em"
@@ -528,6 +535,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="mail"
             fill="currentColor"
             height="1em"
@@ -634,6 +642,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="setting"
             fill="currentColor"
             height="1em"
@@ -710,6 +719,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="mail"
           fill="currentColor"
           height="1em"
@@ -745,6 +755,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       >
         <svg
           aria-hidden="true"
+          class=""
           data-icon="calendar"
           fill="currentColor"
           height="1em"
@@ -840,6 +851,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="setting"
               fill="currentColor"
               height="1em"
@@ -913,6 +925,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="mail"
               fill="currentColor"
               height="1em"
@@ -1019,6 +1032,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
           >
             <svg
               aria-hidden="true"
+              class=""
               data-icon="setting"
               fill="currentColor"
               height="1em"
@@ -1076,6 +1090,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="mail"
             fill="currentColor"
             height="1em"
@@ -1145,6 +1160,7 @@ exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="setting"
             fill="currentColor"
             height="1em"

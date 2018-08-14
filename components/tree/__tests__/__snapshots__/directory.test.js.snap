@@ -25,6 +25,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -75,6 +76,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -121,6 +123,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -169,6 +172,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -219,6 +223,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -265,6 +270,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -322,6 +328,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -364,6 +371,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -415,6 +423,7 @@ exports[`Directory Tree expand click 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -466,6 +475,7 @@ exports[`Directory Tree expand click 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -508,6 +518,7 @@ exports[`Directory Tree expand click 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -552,6 +563,7 @@ exports[`Directory Tree expand click 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -603,6 +615,7 @@ exports[`Directory Tree expand click 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -650,6 +663,7 @@ exports[`Directory Tree expand click 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -692,6 +706,7 @@ exports[`Directory Tree expand click 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -736,6 +751,7 @@ exports[`Directory Tree expand click 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -787,6 +803,7 @@ exports[`Directory Tree expand double click 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -838,6 +855,7 @@ exports[`Directory Tree expand double click 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -880,6 +898,7 @@ exports[`Directory Tree expand double click 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -924,6 +943,7 @@ exports[`Directory Tree expand double click 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -975,6 +995,7 @@ exports[`Directory Tree expand double click 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -1022,6 +1043,7 @@ exports[`Directory Tree expand double click 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1064,6 +1086,7 @@ exports[`Directory Tree expand double click 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1108,6 +1131,7 @@ exports[`Directory Tree expand double click 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -1159,6 +1183,7 @@ exports[`Directory Tree expand with state control click 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1210,6 +1235,7 @@ exports[`Directory Tree expand with state control click 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1263,6 +1289,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1314,6 +1341,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1367,6 +1395,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder"
             fill="currentColor"
             height="1em"
@@ -1409,6 +1438,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1460,6 +1490,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1502,6 +1533,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder"
                 fill="currentColor"
                 height="1em"
@@ -1555,6 +1587,7 @@ exports[`Directory Tree group select 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1605,6 +1638,7 @@ exports[`Directory Tree group select 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1651,6 +1685,7 @@ exports[`Directory Tree group select 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1699,6 +1734,7 @@ exports[`Directory Tree group select 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1749,6 +1785,7 @@ exports[`Directory Tree group select 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1795,6 +1832,7 @@ exports[`Directory Tree group select 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1852,6 +1890,7 @@ exports[`Directory Tree group select 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -1902,6 +1941,7 @@ exports[`Directory Tree group select 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1948,6 +1988,7 @@ exports[`Directory Tree group select 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -1996,6 +2037,7 @@ exports[`Directory Tree group select 2`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -2046,6 +2088,7 @@ exports[`Directory Tree group select 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -2092,6 +2135,7 @@ exports[`Directory Tree group select 2`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -2149,6 +2193,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -2199,6 +2244,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -2245,6 +2291,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -2293,6 +2340,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         >
           <svg
             aria-hidden="true"
+            class=""
             data-icon="folder-open"
             fill="currentColor"
             height="1em"
@@ -2343,6 +2391,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
@@ -2389,6 +2438,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
             >
               <svg
                 aria-hidden="true"
+                class=""
                 data-icon="folder-open"
                 fill="currentColor"
                 height="1em"
