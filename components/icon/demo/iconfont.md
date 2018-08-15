@@ -16,17 +16,17 @@ Todo, please replace me!
 ````jsx
 import { Icon } from 'antd';
 
-const FooIcon = Icon.create({
-  namespace: 'foo',
+const IconFont = Icon.create({
+  namespace: 'iconfont-foo',
   scriptUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
   prefix: 'icon-',
 });
 
 ReactDOM.render(
   <div className="icons-list">
-    <FooIcon type="tuichu" />
-    <FooIcon type="facebook" />
-    <FooIcon type="twitter" />
+    <IconFont type="tuichu" />
+    <IconFont type="facebook" />
+    <IconFont type="twitter" />
   </div>,
   mountNode
 );

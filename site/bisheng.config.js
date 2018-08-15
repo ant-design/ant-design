@@ -24,6 +24,23 @@ function alertBabelConfig(rules) {
   });
 }
 
+function getBabelConfig(rules) {
+  let config = null;
+  rules.forEach((rule) => {
+    if (config) {
+      return;
+    }
+    if (rule.loader && rule.loader === 'babel-loader') {
+      config = rule.options;
+      return;
+    }
+    if (rule.use) {
+      alertBabelConfig(rule.use);
+    }
+  });
+  return config;
+}
+
 function usePrettyWebpackBar(config) {
   // remove old progress plugin.
   config.plugins = config.plugins
@@ -130,6 +147,40 @@ module.exports = {
     alertBabelConfig(config.module.rules);
     usePrettyWebpackBar(config);
 
+    const babelConfig = getBabelConfig(config.module.rules);
+    if (babelConfig) {
+      config.module.rules = config.module.rules.filter((rule) => {
+        return rule.test.toString() !== /\.svg(\?v=\d+\.\d+\.\d+)?$/.toString();
+      });
+      config.module.rules.push(
+        {
+          test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          issuer: {
+            test: /\.md$/,
+          },
+          use: [
+            {
+              loader: 'babel-loader',
+              options: babelConfig,
+            },
+            {
+              loader: '@svgr/webpack',
+              options: {
+                babel: false,
+                ref: true,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          issuer: {
+            test: /\.css$/,
+          },
+          loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        }
+      );
+    }
     config.plugins.push(
       new CSSSplitWebpackPlugin({ size: 4000 }),
       new OfflinePlugin({

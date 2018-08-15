@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-利用 `Icon` 提供的 `<CustomIcon />` 组件封装一个可复用的自定义图标。可以进一步通过 `component` 属性传入一个组件来修饰 `<svg/>` 标签，以满足特定的需求。
+利用 `Icon` 组件封装一个可复用的自定义图标。可以将 `svg` 图标的路径信息作为 `children` 传入至组件，也可以进一步通过 `component` 属性传入一个组件来渲染最终的图标，以满足特定的需求。
 
 ## en-US
 
@@ -15,52 +15,84 @@ Todo, Please replace me.
 
 ````jsx
 import { Icon } from 'antd';
-const CustomIcon = Icon.CustomIcon;
+import HeartSvg from './assets/heart.svg';
+import AntDesignSvg from './assets/ant-design.svg';
+// use webpack loader `@svgr/webpack`,
+// which convert `*.svg` file into react component.
 
-const StarIcon = (props) => {
-  const path = 'M908 353l-254-37L541 86c-3-6-8-11-15'
-    + '-14-16-8-35-2-43 14L370 316l-254 37a32 32 0 0 0'
-    + '-18 55l184 179-44 253c-1 7 0 14 4 20 8 16 27 22'
-    + ' 43 13l227-119 227 119c6 4 14 5 20 4 18-3 29-20'
-    + ' 26-37l-43-253 184-179a32 32 0 0 0-18-55z';
-  return (
-    <CustomIcon {...props} viewBox="0 0 1024 1024">
-      <title>Cool Star</title>
-      <path d={path} />
-    </CustomIcon>
-  );
-};
+const HeartIcon = props => (
+  <Icon component={HeartSvg} viewBox="0 0 1024 1024" {...props} />
+);
 
-ReactDOM.render(
-  <div className="icons-list">
-    <StarIcon />
-    <StarIcon spin />
-    <StarIcon
-      component={svgProps => (
-        <svg {...svgProps}>
-          <defs>
-            <linearGradient id="gradient">
-              <stop offset="20%" stopColor="#39F" />
-              <stop offset="90%" stopColor="#F3F" />
-            </linearGradient>
-          </defs>
-          {React.Children.map(
+const AntDesignIcon = props => (
+  <Icon component={AntDesignSvg} viewBox="0 0 200 200" {...props} />
+);
+
+const SvgDefinitions = () => (
+  <svg className="svg-common-definitions">
+    <defs>
+      <linearGradient id="gradient-demo">
+        <stop offset="20%" stopColor="#39F" />
+        <stop offset="90%" stopColor="#F3F" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const MaterialHomeIcon = props => (
+  <Icon viewBox="0 0 24 24" {...props}>
+    {/* you should pass SVG paths */}
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+  </Icon>
+);
+
+const MaterialColorfulHomeIcon = props => (
+  <MaterialHomeIcon
+    {...props}
+    component={svgProps => (
+      <svg {...svgProps}>
+        <defs>
+          <linearGradient id="gradient">
+            <stop offset="30%" stopColor="#8360c3" />
+            <stop offset="70%" stopColor="#2ebf91" />
+          </linearGradient>
+        </defs>
+        {React.Children.map(
             svgProps.children,
             child => React.cloneElement(
               child,
               child.type === 'path' ? { fill: 'url(#gradient)' } : {}
             )
-          )}
-        </svg>
-      )}
+        )}
+      </svg>
+    )}
+  />
+);
+
+ReactDOM.render(
+  <div className="custom-icons-list">
+    <HeartIcon style={{ color: 'hotpink' }} />
+    <SvgDefinitions />
+    <HeartIcon
+      style={{ fontSize: '18px' }}
+      svgStyle={{ fill: 'url(#gradient-demo)' }}
     />
+    <MaterialHomeIcon style={{ color: '#8360c3' }} />
+    <MaterialColorfulHomeIcon style={{ fontSize: '18px' }} />
+    <AntDesignIcon style={{ fontSize: '32px' }} />
   </div>,
   mountNode
 );
 ````
 
 ```css
-.icons-list > .anticon {
+.custom-icons-list > .anticon {
   margin-right: 6px;
+}
+
+.custom-icons-list > .svg-common-definitions {
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 ```
