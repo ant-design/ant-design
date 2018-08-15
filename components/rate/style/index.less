@@ -31,6 +31,10 @@
     color: inherit;
     cursor: pointer;
 
+    &:focus {
+      outline: 0;
+    }
+
     &-first,
     &-second {
       user-select: none;
@@ -38,7 +42,8 @@
       color: @rate-star-bg;
     }
 
-    &-focused, &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.1);
     }
 

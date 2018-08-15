@@ -9,6 +9,7 @@ import { getConfirmLocale } from './locale';
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
+  focus?: string;
 }
 
 const IS_REACT_16 = !!ReactDOM.createPortal;
@@ -28,6 +29,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const okText = props.okText ||
     (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
   const cancelText = props.cancelText || runtimeLocale.cancelText;
+  const focus = props.focus || 'ok';
 
   const classString = classNames(
     prefixCls,
@@ -36,7 +38,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   const cancelButton = okCancel && (
-    <ActionButton actionFn={onCancel} closeModal={close}>
+    <ActionButton actionFn={onCancel} closeModal={close} autoFocus={focus == 'cancel'}>
       {cancelText}
     </ActionButton>
   );
@@ -66,7 +68,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         </div>
         <div className={`${prefixCls}-btns`}>
           {cancelButton}
-          <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus>
+          <ActionButton type={okType} actionFn={onOk} closeModal={close} autoFocus={focus == 'ok'}>
             {okText}
           </ActionButton>
         </div>
