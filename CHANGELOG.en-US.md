@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.8.1
+
+`2018-08-12`
+
+- 🐞 Fixed TimePicker unexpected long width. [80f8267](https://github.com/ant-design/ant-design/commit/80f82674fb63b068d047651ccba772999139f1b7)
+- 🐞 Fixed Tabs that focusable element in inactive panel cause tabs disappear. [#11261](https://github.com/ant-design/ant-design/issues/11261)
+- 🐞 Fixed Badge `offset` x y axis order error. [#11648](https://github.com/ant-design/ant-design/pull/11648) [@tangjinzhou](https://github.com/tangjinzhou)
+- Upload
+  - 🐞 Fixed detete button missing in Upload. [#10454](https://github.com/ant-design/ant-design/issues/10454)
+  - 🐞 Fixed Upload thumbnail which url has no extension. [#11684](https://github.com/ant-design/ant-design/pull/11684) [@elantion](https://github.com/elantion)
+- 🐞 Fixed Anchor with `affix=true` doesn't work inside inner scrollable. [#11688](https://github.com/ant-design/ant-design/pull/11688) [@vitaliymaz](https://github.com/vitaliymaz)
+- 🐞 Fixed card width in List.Grid. [!11712](https://github.com/ant-design/ant-design/issues/11712)
+- 🐞 Fixed Radio align problem in safari. [754a22c](https://github.com/ant-design/ant-design/commit/754a22ca24dee685666554778f53a5fe700959ff)
+- 💄 Apply wave click animation to components Switch, Radio.Button and Tag. [9cf6ae6](https://github.com/ant-design/ant-design/commit/9cf6ae601010acbf665d575d34c0cc0918e604e7)
+- TypeScript
+  - 🐞 Fixed missing prop signature `destroyInactivePanel` of Collapse. [#11646](https://github.com/ant-design/ant-design/pull/11646) [@zheeeng](https://github.com/zheeeng)
+  - 🐞 Fixed missing prop `getPopupContainer` signature of AutoComplete. [#11690](https://github.com/ant-design/ant-design/pull/11690) [@Huanghuiying0624](https://github.com/Huanghuiying0624)
+  - 🐞 Fixed Upload `lastModifiedDate` signature. [#11709](https://github.com/ant-design/ant-design/pull/11709) [@andycall](https://github.com/andycall)
+- 💄 Migrate to new lifecycle methods, include components TimePicker, Upload, CheckboxGroup, Layout.Sider, Tooltip, Popconfirm. [#11666](https://github.com/ant-design/ant-design/pull/11666) [@dancerphil](https://github.com/dancerphil) [#11682](https://github.com/ant-design/ant-design/pull/11682) [@dancerphil](https://github.com/dancerphil)
+
 ## 3.8.0
 
 `2018-08-05`

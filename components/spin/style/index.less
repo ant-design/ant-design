@@ -26,7 +26,7 @@
       display: block;
       position: absolute;
       height: 100%;
-      max-height: 320px;
+      max-height: 360px;
       width: 100%;
       z-index: 4;
       .@{spin-prefix-cls}-dot {
@@ -74,6 +74,7 @@
 
   &-container {
     position: relative;
+    transition: opacity .3s;
     .clearfix;
   }
 
@@ -81,7 +82,7 @@
     pointer-events: none;
     user-select: none;
     overflow: hidden;
-    opacity: 0.7;
+    opacity: 0.5;
     -webkit-filter: blur(0.5px);
     filter: blur(0.5px);
 

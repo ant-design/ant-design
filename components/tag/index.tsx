@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
+import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -141,15 +142,17 @@ class Tag extends React.Component<TagProps, TagState> {
       </div>
     );
     return (
-      <Animate
-        component=""
-        showProp="data-show"
-        transitionName={`${prefixCls}-zoom`}
-        transitionAppear
-        onEnd={this.animationEnd}
-      >
-        {tag}
-      </Animate>
+      <Wave>
+        <Animate
+          component=""
+          showProp="data-show"
+          transitionName={`${prefixCls}-zoom`}
+          transitionAppear
+          onEnd={this.animationEnd}
+        >
+          {tag}
+        </Animate>
+      </Wave>
     );
   }
 }

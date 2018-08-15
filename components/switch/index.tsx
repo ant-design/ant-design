@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import Wave from '../_util/wave';
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -51,11 +52,13 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-loading`]: loading,
     });
     return (
-      <RcSwitch
-        {...omit(this.props, ['loading'])}
-        className={classes}
-        ref={this.saveSwitch}
-      />
+      <Wave insertExtraNode>
+        <RcSwitch
+          {...omit(this.props, ['loading'])}
+          className={classes}
+          ref={this.saveSwitch}
+        />
+      </Wave>
     );
   }
 }

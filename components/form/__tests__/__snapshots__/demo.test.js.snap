@@ -2808,10 +2808,16 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <ul
             class="ant-rate"
+            role="radiogroup"
             tabindex="0"
           >
             <li
+              aria-checked="true"
+              aria-posinset="1"
+              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
+              role="radio"
+              tabindex="0"
             >
               <div
                 class="ant-rate-star-first"
@@ -2829,7 +2835,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </div>
             </li>
             <li
+              aria-checked="true"
+              aria-posinset="2"
+              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
+              role="radio"
+              tabindex="0"
             >
               <div
                 class="ant-rate-star-first"
@@ -2847,7 +2858,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </div>
             </li>
             <li
+              aria-checked="true"
+              aria-posinset="3"
+              aria-setsize="5"
               class="ant-rate-star ant-rate-star-full"
+              role="radio"
+              tabindex="0"
             >
               <div
                 class="ant-rate-star-first"
@@ -2865,7 +2881,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </div>
             </li>
             <li
+              aria-checked="true"
+              aria-posinset="4"
+              aria-setsize="5"
               class="ant-rate-star ant-rate-star-zero"
+              role="radio"
+              tabindex="0"
             >
               <div
                 class="ant-rate-star-first"
@@ -2883,7 +2904,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </div>
             </li>
             <li
+              aria-checked="false"
+              aria-posinset="5"
+              aria-setsize="5"
               class="ant-rate-star ant-rate-star-zero"
+              role="radio"
+              tabindex="0"
             >
               <div
                 class="ant-rate-star-first"

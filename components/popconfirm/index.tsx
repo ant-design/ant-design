@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import Tooltip, { AbstractTooltipProps }  from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
@@ -25,7 +26,7 @@ export interface PopconfirmLocale {
   cancelText: string;
 }
 
-export default class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
+class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
@@ -35,6 +36,13 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     icon: <Icon type="exclamation-circle" />,
   };
 
+  static getDerivedStateFromProps(nextProps: PopconfirmProps) {
+    if ('visible' in nextProps) {
+      return { visible: nextProps.visible };
+    }
+    return null;
+  }
+
   private tooltip: any;
 
   constructor(props: PopconfirmProps) {
@@ -43,12 +51,6 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     this.state = {
       visible: props.visible,
     };
-  }
-
-  componentWillReceiveProps(nextProps: PopconfirmProps) {
-    if ('visible' in nextProps) {
-      this.setState({ visible: nextProps.visible });
-    }
   }
 
   getPopupDomNode() {
@@ -140,3 +142,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, Popconf
     );
   }
 }
+
+polyfill(Popconfirm);
+
+export default Popconfirm;

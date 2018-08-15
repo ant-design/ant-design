@@ -3,10 +3,16 @@
 exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
 <ul
   class="ant-rate"
+  role="radiogroup"
   tabindex="0"
 >
   <li
+    aria-checked="false"
+    aria-posinset="1"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -24,7 +30,12 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="2"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -42,7 +53,12 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="3"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -60,7 +76,12 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="4"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -78,7 +99,12 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="5"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -102,10 +128,16 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
 <div>
   <ul
     class="ant-rate"
+    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-checked="false"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -123,7 +155,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -141,7 +178,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -159,7 +201,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -177,7 +224,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -198,11 +250,17 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
+    role="radiogroup"
     style="font-size:36px"
     tabindex="0"
   >
     <li
+      aria-checked="false"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -216,7 +274,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -230,7 +293,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -244,7 +312,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -258,7 +331,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -275,10 +353,16 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
+    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-checked="false"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -292,7 +376,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -306,7 +395,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -320,7 +414,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -334,7 +433,12 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -355,10 +459,16 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
 <div>
   <ul
     class="ant-rate"
+    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -376,7 +486,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -394,7 +509,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -412,7 +532,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -430,7 +555,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -452,10 +582,16 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
   <br />
   <ul
     class="ant-rate"
+    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -473,7 +609,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -491,7 +632,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -509,7 +655,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -527,7 +678,12 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -552,10 +708,16 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
 exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
+  role="radiogroup"
   tabindex="-1"
 >
   <li
+    aria-checked="true"
+    aria-posinset="1"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-full"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -573,7 +735,12 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="true"
+    aria-posinset="2"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-full"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -591,7 +758,12 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="3"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -609,7 +781,12 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="4"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -627,7 +804,12 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="5"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -650,10 +832,16 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
 exports[`renders ./components/rate/demo/half.md correctly 1`] = `
 <ul
   class="ant-rate"
+  role="radiogroup"
   tabindex="0"
 >
   <li
+    aria-checked="true"
+    aria-posinset="1"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-full"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -671,7 +859,12 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="true"
+    aria-posinset="2"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-full"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -689,7 +882,12 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="true"
+    aria-posinset="3"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-half ant-rate-star-active"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -707,7 +905,12 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="4"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -725,7 +928,12 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
     </div>
   </li>
   <li
+    aria-checked="false"
+    aria-posinset="5"
+    aria-setsize="5"
     class="ant-rate-star ant-rate-star-zero"
+    role="radio"
+    tabindex="0"
   >
     <div
       class="ant-rate-star-first"
@@ -749,10 +957,16 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
 <span>
   <ul
     class="ant-rate"
+    role="radiogroup"
     tabindex="0"
   >
     <li
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -770,7 +984,12 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -788,7 +1007,12 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="true"
+      aria-posinset="3"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-full"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -806,7 +1030,12 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="4"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
@@ -824,7 +1053,12 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
       </div>
     </li>
     <li
+      aria-checked="false"
+      aria-posinset="5"
+      aria-setsize="5"
       class="ant-rate-star ant-rate-star-zero"
+      role="radio"
+      tabindex="0"
     >
       <div
         class="ant-rate-star-first"
