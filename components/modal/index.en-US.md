@@ -76,6 +76,7 @@ The properties of the object are follows:
 | zIndex | The `z-index` of the Modal | Number | 1000 |
 | onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
 | onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function | - |
+| autoFocusOk | To autofocus the OK button, when the modal opens | Boolean | false |
 
 All the `Modal.method`s will return a reference, and then we can close the modal dialog by the reference.
 
