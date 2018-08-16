@@ -52,7 +52,6 @@ exports[`Icon should render correctly with rotate, flip, viewBox props 1`] = `
     data-icon="setting"
     fill="currentColor"
     height="1em"
-    style="transform:rotate(127deg) scaleX(-1) scaleY(-1)"
     viewBox="0 0 1024 1024"
     width="1em"
   >

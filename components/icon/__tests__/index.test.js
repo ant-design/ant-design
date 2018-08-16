@@ -91,7 +91,7 @@ describe('Icon', () => {
 describe('Icon.createFromIconfontCN()', () => {
   const IconFont = Icon.createFromIconfontCN({
     namespace: 'iconfont-foo',
-    cdnUrl: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi',
+    url: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi',
     prefix: 'icon-',
   });
 

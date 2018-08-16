@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { antDesignIcons } from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
 import createFromIconfontCN from './IconFont';
-import { getComputedSvgStyle, svgBaseProps } from './utils';
+import { svgBaseProps } from './utils';
 import warning from '../_util/warning';
 
 ReactIcon.add(...antDesignIcons);
@@ -29,16 +29,12 @@ export interface IconProps {
   style?: React.CSSProperties;
   svgStyle?: React.CSSProperties;
   svgClassName?: string;
-  rotate?: number;
-  flip?: 'horizontal' | 'vertical' | 'both';
-  tag?: string;
   prefixCls?: string;
 }
 
 const Icon: React.SFC<IconProps> = (props) => {
   const {
     // affect outter <i>...</i>
-    tag: Tag = 'i',
     title,
     className,
     onClick,
@@ -49,9 +45,7 @@ const Icon: React.SFC<IconProps> = (props) => {
     component: Component,
     viewBox,
     spin,
-    flip,
     svgClassName,
-    rotate = 0,
     svgStyle = {},
 
     // children
@@ -72,17 +66,12 @@ const Icon: React.SFC<IconProps> = (props) => {
     [`anticon-spin`]: !!spin || type === 'loading',
   }, svgClassName);
 
-  const computedSvgStyle = getComputedSvgStyle(
-    { rotate, flip },
-    svgStyle,
-  );
-
   // component > children > type
   if (Component) {
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
       className: svgClassString,
-      style: computedSvgStyle,
+      style: svgStyle,
       viewBox,
     };
     if (!viewBox) {
@@ -90,11 +79,11 @@ const Icon: React.SFC<IconProps> = (props) => {
     }
 
     return (
-      <Tag className={classString} title={title} style={style} onClick={onClick}>
+      <i className={classString} title={title} style={style} onClick={onClick}>
         <Component {...innerSvgProps} >
           {children}
         </Component>
-      </Tag>
+      </i>
     );
   }
 
@@ -107,31 +96,31 @@ const Icon: React.SFC<IconProps> = (props) => {
     const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
       className: svgClassString,
-      style: computedSvgStyle,
+      style: svgStyle,
     };
     return (
-      <Tag className={classString} title={title} style={style} onClick={onClick}>
+      <i className={classString} title={title} style={style} onClick={onClick}>
         <svg {...innerSvgProps} viewBox={viewBox}>
           {children}
         </svg>
-      </Tag>
+      </i>
     );
   }
 
   if (type) {
     return (
-      <Tag className={classString} title={title} style={style} onClick={onClick}>
+      <i className={classString} title={title} style={style} onClick={onClick}>
         <ReactIcon
           className={svgClassString}
           type={type}
-          style={computedSvgStyle}
+          style={svgStyle}
         />
-      </Tag>
+      </i>
     );
   }
 
   return (
-    <Tag className={classString} title={title} style={style} onClick={onClick} />
+    <i className={classString} title={title} style={style} onClick={onClick} />
   );
 };
 
