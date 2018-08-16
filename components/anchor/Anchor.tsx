@@ -240,6 +240,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       affix,
       showInkInFixed,
       children,
+      getContainer,
     } = this.props;
     const { activeLink } = this.state;
 
@@ -273,7 +274,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     );
 
     return !affix ? anchorContent : (
-      <Affix offsetTop={offsetTop}>
+      <Affix offsetTop={offsetTop} target={getContainer}>
         {anchorContent}
       </Affix>
     );

@@ -161,6 +161,21 @@ describe('Upload', () => {
     });
   });
 
+  it('should be controlled by fileList', () => {
+    const fileList = [{
+      uid: '-1',
+      name: 'foo.png',
+      status: 'done',
+      url: 'http://www.baidu.com/xxx.png',
+    }];
+    const wrapper = mount(
+      <Upload />
+    );
+    expect(wrapper.instance().state.fileList).toEqual([]);
+    wrapper.setProps({ fileList });
+    expect(wrapper.instance().state.fileList).toEqual(fileList);
+  });
+
   describe('util', () => {
     it('should be able to copy file instance', () => {
       const file = new File([], 'aaa.zip');

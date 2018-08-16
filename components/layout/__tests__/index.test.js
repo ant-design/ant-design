@@ -76,6 +76,15 @@ describe('Layout', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should be controlled by collapsed', () => {
+    const wrapper = mount(
+      <Sider>Sider</Sider>
+    );
+    expect(wrapper.instance().state.collapsed).toBe(false);
+    wrapper.setProps({ collapsed: true });
+    expect(wrapper.instance().state.collapsed).toBe(true);
+  });
 });
 
 describe('Sider onBreakpoint', () => {

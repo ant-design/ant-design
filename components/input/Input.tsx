@@ -53,7 +53,6 @@ export default class Input extends React.Component<InputProps, any> {
     addonBefore: PropTypes.node,
     addonAfter: PropTypes.node,
     prefixCls: PropTypes.string,
-    autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import clickAnimation from './clickAnimation';
+import Wave from '../_util/wave';
 import Icon from '../icon';
 import Group from './button-group';
 
@@ -87,10 +87,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     block: PropTypes.bool,
   };
 
-  delayTimeout: number;
-  clickAnimation: {
-    cancel: () => void;
-  };
+  private delayTimeout: number;
 
   constructor(props: ButtonProps) {
     super(props);
@@ -102,7 +99,6 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   componentDidMount() {
     this.fixTwoCNChar();
-    this.clickAnimation = clickAnimation(findDOMNode(this) as HTMLElement);
   }
 
   componentWillReceiveProps(nextProps: ButtonProps) {
@@ -127,9 +123,6 @@ export default class Button extends React.Component<ButtonProps, any> {
   componentWillUnmount() {
     if (this.delayTimeout) {
       clearTimeout(this.delayTimeout);
-    }
-    if (this.clickAnimation) {
-      this.clickAnimation.cancel();
     }
   }
 
@@ -213,14 +206,16 @@ export default class Button extends React.Component<ButtonProps, any> {
       const { htmlType, ...otherProps } = rest;
 
       return (
-        <button
-          {...otherProps}
-          type={htmlType || 'button'}
-          className={classes}
-          onClick={this.handleClick}
-        >
-          {iconNode}{kids}
-        </button>
+        <Wave>
+          <button
+            {...otherProps}
+            type={htmlType || 'button'}
+            className={classes}
+            onClick={this.handleClick}
+          >
+            {iconNode}{kids}
+          </button>
+        </Wave>
       );
     }
   }

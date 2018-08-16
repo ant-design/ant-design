@@ -30,7 +30,7 @@
   display: inline-block;
   position: relative;
   line-height: 1;
-  vertical-align: text-bottom;
+  vertical-align: sub;
   cursor: pointer;
   .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
@@ -293,5 +293,12 @@ span.@{radio-prefix-cls} + * {
   100% {
     transform: scale(1.6);
     opacity: 0;
+  }
+}
+
+// Firefox hack
+@supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
+  .@{radio-prefix-cls} {
+    vertical-align: text-bottom;
   }
 }
