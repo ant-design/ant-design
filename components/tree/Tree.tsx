@@ -100,7 +100,7 @@ export interface TreeProps {
   /** 展开/收起节点时触发 */
   onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
   /** 点击复选框触发 */
-  onCheck?: (checkedKeys: string[], e: AntTreeNodeCheckedEvent) => void;
+  onCheck?: (checkedKeys: string[] | { checked: string[]; halfChecked: string[] }, e: AntTreeNodeCheckedEvent) => void;
   /** 点击树节点触发 */
   onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
   /** 单击树节点触发 */
