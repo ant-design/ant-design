@@ -6,12 +6,12 @@ const customCache = new Set<string>();
 export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
-  scriptUrl?: string;
+  cdnUrl?: string;
   extraCommonProps?: { [key: string]: any };
 }
 
 export default function create(options: CustomIconOptions = {}): React.SFC<IconProps> {
-  const { namespace, prefix = '', scriptUrl, extraCommonProps = {} } = options;
+  const { namespace, prefix = '', cdnUrl, extraCommonProps = {} } = options;
 
   /**
    * DOM API required.
@@ -21,18 +21,18 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
    */
   if (typeof document !== 'undefined' && typeof window !== 'undefined'
     && typeof document.createElement === 'function'
-    && typeof scriptUrl === 'string' && scriptUrl.length
+    && typeof cdnUrl === 'string' && cdnUrl.length
     && typeof namespace === 'string' && namespace.length
     && !customCache.has(namespace)
   ) {
     const script = document.createElement('script');
-    script.setAttribute('src', scriptUrl);
+    script.setAttribute('src', `https://${cdnUrl}.js`);
     script.setAttribute('data-namespace', namespace);
     customCache.add(namespace);
     document.body.appendChild(script);
   }
 
-  const Custom: React.SFC<IconProps> = (props) => {
+  const Iconfont: React.SFC<IconProps> = (props) => {
     const { type } = props;
 
     // component > children > type
@@ -53,7 +53,7 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
     );
   };
 
-  Custom.displayName = 'CreatedIcon';
+  Iconfont.displayName = 'Iconfont';
 
-  return Custom;
+  return Iconfont;
 }

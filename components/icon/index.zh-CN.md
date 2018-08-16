@@ -122,12 +122,12 @@ ReactDOM.render(
 | style | 计算后的 `svg` 元素样式 | CSSProperties | - |
 
 
-### Icon.create(options)
+### Icon.createFromIconfontCN(options)
 
 使用方式如下：
 
 ```js
-const MyIcon = Icon.create({});
+const MyIcon = Icon.createFromIconfontCN({});
 
 // after importing SVG symbols
 ReactDOM.render(<MyIcon type="example" />, mountedNode);
@@ -141,9 +141,9 @@ ReactDOM.render(<MyIcon type="example" />, mountedNode);
 | --- | --- | --- | --- |
 | prefix | 设置图标的前缀，通常以短横线结尾，如 `icon-`、`foo-` | string | '' |
 | extraCommonProps | 给所有的 `svg` 图标设置额外的属性 | `{ [key: string]: any }` | {} |
-| namespace | 图标集合的名字空间，在 `scriptUrl` 也设置的情况下有效，用于区分已导入的图标符号集合 | string | - |
-| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址，在 `namespace` 也设置的情况下有效 | string | - |
+| namespace | 图标集合的名字空间，在 `cdnUrl` 也设置的情况下有效，用于区分已导入的图标符号集合 | string | - |
+| cdnUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址，在 `namespace` 也设置的情况下有效 | string | - |
 
-在 `namespace` 和 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
+在 `namespace` 和 `cdnUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
 见 [iconfont.cn 使用帮助](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) 查看如何生成 `js` 地址。

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { antDesignIcons } from '@ant-design/icons';
 import ReactIcon from '@ant-design/icons-react';
-import create from './IconFont';
+import createFromIconfontCN from './IconFont';
 import { getComputedSvgStyle, svgBaseProps } from './utils';
 import warning from '../_util/warning';
 
@@ -136,11 +136,11 @@ const Icon: React.SFC<IconProps> = (props) => {
   );
 };
 
-export type IconType = React.SFC<IconProps> & {
-  create: typeof create;
+export type IconType = typeof Icon & {
+  createFromIconfontCN: typeof createFromIconfontCN;
 };
 
 Icon.displayName = 'Icon';
-(Icon as IconType).create = create;
+(Icon as IconType).createFromIconfontCN = createFromIconfontCN;
 
 export default Icon as IconType;

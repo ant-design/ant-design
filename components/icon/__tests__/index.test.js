@@ -88,10 +88,10 @@ describe('Icon', () => {
   });
 });
 
-describe('Icon.create()', () => {
-  const IconFont = Icon.create({
+describe('Icon.createFromIconfontCN()', () => {
+  const IconFont = Icon.createFromIconfontCN({
     namespace: 'iconfont-foo',
-    scriptUrl: 'https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+    cdnUrl: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi',
     prefix: 'icon-',
   });
 
