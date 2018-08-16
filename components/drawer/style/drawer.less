@@ -5,6 +5,7 @@
 .@{dawer-prefix-cls} {
   position: fixed;
   top: 0;
+  width: 0%;
   z-index: @zindex-modal;
   transition: transform @animation-duration-slow @ease-base-in;
   > * {
@@ -22,8 +23,13 @@
   }
   &-left,
   &-right {
+    width: 0%;
+    height: 100%;
     .@{dawer-prefix-cls}-content-wrapper {
       height: 100%;
+    }
+    &.@{dawer-prefix-cls}-open {
+      width: 100%;
     }
   }
   &-left {
