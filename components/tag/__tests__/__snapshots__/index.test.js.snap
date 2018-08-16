@@ -15,3 +15,39 @@ exports[`Tag can be controlled by visible 3`] = `
   data-show="true"
 />
 `;
+
+exports[`Tag visibility can be controlled by visible with hidden as initial value 1`] = `<div />`;
+
+exports[`Tag visibility can be controlled by visible with hidden as initial value 2`] = `
+<div
+  class="ant-tag"
+  data-show="true"
+/>
+`;
+
+exports[`Tag visibility can be controlled by visible with hidden as initial value 3`] = `
+<div
+  style="width: 0px;"
+/>
+`;
+
+exports[`Tag visibility can be controlled by visible with visible as initial value 1`] = `
+<div
+  class="ant-tag ant-tag-zoom-appear"
+  data-show="true"
+/>
+`;
+
+exports[`Tag visibility can be controlled by visible with visible as initial value 2`] = `
+<div
+  style="width: 0px;"
+/>
+`;
+
+exports[`Tag visibility can be controlled by visible with visible as initial value 3`] = `
+<div
+  class="ant-tag"
+  data-show="true"
+  style="width: 0px;"
+/>
+`;
