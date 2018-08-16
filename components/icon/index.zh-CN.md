@@ -23,28 +23,28 @@ toc: false
 
 > Click the icon and copy the code。
 
-### Directional Icons
+### 方向性图标
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ```
 
-### Suggested Icons
+### 提示建议性图标
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
-### Application Icons
+### 网站通用图标
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 
-### Brand and Logos
+### 品牌与标识
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
@@ -57,14 +57,16 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 图标类型，应符合图标的命名规范 | string | - |
+| type | 图标类型，遵循图标的命名规范 | string | - |
 | rotate | 设置图标顺时针旋转的角度，使用角度制 | number | - |
 | flip | 翻转图标，可进行水平、垂直翻转 | 'horizontal' \| 'vertical' \| 'both' | - |
 | tag | 设置图标容器的标签 | string | 'i' |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |
 | svgStyle | 设置图标本身`<svg>`标签的样式，会覆盖`flip`和`rotate`的效果 | CSSProperties | - |
-| svgClassName | 设置图标本身`<svg>`标签的额外类名 | string | - |
+| svgClassName | 为图标本身`<svg>`标签设置额外的类名 | string | - |
 | spin | 是否有旋转动画 | boolean | false |
+| viewBox | 设置自定义图标[视图容器盒](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/viewBox)的大小，对自定义图标有效，**对 Ant Design 内置图标无效** | string | '0 0 1024 1024' |
+| component | 控制如何渲染图标，通常是一个渲染为 `<svg>` 标签的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - |
 
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
@@ -72,30 +74,24 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 <Icon type="message" style={{ fontSize: '16px', color: '#08c' }} />
 ```
 
-### Icon.CustomIcon
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| svgType | 图标类型，可以是图标符号的 `id` 或者是一个包含图标符号信息的对象 | string \| SpriteSvgIcon | - |
-| viewBox | 设置图标[视图容器盒](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/viewBox)的大小 | string | '0 0 1024 1024' |
-| component | 控制如何渲染图标，通常是一个渲染为 `<svg>` 标签的 `React` 组件 | ComponentType<CustomIconComponentProps\> | - |
-| rotate | 设置图标顺时针旋转的角度，使用角度制 | number | - |
-| flip | 翻转图标，可进行水平、垂直翻转 | 'horizontal' \| 'vertical' \| 'both' | - |
-| tag | 设置图标容器的标签 | string | 'i' |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |
-| svgStyle | 设置图标本身`<svg>`标签的样式，会覆盖`flip`和`rotate`的效果 | CSSProperties | - |
-| svgClassName | 设置图标本身`<svg>`标签的额外类名 | string | - |
-| spin | 是否有旋转动画 | boolean | false |
-
-如果您使用 `webpack`，可以通过配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 来简化图标符号的导入
+如果您使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入
 
 ```js
 // webpack.config.js
 {
-  test: /\.svg$/,
+  test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
-    { loader: 'svg-sprite-loader' },
-  ]
+    {
+      loader: 'babel-loader',
+    },
+    {
+      loader: '@svgr/webpack',
+      options: {
+        babel: false,
+        icon: true,
+      },
+    },
+  ],
 }
 ```
 
@@ -106,30 +102,15 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 import { Icon } from 'antd';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
-const DemoIcon = (props) => {
-  return <Icon.CustomIcon {...props} viewBox="0 0 1024 1024" />
-};
-
 ReactDOM.render(
-  <DemoIcon svgType={MessageSvg} />,
+  <Icon component={MessageSvg} />,
   mountNode
 );
 ```
 
-#### SpriteSvgIcon
-
-`Icon.CustomIcon` 中的 `svgType` 可传入的 `SpriteSvgIcon` 对象的部分属性如下：
-
-| 字段 | 说明 | 类型 | 只读值 |
-| --- | --- | --- | --- |
-| id | 符号名称 | string | - |
-| viewBox | 图标[视图容器盒](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/viewBox)的大小 | string | - |
-
-更多属性请参阅 [svg-sprite-loader 文档](https://github.com/kisenka/svg-sprite-loader#runtime-configuration) 中的说明
-
 #### CustomIconComponentProps
 
-`Icon.CustomIcon` 中的 `component` 组件属性如下：
+`Icon` 中的 `component` 组件属性如下：
 
 | 字段 | 说明 | 类型 | 只读值 |
 | --- | --- | --- | --- |

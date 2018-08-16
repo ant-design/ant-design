@@ -12,9 +12,10 @@ export interface CustomIconComponentProps {
   width: string | number;
   height: string | number;
   fill: string;
-  viewBox: string;
+  viewBox?: string;
   className?: string;
   style?: React.CSSProperties;
+  ['aria-hidden']?: string;
 }
 
 export interface IconProps {
@@ -37,15 +38,16 @@ export interface IconProps {
 const Icon: React.SFC<IconProps> = (props) => {
   const {
     // affect outter <i>...</i>
-    tag = 'i',
+    tag: Tag = 'i',
+    title,
     className = '',
     onClick,
     style,
 
     // affect inner <svg>...</svg>
     type,
-    component,
-    viewBox = '0 0 1024 1024',
+    component: Component,
+    viewBox,
     spin,
     flip,
     svgClassName,
@@ -57,17 +59,9 @@ const Icon: React.SFC<IconProps> = (props) => {
   } = props;
 
   warning(
-    Boolean(type || component || children),
+    Boolean(type || Component || children),
     'Icon should have `type` prop or `component` prop or `children`.',
   );
-
-  if (component || children) {
-    warning(
-      Boolean(viewBox),
-      'Make sure that you provide correct `viewBox`' +
-      ' prop (default `0 0 1024 1024`) to Icon.',
-    );
-  }
 
   const classString = classNames(
     { [`anticon`]: true, [`anticon-${type}`]: Boolean(type) },
@@ -85,57 +79,60 @@ const Icon: React.SFC<IconProps> = (props) => {
   );
 
   // component > children > type
-  if (component) {
-    const innerSvgProps = {
+  if (Component) {
+    const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
-      viewBox,
       className: svgClassString,
       style: computedSvgStyle,
+      viewBox,
     };
-    return React.createElement(
-      tag,
-      { className: classString, style, onClick },
-      React.createElement(
-        component,
-        innerSvgProps,
-        children,
-      ),
+    if (!viewBox) {
+      delete innerSvgProps.viewBox;
+    }
+
+    return (
+      <Tag className={classString} title={title} style={style} onClick={onClick}>
+        <Component {...innerSvgProps} >
+          {children}
+        </Component>
+      </Tag>
     );
   }
 
   if (children) {
-    const innerSvgProps = {
+    warning(
+      Boolean(viewBox),
+      'Make sure that you provide correct `viewBox`' +
+      ' prop (default `0 0 1024 1024`) to Icon.',
+    );
+    const innerSvgProps: CustomIconComponentProps = {
       ...svgBaseProps,
-      viewBox,
       className: svgClassString,
       style: computedSvgStyle,
     };
-    return React.createElement(
-      tag,
-      { className: classString, style, onClick },
-      React.createElement(
-        'svg',
-        innerSvgProps,
-        children,
-      ),
+    return (
+      <Tag className={classString} title={title} style={style} onClick={onClick}>
+        <svg {...innerSvgProps} viewBox={viewBox}>
+          {children}
+        </svg>
+      </Tag>
     );
   }
 
   if (type) {
-    return React.createElement(
-      tag,
-      { className: classString, style, onClick },
-      <ReactIcon
-        className={svgClassString}
-        type={type}
-        style={computedSvgStyle}
-      />,
+    return (
+      <Tag className={classString} title={title} style={style} onClick={onClick}>
+        <ReactIcon
+          className={svgClassString}
+          type={type}
+          style={computedSvgStyle}
+        />
+      </Tag>
     );
   }
 
-  return React.createElement(
-    tag,
-    { className: classString, style, onClick },
+  return (
+    <Tag className={classString} title={title} style={style} onClick={onClick} />
   );
 };
 

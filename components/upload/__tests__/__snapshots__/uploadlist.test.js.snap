@@ -47,6 +47,7 @@ exports[`Upload List handle error 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
@@ -122,6 +123,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress"
@@ -197,6 +199,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
       <div
         class="ant-upload-list-item-progress fade-leave"
@@ -304,6 +307,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -337,6 +341,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -391,6 +396,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -445,6 +451,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -478,6 +485,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -511,6 +519,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -544,6 +553,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -577,6 +587,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -610,6 +621,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -643,6 +655,7 @@ exports[`Upload List should non-image format file preview 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
   </div>

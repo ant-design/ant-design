@@ -167,7 +167,7 @@ module.exports = {
               loader: '@svgr/webpack',
               options: {
                 babel: false,
-                ref: true,
+                icon: true,
               },
             },
           ],

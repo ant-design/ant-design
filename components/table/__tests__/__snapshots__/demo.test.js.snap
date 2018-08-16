@@ -69,6 +69,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       Gender
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
                       >
                         <svg
                           aria-hidden="true"
@@ -950,6 +951,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       <i
                         class="anticon anticon-smile-o ant-table-filter-icon ant-dropdown-trigger"
                         style="color:#aaa"
+                        title="Filter menu"
                       />
                     </span>
                   </th>
@@ -967,6 +969,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                       Address
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
                       >
                         <svg
                           aria-hidden="true"
@@ -7249,6 +7252,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         Name
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
+                          title="Filter menu"
                         >
                           <svg
                             aria-hidden="true"
@@ -7939,6 +7943,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                         Name
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
+                          title="Filter menu"
                         >
                           <svg
                             aria-hidden="true"
@@ -8434,6 +8439,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       </div>
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
                       >
                         <svg
                           aria-hidden="true"
@@ -8509,6 +8515,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                       </div>
                       <i
                         class="anticon anticon-filter ant-dropdown-trigger"
+                        title="Filter menu"
                       >
                         <svg
                           aria-hidden="true"
@@ -9402,6 +9409,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         </div>
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
+                          title="Filter menu"
                         >
                           <svg
                             aria-hidden="true"
@@ -9477,6 +9485,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                         </div>
                         <i
                           class="anticon anticon-filter ant-dropdown-trigger"
+                          title="Filter menu"
                         >
                           <svg
                             aria-hidden="true"

@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-利用 `Icon` 组件封装一个可复用的自定义图标。可以将 `svg` 图标的路径信息作为 `children` 传入至组件，也可以进一步通过 `component` 属性传入一个组件来渲染最终的图标，以满足特定的需求。
+利用 `Icon` 组件封装一个可复用的自定义图标。可以将 `svg` 图标的路径信息作为 `children` 传入至组件，也可以进一步通过 `component` 属性传入一个组件来渲染最终的图标，以满足特定的需求。这个例子中使用了 `@svgr/webpack` 来将 `svg` 图标转化为 `React` 组件。
 
 ## en-US
 
@@ -21,11 +21,11 @@ import AntDesignSvg from './assets/ant-design.svg';
 // which convert `*.svg` file into react component.
 
 const HeartIcon = props => (
-  <Icon component={HeartSvg} viewBox="0 0 1024 1024" {...props} />
+  <Icon component={HeartSvg} {...props} />
 );
 
 const AntDesignIcon = props => (
-  <Icon component={AntDesignSvg} viewBox="0 0 200 200" {...props} />
+  <Icon component={AntDesignSvg} {...props} />
 );
 
 const SvgDefinitions = () => (

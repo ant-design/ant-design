@@ -59,6 +59,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -84,6 +85,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
     <div
@@ -109,6 +111,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
   </div>
@@ -176,6 +179,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       </div>
       <i
         class="anticon anticon-cross"
+        title="Remove file"
       />
     </div>
   </div>
@@ -236,6 +240,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </a>
           <i
             class="anticon anticon-delete"
+            title="Remove file"
           >
             <svg
               aria-hidden="true"
@@ -313,6 +318,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
+          title="Remove file"
         />
       </div>
       <div
@@ -346,6 +352,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
+          title="Remove file"
         />
       </div>
     </div>
@@ -393,6 +400,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
+          title="Remove file"
         />
       </div>
       <div
@@ -426,6 +434,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
         <i
           class="anticon anticon-cross"
+          title="Remove file"
         />
       </div>
     </div>
