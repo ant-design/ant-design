@@ -65,7 +65,8 @@
         border-top: 0;
         border-left: 0;
         content: ' ';
-        transition: all .1s @ease-in-back;
+        transition: all .1s @ease-in-back, opacity .1s;
+        opacity: 0;
       }
     }
 
@@ -85,15 +86,17 @@
 
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate .@{checkbox-inner-prefix-cls}:after {
-    @indeterminate-width: (@checkbox-size / 14) * 8px;
-    @indeterminate-height: (@checkbox-size / 14) * 1px;
+    @indeterminate-width: @checkbox-size - 7px;
+    @indeterminate-height: @checkbox-size - 7px;
     content: ' ';
-    transform: scale(1);
-    position: absolute;
-    left: (@checkbox-size - 2 - @indeterminate-width) / 2;
-    top: (@checkbox-size - 3 - @indeterminate-height) / 2;
+    transform: translate(-50%, -50%) scale(1);
+    border: 0;
+    left: 50%;
+    top: 50%;
     width: @indeterminate-width;
     height: @indeterminate-height;
+    background-color: @checkbox-color;
+    opacity: 1;
   }
 
   .@{checkbox-prefix-cls}-indeterminate.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}:after {
@@ -110,10 +113,10 @@
     border-left: 0;
     content: ' ';
     transition: all .2s @ease-out-back .1s;
+    opacity: 1;
   }
 
-  .@{checkbox-prefix-cls}-checked,
-  .@{checkbox-prefix-cls}-indeterminate {
+  .@{checkbox-prefix-cls}-checked {
     .@{checkbox-inner-prefix-cls} {
       background-color: @checkbox-color;
       border-color: @checkbox-color;
