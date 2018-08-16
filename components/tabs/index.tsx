@@ -106,8 +106,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
       inkBarAnimated: animated.inkBar, tabPaneAnimated: animated.tabPane,
     } : {
-      inkBarAnimated: animated, tabPaneAnimated: animated,
-    };
+        inkBarAnimated: animated, tabPaneAnimated: animated,
+      };
 
     // card tabs should not have animation
     if (type !== 'line') {
@@ -133,11 +133,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
         let closable = child.props.closable;
         closable = typeof closable === 'undefined' ? true : closable;
         const closeIcon = closable ? (
-           <Icon
-             type="close"
-             className={`${prefixCls}-close-x`}
-             onClick={e => this.removeTab(child.key as string, e)}
-           />
+          <Icon
+            type="close"
+            className={`${prefixCls}-close-x`}
+            onClick={e => this.removeTab(child.key as string, e)}
+          />
         ) : null;
         childrenWithClose.push(React.cloneElement(child, {
           tab: (
@@ -166,17 +166,34 @@ export default class Tabs extends React.Component<TabsProps, any> {
       </div>
     ) : null;
 
-    const renderTabBar = () => (
-      <ScrollableInkTabBar
-        inkBarAnimated={inkBarAnimated}
-        extraContent={tabBarExtraContent}
-        onTabClick={onTabClick}
-        onPrevClick={onPrevClick}
-        onNextClick={onNextClick}
-        style={tabBarStyle}
-        tabBarGutter={tabBarGutter}
-      />
-    );
+    const renderTabBar = () => {
+      const isVertical = tabPosition === 'left' || tabPosition === 'right';
+      const prevIconType = isVertical ? 'up' : 'left';
+      const nextIconType = isVertical ? 'down' : 'right';
+      const prevIcon = (
+        <span className={`${prefixCls}-tab-prev-icon`}>
+          <Icon type={prevIconType} className={`${prefixCls}-tab-prev-icon-target`} />
+        </span>
+      );
+      const nextIcon = (
+        <span className={`${prefixCls}-tab-next-icon`}>
+          <Icon type={nextIconType} className={`${prefixCls}-tab-next-icon-target`} />
+        </span>
+      );
+      return (
+        <ScrollableInkTabBar
+          inkBarAnimated={inkBarAnimated}
+          extraContent={tabBarExtraContent}
+          onTabClick={onTabClick}
+          onPrevClick={onPrevClick}
+          onNextClick={onNextClick}
+          style={tabBarStyle}
+          tabBarGutter={tabBarGutter}
+          prevIcon={prevIcon}
+          nextIcon={nextIcon}
+        />
+      );
+    };
 
     return (
       <RcTabs

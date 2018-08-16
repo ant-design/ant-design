@@ -40,7 +40,7 @@ const Icon: React.SFC<IconProps> = (props) => {
     // affect outter <i>...</i>
     tag: Tag = 'i',
     title,
-    className = '',
+    className,
     onClick,
     style,
 
@@ -63,15 +63,14 @@ const Icon: React.SFC<IconProps> = (props) => {
     'Icon should have `type` prop or `component` prop or `children`.',
   );
 
-  const classString = classNames(
-    { [`anticon`]: true, [`anticon-${type}`]: Boolean(type) },
-    className,
-  );
+  const classString = classNames({
+    [`anticon`]: true,
+    [`anticon-${type}`]: Boolean(type),
+  }, className);
 
   const svgClassString = classNames({
-    svgClassName,
     [`anticon-spin`]: !!spin || type === 'loading',
-  });
+  }, svgClassName);
 
   const computedSvgStyle = getComputedSvgStyle(
     { rotate, flip },
