@@ -157,7 +157,7 @@ exports[`Icon should support svg react component 1`] = `
 </i>
 `;
 
-exports[`Icon.create() should support iconfont.cn 1`] = `
+exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
 <div
   class="icons-list"
 >

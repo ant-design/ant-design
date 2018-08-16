@@ -18,7 +18,25 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -26,7 +44,25 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -114,7 +150,25 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -122,7 +176,25 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -212,7 +284,25 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-prev-icon"
-          />
+          >
+            <i
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <span
           class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -220,7 +310,25 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-next-icon"
-          />
+          >
+            <i
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-tabs-nav-wrap"
@@ -329,7 +437,25 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-prev-icon"
-          />
+          >
+            <i
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <span
           class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -337,7 +463,25 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-next-icon"
-          />
+          >
+            <i
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-tabs-nav-wrap"
@@ -450,7 +594,25 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -458,7 +620,25 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -570,7 +750,25 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -578,7 +776,25 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -720,7 +936,25 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -728,7 +962,25 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -816,7 +1068,25 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-prev-icon"
-        />
+        >
+          <i
+            class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="left"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <span
         class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -824,7 +1094,25 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
       >
         <span
           class="ant-tabs-tab-next-icon"
-        />
+        >
+          <i
+            class="anticon anticon-right ant-tabs-tab-next-icon-target"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="right"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+              />
+            </svg>
+          </i>
+        </span>
       </span>
       <div
         class="ant-tabs-nav-wrap"
@@ -1008,7 +1296,25 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-prev-icon"
-          />
+          >
+            <i
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <span
           class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -1016,7 +1322,25 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-next-icon"
-          />
+          >
+            <i
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-tabs-nav-wrap"
@@ -1169,7 +1493,25 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-prev-icon"
-          />
+          >
+            <i
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <span
           class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -1177,7 +1519,25 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-next-icon"
-          />
+          >
+            <i
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-tabs-nav-wrap"
@@ -1312,7 +1672,25 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-prev-icon"
-          />
+          >
+            <i
+              class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <span
           class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
@@ -1320,7 +1698,25 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         >
           <span
             class="ant-tabs-tab-next-icon"
-          />
+          >
+            <i
+              class="anticon anticon-right ant-tabs-tab-next-icon-target"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z"
+                />
+              </svg>
+            </i>
+          </span>
         </span>
         <div
           class="ant-tabs-nav-wrap"
