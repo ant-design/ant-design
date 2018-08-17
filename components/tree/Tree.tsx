@@ -3,6 +3,7 @@ import RcTree, { TreeNode } from 'rc-tree';
 import DirectoryTree from './DirectoryTree';
 import classNames from 'classnames';
 import animation from '../_util/openAnimation';
+import Icon from '../icon';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -38,7 +39,7 @@ export interface AntTreeNodeProps {
   children?: React.ReactNode;
 }
 
-export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -150,13 +151,40 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   render() {
     const props = this.props;
-    const { prefixCls, className, showIcon } = props;
+    const { prefixCls, className, showIcon, showLine } = props;
     let checkable = props.checkable;
+    // tslint:disable-next-line:no-shadowed-variable
+    const switcherIcon = ({ isLeaf, expanded }: { isLeaf: boolean, expanded: boolean }) => {
+      if (showLine) {
+        if (isLeaf) {
+          return (
+            <Icon
+              type="file"
+              className={`${prefixCls}-switcher-line-icon`}
+            />
+          );
+        }
+        return (
+          <Icon
+            type={expanded ? 'minus-square' : 'plus-square'}
+            className={`${prefixCls}-switcher-line-icon`}
+          />
+        );
+      } else {
+        if (isLeaf) {
+          return null;
+        }
+        return (
+          <Icon type="down" className={`${prefixCls}-switcher-icon`} />
+        );
+      }
+    };
     return (
       <RcTree
         {...props}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
+        switcherIcon={switcherIcon}
       >
         {this.props.children}
       </RcTree>

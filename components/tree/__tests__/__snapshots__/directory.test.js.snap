@@ -12,7 +12,25 @@ exports[`Directory Tree defaultExpandAll 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -159,7 +177,25 @@ exports[`Directory Tree defaultExpandAll 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -315,7 +351,25 @@ exports[`Directory Tree defaultExpandParent 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -358,7 +412,25 @@ exports[`Directory Tree defaultExpandParent 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -410,7 +482,25 @@ exports[`Directory Tree expand click 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
       title="---"
@@ -550,7 +640,25 @@ exports[`Directory Tree expand click 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -602,7 +710,25 @@ exports[`Directory Tree expand click 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close ant-tree-node-selected"
       title="---"
@@ -738,7 +864,25 @@ exports[`Directory Tree expand click 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -790,7 +934,25 @@ exports[`Directory Tree expand double click 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -930,7 +1092,25 @@ exports[`Directory Tree expand double click 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -982,7 +1162,25 @@ exports[`Directory Tree expand double click 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -1118,7 +1316,25 @@ exports[`Directory Tree expand double click 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -1170,7 +1386,25 @@ exports[`Directory Tree expand with state control click 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
       title="parent"
@@ -1276,7 +1510,25 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="parent"
@@ -1382,7 +1634,25 @@ exports[`Directory Tree expandedKeys update 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
@@ -1425,7 +1695,25 @@ exports[`Directory Tree expandedKeys update 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -1574,7 +1862,25 @@ exports[`Directory Tree group select 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
       title="---"
@@ -1721,7 +2027,25 @@ exports[`Directory Tree group select 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -1877,7 +2201,25 @@ exports[`Directory Tree group select 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
       title="---"
@@ -2024,7 +2366,25 @@ exports[`Directory Tree group select 2`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
       title="---"
@@ -2180,7 +2540,25 @@ exports[`Directory Tree selectedKeys update 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
@@ -2327,7 +2705,25 @@ exports[`Directory Tree selectedKeys update 1`] = `
   >
     <span
       class="ant-tree-switcher ant-tree-switcher_open"
-    />
+    >
+      <i
+        class="anticon anticon-down ant-tree-switcher-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </i>
+    </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="---"
