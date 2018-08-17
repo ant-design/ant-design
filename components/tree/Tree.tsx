@@ -34,6 +34,7 @@ export interface AntTreeNodeProps {
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
+  loading?: boolean;
   selected?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
@@ -149,42 +150,56 @@ export default class Tree extends React.Component<TreeProps, any> {
     },
   };
 
-  render() {
-    const props = this.props;
-    const { prefixCls, className, showIcon, showLine } = props;
-    let checkable = props.checkable;
-    // tslint:disable-next-line:no-shadowed-variable
-    const switcherIcon = ({ isLeaf, expanded }: { isLeaf: boolean, expanded: boolean }) => {
-      if (showLine) {
-        if (isLeaf) {
-          return (
-            <Icon
-              type="file"
-              className={`${prefixCls}-switcher-line-icon`}
-            />
-          );
-        }
+  renderSwitcherIcon = ({ isLeaf, expanded, loading }: AntTreeNodeProps) => {
+    const {
+      prefixCls,
+      showLine,
+    } = this.props;
+    if (loading) {
+      return (
+        <Icon
+          type="reload"
+          spin
+          className={`${prefixCls}-switcher-loading-icon`}
+          svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
+        />
+      );
+    }
+    if (showLine) {
+      if (isLeaf) {
         return (
           <Icon
-            type={expanded ? 'minus-square' : 'plus-square'}
+            type="file"
             className={`${prefixCls}-switcher-line-icon`}
           />
         );
-      } else {
-        if (isLeaf) {
-          return null;
-        }
-        return (
-          <Icon type="down" className={`${prefixCls}-switcher-icon`} />
-        );
       }
-    };
+      return (
+        <Icon
+          type={expanded ? 'minus-square' : 'plus-square'}
+          className={`${prefixCls}-switcher-line-icon`}
+        />
+      );
+    } else {
+      if (isLeaf) {
+        return null;
+      }
+      return (
+        <Icon type="down" className={`${prefixCls}-switcher-icon`} />
+      );
+    }
+  }
+
+  render() {
+    const props = this.props;
+    const { prefixCls, className, showIcon } = props;
+    let checkable = props.checkable;
     return (
       <RcTree
         {...props}
         className={classNames(!showIcon && `${prefixCls}-icon-hide`, className)}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
-        switcherIcon={switcherIcon}
+        switcherIcon={this.renderSwitcherIcon}
       >
         {this.props.children}
       </RcTree>
