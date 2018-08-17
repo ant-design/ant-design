@@ -62,4 +62,9 @@ describe('Badge', () => {
     const wrapper = render(<Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should be wrappable via wrapBadge prop and props are correctly passed to the wrapBadge callback', () => {
+    const badge = mount(<Badge count={10} wrapBadge={(scrollNumber, props) => (<div className="badge-wrapper" data-count={props.count}>{scrollNumber}</div>)} />);
+    expect(badge.find('.badge-wrapper[data-count=10] .ant-scroll-number').length).toBe(1);
+  });
 });

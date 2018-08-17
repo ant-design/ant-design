@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import Animate from 'rc-animate';
-import ScrollNumber from './ScrollNumber';
+import ScrollNumber, { ScrollNumberProps } from './ScrollNumber';
 import classNames from 'classnames';
 
 export { ScrollNumberProps } from './ScrollNumber';
@@ -22,6 +22,7 @@ export interface BadgeProps {
   text?: string;
   offset?: [number | string, number | string];
   title?: string;
+  wrapBadge?: (scrollNumber: React.ReactElement<ScrollNumberProps>, props: BadgeProps) => React.ReactNode;
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
@@ -42,6 +43,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     showZero: PropTypes.bool,
     dot: PropTypes.bool,
     overflowCount: PropTypes.number,
+    wrapBadge: PropTypes.func,
   };
 
   render() {
@@ -59,6 +61,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       text,
       offset,
       title,
+      wrapBadge,
       ...restProps
     } = this.props;
     let displayCount = (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
@@ -100,7 +103,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     const scrollNumber = hidden ? null : (
-      <ScrollNumber
+      (wrapBadge || (_ => _))(<ScrollNumber
         prefixCls={scrollNumberPrefixCls}
         data-show={!hidden}
         className={scrollNumberCls}
@@ -108,7 +111,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         title={title || count}
         style={styleWithOffset}
         key="scrollNumber"
-      />
+      />, this.props)
     );
 
     const statusText = (hidden || !text) ? null : (
