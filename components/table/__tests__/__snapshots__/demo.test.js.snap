@@ -126,6 +126,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 <col />
                 <col />
                 <col />
+                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -150,6 +151,13 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   >
                     <span>
                       Address
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span>
+                      Tags
                     </span>
                   </th>
                   <th
@@ -195,10 +203,28 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        nice
+                      </div>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        developer
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 John Brown
+                        Invite John Brown
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -207,18 +233,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
@@ -254,10 +268,22 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        loser
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 Jim Green
+                        Invite Jim Green
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -266,18 +292,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
@@ -313,10 +327,28 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        cool
+                      </div>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        teacher
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 Joe Black
+                        Invite Joe Black
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -325,18 +357,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
@@ -8418,6 +8438,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 <col />
                 <col />
                 <col />
+                <col />
               </colgroup>
               <thead
                 class="ant-table-thead"
@@ -8445,6 +8466,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   >
                     <span>
                       Address
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                    rowspan="2"
+                  >
+                    <span>
+                      Tags
                     </span>
                   </th>
                   <th
@@ -8508,10 +8537,28 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        nice
+                      </div>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        developer
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 
+                        Invite Brown
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -8520,18 +8567,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
@@ -8568,10 +8603,22 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        loser
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 
+                        Invite Green
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -8580,18 +8627,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
@@ -8628,10 +8663,28 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        cool
+                      </div>
+                      <div
+                        class="ant-tag ant-tag-blue"
+                        data-show="true"
+                      >
+                        teacher
+                      </div>
+                    </span>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    <span>
                       <a
                         href="javascript:;"
                       >
-                        Action 一 
+                        Invite Black
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
@@ -8640,18 +8693,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                         href="javascript:;"
                       >
                         Delete
-                      </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                      />
-                      <a
-                        class="ant-dropdown-link"
-                        href="javascript:;"
-                      >
-                        More actions 
-                        <i
-                          class="anticon anticon-down"
-                        />
                       </a>
                     </span>
                   </td>
