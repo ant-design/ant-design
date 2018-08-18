@@ -14,6 +14,21 @@ timeline: true
 * Major version release is not included in this schedule for breaking change and new features.
 
 ---
+## 3.8.2
+
+`2018-8-18`
+
+- 🐞 Fixed Tag still visible when initially setting `visible` prop to false. [#11757](https://github.com/ant-design/ant-design/issues/11757)
+- 🐞 Fixed Modal text got selected when opened by double click. [#11777](https://github.com/ant-design/ant-design/issues/11777)
+- 🐞 Fixed style of Rate component while getting clicked. [#11736](https://github.com/ant-design/ant-design/issues/11736)
+- 🐞 Fixed style of Badge component when its children is `display:block`. [#84119d8](https://github.com/ant-design/ant-design/commit/84119d8959d55edf535a9cac5ff532e61b6ee698)
+- Drawer
+  - 🐞 Fixed Drawer not compatible with IE10 and IE9. [#11583](https://github.com/ant-design/ant-design/issues/11583)
+  - 🐞 Fixed Drawer not being able to be scrolled vertically on mobile device. [#11443](https://github.com/ant-design/ant-design/issues/11443)
+- TypeScript
+  - 🐞 Fixed `selectable` prop is missing in TreeNode props. [#11604](https://github.com/ant-design/ant-design/issues/11604) [@apieceofbart](https://github.com/apieceofbart)
+  - 🐞 Fixed `autosize` prop is missing in Input props. [#11697](https://github.com/ant-design/ant-design/issues/11697)
+
 
 ## 3.8.1
 
