@@ -5,24 +5,31 @@
 .@{dawer-prefix-cls} {
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  width: 0%;
   z-index: @zindex-modal;
-  transition: transform 0.3s @ease-in-out-circ;
+  transition: transform @animation-duration-slow @ease-base-in;
   > * {
-    transition: transform 0.3s @ease-in-out-circ;
+    transition: transform @animation-duration-slow @ease-base-in;
   }
 
   &-content-wrapper {
-    position: absolute;
+    position: fixed;
   }
-
+  .@{dawer-prefix-cls}-content {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity @animation-duration-slow linear;
+  }
   &-left,
   &-right {
-    .@{dawer-prefix-cls}-content-wrapper,
-    .@{dawer-prefix-cls}-content {
+    width: 0%;
+    height: 100%;
+    .@{dawer-prefix-cls}-content-wrapper {
       height: 100%;
+    }
+    &.@{dawer-prefix-cls}-open {
+      width: 100%;
     }
   }
   &-left {
@@ -44,13 +51,44 @@
       }
     }
   }
-  &.@{dawer-prefix-cls}-open {
-    > * {
-      pointer-events: auto;
+
+  &-top,
+  &-bottom {
+    .@{dawer-prefix-cls}-content-wrapper,
+    .@{dawer-prefix-cls}-content {
+      width: 100%;
     }
+  }
+  &-top {
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-down;
+      }
+    }
+  }
+  &-bottom {
     .@{dawer-prefix-cls} {
+      &-content-wrapper {
+        bottom: 0;
+      }
+    }
+    &.@{dawer-prefix-cls}-open {
+      .@{dawer-prefix-cls}-content-wrapper {
+        box-shadow: @shadow-1-up;
+      }
+    }
+  }
+
+  &.@{dawer-prefix-cls}-open {
+    .@{dawer-prefix-cls} {
+      &-content {
+        opacity: 1;
+      }
       &-mask {
         opacity: 0.3;
+        height: 100%;
+        animation: antdDrawerFadeIn @animation-duration-slow  @ease-base-out;
+        transition: none;
       }
     }
   }
@@ -82,7 +120,7 @@
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color @animation-duration-slow;
     color: @text-color-secondary;
     outline: 0;
     padding: 0;
@@ -129,21 +167,29 @@
 
   &-mask {
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    width: 100%;
+    height: 0;
     opacity: 0;
     background-color: @modal-mask-bg;
-    height: 100%;
-    transition: opacity 0.3s @ease-in-out-circ;
     filter: ~"alpha(opacity=50)";
+    transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
-
   &-open {
-    overflow: hidden;
+    transition: transform @animation-duration-slow @ease-base-out;
+    > * {
+      transition: transform @animation-duration-slow @ease-base-out;
+    }
     &-content {
       box-shadow: @shadow-2;
     }
+  }
+}
+
+@keyframes antdDrawerFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
   }
 }
