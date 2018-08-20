@@ -26,7 +26,7 @@ ReactDOM.render(
 ````
 
 <style>
-.ant-badge:not(.ant-badge-status) {
+.ant-badge:not(.ant-badge-not-a-wrapper) {
   margin-right: 20px;
 }
 .head-example {

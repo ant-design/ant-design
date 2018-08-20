@@ -26,3 +26,9 @@ ReactDOM.render(
   </div>,
   mountNode);
 ````
+
+<style>
+.ant-badge-not-a-wrapper:not(.ant-badge-status) {
+  margin-right: 8px;
+}
+</style>
