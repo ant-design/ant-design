@@ -68,11 +68,11 @@ class Home extends React.Component {
     return (
       <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="main-wrapper">
+          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
           <Banner {...childProps} />
           <Page1 {...childProps} />
           <Page2 {...childProps} />
           <Page3 {...childProps} />
-          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
         </div>
       </DocumentTitle>
     );
