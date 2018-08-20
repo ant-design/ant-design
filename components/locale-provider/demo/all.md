@@ -126,7 +126,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { locale = {} } = this.state;
+    const { locale } = this.state;
     return (
       <div>
         <div className="change-locale">
@@ -137,7 +137,7 @@ class App extends React.Component {
           </Radio.Group>
         </div>
         <LocaleProvider locale={locale}>
-          <Page key={locale.locale || 'en'/* Have to refresh for production environment */} />
+          <Page key={locale ? locale.locale : 'en'/* Have to refresh for production environment */} />
         </LocaleProvider>
       </div>
     );
