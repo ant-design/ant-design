@@ -13,10 +13,7 @@
   color: unset;
 
   &-count {
-    position: absolute;
-    transform: translate(50%, -50%);
-    top: 0;
-    right: 0;
+    top: -@badge-height / 2;
     height: @badge-height;
     border-radius: @badge-height / 2;
     min-width: @badge-height;
@@ -28,7 +25,6 @@
     font-size: @badge-font-size;
     font-weight: @badge-font-weight;
     white-space: nowrap;
-    transform-origin: 0 center;
     box-shadow: 0 0 0 1px #fff;
     a,
     a:hover {
@@ -41,17 +37,21 @@
   }
 
   &-dot {
-    position: absolute;
-    transform: translate(50%, -50%);
-    transform-origin: 0 center;
-    top: 0;
-    right: 0;
+    top: -@badge-dot-size / 2;
     height: @badge-dot-size;
     width: @badge-dot-size;
     border-radius: 100%;
     background: @highlight-color;
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
+  }
+
+  &-count,
+  &-dot {
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+    transform-origin: 100%;
   }
 
   &-status {
@@ -150,19 +150,19 @@
 @keyframes antZoomBadgeIn {
   0% {
     opacity: 0;
-    transform: scale(0) translateX(-50%);
+    transform: scale(0) translateX(50%);
   }
   100% {
-    transform: scale(1) translateX(-50%);
+    transform: scale(1) translateX(50%);
   }
 }
 
 @keyframes antZoomBadgeOut {
   0% {
-    transform: scale(1) translateX(-50%);
+    transform: scale(1) translateX(50%);
   }
   100% {
     opacity: 0;
-    transform: scale(0) translateX(-50%);
+    transform: scale(0) translateX(50%);
   }
 }
