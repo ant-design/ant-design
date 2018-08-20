@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-The badge can be wrapped by `wrapBadge` callback with custom elements, for example to add a `Popover`.
+徽章可以通过指定 `wrapBadge` 属性来进行自定义渲染，例如可以通过此属性给徽章添加一个 `Popover`.
 
 ## en-US
 

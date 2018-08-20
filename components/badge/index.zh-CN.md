@@ -33,4 +33,4 @@ title: Badge
 | status | 设置 Badge 为状态点 | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | string | '' |
 | title | 设置鼠标放在状态点上时显示的文字 | string | `count` |
-| wrapBadge | Optional callback to wrap the badge element | (children, badgeProps) => wrappedChildren | No wrapping |
+| wrapBadge | 可选的函数形式包装器，用来自定义徽章的渲染 | (scrollNumber, badgeProps) => wrappedChildren | No wrapping |
