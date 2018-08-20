@@ -118,7 +118,7 @@ export type WrappedFormUtils = {
   /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
   resetFields(names?: Array<string>): void;
 
-  getFieldDecorator(id: string, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
+  getFieldDecorator<T extends Object = {}>(id: keyof T, options?: GetFieldDecoratorOptions): (node: React.ReactNode) => React.ReactNode;
 };
 
 export interface FormComponentProps {
