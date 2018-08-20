@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import Wave from '../_util/wave';
 import Icon from '../icon';
 
 export interface SwitchProps {
@@ -59,12 +60,14 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       />
     ) : null;
     return (
-      <RcSwitch
-        {...omit(this.props, ['loading'])}
-        className={classes}
-        ref={this.saveSwitch}
-        loadingIcon={loadingIcon}
-      />
+      <Wave insertExtraNode>
+        <RcSwitch
+          {...omit(this.props, ['loading'])}
+          className={classes}
+          ref={this.saveSwitch}
+          loadingIcon={loadingIcon}
+        />
+      </Wave>
     );
   }
 }

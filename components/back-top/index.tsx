@@ -63,6 +63,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
       if (time < 450) {
         raf(frameFunc);
+      } else {
+        this.setScrollTop(0);
       }
     };
     raf(frameFunc);

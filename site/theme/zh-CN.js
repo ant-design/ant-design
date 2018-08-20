@@ -25,7 +25,7 @@ module.exports = {
     'app.demo.codesandbox': '在 CodeSandbox 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
     'app.home.slogan': '一个 UI 设计语言',
-    'app.home.introduce': '一个服务于企业级产品的设计体系，基于『确定』和『自然』的设计价值观和模块化的解决方案，让设计者专注于更好的用户体验。',
+    'app.home.introduce': '服务于企业级产品的设计体系，基于确定和自然的设计价值观上的模块化解决方案，让设计者和开发者专注于更好的用户体验。',
     'app.home.design-language': '设计语言',
     'app.home.solution': '解决方案',
     'app.home.components-explain': '基于 Ant Design 设计语言，我们提供了一套开箱即用的高质量 React 组件，用于开发和服务于企业级中后台产品，除官方的 React 实现，还有 Angular、Vue 的实现',

@@ -36,6 +36,7 @@ export interface AntTreeNodeProps {
   expanded?: boolean;
   loading?: boolean;
   selected?: boolean;
+  selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
 }

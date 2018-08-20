@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col } from 'antd';
+import { Modal, message, Row, Col, Badge } from 'antd';
 import { isLocalStorageNameSupported, loadScript } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -108,9 +108,11 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.kitchen" />
+                  <Badge dot offset={[3, 0]}>
+                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">Kitchen</a>
+                    <span> - </span>
+                    <FormattedMessage id="app.footer.kitchen" />
+                  </Badge>
                 </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>

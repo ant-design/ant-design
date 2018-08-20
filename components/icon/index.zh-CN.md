@@ -91,9 +91,6 @@ ReactDOM.render(<IconSet className="icons" catigory="logo" />, mountNode);
 }
 ```
 
-之后直接导入即可
-
-
 ```jsx
 import { Icon } from 'antd';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
@@ -119,7 +116,7 @@ ReactDOM.render(
 
 ### Icon.createFromIconfontCN(options)
 
-使用方式如下：
+这个方法适用于 `iconfont.cn` 的用户
 
 ```js
 const MyIcon = Icon.createFromIconfontCN({

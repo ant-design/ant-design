@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import Icon from '../icon';
 import CheckableTag from './CheckableTag';
+import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -27,6 +28,7 @@ export interface TagState {
   closing: boolean;
   closed: boolean;
   visible: boolean;
+  mounted: boolean;
 }
 
 class Tag extends React.Component<TagProps, TagState> {
@@ -36,14 +38,30 @@ class Tag extends React.Component<TagProps, TagState> {
     closable: false,
   };
 
-  static getDerivedStateFromProps(nextProps: TagProps) {
-    return  ('visible' in nextProps) ? { visible: nextProps.visible } : null;
+  static getDerivedStateFromProps(nextProps: TagProps, state: TagState) {
+    if ('visible' in nextProps) {
+      let newState: Partial<TagState> = {
+        visible: nextProps.visible,
+        mounted: true,
+      };
+
+      if (!state.mounted) {
+        newState = {
+          ...newState,
+          closed: !nextProps.visible,
+        };
+      }
+
+      return newState;
+    }
+    return null;
   }
 
   state = {
     closing: false,
     closed: false,
     visible: true,
+    mounted: false,
   };
 
   componentDidUpdate(_prevProps: TagProps, prevState: TagState) {
@@ -129,7 +147,7 @@ class Tag extends React.Component<TagProps, TagState> {
       backgroundColor: (color && !isPresetColor) ? color : null,
       ...style,
     };
-    const tag = this.state.closed ? null : (
+    const tag = this.state.closed ? <div /> : (
       <div
         data-show={!this.state.closing}
         {...divProps}
@@ -140,16 +158,19 @@ class Tag extends React.Component<TagProps, TagState> {
         {closeIcon}
       </div>
     );
+
     return (
-      <Animate
-        component=""
-        showProp="data-show"
-        transitionName={`${prefixCls}-zoom`}
-        transitionAppear
-        onEnd={this.animationEnd}
-      >
-        {tag}
-      </Animate>
+      <Wave>
+        <Animate
+          component=""
+          showProp="data-show"
+          transitionName={`${prefixCls}-zoom`}
+          transitionAppear
+          onEnd={this.animationEnd}
+        >
+          {tag}
+        </Animate>
+      </Wave>
     );
   }
 }
