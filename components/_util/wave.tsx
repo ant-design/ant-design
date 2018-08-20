@@ -7,6 +7,8 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     cancel: () => void;
   };
 
+  private extraNode: HTMLDivElement;
+  private clickWaveTimeoutId: number;
   private styleForPesudo: HTMLStyleElement | null;
 
   isNotGrey(color: string) {
@@ -17,22 +19,17 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     return true;
   }
 
-  onClick = (node: HTMLElement) => {
+  onClick = (node: HTMLElement, waveColor: string) => {
     if (node.className.indexOf('-leave') >= 0) {
       return;
     }
-    this.removeExtraStyleNode();
     const { insertExtraNode } = this.props;
-    const extraNode = document.createElement('div');
+    this.extraNode = document.createElement('div');
+    const extraNode = this.extraNode;
     extraNode.className = 'ant-click-animating-node';
-    const attributeName = insertExtraNode ? 'ant-click-animating' : 'ant-click-animating-without-extra-node';
+    const attributeName = this.getAttributeName();
     node.removeAttribute(attributeName);
     node.setAttribute(attributeName, 'true');
-    // Get wave color from target
-    const waveColor =
-      getComputedStyle(node).getPropertyValue('border-top-color') || // Firefox Compatible
-      getComputedStyle(node).getPropertyValue('border-color') ||
-      getComputedStyle(node).getPropertyValue('background-color');
     // Not white or transparnt or grey
     if (waveColor &&
         waveColor !== '#ffffff' &&
@@ -49,18 +46,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    const transitionEnd = (e: AnimationEvent) => {
-      if (e.animationName !== 'fadeEffect') {
-        return;
-      }
-      node.removeAttribute(attributeName);
-      this.removeExtraStyleNode();
-      if (insertExtraNode) {
-        node.removeChild(extraNode);
-      }
-      TransitionEvents.removeEndEventListener(node, transitionEnd);
-    };
-    TransitionEvents.addEndEventListener(node, transitionEnd);
+    TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
   }
 
   bindAnimationEvent = (node: HTMLElement) => {
@@ -73,7 +59,13 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
       if ((e.target as HTMLElement).tagName === 'INPUT') {
         return;
       }
-      setTimeout(() => this.onClick(node), 0);
+      this.resetEffect(node);
+      // Get wave color from target
+      const waveColor =
+        getComputedStyle(node).getPropertyValue('border-top-color') || // Firefox Compatible
+        getComputedStyle(node).getPropertyValue('border-color') ||
+        getComputedStyle(node).getPropertyValue('background-color');
+      this.clickWaveTimeoutId = window.setTimeout(() => this.onClick(node, waveColor), 0);
     };
     node.addEventListener('click', onClick, true);
     return {
@@ -81,6 +73,29 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
         node.removeEventListener('click', onClick, true);
       },
     };
+  }
+
+  getAttributeName() {
+    const { insertExtraNode } = this.props;
+    return insertExtraNode ? 'ant-click-animating' : 'ant-click-animating-without-extra-node';
+  }
+
+  resetEffect(node: HTMLElement) {
+    const { insertExtraNode } = this.props;
+    const attributeName = this.getAttributeName();
+    node.removeAttribute(attributeName);
+    this.removeExtraStyleNode();
+    if (insertExtraNode) {
+      node.removeChild(this.extraNode);
+    }
+    TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
+  }
+
+  onTransitionEnd = (e: AnimationEvent) => {
+    if (e.animationName !== 'fadeEffect') {
+      return;
+    }
+    this.resetEffect(e.target as HTMLElement);
   }
 
   removeExtraStyleNode() {
@@ -97,6 +112,9 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   componentWillUnmount() {
     if (this.instance) {
       this.instance.cancel();
+    }
+    if (this.clickWaveTimeoutId) {
+      clearTimeout(this.clickWaveTimeoutId);
     }
   }
 
