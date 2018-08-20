@@ -107,7 +107,6 @@ class Page extends React.Component {
   }
 }
 
-let forceRerender = 0;
 class App extends React.Component {
   constructor() {
     super();
@@ -127,6 +126,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { locale = {} } = this.state;
     return (
       <div>
         <div className="change-locale">
@@ -136,8 +136,8 @@ class App extends React.Component {
             <Radio.Button key="cn" value={zhCN}>中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={this.state.locale}>
-          <Page key={forceRerender++ /* HACK: just refresh in production environment */} />
+        <LocaleProvider locale={locale}>
+          <Page key={locale.locale || 'en'/* Have to refresh for production environment */} />
         </LocaleProvider>
       </div>
     );
