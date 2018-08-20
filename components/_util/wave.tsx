@@ -49,7 +49,10 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    const transitionEnd = () => {
+    const transitionEnd = (e: AnimationEvent) => {
+      if (e.animationName !== 'fadeEffect') {
+        return;
+      }
       node.removeAttribute(attributeName);
       this.removeExtraStyleNode();
       if (insertExtraNode) {
