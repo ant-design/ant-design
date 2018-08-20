@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Todo, please replace me!
+If you are using [iconfont.cn](http://iconfont.cn/), you can use the icons in your project gracefully.
 
 ````jsx
 import { Icon } from 'antd';

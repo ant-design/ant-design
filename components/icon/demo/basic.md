@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use tag `<Icon />` to create an icon and set its type in the `type` prop.
+Use tag `<Icon />` to create an icon and set its type in the `type` prop. Specific the `spin` property to show spinning animation.
 
 ````jsx
 import { Icon } from 'antd';
