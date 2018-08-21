@@ -92,7 +92,7 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   onTransitionEnd = (e: AnimationEvent) => {
-    if (e.animationName !== 'fadeEffect') {
+    if (!e || e.animationName !== 'fadeEffect') {
       return;
     }
     this.resetEffect(e.target as HTMLElement);
