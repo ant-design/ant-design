@@ -11,8 +11,7 @@ Ant Design 设计规范上支持一定程度的样式定制，以满足业务和
 
 antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定义了一系列全局/组件的样式变量，你可以根据需求进行相应调整。
 
-以下是一些最常用的通用变量，所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
-) 找到。
+以下是一些最常用的通用变量，所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到。
 
 ```less
 @primary-color: #1890ff;                         // 全局主色

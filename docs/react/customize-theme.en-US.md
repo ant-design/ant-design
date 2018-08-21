@@ -11,8 +11,7 @@ Ant Design allows you to customize some basic design aspects in order to meet th
 
 We are using [Less](http://lesscss.org/) as the development language for styling. A set of less variables are defined for each design aspect that can be customized to your needs.
 
-There are some major variables below, all less variables could be found in [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
-).
+There are some major variables below, all less variables could be found in [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less).
 
 ```less
 @primary-color: #1890ff;                         // primary color for all components
