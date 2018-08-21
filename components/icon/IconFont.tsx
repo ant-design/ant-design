@@ -4,14 +4,12 @@ import * as React from 'react';
 const customCache = new Set<string>();
 
 export interface CustomIconOptions {
-  namespace?: string;
-  prefix?: string;
   scriptUrl?: string;
   extraCommonProps?: { [key: string]: any };
 }
 
 export default function create(options: CustomIconOptions = {}): React.SFC<IconProps> {
-  const { namespace, prefix = '', scriptUrl, extraCommonProps = {} } = options;
+  const { scriptUrl, extraCommonProps = {} } = options;
 
   /**
    * DOM API required.
@@ -22,13 +20,12 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
   if (typeof document !== 'undefined' && typeof window !== 'undefined'
     && typeof document.createElement === 'function'
     && typeof scriptUrl === 'string' && scriptUrl.length
-    && typeof namespace === 'string' && namespace.length
-    && !customCache.has(namespace)
+    && !customCache.has(scriptUrl)
   ) {
     const script = document.createElement('script');
     script.setAttribute('src', `https:${scriptUrl}`);
-    script.setAttribute('data-namespace', namespace);
-    customCache.add(namespace);
+    script.setAttribute('data-namespace', scriptUrl);
+    customCache.add(scriptUrl);
     document.body.appendChild(script);
   }
 
@@ -38,7 +35,7 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
     // component > children > type
     let content = null;
     if (props.type) {
-      content = <use xlinkHref={`#${prefix}${type}`} />;
+      content = <use xlinkHref={`#${type}`} />;
     }
     if (props.children) {
       content = props.children;

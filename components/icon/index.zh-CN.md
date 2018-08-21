@@ -134,10 +134,8 @@ ReactDOM.render(<MyIcon type="example" />, mountedNode);
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| prefix | 设置图标的前缀，通常以短横线结尾，如 `icon-`、`foo-` | string | '' |
-| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} |
-| namespace | 图标集合的名字空间，在 `scriptUrl` 也设置的情况下有效，用于区分已导入的图标符号集合 | string | - |
 | scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址，在 `namespace` 也设置的情况下有效 | string | - |
+| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} |
 
 在 `namespace` 和 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 

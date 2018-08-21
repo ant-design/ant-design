@@ -90,17 +90,15 @@ describe('Icon', () => {
 
 describe('Icon.createFromIconfontCN()', () => {
   const IconFont = Icon.createFromIconfontCN({
-    namespace: 'iconfont-foo',
     scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-    prefix: 'icon-',
   });
 
   it('should support iconfont.cn', () => {
     const wrapper = render(
       <div className="icons-list">
-        <IconFont type="tuichu" />
-        <IconFont type="facebook" />
-        <IconFont type="twitter" />
+        <IconFont type="icon-tuichu" />
+        <IconFont type="icon-facebook" />
+        <IconFont type="icon-twitter" />
       </div>
     );
     expect(wrapper).toMatchSnapshot();
