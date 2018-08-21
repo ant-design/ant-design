@@ -67,9 +67,9 @@ module.exports = {
 
 Note that do not exclude antd package in node_modules when using less-loader.
 
-### Customize in roadhug or Umi
+### Customize in roadhog or Umi
 
-You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using 如果你在使用 [roadhug](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)， which could be a object or a javascript file path.
+You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using 如果你在使用 [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)， which could be a object or a javascript file path.
 
 ```js
 "theme": {
