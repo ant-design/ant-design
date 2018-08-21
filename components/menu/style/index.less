@@ -179,6 +179,16 @@
       position: absolute;
       border-radius: @border-radius-base;
       z-index: @zindex-dropdown;
+
+      &:after {
+        position: absolute;
+        top: -7px;
+        left: -6px;
+        right: -6px;
+        bottom: 0;
+        content: ' ';
+        opacity: .0001;
+      }
     }
 
     > .@{menu-prefix-cls} {
