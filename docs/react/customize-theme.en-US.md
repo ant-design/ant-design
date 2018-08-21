@@ -69,7 +69,7 @@ Note that do not exclude antd package in node_modules when using less-loader.
 
 ### Customize in roadhog or Umi
 
-You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using 如果你在使用 [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)， which could be a object or a javascript file path.
+You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)，which could be a object or a javascript file path.
 
 ```js
 "theme": {
@@ -104,7 +104,6 @@ You must import styles as less format. A common mistake would be importing multi
 
 - If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will import the `less` version of antd.
 - If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
-- When using `dva-cli@0.7.0+`, you should add the `theme` block to [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) instead of `package.json`.
 
 If you want to override `@icon-url`, the value must be contained in quotes like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
