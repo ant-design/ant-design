@@ -11,7 +11,24 @@ Ant Design 设计规范上支持一定程度的样式定制，以满足业务和
 
 antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定义了一系列全局/组件的样式变量，你可以根据需求进行相应调整。
 
-- [默认样式变量](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+以下是一些最常用的通用变量，所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+) 找到。
+
+```less
+@primary-color: #1890ff;                         // 全局主色
+@link-color: #1890ff;                            // 链接色
+@success-color: #52c41a;                         // 成功色
+@warning-color: #faad14;                         // 警告色
+@error-color: #f5222d;                           // 错误色
+@font-size-base: 14px;                           // 主字号
+@heading-color: rgba(0, 0, 0, .85);              // 标题色
+@text-color: rgba(0, 0, 0, .65);                 // 主文本色
+@text-color-secondary : rgba(0, 0, 0, .45);      // 次文本色
+@disabled-color : rgba(0, 0, 0, .25);            // 失效色
+@border-radius-base: 4px;                        // 组件/浮层圆角
+@border-color-base: #d9d9d9;                     // 边框色
+@box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);  // 浮层阴影
+```
 
 如果以上变量不能满足你的定制需求，可以给我们提 issue。
 
