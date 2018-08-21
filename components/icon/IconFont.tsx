@@ -6,12 +6,12 @@ const customCache = new Set<string>();
 export interface CustomIconOptions {
   namespace?: string;
   prefix?: string;
-  url?: string;
+  scriptUrl?: string;
   extraCommonProps?: { [key: string]: any };
 }
 
 export default function create(options: CustomIconOptions = {}): React.SFC<IconProps> {
-  const { namespace, prefix = '', url, extraCommonProps = {} } = options;
+  const { namespace, prefix = '', scriptUrl, extraCommonProps = {} } = options;
 
   /**
    * DOM API required.
@@ -21,12 +21,12 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
    */
   if (typeof document !== 'undefined' && typeof window !== 'undefined'
     && typeof document.createElement === 'function'
-    && typeof url === 'string' && url.length
+    && typeof scriptUrl === 'string' && scriptUrl.length
     && typeof namespace === 'string' && namespace.length
     && !customCache.has(namespace)
   ) {
     const script = document.createElement('script');
-    script.setAttribute('src', `https://${url}.js`);
+    script.setAttribute('src', `https:${scriptUrl}`);
     script.setAttribute('data-namespace', namespace);
     customCache.add(namespace);
     document.body.appendChild(script);

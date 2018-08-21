@@ -52,7 +52,7 @@ describe('Icon', () => {
                   svgProps.children,
                   child => React.cloneElement(
                     child,
-                    child.type === 'path' ? { fill: 'url(#gradient)' } : {}
+                    child.type === 'path' ? { fill: 'scriptUrl(#gradient)' } : {}
                   )
                 )
               }
@@ -91,7 +91,7 @@ describe('Icon', () => {
 describe('Icon.createFromIconfontCN()', () => {
   const IconFont = Icon.createFromIconfontCN({
     namespace: 'iconfont-foo',
-    url: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi',
+    scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
     prefix: 'icon-',
   });
 

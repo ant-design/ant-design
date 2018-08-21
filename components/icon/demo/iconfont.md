@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-对于使用 [iconfont.cn](http://iconfont.cn/) 的用户，通过设置 `createFromIconfontCN` 方法参数对象中的 `namespace` 和 `url` 字段， 即可轻松地使用已有项目中的图标。
+对于使用 [iconfont.cn](http://iconfont.cn/) 的用户，通过设置 `createFromIconfontCN` 方法参数对象中的 `namespace` 和 `scriptUrl` 字段， 即可轻松地使用已有项目中的图标。
 
 ## en-US
 
@@ -18,7 +18,7 @@ import { Icon } from 'antd';
 
 const IconFont = Icon.createFromIconfontCN({
   namespace: 'iconfont-foo',
-  url: 'at.alicdn.com/t/font_8d5l8fzk5b87iudi',
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
   prefix: 'icon-',
 });
 
