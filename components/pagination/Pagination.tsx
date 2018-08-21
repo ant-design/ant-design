@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Select from '../select';
 import MiniSelect from './MiniSelect';
+import Icon from '../icon';
 
 export interface PaginationProps {
   total?: number;
@@ -42,13 +43,44 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
     selectPrefixCls: 'ant-select',
   };
 
+  getIconsProps = () => {
+    const { prefixCls } = this.props;
+    const prevIcon = (
+      <a className={`${prefixCls}-item-link`}>
+        <Icon type="left"/>
+      </a>
+    );
+    const nextIcon = (
+      <a className={`${prefixCls}-item-link`}>
+        <Icon type="right"/>
+      </a>
+    );
+    const jumpPrevIcon = (
+      <a className={`${prefixCls}-item-link`}>
+        <Icon className={`${prefixCls}-item-link-icon`} type="left"/>
+      </a>
+    );
+    const jumpNextIcon = (
+      <a className={`${prefixCls}-item-link`}>
+        <Icon className={`${prefixCls}-item-link-icon`} type="double-right"/>
+      </a>
+    );
+    return {
+      prevIcon,
+      nextIcon,
+      jumpPrevIcon,
+      jumpNextIcon,
+    };
+  }
+
   renderPagination = (contextLocale: PaginationLocale) => {
-    const { className, size, locale: customLocale,  ...restProps } = this.props;
+    const { className, size, locale: customLocale, ...restProps } = this.props;
     const locale = { ...contextLocale, ...customLocale };
     const isSmall = size === 'small';
     return (
       <RcPagination
         {...restProps}
+        {...this.getIconsProps()}
         className={classNames(className, { mini: isSmall })}
         selectComponentClass={isSmall ? MiniSelect : Select}
         locale={locale}
