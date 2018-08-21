@@ -161,7 +161,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
   class="icons-list"
 >
   <i
-    class="anticon anticon-tuichu"
+    class="anticon anticon-icon-tuichu"
   >
     <svg
       aria-hidden="true"
@@ -176,7 +176,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon anticon-facebook"
+    class="anticon anticon-icon-facebook"
   >
     <svg
       aria-hidden="true"
@@ -191,7 +191,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon anticon-twitter"
+    class="anticon anticon-icon-twitter"
   >
     <svg
       aria-hidden="true"
