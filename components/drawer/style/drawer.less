@@ -7,7 +7,7 @@
   top: 0;
   width: 0%;
   z-index: @zindex-modal;
-  transition: transform @animation-duration-slow @ease-base-in;
+  transition: transform @animation-duration-slow @ease-base-in, width @animation-duration-slow @ease-base-in;
   > * {
     transition: transform @animation-duration-slow @ease-base-in;
   }
@@ -18,8 +18,6 @@
   .@{dawer-prefix-cls}-content {
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity @animation-duration-slow linear;
   }
   &-left,
   &-right {
@@ -81,9 +79,6 @@
 
   &.@{dawer-prefix-cls}-open {
     .@{dawer-prefix-cls} {
-      &-content {
-        opacity: 1;
-      }
       &-mask {
         opacity: 0.3;
         height: 100%;
