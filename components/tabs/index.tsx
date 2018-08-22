@@ -30,7 +30,7 @@ export interface TabsProps {
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean; };
   tabBarGutter?: number;
-  renderTabBar?: (props: TabsProps) => React.ReactNode;
+  renderTabBar?: React.ReactNode | ((props: TabsProps) => React.ReactNode);
 }
 
 // Tabs
@@ -126,7 +126,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabBarExtraContent,
       hideAdd,
       animated = true,
-      renderTabBar,
+      renderTabBar = () => Tabs.DefaultTabBar(this.props),
     } = this.props;
 
     let { tabPaneAnimated } = typeof animated === 'object' ? {
@@ -190,10 +190,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
         {tabBarExtraContent}
       </div>
     ) : null;
-
-    if (renderTabBar === undefined) {
-      renderTabBar = () => Tabs.DefaultTabBar(this.props);
-    }
 
     return (
       <RcTabs
