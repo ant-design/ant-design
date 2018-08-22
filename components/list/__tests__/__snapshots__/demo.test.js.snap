@@ -365,7 +365,7 @@ exports[`renders ./components/list/demo/infinite-virtualized-load.md correctly 1
 
 exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
 <div
-  class="ant-list demo-loadmore-list ant-list-split ant-list-loading ant-list-something-after-last-item"
+  class="ant-list demo-loadmore-list ant-list-split ant-list-loading"
 >
   <div
     class="ant-spin-nested-loading"
@@ -391,18 +391,6 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         style="min-height:53px"
       />
     </div>
-  </div>
-  <div
-    style="text-align:center;margin-top:12px;height:32px;line-height:32px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        loading more
-      </span>
-    </button>
   </div>
 </div>
 `;
