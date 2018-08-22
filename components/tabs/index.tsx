@@ -30,6 +30,7 @@ export interface TabsProps {
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean; };
   tabBarGutter?: number;
+  renderTabBar?: (props: TabsProps) => React.ReactNode;
 }
 
 // Tabs
@@ -50,6 +51,35 @@ export default class Tabs extends React.Component<TabsProps, any> {
     prefixCls: 'ant-tabs',
     hideAdd: false,
   };
+
+  static DefaultTabBar = (
+    {
+      tabBarStyle,
+      onTabClick,
+      onPrevClick,
+      onNextClick,
+      tabBarGutter,
+      animated = true,
+      tabBarExtraContent,
+    }: TabsProps,
+  ) => {
+    let { inkBarAnimated } = typeof animated === 'object' ? {
+      inkBarAnimated: animated.inkBar,
+    } : {
+      inkBarAnimated: animated,
+    };
+    return (
+      <ScrollableInkTabBar
+        inkBarAnimated={inkBarAnimated}
+        extraContent={tabBarExtraContent}
+        onTabClick={onTabClick}
+        onPrevClick={onPrevClick}
+        onNextClick={onNextClick}
+        style={tabBarStyle}
+        tabBarGutter={tabBarGutter}
+      />
+    );
+  }
 
   createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
     const onEdit = this.props.onEdit;
@@ -94,19 +124,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       tabBarExtraContent,
-      tabBarStyle,
       hideAdd,
-      onTabClick,
-      onPrevClick,
-      onNextClick,
       animated = true,
-      tabBarGutter,
+      renderTabBar,
     } = this.props;
 
-    let { inkBarAnimated, tabPaneAnimated } = typeof animated === 'object' ? {
-      inkBarAnimated: animated.inkBar, tabPaneAnimated: animated.tabPane,
+    let { tabPaneAnimated } = typeof animated === 'object' ? {
+      tabPaneAnimated: animated.tabPane,
     } : {
-      inkBarAnimated: animated, tabPaneAnimated: animated,
+      tabPaneAnimated: animated,
     };
 
     // card tabs should not have animation
@@ -165,17 +191,9 @@ export default class Tabs extends React.Component<TabsProps, any> {
       </div>
     ) : null;
 
-    const renderTabBar = () => (
-      <ScrollableInkTabBar
-        inkBarAnimated={inkBarAnimated}
-        extraContent={tabBarExtraContent}
-        onTabClick={onTabClick}
-        onPrevClick={onPrevClick}
-        onNextClick={onNextClick}
-        style={tabBarStyle}
-        tabBarGutter={tabBarGutter}
-      />
-    );
+    if (renderTabBar === undefined) {
+      renderTabBar = () => Tabs.DefaultTabBar(this.props);
+    }
 
     return (
       <RcTabs
