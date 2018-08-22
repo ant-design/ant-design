@@ -194,26 +194,35 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        class="anticon anticon-double-right ant-pagination-item-link-icon"
+      <div
+        class="ant-pagination-item-container"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="double-right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
-          <path
-            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-          <path
-            d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+            <path
+              d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
     </a>
   </li>
   <li
@@ -484,26 +493,35 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        class="anticon anticon-double-right ant-pagination-item-link-icon"
+      <div
+        class="ant-pagination-item-container"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="double-right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
-          <path
-            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-          <path
-            d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+            <path
+              d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
     </a>
   </li>
   <li
@@ -614,26 +632,35 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        class="anticon anticon-double-right ant-pagination-item-link-icon"
+      <div
+        class="ant-pagination-item-container"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="double-right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
-          <path
-            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-          <path
-            d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+            <path
+              d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
     </a>
   </li>
   <li
@@ -1125,23 +1152,32 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        class="anticon anticon-left ant-pagination-item-link-icon"
+      <div
+        class="ant-pagination-item-container"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="left"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <i
+          class="anticon anticon-left ant-pagination-item-link-icon"
         >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="left"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
     </a>
   </li>
   <li
@@ -1197,26 +1233,35 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        class="anticon anticon-double-right ant-pagination-item-link-icon"
+      <div
+        class="ant-pagination-item-container"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="double-right"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
+        <i
+          class="anticon anticon-double-right ant-pagination-item-link-icon"
         >
-          <path
-            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-          <path
-            d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class="ant-pagination-item-link-icon-svg"
+            data-icon="double-right"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+            <path
+              d="M837.2 492.3L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1c-4.1 5.2-.4 12.9 6.3 12.9h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+            />
+          </svg>
+        </i>
+        <span
+          class="ant-pagination-item-ellipsis"
+        >
+          •••
+        </span>
+      </div>
     </a>
   </li>
   <li

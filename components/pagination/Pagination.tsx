@@ -47,22 +47,38 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
     const { prefixCls } = this.props;
     const prevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="left"/>
+        <Icon type="left" />
       </a>
     );
     const nextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="right"/>
+        <Icon type="right" />
       </a>
     );
     const jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon className={`${prefixCls}-item-link-icon`} type="left"/>
+        {/* You can use transition effects in the container :) */}
+        <div className={`${prefixCls}-item-container`}>
+          <Icon
+            className={`${prefixCls}-item-link-icon`}
+            svgClassName={`${prefixCls}-item-link-icon-svg`}
+            type="left"
+          />
+          <span className={`${prefixCls}-item-ellipsis`}>•••</span>
+        </div>
       </a>
     );
     const jumpNextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon className={`${prefixCls}-item-link-icon`} type="double-right"/>
+        {/* You can use transition effects in the container :) */}
+        <div className={`${prefixCls}-item-container`}>
+          <Icon
+            className={`${prefixCls}-item-link-icon`}
+            svgClassName={`${prefixCls}-item-link-icon-svg`}
+            type="double-right"
+          />
+          <span className={`${prefixCls}-item-ellipsis`}>•••</span>
+        </div>
       </a>
     );
     return {

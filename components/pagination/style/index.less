@@ -87,45 +87,47 @@
   &-jump-prev,
   &-jump-next {
     outline: 0;
-    position: relative;
+    .@{pagination-prefix-cls}-item-container {
+      position: relative;
 
-    &:after {
-      content: "•••";
-      position: absolute;
-      display: block;
-      letter-spacing: 2px;
-      color: @disabled-color;
-      text-align: center;
-      opacity: 1;
-      transition: all .2s;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-    }
+      .@{pagination-prefix-cls}-item-link-icon {
+        .iconfont-size-under-12px(12px);
+        color: @primary-color;
+        letter-spacing: -1px;
+        opacity: 0;
+        transition: all .2s;
+        &-svg {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
 
-    .@{pagination-prefix-cls}-item-link {
-      .iconfont-size-under-12px(12px);
-      position: absolute;
-      color: @primary-color;
-      letter-spacing: -1px;
-      opacity: 0;
-      transition: all .2s;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
+      .@{pagination-prefix-cls}-item-ellipsis {
+        position: absolute;
+        display: block;
+        letter-spacing: 2px;
+        color: @disabled-color;
+        text-align: center;
+        opacity: 1;
+        transition: all .2s;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
     }
 
     &:focus,
     &:hover {
-      &:after {
-        opacity: 0;
-      }
-      .@{pagination-prefix-cls}-item-link {
+      .@{pagination-prefix-cls}-item-link-icon {
         opacity: 1;
+      }
+      .@{pagination-prefix-cls}-item-ellipsis {
+        opacity: 0;
       }
     }
   }
