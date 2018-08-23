@@ -85,7 +85,6 @@
     "react-lazy-load": "^3.0.12",
     "react-lifecycles-compat": "^3.0.2",
     "react-slick": "~0.23.1",
-    "react-sticky": "^6.0.3",
     "shallowequal": "^1.0.1",
     "warning": "~4.0.1"
   },
@@ -164,6 +163,7 @@
     "react-intl": "^2.0.1",
     "react-resizable": "^1.7.5",
     "react-router-dom": "^4.2.2",
+    "react-sticky": "^6.0.3",
     "react-sublime-video": "^0.2.0",
     "react-virtualized": "~9.20.0",
     "remark-frontmatter": "^1.1.0",

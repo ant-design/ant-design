@@ -75,7 +75,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
-    const onEdit = this.props.onEdit;
+    const { onEdit } = this.props;
     if (onEdit) {
       onEdit(targetKey, 'add');
     }

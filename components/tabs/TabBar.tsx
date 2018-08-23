@@ -4,16 +4,16 @@ import { TabsProps } from './index';
 
 export default class TabBar extends React.Component<TabsProps> {
   render() {
-    let {
+    const {
       tabBarStyle,
       animated = true,
       renderTabBar,
       tabBarExtraContent,
     } = this.props;
-    let inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
+    const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
     let RenderTabBar: React.ReactElement<any>;
-    const props = {
+    const renderProps = {
       ...this.props,
       inkBarAnimated,
       extraContent: tabBarExtraContent,
@@ -21,11 +21,9 @@ export default class TabBar extends React.Component<TabsProps> {
     };
 
     if (renderTabBar) {
-      RenderTabBar = renderTabBar(props);
+      RenderTabBar = renderTabBar(renderProps);
     } else {
-      RenderTabBar = (
-        <ScrollableInkTabBar {...props}/>
-      );
+      RenderTabBar = <ScrollableInkTabBar {...renderProps}/>;
     }
 
     return React.cloneElement(RenderTabBar);
