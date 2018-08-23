@@ -54,12 +54,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
   };
 
   static DefaultTabBar = ScrollableInkTabBar;
-  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
-    const onEdit = this.props.onEdit;
-    if (onEdit) {
-      onEdit(targetKey, 'add');
-    }
-  }
 
   removeTab = (targetKey: string, e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -80,6 +74,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
+  createNewTab = (targetKey: React.MouseEvent<HTMLElement>) => {
+    const onEdit = this.props.onEdit;
+    if (onEdit) {
+      onEdit(targetKey, 'add');
+    }
+  }
+
   componentDidMount() {
     const NO_FLEX = ' no-flex';
     const tabNode = ReactDOM.findDOMNode(this) as Element;
@@ -97,6 +98,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
       tabPosition,
       children,
       animated = true,
+      tabBarExtraContent,
+      hideAdd,
     } = this.props;
 
     let tabPaneAnimated = typeof animated === 'object' ? animated.tabPane : animated;
@@ -140,14 +143,28 @@ export default class Tabs extends React.Component<TabsProps, any> {
           key: child.key || index,
         }));
       });
+      if (!hideAdd) {
+        tabBarExtraContent = (
+          <span>
+            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+            {tabBarExtraContent}
+          </span>
+        );
+      }
     }
+
+    tabBarExtraContent = tabBarExtraContent ? (
+      <div className={`${prefixCls}-extra-content`}>
+        {tabBarExtraContent}
+      </div>
+    ) : null;
 
     return (
       <RcTabs
         {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => <TabBar {...this.props}/>}
+        renderTabBar={() => <TabBar {...this.props} tabBarExtraContent={tabBarExtraContent}/>}
         renderTabContent={() => <TabContent animated={tabPaneAnimated} animatedWithMargin />}
         onChange={this.handleChange}
       >

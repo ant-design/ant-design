@@ -613,6 +613,16 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     tabindex="0"
   >
     <div
+      class="ant-tabs-extra-content"
+      style="float:right"
+    >
+      <span>
+        <i
+          class="anticon anticon-plus ant-tabs-new-tab"
+        />
+      </span>
+    </div>
+    <div
       class="ant-tabs-nav-container"
     >
       <span
