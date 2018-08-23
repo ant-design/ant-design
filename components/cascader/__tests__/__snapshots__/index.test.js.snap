@@ -702,6 +702,16 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                     }
                   }
                   inputPrefixCls="ant-input"
+                  loadingIcon={
+                    <span
+                      className="ant-cascader-menu-item-loading-icon"
+                    >
+                      <Icon
+                        spin={true}
+                        type="redo"
+                      />
+                    </span>
+                  }
                   notFoundContent="Not Found"
                   onChange={[Function]}
                   onPopupVisibleChange={[Function]}
@@ -1086,6 +1096,16 @@ exports[`Cascader should render not found content 1`] = `
                     }
                   }
                   inputPrefixCls="ant-input"
+                  loadingIcon={
+                    <span
+                      className="ant-cascader-menu-item-loading-icon"
+                    >
+                      <Icon
+                        spin={true}
+                        type="redo"
+                      />
+                    </span>
+                  }
                   notFoundContent="Not Found"
                   onChange={[Function]}
                   onPopupVisibleChange={[Function]}

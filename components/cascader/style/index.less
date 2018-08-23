@@ -201,15 +201,12 @@
       padding-right: 24px;
     }
 
-    &-expand &-expand-icon {
-      .iconfont-size-under-12px(8px);
+    &-expand &-expand-icon,
+    &-expand &-loading-icon {
+      .iconfont-size-under-12px(10px);
       color: @text-color-secondary;
       position: absolute;
       right: @control-padding-horizontal;
-    }
-
-    &-loading:after {
-      animation: loadingCircle 1s infinite linear;
     }
 
     & &-keyword {

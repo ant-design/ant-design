@@ -437,12 +437,18 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
           onChange={showSearch ? this.handleInputChange : undefined}
         />
         {clearIcon}
-        <Icon type="down" className={arrowCls}/>
+        <Icon type="down" className={arrowCls} />
       </span>
     );
 
     const expandIcon = (
-      <Icon type="right"/>
+      <Icon type="right" />
+    );
+
+    const loadingIcon = (
+      <span className={`${prefixCls}-menu-item-loading-icon`}>
+        <Icon type="redo" spin />
+      </span>
     );
 
     return (
@@ -455,6 +461,7 @@ export default class Cascader extends React.Component<CascaderProps, CascaderSta
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
         expandIcon={expandIcon}
+        loadingIcon={loadingIcon}
       >
         {input}
       </RcCascader>
