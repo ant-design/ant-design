@@ -78,14 +78,14 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     push: false,
   };
 
-  praentDrawer: Drawer;
+  parentDrawer: Drawer;
   destoryClose: boolean;
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.praentDrawer) {
+    if (preProps.visible !== this.props.visible && this.parentDrawer) {
       if (this.props.visible) {
-        this.praentDrawer.push();
+        this.parentDrawer.push();
       } else {
-        this.praentDrawer.pull();
+        this.parentDrawer.pull();
       }
     }
   }
@@ -211,7 +211,7 @@ export default class Drawer extends React.Component<DrawerProps, IDrawerState> {
     let { zIndex, style, placement, className, wrapClassName, width, height, ...rest } = this.props;
     warning(wrapClassName === undefined, 'wrapClassName is deprecated, please use className instead.');
 
-    this.praentDrawer = value;
+    this.parentDrawer = value;
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
       offsetStyle.width = width;
