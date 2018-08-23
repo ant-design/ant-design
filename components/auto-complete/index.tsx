@@ -47,7 +47,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   static defaultProps = {
     prefixCls: 'ant-select',
     transitionName: 'slide-up',
-    optionLabelProp: 'children',
+    optionLabelProp: 'value',
     choiceTransitionName: 'zoom',
     showSearch: false,
     filterOption: false,
