@@ -85,6 +85,7 @@
     "react-lazy-load": "^3.0.12",
     "react-lifecycles-compat": "^3.0.2",
     "react-slick": "~0.23.1",
+    "react-sticky": "^6.0.3",
     "shallowequal": "^1.0.1",
     "warning": "~4.0.1"
   },

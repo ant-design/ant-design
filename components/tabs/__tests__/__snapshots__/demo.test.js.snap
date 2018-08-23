@@ -404,6 +404,109 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-line"
+  >
+    <div>
+      <div />
+      <div
+        class="ant-tabs-bar"
+        role="tablist"
+        style="z-index:1;background:#fff"
+        tabindex="0"
+      >
+        <div
+          class="ant-tabs-nav-container"
+        >
+          <span
+            class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-prev-icon"
+            />
+          </span>
+          <span
+            class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"
+            unselectable="unselectable"
+          >
+            <span
+              class="ant-tabs-tab-next-icon"
+            />
+          </span>
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-scroll"
+            >
+              <div
+                class="ant-tabs-nav ant-tabs-nav-animated"
+              >
+                <div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="true"
+                    class="ant-tabs-tab-active ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 1
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 2
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class=" ant-tabs-tab"
+                    role="tab"
+                  >
+                    Tab 3
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content ant-tabs-content-animated"
+      style="margin-left:0%"
+    >
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        style="height:200px"
+      >
+        Content of Tab Pane 1
+      </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-line"
@@ -509,16 +612,6 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     role="tablist"
     tabindex="0"
   >
-    <div
-      class="ant-tabs-extra-content"
-      style="float:right"
-    >
-      <span>
-        <i
-          class="anticon anticon-plus ant-tabs-new-tab"
-        />
-      </span>
-    </div>
     <div
       class="ant-tabs-nav-container"
     >
