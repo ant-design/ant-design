@@ -50,7 +50,9 @@ export default class Wave extends React.Component<{insertExtraNode?: boolean}> {
   }
 
   bindAnimationEvent = (node: HTMLElement) => {
-    if (node.getAttribute('disabled') ||
+    if (!node ||
+        !node.getAttribute ||
+        node.getAttribute('disabled') ||
         node.className.indexOf('disabled') >= 0) {
       return;
     }
