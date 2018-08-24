@@ -317,7 +317,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1])) ? (
       <Icon
-        type="cross-circle"
+        type="close-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       />
