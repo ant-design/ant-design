@@ -62,7 +62,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
           <Icon
             className={`${prefixCls}-item-link-icon`}
             svgClassName={`${prefixCls}-item-link-icon-svg`}
-            type="left"
+            type="double-left"
           />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>

@@ -54,7 +54,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     });
     const loadingIcon = loading ? (
       <Icon
-        type="reload"
+        type="loading-3-quarters"
         className={`${prefixCls}-loading-icon`}
         svgClassName={`${prefixCls}-loading-icon-svg`}
       />

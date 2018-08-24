@@ -159,8 +159,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     if (loading) {
       return (
         <Icon
-          type="reload"
-          spin
+          type="loading"
           className={`${prefixCls}-switcher-loading-icon`}
           svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
         />
@@ -177,7 +176,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       }
       return (
         <Icon
-          type={expanded ? 'minus-square' : 'plus-square'}
+          type={expanded ? 'minus-square-o' : 'plus-square-o'}
           className={`${prefixCls}-switcher-line-icon`}
         />
       );
