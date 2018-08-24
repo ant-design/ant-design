@@ -5,6 +5,8 @@ import { TreeSelectProps } from './interface';
 import { SelectLocale } from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
+import Icon from '../icon';
+import { AntTreeNodeProps } from '../tree';
 
 export { TreeNode, TreeSelectProps } from './interface';
 
@@ -44,6 +46,28 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     this.rcTreeSelect = node;
   }
 
+  renderSwitcherIcon = ({ isLeaf, loading }: AntTreeNodeProps) => {
+    const {
+      prefixCls,
+    } = this.props;
+    if (loading) {
+      return (
+        <Icon
+          type="reload"
+          spin
+          className={`${prefixCls}-switcher-loading-icon`}
+          svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
+        />
+      );
+    }
+    if (isLeaf) {
+      return null;
+    }
+    return (
+      <Icon type="down" className={`${prefixCls}-switcher-icon`} />
+    );
+  }
+
   renderTreeSelect = (locale: SelectLocale) => {
     const {
       prefixCls,
@@ -64,6 +88,15 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     if (checkable) {
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
+
+    const inputIcon = (
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+    );
+
+    const removeIcon = (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
+
     return (
       <RcTreeSelect
         {...restProps}
@@ -74,6 +107,9 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         treeCheckable={checkable}
         notFoundContent={notFoundContent || locale.notFoundContent}
         ref={this.saveTreeSelect}
+        switcherIcon={this.renderSwitcherIcon}
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
       />
     );
   }
