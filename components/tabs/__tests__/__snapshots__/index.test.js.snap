@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Tabs renderTabBar custom-tab-bar 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-line"
+>
+  <div>
+    custom-tab-bar
+  </div>
+  <div
+    class="ant-tabs-content ant-tabs-content-animated"
+    style="margin-left:0%"
+  >
+    <div
+      aria-hidden="false"
+      class="ant-tabs-tabpane ant-tabs-tabpane-active"
+      role="tabpanel"
+    >
+      foo
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Tabs tabPosition remove card 1`] = `
 <div
   class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
