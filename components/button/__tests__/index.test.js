@@ -16,6 +16,9 @@ describe('Button', () => {
     const wrapper = mount(
       <Button>Follow</Button>
     );
+    if (process.env.REACT === '15') {
+      return;
+    }
     expect(() => renderer.create(wrapper).toJSON()).not.toThrow();
   });
 
