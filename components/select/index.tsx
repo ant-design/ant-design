@@ -182,14 +182,14 @@ export default class Select extends React.Component<SelectProps, {}> {
 
     return (
       <RcSelect
+        inputIcon={inputIcon}
+        removeIcon={removeIcon}
         {...restProps}
         {...modeConfig}
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={this.getNotFoundContent(locale)}
-        inputIcon={inputIcon}
-        removeIcon={removeIcon}
         ref={this.saveSelect}
       />
     );
