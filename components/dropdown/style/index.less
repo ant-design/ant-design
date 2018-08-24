@@ -117,7 +117,7 @@
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
         right: @padding-xs;
-        &:after {
+        &-icon {
           font-style: normal;
           color: @text-color-secondary;
           .iconfont-size-under-12px(10px);
@@ -144,7 +144,7 @@
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
-      .@{dropdown-prefix-cls}-menu-submenu-arrow:after {
+      .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
         color: @disabled-color;
       }
     }
