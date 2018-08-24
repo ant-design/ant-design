@@ -20,8 +20,9 @@ ReactDOM.render(
   <div className="icons-list">
     <Icon type="home" />
     <Icon type="setting" />
-    <Icon type="smile" />
-    <Icon type="reload" spin />
+    <Icon type="smile-o" />
+    <Icon type="sync" spin />
+    <Icon type="loading" />
   </div>,
   mountNode
 );

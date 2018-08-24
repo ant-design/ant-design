@@ -39,8 +39,8 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^0.1.2-alpha.1",
-    "@ant-design/icons-react": "^0.1.2-alpha.2",
+    "@ant-design/icons": "^0.2.1-beta.3",
+    "@ant-design/icons-react": "^0.2.0-beta.1",
     "array-tree-filter": "^2.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",

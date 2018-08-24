@@ -208,16 +208,16 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     let iconType = '';
     switch (validateStatus) {
       case 'success':
-        iconType = 'check-circle-fill';
+        iconType = 'check-circle';
         break;
       case 'warning':
-        iconType = 'info-circle-fill';
+        iconType = 'exclamation-circle';
         break;
       case 'error':
-        iconType = 'close-circle-fill';
+        iconType = 'close-circle';
         break;
       case 'validating':
-        iconType = 'reload';
+        iconType = 'loading';
         break;
       default:
         iconType = '';
