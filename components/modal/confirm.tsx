@@ -77,7 +77,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 };
 
 export default function confirm(config: ModalFuncProps) {
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   document.body.appendChild(div);
   let currentConfig = { ...config, close, visible: true } as any;
 
