@@ -54,7 +54,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       return (
         <Icon
           type="loading"
-          spin
           className={`${prefixCls}-switcher-loading-icon`}
           svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
         />
@@ -64,7 +63,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       return null;
     }
     return (
-      <Icon type="down" className={`${prefixCls}-switcher-icon`} />
+      <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />
     );
   }
 
@@ -97,6 +96,10 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       <Icon type="close" className={`${prefixCls}-remove-icon`} />
     );
 
+    const clearIcon = (
+      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} />
+    );
+
     return (
       <RcTreeSelect
         {...restProps}
@@ -110,6 +113,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
         switcherIcon={this.renderSwitcherIcon}
         inputIcon={inputIcon}
         removeIcon={removeIcon}
+        clearIcon={clearIcon}
       />
     );
   }
