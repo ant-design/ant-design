@@ -87,7 +87,7 @@ class WeekPicker extends React.Component<any, any> {
     const {
       prefixCls, className, disabled, pickerClass, popupStyle,
       pickerInputClass, format, allowClear, locale, localeCode, disabledDate,
-      style, onFocus, onBlur,
+      style, onFocus, onBlur, id,
     } = this.props;
 
     const pickerValue = this.state.value;
@@ -129,7 +129,6 @@ class WeekPicker extends React.Component<any, any> {
             className={pickerInputClass}
             onFocus={onFocus}
             onBlur={onBlur}
-            style={style}
           />
           {clearIcon}
           <Icon type="calendar" className={`${prefixCls}-picker-icon`}/>
@@ -137,7 +136,11 @@ class WeekPicker extends React.Component<any, any> {
       );
     };
     return (
-      <span className={classNames(className, pickerClass)} id={this.props.id}>
+      <span
+        className={classNames(className, pickerClass)}
+        style={style}
+        id={id}
+      >
         <RcDatePicker
           {...this.props}
           calendar={calendar}

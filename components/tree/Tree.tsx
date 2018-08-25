@@ -39,6 +39,8 @@ export interface AntTreeNodeProps {
   selectable?: boolean;
   icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   children?: React.ReactNode;
+
+  [customProp: string]: any;
 }
 
 export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }

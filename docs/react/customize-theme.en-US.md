@@ -7,56 +7,105 @@ Ant Design allows you to customize some basic design aspects in order to meet th
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
-## Less variables
+## Ant Design Less variables
 
 We are using [Less](http://lesscss.org/) as the development language for styling. A set of less variables are defined for each design aspect that can be customized to your needs.
 
-- [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+There are some major variables below, all less variables could be found in [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less).
+
+```less
+@primary-color: #1890ff;                         // primary color for all components
+@link-color: #1890ff;                            // link color
+@success-color: #52c41a;                         // success state color
+@warning-color: #faad14;                         // warning state color
+@error-color: #f5222d;                           // error state color
+@font-size-base: 14px;                           // major text font size
+@heading-color: rgba(0, 0, 0, .85);              // heading text color
+@text-color: rgba(0, 0, 0, .65);                 // major text color
+@text-color-secondary : rgba(0, 0, 0, .45);      // secondary text color
+@disabled-color : rgba(0, 0, 0, .25);            // disable state color
+@border-radius-base: 4px;                        // major border radius
+@border-color-base: #d9d9d9;                     // major border color
+@box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);  // major shadow for layers
+```
 
 Please report an issue if the existing list of variables is not enough for you.
 
 ## How to do it
 
-We recommend [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) to override the default values of the variables. There are two ways to achieve it in practice.
+We will use [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) provided by less.js to override the default values of the variables, You can use this [example](https://github.com/ant-design/create-react-app-antd) as a live playground. We now introduce some popular way to do it depends on different workflow.
 
-You can use this [example](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme) as a playground.
+### Customize in webpack
 
-### 1) Using `theme` property (recommended way)
+We take a typical `webpack.config.js` file as example to customize it's [less-loader](https://github.com/webpack-contrib/less-loader) options.
 
-Specify the `theme` property in the `package.json` or `.webpackrc` file, whose value can be either an object or the path to a JS file that contains the custom values of specific variables:
-- example of directly specifying the custom values as an object:
+```diff
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: {
++         'primary-color': '#1DA57A',
++         'link-color': '#1DA57A',
++         'border-radius-base': '2px',
++       },
++       javascriptEnabled: true,
++     },
+    }],
+    // ...other rules
+  }],
+  // ...other config
+}
+```
+
+Note that do not exclude antd package in node_modules when using less-loader.
+
+### Customize in roadhog or Umi
+
+You can easily use `theme` field in `.webpackrc` file of your project root directory if you are using [roadhog](https://github.com/sorrycc/roadhog) or [Umi](http://umijs.org/)，which could be a object or a javascript file path.
+
 ```js
 "theme": {
   "primary-color": "#1DA57A",
 },
 ```
-- example of specifying a [file path](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js) to a JS file:
+
+Or just [a javascript file path](https://github.com/ant-design/ant-design-pro/blob/3c2a056ef0dac06ce3b4389192691bb1f5c448e2/.webpackrc.js#L19):
+
 ```js
 "theme": "./theme.js",
 ```
 
-This approach is available only when using [antd-init](https://github.com/ant-design/antd-init) or [dva-cli](https://github.com/dvajs/dva-cli). If you choose other boilerplates, you can write a webpack config about [less-loader modifyVars](https://github.com/webpack/less-loader#less-options) like [atool-build ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138) does.
+### Customize in create-react-app
 
-Note:
+Follow [Use in create-react-app](/docs/react/create-react-app).
 
-- Importing styles from less files is necessary.
-  - If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will import the `less` version of antd.
-  - If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
-- When using `dva-cli@0.7.0+`, you should add the `theme` block to [.roadhogrc](https://github.com/dvajs/dva-example-user-dashboard/commit/d6da33b3a6e18eb7f003752a4b00b5a660747c31) instead of `package.json`.
-- If you want to override `@icon-url`, the value must be contained in quotes like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
+### Customize in less file
 
-### 2) Overriding Less variables (alternative way)
+Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
-Override variables via less definition files.
-
-Create a standalone less file like the one below, and import it in your project.
-
-   ```css
-   @import "~antd/dist/antd.less";   // import official less entry file
-   @import "your-theme-file.less";   // override variables here
-   ```
+```css
+@import "~antd/dist/antd.less";   // Import Ant Design styles by less entry
+@import "your-theme-file.less";   // variables to override above
+```
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
+
+## Not working?
+
+You must import styles as less format. A common mistake would be importing multiple copied of styles that some of them are css format to override the less styles.
+
+- If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will import the `less` version of antd.
+- If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
+
+If you want to override `@icon-url`, the value must be contained in quotes like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
 ## Related Articles
 
