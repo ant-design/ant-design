@@ -82,7 +82,7 @@ const modal = Modal.info();
 
 modal.update({
   title: '修改的标题',
-  message: '修改的内容',
+  content: '修改的内容',
 });
 
 modal.destroy();

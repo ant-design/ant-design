@@ -84,7 +84,7 @@ const modal = Modal.info();
 
 modal.update({
   title: 'Updated title',
-  message: 'Updated message',
+  content: 'Updated content',
 });
 
 modal.destroy();
