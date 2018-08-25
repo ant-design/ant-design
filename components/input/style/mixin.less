@@ -271,6 +271,11 @@
       display: inline-block;
     }
 
+    // https://github.com/ant-design/ant-design/issues/11863
+    & > span > .@{inputClass} {
+      border-right-width: 0;
+    }
+
     // Undo float for .ant-input-group .ant-input
     .@{inputClass} {
       float: none;
