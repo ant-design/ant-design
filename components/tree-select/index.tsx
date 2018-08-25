@@ -53,7 +53,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     if (loading) {
       return (
         <Icon
-          type="loading-3-quarters"
+          type="loading"
           spin
           className={`${prefixCls}-switcher-loading-icon`}
           svgClassName={`${prefixCls}-switcher-loading-icon-svg`}
