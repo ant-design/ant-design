@@ -79,13 +79,27 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   let div = document.createElement('div');
   document.body.appendChild(div);
+  let currentConfig = { ...config, close, visible: true } as any;
 
   function close(...args: any[]) {
+    currentConfig =  {
+      ...currentConfig,
+      visible: false,
+      afterClose: destroy.bind(this, ...args),
+    };
     if (IS_REACT_16) {
-      render({ ...config, close, visible: false, afterClose: destroy.bind(this, ...args) });
+      render(currentConfig);
     } else {
       destroy(...args);
     }
+  }
+
+  function update(newConfig: ModalFuncProps) {
+    currentConfig = {
+      ...currentConfig,
+      ...newConfig,
+    };
+    render(currentConfig);
   }
 
   function destroy(...args: any[]) {
@@ -104,9 +118,10 @@ export default function confirm(config: ModalFuncProps) {
     ReactDOM.render(<ConfirmDialog {...props} />, div);
   }
 
-  render({ ...config, visible: true, close });
+  render(currentConfig);
 
   return {
     destroy: close,
+    update,
   };
 }
