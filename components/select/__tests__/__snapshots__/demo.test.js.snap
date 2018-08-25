@@ -44,12 +44,12 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 exports[`renders ./components/select/demo/basic.md correctly 1`] = `
 <div>
   <div
-    class="ant-select ant-select-enabled"
+    class="ant-select ant-select-open ant-select-focused ant-select-enabled"
     style="width:120px"
   >
     <div
       aria-autocomplete="list"
-      aria-expanded="false"
+      aria-expanded="true"
       aria-haspopup="true"
       class="ant-select-selection
             ant-select-selection--single"
@@ -92,8 +92,61 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       </span>
     </div>
   </div>
+  <div>
+    <div
+      class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft "
+    >
+      <div
+        style="overflow:auto;transform:translateZ(0)"
+      >
+        <ul
+          class="ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+          role="listbox"
+          tabindex="0"
+        >
+          <li
+            aria-selected="false"
+            class="ant-select-dropdown-menu-item"
+            role="option"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            Jack
+          </li>
+          <li
+            aria-selected="true"
+            class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-active ant-select-dropdown-menu-item-selected"
+            role="option"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            Lucy
+          </li>
+          <li
+            aria-disabled="true"
+            aria-selected="false"
+            class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+            role="option"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            Disabled
+          </li>
+          <li
+            aria-selected="false"
+            class="ant-select-dropdown-menu-item"
+            role="option"
+            style="user-select:none;-webkit-user-select:none"
+            unselectable="on"
+          >
+            yiminghe
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div
-    class="ant-select ant-select-disabled"
+    class="ant-select ant-select-enabled"
     style="width:120px"
   >
     <div
@@ -103,7 +156,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
       class="ant-select-selection
             ant-select-selection--single"
       role="combobox"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-select-selection__rendered"
